@@ -46,9 +46,9 @@ yc components update
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог с вашим кластером Managed Service for Kubernetes.
       1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-      1. Перейдите на страницу кластера, затем — в раздел **Рабочая нагрузка**.
-      1. На вкладке **Pods** откройте страницу пода.
-      1. Перейдите на вкладку **YAML**.
+      1. Выберите кластер Managed Service for Kubernetes.
+      1. Перейдите на вкладку **Рабочая нагрузка**, затем **Pods**.
+      1. Выберите под и перейдите на вкладку **YAML**.
       1. Проверьте, содержит ли манифест пода указанные параметры и Kubernetes-метки в них:
 
          * Параметры:
@@ -314,7 +314,7 @@ yc components update
 
     Если манифест содержит параметр `spec.nodeAffinity` и в нем указана принадлежность к зоне доступности, сохраните этот параметр. Его понадобится указать в новом `PersistentVolume`.
 
-1. Создайте [снапшот](../../glossary/snapshot.md) — копию диска `PersistentVolume` на определенный момент времени. Подробнее о механизме снапшотов смотриите в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
+1. Создайте [снапшот](../../glossary/snapshot.md) — копию диска `PersistentVolume` на определенный момент времени. Подробнее о механизме снапшотов смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
    1. Получите название объекта `PersistentVolumeClaim`:
 
@@ -451,8 +451,11 @@ yc components update
 
           1. В [консоли управления](https://console.yandex.cloud) выберите каталог с вашим кластером Managed Service for Kubernetes.
           1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-          1. Откройте страницу кластера, затем раздел **Постоянные тома**.
-          1. На вкладке **PersistentVolumes** найдите объект `new-pv-test-<номер>` и посмотрите значение поля **Зона доступности**. В нем должна отображаться зона доступности. Прочерк означает, что нет привязки к зоне доступности.
+          1. Выберите кластер Managed Service for Kubernetes.
+          1. Перейдите на вкладку **Постоянные тома**, затем **PersistentVolumes**.
+          1. Найдите объект `new-pv-test-<номер>`.
+
+              У найденного объекта посмотрите значение поля **Зона доступности**. В нем должна отображаться зона доступности. Прочерк означает, что нет привязки к зоне доступности.
 
        {% endlist %}
 

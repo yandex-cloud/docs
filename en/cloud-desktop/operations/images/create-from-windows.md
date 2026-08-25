@@ -37,9 +37,11 @@ To configure an image, you will need:
 
     * For macOS, you can use `hvf` as a QEMU accelerator.
     * For Windows, to work with QEMU:
+        
         * Enable virtualization in BIOS/UEFI.
         * Enable Hyper-V. For server OSes, install Virtual Machine Platform.
         * Use the `whpx` accelerator.
+
 * Windows installation image ([ISO](https://en.wikipedia.org/wiki/Optical_disc_image) file).
 * [Windows VirtIO drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso).
 
@@ -58,6 +60,7 @@ Make sure the OS in the image you are creating supports remote desktop connectio
     ```
 
     Where:
+    
     * `image.qcow2`: Name of the boot disk image file.
     * `20480M`: OS boot disk size in the image, MB.
 
@@ -93,7 +96,7 @@ Make sure the OS in the image you are creating supports remote desktop connectio
     * `file=image.qcow2`: Path to the boot disk image file you created earlier.
     * `file=windows.iso`: Path to the ISO file with the Windows installation image.
     * `file=virtio-win.iso`: Path to the ISO file with `Windows VirtIO` drivers.
-    * `-vnc "0.0.0.0:85"`: Optional parameter. Use it if your QEMU build does not support graphical VM control. 
+    * `-vnc "0.0.0.0:85"`: Optional setting. Use it if your QEMU build does not support graphical VM control. 
 
     {% note info %}
 
@@ -128,6 +131,7 @@ Make sure the OS in the image you are creating supports remote desktop connectio
     bcdedit /ems "{current}" on
     bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200
     ```
+
 1. Disable power saving settings:
 
     ```cmd
@@ -136,6 +140,7 @@ Make sure the OS in the image you are creating supports remote desktop connectio
     powercfg -change -standby-timeout-ac 0
     powercfg -change -hibernate-timeout-ac 0
     ```
+
 1. Run `PowerShell` as an administrator.
 1. For virtualized hardware clocks, set the time format to UTC:
 
@@ -143,36 +148,42 @@ Make sure the OS in the image you are creating supports remote desktop connectio
     #ps1
     Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" -Name "RealTimeIsUniversal" -Value 1 -Type DWord -Force
     ```
+
 1. Disable automatic local IPv4 addressing (APIPA) for network interfaces that got no IP address assigned:
 
     ```powershell
     #ps1
     Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" -Name "IPAutoconfigurationEnabled" -Value 0 -Type DWord -Force
     ```
+
 1. Allow OS shutdown if there are no active user sessions:
 
     ```powershell
     #ps1
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ShutdownWithoutLogon" -Value 1
     ```
+
 1. Set the minimum OS shutdown warning display time when there are active user processes:
 
     ```powershell
     #ps1
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" -Name "ShutdownWarningDialogTimeout" -Value 1
     ```
+
 1. Disable automatic disk optimization (defragmentation/TRIM):
 
     ```powershell
     #ps1
     Get-ScheduledTask -TaskName "ScheduledDefrag" | Disable-ScheduledTask
     ```
+
 1. Allow ICMPv4 traffic (if Windows Firewall is not disabled):
 
     ```powershell
     #ps1
     Get-NetFirewallRule -Name "vm-monitoring-icmpv4" | Enable-NetFirewallRule
     ```
+
 1. Optionally, enable RDP connections requiring user authentication:
 
     {% note info %}
@@ -236,12 +247,14 @@ Make sure the OS in the image you are creating supports remote desktop connectio
         -Protocol "TCP" `
         -Program "$ServicePath"
     ```
+
 1. Create a task for the VM to run correctly after it is first started:
 
     ```powershell
     & mkdir "C:\Scripts"
     & schtasks /Create /TN "SetNetSettings" /RU System /SC ONSTART /RL HIGHEST /TR "Powershell -NoProfile -ExecutionPolicy Bypass -File \`"C:\Scripts\StartupSettings.ps1`"" | Out-Null
     ```
+
 1. In the `C:\Scripts` folder, create a file named `StartupSettings.ps1` with the following contents:
   
     ```powershell
@@ -380,7 +393,6 @@ Make sure the OS in the image you are creating supports remote desktop connectio
 
     {% endnote %}
 
-
 ## Installing Cloudbase-Init {#cloudbase-init}
 
 You can install [Cloudbase-Init](https://cloudbase.it/cloudbase-init/) to the image you prepared. When using an image in {{ cloud-desktop-name }}, this service automatically expands the file system and OS boot partition to the boot disk's actual size.
@@ -486,8 +498,8 @@ Upon completion, the script’s final command will stop the VM and save the VM b
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create your image. 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create an image. 
+  1. [Navigate]({{ link-console-main }}/link/cloud-desktop) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.vdi.label_desktop-images }}**.
   1. Click **{{ ui-key.yacloud.vdi.button_add-image }}**.
   1. In the **{{ ui-key.yacloud.vdi.label_image-source }}** field, select `{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}`.

@@ -1,13 +1,13 @@
 ---
 title: Deleting an alias in {{ iot-full-name }}
-description: Aliases are associated with specific devices. To delete an alias, you need to get the device ID or name.
+description: Aliases are linked to specific devices. To delete an alias, you need to find the device ID or name.
 ---
 
 # Deleting an alias
 
 {% include [iot-sunset-warning](../../../../_includes/iot-core/sunset-warning.md) %}
 
-Aliases are associated with specific devices. To delete an alias, you need to [get the device ID or name](../device-list.md).
+Aliases are linked to specific devices. To delete an alias, you need to [find the device ID or name](../device-list.md).
 
 {% list tabs group=instructions %}
 
@@ -15,9 +15,9 @@ Aliases are associated with specific devices. To delete an alias, you need to [g
 
    To delete an alias:
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete an alias.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Select the registry from the list.
+   1. In the [management console]({{ link-console-main }}), select the folder you want to delete the alias from.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Select the required registry from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. To the right of the device name, click ![image](../../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. To the right of the alias to delete, click ![image](../../../../_assets/console-icons/xmark.svg).
@@ -36,6 +36,7 @@ Aliases are associated with specific devices. To delete an alias, you need to [g
     ```
 
 	Result:
+    
 	```bash
 	id: arenak5ciqss********
     registry_id: arenou2oj4ct********
@@ -51,7 +52,7 @@ Aliases are associated with specific devices. To delete an alias, you need to [g
 
   To delete an alias created with {{ TF }}:
   
-  1. Open the {{ TF }} configuration file and delete the alias value from the `aliases` section of the device description. To remove all aliases, delete the entire `aliases` section.
+  1. Open the {{ TF }} configuration file and delete the value of the alias in the `aliases` section, where the device description is located. To remove all aliases, delete the entire `aliases` section.
 
       Here is an example of a device description in the {{ TF }} configuration:
 
@@ -69,7 +70,7 @@ Aliases are associated with specific devices. To delete an alias, you need to [g
       }
       ```
 
-      For more information about `yandex_iot_core_device` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_device).
+      For more on the properties of the `yandex_iot_core_device` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -89,16 +90,16 @@ Aliases are associated with specific devices. To delete an alias, you need to [g
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the configuration changes:
 
       ```bash
       terraform apply
       ```
 
-  1. Type `yes` and press **Enter** to confirm the changes.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check device aliases using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/quickstart.md) command:
+      You can verify device aliases in the [management console]({{ link-console-main }}) or using the following [CLI](../../../../cli/quickstart.md) command:
 
       ```bash
       yc iot device get <device_name>

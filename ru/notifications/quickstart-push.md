@@ -56,7 +56,7 @@ description: 'С помощью {{ cns-name }} вы можете отправл�
 - Консоль управления {#console}
 
   1. Выберите канал уведомлений, созданный ранее.
-  1. Перейдите на вкладку ![image](../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cns.label_endpoints }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.cns.action_create-endpoint }}**.
   1. Введите **{{ ui-key.yacloud.cns.field_token }}** — уникальный токен на устройстве пользователя, созданный сервисом уведомлений для приложения.
   1. (опционально) Введите **{{ ui-key.yacloud.cns.field_endpoint-user-data }}** — текст длиной до 2048 символов в кодировке [UTF-8](https://ru.wikipedia.org/wiki/UTF-8).

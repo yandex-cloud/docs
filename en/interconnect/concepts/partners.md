@@ -32,10 +32,12 @@ Partner | PoPs | Maximum capacity, Mbps | Notes
 [ER-Telecom](https://ertelecom.ru/) | M9, NORD | 1,000 | - |
 [Beeline](https://beeline.ru) | M9 | 1,000 | - |
 [Obit](https://www.obit.ru/company/channels/) | M9 | 1,000 | - |
-[Selectel](https://selectel.ru) | M9 | 1,000 | - |
+[Selectel](https://selectel.ru) | M9, OST | 1,000 | - |
 [Ul-com](https://ul-com.ru) | TEHNO | 10,000 | - |
 [NEXTREMUM](https://nextremum.net/ru) | TEHNO, M9 | 10,000 | - |
 [Telecom Exchange](https://cirex.ru) | NORD | 1,000 | - |
+[Timeweb](https://timeweb.com) | M9 | 10,000 | - |
+[China Mobile](https://www.cmi.chinamobile.com) | M9 | 1,000 | - |
 
 Where:
 

@@ -16,8 +16,8 @@ You can [create a sharded cluster](./cluster-create.md#create-cluster) or [enabl
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
 
 - CLI {#cli}
@@ -171,14 +171,16 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
 
   To add a shard:
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Click the cluster name and navigate to the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
   1. Specify **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
+     
      * Optionally, edit the host settings.
      * Click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
      * In the **{{ ui-key.yacloud.mdb.forms.host_column_zone }}** field, select the availability zone and **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}**, and enable **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**.
+  
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
 - CLI {#cli}
@@ -213,6 +215,7 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
      For information on how to create this file, see [Creating a cluster](cluster-create.md).
+  
   1. In the `hosts` section, add the required number of hosts to the {{ mrd-name }} cluster description and specify the shard name in the `shard_name` argument:
 
      ```hcl
@@ -368,8 +371,8 @@ To enable data placement on the new shard, run {{ mrd-name }} cluster [rebalanci
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to delete the shard from.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster to delete the shard from.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
   1. Next to the shard in question, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
@@ -394,6 +397,7 @@ To enable data placement on the new shard, run {{ mrd-name }} cluster [rebalanci
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
      For information on how to create this file, see [Creating a cluster](cluster-create.md).
+  
   1. Delete all shard-related hosts in the `hosts` section from the {{ mrd-name }} cluster description.
   1. Make sure the settings are correct.
 
@@ -468,8 +472,8 @@ For more information, see [{#T}](../concepts/sharding.md#scaling).
 - Management console {#console}
 
   To rebalance a cluster:
-  1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the cluster name.
   1. In the **{{ ui-key.yacloud.common.overview }}** tab, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_rebalance-cluster-short }}**.
 

@@ -33,6 +33,7 @@ To ensure PCI DSS compliance, use the following rules:
 || 2.2 | Secure configuration and management of system components |
 [cspm.data.storage-https](../../rules-reference/cspm.md#storage-https)
 [cspm.appsec.cdn-https](../../rules-reference/cspm.md#cdn-https)
+[cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration)
 ||
 || **3. Protecting stored account data** {align="center"} | > | > ||
 || 3.2, 3.3, 3.4 | Minimized storage time, prohibition to store SAD, masked PAN display | [cspm.db.db-deletion-protection](../../rules-reference/cspm.md#db-deletion-protection) ||
@@ -47,6 +48,7 @@ To ensure PCI DSS compliance, use the following rules:
 [cspm.crypto.keys-deletion-protection](../../rules-reference/cspm.md#keys-deletion-protection)
 [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox)
 [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless)
+[cspm.vm-metadata](../../rules-reference/cspm.md#vm-metadata)
 ||
 || **4. Protecting transmission of cardholder data over public networks with strong cryptography** {align="center"} | > | > ||
 || 4.2 | Protection of PANs with strong cryptography during transmission |
@@ -59,7 +61,6 @@ To ensure PCI DSS compliance, use the following rules:
 || 5.4 | Protecting users against phishing attacks | [cspm.appsec.use-smartcaptcha](../../rules-reference/cspm.md#use-smartcaptcha) ||
 || **6. Developing and maintaining secure systems and software** {align="center"} | > | > ||
 || 6.3 | Detecting and addressing security vulnerabilities |
-[cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
@@ -85,6 +86,7 @@ To ensure PCI DSS compliance, use the following rules:
 [cspm.access.serial-console](../../rules-reference/cspm.md#serial-console)
 [cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 ||
+|| 8.4 | Using multi-factor authentication (MFA) for access protection | [cspm.access.userpool-mfa](../../rules-reference/cspm.md#userpool-mfa) ||
 || 8.6 | Managing the use of application or system accounts |
 [cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 [cspm.access.defined-key-scopes](../../rules-reference/cspm.md#defined-key-scopes)

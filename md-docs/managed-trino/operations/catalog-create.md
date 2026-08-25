@@ -19,7 +19,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
   1. Нажмите на имя нужного кластера.
-  1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **Каталоги**.
+  1. Перейдите на вкладку **Каталоги**.
   1. Нажмите кнопку **Создать каталог**.
   1. В поле **Имя каталога** задайте имя каталога Trino.
   1. В поле **Тип коннектора** выберите тип [коннектора](../concepts/index.md#connector).
@@ -892,7 +892,7 @@ Connection Manager позволяет создавать подключения 
       Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
         1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-        1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        1. В блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
       {% note warning %}
       
@@ -934,7 +934,7 @@ Connection Manager позволяет создавать подключения 
     * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
     * `--metastore-hive-uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
       {% note warning %}
       
@@ -997,7 +997,7 @@ Connection Manager позволяет создавать подключения 
     
     * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
         {% note warning %}
         
@@ -1056,7 +1056,7 @@ Connection Manager позволяет создавать подключения 
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
         {% note warning %}
         
@@ -1121,7 +1121,7 @@ Connection Manager позволяет создавать подключения 
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
         {% note warning %}
         
@@ -1679,7 +1679,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
       Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
         1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-        1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        1. В блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
       {% note warning %}
       
@@ -1721,7 +1721,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
     * `--metastore-hive-uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
       {% note warning %}
       
@@ -1784,7 +1784,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
     * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
         {% note warning %}
         
@@ -1843,7 +1843,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
         {% note warning %}
         
@@ -1908,7 +1908,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
         {% note warning %}
         
@@ -1933,7 +1933,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
       Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
         1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-        1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        1. В блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
       {% note warning %}
       
@@ -1975,7 +1975,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
     * `--metastore-hive-uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
       {% note warning %}
       
@@ -2038,7 +2038,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
     * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
         {% note warning %}
         
@@ -2097,7 +2097,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
         {% note warning %}
         
@@ -2162,7 +2162,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
         {% note warning %}
         
@@ -2187,7 +2187,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
       Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
         1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-        1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        1. В блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
       {% note warning %}
       
@@ -2229,7 +2229,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
     * `--metastore-hive-uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
       {% note warning %}
       
@@ -2292,7 +2292,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
     * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
         {% note warning %}
         
@@ -2351,7 +2351,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
         {% note warning %}
         
@@ -2416,7 +2416,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
         {% note warning %}
         

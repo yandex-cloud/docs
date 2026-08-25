@@ -27,7 +27,7 @@ To allow {{ datalens-name }} to connect to your cluster and work with its data, 
 - Management console {#console}
 
   1. Make sure {{ datalens-name }} is [activated](#activate-datalens) in the relevant folder and has [permission](#allow-access) to access the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}** tab.
   1. Click **Create connection**.
 
@@ -59,7 +59,7 @@ After creating the connection, you can:
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}** tab.
 
 {% endlist %}
@@ -70,7 +70,7 @@ After creating the connection, you can:
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}** tab.
   1. Select the connection from the list.
   1. Edit the connection [settings](#connector-settings) and scope as needed.
@@ -85,7 +85,7 @@ After creating the connection, you can:
 
 - Management console {#console}
 
-  1. Navigate to **Managed Service for MySQL**.
+  1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and open the **DataLens** tab.
   1. Select the connection from the list.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) at the top of the page and select **Delete**.

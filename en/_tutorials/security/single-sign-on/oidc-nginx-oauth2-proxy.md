@@ -54,7 +54,8 @@ To configure application access for your {{ org-full-name }} users, do the follo
       ```bash
       yc iam oauth-client create \
         --name website-oauth-client \
-        --scopes openid,email,profile
+        --scopes openid,email,profile \
+        --profile-id web
       ```
 
       Where:
@@ -64,6 +65,7 @@ To configure application access for your {{ org-full-name }} users, do the follo
           * `openid`: User ID. Required attribute.
           * `email`: User email address.
           * `profile`: Additional user details, such as first name, last name, and avatar.
+      * {% include [org-oidc-app-select-web-type-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-legend-cli.md) %}
 
       Result:
 
@@ -75,7 +77,12 @@ To configure application access for your {{ org-full-name }} users, do the follo
         - openid
         - profile
       folder_id: b1gkd6dks6i1********
+      authentication_methods:
+        - client_secret_basic
+        - client_secret_post
       status: ACTIVE
+      profile_id: web
+      pkce_required: true
       ```
 
       Save the app ClientID (the `id` field value); you will need it later to create a secret and configure `OAuth2 Proxy`.
@@ -144,7 +151,7 @@ To configure application access for your {{ org-full-name }} users, do the follo
 
 {% endlist %}
 
-### Configure the redirect URI {#setup-redirect}
+### Configure a redirect URI {#setup-redirect}
 
 {% list tabs group=instructions %}
 
@@ -189,7 +196,12 @@ To configure application access for your {{ org-full-name }} users, do the follo
       - openid
       - profile
     folder_id: b1gkd6dks6i1********
+    authentication_methods:
+      - client_secret_basic
+      - client_secret_post
     status: ACTIVE
+    profile_id: web
+    pkce_required: true
   ```
 
 {% endlist %}
@@ -200,7 +212,7 @@ For your {{ org-full-name }} users to be able to authenticate in the test applic
 
 {% note info %}
 
-Users and groups added to an OIDC application can be managed by a user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
+Users and groups added to an OIDC application can be managed by any user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
 
 {% endnote %}
 
@@ -273,7 +285,7 @@ Also, in your cloud network, [create](../../../vpc/operations/security-group-cre
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `Ubuntu 24.04 LTS` and select a public [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the same [availability zone](../../../overview/concepts/geo-scope.md) as that of your subnet.

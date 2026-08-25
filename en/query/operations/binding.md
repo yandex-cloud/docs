@@ -7,7 +7,7 @@
 To create a binding:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a binding.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
 1. Under **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
@@ -31,7 +31,7 @@ To create a binding:
 ## Getting binding details {#get-info}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you created the binding.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
 1. Find the binding you need in the list and click ![info](../../_assets/console-icons/circle-info.svg) in its row.
    Binding details will appear under the list:
@@ -58,7 +58,7 @@ To create a binding:
 ## Modifying a binding {#update}
 
 1. In the [management console]({{ link-console-main }}), select the folder with the binding you want to update.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
 1. Locate the binding you need in the list, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yql.yq-binding-actions.edit-binding.menu-item-text }}**.
 1. Update the binding settings. Note that the **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}** section settings are read-only.
@@ -67,7 +67,7 @@ To create a binding:
 ## Deleting a binding {#delete}
 
 1. In the [management console]({{ link-console-main }}), select the folder containing the binding you want to delete.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
 1. Locate the binding you need in the list, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yql.yq-binding-actions.delete-binding.menu-item-text }}**.
 1. Confirm the deletion.

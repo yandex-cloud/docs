@@ -8,10 +8,12 @@
 
 Источником может быть:
 
-* [Бакет](../../storage/concepts/bucket.md) из {{ objstorage-full-name }}, в том числе настроенный как [хостинг статического сайта](../../storage/concepts/hosting.md).
+* [Бакет](../../storage/concepts/bucket.md) из {{ objstorage-full-name }}.
+
+  {% include [bucket-website-hosting-tip](../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
 * [L7-балансировщик нагрузки](../../application-load-balancer/concepts/application-load-balancer.md) из {{ alb-full-name }}. CDN-серверы будут обращаться к балансировщику по одному из его IP-адресов, который нужно выбрать в настройках источника.
 * Ваш собственный сервер или другой ресурс, доступный по доменному имени. Например, если источник — сервер с доменным именем `files.example.com`, то за файлом `/static/common.css` CDN-серверы будут обращаться к серверу по адресу `files.example.com/static/common.css`.
-
 
 ### Примеры использования {#examples-types}
 

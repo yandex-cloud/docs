@@ -1,3 +1,8 @@
+---
+title: Посмотреть список используемых адресов в подсети
+description: Следуя данной инструкции, вы сможете посмотреть список используемых адресов в подсети.
+---
+
 # Посмотреть список используемых адресов в подсети
 
 Вы можете посмотреть [внутренние IP-адреса](../concepts/address.md#internal-addresses), которые назначены облачным ресурсам в вашем каталоге.
@@ -48,7 +53,7 @@
 
 - API {#api}
 
-   Воспользуйтесь методом REST API [listUsedAddresses](../api-ref/Subnet/listUsedAddresses) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/ListUsedAddresses](../api-ref/grpc/Subnet/listUsedAddresses.md) и передайте в запросе идентификатор изменяемой подсети в параметре `subnetId`.
+   Воспользуйтесь методом REST API [listUsedAddresses](../api-ref/Subnet/listUsedAddresses.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/ListUsedAddresses](../api-ref/grpc/Subnet/listUsedAddresses.md) и передайте в запросе идентификатор подсети в параметре `subnetId`.
 
    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
 

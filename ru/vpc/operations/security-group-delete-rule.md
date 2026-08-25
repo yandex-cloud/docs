@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке группы, в которой требуется удалить правило, и выберите **{{ ui-key.yacloud.common.edit }}**.
-  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке правила, которое требуется удалить.
+  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_rules-ingress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_rules-egress }}** нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке правила, которое требуется удалить.
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
@@ -25,11 +25,13 @@ description: Следуя данной инструкции, вы сможете
 
   1. Узнайте имя или идентификатор группы, которую требуется изменить:
 
-     ```
+     ```bash
      yc vpc security-groups list
      ```
+
      Результат:
-     ```
+
+     ```text
      +----------------------+---------------------------------+------------------------------------+----------------------+
      |          ID          |              NAME               |          DESCRIPTION               |      NETWORK-ID      |
      +----------------------+---------------------------------+------------------------------------+----------------------+
@@ -40,11 +42,13 @@ description: Следуя данной инструкции, вы сможете
      ```
   1. Получите список правил в группе безопасности, указав ее имя или идентификатор:
 
-     ```
+     ```bash
      yc vpc security-groups get <имя_или_идентификатор_группы>
      ```
+
      Результат:
-     ```
+
+     ```text
      id: enp8rs9i4h6j********
      folder_id: b1gaus8l79li********
      created_at: "2022-06-24T15:46:31Z"
@@ -68,11 +72,13 @@ description: Следуя данной инструкции, вы сможете
 
   1. Чтобы удалить правило, укажите в команде его идентификатор:
 
-     ```
+     ```bash
      yc vpc security-group update-rules <имя_или_идентификатор_группы> --delete-rule-id <идентификатор_правила>
      ```
+
      Результат:
-     ```
+
+     ```text
      done (12s)
      id: enp8rs9i4h6j********
      folder_id: b1gaus8l79li********
@@ -101,14 +107,7 @@ description: Следуя данной инструкции, вы сможете
      resource "yandex_vpc_security_group" "test-sg" {
        name        = "Test security group"
        description = "Description for security group"
-       network_id  = "${yandex_vpc_network.lab-net.id}"
-
-       ingress {
-         protocol       = "TCP"
-         description    = "Rule description 1"
-         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
-         port           = 8080
-       }
+       network_id = yandex_vpc_network.lab-net.id
 
        egress {
          protocol       = "ANY"
@@ -117,45 +116,26 @@ description: Следуя данной инструкции, вы сможете
          from_port      = 8090
          to_port        = 8099
        }
+
+       ingress {
+         protocol       = "TCP"
+         description    = "Rule description 1"
+         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+         port           = 8080
+       }
      }
      ...
      ```
 
      {% endcut %}
 
-  1. В командной строке перейдите в папку, где расположен файл конфигурации {{ TF }}.
+  1. Примените конфигурацию:
 
-  1. Проверьте конфигурацию командой:
-
-     ```
-     terraform validate
-     ```
-     
-     Если конфигурация является корректной, появится сообщение:
-     
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Выполните команду:
-
-     ```
-     terraform plan
-     ```
-  
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Примените изменения конфигурации:
-
-     ```
-     terraform apply
-     ```
-
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      Проверить изменение группы безопасности можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-     ```
+     ```bash
      yc vpc security-group get <имя_группы_безопасности>
      ```
 

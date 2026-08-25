@@ -12,7 +12,7 @@ description: Follow this guide to make a container revision active.
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select the folder with your container.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container.
   1. In the revision row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-containers.label_edit-active-revision }}** from the drop-down list.
   1. In the window that opens, click **{{ ui-key.yacloud.serverless-containers.popup-confirm-edit-active-revision_button_confirm }}**. The revision status will change from `Obsolete` to `Active`.

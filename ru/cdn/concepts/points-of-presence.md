@@ -8,7 +8,10 @@ description: Точка присутствия {{ cdn-name }} — это физ�
 _Точки присутствия_ (Points of Presence, POP) — это географически распределенные физические CDN-серверы, которые кешируют и доставляют контент конечным пользователям. Они располагаются в стратегически выгодных географических локациях с эффективным доступом к каналам связи. Благодаря этому контент доставляется пользователю по кратчайшему маршруту с минимальной задержкой.
 
 
-{{ cdn-full-name }} предоставляет доступ к 71 точке присутствия с суммарной пропускной способностью более 7 Тбит/с.
+#|
+|| **Общее количество точек присутствия** | **Суммарная пропускная способность** ||
+|| {{ cdn-pop-count }} {align="center"} | Более {{ cdn-throughput }} Тбит/с {align="center"} ||
+|#
 
 
 
@@ -43,36 +46,15 @@ _Точки присутствия_ (Points of Presence, POP) — это гео�
 <iframe frameborder="0" src="https://datalens.yandex/t2rvaw171qr2d?_embedded=1&_no_controls=1" width="100%" height="400px"></iframe>
 
 #|
-|| **Россия** {align="center"} | > | > | > | **Казахстан** | **Таджикистан** ||
-|| Александров
-Владивосток
-Владикавказ
-Волгоград
-Воронеж
-Екатеринбург
-Иркутск
-Краснодар | Красноярск
-Москва
-Нижний Новгород
-Новосибирск
-Оренбург
-Петрозаводск
-Ростов-на-Дону | Самара
-Санкт-Петербург
-Симферополь
-Сочи
-Ставрополь
-Тамбов | Тюмень
-Уфа
-Хабаровск
-Челябинск
-Чита
-Ярославль | Актобе
-Караганда | Душанбе ||
-|| ^ | ^ | ^ | ^ | **Кыргызстан** | **Узбекистан** ||
-|| ^ | ^ | ^ | ^ | Манас | Ташкент ||
-|| ^ | ^ | ^ | ^ | **Нидерланды** | > ||
-|| ^ | ^ | ^ | ^ | Амстердам | > ||
+|| **Страна** {align="center"} | **Города** {align="center"} ||
+|| **{{ cdn-pops.0.country }}** | &bull;&nbsp;{{ cdn-pops.0.cities.0 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.1 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.2 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.3 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.4 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.5 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.6 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.7 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.8 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.9 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.10 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.11 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.12 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.13 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.14 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.15 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.16 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.17 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.18 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.19 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.20 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.21 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.22 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.23 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.24 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.25 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.26 }}&ensp; ||
+|| **{{ cdn-pops.1.country }}** | &bull;&nbsp;{{ cdn-pops.1.cities.0 }}&ensp; ||
+|| **{{ cdn-pops.2.country }}** | &bull;&nbsp;{{ cdn-pops.2.cities.0 }}&ensp; ||
+|| **{{ cdn-pops.3.country }}** | &bull;&nbsp;{{ cdn-pops.3.cities.0 }}&ensp;&bull;&nbsp;{{ cdn-pops.3.cities.1 }}&ensp; ||
+|| **{{ cdn-pops.4.country }}** | &bull;&nbsp;{{ cdn-pops.4.cities.0 }}&ensp; ||
+|| **{{ cdn-pops.5.country }}** | &bull;&nbsp;{{ cdn-pops.5.cities.0 }}&ensp; ||
+|| **{{ cdn-pops.6.country }}** | &bull;&nbsp;{{ cdn-pops.6.cities.0 }}&ensp; ||
+|| **{{ cdn-pops.7.country }}** | &bull;&nbsp;{{ cdn-pops.7.cities.0 }}&ensp; ||
 |#
 
 
@@ -97,17 +79,20 @@ _Точки присутствия_ (Points of Presence, POP) — это гео�
 
 Актуальный список IP-адресов точек присутствия {{ cdn-full-name }} доступен в разделе [{{ cdn-name }}](../../security/ip-list.md#cloud-cdn).
 
+
 Чтобы снизить число сетей, от которых источник получает запросы, [подключите](../operations/resources/enable-shielding.md) экранирование источников. В этом случае запросы к источнику будут отправлять только промежуточные серверы кеширования. Список сетей экранирующих серверов можно получить в [технической поддержке]({{ link-console-support }}).
 
 
 {% endcut %}
 
+
+
 {% cut "Где расположены экранирующие серверы?" %}
 
 [Экранирующие серверы {{ cdn-full-name }}](origins-shielding.md) расположены в Москве. Они обеспечивают дополнительный уровень кеширования между точками присутствия и источниками контента, снижая нагрузку на эти источники и повышая скорость доставки контента пользователям.
 
-
 {% endcut %}
+
 
 #### Полезные ссылки {#see-also}
 

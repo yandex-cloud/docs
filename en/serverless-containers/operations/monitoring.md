@@ -16,7 +16,7 @@ The chart refresh interval is 15 seconds.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your container.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container for which you want to view monitoring charts.
   1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
   1. You will see the following charts:

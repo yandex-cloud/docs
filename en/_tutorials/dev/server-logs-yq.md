@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost includes:
 
-* Fee for data storage  (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+* Fee for data storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for the amount of read data (see [{{ yq-full-name }} pricing](../../query/pricing.md)).
 
 ### Create a service account {#create-sa}
@@ -41,7 +41,7 @@ To create a bucket:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
@@ -59,7 +59,7 @@ To get information on queries to objects, enable [logging actions on the bucket]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the bucket.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket.
   1. [Enable logging](../../storage/operations/buckets/enable-logging.md#enable):
 
@@ -79,9 +79,9 @@ To get data from {{ objstorage-name }}, create a [connection](../../query/concep
 
 {% list tabs group=instructions %}
 
-- {{ yq-full-name }} interface {#console}
+- {{ yq-full-name }} UI {#console}
 
-  1. Go to [{{ yq-name }}](https://yq.yandex.cloud/).
+  1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
   1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Enter a name for the connection, e.g., `bucket-logs-connection`.
@@ -108,9 +108,9 @@ Use a connection to create SQL queries and get statistics on queries to {{ objst
 
 {% list tabs group=instructions %}
 
-- {{ yq-full-name }} interface {#console}
+- {{ yq-full-name }} UI {#console}
 
-  1. Go to [{{ yq-name }}](https://yq.yandex.cloud/).
+  1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
   1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Select `bucket-logs-connection`.
   1. In the editor on the right, enter this query:

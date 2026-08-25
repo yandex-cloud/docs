@@ -135,14 +135,14 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 ## Yandex AI Studio {#ai-studio}
 
-Имя сервиса — `ai`.
+Имя сервиса — `ai` для всех событий, кроме событий Yandex Workflows. Для событий Yandex Workflows имя сервиса — `serverless.workflows`.
 
 Имя события | Описание
 --- | ---
 `batch_inference.CancelBatchInference` | Остановка работы модели в пакетном режиме
 `batch_inference.DeleteBatchInference` | Удаление результата обработки в пакетном режиме
 `batch_inference.StartBatchInference` | Запуск модели в пакетном режиме
-`dedicated_instance.CreateDedicatedInstance` | Создание [выделенного инстанса](https://aistudio.yandex.ru/docs/ru//ai-studio/concepts/generation/dedicated-instance)
+`dedicated_instance.CreateDedicatedInstance` | Создание [выделенного инстанса](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/dedicated-instance)
 `dedicated_instance.DeleteDedicatedInstance` | Удаление выделенного инстанса
 `dedicated_instance.StartDedicatedInstance` | Запуск выделенного инстанса
 `dedicated_instance.StopDedicatedInstance` | Остановка выделенного инстанса
@@ -152,7 +152,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `guardrails.BlockContentByDictionary` | Блокировка контента по словарю
 `guardrails.ChangeDefaultGuardrail` | Изменение правила модерации по умолчанию
 `guardrails.CompleteContentCheck` | Завершение проверки контента
-`guardrails.CreateDictionary` | Создание [словаря](https://aistudio.yandex.ru/docs/ru//ai-studio/concepts/security/guardrails#dictionaries) фраз и регулярных выражений в [правиле модерации](https://aistudio.yandex.ru/docs/ru//ai-studio/concepts/security/guardrails#rules)
+`guardrails.CreateDictionary` | Создание [словаря](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#dictionaries) фраз и регулярных выражений в [правиле модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules)
 `guardrails.CreateGuardrail` | Создание правила модерации
 `guardrails.DeleteDictionary` | Удаление словаря фраз и регулярных выражений из правила модерации
 `guardrails.DeleteGuardrail` | Удаление правила модерации
@@ -177,8 +177,13 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `responses.McpToolList` | Получение списка MCP-инструментов
 `responses.WebSearchToolSearch` | Поиск через инструмент веб-поиска (Web Search)
 `settings.SetFolderSettings` | Изменение настроек сервиса в каталоге
-`tuning.CancelTuning` | Остановка [дообучения](https://aistudio.yandex.ru/docs/ru//ai-studio/concepts/tuning/index) модели
+`tuning.CancelTuning` | Остановка [дообучения](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/index) модели
 `tuning.StartTuning` | Запуск дообучения модели
+`createWorkflow` | Создание рабочего процесса
+`deleteWorkflow` | Удаление рабочего процесса
+`setWorkflowAccessBindings` | Назначение прав доступа к рабочему процессу
+`updateWorkflow` | Изменение рабочего процесса
+`updateWorkflowAccessBindings` | Изменение прав доступа к рабочему процессу
 
 ## Yandex Audit Trails {#audit-trails}
 
@@ -198,7 +203,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 Имя события | Описание
 --- | ---
-`ApplyUpdatePrivateCloudConnection` | Применение измений приватного соединения с подсетями в VPC или в on-prem инфраструктуре
+`ApplyUpdatePrivateCloudConnection` | Применение изменений приватного соединения с подсетями в VPC или в on-prem инфраструктуре
 `BatchCreateServer` | Аренда одновременно нескольких [серверов](../../baremetal/concepts/servers.md) BareMetal
 `CreateImage` | Создание загрузочного образа
 `CreatePrivateCloudConnection` | Создание [приватного соединения](../../baremetal/concepts/private-network.md#private-connection-to-vpc) с подсетями в VPC или в on-prem инфраструктуре
@@ -316,7 +321,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `gcore.OriginGroupCreate` | Создание группы источников
 `gcore.OriginGroupDelete` | Удаление группы источников
 `gcore.OriginGroupUpdate` | Изменение группы источников
-`gcore.OriginUpdate` | Измнение источника
+`gcore.OriginUpdate` | Изменение источника
 `gcore.ProviderActivate` | Активация провайдера
 `gcore.RawLogsActivate` | Включение выгрузки логов
 `gcore.RawLogsDeactivate` | Отключение выгрузки логов
@@ -478,6 +483,14 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteOrganization` | Удаление организации
 `DeleteOsLoginProfile` | Удаление профиля OS Login
 `DeleteUserSshKey` | Удаление SSH-ключа пользователя
+`application.linked.CreateApplication` | Создание связанного приложения
+`application.linked.DeleteApplication` | Удаление связанного приложения
+`application.linked.ReactivateApplication` | Активация связанного приложения
+`application.linked.SetApplicationAccessBindings` | Назначение прав доступа к связанному приложению
+`application.linked.SuspendApplication` | Деактивация связанного приложения
+`application.linked.UpdateApplication` | Изменение связанного приложения
+`application.linked.UpdateApplicationAccessBindings` | Изменение прав доступа к связанному приложению
+`application.linked.UpdateApplicationAssignments` | Изменение списка пользователей связанного приложения
 `idp.AddUserBlock` | Добавление блока пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
 `idp.branding.CreateAsset` | Загрузка ресурса для [брендирования](../../organization/concepts/branding.md)
@@ -585,9 +598,11 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `CreateArtifact` | Создание [артефакта](../../cloud-registry/concepts/artifacts/index.md)
 `CreateLifecyclePolicy` | Создание [политики жизненного цикла](../../cloud-registry/concepts/lifecycle-policy.md)
 `CreateRegistry` | Создание реестра
+`CreateScanPolicy` | Создание политики сканирования
 `DeleteArtifact` | Удаление артефактов
 `DeleteLifecyclePolicy` | Удаление политики жизненного цикла
 `DeleteRegistry` | Удаление реестра
+`DeleteScanPolicy` | Удаление политики сканирования
 `RevokeDelegation` | Отзыв прав делегирования у сервисного аккаунта для доступа к ресурсам облака
 `SetArtifactAccessBindings` | Назначение прав доступа для артефакта
 `SetIpPermissions` | Настройка доступа для IP-адресов
@@ -599,6 +614,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateIpPermissions` | Изменение доступа для IP-адресов
 `UpdateLifecyclePolicy` | Изменение политики жизненного цикла
 `UpdateRegistry` | Изменение реестра
+`UpdateScanPolicy` | Изменение политики сканирования
 `UpdateRegistryAccessBindings` | Изменение прав доступа на реестр
 `UpdateRegistryFolderAccessBindings` | Изменение прав доступа к каталогу реестра
 
@@ -830,6 +846,19 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteEntry` | Удаление объекта
 `DeleteSharedEntry` | Удаление общего объекта
 `DeleteWorkbooks` | Удаление одного или нескольких воркбуков
+`platform.CreateAirflowCluster` | Создание кластера Airflow
+`platform.CreateCloudEnvironment` | Создание облачного окружения
+`platform.CreateRestCatalog` | Создание REST-каталога
+`platform.CreateRestCatalogNamespace` | Создание пространства имен REST-каталога
+`platform.CreateSparkCluster` | Создание кластера Spark
+`platform.CreateTrinoCluster` | Создание кластера Trino
+`platform.DeleteAirflowCluster` | Удаление кластера Airflow
+`platform.DeleteCloudEnvironment` | Удаление облачного окружения
+`platform.DeleteRestCatalog` | Удаление REST-каталога
+`platform.DeleteRestCatalogNamespace` | Удаление пространства имен REST-каталога
+`platform.DeleteSparkCluster` | Удаление кластера Spark
+`platform.DeleteTrinoCluster` | Удаление кластера Trino
+`platform.UpdateCloudEnvironment` | Изменение облачного окружения
 `DisableBillingInstanceService` | Получение сигнала от Yandex Cloud Billing о неактивности привязанного к DataLens платежного аккаунта
 `DisableFolders` | [Отключение](../../datalens/settings/navigation.md#disable-folder-navigation) навигации по папкам
 `DisableTenantBilling` | Планирование отключения тарифа Business пользователем в начале следующего месяца ^1^
@@ -1193,16 +1222,16 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteCluster` | Удаление кластера
 `DeleteNodeGroup` | Удаление группы узлов
 `DeleteStoppedCluster` | Удаление остановленного кластера
-`InstallHelmRelease` | Установка версии Helm
+`marketplace.v1.InstallHelmRelease` | Установка приложения из Cloud Marketplace с помощью Helm-чарта
+`marketplace.v1.UninstallHelmRelease` | Удаление приложения, установленного из Cloud Marketplace с помощью Helm-чарта
+`marketplace.v1.UpdateHelmRelease` | Обновление приложения, установленного из Cloud Marketplace с помощью Helm-чарта
 `ScaleMaster` | Масштабирование основного узла
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
-`UninstallHelmRelease` | Удаление версии Helm
 `UpdateCluster` | Изменение кластера
 `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 `UpdateClusterCertificate` | Изменение [сертификата кластера](../../managed-kubernetes/concepts/release-channels-and-updates.md#certificates)
-`UpdateHelmRelease` | Изменение версии Helm
 `UpdateNodeGroup` | Изменение группы узлов
 
 ## Yandex StoreDoc {#managed-service-for-mongodb}
@@ -1227,7 +1256,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `RestoreCluster` | Создание нового кластера из резервной копии
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
-`StepdownHosts` | Смена мастера хоста
+`StepdownHosts` | Смена первичной реплики
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
 `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
@@ -1758,17 +1787,5 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `PublishSavedQuery` | Публикация сохраненного запроса
 `UpdateExecutedQueryAccessBindings` | Обновление прав доступа к выполненному запросу
 `UpdateSavedQueryAccessBindings` | Обновление прав доступа к сохраненному запросу
-
-## Yandex Workflows {#workflows}
-
-Имя сервиса — `serverless.workflows`.
-
-Имя события | Описание
---- | ---
-`CreateWorkflow` | Создание рабочего процесса
-`DeleteWorkflow` | Удаление рабочего процесса
-`SetWorkflowAccessBindings` | Назначение прав доступа к рабочему процессу
-`UpdateWorkflow` | Изменение рабочего процесса
-`UpdateWorkflowAccessBindings` | Изменение прав доступа к рабочему процессу
 
 _ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

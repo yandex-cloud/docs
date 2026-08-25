@@ -58,9 +58,8 @@ yc managed-kubernetes cluster list
 - Консоль управления {#console}
 
   Чтобы изменить кластер Managed Service for Kubernetes:
-  1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер Managed Service for Kubernetes.
-  1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
-  1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+  1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где нужно изменить кластер Managed Service for Kubernetes.
+  1. В строке кластера Managed Service for Kubernetes нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В открывшемся окне измените необходимые параметры.
   1. Нажмите кнопку **Сохранить**.
 
@@ -265,8 +264,7 @@ yc managed-kubernetes cluster list
 - Консоль управления {#console}
 
     1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер Managed Service for Kubernetes.
-    1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
-    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+    1. В строке кластера Managed Service for Kubernetes нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
     1. В поле **Метки** нажмите **Добавить метку**.
     1. Введите ключ и значение и нажмите **Enter**.
     1. Нажмите кнопку **Сохранить**.
@@ -303,8 +301,7 @@ yc managed-kubernetes cluster list
   Чтобы изменить облачную метку, потребуется удалить ее и создать заново:
 
     1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер Managed Service for Kubernetes.
-    1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
-    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+    1. В строке кластера Managed Service for Kubernetes нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
     1. В поле **Метки** нажмите на крестик рядом с нужной меткой, чтобы удалить ее.
     1. Нажмите **Добавить метку** и введите ключ и/или значение новой метки.
     1. Нажмите **Enter**, а затем — **Сохранить**.
@@ -345,8 +342,7 @@ yc managed-kubernetes cluster list
 - Консоль управления {#console}
 
     1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер Managed Service for Kubernetes.
-    1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
-    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+    1. В строке кластера Managed Service for Kubernetes нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
     1. В поле **Метки** нажмите на крестик рядом с нужной меткой.
     1. Нажмите кнопку **Сохранить**.
 
@@ -377,9 +373,8 @@ yc managed-kubernetes cluster list
 
 - Консоль управления {#console}
 
-  1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер Managed Service for Kubernetes.
-  1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
-  1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+  1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где нужно изменить кластер Managed Service for Kubernetes.
+  1. В строке кластера Managed Service for Kubernetes нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В блоке **Конфигурация мастера** раскройте секцию **Вычислительные ресурсы** и выберите [конфигурацию ресурсов](../../concepts/index.md#master-resources) для мастера.
 
       Выбранная конфигурация задает минимальные значения ресурсов для мастера. В зависимости от нагрузки объем RAM и количество vCPU мастера будут автоматически увеличиваться.

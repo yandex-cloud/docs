@@ -14,7 +14,7 @@ You can specify a [cloud network](../../vpc/concepts/network.md#network) to host
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the API gateway.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select the API gateway.
     1. Click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.vpc.label_network }}** field, specify a cloud network to host your API gateway.
@@ -26,6 +26,6 @@ You can specify a [cloud network](../../vpc/concepts/network.md#network) to host
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [Networking in {{ api-gw-name }}](../concepts/networking.md)
+[Networking in {{ api-gw-name }}](../concepts/networking.md)

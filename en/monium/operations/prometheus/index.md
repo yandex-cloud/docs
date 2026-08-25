@@ -15,11 +15,17 @@ description: '{{ managed-prometheus-full-name }} is a monitoring system compatib
 
 ## Getting started {#access}
 
-1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
-1. Click **{{ ui-key.yacloud_monitoring.prometheus.action_create }}**.
-1. On the page that opens, you will see links to endpoints.
-   
-   Use these endpoints to configure [writing](ingestion/index.md) and [reading](querying/index.md) the workspace metrics in {{ prometheus-name }} format.
+{% list tabs group=instructions %}
+
+- {{ monium-name }} UI {#console}
+
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/box.svg) **Delivery and storage** → ![alt](../../../_assets/console-icons/flame.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
+  1. Click **{{ ui-key.yacloud_monitoring.prometheus.action_create }}**.
+  1. On the page that opens, you will see links to endpoints.
+     
+     Use these endpoints to configure [writing](ingestion/index.md) and [reading](querying/index.md) the workspace metrics in {{ prometheus-name }} format.
+
+{% endlist %}
 
 ## Feature comparison {#features}
 

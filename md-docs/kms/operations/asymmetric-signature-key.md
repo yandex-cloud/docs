@@ -15,7 +15,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ключевая пара.
   1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **Асимметричные ключи**.
-  1. В правом верхнем углу нажмите кнопку **Создать ключ**. В открывшемся окне:
+  1. Нажмите кнопку **Создать ключ**. В открывшемся окне:
       
       1. Укажите имя и при необходимости описание в свободной форме.
       1. В поле **Тип** выберите `Подпись`.
@@ -95,7 +95,7 @@
   1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **Асимметричные ключи**.
   1. Перейдите на вкладку **Подпись**.
-  1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**. В открывшемся окне:
+  1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**. В открывшемся окне:
       
       1. Измените необходимые атрибуты ключевой пары.
       1. Нажмите кнопку **Сохранить**.
@@ -176,7 +176,7 @@
   1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **Асимметричные ключи**.
   1. Перейдите на вкладку **Подпись**.
-  1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. Подтвердите удаление.
 
 - CLI {#cli}

@@ -8,8 +8,8 @@ You can add and remove databases, as well as view their details.
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
 
 - CLI {#cli}
@@ -75,6 +75,84 @@ You can add and remove databases, as well as view their details.
 
 {% endlist %}
 
+
+## Getting database info {#get-db}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To get information about a specific database:
+
+    1. See the description of the CLI command for getting database info:
+
+        ```bash
+        {{ yc-mdb-mg }} database get --help
+        ```
+
+    1. Get database info by running this command:
+
+        ```bash
+        {{ yc-mdb-mg }} database get <DB_name> \
+          --cluster-id=<cluster_ID>
+        ```
+
+        You can get the database name with the [list of databases](#list-db) in the cluster, and the cluster ID, with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Database.Get](../api-ref/Database/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/databases/<DB_name>'
+        ```
+
+        You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder, and the database name, with the [list of databases](#list-db) in the cluster.
+
+    1. Check the [server response](../api-ref/Database/get.md#yandex.cloud.mdb.mongodb.v1.Database) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Call the [DatabaseService.Get](../api-ref/grpc/Database/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/database_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "database_name": "<DB_name>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mongodb.v1.DatabaseService.Get
+        ```
+
+        You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder, and the database name, with the [list of databases](#list-db) in the cluster.
+
+    1. Check the [server response](../api-ref/grpc/Database/get.md#yandex.cloud.mdb.mongodb.v1.Database) to make sure your request was successful.
+
+{% endlist %}
+
+
 ## Creating a database {#add-db}
 
 {% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
@@ -83,8 +161,8 @@ You can add and remove databases, as well as view their details.
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the cluster name.
   1. Select the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
@@ -100,20 +178,23 @@ You can add and remove databases, as well as view their details.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Run the `database create` command, providing the new database name:
+  To create a database in a cluster, run this command:
 
   ```bash
-  {{ yc-mdb-mg }} database create <DB_name>
-    --cluster-name <cluster_name>
+  {{ yc-mdb-mg }} database create <DB_name> \
+    --cluster-name <cluster_name> \
+    --deletion-protection=<protect_database_from_deletion>
   ```
 
-  {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+  Where:
 
-  You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
+  * `<DB_name>`: Database name.
+    
+    {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
-  {{ mmg-short-name }} will start the database creation process.
+  * `--cluster-name`: Cluster name you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  [Assign access permissions](cluster-users.md#updateuser) for the new database to the required cluster users.
+  * `--deletion-protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
 
 - {{ TF }} {#tf}
 
@@ -125,12 +206,20 @@ You can add and remove databases, as well as view their details.
 
         ```hcl
         resource "yandex_mdb_mongodb_database" "<DB_name>" {
-          cluster_id = "<cluster_ID>"
-          name       = "<DB_name>"
+          cluster_id          = "<cluster_ID>"
+          name                = "<DB_name>"
+          deletion_protection = <protect_database_from_deletion>
         }
         ```
 
-        {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+        Where:
+
+        * `cluster_id`: Cluster ID you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        * `name`: Database name.
+          
+          {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
+        * `--deletion-protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
 
     1. Make sure the settings are correct.
 
@@ -158,16 +247,20 @@ You can add and remove databases, as well as view their details.
        --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/databases' \
        --data '{
                  "databaseSpec": {
-                   "name": "<DB_name>"
+                   "name": "<DB_name>",
+                   "deletionProtection": <protect_database_from_deletion>
                  }
                }'
      ```
 
-     Where `databaseSpec` is the object containing the new database name.
-
-     {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
-
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     Where:
+     
+     * `<cluster_ID>`: Cluster ID you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     * `databaseSpec.name`: Database name.
+       
+       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+     
+     * `databaseSpec.deletionProtection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
 
   1. Check the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -190,31 +283,170 @@ You can add and remove databases, as well as view their details.
        -d '{
              "cluster_id": "<cluster_ID>",
              "database_spec": {
-               "name": "<DB_name>"
+               "name": "<DB_name>",
+               "deletion_protection": <protect_database_from_deletion>
              }
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.mongodb.v1.DatabaseService.Create
-     ```           
+     ```
 
-     Where `database_spec` is the object containing the new database name.
-
-     {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
-
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     Where:
+     
+     * `cluster_id`: Cluster ID you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     * `database_spec.name`: Database name.
+       
+       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+     
+     * `database_spec.deletion_protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
 
   1. Check the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
+After you create a database, [assign access permissions](cluster-users.md#updateuser) for it to correct cluster users.
+
+## Updating database settings {#update-db}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To update your database settings, run this command:
+
+  ```bash
+  {{ yc-mdb-mg }} database update <DB_name> \
+     --cluster-name <cluster_name> \
+     --deletion-protection=<protect_database_from_deletion>
+  ```
+
+  Where:
+
+  * `<DB_name>`: Database name you can request with the [list of databases in the cluster](#list-db).
+  * `--cluster-name`: Cluster name you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  * `--deletion-protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
+
+- {{ TF }} {#tf}
+
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
+
+  1. Locate the `yandex_mdb_mongodb_database` resource.
+  1. To enable or disable user protection from accidental deletion, update the `deletion_protection` field value:
+
+      ```hcl
+      resource "yandex_mdb_mongodb_database" "<DB_name>" {
+        ...
+        deletion_protection = <protect_database_from_deletion>
+        ...
+      }
+      ```
+
+      Where `deletion_protection` is database protection from accidental deletion: `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mongodb_database).
+
+- REST API {#api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Call the [Database.Update](../api-ref/Database/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+        --request PATCH \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/databases/<DB_name>' \
+        --data '{
+                  "updateMask": "deletionProtection",
+                  "deletionProtection": <protect_database_from_deletion>
+                }'
+      ```
+
+      Where:
+
+      * `<cluster_ID>`: Cluster name you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      * `<DB_name>`: Database name you can request with the [list of databases in the cluster](#list-db).
+      * `updateMask`: Comma-separated string of settings to update.
+      * `deletionProtection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
+
+  1. Check the [server response](../api-ref/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Call the [DatabaseService.Update](../api-ref/grpc/Database/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/database_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<cluster_ID>",
+              "database_name": "<DB_name>",
+              "update_mask": {
+                "paths": [
+                  "deletion_protection"
+                ]
+              },
+              "deletion_protection": <protect_database_from_deletion>
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.mongodb.v1.DatabaseService.Update
+      ```
+
+     Where:
+
+     * `cluster_id`: Cluster ID you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     * `database_name`: Database name you can request with the [list of databases in the cluster](#list-db).
+     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+     * `deletion_protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
+     
+  1. Check the [server response](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
+
 ## Deleting a database {#remove-db}
+
+{% note info %}
+
+Before you delete a database, [disable its deletion protection](#update-db).
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
   1. Find the database you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 

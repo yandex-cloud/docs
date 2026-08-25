@@ -19,9 +19,9 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите сервис **Network Load Balancer**.
-    1. Справа от имени нужного балансировщика нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Редактировать**.
+    1. Справа от имени нужного балансировщика нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
     1. Включите настройку **Защита от удаления**.
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите **Сохранить**.
 
 - CLI {#cli}
 
@@ -125,9 +125,9 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите сервис **Network Load Balancer**.
-    1. Справа от имени нужного балансировщика нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Редактировать**.
+    1. Справа от имени нужного балансировщика нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
     1. Отключите настройку **Защита от удаления**.
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите **Сохранить**.
 
 - CLI {#cli}
 

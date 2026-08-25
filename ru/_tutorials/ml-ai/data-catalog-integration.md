@@ -68,7 +68,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать каталог метаданных.
     1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
+    1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-catalog }}**.
     1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя каталога `test-sales`.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -83,7 +83,7 @@
 
 - Консоль управления {#console}
 
-    1. На панели слева выберите ![image](../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.layout.label.sources-new-layout_N6vT1 }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-source-button }}**.
     1. Задайте имя источника `test-sales-source`.
     1. Выберите тип бэкенда, из которого будут поставляться метаданные для анализа. После создания источника нельзя будет изменить тип базы данных. Доступные бэкенды:
@@ -104,7 +104,7 @@
 
 - Консоль управления {#console}
 
-  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud.data-catalog.label_ingestions }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.label_ingestions }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-ingestion-action }}**.
   1. Задайте параметры загрузки:
 
@@ -122,7 +122,7 @@
   
      При загрузке данные будут автоматически размечены AI-ассистентом. После успешного завершения загрузка примет статус **{{ ui-key.yacloud.data-catalog.label_ingestion-status-Success }}**.
 
-  1. Чтобы посмотреть загруженные и размеченные данные, на панели слева выберите ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
+  1. Чтобы посмотреть загруженные и размеченные данные, перейдите на вкладку **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}**.
 
      На странице отображается информация о данных — источник данных, база данных и таблицы.
 
@@ -238,3 +238,13 @@
    * `Где хранятся данные о поведении пользователей на сайте?`
    * `Какие данные использовать для анализа конверсии воронки продаж?`
    * `Покажи все зависимости таблицы transactions — нужно понять влияние изменений схемы`
+
+[*глоссарий]: {% include notitle [glossary](../../_popups/metadata-hub/data-catalog.md#glossary) %}
+
+[*домен]: {% include notitle [domain](../../_popups/metadata-hub/data-catalog.md#domain) %}
+
+[*классификация]: {% include notitle [classification](../../_popups/metadata-hub/data-catalog.md#classification) %}
+
+[*тег]: {% include notitle [tag](../../_popups/metadata-hub/data-catalog.md#tag) %}
+
+[*термин]: {% include notitle [term](../../_popups/metadata-hub/data-catalog.md#term) %}

@@ -575,7 +575,7 @@ items:
               Configuring {{ dns-name }} to access a {{ mch-name }} cluster from
               other cloud networks
             href: dataplatform/clickhouse-dns-peering.md
-          - name: Integrating {{ dns-name }} and a corporate DNS service
+          - name: Resolving cloud DNS names in a corporate network
             href: infrastructure-management/dns-integration.md
           - name: >-
               Creating an ACME resolver webhook for responses to DNS01
@@ -594,7 +594,7 @@ items:
       - name: All tutorials
         href: container-infrastructure/index.md
       - name: >-
-          Setting up a {{ mpg-name }} connection from a container in {{
+          Setting up a {{ mpg-name }} connection from {{
           serverless-containers-name }}
         href: container-infrastructure/container-pg-connect.md
       - name: Creating a VM from a {{ coi }}
@@ -1638,7 +1638,7 @@ items:
               function in {{ sf-name }}
             href: serverless/connect-from-cf-nodejs.md
           - name: >-
-              Setting up a {{ mpg-full-name }} connection from a container in {{
+              Setting up a {{ mpg-full-name }} connection from {{
               serverless-containers-name }}
             href: serverless/container-pg-connect.md
           - name: >-
@@ -1649,7 +1649,7 @@ items:
               Developing functions in Functions Framework and deploying them to
               {{ serverless-containers-full-name }}
             href: serverless/functions-framework-to-container.md
-          - name: Canary release of a function in {{ sf-name }}
+          - name: Canary release of a {{ sf-name }} function
             href: serverless/canary-release.md
           - name: Interactive debugging of functions in {{ sf-name }}
             href: serverless/serverless-live-debug.md
@@ -1670,7 +1670,7 @@ items:
               - name: '{{ TF }}'
                 href: serverless/telegram-bot-serverless/terraform.md
           - name: >-
-              Creating a Telegram bot for text recognition in images, speech
+              Creating a Telegram bot for image-to-text recognition, speech
               synthesis, and audio recognition
             href: serverless/recognizer-bot.md
       - name: Serverless-based ETL

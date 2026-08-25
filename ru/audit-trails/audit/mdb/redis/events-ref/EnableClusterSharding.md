@@ -399,7 +399,8 @@ editable: false
             "zsetMaxListpackEntries": "string",
             "aofMaxSizePercent": "string",
             "activedefrag": "boolean",
-            "auditLog": "boolean"
+            "auditLog": "boolean",
+            "rebalanceEnabled": "boolean"
           },
           "userConfig": {
             "maxmemoryPolicy": "string",
@@ -434,7 +435,8 @@ editable: false
             "zsetMaxListpackEntries": "string",
             "aofMaxSizePercent": "string",
             "activedefrag": "boolean",
-            "auditLog": "boolean"
+            "auditLog": "boolean",
+            "rebalanceEnabled": "boolean"
           },
           "defaultConfig": {
             "maxmemoryPolicy": "string",
@@ -469,7 +471,8 @@ editable: false
             "zsetMaxListpackEntries": "string",
             "aofMaxSizePercent": "string",
             "activedefrag": "boolean",
-            "auditLog": "boolean"
+            "auditLog": "boolean",
+            "rebalanceEnabled": "boolean"
           }
         },
         "diskSizeAutoscaling": {
@@ -494,7 +497,25 @@ editable: false
             "version": "string"
           }
         },
-        "fullVersion": "string"
+        "fullVersion": "string",
+        "tieredStorageEnabled": "boolean",
+        "shardAutoscalingSettings": {
+          "enabled": "boolean",
+          "minShards": "string",
+          "maxShards": "string",
+          "cpuThreshold": {
+            "downThreshold": "string",
+            "upThreshold": "string"
+          },
+          "memoryThreshold": {
+            "downThreshold": "string",
+            "upThreshold": "string"
+          },
+          "networkThreshold": {
+            "downThreshold": "string",
+            "upThreshold": "string"
+          }
+        }
       },
       "networkId": "string",
       "health": "string",
@@ -522,7 +543,8 @@ editable: false
       "announceHostnames": "boolean",
       "authSentinel": "boolean",
       "diskEncryptionKeyId": "string"
-    }
+    },
+    "clusterName": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -695,6 +717,7 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || clusterId | **string** ||
 || cluster | **[Cluster](#yandex.cloud.mdb.redis.v1.Cluster)** ||
+|| clusterName | **string** ||
 |#
 
 ## Cluster {#yandex.cloud.mdb.redis.v1.Cluster}
@@ -787,6 +810,8 @@ Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConf
 || backupRetainPeriodDays | **string** (int64) ||
 || modules | **[ValkeyModules](#yandex.cloud.mdb.redis.v1.ValkeyModules)** ||
 || fullVersion | **string** ||
+|| tieredStorageEnabled | **boolean** ||
+|| shardAutoscalingSettings | **[ShardAutoscalingSettings](#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings)** ||
 |#
 
 ## RedisConfigSet5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0}
@@ -1131,6 +1156,7 @@ Acceptable values are 32 to 2048, inclusive. ||
 Acceptable values are 1 to 99, inclusive. ||
 || activedefrag | **boolean** ||
 || auditLog | **boolean** ||
+|| rebalanceEnabled | **boolean** ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
@@ -1198,6 +1224,34 @@ The minimum value is 0. ||
 ||Field | Description ||
 || enabled | **boolean** ||
 || version | **string** ||
+|#
+
+## ShardAutoscalingSettings {#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| minShards | **string** (int64)
+
+The minimum value is 1. ||
+|| maxShards | **string** (int64)
+
+The minimum value is 1. ||
+|| cpuThreshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)** ||
+|| memoryThreshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)** ||
+|| networkThreshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)** ||
+|#
+
+## ShardAutoscalingThreshold {#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold}
+
+#|
+||Field | Description ||
+|| downThreshold | **string** (int64)
+
+Acceptable values are 0 to 100, inclusive. ||
+|| upThreshold | **string** (int64)
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow}

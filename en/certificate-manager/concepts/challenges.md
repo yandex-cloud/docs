@@ -15,6 +15,7 @@ If you fail to pass the check within one week, the certificate status will becom
 ## Certificate challenge statuses {#status}
 
 Certificate checks can have the following statuses:
+
 * `Pending`: Awaiting completion. {{ certificate-manager-name }} determines whether the check is complete.
 * `Validating`: Pending approval from Let's Encrypt.
 * `Valid`: Complete.
@@ -33,7 +34,7 @@ You cannot use the `HTTP` check type for [Wildcard certificates](https://en.wiki
 To pass the domain ownership verification procedure for `example.com`:
 
 1. In the [management console]({{ link-console-main }}), select the folder you added the certificate to.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and click the certificate name.
+1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and click the certificate name.
 1. Prepare a file that will allow the Let's Encrypt certificate authority (CA) to verify your ownership of the domain specified in the certificate:
 
     1. Use your hosting control panel to create a file on the server with the name and path matching the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** field value under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**. Here is an example:
@@ -69,8 +70,9 @@ Using a CNAME record enables you to undergo a check only once. To do this, you n
 ### Adding a CNAME record {#cname}
 
 To automatically check the rights for the `example.com` domain:
+
 1. In the [management console]({{ link-console-main }}), select the folder you added the certificate to.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. In the certificate list, select the certificate to check.
 1. Further steps to follow will depend on whether your domain is managed by {{ dns-full-name }} or a third-party DNS provider.
 
@@ -82,8 +84,9 @@ To automatically check the rights for the `example.com` domain:
 ### Adding a TXT record {#txt}
 
 To check rights for the `example.com` domain, follow these steps:
+
 1. In the [management console]({{ link-console-main }}), select the folder you added the certificate to.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. In the certificate list, select the certificate to check.
 1. Further steps to follow will depend on whether your domain is managed by {{ dns-full-name }} or a third-party DNS provider.
 
@@ -113,11 +116,12 @@ To check rights for the `example.com` domain, follow these steps:
 
 ## Validating rights automatically {#auto}
 
-In some cases, the domain rights check requires no user input.
+In some cases, the domain ownership verification procedure requires no user input.
 
 ### CNAME record applicable to a zone {#auto-cname}
 
 A check is performed automatically if the following conditions are met:
+
 * The certificate’s status is `Renewing`, which means it is being [renewed](managed-certificate.md#renew).
 * There is a DNS record configured for each certificate domain:
 
@@ -128,29 +132,38 @@ A check is performed automatically if the following conditions are met:
 ### Redirecting a static {{ objstorage-name }} website {#auto-s3}
 
 A check is performed automatically if the following conditions are met:
+
 * The certificate’s status is `Renewing`, which means it is being [renewed](managed-certificate.md#renew).
-* The certificate is used in the [HTTPS configuration](../../storage/operations/hosting/certificate#cert-manager) of a static website in [{{ objstorage-name }}](../../tutorials/web/static/index.md).
+* The certificate was [selected](../../storage/operations/hosting/certificate#cert-manager) for HTTPS configuration of a static [{{ objstorage-name }}](../../tutorials/web/static/index.md) website.
 * For each certificate domain, the following is configured:
+    
     * An [alias](../../storage/operations/hosting/own-domain.md) for the static website bucket where the certificate is used.
     * Or a [redirect](../../storage/operations/hosting/multiple-domains/index.md) to the domain with the alias for the bucket.
+
 * The certificate is not a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate): it does not contain masks for subdomains.
 
 ### Redirecting to a validation server on a web server {#auto-vs}
 
 A check is performed automatically if the following conditions are met:
+
 * The certificate’s status is `Renewing`, which means it is being [renewed](managed-certificate.md#renew).
 * The certificate is not a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate): it does not contain masks for subdomains.
 * For each certificate domain in the web server, a redirect is configured from
+    
     ```
     http://<domain>/.well-known/acme-challenge/*
     ```
+    
     with
+    
     ```
     https://{{ api-host-certmanager-validation }}/<certificate_ID>/*
     ```
+    
     This endpoint is only available over IPv6.
 
 Example of setting up a redirect in the nginx configuration:
+
 ```
 server {
   location ~ ^/.well-known/acme-challenge/([a-zA-Z0-9-_]+)$ {

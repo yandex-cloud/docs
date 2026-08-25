@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменить зону DNS
 
-После создания [зону DNS](../concepts/dns-zone.md) можно изменить: переименовать или добавить описание.
+После создания [зоны DNS](../concepts/dns-zone.md) ее можно изменить: переименовать или добавить описание.
 
 Чтобы изменить зону DNS:
 
@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
 
 - CLI {#cli}
 
-  {% include [include](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
@@ -30,13 +30,13 @@ description: Следуя данной инструкции, вы сможете
 
   1. Посмотрите описание команды CLI для изменения зоны:
 
-     ```
+     ```bash
      yc dns zone update --help
      ```
 
   1. Измените видимость зоны в сетях:
 
-     ```
+     ```bash
      yc dns zone update <имя_или_идентификатор_зоны> --network-ids=<идентификаторы_сетей_для_зоны>,
      ```
 
@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
 
      Результат:
 
-     ```
+     ```text
      id: aet29qhara5j********
      folder_id: aoerb349v3h4********
      created_at: "2021-02-21T09:21:03.935Z"
@@ -64,52 +64,31 @@ description: Следуя данной инструкции, вы сможете
   1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием зоны DNS.
 
      {% cut "Пример описания зоны DNS в конфигурации {{ TF }}" %}
-     
+
      ```hcl
      resource "yandex_vpc_network" "foo" {}
-     
+
      resource "yandex_dns_zone" "zone1" {
        name        = "my-public-zone"
        description = "Test public zone"
-     
+
        labels = {
          label1 = "test-public"
        }
-     
+
        zone    = "test.example-public2.com."
      }
      ```
 
      {% endcut %}
 
-  1. Проверьте конфигурацию командой:
-     ```
-     terraform validate
-     ```
-     
-     Если конфигурация является корректной, появится сообщение:
-     
-     ```
-     Success! The configuration is valid.
-     ```
+  1. Примените изменения конфигурации:
 
-   1. Выполните команду:
-     ```
-     terraform plan
-     ```
-   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-   1. Примените изменения конфигурации:
-      ```
-      terraform apply
-      ```
-
-   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      Проверить изменение параметров зоны DNS можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-     ```
+     ```bash
      yc dns zone get <имя_зоны>
      ```
 

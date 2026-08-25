@@ -106,8 +106,8 @@ When accessing your website, you will get responses with the codes described in 
 
 When hosting a website, you can:
 
-* [Support multiple domain names](../operations/hosting/multiple-domains/index.md).
-* [Use your own domain](../operations/hosting/own-domain.md).
+* [{#T}](../operations/hosting/multiple-domains/index.md).
+* [{#T}](../operations/hosting/own-domain.md).
 
   To use HTTPS with your own domain, specify the FQDN of the required domain in the bucket name.
 

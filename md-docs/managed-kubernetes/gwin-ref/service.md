@@ -74,6 +74,9 @@ metadata:
     gwin.yandex.cloud/targets.ipFamily: "IPv4"  # IP family for targets
     gwin.yandex.cloud/targets.cidrs: "10.0.0.0/8,172.16.0.0/12"  # Address filtering
     gwin.yandex.cloud/targets.albZoneMatch: "true"  # Zone matching
+
+    # Pod-route next-hop selection (when targets.type is "Pod")
+    gwin.yandex.cloud/podRoutes.cidrs: "10.0.0.0/8"  # Node InternalIP filtering
     
     # Node-specific configuration (when targets.type is "Node")
     gwin.yandex.cloud/targets.node.onlyWithPods: "true"  # Only nodes with pods
@@ -98,6 +101,9 @@ metadata:
 | `gwin.yandex.cloud/targets.ipFamily` <br> _(string)_ <br> Specifies which IP family to use for target addresses. Currently only IPv4 is supported. <br> Example: `IPv4` |
 | `gwin.yandex.cloud/targets.cidrs` <br> _(string list)_ <br> Helps select appropriate target addresses when targets have multiple IP addresses. Only addresses within these CIDR blocks will be used for ALB targets. <br> Example: `10.0.0.0/8,172.16.0.0/12` |
 | `gwin.yandex.cloud/targets.albZoneMatch` <br> _(boolean)_ <br> Controls whether to verify that targets are located in the same zones as the ALB. When true (default), only targets in ALB zones are included. <br> Example: `true` |
+| `gwin.yandex.cloud/podRoutes.cidrs` <br> _(string list)_ <br> Limits Node InternalIP addresses used as route next hops for Pod targets. Configure it when nodes have multiple addresses of the same IP family. <br> Example: `10.0.0.0/8` |
+
+For a Cilium tunnel-mode cluster, Pod targets make Gwin attach a managed route table to the ALB subnets. An ALB subnet must not also be used by a cluster node group: Gwin reports `PodRouteSubnetConflict` and leaves cloud resources unchanged in that configuration. The ALB and cluster may use separate subnets in the same network.
 
 #### Node Target Configuration
 

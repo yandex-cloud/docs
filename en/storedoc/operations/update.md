@@ -33,8 +33,8 @@ We recommend changing the host class only when the cluster is idle.
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
 
@@ -256,8 +256,8 @@ We recommend changing the host class only when the cluster is idle.
 
   To change the disk type and expand the storage size for a cluster:
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Depending on the [sharding type](../concepts/sharding.md#shard-management) you select, go to the section of the cluster resources you need to update: **Resources**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongoinfra-resources_13TPT }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongocfg-resources_1cuU2 }}**, or **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongos-resources_wBGnr }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
@@ -472,18 +472,18 @@ For more information about storage and autoscaling, see the [relevant section](.
 
   To set up automatic storage expansion:
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Depending on the [sharding type](../concepts/sharding.md#shard-management) you select, go to the section of the cluster resources you need to update: **Resources**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongoinfra-resources_13TPT }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongocfg-resources_1cuU2 }}**, or **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongos-resources_wBGnr }}**.
   1. Optionally, under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, specify the following settings:
 
       * In the **{{ ui-key.yacloud.mdb.resources.DiskAutoscalingFieldGroup.field_autoscaling_fsAon }}** field, set the conditions for automatic storage expansion:
 
-          * Storage usage percentage to trigger its expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
+          * Storage usage percentage to trigger storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
           * Storage usage percentage to trigger its immediate expansion.
 
-          If both conditions are set, the percentage in the first condition must be lower than the percentage in the second.
+          If both conditions are set, the percentage in the first condition must be lower than in the second one.
 
           Learn more about the storage expansion criteria [here](../concepts/storage.md#auto-rescale).
 
@@ -524,7 +524,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
       Where:
 
-      * `<host_type>`: [Host type](../concepts/host-roles.md) whose storage you want to configure. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
 
       * `<host_type>-planned-usage-threshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
 
@@ -553,7 +553,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
       To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-  1. Add or modify the section with settings for the required host type in the description of the {{ mmg-name }} cluster.
+  1. Add or modify the section with settings for the relevant host type in the {{ mmg-name }} cluster description.
 
      Type of host | Section name
      --- | ---
@@ -583,7 +583,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
         Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-        If you have set this condition, [configure](#change-additional-settings) the maintenance schedule.
+        If you set this condition, [configure](#change-additional-settings) the maintenance schedule.
 
       * `emergency_usage_threshold` (optional): Storage usage percentage to trigger an immediate storage expansion.
 
@@ -646,7 +646,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
       * `updateMask`: Comma-separated string of settings to update.
 
-      * `<host_type>`: [Host type](../concepts/host-roles.md) whose storage you want to configure. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
       
       * `configSpec.mongodb.<host_type>.diskSizeAutoscaling`: Parameters for automatic storage size expansion.
 
@@ -654,7 +654,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
           Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-          If you have set this condition, [configure](#change-additional-settings) the maintenance schedule.
+          If you set this condition, [configure](#change-additional-settings) the maintenance schedule.
 
         * `emergencyUsageThreshold`: Storage usage percentage to trigger an immediate storage expansion.
 
@@ -717,7 +717,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
       * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
-      * `<host_type>`: [Host type](../concepts/host-roles.md) whose storage you want to configure. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
 
       * `config_spec.mongodb.<host_type>.disk_size_autoscaling`: Parameters for automatic storage size expansion.
 
@@ -725,7 +725,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
           Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-          If you have set this condition, [configure](#change-additional-settings) the maintenance schedule.
+          If you set this condition, [configure](#change-additional-settings) the maintenance schedule.
 
         * `emergency_usage_threshold`: Storage usage percentage to trigger an immediate storage expansion.
 
@@ -755,8 +755,8 @@ You can change the DBMS settings for your cluster hosts.
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To change the [{{ SD }} settings](../concepts/settings-list.md#dbms-cluster-settings), click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -892,8 +892,8 @@ You can change the DBMS settings for your cluster hosts.
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Configure advanced cluster settings:
 
@@ -925,33 +925,41 @@ You can change the DBMS settings for your cluster hosts.
                                `day=<day_of_week>,`
                                `hour=<sequence_number_of_hour_interval> \
           --performance-diagnostics=<enable_diagnostics> \
-          --deletion-protection
+          --deletion-protection \
+          --autocompact=<allow_automatic_compaction> \
+          --autocompact-bloat-percent <minimum_collection_bloat_percentage> \
+          --autocompact-target-free-space <minimum_amount_of_disk_space_to_free_up_in_MB> \
+          --autocompact-compaction-type <master_host_compaction_settings>
         ```
 
-    You can update the following settings:
+        Where:
 
-    * `--backup-retain-period`: Retention period for automatic backups, in days.
-      
-      The `<retention_period>` value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }}. The default value is {{ mmg-backup-retention }}. This feature is in [Preview](../../overview/concepts/launch-stages.md). For more information, see [Backups](../concepts/backup.md).
+        * `<cluster_ID_or_name>`: Cluster ID or name you can [get with the list of clusters in the folder](cluster-list.md#list-clusters).
+        * `--backup-retain-period`: Automatic backup retention period, in days.
+          
+          
+          The `<retention_period>` value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }}. The default value is {{ mmg-backup-retention }}. This feature is in [Preview](../../overview/concepts/launch-stages.md). For more information, see [Backups](../concepts/backup.md).
 
 
-      Changing the retention period affects both new and existing automatic backups.
+          Changing the retention period affects both new and existing automatic backups.
 
-      For example, if the original retention period was 7 days, and the remaining lifetime of a specific automatic backup was 1 day, then increasing the retention period to 9 days would make that backup’s remaining lifetime 3 days.
+          For example, if the original retention period was 7 days, and the remaining lifetime of a specific automatic backup was 1 day, then increasing the retention period to 9 days would make that backup’s remaining lifetime 3 days.
 
-    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
+        {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings that apply to both running and stopped clusters. The `type` setting defines the maintenance type:
+        * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings that apply to both running and stopped clusters. The `type` setting defines the maintenance type:
 
-        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+            {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-    * `--performance-diagnostics`: Specify this setting to use the [Performance diagnostics](performance-diagnostics.md) tool in your cluster. This feature is in [Preview](../../overview/concepts/launch-stages.md).
+        * `--performance-diagnostics`: Specify this setting to use the [Performance diagnostics](performance-diagnostics.md) tool in your cluster. This feature is in [Preview](../../overview/concepts/launch-stages.md).
 
-    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+        * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+          {% include [deletion-protection-cluster](../../_includes/mdb/mmg/deletion-protection-cluster.md) %}
 
-    You can get the cluster’s name and ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+          {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+        {% include [autocompact-cli](../../_includes/mdb/mmg/autocompact-cli.md) %}
 
 
 - {{ TF }} {#tf}
@@ -989,9 +997,13 @@ You can change the DBMS settings for your cluster hosts.
         }
         ```
 
-        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
-
         To disable the protection, set the value to `false`.
+
+        Once cluster deletion protection is enabled, it also applies to all new databases and users for whom deletion protection is not set explicitly. If a database or user has its own deletion protection setting, it will override the cluster setting.
+
+        You can configure deletion protection for a database in the `yandex_mdb_mongodb_database` resource, and for a user, in the `yandex_mdb_mongodb_user` resource.
+
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     1. Make sure the settings are correct.
 
@@ -1019,7 +1031,7 @@ You can change the DBMS settings for your cluster hosts.
       
       ```json
       {
-        "updateMask": "configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.performanceDiagnostics,maintenanceWindow,deletionProtection",
+        "updateMask": "configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.performanceDiagnostics,configSpec.autocompactConfig.enabled,configSpec.autocompactConfig.targetFreeSpace,configSpec.autocompactConfig.bloatPercent,configSpec.autocompactConfig.compactionType,maintenanceWindow,deletionProtection",
         "configSpec": {
           "backupWindowStart":  {
             "hours": "<hours>",
@@ -1030,6 +1042,12 @@ You can change the DBMS settings for your cluster hosts.
           "backupRetainPeriodDays": "<backup_retention_in_days>",
           "performanceDiagnostics": {
             "profilingEnabled": <enable_profiler>
+          },
+          "autocompactConfig": {
+            "enabled": <allow_automatic_compaction>,
+            "targetFreeSpace": "<minimum_amount_of_disk_space_to_free_up_in_MB>",
+            "bloatPercent": <minimum_collection_bloat_percentage>,
+            "compactionType": "<master_host_compaction_settings>"
           }
         }
         "maintenanceWindow": {
@@ -1060,7 +1078,12 @@ You can change the DBMS settings for your cluster hosts.
         * `backupRetainPeriodDays`: Backup retention time in days.
 
         * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
+          
           * `profilingEnabled`: Enable [profiler](tools.md#explore-profiler), `true` or `false`.
+        
+        * `autocompactConfig`: Automatic compaction settings:
+          
+          {% include [deletion-protection-limits-data](../../_includes/mdb/mmg/autocompact-rest.md) %}
 
       * `maintenanceWindow`: [Maintenance](../concepts/maintenance.md) window settings, applying to both running and stopped clusters. In `maintenanceWindow`, provide one of these two parameters:
 
@@ -1074,7 +1097,9 @@ You can change the DBMS settings for your cluster hosts.
 
       * `deletionProtection`: Cluster deletion protection, `true` or `false`.
 
-        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-cluster](../../_includes/mdb/mmg/deletion-protection-cluster.md) %}
+
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
         
     1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -1111,6 +1136,10 @@ You can change the DBMS settings for your cluster hosts.
             "config_spec.backup_window_start",
             "config_spec.backup_retain_period_days",
             "config_spec.performance_diagnostics",
+            "config_spec.autocompact_config.enabled",
+            "config_spec.autocompact_config.target_free_space",
+            "config_spec.autocompact_config.bloat_percent",
+            "config_spec.autocompact_config.compaction_type",
             "maintenance_window",
             "deletion_protection"
           ]
@@ -1125,6 +1154,12 @@ You can change the DBMS settings for your cluster hosts.
           "backup_retain_period_days": "<backup_retention_in_days>",
           "performance_diagnostics": {
             "profiling_enabled": <enable_profiler>
+          },
+          "autocompact_config": {
+            "enabled": <allow_automatic_compaction>,
+            "target_free_space": "<minimum_amount_of_disk_space_to_free_up_in_MB>",
+            "bloat_percent": <minimum_collection_bloat_percentage>,
+            "compaction_type": "<master_host_compaction_settings>"
           }
         },
         "maintenance_window": {
@@ -1157,6 +1192,10 @@ You can change the DBMS settings for your cluster hosts.
         * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
           * `profiling_enabled`: Enable [profiler](tools.md#explore-profiler), `true` or `false`.
+        
+        * `autocompact_config`: Automatic compaction settings:
+          
+          {% include [autocompact-grpc](../../_includes/mdb/mmg/autocompact-grpc.md) %}
 
       * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. In `maintenance_window`, provide one of these two parameters:
 
@@ -1170,7 +1209,9 @@ You can change the DBMS settings for your cluster hosts.
 
       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
-        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-cluster](../../_includes/mdb/mmg/deletion-protection-cluster.md) %}
+
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
   1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -1197,8 +1238,8 @@ You can change the DBMS settings for your cluster hosts.
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
     1. Select the destination folder for your cluster.
@@ -1320,8 +1361,8 @@ You can change the DBMS settings for your cluster hosts.
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select the security groups that control the cluster’s network traffic.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.

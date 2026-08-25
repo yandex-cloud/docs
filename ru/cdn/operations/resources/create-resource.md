@@ -31,6 +31,9 @@ description: Следуя данной инструкции, вы сможете
             1. Введите **{{ ui-key.yacloud.cdn.field_group-name }}**.
             1. Настройте **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
                 * Укажите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
+
+                  {% include [bucket-website-hosting-tip](../../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
                 * Укажите источник.
                 * Выберите **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.label_status-active }}` или `{{ ui-key.yacloud.cdn.label_status-backup }}`.
             1. Добавьте другие источники, если необходимо.
@@ -150,7 +153,7 @@ description: Следуя данной инструкции, вы сможете
 
         [Подробнее о настройке HTTP-методов](configure-http.md)
 
-      * В блоке **{{ ui-key.yacloud.cdn.CdnResourceFormWizard.section_wizard-static-response_6DKzY }}** настройте HTTP-ответ, если необходимо.
+      * В блоке **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.section_static-response_v3GRn }}** настройте HTTP-ответ, если необходимо.
 
           [Подробнее о настройке HTTP-ответа](configure-response.md).
 
@@ -247,6 +250,8 @@ description: Следуя данной инструкции, вы сможете
 
      Подробнее о команде `yc cdn resource create` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
+     {% include [bucket-website-hosting-tip](../../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -256,6 +261,8 @@ description: Следуя данной инструкции, вы сможете
   1. Опишите в конфигурационном файле параметры создаваемого CDN-ресурса:
 
      {% include [create-resource-tf](../../../_includes/cdn/create-resource-tf.md) %}
+
+     {% include [bucket-website-hosting-tip](../../../_includes/cdn/bucket-website-hosting-tip.md) %}
 
   1. Создайте ресурсы:
 

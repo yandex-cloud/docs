@@ -12,7 +12,7 @@
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
   1. Выберите профиль безопасности, который вы хотите отключить от [виртуального хоста](../../application-load-balancer/concepts/http-router.md#virtual-host) сервиса [Yandex Application Load Balancer](../../application-load-balancer/index.md).
-  1. Перейдите на вкладку ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **Подключенные ресурсы**.
+  1. Перейдите на вкладку **Подключенные ресурсы**.
   1. В строке с нужным хостом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите ![disconnect](../../_assets/console-icons/arrow-shape-left-from-line.svg) **Отключить от профиля**.
   1. Подтвердите отключение.
 
@@ -26,82 +26,82 @@
 
   1. Чтобы посмотреть список [HTTP-роутеров](../../application-load-balancer/concepts/http-router.md) в каталоге по умолчанию, выполните команду:
 
-     ```bash
-     yc application-load-balancer http-router list
-     ```
+      ```bash
+      yc application-load-balancer http-router list
+      ```
 
-     Результат:
+      Результат:
 
-     ```text
-     +----------------------+-------------------+-------------+-------------+
-     |          ID          |       NAME        | VHOST COUNT | ROUTE COUNT |
-     +----------------------+-------------------+-------------+-------------+
-     | ds7e9te73uak******** |  my-first-router  |           1 |           1 |
-     +----------------------+-------------------+-------------+-------------+
-     ```
+      ```text
+      +----------------------+-------------------+-------------+-------------+
+      |          ID          |       NAME        | VHOST COUNT | ROUTE COUNT |
+      +----------------------+-------------------+-------------+-------------+
+      | ds7e9te73uak******** |  my-first-router  |           1 |           1 |
+      +----------------------+-------------------+-------------+-------------+
+      ```
 
   1. Чтобы посмотреть список [виртуальных хостов](../../application-load-balancer/concepts/http-router.md#virtual-host) выбранного HHTP-роутера, выполните команду:
 
-     ```bash
-     yc application-load-balancer http-router get <имя_или_идентификатор_HTTP-роутера>
-     ```
+      ```bash
+      yc application-load-balancer http-router get <имя_или_идентификатор_HTTP-роутера>
+      ```
 
-     Результат:
+      Результат:
 
-     ```text
-     id: ds7e9te73uak********
-     name: my-first-router
-     folder_id: b1gt6g8ht345********
-     virtual_hosts:
-       - name: test-virtual-host
-         routes:
-           - name: test-route
-             http:
-               match:
-                 path:
-                   prefix_match: /
-               route:
-                 backend_group_id: ds7e12p7l6j4********
-                 timeout: 60s
-                 auto_host_rewrite: false
-         route_options:
-           security_profile_id: fev3s055oq64********
-     created_at: "2024-08-05T08:34:03.973000654Z"
-     ```
+      ```text
+      id: ds7e9te73uak********
+      name: my-first-router
+      folder_id: b1gt6g8ht345********
+      virtual_hosts:
+        - name: test-virtual-host
+          routes:
+            - name: test-route
+              http:
+                match:
+                  path:
+                    prefix_match: /
+                route:
+                  backend_group_id: ds7e12p7l6j4********
+                  timeout: 60s
+                  auto_host_rewrite: false
+          route_options:
+            security_profile_id: fev3s055oq64********
+      created_at: "2024-08-05T08:34:03.973000654Z"
+      ```
 
-     Имена виртуальных хостов указаны в параметре `virtual_hosts.name`. В примере выше только один виртуальный хост — `test-virtual-host`.
+      Имена виртуальных хостов указаны в параметре `virtual_hosts.name`. В примере выше только один виртуальный хост — `test-virtual-host`.
 
   1. Чтобы отключить профиль безопасности от виртуального хоста, выполните команду:
 
-     ```bash
-     yc application-load-balancer virtual-host update <имя_виртуального_хоста> \
-        --http-router-name <имя_HTTP-роутера> \
-        --security-profile-id ""
-     ```
+      ```bash
+      yc application-load-balancer virtual-host update <имя_виртуального_хоста> \
+          --http-router-name <имя_HTTP-роутера> \
+          --security-profile-id ""
+      ```
 
-     Где:
+      Где:
 
-     * `<имя_виртуального_хоста>` — имя виртуального хоста, полученное на предыдущем шаге.
-     * `--http-router-name` — имя [HTTP-роутера](../../application-load-balancer/concepts/http-router.md). Обязательный параметр. Вместо имени HTTP-роутера вы можете передать его идентификатор в параметре `http-router-id`.
-     * `--security-profile-id` — идентификатор профиля безопасности. Обязательный параметр.
+      * `<имя_виртуального_хоста>` — имя виртуального хоста, полученное на предыдущем шаге.
+      * `--http-router-name` — имя [HTTP-роутера](../../application-load-balancer/concepts/http-router.md). Обязательный параметр. Вместо имени HTTP-роутера вы можете передать его идентификатор в параметре `http-router-id`.
+      * `--security-profile-id` — идентификатор профиля безопасности. Обязательный параметр.
 
-     Результат:
+      Результат:
 
-     ```text
-     done (1s)
-     name: test-virtual-host
-     routes:
-       - name: test-route
-         http:
-           match:
-             path:
-               prefix_match: /
-           route:
-             backend_group_id: ds7e12p7l6j4********
-             timeout: 60s
-             auto_host_rewrite: false
-     route_options: {}
-     ```
+      ```text
+      done (1s)
+      name: test-virtual-host
+      routes:
+        - name: test-route
+          http:
+            match:
+              path:
+                prefix_match: /
+            route:
+              backend_group_id: ds7e12p7l6j4********
+              timeout: 60s
+              auto_host_rewrite: false
+      route_options: {}
+      ```
 
   Подробнее о команде `yc application-load-balancer virtual-host update` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
 
@@ -120,7 +120,7 @@
 
   Профиль безопасности Yandex Smart Web Security отключается от балансировщика [Yandex Application Load Balancer](../../application-load-balancer/concepts/index.md) в настройках виртуального хоста.
 
-  1. В конфигурационном файле Terraform для ресурса `yandex_alb_virtual_host`  в блокe `route_options` удалите параметр `security_profile_id` — идентификатор профиля безопасности.
+  1. В конфигурационном файле Terraform для ресурса `yandex_alb_virtual_host`  в блоке `route_options` удалите параметр `security_profile_id` — идентификатор профиля безопасности.
 
       ```hcl
       resource "yandex_alb_virtual_host" "my-virtual-host" {
@@ -135,33 +135,33 @@
 
   1. Примените изменения:
 
-       1. В терминале перейдите в директорию с конфигурационным файлом.
-       1. Проверьте корректность конфигурации с помощью команды:
-       
-          ```bash
-          terraform validate
-          ```
-       
-          Если конфигурация является корректной, появится сообщение:
-       
-          ```bash
-          Success! The configuration is valid.
-          ```
-       
-       1. Выполните команду:
-       
-          ```bash
-          terraform plan
-          ```
-       
-          В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
-       1. Примените изменения конфигурации:
-       
-          ```bash
-          terraform apply
-          ```
-       
-       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+      1. В терминале перейдите в директорию с конфигурационным файлом.
+      1. Проверьте корректность конфигурации с помощью команды:
+      
+         ```bash
+         terraform validate
+         ```
+      
+         Если конфигурация является корректной, появится сообщение:
+      
+         ```bash
+         Success! The configuration is valid.
+         ```
+      
+      1. Выполните команду:
+      
+         ```bash
+         terraform plan
+         ```
+      
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      1. Примените изменения конфигурации:
+      
+         ```bash
+         terraform apply
+         ```
+      
+      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
   Проверить изменение ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/index.md):
 
@@ -184,8 +184,8 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится профиль безопасности.
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. Выберите раздел **Защита доменов** → **Домены**.
-  1. Выберите домен. 
-  1. В правом верхнем углу нажмите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. Выберите домен.
+  1. На панели сверху нажмите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Удалите подключенный профиль безопасности.
   1. Нажмите **Сохранить**.
 
@@ -200,7 +200,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный API-шлюз.
   1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
   1. Выберите API-шлюз.
-  1. В правом верхнем углу нажмите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. На панели сверху нажмите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В спецификации API-шлюза удалите расширение [x-yc-apigateway:smartWebSecurity](../../api-gateway/concepts/extensions/sws.md).
 
 {% endlist %}

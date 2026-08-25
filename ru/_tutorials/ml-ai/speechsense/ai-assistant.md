@@ -5,7 +5,7 @@
 Чтобы получить нужную информацию из чата с помощью AI-ассистента:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Подготовьте инфрастуктуру](#infrastructure-prepare).
+1. [Подготовьте инфраструктуру](#infrastructure-prepare).
 1. [Создайте AI-ассистента](#create-assistant).
 1. [Загрузите данные в проект](#load-data).
 1. [Проверьте результат работы AI-ассистента в интерфейсе {{ speechsense-name }}](#result-console).
@@ -23,7 +23,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Сервис {{ speechsense-name }}: количество символов в каждом текстовом диалоге и анализ диалогов с помощью AI-ассистента ([тарифы {{ speechsense-name }}]({{ link-docs-ai }}/speechsense/pricing)).
+* Сервис {{ speechsense-name }}: количество символов в каждом текстовом диалоге и анализ диалогов с помощью AI-ассистента ([тарифы {{ speechsense-name }}]({{ link-docs-ai }}speechsense/pricing)).
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
 

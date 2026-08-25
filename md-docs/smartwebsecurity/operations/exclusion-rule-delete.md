@@ -10,8 +10,8 @@
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **Профили WAF**.
   1. Выберите профиль, в котором вы хотите удалить [правило-исключение](../concepts/waf.md#exclusion-rules).
-  1. В меню слева перейдите на вкладку ![image](../../_assets/console-icons/file-xmark.svg) **Правила-исключения**.
-  1. В строке с нужным правилом-исключением нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. Перейдите на вкладку **Правила-исключения**.
+  1. В строке с нужным правилом-исключением нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. Подтвердите удаление.
 
 - Terraform {#tf}

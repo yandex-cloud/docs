@@ -56,6 +56,24 @@ User-specific settings. Acceptable keys:
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#allow_introspection_functions).
 
+- `allow_reorder_prewhere_conditions`: When moving conditions from WHERE to PREWHERE, allow reordering them to optimize filtering
+
+  Default value: **true**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/allow#allow_reorder_prewhere_conditions).
+
+- `async_socket_for_remote`: Enables asynchronous read from socket while executing remote query.
+
+  Default value: **true**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_socket_for_remote).
+
+- `async_query_sending_for_remote`: Enables asynchronous connection creation and query sending while executing remote query.
+
+  Default value: **true**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_query_sending_for_remote).
+
 - `connect_timeout`: Connection timeout in milliseconds.
 
   Default value: **10000** (10 seconds).
@@ -153,6 +171,15 @@ the replica does not have a chunk written with the quorum and will not read the 
   Default value: **1**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#alter_sync).
+
+- `lightweight_deletes_sync`: Wait mode for lightweight **DELETE** queries on replicated tables.
+* **0** - do not wait for replicas.
+* **1** - only wait for own execution.
+* **2** - wait for all replicas.
+
+  Default value: **2**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#lightweight_deletes_sync).
 
 - `max_replica_delay_for_distributed_queries`: Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one.
 
@@ -502,6 +529,18 @@ This setting applies to every individual query.
   Default value: **0**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bytes).
+
+- `max_remote_read_network_bandwidth`: The maximum speed of data exchange over the network in bytes per second for read.
+
+  Default value: **0**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_read_network_bandwidth).
+
+- `max_remote_write_network_bandwidth`: The maximum speed of data exchange over the network in bytes per second for write.
+
+  Default value: **0**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_write_network_bandwidth).
 
 - `max_temporary_data_on_disk_size_for_query`: The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
 
@@ -1194,6 +1233,12 @@ Only Keeper requests which failed due to network error, Keeper session timeout o
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_keeper_max_retries).
 
+- `database_atomic_wait_for_drop_and_detach_synchronously`: When executing DROP or DETACH TABLE in Atomic database, wait for table data to be finally dropped or detached.
+
+  Default value: **true**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#database_atomic_wait_for_drop_and_detach_synchronously).
+
 - `do_not_merge_across_partitions_select_final`: Enable or disable independent processing of partitions for **SELECT** queries with **FINAL**.
 
   Default value: **false**.
@@ -1208,7 +1253,7 @@ Only Keeper requests which failed due to network error, Keeper session timeout o
 
 - `enable_analyzer`: Enables or disables new query analyzer.
 
-  Default value: **true** for versions 25.9 and higher, **false** for version 25.8, **true** for versions from 25.5 to 25.7, **false** for versions 25.4 and lower.
+  Default value: **true**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/developer/understanding-query-execution-with-the-analyzer#analyzer).
 

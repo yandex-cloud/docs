@@ -4,6 +4,75 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.29.0 (24.08.26) {#v-1-29-0}
+
+#### Cloud Functions {#v-1-29-0-sf-name}
+
+* Добавлена группа команд `yc serverless trigger v2` для управления триггерами версии 2.
+
+#### Cloud Registry {#v-1-29-0-cloud-registry-name}
+
+* Добавлены команды для запуска миграции папки и просмотра статуса миграции:
+  * `yc cloud-registry migration start-folder`;
+  * `yc cloud-registry migration get-cloud-migration-status-dashboard`.
+
+#### Container Registry {#v-1-29-0-container-registry-name}
+
+* Добавлена команда `yc container registry force-delete`.
+
+#### Managed Service for ClickHouse® {#v-1-29-0-mch-name}
+
+* Добавлен параметр `--external-shard` для управления внешними шардами в группах шардов:
+  * `yc managed-clickhouse shard-groups create`;
+  * `yc managed-clickhouse shard-group update`.
+
+#### Managed Service for PostgreSQL {#v-1-29-0-mpg-name}
+
+* Добавлен параметр `--extended-filter` в команду `yc managed-postgresql performance-diagnostics list-raw-sessions` для фильтрации сессий.
+
+## Предыдущие релизы {#previous-release}
+
+### Версия 1.28.0 (20.08.26) {#v-1-28-0}
+
+#### BareMetal {#v-1-28-0-baremetal-name}
+
+* Добавлена возможность заказать кластер Stackland с доступом в публичную сеть. Также добавлена возможность собрать кластер из существующих серверов.
+
+### Версия 1.27.0 (17.08.26) {#v-1-27-0}
+
+#### Yandex MPP Analytics for PostgreSQL {#v-1-27-0-mgp-name}
+
+* Исправлено обновление пользователей командой `yc managed-greenplum users update`: теперь изменяются только поля, явно заданные параметрами.
+
+#### Yandex Managed Service for Valkey™ {#v-1-27-0-mrd-name}
+
+* Добавлен параметр `--shard-autoscaling` в команды для настройки автоскейлинга шардов Valkey:
+  * `yc managed-redis cluster create`;
+  * `yc managed-redis cluster update`.
+
+### Версия 1.25.0 (10.08.26) {#v-1-25-0}
+
+#### Managed Service for ClickHouse® {#v-1-25-0-mch-name}
+
+* Добавлено свойство `engine` в параметр `--database` команды `yc managed-clickhouse cluster create` — позволяет выбрать движок базы данных `atomic` или `replicated`.
+* Добавлен флаг `--default-user-settings` для управления настройками, которые применяются ко всем пользователям кластера ClickHouse по умолчанию:
+  * `yc managed-clickhouse cluster create`;
+  * `yc managed-clickhouse cluster update`;
+  * `yc managed-clickhouse cluster restore`.
+* В вывод команды `yc managed-clickhouse user list` добавлен метод аутентификации.
+* Команда `yc managed-clickhouse cluster connect` поддерживает подключение к кластеру как через отдельный исполняемый файл `clickhouse-client`, так и через команду `clickhouse client`.
+* В команде `yc managed-clickhouse hosts add` поддержано значение `keeper` для свойства `type` параметра `--host` — позволяет добавлять хосты ClickHouse Keeper.
+
+#### Managed Service for PostgreSQL {#v-1-25-0-mpg-name}
+
+* Добавлен параметр `--owner` в команду `yc managed-postgresql database update` для смены владельца базы данных.
+
+#### Smart Web Security {#v-1-25-0-sws-name}
+
+* Добавлены группы команд для управления балансировщиками Smart Web Security и их доменами в v2:
+  * `yc smartwebsecurity load-balancer load-balancer`;
+  * `yc smartwebsecurity load-balancer domain`.
+
 ### Версия 1.24.0 (06.08.26) {#v-1-24-0}
 
 #### BareMetal {#v-1-24-0-baremetal-name}
@@ -23,8 +92,6 @@
 #### Yandex Identity Hub {#v-1-24-0-org-name}
 
 Исправлен формат вывода `yc organization-manager idp synchronization-settings list-supported-attributes` при `--format text`, теперь возвращаются таблицы.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.23.0 (03.08.26) {#v-1-23-0}
 
@@ -175,7 +242,7 @@
 
 #### Compute Cloud {#v-1-19-0-compute-name}
 
-* Добавлен параметр `--subnets` в команду `yc compute gpu-cluster create` создания пользовательски GPU кластеров.
+* Добавлен параметр `--subnets` в команду `yc compute gpu-cluster create` создания пользовательских GPU кластеров.
 
 #### Managed Service for Apache Airflow™ {#v-1-19-0-maf-name}
 
@@ -1585,7 +1652,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 
 ##### Application Load Balancer
 
-Добавлена поддержка поля `path` для ALB session affinity по сookie:
+Добавлена поддержка поля `path` для ALB session affinity по cookie:
   * `yc application-load-balancer backend-group update`;
   * `yc application-load-balancer backend-group create`.
 
@@ -2196,7 +2263,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 
 #### Managed Service for ClickHouse®
 
-Добавлены параметры для управления автоматическим расширения диска. Команды, в которых можно задавать новые параметры:
+Добавлены параметры для управления автоматическим расширением диска. Команды, в которых можно задавать новые параметры:
 * `yc clickhouse cluster create`
 * `yc clickhouse cluster update`
 * `yc clickhouse restore`
@@ -3775,7 +3842,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### Compute Cloud {#compute}
 
-* В команду создания группы размещения дисков `yc compute disk-placement-group create` добавлен параметр `--strategy` для указания стартегии размещения. Может принимать значения `SPREAD` или `PARTITION`.
+* В команду создания группы размещения дисков `yc compute disk-placement-group create` добавлен параметр `--strategy` для указания стратегии размещения. Может принимать значения `SPREAD` или `PARTITION`.
 * В команду создания группы размещения дисков `yc compute disk-placement-group create` добавлен параметр `--partition-count`. Задает количество разделов для группы со стратегией `PARTITION`.
 * В команду создания диска `yc compute disk create` добавлен параметр `--disk-placement-group-partition` для указания номера раздела в группе размещения.
 * Добавлена колонка `PLACEMENT GROUP` в таблице со списком дисков, получаемых командой `yc compute disk list`.
@@ -6472,7 +6539,7 @@ Key Management Service позволяет создавать ключи шифр
 
 * Команды `yc load-balancer network-load-balancer create` и `yc load-balancer network-load-balancer update`.
 
-  Для параметра `--listener` появилась возможность задать свойство `target-port`, позволяющее настроить NAT так, чтобы целевые ресурсы принимали трафик на порту, отличном от порта `listener`.
+  Для параметра `--listener` появилась возможность задать свойство `target-port`, позволяющее настроить NAT так, чтобы целевые ресурсы принимали трафик на порте, отличном от порта `listener`.
 
 
 #### Сервисы управляемых баз данных {#managed-db}

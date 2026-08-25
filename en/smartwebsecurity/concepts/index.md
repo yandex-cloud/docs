@@ -1,6 +1,6 @@
 ---
 title: '{{ sws-full-name }} overview'
-description: What is {{ sws-full-name }}, what types of threats it helps prevent, and what components the web application protection consists of.
+description: What is {{ sws-full-name }}, what types of threats it helps prevent, and what are the web application protection components.
 ---
 
 # {{ sws-full-name }} overview
@@ -9,7 +9,7 @@ description: What is {{ sws-full-name }}, what types of threats it helps prevent
 
 ## How it works {#how-it-works}
 
-{{ sws-name }} checks the HTTP requests sent to the protected resource via the virtual host of the L7 load balancer against the [rules](rules.md) configured in the [security profile](profiles.md). Depending on the results of the check, the requests are routed to the virtual host, blocked, or sent to [{{ captcha-full-name }}](../../smartcaptcha/) for additional verification.
+{{ sws-name }} checks HTTP requests addressed to the protected resource for compliance with the [rules](rules.md) configured in a [security profile](profiles.md). You can connect your security profile to a [virtual host of an L7 load balancer](../operations/host-connect.md#host), [domain](../operations/host-connect.md#domain), or API gateway. Depending on the results of the check, requests are routed to the resource, blocked, or sent to [{{ captcha-full-name }}](../../smartcaptcha/) for additional verification.
 
 ![schema](../../_assets/smartwebsecurity/schema.svg)
 

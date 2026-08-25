@@ -9,11 +9,10 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [облачная сеть](../concepts/network.md#network).
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [облачная сеть](../concepts/network.md#network).
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.vpc.switch_list }}**.
   1. Выберите нужную облачную сеть.
-  1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о выбранной сети.
+  1. На вкладке **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о выбранной сети.
 
 - CLI {#cli}
 
@@ -23,26 +22,26 @@ description: Следуя данной инструкции, вы сможете
 
   1. Посмотрите описание команды CLI для получения информации об [облачной сети](../concepts/network.md#network):
 
-      ```bash
-      yc vpc network get --help
-      ```
+     ```bash
+     yc vpc network get --help
+     ```
 
   1. Получите информацию о сети, указав ее имя или идентификатор:
 
-      ```bash
-      yc vpc network get <имя_сети>
-      ```
+     ```bash
+     yc vpc network get <имя_сети>
+     ```
 
-      Результат:
+     Результат:
 
-      ```text
-      id: ne7w0rkfj75j********
-      folder_id: f01derqpemb4********
-      created_at: "2023-10-25T14:59:46Z"
-      name: my-network
-      description: Auto-created network
-      default_security_group_id: 5ecur17yj09k********
-      ```
+     ```text
+     id: ne7w0rkfj75j********
+     folder_id: f01derqpemb4********
+     created_at: "2023-10-25T14:59:46Z"
+     name: my-network
+     description: Auto-created network
+     default_security_group_id: 5ecur17yj09k********
+     ```
 
 - {{ TF }} {#tf}
 
@@ -51,6 +50,7 @@ description: Следуя данной инструкции, вы сможете
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы получить информацию об [облачной сети](../concepts/network.md#network) с помощью {{ TF }}:
+
   1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
 
      ```hcl
@@ -70,6 +70,7 @@ description: Следуя данной инструкции, вы сможете
        * `value` — возвращаемое значение.
 
      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_vpc_network` в [документации провайдера]({{ tf-provider-datasources-link }}/vpc_network).
+
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -93,7 +94,6 @@ description: Следуя данной инструкции, вы сможете
   {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
 
   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
-
 
 {% endlist %}
 

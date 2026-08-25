@@ -33,7 +33,7 @@ To configure a fault-tolerant cluster of {{ baremetal-name }} servers using VRRP
 1. [Configure Keepalived on the servers of the `{{ region-id }}-m3` pool](#setup-keepalived).
 1. [Test the solution](#test-solution).
 
-If you do not need the server anymore, [cancel your server rent](#clear-out).
+If you do not need the server anymore, [cancel your server lease](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -41,7 +41,7 @@ If you do not need the server anymore, [cancel your server rent](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of this solution includes the {{ baremetal-name }} server rent fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
+The cost of this solution includes the {{ baremetal-name }} server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 
 ## Create a virtual routing and forwarding segment {#create-vrf}
 
@@ -54,7 +54,7 @@ Create a new VRF segment:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** and click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, name your VRF segment: `vrrp-vrf`.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
@@ -70,7 +70,7 @@ Create two private subnets in different [server pools](../../baremetal/concepts/
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** field, select the `{{ region-id }}-m3` server pool.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the subnet name: `subnet-m3`.

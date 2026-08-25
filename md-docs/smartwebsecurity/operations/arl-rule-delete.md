@@ -2,7 +2,7 @@
 
 # Удалить правило из профиля ARL
 
-Базовые правила, а также правила Smart Protection и WAF [удаляются из профиля безопасности](rule-delete.md). 
+Базовые правила, а также правила Smart Protection и WAF [удаляются из профиля безопасности](rule-delete.md).
 
 {% list tabs group=instructions %}
 
@@ -12,7 +12,7 @@
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/arl.svg) **Профили ARL**.
   1. Выберите профиль, в котором вы хотите удалить правило.
-  1. В блоке **Правила** в строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. В блоке **Правила** в строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. Подтвердите удаление.
 
 - Terraform {#tf}
@@ -33,7 +33,7 @@
   1. Откройте файл конфигурации Terraform и в описании профиля ARL `yandex_sws_advanced_rate_limiter_profile` удалите блок `advanced_rate_limiter_rule` с правилом безопасности.
 
       {% cut "Пример описания профиля ARL в конфигурации Terraform" %}
-      
+
       ```hcl
       # Профиль ARL
 
@@ -49,7 +49,7 @@
           priority    = <приоритет_правила>
           description = "<описание_правила>"
           dry_run     = true
-  
+
           static_quota {
             action = "DENY"
             limit  = <лимит_правила>

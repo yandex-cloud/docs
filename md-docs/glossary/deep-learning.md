@@ -136,7 +136,7 @@ Yandex Cloud предоставляет инфраструктуру и серв
   * SpeechKit — технологии распознавания и синтеза речи на базе нейронных сетей. Подробнее в [документации](https://aistudio.yandex.ru/docs/ru/speechkit/overview).
 
 * [Yandex DataSphere](https://yandex.cloud/ru/services/datasphere/) — среда для разработки, обучения и дообучения собственных моделей глубокого обучения с доступом к GPU. Подробнее в [документации](../datasphere/index.md).
-* [Yandex Vision OCR](https://yandex.cloud/ru/services/vision/) — сервис компьютерного зрения на базе нейронных сетей для распознавания текста, объектов и лиц на изображениях. Подробнее в [документации](https://aistudio.yandex.ru/docs/ru//vision/concepts/ocr/).
+* [Yandex Vision OCR](https://yandex.cloud/ru/services/vision/) — сервис компьютерного зрения на базе нейронных сетей для распознавания текста, объектов и лиц на изображениях. Подробнее в [документации](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/).
 
 #### Полезные материалы {#see-also}
 

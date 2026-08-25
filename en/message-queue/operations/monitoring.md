@@ -9,7 +9,7 @@ To view this information:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the message queue belongs to.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+  1. [Navigate]({{ link-console-main }}/link/message-queue) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
 
   Sections with charts appear on the page.

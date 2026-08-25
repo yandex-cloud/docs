@@ -10,13 +10,13 @@ description: В разделе представлена история изме�
 ### Обновления {#updates}
 
 * Добавлена поддержка запуска рабочего процесса по ссылке.
-* Добавлена поддержка поля `auto_approve` для шага [AIStudioAgent](concepts/workflows/yawl/integration/aistudioagent.md).
+* Добавлена поддержка поля `auto_approve` для шага [AIStudioAgent]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/aistudioagent).
 
 ## Январь 2026 {#january-2026}
 
 ### Обновления {#updates}
 
-* Добавлена поддержка поля `message` для шага [AIStudioAgent](concepts/workflows/yawl/integration/aistudioagent.md).
+* Добавлена поддержка поля `message` для шага [AIStudioAgent]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/aistudioagent).
 
 ## Декабрь 2025 {#december-2025}
 
@@ -34,19 +34,19 @@ description: В разделе представлена история изме�
 
 ### Обновления {#updates}
 
-* Добавлена поддержка режима форматирования `Без разметки` для шага [Telegram-бот](operations/workflows/constructor/telegrambot.md) в конструкторе.
+* Добавлена поддержка режима форматирования `Без разметки` для шага [Telegram-бот]({{ link-docs-ai }}ai-studio/operations/workflows/constructor/telegrambot) в конструкторе.
 
 ### Исправления и улучшения {#fixes-improvements}
 
-* Шаг Foundation Models переименован в [Модели AI Studio](operations/workflows/constructor/foundationmodelscall.md).
-* Изменена работа режимов форматирования для шага [Telegram-бот](concepts/workflows/yawl/integration/telegrambot.md): теперь, если произошла ошибка парсинга формата сообщения, оно будет передано в исходном виде.
+* Шаг Foundation Models переименован в [Модели AI Studio]({{ link-docs-ai }}ai-studio/operations/workflows/constructor/foundationmodelscall).
+* Изменена работа режимов форматирования для шага [Telegram-бот]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/telegrambot): теперь, если произошла ошибка парсинга формата сообщения, оно будет передано в исходном виде.
 
 ## Сентябрь 2025 {#september-2025}
 
 ### Обновления {#updates}
 
-* Добавлена поддержка шагов [DatabaseQuery](concepts/workflows/yawl/integration/databasequery.md), [VectorStore](concepts/workflows/yawl/integration/vectorstore.md) и [AIStudioAgent](concepts/workflows/yawl/integration/aistudioagent.md).
-* Добавлена поддержка запуска рабочего процесса по [таймеру](operations/workflows/execution/start-by-timer.md).
+* Добавлена поддержка шагов [DatabaseQuery]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/databasequery), [VectorStore]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/vectorstore) и [AIStudioAgent]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/aistudioagent).
+* Добавлена поддержка запуска рабочего процесса по [таймеру]({{ link-docs-ai }}ai-studio/operations/workflows/execution/start-by-timer).
 * Добавлена поддержка Playground и редактора с подсветкой синтаксиса для написания и отладки шаблонизируемых выражений на языке jq.
 
 ### Исправления и улучшения {#fixes-improvements}
@@ -57,14 +57,14 @@ description: В разделе представлена история изме�
 
 ### Обновления {#updates}
 
-* Добавлена поддержка [правил перехода по ошибкам](operations/workflows/constructor/setup-catch-rule.md) для интеграционных шагов в конструкторе {{ sw-name }}.
+* Добавлена поддержка [правил перехода по ошибкам]({{ link-docs-ai }}ai-studio/operations/workflows/constructor/setup-catch-rule) для интеграционных шагов в конструкторе {{ sw-name }}.
 
 ## Июль 2025 {#july-2025}
 
 ### Обновления {#updates}
 
 * Добавлена поддержка нового типа источника для коннектора — [API {{ er-name }}](concepts/eventrouter/connector.md#from-api).
-* Добавлена поддержка шага [TelegramBot](concepts/workflows/yawl/integration/telegrambot.md).
+* Добавлена поддержка шага [TelegramBot]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/telegrambot).
 
 ## Июнь 2025 {#june-2025}
 
@@ -72,7 +72,7 @@ description: В разделе представлена история изме�
 
 * Добавлена поддержка гарантии доставки `At least once` для внутренних ошибок {{ sw-full-name }}.
 * Добавлена поддержка больших языковых моделей и источников знаний для шага AIAgent.
-* Добавлена поддержка поля `concurrency` для шагов [Foreach](concepts/workflows/yawl/management/foreach.md) и [Parallel](concepts/workflows/yawl/management/parallel.md).
+* Добавлена поддержка поля `concurrency` для шагов [Foreach]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/management/foreach) и [Parallel]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/management/parallel).
 
 ## Май 2025 {#may-2025}
 
@@ -87,15 +87,15 @@ description: В разделе представлена история изме�
 
 ### Обновления {#updates}
 
-* Добавлена поддержка шагов [Workflow](concepts/workflows/yawl/integration/workflow.md), [Disk](concepts/workflows/yawl/integration/disk.md) и [While](concepts/workflows/yawl/management/while.md) в {{ sw-name }}.
-* Добавлена поддержка типов `EXCEL` и `CSV` для шагов [ObjectStorage](concepts/workflows/yawl/integration/objectstorage.md) и [Disk](concepts/workflows/yawl/integration/disk.md) в {{ sw-name }} — теперь объекты этих типов можно автоматически декодировать из base64-encoded-строки.
-* Добавлена поддержка [правил перехода по ошибкам](concepts/workflows/yawl/index.md#catchrule) для интеграционных шагов в {{ sw-name }}.
+* Добавлена поддержка шагов [Workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/workflow), [Disk]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/disk) и [While]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/management/while) в {{ sw-name }}.
+* Добавлена поддержка типов `EXCEL` и `CSV` для шагов [ObjectStorage]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/objectstorage) и [Disk]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/disk) в {{ sw-name }} — теперь объекты этих типов можно автоматически декодировать из base64-encoded-строки.
+* Добавлена поддержка [правил перехода по ошибкам]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/index#catchrule) для интеграционных шагов в {{ sw-name }}.
 
 ## Март 2025 {#march-2025}
 
 ### Обновления {#updates}
 
-* Добавлена поддержка типов `TEXT` и `JSON` для шага [ObjectStorage](concepts/workflows/yawl/integration/objectstorage.md) в {{ sw-name }} — теперь объекты этих типов можно автоматически декодировать из base64-encoded-строки.
+* Добавлена поддержка типов `TEXT` и `JSON` для шага [ObjectStorage]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/objectstorage) в {{ sw-name }} — теперь объекты этих типов можно автоматически декодировать из base64-encoded-строки.
 
 ## Февраль 2025 {#february-2025}
 
@@ -107,11 +107,11 @@ description: В разделе представлена история изме�
 
 ### Обновления {#updates}
 
-* Добавлена поддержка шагов [Tracker](concepts/workflows/yawl/integration/tracker.md), [Postbox](concepts/workflows/yawl/integration/postbox.md) и [Wait](concepts/workflows/yawl/management/wait.md) в {{ sw-name }}.
+* Добавлена поддержка шагов [Tracker]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/tracker), [Postbox]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/postbox) и [Wait]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/management/wait) в {{ sw-name }}.
 
 ## Ноябрь 2024 {#november-2024}
 
 ### Обновления {#updates}
 
-* Добавлена поддержка шага [YDBDocument](concepts/workflows/yawl/integration/ydbdocument.md) в {{ sw-name }}.
+* Добавлена поддержка шага [YDBDocument]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/ydbdocument) в {{ sw-name }}.
 * Добавлена поддержка {{ er-name }} в {{ TF }}.

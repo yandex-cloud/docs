@@ -44,7 +44,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
@@ -59,6 +59,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       * Specify the DBMS version.
       * Select the sharding type:
+          
           * **{{ ui-key.yacloud.mongodb.ClusterForm.sections.option_sharding-type-disabled_3ErMk }}**: Cluster will consist only of `MONGOD` hosts.
           * **{{ ui-key.yacloud.mongodb.ClusterForm.sections.option_sharding-type-standard_afrPq }}**: Cluster will consist of `MONGOD` and `MONGOINFRA` hosts.
           * **{{ ui-key.yacloud.mongodb.ClusterForm.sections.option_sharding-type-extended_9NHmb }}**: Cluster will consist of `MONGOD`, `MONGOS`, and `MONGOCFG` hosts.
@@ -198,7 +199,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       {{ yc-mdb-mg }} cluster create \
         --name <cluster_name> \
         --environment=<environment> \
-        --network-name <network_name> \\
+        --network-name <network_name> \
         --security-group-ids <security_group_IDs> \ 
         --host zone-id=<availability_zone>,`
               `subnet-id=<subnet_ID>,`
@@ -312,6 +313,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         {% endnote %}
 
       * `--host`: Host settings:
+        
         * `type`: Host type, i.e., `mongod`, `mongoinfra`, `mongos`, or `mongocfg`. The default host type is `mongod`.
         * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). To be specified if the selected availability zone has more than one subnet.
@@ -339,7 +341,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       
       * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-cluster](../../_includes/mdb/mmg/deletion-protection-cluster.md) %}
+
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
       To set up a [maintenance](../concepts/maintenance.md) window (including for disabled clusters), provide a value in the `--maintenance-window` parameter when creating your cluster:
 
@@ -369,13 +373,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       Where:
 
-      * `<host_type>`: [Host type](../concepts/host-roles.md) whose storage you want to configure. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
 
       * `<host_type>-planned-usage-threshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
 
         Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-        If you set this option, configure the maintenance time settings.
+        If you set this option, configure the maintenance time.
 
       * `<host_type>-emergency-usage-threshold`: Storage usage percentage to trigger an immediate storage expansion.
 
@@ -389,6 +393,22 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       * `<host_type>-disk-size-limit`: Maximum storage size after expansion, in GB.
 
+      To configure automatic compaction, provide the `--autocompact` parameter set to `true` and specify compaction settings:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster create \
+        ...
+        --autocompact=<allow_automatic_compaction> \
+        --autocompact-bloat-percent <minimum_collection_bloat_percentage> \
+        --autocompact-target-free-space <minimum_amount_of_disk_space_to_free_up_in_MB> \
+        --autocompact-compaction-type <master_host_compaction_settings> \
+        ...
+      ```
+
+      Where:
+
+      {% include [autocompact-cli](../../_includes/mdb/mmg/autocompact-cli.md) %}
+    
 
 - {{ TF }} {#tf}
 
@@ -406,7 +426,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-     Here is an example of the configuration file structure:
+     Configuration file structure example:
 
      {% cut "For a non-sharded cluster" %}
 
@@ -455,14 +475,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
      }
 
      resource "yandex_mdb_mongodb_database" "<DB_name>" {
-       cluster_id = yandex_mdb_mongodb_cluster.<cluster_name>.id
-       name       = "<DB_name>"
+       cluster_id          = yandex_mdb_mongodb_cluster.<cluster_name>.id
+       name                = "<DB_name>"
+       deletion_protection = <protect_database_from_deletion>
      }
 
      resource "yandex_mdb_mongodb_user" "<username>" {
-       cluster_id = yandex_mdb_mongodb_cluster.<cluster_name>.id
-       name       = "<username>"
-       password   = "<password>"
+       cluster_id          = yandex_mdb_mongodb_cluster.<cluster_name>.id
+       name                = "<username>"
+       password            = "<password>"
+       deletion_protection = <protect_user_from_deletion>
        permission {
          database_name = "<DB_name>"
          roles         = [ "<list_of_user_roles>" ]
@@ -530,14 +552,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
      }
 
      resource "yandex_mdb_mongodb_database" "<DB_name>" {
-       cluster_id = yandex_mdb_mongodb_cluster.<cluster_name>.id
-       name       = "<DB_name>"
+       cluster_id          = yandex_mdb_mongodb_cluster.<cluster_name>.id
+       name                = "<DB_name>"
+       deletion_protection = <protect_database_from_deletion>
      }
 
      resource "yandex_mdb_mongodb_user" "<username>" {
-       cluster_id = yandex_mdb_mongodb_cluster.<cluster_name>.id
-       name       = "<username>"
-       password   = "<password>"
+       cluster_id          = yandex_mdb_mongodb_cluster.<cluster_name>.id
+       name                = "<username>"
+       password            = "<password>"
+       deletion_protection = <protect_user_from_deletion>
        permission {
          database_name = "<DB_name>"
          roles         = [ "<list_of_user_roles>" ]
@@ -617,14 +641,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
      }
 
      resource "yandex_mdb_mongodb_database" "<DB_name>" {
-       cluster_id = yandex_mdb_mongodb_cluster.<cluster_name>.id
-       name       = "<DB_name>"
+       cluster_id          = yandex_mdb_mongodb_cluster.<cluster_name>.id
+       name                = "<DB_name>"
+       deletion_protection = <protect_database_from_deletion>
      }
 
      resource "yandex_mdb_mongodb_user" "<username>" {
-       cluster_id = yandex_mdb_mongodb_cluster.<cluster_name>.id
-       name       = "<username>"
-       password   = "<password>"
+       cluster_id          = yandex_mdb_mongodb_cluster.<cluster_name>.id
+       name                = "<username>"
+       password            = "<password>"
+       deletion_protection = <protect_user_from_deletion>
        permission {
          database_name = "<DB_name>"
          roles         = [ "<list_of_user_roles>" ]
@@ -650,10 +676,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
      * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
      * `host`: Host settings:
+       
        * `zone_id`: Availability zone.
        * `subnet_id`: ID of the subnet in the selected availability zone.
        * `assign_public_ip`: Public access to the host, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
        * `host_parameters`: Additional host settings:
+         
          * `hidden`: Determines whether the host is hidden, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
          * `secondary_delay_secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
          * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
@@ -666,7 +694,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
      
      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
-        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        Once cluster deletion protection is enabled, it also applies to all new databases and users for whom deletion protection is not set explicitly. If a database or user has its own deletion protection setting, it will override the cluster setting.
+
+        You can configure deletion protection for a database in the `yandex_mdb_mongodb_database` resource, and for a user, in the `yandex_mdb_mongodb_user` resource.
+
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
      * `version`: {{ SD }} version, {{ versions.tf.str }}.
 
@@ -717,7 +749,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-         If you set this option, configure the maintenance time settings.
+         If you set this option, configure the maintenance time.
 
        * `emergency_usage_threshold` (optional): Storage usage percentage to trigger an immediate storage expansion.
 
@@ -801,11 +833,18 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             "backupRetainPeriodDays": "<backup_retention_in_days>",
             "performanceDiagnostics": {
               "profilingEnabled": <enable_profiler>
+            },
+            "autocompactConfig": {
+              "enabled": <allow_automatic_compaction>,
+              "targetFreeSpace": "<minimum_amount_of_disk_space_to_free_up_in_MB>",
+              "bloatPercent": <minimum_collection_bloat_percentage>,
+              "compactionType": "<master_host_compaction_settings>"
             }
           },
           "databaseSpecs": [
             {
-              "name": "<DB_name>"
+              "name": "<DB_name>",
+              "deletionProtection": <protect_database_from_deletion>
             },
             { <similar_settings_for_DB_2> },
             { ... },
@@ -822,7 +861,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     "<role_1>", "<role_2>", ..., "<role_N>"
                   ]
                 }
-              ]
+              ],
+              "deletionProtection": <protect_user_from_deletion>
             },
             { <similar_settings_for_user_2> },
             { ... },
@@ -842,7 +882,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             { <similar_settings_for_host_2> },
             { ... },
             { <similar_settings_for_host_N> }
-          ],
+          ]
         }
         ```
 
@@ -904,15 +944,22 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               "minutes": "<minutes>",
               "seconds": "<seconds>",
               "nanos": "<nanoseconds>"
-            },
+            },  
             "backupRetainPeriodDays": "<backup_retention_in_days>",
             "performanceDiagnostics": {
               "profilingEnabled": <enable_profiler>
+            },
+            "autocompactConfig": {
+              "enabled": <allow_automatic_compaction>,
+              "targetFreeSpace": "<minimum_amount_of_disk_space_to_free_up_in_MB>",
+              "bloatPercent": <minimum_collection_bloat_percentage>,
+              "compactionType": "<master_host_compaction_settings>"
             }
           },
           "databaseSpecs": [
             {
-              "name": "<DB_name>"
+              "name": "<DB_name>",
+              "deletionProtection": <protect_database_from_deletion>
             },
             { <similar_settings_for_DB_2> },
             { ... },
@@ -929,7 +976,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     "<role_1>", "<role_2>", ..., "<role_N>"
                   ]
                 }
-              ]
+              ],
+              "deletionProtection": <protect_user_from_deletion>
             },
             { <similar_settings_for_user_2> },
             { ... },
@@ -1034,11 +1082,18 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             "backupRetainPeriodDays": "<backup_retention_in_days>",
             "performanceDiagnostics": {
               "profilingEnabled": <enable_profiler>
+            },
+            "autocompactConfig": {
+              "enabled": <allow_automatic_compaction>,
+              "targetFreeSpace": "<minimum_amount_of_disk_space_to_free_up_in_MB>",
+              "bloatPercent": <minimum_collection_bloat_percentage>,
+              "compactionType": "<master_host_compaction_settings>"
             }
           },
           "databaseSpecs": [
             {
-              "name": "<DB_name>"
+              "name": "<DB_name>",
+              "deletionProtection": <protect_database_from_deletion>
             },
             { <similar_settings_for_DB_2> },
             { ... },
@@ -1055,7 +1110,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     "<role_1>", "<role_2>", ..., "<role_N>"
                   ]
                 }
-              ]
+              ],
+              "deletionProtection": <protect_user_from_deletion>
             },
             { <similar_settings_for_user_2> },
             { ... },
@@ -1108,7 +1164,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         * `deletionProtection`: Cluster deletion protection, `true` or `false`.
 
-          {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+          {% include [deletion-protection-cluster](../../_includes/mdb/mmg/deletion-protection-cluster.md) %}
+
+          {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. In `maintenanceWindow`, provide one of these two parameters:
 
@@ -1163,11 +1221,20 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `backupRetainPeriodDays`: Backup retention time in days.
 
             * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
+              
               * `profilingEnabled`: Enable [profiler](tools.md#explore-profiler), `true` or `false`.
 
-        * `databaseSpecs`: Database settings as an array of elements, one per database. Each element contains a database `name`.
+            * `autocompactConfig`: Automatic compaction settings:
+          
+              {% include [autocompact-rest](../../_includes/mdb/mmg/autocompact-rest.md) %}
 
+        * `databaseSpecs`: Database settings as an array of elements, one per database. Each element has the following structure:
+
+          * `name`: Database name.
+          
             {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+          
+          * `deletionProtection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
 
         * `userSpecs`: User settings as an array of elements, one per user. Each element has the following structure:
 
@@ -1179,6 +1246,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
             In the `permissions` array, add a separate element with permission settings for each database.
+          
+          * `deletionProtection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
 
         * `hostSpecs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
@@ -1269,11 +1338,18 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             "backup_retain_period_days": "<backup_retention_in_days>",
             "performance_diagnostics": {
               "profiling_enabled": <enable_profiler>
+            },
+            "autocompact_config": {
+              "enabled": <allow_automatic_compaction>,
+              "target_free_space": "<minimum_amount_of_disk_space_to_free_up_in_MB>",
+              "bloat_percent": <minimum_collection_bloat_percentage>,
+              "compaction_type": "<master_host_compaction_settings>"
             }
           },
           "database_specs": [
             {
-              "name": "<DB_name>"
+              "name": "<DB_name>",
+              "deletion_protection": <protect_database_from_deletion>
             },
             { <similar_settings_for_DB_2> },
             { ... },
@@ -1290,7 +1366,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     "<role_1>", "<role_2>", ..., "<role_N>"
                   ]
                 }
-              ]
+              ],
+              "deletion_protection": <protect_user_from_deletion>
             },
             { <similar_settings_for_user_2> },
             { ... },
@@ -1376,11 +1453,18 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             "backup_retain_period_days": "<backup_retention_in_days>",
             "performance_diagnostics": {
               "profiling_enabled": <enable_profiler>
+            },
+            "autocompact_config": {
+              "enabled": <allow_automatic_compaction>,
+              "target_free_space": "<minimum_amount_of_disk_space_to_free_up_in_MB>",
+              "bloat_percent": <minimum_collection_bloat_percentage>,
+              "compaction_type": "<master_host_compaction_settings>"
             }
           },
           "database_specs": [
             {
-              "name": "<DB_name>"
+              "name": "<DB_name>",
+              "deletion_protection": <protect_database_from_deletion>
             },
             { <similar_settings_for_DB_2> },
             { ... },
@@ -1397,7 +1481,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     "<role_1>", "<role_2>", ..., "<role_N>"
                   ]
                 }
-              ]
+              ],
+              "deletion_protection": <protect_user_from_deletion>
             },
             { <similar_settings_for_user_2> },
             { ... },
@@ -1502,11 +1587,18 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             "backup_retain_period_days": "<backup_retention_in_days>",
             "performance_diagnostics": {
               "profiling_enabled": <enable_profiler>
+            },
+            "autocompact_config": {
+              "enabled": <allow_automatic_compaction>,
+              "target_free_space": "<minimum_amount_of_disk_space_to_free_up_in_MB>",
+              "bloat_percent": <minimum_collection_bloat_percentage>,
+              "compaction_type": "<master_host_compaction_settings>"
             }
           },
           "database_specs": [
             {
-              "name": "<DB_name>"
+              "name": "<DB_name>",
+              "deletion_protection": <protect_database_from_deletion>
             },
             { <similar_settings_for_DB_2> },
             { ... },
@@ -1523,7 +1615,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     "<role_1>", "<role_2>", ..., "<role_N>"
                   ]
                 }
-              ]
+              ],
+              "deletion_protection": <protect_user_from_deletion>
             },
             { <similar_settings_for_user_2> },
             { ... },
@@ -1576,7 +1669,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
-          {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+          {% include [deletion-protection-cluster](../../_includes/mdb/mmg/deletion-protection-cluster.md) %}
+
+          {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. In `maintenance_window`, provide one of these two parameters:
 
@@ -1590,7 +1685,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         * `config_spec`: Cluster settings:
 
-          * `version`: {{ SD }} version, 5.0, 6.0, or 7.0.
+            * `version`: {{ SD }} version, 5.0, 6.0, or 7.0.
+            
             * `mongod`, `mongoinfra`, `mongos`, `mongocfg`: [Host types](../concepts/host-roles.md).
 
               * `resources`: Cluster resources:
@@ -1631,11 +1727,20 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `backup_retain_period_days`: Backup retention time in days.
 
             * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
-              * `profiling_enabled`: Enable the [profiler](tools.md#explore-profiler), `true` or `false`.
+              
+              * `profiling_enabled`: Enable [profiler](tools.md#explore-profiler), `true` or `false`.
+            
+            * `autocompact_config`: Automatic compaction settings:
+          
+              {% include [autocompact-grpc](../../_includes/mdb/mmg/autocompact-grpc.md) %}
 
-        * `database_specs`: Database settings as an array of elements, one per database. Each element contains a database `name`.
+        * `database_specs`: Database settings as an array of elements, one per database. Each element has the following structure:
+          
+          * `name`: Database name.
 
             {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
+          * `deletion_protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
 
         * `user_specs`: User settings as an array of elements, one per user. Each element has the following structure:
 
@@ -1647,6 +1752,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
             In the `permissions` array, add a separate element with permission settings for each database.
+          
+          * `deletion_protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
 
         * `host_specs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 

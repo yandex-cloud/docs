@@ -15,95 +15,120 @@ Make sure you have added [recipients](../../concepts/alerting/notification-chann
 
 ## Creating a policy {#create-escalation}
 
-1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}** on the left.
-1. At the top right, click **Create** → **Escalation policy**.
-1. Optionally, specify **Name** and **Description**.
+{% list tabs group=instructions %}
 
-1. Select an escalation schedule:
- 
-   * **24/7**: Notify every day at any time.
+- {{ monium-name }} UI {#console}
 
-   * **Working hours**: Notify on work days from 10:00 to 21:00 Moscow time (time zone UTC+3). Weekends and public holidays are as per the Russian business calendar.
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/shield-exclamation.svg) **Alerts and SLOs** → ![alt](../../../_assets/console-icons/bell.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}** on the left.
+  1. At the top right, click **Create** → **Escalation policy**.
+  1. Optionally, specify **Name** and **Description**.
+  
+  1. Select an escalation schedule:
+   
+     * **24/7**: Notify every day at any time.
+  
+     * **Working hours**: Notify on work days from 10:00 to 21:00 Moscow time (time zone UTC+3). Weekends and public holidays are as per the Russian business calendar.
+  
+     * **Custom settings**: Notify based on a custom schedule:
 
-   * **Custom settings**: Notify based on a custom schedule:
+        * **Country**: Follow the business calendar of the the selected country.
 
-      * **Country**: Follow the business calendar of the the selected country.
+          {% note info %}
 
-        {% note info %}
+          To consider varying holiday and non-working day schedules across distributed teams, create multiple escalations for different countries.
 
-        To consider varying holiday and non-working day schedules across distributed teams, create multiple escalations for different countries.
+          {% endnote %}
 
-        {% endnote %}
+        * **Time zone**: May not match the selected country.
+        * **No notification on weekends and holidays**: Weekends and holidays as per the business calendar of the selected country.
+        * **Send hours**: Start and end time of the notification interval in the selected time zone. To send notifications 24/7, click ![image](../../../_assets/console-icons/xmark.svg) next to this setting.
+        * **Send days**: Days of week for your escalation to send notifications. To send them every day, check all days or clear the setting.
 
-      * **Time zone**: May not match the selected country.
-      * **No notification on weekends and holidays**: Weekends and holidays as per the business calendar of the selected country.
-      * **Send hours**: Start and end time of the notification interval in the selected time zone. To send notifications 24/7, click ![image](../../../_assets/console-icons/xmark.svg) next to this setting.
-      * **Send days**: Days of week for your escalation to send notifications. To send them every day, check all days or clear the setting.
+          {% note info %}
 
-        {% note info %}
+          The **No notification on weekends and holidays** setting has a higher priority than the **Sending days** setting. Therefore, no notifications will be sent on weekends and holidays no matter what send days you select.
 
-        The **No notification on weekends and holidays** setting has a higher priority than the **Sending days** setting. Therefore, no notifications will be sent on weekends and holidays no matter what send days you select.
+          {% endnote %}
 
-        {% endnote %}
+  1. Configure escalation steps, i.e., channel sequence and notification parameters:
+  
+      * **Initial delay**: First iteration delay when an escalation starts, 2 minutes by default. To start without delay, clear this field.
+      * Specify the parameters of the first escalation step: 
+        * **Method**: [Notification method](../../concepts/alerting/notification-channel.md#channel-parameters):
 
-1. Configure escalation steps, i.e., channel sequence and notification parameters:
+            {% include [escalation-channels](../../../_includes/monitoring/escalation-channels.md) %}
 
-    * **Initial delay**: First iteration delay when an escalation starts, 2 minutes by default. To start without delay, clear this field.
-    * Specify the parameters of the first escalation step: 
-      * **Method**: [Notification method](../../concepts/alerting/notification-channel.md#channel-parameters):
-       
-          {% include [escalation-channels](../../../_includes/monitoring/escalation-channels.md) %}
+            The cost of calls and SMS is calculated based on the [pricing policy](../../pricing.md).
 
-          The cost of calls and SMS is calculated based on the [pricing policy](../../pricing.md).
+        * **Delay after step**: Delay before moving on to the next step if the notification is successfully delivered but escalation is not stopped. You can set the delay in seconds or minutes, e.g., `30s`, `10m`, or `3m30s`.
 
-      * **Delay after step**: Delay before moving on to the next step if the notification is successfully delivered but escalation is not stopped. You can set the delay in seconds or minutes, e.g., `30s`, `10m`, or `3m30s`.
-      
-        The default delay is `30m`. To send the next step notification without delay, clear this field.
+          The default delay is `30m`. To send the next step notification without delay, clear this field.
 
-        {% note warning %}
+          {% note warning %}
 
-        Phone calls will always have a minimum 1-minute delay, no matter what escalation step or initial delay you configure.
+          Phone calls will always have a minimum 1-minute delay, no matter what escalation step or initial delay you configure.
 
-        {% endnote %}
+          {% endnote %}
 
-        {% note info %}
+          {% note info %}
 
-        If a step fails, there will be no delay before the next step. For the last iteration step, there will be a delay before moving on to the next iteration whether the step was successful or not.
+          If a step fails, there will be no delay before the next step. For the last iteration step, there will be a delay before moving on to the next iteration whether the step was successful or not.
 
-        {% endnote %}
+          {% endnote %}
 
-      * **Ignore if repeated**: Send the notification only once at this escalation step and ignore it in subsequent iterations. For example, if you want to send a single email to report an issue.
-      * **Recipient**: List of notification recipients.
-        
-        Specify a {{ yandex-cloud }} account as the recipient. It may be the owner's account or an [additional account](../../../iam/concepts/users/accounts.md), e.g., a federated account or Yandex ID.
-    * To add another notification, click **Add step** and specify the notification parameters.
-        
-      The number of escalation steps is unlimited.
+        * **Ignore if repeated**: Send the notification only once at this escalation step and ignore it in subsequent iterations. For example, if you want to send a single email to report an issue.
+        * **Recipient**: List of notification recipients.
 
-1. Drag and drop steps to create the escalation sequence you need.
-1. Click **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+          Specify a {{ yandex-cloud }} account as the recipient. It may be the owner's account or an [additional account](../../../iam/concepts/users/accounts.md), e.g., a federated account or Yandex ID.
+      * To add another notification, click **Add step** and specify the notification parameters.
+
+        The number of escalation steps is unlimited.
+
+  1. Drag and drop steps to create the escalation sequence you need.
+  1. Click **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+
+{% endlist %}
 
 You will see the escalation policy that you have just created on the right of the page.
 
 ## Adding a policy to an alert {#add-to-alert}
 
-1. On the [{{ monitoring-name }}]({{ link-monitoring }}) page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}** on the left-hand panel.
-1. Open an alert for editing or [create a new one](create-alert.md).
-1. Add a [notification method](../../operations/alert/create-alert.md) and select an escalation policy from the list.
+{% list tabs group=instructions %}
+
+- {{ monium-name }} UI {#console}
+
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/shield-exclamation.svg) **Alerts and SLOs** → ![alt](../../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}** on the left.
+  1. Open an alert for editing or [create a new one](create-alert.md).
+  1. Add a [notification method](../../operations/alert/create-alert.md) and select an escalation policy from the list.
+
+{% endlist %}
 
 The escalation will start as soon as the alert gets the **Alarm** status. All recipients will see a pop-up window in the {{ monitoring-short-name }} interface and will start receiving notifications according to the configured policy. If the alert gets any other status, the escalation will stop.
 
 ## Viewing notifications {#view-notifications}
 
-To keep track of sent escalation notifications: 
-* Add a widget to your [dashboard](../dashboard/add-widget.md#escalation).
-* Navigate to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-feed.title }}**.
+To keep track of sent escalation notifications:
+
+{% list tabs group=instructions %}
+
+- {{ monium-name }} UI {#console}
+
+  * Add a widget to your [dashboard](../dashboard/add-widget.md#escalation).
+  * Navigate to ![alt](../../../_assets/console-icons/shield-exclamation.svg) **Alerts and SLOs** → ![alt](../../../_assets/console-icons/triangle-thunderbolt.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-feed.title }}**.
+
+{% endlist %}
 
 ## Updating an escalation policy {#escalation-update}
 
-1. On the {{ monitoring-name }} page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.escalations.title }}** on the left-hand panel.
-1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the escalation policy and select **{{ ui-key.yacloud.common.edit }}**.
-1. Specify new policy settings.
-1. Click **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
+{% list tabs group=instructions %}
+
+- {{ monium-name }} UI {#console}
+
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/shield-exclamation.svg) **Alerts and SLOs** → ![alt](../../../_assets/console-icons/bell.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}** on the left.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the escalation policy and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Specify new policy settings.
+  1. Click **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
+
+{% endlist %}
 
 If you are editing a running escalation, the changes you make will take effect starting from the next iteration.

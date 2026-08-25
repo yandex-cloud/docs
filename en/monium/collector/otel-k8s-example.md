@@ -154,12 +154,12 @@ The cost of resources you need for {{ monium-name }} includes:
 
 - {{ monium-name }} UI {#console}
 
-  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.shards.title }}** on the left.
+  1. Select ![alt](../../_assets/console-icons/box.svg) **Delivery and storage** → ![alt](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.shards.title }}** on the left side of the [{{ monium-name }}]({{ link-monium }}) home page.
   1. In the list, select the shard with the name of the service operating within the online store, e.g., `cart` or `product-catalog`.
 
      The shard name follows the `<project_name>_<cluster_name>_<service_name>` format, e.g., `folder__{{ folder-id-example }}_default_cart`.
   
-  1. To view a specific data type, on the left, select:
+  1. To view a particular data type, hover over ![alt](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** and select the correct data type section:
 
      * **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
        

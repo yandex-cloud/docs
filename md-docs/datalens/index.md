@@ -868,8 +868,6 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Настройки дашборда](dashboard/settings.md)
 
- - [Рассылки](operations/dashboard/add-maillists.md)
-
  - [Версионирование](dashboard/versioning.md)
 
  - [Параметры](dashboard/dashboard_parameters.md)
@@ -964,6 +962,14 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Нейроаналитик в отчетах](reports/insights.md)
 
+## Рассылки
+
+ - [Обзор](concepts/maillists.md)
+
+ - [Рассылки для дашборда](operations/dashboard/add-maillists.md)
+
+ - [Рассылки для отчета](reports/add-report-maillists.md)
+
 ## HTML-страницы
 
  - [Обзор](html-pages/index.md)
@@ -1030,6 +1036,8 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Навигация](settings/navigation.md)
 
+ - [Удаленные объекты](settings/deleted-objects.md)
+
  - [Галерея в DataLens](concepts/gallery.md)
 
 ## Правила тарификации
@@ -1054,127 +1062,289 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
 ### DataLens API (англ.)
 
- - [Overview](openapi-ref/index.md)
+ - [Overview](api-ref/index.md)
 
- - [createCollection](openapi-ref/createCollection.md)
+#### Collection
 
- - [deleteCollection](openapi-ref/deleteCollection.md)
+ - [Overview](api-ref/Collection/index.md)
 
- - [deleteCollections](openapi-ref/deleteCollections.md)
+ - [Create collection](api-ref/Collection/rpccreateCollection-post.md)
 
- - [getCollectionBreadcrumbs](openapi-ref/getCollectionBreadcrumbs.md)
+ - [Delete collection](api-ref/Collection/rpcdeleteCollection-post.md)
 
- - [getCollection](openapi-ref/getCollection.md)
+ - [Delete collections](api-ref/Collection/rpcdeleteCollections-post.md)
 
- - [getCollectionContent](openapi-ref/getCollectionContent.md)
+ - [Get collection breadcrumbs](api-ref/Collection/rpcgetCollectionBreadcrumbs-post.md)
 
- - [getRootCollectionPermissions](openapi-ref/getRootCollectionPermissions.md)
+ - [Get collection](api-ref/Collection/rpcgetCollection-post.md)
 
- - [moveCollection](openapi-ref/moveCollection.md)
+ - [Get collections list by ids](api-ref/Collection/rpcgetCollectionsByIds-post.md)
 
- - [moveCollections](openapi-ref/moveCollections.md)
+ - [Get collection content](api-ref/Collection/rpcgetCollectionContent-post.md)
 
- - [updateCollection](openapi-ref/updateCollection.md)
+ - [Get root collection permissions](api-ref/Collection/rpcgetRootCollectionPermissions-post.md)
 
- - [getConnection](openapi-ref/getConnection.md)
+ - [Move collection](api-ref/Collection/rpcmoveCollection-post.md)
 
- - [createConnection](openapi-ref/createConnection.md)
+ - [Move collections](api-ref/Collection/rpcmoveCollections-post.md)
 
- - [updateConnection](openapi-ref/updateConnection.md)
+ - [Update collection](api-ref/Collection/rpcupdateCollection-post.md)
 
- - [deleteConnection](openapi-ref/deleteConnection.md)
+ - [Update collection access bindings](api-ref/Collection/rpcupdateCollectionAccessBindings-post.md)
 
- - [getDashboard](openapi-ref/getDashboard.md)
+ - [List collection access bindings](api-ref/Collection/rpclistCollectionAccessBindings-post.md)
 
- - [createDashboard](openapi-ref/createDashboard.md)
+#### Connection
 
- - [updateDashboard](openapi-ref/updateDashboard.md)
+ - [Overview](api-ref/Connection/index.md)
 
- - [deleteDashboard](openapi-ref/deleteDashboard.md)
+ - [Get connection](api-ref/Connection/rpcgetConnection-post.md)
 
- - [getDataset](openapi-ref/getDataset.md)
+ - [Create connection](api-ref/Connection/rpccreateConnection-post.md)
 
- - [createDataset](openapi-ref/createDataset.md)
+ - [Update connection](api-ref/Connection/rpcupdateConnection-post.md)
 
- - [updateDataset](openapi-ref/updateDataset.md)
+ - [Delete connection](api-ref/Connection/rpcdeleteConnection-post.md)
 
- - [deleteDataset](openapi-ref/deleteDataset.md)
+#### Dashboard
 
- - [validateDataset](openapi-ref/validateDataset.md)
+ - [Overview](api-ref/Dashboard/index.md)
 
- - [getEntriesRelations](openapi-ref/getEntriesRelations.md)
+ - [Get dashboard](api-ref/Dashboard/rpcgetDashboard-post.md)
 
- - [getEntries](openapi-ref/getEntries.md)
+ - [Create dashboard](api-ref/Dashboard/rpccreateDashboard-post.md)
 
- - [getQLChart](openapi-ref/getQlChart.md)
+ - [Update dashboard](api-ref/Dashboard/rpcupdateDashboard-post.md)
 
- - [deleteQLChart](openapi-ref/deleteQlChart.md)
+ - [Delete dashboard](api-ref/Dashboard/rpcdeleteDashboard-post.md)
 
- - [updateQLChart](openapi-ref/updateQlChart.md)
+#### Dataset
 
- - [createQLChart](openapi-ref/createQlChart.md)
+ - [Overview](api-ref/Dataset/index.md)
 
- - [getWizardChart](openapi-ref/getWizardChart.md)
+ - [Get dataset](api-ref/Dataset/rpcgetDataset-post.md)
 
- - [deleteWizardChart](openapi-ref/deleteWizardChart.md)
+ - [Create dataset](api-ref/Dataset/rpccreateDataset-post.md)
 
- - [updateWizardChart](openapi-ref/updateWizardChart.md)
+ - [Update dataset](api-ref/Dataset/rpcupdateDataset-post.md)
 
- - [createWizardChart](openapi-ref/createWizardChart.md)
+ - [Delete dataset](api-ref/Dataset/rpcdeleteDataset-post.md)
 
- - [createWorkbook](openapi-ref/createWorkbook.md)
+ - [Validate dataset](api-ref/Dataset/rpcvalidateDataset-post.md)
 
- - [deleteWorkbook](openapi-ref/deleteWorkbook.md)
+#### Entries
 
- - [deleteWorkbooks](openapi-ref/deleteWorkbooks.md)
+ - [Overview](api-ref/Entries/index.md)
 
- - [getWorkbook](openapi-ref/getWorkbook.md)
+ - [Get entries relations](api-ref/Entries/rpcgetEntriesRelations-post.md)
 
- - [getWorkbooksList](openapi-ref/getWorkbooksList.md)
+ - [Rename entry](api-ref/Entries/rpcrenameEntry-post.md)
 
- - [moveWorkbook](openapi-ref/moveWorkbook.md)
+ - [Get entries permissions](api-ref/Entries/rpcgetEntriesPermissions-post.md)
 
- - [moveWorkbooks](openapi-ref/moveWorkbooks.md)
+#### Navigation
 
- - [updateWorkbook](openapi-ref/updateWorkbook.md)
+ - [Overview](api-ref/Navigation/index.md)
 
- - [getWorkbookEntries](openapi-ref/getWorkbookEntries.md)
+ - [Get entries](api-ref/Navigation/rpcgetEntries-post.md)
 
- - [getEditorChart](openapi-ref/getEditorChart.md)
+ - [List directory](api-ref/Navigation/rpclistDirectory-post.md)
 
- - [deleteEditorChart](openapi-ref/deleteEditorChart.md)
+#### QL
 
- - [createEditorChart](openapi-ref/createEditorChart.md)
+ - [Overview](api-ref/QL/index.md)
 
- - [updateEditorChart](openapi-ref/updateEditorChart.md)
+ - [🚧 [Experimental] Get QL chart](api-ref/QL/rpcgetQLChart-post.md)
 
- - [createEmbed](openapi-ref/createEmbed.md)
+ - [Delete QL chart](api-ref/QL/rpcdeleteQLChart-post.md)
 
- - [listEmbeds](openapi-ref/listEmbeds.md)
+ - [🚧 [Experimental] Update QL chart](api-ref/QL/rpcupdateQLChart-post.md)
 
- - [deleteEmbed](openapi-ref/deleteEmbed.md)
+ - [🚧 [Experimental] Create QL chart](api-ref/QL/rpccreateQLChart-post.md)
 
- - [updateEmbed](openapi-ref/updateEmbed.md)
+#### Wizard
 
- - [getEntriesPermissions](openapi-ref/getEntriesPermissions.md)
+ - [Overview](api-ref/Wizard/index.md)
 
- - [createEmbeddingSecret](openapi-ref/createEmbeddingSecret.md)
+ - [🚧 [Experimental] Get wizard chart](api-ref/Wizard/rpcgetWizardChart-post.md)
 
- - [listEmbeddingSecrets](openapi-ref/listEmbeddingSecrets.md)
+ - [Delete wizard chart](api-ref/Wizard/rpcdeleteWizardChart-post.md)
 
- - [deleteEmbeddingSecret](openapi-ref/deleteEmbeddingSecret.md)
+ - [🚧 [Experimental] Update wizard chart](api-ref/Wizard/rpcupdateWizardChart-post.md)
 
- - [getEmbeddingSecret](openapi-ref/getEmbeddingSecret.md)
+ - [🚧 [Experimental] Create wizard chart](api-ref/Wizard/rpccreateWizardChart-post.md)
 
- - [getAuditEntriesUpdates](openapi-ref/getAuditEntriesUpdates.md)
+#### Workbook
 
- - [updateCollectionAccessBindings](openapi-ref/updateCollectionAccessBindings.md)
+ - [Overview](api-ref/Workbook/index.md)
 
- - [createFolder](openapi-ref/createFolder.md)
+ - [Create workbook](api-ref/Workbook/rpccreateWorkbook-post.md)
 
- - [listDirectory](openapi-ref/listDirectory.md)
+ - [Delete workbook](api-ref/Workbook/rpcdeleteWorkbook-post.md)
 
- - [updateWorkbookAccessBindings](openapi-ref/updateWorkbookAccessBindings.md)
+ - [Delete workbooks](api-ref/Workbook/rpcdeleteWorkbooks-post.md)
+
+ - [Get workbook](api-ref/Workbook/rpcgetWorkbook-post.md)
+
+ - [Get workbooks list](api-ref/Workbook/rpcgetWorkbooksList-post.md)
+
+ - [Get workbook list by ids](api-ref/Workbook/rpcgetWorkbooksByIds-post.md)
+
+ - [Move workbook](api-ref/Workbook/rpcmoveWorkbook-post.md)
+
+ - [Move workbooks](api-ref/Workbook/rpcmoveWorkbooks-post.md)
+
+ - [Update workbook](api-ref/Workbook/rpcupdateWorkbook-post.md)
+
+ - [Get workbook entries](api-ref/Workbook/rpcgetWorkbookEntries-post.md)
+
+ - [Update workbook access bindings](api-ref/Workbook/rpcupdateWorkbookAccessBindings-post.md)
+
+ - [List workbook access bindings](api-ref/Workbook/rpclistWorkbookAccessBindings-post.md)
+
+#### WorkbookExport
+
+ - [Overview](api-ref/WorkbookExport/index.md)
+
+ - [Start workbook export](api-ref/WorkbookExport/rpcstartWorkbookExport-post.md)
+
+ - [Get workbook export status](api-ref/WorkbookExport/rpcgetWorkbookExportStatus-post.md)
+
+ - [Get workbook export result](api-ref/WorkbookExport/rpcgetWorkbookExportResult-post.md)
+
+ - [Cancel workbook export](api-ref/WorkbookExport/rpccancelWorkbookExport-post.md)
+
+#### WorkbookImport
+
+ - [Overview](api-ref/WorkbookImport/index.md)
+
+ - [Start workbook import](api-ref/WorkbookImport/rpcstartWorkbookImport-post.md)
+
+ - [Get workbook import status](api-ref/WorkbookImport/rpcgetWorkbookImportStatus-post.md)
+
+#### EntryLock
+
+ - [Overview](api-ref/EntryLock/index.md)
+
+ - [Create entry lock](api-ref/EntryLock/rpccreateEntryLock-post.md)
+
+ - [Extend entry lock](api-ref/EntryLock/rpcextendEntryLock-post.md)
+
+ - [Delete entry lock](api-ref/EntryLock/rpcdeleteEntryLock-post.md)
+
+#### Editor
+
+ - [Overview](api-ref/Editor/index.md)
+
+ - [🚧 [Experimental] Get editor chart](api-ref/Editor/rpcgetEditorChart-post.md)
+
+ - [Delete editor chart](api-ref/Editor/rpcdeleteEditorChart-post.md)
+
+ - [🚧 [Experimental] Create editor chart](api-ref/Editor/rpccreateEditorChart-post.md)
+
+ - [🚧 [Experimental] Update editor chart](api-ref/Editor/rpcupdateEditorChart-post.md)
+
+#### Embeds
+
+ - [Overview](api-ref/Embeds/index.md)
+
+ - [Create embed](api-ref/Embeds/rpccreateEmbed-post.md)
+
+ - [List embeds](api-ref/Embeds/rpclistEmbeds-post.md)
+
+ - [Delete embed](api-ref/Embeds/rpcdeleteEmbed-post.md)
+
+ - [Update embed](api-ref/Embeds/rpcupdateEmbed-post.md)
+
+#### Permissions
+
+ - [Overview](api-ref/Permissions/index.md)
+
+ - [Get entries, workbooks and collections permissions](api-ref/Permissions/rpcgetPermissionsBulk-post.md)
+
+#### EmbeddingSecrets
+
+ - [Overview](api-ref/EmbeddingSecrets/index.md)
+
+ - [Create embedding secret](api-ref/EmbeddingSecrets/rpccreateEmbeddingSecret-post.md)
+
+ - [List embedding secrets](api-ref/EmbeddingSecrets/rpclistEmbeddingSecrets-post.md)
+
+ - [Delete embedding secret](api-ref/EmbeddingSecrets/rpcdeleteEmbeddingSecret-post.md)
+
+ - [Get embedding secret](api-ref/EmbeddingSecrets/rpcgetEmbeddingSecret-post.md)
+
+#### Reports
+
+ - [Overview](api-ref/Reports/index.md)
+
+ - [Get report](api-ref/Reports/rpcgetReport-post.md)
+
+ - [Create report](api-ref/Reports/rpccreateReport-post.md)
+
+ - [Update report](api-ref/Reports/rpcupdateReport-post.md)
+
+ - [Delete report](api-ref/Reports/rpcdeleteReport-post.md)
+
+#### Audit
+
+ - [Overview](api-ref/Audit/index.md)
+
+ - [Get updated entries for audit](api-ref/Audit/rpcgetAuditEntriesUpdates-post.md)
+
+ - [Get entry permissions for user](api-ref/Audit/rpcgetAuditEntryPermissionsForUser-post.md)
+
+#### Folder
+
+ - [Overview](api-ref/Folder/index.md)
+
+ - [CreateFolder](api-ref/Folder/rpccreateFolder-post.md)
+
+ - [Get permissions](api-ref/Folder/rpcgetPermissions-post.md)
+
+ - [Modify permissions](api-ref/Folder/rpcmodifyPermissions-post.md)
+
+ - [DLS suggest](api-ref/Folder/rpcdlsSuggest-post.md)
+
+ - [Delete folder](api-ref/Folder/rpcdeleteFolder-post.md)
+
+ - [Move folder entry](api-ref/Folder/rpcmoveFolderEntry-post.md)
+
+#### SharedEntry
+
+ - [Overview](api-ref/SharedEntry/index.md)
+
+ - [List shared entry access bindings](api-ref/SharedEntry/rpclistSharedEntryAccessBindings-post.md)
+
+#### Access
+
+ - [Overview](api-ref/Access/index.md)
+
+ - [Batch list members](api-ref/Access/rpcbatchListMembers-post.md)
+
+#### HtmlPages
+
+ - [Overview](api-ref/HtmlPages/index.md)
+
+ - [Create HTML page](api-ref/HtmlPages/rpccreateHtmlPage-post.md)
+
+ - [Get HTML page](api-ref/HtmlPages/rpcgetHtmlPage-post.md)
+
+ - [Update HTML page](api-ref/HtmlPages/rpcupdateHtmlPage-post.md)
+
+ - [Delete HTML page](api-ref/HtmlPages/rpcdeleteHtmlPage-post.md)
+
+#### Licensing
+
+ - [Overview](api-ref/Licensing/index.md)
+
+ - [Get licenses](api-ref/Licensing/rpcgetLicenses-post.md)
+
+ - [Get licenses limit](api-ref/Licensing/rpcgetLicensesLimit-post.md)
+
+ - [Set licenses limit](api-ref/Licensing/rpcsetLicenseLimit-post.md)
+
+ - [Assign licenses](api-ref/Licensing/rpcassignLicenses-post.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

@@ -487,7 +487,7 @@ sudo apt install openvpn-auth-oauth2
 
 ### Подготовьте TLS-сертификат {#prepare-tls}
 
-Плагин `openvpn-auth-oauth2` требует TLS-сертификат для защиты соединения на порту `9000`.
+Плагин `openvpn-auth-oauth2` требует TLS-сертификат для защиты соединения на порте `9000`.
 
 {% note tip %}
 

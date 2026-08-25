@@ -21,70 +21,23 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где нужно создать балансировщик.
   1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
+  1. Нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя балансировщика. Требования к имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-  1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}** выберите `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`. 
+  1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}** выберите `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`.
   1. (Опционально) В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_advanced }}** включите защиту балансировщика от удаления.
 
       {% note warning %}
 
-      Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика. 
+      Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика.
 
       {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}** добавьте [обработчик](../concepts/listener.md):
-      1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
-      1. В открывшемся окне задайте параметры обработчика:
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-subnet-id }}**, в которой балансировщик будет перенаправлять трафик.
-          * В поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите способ назначения обработчику IP-адреса, на котором балансировщик будет принимать трафик:
-
-              * `{{ ui-key.yacloud.common.label_auto }}` — чтобы обработчику был автоматически назначен свободный IP-адрес из диапазона выбранной подсети.
-              * `{{ ui-key.yacloud.common.label_list }}` — чтобы вручную зарезервировать в выбранной подсети нужный IP-адрес для обработчика.
-
-                  В появившемся поле **{{ ui-key.yacloud.component.internal-v4-address-field.label_internal-address-title }}** выберите зарезервированный ранее IP-адрес или нажмите кнопку **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}**, чтобы зарезервировать новый. В открывшемся окне задайте параметры резервируемого IP-адреса:
-
-                  * **{{ ui-key.yacloud.common.name }}**.
-                  * **{{ ui-key.yacloud.vpc.addresses.popup-create_field_internal-v4-address }}** — укажите свободный IP-адрес в диапазоне подсети, выбранной для обработчика.
-                  * (Опционально) В поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите защиту резервируемого IP-адреса от удаления.
-                  * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-          * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}** выберите `{{ ui-key.yacloud.common.label_tcp }}` или `{{ ui-key.yacloud.common.label_udp }}`.
-
-              {% note info %}
-
-              По умолчанию обработчик работает по протоколу TCP. Чтобы использовать протокол UDP, [запросите в технической поддержке]({{ link-console-support }}) эту возможность.
-
-              {% endnote %}
-
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}**, на котором обработчик будет принимать входящий трафик. Возможные значения: от `1` до `32767`.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**, куда балансировщик будет направлять трафик. Возможные значения: от `1` до `32767`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** добавьте [целевую группу](../concepts/target-resources.md):
-      1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
-      1. Выберите целевую группу или [создайте новую](target-group-create.md):
-          * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** выберите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
-          * В открывшемся окне введите имя целевой группы.
-          * Добавьте в целевую группу [виртуальные машины](../../glossary/vm.md).
-          * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-      1. (Опционально) Под блоком **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. В открывшемся окне задайте параметры [проверки состояния ресурсов](../concepts/health-check.md):
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**.
-          * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** выберите один из вариантов:
-
-              * `{{ ui-key.yacloud.common.label_http }}`. Дополнительно в поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** укажите путь, по которому будут выполняться проверки.
-              * `{{ ui-key.yacloud.common.label_tcp }}`.
-              * `{{ ui-key.yacloud.common.label_http2 }}`. Дополнительно в полях **{{ ui-key.yacloud.compute.group.overview.label_host }}** и **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** укажите адрес хоста и путь, по которому будут выполняться проверки.
-              * `{{ ui-key.yacloud.common.label_https }}`. Дополнительно в полях **{{ ui-key.yacloud.compute.group.overview.label_host }}** и **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** укажите адрес хоста и путь, по которому будут выполняться проверки.
-              * `{{ ui-key.yacloud.common.label_grpc }}`. Дополнительно в полях **{{ ui-key.yacloud.compute.group.overview.label_service-name }}** и **{{ ui-key.yacloud.compute.group.overview.label_authority }}** укажите данные вашего gRPC-сервиса.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** — номер порта для проверок. Возможные значения: от `1` до `32767`.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}** — время ожидания ответа в секундах.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}** — интервал выполнения проверок состояния в секундах.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}** — количество успешных проверок, после которого виртуальная машина будет считаться готовой к приему трафика.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}** — количество проваленных проверок, после которого на виртуальную машину перестанет подаваться трафик.
-	    1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. {% include [add-listener](../../_includes/network-load-balancer/add-listener.md) %}
+  1. {% include [add-target-group](../../_includes/network-load-balancer/add-target-group.md) %}
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
   

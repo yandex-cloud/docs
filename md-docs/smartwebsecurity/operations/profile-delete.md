@@ -9,7 +9,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль безопасности](../concepts/profiles.md).
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
-  1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. Подтвердите удаление.
 
 - CLI {#cli}
@@ -56,9 +56,9 @@
      ```
 
      {% note info %}
-     
+
      Удаление профиля безопасности может повлиять на доступ к виртуальным хостам, к которым он подключен.
-     
+
      {% endnote %}
 
   Подробнее о команде `yc smartwebsecurity security-profile delete` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/delete.md).
@@ -81,7 +81,7 @@
   1. Откройте файл конфигурации Terraform и удалите фрагмент с описанием профиля.
 
      {% cut "Пример описания профиля безопасности в конфигурации Terraform" %}
-     
+
      ```hcl
      resource "yandex_sws_security_profile" "demo-profile-simple" {
        name                             = "<имя_профиля_безопасности>"

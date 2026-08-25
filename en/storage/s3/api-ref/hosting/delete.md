@@ -12,20 +12,15 @@ DELETE /{bucket}?website HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Query parameters {#parameters}
 
-Parameter | Description
------ | -----
-`website` | Required parameter that indicates the type of operation.
+{% include [query-parameters](../../../_includes_service/storage-hosting-query-parameters.md) %}
 
-### Headers {#request-headers}
+### Headings {#request-headers}
 
 Use only [common headers](../common-request-headers.md) in your requests.
-
 
 ## Response {#response}
 
@@ -41,6 +36,6 @@ If there is no hosting configuration, {{ objstorage-name }} will return code 200
 
 #### Related articles {#related-articles}
 
-* [{#T}](../../../operations/hosting/setup.md)
+[{#T}](../../../operations/hosting/setup.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

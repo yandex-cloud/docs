@@ -6,4 +6,4 @@ canonical: '{{ link-docs }}/tutorials/dataplatform/confluent-schema-registry'
 
 # Использование Confluent Schema Registry с {{ mkf-name }}
 
-{% include [kafka-сonfluent-schema-registry](../../_tutorials/dataplatform/kafka/kafka-confluent-schema-registry.md) %}
+{% include [kafka-confluent-schema-registry](../../_tutorials/dataplatform/kafka/kafka-confluent-schema-registry.md) %}

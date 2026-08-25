@@ -24,8 +24,8 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, из которого вы хотите удалить брокер.
     1. [Перейдите](https://console.yandex.cloud/link/iot-core) в сервис **IoT Core**.
-    1. На панели слева выберите **Брокеры**.
-    1. Справа от имени брокера, который хотите удалить, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и в выпадающем списке выберите **Удалить**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/gear-branches.svg) **Брокеры**.
+    1. Справа от имени брокера, которого хотите удалить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
     1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI {#cli}

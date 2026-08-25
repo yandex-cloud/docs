@@ -18,6 +18,7 @@
 * [Посмотреть журнал выполнения](api-gw-logs.md)
 * [Записать логи в журнал выполнения](api-gw-logs-write.md)
 * [Отключить домен](api-gw-domain-detach.md)
+* [Остановить и запустить API-шлюз](api-gw-stop-resume.md)
 * [Миграция API-шлюзов в зону ru-central1-d](api-gw-migration.md)
 * [Удалить API-шлюз](api-gw-delete.md)
 

@@ -734,13 +734,19 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [CreateRegistry](audit/cloudregistry/events-ref/CreateRegistry.md)
 
+ - [CreateScanPolicy](audit/cloudregistry/events-ref/CreateScanPolicy.md)
+
  - [DeleteArtifact](audit/cloudregistry/events-ref/DeleteArtifact.md)
 
  - [DeleteLifecyclePolicy](audit/cloudregistry/events-ref/DeleteLifecyclePolicy.md)
 
  - [DeleteRegistry](audit/cloudregistry/events-ref/DeleteRegistry.md)
 
+ - [DeleteScanPolicy](audit/cloudregistry/events-ref/DeleteScanPolicy.md)
+
  - [RevokeDelegation](audit/cloudregistry/events-ref/RevokeDelegation.md)
+
+ - [ScanArtifact](audit/cloudregistry/events-ref/ScanArtifact.md)
 
  - [SetArtifactAccessBindings](audit/cloudregistry/events-ref/SetArtifactAccessBindings.md)
 
@@ -765,6 +771,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [UpdateRegistryAccessBindings](audit/cloudregistry/events-ref/UpdateRegistryAccessBindings.md)
 
  - [UpdateRegistryFolderAccessBindings](audit/cloudregistry/events-ref/UpdateRegistryFolderAccessBindings.md)
+
+ - [UpdateScanPolicy](audit/cloudregistry/events-ref/UpdateScanPolicy.md)
 
 ### compute
 
@@ -980,6 +988,10 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [CopyWorkbook](audit/datalens/events-ref/CopyWorkbook.md)
 
+ - [CreateAirflowCluster](audit/datalens/events-ref/CreateAirflowCluster.md)
+
+ - [CreateCloudEnvironment](audit/datalens/events-ref/CreateCloudEnvironment.md)
+
  - [CreateCollection](audit/datalens/events-ref/CreateCollection.md)
 
  - [CreateColorPalette](audit/datalens/events-ref/CreateColorPalette.md)
@@ -992,7 +1004,19 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [CreateEntry](audit/datalens/events-ref/CreateEntry.md)
 
+ - [CreateRestCatalog](audit/datalens/events-ref/CreateRestCatalog.md)
+
+ - [CreateRestCatalogNamespace](audit/datalens/events-ref/CreateRestCatalogNamespace.md)
+
+ - [CreateSparkCluster](audit/datalens/events-ref/CreateSparkCluster.md)
+
+ - [CreateTrinoCluster](audit/datalens/events-ref/CreateTrinoCluster.md)
+
  - [CreateWorkbook](audit/datalens/events-ref/CreateWorkbook.md)
+
+ - [DeleteAirflowCluster](audit/datalens/events-ref/DeleteAirflowCluster.md)
+
+ - [DeleteCloudEnvironment](audit/datalens/events-ref/DeleteCloudEnvironment.md)
 
  - [DeleteCollections](audit/datalens/events-ref/DeleteCollections.md)
 
@@ -1006,7 +1030,15 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [DeleteEntry](audit/datalens/events-ref/DeleteEntry.md)
 
+ - [DeleteRestCatalog](audit/datalens/events-ref/DeleteRestCatalog.md)
+
+ - [DeleteRestCatalogNamespace](audit/datalens/events-ref/DeleteRestCatalogNamespace.md)
+
  - [DeleteSharedEntry](audit/datalens/events-ref/DeleteSharedEntry.md)
+
+ - [DeleteSparkCluster](audit/datalens/events-ref/DeleteSparkCluster.md)
+
+ - [DeleteTrinoCluster](audit/datalens/events-ref/DeleteTrinoCluster.md)
 
  - [DeleteWorkbooks](audit/datalens/events-ref/DeleteWorkbooks.md)
 
@@ -1047,6 +1079,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [SwitchPublicationProhibition](audit/datalens/events-ref/SwitchPublicationProhibition.md)
 
  - [SwitchWorkbookFileExportProhibition](audit/datalens/events-ref/SwitchWorkbookFileExportProhibition.md)
+
+ - [UpdateCloudEnvironment](audit/datalens/events-ref/UpdateCloudEnvironment.md)
 
  - [UpdateCollection](audit/datalens/events-ref/UpdateCollection.md)
 
@@ -1538,6 +1572,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [InstallHelmRelease](audit/k8s/events-ref/InstallHelmRelease.md)
 
+ - [InstallHelmRelease](audit/k8s/events-ref/InstallHelmRelease.md)
+
  - [ScaleMaster](audit/k8s/events-ref/ScaleMaster.md)
 
  - [SetClusterAccessBindings](audit/k8s/events-ref/SetClusterAccessBindings.md)
@@ -1548,11 +1584,15 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UninstallHelmRelease](audit/k8s/events-ref/UninstallHelmRelease.md)
 
+ - [UninstallHelmRelease](audit/k8s/events-ref/UninstallHelmRelease.md)
+
  - [UpdateCluster](audit/k8s/events-ref/UpdateCluster.md)
 
  - [UpdateClusterAccessBindings](audit/k8s/events-ref/UpdateClusterAccessBindings.md)
 
  - [UpdateClusterCertificate](audit/k8s/events-ref/UpdateClusterCertificate.md)
+
+ - [UpdateHelmRelease](audit/k8s/events-ref/UpdateHelmRelease.md)
 
  - [UpdateHelmRelease](audit/k8s/events-ref/UpdateHelmRelease.md)
 
@@ -2430,6 +2470,10 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [CreateApplication](audit/organizationmanager/events-ref/CreateApplication.md)
 
+ - [CreateApplication](audit/organizationmanager/events-ref/CreateApplication.md)
+
+ - [CreateAsset](audit/organizationmanager/events-ref/CreateAsset.md)
+
  - [CreateAsset](audit/organizationmanager/events-ref/CreateAsset.md)
 
  - [CreateAuthenticationPolicyRule](audit/organizationmanager/events-ref/CreateAuthenticationPolicyRule.md)
@@ -2470,6 +2514,10 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [DeleteApplication](audit/organizationmanager/events-ref/DeleteApplication.md)
 
+ - [DeleteApplication](audit/organizationmanager/events-ref/DeleteApplication.md)
+
+ - [DeleteAsset](audit/organizationmanager/events-ref/DeleteAsset.md)
+
  - [DeleteAsset](audit/organizationmanager/events-ref/DeleteAsset.md)
 
  - [DeleteAuthenticationPolicyRule](audit/organizationmanager/events-ref/DeleteAuthenticationPolicyRule.md)
@@ -2498,6 +2546,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [DeleteOsLoginProfile](audit/organizationmanager/events-ref/DeleteOsLoginProfile.md)
 
+ - [DeleteRefreshTokenPolicy](audit/organizationmanager/events-ref/DeleteRefreshTokenPolicy.md)
+
  - [DeleteSignatureCertificate](audit/organizationmanager/events-ref/DeleteSignatureCertificate.md)
 
  - [DeleteUser](audit/organizationmanager/events-ref/DeleteUser.md)
@@ -2513,6 +2563,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [OAuthFederationPrivateTlsDeleteCertificate](audit/organizationmanager/events-ref/OAuthFederationPrivateTlsDeleteCertificate.md)
 
  - [OAuthFederationPrivateTlsUpdateCertificate](audit/organizationmanager/events-ref/OAuthFederationPrivateTlsUpdateCertificate.md)
+
+ - [ReactivateApplication](audit/organizationmanager/events-ref/ReactivateApplication.md)
 
  - [ReactivateApplication](audit/organizationmanager/events-ref/ReactivateApplication.md)
 
@@ -2534,15 +2586,21 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [SetApplicationAccessBindings](audit/organizationmanager/events-ref/SetApplicationAccessBindings.md)
 
+ - [SetApplicationAccessBindings](audit/organizationmanager/events-ref/SetApplicationAccessBindings.md)
+
  - [SetDefaultProfile](audit/organizationmanager/events-ref/SetDefaultProfile.md)
 
  - [SetGroupAccessBindings](audit/organizationmanager/events-ref/SetGroupAccessBindings.md)
 
  - [SetOrganizationAccessBindings](audit/organizationmanager/events-ref/SetOrganizationAccessBindings.md)
 
+ - [SetTwoFactorAuthenticationPassportRequired](audit/organizationmanager/events-ref/SetTwoFactorAuthenticationPassportRequired.md)
+
  - [SetUserPassword](audit/organizationmanager/events-ref/SetUserPassword.md)
 
  - [SetUserpoolAccessBindings](audit/organizationmanager/events-ref/SetUserpoolAccessBindings.md)
+
+ - [SuspendApplication](audit/organizationmanager/events-ref/SuspendApplication.md)
 
  - [SuspendApplication](audit/organizationmanager/events-ref/SuspendApplication.md)
 
@@ -2558,9 +2616,15 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateApplication](audit/organizationmanager/events-ref/UpdateApplication.md)
 
+ - [UpdateApplication](audit/organizationmanager/events-ref/UpdateApplication.md)
+
  - [UpdateApplicationAccessBindings](audit/organizationmanager/events-ref/UpdateApplicationAccessBindings.md)
 
  - [UpdateApplicationAccessBindings](audit/organizationmanager/events-ref/UpdateApplicationAccessBindings.md)
+
+ - [UpdateApplicationAccessBindings](audit/organizationmanager/events-ref/UpdateApplicationAccessBindings.md)
+
+ - [UpdateApplicationAssignments](audit/organizationmanager/events-ref/UpdateApplicationAssignments.md)
 
  - [UpdateApplicationAssignments](audit/organizationmanager/events-ref/UpdateApplicationAssignments.md)
 
@@ -2599,6 +2663,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [UpdateOsLoginProfile](audit/organizationmanager/events-ref/UpdateOsLoginProfile.md)
 
  - [UpdateOsLoginSettings](audit/organizationmanager/events-ref/UpdateOsLoginSettings.md)
+
+ - [UpdateRefreshTokenPolicy](audit/organizationmanager/events-ref/UpdateRefreshTokenPolicy.md)
 
  - [UpdateSignatureCertificate](audit/organizationmanager/events-ref/UpdateSignatureCertificate.md)
 

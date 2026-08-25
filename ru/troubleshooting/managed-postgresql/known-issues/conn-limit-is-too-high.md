@@ -1,9 +1,9 @@
-# Устранение ошибки `max_connections сonn_limit is too high`
+# Устранение ошибки `max_connections conn_limit is too high`
 
 
 ## Описание проблемы {#issue-description}
 
-При подключении к {{ mpg-name }} возникает ошибка `max_connections сonn_limit is too high`.
+При подключении к {{ mpg-name }} возникает ошибка `max_connections conn_limit is too high`.
 
 ## Решение {#issue-resolution}
 

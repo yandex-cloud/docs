@@ -8,8 +8,7 @@
 
 	1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится контейнер.
 	1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
-	1. В строке с контейнером нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
-	1. В открывшемся меню нажмите кнопку **Удалить**.
+	1. В строке с контейнером нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
 	1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI {#cli}

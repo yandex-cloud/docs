@@ -66,7 +66,7 @@ done
 
 1. [Создайте соединение](../../query/operations/connection.md#create) с именем `cloud-logging-connection` и типом `{{ ui-key.yql.yq-connection.action_datastreams }}`.
 1. На странице создания привязки:
-    * Выберите **{{ ui-key.yql.yq-binding-form.binding-fields-templates.button.label }} {{ cloud-logging-short-name }}**.
+    * Выберите **{{ ui-key.yql.yq-binding-form.binding-fields-templates.button.label }}** ![image](../../_assets/console-icons/chevron-down.svg) → `{{ cloud-logging-short-name }}`.
     * Введите имя привязки `cloud-logging-binding`.
     * Укажите поток данных `cloud-logging-stream`.
     * Задайте формат `json-list`.

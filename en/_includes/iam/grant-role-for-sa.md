@@ -37,7 +37,7 @@ To assign a role for a resource:
   ```bash
   yc resource-manager <resource_category> add-access-binding <resource_name_or_ID> \
     --role <role_ID> \
-    --subject serviceAccount:<service_account_ID>
+    --service-account-id <service_account_ID>
   ```
 
   Where:
@@ -45,9 +45,9 @@ To assign a role for a resource:
   * `<resource_category>`: `cloud` to assign a role for a cloud or `folder` to assign a role for a folder.
   * `<resource_name_or_ID>`: Name or ID of the resource to assign a role for.
   * `--role`: Role ID, e.g., `{{ roles-viewer }}`.
-  * `--subject serviceAccount`: ID of the service account you are assigning the role to.
+  * `--service-account-id`: ID of the service account you are assigning the role to.
 
-  For example, to assign a service account the `{{ roles-viewer }}` role for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) named `my-folder`:
+  For example, to assign a service account the role for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder):
 
   {% include [grant-role-for-sa-to-folder-via-cli](grant-role-for-sa-to-folder-via-cli.md) %}
 
@@ -55,51 +55,40 @@ To assign a role for a resource:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
-     Here is an example of the configuration file structure:
+      Sample configuration file structure for assigning a role to a folder:
 
-     ```
-     resource "yandex_resourcemanager_folder_iam_member" "admin-account-iam" {
-       folder_id   = "<folder_ID>"
-       role        = "<role>"
-       member      = "serviceAccount:<service_account_ID>"
-     }
-     ```
+      ```hcl
+      resource "yandex_resourcemanager_folder_iam_member" "admin-account-iam" {
+        folder_id   = "<folder_ID>"
+        role        = "<role>"
+        member      = "serviceAccount:<service_account_ID>"
+      }
+      ```
 
-     Where:
-     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is a required setting.
-     * `role`: Role to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). This is a required setting.
-     * `member`: [ID](../../iam/operations/sa/get-id.md) of the service account you are assigning the role to. Use this format: `serviceAccount:<service_account_ID>`. This is a required setting.
+      Where:
+      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is a required setting.
+      * `role`: Role. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). This is a required setting.
+      * `member`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role. For a service account, specify `serviceAccount:<service_account_ID>`.
 
-     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
+          {% cut "Subject designations" %}
 
-  1. Make sure the configuration files are correct.
+          {% include [subjects-designations-terraform](subjects-designations-terraform.md) %}
 
-     1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using this command:
+          {% endcut %}
 
-        ```
-        terraform plan
-        ```
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
-     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
+  1. Create the resources:
 
-  1. Deploy the cloud resources.
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     1. If the configuration is correct, run this command:
+      This will assign access permissions for the folder. You can check the role assignment using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-        ```
-        terraform apply
-        ```
-
-     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
-
-     This will create all the resources you need in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
-
-     ```bash
-     yc resource-manager folder list-access-bindings <folder_name_or_ID>
-     ```
+      ```bash
+      yc resource-manager folder list-access-bindings <folder_name_or_ID>
+      ```
 
 - API {#api}
 
@@ -144,18 +133,18 @@ To grant a service account permissions to access an organization, you need the `
   ```bash
   yc organization-manager organization add-access-binding <organization_name_or_ID> \
     --role <role_ID> \
-    --subject serviceAccount:<service_account_ID>
+    --service-account-id <service_account_ID>
   ```
 
   Where:
+
   * `<organization_name_or_ID>`: Technical name or [ID](../../organization/operations/organization-get-id.md) of the organization.
   * `--role`: Role ID, e.g., `{{ roles-viewer }}`.
-  * `--subject serviceAccount`: ID of the service account you are assigning the role to.
+  * `--service-account-id`: ID of the service account you are assigning the role to.
 
   For example, to assign a service account the `{{ roles-viewer }}` role for the `MyOrg` organization:
 
   1. Select the role to assign to the service account. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
-
   1. Get a list of available organizations to find out their IDs and technical names:
 
       ```bash
@@ -210,14 +199,14 @@ To grant a service account permissions to access an organization, you need the `
       ```bash
       yc organization-manager organization add-access-binding bpf1smsil5q0******** \
         --role viewer \
-        --subject serviceAccount:aje6o61dvog2********
+        --service-account-id aje6o61dvog2********
       ```
 
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      Here is an example of the configuration file structure:
 
@@ -225,41 +214,26 @@ To grant a service account permissions to access an organization, you need the `
      resource "yandex_organizationmanager_organization_iam_binding" "editor" {
        organization_id   = "<organization_ID>"
        role              = "<role>"
-       members           = [
-                             "serviceAccount:<service_account_ID>",
-                           ]
+       members           = ["serviceAccount:<service_account_ID>",]
      }
      ```
 
      Where:
      * `organization_id`: [Organization ID](../../organization/operations/organization-get-id.md). This is a required setting.
-     * `role`: Role to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource. This is a required setting.
-     * `members`: [ID](../../iam/operations/sa/get-id.md) of the service account you are assigning the role to. Use this format: `serviceAccount:<service_account_ID>`. This is a required setting.
+     * `role`: Role. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required setting.
+     * `members`: Designations of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role. This is a required setting.
 
-     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
+     For more on the properties of the `yandex_organizationmanager_organization_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_binding).
 
-  1. Make sure the configuration files are correct.
-    
-     1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using this command:
- 
-        ```
-        terraform plan
-        ```
+  1. Make sure the settings are correct.
 
-     If the configuration is described correctly, the terminal will display a list of the assigned roles. {{ TF }} will show any errors in the configuration.
- 
-  1. Deploy the cloud resources.
-  
-     1. If the configuration is correct, run this command:
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-        ```
-        terraform apply
-        ```
+  1. Assign the role.
 
-     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
-	 
-     This will create the required resources in the specified organization. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+     This will assign access permissions for the organization. You can check the role assignment using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc organization-manager organization list-access-bindings <organization_name_or_ID>
@@ -267,7 +241,7 @@ To grant a service account permissions to access an organization, you need the `
 
 - API {#api}
 
-  To assign the service account a role for the organization, use the [updateAccessBindings](../../organization/api-ref/Organization/updateAccessBindings.md) REST API method for the [Organization](../../organization/api-ref/Organization/index.md) resource:
+  To assign a service account a role for an organization, use the [updateAccessBindings](../../organization/api-ref/Organization/updateAccessBindings.md) REST API method for the [Organization](../../organization/api-ref/Organization/index.md) resource or the [OrganizationService/UpdateAccessBindings](../../organization/api-ref/grpc/Organization/updateAccessBindings.md) gRPC API call:
 
   1. Select the role to assign to the service account. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
   1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the service accounts folder.
@@ -275,8 +249,8 @@ To grant a service account permissions to access an organization, you need the `
   1. Get a list of folder service accounts to find out their IDs:
 
       ```bash
-      export FOLDER_ID=b1gvmob95yys********
-      export IAM_TOKEN=CggaATEVAgA...
+      export FOLDER_ID=<folder_ID>
+      export IAM_TOKEN=<IAM_token>
       curl \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
@@ -302,7 +276,7 @@ To grant a service account permissions to access an organization, you need the `
   1. Get a list of organizations to find out their IDs:
 
       ```bash
-      export IAM_TOKEN=CggaATEVAgA... 
+      export IAM_TOKEN=<IAM_token>
       curl \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --request GET \
@@ -324,7 +298,7 @@ To grant a service account permissions to access an organization, you need the `
       }
       ```
 
-  1. Create the request body, e.g., in the `body.json` file. Set the `action` property to `ADD` and `roleId` to the appropriate role, such as `{{ roles-viewer }}`, and specify the `serviceAccount` type and service account ID in the `subject` property:
+  1. Create the request body, e.g., in the `body.json` file. Specify `ADD` in the `action` property:
 
       **body.json:**
 
@@ -333,9 +307,9 @@ To grant a service account permissions to access an organization, you need the `
         "accessBindingDeltas": [{
           "action": "ADD",
           "accessBinding": {
-            "roleId": "viewer",
+            "roleId": "<role>",
             "subject": {
-              "id": "ajebqtreob2d********",
+              "id": "<service_account_ID>",
               "type": "serviceAccount"
             }
           }
@@ -343,11 +317,23 @@ To grant a service account permissions to access an organization, you need the `
       }
       ```
 
-  1. Assign a role to a service account. For example, assign it for the organization with the `bpfaidqca8vd********` ID:
+      Where:
+
+      * `roleId`: Role.
+      * `subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](subjects-designations-api.md) %}
+
+          {% endcut %}
+
+
+  1. Assign the role to the service account:
 
       ```bash
-      export ORGANIZATION_ID=bpfaidqca8vd********
-      export IAM_TOKEN=CggaATEVAgA...
+      export ORGANIZATION_ID=<organization_ID>
+      export IAM_TOKEN=<IAM_token>
       curl \
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer ${IAM_TOKEN}" \

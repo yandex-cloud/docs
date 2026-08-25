@@ -61,13 +61,9 @@ You are billed for the following:
 
     For information about platform-specific storage limitations, see [Disk types](./concepts/storage.md).
 
-* Database backup storage exceeding the cluster’s allocated space.
+{% include [pricing-backup-general](../_includes/mdb/pricing-backup-general.md) %} 
 
-    {% include [pricing-backup](../_includes/mdb/pricing-backup.md) %} 
-
-    * Backup storage is not billable until the total volume of backups exceeds that of the cluster storage. This calculation does not count in the data volume of the database itself.
-
-    * The number of hosts in a cluster does not affect the storage size and, consequently, the free backup quota.
+For more information, see [Backups in {{ mrd-name }}](concepts/backup.md).
 
 The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 

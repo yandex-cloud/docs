@@ -131,6 +131,6 @@ SASL authentication error: Authentication failed during authentication due to in
 
 {% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}
 
-#### Какая версия коннектора MirrorMaker поддерживается в {{ mkf-short-name }} {#mirrormaker-version}
+#### Какая версия коннектора MirrorMaker поддерживается в {{ mkf-short-name }}? {#mirrormaker-version}
 
 В сервисе {{ mkf-name }} поддержан **MirrorMaker** версии 2.

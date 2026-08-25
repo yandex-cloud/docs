@@ -95,7 +95,7 @@ description: Из этой инструкции вы узнаете, как уп
           * `LAST_MODIFIED_DATE` — дата создания или последнего изменения объекта;
           * `STORAGE_CLASS` — [класс хранилища](../../concepts/storage-class.md);
           * `INTELLIGENT_TIERING_ACCESS_TIER` — уровень доступа объекта в [умном хранилище](../../concepts/storage-class.md#features-intelligent-tiering);
-          * `ETAG` — хэш объекта;
+          * `ETAG` — хеш объекта;
           * `IS_MULTIPART_UPLOADED` — указывает, был ли объект загружен в результате [составной загрузки](../../concepts/multipart.md);
           * `ENCRYPTION_STATUS` — статус [шифрования](../../concepts/encryption.md) объекта;
           * `OBJECT_LOCK_RETAIN_UNTIL_DATE` — дата окончания [блокировки версии](../../concepts/object-lock.md) объекта;

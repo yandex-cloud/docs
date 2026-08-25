@@ -13,10 +13,10 @@ description: Следуя данной инструкции, вы сможете
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется подключить целевую группу к балансировщику.
   1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-  1. В строке балансировщика, к которому требуется подключить целевую группу, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_attach-tg }}**.
+  1. В строке балансировщика, к которому требуется подключить целевую группу, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![target](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_attach-tg }}**.
   1. Выберите целевую группу или [создайте новую](target-group-create.md).
   1. Задайте настройки проверки состояния.
-  1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_attach-tg }}**
+  1. Нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_attach-tg }}**
   
 - CLI {#cli}
   

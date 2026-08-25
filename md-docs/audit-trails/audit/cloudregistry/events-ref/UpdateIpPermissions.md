@@ -266,9 +266,7 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || registryId | **string** ||
 || registryName | **string** ||
-|| ipPermission[] | **[IpPermission](#yandex.cloud.cloudregistry.v1.IpPermission)**
-
-The number of elements must be greater than 0. ||
+|| ipPermission[] | **[IpPermission](#yandex.cloud.cloudregistry.v1.IpPermission)** ||
 |#
 
 ## IpPermission {#yandex.cloud.cloudregistry.v1.IpPermission}

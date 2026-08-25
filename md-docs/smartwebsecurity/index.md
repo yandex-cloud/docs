@@ -248,6 +248,42 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [update](cli-ref/custom-page/custom-page/update.md)
 
+### load-balancer
+
+ - [Overview](cli-ref/load-balancer/index.md)
+
+#### domain
+
+ - [Overview](cli-ref/load-balancer/domain/index.md)
+
+ - [create](cli-ref/load-balancer/domain/create.md)
+
+ - [delete](cli-ref/load-balancer/domain/delete.md)
+
+ - [get](cli-ref/load-balancer/domain/get.md)
+
+ - [list](cli-ref/load-balancer/domain/list.md)
+
+ - [update](cli-ref/load-balancer/domain/update.md)
+
+#### load-balancer
+
+ - [Overview](cli-ref/load-balancer/load-balancer/index.md)
+
+ - [create](cli-ref/load-balancer/load-balancer/create.md)
+
+ - [delete](cli-ref/load-balancer/load-balancer/delete.md)
+
+ - [get](cli-ref/load-balancer/load-balancer/get.md)
+
+ - [list](cli-ref/load-balancer/load-balancer/list.md)
+
+ - [start](cli-ref/load-balancer/load-balancer/start.md)
+
+ - [stop](cli-ref/load-balancer/load-balancer/stop.md)
+
+ - [update](cli-ref/load-balancer/load-balancer/update.md)
+
 ### match-list
 
  - [Overview](cli-ref/match-list/index.md)
@@ -337,6 +373,42 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
  - [list](cli-ref/v1/custom-page/custom-page/list.md)
 
  - [update](cli-ref/v1/custom-page/custom-page/update.md)
+
+#### load-balancer
+
+ - [Overview](cli-ref/v1/load-balancer/index.md)
+
+##### domain
+
+ - [Overview](cli-ref/v1/load-balancer/domain/index.md)
+
+ - [create](cli-ref/v1/load-balancer/domain/create.md)
+
+ - [delete](cli-ref/v1/load-balancer/domain/delete.md)
+
+ - [get](cli-ref/v1/load-balancer/domain/get.md)
+
+ - [list](cli-ref/v1/load-balancer/domain/list.md)
+
+ - [update](cli-ref/v1/load-balancer/domain/update.md)
+
+##### load-balancer
+
+ - [Overview](cli-ref/v1/load-balancer/load-balancer/index.md)
+
+ - [create](cli-ref/v1/load-balancer/load-balancer/create.md)
+
+ - [delete](cli-ref/v1/load-balancer/load-balancer/delete.md)
+
+ - [get](cli-ref/v1/load-balancer/load-balancer/get.md)
+
+ - [list](cli-ref/v1/load-balancer/load-balancer/list.md)
+
+ - [start](cli-ref/v1/load-balancer/load-balancer/start.md)
+
+ - [stop](cli-ref/v1/load-balancer/load-balancer/stop.md)
+
+ - [update](cli-ref/v1/load-balancer/load-balancer/update.md)
 
 #### match-list
 

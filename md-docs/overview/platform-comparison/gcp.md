@@ -61,5 +61,5 @@
 | Secret Manager | [Yandex Lockbox](../../lockbox/index.md) |
 | Vertex AI Platform | [Yandex DataSphere](../../datasphere/index.md) |
 | Virtual Private Cloud | [Yandex Virtual Private Cloud](../../vpc/index.md) |
-| Workflows | [Yandex Serverless Integrations: Workflows](../../serverless-integrations/quickstart/workflows.md) |
+| Workflows | [Yandex AI Studio: Workflows](https://aistudio.yandex.ru/docs/ru/ai-studio/quickstart/workflows.md) |
 | Образы GitLab для ВМ в Google Cloud Marketplace, Google Cloud Developer Tools | [Yandex Managed Service for GitLab](../../managed-gitlab/index.md) |

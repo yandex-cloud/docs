@@ -9,8 +9,8 @@ description: In this tutorial, you will learn how to get a list of available {{ 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder containing the [CAPTCHAs](../concepts/validation.md) you want to see.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to view the list of [captchas](../concepts/validation.md).
+  1. [Navigate]({{ link-console-main }}/link/smartcaptcha) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
   1. You will see the list of available CAPTCHAs on the **{{ ui-key.yacloud.smartcaptcha.label_captcha-settings-list }}** page.
 
 - CLI {#cli}

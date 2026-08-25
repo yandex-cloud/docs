@@ -42,9 +42,9 @@ yc components update
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашим кластером {{ managed-k8s-name }}.
       1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-      1. Перейдите на страницу кластера, затем — в раздел **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
-      1. На вкладке **{{ ui-key.yacloud.k8s.workloads.label_pods }}** откройте страницу пода.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-yaml }}**.
+      1. Выберите кластер {{ managed-k8s-name }}.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**, затем **{{ ui-key.yacloud.k8s.workloads.label_pods }}**.
+      1. Выберите под и перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-yaml }}**.
       1. Проверьте, содержит ли манифест пода указанные параметры и {{ k8s }}-метки в них:
 
          * Параметры:
@@ -151,7 +151,7 @@ yc components update
 
     Если манифест содержит параметр `spec.nodeAffinity` и в нем указана принадлежность к зоне доступности, сохраните этот параметр. Его понадобится указать в новом `PersistentVolume`.
 
-1. Создайте [снапшот](../../glossary/snapshot.md) — копию диска `PersistentVolume` на определенный момент времени. Подробнее о механизме снапшотов смотриите в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
+1. Создайте [снапшот](../../glossary/snapshot.md) — копию диска `PersistentVolume` на определенный момент времени. Подробнее о механизме снапшотов смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
    1. Получите название объекта `PersistentVolumeClaim`:
 
@@ -288,8 +288,11 @@ yc components update
 
           1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашим кластером {{ managed-k8s-name }}.
           1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-          1. Откройте страницу кластера, затем раздел **{{ ui-key.yacloud.k8s.cluster.switch_storage }}**.
-          1. На вкладке **{{ ui-key.yacloud.k8s.storage.label_pv }}** найдите объект `new-pv-test-<номер>` и посмотрите значение поля **{{ ui-key.yacloud.k8s.pv.overview.label_zone }}**. В нем должна отображаться зона доступности. Прочерк означает, что нет привязки к зоне доступности.
+          1. Выберите кластер {{ managed-k8s-name }}.
+          1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_storage }}**, затем **{{ ui-key.yacloud.k8s.storage.label_pv }}**.
+          1. Найдите объект `new-pv-test-<номер>`.
+
+              У найденного объекта посмотрите значение поля **{{ ui-key.yacloud.k8s.pv.overview.label_zone }}**. В нем должна отображаться зона доступности. Прочерк означает, что нет привязки к зоне доступности.
 
        {% endlist %}
 

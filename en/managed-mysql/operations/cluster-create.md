@@ -21,7 +21,7 @@ For more information on the {{ mmy-name }} cluster structure, see [Resource rela
 
 ## Roles for creating a cluster {#roles}
 
-To create a {{ mmy-name }} cluster and use it, your {{ yandex-cloud }} account needs the following roles:
+To create and use a {{ mmy-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
 
 * {% include [roles-mmy-editor](../../_includes/mdb/mmy/roles-mmy-editor.md) %}
 * {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
@@ -45,7 +45,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   To create a {{ mmy-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your database cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Enter a name for the {{ mmy-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
   1. Select the environment where you want to create your {{ mmy-name }} cluster (you cannot change the environment once the cluster is created):
@@ -125,7 +125,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
      {% note warning %}
 
-     We do not recommend creating a single-host cluster. While being cheaper, it will not ensure [high availability](../concepts/high-availability.md#host-configuration).
+     We do not recommend creating a single-host cluster. It is a cheaper option but does not ensure [high availability](../concepts/high-availability.md#host-configuration).
 
      {% endnote %}
 

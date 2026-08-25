@@ -556,7 +556,7 @@
 
 #### ai.playground.user {#ai-playground-user}
 
-Роль `ai.playground.user` позволяет создавать эксперименты, получать список всех доступных моделей и использовать их в AI Playground в консоли управления Yandex Cloud. Для работы с поисковыми индексами в консоли управления дополнительно необходима роль `ai.assistants.editor`.
+Роль `ai.playground.user` позволяет создавать эксперименты, получать список всех доступных моделей и использовать их в Playground в интерфейсе AI Studio. Для работы с поисковыми индексами в консоли управления дополнительно необходима роль `ai.assistants.editor`.
 
 #### ai.languageModels.user {#languageModels-user}
 
@@ -5361,9 +5361,10 @@
 Пользователи с этой ролью могут:
 * просматривать информацию об [инстансах](../managed-gitlab/concepts/index.md#instance) Managed Service for GitLab, а также создавать, изменять и удалять инстансы;
 * переносить инстансы в другую [зону доступности](../overview/concepts/geo-scope.md);
-* просматривать информацию о [квотах](../managed-gitlab/concepts/limits.md#quotas) сервиса Managed Service for GitLab.
+* просматривать информацию о [квотах](../managed-gitlab/concepts/limits.md#quotas) сервиса Managed Service for GitLab;
+* восстанавливать инстансы из резервных копий.
 
-Включает разрешения, предоставляемые ролью `gitlab.viewer`.
+Включает разрешения, предоставляемые ролями `gitlab.viewer` и `gitlab.backupRestorer`.
 
 Для создания инстансов Managed Service for GitLab дополнительно необходима роль `vpc.user`.
 
@@ -5374,9 +5375,10 @@
 Пользователи с этой ролью могут:
 * просматривать информацию об [инстансах](../managed-gitlab/concepts/index.md#instance) Managed Service for GitLab, а также создавать, изменять и удалять инстансы;
 * переносить инстансы в другую [зону доступности](../overview/concepts/geo-scope.md);
-* просматривать информацию о [квотах](../managed-gitlab/concepts/limits.md#quotas) сервиса Managed Service for GitLab.
+* просматривать информацию о [квотах](../managed-gitlab/concepts/limits.md#quotas) сервиса Managed Service for GitLab;
+* полностью управлять резервными копиями инстанса: создавать, скачивать и удалять их, а также восстанавливать инстансы и создавать новые из резервных копий.
 
-Включает разрешения, предоставляемые ролью `gitlab.editor`.
+Включает разрешения, предоставляемые ролями `gitlab.editor` и `gitlab.backupAdmin`.
 
 Для создания инстансов Managed Service for GitLab дополнительно необходима роль `vpc.user`.
 
@@ -6472,10 +6474,10 @@
 
 #### managed-mongodb.switcher {#managed-mongodb-switcher}
 
-Роль `managed-mongodb.switcher` позволяет переназначать хост-мастер в кластерах Yandex StoreDoc, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях Yandex StoreDoc, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
+Роль `managed-mongodb.switcher` позволяет переназначать первичную реплику в кластерах Yandex StoreDoc, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях Yandex StoreDoc, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
 
 Пользователи с этой ролью могут:
-* переназначать хост-мастер в [кластерах Yandex StoreDoc](../storedoc/concepts/index.md);
+* переназначать первичную реплику в [кластерах Yandex StoreDoc](../storedoc/concepts/index.md);
 * просматривать информацию о кластерах Yandex StoreDoc и назначенных [правах доступа](concepts/access-control/index.md) к ним;
 * просматривать информацию о заданиях на [техническое обслуживание](../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc;
 * просматривать информацию о [хостах](../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc;
@@ -6500,7 +6502,7 @@
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к кластерам Yandex StoreDoc;
 * просматривать информацию о заданиях на [техническое обслуживание](../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc и изменять такие задания;
 * создавать, изменять и удалять [хосты](../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc и просматривать информацию о них;
-* переназначать хост-мастер в кластерах Yandex StoreDoc;
+* переназначать первичную реплику в кластерах Yandex StoreDoc;
 * создавать и удалять [шарды](../storedoc/concepts/sharding.md) кластеров Yandex StoreDoc и просматривать информацию о них;
 * создавать и удалять базы данных Yandex StoreDoc и просматривать информацию о них;
 * создавать, изменять и удалять [пользователей](../storedoc/concepts/users-and-roles.md) Yandex StoreDoc и просматривать информацию о них;
@@ -6524,7 +6526,7 @@
 * создавать, использовать, изменять, удалять, запускать и останавливать кластеры Yandex StoreDoc и просматривать информацию о них;
 * просматривать информацию о заданиях на [техническое обслуживание](../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc и изменять такие задания;
 * создавать, изменять и удалять [хосты](../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc и просматривать информацию о них;
-* переназначать хост-мастер в кластерах Yandex StoreDoc;
+* переназначать первичную реплику в кластерах Yandex StoreDoc;
 * создавать и удалять [шарды](../storedoc/concepts/sharding.md) кластеров Yandex StoreDoc и просматривать информацию о них;
 * создавать и удалять базы данных Yandex StoreDoc и просматривать информацию о них;
 * создавать, изменять и удалять [пользователей](../storedoc/concepts/users-and-roles.md) Yandex StoreDoc и просматривать информацию о них;
@@ -7718,28 +7720,28 @@
 
 #### serverless.workflows.auditor {#serverless-workflows-auditor}
 
-Роль `serverless.workflows.auditor` позволяет просматривать информацию о [рабочих процессах](../serverless-integrations/concepts/workflows/workflow.md) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](../serverless-integrations/concepts/workflows/execution.md) рабочих процессов, а также информацию о [квотах](../serverless-integrations/concepts/limits.md#workflows) Yandex Workflows.
+Роль `serverless.workflows.auditor` позволяет просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов, а также информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
 
 #### serverless.workflows.viewer {#serverless-workflows-viewer}
 
-Роль `serverless.workflows.viewer` позволяет просматривать информацию о [рабочих процессах](../serverless-integrations/concepts/workflows/workflow.md) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](../serverless-integrations/concepts/workflows/execution.md) рабочих процессов, а также информацию о [квотах](../serverless-integrations/concepts/limits.md#workflows) Yandex Workflows.
+Роль `serverless.workflows.viewer` позволяет просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов, а также информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
 
 Включает разрешения, предоставляемые ролью `serverless.workflows.auditor`.
 
 #### serverless.workflows.executor {#serverless-workflows-executor}
 
-Роль `serverless.workflows.executor` позволяет запускать, приостанавливать, возобновлять и останавливать [рабочие процессы](../serverless-integrations/concepts/workflows/workflow.md) Yandex Workflows.
+Роль `serverless.workflows.executor` позволяет запускать, приостанавливать, возобновлять и останавливать [рабочие процессы](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Yandex Workflows.
 
 #### serverless.workflows.editor {#serverless-workflows-editor}
 
 Роль `serverless.workflows.editor` позволяет управлять рабочими процессами.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [рабочих процессах](../serverless-integrations/concepts/workflows/workflow.md) и назначенных [правах доступа](concepts/access-control/index.md) к ним;
+* просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним;
 * создавать, изменять и удалять рабочие процессы;
 * запускать, приостанавливать, возобновлять и останавливать рабочие процессы;
-* просматривать историю [запусков](../serverless-integrations/concepts/workflows/execution.md) рабочих процессов;
-* просматривать информацию о [квотах](../serverless-integrations/concepts/limits.md#workflows) Yandex Workflows.
+* просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов;
+* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
 
 Включает разрешения, предоставляемые ролями `serverless.workflows.viewer` и `serverless.workflows.executor`.
 
@@ -7748,15 +7750,15 @@
 Роль `serverless.workflows.admin` позволяет управлять рабочими процессами.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [рабочих процессах](../serverless-integrations/concepts/workflows/workflow.md), а также создавать, изменять и удалять их;
+* просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow), а также создавать, изменять и удалять их;
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к рабочим процессам, а также изменять такие права доступа;
 * запускать, приостанавливать, возобновлять и останавливать рабочие процессы;
-* просматривать историю [запусков](../serverless-integrations/concepts/workflows/execution.md) рабочих процессов;
-* просматривать информацию о [квотах](../serverless-integrations/concepts/limits.md#workflows) Yandex Workflows.
+* просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов;
+* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
 
 Включает разрешения, предоставляемые ролью `serverless.workflows.editor`.
 
-Подробнее в [Управление доступом в Workflows](../serverless-integrations/security/workflows.md).
+Подробнее в [Управление доступом в Workflows](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index#workflows-roles).
 
 
 ## Yandex SIEM {#yandex-siem-roles}

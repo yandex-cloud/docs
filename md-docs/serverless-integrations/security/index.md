@@ -17,10 +17,7 @@
 * `resource-manager.clouds.owner`;
 * `organization-manager.organizations.owner`.
 
-Кроме того:
-
-* Роли на [шину](../concepts/eventrouter/bus.md), [коннектор](../concepts/eventrouter/connector.md) и [правило](../concepts/eventrouter/rule.md) EventRouter может назначить пользователь, у которого на эти ресурсы есть роль `serverless.eventrouter.admin`.
-* Роли на [рабочий процесс](../concepts/workflows/workflow.md) Workflows может назначить пользователь, у которого на этот ресурс есть роль `serverless.workflows.admin`.
+Кроме того роли на [шину](../concepts/eventrouter/bus.md), [коннектор](../concepts/eventrouter/connector.md) и [правило](../concepts/eventrouter/rule.md) EventRouter может назначить пользователь, у которого на эти ресурсы есть роль `serverless.eventrouter.admin`.
 
 ## На какие ресурсы можно назначить роль {#resources}
 
@@ -29,8 +26,7 @@
 С помощью Yandex Cloud [CLI](../../cli/index.md) и [API](../../api-design-guide/index.md) роль можно назначить на отдельные ресурсы сервиса:
 * [шина](../concepts/eventrouter/bus.md);
 * [коннектор](../concepts/eventrouter/connector.md);
-* [правило](../concepts/eventrouter/rule.md);
-* [рабочий процесс](../concepts/workflows/workflow.md).
+* [правило](../concepts/eventrouter/rule.md).
 
 ## Какие роли действуют в сервисе Serverless Integrations {#roles-list}
 
@@ -41,8 +37,6 @@
 Yandex Cloud поддерживает свой список ролей для каждой функциональности, включенной в состав Serverless Integrations. Подробнее читайте в разделах:
 
 * [Роли для работы с Yandex EventRouter](eventrouter.md).
-* [Роли для работы с Yandex Workflows](workflows.md).
-* [Роли для работы с Yandex API Gateway](../../api-gateway/security/index.md#service-roles).
 
 ### Примитивные роли {#primitive-roles}
 

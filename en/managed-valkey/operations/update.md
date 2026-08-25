@@ -49,8 +49,8 @@ Learn more about other cluster updates:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
@@ -187,8 +187,8 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
     To enable or disable using FQDNs instead of IP addresses:
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+    1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enable or disable **{{ ui-key.yacloud.redis.field_announce-hostnames }}** as needed.
@@ -338,8 +338,8 @@ For more information about data persistence and its settings, see [Persistence](
 
     To change the persistence mode:
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+    1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select the persistence mode.
@@ -490,12 +490,16 @@ When changing the host class:
 
 * A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
 * In a non-sharded multiple-host cluster:
+   
    * The master will change. The hosts will undergo a rolling update, with each host unavailable for a few minutes while it is stopped and updated.
    * Using a [special FQDN](./connect/fqdn.md#special-fqdns) does not guarantee a stable database connection: user sessions may be terminated.
+
 * In a sharded cluster:
+   
    * Each shard with more than one host will switch its master.
    * Each shard will run a rolling update, stopping and updating hosts sequentially. The shard's master host will be unavailable for a few minutes while it updates.
    * The master host name may not resolve. If public access to the host is enabled, you can only connect using the host IP address.
+
 * A cluster with local SSD storage may be unavailable for an extended period in case data migration to another physical server is required.
 
 We recommend changing the host class only when the cluster is idle.
@@ -504,16 +508,18 @@ We recommend changing the host class only when the cluster is idle.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
      
 	 * Select a platform in the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** field.
      * Select the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** of the virtual machine where you want to deploy the hosts:
+        
         * `high-memory`: Increased RAM per 1 vCPU.
         * `burstable`: Partial guaranteed share of vCPU. VMs with a guaranteed share below 100% provide the specified performance level with temporary boosts up to 100%. Clusters with such hosts are good for tasks that do not require guaranteed permanent performance, such as testing.
+     
      * Change the host configuration.
 	 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -692,8 +698,8 @@ We recommend changing the host class only when the cluster is idle.
 
   To change the disk type and increase the storage size for a cluster:
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
 
@@ -872,7 +878,7 @@ For more information about storage and autoscaling, see [Storage in {{ mrd-name 
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
 
@@ -923,7 +929,7 @@ For more information about storage and autoscaling, see [Storage in {{ mrd-name 
       disk_size_autoscaling = {
         planned_usage_threshold   = "<scheduled_expansion_percentage>"
         emergency_usage_threshold = "<immediate_expansion_percentage>"
-        disk_size_limit           = "<maximum_storage_size_in_GiB>"
+        disk_size_limit           = "<maximum_storage_size_in_GB>"
       }
       ```
 
@@ -1039,8 +1045,8 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
   To change the [DBMS settings](../concepts/settings-list.md) for a cluster:
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
@@ -1191,8 +1197,8 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Change additional cluster settings:
@@ -1459,8 +1465,8 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+    1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enable **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}**.
@@ -1584,7 +1590,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - Management console {#console}
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
     1. Select the destination folder for your cluster.
@@ -1705,8 +1711,8 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+    1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select the security groups for cluster network traffic.

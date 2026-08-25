@@ -50,6 +50,7 @@ description: Следуя данной инструкции, вы сможете
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы получить информацию о [NAT-шлюзе](../concepts/gateways.md) с помощью {{ TF }}:
+
   1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
 
      ```hcl
@@ -69,6 +70,7 @@ description: Следуя данной инструкции, вы сможете
        * `value` — возвращаемое значение.
 
      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_vpc_gateway` в [документации провайдера]({{ tf-provider-datasources-link }}/vpc_gateway).
+
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -87,10 +89,10 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [NAT-шлюзе](../concepts/gateways.md), воспользуйтесь методом REST API [get](../api-ref/Gateway/get.md) для ресурса [Gateway](../api-ref/Gateway/index.md), или вызовом gRPC API [GatewayService/Get](../api-ref/grpc/Gateway/get.md) и передайте в запросе идентификатор нужного NAT-шлюзa в параметре `gatewayId`.
+  Чтобы получить подробную информацию о [NAT-шлюзе](../concepts/gateways.md), воспользуйтесь методом REST API [get](../api-ref/Gateway/get.md) для ресурса [Gateway](../api-ref/Gateway/index.md), или вызовом gRPC API [GatewayService/Get](../api-ref/grpc/Gateway/get.md) и передайте в запросе идентификатор нужного NAT-шлюза в параметре `gatewayId`.
 
-   {% include [get-nat-gateway](../../_includes/vpc/get-nat-gateway.md) %}
+  {% include [get-nat-gateway](../../_includes/vpc/get-nat-gateway.md) %}
 
-   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+  {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}

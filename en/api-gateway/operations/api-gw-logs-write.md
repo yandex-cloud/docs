@@ -12,7 +12,7 @@ description: Follow this guide to configure API gateway logging.
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the API gateway.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select the API gateway for which you want to configure logging.
     1. At the top of the page, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. Under **{{ ui-key.yacloud.logging.label_title }}**:
@@ -130,7 +130,7 @@ description: Follow this guide to configure API gateway logging.
         * `folder_id`: Folder ID.
         * `min_level`: Minimum logging level. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. This is an optional setting.
 
-        For more on the properties of the `yandex_api_gateway` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
+        For more on `yandex_api_gateway` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
     
     1. Validate your configuration using this command:
 

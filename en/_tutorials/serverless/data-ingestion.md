@@ -44,7 +44,7 @@ If you no longer need to ingest data, [delete the associated resources](#clear-o
 ## Create a {{ CH }} cluster {#create-cluster}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Click **Create cluster**.
 1. Configure your {{ CH }} cluster:
     1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, specify the database name and a user name along with their password.
@@ -62,7 +62,7 @@ Wait for the cluster to start. When the cluster is ready for use, its status wil
 ## Create a data stream {#create-stream}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a data stream.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
+1. [Navigate]({{ link-console-main }}/link/data-streams) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Click **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
 1. Specify an existing [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) database in {{ ydb-short-name }} or [create](../../ydb/quickstart.md#serverless) a new one. If you chose to create a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) after creating it to refresh the list of databases.
 1. Name the data stream.
@@ -84,7 +84,7 @@ Wait for the API gateway to start. When the API gateway is ready for use, its st
 ## Create a transfer {#create-transfer}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a transfer.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+1. [Navigate]({{ link-console-main }}/link/data-transfer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
 1. Click **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
 1. Name the transfer.
 1. [Create](../../data-transfer/operations/endpoint/index.md#create) a source endpoint:

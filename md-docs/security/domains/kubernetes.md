@@ -130,9 +130,9 @@
 
 В Yandex Cloud группы узлов Kubernetes по умолчанию разворачиваются с конфигурацией, которая соответствует стандарту CIS Kubernetes Benchmark.
 
-Инструмент [kube-bench](https://github.com/aquasecurity/kube-bench) позволяет  проверить конфигурацию группы узлов по стандарту CIS Kubernetes Benchmark. Инструмент официально поддерживает группы узлов Yandex Cloud.
+Инструмент [kube-bench](https://github.com/aquasecurity/kube-bench) позволяет проверить конфигурацию группы узлов по стандарту CIS Kubernetes Benchmark. Инструмент официально поддерживает группы узлов Yandex Cloud.
 
-[Здесь](https://github.com/aquasecurity/kube-bench/blob/main/docs/running.md) можно ознакомится с примерами запуска kube-bench на узлах.
+[Здесь](https://github.com/aquasecurity/kube-bench/blob/main/docs/running.md) можно ознакомиться с примерами запуска kube-bench на узлах.
 
 Также kube-bench поддерживает интеграцию со [Starboard Operator](https://blog.aquasec.com/automate-kubernetes-compliance), другим продуктом для автоматического запуска kube-bench.
 

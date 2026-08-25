@@ -20,7 +20,7 @@
 
 * [Взаимодействие пользователей и ресурсов Yandex Cloud](../../overview/roles-and-resources.md).
 
-* [Cписок сервисов Yandex Cloud](../../overview/concepts/services.md).
+* [Список сервисов Yandex Cloud](../../overview/concepts/services.md).
 
 * [Список доступных интерфейсов](../../overview/concepts/interfaces.md).
 
@@ -73,10 +73,6 @@
 * [Yandex API Gateway](../../api-gateway/quickstart/index.md).
 
   Сконфигурируйте API-шлюз и настройте интеграцию для вызова функции.
-
-* [Yandex Workflows](../../serverless-integrations/quickstart/workflows.md).
-
-  Создайте рабочий процесс и запустите его.
 
 * [Yandex Serverless Containers](../../serverless-containers/quickstart/index.md).
 

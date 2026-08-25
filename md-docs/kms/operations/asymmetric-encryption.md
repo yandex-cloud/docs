@@ -42,8 +42,8 @@
       1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
       1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **Асимметричные ключи**.
       1. Перейдите на вкладку **Шифрование**.
-      1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Публичный ключ**.
-      1. В открывшемся окне нажмите кнопку **Скачать**, чтобы скачать публичный ключ шифрования.
+      1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![shield-keyhole](../../_assets/console-icons/shield-keyhole.svg) **Публичный ключ**.
+      1. В открывшемся окне нажмите кнопку ![floppy-disk](../../_assets/console-icons/floppy-disk.svg) **Скачать**, чтобы скачать публичный ключ шифрования.
 
     - CLI {#cli}
 
@@ -108,7 +108,7 @@
 
     {% note info %}
     
-    [Размер](../concepts/asymmetric-encryption.md#encryption) шифруемого сообщения зависит от длины ключа шифрования и длины хэш-функции. 
+    [Размер](../concepts/asymmetric-encryption.md#encryption) шифруемого сообщения зависит от длины ключа шифрования и длины хеш-функции.
     
     {% endnote %}
 

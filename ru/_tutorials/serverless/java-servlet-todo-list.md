@@ -408,7 +408,7 @@
 * [Удалите базу данных](../../ydb/operations/manage-databases.md#delete-db).
 * [Удалите](../../storage/operations/objects/delete.md) файл `index.html`, затем [удалите](../../storage/operations/buckets/delete.md) бакет.
 
-[*name]: {% include [name-format](../../_includes/_popups/name-format-general.md) %}
+[*name]: {% include [name-format](../../_popups/name-format-general.md) %}
 
 [*bucket_name]: Имя бакета должно быть уникальным в пределах сервиса {{ objstorage-full-name }}. Подробнее читайте в разделе [{#T}](../../storage/concepts/bucket.md#naming).
 

@@ -4,7 +4,7 @@
 
 В этом руководстве вы воспользуетесь возможностями [моделей генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio для реализации сценария автоматического [ревью](https://docs.github.com/en/get-started/learning-about-github/github-glossary#review) предлагаемых изменений в программном коде на [GitHub](https://github.com/).
 
-Предлагаемое решение использует сценарий [GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions), чтобы запросить в Yandex Cloud ИИ-ревью изменений в [пул-реквесте](https://docs.github.com/en/get-started/learning-about-github/github-glossary#pull-request). Процесс получения изменений, запрос формирования ревью генеративной моделью и последующая публикация ревью на GitHub выполняются [рабочим процессом](../../serverless-integrations/concepts/workflows/workflow.md) Yandex Workflows.
+Предлагаемое решение использует сценарий [GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions), чтобы запросить в Yandex Cloud ИИ-ревью изменений в [пул-реквесте](https://docs.github.com/en/get-started/learning-about-github/github-glossary#pull-request). Процесс получения изменений, запрос формирования ревью генеративной моделью и последующая публикация ревью на GitHub выполняются [рабочим процессом](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Yandex Workflows.
 
 ![ai-powered-github-pr-review](../../_assets/tutorials/ai-powered-github-pr-review.svg)
 
@@ -117,7 +117,7 @@
 ### Создайте сервисные аккаунты {#create-sa}
 
 Cоздайте два [сервисных аккаунта](../../iam/concepts/users/service-accounts.md):
-* `workflow-sa` — от его имени будет выполняться [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md) Workflows;
+* `workflow-sa` — от его имени будет выполняться [рабочий процесс](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Workflows;
 * `github-worker` — от его имени будет запускаться рабочий процесс при получении запроса от сценария GitHub Actions.
 
 1. Создайте сервисный аккаунт `workflow-sa` и назначьте ему [роли](../../iam/concepts/access-control/roles.md) [`lockbox.payloadViewer`](../../lockbox/security/index.md#lockbox-payloadViewer) и [`ai.languageModels.user`](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index#languageModels-user):
@@ -229,17 +229,17 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
 
 ## Создайте рабочий процесс Workflows {#create-si-workflow}
 
-Создайте [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md) Workflows на стороне Yandex Cloud.
+Создайте [рабочий процесс](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Workflows на стороне Yandex Cloud.
 
 {% note tip %}
 
-В этом руководстве описано создание рабочего процесса с помощью YaWL-спецификации, но его также можно создать и редактировать с помощью [конструктора](../../serverless-integrations/operations/workflows/constructor/index.md).
+В этом руководстве описано создание рабочего процесса с помощью YaWL-спецификации, но его также можно создать и редактировать с помощью [конструктора](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/workflows/constructor/index).
 
 {% endnote %}
 
 ![ai-powered-github-pr-review-workflow](../../_assets/tutorials/ai-powered-github-pr-review-workflow.png)
 
-1. Создайте файл `yawl-spec.yaml` со следующей [YaWL-спецификацией](../../serverless-integrations/concepts/workflows/yawl/index.md) рабочего процесса:
+1. Создайте файл `yawl-spec.yaml` со следующей [YaWL-спецификацией](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/yawl/index) рабочего процесса:
 
     **yawl-spec.yaml**
 
@@ -317,7 +317,7 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
       1. Раскройте блок **Дополнительные параметры**:
       1. В поле **Имя** укажите имя рабочего процесса. Например: `github-ai-review-workflow`.
       1. В поле **Сервисный аккаунт** выберите созданный ранее сервисный аккаунт `workflow-sa`.
-      1. (Опционально) [Настройте](../../serverless-integrations/operations/workflows/workflow/logs-write.md) логирование запусков рабочего процесса.
+      1. (Опционально) [Настройте](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/workflows/workflow/logs-write) логирование запусков рабочего процесса.
       1. Нажмите **Создать**.
 
       В результате откроется окно с таблицей, содержащей информацию о созданном рабочем процессе. Сохраните его идентификатор — он понадобится позднее при настройке сценария GitHub Actions.
@@ -362,7 +362,7 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
 
     - API {#api}
 
-      Чтобы создать рабочий процесс, воспользуйтесь методом REST API [Create](../../serverless-integrations/workflows/api-ref/Workflow/create.md) для ресурса [Workflows](../../serverless-integrations/workflows/api-ref/Workflow/index.md) или вызовом gRPC API [WorkflowService/Create](../../serverless-integrations/workflows/api-ref/grpc/Workflow/create.md).
+      Чтобы создать рабочий процесс, воспользуйтесь методом REST API [Create](https://aistudio.yandex.ru/docs/ru/ai-studio/workflows/api-ref/Workflow/create) для ресурса [Workflows](https://aistudio.yandex.ru/docs/ru/ai-studio/workflows/api-ref/Workflow/index) или вызовом gRPC API [WorkflowService/Create](https://aistudio.yandex.ru/docs/ru/ai-studio/workflows/api-ref/grpc/Workflow/create).
 
     {% endlist %}
 
@@ -425,6 +425,6 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
 Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите](../../lockbox/operations/secret-delete.md) секрет Yandex Lockbox.
-1. [Удалите](../../serverless-integrations/operations/workflows/workflow/delete.md) рабочий процесс Workflows.
+1. [Удалите](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/workflows/workflow/delete) рабочий процесс Workflows.
 1. [Удалите](../../logging/operations/delete-group.md) лог-группу, если вы включали логирование запусков рабочего процесса.
 1. При необходимости [удалите](../../iam/operations/sa/delete.md) сервисные аккаунты.

@@ -328,7 +328,7 @@
       1. В [консоли управления](https://console.yandex.cloud) выберите нужный в каталог.
       1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
       1. В списке ВМ выберите `test-vm`.
-      1. Перейдите на вкладку ![image](../../_assets/console-icons/terminal.svg) **Серийная консоль**.
+      1. Перейдите на вкладку **Серийная консоль**.
       1. Дождитесь полной загрузки операционной системы.
 
    {% endlist %}
@@ -418,7 +418,7 @@
 
       1. В [консоли управления](https://console.yandex.cloud) выберите нужный в каталог.
       1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
-      1. Выберите ВМ `nat-a` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **Остановить**.
+      1. Выберите ВМ `nat-a` в списке и нажмите кнопку ![image](../../_assets/console-icons/play.svg) **Запустить**.
       1. В открывшемся окне нажмите кнопку **Запустить**.
 
    - CLI {#cli}

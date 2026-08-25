@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mpg-full-name }}'
-description: This page lists the {{ TF }} provider resources and data sources supported by {{ mpg-name }}.
+description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ mpg-name }}.
 ---
 
 # {{ TF }} reference for {{ mpg-full-name }}
@@ -17,6 +17,7 @@ description: This page lists the {{ TF }} provider resources and data sources su
 | [yandex_mdb_postgresql_cluster_iam_binding]({{ tf-provider-resources-link }}/mdb_postgresql_cluster_iam_binding) | [Configuring](../iam/concepts/access-control/index.md#access-bindings) cluster access permissions |
 | [yandex_mdb_postgresql_database]({{ tf-provider-resources-link }}/mdb_postgresql_database) | {{ PG }} database |
 | [yandex_mdb_postgresql_user]({{ tf-provider-resources-link }}/mdb_postgresql_user) | {{ PG }} user |
+| [yandex_mdb_postgresql_backup_retention_policy]({{ tf-provider-resources-link }}/mdb_postgresql_backup_retention_policy) | Backup policy |
 
 ## Data sources {#data-sources}
 
@@ -27,3 +28,4 @@ description: This page lists the {{ TF }} provider resources and data sources su
 | [yandex_mdb_postgresql_cluster]({{ tf-provider-datasources-link }}/mdb_postgresql_cluster) | [{{ PG }} cluster](./concepts/index.md) information |
 | [yandex_mdb_postgresql_database]({{ tf-provider-datasources-link }}/mdb_postgresql_database) | {{ PG }} database information |
 | [yandex_mdb_postgresql_user]({{ tf-provider-datasources-link }}/mdb_postgresql_user) | {{ PG }} user information |
+| [yandex_mdb_postgresql_backup_retention_policy]({{ tf-provider-datasources-link }}/mdb_postgresql_backup_retention_policy) | Backup policy information |

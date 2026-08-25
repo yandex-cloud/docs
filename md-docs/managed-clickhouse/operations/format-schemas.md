@@ -16,7 +16,7 @@ _Схема формата_ данных (format schema) описывает фо
 
 {% note warning %}
 
-Чтобы использовать подключенные схемы формата, вставку данных в Managed Service for ClickHouse® следует производить с помощью [HTTP-интерфейса](https://clickhouse.com/docs/ru/interfaces/http), т. к. в этом случае сериализация и десериализация данных производится на стороне сервера с использованием подключенных схем.
+Чтобы использовать подключенные схемы формата, вставку данных в Managed Service for ClickHouse® следует производить с помощью [HTTP-интерфейса](https://clickhouse.com/docs/ru/interfaces/http), т. к. в этом случае сериализация и десериализация данных производятся на стороне сервера с использованием подключенных схем.
 
 {% endnote %}
 
@@ -32,7 +32,7 @@ _Схема формата_ данных (format schema) описывает фо
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-   1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
+   1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Схемы формата данных**.
 
 - CLI {#cli}
 
@@ -215,7 +215,7 @@ Managed Service for ClickHouse® работает только со схемам
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Схемы формата данных**.
     1. Нажмите кнопку **Создать схему**.
     1. В диалоговом окне **Добавление схемы** заполните форму, указав в поле **URL** полученную ранее ссылку на файл со схемой формата.
     1. Нажмите кнопку **Создать**.
@@ -431,7 +431,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Схемы формата данных**.
     1. Выберите нужную схему, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Редактировать**.
 
 - CLI {#cli}
@@ -663,7 +663,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-   1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
+   1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Схемы формата данных**.
    1. Выберите нужную схему, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.
 
 - CLI {#cli}

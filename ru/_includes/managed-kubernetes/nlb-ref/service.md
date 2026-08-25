@@ -1,6 +1,6 @@
 # Поля и аннотации ресурса Service
 
-Ресурс `Service` определяет [сервис {{ k8s }}](../../../managed-kubernetes/concepts/index.md#service). Для {{ network-load-balancer-name }} для {{ managed-k8s-name }} сервисы представляют собой балансировщики входящего трафика.
+Ресурс `Service` определяет [сервис {{ k8s }}](../../../managed-kubernetes/concepts/index.md#service). В {{ network-load-balancer-name }} для {{ managed-k8s-name }} сервисы представляют собой балансировщики входящего трафика.
 
 `Service` — стандартный ресурс {{ k8s }}. В этом справочнике описаны поля и аннотации ресурса, которые поддерживаются {{ network-load-balancer-name }} для {{ managed-k8s-name }}. Полный справочник ресурса приведен в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
 

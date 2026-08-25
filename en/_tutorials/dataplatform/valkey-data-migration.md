@@ -328,7 +328,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Make sure the dump is fully restored {#check-data}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to restore the cluster.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-redis) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 1. Click the cluster name and open the [{{ ui-key.yacloud.redis.cluster.switch_monitoring }}](../../managed-valkey/operations/monitoring.md) tab.
 
 Pay attention to the **DB Keys** chart showing the number of keys stored in the cluster. If the cluster is [sharded](../../managed-valkey/concepts/sharding.md), the chart will show the number of keys in each shard. In this case, the number of keys in the cluster is equal to the total number of keys across all shards.

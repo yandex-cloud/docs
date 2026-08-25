@@ -35,9 +35,8 @@
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**:
-      
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_broker }}** укажите брокер.
-        * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}** укажите MQTT-топик. Если MQTT-топик не указан, тригер срабатывает для всех топиков брокера.
+        * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}** укажите MQTT-топик. Если MQTT-топик не указан, триггер срабатывает для всех топиков брокера.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
 

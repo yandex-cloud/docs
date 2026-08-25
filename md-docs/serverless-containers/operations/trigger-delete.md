@@ -10,7 +10,7 @@
     1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
     1. Выберите триггер, который хотите удалить.
-    1. В правом верхнем углу страницы нажмите **Удалить**.
+    1. На панели сверху нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
     1. В открывшемся окне нажмите кнопку **Удалить**.
     
 - CLI {#cli}

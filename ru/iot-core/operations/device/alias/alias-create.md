@@ -13,15 +13,15 @@
    Чтобы создать алиас:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать алиас.
-   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Выберите в списке нужный реестр.
-   1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
-   1. Нажмите значок ![image](../../../../_assets/console-icons/ellipsis.svg) справа от имени нужного устройства, в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
-   1. Добавьте алиас:
-      1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-alias }}**.
-      1. Заполните поля: введите алиас (например, `events`) и тип топика после `$devices/<идентификатор_устройства>` (например, `events`).<br/>Вы сможете использовать алиас `events` вместо топика `$devices/<идентификатор_устройства>/events`.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** и выберите нужный реестр.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}**.
+   1. Справа от имени нужного устройства нажмите ![image](../../../../_assets/console-icons/ellipsis.svg) → ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. В блоке **{{ ui-key.yacloud.iot.label_aliases }}**:
+      1. Нажмите **{{ ui-key.yacloud.iot.button_add-alias }}**.
+      1. Заполните поля: введите алиас (например, `events`) и тип топика после `$devices/<идентификатор_устройства>` (например, `events`).
+         Вы сможете использовать алиас `events` вместо топика `$devices/<идентификатор_устройства>/events`.
       1. Повторите действия для каждого добавляемого алиаса.
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
     

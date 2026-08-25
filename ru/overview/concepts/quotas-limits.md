@@ -363,11 +363,21 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [smartwebsecurity-limits](../../_includes/sws-limits.md) %}
 
 
+### {{ src-full-name }} {#scr}
+
+{% include [limits](../../_includes/sourcecraft/limits.md) %}
+
+
 ### {{ ca-full-name }} {#ca}
 
 #### Квоты {#ca-quotas}
 
 Квоты {{ ca-full-name }} устанавливаются в зависимости от используемого тарифного плана. Подробнее на странице [Тарифные планы {{ ca-name }}]({{ link-src-docs }}/sourcecraft/pricing#ca-plans).
+
+
+### Vibecraft {#vc}
+
+{% include [limits](../../_includes/vibecraft/limits.md) %}
 
 
 ### {{ speechkit-full-name }} {#speechkit}

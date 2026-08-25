@@ -12,7 +12,7 @@
     1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. В меню слева выберите **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Нажмите на имя нужного секрета.
-    1. На панели слева выберите раздел ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.common.operations-key-value }}**.
 
 - CLI {#cli}
 

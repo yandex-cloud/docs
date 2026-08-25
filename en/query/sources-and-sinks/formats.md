@@ -1,20 +1,27 @@
+---
+title: Data formats and compression algorithms
+description: This article describes the data formats and compression algorithms supported in {{ yq-full-name }}.
+---
+
 # Data formats and compression algorithms
 
 Below you will find the data formats and compression algorithms supported in {{ yq-full-name }}.
 
+## Supported data formats {#formats}
 
-### Supported data formats {#formats}
 {{ yql-full-name }} supports the following data formats:
-- [`csv_with_names`](#csv_with_names)
-- [`tsv_with_names`](#tsv_with_names)
-- [`json_list`](#json_list)
-- [`json_each_row`](#json_each_row)
-- [`raw`](#raw)
-- [`json_as_string`](#json_as_string)
-- [`parquet`](#parquet) 
 
-#### Csv_with_names {#csv_with_names}
-This format is based on the [CSV](https://ru.wikipedia.org/wiki/CSV) format. The data is arranged in comma-separated columns with the first row containing column names.
+* [`csv_with_names`](#csv-with-names)
+* [`tsv_with_names`](#tsv-with-names)
+* [`json_list`](#json-list)
+* [`json_each_row`](#json-each-row)
+* [`raw`](#raw)
+* [`json_as_string`](#json-as-string)
+* [`parquet`](#parquet).
+
+### Csv_with_names {#csv-with-names}
+
+This format is [CSV](https://ru.wikipedia.org/wiki/CSV)-based and keeps your data in comma-separated columns. The first line in the file contains the column names.
 
 Sample data:
 ```text
@@ -53,8 +60,9 @@ Query results:
 {% endcut %}
 
 
-#### Tsv_with_names {#tsv_with_names}
-This format is based on the [TSV](https://ru.wikipedia.org/wiki/TSV) format. The data is arranged in tab(`0x9`)-separated columns with the first row containing column names.
+### Tsv_with_names {#tsv-with-names}
+
+This format is [TSV](https://ru.wikipedia.org/wiki/TSV)-based and keeps your data in tab-separated columns (the tab char code is `0x9`). The first line in the file contains the column names.
 
 Sample data:
 ```text
@@ -92,8 +100,9 @@ Query results:
 
 {% endcut %}
 
-#### Json_list {#json_list}
-This format is based on the [JSON](https://ru.wikipedia.org/wiki/JSON) format. With this format, each file must contain a valid JSON object.
+### Json_list {#json-list}
+
+This format is [JSON](https://ru.wikipedia.org/wiki/JSON)-based. Each file must contain a list of objects in a valid JSON representation.
 
 Example of valid data presented as a list of JSON objects:
 ```json
@@ -103,15 +112,16 @@ Example of valid data presented as a list of JSON objects:
 ]
 ```
 
-Example of invalid data: each line contains a separate JSON object, but these objects are not combined into a list:
+Example of invalid data, with objects not wrapped into a list:
 
 ```json
 { "Year": 1997, "Manufacturer": "Ford", "Model": "E350", "Price": 3000.0 }
 { "Year": 1999, "Manufacturer": "Chevy", "Model": "Venture «Extended Edition»", "Price": 4900.00 }
 ```
 
-#### Json_each_row {#json_each_row}
-This format is based on the [JSON](https://en.wikipedia.org/wiki/JSON) format. With this format, each individual line within each file must contain a valid JSON object, without wrapping them into a list. This format is used for data transmission over streaming systems, such as [Yandex Data Streams](../../data-streams/concepts/index.md).
+### Json_each_row {#json-each-row}
+
+This format is [JSON](https://en.wikipedia.org/wiki/JSON)-based. Each line in the file must contain an object in a valid JSON representation. These objects are not wrapped into a JSON list. This format is used for data transmission over streaming systems, such as [{{ yds-full-name }}](../../data-streams/concepts/index.md).
 
 Example of valid data: each line contains a separate JSON object, without wrapping them into a list:
 ```json
@@ -148,10 +158,11 @@ Query results:
 
 {% endcut %}
 
-#### Raw {#raw}
-This format allows reading file contents in raw form. This data can then be split into rows and columns and processed via [YQL]({{ ydb.docs }}/yql/reference/udf/list/string).
+### Raw {#raw}
 
-Use this format when {{ yq-full-name }}‘s built-in data parsing capabilities are insufficient.
+This format allows you to read the contents of files without any conversion. This data can then be split into rows and columns and processed via [YQL]({{ ydb.docs }}/yql/reference/udf/list/string).
+
+Use this format when {{ yq-full-name }}'s built-in data parsing capabilities are insufficient.
 
 {% cut "Query example" %}
 
@@ -179,8 +190,9 @@ Year,Manufacturer,Model,Price
 
 {% endcut %}
 
-#### Json_as_string {#json_as_string}
-This format is based on the [JSON](https://ru.wikipedia.org/wiki/JSON) format. Instead of splitting the input JSON document into fields, this format treats each line of the file either as a single JSON object or a single string. It is convenient when the list of fields is not fixed and may change across different messages.
+### Json_as_string {#json-as-string}
+
+This format is [JSON](https://ru.wikipedia.org/wiki/JSON)-based. Instead of splitting the input JSON document into fields, it treats each line in the file as a single JSON object. Use this format when the list of fields may change across different messages.
 
 With this format, each file must contain:
 - Valid JSON object on each individual line of the file.
@@ -219,18 +231,20 @@ Query results:
 
 {% endcut %}
 
-#### Parquet {#parquet}
+### Parquet {#parquet}
+
 This format allows you to read the contents of [Apache Parquet](https://parquet.apache.org) files.
 
-Data compression algorithms supported in Parquet files:
-- No compression
-- SNAPPY
-- GZIP
-- LZO
-- BROTLI
-- LZ4
-- ZSTD
-- LZ4_RAW
+Within Parquet files, the following compression algorithms are supported:
+
+* No compression
+* `SNAPPY`
+* `GZIP`
+* `LZO`
+* `BROTLI`
+* `LZ4`
+* `ZSTD`
+* `LZ4_RAW`
 
 
 {% cut "Query example" %}
@@ -262,9 +276,9 @@ Query results:
 
 {% endcut %}
 
-## Data reading example
+## Data reading example {#read-example}
 
-Sample query for reading data from {{ objstorage-full-name }}.
+Query example for reading data from {{ objstorage-full-name }}:
 ```sql
 SELECT
         *
@@ -292,7 +306,7 @@ Where:
 
 ## Supported compression algorithms {#compression}
 
-### Reads
+### Reading {#compression-read}
 
 {{ yq-full-name }} supports the following compression algorithms for reading data:
 
@@ -305,17 +319,17 @@ Where:
 |[Bzip2](https://ru.wikipedia.org/wiki/Bzip2)|bzip2|
 |[Xz](https://ru.wikipedia.org/wiki/XZ)|xz|
 
-While the `parquet` format supports built-in compression algorithms, {{ yq-full-name }} also enables you to write parquet data using these:
+While the Parquet format supports built-in compression algorithms, {{ yq-full-name }} also enables you to write Parquet data using these:
 
 |Compression format|Name in {{ yq-name }}|
 |--|--|
 |[Raw](https://github.com/apache/parquet-format/blob/master/Compression.md)|raw|
 |[Snappy](https://en.wikipedia.org/wiki/Snappy_(compression))|snappy|
 
-### Writing to {{ objstorage-full-name }} {#write_objstorage}
+### Writing to {{ objstorage-full-name }} {#write-objstorage}
 
 {% include [!](../_includes/supported-objstorage-write-formats.md) %}
 
-### Writing to {{ yds-full-name }} {#write_yds}
+### Writing to {{ yds-full-name }} {#write-yds}
 
 {% include [!](../_includes/supported-yds-write-formats.md) %}

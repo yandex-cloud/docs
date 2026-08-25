@@ -15,8 +15,8 @@ The name of the [default log group](../concepts/log-group.md) is `default`. You 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a [log group](../concepts/log-group.md).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder you want to delete a [log group](../concepts/log-group.md) in.
+    1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Next to the log group, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -53,7 +53,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. You 
 
   To delete a log group created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the section describing the log group.
+  1. Open the {{ TF }} configuration file and delete the log group description fragment.
      
      {% cut "Example of a log group description in the {{ TF }} configuration" %}
 
@@ -76,7 +76,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. You 
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -88,9 +88,9 @@ The name of the [default log group](../concepts/log-group.md) is `default`. You 
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```
      terraform apply

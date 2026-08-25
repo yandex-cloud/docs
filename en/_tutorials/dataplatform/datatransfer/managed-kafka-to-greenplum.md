@@ -36,6 +36,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
             * [{{ mgp-name }}](../../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
+    
     - {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
@@ -51,6 +52,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * [Security groups](../../../vpc/concepts/security-groups.md) for cluster access.
             * {{ mkf-name }} source cluster.
             * {{ GP }} target cluster in {{ mgp-name }}.
+            * {{ KF }} endpoint.
             * Transfer.
 
         1. In the `kafka-greenplum.tf` file, specify user passwords and {{ KF }} and {{ GP }} versions.
@@ -68,6 +70,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
+
     {% endlist %}
 
 1. Install the following tools:
@@ -84,6 +87,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
+        ```
+
 
 ## Prepare your test data {#prepare-data}
 
@@ -111,73 +116,73 @@ Create a file named `sample.json` with test data on your local machine:
 
 ## Prepare and activate a transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md) of the `{{ KF }}` type and specify the following for it:
-
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}**: `sensors`.
-    * `json` conversion rules. In the **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** field, select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`, copy the following field specification, and paste it into the form that opens:
-
-    {% cut "sensors-specification" %}
-
-    ```json
-    [
-        {
-            "name": "device_id",
-            "type": "utf8",
-            "key": true
-        },
-        {
-            "name": "datetime",
-            "type": "utf8"
-        },
-        {
-            "name": "latitude",
-            "type": "double"
-        },
-        {
-            "name": "longitude",
-            "type": "double"
-        },
-        {
-            "name": "altitude",
-            "type": "double"
-        },
-        {
-            "name": "speed",
-            "type": "double"
-        },
-        {
-            "name": "battery_voltage",
-            "type": "double"
-        },
-        {
-            "name": "cabin_temperature",
-            "type": "uint16"
-        },
-        {
-            "name": "fuel_level",
-            "type": "uint16"
-        }
-    ]
-    ```
-
-    {% endcut %}
-
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/greenplum.md) of the `{{ GP }}` type and put `user` for username.
-1. Create and activate your transfer:
+1. Create an {{ KF }} source endpoint and set up the transfer:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-repl }}_-type that will use the endpoints you created.
+        1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md) of the `{{ KF }}` type and specify the following for it:
+
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}**: `sensors`.
+            * `json` conversion rules. In the **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** field, select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`, copy the following field specification, and paste it into the form that opens:
+
+                {% cut "sensors-specification" %}
+
+                ```json
+                [
+                    {
+                        "name": "device_id",
+                        "type": "utf8",
+                        "key": true
+                    },
+                    {
+                        "name": "datetime",
+                        "type": "utf8"
+                    },
+                    {
+                        "name": "latitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "longitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "altitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "speed",
+                        "type": "double"
+                    },
+                    {
+                        "name": "battery_voltage",
+                        "type": "double"
+                    },
+                    {
+                        "name": "cabin_temperature",
+                        "type": "uint16"
+                    },
+                    {
+                        "name": "fuel_level",
+                        "type": "uint16"
+                    }
+                ]
+                ```
+
+                {% endcut %}
+
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-repl }}_-type that will use the new endpoints.
         1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to {{ dt-status-repl }}.
 
+    
     - {{ TF }} {#tf}
 
         1. In the `kafka-greenplum.tf` file, specify the following variables:
 
-            * `kf_source_endpoint_id`: Source endpoint ID.
-            * `gp_target_endpoint_id`: Target endpoint ID.
+            * `gp_target_endpoint_id`: {{ GP }} target endpoint ID.
             * `transfer_enabled`: Set to `1` to create the transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
@@ -193,6 +198,7 @@ Create a file named `sample.json` with test data on your local machine:
             {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
         1. The transfer will be activated automatically. Wait for its status to change to {{ dt-status-repl }}.
+
 
     {% endlist %}
 
@@ -230,13 +236,15 @@ Make sure data from the {{ mkf-name }} source cluster topic is being transferred
 To reduce the consumption of resources, delete those you do not need:
 
 1. Make sure the transfer has the {{ dt-status-finished }} status and [delete](../../../data-transfer/operations/transfer.md#delete) it.
-1. [Delete both the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the rest of the resources depending on how you created them:
+
+
+1. Delete the resources depending on how you created them:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
+        1. [Delete the source endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
         1. [Delete the {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-delete.md).
         1. [Delete the {{ mgp-name }} cluster](../../../managed-greenplum/operations/cluster-delete.md).
 
@@ -245,3 +253,6 @@ To reduce the consumption of resources, delete those you do not need:
         {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}
+
+1. [Delete the target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
+

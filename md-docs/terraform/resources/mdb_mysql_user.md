@@ -85,6 +85,8 @@ resource "yandex_vpc_subnet" "foo" {
 - `id` (String). 
 - `name` (**Required**)(String). The name of the user.
 - `password` (String). The password of the user.
+- `password_wo` (String). The password of the user. This attribute is write-only and is not stored in state. Requires `password_wo_version` to trigger updates. Write-only arguments are only supported in Terraform v1.11 or higher
+- `password_wo_version` (Number). A version number for the write-only password. Increment this to trigger a password update.
 - `connection_limits` [Block]. User's connection limits. If the attribute is not specified there will be no changes. Default value is `-1`. When these parameters are set to `-1`, backend default values will be actually used.
   - `max_connections_per_hour` (Number). Max connections per hour.
   - `max_questions_per_hour` (Number). Max questions per hour.

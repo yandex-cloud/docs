@@ -39,6 +39,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
        1. If you selected {{ dd }} database mode, [create](../../vpc/operations/security-group-create.md) and [configure](../../ydb/operations/connection.md#configuring-security-groups) a security group in the network hosting your database.
 
+       
+       1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` role. The transfer will use it to access the database.
+
+
        1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly accessible hosts.
 
           {% include [public-access](../../_includes/mdb/note-public-access.md) %}
@@ -57,12 +61,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
               1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the `cdc.sensors` topic. To include all created topics, specify `cdc.*` in the topic name.
 
-          * When managing topics via the Kafka Admin API:
+          * If you manage topics using the Kafka Admin API:
 
               1. Create an [admin user](../../managed-kafka/operations/cluster-accounts.md).
               1. In addition to `ACCESS_ROLE_ADMIN`, assign the admin user the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for `cdc.*` topics whose names are prefixed with `cdc`.
 
-                 The system will automatically create the relevant topics upon the first change to the source cluster tables you are tracking. This solution can help tracking changes in multiple tables but it requires extra free space in the cluster storage. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
+                 The system will automatically create the relevant topics upon the first change to the source cluster tables you are tracking. This solution can help you track changes in multiple tables but it requires extra free space in the cluster storage. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
 
    - {{ TF }} {#tf}
 
@@ -78,10 +82,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
            * [Network](../../vpc/concepts/network.md#network).
            * [Subnet](../../vpc/concepts/network.md#subnet).
            * [Security group](../../vpc/concepts/security-groups.md) and the rule required for connecting to the {{ mkf-name }} cluster.
+           * Service account.
            * {{ ydb-name }} database.
            * {{ mkf-name }} target cluster.
            * {{ KF }} topic.
            * {{ KF }} user.
+           * Source endpoint.
+           * Target endpoint.
            * Transfer.
 
            The [topic management method](../../managed-kafka/concepts/topics.md#management) is specified in the `kf_topics_management` {{ TF }} variable. You set it when running the `terraform plan` and `terraform apply` commands (see below):
@@ -97,8 +104,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            * `source_db_name`: {{ ydb-name }} database name.
            * `target_kf_version`: {{ KF }} version in the target cluster.
            * `target_user_name`: Username for connection to the {{ KF }} topic.
-           * `target_user_password`: User password.
-           * `transfer_enabled`: Set to `0` to ensure no transfer is created until you [create endpoints manually](#prepare-transfer).
+           * `target_user_password`: Password.
 
        1. Validate your {{ TF }} configuration files using this command:
 
@@ -164,71 +170,65 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare and activate a transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
+{% list tabs group=instructions %}
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.title }}**:
+- Manually {#manual}
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
+    1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-           
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select an existing service account or create a new one with the `editor` role.
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.title }}**:
+
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the [previously created](#before-you-begin) {{ ydb-name }} database from the list.
+
+                
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select the [previously created](#before-you-begin) service account with the `editor` role.
 
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}**: Specify the names of tables and {{ ydb-name }} database directories to transfer.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}**: Specify the path to the `sensors` table in the {{ ydb-name }} database.
 
-           {% note warning %}
+                {% note warning %}
 
-           Only the listed tables and directories will be replicated. If you do not specify any names, no tables will be transferred.
+                Only the listed tables and directories will be replicated. If you do not specify any names, no tables will be transferred.
 
-           {% endnote %}
+                {% endnote %}
 
-1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`:
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the [previously created](#before-you-begin) {{ mkf-name }} source cluster.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Specify the credentials of the {{ KF }} user [you created](#before-you-begin).
+    1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`:
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the [previously created](#before-you-begin) {{ mkf-name }} source cluster.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Specify the credentials of the {{ KF }} user [you created](#before-you-begin).
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: `cdc.sensors`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: `cdc.sensors`.
 
-        If you need to track changes in multiple tables, fill in the fields as follows:
+            If you need to track changes in multiple tables, fill in the fields as follows:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}**: Enter the `cdc` prefix you used to generate topic names.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}**: Enter the `cdc` prefix you used to generate topic names.
 
-1. Create a transfer:
+    1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
+    1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate).
 
-    {% list tabs group=instructions %}
+- {{ TF }} {#tf}
 
-    - Manually {#manual}
+    1. In the `data-transfer-ydb-mkf.tf` file, set the `transfer_enabled` variable to `1` to create your endpoints and transfer.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
-        1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
+    1. Validate your {{ TF }} configuration files using this command:
 
-    - {{ TF }} {#tf}
+        ```bash
+        terraform validate
+        ```
 
-        1. In the `data-transfer-ydb-mkf.tf` file, specify the following variables:
+        {{ TF }} will display any configuration errors detected in your files.
 
-            * `source_endpoint_id`: Source endpoint ID.
-            * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: Set to `1` to create the transfer.
+    1. Create the required infrastructure:
 
-        1. Validate your {{ TF }} configuration files using this command:
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            ```bash
-            terraform validate
-            ```
-
-            {{ TF }} will display any configuration errors detected in your files.
-
-        1. Create the required infrastructure:
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            The transfer will be activated automatically upon creation.
+        The transfer will be activated automatically upon creation.
 
     {% endlist %}
 
@@ -422,32 +422,24 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Delete the resources you created {#clear-out}
 
-{% note info %}
-
-Before deleting any resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
-
-{% endnote %}
-
 To minimize resource consumption, delete the resources you no longer need:
 
-1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
+{% list tabs group=instructions %}
+
+- Manually {#manual}
+
+    1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
+    1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
+
+    
+    1. If you created a service account when creating the source endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 
-1. If you created a service account when creating the source endpoint, [delete it](../../iam/operations/sa/delete.md).
+    1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+    1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
 
+- {{ TF }} {#tf}
 
-1. Delete the rest of the resources depending on how you created them:
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-   {% list tabs group=instructions %}
-
-   - Manually {#manual}
-
-       1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
-       1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
-
-   - {{ TF }} {#tf}
-
-       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
-
-   {% endlist %}
+{% endlist %}

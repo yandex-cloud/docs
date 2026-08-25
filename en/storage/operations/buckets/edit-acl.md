@@ -332,6 +332,8 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
          It is used with the `CanonicalUser` type of permission grantee.
 
+         {% include [canonical-user-identification](../../../_includes/storage/canonical-user-identification.md) %}
+
        * `uri`: Public group ID. It is used with the `Group` type of permission grantee. The possible values are:
          * `http://acs.amazonaws.com/groups/global/AllUsers`: All internet users.
          * `http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: All authenticated {{ yandex-cloud }} users.
@@ -406,6 +408,8 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
          {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
 
          It is used with the `CanonicalUser` type of permission grantee.
+
+         {% include [canonical-user-identification](../../../_includes/storage/canonical-user-identification.md) %}
 
        * `uri`: Public group ID. It is used with the `Group` type of permission grantee. The possible values are:
          * `http://acs.amazonaws.com/groups/global/AllUsers`: All internet users.

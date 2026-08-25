@@ -27,17 +27,19 @@ Each investigation includes the following metadata:
 * **Description**: Detailed information about the investigation.
 * **Creation date**: Timestamp when the investigation was created.
 * **Last modified date**: Timestamp of the most recent modification.
-* **Tags**: Keywords to group and search for investigations.
+* **Labels**: Keywords to group and search for investigations.
 
-Tags help group investigations by categories, e.g., threat type, event source, investigation phase, or any other relevant criteria.
+    Labels help group investigations by categories, e.g., threat type, event source, investigation phase, or any other relevant criteria.
+
+
 
 ## Collaboration {#collaboration}
 
 Multiple analysts can co-edit an investigation in real-time. Changes are saved automatically and synchronized across users. Here is what you can do:
 
-* Create an investigation copy for independed work.
+* Create an investigation copy for independent work.
 * Rename the investigation.
-* Modify its description and tags.
+* Modify its description and labels.
 * Delete the investigation.
 
 Access to investigations is governed by user roles. For more information, see [{#T}](../security/index.md).

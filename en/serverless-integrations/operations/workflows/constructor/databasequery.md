@@ -5,6 +5,8 @@ description: Follow this guide to add execution of SQL queries against databases
 
 # Running SQL queries against databases
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
 
 {% list tabs %}

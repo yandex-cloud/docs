@@ -56,8 +56,8 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
 ### 1.1. Connect {{ CH }} {#ch-connection}
 
-1. Navigate to the [management console]({{ link-console-main }}).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. Open the [management console]({{ link-console-main }}).
+1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Click **Create cluster**.
 1. Configure your {{ CH }} cluster.
 
@@ -89,8 +89,8 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
 ### 1.2. Connect {{ ml-platform-short-name }} {#datasphere-connection}
 
-1. Navigate to the [management console]({{ link-console-main }}).
-1. Navigate to **{{ ml-platform-name }}**.
+1. Open the [management console]({{ link-console-main }}).
+1. [Navigate]({{ link-datasphere-main }}) to **{{ ml-platform-name }}**.
 1. Click **Create project**.
 1. Specify `appmetrica-analysis` as the project name and click **Create**. 
 1. Open your project. To do this, in the row with the project name, click ![image](../../_assets/console-icons/ellipsis.svg) → **Open**.
@@ -120,7 +120,7 @@ Skip this step if you are using your own app data.
 1. In the left-hand menu, open the **yandex_appmetrika_cloud_case** folder → **1.upload_data_from_yadisk.ipynb** notebook.
 1. Complete all the steps, i.e., run cells with code, in the **1.upload_data_from_yadisk.ipynb** notebook.
 
-    To run a step, click the number to the left of the cell, then the run button at the top. The number will change to `[*]`. After the number appears again, run the next step.
+    To run a step, click the number to the left of the cell, then the execute button at the top. The number will change to `[*]`. After the number appears again, run the next step.
 
     ![image](../../_assets/datalens/solution-13/03-2-run-cell.png)
 
@@ -227,7 +227,7 @@ To set up the connection and export data from your app, see the guide in [Export
    ![image](../../_assets/datalens/solution-13/10-scatter-chart.png)
 
 1. In the top-right corner, click **Save**.
-1. In the window that opens, enter `Coverage and events` as the chart name and click **Save**.
+1. In the window that opens, enter `Reach and events` as the chart name and click **Save**.
 
 ### 4.5. Create a table chart {#creating-table-chart}
 
@@ -241,7 +241,7 @@ To set up the connection and export data from your app, see the guide in [Export
    ![image](../../_assets/datalens/solution-13/11-table-chart.png)
 
 1. In the top-right corner, click the button to the right of **Save**, then click **Save as**.
-1. In the window that opens, enter `Table by car brands` as the chart name, then click **Save**.
+1. In the window that opens, enter `Table by brands` as the chart name, then click **Save**.
 
 ## 5. Create and configure a dashboard in {{ datalens-short-name }} {#creating-configuring-dashboard}
 
@@ -251,7 +251,7 @@ To set up the connection and export data from your app, see the guide in [Export
 1. Add a chart to your dashboard.
 
     1. In the top-right corner, click **Add** → **Chart**.
-    1. From the **Chart** drop-down list, select **Table by car brands**. The **Name** field will be populated automatically.
+    1. From the **Chart** drop-down list, select **Table by brands**. The **Name** field will be populated automatically.
     1. Click **Add**.
 
     ![image](../../_assets/datalens/solution-13/12-chart-settings.png)
@@ -327,7 +327,7 @@ Use QL charts to delve into event sequences and experiment in {{ datalens-short-
      ORDER BY counts desc
      ```
 
-1. Click **Start**.
+1. Click **Execute**.
 1. Select the **Bar chart** type.
 
    ![image](../../_assets/datalens/solution-13/14-bar-chart.png)
@@ -346,8 +346,8 @@ Use QL charts to delve into event sequences and experiment in {{ datalens-short-
 
 ### 6.2. Create a Sankey chart in {{ ml-platform-short-name }} {#creating-sankey-chart}
 
-1. Navigate to the [management console]({{ link-console-main }}).
-1. Navigate to **{{ ml-platform-name }}**.
+1. Open the [management console]({{ link-console-main }}).
+1. [Navigate]({{ link-datasphere-main }}) to **{{ ml-platform-name }}**.
 1. Open the **yandex_appmetrika_cloud_case** folder → **Case_2.ipynb** notebook.
 1. Complete all the steps, i.e., run the cells with code, in the **Case_2.ipynb** notebook.
 1. You will get an interactive Sankey chart that shows user behavior scenarios. You can move the chart blocks and save the result as an image.

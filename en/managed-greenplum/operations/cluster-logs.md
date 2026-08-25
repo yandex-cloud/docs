@@ -11,7 +11,7 @@
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
     1. Specify a time period for the log entries you want to view by entering it manually or selecting it in the calendar using the date input field.
     1. Select the type of service for which you want to output logs:
@@ -62,7 +62,7 @@
         * `--columns`: List of output columns:
             * `hostname`: [Host name](cluster-list.md#get-hosts).
             * `level`: Logging level, e.g., `info`.
-            * `pid`: ID of the current session’s server process.
+            * `pid`: ID of the current session's server process.
             * `text`: Message output by the component.
 
             {% note info %}

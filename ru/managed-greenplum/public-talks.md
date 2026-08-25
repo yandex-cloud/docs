@@ -67,7 +67,7 @@ description: Видеозаписи конференций и вебинаров
 
   * [Запись трансляции](https://www.youtube.com/watch?v=5OcUo3J4Wdc).
 
-* Внутреннее устройство платформы баз данных в {{ yandex-cloud }}.
+* Внутреннее устройство платформы баз данных в {{ yandex-cloud }}.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=Cwdg425a_cw).
 

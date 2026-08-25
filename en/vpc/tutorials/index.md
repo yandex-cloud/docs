@@ -20,6 +20,7 @@ description: Various {{ vpc-name }} use cases in {{ yandex-cloud }}.
 * [Cloud infrastructure segmentation with the Check Point NGFW](network-segmentation-checkpoint.md)
 * [Creating and configuring a UserGate gateway in proxy server mode](usergate-proxy.md)
 * [Implementing a secure high-availability network infrastructure with a dedicated DMZ based on Smart-Soft NGFW](high-accessible-dmz-ting.md)
+* [Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the UserGate NGFW](high-accessible-dmz-usergate.md)
 * [Creating and configuring a UserGate gateway in firewall mode](usergate-firewall.md)
 
 ## {{ baremetal-name }} {#sec-baremetal}

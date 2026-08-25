@@ -14,8 +14,8 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется удалить балансировщик.
   1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer/) в сервис **Network Load Balancer**.
-  1. В строке балансировщика, который требуется удалить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. В строке балансировщика, который требуется удалить, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
+  1. В открывшемся окне нажмите **Удалить**.
 
 - CLI {#cli}
 

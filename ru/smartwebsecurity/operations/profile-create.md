@@ -18,14 +18,14 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать [профиль безопасности](../concepts/profiles.md).
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
   1. Выберите один из вариантов создания:
-      
-      * **{{ ui-key.yacloud.smart-web-security.title_default-template }}** (рекомендуется).
+
+      * `{{ ui-key.yacloud.smart-web-security.title_default-template }}` (рекомендуется).
 
         {% include [pre-configured-profile](../../_includes/smartwebsecurity/pre-configured-profile.md) %}
-        
-      * **{{ ui-key.yacloud.smart-web-security.title_no-template }}**. Профиль содержит только базовое правило по умолчанию, включенное для всего трафика.
+
+      * `{{ ui-key.yacloud.smart-web-security.title_no-template }}`. Профиль содержит только базовое правило по умолчанию, включенное для всего трафика.
 
   1. Введите имя профиля.
   1. (Опционально) Введите описание.
@@ -38,23 +38,23 @@ description: Следуя данной инструкции, вы сможете
 
   1. {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
   1. {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
-  
+
   1. (Опционально) Включите **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}** и настройте логирование:
-     
+
      1. В поле **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** выберите, какие логи будут записываться: **{{ cloud-logging-name }}**, **{{ at-name }}**.
      1. Для {{ cloud-logging-name }} выберите или создайте [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи.
      1. Для записи в логи можно выбрать только те запросы, для которых сработали:
-        
-        * **{{ ui-key.yacloud.smart-web-security.baseRulesTitle_xcJEe }}**.
-        * Правила **{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}**.
-        * Правила **{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}**.
-        * Правила **{{ ui-key.yacloud.smart-web-security.arlTitle_e3MD8 }}**.
-        * Все выбранные правила применили действие (вердикт) **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.denyAndCaptchaTitle_tCthP }}**.
-        * Все выбранные правила применили действие **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}** (легитимные запросы).
-  
+
+        * `{{ ui-key.yacloud.smart-web-security.baseRulesTitle_xcJEe }}`.
+        * Правила `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}`.
+        * Правила `{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}`.
+        * Правила `{{ ui-key.yacloud.smart-web-security.arlTitle_e3MD8 }}`.
+        * Все выбранные правила применили действие (вердикт) `{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.denyAndCaptchaTitle_tCthP }}`.
+        * Все выбранные правила применили действие `{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}` (легитимные запросы).
+
      Настройка логирования описана в разделе [{#T}](configure-logging.md).
 
-  1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+  1. Нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. В окне создания правила:
 
       {% include [add-rule](../../_includes/smartwebsecurity/add-rule.md) %}
@@ -63,9 +63,9 @@ description: Следуя данной инструкции, вы сможете
   1. Последовательно добавьте все правила, которые вы хотите задействовать в профиле.
 
       В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** в таблице появятся созданные вами правила.
-  
+
   1. (Опционально) Включите или отключите использование информации об HTTP-запросах для улучшения моделей машинного обучения в разделе **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -172,21 +172,21 @@ description: Следуя данной инструкции, вы сможете
       ```
 
       Где:
-      
+
       * `name` — имя профиля безопасности.
       * `default_action` — действие для базового правила по умолчанию. Будет применяться к трафику, который не попал под условия других правил.  Возможные значения: `ALLOW` — разрешает все запросы к сервису, `DENY` — запрещает.
       * `captcha_id` — идентификатор капчи [{{ captcha-full-name }}](../../smartcaptcha/) для проверки подозрительных запросов. Необязательный параметр.
       * `advanced_rate_limiter_profile_id` — идентификатор [ARL профиля безопасности](../concepts/arl.md). Необязательный параметр.
       * `security_rule` — описание [правила](../concepts/rules.md) безопасности:
-         
+
          * `name` — имя правила безопасности.
          * `priority` — [приоритет](../concepts/rules.md#rules-order) правила. Возможные значения — от 1 до 1000000.
          * `smart_protection` — описание [правила Smart Protection](../concepts/rules.md#smart-protection-rules), включенное для всего трафика, с указанным типом действия в параметре `mode`.
-            
+
             * `mode` — [действие правила](../concepts/rules.md#rule-action). Возможные значения: `FULL` — полная защита (подозрительные запросы отправляются на капчу) или `API` — защита API (подозрительные запросы блокируются).
-         
+
          * `waf` — описание правила Web Application Firewall. Чтобы добавить правило WAF, сначала надо [создать профиль WAF](waf-profile-create.md). Необязательный блок параметров, содержит:
-            
+
             * `waf_profile_id` — идентификатор [WAF профиля](../concepts/waf.md).
 
       Если не указать тип правила `smart_protection` или `waf`, будет создано базовое правило с простой фильтрацией по заданным условиям в блоке `rule_condition`.

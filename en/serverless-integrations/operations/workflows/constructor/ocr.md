@@ -5,6 +5,8 @@ description: Follow this guide to add image text recognition to a workflow in {{
 
 # Text recognition in images
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
 
 {% list tabs %}

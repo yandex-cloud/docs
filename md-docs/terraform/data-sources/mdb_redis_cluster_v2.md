@@ -43,7 +43,7 @@ output "network_id" {
   - `maxmemory_percent` (Number). Redis maxmemory percent
   - `maxmemory_policy` (String). Redis key eviction policy for a dataset that reaches maximum memory, available to the host.
   - `notify_keyspace_events` (String). String setting for pub\sub functionality.
-  - `password` (**Required**)(String). Authentication password.
+  - `password` (String). Authentication password.
   - `repl_backlog_size_percent` (Number). Replication backlog size as a percentage of flavor maxmemory.
   - `slowlog_log_slower_than` (Number). Threshold for logging slow requests to server in microseconds (log only slower than it).
   - `slowlog_max_len` (Number). Max slow requests number to log.

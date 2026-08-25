@@ -8,7 +8,7 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
 - CLI {#cli}
@@ -105,10 +105,12 @@ You can configure public access to hosts only for clusters created with TLS enab
 - Management console {#console}
 
   To create a host:
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
   1. Specify the following host settings:
+     
      * Availability zone.
 
      
@@ -175,8 +177,10 @@ You can configure public access to hosts only for clusters created with TLS enab
 
 
      Where:
+     
      * `--cluster-name`: {{ mrd-name }} cluster name. You can get it from the [list of clusters in the folder](cluster-list.md#list-clusters).
      * `--host`: Host settings:
+       
        * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
        * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). You must specify this setting if the selected availability zone has more than one subnet.
        * `assign-public-ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
@@ -186,6 +190,7 @@ You can configure public access to hosts only for clusters created with TLS enab
 - {{ TF }} {#tf}
 
   To create a host:
+  
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
      For information on how to create this file, see [Creating a cluster](cluster-create.md).
@@ -264,7 +269,8 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 - Management console {#console}
 
   To change the cluster host settings:
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.common.edit }}**.
 
@@ -301,6 +307,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 - {{ TF }} {#tf}
 
   To change the cluster host settings:
+  
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
      For information on how to create this file, see [Creating a cluster](cluster-create.md).
@@ -461,7 +468,8 @@ You cannot delete a host if the number of hosts in the cluster or shard is equal
 - Management console {#console}
 
   To delete a host from a cluster:
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. In the host row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, enable **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
@@ -484,9 +492,11 @@ You cannot delete a host if the number of hosts in the cluster or shard is equal
 - {{ TF }} {#tf}
 
   To delete a host from a cluster:
+  
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
      For information on how to create this file, see [Creating a cluster](cluster-create.md).
+  
   1. In the {{ mrd-name }} cluster description, delete the relevant host from the `hosts` section.
   1. Make sure the settings are correct.
 

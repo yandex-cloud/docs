@@ -31,7 +31,7 @@ To allow {{ datalens-name }} to connect to your cluster and work with its data, 
 - Management console {#console}
 
   1. Make sure **{{ datalens-name }}** is [activated](#activate-datalens) in the relevant folder and has [permission](#allow-access) to access the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
 
@@ -65,12 +65,12 @@ Try [visualizing data from {{ CH }}](../../tutorials/datalens/data-from-ch-visua
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
 
      {% cut "My connection is not on the list" %}
 
-     If your connection is missing from the list, it means the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/) operation.
+     If your connection is missing from the list, it means the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/).
 
      {% endcut %}
 
@@ -83,13 +83,13 @@ Try [visualizing data from {{ CH }}](../../tutorials/datalens/data-from-ch-visua
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
   1. Select the connection from the list.
 
      {% cut "My connection is not on the list" %}
 
-     If your connection is missing from the list, it means the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/) operation.
+     If your connection is missing from the list, it means the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/).
 
      {% endcut %}
 
@@ -106,13 +106,13 @@ Try [visualizing data from {{ CH }}](../../tutorials/datalens/data-from-ch-visua
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
   1. Select the connection from the list.
 
      {% cut "My connection is not on the list" %}
 
-     If your connection is missing from the list, it means the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/) operation.
+     If your connection is missing from the list, it means the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/).
 
      {% endcut %}
 

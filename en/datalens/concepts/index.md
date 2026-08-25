@@ -27,6 +27,7 @@ For usage examples, see [Gallery]({{ link-datalens-main }}/gallery).
 * **Chart**: Data from a data source or dataset visualized as tables, diagrams, or maps.
 * **Dashboard**: Complex visualization made up of charts and selectors for filtering data as well as text blocks, automatically optimized for mobile devices.
 * **Report**: Document designed as an interactive presentation, where you can add charts, text blocks, headers, and images and then export it to PDF.
+* **HTML pages**: Pre-rendered HTML pages uploaded to {{ datalens-name }} to share with other users.
 
 {{ datalens-short-name }} uses workbooks and collections to organize objects. Workbooks store connections, datasets, charts, and dashboards. Collections group workbooks and other collections for streamlined data management and navigation.
 

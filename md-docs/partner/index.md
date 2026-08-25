@@ -34,15 +34,13 @@
 
 ### Пошаговые инструкции
 
+#### Управление аккаунтами клиентов
+
  - [Создать аккаунт клиента](operations/create-account.md)
 
  - [Добавить сабаккаунт клиента](operations/pin-client.md)
 
  - [Предоставить доступ к партнерскому аккаунту](operations/access/partners-account.md)
-
- - [Посмотреть детализацию сабаккаунтов](operations/get-client-stat.md)
-
- - [Экспортировать расширенную детализацию](operations/get-partner-report.md)
 
  - [Приостановить оказание услуг клиенту](operations/stop-client-services.md)
 
@@ -52,9 +50,35 @@
 
  - [Настроить квоты для клиентов](operations/manage-quotas.md)
 
+#### Просмотр детализации
+
+ - [Посмотреть детализацию сабаккаунтов](operations/get-client-stat.md)
+
+ - [Экспортировать расширенную детализацию](operations/get-partner-report.md)
+
+#### Управление сделками
+
+ - [Все инструкции](operations/deals/index.md)
+
+ - [Создать сделку](operations/deals/create-deal.md)
+
+ - [Создать сделку в рамках регламентированной закупки](operations/deals/create-tender.md)
+
+ - [Создать проект](operations/deals/create-project.md)
+
+ - [Посмотреть информацию о сделке](operations/deals/deal-info.md)
+
+ - [Редактировать сделку](operations/deals/edit.md)
+
  - [Зарегистрировать сделку](operations/deal-registration.md)
 
  - [Зарегистрировать проект](operations/project-registration.md)
+
+#### Управление активностями по сделкам
+
+ - [Посмотреть информацию об активности](operations/activity-info.md)
+
+ - [Фильтровать список сущностей](operations/filter.md)
 
  - [Запросить пресейл](operations/presale-request.md)
 

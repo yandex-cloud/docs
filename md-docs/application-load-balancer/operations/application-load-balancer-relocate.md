@@ -192,7 +192,7 @@
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится балансировщик.
      1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
      1. Выберите нужный балансировщик.
-     1. Перейдите на вкладку ![image](../../_assets/console-icons/heart-pulse.svg) **Проверки состояния**.
+     1. Перейдите на вкладку **Проверки состояния**.
      1. Раскройте список целевых ресурсов. ВМ, привязанные к целевой группе, должны иметь [статус](../../compute/concepts/vm-statuses.md) `HEALTHY`.
 
    - API {#api}

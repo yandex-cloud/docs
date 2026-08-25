@@ -28,8 +28,8 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
   To restore an existing cluster from a backup:
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to restore the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to restore a cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
   1. Next to the backup you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
@@ -37,8 +37,8 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
   To restore a previously deleted cluster from a backup:
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to restore the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to restore a cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
   1. Find your backup using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
   1. In the line of the appropriate backup, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
@@ -149,7 +149,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
         * `configSpec.redis.password`: User password.
         * `hostSpecs`: Host settings:
 
-             * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
+            * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet). You must specify this setting if the selected availability zone has more than one subnet.
             * `replicaPriority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
             * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if `tlsEnabled` is set to `true`.
@@ -218,7 +218,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
         * `config_spec.redis.password`: User password.
         * `host_specs`: Host settings:
 
-             * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+            * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet). You must specify this setting if the selected availability zone has more than one subnet.
             * `replica_priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
             * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if `tlsEnabled` is set to `true`.
@@ -243,8 +243,8 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), where you want to create a backup.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create the backup.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -330,13 +330,15 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 - Management console {#console}
 
   To get a list of cluster backups:
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
 
-  To get a list of all backups in a folder:
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  To get a list of all backups in your folder:
+  
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI {#cli}
@@ -463,14 +465,16 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - Management console {#console}
 
-  To get information about a backup of an existing cluster:
-  1. In the [management console]({{ link-console-main }}), go to the folder with the cluster whose backup information you want to get.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  To get backup details for an existing cluster:
+  
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster whose backup info you need to get.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
 
-  To get information about a backup of a previously deleted cluster:
-  1. In the [management console]({{ link-console-main }}), go to the folder that previously stored the deleted cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  To get backup details for a previously deleted cluster:
+  
+  1. In the [management console]({{ link-console-main }}), select the folder the deleted cluster was in.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI {#cli}

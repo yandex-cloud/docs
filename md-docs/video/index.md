@@ -72,11 +72,15 @@ Yandex Cloud Video — комплексная платформа управле�
 
  - [Начать трансляцию](operations/streams/start.md)
 
+ - [Проверить состояние трансляции](operations/streams/monitoring.md)
+
  - [Получить код вставки или ссылку](operations/streams/get-link.md)
 
  - [Отозвать доступ к трансляции](operations/streams/revoke-access.md)
 
  - [Добавить завершенную трансляцию в плейлист](operations/streams/add-to-playlist.md)
+
+ - [Посмотреть статистику просмотров трансляции](operations/streams/get-statistics.md)
 
  - [Удалить трансляцию](operations/streams/delete.md)
 
@@ -95,6 +99,10 @@ Yandex Cloud Video — комплексная платформа управле�
 ## Практические руководства
 
  - [Готовые решения по оформлению видео в IFrame](tutorials/video-iframe.md)
+
+### Интеграции
+
+ - [Плагин для Moodle LMS](tutorials/moodle-plugin.md)
 
 ## Концепции
 

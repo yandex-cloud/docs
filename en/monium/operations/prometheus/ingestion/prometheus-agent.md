@@ -13,8 +13,8 @@ This section describes how to install an agent when creating a VM. For other ins
 
 ## List of supported operating systems {#supported-os}
 
-- Ubuntu 14.04 or higher
-- Debian 9 or higher
+* Ubuntu 14.04 or higher
+* Debian 9 or higher
 
 ## Before you begin installation {#before-you-begin}
 
@@ -60,13 +60,15 @@ You can install a metric collection agent when creating a VM with the help of th
       ```
 
       Where:
-      - `job_name`: Random name for the set of metrics to collect.
-      - `scrape_interval`: How often the agent will collect metrics.
-      - `scrape_timeout`: Time the agent will have to collect metrics.
-      - `metrics_path`: Path to the service metrics location.
-      - `targets`: Parameters of the host to collect metrics from:
-        - `host`: Full domain name, such as `my.example.com`. This is an optional setting.
-        - `port`: Metric collection port.
+      
+      * `job_name`: Random name for the set of metrics to collect.
+      * `scrape_interval`: How often the agent will collect metrics.
+      * `scrape_timeout`: Time the agent will have to collect metrics.
+      * `metrics_path`: Path to the service metrics location.
+      * `targets`: Parameters of the host to collect metrics from:
+        
+        * `host`: Full domain name, such as `my.example.com`. This is an optional setting.
+        * `port`: Metric collection port.
 
 - CLI, API {#cli}
   
@@ -99,6 +101,7 @@ You can install a metric collection agent when creating a VM with the help of th
       ```
 
       Where:
+      
       * `monitoring_workspaceid`: ID of the workspace to which you want to write metrics.
       * `service_account_id`: ID of the service account with the `monitoring.editor` role.
 
@@ -190,7 +193,7 @@ To view metrics your agent transfers to {{ managed-prometheus-name }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the VM is located.
-  1. Navigate to **{{ monitoring-short-name }}**.
+  1. [Navigate]({{ link-monitoring }}) to **{{ monitoring-short-name }}**.
   1. Navigate to **{{ prometheus-name }}**.
   1. Select the workspace your VM metrics are written to.
   1. Open the **Metrics** tab and enter a **{{ ui-key.yacloud_monitoring.prometheus.query.label }}** to view:
@@ -204,11 +207,13 @@ To view metrics your agent transfers to {{ managed-prometheus-name }}:
      * Custom metrics if the agent has been configured to transfer them: `{job="metrics_totality_name", instance="<VM_name>:<port>", __name__="<metric_name>"}`.
 
         Where:
+         
          * `job`: Name of the set of metrics specified when configuring the agent.
          * `instance`: VM name and port used by your application.
          * `name`: Name of the metric your application transfers.
 
          Example: `{job="web_server", instance="my_server:9100", __name__="http_requests_total"}`.
+  
   1. Click **{{ ui-key.yacloud_monitoring.prometheus.query.action_execute }}**.
 
 {% endlist %}

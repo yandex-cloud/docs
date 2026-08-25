@@ -1338,6 +1338,9 @@ items:
                       - name: list
                         href: >-
                           cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list.md
+                      - name: list-stackland-cluster-operations
+                        href: >-
+                          cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list-stackland-cluster-operations.md
                       - name: update
                         href: >-
                           cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/update.md
@@ -2064,8 +2067,13 @@ items:
             items:
               - name: Overview
                 href: cli-ref/cloud-registry/cli-ref/migration/index.md
+              - name: get-cloud-migration-status-dashboard
+                href: >-
+                  cli-ref/cloud-registry/cli-ref/migration/get-cloud-migration-status-dashboard.md
               - name: start-cloud
                 href: cli-ref/cloud-registry/cli-ref/migration/start-cloud.md
+              - name: start-folder
+                href: cli-ref/cloud-registry/cli-ref/migration/start-folder.md
           - name: registry
             items:
               - name: Overview
@@ -2380,8 +2388,14 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/cloud-registry/cli-ref/v1/migration/index.md
+                  - name: get-cloud-migration-status-dashboard
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/migration/get-cloud-migration-status-dashboard.md
                   - name: start-cloud
                     href: cli-ref/cloud-registry/cli-ref/v1/migration/start-cloud.md
+                  - name: start-folder
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/migration/start-folder.md
               - name: registry
                 items:
                   - name: Overview
@@ -3871,6 +3885,8 @@ items:
                 href: cli-ref/container/cli-ref/registry/create.md
               - name: delete
                 href: cli-ref/container/cli-ref/registry/delete.md
+              - name: force-delete
+                href: cli-ref/container/cli-ref/registry/force-delete.md
               - name: get
                 href: cli-ref/container/cli-ref/registry/get.md
               - name: list
@@ -4056,6 +4072,8 @@ items:
                     href: cli-ref/container/cli-ref/v0/registry/create.md
                   - name: delete
                     href: cli-ref/container/cli-ref/v0/registry/delete.md
+                  - name: force-delete
+                    href: cli-ref/container/cli-ref/v0/registry/force-delete.md
                   - name: get
                     href: cli-ref/container/cli-ref/v0/registry/get.md
                   - name: list
@@ -9804,6 +9822,70 @@ items:
                     href: cli-ref/managed-ytsaurus/cli-ref/v0/cluster/start.md
                   - name: stop
                     href: cli-ref/managed-ytsaurus/cli-ref/v0/cluster/stop.md
+      - name: managed-zonalshift
+        items:
+          - name: Overview
+            href: cli-ref/managed-zonalshift/cli-ref/index.md
+          - name: config
+            items:
+              - name: Overview
+                href: cli-ref/managed-zonalshift/cli-ref/config/index.md
+              - name: create
+                href: cli-ref/managed-zonalshift/cli-ref/config/create.md
+              - name: delete
+                href: cli-ref/managed-zonalshift/cli-ref/config/delete.md
+              - name: get
+                href: cli-ref/managed-zonalshift/cli-ref/config/get.md
+              - name: list
+                href: cli-ref/managed-zonalshift/cli-ref/config/list.md
+              - name: update
+                href: cli-ref/managed-zonalshift/cli-ref/config/update.md
+          - name: drill-type
+            items:
+              - name: Overview
+                href: cli-ref/managed-zonalshift/cli-ref/drill-type/index.md
+              - name: list
+                href: cli-ref/managed-zonalshift/cli-ref/drill-type/list.md
+          - name: task
+            items:
+              - name: Overview
+                href: cli-ref/managed-zonalshift/cli-ref/task/index.md
+              - name: cancel
+                href: cli-ref/managed-zonalshift/cli-ref/task/cancel.md
+              - name: list
+                href: cli-ref/managed-zonalshift/cli-ref/task/list.md
+          - name: v0
+            items:
+              - name: Overview
+                href: cli-ref/managed-zonalshift/cli-ref/v0/index.md
+              - name: config
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/config/index.md
+                  - name: create
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/config/create.md
+                  - name: delete
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/config/delete.md
+                  - name: get
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/config/get.md
+                  - name: list
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/config/list.md
+                  - name: update
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/config/update.md
+              - name: drill-type
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/drill-type/index.md
+                  - name: list
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/drill-type/list.md
+              - name: task
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/task/index.md
+                  - name: cancel
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/task/cancel.md
+                  - name: list
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/task/list.md
       - name: marketplace
         items:
           - name: Overview
@@ -11847,6 +11929,184 @@ items:
                     href: cli-ref/serverless/cli-ref/trigger/update/timer.md
                   - name: yds
                     href: cli-ref/serverless/cli-ref/trigger/update/yds.md
+              - name: v1
+                items:
+                  - name: Overview
+                    href: cli-ref/serverless/cli-ref/trigger/v1/index.md
+                  - name: add-labels
+                    href: cli-ref/serverless/cli-ref/trigger/v1/add-labels.md
+                  - name: create
+                    items:
+                      - name: Overview
+                        href: cli-ref/serverless/cli-ref/trigger/v1/create/index.md
+                      - name: billing-budget
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/create/billing-budget.md
+                      - name: container-registry
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/create/container-registry.md
+                      - name: internet-of-things
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/create/internet-of-things.md
+                      - name: iot-broker
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/create/iot-broker.md
+                      - name: logging
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/create/logging.md
+                      - name: mail
+                        href: cli-ref/serverless/cli-ref/trigger/v1/create/mail.md
+                      - name: message-queue
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/create/message-queue.md
+                      - name: object-storage
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/create/object-storage.md
+                      - name: timer
+                        href: cli-ref/serverless/cli-ref/trigger/v1/create/timer.md
+                      - name: yds
+                        href: cli-ref/serverless/cli-ref/trigger/v1/create/yds.md
+                  - name: delete
+                    href: cli-ref/serverless/cli-ref/trigger/v1/delete.md
+                  - name: get
+                    href: cli-ref/serverless/cli-ref/trigger/v1/get.md
+                  - name: list
+                    href: cli-ref/serverless/cli-ref/trigger/v1/list.md
+                  - name: list-operations
+                    href: cli-ref/serverless/cli-ref/trigger/v1/list-operations.md
+                  - name: pause
+                    href: cli-ref/serverless/cli-ref/trigger/v1/pause.md
+                  - name: remove-labels
+                    href: cli-ref/serverless/cli-ref/trigger/v1/remove-labels.md
+                  - name: resume
+                    href: cli-ref/serverless/cli-ref/trigger/v1/resume.md
+                  - name: update
+                    items:
+                      - name: Overview
+                        href: cli-ref/serverless/cli-ref/trigger/v1/update/index.md
+                      - name: billing-budget
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/update/billing-budget.md
+                      - name: container-registry
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/update/container-registry.md
+                      - name: internet-of-things
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/update/internet-of-things.md
+                      - name: iot-broker
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/update/iot-broker.md
+                      - name: logging
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/update/logging.md
+                      - name: mail
+                        href: cli-ref/serverless/cli-ref/trigger/v1/update/mail.md
+                      - name: message-queue
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/update/message-queue.md
+                      - name: object-storage
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/update/object-storage.md
+                      - name: timer
+                        href: cli-ref/serverless/cli-ref/trigger/v1/update/timer.md
+                      - name: yds
+                        href: cli-ref/serverless/cli-ref/trigger/v1/update/yds.md
+              - name: v2
+                items:
+                  - name: Overview
+                    href: cli-ref/serverless/cli-ref/trigger/v2/index.md
+                  - name: add-labels
+                    href: cli-ref/serverless/cli-ref/trigger/v2/add-labels.md
+                  - name: create
+                    items:
+                      - name: Overview
+                        href: cli-ref/serverless/cli-ref/trigger/v2/create/index.md
+                      - name: billing-budget
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/billing-budget.md
+                      - name: container-registry
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/container-registry.md
+                      - name: internet-of-things
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/internet-of-things.md
+                      - name: iot-broker
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/iot-broker.md
+                      - name: logging
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/logging.md
+                      - name: mail
+                        href: cli-ref/serverless/cli-ref/trigger/v2/create/mail.md
+                      - name: message-queue
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/message-queue.md
+                      - name: object-storage
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/object-storage.md
+                      - name: telegram
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/telegram.md
+                      - name: timer
+                        href: cli-ref/serverless/cli-ref/trigger/v2/create/timer.md
+                      - name: yds
+                        href: cli-ref/serverless/cli-ref/trigger/v2/create/yds.md
+                  - name: delete
+                    href: cli-ref/serverless/cli-ref/trigger/v2/delete.md
+                  - name: get
+                    href: cli-ref/serverless/cli-ref/trigger/v2/get.md
+                  - name: help-action
+                    href: cli-ref/serverless/cli-ref/trigger/v2/help-action.md
+                  - name: list
+                    href: cli-ref/serverless/cli-ref/trigger/v2/list.md
+                  - name: list-operations
+                    href: cli-ref/serverless/cli-ref/trigger/v2/list-operations.md
+                  - name: pause
+                    href: cli-ref/serverless/cli-ref/trigger/v2/pause.md
+                  - name: remove-labels
+                    href: cli-ref/serverless/cli-ref/trigger/v2/remove-labels.md
+                  - name: resume
+                    href: cli-ref/serverless/cli-ref/trigger/v2/resume.md
+                  - name: update
+                    items:
+                      - name: Overview
+                        href: cli-ref/serverless/cli-ref/trigger/v2/update/index.md
+                      - name: add-actions
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/add-actions.md
+                      - name: billing-budget
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/billing-budget.md
+                      - name: container-registry
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/container-registry.md
+                      - name: internet-of-things
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/internet-of-things.md
+                      - name: iot-broker
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/iot-broker.md
+                      - name: logging
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/logging.md
+                      - name: mail
+                        href: cli-ref/serverless/cli-ref/trigger/v2/update/mail.md
+                      - name: message-queue
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/message-queue.md
+                      - name: object-storage
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/object-storage.md
+                      - name: replace-actions
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/replace-actions.md
+                      - name: telegram
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/telegram.md
+                      - name: timer
+                        href: cli-ref/serverless/cli-ref/trigger/v2/update/timer.md
+                      - name: yds
+                        href: cli-ref/serverless/cli-ref/trigger/v2/update/yds.md
           - name: v0
             items:
               - name: Overview
@@ -12350,6 +12610,205 @@ items:
                         href: cli-ref/serverless/cli-ref/v0/trigger/update/timer.md
                       - name: yds
                         href: cli-ref/serverless/cli-ref/v0/trigger/update/yds.md
+                  - name: v1
+                    items:
+                      - name: Overview
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v1/index.md
+                      - name: add-labels
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v1/add-labels.md
+                      - name: create
+                        items:
+                          - name: Overview
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/index.md
+                          - name: billing-budget
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/billing-budget.md
+                          - name: container-registry
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/container-registry.md
+                          - name: internet-of-things
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/internet-of-things.md
+                          - name: iot-broker
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/iot-broker.md
+                          - name: logging
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/logging.md
+                          - name: mail
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/mail.md
+                          - name: message-queue
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/message-queue.md
+                          - name: object-storage
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/object-storage.md
+                          - name: timer
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/timer.md
+                          - name: yds
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/yds.md
+                      - name: delete
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v1/delete.md
+                      - name: get
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v1/get.md
+                      - name: list
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v1/list.md
+                      - name: list-operations
+                        href: >-
+                          cli-ref/serverless/cli-ref/v0/trigger/v1/list-operations.md
+                      - name: pause
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v1/pause.md
+                      - name: remove-labels
+                        href: >-
+                          cli-ref/serverless/cli-ref/v0/trigger/v1/remove-labels.md
+                      - name: resume
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v1/resume.md
+                      - name: update
+                        items:
+                          - name: Overview
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/index.md
+                          - name: billing-budget
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/billing-budget.md
+                          - name: container-registry
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/container-registry.md
+                          - name: internet-of-things
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/internet-of-things.md
+                          - name: iot-broker
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/iot-broker.md
+                          - name: logging
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/logging.md
+                          - name: mail
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/mail.md
+                          - name: message-queue
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/message-queue.md
+                          - name: object-storage
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/object-storage.md
+                          - name: timer
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/timer.md
+                          - name: yds
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/yds.md
+                  - name: v2
+                    items:
+                      - name: Overview
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v2/index.md
+                      - name: add-labels
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v2/add-labels.md
+                      - name: create
+                        items:
+                          - name: Overview
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/index.md
+                          - name: billing-budget
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/billing-budget.md
+                          - name: container-registry
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/container-registry.md
+                          - name: internet-of-things
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/internet-of-things.md
+                          - name: iot-broker
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/iot-broker.md
+                          - name: logging
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/logging.md
+                          - name: mail
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/mail.md
+                          - name: message-queue
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/message-queue.md
+                          - name: object-storage
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/object-storage.md
+                          - name: telegram
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/telegram.md
+                          - name: timer
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/timer.md
+                          - name: yds
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/yds.md
+                      - name: delete
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v2/delete.md
+                      - name: get
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v2/get.md
+                      - name: help-action
+                        href: >-
+                          cli-ref/serverless/cli-ref/v0/trigger/v2/help-action.md
+                      - name: list
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v2/list.md
+                      - name: list-operations
+                        href: >-
+                          cli-ref/serverless/cli-ref/v0/trigger/v2/list-operations.md
+                      - name: pause
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v2/pause.md
+                      - name: remove-labels
+                        href: >-
+                          cli-ref/serverless/cli-ref/v0/trigger/v2/remove-labels.md
+                      - name: resume
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v2/resume.md
+                      - name: update
+                        items:
+                          - name: Overview
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/index.md
+                          - name: add-actions
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/add-actions.md
+                          - name: billing-budget
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/billing-budget.md
+                          - name: container-registry
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/container-registry.md
+                          - name: internet-of-things
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/internet-of-things.md
+                          - name: iot-broker
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/iot-broker.md
+                          - name: logging
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/logging.md
+                          - name: mail
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/mail.md
+                          - name: message-queue
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/message-queue.md
+                          - name: object-storage
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/object-storage.md
+                          - name: replace-actions
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/replace-actions.md
+                          - name: telegram
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/telegram.md
+                          - name: timer
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/timer.md
+                          - name: yds
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/yds.md
               - name: workflow
                 items:
                   - name: Overview
@@ -12569,6 +13028,56 @@ items:
                   - name: update
                     href: >-
                       cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/update.md
+          - name: load-balancer
+            items:
+              - name: Overview
+                href: cli-ref/smartwebsecurity/cli-ref/load-balancer/index.md
+              - name: domain
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/delete.md
+                  - name: get
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/list.md
+                  - name: update
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/update.md
+              - name: load-balancer
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/delete.md
+                  - name: get
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/list.md
+                  - name: start
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/start.md
+                  - name: stop
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/stop.md
+                  - name: update
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/update.md
           - name: match-list
             items:
               - name: Overview
@@ -12684,6 +13193,56 @@ items:
                       - name: update
                         href: >-
                           cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/update.md
+              - name: load-balancer
+                items:
+                  - name: Overview
+                    href: cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/index.md
+                  - name: domain
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/create.md
+                      - name: delete
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/delete.md
+                      - name: get
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/get.md
+                      - name: list
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/list.md
+                      - name: update
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/update.md
+                  - name: load-balancer
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/create.md
+                      - name: delete
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/delete.md
+                      - name: get
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/get.md
+                      - name: list
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/list.md
+                      - name: start
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/start.md
+                      - name: stop
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/stop.md
+                      - name: update
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/update.md
               - name: match-list
                 items:
                   - name: Overview

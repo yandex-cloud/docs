@@ -783,6 +783,7 @@ Managed Service for OpenSearch позволяет создавать резер�
 
 {% endnote %}
 
+
 ### Получить список снапшотов {#list-snapshots}
 
 ##### **Для снапшотов, создаваемых средствами Yandex Cloud**

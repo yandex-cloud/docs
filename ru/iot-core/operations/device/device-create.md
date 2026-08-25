@@ -12,9 +12,8 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать устройство.
-   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Выберите в списке нужный реестр.
-   1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** и выберите нужный реестр.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-device }}**.
    1. В блоке **{{ ui-key.yacloud.common.section-base }}** добавьте:
 
@@ -22,11 +21,7 @@ description: Следуя данной инструкции, вы сможете
       * (Опционально) **{{ ui-key.yacloud.common.description }}** с дополнительной информацией об устройстве.
       * (Опционально) **{{ ui-key.yacloud.common.password }}**, который вы будете использовать для доступа к устройству. Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).
 
-         {% note info %}
-
-         Сохраните пароль, он вам понадобится для [аутентификации](../../concepts/authorization.md).
-
-         {% endnote %}
+         {% include [password-save](../../../_includes/iot-core/password-save.md) %}
 
    1. (Опционально) Добавьте [алиасы](../../concepts/topic/usage.md#aliases):
 
@@ -37,13 +32,15 @@ description: Следуя данной инструкции, вы сможете
 
       * Чтобы добавить файл:
 
+         1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-certificate }}**.
          1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
-         1. Нажмите кнопку **Прикрепить файл**.
+         1. Нажмите кнопку **{{ ui-key.yacloud_components.fileinput.button_attach-file }}**.
          1. Выберите файл с публичным ключом сертификата и нажмите кнопку **Открыть**.
          1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * Чтобы добавить текст:
 
+         1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-certificate }}**.
          1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
          1. Вставьте публичный ключ сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
          1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.

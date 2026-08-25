@@ -30,7 +30,7 @@ description: Вы можете создавать резервные копии 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной резервной копии и выберите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
@@ -53,7 +53,7 @@ description: Вы можете создавать резервные копии 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
   1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.id }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
 
@@ -252,7 +252,7 @@ description: Вы можете создавать резервные копии 
               "shardName": "<имя_шарда>",
               "hidden": <скрыть_хост>,
               "secondaryDelaySecs": "<задержка_в_секундах>",
-              "priority": "<приоритет_назначения_хоста_мастером>",
+              "priority": "<приоритет_назначения_хоста_первичной_репликой>",
               "tags": "<метки_хоста>"
             }
           ],
@@ -346,7 +346,7 @@ description: Вы можете создавать резервные копии 
               "shard_name": "<имя_шарда>",
               "hidden": <скрыть_хост>,
               "secondary_delay_secs": "<задержка_в_секундах>",
-              "priority": "<приоритет_назначения_хоста_мастером>",
+              "priority": "<приоритет_назначения_хоста_первичной_репликой>",
               "tags": "<метки_хоста>"
             }
           ],
@@ -394,7 +394,7 @@ description: Вы можете создавать резервные копии 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной резервной копии и выберите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
@@ -422,7 +422,7 @@ description: Вы можете создавать резервные копии 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
   1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.id }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
 
@@ -623,7 +623,7 @@ description: Вы можете создавать резервные копии 
               "shardName": "<имя_шарда>",
               "hidden": <скрыть_хост>,
               "secondaryDelaySecs": "<задержка_в_секундах>",
-              "priority": "<приоритет_назначения_хоста_мастером>",
+              "priority": "<приоритет_назначения_хоста_первичной_репликой>",
               "tags": "<метки_хоста>"
             }
           ],
@@ -723,7 +723,7 @@ description: Вы можете создавать резервные копии 
               "shard_name": "<имя_шарда>",
               "hidden": <скрыть_хост>,
               "secondary_delay_secs": "<задержка_в_секундах>",
-              "priority": "<приоритет_назначения_хоста_мастером>",
+              "priority": "<приоритет_назначения_хоста_первичной_репликой>",
               "tags": "<метки_хоста>"
             }
           ],
@@ -779,7 +779,7 @@ description: Вы можете создавать резервные копии 
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -867,13 +867,13 @@ description: Вы можете создавать резервные копии 
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
   Чтобы получить список всех резервных копий в каталоге:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
   В этих списках содержится следующая информация:
 
@@ -1021,13 +1021,13 @@ description: Вы можете создавать резервные копии 
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
 - CLI {#cli}
 

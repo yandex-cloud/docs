@@ -109,7 +109,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Name your service account, e.g., `sa-terraform`.
 
@@ -589,7 +589,7 @@ Optionally, you can update your UserGate version.
    | 1 | `Web-server port forwarding on FW-a` | Allow | Log session start | `Untrusted` | Any | `DMZ` | `dmz-web-server` | `TCP_8080` |
    | 2 | `Mgmt to DMZ` | Allow | Log session start | `Management` | `mgmt` | `DMZ` | `dmz` | Any |
    | 3 | `Ping from dmz to internet` | Allow | Log session start | `DMZ` | `dmz` | `Untrusted` | Any | `Any ICMP` |
-   | 4 | `Block all` | Deny | No | Any | Any | Any | Any | Any |
+   | 4 | `Block all` | Deny | None | Any | Any | Any | Any | Any |
 
    {% note info %}
 
@@ -696,11 +696,11 @@ Connect to the FW-B management web interface at `https://192.168.2.10:8001`. Use
    | 1 | `Web-server port forwarding on FW-b` | Allow | Log session start | `Untrusted` | Any | `DMZ` | `dmz-web-server` | `TCP_8080` |
    | 2 | `Mgmt to DMZ` | Allow | Log session start | `Management` | `mgmt` | `DMZ` | `dmz` | Any |
    | 3 | `Ping from dmz to internet` | Allow | Log session start | `DMZ` | `dmz` | `Untrusted` | Any | `Any ICMP` |
-   | 4 | `Block all` | Deny | No | Any | Any | Any | Any | Any |
+   | 4 | `Block all` | Deny | None | Any | Any | Any | Any | Any |
 
 ## Enable the route switcher {#enable-route-switcher}
 
-After you complete the NGFW setup, make sure FW-A and FW-B health checks return `Healthy`. To do this, in the {{ yandex-cloud }} [management console]({{ link-console-main }}), navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** in the `mgmt` folder and then to the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and properly [configured](#configure-gateways).
+After you complete the NGFW setup, make sure FW-A and FW-B health checks return `Healthy`. Do it by [navigating]({{ link-console-main }}/link/network-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** in the `mgmt` folder in the {{ yandex-cloud }} [management console]({{ link-console-main }}) and selecting the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and properly [configured](#configure-gateways).
 
 Once FW-A and FW-B get the `Healthy` status, change the `route-switcher` module's `start_module` value to `true` in the `route-switcher.tf` file. To enable the module, run this command:
 
@@ -790,7 +790,7 @@ Within five minutes, the `route-switcher` module will start working, providing o
 
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), change the settings of this VM:
 
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the VM you need and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. In the window that opens, under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}**.

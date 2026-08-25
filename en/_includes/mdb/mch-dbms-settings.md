@@ -704,6 +704,16 @@
 
     For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone).
 
+* **TLS**{#setting-tls} {{ tag-con }} {{ tag-api }}
+
+    Allows you to upload [custom certificates](../../certificate-manager/concepts/imported-certificate.md) for integration with external systems.
+
+    Tools that can be used with certificates:
+
+    * External dictionaries.
+    * Integration engines: {{ KF }}, {{ RD }} ({{ VLK }}-compatible), {{ PG }}, {{ MY }}, {{ MG }} ({{ SD }}-compatible), {{ ytsaurus-name }}, S3, NATS, {{ RMQ }}, ArrowFlight.
+    * Table functions: `remote`, `remoteSecure`, `url`, `urlCluster`, `s3`, `s3Cluster`.
+
 * **Total memory profiler step**{#setting-total-memory-profiler-step} {{ tag-con }} {{ tag-api }}
 
     RAM, in bytes, for a stack trace at each memory allocation step. Data is stored in the `system.trace_log` table. The `query_id` value is an empty string.

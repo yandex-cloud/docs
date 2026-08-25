@@ -47,7 +47,7 @@
         * первый символ — буква, последний — не дефис.
     
     1. (Опционально) Введите описание каталога.
-    1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой [зоне доступности](../../overview/concepts/geo-scope.md). Также в этой сети будет создана [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
+    1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой [зоне доступности](../../overview/concepts/geo-scope.md). Также в этой сети будет создана [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group), которая разрешает подключение к ресурсам по `SSH` и `RDP`, входящий трафик по `ICMP`, а также любой исходящий трафик.
     1. Нажмите кнопку **Создать**.
     
        ![create-folder2](../../_assets/resource-manager/create-folder-2.png)
@@ -59,7 +59,13 @@
    1. [Создайте бакет](../../storage/operations/buckets/create.md).
    1. [Откройте публичный доступ](../../storage/operations/buckets/bucket-availability.md) к объектам в бакете и их списку.
    1. [Загрузите контент](../../storage/operations/objects/upload.md) в бакет.
-      
+
+   {% note tip %}
+   
+   Если в качестве источника используется бакет Object Storage, рекомендуем [включить для него хостинг статического сайта](../../storage/operations/hosting/setup.md).
+   
+   {% endnote %}
+
 ## Создайте CDN-ресурс {#create-cdn-resource}
 
 1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.

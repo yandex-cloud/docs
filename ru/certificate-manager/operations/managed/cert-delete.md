@@ -1,6 +1,6 @@
 ---
 title: Как удалить сертификат от Let's Encrypt в {{ certificate-manager-full-name }}
-description: Следуя данной инструкции, вы сможете удалить сертификат от Let's Encrypt.
+description: Следуя этой инструкции, вы сможете удалить сертификат от Let's Encrypt.
 ---
 
 # Удалить сертификат от Let's Encrypt
@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен сертификат.
   1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-  1. В строке с нужным сертификатом нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. В строке с нужным сертификатом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
   1. Посмотрите описание команды:
 
      ```bash
-     yc certificate-manager certificates delete --help
+     yc certificate-manager certificate delete --help
      ```
 
   1. Посмотрите список сертификатов:
@@ -47,7 +47,7 @@ description: Следуя данной инструкции, вы сможете
   1. Выполните команду:
 
      ```bash
-     yc certificate-manager certificates delete \
+     yc certificate-manager certificate delete \
        --id fpq6gvvm6piu********
      ```
 
@@ -83,7 +83,7 @@ description: Следуя данной инструкции, вы сможете
        domains     = ["my-domain.ru"]
 
        managed {
-       challenge_type = "DNS_CNAME"
+         challenge_type = "DNS_CNAME"
        }
      }
      ...

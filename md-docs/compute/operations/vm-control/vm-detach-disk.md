@@ -26,7 +26,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит ВМ.
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски и хранилища**.
   1. Напротив нужного диска нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **Отсоединить**.
   1. Нажмите кнопку **Отсоединить**.
 

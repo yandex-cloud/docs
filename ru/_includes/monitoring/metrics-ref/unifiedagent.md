@@ -49,7 +49,7 @@
 | `sys.memory.Writeback` | `DGAUGE` |
 
 
-## Метрики СPU {#sys-cpu-metrics}
+## Метрики CPU {#sys-cpu-metrics}
 
 Метрики собираются из файла `/proc/cpuinfo`.
 

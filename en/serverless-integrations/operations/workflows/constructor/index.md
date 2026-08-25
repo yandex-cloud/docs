@@ -5,6 +5,8 @@ description: In this tutorial, you will learn how to use the {{ sw-full-name }} 
 
 # {{ sw-name }} workflow step constructor overview
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 You can use the constructor to configure integration and management steps for your [workflow](../../../concepts/workflows/workflow.md). The constructor is available in the [management console]({{ link-console-main }}) when you [create](../workflow/create-constructor.md) and [update](../workflow/update.md) a workflow.
 
 You can configure the following workflow steps using the constructor:

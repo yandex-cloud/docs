@@ -192,14 +192,14 @@
 
 - Консоль управления {#console}
 
-  Чтобы посмотреть операции со всеми кластерами Managed Service for ClickHouse®, на панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **Операции**. В открывшемся списке также отображаются операции для ресурсов, которые были удалены.
+  Чтобы посмотреть операции со всеми кластерами Managed Service for ClickHouse®, на панели слева выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Операции**. В открывшемся списке также отображаются операции для ресурсов, которые были удалены.
 
   Можно получить список операций для кластера:
 
   1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **Кластеры**.
-  1. Выберите нужный кластер и перейдите на вкладку ![image](../../_assets/console-icons/list-check.svg) **Операции**.
+  1. Выберите нужный кластер и перейдите на ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Операции**.
 
      В открывшемся списке отображаются операции с выбранным кластером.
 

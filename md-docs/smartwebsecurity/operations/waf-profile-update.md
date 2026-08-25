@@ -9,25 +9,24 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль WAF](../concepts/waf.md).
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **Профили WAF**.
-  1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+  1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. На странице редактирования профиля измените основные параметры:
-      
+
       * **Имя**.
       * **Описание**.
-      * [**Метки**](../../resource-manager/concepts/labels.md). Чтобы добавить новую метку, нажмите кнопку **Добавить метку**.
-  
+      * [**Метки**](../../resource-manager/concepts/labels.md). Чтобы добавить новую метку, нажмите **Добавить метку**.
+
   1. Включите или выключите наборы правил для профиля WAF.
   1. Выберите версию набора правил.
   1. Если включено несколько наборов:
      
      * Выберите условие срабатывания профиля:
-       
-       * **Вердикт получен хотя бы в одном наборе** — запрос распознан как угроза хотя бы одним набором правил.
-       * **Вердикт получен в каждом наборе** — запрос распознан как угроза всеми добавленными наборами правил.
+     
+         * `Вердикт DENY получен хотя бы в одном выбранном наборе` — запрос распознан как угроза хотя бы одним набором правил.
+         * `Вердикт DENY получен в каждом выбранном наборе` — запрос распознан как угроза всеми добавленными наборами правил.
      
      * Расположите наборы по приоритету, в котором правила набора будут анализировать запрос. Чем выше набор, тем выше приоритет.
-  
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите **Сохранить**.
   1. При необходимости [настройте правила](configure-set-rules.md) в каждом из добавленных наборов.
 
 - Terraform {#tf}
@@ -43,52 +42,68 @@
   
   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы изменить параметры WAF профиля Yandex Smart Web Security, созданного с помощью Terraform:
+  Чтобы изменить параметры профиля WAF Yandex Smart Web Security, созданного с помощью Terraform:
 
-  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием WAF профиля.
+  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием профиля WAF.
 
-     {% cut "Пример описания WAF профиля в конфигурации Terraform" %}
+     {% cut "Пример описания профиля WAF в конфигурации Terraform" %}
 
-      ```hcl
-      # В базовом наборе будут активны правила этого уровня паранойи и ниже
-      locals {
-        waf_paranoia_level = 1
-      }
-
-      # Источник данных OWASP Core Rule Set
-      data "yandex_sws_waf_rule_set_descriptor" "owasp4" {
-        name    = "OWASP Core Ruleset"
-        version = "4.0.0"
-      }
-
-      # WAF профиль
-      resource "yandex_sws_waf_profile" "default" {
-        name = "<имя_WAF_профиля>"
-
-        # Базовый набор правил
-        core_rule_set {
-          inbound_anomaly_score = 2
-          paranoia_level        = local.waf_paranoia_level
-          rule_set {
-            name    = "OWASP Core Ruleset"
-            version = "4.0.0"
-          }
-        }
-
-        # Активируем правила из базового набора, если их уровень паранойи не выше заданного в переменной waf_paranoia_level
-        dynamic "rule" {
-          for_each = [
-            for rule in data.yandex_sws_waf_rule_set_descriptor.owasp4.rules : rule
-            if rule.paranoia_level <= local.waf_paranoia_level
-          ]
-          content {
-            rule_id     = rule.value.id
-            is_enabled  = true
-            is_blocking = false
-          }
-        }
-      }
-      ```
+     ```hcl
+     # Объявление локальных переменных
+     locals {
+       # В базовом наборе будут активны правила этого уровня паранойи и ниже
+       waf_paranoia_level = 1
+     
+       # Идентификация набора правил OWASP Core Ruleset
+       ruleset_name    = "OWASP Core Ruleset"
+       ruleset_version = "4.0.0"
+       ruleset_id      = "OWASP_CRS_4_0_0"
+       ruleset_type    = "CORE"
+     }
+     
+     # Источник данных — набор правил
+     data "yandex_sws_waf_rule_set_descriptor" "source" {
+       name    = local.ruleset_name
+       version = local.ruleset_version
+     }
+     
+     # Профиль WAF
+     resource "yandex_sws_waf_profile" "default" {
+       name = "waf-profile-owasp"
+     
+       # Набор правил
+       rule_set {
+         action     = "DENY"
+         is_enabled = true
+         priority   = 1
+     
+         # Базовый набор правил
+         core_rule_set {
+           inbound_anomaly_score = 2
+           paranoia_level        = local.waf_paranoia_level
+           rule_set {
+             name    = local.ruleset_name
+             version = local.ruleset_version
+             id      = local.ruleset_id
+             type    = local.ruleset_type
+           }
+         }
+       }
+     
+       # Активируем правила из базового набора, если их уровень паранойи не выше заданного в переменной waf_paranoia_level
+       dynamic "rule" {
+         for_each = [
+           for rule in data.yandex_sws_waf_rule_set_descriptor.source.rules : rule
+           if rule.paranoia_level <= local.waf_paranoia_level
+         ]
+         content {
+           rule_id     = rule.value.id
+           is_enabled  = true
+           is_blocking = false
+         }
+       }
+     }
+     ```
 
      {% endcut %}
 

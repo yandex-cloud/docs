@@ -21,11 +21,29 @@ To view a list of exceptions:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
 
   You will see a list of all available exceptions and their statuses.
+
+{% endlist %}
+
+## Viewing exception history {#history}
+
+To view the history of exceptions:
+
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
+  1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
+  1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
+  1. Select an exception.
+  1. In the window that opens, go to the **{{ ui-key.yacloud_org.security.siem.exception-drawer.tab_history }}** tab.
+
+  The exception history will open.
 
 {% endlist %}
 
@@ -37,7 +55,7 @@ To filter exceptions based on specific criteria:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
   1. Use filters above the list:
@@ -56,7 +74,7 @@ To apply changes to an exception, stage it for deployment:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
   1. In the exception row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.security.siem.action_mark-for-deployment_sUf3V }}**.
@@ -73,7 +91,7 @@ To cancel a scheduled exception deployment:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
   1. In the exception row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.security.siem.action_not-deploy_sPzwj }}**.

@@ -197,15 +197,15 @@ Number of elements must be less than or equal to 1"}
 kubectl get pods -n kube-system -l k8s-app=kube-dns -o wide
 ```
 
-Все поды должны находится в состоянии `Running`.
+Все поды должны находиться в состоянии `Running`.
 
 ##### Убедитесь, что кластеру достаточно ресурсов CPU {#check-cpu}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
 1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_nodes }}** и нажмите на имя любого узла {{ managed-k8s-name }}.
-1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.node.overview.label_monitoring }}**.
+1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.nodes.label_nodes }}** и нажмите на имя любого узла {{ managed-k8s-name }}.
+1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.node.overview.label_monitoring }}**.
 1. Убедитесь, что на графике **CPU, [cores]** значения используемой мощности CPU `used` не достигают значений доступной мощности CPU `total`. Проверьте это для всех узлов кластера {{ managed-k8s-name }}.
 
 ##### Настройте автоматическое масштабирование {#dns-autoscaler}

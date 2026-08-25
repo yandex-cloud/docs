@@ -57,26 +57,19 @@ For information about available roles and permissions they offer, see [{#T}](rol
 Roles are assigned to subjects. There are the following subject types:
 
 * `userAccount`: [Yandex account](../users/accounts.md#passport) added to {{ yandex-cloud }} or an account from a [user pool](../../../organization/concepts/user-pools.md).
-
 * `serviceAccount`: [Service account](../users/service-accounts.md) created in {{ yandex-cloud }}.
 
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
 
 * `federatedUser`: User account in an [identity federation](../../../organization/concepts/add-federation.md), e.g., Active Directory.
-
 * `group`: [{{ org-full-name }}](../../../organization/) [user group](../../../organization/concepts/groups.md) created by the organization administrator.
-
 * `system`: [System user group](./system-group.md) or [public user group](./public-group.md):
-
     * `All authenticated users`: [Public group](./public-group.md#allAuthenticatedUsers) that includes all authenticated users.
-
     * `All users`: [Public group](./public-group.md#allUsers) that includes all users.
-
     * `All users in organization X`: [System group](./system-group.md#allOrganizationUsers) that includes all users in organization `X`.
-
     * `All users in federation N`: [System group](./system-group.md#allFederationUsers) that includes all users in federation `N`.
-
     * `All users in userpool P`: [System group](./system-group.md#allUserpoolUsers) that includes all users in pool `P`.
+
 
 ### Assigning access permissions {#access-bindings}
 

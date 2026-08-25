@@ -26,7 +26,8 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно удалить ВМ.
   1. [Перейдите]({{ link-console-main }}/link/backup) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Напротив ВМ, которую вы хотите удалить, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. На панели слева выберите ![server](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_connected-resources }}** и перейдите на вкладку **{{ ui-key.yacloud_billing.backup.label_instances }}**.
+  1. Напротив ВМ, которую вы хотите удалить, нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
 - CLI {#cli}

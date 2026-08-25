@@ -57,7 +57,8 @@ GitLab Agent не исполняет конвейеры [CI/CD](https://yandex.c
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-1. Нажмите на имя нужного кластера Managed Service for Kubernetes и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
+1. Выберите [кластер Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster).
+1. Нажмите на вкладку **Другое** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [GitLab Agent](https://yandex.cloud/ru/marketplace/products/yc/gitlab-agent) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `gitlab-agent-space`). Если вы оставите пространство имен по умолчанию, GitLab Agent может работать некорректно.
@@ -66,7 +67,7 @@ GitLab Agent не исполняет конвейеры [CI/CD](https://yandex.c
    * **Токен доступа агента** — скопируйте в это поле токен доступа GitLab, [полученный ранее](#before-you-begin).
 1. Нажмите кнопку **Установить**.
 1. Дождитесь, пока статус приложения изменится на `Deployed`.
-1. Откройте ваш инстанс GitLab и перейдите на страницу **Infrastucture → Kubernetes clusters**. Убедитесь, что агент перешел в состояние `Connected`.
+1. Откройте ваш инстанс GitLab и перейдите на страницу **Infrastructure → Kubernetes clusters**. Убедитесь, что агент перешел в состояние `Connected`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
@@ -102,7 +103,7 @@ GitLab Agent не исполняет конвейеры [CI/CD](https://yandex.c
    kubectl get pods --namespace=<пространство_имен>
    ```
 
-1. Откройте ваш инстанс GitLab и перейдите на страницу **Infrastucture → Kubernetes clusters**. Убедитесь, что агент перешел в состояние `Connected`.
+1. Откройте ваш инстанс GitLab и перейдите на страницу **Infrastructure → Kubernetes clusters**. Убедитесь, что агент перешел в состояние `Connected`.
 
 ## Примеры использования {#examples}
 
