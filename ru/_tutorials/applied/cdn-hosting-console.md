@@ -224,7 +224,7 @@
         --cname <доменное_имя_cdn> \
         --origin-group-id <идентификатор_группы_источников> \
         --origin-protocol http \
-        --cert-manager-ssl-cert-id <идентификатор_TLS_сертифкатоа> \
+        --cert-manager-ssl-cert-id <идентификатор_TLS_сертификата> \
         --host-header <имя_бакета_с_файлами>.{{ s3-web-host }}
       ```
 
