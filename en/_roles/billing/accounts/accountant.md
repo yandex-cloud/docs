@@ -2,7 +2,7 @@ To use the `billing.accounts.accountant` role, you need to assign it for a billi
 
 {% cut "In {{ billing-name }}, users with this role can:" %}
 
-* Display billing accounts in the list of all accounts.
+* Display [billing accounts](../../../billing/concepts/billing-account.md) in the list of all accounts.
 * View billing account data.
 * View and download [reporting (or closing) documents](../../../billing/payment/documents.md).
 * Generate new [reconciliation reports](../../../billing/concepts/act.md#reconciliation-report).
@@ -10,6 +10,7 @@ To use the `billing.accounts.accountant` role, you need to assign it for a billi
 * Get and view notifications on consumption.
 * Monitor expenses.
 * [View usage details](../../../billing/operations/check-charges.md).
+* [Execute API queries](../../../billing/operations/get-charges-via-api.md) to get usage details.
 * Top up their [personal account](../../../billing/concepts/personal-account.md) using a bank account.
 
 {% endcut %}

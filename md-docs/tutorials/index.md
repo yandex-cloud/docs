@@ -490,6 +490,8 @@
 
  - [Запуск языковой модели DeepSeek-R1 в кластере GPU Compute Cloud](infrastructure/gpu-cluster-deepseek.md)
 
+ - [SLO-мониторинг веб-сервиса](infrastructure-management/slo-blackbox-exporter.md)
+
 ### Сеть
 
  - [Настройка синхронизации часов с помощью NTP](infrastructure-management/ntp.md)

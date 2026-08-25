@@ -26,7 +26,7 @@ description: Follow this guide to add interaction with {{ ai-studio-name }} mode
         
           1. Select:
 
-              * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_model_description_base_model }}` to use the model from the drop-down list and, in the **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title }}** field, select the [folder](../../../../resource-manager/concepts/resources-hierarchy.md#folder) the model will be invoked in.
+              * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_model_description_base_model }}` to use the model from the drop-down list and, in the **Folder ID** field, select the [folder](../../../../resource-manager/concepts/resources-hierarchy.md#folder) the model will be invoked in.
               * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_model_description_custom }}` to use a fine-tuned model, and specify the model's ID ([URI]({{ link-docs-ai }}ai-studio/concepts/tuning/index#requests)) in the **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_properties_custom_view_spec_layout_title }}** field.
 
           1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title }}** field, set the model's response variability: the higher the temperature value, the less predictable the result. The possible values range from `0` to `1`.
@@ -50,7 +50,7 @@ description: Follow this guide to add interaction with {{ ai-studio-name }} mode
 
           {% cut "`{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_description_vision }}`" %}
 
-          1. Select the model from the drop-down list and, in the **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title }}** field, select the [folder](../../../../resource-manager/concepts/resources-hierarchy.md#folder) the model will be invoked in.
+          1. Select the model from the drop-down list and, in the **Folder ID** field, select the [folder](../../../../resource-manager/concepts/resources-hierarchy.md#folder) the model will be invoked in.
           1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_vision_properties_temperature_view_spec_layout_title }}** field, set the model's response variability: the higher the temperature value, the less predictable the result. The possible values range from `0` to `1`.
           1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_vision_properties_max_tokens_view_spec_layout_title }}** field, limit the maximum allowed number of [tokens]({{ link-docs-ai }}ai-studio/concepts/generation/tokens) in the model's response.
           1. Under **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_vision_properties_context_view_spec_layout_title }}**, select:

@@ -825,13 +825,13 @@
 
 Доступны следующие настройки:
 
-* **Add HTTP CORS header**{#setting-add-http-cors-header} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Add HTTP CORS header**{#setting-add-http-cors-header} <code><b><small>Все интерфейсы</small></b></code>
 
   Включает заголовок [CORS](../../glossary/cors.md) в HTTP-ответы.
 
   По умолчанию заголовок CORS не включается в HTTP-ответы.
 
-* **Allow DDL**{#setting-allow-ddl} <code><b><small>Все интерфейсы</small></b></code>
+* **Allow DDL**{#setting-allow-ddl} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет, будут ли выполняться DDL-запросы (`CREATE`, `ALTER`, `RENAME` и другие).
 
@@ -841,7 +841,7 @@
 
   Связано с настройкой [Readonly](#setting-readonly).
 
-* **Allow introspection functions**{#setting-allow-introspection-functions} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Allow introspection functions**{#setting-allow-introspection-functions} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Включает [функции интроспекции](https://clickhouse.com/docs/ru/sql-reference/functions/introspection) для профилирования запросов.
 
@@ -854,7 +854,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-allow_introspection_functions).
 
-* **Allow suspicious low cardinality types**{#setting-allow-suspicious-low-cardinality-types} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Allow suspicious low cardinality types**{#setting-allow-suspicious-low-cardinality-types} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Разрешает использовать тип данных [LowCardinality](https://clickhouse.com/docs/ru/sql-reference/data-types/lowcardinality) с типами данных с фиксированным размером 8 байт или меньше.
 
@@ -867,7 +867,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#allow_suspicious_low_cardinality_types).
 
-* **Any join distinct right table keys**{#setting-any-join-distinct-right-table-keys} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
+* **Any join distinct right table keys**{#setting-any-join-distinct-right-table-keys} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Включает устаревшее поведение сервера ClickHouse® при выполнении операций `ANY INNER|LEFT JOIN`.
 
@@ -875,7 +875,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#any_join_distinct_right_table_keys).
 
-* **Async insert**{#setting-async-insert} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Async insert**{#setting-async-insert} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Включает или отключает асинхронные вставки. Работает только для вставок по протоколу HTTP. При таких вставках дедупликация не производится.
 
@@ -890,7 +890,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async-insert).
 
-* **Async insert busy timeout**{#setting-async-insert-busy-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Async insert busy timeout**{#setting-async-insert-busy-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Максимальное время (в миллисекундах) ожидания вставки данных с момента первого запроса `INSERT`.
 
@@ -898,7 +898,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async-insert-busy-timeout-ms).
 
-* **Async insert max data size**{#setting-async-insert-max-data-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Async insert max data size**{#setting-async-insert-max-data-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Максимальный размер необработанных данных (в байтах), собранных за запрос, перед их вставкой.
 
@@ -906,7 +906,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async-insert-max-data-size).
 
-* **Async insert stale timeout**{#setting-async-insert-stale-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Async insert stale timeout**{#setting-async-insert-stale-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Максимальное время (в миллисекундах) ожидания вставки данных с момента последнего запроса `INSERT`. Если установлено ненулевое значение, [**Async insert busy timeout**](#setting-async-insert-busy-timeout) будет продлеваться с каждым запросом `INSERT`, пока не будет превышено значение [**Async insert max data size**](#setting-async-insert-max-data-size).
 
@@ -914,7 +914,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async-insert-stale-timeout-ms).
 
-* **Async insert threads**{#setting-async-insert-threads} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Async insert threads**{#setting-async-insert-threads} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Максимальное число потоков для фоновой обработки и вставки данных.
 
@@ -922,7 +922,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async-insert-threads).
 
-* **Async insert use adaptive busy timeout**{#setting-async-insert-use-adaptive-busy-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Async insert use adaptive busy timeout**{#setting-async-insert-use-adaptive-busy-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет, использовать ли адаптивную асинхронную вставку, при которой ClickHouse® ограничивает количество вставок в зависимости от нагрузки на сервер.
 
@@ -930,7 +930,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async_insert_use_adaptive_busy_timeout).
 
-* **Cancel HTTP readonly queries on client close**{#setting-cancel-http-readonly-queries-on-client-close} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Cancel HTTP readonly queries on client close**{#setting-cancel-http-readonly-queries-on-client-close} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Если настройка включена, сервис отменяет HTTP readonly запросы (например, SELECT) в момент, когда клиент обрывает соединение до получения ответа.
 
@@ -938,7 +938,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#cancel-http-readonly-queries-on-client-close).
 
-* **Compile expressions**{#setting-compile-expressions} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Compile expressions**{#setting-compile-expressions} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет, компилировать ли выражения при выполнении запросов. При включенной компиляции запросы, в которых используются идентичные выражения, могут выполняться быстрее за счет использования скомпилированных выражений.
 
@@ -946,13 +946,25 @@
 
   По умолчанию компиляция выражений выключена.
 
-* **Connect timeout**{#setting-connect-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Compatibility**{#setting-compatibility} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+
+  Позволяет использовать настройки по умолчанию из указанной предыдущей версии ClickHouse®. В качестве значения задается номер версии.
+
+  По умолчанию значение не задано (настройка отключена).
+
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#compatibility).
+
+* **Compile**{#setting-compile} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+
+  Настройка устарела и не влияет на работу ClickHouse®.
+
+* **Connect timeout**{#setting-connect-timeout} <code><b><small>Все интерфейсы</small></b></code>
 
   Время ожидания соединения (в миллисекундах).
 
   Минимальное значение — `1`, по умолчанию — `10000` (10 секунд).
 
-* **Connect timeout with failover**{#setting-connect-timeout-with-failover} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Connect timeout with failover**{#setting-connect-timeout-with-failover} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Время ожидания соединения (в миллисекундах) с удаленным сервером для движка таблиц `Distributed`, если кластер использует шардирование и репликацию.
 
@@ -962,7 +974,24 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#connect-timeout-with-failover-ms).
 
-* **Count distinct implementation**{#setting-count-distinct-implementation} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
+* **Connect timeout with failover secure**{#setting-connect-timeout-with-failover-secure} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+
+  Время ожидания безопасного соединения (в миллисекундах) с удаленным сервером для движка таблиц `Distributed`, если кластер использует шардирование и репликацию.
+
+  Если установить соединение с сервером не удалось, будут предприняты попытки установить соединение с его репликами.
+
+  Значение по умолчанию — `50`.
+
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#connect_timeout_with_failover_secure_ms).
+
+* **Connect timeout with failover max tries**{#setting-connect-timeout-with-failover-max-tries} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+
+  Максимальное количество попыток подключения к каждой реплике для движка распределенных таблиц.
+
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#connections_with_failover_max_tries).
+
+
+* **Count distinct implementation**{#setting-count-distinct-implementation} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code>
 
   Определяет, какая из функций `uniq*` используется при выполнении конструкции `COUNT(DISTINCT …)`:
   * [uniq](https://clickhouse.com/docs/ru/sql-reference/aggregate-functions/reference/uniq#agg_function-uniq)
@@ -975,7 +1004,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#count_distinct_implementation).
 
-* **Data type default nullable**{#setting-data-type-default-nullable} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Data type default nullable**{#setting-data-type-default-nullable} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет, использовать ли по умолчанию тип данных `Nullable` в определении столбца без явных модификаторов `NULL` или `NOT NULL`.
 
@@ -983,7 +1012,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#data_type_default_nullable).
 
-* **Date time input format**{#setting-date-time-input-format} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
+* **Date time input format**{#setting-date-time-input-format} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет, какой парсер используется для текстового представления даты и времени при обработке входного формата:
   * `best_effort` — расширенный парсер.
@@ -993,7 +1022,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-date_time_input_format).
 
-* **Date time output format**{#setting-date-time-output-format} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
+* **Date time output format**{#setting-date-time-output-format} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет выходной формат для текстового представления даты и времени:
   * `simple` — простой формат.
@@ -1004,7 +1033,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-date_time_output_format).
 
-* **Deduplicate blocks in dependent materialized views**{#setting-deduplicate-blocks-in-dependent-materialized-views} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
+* **Deduplicate blocks in dependent materialized views**{#setting-deduplicate-blocks-in-dependent-materialized-views} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Включает проверку дедупликации для материализованных представлений, которые получают данные из реплицируемых таблиц.
 
@@ -1012,7 +1041,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-deduplicate-blocks-in-dependent-materialized-views).
 
-* **Distinct overflow mode**{#setting-distinct-overflow-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Distinct overflow mode**{#setting-distinct-overflow-mode} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет поведение ClickHouse® в ситуации, когда количество данных при выполнении запроса `SELECT DISTINCT` [превысило ограничения](https://clickhouse.com/docs/ru/operations/settings/query-complexity#restrictions-on-query-complexity):
   * `throw` — прервать выполнение, вернуть ошибку.
@@ -1020,7 +1049,7 @@
 
   По умолчанию значение не выбрано (эквивалентно `throw`).
 
-* **Distributed aggregation memory efficient**{#setting-distributed-aggregation-memory-efficient} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Distributed aggregation memory efficient**{#setting-distributed-aggregation-memory-efficient} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет, включать ли режим экономии памяти при распределенной агрегации.
 
@@ -1039,7 +1068,7 @@
 
   По умолчанию используется значение `180`.
 
-* **Distributed product mode**{#setting-distributed-product-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Distributed product mode**{#setting-distributed-product-mode} <code><b><small>Все интерфейсы</small></b></code>
 
   Изменяет поведение распределенных подзапросов, когда запрос содержит произведение распределённых таблиц:
   * `deny` — запрещает использование таких подзапросов.
@@ -1051,7 +1080,19 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#distributed-product-mode).
 
-* **Do not merge across partitions select final** {#setting-do-not-merge-across-partitions-select-final} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Distributed DDL Output Mode**{#distributed-ddl-output-mode} <code><b><small>Все интерфейсы</small></b></code>
+
+  Определяет формат ответа распределенного запроса DDL. Возможные значения:
+
+  * `throw` — возвращает результирующий набор со статусом выполнения запроса для всех хостов, на которых запрос завершен. Если запрос не был выполнен на некоторых хостах, то будет повторно обработано первое исключение. Если на некоторых хостах запрос еще не завершен и превышено значение **distributed_ddl_task_timeout**, то возникает исключение **TIMEOUT_EXCEEDED**.
+  * `none` — как **DISTRIBUTED_DDL_OUTPUT_MODE_THROW**, но без результирующий набор.
+  * `null_status_on_timeout` — возвращает **NULL** в качестве статуса выполнения в некоторых строках результирующего набора вместо выдачи **TIMEOUT_EXCEEDED**, если на соответствующих хостах запрос не завершен.
+  * `never_throw` — не выдает **TIMEOUT_EXCEEDED** и не создает исключения повторно, если на некоторых хостах запрос не удался.
+  * `none_only_active` — как **DISTRIBUTED_DDL_OUTPUT_MODE_NONE**, но без неактивных реплик **Реплицированной** базы данных.
+  * `null_status_on_timeout_only_active` — как **DISTRIBUTED_DDL_OUTPUT_MODE_NULL_STATUS_ON_TIMEOUT**, но без неактивных реплик **Реплицированной** базы данных.
+  * `throw_only_active` — как **DISTRIBUTED_DDL_OUTPUT_MODE_THROW**, но без неактивных реплик **Реплицированной** базы данных.
+
+* **Do not merge across partitions select final**{#setting-do-not-merge-across-partitions-select-final} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет, выполнять ли независимую обработку разделов таблицы для запросов `SELECT` с оператором `FINAL`.
 
@@ -1059,13 +1100,19 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree).
 
-* **Empty result for aggregation by empty set**{#setting-empty-result-for-aggregation-by-empty-set} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Empty result for aggregation by empty set**{#setting-empty-result-for-aggregation-by-empty-set} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет, в каком формате возвращается результат при агрегации данных без ключей (без `GROUP BY`) для пустого множества (например, `SELECT count(*) FROM table WHERE 0`):
   * настройка выключена (по умолчанию) — ClickHouse® вернет результат, состоящий из одной строки со значениями `NULL` для агрегатных функций, в соответствии со стандартом SQL.
   * настройка включена — ClickHouse® вернет пустой результат.
 
-* **Enable HTTP compression**{#setting-enable-http-compression} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Enable analyzer**{#setting-enable-analyzer} <code><b><small>Все интерфейсы</small></b></code>
+
+  Включает или отключает анализатор запросов.
+
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/guides/developer/understanding-query-execution-with-the-analyzer#analyzer).
+
+* **Enable HTTP compression**{#setting-enable-http-compression} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет, будут ли сжаты данные в ответе на HTTP-запрос.
 
@@ -1078,7 +1125,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/interfaces/http).
 
-* **Enable reads from query cache**{#setting-enable-reads-from-query-cache} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Enable reads from query cache**{#setting-enable-reads-from-query-cache} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет, будут ли результаты запросов `SELECT` извлекаться из кеша запросов.
 
@@ -1088,7 +1135,7 @@
 
   Связано с настройкой [Use query cache](#setting-use-query-cache).
 
-* **Enable writes to query cache**{#setting-enable-writes-to-query-cache} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Enable writes to query cache**{#setting-enable-writes-to-query-cache} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет, будут ли результаты запросов `SELECT` сохраняться в кеш запросов.
 
@@ -1098,7 +1145,7 @@
 
   Связано с настройкой [Use query cache](#setting-use-query-cache).
 
-* **Fallback to stale replicas for distributed queries**{#setting-fallback-to-stale-replicas-for-distributed-queries} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Fallback to stale replicas for distributed queries**{#setting-fallback-to-stale-replicas-for-distributed-queries} <code><b><small>Все интерфейсы</small></b></code>
 
   Форсирует запрос в устаревшую реплику в случае, если актуальные данные недоступны.
 
@@ -1110,7 +1157,15 @@
 
   Связано с настройкой [Max replica delay for distributed queries](#setting-max-replica-delay-for-distributed-queries).
 
-* **Flatten nested**{#setting-flatten-nested} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Final**{#setting-final} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+
+  Если настройка включена, модификатор `FINAL` автоматически применяется ко всем таблицам запроса, где это возможно, включая присоединяемые, в подзапросах и распределенные.
+
+  По умолчанию настройка выключена.
+
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#final).
+
+* **Flatten nested**{#setting-flatten-nested} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Задает формат данных [вложенных столбцов](https://clickhouse.com/docs/ru/sql-reference/data-types/nested-data-structures/nested).
 
@@ -1123,7 +1178,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#flatten-nested).
 
-* **Force index by date**{#setting-force-index-by-date} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Force index by date**{#setting-force-index-by-date} <code><b><small>Все интерфейсы</small></b></code>
 
   Запрещает выполнение запросов, если использовать индекс по дате невозможно. Работает с таблицами семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree).
 
@@ -1131,7 +1186,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-force_index_by_date).
 
-* **Force primary key**{#setting-force-primary-key} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Force primary key**{#setting-force-primary-key} <code><b><small>Все интерфейсы</small></b></code>
 
   Запрещает выполнение запросов, если использовать индекс по первичному ключу невозможно. Работает с таблицами семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree).
 
@@ -1139,13 +1194,13 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-force_primary_key).
 
-* **Format avro schema registry url**{#setting-format-avro-schema-registry-url} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Format avro schema registry url**{#setting-format-avro-schema-registry-url} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   URL реестра схем Confluent для формата AvroConfluent.
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/formats#format_avro_schema_registry_url).
 
-* **Format regexp**{#setting-format-regexp} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
+* **Format regexp**{#setting-format-regexp} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Задает регулярное выражение в [формате re2](https://github.com/google/re2/wiki/Syntax), которое будет применяться к каждой строке импортируемых данных. Количество подшаблонов (скобочных групп) в выражении должно быть равно количеству столбцов в таблице, куда помещаются импортируемые данные. В качестве разделителей строк должны использоваться символы переноса строки `\n` или `\r\n`, экранировать перенос строки невозможно. Если строка не подходит регулярному выражению, то она пропускается.
 
@@ -1163,13 +1218,13 @@
 
   По умолчанию выбрано значение `Raw` (экранирование не используется).
 
-* **Format regexp skip unmatched**{#setting-format-regexp-skip-unmatched} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
+* **Format regexp skip unmatched**{#setting-format-regexp-skip-unmatched} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Выводит сообщение об ошибке, если строку в импортируемых данных не получается разбить по шаблону, заданному в настройке [Format regexp](#setting-format-regexp).
 
   По умолчанию сообщение не выводится (`0`).
 
-* **Group by overflow mode**{#setting-group-by-overflow-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Group by overflow mode**{#setting-group-by-overflow-mode} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет поведение ClickHouse®, когда количество уникальных ключей при агрегации [превысило ограничение](https://clickhouse.com/docs/ru/operations/settings/query-complexity#restrictions-on-query-complexity):
   * `throw` — прервать выполнение, вернуть ошибку.
@@ -1178,19 +1233,19 @@
 
   По умолчанию значение не выбрано (эквивалентно `throw`).
 
-* **Group by two level threshold**{#setting-group-by-two-level-threshold} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Group by two level threshold**{#setting-group-by-two-level-threshold} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет количество ключей, при достижении которого начинается двухуровневая агрегация.
 
   Минимальное значение — `0` (не установлено), по умолчанию — `100000`.
 
-* **Group by two level threshold bytes**{#setting-group-by-two-level-threshold-bytes} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Group by two level threshold bytes**{#setting-group-by-two-level-threshold-bytes} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет количество байт в агрегате, при достижении которого начинается двухуровневая агрегация.
 
   Минимальное значение — `0` (не установлено), по умолчанию — `50000000`.
 
-* **Hedged connection timeout ms**{#setting-hedged-connection-timeout-ms} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Hedged connection timeout ms**{#setting-hedged-connection-timeout-ms} <code><b><small>Все интерфейсы</small></b></code>
 
   Время в миллисекундах, за которое нужно установить соединение с репликой для работы с хеджированными запросами. Используется вместе с настройкой [Use hedged requests](#setting-use-hedged-requests).
 
@@ -1198,19 +1253,19 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#hedged_connection_timeout_ms).
 
-* **HTTP connection timeout**{#setting-http-connection-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **HTTP connection timeout**{#setting-http-connection-timeout} <code><b><small>Все интерфейсы</small></b></code>
 
   Задает время ожидания установления HTTP-соединения (в миллисекундах).
 
   Минимальное значение — `1`, по умолчанию — `1000` (одна секунда).
 
-* **HTTP headers progress interval**{#setting-http-headers-progress-interval} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **HTTP headers progress interval**{#setting-http-headers-progress-interval} <code><b><small>Все интерфейсы</small></b></code>
 
   Задает минимальный интервал (в миллисекундах) между уведомлениями о ходе выполнения запроса с помощью HTTP-заголовка `X-ClickHouse-Progress`.
 
   Минимальное значение — `1`, по умолчанию — `100`.
 
-* **HTTP max field name size**{#setting-http-max-field-name-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **HTTP max field name size**{#setting-http-max-field-name-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Максимальная длина имени поля в HTTP-заголовке.
 
@@ -1218,7 +1273,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#http_max_field_name_size).
 
-* **HTTP max field value size**{#setting-http-max-field-value-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **HTTP max field value size**{#setting-http-max-field-value-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Максимальная длина значения поля в HTTP-заголовке.
 
@@ -1226,19 +1281,19 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#http_max_field_value_size).
 
-* **HTTP receive timeout**{#setting-http-receive-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **HTTP receive timeout**{#setting-http-receive-timeout} <code><b><small>Все интерфейсы</small></b></code>
 
   Задает время ожидания приема данных через HTTP-соединение (в миллисекундах).
 
   Минимальное значение — `1`, по умолчанию — `1800000` (30 минут).
 
-* **HTTP send timeout**{#setting-http-send-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **HTTP send timeout**{#setting-http-send-timeout} <code><b><small>Все интерфейсы</small></b></code>
 
   Задает время ожидания отправки данных через HTTP-соединение (в миллисекундах).
 
   Минимальное значение — `1`, по умолчанию — `1800000` (30 минут).
 
-* **Idle connection timeout**{#setting-idle-connection-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Idle connection timeout**{#setting-idle-connection-timeout} <code><b><small>Все интерфейсы</small></b></code>
 
   Время в миллисекундах, через которое нужно закрыть простаивающие TCP-соединения.
 
@@ -1248,7 +1303,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#idle_connection_timeout).
 
-* **Ignore materialized views with dropped target table**{#setting-ignore-materialized-views-with-dropped-target-table} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Ignore materialized views with dropped target table**{#setting-ignore-materialized-views-with-dropped-target-table} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет, игнорировать ли материализованные представления с удаленной целевой таблицей при переходе к представлениям.
 
@@ -1256,7 +1311,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#ignore_materialized_views_with_dropped_target_table).
 
-* **Input format defaults for omitted fields**{#setting-input-format-defaults-for-omitted-fields} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Input format defaults for omitted fields**{#setting-input-format-defaults-for-omitted-fields} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет, будут ли пропущенные поля заполнены значениями по умолчанию для типа данных столбца при вставке данных запросом `INSERT`.
 
@@ -1264,7 +1319,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#session_settings-input_format_defaults_for_omitted_fields).
 
-* **Input format import nested json**{#setting-input-format-import-nested-json} <code><b><small>Консоль управления</small></b></code>
+* **Input format import nested json**{#setting-input-format-import-nested-json} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code>
 
   Определяет, вставлять ли данные JSON с вложенными объектами.
 
@@ -1272,7 +1327,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-input_format_import_nested_json).
 
-* **Input format null as default**{#setting-input-format-null-as-default} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
+* **Input format null as default**{#setting-input-format-null-as-default} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет, заполнять ли ячейки со значением `NULL` значениями по умолчанию, если тип данных столбца не позволяет хранить значение `NULL`.
 
@@ -1280,7 +1335,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-input-format-null-as-default).
 
-* **Input format parallel parsing**{#setting-input-format-parallel-parsing} <code><b><small>Консоль управления</small></b></code>
+* **Input format parallel parsing**{#setting-input-format-parallel-parsing} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code>
 
   Определяет, разбивать ли входящие данные на части, парсинг каждой из которых осуществляется параллельно с сохранением исходного порядка. Поддерживается только для форматов [TSV](https://clickhouse.com/docs/ru/interfaces/formats#tabseparated), [TKSV](https://clickhouse.com/docs/ru/interfaces/formats#tskv), [CSV](https://clickhouse.com/docs/ru/interfaces/formats#csv) и [JSONEachRow](https://clickhouse.com/docs/ru/interfaces/formats#jsoneachrow).
 
@@ -1288,7 +1343,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#input-format-parallel-parsing).
 
-* **Input format values interpret expressions**{#setting-input-format-values-interpret-expressions} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Input format values interpret expressions**{#setting-input-format-values-interpret-expressions} <code><b><small>Все интерфейсы</small></b></code>
 
   Включает SQL-парсер, если потоковый парсер не может проанализировать данные. Используйте эту настройку, если вставляете в таблицу значения, содержащие выражения SQL.
 
@@ -1300,7 +1355,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-input_format_values_interpret_expressions).
 
-* **Input format with names use header**{#setting-input-format-with-names-use-header} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
+* **Input format with names use header**{#setting-input-format-with-names-use-header} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет, выполнять ли проверку порядка столбцов при вставке данных.
 
@@ -1308,7 +1363,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-input-format-with-names-use-header).
 
-* **Insert keeper max retries**{#setting-insert-keeper-max-retries} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
+* **Insert keeper max retries**{#setting-insert-keeper-max-retries} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code>
 
   Максимальное количество повторных попыток для запросов ClickHouse® Keeper (или ZooKeeper) во время вставки в реплицированные таблицы семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree).
 
@@ -1316,7 +1371,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#insert_keeper_max_retries).
 
-* **Insert null as default**{#setting-insert-null-as-default} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Insert null as default**{#setting-insert-null-as-default} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Включает подстановку [значений по умолчанию](https://clickhouse.com/docs/ru/sql-reference/statements/create/table#create-default-values) вместо [NULL](https://clickhouse.com/docs/ru/sql-reference/statements/create/table#null-modifiers) в столбцы, которые не позволяют хранить `NULL`.
 
@@ -1329,7 +1384,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#insert_null_as_default).
 
-* **Insert quorum**{#setting-insert-quorum} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Insert quorum**{#setting-insert-quorum} <code><b><small>Все интерфейсы</small></b></code>
 
   Управляет кворумной записью в кластере ClickHouse®:
   * Если значение меньше 2, то кворумная запись выключена.
@@ -1343,19 +1398,19 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-insert_quorum).
 
-* **Insert quorum parallel**{#setting-insert-quorum-parallel} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
+* **Insert quorum parallel**{#setting-insert-quorum-parallel} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Когда настройка включена, возможно одновременно выполнять несколько запросов `INSERT` с кворумной записью. Когда настройка выключена, будет выполнен только один запрос `INSERT` с кворумной записью к одной и той же таблице.
 
   По умолчанию настройка включена.
 
-* **Insert quorum timeout**{#setting-insert-quorum-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Insert quorum timeout**{#setting-insert-quorum-timeout} <code><b><small>Все интерфейсы</small></b></code>
 
   Задает время ожидания [кворумной записи](#setting-insert-quorum) в миллисекундах. Если время прошло, а запись так и не состоялась, то ClickHouse® прервет выполнение запроса `INSERT` и вернет ошибку.
 
   Минимальное значение — `1000` (1 секунда), по умолчанию — `60000` (1 минута).
 
-* **Join algorithm**{#setting-join-algorithm} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
+* **Join algorithm**{#setting-join-algorithm} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет алгоритм выполнения запроса `JOIN`:
   * `auto` — соединение хешированием (hash join), но если память на сервере заканчивается, ClickHouse® попытается применить соединение merge.
@@ -1384,7 +1439,7 @@
 
   По умолчанию используется действие `throw`.
 
-* **Join use nulls**{#setting-join-use-nulls} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Join use nulls**{#setting-join-use-nulls} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Управляет поведением запросов `JOIN`. Если настройка включена, то появившиеся при объединении пустые ячейки заполняются значениями `NULL`. В противном случае ячейки заполняются значениями по умолчанию для данного типа поля.
 
@@ -1392,7 +1447,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#join_use_nulls).
 
-* **Joined subquery requires alias**{#setting-joined-subquery-requires-alias} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Joined subquery requires alias**{#setting-joined-subquery-requires-alias} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Требует наличия псевдонимов для подзапросов при выполнении операции `JOIN`.
 
@@ -1410,7 +1465,16 @@
 
   По умолчанию настройка включена.
 
-* **Load balancing**{#setting-load-balancing} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Lightweight deletes sync**{#Lightweight-deletes-sync} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+
+  Задает условия ожидания завершения асинхронных действий на репликах для легковестных `DELETE` запросов:
+  * `0` — не ждать.
+  * `1` — ждать выполнения только у себя (значение по умолчанию).
+  * `2` — ждать всех.
+
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#lightweight_deletes_sync).
+
+* **Load balancing**{#setting-load-balancing} <code><b><small>Все интерфейсы</small></b></code>
 
   Задает алгоритм выбора реплик, который используется при отправке и обработке распределенных запросов. ClickHouse® считает число ошибок на каждой реплике и выбирает реплику с наименьшим числом ошибок. Если у нескольких реплик это число одинаковое, настройка **Load balancing** определяет, в каком порядке сортируются реплики и какая из них выбирается.
 
@@ -1425,6 +1489,10 @@
      Такой подход повышает вероятность, что распределенные запросы будут отправляться на одни и те же реплики, расположенные близко друг к другу. Это устраняет недостаток значения `random`.
 
   * `hostname_levenshtein_distance` — для выбора реплики используется тот же принцип, что при значении `nearest_hostname`. Но подходящее имя хоста реплики определяется по [расстоянию Левенштейна](https://ru.wikipedia.org/wiki/Расстояние_Левенштейна).
+  
+  * `hostname_longest_common_prefix` — как `nearest_hostname`, но предпочтительна реплика, имя хоста которой имеет самый длинный общий префикс с именем локального хоста (чем длиннее общий префикс, тем выше приоритет). Доступно для версии от `26.6` и выше.
+
+  * `hostname_longest_common_suffix` — как `hostname_longest_common_prefix`, но вместо префикса сравнивается самый длинный общий суффикс. Доступно для версии от `26.6` и выше.
 
   * `in_order` — запрос отправляется на реплику в порядке, заданном в конфигурационном файле ClickHouse®. В кластере Managed Service for ClickHouse® порядок реплик такой, что первое место занимает реплика в той же зоне доступности, где находится хост-инициатор распределенных подзапросов.
 
@@ -1436,7 +1504,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-load_balancing).
 
-* **Local filesystem read method**{#setting-local-filesystem-read-method} <code><b><small>Консоль управления</small></b></code>
+* **Local filesystem read method**{#setting-local-filesystem-read-method} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code>
 
   Определяет способ считывания данных из локальной файловой системы.
 
@@ -1449,7 +1517,7 @@
 
   Значение по умолчанию — `pread`.
 
-* **Log processors profiles**{#setting-log-processors-profiles} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Log processors profiles**{#setting-log-processors-profiles} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет, будет ли логироваться информация о профилировании на уровне процессоров. Логи записываются в таблицу `system.processors_profile_log`.
 
@@ -1457,7 +1525,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#log_processors_profiles).
 
-* **Log queries probability**{#setting-log-queries-probability} <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Log queries probability**{#setting-log-queries-probability} <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет, записывать ли в системные таблицы `system.query_log`, `system.query_thread_log` и `system.query_views_log` только запросы, выбранные случайным образом с заданной вероятностью. Случайная выборка помогает снизить нагрузку при большом количестве запросов в секунду.
 
@@ -1465,7 +1533,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#log_queries_probability).
 
-* **Log query threads**{#setting-log-query-threads} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Log query threads**{#setting-log-query-threads} <code><b><small>Все интерфейсы</small></b></code>
 
   Включает логирование потоков, которые выполняют запросы. Логи записываются в таблицу [system.query_thread_log](https://clickhouse.com/docs/ru/operations/system-tables/query_thread_log).
 
@@ -1475,7 +1543,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-log-query-threads).
 
-* **Log query views**{#setting-log-query-views} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Log query views**{#setting-log-query-views} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет, будет ли логироваться информация о зависимых представлениях в запросах. Логи записываются в таблицу `system.query_views_log`.
 
@@ -1483,7 +1551,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#log_query_views).
 
-* **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет, использовать ли [тип LowCardinality](https://clickhouse.com/docs/ru/sql-reference/data-types/lowcardinality) в native-формате:
   * Настройка включена (по умолчанию) — использовать.
@@ -1499,7 +1567,15 @@
 
   По умолчанию настройка включена.
 
-* **Max ast depth**{#setting-max-ast-depth} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Materialize TTL after modify**{#setting-materialize-ttl-after-modify} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+
+  Определяет, применять ли TTL к старым данным после выполнения запроса `ALTER MODIFY TTL`.
+
+  По умолчанию настройка включена.
+
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#materialize_ttl_after_modify).
+
+* **Max ast depth**{#setting-max-ast-depth} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальная глубина вложенности синтаксического дерева.
 
@@ -1509,7 +1585,7 @@
 
   По умолчанию выбрано значение `1000`. Слишком маленькое значение может привести к невозможности выполнения большинства запросов.
 
-* **Max ast elements**{#setting-max-ast-elements} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max ast elements**{#setting-max-ast-elements} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальное количество элементов синтаксического дерева запроса (количество узлов дерева).
 
@@ -1517,13 +1593,13 @@
 
   По умолчанию выбрано значение `50000`. Слишком маленькое значение может привести к невозможности выполнения большинства запросов.
 
-* **Max block size**{#setting-max-block-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max block size**{#setting-max-block-size} <code><b><small>Все интерфейсы</small></b></code>
 
   Данные в ClickHouse® обрабатываются по блокам (наборам кусочков столбцов). Настройка задает рекомендованный размер блока (количество строк), который будет загружаться при обработке таблиц. Обработка каждого блока влечет за собой накладные расходы, поэтому слишком маленькое значение настройки может замедлить обработку.
 
   Минимальное значение — `1`, по умолчанию — `65536`.
 
-* **Max bytes before external group by**{#setting-max-bytes-before-external-group-by} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max bytes before external group by**{#setting-max-bytes-before-external-group-by} <code><b><small>Все интерфейсы</small></b></code>
 
   Данные, накопленные при выполнении операции агрегации `GROUP BY`, некоторое время хранятся в оперативной памяти. Настройка задает порог (в байтах), после которого эти данные сбрасываются на диск для экономии оперативной памяти.
 
@@ -1537,7 +1613,7 @@
 
   Связано с настройкой [Distributed aggregation memory efficient](#setting-distributed-aggregation-memory-efficient).
 
-* **Max bytes before external sort**{#setting-max-bytes-before-external-sort} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max bytes before external sort**{#setting-max-bytes-before-external-sort} <code><b><small>Все интерфейсы</small></b></code>
 
   Объем оперативной памяти, который может быть использован для `ORDER BY`. При превышении этого значения используется внешняя сортировка.
 
@@ -1545,7 +1621,7 @@
 
   Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#max_bytes_before_external_sort).
 
-* **Max bytes in distinct**{#setting-max-bytes-in-distinct} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max bytes in distinct**{#setting-max-bytes-in-distinct} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальный объем несжатых данных (в байтах), занимаемый хеш-таблицей при использовании `DISTINCT`.
 
@@ -1591,31 +1667,31 @@
 
   Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#max_bytes_ratio_before_external_sort).
 
-* **Max bytes to read**{#setting-max-bytes-to-read} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max bytes to read**{#setting-max-bytes-to-read} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальный объем несжатых данных (в байтах), который можно прочитать из таблицы при выполнении запроса.
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max bytes to sort**{#setting-max-bytes-to-sort} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max bytes to sort**{#setting-max-bytes-to-sort} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальный объем несжатых данных (в байтах), который можно прочитать из таблицы до сортировки. Настройка позволяет ограничить потребление оперативной памяти при сортировке.
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max bytes to transfer**{#setting-max-bytes-to-transfer} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max bytes to transfer**{#setting-max-bytes-to-transfer} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальный объем несжатых данных (в байтах), который можно передать на удаленный сервер или сохранить во временную таблицу при использовании `GLOBAL IN`.
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max columns to read**{#setting-max-columns-to-read} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max columns to read**{#setting-max-columns-to-read} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальное количество столбцов, которое можно прочитать из таблицы в одном запросе. Запросы, требующие чтения большего количества столбцов, завершатся с ошибкой.
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max concurrent queries for user**{#setting-max-concurrent-queries-for-user} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max concurrent queries for user**{#setting-max-concurrent-queries-for-user} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Максимальное количество одновременно обрабатываемых пользовательских запросов к таблице семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree).
 
@@ -1623,7 +1699,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#max-concurrent-queries-for-user).
 
-* **Max execution time**{#setting-max-execution-time} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max execution time**{#setting-max-execution-time} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальное время выполнения запроса (в миллисекундах).
 
@@ -1631,7 +1707,7 @@
 
   Минимальное значение `0` (нет ограничения), по умолчанию — `600000`.
 
-* **Max expanded ast elements**{#setting-max-expanded-ast-elements} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max expanded ast elements**{#setting-max-expanded-ast-elements} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальное количество элементов синтаксического дерева запроса (количество узлов дерева) после раскрытия псевдонимов и звездочки.
 
@@ -1639,7 +1715,7 @@
 
   По умолчанию выбрано значение `500000`. Слишком маленькое значение может привести к невозможности выполнения большинства запросов.
 
-* **Max final threads**{#setting-max-final-threads} <code><b><small>Консоль управления</small></b></code>
+* **Max final threads**{#setting-max-final-threads} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code>
 
   Максимальное количество параллельных потоков для запроса `SELECT` с модификатором [FINAL](https://clickhouse.com/docs/ru/sql-reference/statements/select/from#select-from-final).
 
@@ -1647,7 +1723,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#max-final-threads).
 
-* **Max HTTP get redirects**{#setting-max-http-get-redirects} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max HTTP get redirects**{#setting-max-http-get-redirects} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Задает максимальное количество переходов по редиректам в таблицах на [движке URL](https://clickhouse.com/docs/ru/engines/table-engines/special/url) при выполнении HTTP-запросов методом GET.
 
@@ -1657,7 +1733,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#setting-max_http_get_redirects).
 
-* **Max insert block size**{#setting-max-insert-block-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max insert block size**{#setting-max-insert-block-size} <code><b><small>Все интерфейсы</small></b></code>
 
   Формировать блоки указанного размера (в байтах) при вставке в таблицу. Настройка действует только когда сервер сам формирует такие блоки.
 
@@ -1665,7 +1741,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-max_insert_block_size).
 
-* **Max insert threads**{#setting-max-insert-threads} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max insert threads**{#setting-max-insert-threads} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальное количество потоков для выполнения запроса `INSERT SELECT`.
 
@@ -1677,7 +1753,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-max-insert-threads).
 
-* **Max memory usage**{#setting-max-memory-usage} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max memory usage**{#setting-max-memory-usage} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальный объем оперативной памяти (в байтах) для выполнения запроса на одном сервере. Настройка не учитывает объем свободной памяти или общий объем памяти на машине. Ограничение действует на один запрос в пределах одного сервера.
 
@@ -1687,7 +1763,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#settings_max_memory_usage).
 
-* **Max memory usage for user**{#setting-max-memory-usage-for-user} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max memory usage for user**{#setting-max-memory-usage-for-user} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальный объем оперативной памяти (в байтах) для выполнения запросов пользователя на одном сервере. Настройка не учитывает объем свободной памяти или общий объем памяти на машине.
 
@@ -1695,19 +1771,29 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max network bandwidth**{#setting-max-network-bandwidth} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max network bandwidth**{#setting-max-network-bandwidth} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальная скорость обмена данными по сети при выполнении одного запроса (в байтах в секунду).
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max network bandwidth for user**{#setting-max-network-bandwidth-for-user} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#max_network_bandwidth).
+
+* **Max network bandwidth for user**{#setting-max-network-bandwidth-for-user} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальная скорость обмена данными по сети (в байтах в секунду). Эта настройка влияет на все одновременно выполняющиеся запросы пользователя, в отличие от [Max network bandwidth](#setting-max-network-bandwidth).
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max parser depth**{#setting-max-parser-depth} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#max_network_bandwidth_for_user).
+
+* **Max network bytes**{#setting-max-network-bytes} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+
+  Ограничивает объем данных (в байтах), которые принимаются или передаются по сети при выполнении запроса. Этот параметр применяется к каждому отдельному запросу.
+
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#max_network_bytes).
+
+* **Max parser depth**{#setting-max-parser-depth} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code>
 
   Максимальная глубина рекурсии в парсере рекурсивного спуска. Позволяет контролировать размер стека.
 
@@ -1715,7 +1801,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#max_parser_depth).
 
-* **Max partitions per insert block**{#setting-partitions-per-insert-block} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max partitions per insert block**{#setting-partitions-per-insert-block} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Ограничивает максимальное количество партиций в одном вставленном блоке.
 
@@ -1723,19 +1809,19 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#max-partitions-per-insert-block).
 
-* **Max query size**{#setting-max-query-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max query size**{#setting-max-query-size} <code><b><small>Все интерфейсы</small></b></code>
 
   Ограничивает размер (в байтах) наибольшей части запроса, которая может быть передана в оперативную память для разбора с помощью SQL-парсера.
 
   Минимальное значение — `1`, по умолчанию — `262144`.
 
-* **Max read buffer size**{#setting-max-read-buffer-size} <code><b><small>Консоль управления</small></b></code>
+* **Max read buffer size**{#setting-max-read-buffer-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code>
 
   Максимальный размер буфера (в байтах) для чтения из файловой системы.
 
   Значение по умолчанию — `1048576` (1 МБ).
 
-* **Max replica delay for distributed queries**{#setting-max-replica-delay-for-distributed-queries} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max replica delay for distributed queries**{#setting-max-replica-delay-for-distributed-queries} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальное отставание реплики (в миллисекундах). Если задержка реплики больше значения настройки, реплика перестает использоваться.
 
@@ -1743,19 +1829,19 @@
 
   Связано с настройкой [Fallback to stale replicas for distributed queries](#setting-fallback-to-stale-replicas-for-distributed-queries).
 
-* **Max result bytes**{#setting-max-result-bytes} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max result bytes**{#setting-max-result-bytes} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальный размер результата запроса несжатых данных (в байтах). Ограничение распространяется также на подзапросы и на те части распределенных запросов, которые выполняются на удаленных серверах.
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max result rows**{#setting-max-result-rows} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max result rows**{#setting-max-result-rows} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальное количество строк результата. Ограничение распространяется также на подзапросы и на те части распределенных запросов, которые выполняются на удаленных серверах.
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max rows in distinct**{#setting-max-rows-in-distinct} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max rows in distinct**{#setting-max-rows-in-distinct} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальное количество различных строк при использовании `DISTINCT`.
 
@@ -1775,37 +1861,37 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max rows to group by**{#setting-max-rows-to-group-by} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max rows to group by**{#setting-max-rows-to-group-by} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальное количество уникальных ключей, получаемых в процессе агрегации. Используйте настройку, чтобы ограничить потребление оперативной памяти при агрегации.
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max rows to read**{#setting-max-rows-to-read} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max rows to read**{#setting-max-rows-to-read} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальное количество строк, которое можно прочитать из таблицы при выполнении запроса.
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max rows to sort**{#setting-max-rows-to-sort} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max rows to sort**{#setting-max-rows-to-sort} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальное количество строк для сортировки. Используйте эту настройку, чтобы ограничить потребление оперативной памяти при сортировке.
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max rows to transfer**{#setting-max-rows-to-transfer} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max rows to transfer**{#setting-max-rows-to-transfer} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальное количество строк, которое можно передать на удаленный сервер или сохранить во временную таблицу при использовании `GLOBAL IN`.
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max temporary columns**{#setting-max-temporary-columns} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max temporary columns**{#setting-max-temporary-columns} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальное количество временных столбцов, которое единовременно хранится в оперативной памяти при выполнении запроса (с учетом постоянных столбцов).
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max temporary data on disk size for query**{#setting-max-temporary-data-on-disk-size-for-query} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
+* **Max temporary data on disk size for query**{#setting-max-temporary-data-on-disk-size-for-query} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code>
 
   Максимальный объем данных (в байтах), потребляемых временными файлами на диске, для всех одновременно выполняемых запросов.
 
@@ -1813,7 +1899,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_query).
 
-* **Max temporary data on disk size for user**{#setting-max-temporary-data-on-disk-size-for-user} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
+* **Max temporary data on disk size for user**{#setting-max-temporary-data-on-disk-size-for-user} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code>
 
   Максимальный объем данных (в байтах), потребляемых временными файлами на диске, для всех одновременно выполняемых пользовательских запросов.
 
@@ -1821,13 +1907,13 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_user).
 
-* **Max temporary non const columns**{#setting-max-temporary-non-const-columns} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max temporary non const columns**{#setting-max-temporary-non-const-columns} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальное количество временных столбцов, которое единовременно хранится в оперативной памяти при выполнении запроса (без учета постоянных столбцов).
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max threads**{#setting-max-threads} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Max threads**{#setting-max-threads} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальное количество потоков обработки запроса, без учета потоков для чтения данных с удаленных серверов. Настройка относится к потокам, которые используются для параллельного выполнения стадий конвейера запросов.
 
@@ -1835,7 +1921,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-max_threads).
 
-* **Memory overcommit ratio denominator**{#setting-memory-overcommit-ratio-denominator} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
+* **Memory overcommit ratio denominator**{#setting-memory-overcommit-ratio-denominator} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code>
 
   Лимит для [перегрузки памяти](https://clickhouse.com/docs/ru/operations/settings/memory-overcommit) (в ГБ), когда достигнут жесткий лимит на уровне пользователя.
 
@@ -1843,7 +1929,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#memory_overcommit_ratio_denominator).
 
-* **Memory overcommit ratio denominator for user**{#setting-memory-overcommit-ratio-denominator-for-user} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
+* **Memory overcommit ratio denominator for user**{#setting-memory-overcommit-ratio-denominator-for-user} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code>
 
   Лимит для [перегрузки памяти](https://clickhouse.com/docs/ru/operations/settings/memory-overcommit) (в ГБ), когда достигнут жесткий лимит на глобальном уровне.
 
@@ -1851,19 +1937,19 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#memory_overcommit_ratio_denominator_for_user).
 
-* **Memory profiler sample probability**{#setting-memory-profiler-sample-probability} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Memory profiler sample probability**{#setting-memory-profiler-sample-probability} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Система будет с указанной вероятностью сохранять информацию о том или ином выделении и освобождении оперативной памяти в файл лога `system.trace_log` с типом трассировки `MemorySample`. Вероятность сохранения не зависит от размера выделенной/освобожденной памяти.
 
   Возможные значения — от `0` до `1`. По умолчанию — `0`.
 
-* **Memory profiler step**{#setting-memory-profiler-step} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Memory profiler step**{#setting-memory-profiler-step} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Шаг профилировщика памяти (в байтах). Если на следующем шаге выполнения запроса потребление памяти возрастает на число байт, большее указанного в данной настройке, то профилировщик сохраняет выделенный стектрейс. Значения менее нескольких мегабайт замедляют обработку запросов.
 
   По умолчанию — `4194304` (4 МБ). Если задан `0` — профилировщик памяти отключен.
 
-* **Memory usage overcommit max wait microseconds**{#setting-memory-usage-overcommit-max-wait-microseconds} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
+* **Memory usage overcommit max wait microseconds**{#setting-memory-usage-overcommit-max-wait-microseconds} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code>
 
   Время ожидания (в микросекундах) для освобождения памяти при [перегрузке памяти](https://clickhouse.com/docs/ru/operations/settings/memory-overcommit) на уровне пользователя.
 
@@ -1871,7 +1957,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds).
 
-* **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальный размер запроса (в байтах), при котором используется кеш несжатых данных. Кеш не используется для запросов, превышающих указанный размер.
 
@@ -1879,7 +1965,7 @@
 
   По умолчанию выбрано значение `192x10x1024x1024`.
 
-* **Merge tree max rows to use cache**{#setting-merge-tree-max-rows-to-use-cache} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Merge tree max rows to use cache**{#setting-merge-tree-max-rows-to-use-cache} <code><b><small>Все интерфейсы</small></b></code>
 
   Максимальный размер запроса (в строках), при котором используется кеш несжатых данных. Кеш не используется для запросов, превышающих указанный размер.
 
@@ -1887,19 +1973,19 @@
 
   По умолчанию выбрано значение `128x8192`.
 
-* **Merge tree min bytes for concurrent read**{#setting-merge-tree-min-bytes-for-concurrent-read} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Merge tree min bytes for concurrent read**{#setting-merge-tree-min-bytes-for-concurrent-read} <code><b><small>Все интерфейсы</small></b></code>
 
   Если количество прочитанных из файла байт превышает значение настройки, то ClickHouse® пытается выполнить одновременное чтение из этого файла в несколько потоков.
 
   Минимальное значение — `1`, по умолчанию — `24x10x1024x1024`.
 
-* **Merge tree min rows for concurrent read**{#setting-merge-tree-min-rows-for-concurrent-read} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Merge tree min rows for concurrent read**{#setting-merge-tree-min-rows-for-concurrent-read} <code><b><small>Все интерфейсы</small></b></code>
 
   Если количество прочитанных из файла строк превышает значение настройки, то ClickHouse® пытается выполнить одновременное чтение из этого файла в несколько потоков.
 
   Минимальное значение — `1`, по умолчанию — `20x8192`.
 
-* **Min bytes to use direct io**{#setting-merge-tree-min-bytes-to-use-direct-io} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Min bytes to use direct io**{#setting-merge-tree-min-bytes-to-use-direct-io} <code><b><small>Все интерфейсы</small></b></code>
 
   Объем данных (в байтах), необходимый для прямого чтения (Direct I/O) с диска.
 
@@ -1921,7 +2007,7 @@
 
   Минимальное значение — `0`, по умолчанию — `3`.
 
-* **Min count to compile expression**{#setting-min-count-to-compile-expression} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Min count to compile expression**{#setting-min-count-to-compile-expression} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет, после какого количества идентичных выражений начать [компиляцию выражений](#setting-compile-expressions).
 
@@ -1951,31 +2037,31 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#min-execution-speed-bytes).
 
-* **Min insert block size bytes**{#setting-min-insert-block-size-bytes} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Min insert block size bytes**{#setting-min-insert-block-size-bytes} <code><b><small>Все интерфейсы</small></b></code>
 
   Минимальный размер блока (в байтах), который может быть вставлен в таблицу запросом `INSERT`. Блоки меньшего размера [склеиваются вместе](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree#mergetree-data-storage).
 
   Минимальное значение — `0` (склейка блоков выключена), по умолчанию — `268435456` (256 МБ).
 
-* **Min insert block size rows**{#setting-min-insert-block-size-rows} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Min insert block size rows**{#setting-min-insert-block-size-rows} <code><b><small>Все интерфейсы</small></b></code>
 
   Минимальный размер блока (в строках), который может быть вставлен в таблицу запросом `INSERT`. Блоки меньшего размера [склеиваются вместе](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree#mergetree-data-storage).
 
   Минимальное значение — `0` (склейка блоков выключена), по умолчанию — `1048576`.
 
-* **Output format json quote denormals**{#setting-output-format-json-quote-denormals} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Output format json quote denormals**{#setting-output-format-json-quote-denormals} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет, выводить ли специальные значения для чисел с плавающей запятой (`+nan`, `-nan`, `+inf` и `-inf`) при использовании формата JSON для результата.
 
   По умолчанию выбрано значение `false` — специальные значения не выводятся.
 
-* **Output format json quote_64bit integers**{#setting-output-format-json-quote-64bit-integers} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Output format json quote_64bit integers**{#setting-output-format-json-quote-64bit-integers} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет формат чисел в JSON-выводе. Если настройка включена, то при выводе в JSON 64-битные числа (`UInt64` и `Int64`) выводятся в кавычках (из соображений совместимости с большинством реализаций JavaScript), иначе — без кавычек. 
 
   По умолчанию вывод 64-битных целых чисел в кавычках выключен.
 
-* **Prefer localhost replica**{#setting-prefer-localhost-replica} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Prefer localhost replica**{#setting-prefer-localhost-replica} <code><b><small>Все интерфейсы</small></b></code>
 
   Включает отправку распределенных запросов на реплику `localhost`.
 
@@ -1991,7 +2077,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-prefer-localhost-replica).
 
-* **Priority**{#setting-priority} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Priority**{#setting-priority} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет приоритет запроса:
   * `0` — приоритет не используется.
@@ -2004,7 +2090,7 @@
 
   Минимальное значение и значение по умолчанию — `0`.
 
-* **Query cache max entries**{#setting-query-cache-max-entries} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Query cache max entries**{#setting-query-cache-max-entries} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Максимальное количество результатов запроса, которое текущий пользователь может сохранить в кеше запросов.
 
@@ -2014,7 +2100,7 @@
 
   Связано с настройкой [Use query cache](#setting-use-query-cache).
 
-* **Query cache max size in bytes**{#setting-query-cache-max-size-in-bytes} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Query cache max size in bytes**{#setting-query-cache-max-size-in-bytes} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Максимальный размер кеша (в байтах) для пользователя.
 
@@ -2024,7 +2110,7 @@
 
   Связано с настройкой [Use query cache](#setting-use-query-cache).
 
-* **Query cache min query duration**{#setting-query-cache-min-query-duration} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Query cache min query duration**{#setting-query-cache-min-query-duration} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Минимальная продолжительность (в миллисекундах) запроса `SELECT`, при которой результаты будут записываться в кеш запросов.
 
@@ -2034,7 +2120,7 @@
 
   Связано с настройкой [Use query cache](#setting-use-query-cache).
 
-* **Query cache min query runs**{#setting-query-cache-min-query-runs} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Query cache min query runs**{#setting-query-cache-min-query-runs} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Минимальное количество выполненных запросов `SELECT`, при котором результаты будут записываться в кеш запросов.
 
@@ -2044,7 +2130,7 @@
 
   Связано с настройкой [Use query cache](#setting-use-query-cache).
 
-* **Query cache nondeterministic function handling**{#setting-query-cache-nondeterministic-function-handling} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Query cache nondeterministic function handling**{#setting-query-cache-nondeterministic-function-handling} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет, как кеш запросов будет обрабатывать запросы `SELECT` с недетерминированными функциями, такими как `rand()` или `now()`.
 
@@ -2060,7 +2146,7 @@
 
   Связано с настройкой [Use query cache](#setting-use-query-cache).
 
-* **Query cache share between users**{#setting-query-cache-share-between-users} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Query cache share between users**{#setting-query-cache-share-between-users} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет, могут ли результаты запросов `SELECT`, сохраненные в кеше запросов, быть прочитаны другими пользователями. Не рекомендуется включать этот параметр по соображениям безопасности.
 
@@ -2070,7 +2156,23 @@
 
   Связано с настройкой [Use query cache](#setting-use-query-cache).
 
-* **Query cache tag**{#setting-query-cache-tag} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Query cache system table handling**{#setting-query-cache-system-table-handling} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
+
+  Определяет, как кеш запросов будет обрабатывать запросы `SELECT` к системным таблицам.
+
+  Возможные значения:
+
+  * `throw` — сгенерировать исключение и не кешировать результат запроса.
+  * `save` — кешировать результат запроса.
+  * `ignore` — не генерировать исключение и не кешировать результат запроса.
+
+  По умолчанию значение не выбрано (эквивалентно `throw`).
+
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_system_table_handling).
+
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
+
+* **Query cache tag**{#setting-query-cache-tag} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Строка, которая служит меткой для записей кеша запросов. Настройка позволяет кешировать несколько результатов одного и того же запроса. Запросы с разными тегами считаются разными.
 
@@ -2078,7 +2180,7 @@
 
   Связано с настройкой [Use query cache](#setting-use-query-cache).
 
-* **Query cache ttl**{#setting-query-cache-ttl} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Query cache ttl**{#setting-query-cache-ttl} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Время (в секундах), по истечении которого записи в кеше запросов устаревают.
 
@@ -2088,7 +2190,7 @@
 
   Связано с настройкой [Use query cache](#setting-use-query-cache).
 
-* **Quota mode**{#setting-quota-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Quota mode**{#setting-quota-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Режим учета потребляемых ресурсов при включенных [квотах](https://console.yandex.cloud/cloud?section=quotas):
   * `default` — ключи не используются.
@@ -2099,7 +2201,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/quotas).
 
-* **Read overflow mode**{#setting-read-overflow-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Read overflow mode**{#setting-read-overflow-mode} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет поведение ClickHouse®, когда количество прочитанных данных [превысило одно из ограничений](https://clickhouse.com/docs/ru/operations/settings/query-complexity#restrictions-on-query-complexity):
   * `throw` — прервать выполнение, вернуть ошибку.
@@ -2107,7 +2209,7 @@
 
   По умолчанию значение не выбрано (эквивалентно `throw`).
 
-* **Readonly**{#setting-readonly} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Readonly**{#setting-readonly} <code><b><small>Все интерфейсы</small></b></code>
 
   Разрешения для запросов на изменение параметров, чтение и запись данных:
   * `0` (по умолчанию) — разрешено выполнять все типы запросов.
@@ -2118,13 +2220,13 @@
 
   Пример: [создание пользователя с правами «только чтение»](../operations/cluster-users.md#example-create-readonly-user).
 
-* **Receive timeout**{#setting-receive-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Receive timeout**{#setting-receive-timeout} <code><b><small>Все интерфейсы</small></b></code>
 
   Время ожидания приема данных (в миллисекундах).
 
   По умолчанию выбрано значение `300000` (5 минут).
 
-* **Remote filesystem read method**{#setting-remote-filesystem-read-method} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
+* **Remote filesystem read method**{#setting-remote-filesystem-read-method} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code>
 
   Определяет способ считывания данных из удаленной файловой системы.
 
@@ -2135,7 +2237,7 @@
 
   Значение по умолчанию — `threadpool`.
 
-* **Replication alter partitions sync**{#setting-replication-alter-partitions-sync} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Replication alter partitions sync**{#setting-replication-alter-partitions-sync} <code><b><small>Все интерфейсы</small></b></code>
 
   Задает условия ожидания завершения асинхронных действий на репликах для запросов `ALTER ... ATTACH DETACH DROP`:
   * `0` — не ждать.
@@ -2144,7 +2246,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/alter#synchronicity-of-alter-queries).
 
-* **Result overflow mode**{#setting-result-overflow-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Result overflow mode**{#setting-result-overflow-mode} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет поведение ClickHouse®, когда объем результата [превысил одно из ограничений](https://clickhouse.com/docs/ru/operations/settings/query-complexity#restrictions-on-query-complexity):
   * `throw` — прервать выполнение, вернуть ошибку.
@@ -2152,7 +2254,20 @@
 
   По умолчанию значение не выбрано (эквивалентно `throw`).
 
-* **Select sequential consistency**{#setting-select-sequential-consistency} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **S3 use adaptive timeouts**{#setting-s3-use-adaptive-timeouts} <code><b><small>Все интерфейсы</small></b></code>
+
+  Определяет, использовать ли адаптивные тайм-ауты для запросов к S3.
+
+  Возможные значения:
+
+  * `true` — для каждых трех запросов к S3 первые две попытки выполняются с короткими тайм-аутами отправки и получения.
+  * `false` — все попытки выполняются с одинаковыми тайм-аутами.
+
+  По умолчанию настройка включена.
+
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#s3_use_adaptive_timeouts).
+
+* **Select sequential consistency**{#setting-select-sequential-consistency} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет, нужно ли обеспечивать последовательную консистентность для запросов `SELECT`.
 
@@ -2160,13 +2275,13 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-select_sequential_consistency).
 
-* **Send progress in HTTP headers**{#setting-send-progress-in-http-headers} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Send progress in HTTP headers**{#setting-send-progress-in-http-headers} <code><b><small>Все интерфейсы</small></b></code>
 
   Разрешает отправку уведомлений о ходе выполнения запроса с использованием заголовков `X-ClickHouse-Progress`.
 
   По умолчанию отсылка уведомлений выключена.
 
-* **Send timeout**{#setting-send-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Send timeout**{#setting-send-timeout} <code><b><small>Все интерфейсы</small></b></code>
 
   Время ожидания отправки данных (в миллисекундах).
 
@@ -2191,13 +2306,13 @@
 
   Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#show_data_lake_catalogs_in_system_tables).
 
-* **Skip unavailable shards**{#setting-skip-unavailable-shards} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Skip unavailable shards**{#setting-skip-unavailable-shards} <code><b><small>Все интерфейсы</small></b></code>
 
   Разрешает тихий пропуск недоступных шардов. Шард считается недоступным, если все его реплики недоступны.
 
   По умолчанию тихий пропуск недоступных шардов выключен.
 
-* **Sort overflow mode**{#setting-sort-overflow-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Sort overflow mode**{#setting-sort-overflow-mode} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет поведение ClickHouse®, когда количество полученных перед сортировкой строк [превысило одно из ограничений](https://clickhouse.com/docs/ru/operations/settings/query-complexity#restrictions-on-query-complexity):
   * `throw` — прервать выполнение, вернуть ошибку.
@@ -2205,7 +2320,7 @@
 
   По умолчанию значение не выбрано (эквивалентно `throw`).
 
-* **Timeout before checking execution speed**{#setting-timeout-before-checking-execution-speed} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Timeout before checking execution speed**{#setting-timeout-before-checking-execution-speed} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Время ожидания (в миллисекундах) между проверками скорости выполнения запроса. Проверяется, что скорость выполнения не ниже указанной в параметре [**Min execution speed**](#setting-min-execution-speed).
 
@@ -2213,7 +2328,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#timeout-before-checking-execution-speed).
 
-* **Timeout overflow mode**{#setting-timeout-overflow-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Timeout overflow mode**{#setting-timeout-overflow-mode} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет поведение ClickHouse®, когда запрос выполняется дольше [max_execution_time](#setting-max-execution-time):
   * `throw` — прервать выполнение, вернуть ошибку.
@@ -2221,7 +2336,7 @@
 
   По умолчанию значение не выбрано (эквивалентно `throw`).
 
-* **Transfer overflow mode**{#setting-transfer-overflow-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Transfer overflow mode**{#setting-transfer-overflow-mode} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет поведение ClickHouse®, когда количество данных для передачи на другой сервер [превысило одно из ограничений](https://clickhouse.com/docs/ru/operations/settings/query-complexity#restrictions-on-query-complexity):
   * `throw` — прервать выполнение, вернуть ошибку.
@@ -2229,7 +2344,7 @@
 
   По умолчанию значение не выбрано (эквивалентно `throw`).
 
-* **Transform null in**{#setting-transform-null-in} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Transform null in**{#setting-transform-null-in} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   При включенной опции сравнение `NULL = NULL` вернет `true` в операторе `IN`.
 
@@ -2237,7 +2352,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#transform_null_in).
 
-* **Use hedged requests**{#setting-use-hedged-requests} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Use hedged requests**{#setting-use-hedged-requests} <code><b><small>Все интерфейсы</small></b></code>
 
   Включает хеджированные запросы.
 
@@ -2260,7 +2375,7 @@
 
   Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#use_hive_partitioning).
 
-* **Use query cache**{#setting-use-query-cache} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
+* **Use query cache**{#setting-use-query-cache} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>SQL</small></b></code>
 
   Определяет, могут ли запросы `SELECT` использовать кеш запросов.
 
@@ -2272,7 +2387,7 @@
   * [Enable reads from query cache](#setting-enable-reads-from-query-cache)
   * [Enable writes to query cache](#setting-enable-writes-to-query-cache)
 
-* **Use uncompressed cache**{#setting-use-uncompressed-cache} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Use uncompressed cache**{#setting-use-uncompressed-cache} <code><b><small>Все интерфейсы</small></b></code>
 
   Определяет, использовать ли кеш разжатых блоков. Использование этого кеша может существенно сократить задержку и увеличить пропускную способность при работе с большим количеством коротких запросов (только для таблиц семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree)). Включите эту настройку для пользователей, от которых идут частые короткие запросы.
 
@@ -2284,7 +2399,7 @@
   * [Merge tree max bytes to use cache](#setting-merge-tree-max-bytes-to-use-cache)
   * [Merge tree max rows to use cache](#setting-merge-tree-max-rows-to-use-cache)
 
-* **Wait for async insert**{#setting-wait-for-async-insert} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Wait for async insert**{#setting-wait-for-async-insert} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Включает ожидание обработки [асинхронных вставок](#setting-async-insert).
 
@@ -2297,7 +2412,7 @@
 
   Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#wait-for-async-insert).
 
-* **Wait for async insert timeout**{#setting-wait-for-async-insert-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
+* **Wait for async insert timeout**{#setting-wait-for-async-insert-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Время (в секундах) ожидания обработки асинхронной вставки.
 

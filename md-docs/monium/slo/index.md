@@ -150,4 +150,8 @@ SLO — аналитический инструмент, помогающий п
 
 {% endnote %}
 
+## Полезные ссылки {#see-also}
+
+[SLO-мониторинг веб-сервиса в Monium с blackbox_exporter и Unified Agent](../../tutorials/infrastructure-management/slo-blackbox-exporter.md)
+
 [golden-sgnals]: https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals

@@ -33,7 +33,7 @@ _{{ sts-name }}_ — компонент сервиса {{ iam-name }} для п�
 
 Для работы с {{ sts-name }} предусмотрен отдельный [эндпоинт API](../../api-design-guide/concepts/endpoints.md): `https://{{ sts-host }}`.
 
-Подробнее смотрите [{#T}](../../iam/operations/sa/create-sts-key.md).
+Подробнее смотрите в разделе [{#T}](../../iam/operations/sa/create-sts-key.md).
 
 {% note warning %}
 

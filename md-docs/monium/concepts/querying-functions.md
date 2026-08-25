@@ -23,6 +23,7 @@
   - [histogram_percentile](#histogram_percentile)
   - [histogram_sum](#histogram_sum)
   - [series_avg](#series_avg)
+  - [series_count](#series_count)
   - [series_max](#series_max)
   - [series_min](#series_min)
   - [series_percentile](#series_percentile)
@@ -265,6 +266,15 @@ $$
 
 Запрос `series_avg(["host", "disk"], {...})` для каждой комбинации значений меток `host` и `disk` вычислит среднее значение среди всех загруженных метрик.
 
+
+### series_count
+
+Функция **series_count** имеет следующие варианты использования (перегрузки функции) в зависимости от типа входного параметра _key_ (строка или массив строк):
+
+- **series_count**(*[key: string]*, *source: timeseries_vector*): *timeseries_vector*
+- **series_count**(*[key: string[]]*, *source: timeseries_vector*): *timeseries_vector*
+
+Агрегирует временные ряды в один (или несколько), применяя агрегационную функцию count (количество) для каждого момента времени. Опциональный параметр _key_ содержит строку или массив строк со списком меток, по которым выполняется группировка. Примеры запросов с использованием параметра _key_ смотрите в разделе [series_avg](#series_avg).
 
 ### series_max
 

@@ -13,6 +13,7 @@ When creating your billing account, you get the `billing.accounts.owner` role au
 * Get and view notifications on consumption.
 * Monitor expenses.
 * [View usage details](../../../billing/operations/check-charges.md).
+* [Execute API queries](../../../billing/operations/get-charges-via-api.md) to get usage details.
 * [Export details](../../../billing/operations/get-folder-report.md).
 * Create [budgets](../../../billing/concepts/budget.md).
 * [Reserve resource usage](../../../billing/concepts/cvos.md).
@@ -22,8 +23,8 @@ When creating your billing account, you get the `billing.accounts.owner` role au
 * Rename billing accounts.
 * Changing payer contact details.
 * Change payment details.
-* Change their credit or debit card details.
-* Change the payment method.
+* [Change](../../../billing/operations/pin-card.md#change_card) their credit or debit card details.
+* [Change](../../../billing/operations/change-payment-method.md) the payment method.
 * Redeem promo codes.
 * Activate the [trial period](../../../billing/concepts/trial-period.md).
 * Activate the [paid version](../../../getting-started/free-trial/concepts/upgrade-to-paid.md).
@@ -46,7 +47,6 @@ When creating your billing account, you get the `billing.accounts.owner` role au
 * View [rebate credit](../../../partner/terms.md#rebate) history.
 * Withdraw rebate.
 * View assigned [specializations](../../../partner/specializations/index.md).
-* View the list of [partner discounts](../../../partner/portal.md#premium) and info on them.
 * View the history of crediting [referral program](../../../partner/program/referral.md) bonuses.
 * Withdraw referral program [bonuses](../../../partner/program/referral.md#premium).
 * View the status of settlements with the [referrer company](../../../partner/terms.md#referral-partner).
@@ -54,6 +54,7 @@ When creating your billing account, you get the `billing.accounts.owner` role au
 * Create referral links.
 * Activate referral links.
 * Modify referral links.
+* View the list of [partner bonuses](../../../partner/portal.md#premium) and info on them.
 
 {% endcut %}
 

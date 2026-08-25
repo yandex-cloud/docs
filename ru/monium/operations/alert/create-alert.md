@@ -23,6 +23,7 @@ description: Следуя данной инструкции, вы сможете
       * **ID**. Задайте уникальный идентификатор алерта.
       * **Тип**. Выберите тип алерта.
       * **{{ ui-key.yacloud_monitoring.alert.title_description }}**. Опишите назначение алерта.
+      * **Уровень алерта**. Выберите [уровень критичности алерта](../../concepts/alerting/alert.md#severity): `Unspecified`, `Disaster`, `Critical` или `Info`.
 
   1. Опишите [запросы](../../concepts/alerting/alert.md#queries).
   1. Настройте [условия срабатывания](../../concepts/alerting/alert.md#condition) алерта:
