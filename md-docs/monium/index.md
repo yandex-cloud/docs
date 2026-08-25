@@ -376,6 +376,10 @@ Monium платформа для сбора, хранения и анализа 
 
  - [Добавление виджета SLO на дашборд](slo/visualisation.md)
 
+## Практические руководства
+
+ - [SLO-мониторинг веб-сервиса](slo/slo-blackbox-exporter.md)
+
 ## Yandex Managed Service for Prometheus®
 
  - [Обзор](operations/prometheus/index.md)

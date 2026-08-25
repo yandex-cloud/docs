@@ -140,6 +140,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);
@@ -198,7 +199,8 @@
 * просматривать и скачивать сгенерированные акты сверки;
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
-* [просматривать детализацию](../billing/operations/check-charges.md).
+* [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов.
 
 {% endcut %}
 
@@ -226,6 +228,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * пополнять [лицевой счет](../billing/concepts/personal-account.md) с помощью расчетного счета.
 
 {% endcut %}
@@ -258,6 +261,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);
@@ -300,6 +304,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);
@@ -350,6 +355,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);
@@ -412,6 +418,8 @@
 * просматривать список контактов и информацию о них, в т.ч. персональные данные;
 * просматривать список [партнерских сделок](../partner/terms.md#deal-reg) и информацию о них, в т.ч. персональные данные.
 
+В сервисе Yandex Cloud Billing пользователи с этой ролью могут [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов.
+
 Включает разрешения, предоставляемые ролью `billing.accounts.partnerViewer`.
 
 #### billing.accounts.partnerEditor {#billing-accounts-partnerEditor}
@@ -445,6 +453,8 @@
 * просматривать список контактов и информацию о них, в т.ч. персональные данные;
 * просматривать список [партнерских сделок](../partner/terms.md#deal-reg) и информацию о них, в т.ч. персональные данные.
 
+В сервисе Yandex Cloud Billing пользователи с этой ролью могут [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов.
+
 Включает разрешения, предоставляемые ролью `billing.accounts.piiPartnerViewer`.
 
 #### billing.accounts.partnerAdmin {#billing-accounts-partnerAdmin}
@@ -465,6 +475,10 @@
 * просматривать страницу с [инструментами партнера](../partner/program/var-tools.md).
 
 Включает разрешения, предоставляемые ролями `billing.accounts.partnerEditor` и `billing.accounts.piiPartnerEditor`.
+
+#### billing.usagerecords.admin {#billing-usagerecords-admin}
+
+Роль `billing.usagerecords.admin` назначается на [организацию](../organization/concepts/organization.md), [облако](../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../resource-manager/concepts/resources-hierarchy.md#folder). Позволяет просматривать детализацию потребления ресурсов без доступа к [платежному аккаунту](../billing/concepts/billing-account.md).
 
 Подробнее в [Управление доступом в партнерской программе Yandex Cloud](../partner/security/index.md).
 
@@ -1273,6 +1287,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);
@@ -1331,7 +1346,8 @@
 * просматривать и скачивать сгенерированные акты сверки;
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
-* [просматривать детализацию](../billing/operations/check-charges.md).
+* [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов.
 
 {% endcut %}
 
@@ -1359,6 +1375,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * пополнять [лицевой счет](../billing/concepts/personal-account.md) с помощью расчетного счета.
 
 {% endcut %}
@@ -1391,6 +1408,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);
@@ -1435,6 +1453,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);
@@ -1486,6 +1505,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);

@@ -33,6 +33,7 @@
 * [Создание ВМ и группы ВМ с Container Optimized Image с помощью Terraform](coi-with-terraform.md)
 * [Запуск Docker-образа на виртуальной машине](../infrastructure-management/run-docker-on-vm/index.md)
 * [Передача логов через HTTP-вход Unified Agent в Yandex Cloud Logging](../infrastructure-management/ua-http-logging.md)
+* [SLO-мониторинг веб-сервиса в Monium с blackbox_exporter и Unified Agent](../infrastructure-management/slo-blackbox-exporter.md)
 * [Запуск языковой модели DeepSeek-R1 в кластере GPU Yandex Compute Cloud](gpu-cluster-deepseek.md)
 
 ## Сеть {#routing}

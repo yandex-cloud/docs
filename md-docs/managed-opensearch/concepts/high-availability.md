@@ -12,7 +12,7 @@
 
 Каждая группа хостов `OpenSearch` может включать хосты с ролями [DATA](host-roles.md#data) или [MANAGER](host-roles.md#manager). Если в кластере есть только одна группа `OpenSearch`, ее хосты совмещают обе роли.
 
-Чтобы кластер обеспечивал высокую доступность и на него распространялось [Соглашение об уровне обслуживания (SLA)](https://yandex.ru/legal/cloud_sla_mdb/), он должен включать:
+Чтобы кластер обеспечивал высокую доступность и на него распространялось [Соглашение об уровне обслуживания (SLA)](https://yandex.ru/legal/cloud_sla_mdb/ru/#klastera-servisa-upravlyaemogo-opensearch-/-yandex-managed-service-for-opensearch,-popadayushie-pod-dejstvie-urovnya-obsluzhivaniya), он должен включать:
 
 
 1. Два и более хоста с ролью `DATA`, расположенных в разных [зонах доступности](../../overview/concepts/geo-scope.md). При этом в каждой зоне доступности должно находиться не больше половины хостов с ролью `DATA`.

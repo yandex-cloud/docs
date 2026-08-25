@@ -6139,7 +6139,7 @@ default:
           label_tab-logs: Logs
           label_tab-yaml: YAML
         WorkloadsActions:
-          pod-exec_jwJ3R: Terminal
+          pod-exec_jwJ3R: Connect
       kafka:
         button_add-topic: Add topic
         button_create-connector: Create connector
@@ -9224,7 +9224,6 @@ default:
         foundation_models_properties_action_properties_vision_properties_max_tokens_view_spec_layout_title: Number of tokens
         foundation_models_properties_action_properties_vision_properties_temperature_view_spec_layout_title: Temperature
         foundation_models_properties_model_properties_custom_view_spec_layout_title: Model URI
-        foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title: Folder ID
         functions_integration_properties_serverless_function_view_spec_layout_title: Function
         grpc_integration_title: gRPC
         grpc_properties_body_view_spec_layout_title: Request body

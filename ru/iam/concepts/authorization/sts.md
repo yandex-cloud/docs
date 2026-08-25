@@ -8,5 +8,6 @@ description: '{{ sts-name }} — компонент сервиса {{ iam-name }
 
 #### Полезные ссылки {#see-also}
 
+* [{#T}](../../operations/sa/create-sts-key.md)
 * [{#T}](../../../storage/security/overview.md)
 * [{#T}](ephemeral-keys.md)

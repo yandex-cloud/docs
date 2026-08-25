@@ -163,4 +163,24 @@ editable: false
 
 
 
+
+### Тарификация гибридного хранилища для региона Россия
+
+{% list tabs %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-yezzey](../../_pricing/managed-greenplum/rub-yezzey.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-yezzey](../../_pricing/managed-greenplum/kzt-yezzey.md) %}
+
+- Цены в долларах {#prices-usd}
+
+  {% include [usd-yezzey](../../_pricing/managed-greenplum/usd-yezzey.md) %}
+
+{% endlist %}
+
+
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}

@@ -13,6 +13,7 @@ To use the `billing.accounts.admin` role, you need to assign it for a billing ac
 * Get and view notifications on consumption.
 * Monitor expenses.
 * [View usage details](../../../billing/operations/check-charges.md).
+* [Execute API queries](../../../billing/operations/get-charges-via-api.md) to get usage details.
 * [Export details](../../../billing/operations/get-folder-report.md).
 * Create [budgets](../../../billing/concepts/budget.md).
 * [Reserve resource usage](../../../billing/concepts/cvos.md).
@@ -36,7 +37,6 @@ To use the `billing.accounts.admin` role, you need to assign it for a billing ac
 * View [rebate credit](../../../partner/terms.md#rebate) history.
 * Withdraw rebate.
 * View assigned [specializations](../../../partner/specializations/index.md).
-* View the list of [partner discounts](../../../partner/portal.md#premium) and info on them.
 * View the history of crediting [referral program](../../../partner/program/referral.md) bonuses.
 * Withdraw referral program [bonuses](../../../partner/program/referral.md#premium).
 * View the status of settlements with the [referrer company](../../../partner/terms.md#referral-partner).
@@ -44,6 +44,7 @@ To use the `billing.accounts.admin` role, you need to assign it for a billing ac
 * Create referral links.
 * Activate referral links.
 * Modify referral links.
+* View the list of [partner discounts](../../../partner/portal.md#premium) and info on them.
 
 {% endcut %}
 

@@ -30,9 +30,14 @@ flowchart BT
     billing.accounts.admin --> billing.accounts.owner
     billing.accounts.varWithoutDiscounts --> billing.accounts.owner
     billing.accounts.member --> billing.accounts.viewer
+    billing.usagerecords.admin
 ```
 
 ### Сервисные роли {#service-roles}
+
+#### billing.usagerecords.admin {#billing-usagerecords-admin}
+
+Роль `billing.usagerecords.admin` назначается на [организацию](../../organization/concepts/organization.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Позволяет просматривать детализацию потребления ресурсов без доступа к [платежному аккаунту](../concepts/billing-account.md).
 
 #### billing.accounts.member {#billing-accounts-member}
 
@@ -50,7 +55,8 @@ flowchart BT
 * просматривать и скачивать сгенерированные акты сверки;
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
-* [просматривать детализацию](../operations/check-charges.md).
+* [просматривать детализацию](../operations/check-charges.md);
+* [выполнять API-запросы](../operations/get-charges-via-api.md) для получения детализации расходов.
 
 {% endcut %}
 
@@ -78,6 +84,7 @@ flowchart BT
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../operations/check-charges.md);
+* [выполнять API-запросы](../operations/get-charges-via-api.md) для получения детализации расходов;
 * пополнять [лицевой счет](../concepts/personal-account.md) с помощью расчетного счета.
 
 {% endcut %}
@@ -114,6 +121,7 @@ flowchart BT
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../operations/check-charges.md);
+* [выполнять API-запросы](../operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../operations/get-folder-report.md);
 * создавать [бюджеты](../concepts/budget.md);
 * [резервировать потребление ресурсов](../concepts/cvos.md);
@@ -156,6 +164,7 @@ flowchart BT
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../operations/check-charges.md);
+* [выполнять API-запросы](../operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../operations/get-folder-report.md);
 * создавать [бюджеты](../concepts/budget.md);
 * [резервировать потребление ресурсов](../concepts/cvos.md);
@@ -206,6 +215,7 @@ flowchart BT
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../operations/check-charges.md);
+* [выполнять API-запросы](../operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../operations/get-folder-report.md);
 * создавать [бюджеты](../concepts/budget.md);
 * [резервировать потребление ресурсов](../concepts/cvos.md);
@@ -259,6 +269,7 @@ flowchart BT
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../operations/check-charges.md);
+* [выполнять API-запросы](../operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../operations/get-folder-report.md);
 * создавать [бюджеты](../concepts/budget.md);
 * [резервировать потребление ресурсов](../concepts/cvos.md);

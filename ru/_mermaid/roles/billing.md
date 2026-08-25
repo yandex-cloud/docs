@@ -9,4 +9,5 @@ flowchart BT
     billing.accounts.admin --> billing.accounts.owner
     billing.accounts.varWithoutDiscounts --> billing.accounts.owner
     billing.accounts.member --> billing.accounts.viewer
+    billing.usagerecords.admin
 ```
