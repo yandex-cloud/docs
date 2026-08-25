@@ -42,7 +42,3 @@ description: На странице представлен список поша�
 * [{#T}](origin-groups/bind-group-to-resource.md)
 * [{#T}](origin-groups/get-group-info.md)
 * [{#T}](origin-groups/delete-group.md)
-
-## Миграция {#migration}
-
-* [{#T}](migration.md)
