@@ -7981,14 +7981,38 @@ default:
         value_pre-check-checkbox: Чекбокс
         value_pre-check-slider: Слайдер
       spark:
+        ClusterForm:
+          DependenciesSection:
+            title_dependencies-type_wJq6n: Способ настройки ПО
+            title_software-configuration-type-environment_wJq6n: Окружение
+            title_software-configuration-type-packages_wJq6n: Пакеты вручную
+        EnvironmentActions:
+          button_action-copy_dFws4: Создать копию окружения
+          button_action-delete_kqb63: Удалить
+          popup-action_label_delete-msg_4d5Cr: Удалить
+        EnvironmentForm:
+          EnvironmentFormContent:
+            field_deb-packages_htNFj: Deb-пакеты
+            field_pip-packages_rnW6Y: Pip-пакеты
+            section_base-environment_tkR1g: Базовое окружение
+            section_general_fDK9S: Общая информация
+            section_packages_oct8m: Пакеты
+        EnvironmentSelect:
+          base_environments_fq7iF: Базовые окружения
+          field_environment_cluster_sP4vs: Как у кластера
+          user_environments_fwNXU: Пользовательские окружения
         jobs:
           create_action: Создать задание
           popup-action_label_cancel-msg: Отменить задание
         label_connect-url: URL подключения
         label_history-server: History Server
         label_metastore: Metastore-сервер
+        label_title-environments: Окружения
         section_driver: Конфигурация драйвера
         section_executor: Конфигурация исполнителя
+        Spark:
+          EnvironmentsList:
+            button_create_sqDYH: Создать окружение
       spqr:
         cluster:
           switch_databases: Базы данных

@@ -2,6 +2,7 @@
 
 # Метрики Yandex Cloud Postbox
 
+
 В этом разделе описаны метрики сервиса [Yandex Cloud Postbox](../../postbox/index.md), поставляемые в Monitoring.
 
 Имя метрики пишется в метку `name`.

@@ -1474,7 +1474,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteNetworkLoadBalancer` | Удаление сетевого балансировщика
 `DeleteTargetGroup` | Удаление целевой группы
 `DetachNetworkLoadBalancerTargetGroup` | Отсоединение целевой группы от сетевого балансировщика
-`DisableNetworkLoadBalancerZones` | Отключение зоны доступности 
+`DisableNetworkLoadBalancerZones` | Отключение [зоны доступности](../../overview/concepts/geo-scope.md) 
 `EnableNetworkLoadBalancerZones` | Включение зоны доступности
 `RemoveNetworkLoadBalancerListener` | Удаление обработчика из сетевого балансировщика
 `RemoveTargetGroupTargets` | Удаление ВМ из целевой группы

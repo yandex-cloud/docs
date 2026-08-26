@@ -20,6 +20,14 @@ yc components update
 ```
 
 
+## Необходимые платные ресурсы {#paid-resources}
+
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+
+
+
 ## Перенесите группу узлов и рабочую нагрузку в подах в другую зону доступности {#transfer-a-node-group}
 
 [Подготовьте группу узлов](#prepare), после чего выполните миграцию одним из способов:

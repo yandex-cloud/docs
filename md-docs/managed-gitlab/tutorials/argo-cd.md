@@ -20,17 +20,16 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Сервис Yandex Container Registry: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы Container Registry](../../container-registry/pricing.md)).
+* Инстанс GitLab. Стоимость зависит от способа создания инстанса:
 
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса, если они назначены узлам кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за NAT-шлюз, если он используется вместо публичных IP-адресов для узлов кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
-* Плата за [использование хранилища](../../container-registry/pricing.md) Container Registry.
-* Плата за инстанс GitLab. Она зависит от способа создания инстанса:
+   * Managed Service for GitLab — оплачиваются вычислительные ресурсы ВМ, объем хранимых данных и резервных копий, объем исходящего трафика ([тарифы Managed Service for GitLab](../pricing.md)).
+   * ВМ с образом GitLab — оплачиваются вычислительные ресурсы ВМ и образ GitLab ([тарифы Compute Cloud](../../compute/pricing.md)).
 
-   * Managed Service for GitLab: оплачиваются ресурсы ВМ, хранение данных и резервных копий, объем исходящего трафика ([тарифы Managed Service for GitLab](../pricing.md)).
-   * ВМ с образом GitLab: оплачиваются ресурсы ВМ, образ GitLab, публичный IP-адрес для ВМ ([тарифы Compute Cloud](../../compute/pricing.md) и [Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, а также для ВМ с образом GitLab, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* NAT-шлюз, если он используется вместо публичных IP-адресов для узлов кластера: почасовое использование шлюза и исходящий через него трафик ([тарифы Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -63,7 +62,7 @@
 
   1. [Создайте группу безопасности](../operations/configure-security-group.md) для работы [инстанса Managed Service for GitLab](../concepts/index.md#instance).
   1. [Создайте кластер Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера Managed Service for Kubernetes укажите ранее созданные сервисные аккаунты для ресурсов и узлов и группы безопасности для кластера.
-  1. [Создайте реестр Yandex Container Registry](../../container-registry/operations/registry/registry-create.md).
+  1. [Создайте реестр Container Registry](../../container-registry/operations/registry/registry-create.md).
   1. [Сохраните идентификатор созданного реестра](../../container-registry/operations/registry/registry-list.md#registry-get) — он понадобится для следующих шагов.
 
 - Terraform {#tf}

@@ -7,14 +7,14 @@ blocks:
   - type: card-layout-block
     animated: false
     colSizes:
-      all: 4
-      sm: 4
-      md: 4
+      all: 12
+      lg: 6
+      sm: 6
     children:
       - type: basic-card
         title: Калькулятор цен
         text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
-        icon: _assets/icons/calculator.svg
+        icon: ../_assets/console-icons/calculator.svg
         urlTitle: Калькулятор цен
         url: https://yandex.cloud/ru/prices?state=ed8afa6f565c#calculator
         size: s
@@ -26,21 +26,9 @@ blocks:
       - type: basic-card
         title: Прайс-лист
         text: Актуальные тарифы на все наши услуги
-        icon: _assets/icons/circle-ruble.svg
+        icon: ../_assets/console-icons/circle-ruble.svg
         urlTitle: Прайс-лист
         url: https://yandex.cloud/ru/price-list?services=dn2hmdmghr9j2odlvssi
-        size: s
-        border: shadow
-        centered: true
-        indent:
-          top: '0'
-          bottom: '0'
-      - type: basic-card
-        title: Акции и free tier
-        text: Гранты, специальные условия и программы поддержки
-        icon: _assets/icons/flame.svg
-        urlTitle: Акции и free tier
-        url: https://yandex.cloud/ru/all-offers
         size: s
         border: shadow
         centered: true

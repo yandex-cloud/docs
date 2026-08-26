@@ -5,6 +5,7 @@
 # Организация сетевой связности между подсетями Yandex BareMetal и Yandex Virtual Private Cloud с помощью Yandex Cloud Interconnect
 
 
+
 <iframe width="560" height="315" src="https://runtime.strm.yandex.ru/player/video/vplvuylmftewoh4dm5aj?autoplay=0&mute=0" allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
 
@@ -40,7 +41,6 @@
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для организации сетевой связности между подсетями BareMetal и VPC входят:
@@ -50,7 +50,6 @@
 * плата за аренду сервера BareMetal ([тарифы Yandex BareMetal](../pricing.md)).
 
 Трафик между приватными адресами Yandex BareMetal и Yandex Virtual Private Cloud, передаваемый в обоих направлениях через [Yandex Cloud Interconnect](../../interconnect/index.md), не тарифицируется.
-
 
 ## Создайте облачную инфраструктуру {#setup-infrastructure}
 
@@ -71,6 +70,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать инфраструктуру.
   1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. Создайте виртуальный сегмент сети:
+        
         1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF** и нажмите кнопку **Создать VRF**.
         1. В поле **Имя** задайте имя VRF: `my-vrf`.
         1. Нажмите кнопку **Создать VRF**.
@@ -126,6 +126,7 @@
              Чтобы самостоятельно собрать [RAID](../concepts/disks/raid.md)-массивы и настроить разделы дисков, нажмите кнопку **Разобрать RAID**.
          1. Нажмите кнопку **Сохранить**.
       1. В блоке **Сетевые интерфейсы**:
+          
           1. В поле **Приватная подсеть** выберите созданную ранее подсеть `subnet-m3`.
           1. В поле **Публичный адрес** выберите `Без адреса`.
 
@@ -203,7 +204,7 @@
       1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **Подсети**.
       1. Справа сверху нажмите **Создать подсеть**.
       1. В поле **Имя** укажите `subnet-ru-central1-b`.
-      1. В поле **Зона доступности** выберите зону доступности `ru-central1-b`.
+      1. В поле **Зона доступности** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
       1. В поле **Сеть** выберите облачную сеть `sample-network`.
       1. В поле **CIDR** укажите `192.168.11.0/24`.
       
@@ -392,6 +393,7 @@
 После того как статус созданного приватного соединения изменится на `Ready`, сетевая связность между подсетями BareMetal и VPC будет установлена и вы сможете приступить к ее проверке.
 
 Проверка сетевой связности предполагает, что:
+
 * процесс настройки приватного соединения с облачными подсетями успешно завершен (статус соединения отображается как `Ready`);
 * локальный сервис Firewall на сервере BareMetal разрешает прохождение трафика [ICMP](https://ru.wikipedia.org/wiki/ICMP);
 * маршрутная таблица в операционной системе сервера BareMetal содержит маршрут до CIDR подсети с виртуальной машиной;

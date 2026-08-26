@@ -24,12 +24,15 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит:
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Инстанс GitLab. Стоимость зависит от способа создания инстанса:
 
-* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за хранение созданных Docker-образов и сканер уязвимостей ([тарифы Container Registry](../../container-registry/pricing.md)).
-* Плата за использование [мастера Managed Service for Kubernetes](../concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../pricing.md)).
-* Плата за использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+   * Yandex Managed Service for GitLab — оплачиваются вычислительные ресурсы ВМ, объем хранимых данных и резервных копий, объем исходящего трафика ([тарифы Managed Service for GitLab](../../managed-gitlab/pricing.md)).
+   * ВМ с образом GitLab — оплачиваются вычислительные ресурсы ВМ и образ GitLab ([тарифы Compute Cloud](../../compute/pricing.md)).
+
+* Сервис Container Registry: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы Container Registry](../../container-registry/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, а также для ВМ с образом GitLab, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 ## Перед началом работы {#before-begin}
 

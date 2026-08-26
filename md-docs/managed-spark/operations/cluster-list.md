@@ -67,7 +67,7 @@
               }' \
            spark.api.cloud.yandex.net:443 \
            yandex.cloud.spark.v1.ClusterService.List
-           ```
+       ```
        
        Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
        

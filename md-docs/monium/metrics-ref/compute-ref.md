@@ -368,7 +368,7 @@ instance | Имя [виртуальной машины](../../compute/concepts/v
 || `average_utilization_in_zone`
 `DGAUGE`
 |
-Среднее потребление ресурсов для всех ВМ в зоне доступности.
+Среднее потребление ресурсов для всех ВМ в [зоне доступности](../../overview/concepts/geo-scope.md).
 Метки:
 - *resource_id* — имя или идентификатор группы ВМ.
 - *resource_type* — тип ресурса. Единственное значение — `instance_group`.

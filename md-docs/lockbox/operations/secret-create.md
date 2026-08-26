@@ -2,7 +2,6 @@
 
 # Создать секрет
 
-
 Чтобы создать [секрет](../concepts/secret.md):
 
 {% list tabs group=instructions %}

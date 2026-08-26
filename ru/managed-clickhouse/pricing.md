@@ -17,7 +17,7 @@ blocks:
       - type: basic-card
         title: Калькулятор цен
         text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
-        icon: _assets/icons/calculator.svg
+        icon: ../_assets/console-icons/calculator.svg
         urlTitle: Калькулятор цен
         url: https://yandex.cloud/ru/prices?state=0493f7586439#calculator
         size: s
@@ -29,7 +29,7 @@ blocks:
       - type: basic-card
         title: Прайс-лист
         text: Актуальные тарифы на все наши услуги
-        icon: _assets/icons/circle-ruble.svg
+        icon: ../_assets/console-icons/circle-ruble.svg
         urlTitle: Прайс-лист
         url: https://yandex.cloud/ru/price-list?services=dn2220hr46dtogekm57v
         size: s

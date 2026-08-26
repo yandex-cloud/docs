@@ -28,6 +28,14 @@
 
  - [Удаление кластера](operations/cluster-delete.md)
 
+### Окружения
+
+ - [Создание окружения](operations/environment-create.md)
+
+ - [Изменение окружения](operations/environment-update.md)
+
+ - [Удаление окружения](operations/environment-delete.md)
+
 ### Задания (jobs)
 
  - [Задания Spark](operations/jobs-spark.md)
@@ -255,5 +263,37 @@
  - [Get](api-ref/grpc/Operation/get.md)
 
  - [Cancel](api-ref/grpc/Operation/cancel.md)
+
+#### Managed Spark Environment API
+
+ - [Overview](environment/api-ref/grpc/index.md)
+
+##### Environment
+
+ - [Overview](environment/api-ref/grpc/Environment/index.md)
+
+ - [Get](environment/api-ref/grpc/Environment/get.md)
+
+ - [GetBase](environment/api-ref/grpc/Environment/getBase.md)
+
+ - [List](environment/api-ref/grpc/Environment/list.md)
+
+ - [ListBase](environment/api-ref/grpc/Environment/listBase.md)
+
+ - [Create](environment/api-ref/grpc/Environment/create.md)
+
+ - [Update](environment/api-ref/grpc/Environment/update.md)
+
+ - [Delete](environment/api-ref/grpc/Environment/delete.md)
+
+ - [ListOperations](environment/api-ref/grpc/Environment/listOperations.md)
+
+##### Operation
+
+ - [Overview](environment/api-ref/grpc/Operation/index.md)
+
+ - [Get](environment/api-ref/grpc/Operation/get.md)
+
+ - [Cancel](environment/api-ref/grpc/Operation/cancel.md)
 
  - [История изменений](release-notes.md)

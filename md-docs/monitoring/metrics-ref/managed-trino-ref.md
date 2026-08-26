@@ -2,6 +2,7 @@
 
 # Метрики Yandex Managed Service for Trino
 
+
 В этом разделе описаны метрики сервиса [Managed Service for Trino](../../managed-trino/index.md), поставляемые в Monitoring.
 
 Имя метрики пишется в метку `name`.

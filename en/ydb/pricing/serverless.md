@@ -167,5 +167,6 @@ On-demand consumption of RUs per month will be:
 
 
 
+
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}
 

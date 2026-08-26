@@ -26,6 +26,7 @@ Managed Service for Apache Kafka® имеет [встроенную поддер
 
 Чтобы развернуть веб-интерфейс Apache Kafka® в Docker-контейнере:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure-with-docker).
 1. [Установите дополнительные зависимости](#infra-for-docker).
 1. [Создайте хранилище сертификатов TrustStore](#truststore-for-docker).
 1. [Подготовьте веб-интерфейс Apache Kafka®](#prepare-ui-via-docker).
@@ -33,18 +34,13 @@ Managed Service for Apache Kafka® имеет [встроенную поддер
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-### Необходимые платные ресурсы {#paid-resources}
+### Необходимые платные ресурсы {#paid-resources-docker}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../../managed-kafka/pricing.md)).
-* Плата за ВМ: использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса для ВМ и хостов кластера, если для них включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../compute/pricing.md)).
 
 
-### Перед началом работы {#before-you-begin-to-work-with-docker}
-
-Подготовьте инфраструктуру:
+### Подготовьте инфраструктуру {#prepare-infrastructure-with-docker}
 
 {% list tabs group=instructions %}
 
@@ -230,6 +226,7 @@ TrustStore — это хранилище доверенных сертифика
 
 Чтобы развернуть веб-интерфейс Apache Kafka® в кластере Managed Service for Kubernetes:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure-with-kubernetes).
 1. [Установите дополнительные зависимости](#infra-for-kubernetes).
 1. [Создайте хранилище сертификатов TrustStore](#truststore-for-kubernetes).
 1. [Разверните приложение с веб-интерфейсом Apache Kafka® в поде Kubernetes](#application-in-pod).
@@ -238,19 +235,15 @@ TrustStore — это хранилище доверенных сертифика
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-### Необходимые платные ресурсы {#paid-resources}
+### Необходимые платные ресурсы {#paid-resources-kubernetes}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../../managed-kafka/pricing.md)).
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../pricing.md)).
-* Плата за узлы кластера Managed Service for Kubernetes (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса для хостов кластера Managed Service for Apache Kafka® и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса для хостов кластера Managed Service for Apache Kafka®, а также мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 
-### Перед началом работы {#before-you-begin-to-work-with-kubernetes}
-
-Подготовьте инфраструктуру:
+### Подготовьте инфраструктуру {#prepare-infrastructure-with-kubernetes}
 
 {% list tabs group=instructions %}
 

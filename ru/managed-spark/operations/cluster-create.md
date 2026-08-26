@@ -48,10 +48,6 @@ keywords:
 
             Сервисному аккаунту должна быть назначена роль `managed-spark.integrationProvider`.
 
-        1. Выберите версию {{ SPRK }}.
-
-           {% include [change-version-note](../../_includes/managed-spark/change-version-note.md) %}
-
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [сеть](../../vpc/operations/network-create.md), [подсеть](../../vpc/operations/subnet-create.md) и [группу безопасности](../../vpc/concepts/security-groups.md) для кластера.
 
     1. Задайте вычислительные ресурсы, на которых будут запускаться Spark-приложения:
@@ -60,28 +56,44 @@ keywords:
        * Конфигурация исполнителя — количество хостов и [их класс](../concepts/instance-types.md) для исполнителя (executor). Может быть фиксированным или автомасштабируемым.
 
     1. При необходимости задайте дополнительные настройки кластера:
-        
-        1. **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** и **{{ ui-key.yacloud.mdb.forms.title_deb-packages }}** — названия pip- и deb-пакетов, чтобы установить в кластер дополнительные библиотеки и приложения.
+
+       1. Выберите **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_dependencies-type_wJq6n }}**:
+
+          * **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_software-configuration-type-environment_wJq6n }}** — доступны базовые и пользовательские окружения. Пользовательское окружение необходимо [создать самостоятельно](environment-create.md).
+          * **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_software-configuration-type-packages_wJq6n }}**:
+
+             * **Версия** — версия {{ SPRK }}.
+             * **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** и **{{ ui-key.yacloud.mdb.forms.title_deb-packages }}** — названия pip- и deb-пакетов через пробел, чтобы установить в кластер дополнительные библиотеки и приложения.
+
+                При необходимости задайте ограничения на версии устанавливаемых пакетов, например:
+
+                ```text
+                py4j>=0.10.9.7 pandas>=1.05 grpcio>=1.48,<1.57 grpcio-status>=1.48,<1.57 googleapis-common-protos==1.56.4
+                ```
+                
+                Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
+
+             {% note warning %}
+
+             Указание версии и добавление пакетов без создания окружения устарело и скоро будет недоступно. Используйте базовое окружение или [создайте пользовательское окружение](environment-create.md) с нужными пакетами.
            
-           Чтобы указать более одного пакета, нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-
-           Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
+             {% endnote %}
         
-        1. **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../concepts/maintenance.md):
+       1. **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../concepts/maintenance.md):
 
-           {% include [Maintenance window](../../_includes/managed-spark/maintenance-window-console.md) %}
+          {% include [Maintenance window](../../_includes/managed-spark/maintenance-window-console.md) %}
 
-        1. **{{ ui-key.yacloud.spark.label_metastore }}** — [metastore-сервер](../../metadata-hub/concepts/metastore.md), подключенный к вашему кластеру.
+       1. **{{ ui-key.yacloud.spark.label_metastore }}** — [metastore-сервер](../../metadata-hub/concepts/metastore.md), подключенный к вашему кластеру.
 
-        1.  **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — управляет защитой кластера от непреднамеренного удаления.
-        1. Чтобы использовать сервис для мониторинга приложений [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html), включите настройку **{{ ui-key.yacloud.spark.label_history-server }}**. После создания кластера сервис будет доступен по ссылке.
-        1. Настройте логирование:
+       1.  **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — управляет защитой кластера от непреднамеренного удаления.
+       1. Чтобы использовать сервис для мониторинга приложений [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html), включите настройку **{{ ui-key.yacloud.spark.label_history-server }}**. После создания кластера сервис будет доступен по ссылке.
+       1. Настройте логирование:
 
-            1. Включите настройку **{{ ui-key.yacloud.logging.field_logging }}**.
-            1. Выберите место записи логов:
-                * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка.
-                * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
-            1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
+          1. Включите настройку **{{ ui-key.yacloud.logging.field_logging }}**.
+          1. Выберите место записи логов:
+             * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка.
+             * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
+           1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -131,7 +143,7 @@ keywords:
         Где:
 
         * `--name` — имя кластера. Оно должно быть уникальным в рамках каталога.
-        * `--version` — версия {{ SPRK }}.
+        * `--spark-version` — версия {{ SPRK }}.
 
            {% include [change-version-note](../../_includes/managed-spark/change-version-note.md) %}
 
@@ -267,19 +279,15 @@ keywords:
                    "max_size": "<максимальное_количество_экземпляров>"
                  }
                }
-             },
-             "spark_version": "<версия_Apache_Spark>"
+             }
            },
            "history_server": {
              "enabled": <использование_Apache_Spark_History_Server>
            },
-           "dependencies": {
-             "pip_packages": [ <список_pip-пакетов> ],
-             "deb_packages": [ <список_deb-пакетов> ]
-           },
            "metastore": {
              "cluster_id": "<идентификатор_кластера>"
-           }
+           },
+           "environment_id": "<идентификатор_окружения>"
          },
          "network": {
            "subnet_ids": [ <список_идентификаторов_подсетей> ],
@@ -341,18 +349,39 @@ keywords:
            * `history_server` — параметры сервера истории.
               * `enabled` — флаг включения сервера истории. Позволяет использовать сервис для мониторинга приложений Spark History Server.
 
-           * `dependencies` — списки пакетов, которые позволяют установить в кластер дополнительные библиотеки и приложения.
-              * `pip_packages` — список pip-пакетов.
-              * `deb_packages` — список deb-пакетов.
-
-              Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
-
            * `metastore` — параметры метахранилища.
               * `cluster_id` — идентификатор кластера [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md).
 
+           * `dependencies` — списки пакетов, которые нужно установить в кластер:
+
+              * `pip_packages` — список pip-пакетов;
+              * `deb_packages` — список deb-пакетов.
+
+              При необходимости задайте ограничения на версии устанавливаемых пакетов, например:
+
+              ```json
+              "dependencies": {
+                "pip_packages": [
+                  "pandas==2.1.1",
+                  "scikit-learn>=1.0.0",
+                  "clickhouse-driver~=0.2.0"
+                ]
+              }
+              ```
+
+              Формат названия пакета и выбор версии определяются командами установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
+          
            * `spark_version` — версия {{ SPRK }}.
 
-              {% include [change-version-note](../../_includes/managed-spark/change-version-note.md) %}
+           * `environment_id` — идентификатор базового или пользовательского окружения. Идентификатор базового окружения можно получить с помощью вызова [EnvironmentService/ListBase](../environment/api-ref/grpc/Environment/listBase.md), пользовательского окружения — с помощью вызова [EnvironmentService/List](../environment/api-ref/grpc/Environment/list.md). 
+           
+              Пользовательское окружение необходимо [создать самостоятельно](environment-create.md).
+
+              {% note warning %}
+
+              В запросе укажите либо `environment_id`, либо `spark_version` и `dependencies`. Указание версии и добавление пакетов без создания окружения устарело и скоро будет недоступно. Используйте базовое окружение или [создайте пользовательское окружение](environment-create.md) с нужными пакетами.
+
+              {% endnote %}
 
        * `network` — сетевые настройки:
           * `subnet_ids` — список идентификаторов подсетей.
