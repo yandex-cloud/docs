@@ -10,7 +10,7 @@
 
 Метка | Значение
 ----|----
-dc | Зона доступности ресурса: `rc1a`, `rc1b`, `rc1d`
+dc | [Зона доступности](../../overview/concepts/geo-scope.md) ресурса: `rc1a`, `rc1b`, `rc1d`
 host | FQDN хоста
 node | Тип хоста: `replica`, `follower`, `leader`
 resource_id | Идентификатор кластера

@@ -5,11 +5,11 @@
 
 Для создания сервисного подключения необходима одна из следующих [ролей](../security/index.md#roles-list): 
 
-* `vpc.privateEndpoints.editor`
-* `vpc.privateEndpoints.admin`
-* `vpc.privateAdmin`
-* `vpc.admin`
-* `admin`
+* `vpc.privateEndpoints.editor`;
+* `vpc.privateEndpoints.admin`;
+* `vpc.privateAdmin`;
+* `vpc.admin` — при этом дополнительно требуется роль `vpc.bridgeAdmin` или `vpc.user`;
+* `admin`.
 
 Чтобы создать [сервисное подключение](../concepts/private-endpoint.md):
 

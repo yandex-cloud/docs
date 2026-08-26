@@ -2,6 +2,7 @@
 
 # On-Prem без резервирования и 1 VPC
 
+
 Нерезервируемое подключение On-Prem через одно [приватное соединение](../../interconnect/concepts/priv-con.md) Cloud Interconnect к одному виртуальному маршрутизатору с одной [облачной сетью VPC](../../vpc/concepts/network.md).
 
 ![ri-topology-1](../../_assets/cloud-router/ri-topology-1.svg)

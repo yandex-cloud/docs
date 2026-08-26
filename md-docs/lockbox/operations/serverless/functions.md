@@ -3,14 +3,6 @@
 # Передать секрет в Yandex Cloud Functions
 
 
-{% note info %}
-
-Эта функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
-
-
 Чтобы [функция](../../../functions/concepts/function.md) получила доступ к [секрету](../../concepts/secret.md), в ее параметрах нужно указать [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), у которого есть [роли](../../../iam/concepts/access-control/roles.md):
 
 * `lockbox.payloadViewer` на секрет ([как назначить права доступа к секрету](../secret-access.md)).

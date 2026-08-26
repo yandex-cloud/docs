@@ -10,7 +10,7 @@
 Для хостов-мастеров от класса хоста зависит список доступных [типов диска](storage.md):
 
 * **s2**, **i2** — `local-ssd`, `network-ssd-nonreplicated`.
-* **s3**, **i3** — `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
+* **s3**, **i3** — `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`.
 * **s4a**, **m4a**, **c4a** — `network-ssd`, `local-ssd`.
 * **s4af**, **m4af**, **c4af** — `network-ssd`. 
 
@@ -19,7 +19,6 @@
 * `local-ssd`
 * `network-ssd`
 * `network-ssd-nonreplicated`
-* `network-ssd-io-m3`
 
 
 

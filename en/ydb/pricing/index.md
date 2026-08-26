@@ -7,7 +7,6 @@ editable: false
 # {{ ydb-full-name }} pricing policy
 
 
-
 Pricing for {{ ydb-full-name }} varies depending on which mode you use:
 
 * [{#T}](serverless.md)

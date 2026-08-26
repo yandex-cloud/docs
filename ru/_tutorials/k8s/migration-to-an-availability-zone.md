@@ -16,6 +16,14 @@ yc components update
 ```
 
 
+## Необходимые платные ресурсы {#paid-resources}
+
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+
+
+
 ## Перенесите группу узлов и рабочую нагрузку в подах в другую зону доступности {#transfer-a-node-group}
 
 [Подготовьте группу узлов](#prepare), после чего выполните миграцию одним из способов:

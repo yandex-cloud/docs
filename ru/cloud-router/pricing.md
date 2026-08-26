@@ -9,4 +9,4 @@ editable: false
 
 
 На стадии [Preview](../overview/concepts/launch-stages.md) использование {{ cr-name }} не тарифицируется.
- 
+

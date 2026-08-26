@@ -9,47 +9,315 @@ keywords:
 
 # Изменение кластера {{ SPRK }}
 
-После создания кластера вы можете изменить его основные и дополнительные настройки.
+После создания кластера вы можете изменить его основные и дополнительные настройки:
+
+* [имя и описание кластера](#change-basic-settings);
+* [сервисный аккаунт](#change-sa);
+* [группы безопасности](#change-sg);
+* [конфигурацию драйверов и исполнителей](#change-configuration);
+* [дополнительные настройки кластера](#change-additional-settings).
+
+Подробнее о других изменениях кластера:
+
+* [обновление версии {{ SPRK }}](cluster-version-update.md);
+* [настройка технического обслуживания](cluster-maintenance.md).
+
+## Изменить имя и описание кластера {#change-basic-settings}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    Чтобы изменить настройки кластера:
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** измените имя, описание кластера и метки.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить имя и описание кластера:
+
+  1. Посмотрите описание команды CLI для изменения кластера:
+
+     ```bash
+     {{ yc-mdb-sp }} cluster update --help
+     ```
+
+  1. Измените имя и описание кластера, выполнив команду:
+
+     ```bash
+     {{ yc-mdb-sp }} cluster update <имя_или_идентификатор_кластера> \
+       --new-name <имя_кластера> \
+       --description <описание_кластера> 
+     ```
+
+     Где:
+
+     * `--new-name` — уникальное имя кластера в рамках облака.
+     * `--description` — описание кластера.
+
+     Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
+
+- {{ TF }} {#tf}
+
+    {% note alert %}
+
+    Не изменяйте имя кластера с помощью {{ TF }}. Это приведет к удалению существующего кластера и созданию нового.
+
+    {% endnote %}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
+        
+    1. Измените в описании кластера значение параметра `description`:
+      
+        ```hcl
+        resource "yandex_spark_cluster" "<имя_кластера>" {
+          ...
+          description = "<описание_кластера>"
+          ...
+        }
+        ```
+
+        Где `description` — описание кластера.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "cluster_id": "<идентификатор_кластера>",
+          "update_mask": {
+            "paths": [
+              <список_изменяемых_параметров>
+            ]
+          },
+          "name": "<имя_кластера>",
+          "description": "<описание_кластера>"
+        }
+        ```
+
+        Где:
+
+        * `cluster_id` — идентификатор кластера.
+            
+            Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            {% cut "Формат перечисления настроек" %}
+
+            ```yaml
+            "update_mask": {
+              "paths": [
+                "<настройка_1>",
+                "<настройка_2>",
+                ...
+                "<настройка_N>"
+              ]
+            }
+            ```
+
+            {% endcut %}
+
+            {% note warning %}
+
+            При изменении кластера все параметры изменяемого объекта, которые не были явно переданы в запросе, будут переопределены на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `update_mask`.
+
+            {% endnote %}
+
+        * `name` — уникальное имя кластера в рамках облака.
+        * `description` — описание кластера.
+
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/spark/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-spark }}:{{ port-https }} \
+          yandex.cloud.spark.v1.ClusterService.Update \
+          < body.json
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Изменить сервисный аккаунт {#change-sa}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** выберите сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md#create-sa) с ролью `managed-spark.integrationProvider`. Это даст кластеру нужные права для работы с другими ресурсами.
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
-       * Измените имя и описание кластера.
-       * Удалите или добавьте новые [метки](../../resource-manager/concepts/labels.md).
-       * Выберите сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md#create-sa) с ролью  `managed-spark.integrationProvider`. Это даст кластеру нужные права для работы с другими ресурсами.
+        Для изменения сервисного аккаунта в кластере {{ msp-name }} [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [группу безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-    1. В блоках **{{ ui-key.yacloud.spark.section_driver }}** и **{{ ui-key.yacloud.spark.section_executor }}** укажите количество экземпляров и [конфигурацию вычислительных ресурсов](../concepts/instance-types.md). Количество экземпляров может быть фиксированным или автомасштабируемым.
+- CLI {#cli}
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-        1. Удалите или добавьте названия pip- и deb-пакетов.
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-           Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
-        1. В настройке **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** измените время [технического обслуживания](../concepts/maintenance.md) кластера:
+  Чтобы изменить сервисный аккаунт:
 
-           {% include [Maintenance window](../../_includes/managed-spark/maintenance-window-console.md) %}
+  1. Посмотрите описание команды CLI для изменения кластера:
 
-        1. Выберите кластер [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md) для подключения в качестве хранилища метаданных.
-        1. Установите или снимите защиту от удаления кластера.
-        1. Включите или выключите **{{ ui-key.yacloud.spark.label_history-server }}**. Опция позволяет использовать сервис для мониторинга приложений [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html).
-        1. Включите или выключите **{{ ui-key.yacloud.logging.field_logging }}**. Опция включает логирование Spark-приложений в кластере:
-            1. Выберите место записи логов:
-                * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка.
-                * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
-            1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
+     ```bash
+     {{ yc-mdb-sp }} cluster update --help
+     ```
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Измените сервисный аккаунт, выполнив команду:
+
+     ```bash
+     {{ yc-mdb-sp }} cluster update <имя_или_идентификатор_кластера> \
+       --service-account-id <идентификатор_сервисного_аккаунта>
+     ```
+
+     Где `--service-account-id` — идентификатор сервисного аккаунта для доступа к сервисам {{ yandex-cloud }}. Сервисному аккаунту должна быть назначена роль `managed-spark.integrationProvider`.
+
+     Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
+
+    1. Измените в описании кластера значение параметра `service_account_id`:
+      
+        ```hcl
+        resource "yandex_spark_cluster" "<имя_кластера>" {
+          ...
+          service_account_id  = "<идентификатор_сервисного_аккаунта>"
+          ...
+        }
+        ```
+
+        Где `service_account_id` — идентификатор сервисного аккаунта.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "cluster_id": "<идентификатор_кластера>",
+          "update_mask": {
+            "paths": [
+              "service_account_id"
+            ]
+          },
+          "service_account_id": "<идентификатор_сервисного_аккаунта>"
+        }
+        ```
+
+        Где:
+
+        * `cluster_id` — идентификатор кластера.
+            
+            Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            {% cut "Формат перечисления настроек" %}
+
+            ```yaml
+            "update_mask": {
+              "paths": [
+                "<настройка_1>",
+                "<настройка_2>",
+                ...
+                "<настройка_N>"
+              ]
+            }
+            ```
+
+            {% endcut %}
+
+            {% note warning %}
+
+            При изменении кластера все параметры изменяемого объекта, которые не были явно переданы в запросе, будут переопределены на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `update_mask`.
+
+            {% endnote %}
+
+        * `service_account_id` — идентификатор сервисного аккаунта.
+
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/spark/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-spark }}:{{ port-https }} \
+          yandex.cloud.spark.v1.ClusterService.Update \
+          < body.json
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Изменить группы безопасности {#change-sg}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите группы безопасности для кластера.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
@@ -57,7 +325,146 @@ keywords:
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы изменить настройки кластера:
+    Чтобы изменить группы безопасности:
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+       ```bash
+       {{ yc-mdb-sp }} cluster update --help
+       ```
+
+    2. Измените группы безопасности, выполнив команду:
+
+       ```bash
+       {{ yc-mdb-sp }} cluster update <имя_или_идентификатор_кластера> \
+         --security-group-ids <список_идентификаторов_групп_безопасности>
+       ```
+
+       Где `--security-group-ids` — список идентификаторов групп безопасности.
+
+       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
+
+    1. Измените в описании кластера значение параметра `security_group_ids`:
+      
+        ```hcl
+        resource "yandex_spark_cluster" "<имя_кластера>" {
+          ...
+          security_group_ids  = [<список_идентификаторов_групп_безопасности>]
+          ...
+        }
+        ```
+
+        Где `security_group_ids` — список идентификаторов групп безопасности.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "cluster_id": "<идентификатор_кластера>",
+          "update_mask": {
+            "paths": [
+              "network_spec.security_group_ids"
+            ]
+          },
+          "network_spec": {
+            "security_group_ids": [ <список_идентификаторов_групп_безопасности> ]
+          }
+        }
+        ```
+
+        Где:
+
+        * `cluster_id` — идентификатор кластера.
+            
+            Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            {% cut "Формат перечисления настроек" %}
+
+            ```yaml
+            "update_mask": {
+              "paths": [
+                "<настройка_1>",
+                "<настройка_2>",
+                ...
+                "<настройка_N>"
+              ]
+            }
+            ```
+
+            {% endcut %}
+
+            {% note warning %}
+
+            При изменении кластера все параметры изменяемого объекта, которые не были явно переданы в запросе, будут переопределены на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `update_mask`.
+
+            {% endnote %}
+
+        * `network_spec` — сетевые настройки:
+
+            * `security_group_ids` — список идентификаторов групп безопасности.
+
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/spark/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-spark }}:{{ port-https }} \
+          yandex.cloud.spark.v1.ClusterService.Update \
+          < body.json
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Изменить конфигурацию драйверов и исполнителей {#change-configuration}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. В блоках **{{ ui-key.yacloud.spark.section_driver }}** и **{{ ui-key.yacloud.spark.section_executor }}** укажите количество экземпляров и [конфигурацию вычислительных ресурсов](../concepts/instance-types.md). Количество экземпляров может быть фиксированным или автомасштабируемым.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить конфигурацию драйверов и исполнителей:
 
     1. Посмотрите описание команды CLI для изменения кластера:
 
@@ -65,90 +472,316 @@ keywords:
         {{ yc-mdb-sp }} cluster update --help
         ```
 
-    2. Передайте список настроек, которые хотите изменить, в команде изменения кластера:
+    2. Измените конфигурацию драйверов и исполнителей, выполнив команду:
 
-        ```bash
-        {{ yc-mdb-sp }} cluster update <имя_или_идентификатор_кластера> \
-          --new-name <имя_кластера> \
-          --description <описание_кластера> \
-          --labels <список_меток> \
-          --service-account-id <идентификатор_сервисного_аккаунта> \
-          --security-group-ids <список_идентификаторов_групп_безопасности> \
-          --driver-preset-id <идентификатор_ресурсов_драйвера> \
-          --driver-fixed-size <количество_экземпляров_драйвера> \
-          --executor-preset-id <идентификатор_ресурсов_исполнителя> \
-          --executor-fixed-size <количество_экземпляров_исполнителя> \
-          --history-server-enabled <использовать_Spark_History_Server> \
-          --metastore-cluster-id <идентификатор_кластера_Apache_Hive™_Metastore> \
-          --pip-packages <список_pip-пакетов> \
-          --deb-packages <список_deb-пакетов> \
-          --log-enabled \
-          --log-folder-id <идентификатор_каталога> \
-          --maintenance-window type=<тип_технического_обслуживания>,`
-                               `day=<день_недели>,`
-                               `hour=<порядковый_номер_часового_интервала> \
-          --deletion-protection
+       ```bash
+       {{ yc-mdb-sp }} cluster update <имя_или_идентификатор_кластера> \
+         --driver-preset-id <идентификатор_ресурсов_драйвера> \
+         --driver-fixed-size <количество_экземпляров_драйвера> \
+         --executor-preset-id <идентификатор_ресурсов_исполнителя> \
+         --executor-fixed-size <количество_экземпляров_исполнителя> \
+       ```
+
+       Где:
+
+       * `--driver-preset-id` — [класс хостов](../concepts/instance-types.md) драйвера.
+       * `--driver-fixed-size` — фиксированное количество хостов для драйвера.
+       * `--driver-min-size` — минимальное количество хостов для драйвера при автоматическом масштабировании.
+       * `--driver-max-size` — максимальное количество хостов для драйвера при автоматическом масштабировании.
+
+       Укажите либо фиксированное количество хостов (`--driver-fixed-size`), либо минимальное и максимальное количество хостов (`--driver-min-size`, `--driver-max-size`) для автоматического масштабирования.
+
+       * `--executor-preset-id` — [класс хостов](../concepts/instance-types.md) исполнителя.
+       * `--executor-fixed-size` — фиксированное количество хостов для исполнителя.
+       * `--executor-min-size` — минимальное количество хостов для исполнителя при автоматическом масштабировании.
+       * `--executor-max-size` — максимальное количество хостов для исполнителя при автоматическом масштабировании.
+
+       Укажите либо фиксированное количество хостов (`--executor-fixed-size`), либо минимальное и максимальное количество хостов (`--executor-min-size`, `--executor-max-size`) для автоматического масштабирования.  
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
+
+    1. Измените конфигурацию драйверов и исполнителей в блоках `driver` и `executor`:
+      
+        ```hcl
+        resource "yandex_spark_cluster" "<имя_кластера>" {
+          ...
+          resource_pools = {
+            driver = {
+              resource_preset_id = "<класс_хоста>"
+              size               = <фиксированное_количество_экземпляров>
+            }
+            executor = {
+              resource_preset_id = "<класс_хоста>"
+              size               = <фиксированное_количество_экземпляров>
+            }
+          }
+          ...
+        }
+        ```
+        
+        Где:
+        
+        * `driver` — конфигурация хостов для запуска драйверов {{ SPRK }}. В этом блоке укажите:
+
+          * `resource_preset_id` — [класс хостов](../concepts/instance-types.md).
+          * `size` — фиксированное количество экземпляров. 
+          * `min_size` — минимальное количество хостов, если используется автоматическое масштабирование.
+          * `max_size` — максимальное количество хостов, если используется автоматическое масштабирование.
+
+        * `executor` — конфигурация хостов для запуска исполнителей {{ SPRK }}. В этом блоке укажите:
+
+          * `resource_preset_id` — [класс хостов](../concepts/instance-types.md).
+          * `size` — фиксированное количество экземпляров. 
+          * `min_size` — минимальное количество хостов, если используется автоматическое масштабирование.
+          * `max_size` — максимальное количество хостов, если используется автоматическое масштабирование.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "cluster_id": "<идентификатор_кластера>",
+          "update_mask": {
+            "paths": [ 
+              <список_изменяемых_параметров>
+              ]
+          },
+          "config_spec": {
+            "resource_pools": {
+              "driver": {
+                "resource_preset_id": "<идентификатор_ресурсов_драйвера>",
+                "scale_policy": {
+                  "fixed_scale": {
+                    "size": "<количество_экземпляров_драйвера>"
+                  }
+                }
+              },
+              "executor": {
+                "resource_preset_id": "<идентификатор_ресурсов_исполнителя>",
+                "scale_policy": {
+                  "auto_scale": {
+                    "min_size": "<минимальное_количество_экземпляров_исполнителя>",
+                    "max_size": "<максимальное_количество_экземпляров_исполнителя>"
+                  }
+                }
+              }
+            }
+          }
+        }
         ```
 
         Где:
 
-        * `--new-name` — уникальное имя кластера в рамках облака.
-        * `--description` — описание кластера.
-        * `--labels` — список меток. Метки задаются в формате `<ключ>=<значение>`.
-        * `--service-account-id` — идентификатор сервисного аккаунта для доступа к сервисам {{ yandex-cloud }}. Сервисному аккаунту должна быть назначена роль `managed-spark.integrationProvider`.
-        * `--security-group-ids`— список идентификаторов групп безопасности.
+        * `cluster_id` — идентификатор кластера.
+            
+            Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
-        * Конфигурация хостов для запуска драйверов {{ SPRK }}:
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-            * `--driver-preset-id` — [класс хостов](../concepts/instance-types.md) драйвера.
-            * `--driver-fixed-size` — фиксированное количество хостов для драйвера.
-            * `--driver-min-size` — минимальное количество хостов для драйвера при автоматическом масштабировании.
-            * `--driver-max-size` — максимальное количество хостов для драйвера при автоматическом масштабировании.
+            {% cut "Формат перечисления настроек" %}
 
-            Укажите либо фиксированное количество хостов (`--driver-fixed-size`), либо минимальное и максимальное количество хостов (`--driver-min-size`, `--driver-max-size`) для автоматического масштабирования.
-
-        * Конфигурация хостов для запуска исполнителей {{ SPRK }}:
-
-            * `--executor-preset-id` — [класс хостов](../concepts/instance-types.md) исполнителя.
-            * `--executor-fixed-size` — фиксированное количество хостов для исполнителя.
-            * `--executor-min-size` — минимальное количество хостов для исполнителя при автоматическом масштабировании.
-            * `--executor-max-size` — максимальное количество хостов для исполнителя при автоматическом масштабировании.
-
-            Укажите либо фиксированное количество хостов (`--executor-fixed-size`), либо минимальное и максимальное количество хостов (`--executor-min-size`, `--executor-max-size`) для автоматического масштабирования.
-
-        * `--history-server-enabled` — подключает сервис для мониторинга приложений [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html).
-        * `--metastore-cluster-id` — идентификатор кластера {{ metastore-name }}. Эта настройка подключает хранилище метаданных [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md).
-
-        * Списки пакетов, которые позволяют установить в кластер дополнительные библиотеки и приложения:
-
-            * `--pip-packages` — список pip-пакетов.
-            * `--deb-packages` — список deb-пакетов.
-
-            При необходимости задайте ограничения на версии устанавливаемых пакетов, например:
-
-            ```bash
-            --pip-packages pandas==2.1.1,scikit-learn>=1.0.0,clickhouse-driver~=0.2.0
+            ```yaml
+            "update_mask": {
+              "paths": [
+                "<настройка_1>",
+                "<настройка_2>",
+                ...
+                "<настройка_N>"
+              ]
+            }
             ```
 
-            Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
+            {% endcut %}
 
-        * Параметры логирования:
+            {% note warning %}
 
-            * `--log-enabled` — включает логирование.
-            * `--log-folder-id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
-            * `--log-group-id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
+            При изменении кластера все параметры изменяемого объекта, которые не были явно переданы в запросе, будут переопределены на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `update_mask`.
 
-            Укажите один из двух параметров: `--log-folder-id` или `--log-group-id`.
+            {% endnote %}
 
-        * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
+        * `config_spec` — конфигурация кластера:
 
-            {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+           * `resource_pools` — конфигурация пулов ресурсов:
 
-        * `--deletion-protection` — включает защиту кластера от непреднамеренного удаления.
+               * `driver` — конфигурация хостов для запуска драйверов {{ SPRK }}.
 
-            Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
+                   * `resource_preset_id` — [класс хостов](../concepts/instance-types.md) драйвера.
+                   * `scale_policy` — политика масштабирования групп хостов для драйвера:
+                       * `fixed_scale` — фиксированная политика масштабирования.
 
-        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+                          * `size` — количество хостов для драйвера.
+
+                       * `auto_scale` — автоматическая политика масштабирования.
+
+                           * `min_size` — минимальное количество хостов для драйвера.
+                           * `max_size` — максимальное количество хостов для драйвера.
+
+                       Укажите один из двух параметров: `fixed_scale` либо `auto_scale`.
+
+               * `executor` — конфигурация хостов для запуска исполнителей {{ SPRK }}.
+
+                   * `resource_preset_id` — [класс хостов](../concepts/instance-types.md) исполнителя.
+                   * `scale_policy` — политика масштабирования групп хостов для исполнителя:
+
+                       * `fixed_scale` — фиксированная политика масштабирования.
+
+                           * `size` — количество хостов для исполнителя.
+
+                       * `auto_scale` — автоматическая политика масштабирования.
+
+                           * `min_size` — минимальное количество хостов для исполнителя.
+                           * `max_size` — максимальное количество хостов для исполнителя.
+
+                       Укажите один из двух параметров: `fixed_scale` либо `auto_scale`.
+
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/spark/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-spark }}:{{ port-https }} \
+          yandex.cloud.spark.v1.ClusterService.Update \
+          < body.json
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Изменить дополнительные настройки кластера {#change-additional-settings}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+     
+     * Выберите **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_dependencies-type_wJq6n }}**:
+
+        * **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_software-configuration-type-environment_wJq6n }}** — доступны базовые и пользовательские окружения. Пользовательское окружение необходимо [создать самостоятельно](environment-create.md).
+        * **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_software-configuration-type-packages_wJq6n }}**:
+
+           * **Версия** — версия {{ SPRK }}.
+           * **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** и **{{ ui-key.yacloud.mdb.forms.title_deb-packages }}** — названия pip- и deb-пакетов через пробел, чтобы установить в кластер дополнительные библиотеки и приложения.
+
+              При необходимости задайте ограничения на версии устанавливаемых пакетов, например:
+
+              ```text
+              py4j>=0.10.9.7 pandas>=1.05 grpcio>=1.48,<1.57 grpcio-status>=1.48,<1.57 googleapis-common-protos==1.56.4
+              ```
+                
+              Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
+
+           {% note warning %}
+           
+           Добавление пакетов без создания окружения устарело и скоро будет недоступно. Используйте базовое окружение или [создайте пользовательское окружение](environment-create.md) с нужными пакетами.
+           
+           {% endnote %}
+      
+     * В настройке **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** измените время [технического обслуживания](../concepts/maintenance.md) кластера:
+
+        {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+      
+     * **{{ ui-key.yacloud.spark.label_metastore }}** —  выберите кластер [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md) для подключения в качестве хранилища метаданных.
+     * **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — защита кластера от непреднамеренного удаления пользователем.
+     * **{{ ui-key.yacloud.spark.label_history-server }}** — опция позволяет использовать сервис для мониторинга приложений [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html).
+     * **{{ ui-key.yacloud.logging.field_logging }}** — опция включает логирование Spark-приложений в кластере:
+        1. Выберите место записи логов:
+           * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка.
+           * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
+        1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить дополнительны настройки кластера:
+
+  1. Посмотрите описание команды CLI для изменения кластера:
+
+     ```bash
+     {{ yc-mdb-sp }} cluster update --help
+     ```
+  1. Измените дополнительные настройки кластера, выполнив команду:
+
+     ```bash
+     {{ yc-mdb-sp }} cluster update <имя_или_идентификатор_кластера> \
+       --history-server-enabled <использовать_Spark_History_Server> \
+       --metastore-cluster-id <идентификатор_кластера_Apache_Hive™_Metastore> \
+       --pip-packages <список_pip-пакетов> \
+       --deb-packages <список_deb-пакетов> \
+       --log-enabled \
+       --log-folder-id <идентификатор_каталога> \
+       --maintenance-window type=<тип_технического_обслуживания>,`
+                           `day=<день_недели>,`
+                           `hour=<час_дня> \
+       --deletion-protection
+     ```
+
+     Где:
+
+     * `--history-server-enabled` — подключает сервис для мониторинга приложений [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html).
+     * `--metastore-cluster-id` — идентификатор кластера {{ metastore-name }}. Эта настройка подключает хранилище метаданных [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md).
+
+     * `--pip-packages` — список pip-пакетов.
+     * `--deb-packages` — список deb-пакетов.
+
+        Списки пакетов позволяют установить в кластер дополнительные библиотеки и приложения.
+
+        При необходимости задайте ограничения на версии устанавливаемых пакетов, например:
+
+        ```bash
+        --pip-packages pandas==2.1.1,scikit-learn>=1.0.0,clickhouse-driver~=0.2.0
+        ```
+
+        Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
+
+     * `--log-enabled` — включает логирование.
+     * `--log-folder-id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
+     * `--log-group-id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
+
+        Укажите один из двух параметров: `--log-folder-id` или `--log-group-id`.
+
+     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
+
+       {% include [Maintenance window](../../_includes/managed-spark/maintenance-window-console.md) %}
+
+     * `--deletion-protection` — включает защиту кластера от непреднамеренного удаления.
+
+       Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
+
+     Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
 - {{ TF }} {#tf}
 
@@ -160,42 +793,15 @@ keywords:
 
     1. Чтобы изменить настройки кластера, измените значения нужных полей в конфигурационном файле.
 
-        {% note alert %}
-
-        Не изменяйте имя кластера с помощью {{ TF }}. Это приведет к удалению существующего кластера и созданию нового.
-
-        {% endnote %}
-
         Пример структуры конфигурационного файла:
 
         ```hcl
         resource "yandex_spark_cluster" "my_spark_cluster" {
-          description         = "<описание_кластера>"
-          name                = "my-spark-cluster"
-          folder_id           = "<идентификатор_каталога>"
-          service_account_id  = "<идентификатор_сервисного_аккаунта>"
+
           deletion_protection = <защитить_кластер_от_удаления>
 
-          labels = {
-            <список_меток>
-          }
-
-          network = {
-            subnet_ids         = ["<список_идентификаторов_подсетей>"]
-            security_group_ids = ["<список_идентификаторов_групп_безопасности>"]
-          }
-
           config = {
-            resource_pools = {
-              driver = {
-                resource_preset_id = "<класс_хоста>"
-                size               = <фиксированное_количество_экземпляров>
-              }
-              executor = {
-                resource_preset_id = "<класс_хоста>"
-                size               = <фиксированное_количество_экземпляров>
-              }
-            }
+            ...
             history_server = {
               enabled = <использование_Spark_History_Server>
             } 
@@ -224,30 +830,16 @@ keywords:
 
         Где:
 
-        * `description` — описание кластера.
-        * `service_account_id` — идентификатор сервисного аккаунта.
         * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
-        * `labels` — список меток. Метки задаются в формате `<ключ> = "<значение>"`.
-        * `security_group_ids` — список идентификаторов групп безопасности.
-        * `driver` — конфигурация хостов для запуска драйверов {{ SPRK }}. В этом блоке укажите:
-
-          * [Класс хостов](../concepts/instance-types.md) в параметре `resource_preset_id`.
-          * Количество экземпляров. Укажите фиксированное количество в параметре `size` или минимальное и максимальное количество для автомасштабирования в параметрах `min_size` и `max_size`.
-
-        * `executor` — конфигурация хостов для запуска исполнителей {{ SPRK }}. В этом блоке укажите:
-
-          * [Класс хостов](../concepts/instance-types.md) в параметре `resource_preset_id`.
-          * Количество экземпляров. Укажите фиксированное количество в параметре `size` или минимальное и максимальное количество для автомасштабирования в параметрах `min_size` и `max_size`.
-
         * `maintenance_window` – параметры [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В этом блоке укажите:
 
           * `type` — тип технического обслуживания. Принимает значения:
             * `ANYTIME` — в любое время.
             * `WEEKLY` — по расписанию.
-          * `day` — день недели для типа `WEEKLY`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-          * `hour` — порядковый номер часового интервала по UTC для типа `WEEKLY`: от `1` до `24`.
+          * `day` — день недели для типа обслуживания `WEEKLY`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+          * `hour` — порядковый номер часового интервала по UTC для типа обслуживания `WEEKLY`: от `1` до `24`.
 
-            > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
+             > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
         * `history_server` — подключение сервиса {{ SPRK }} History Server. Для использования сервиса укажите `true` в параметре `enabled`.
 
@@ -290,46 +882,19 @@ keywords:
         ```json
         {
           "cluster_id": "<идентификатор_кластера>",
-          "update_mask": "<список_изменяемых_параметров>",
-          "name": "<имя_кластера>",
-          "description": "<описание_кластера>",
-          "labels": { <список_меток> },
+          "update_mask": {
+            "paths": [ "<список_изменяемых_параметров>" ]
+          },
           "config_spec": {
-           "resource_pools": {
-             "driver": {
-               "resource_preset_id": "<идентификатор_ресурсов_драйвера>",
-               "scale_policy": {
-                 "fixed_scale": {
-                   "size": "<количество_экземпляров_драйвера>"
-                 }
-               }
-             },
-             "executor": {
-               "resource_preset_id": "<идентификатор_ресурсов_исполнителя>",
-               "scale_policy": {
-                 "auto_scale": {
-                   "min_size": "<минимальное_количество_экземпляров_исполнителя>",
-                   "max_size": "<максимальное_количество_экземпляров_исполнителя>"
-                 }
-               }
-             }
-           },
-           "history_server": {
-             "enabled": <использование_Spark_History_Server>
-           },
-            "dependencies": {
-              "pip_packages": [ <список_pip-пакетов> ],
-              "deb_packages": [ <список_deb-пакетов> ]
+            "history_server": {
+              "enabled": <использование_Spark_History_Server>
             },
             "metastore": {
               "cluster_id": "<идентификатор_кластера_Apache_Hive™_Metastore>"
-            }
-          },
-          "network_spec": {
-            "security_group_ids": [ <список_идентификаторов_групп_безопасности> ]
+            },
+            "environment_id": "<идентификатор_окружения>"
           },
           "deletion_protection": <защита_от_удаления>,
-          "service_account_id": "<идентификатор_сервисного_аккаунта>",
           "logging": {
             "enabled": <использование_логирования>,
             "log_group_id": "<идентификатор_лог_группы>",
@@ -375,65 +940,31 @@ keywords:
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `config_spec` — конфигурация кластера:
 
-           * `resource_pools` — конфигурация пулов ресурсов:
+           * `history_server` — параметры сервера истории.
+              * `enabled` — флаг включения сервера истории. Позволяет использовать сервис для мониторинга приложений Spark History Server.
 
-               * `driver` — конфигурация хостов для запуска драйверов {{ SPRK }}.
+           * `metastore` — параметры хранилища метаданных кластера.
 
-                   * `resource_preset_id` — [класс хостов](../concepts/instance-types.md) драйвера.
-                   * `scale_policy` — политика масштабирования групп хостов для драйвера:
-                       * `fixed_scale` — фиксированная политика масштабирования.
+              * `cluster_id` — идентификатор кластера [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md).
 
-                          * `size` — количество хостов для драйвера.
+           * `dependencies` — списки пакетов, которые нужно установить в кластер:
 
-                       * `auto_scale` — автоматическая политика масштабирования.
+              * `pip_packages` — список pip-пакетов;
+              * `deb_packages` — список deb-пакетов.
 
-                           * `min_size` — минимальное количество хостов для драйвера.
-                           * `max_size` — максимальное количество хостов для драйвера.
+              Формат названия пакета и выбор версии определяются командами установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
 
-                       Укажите один из двух параметров: `fixed_scale` либо `auto_scale`.
+           * `spark_version` — версия {{ SPRK }}.
 
-               * `executor` — конфигурация хостов для запуска исполнителей {{ SPRK }}.
+           * `environment_id` — идентификатор базового или пользовательского окружения. Идентификатор пользовательского окружения можно получить с помощью вызова [EnvironmentService/List](../environment/api-ref/grpc/Environment/list.md), базового окружения — с помощью вызова [EnvironmentService/ListBase](../environment/api-ref/grpc/Environment/listBase.md).
 
-                   * `resource_preset_id` — [класс хостов](../concepts/instance-types.md) исполнителя.
-                   * `scale_policy` — политика масштабирования групп хостов для исполнителя:
+              Чтобы подключить окружение вместо использования устаревших параметров `spark_version` и `dependencies`, добавьте в `update_mask.paths` параметры `config_spec.environment_id`, `config_spec.spark_version` и `config_spec.dependencies`. Передайте в `config_spec` только параметр `environment_id`. Это очистит версию {{ SPRK }} и списки пакетов, заданные ранее вручную.
 
-                       * `fixed_scale` — фиксированная политика масштабирования.
+           {% note warning %}
 
-                           * `size` — количество хостов для исполнителя.
+           В запросе укажите либо `environment_id`, либо `spark_version` и `dependencies`. Изменение версии и добавление пакетов без создания окружения устарело и скоро будет недоступно. Используйте базовое окружение или [создайте пользовательское окружение](environment-create.md) с нужными пакетами.
 
-                       * `auto_scale` — автоматическая политика масштабирования.
-
-                           * `min_size` — минимальное количество хостов для исполнителя.
-                           * `max_size` — максимальное количество хостов для исполнителя.
-
-                       Укажите один из двух параметров: `fixed_scale` либо `auto_scale`.
-
-               * `history_server` — параметры сервера истории.
-
-                   * `enabled` — флаг включения сервера истории. Позволяет использовать сервис для мониторинга приложений Spark History Server.
-
-               * `dependencies` — списки пакетов, которые позволяют установить в кластер дополнительные библиотеки и приложения.
-
-                   * `pip_packages` — список pip-пакетов.
-                   * `deb_packages` — список deb-пакетов.
-
-                   При необходимости задайте ограничения на версии устанавливаемых пакетов, например:
-
-                   ```bash
-                   "dependencies": {
-                     "pip_packages": [
-                       "pandas==2.1.1",
-                       "scikit-learn>=1.0.0",
-                       "clickhouse-driver~=0.2.0"
-                     ]
-                   }
-                   ```
-
-                   Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
-
-               * `metastore` — параметры хранилища метаданных кластера.
-
-                   * `cluster_id` — идентификатор кластера [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md).
+           {% endnote %}
 
            * `network` — сетевые настройки:
 
@@ -442,8 +973,6 @@ keywords:
            * `deletion_protection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
 
               Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
-
-           * `service_account_id` — идентификатор сервисного аккаунта для доступа к сервисам {{ yandex-cloud }}. Сервисному аккаунту должна быть назначена роль `managed-spark.integrationProvider`.
 
            * `logging` — параметры логирования:
                * `enabled` — позволяет включить логирование. Возможные значения: `true` или `false`. Логи, сгенерированные компонентами {{ SPRK }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
@@ -462,7 +991,7 @@ keywords:
 
                      > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
                      
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -477,6 +1006,6 @@ keywords:
             < body.json
         ```
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}

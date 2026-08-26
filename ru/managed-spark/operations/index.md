@@ -17,6 +17,12 @@ description: Из статьи вы узнаете, как работать с {
 * [Техническое обслуживание](cluster-maintenance.md)
 * [Удаление кластера](cluster-delete.md)
 
+## Окружения {#environments}
+
+* [Создание окружения](environment-create.md)
+* [Изменение окружения](environment-update.md)
+* [Удаление окружения](environment-delete.md)
+
 ## Задания (jobs) {#jobs}
 
 * [Задания Spark](jobs-spark.md)

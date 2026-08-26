@@ -2,6 +2,7 @@
 
 # Метрики Yandex Cloud Notification Service
 
+
 В этом разделе описаны метрики сервиса [Cloud Notification Service](../../notifications/index.md), поставляемые в Monitoring.
 
 Имя метрики пишется в метку `name`.

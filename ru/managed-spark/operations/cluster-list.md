@@ -60,7 +60,7 @@ description: Вы можете запросить детальную инфор�
               }' \
            {{ api-host-spark }}:{{ port-https }} \
            yandex.cloud.spark.v1.ClusterService.List
-           ```
+       ```
        
        Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
        

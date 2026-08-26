@@ -9,16 +9,20 @@ editable: false
 {% note tip %}
 
 
-Чтобы рассчитать стоимость [симметричного](https://yandex.cloud/ru/prices?state=143214c6d306#calculator), [ассиметричного](https://yandex.cloud/ru/prices?state=f4147c7925d1#calculator) шифрования и [ассиметричной подписи](https://yandex.cloud/ru/prices?state=80d5cab43182#calculator), воспользуйтесь калькулятором на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+Для точного расчета стоимости выберите нужный калькулятор:
+
+* [симметричное шифрование](https://yandex.cloud/ru/prices?state=143214c6d306#calculator),
+* [ассиметричное шифрование](https://yandex.cloud/ru/prices?state=f4147c7925d1#calculator), 
+* [ассиметричная подпись](https://yandex.cloud/ru/prices?state=80d5cab43182#calculator).
 
 
 
 
-
-{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
+{% endnote %}
 
 {% include [vat](../_includes/vat.md) %}
 
@@ -92,7 +96,6 @@ editable: false
   {% include [kzt-asymmetric](../_pricing_examples/kms/kzt-asymmetric.md) %}
 
 {% endlist %}
-
 
 
 

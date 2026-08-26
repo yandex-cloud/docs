@@ -43,7 +43,6 @@ editable: false
 
 
 
-
 ## Примеры расчета {#price-example}
 
 ### Стоимость хостинга видео {#hosting-example}
