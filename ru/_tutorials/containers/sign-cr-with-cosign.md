@@ -1,7 +1,7 @@
 # Подпись и проверка Docker-образов {{ container-registry-full-name }} в {{ managed-k8s-full-name }}
 
 
-В этом сценарии описано, как подписать [Docker-образы](../../container-registry/concepts/docker-image.md) с помощью [Cosign](https://docs.sigstore.dev/cosign/overview/) в [{{ container-registry-full-name }}](../../container-registry/), а затем настроить проверку подписей в [{{ managed-k8s-full-name }}](../../managed-kubernetes/) с помощью ключей {{ kms-full-name }}.
+В этом сценарии описано, как подписать [Docker-образы](../../container-registry/concepts/docker-image.md) с помощью [Cosign](https://docs.sigstore.dev/cosign/overview/) в [{{ container-registry-full-name }}](../../container-registry/), а затем настроить проверку подписей в [{{ managed-k8s-full-name }}](../../managed-kubernetes/) с помощью ключей [{{ kms-full-name }}](../../kms/).
 
 Чтобы подписать и настроить проверку Docker-образов:
 1. [Подпишите Docker-образ с помощью Cosign](#cosign).
@@ -13,12 +13,11 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за публичные IP-адреса, если они назначены узлам кластера ([тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Плата за [использование хранилища](../../container-registry/pricing) {{ container-registry-name }}.
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Сервис {{ container-registry-name }}: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
+* Сервис {{ kms-name }}: количество активных версий ключа и выполненных криптографических операций ([тарифы {{ kms-name }}](../../kms/pricing.md)).
 
 
 ## Перед началом работы {#before-begin}

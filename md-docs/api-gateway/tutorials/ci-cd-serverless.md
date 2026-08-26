@@ -7,7 +7,7 @@
 
 Вы можете построить пайплайн [непрерывной интеграции и непрерывной поставки (CI/CD)](https://yandex.cloud/ru/blog/ci-cd-pipeline) с использованием serverless-продуктов.
 
-В качестве примера проекта будет использовано веб-приложение, реализованное на [Django](https://www.djangoproject.com/), которое имитирует корзину товаров интернет-магазина. В базе данных хранятся описания товаров, а состояние корзины товаров сервис хранит в сессии пользователя. Django-приложение разворачивается в [контейнере Serverless Containers](../../serverless-containers/concepts/container.md), при этом секреты безопасно доставляются в приложение с помощью сервиса [Yandex Lockbox](../../lockbox/index.md). [Yandex API Gateway](../index.md) принимает запросы от пользователей и перенаправляет их в [контейнер приложения](../../glossary/containerization.md#containers-apps).
+В качестве примера проекта будет использовано веб-приложение, реализованное на [Django](https://www.djangoproject.com/), которое имитирует корзину товаров интернет-магазина. В базе данных хранятся описания товаров, а состояние корзины товаров сервис хранит в сессии пользователя. Django-приложение разворачивается в [контейнере Yandex Serverless Containers](../../serverless-containers/concepts/container.md), при этом секреты безопасно доставляются в приложение с помощью сервиса [Yandex Lockbox](../../lockbox/index.md). [Yandex API Gateway](../index.md) принимает запросы от пользователей и перенаправляет их в [контейнер приложения](../../glossary/containerization.md#containers-apps).
 
 Для проекта используются два окружения:
 * `prod` — продакшн, доступный пользователям.
@@ -30,15 +30,18 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит:
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Сервис Container Registry: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы Container Registry](../../container-registry/pricing.md)).
+* Секреты Yandex Lockbox: количество хранимых версий секретов и запросы к ним ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
+* Контейнер Serverless Containers: количество вызовов контейнера, время простоя подготовленных экземпляров и выделенные для выполнения приложения вычислительные ресурсы ([тарифы Container Registry](../../serverless-containers/pricing.md)).
+* API-шлюз: количество запросов к шлюзу ([тарифы API Gateway](../pricing.md)).
+* Инстанс GitLab. Стоимость зависит от способа создания инстанса:
 
-* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование [мастера Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за хранение созданных Docker-образов ([тарифы Container Registry](../../container-registry/pricing.md)).
-* Плата за хранение секретов ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
-* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../../serverless-containers/pricing.md)).
-* Плата за запросы к API-шлюзу ([тарифы API Gateway](../pricing.md)).
-* Плата за использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+   * Managed Service for GitLab — оплачиваются вычислительные ресурсы ВМ, объем хранимых данных и резервных копий, объем исходящего трафика ([тарифы Managed Service for GitLab](../../managed-gitlab/pricing.md)).
+   * ВМ с образом GitLab — оплачиваются вычислительные ресурсы ВМ и образ GitLab ([тарифы Compute Cloud](../../compute/pricing.md)).
+
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, а также для ВМ с образом GitLab, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 ## Перед началом работы {#before-begin}
 

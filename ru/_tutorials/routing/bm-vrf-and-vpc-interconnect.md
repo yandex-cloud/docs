@@ -1,6 +1,7 @@
 # Организация сетевой связности между подсетями {{ baremetal-full-name }} и {{ vpc-full-name }} с помощью {{ interconnect-full-name }}
 
 
+
 <iframe width="560" height="315" src="https://runtime.strm.yandex.ru/player/video/vplvuylmftewoh4dm5aj?autoplay=0&mute=0" allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
 
@@ -30,7 +31,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для организации сетевой связности между подсетями {{ baremetal-name }} и {{ vpc-short-name }} входят:
@@ -40,7 +40,6 @@
 * плата за аренду сервера {{ baremetal-name }} ([тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md)).
 
 {% include [bms-vpc-private-over-cic-free-traffic](../../_includes/baremetal/bms-vpc-private-over-cic-free-traffic.md) %}
-
 
 ## Создайте облачную инфраструктуру {#setup-infrastructure}
 
@@ -61,6 +60,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать инфраструктуру.
   1. [Перейдите]({{ link-console-main }}/link/baremetal) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Создайте виртуальный сегмент сети:
+        
         1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
         1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя VRF: `my-vrf`.
         1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
@@ -100,6 +100,7 @@
       1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ. Например: `Ubuntu 24.04`.
       1. {% include [server-lease-step8](../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
       1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
+          
           1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m3`.
           1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
 
@@ -143,7 +144,7 @@
       1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
       1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
       1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите `subnet-{{ region-id }}-b`.
-      1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности `{{ region-id }}-b`.
+      1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
       1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** выберите облачную сеть `sample-network`.
       1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** укажите `192.168.11.0/24`.
       
@@ -210,6 +211,7 @@
 После того как статус созданного приватного соединения изменится на `Ready`, сетевая связность между подсетями {{ baremetal-name }} и {{ vpc-short-name }} будет установлена и вы сможете приступить к ее проверке.
 
 Проверка сетевой связности предполагает, что:
+
 * процесс настройки приватного соединения с облачными подсетями успешно завершен (статус соединения отображается как `Ready`);
 * локальный сервис Firewall на сервере {{ baremetal-name }} разрешает прохождение трафика [ICMP](https://ru.wikipedia.org/wiki/ICMP);
 * маршрутная таблица в операционной системе сервера {{ baremetal-name }} содержит маршрут до CIDR подсети с виртуальной машиной;

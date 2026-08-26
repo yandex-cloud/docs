@@ -42,12 +42,13 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входят:
-* Плата за вычислительные ресурсы и диски ВМ, на базе которых разворачивается кластер {{ k8s }}, вспомогательной ВМ, а также узлов управляющего кластера {{ managed-k8s-name }} ([тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы {{ alb-full-name }}](../../application-load-balancer/pricing.md)).
-* Плата за использование мастера управляющего кластера {{ managed-k8s-name }} и исходящий трафик ([тарифы {{ managed-k8s-full-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) для вспомогательной ВМ и управляющего кластера {{ managed-k8s-name }} ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Плата за использование [NAT-шлюза](../../vpc/concepts/gateways.md) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#nat-gateways)).
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Виртуальные машины: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Каждый активный L7-балансировщик: использование вычислительных ресурсов ([тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера {{ managed-k8s-name }} ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы {{ vpc-name }}](../../vpc/pricing.md#nat-gateways)).
+
 
 #### Опциональные траты {#optional-expenses}
 

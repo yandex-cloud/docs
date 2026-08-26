@@ -22,11 +22,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../../compute/pricing.md)).
-* Плата за публичный IP-адрес, если он назначен узлам кластера ([тарифы Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}

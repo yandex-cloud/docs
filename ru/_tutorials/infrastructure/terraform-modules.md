@@ -14,16 +14,17 @@
 
 Если ресурсы больше вам не нужны, [удалите их](#delete-resources).
 
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры, разворачиваемой через {{ TF }} в этом руководстве, входят:
-* Плата за [высокодоступный мастер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) в [группе узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+
 
 ## Установите {{ TF }} {#install-terraform}
 

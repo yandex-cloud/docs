@@ -261,6 +261,38 @@ items:
                 href: api-ref/grpc/Operation/get.md
               - name: Cancel
                 href: api-ref/grpc/Operation/cancel.md
+          - name: Managed Spark Environment API
+            items:
+              - name: Overview
+                href: environment/api-ref/grpc/index.md
+              - name: Environment
+                items:
+                  - name: Overview
+                    href: environment/api-ref/grpc/Environment/index.md
+                  - name: Get
+                    href: environment/api-ref/grpc/Environment/get.md
+                  - name: GetBase
+                    href: environment/api-ref/grpc/Environment/getBase.md
+                  - name: List
+                    href: environment/api-ref/grpc/Environment/list.md
+                  - name: ListBase
+                    href: environment/api-ref/grpc/Environment/listBase.md
+                  - name: Create
+                    href: environment/api-ref/grpc/Environment/create.md
+                  - name: Update
+                    href: environment/api-ref/grpc/Environment/update.md
+                  - name: Delete
+                    href: environment/api-ref/grpc/Environment/delete.md
+                  - name: ListOperations
+                    href: environment/api-ref/grpc/Environment/listOperations.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: environment/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: environment/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: environment/api-ref/grpc/Operation/cancel.md
   - name: Release notes
     href: release-notes.md
 path: en/managed-spark/toc.yaml

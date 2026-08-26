@@ -7,7 +7,6 @@ editable: false
 # Estimating the cost of requests to {{ ydb-short-name }} via ad-hoc APIs
 
 
-
 ## ReadTable {#read-table}
 
 The `ReadTable` operation allows you to efficiently read large ranges of data from a table. The request cost only depends on the amount of read data based on the rate of 128 request units (RUs) per MB. For cost calculation, the amount is rounded up to a multiple of 1 MB.

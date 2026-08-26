@@ -2,6 +2,7 @@
 
 # Организация сетевой связности между двумя и более облачными сетями (VPC Stitching)
 
+
 {% note warning %}
 
 Функция доступна только при подключенной услуге [Cloud Interconnect](../../interconnect/index.md).

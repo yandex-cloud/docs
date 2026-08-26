@@ -28,8 +28,8 @@ DNS-запросы перенаправляются в локальный кеш
 ## Необходимые платные ресурсы {#paid-resources}
 
 * Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Публичные IP-адреса для узлов кластера {{ managed-k8s-name }} ([тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера {{ managed-k8s-name }} ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}

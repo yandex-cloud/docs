@@ -2,7 +2,6 @@
 
 # Метрики Yandex Cloud CDN
 
-
 В этом разделе описаны метрики сервиса [Cloud CDN](../../cdn/index.md), поставляемые в Monium Metrics.
 
 Метрики Cloud CDN обновляются в среднем раз в 3 минуты. 

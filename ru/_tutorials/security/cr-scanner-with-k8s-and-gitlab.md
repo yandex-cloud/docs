@@ -20,12 +20,15 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит:
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Инстанс {{ GL }}. Стоимость зависит от способа создания инстанса:
 
-* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за хранение созданных Docker-образов и сканер уязвимостей ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
-* Плата за использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+   * {{ mgl-full-name }} — оплачиваются вычислительные ресурсы ВМ, объем хранимых данных и резервных копий, объем исходящего трафика ([тарифы {{ mgl-name }}](../../managed-gitlab/pricing.md)).
+   * ВМ с образом {{ GL }} — оплачиваются вычислительные ресурсы ВМ и образ {{ GL }} ([тарифы {{ compute-name }}](../../compute/pricing.md)).
+
+* Сервис {{ container-registry-name }}: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера {{ managed-k8s-name }}, а также для ВМ с образом {{ GL }}, если для них включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 ## Перед началом работы {#before-begin}
 

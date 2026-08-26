@@ -52,7 +52,6 @@ editable: false
 
 
 
-
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 
 ## Пример расчета стоимости {#price-example}

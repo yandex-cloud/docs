@@ -2,11 +2,17 @@
 
 # Обновление версии Apache Spark™
 
-Вы можете изменить версию Apache Spark™ на любую из [поддерживаемых](#available-versions) в Managed Service for Apache Spark™. Версию можно только повысить.
+Вы можете изменить версию Apache Spark™ на любую из [поддерживаемых](#available-versions) в Managed Service for Apache Spark™.
 
 Обновления и исправления внутри одной версии устанавливаются во время технического обслуживания автоматически.
 
 ## Получить список доступных версий {#available-versions}
+
+{% note info %}
+
+Если для работы с версиями вы используете окружения, то информация о версии указана в названии базового окружения.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -29,6 +35,20 @@
 
 ## Обновить версию {#update}
 
+Способ обновления версии Apache Spark™ зависит от того, как в кластере заданы зависимости:
+
+* Если в поле **Способ настройки ПО** выбрано значение **Пакеты вручную**, [измените версию в настройках кластера](#update-with-packages).
+
+  {% note warning %}
+  
+  Данный способ устарел и скоро будет недоступен. Рекомендуется использовать окружения для работы с различными версиями Apache Spark™.
+  
+  {% endnote %}
+  
+* Если в поле **Способ настройки ПО** выбрано значение **Окружение**, выберите базовое окружение (версия Apache Spark™ и Python) или [подключите к кластеру пользовательское окружение с нужной версией](#update-with-environment). Версия Apache Spark™ фиксирована внутри окружения и отдельно в настройках кластера не задается.
+
+### Кластер использует пакеты, добавленные вручную {#update-with-packages}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -36,7 +56,7 @@
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
     1. Выберите кластер и нажмите на панели сверху кнопку **Редактировать**.
-    1. В блоке **Базовые параметры** выберите версию Apache Spark™.
+    1. В блоке **Дополнительные настройки** перейдите к полю **Способ настройки ПО** → **Пакеты вручную** выберите версию Apache Spark™.
     1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
@@ -179,6 +199,87 @@
         * `spark_version` — версия Apache Spark™.
 
     1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/spark/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          spark.api.cloud.yandex.net:443 \
+          yandex.cloud.spark.v1.ClusterService.Update \
+          < body.json
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+### Кластер использует окружение {#update-with-environment}
+
+Кластер может использовать базовое или пользовательское окружение. 
+
+Базовое окружение содержит только версию Apache Spark™ и версию Python. Его можно выбрать во время [создания](cluster-create.md) или [изменения кластера](cluster-update.md#change-additional-settings).
+
+Пользовательское окружение содержит базовое окружение и список необходимых pip- и deb-пакетов, которые позволяют установить в кластер дополнительные библиотеки и приложения. Список пакетов пользователь задает самостоятельно. Список пакетов и версию Apache Spark™ нельзя изменить в уже созданном пользовательском окружении. Чтобы обновить версию Apache Spark™, подготовьте пользовательское окружение с нужной версией и подключите его к кластеру.
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. Подготовьте окружение с нужной версией Apache Spark™ одним из способов:
+
+        * [Создайте новое окружение](environment-create.md#create-env)
+        * [Создайте новое окружение на основе существующего](environment-create.md#create-copy-env)
+
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог с нужным кластером.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
+    1. Выберите кластер и нажмите на панели сверху кнопку **Редактировать**.
+    1. В блоке **Дополнительные настройки** в поле **Способ настройки ПО** → **Окружение** выберите подготовленное окружение.
+    1. Нажмите кнопку **Сохранить изменения**.
+
+- gRPC API {#grpc-api}
+
+    1. [Подготовьте окружение](environment-create.md#create-env) с нужной версией Apache Spark™.
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "cluster_id": "<идентификатор_кластера>",
+          "update_mask": {
+            "paths": [
+              "config_spec.environment_id"
+            ]
+          },
+          "config_spec": {
+            "environment_id": "<идентификатор_окружения>"
+          }
+        }
+        ```
+
+        Где:
+
+        * `cluster_id` — идентификатор кластера. Его можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге;
+        * `environment_id` — идентификатор окружения с нужной версией Apache Spark™. Идентификатор пользовательского окружения можно получить с помощью вызова [EnvironmentService/List](../environment/api-ref/grpc/Environment/list.md), базового окружения — с помощью вызова [EnvironmentService/ListBase](../environment/api-ref/grpc/Environment/listBase.md).
+
+    1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \

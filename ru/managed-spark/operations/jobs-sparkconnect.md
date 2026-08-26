@@ -24,6 +24,11 @@ description: Вы узнаете, как управлять заданиями S
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.spark.jobs.create_action }}**.
     1. Укажите имя задания.
+    1. Выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или [создайте новый](../../iam/operations/sa/create.md).
+    1. Выберите окружение, в котором будет выполнено задание. Доступные варианты:
+       * **{{ ui-key.yacloud.spark.EnvironmentSelect.field_environment_cluster_sP4vs }}** — используется окружение, указанное в параметрах кластера.
+       * **{{ ui-key.yacloud.spark.EnvironmentSelect.base_environments_fq7iF }}** — одно из нескольких базовых окружений с предустановленными версиями {{ SPRK }} и Python.
+       * **{{ ui-key.yacloud.spark.EnvironmentSelect.user_environments_fwNXU }}** — одно из [созданных пользовательских окружений](environment-create.md).
     1. В поле **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** выберите `SparkConnect`.
     1. (Опционально) Задайте продвинутые настройки:
 
@@ -92,7 +97,7 @@ description: Вы узнаете, как управлять заданиями S
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [JobService.Create](../api-ref/grpc/Job/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [JobService/Create](../api-ref/grpc/Job/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -104,6 +109,8 @@ description: Вы узнаете, как управлять заданиями S
           -d '{
             "cluster_id": "<идентификатор_кластера>",
             "name": "<имя_задания>",
+            "service_account_id": "<идентификатор_сервисного_аккаунта>",
+            "environment_id": "<идентификатор_окружения>",
             "spark_connect_job": {
               "jar_file_uris": [
                 <список_путей_к_JAR-файлам>
@@ -139,6 +146,8 @@ description: Вы узнаете, как управлять заданиями S
             Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
         
         * `name` (Опционально) — имя задания.
+        * `service_account_id` — идентификатор сервисного аккаунта, от имени которого будет выполняться задание.
+        * `environment_id` — идентификатор базового или пользовательского окружения, в котором будет выполняться задание. Идентификатор пользовательского окружения можно получить с помощью вызова [EnvironmentService/List](../environment/api-ref/grpc/Environment/list.md), базового окружения — с помощью вызова [EnvironmentService/ListBase](../environment/api-ref/grpc/Environment/listBase.md).
         * `spark_connect_job` — параметры SparkConnect-задания:
 
             * `jar_file_uris` — список путей к используемым JAR-файлам в формате:

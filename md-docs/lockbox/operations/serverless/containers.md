@@ -3,13 +3,6 @@
 # Передать секрет в Yandex Serverless Containers
 
 
-{% note info %}
-
-Эта функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
-
 
 Чтобы контейнер получил доступ к [секрету](../../concepts/secret.md), в настройках контейнера нужно указать [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), у которого есть роли:
 

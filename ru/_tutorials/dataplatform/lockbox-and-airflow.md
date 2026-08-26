@@ -1,5 +1,6 @@
 # Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}
 
+
 При работе с {{ maf-full-name }} вы можете использовать [{{ lockbox-full-name }}](../../lockbox/index.yaml) для хранения артефактов, которые могут использоваться в DAG-файлах: подключений, переменных и конфигурационных данных. {{ lockbox-name }} интегрируется в {{ maf-short-name }} через провайдер [{{ lockbox-name }} Secret Backend](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/secrets-backends/yandex-cloud-lockbox-secret-backend.html). В результате доступ к хранилищу секретов настраивается автоматически.
 
 Ниже рассматривается [направленный ациклический граф (DAG)](../../managed-airflow/concepts/index.md#about-the-service), выполняющий SQL-запрос `SELECT 1;` к БД в кластере {{ mpg-full-name }}. Данные для подключения к БД хранятся в {{ lockbox-name }} и автоматически подставляются в граф.

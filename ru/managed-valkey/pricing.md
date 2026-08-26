@@ -6,20 +6,43 @@ editable: false
 
 # Правила тарификации для {{ mrd-name }}
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      lg: 6
+      sm: 6
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
+        icon: ../_assets/console-icons/calculator.svg
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices?state=d70441e9b1eb#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        icon: ../_assets/console-icons/circle-ruble.svg
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list?services=dn2hb3vlkb6qfih0pgv6
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
+
+
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mrd-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
-
-{% note tip %}
-
-
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=26441efb181e#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
-
-
-
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
 {% include [vat](../_includes/vat.md) %}

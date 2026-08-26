@@ -28,14 +28,12 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../dns/pricing.md)).
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов каждого L7-балансировщика ([тарифы Application Load Balancer](../pricing.md)).
-* Плата за публичные IP-адреса для узлов кластера и L7-балансировщиков ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за сервис Cloud Logging: запись и хранение данных ([тарифы Cloud Logging](../../logging/pricing.md)).
+* Публичные DNS-запросы и зоны DNS ([тарифы Yandex Cloud DNS](../../dns/pricing.md)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Каждый активный L7-балансировщик: использование вычислительных ресурсов ([тарифы Application Load Balancer](../pricing.md)).
+* Публичные IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Сервис Yandex Cloud Logging: объем записываемых данных и время их хранения ([тарифы Cloud Logging](../../logging/pricing.md)).
 
 
 ## Перед началом работы {#before-begin}

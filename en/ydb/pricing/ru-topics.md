@@ -7,7 +7,6 @@ editable: false
 # Estimating the cost of topic operations
 
 
-
 ## Pricing modes
 
 The pricing for data operations in [{{ ydb-short-name }} topics]({{ ydb.docs }}/concepts/topic) using {{ ydb-short-name }} request units (RUs) applies to the topics with the _on-demand pricing mode_. In this mode, topics are created by default via the {{ ydb-short-name }} CLI/SDK as well as when creating a [CDC feed]({{ ydb.docs }}/concepts/cdc).
@@ -29,8 +28,8 @@ For topics with on-demand pricing, {{ ydb-short-name }} calculates the cost of o
 
     Type | Block size
     --- | ---
-    Reads | 8 KB
-    Writes | 4 KB
+    Reads | 8KB
+    Writes | 4KB
 
 **Calculation example**
 
@@ -50,8 +49,8 @@ The data reads are calculated in a similar way; the only difference is that the 
 
     Type | Block size
     --- | ---
-    Reads | 8 KB
-    Writes | 4 KB
+    Reads | 8KB
+    Writes | 4KB
 
 1. 1 RU is charged for each complete data block transferred.
 
@@ -63,15 +62,15 @@ The data reads are calculated in a similar way; the only difference is that the 
 
 ### KafkaAPI {#kafka-api}
 
-`KafkaAPI` does not support streaming read and write methods. To transfer each data block, you need to call a separate unary method (request-response). The cost of calling these methods in RUs is calculated as explained below:
+`KafkaAPI` does not support streaming read and write methods. To transfer each data block, you need to call a separate unary method (request-response). The cost of calling these methods in Request Units (RU) is calculated as explained below:
 
 1. Each data read or write method call to transfer or receive the next data block costs 1 RU (effective as of July 1, 2024).
 1. What is calculated here is the amount of data blocks transferred in a request to the write method or received in response to the read method call. The block sizes for read and write operations are different:
 
-    Type | Block size
+    Direction | Block size
     --- | ---
-    Reads | 8 KB
-    Writes | 4 KB
+    Reads | 8KB
+    Writes | 4KB
 
 1. 1 RU is charged for each complete data block transferred.
 

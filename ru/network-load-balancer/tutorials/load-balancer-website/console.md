@@ -13,4 +13,4 @@ canonical: '{{ link-docs }}/tutorials/web/load-balancer-website/console'
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](terraform.md)
+[{#T}](terraform.md)

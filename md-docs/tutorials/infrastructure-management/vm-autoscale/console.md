@@ -93,7 +93,7 @@
 
    {% endlist %}
 
-1. Создайте [сеть](../../../vpc/concepts/network.md#network) с именем `yc-auto-network` и [подсети](../../../vpc/concepts/network.md#subnet) в двух зонах доступности:
+1. Создайте [сеть](../../../vpc/concepts/network.md#network) с именем `yc-auto-network` и [подсети](../../../vpc/concepts/network.md#subnet) в двух [зонах доступности](../../../overview/concepts/geo-scope.md):
 
    {% list tabs group=instructions %}
 
@@ -491,7 +491,7 @@
      1. Выберите группу ВМ `auto-group`.
      1. Перейдите на вкладку **Мониторинг**.
 
-        Балансировщик направил запрос на одну из ВМ группы. В зоне доступности этой ВМ среднее потребление CPU (график **Average CPU utilization in zone**) выше, чем в других.
+        Балансировщик направил запрос на одну из ВМ группы. В [зоне доступности](../../../overview/concepts/geo-scope.md) этой ВМ среднее потребление CPU (график **Average CPU utilization in zone**) выше, чем в других.
 
    {% endlist %}
 
