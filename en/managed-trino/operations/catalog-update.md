@@ -41,7 +41,7 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
             --new-name <new_{{ TR }}_catalog_name>
         ```
 
-        You can get the {{ TR }} catalog name together with the [list of {{ TR }} catalogs in the cluster](catalog-list#list-catalogs.md).
+        You can get the {{ TR }} catalog name together with the [list of {{ TR }} catalogs in the cluster](catalog-list.md#list-catalogs).
 
         In the command, you can also provide the settings for your {{ TR }} catalog depending on the connector type. [Learn more about settings for various connector types](catalog-create.md#catalog-settings).
 

@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/cus
 
 # yc smartwebsecurity custom-page custom-page
 
-A set of methods for managing CustomPage resources.
+Manage custom response pages
 
 #### Command Usage
 

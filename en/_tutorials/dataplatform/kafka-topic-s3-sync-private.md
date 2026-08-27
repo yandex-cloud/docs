@@ -29,7 +29,7 @@ The support cost for this solution includes:
     - Manually {#manual}
 
         1. [Create a network](../../vpc/operations/network-create.md) named `my-private-network`. Disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** when creating it.
-        1. [Create a subnet](../../vpc/operations/subnet-create.md) in any availability zone.
+        1. [Create a subnet](../../vpc/operations/subnet-create.md) in any [availability zone](../../overview/concepts/geo-scope.md).
         1. [Create a service connection to {{ objstorage-name }}](../../vpc/operations/private-endpoint-create.md) in `my-private-network` and write down its ID.
         1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `storage-pe-admin` with the `storage.admin` role. The {{ mkf-name }} cluster will use it to access the bucket.
         1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the `storage-pe-admin` service account.
@@ -101,7 +101,7 @@ The support cost for this solution includes:
             * `vm_image_id`: ID of the public VM [image](../../compute/operations/images-with-pre-installed-software/get-list.md).
             * `vm_username` and `vm_ssh_key`: Username and absolute path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), for access to the VM.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate

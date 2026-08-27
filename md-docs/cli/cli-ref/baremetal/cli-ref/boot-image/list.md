@@ -2,7 +2,7 @@
 
 # yc baremetal boot-image list
 
-Retrieves the list of Image resources in the specified folder.
+Retrieves the list of BootImage resources in the specified folder.
 
 #### Command Usage
 

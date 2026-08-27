@@ -1,5 +1,6 @@
 # Creating a Linux-based {{ baremetal-name }} product to upload to {{ marketplace-name }}
 
+
 To add a product for {{ baremetal-full-name }} to {{ marketplace-name }}, you need to upload the image to {{ yandex-cloud }}. You can add products based on Linux. This section will help you create a Linux-based image.
 
 ## Creating an image {#create}

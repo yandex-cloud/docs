@@ -19,14 +19,14 @@ keywords:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.spark.label_title-environments }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.spark.Spark.EnvironmentsList.button_create_sqDYH }}**.
+  1. Нажмите **{{ ui-key.yacloud.spark.Spark.EnvironmentsList.button_create_sqDYH }}**.
   1. В блоке **{{ ui-key.yacloud.spark.EnvironmentForm.EnvironmentFormContent.section_general_fDK9S }}**:
      
      1. Задайте имя окружения.
      1. (Опционально) Введите описание окружения.
      1. (Опционально) Создайте [метки](../../resource-manager/concepts/labels.md):
 
-        1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+        1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
         1. Введите метку в формате `ключ: значение`.
         1. Нажмите **Enter**.
 
@@ -50,7 +50,7 @@ keywords:
    
      {% endnote %}
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - gRPC API {#grpc-api}
 
@@ -147,8 +147,8 @@ keywords:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.spark.label_title-environments }}**.
-  1. Выберите в списке необходимое окружение, перейдите в него и нажмите кнопку ![image](../../_assets/console-icons/copy-plus.svg) **{{ ui-key.yacloud.spark.EnvironmentActions.button_action-copy_dFws4 }}** на панели сверху.
+  1. Выберите в списке необходимое окружение, перейдите в него и нажмите ![image](../../_assets/console-icons/copy-plus.svg) **{{ ui-key.yacloud.spark.EnvironmentActions.button_action-copy_dFws4 }}** на панели сверху.
   1. Добавьте или измените необходимые параметры окружения.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

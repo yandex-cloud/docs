@@ -53,16 +53,16 @@
 
 1. [Создайте кластер {{ msp-full-name }}](../../../managed-spark/operations/cluster-create.md) со следующими настройками:
 
-    * **Сервисный аккаунт** — `spark-agent`.
-    * **Сеть** — `spark-network`.
-    * **Группа безопасности** — `spark-sg`.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `spark-agent`.
+    * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `spark-network`.
+    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `spark-sg`.
 
 1. [Настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) для подсети, в которой создан кластер {{ msp-full-name }}. NAT-шлюз нужен для скачивания JDBC-драйвера {{ PG }} из Maven-репозитория.
 
 1. [Создайте кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-create.md) со следующими настройками:
 
-    * **Сеть** — `spark-network`.
-    * **Группа безопасности** — `pg-sg`.
+    * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `spark-network`.
+    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `pg-sg`.
 
 ## Настройте права доступа к секрету пользователя {{ mpg-name }} {#set-up-roles}
 
@@ -81,10 +81,10 @@
 
       Откроется страница секрета {{ lockbox-name }}, который хранит пароль пользователя {{ PG }}.
 
-  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+  1. Перейдите в раздел **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. Выберите сервисный аккаунт `spark-agent`, которому будет предоставлен доступ к секрету.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите `lockbox.payloadViewer`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите `lockbox.payloadViewer`.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -141,9 +141,9 @@
   1. [Загрузите в бакет](../../../storage/operations/objects/upload.md#simple) файл `job-mpg-connection-with-secret.py`.
   1. В кластере {{ msp-full-name }} [создайте задание](../../../managed-spark/operations/jobs-pyspark.md) со следующими параметрами:
       
-      * **Тип задания** — **PySpark**.
-      * **Main python файл** – `s3a://<имя_бакета>/job-mpg-connection-with-secret.py`.
-      * **Пакеты** — `org.postgresql:postgresql:42.7.3`.
+      * **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** — `PySpark`.
+      * **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** – `s3a://<имя_бакета>/job-mpg-connection-with-secret.py`.
+      * **{{ ui-key.yacloud.dataproc.jobs.field_packages }}** — `org.postgresql:postgresql:42.7.3`.
 
   1. Дождитесь, когда созданное PySpark-задание перейдет в статус **Done**.
   1. [Получите логи выполнения задания](../../../managed-spark/operations/jobs-pyspark.md#get-logs).

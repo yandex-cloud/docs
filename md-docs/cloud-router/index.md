@@ -84,9 +84,7 @@ Yandex Cloud Router — сервис для управления сетевым�
 
  - [Организация сетевой связности между приватной подсетью BareMetal и сетью Virtual Private Cloud](tutorials/bm-vrf-and-vpc-interconnect.md)
 
- - [Организация сетевой связности между приватной подсетью BareMetal и on-premise-ресурсами](tutorials/bms-cic-onprem.md)
-
- - [Изменение набора IP-префиксов VPC в виртуальном маршрутизаторе](tutorials/ri-prefixes-upsert.md)
+ - [Организация сетевой связности между приватной подсетью BareMetal и ресурсами в on-premises](tutorials/bms-cic-onprem.md)
 
  - [Управление доступом](security/index.md)
 

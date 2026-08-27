@@ -1,7 +1,7 @@
 Роль `postbox.viewer` позволяет просматривать информацию об адресах {{ postbox-name }}.
 
 Пользователи с этой ролью могут:
-* просматривать информацию об [адресах](../../postbox/concepts/glossary.md#adress) и их [конфигурациях](../../postbox/concepts/glossary.md#configuration);
+* просматривать информацию об [адресах](../../postbox/concepts/glossary.md#address) и их [конфигурациях](../../postbox/concepts/glossary.md#configuration);
 * получать списки адресов и их конфигураций.
 
 Включает разрешения, предоставляемые ролью `postbox.auditor`.

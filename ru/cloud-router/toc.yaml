@@ -86,10 +86,8 @@ items:
         href: tutorials/bm-vrf-and-vpc-interconnect.md
       - name: >-
           Организация сетевой связности между приватной подсетью {{
-          baremetal-name }} и on-premise-ресурсами
+          baremetal-name }} и ресурсами в on-premises
         href: tutorials/bms-cic-onprem.md
-      - name: Изменение набора IP-префиксов VPC в виртуальном маршрутизаторе
-        href: tutorials/ri-prefixes-upsert.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

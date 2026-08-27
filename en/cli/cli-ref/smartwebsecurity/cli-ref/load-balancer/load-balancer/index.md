@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/loa
 
 # yc smartwebsecurity load-balancer load-balancer
 
-A set of methods for managing Smart Web Security load balancers.
+Manage SmartWebSecurity load balancers
 
 #### Command Usage
 

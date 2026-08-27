@@ -91,7 +91,7 @@ You can create other resources manually or using {{ TF }}.
 
         For an SSH connection to the hosts of a {{ dataproc-name }} cluster version 1.x , use the `root` username.
 
-1. Make sure the {{ TF }} configuration files are correct using this command:
+1. Validate your {{ TF }} configuration files using this command:
 
     ```bash
     terraform validate
@@ -104,8 +104,6 @@ You can create other resources manually or using {{ TF }}.
     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
     {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
-
-{% endlist %}
 
 ## Set up the source cluster {#prepare}
 

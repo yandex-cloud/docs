@@ -231,8 +231,10 @@ items:
             href: operations/view-subject-access-bindings.md
           - name: Отозвать роль у пользователя
             href: operations/revoke-role.md
-      - name: Синхронизировать пользователей и группы с {{ microsoft-idp.ad-short }}
-        href: operations/sync-ad.md
+      - name: Синхронизация пользователей и групп с внешними службами каталогов
+        items:
+          - name: '{{ microsoft-idp.ad-short }}'
+            href: operations/sync-ad.md
       - name: Управлять тарификацией {{ org-full-name }}
         href: operations/manage-billing.md
   - name: Практические руководства
@@ -385,8 +387,12 @@ items:
         href: concepts/logs.md
       - name: Сессии
         href: concepts/sessions.md
-      - name: Синхронизация с {{ microsoft-idp.ad-short }}
-        href: concepts/ad-sync.md
+      - name: Синхронизация с внешними службами каталогов
+        items:
+          - name: Обзор
+            href: concepts/ad-sync/index.md
+          - name: Агент синхронизации {{ ad-sync-agent }}
+            href: concepts/ad-sync/sync-agent.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Диагностика ошибок

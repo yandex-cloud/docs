@@ -49,8 +49,19 @@ description: Следуя этой инструкции, вы сможете с�
 
       ```bash
       yc cloudrouter routing-instance create --name ri1 \
-        --description "Routing instance 1" \ 
+        --description "Routing instance 1" \
         --folder-id b1gqf**********jiz2w \
+        --async
+      ```
+
+      Чтобы сразу добавить в создаваемый виртуальный маршрутизатор приватные соединения и облачные сети, используйте параметры `--cic-prc` и `--vpc-net`:
+
+      ```bash
+      yc cloudrouter routing-instance create --name ri1 \
+        --description "Routing instance 1" \
+        --folder-id b1gqf**********jiz2w \
+        --cic-prc cf3r5ke20fo0******** \
+        --vpc-net 'id=enpcfncr6uld********,zone={{ region-id }}-a,ipv4-prefixes=[192.168.1.0/24]' \
         --async
       ```
 
@@ -67,10 +78,15 @@ description: Следуя этой инструкции, вы сможете с�
         routing_instance_id: c3l87**********1dpin
       ```
 
-  1. Проверить результат создания виртуального маршрутизатора:
+  1. Проверьте результат создания виртуального маршрутизатора:
+
+      ```bash
+      yc cloudrouter routing-instance get c3l87**********1dpin
+      ```
+
+      Ожидаемый результат:
 
       ```text
-      yc cloudrouter routing-instance get c3l87**********1dpin
       id: c3l87**********1dpin
       name: ri1
       description: Routing instance 1
@@ -80,7 +96,8 @@ description: Следуя этой инструкции, вы сможете с�
       created_at: "2025-04-16T12:43:55Z"
       ```
 
-      где,
+      Где:
+
       * `id` — идентификатор виртуального маршрутизатора.
       * `name` — название виртуального маршрутизатора.
       * `description` — описание виртуального маршрутизатора.

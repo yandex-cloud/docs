@@ -137,8 +137,8 @@ VLAN применяется в разных типах сетей — от не�
 ## Полезные материалы {#see-also}
 
 * [Настройка дополнительных приватных подсетей с тегированным VLAN в {{ baremetal-name }}](../baremetal/operations/servers/set-up-tagged-vlan.md)
-* [Создание нового транкового подключения через партнера и публичное соединение в нем в {{ interconnect-name }}](../interconnect/tutorials/partner-trunk-pub-add.md)
-* [Добавление приватного соединения в транковое подключение в {{ interconnect-name }}](../interconnect/tutorials/partner-trunk-priv-add.md)
+* [Создание транкового подключения через партнера в {{ interconnect-name }}](../interconnect/operations/trunk-create.md#partner)
+* [Создание приватного соединения в транковом подключении в {{ interconnect-name }}](../interconnect/operations/priv-con-create.md)
 
 [*popup-1]: [_QoS (Quality of Service)_](qos.md) — технология приоритизации трафика в сети. Помогает сети эффективнее работать в условиях ограниченных ресурсов и в первую очередь обрабатывать критически важный трафик.
 

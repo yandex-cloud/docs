@@ -2,7 +2,7 @@
 
 # yc smartwebsecurity load-balancer
 
-
+Manage SmartWebSecurity load balancers
 
 #### Command Usage
 
@@ -24,7 +24,7 @@ Syntax:
 
   - [yc smartwebsecurity load-balancer domain update](domain/update.md) — Updates the specified domain.
 
-- [yc smartwebsecurity load-balancer load-balancer](load-balancer/index.md) — A set of methods for managing Smart Web Security load balancers.
+- [yc smartwebsecurity load-balancer load-balancer](load-balancer/index.md) — Manage SmartWebSecurity load balancers
 
   - [yc smartwebsecurity load-balancer load-balancer create](load-balancer/create.md) — Creates a load balancer in the specified folder.
 

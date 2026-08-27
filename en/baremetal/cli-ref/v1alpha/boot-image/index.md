@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v1alpha/bo
 
 # yc baremetal v1alpha boot-image
 
-A set of methods for managing Image resources.
+A set of methods for managing BootImage resources.
 
 #### Command Usage
 
@@ -15,17 +15,17 @@ Syntax:
 
 #### Command Tree
 
-- [yc baremetal v1alpha boot-image create](create.md) — Creates an image in the specified folder.
+- [yc baremetal v1alpha boot-image create](create.md) — Creates a BootImage in the specified folder.
 
-- [yc baremetal v1alpha boot-image delete](delete.md) — Deletes the specified image.
+- [yc baremetal v1alpha boot-image delete](delete.md) — Deletes the specified BootImage.
 
-- [yc baremetal v1alpha boot-image get](get.md) — Returns the specific Image resource.
+- [yc baremetal v1alpha boot-image get](get.md) — Returns the specific BootImage resource.
 
-- [yc baremetal v1alpha boot-image list](list.md) — Retrieves the list of Image resources in the specified folder.
+- [yc baremetal v1alpha boot-image list](list.md) — Retrieves the list of BootImage resources in the specified folder.
 
-- [yc baremetal v1alpha boot-image list-operations](list-operations.md) — Lists operations for the specified image.
+- [yc baremetal v1alpha boot-image list-operations](list-operations.md) — Lists operations for the specified BootImage.
 
-- [yc baremetal v1alpha boot-image update](update.md) — Updates the specified image.
+- [yc baremetal v1alpha boot-image update](update.md) — Updates the specified BootImage.
 
 #### Global Flags
 

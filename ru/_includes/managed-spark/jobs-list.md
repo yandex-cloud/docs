@@ -4,7 +4,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
+    1. Нажмите на имя нужного кластера и перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
 
 - CLI {#cli}
     

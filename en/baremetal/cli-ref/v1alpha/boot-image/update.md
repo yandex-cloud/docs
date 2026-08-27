@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v1alpha/bo
 
 # yc baremetal v1alpha boot-image update
 
-Updates the specified image.
+Updates the specified BootImage.
 
 #### Command Usage
 
@@ -22,13 +22,13 @@ Syntax:
 Field paths for FieldMask: each segment may be proto snake_case or CLI kebab-case (e.g. name, labels, network-interface). Repeat the flag or use comma-separated values. When set and non-empty, takes precedence over update_mask in the request body/file and over mask inferred from -r. If omitted or empty, the mask is built from the fields you pass (changed flags, JSON/shorthand, and request file when update_mask is absent there). ||
 || `--id` | `string`
 
-ID of the Image resource to update. To get the image ID, use a [ImageService.List] request. ||
+ID of the BootImage resource to update. To get the BootImage ID, use a [ImageService.List] request. ||
 || `--name` | `string`
 
-Name of the image. The name must be unique within the folder. ||
+Name of the BootImage. The name must be unique within the folder. ||
 || `--description` | `string`
 
-Description of the image. ||
+Description of the BootImage. ||
 || `--labels` | `map<string><string>`
 
 Resource labels as 'key:value' pairs. Existing set of 'labels' is completely replaced by the provided set. ||

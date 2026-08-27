@@ -88,8 +88,7 @@ L3-связность и BGP-связность организуется меж�
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/partner-trunk-priv-add.md)
-* [{#T}](../tutorials/trunk-priv-add.md)
-* [{#T}](../tutorials/priv-add.md)
-* [{#T}](../tutorials/priv-del.md)
+* [{#T}](../operations/trunk-create.md#partner)
+* [{#T}](../operations/priv-con-create.md)
+* [{#T}](../operations/priv-con-delete.md)
 * [{#T}](../tutorials/cic-with-ngfw.md)

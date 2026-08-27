@@ -41,9 +41,6 @@ links:
   - title: '{{ datalens-name }}'
     description: Solutions for {{ datalens-name }}
     href: datalens/
-  - title: '{{ dataproc-name }}'
-    description: Solutions for {{ dataproc-name }}
-    href: dataproc/
   - title: '{{ ml-platform-name }}'
     description: Solutions for {{ ml-platform-name }}
     href: datasphere/
@@ -89,9 +86,6 @@ links:
   - title: Partner
     description: Solutions for Partner
     href: partner/
-  - title: '{{ serverless-containers-name }}'
-    description: Solutions for {{ serverless-containers-name }}
-    href: serverless-containers/
   - title: '{{ captcha-name }}'
     description: Solutions for {{ captcha-name }}
     href: smartcaptcha/

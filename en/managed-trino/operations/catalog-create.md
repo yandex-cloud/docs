@@ -780,7 +780,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<{{ TR }}>_cluster_ID/catalogs' \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<{{ TR }}_cluster_ID>/catalogs' \
         --data '{
                   "catalog": {
                     "name": "<{{ TR }}_catalog_name>",
@@ -1032,6 +1032,14 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 {% endlist %}
 
 ### Hive connector {#hive}
+
+{% note info %}
+
+In catalogs with a Hive connector, {{ mtr-name }} overrides the default value of the [`hive.hive-views.run-as-invoker`]({{ tr.docs }}/connector/hive.html#hive-views) parameter from `false` to `true`. With this value, accessing Hive `VIEW` objects implies authorization under the user executing the query, not the one who created the view. Thus, [access control](../concepts/access-control.md) rules apply correctly and factor in the IAM groups of the user executing the query.
+
+Where the `hive.hive-views.run-as-invoker` parameter value is explicitly specified in the catalog's additional settings, this value remains as is.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

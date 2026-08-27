@@ -72,7 +72,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
      {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
-     1. Select one or more availability zones for your {{ KF }} broker hosts.
+     1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) for your {{ KF }} broker hosts.
 
         
         {% include notitle [note-warning](../../_includes/mdb/mkf/create-cluster.md#note-warning) %}
@@ -158,7 +158,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
          {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
-     * `--zone-ids` and `--brokers-count`: Availability zones and number of broker hosts per zone.
+     * `--zone-ids` and `--brokers-count`: [Availability zones](../../overview/concepts/geo-scope.md) and number of broker hosts per zone.
      * `--resource-preset`: [Host class](../concepts/instance-types.md).
      * `--disk-type`: [Disk type](../concepts/storage.md).
 
@@ -264,7 +264,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
      * `environment`: Cluster environment, `PRESTABLE` or `PRODUCTION`.
      * `version`: {{ KF }} version, {{ versions.tf.zookeeper }}. Additionally, provide the [{{ ZK }} host configuration](../concepts/index.md#zookeeper).
-     * `zones` and `brokers_count`: Availability zones and number of broker hosts per zone.
+     * `zones` and `brokers_count`: [Availability zones](../../overview/concepts/geo-scope.md) and number of broker hosts per zone.
      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
        {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
@@ -443,7 +443,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                     * `resources.diskTypeId`: Disk type.
 
 
-                * `zoneId` and `brokersCount`: Availability zones and number of broker hosts per zone.
+                * `zoneId` and `brokersCount`: [Availability zones](../../overview/concepts/geo-scope.md) and number of broker hosts per zone.
 
                 
                 * `assignPublicIp`: Access to broker hosts from the internet, `true` or `false`.
@@ -640,7 +640,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                     * `resources.disk_type_id`: Disk type.
 
 
-                * `zone_id` and `brokers_count`: Availability zones and number of broker hosts (provided as an object with the `value` field) per zone.
+                * `zone_id` and `brokers_count`: [Availability zones](../../overview/concepts/geo-scope.md) and number of broker hosts (provided as an object with the `value` field) per zone.
 
                 
                 * `assign_public_ip`: Access to broker hosts from the internet, `true` or `false`.
@@ -747,7 +747,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
      {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
-     1. Select one or more availability zones for your {{ KF }} broker hosts.
+     1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) for your {{ KF }} broker hosts.
 
                 
         {% include notitle [note-warning](../../_includes/mdb/mkf/create-cluster.md#note-warning) %}
@@ -845,7 +845,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
          {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
     
-     * `--zone-ids` and `--brokers-count`: Availability zones and number of broker hosts per zone. 
+     * `--zone-ids` and `--brokers-count`: [Availability zones](../../overview/concepts/geo-scope.md) and number of broker hosts per zone. 
 
             
        If you are creating a cluster with [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), specify one of the available configurations:
@@ -960,7 +960,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
      * `environment`: Cluster environment, `PRESTABLE` or `PRODUCTION`.
      * `version`: {{ KF }} version. Specify 3.6 or higher.
-     * `zones` and `brokers_count`: Availability zones and number of broker hosts per zone.
+     * `zones` and `brokers_count`: [Availability zones](../../overview/concepts/geo-scope.md) and number of broker hosts per zone.
 
        
        If you are creating a cluster with [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), specify one of the available configurations:
@@ -1149,7 +1149,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                     {% include notitle [note-warning-combined-mode](../../_includes/mdb/mkf/create-cluster.md#note-warning-combined-mode) %}
 
 
-                * `zoneId` and `brokersCount`: Availability zones and number of broker hosts per zone.
+                * `zoneId` and `brokersCount`: [Availability zones](../../overview/concepts/geo-scope.md) and number of broker hosts per zone.
 
                   
                   If you are creating a cluster with [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), specify one of the available configurations:
@@ -1357,7 +1357,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                     {% include notitle [note-warning-combined-mode](../../_includes/mdb/mkf/create-cluster.md#note-warning-combined-mode) %}
 
 
-                * `zone_id` and `brokers_count`: Availability zones and number of broker hosts (provided as an object with the `value` field) per zone.
+                * `zone_id` and `brokers_count`: [Availability zones](../../overview/concepts/geo-scope.md) and number of broker hosts (provided as an object with the `value` field) per zone.
 
                   
                   If you are creating a cluster with [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), specify one of the available configurations:
@@ -1478,9 +1478,9 @@ To create an {{ KF }} cluster copy:
     1. Modify the configuration so that you can use it to create a new cluster:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
-        * Delete `created_at`, `health`, `host`, `id`, and `status`.
-        * Add the `subnet_ids` argument with the list of subnet IDs for each availability zone.
-        * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` setting.
+        * Delete the `created_at`, `health`, `host`, `id`, and `status` arguments.
+        * Add the `subnet_ids` argument with the list of subnet IDs for each [availability zone](../../overview/concepts/geo-scope.md).
+        * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` argument.
         * Optionally, make further changes if you need a customized configuration.
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.

@@ -13,6 +13,7 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите канал.
   1. На вкладке ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud_video.presets.title_presets }}** нажмите **{{ ui-key.yacloud_video.presets.action_create-preset }}**.
   1. В поле **{{ ui-key.yacloud_video.presets.label_title }}** укажите название шаблона.
+  1. В блоке **{{ ui-key.yacloud_video.presets.section_playback-settings }}** включите опцию **{{ ui-key.yacloud_video.presets.field_persist-playback-progress }}**, чтобы плеер продолжал воспроизведение с места, где пользователь остановился при прошлом просмотре.
   1. В блоке **{{ ui-key.yacloud_video.presets.section_wigets-settings }}**:
      * Включите или выключите нужные виджеты.
      * Задайте их расположение в интерфейсе плеера.

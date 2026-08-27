@@ -130,8 +130,8 @@ Yandex Cloud предлагает следующие сервисы для ра�
 ## Полезные материалы {#see-also}
 
 * [Настройка дополнительных приватных подсетей с тегированным VLAN в BareMetal](../baremetal/operations/servers/set-up-tagged-vlan.md)
-* [Создание нового транкового подключения через партнера и публичное соединение в нем в Cloud Interconnect](../interconnect/tutorials/partner-trunk-pub-add.md)
-* [Добавление приватного соединения в транковое подключение в Cloud Interconnect](../interconnect/tutorials/partner-trunk-priv-add.md)
+* [Создание транкового подключения через партнера в Cloud Interconnect](../interconnect/operations/trunk-create.md#partner)
+* [Создание приватного соединения в транковом подключении в Cloud Interconnect](../interconnect/operations/priv-con-create.md)
 
 [*popup-1]: [_QoS (Quality of Service)_](qos.md) — технология приоритизации трафика в сети. Помогает сети эффективнее работать в условиях ограниченных ресурсов и в первую очередь обрабатывать критически важный трафик.
 

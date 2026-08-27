@@ -177,7 +177,7 @@
 
 ## Подготовьте ресурсы Yandex Cloud Postbox {#postbox}
 
-В сервисе Yandex Cloud Postbox настройте [конфигурацию](../concepts/glossary.md#subscription) для регистрации событий в Data Streams, создайте [адрес](../concepts/glossary.md#adress) для отправки писем и [пройдите](../operations/check-domain.md) проверку прав на домен.
+В сервисе Yandex Cloud Postbox настройте [конфигурацию](../concepts/glossary.md#subscription) для регистрации событий в Data Streams, создайте [адрес](../concepts/glossary.md#address) для отправки писем и [пройдите](../operations/check-domain.md) проверку прав на домен.
 
 
 ### Создайте конфигурацию Yandex Cloud Postbox {#config}

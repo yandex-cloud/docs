@@ -14,7 +14,7 @@
 
 #|
 || **Метод** | **Описание** ||
-|| [ListDomainIdentities](list-domain-identities.md) | Возвращает список [адресов](../../concepts/glossary.md#adress). ||
+|| [ListDomainIdentities](list-domain-identities.md) | Возвращает список [адресов](../../concepts/glossary.md#address). ||
 || [GetDomainIdentity](get-domain-identity.md) | Возвращает информацию об адресе. ||
 || [CreateDomainIdentity](create-domain-identity.md) | Создает адрес. ||
 || [PutDomainIdentityDkimAttributes](put-domain-identity-dkim-attributes.md) | Включает или отключает [DKIM-подпись](https://ru.wikipedia.org/wiki/DomainKeys_Identified_Mail). Позволяет получателю убедиться, что письмо действительно было отправлено с заявленного домена. ||
@@ -31,6 +31,17 @@
 || [PutDomainIdentityConfigurationSetAttributes](put-domain-identity-configuration-set-attributes.md) | Связывает адрес и конфигурацию. ||
 || [DeleteConfigurationSet](delete-configuration-set.md) | Удаляет конфигурацию. ||
 || [PutConfigurationSetDeliveryOptions](put-configuration-set-delivery-options.md) | Управляет настройками доставки. ||
+|| [PutConfigurationSetSuppressionOptions](put-configuration-set-suppression-options.md) | Управляет настройками стоп-листа. ||
+|#
+
+## Стоп-лист {#suppressed-destinations}
+
+#|
+|| **Метод** | **Описание** ||
+|| [ListSuppressedDestinations](list-suppressed-destinations.md) | Возвращает список адресов в [пользовательском стоп-листе](../../concepts/suppression-list.md#user). ||
+|| [GetSuppressedDestination](get-suppressed-destination.md) | Возвращает информацию об адресе в стоп-листе. ||
+|| [PutSuppressedDestination](put-suppressed-destination.md) | Добавляет адрес в стоп-лист. ||
+|| [DeleteSuppressedDestination](delete-suppressed-destination.md) | Удаляет адрес из стоп-листа. ||
 |#
 
 ## Подписки {#event-destinations}

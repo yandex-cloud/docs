@@ -13,6 +13,7 @@
 1. [Создайте группу бэкендов](#create-backend-group).
 1. [Создайте и настройте HTTP-роутер](#create-http-router).
 1. [Создайте L7-балансировщик](#create-l7-balancer).
+1. (Опционально) [Настройте проверку клиентских сертификатов](#client-certificate).
 1. [Настройте DNS для сайта](#configure-dns).
 1. [Проверьте работу хостинга](#test).
 
@@ -276,6 +277,89 @@
         1. В поле **Имена серверов** укажите `my-site.com`.
         1. Выберите сертификат `mysite-cert` и HTTP-роутер `mysite-router`.
   1. Нажмите кнопку **Создать**.
+
+{% endlist %}
+
+### Настройте проверку клиентских сертификатов {#client-certificate}
+
+Если для сайта нужна [взаимная TLS-аутентификация](../../../application-load-balancer/concepts/application-load-balancer.md#mtls) (mTLS), настройте проверку клиентских сертификатов и их передачу на бэкенд. Для проверки клиентских сертификатов потребуется [PEM](https://ru.wikipedia.org/wiki/Почта_с_повышенной_секретностью)-файл с корневым сертификатом удостоверяющего центра, который выпустил клиентские сертификаты.
+
+{% note info %}
+
+Сейчас работа с клиентскими сертификатами поддерживается через API и CLI.
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+    По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+    
+    Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+    1. Включите проверку клиентских сертификатов для обработчика `listener-https`:
+
+        ```bash
+        yc alb load-balancer update-listener mysite-alb \
+          --listener-name listener-https \
+          --enable-tls \
+          --certificate-name mysite-cert \
+          --require-client-certificate \
+          --client-certificates-trusted-ca-file <путь_к_PEM-файлу_корневого_сертификата> \
+          --http-router-name mysite-router
+        ```
+
+        Где:
+
+        * `--listener-name` — имя обработчика L7-балансировщика, [созданного ранее](#create-l7-balancer);
+        * `--certificate-name` — имя TLS-сертификата сайта, [импортированного ранее](#import-certificate);
+        * `--require-client-certificate` — параметр, который включает проверку клиентского сертификата;
+        * `--client-certificates-trusted-ca-file` — путь к PEM-файлу корневого сертификата для проверки клиентских сертификатов;
+        * `--http-router-name` — имя HTTP-роутера, [созданного ранее](#create-http-router).
+
+        Подробнее о команде `yc alb load-balancer update-listener` в [справочнике CLI](../../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/update-listener.md).
+
+    1. (Опционально) Настройте передачу клиентского сертификата на бэкенд для маршрута `mysite-route`:
+
+        ```bash
+        yc alb virtual-host update-http-route mysite-route \
+          --http-router-name mysite-router \
+          --virtual-host-name mysite-host \
+          --ccf-header X-Client-Cert \
+          --ccf-issuer X-Client-Cert-Issuer \
+          --ccf-subject X-Client-Cert-Subject
+        ```
+
+        Где:
+
+        * `--ccf-header` — имя HTTP-заголовка, в котором на бэкенд передается клиентский сертификат;
+        * `--ccf-issuer` — имя HTTP-заголовка, в котором на бэкенд передается издатель клиентского сертификата;
+        * `--ccf-subject` — имя HTTP-заголовка, в котором на бэкенд передается субъект клиентского сертификата.
+
+        Подробнее о команде `yc alb virtual-host update-http-route` в [справочнике CLI](../../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update-http-route.md).
+
+- API {#api}
+
+    1. Включите проверку клиентских сертификатов для обработчика `listener-https`. Для этого в параметре `clientCertificatesVerification` укажите параметры для проверки клиентского сертификата.
+
+        Чтобы изменить обработчик, воспользуйтесь методом REST API [updateListener](../../../application-load-balancer/api-ref/LoadBalancer/updateListener.md) для ресурса [LoadBalancer](../../../application-load-balancer/api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/UpdateListener](../../../application-load-balancer/api-ref/grpc/LoadBalancer/updateListener.md).
+
+    1. (Опционально) Настройте передачу клиентского сертификата на бэкенд. Для этого в виртуальном маршруте HTTP-роутера `mysite-router` укажите параметр `clientCertificateForward`:
+
+        ```json
+        {
+          "clientCertificateForward": {
+            "clientCert": "X-Client-Cert",
+            "clientCertIssuer": "X-Client-Cert-Issuer",
+            "clientCertSubject": "X-Client-Cert-Subject"
+          }
+        }
+        ```
+
+        Чтобы изменить HTTP-роутер, воспользуйтесь методом REST API [update](../../../application-load-balancer/api-ref/HttpRouter/update.md) для ресурса [HttpRouter](../../../application-load-balancer/api-ref/HttpRouter/index.md) или вызовом gRPC API [HttpRouterService/Update](../../../application-load-balancer/api-ref/grpc/HttpRouter/update.md).
 
 {% endlist %}
 

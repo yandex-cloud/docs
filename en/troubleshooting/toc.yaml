@@ -375,24 +375,6 @@ items:
         href: datalens/known-issues/error-ssl-is-required.md
       - name: Resolving an incorrect `Total` value in a pivot table
         href: datalens/known-issues/incorrect-value-in-field-total.md
-  - name: '{{ dataproc-name }}'
-    items:
-      - name: All solutions for {{ dataproc-name }}
-        href: data-processing/index.md
-      - name: Solutions for known {{ dataproc-name }} issues
-        href: data-processing/known-issues/index.md
-        hidden: true
-      - name: >-
-          {{ dataproc-name }} cluster is in the `UNKNOWN` status right after it
-          has been created
-        href: >-
-          data-processing/known-issues/hosts-of-data-processing-cluster-are-in-status-unknown-after-creation.md
-      - name: No logs in YARN Resource Manager Web UI after running jobs
-        href: >-
-          data-processing/known-issues/yarn-resource-manager-does-not-display-logs.md
-      - name: Sample {{ dataproc-name }} configurations and use cases
-        href: data-processing/how-to/index.md
-        hidden: true
   - name: '{{ ml-platform-name }}'
     items:
       - name: All solutions for {{ ml-platform-name }}
@@ -895,22 +877,9 @@ items:
       - name: Solutions for known {{ serverless-containers-name }} issues
         href: serverless-containers/known-issues/index.md
         hidden: true
-      - name: >-
-          Resolving the `Code 502 Message Error during function invocation`
-          error
-        href: >-
-          serverless-containers/known-issues/serverless-container-invoking-error-502.md
-      - name: Resolving the `Service account is not available` error
-        href: serverless-containers/known-issues/service-account-is-not-available.md
-      - name: Resolving the `user container exec format error` error
-        href: serverless-containers/known-issues/exec-format-error.md
-      - name: Resolving the `No space left on device` error
-        href: serverless-containers/known-issues/no-space-left-on-device.md
       - name: Sample {{ serverless-containers-name }} configurations and use cases
         href: serverless-containers/how-to/index.md
         hidden: true
-      - name: How to set up a static IP address
-        href: serverless-containers/how-to/static-ip-address.md
   - name: '{{ captcha-name }}'
     items:
       - name: All solutions for {{ captcha-name }}

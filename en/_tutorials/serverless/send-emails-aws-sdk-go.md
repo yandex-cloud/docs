@@ -46,7 +46,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     - Repository
 
       1. {% include [clone-yc-postbox-examples](../../_includes/postbox/send-emails-aws-sdk/clone-yc-postbox-examples.md) %}
-      1. Navigate to the folder in the cloned `go/simple/` repository.
+      1. Navigate to the `go/simple/` directory in the cloned repository.
       1. {% include [edit-main-go](../../_includes/postbox/send-emails-aws-sdk/edit-main-go.md) %}
       1. Go to the `go/` directory.
 
@@ -175,7 +175,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. {% include [edit-main-go](../../_includes/postbox/send-emails-aws-sdk/edit-main-go.md) %}
       1. Create a file named `go.mod` and paste this code into it:
 
-          ```goalng
+          ```go
           module postbox
 
           go 1.23
@@ -235,7 +235,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Check the result {#check-result}
 
-Make sure the recipient specified in the file named `main.go` in the `Recipient` field has received an email with the specified parameters.
+Make sure the recipient specified in the `Recipient` field of the `main.go` file has received an email with the specified parameters.
 
 
 ## How to delete the resources you created {#clear-out}

@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/waf
 
 # yc smartwebsecurity waf
 
-
+Manage WAF profiles and rule set descriptors
 
 #### Command Usage
 

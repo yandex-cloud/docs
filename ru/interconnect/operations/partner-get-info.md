@@ -25,7 +25,7 @@ description: Следуя этой инструкции, вы сможете п�
   1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-type_23Twp }}** выберите `{{ ui-key.yacloud.interconnect.trunk-connection.connection-type-partner_tsPPf }}`.
 
       В результате откроется список партнеров {{ interconnect-full-name }}, доступных для подключения, и информация о поддерживаемых ими скоростях соединения.
-  1. Нажмите **{{ ui-key.yacloud.common.cancel }}**, чтобы не создавать транковое подключение в этот раз.
+  1. Нажмите **{{ ui-key.yacloud.common.cancel }}**, чтобы не создавать транковое подключение.
 
 - CLI {#cli}
 

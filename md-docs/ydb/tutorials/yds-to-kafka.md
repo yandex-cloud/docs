@@ -2,13 +2,14 @@
 
 # Поставка данных из очереди Data Streams в Managed Service for Apache Kafka®
 
-# Поставка данных из очереди Data Streams в Managed Service for Apache Kafka® с помощью Data Transfer
+# Поставка данных из очереди Yandex Data Streams в Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer
 
 
-С помощью сервиса Data Transfer можно поставлять данные из потока Data Streams в кластер Managed Service for Apache Kafka®.
+С помощью сервиса Yandex Data Transfer можно поставлять данные из потока Yandex Data Streams в кластер Yandex Managed Service for Apache Kafka®.
 
 Чтобы перенести данные:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Подготовьте поток данных Data Streams](#prepare-source).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
@@ -16,24 +17,34 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
 
-* База данных Managed Service for YDB ([тарифы Managed Service for YDB](../pricing/index.md)). Стоимость зависит от режима использования:
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-	* Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
-  	* Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* База данных Yandex Managed Service for YDB ([тарифы Managed Service for YDB](../pricing/index.md)). Стоимость зависит от режима использования:
+
+	* Для [бессерверного режима](../pricing/serverless.md) — оплачиваются операции с данными, объем хранимых данных и резервных копий.
+    * Для [режима с выделенными инстансами](../pricing/dedicated.md) — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервных копий.
 
 * Сервис Data Streams ([тарифы Data Streams](../../data-streams/pricing.md)). Стоимость зависит от режима тарификации:
 
-    * [По выделенным ресурсам](../../data-streams/pricing.md#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
+    * [По резерву ресурсов](../../data-streams/pricing.md#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
     * [По фактическому использованию](../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
 
-* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../data-transfer/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 Подготовьте инфраструктуру поставки данных:
 
@@ -49,11 +60,13 @@
 
     1. [Создайте кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации c хостами в публичном доступе.
 
+        
         {% note info %}
         
         Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
         
         {% endnote %}
+
 
     1. [Создайте в кластере Managed Service for Apache Kafka® топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.
 

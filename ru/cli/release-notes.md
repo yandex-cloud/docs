@@ -7,6 +7,22 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.30.0 (27.08.26) {#v-1-30-0}
+
+#### {{ mgp-name }} {#v-1-30-0-mgp-name}
+
+* Исправлено аварийное завершение CLI при вызове команд управления правилами HBA без указания приоритета правила:
+  * `yc managed-greenplum hba-rules create`;
+  * `yc managed-greenplum hba-rules delete`;
+  * `yc managed-greenplum hba-rules get`;
+  * `yc managed-greenplum hba-rules update`.
+
+#### {{ sws-name }} {#v-1-30-0-sws-name}
+
+* Исправлено отображение документации команд `yc smartwebsecurity`: скрыто дублирующее поддерево `v1` и добавлены описания групп.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.29.0 (24.08.26) {#v-1-29-0}
 
 #### {{ sf-name }} {#v-1-29-0-sf-name}
@@ -32,8 +48,6 @@ description: На странице представлены релизы CLI, а
 #### {{ mpg-name }} {#v-1-29-0-mpg-name}
 
 * Добавлен параметр `--extended-filter` в команду `yc managed-postgresql performance-diagnostics list-raw-sessions` для фильтрации сессий.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.28.0 (20.08.26) {#v-1-28-0}
 

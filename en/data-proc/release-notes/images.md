@@ -30,13 +30,10 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 
 ### 2.2.5 (beta) {#2-2-5}
 
-* Updated component versions:
-
-    * Hadoop updated to version 3.3.2.
-    * Spark updated to version 3.5.0.
-
-* Python updated to version [3.11.10](https://docs.python.org/3.11/whatsnew/3.11.html#summary-release-highlights "Список изменений").
-
+* Python updated to version [3.11.10](https://docs.python.org/3.11/whatsnew/3.11.html#summary-release-highlights "Release notes").
+* Conda now uses [Mamba](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community) as its default solver.
+* Added logging for Conda package installation.
+* Removed `[ERROR] can't parse line` messages from cluster startup logs.
 * Updated library versions:
 
     * IPython updated to version 8.22.0.
@@ -45,6 +42,17 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
     * pandas updated to version 2.2.2.
     * PyArrow updated to version 14.0.2.
     * scikit-learn updated to version 1.5.1.
+
+### 2.2.2—2.2.4 (beta) {#2-2-2}
+
+* Internal changes and bug fixes.
+
+### 2.2.0—2.2.1 (beta) {#2-2-0}
+
+* Updated component versions:
+
+    * Hadoop updated to version 3.3.2.
+    * Spark updated to version 3.5.0.
 
 ## 2.1.x images {#2-1-x}
 

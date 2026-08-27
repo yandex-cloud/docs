@@ -1,6 +1,6 @@
 # Метод PutDomainIdentityConfigurationSetAttributes
 
-Связывает [адрес](../../concepts/glossary.md#adress) и [конфигурацию](../../concepts/glossary.md#configuration), которые находятся в одном каталоге. Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.
+Связывает [адрес](../../concepts/glossary.md#address) и [конфигурацию](../../concepts/glossary.md#configuration), которые находятся в одном каталоге. Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.
 
 ## Запрос {#request}
 

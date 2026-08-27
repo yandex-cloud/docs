@@ -65,6 +65,22 @@
 
     For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.scheduler.interval.ms).
 
+* **Log message timestamp type** {{ tag-all }} {#settings-log-message-timestamp-type}
+
+    Type of the timestamp added to messages in the topic:
+
+    #|
+    || **Management console, {{ TF }}, and API**     | **CLI**              | **Description**  ||
+    || `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`    | `create-time`     | Time the message was created by the [producer](../../../managed-kafka/concepts/producers-consumers.md). ||
+    || `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`| `log-append-time` | Time the broker appended the message to the log. ||
+    |#
+
+    If the user has not explicitly provided the setting value, {{ KF }} uses the message creation time by the producer (`MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`).
+
+    This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-message-timestamp-type).
+
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.message.timestamp.type).
+
 * **Log preallocate** {{ tag-all }} {#settings-log-preallocate}
 
     This setting determines whether to pre-allocate space for log segment files.

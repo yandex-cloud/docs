@@ -230,7 +230,9 @@
 
  - [Отозвать роль у пользователя](operations/revoke-role.md)
 
- - [Синхронизировать пользователей и группы с Active Directory](operations/sync-ad.md)
+### Синхронизация пользователей и групп с внешними службами каталогов
+
+ - [Active Directory](operations/sync-ad.md)
 
  - [Управлять тарификацией Yandex Identity Hub](operations/manage-billing.md)
 
@@ -378,7 +380,11 @@
 
  - [Сессии](concepts/sessions.md)
 
- - [Синхронизация с Active Directory](concepts/ad-sync.md)
+### Синхронизация с внешними службами каталогов
+
+ - [Обзор](concepts/ad-sync/index.md)
+
+ - [Агент синхронизации Identity Hub AD Sync Agent](concepts/ad-sync/sync-agent.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 

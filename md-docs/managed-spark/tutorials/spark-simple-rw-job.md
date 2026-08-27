@@ -158,9 +158,9 @@
 
 1. В бакете для исходного кода создайте папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `ice_min_demo.py`.
 1. [Создайте задание](../operations/jobs-pyspark.md) с параметрами:
-    * **Тип задания**: **PySpark**.
-    * **Main python файл**: `s3a://<бакет_для_исходного_кода>/scripts/ice_min_demo.py`.
-    * **Настройки**: `spark.sql.warehouse.dir` – `s3a://<бакет_для_выходных_данных>/warehouse/`.
+    * **Тип задания** — `PySpark`.
+    * **Main python файл** — `s3a://<бакет_для_исходного_кода>/scripts/ice_min_demo.py`.
+    * **Настройки** — `spark.sql.warehouse.dir` — `s3a://<бакет_для_выходных_данных>/warehouse/`.
 
 ## Проверьте результат {#check-out}
 

@@ -391,24 +391,6 @@ items:
         href: datalens/known-issues/err-1043-bad-handshake-mysql.md
       - name: Устранение неверного значения поля `Итого` в сводной таблице
         href: datalens/known-issues/incorrect-value-in-field-total.md
-  - name: '{{ dataproc-name }}'
-    items:
-      - name: Все решения для {{ dataproc-name }}
-        href: data-processing/index.md
-      - name: Решения для известных проблем {{ dataproc-name }}
-        href: data-processing/known-issues/index.md
-        hidden: true
-      - name: >-
-          Кластер {{ dataproc-name }} находится в состоянии `UNKNOWN` сразу
-          после создания
-        href: >-
-          data-processing/known-issues/hosts-of-data-processing-cluster-are-in-status-unknown-after-creation.md
-      - name: Нет логов в YARN Resource Manager Web UI после выполнения заданий
-        href: >-
-          data-processing/known-issues/yarn-resource-manager-does-not-display-logs.md
-      - name: Примеры конфигураций и сценариев {{ dataproc-name }}
-        href: data-processing/how-to/index.md
-        hidden: true
   - name: '{{ ml-platform-name }}'
     items:
       - name: Все решения для {{ ml-platform-name }}
@@ -919,29 +901,6 @@ items:
       - name: Примеры конфигураций и сценариев {{ monitoring-name }}
         href: monitoring/how-to/index.md
         hidden: true
-  - name: '{{ serverless-containers-name }}'
-    items:
-      - name: Все решения для {{ serverless-containers-name }}
-        href: serverless-containers/index.md
-      - name: Решения для известных проблем {{ serverless-containers-name }}
-        href: serverless-containers/known-issues/index.md
-        hidden: true
-      - name: Устранение ошибки `Code 502 Message Error during function invocation`
-        href: >-
-          serverless-containers/known-issues/serverless-container-invoking-error-502.md
-      - name: Устранение ошибки `Service account is not available`
-        href: serverless-containers/known-issues/service-account-is-not-available.md
-      - name: Устранение ошибки `user container exec format error`
-        href: serverless-containers/known-issues/exec-format-error.md
-      - name: Устранение ошибки `No space left on device`
-        href: serverless-containers/known-issues/no-space-left-on-device.md
-      - name: Устранение ошибки 403 `Permission denied`
-        href: serverless-containers/known-issues/permission-denied.md
-      - name: Примеры конфигураций и сценариев {{ serverless-containers-name }}
-        href: serverless-containers/how-to/index.md
-        hidden: true
-      - name: Как настроить статический IP-адрес
-        href: serverless-containers/how-to/static-ip-address.md
   - name: '{{ captcha-name }}'
     items:
       - name: Все решения для {{ captcha-name }}

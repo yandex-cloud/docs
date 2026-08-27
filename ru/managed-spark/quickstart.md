@@ -49,13 +49,13 @@ description: В этой инструкции вы научитесь созда
    1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Откройте [созданный ранее](#create-s3-bucket) бакет.
       1. Перейдите в раздел **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-      1. Нажмите на кнопку ![image](../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
+      1. Нажмите ![image](../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
       1. В открывшемся окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}**:
 
          1. Начните вводить имя [созданного ранее](#before-you-begin) сервисного аккаунта и выберите его из выпадающего списка.
          1. Выберите права доступа {{ ui-key.yacloud.storage.dialog.StorageAclDialog.label_role-write_sGmJW }}.
-         1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-         1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+         1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+         1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 ## Создайте кластер {#cluster-create}
 
@@ -65,7 +65,7 @@ description: В этой инструкции вы научитесь созда
 
   1. В консоли управления выберите каталог, в котором нужно создать кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+  1. Нажмите **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Задайте имя кластера.
   1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите [созданный ранее](#before-you-begin) сервисный аккаунт.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, подсеть и группу безопасности для кластера.
@@ -77,7 +77,7 @@ description: В этой инструкции вы научитесь созда
      1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** выберите ваш каталог из списка.
      1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** — **INFO**.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
   1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ msp-full-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
 
 {% endlist %}
@@ -92,15 +92,15 @@ description: В этой инструкции вы научитесь созда
 
 1. В [консоли управления]({{ link-console-main }}) откройте созданный ранее кластер.
 1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.spark.jobs.create_action }}**.
-1. Выберите **Тип задания** — **{{ ui-key.yacloud.dataproc.jobs.field_pyspark-job-type }}**.
-1. В поле **Main python файл** введите путь к файлу `pi.py` в формате `s3a://<имя_бакета_Object_Storage>/<имя_файла>`.
-1. Нажмите кнопку **Создать задание**.
+1. Нажмите **{{ ui-key.yacloud.spark.jobs.create_action }}**.
+1. Выберите **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** — `{{ ui-key.yacloud.dataproc.jobs.field_pyspark-job-type }}`.
+1. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** введите путь к файлу `pi.py` в формате `s3a://<имя_бакета_Object_Storage>/<имя_файла>`.
+1. Нажмите **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
 ## Проверьте выполнение задания {#check_task}
 
 1. Дождитесь, пока запущенное задание перейдет в статус **Running**.
-1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}**.
+1. Перейдите в раздел **{{ ui-key.yacloud.common.logs }}**.
 1. В логах найдите строку с результатом выполнения задания, например:
 
    ```

@@ -1,5 +1,6 @@
 # Running a PySpark job using {{ maf-full-name }}
 
+
 {% include [af-restriction-version](../../../_includes/mdb/maf/af-restriction-version.md) %}
 
 Using the {{ maf-full-name }} cluster, you can automate work with [{{ msp-full-name }}](../../../managed-spark/index.yaml), including creating {{ msp-full-name }} clusters, running jobs, and other operations. Do it by creating a [directed acyclic graph (DAG) for jobs](../../../managed-airflow/concepts/index.md). The {{ AF }} cluster will use this DAG to automatically perform all its {{ msp-full-name }}-related actions.
@@ -66,7 +67,7 @@ Set up your infrastructure:
 
 1. [Create a cloud network](../../../vpc/operations/network-create.md) named `datalake-network`.
 
-   This will automatically create three subnets in different availability zones and a security group.
+   This will automatically create three subnets in different [availability zones](../../../overview/concepts/geo-scope.md) and a security group.
 
 1. [Create a {{ maf-name }} cluster](../../../managed-airflow/operations/cluster-create.md) with the following parameters:
 

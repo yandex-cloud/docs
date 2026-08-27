@@ -13,7 +13,7 @@
 || `success@simulator.pstbx.ru` | Успешная доставка | Yandex Cloud Postbox принимает письмо как доставленное. ||
 || `bounce@simulator.pstbx.ru` | Ошибка доставки | Почтовый сервер симулятора возвращает SMTP-ответ `452 4.2.2 The recipient's inbox is out of storage space`. ||
 || `delay@simulator.pstbx.ru` | Задержка доставки | Yandex Cloud Postbox не может доставить письмо из-за временной ошибки, отправляет [уведомление о задержке доставки](notification.md#delayed-delivery) и повторяет попытку доставки. ||
-|| `suppressed@simulator.pstbx.ru` | Получатель в стоп-листе | Yandex Cloud Postbox не пытается доставить письмо и отправляет [уведомление об ошибке доставки](notification.md#bounce) с подтипом `Suppressed`, как если бы адрес получателя находился в стоп-листе. ||
+|| `suppressed@simulator.pstbx.ru` | Получатель в стоп-листе | Yandex Cloud Postbox не пытается доставить письмо и отправляет [уведомление об ошибке доставки](notification.md#bounce) с подтипом `Suppressed`, как если бы адрес получателя находился в [глобальном стоп-листе](suppression-list.md#global). ||
 |#
 
 ## Как использовать {#usage}

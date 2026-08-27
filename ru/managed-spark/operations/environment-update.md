@@ -14,9 +14,9 @@ description: Из статьи вы узнаете, как изменить па
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.spark.label_title-environments }}**.
-  1. Выберите в списке необходимое окружение, перейдите в него и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  1. Выберите в списке необходимое окружение, перейдите в него и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. В блоке **{{ ui-key.yacloud.spark.EnvironmentForm.EnvironmentFormContent.section_general_fDK9S }}** измените имя, описание окружения и метки. 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Нажмите **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - gRPC API {#grpc-api}
 

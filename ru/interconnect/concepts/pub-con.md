@@ -58,7 +58,5 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/trunk-pub-add.md)
-* [{#T}](../tutorials/partner-trunk-pub-add.md)
-* [{#T}](../tutorials/pub-add.md)
-* [{#T}](../tutorials/pub-del.md)
+* [{#T}](../operations/pub-con-create.md)
+* [{#T}](../operations/pub-con-delete.md)

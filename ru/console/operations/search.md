@@ -104,7 +104,7 @@
 
 Тип объекта | Поля
 --- | ---
-[Адрес](../../postbox/concepts/glossary.md#adress) | Идентификатор, адрес, метки, описание
+[Адрес](../../postbox/concepts/glossary.md#address) | Идентификатор, адрес, метки, описание
 
 
 ### {{ cloud-registry-full-name }} {#cloud-registry}

@@ -106,7 +106,7 @@
 
 Тип объекта | Поля
 --- | ---
-[Адрес](../../postbox/concepts/glossary.md#adress) | Идентификатор, адрес, метки, описание
+[Адрес](../../postbox/concepts/glossary.md#address) | Идентификатор, адрес, метки, описание
 
 
 ### Yandex Cloud Registry {#cloud-registry}
