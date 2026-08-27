@@ -54,9 +54,9 @@
 
     1. [Создайте кластер {{ msp-full-name }}](../../managed-spark/operations/cluster-create.md) с параметрами:
 
-        * **Сервисный аккаунт** — `spark-agent`.
-        * **Сеть** — `spark-network`.
-        * **Подсеть** — `spark-network-{{ region-id }}-a`.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `spark-agent`.
+        * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `spark-network`.
+        * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}** — `spark-network-{{ region-id }}-a`.
 
 {% endlist %}
 
@@ -80,9 +80,9 @@
 
     1. Создайте в бакете `<бакет_для_исходного_кода_PySpark_задания>` папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `job_save_table.py`.
     1. [Создайте задание](../../managed-spark/operations/jobs-pyspark.md) с параметрами:
-        * **Тип задания** — **PySpark**.
-        * **Main python файл** – `s3a://<бакет_для_исходного_кода_PySpark_задания>/scripts/job_save_table.py`.
-        * **Аргументы** — `s3a://<бакет_для_выходных_данных_PySpark_задания>/warehouse`.
+        * **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** — `PySpark`.
+        * **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** – `s3a://<бакет_для_исходного_кода_PySpark_задания>/scripts/job_save_table.py`.
+        * **{{ ui-key.yacloud.dataproc.jobs.field_args }}** — `s3a://<бакет_для_выходных_данных_PySpark_задания>/warehouse`.
 
 {% endlist %}
 
@@ -94,7 +94,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
+    1. Нажмите на имя нужного кластера и выберите **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
     1. Дождитесь, когда созданное PySpark-задание перейдет в статус **Done**.
     1. Убедитесь, что в бакете `<бакет_для_выходных_данных_PySpark_задания>` в папке `warehouse` появилась БД `database_1`. Теперь данные из созданной БД хранятся в бакете {{ objstorage-name }} в формате JSON.
 

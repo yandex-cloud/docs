@@ -440,7 +440,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
     * Name: `myspark`.
     * Service account: `ajev56jp96ji********`.
     * Network: `msp-network`.
-    * Subnet: `msp-subnet`. The subnet availability zone is `ru-central1-a`; the range is `10.1.0.0/16`.
+    * Subnet: `msp-subnet`. The subnet [availability zone](../../overview/concepts/geo-scope.md) is `ru-central1-a`; the range is `10.1.0.0/16`.
     * Two drivers with [computing resource class](../concepts/instance-types.md): `c2-m16`.
     * Four executors with computing resource class: `c2-m16`.
     * History server enabled.

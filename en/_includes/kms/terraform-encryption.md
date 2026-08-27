@@ -29,9 +29,9 @@ To encrypt data:
    ```
    terraform validate
    ```
-
+  
    If the configuration is valid, you will get this message:
-
+  
    ```
    Success! The configuration is valid.
    ```
@@ -42,14 +42,14 @@ To encrypt data:
    terraform plan
    ```
 
-   You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+   You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
 
 1. Apply the configuration changes:
 
    ```
    terraform apply
    ```
-
+  
 1. Type `yes` and press **Enter** to confirm the changes.
 
    After this, you can access the ciphertext through the `ciphertext` variable, and the encrypted data, through `plaintext`.
@@ -58,7 +58,7 @@ To encrypt data:
    For verification, you can add the following code with the `decrypted_pass` output variable to the configuration file.
 
    {% note alert %}
-
+   
    This is not safe and can only be used for testing.
 
    {% endnote %}
@@ -77,10 +77,8 @@ To encrypt data:
    ```
 
    Result:
-
+   
    ```
    "strong password"
    ```
-
-   {% endnote %}
 

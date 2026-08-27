@@ -14,8 +14,8 @@ description: Вы можете удалить окружение кластер�
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого нужно удалить окружение.
   1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.spark.label_title-environments }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного окружения и выберите пункт **{{ ui-key.yacloud.spark.EnvironmentActions.button_action-delete_kqb63 }}**.
-  1. В открывшемся окне подтвердите удаление и нажмите кнопку **{{ ui-key.yacloud.spark.EnvironmentActions.popup-action_label_delete-msg_4d5Cr }}**.
+  1. Нажмите![image](../../_assets/console-icons/ellipsis.svg) для нужного окружения и выберите **{{ ui-key.yacloud.spark.EnvironmentActions.button_action-delete_kqb63 }}**.
+  1. В открывшемся окне подтвердите удаление и нажмите **{{ ui-key.yacloud.spark.EnvironmentActions.popup-action_label_delete-msg_4d5Cr }}**.
 
 - gRPC API {#grpc-api}
 

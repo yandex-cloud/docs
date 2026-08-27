@@ -24,7 +24,7 @@
 `postbox.recipients_per_email.count` | 200 ||
 || Максимальный размер письма вместе с вложениями 
 `postbox.email.size` | 10 МБ ||
-|| Максимальное количество [адресов](glossary.md#adress) 
+|| Максимальное количество [адресов](glossary.md#address) 
 `postbox.identities.count` | 10 ||
 || Максимальная скорость отправки писем 
 `postbox.send.rate` | 1 письмо в секунду ||

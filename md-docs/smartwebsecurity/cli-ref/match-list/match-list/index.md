@@ -2,7 +2,7 @@
 
 # yc smartwebsecurity match-list match-list
 
-A set of methods for managing MatchList resources.
+Manage match lists
 
 #### Command Usage
 

@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 
      * Основные параметры профиля.
      * Профили безопасности, к которым подключен профиль WAF.
-     * Наборы правил, включенные в профиль, количество активных правил в каждом наборе, уровень аномальности и паранойи для набора OWASP.
+     * Наборы правил, которые включены в профиль, количество активных правил в каждом наборе, уровень аномальности и паранойи для набора OWASP.
 
 - {{ TF }} {#tf}
 
@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Чтобы получить информацию о [WAF профиле](../concepts/waf.md) {{ sws-full-name }}, созданном с помощью {{ TF }}:
+  Чтобы получить информацию о [профиле WAF](../concepts/waf.md) {{ sws-full-name }}, который вы создали с помощью {{ TF }}:
 
   1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
 
@@ -41,13 +41,13 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
 
-     * `data "yandex_sws_waf_profile"` — описание WAF профиля в качестве источника данных:
+     * `data "yandex_sws_waf_profile"` — описание профиля WAF в качестве источника данных:
 
-       * `name` — имя WAF профиля.
+       * `name` — имя профиля WAF.
 
-     * `output "profile-created"` — выходная переменная, которая содержит информацию о временной метке создания WAF профиля:
+     * `output "profile-created"` — выходная переменная с информацией о временной метке создания профиля WAF:
 
-       * `value` — возвращаемое значение.
+       * `value` — значение, которое возвращает источник данных.
 
      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_sws_waf_profile` в [документации провайдера]({{ tf-provider-datasources-link }}/sws_waf_profile).
 
@@ -69,6 +69,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить информацию о [WAF профиле](../concepts/waf.md) {{ sws-full-name }}, воспользуйтесь методом REST API [get](../waf/api-ref/WafProfile/get.md) для ресурса [WafProfile](../waf/api-ref/WafProfile/index.md) или вызовом gRPC API [WafProfile/Get](../waf/api-ref/grpc/WafProfile/get.md).
+  Чтобы получить информацию о [профиле WAF](../concepts/waf.md) {{ sws-full-name }}, воспользуйтесь методом REST API [get](../waf/api-ref/WafProfile/get.md) для ресурса [WafProfile](../waf/api-ref/WafProfile/index.md) или вызовом gRPC API [WafProfile/Get](../waf/api-ref/grpc/WafProfile/get.md).
 
 {% endlist %}

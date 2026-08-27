@@ -23,6 +23,8 @@ items:
         href: operations/create-configuration.md
       - name: Привязка конфигурации к адресу
         href: operations/bind-configuration.md
+      - name: Управление пользовательским стоп-листом
+        href: operations/manage-suppression-list.md
       - name: Ограничение списка отправителей
         href: operations/restrict-senders.md
       - name: Запись логов
@@ -37,12 +39,12 @@ items:
         href: concepts/dns-records.md
       - name: Конфигурации
         href: concepts/configuration.md
+      - name: Стоп-листы
+        href: concepts/suppression-list.md
       - name: Уведомления об операциях с письмами
         href: concepts/notification.md
       - name: Симулятор доставки писем
         href: concepts/mail-simulator.md
-      - name: Глобальный стоп-лист
-        href: concepts/gsl.md
       - name: Отслеживание открытия писем
         href: concepts/mail-opened.md
       - name: Отслеживание переходов по ссылкам в письмах
@@ -138,6 +140,19 @@ items:
               - name: Метод PutConfigurationSetDeliveryOptions
                 href: >-
                   aws-compatible-api/api-ref/put-configuration-set-delivery-options.md
+              - name: Метод PutConfigurationSetSuppressionOptions
+                href: >-
+                  aws-compatible-api/api-ref/put-configuration-set-suppression-options.md
+          - name: Стоп-лист
+            items:
+              - name: Метод ListSuppressedDestinations
+                href: aws-compatible-api/api-ref/list-suppressed-destinations.md
+              - name: Метод GetSuppressedDestination
+                href: aws-compatible-api/api-ref/get-suppressed-destination.md
+              - name: Метод PutSuppressedDestination
+                href: aws-compatible-api/api-ref/put-suppressed-destination.md
+              - name: Метод DeleteSuppressedDestination
+                href: aws-compatible-api/api-ref/delete-suppressed-destination.md
           - name: Подписки
             items:
               - name: Метод GetConfigurationSetEventDestinations

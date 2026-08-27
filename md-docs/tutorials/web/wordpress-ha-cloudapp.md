@@ -323,7 +323,7 @@
 
 {% note info %}
 
-При установке приложения автоматически создаются [адрес](../../postbox/concepts/glossary.md#adress) Yandex Cloud Postbox и DNS-запись для его верификации.
+При установке приложения автоматически создаются [адрес](../../postbox/concepts/glossary.md#address) Yandex Cloud Postbox и DNS-запись для его верификации.
 
 {% endnote %}
 

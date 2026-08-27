@@ -885,7 +885,7 @@ the session timeout, the broker will remove the consumer from the group and trig
 
   Default value: **9019**.
 
-- `mysql_protocol`: Enables or disables MySQL interface on ClickHouse server
+- `mysql_protocol`: Enables or disables MySQL interface on ClickHouse server.
 
   Default value: **false**.
 

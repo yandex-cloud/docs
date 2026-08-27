@@ -21,11 +21,11 @@ The table below lists the `ValidatorObject` parameters.
 
  Parameter                    | Type            | Required | Default value | Description
 -----------------------------|----------------|--------------|-----------------------|--------------------------------------------------------------
- `validateRequestBody`       | `boolean`      | No          | `false`               | Enabling or disabling request body validation.                                                                       
- `validateRequestParameters` | `boolean`      | No          | `false`               | Enabling or disabling request parameter validation.                                                                 
- `validateResponseBody`      | `boolean`      | No          | `false`               | Enabling or disabling response body validation.                                                                        
- `validateResponseHeaders`   | `string`       | No          | `undefined`           | [Type of response header validation](#type). It may take one of the following values: `any`, `superset`, `subset`, or `exact`. 
- `validationErrorHandler`    | `ErrorHandler` | No          | `undefined`           | [Validation error handler](#errorhandler).
+ `validateRequestBody`       | `boolean`      | None          | `false`               | Enabling or disabling request body validation.                                                                       
+ `validateRequestParameters` | `boolean`      | None          | `false`               | Enabling or disabling request parameter validation.                                                                 
+ `validateResponseBody`      | `boolean`      | None          | `false`               | Enabling or disabling response body validation.                                                                        
+ `validateResponseHeaders`   | `string`       | None          | `undefined`           | [Type of response header validation](#type). It may take one of the following values: `any`, `superset`, `subset`, or `exact`. 
+ `validationErrorHandler`    | `ErrorHandler` | None          | `undefined`           | [Validation error handler](#errorhandler).
 
 #### Types of response header validation
 
@@ -45,7 +45,7 @@ The table below lists the `ErrorHandler` parameters.
  Parameter                      | Type                                                            | Required | Description 
 -------------------------------|----------------------------------------------------------------|--------------|------------------------------------
  `x-yc-apigateway-integration` | [x-yc-apigateway-integration extension](index.md#integration) | Yes           | Integration to invoke if there is a validation error.
- `statusCode`                  | `number`                                                       | No          | Response code the user will get along with the integration response.
+ `statusCode`                  | `number`                                                       | None          | Response code the user will get along with the integration response.
 
 If the `ErrorHandler` integration returns a `200` status code in its response, that response will be sent to the user who made the request to the API gateway. To change the response code sent to the user, you can use the `statusCode` parameter in `ErrorHandler`.
 

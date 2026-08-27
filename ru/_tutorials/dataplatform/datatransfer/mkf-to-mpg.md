@@ -1,8 +1,9 @@
 # Поставка данных из очереди {{ KF }} в {{ PG }} с помощью {{ data-transfer-full-name }}
 
 
-Вы можете настроить перенос данных из топика {{ mkf-name }} в {{ mpg-name }} с помощью сервиса {{ data-transfer-full-name }}. Для этого:
+Вы можете настроить перенос данных из топика {{ mkf-full-name }} в {{ mpg-full-name }} с помощью сервиса {{ data-transfer-full-name }}. Для этого:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
@@ -10,74 +11,78 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
-
-* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mkf-name }}](../../../managed-kafka/pricing.md)).
-* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
-
-
 ## Перед началом работы {#before-you-begin}
 
-1. Подготовьте инфраструктуру:
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
 
-    {% list tabs group=instructions %}
+## Необходимые платные ресурсы {#paid-resources}
 
-    - Вручную {#manual}
+* Кластер {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы {{ mkf-name }}](../../../managed-kafka/pricing.md)).
+* Кластер {{ mpg-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 
-        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-        1. [Создайте кластер-источник {{ mkf-name }}](../../../managed-kafka/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../../overview/concepts/geo-scope.md), любой подходящей конфигурации и с публичным доступом.
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
-        1. [Создайте в кластере-источнике топик](../../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.
+{% list tabs group=instructions %}
 
-        1. [Создайте в кластере-источнике пользователя](../../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `mkf-user` и правами доступа к созданному топику `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER`.
+- Вручную {#manual}
+  
+  
+  {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-        1. В той же зоне доступности [создайте кластер-приемник {{ mpg-name }}](../../../managed-postgresql/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `pg-user` и хостами в публичном доступе.
 
-        1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
-            * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
+  1. [Создайте кластер-источник {{ mkf-name }}](../../../managed-kafka/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../../overview/concepts/geo-scope.md), любой подходящей конфигурации и с публичным доступом.
 
-    - {{ TF }} {#tf}
+  1. [Создайте в кластере-источнике топик](../../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.
 
-        1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
-        1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
-        1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
-        1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
+  1. [Создайте в кластере-источнике пользователя](../../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `mkf-user` и правами доступа к созданному топику `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER`.
 
-        1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-postgresql.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-postgresql/blob/main/kafka-postgresql.tf).
+  1. В той же зоне доступности [создайте кластер-приемник {{ mpg-name }}](../../../managed-postgresql/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `pg-user` и хостами в публичном доступе.
 
-            В этом файле описаны:
+  1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
+      * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
+      * [{{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
-            * [сети](../../../vpc/concepts/network.md#network) и [подсети](../../../vpc/concepts/network.md#subnet) для размещения кластеров;
-            * [группы безопасности](../../../vpc/concepts/security-groups.md) для подключения к кластерам;
-            * кластер-источник {{ mkf-name }};
-            * кластер-приемник {{ mpg-name }};
-            * эндпоинт для источника;
-            * эндпоинт для приемника;
-            * трансфер.
+- {{ TF }} {#tf}
 
-        1. Укажите в файле `kafka-postgresql.tf`:
+  1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
+  1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
+  1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
+  1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-            * Версии {{ KF }} и {{ PG }}.
-            * Пароли пользователей {{ KF }} и {{ PG }}.
+  1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-postgresql.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-postgresql/blob/main/kafka-postgresql.tf).
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+      В этом файле описаны:
 
-            ```bash
-            terraform validate
-            ```
+      * [сети](../../../vpc/concepts/network.md#network) и [подсети](../../../vpc/concepts/network.md#subnet) для размещения кластеров;
+      * [группы безопасности](../../../vpc/concepts/security-groups.md) для подключения к кластерам;
+      * кластер-источник {{ mkf-name }};
+      * кластер-приемник {{ mpg-name }};
+      * эндпоинт для источника;
+      * эндпоинт для приемника;
+      * трансфер.
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+  1. Укажите в файле `kafka-postgresql.tf`:
 
-        1. Создайте необходимую инфраструктуру:
+      * Версии {{ KF }} и {{ PG }}.
+      * Пароли пользователей {{ KF }} и {{ PG }}.
 
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-            {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+      ```bash
+      terraform validate
+      ```
 
-    {% endlist %}
+      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+  1. Создайте необходимую инфраструктуру:
+
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
 
 1. Установите утилиты:
 
@@ -93,6 +98,7 @@
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
+        ```
 
 ## Подготовьте тестовые данные {#prepare-data}
 

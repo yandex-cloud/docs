@@ -4,7 +4,7 @@
 
 Метка | Значение
 ----|----
-identity | Идентификатор [адреса](../../../postbox/concepts/glossary.md#adress) отправителя.
+identity | Идентификатор [адреса](../../../postbox/concepts/glossary.md#address) отправителя.
 service | Метка сервиса, значение всегда `postbox`.
 
 ## Метрики приема писем {#inbound-metrics}

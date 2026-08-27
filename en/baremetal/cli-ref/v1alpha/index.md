@@ -15,19 +15,19 @@ Syntax:
 
 #### Command Tree
 
-- [yc baremetal v1alpha boot-image](boot-image/index.md) — A set of methods for managing Image resources.
+- [yc baremetal v1alpha boot-image](boot-image/index.md) — A set of methods for managing BootImage resources.
 
-  - [yc baremetal v1alpha boot-image create](boot-image/create.md) — Creates an image in the specified folder.
+  - [yc baremetal v1alpha boot-image create](boot-image/create.md) — Creates a BootImage in the specified folder.
 
-  - [yc baremetal v1alpha boot-image delete](boot-image/delete.md) — Deletes the specified image.
+  - [yc baremetal v1alpha boot-image delete](boot-image/delete.md) — Deletes the specified BootImage.
 
-  - [yc baremetal v1alpha boot-image get](boot-image/get.md) — Returns the specific Image resource.
+  - [yc baremetal v1alpha boot-image get](boot-image/get.md) — Returns the specific BootImage resource.
 
-  - [yc baremetal v1alpha boot-image list](boot-image/list.md) — Retrieves the list of Image resources in the specified folder.
+  - [yc baremetal v1alpha boot-image list](boot-image/list.md) — Retrieves the list of BootImage resources in the specified folder.
 
-  - [yc baremetal v1alpha boot-image list-operations](boot-image/list-operations.md) — Lists operations for the specified image.
+  - [yc baremetal v1alpha boot-image list-operations](boot-image/list-operations.md) — Lists operations for the specified BootImage.
 
-  - [yc baremetal v1alpha boot-image update](boot-image/update.md) — Updates the specified image.
+  - [yc baremetal v1alpha boot-image update](boot-image/update.md) — Updates the specified BootImage.
 
 - [yc baremetal v1alpha configuration](configuration/index.md) — A set of methods to retrieve information about Configuration resources.
 

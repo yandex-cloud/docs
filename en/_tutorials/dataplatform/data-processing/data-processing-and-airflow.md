@@ -54,7 +54,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
 {% list tabs group=instructions %}
 
-* High security level
+- High security level
 
    Set up the infrastructure:
 
@@ -92,7 +92,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
    1. [Create a cloud network](../../../vpc/operations/network-create.md) named `data-processing-network`.
 
-      This will automatically create three subnets in different availability zones.
+      This will automatically create three subnets in different [availability zones](../../../overview/concepts/geo-scope.md).
 
    1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the `data-processing-network-{{ region-id }}-a` subnet.
    1. For the {{ metastore-name }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `metastore-sg` in `data-processing-network`. Add the following rules to the group:
@@ -157,7 +157,7 @@ The example below illustrates two scenarios. Select the one you find most releva
       * **Security group**: `airflow-sg`
       * **Bucket name**: `<bucket_for_Managed_Airflow>`
 
-* Simplified setup
+- Simplified setup
 
    Set up your infrastructure:
 
@@ -172,7 +172,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
    1. [Create a cloud network](../../../vpc/operations/network-create.md) named `data-processing-network`.
 
-      This will automatically create three subnets in different availability zones and a security group.
+      This will automatically create three subnets in different [availability zones](../../../overview/concepts/geo-scope.md) and a security group.
 
    1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the `data-processing-network-{{ region-id }}-a` subnet.
    1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
@@ -200,7 +200,7 @@ For a PySpark job, we will use a Python script that creates a table and is store
 
 {% list tabs group=instructions %}
 
-* High security level
+- High security level
 
    1. Create a local file named `create-table.py` and paste the following script to it:
 
@@ -233,7 +233,7 @@ For a PySpark job, we will use a Python script that creates a table and is store
 
    1. In `<bucket_for_PySpark_job_source_code>`, create a folder named `scripts` and [upload](../../../storage/operations/objects/upload.md#simple) the `create-table.py` file to it.
 
-* Simplified setup
+- Simplified setup
 
    1. Create a local file named `create-table.py` and paste the following script to it:
 
@@ -280,7 +280,7 @@ To prepare a DAG:
 
 {% list tabs group=instructions %}
 
-* High security level
+- High security level
 
    1. [Create an SSH key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Save the public part of the key: you will need it to create a {{ dataproc-name }} cluster.
    1. Create a local file named `Data-Processing-DAG.py`, paste the following script to it and substitute the variables with your infrastructure data:
@@ -378,7 +378,7 @@ To prepare a DAG:
 
    1. To run the DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
-* Simplified setup
+- Simplified setup
 
    1. [Create an SSH key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Save the public part of the key: you will need it to create a {{ dataproc-name }} cluster.
    1. Create a local file named `Data-Processing-DAG.py`, paste the following script to it and substitute the variables with your infrastructure data:
@@ -480,14 +480,14 @@ To prepare a DAG:
 
 {% list tabs group=instructions %}
 
-* High security level
+- High security level
 
    1. To monitor task execution results, click the DAG name. You can find the results in the **Grid** tab.
    1. Wait until the status of all the three tasks in the DAG changes to **Success**. Simultaneously, you can check that a {{ dataproc-name }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
    1. Make sure your `<bucket_for_PySpark_job_output_data>` now contains the `countries` folder with the `part-00000-...` file. The data from the created table is now stored in the {{ objstorage-name }} bucket and the table metadata is stored in the {{ metastore-name }} cluster.
    1. Make sure there are PySpark job logs in `<bucket_for_collecting_Spark_logs>`.
 
-* Simplified setup
+- Simplified setup
 
    1. To monitor task execution results, click the DAG name. You can find the results in the **Grid** tab.
    1. Wait until the status of all the three tasks in the DAG changes to **Success**. Simultaneously, you can check that an {{ dataproc-name }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
@@ -502,7 +502,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 {% list tabs group=instructions %}
 
-* High security level
+- High security level
 
    1. [Service accounts](../../../iam/operations/sa/delete.md).
    1. [{{ objstorage-name }} buckets](../../../storage/operations/buckets/delete.md).
@@ -514,7 +514,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
    1. [Cloud subnets](../../../vpc/operations/subnet-delete.md) created in `data-processing-network` by default.
    1. [Cloud network](../../../vpc/operations/network-delete.md).
 
-* Simplified setup
+- Simplified setup
 
    1. [Service account](../../../iam/operations/sa/delete.md).
    1. [{{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md).

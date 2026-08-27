@@ -5,7 +5,10 @@
 * отправку [уведомлений об операциях с письмами](../concepts/notification.md);
 * обязательное TLS-шифрование;
 * сбор статистики вовлеченности;
-* разделение [статистики](../concepts/statistics.md#configuration-filter) по сценариям отправки.
+* разделение [статистики](../concepts/statistics.md#configuration-filter) по сценариям отправки;
+* проверку [пользовательского стоп-листа](../concepts/suppression-list.md#user) при отправке писем получателям.
+
+Чтобы изменять настройки конфигурации, необходима [роль](../security/index.md#postbox-editor) `postbox.editor`.
 
 {% list tabs group=instructions %}
 
@@ -39,6 +42,8 @@
         Включение опции **{{ ui-key.yacloud.postbox.field_engagement-metrics }}** приведет к модификации тела письма. Подробнее в разделах [{#T}](../concepts/mail-opened.md) и [{#T}](../concepts/click-tracking.md).
 
         {% endnote %}
+
+    1. Чтобы проверять [пользовательский стоп-лист](../concepts/suppression-list.md#user) при отправке писем получателям, в блоке **Настройки стоп-листа** включите опцию **{{ ui-key.yacloud.postbox.field_suppression-list-check }}** и в поле **{{ ui-key.yacloud.postbox.field_suppression-reason-type }}** выберите причины. На адреса, добавленные в стоп-лист по указанным причинам, не будут отправляться письма. Если настройки стоп-листа не задать, отправку будет блокировать только причина `COMPLAINT`. Подробнее в разделе [{#T}](../concepts/suppression-list.md#reasons).
 
     1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
 
@@ -80,6 +85,16 @@
         ```
 
         Можно добавить несколько подписок.
+
+    1. Чтобы задать, по каким [причинам](../concepts/suppression-list.md#reasons) адреса из пользовательского стоп-листа блокируют отправку письма, выполните команду:
+
+        ```bash
+        aws sesv2 put-configuration-set-suppression-options \
+           --endpoint-url=$ENDPOINT \
+           --profile $PROFILE \
+           --configuration-set-name $CONFIGSET_NAME \
+           --suppressed-reasons BOUNCE COMPLAINT
+        ```
 
 {% endlist %}
 

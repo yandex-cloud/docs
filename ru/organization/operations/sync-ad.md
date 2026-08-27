@@ -6,9 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Синхронизировать пользователей и группы с {{ microsoft-idp.ad-full }}
 
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
-Если для управления пользователями ваша компания использует [{{ microsoft-idp.ad-full }}](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/active-directory-domain-services) и вы хотите организовать для ваших пользователей доступ к {{ yandex-cloud }}, вам не нужно вручную создавать в {{ yandex-cloud }} учетные записи для ваших пользователей. Вместо этого вы можете настроить [синхронизацию](../concepts/ad-sync.md) с {{ org-full-name }} пользователей и групп, созданных в вашем каталоге {{ microsoft-idp.ad-short }}.
+Если для управления пользователями ваша компания использует [{{ microsoft-idp.ad-full }}](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/active-directory-domain-services) и вы хотите организовать для ваших пользователей доступ к {{ yandex-cloud }}, вам не нужно вручную создавать в {{ yandex-cloud }} учетные записи для ваших пользователей. Вместо этого вы можете настроить [синхронизацию](../concepts/ad-sync/index.md) с {{ org-full-name }} пользователей и групп, созданных в вашем каталоге {{ microsoft-idp.ad-short }}.
 
 ## Подготовьте к синхронизации организацию {{ org-full-name }} {#prepare-org}
 
@@ -16,21 +14,21 @@ description: Следуя данной инструкции, вы сможете
 1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 1. [Создайте](./user-pools/create-userpool.md) пул пользователей в {{ org-full-name }} и [привяжите](./user-pools/add-domain.md#userpool) к нему [домен](../concepts/domains.md), идентичный домену, который используется на [контроллере домена](https://ru.wikipedia.org/wiki/Контроллер_домена) {{ microsoft-idp.ad-short }}.
 
-    Привязывать ваш собственный домен к [пулу пользователей](../concepts/user-pools.md) не обязательно. Вместо этого вы можете привязать другой домен или выбрать домен по умолчанию. Но в этом случае в конфигурации [агента синхронизации](../concepts/ad-sync.md#sync-agent) потребуется настроить подстановку домена в параметре `replacement_domain`. Подробнее читайте в разделе [{#T}](../concepts/ad-sync.md#agent-config).
+    Привязывать ваш собственный домен к [пулу пользователей](../concepts/user-pools.md) не обязательно. Вместо этого вы можете привязать другой домен или выбрать домен по умолчанию. Но в этом случае в конфигурации [агента синхронизации](../concepts/ad-sync/sync-agent.md) потребуется настроить подстановку домена в параметре `replacement_domain`. Подробнее читайте в разделе [{#T}](../concepts/ad-sync/sync-agent.md#agent-config).
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) ему следующие роли на [организацию](../concepts/organization.md), в которой находится нужный пул пользователей:
 
-    {% include [ad-synk-sa-roles](../../_includes/organization/ad-synk-sa-roles.md) %}
+    {% include [ad-sync-sa-roles](../../_includes/organization/ad-sync-sa-roles.md) %}
 1. (Опционально) [Создайте](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) и сохраните [авторизованный ключ](../../iam/concepts/authorization/key.md) для вашего [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 
-    {% include [ad-synk-iam-via-metadata-warning](../../_includes/organization/ad-synk-iam-via-metadata-warning.md) %}
+    {% include [ad-sync-iam-via-metadata-warning](../../_includes/organization/ad-sync-iam-via-metadata-warning.md) %}
 
 ## Подготовьте контроллер домена {{ microsoft-idp.ad-short }} {#dc-setup}
 
-{% include [ad-synk-presetup-ad](../../_includes/organization/ad-synk-presetup-ad.md) %}
+{% include [ad-sync-presetup-ad](../../_includes/organization/ad-sync-presetup-ad.md) %}
 
 ## Настройте и запустите агент синхронизации {#setup-agent}
 
-Вы можете установить [агент](../concepts/ad-sync.md#sync-agent) синхронизации на любой сервер под управлением ОС [Linux](https://ru.wikipedia.org/wiki/Linux) или [Windows](https://ru.wikipedia.org/wiki/Windows).
+Вы можете установить [агент](../concepts/ad-sync/sync-agent.md) синхронизации на любой сервер под управлением ОС [Linux](https://ru.wikipedia.org/wiki/Linux) или [Windows](https://ru.wikipedia.org/wiki/Windows).
 
 Если вы устанавливаете агент синхронизации на [виртуальную машину](../../compute/concepts/vm.md) {{ compute-full-name }}, [подключите](../../compute/operations/vm-control/vm-connect-sa.md) к этой виртуальной машине созданный [ранее](#prepare-org) сервисный аккаунт.
 
@@ -42,15 +40,9 @@ description: Следуя данной инструкции, вы сможете
 
 * Для обращения к контроллеру домена {{ microsoft-idp.ad-short }}:
 
-    {% include [ad-synk-ports](../../_includes/organization/ad-synk-ports.md) %}
+    {% include [ad-sync-ports](../../_includes/organization/ad-sync-ports.md) %}
 
-Если для аутентификации на стороне {{ microsoft-idp.ad-short }} вы планируете использовать протокол [Kerberos](https://ru.wikipedia.org/wiki/Kerberos), самостоятельно установите на сервер компоненты, необходимые для работы этого протокола, и создайте файл `keytab` с ключами шифрования.
-
-{% note info %}
-
-{% include [ad-synk-kerber-nowin-notice](../../_includes/organization/ad-synk-kerber-nowin-notice.md) %}
-
-{% endnote %}
+{% include [ad-sync-kerberos-components-installation-info](../../_includes/organization/ad-sync-kerberos-components-installation-info.md) %}
 
 Чтобы запустить синхронизацию пользователей и групп:
 
@@ -84,39 +76,33 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       nano /etc/yc-identityhub-sync-agent/config.yaml
       ```
-  1. В открывшемся файле задайте конфигурацию агента синхронизации. Конфигурация зависит от типа аутентификации, используемого агентом на стороне {{ microsoft-idp.ad-short }}, и задается в [YAML](https://yaml.org/)-файле в следующем формате:
+  1. В открывшемся файле задайте конфигурацию агента синхронизации. Конфигурация зависит от [способа аутентификации](../../organization/concepts/ad-sync/sync-agent.md#agent-ad-auth), используемого агентом на стороне {{ microsoft-idp.ad-short }}, и задается в [YAML](https://yaml.org/)-файле в следующем формате:
 
-      {% list tabs group=authentication %}
+      {% list tabs group=authentication_linux %}
 
-      - Аутентификация по логину и паролю {#password}
+      - По логину и паролю {#password_linux}
 
-        {% include [ad-synk-yaml-config](../../_includes/organization/ad-synk-yaml-config.md) %}
-
-        Где:
-
-        {% include [ad-synk-yaml-config-legend-part1](../../_includes/organization/ad-synk-yaml-config-legend-part1.md) %}
-
-        {% include [ad-synk-yaml-config-legend-passw](../../_includes/organization/ad-synk-yaml-config-legend-passw.md) %}
-
-        {% include [ad-synk-yaml-config-legend-part3](../../_includes/organization/ad-synk-yaml-config-legend-part3.md) %}
-
-      - Аутентификация по протоколу Kerberos {#kerberos}
-
-        {% note info %}
-
-        {% include [ad-synk-kerber-nowin-notice](../../_includes/organization/ad-synk-kerber-nowin-notice.md) %}
-
-        {% endnote %}
-
-        {% include [ad-synk-yaml-config-kerberos](../../_includes/organization/ad-synk-yaml-config-kerberos.md) %}
+        {% include [ad-sync-yaml-config](../../_includes/organization/ad-sync-yaml-config.md) %}
 
         Где:
 
-        {% include [ad-synk-yaml-config-legend-part1](../../_includes/organization/ad-synk-yaml-config-legend-part1.md) %}
+        {% list tabs accordion %}
 
-        {% include [ad-synk-yaml-config-legend-kerber](../../_includes/organization/ad-synk-yaml-config-legend-kerber.md) %}
+        {% include [ad-sync-yaml-config-complete-password-legend](../../_includes/organization/ad-sync-yaml-config-complete-password-legend.md) %}
 
-        {% include [ad-synk-yaml-config-legend-part3](../../_includes/organization/ad-synk-yaml-config-legend-part3.md) %}
+        {% endlist %}
+
+      - По протоколу Kerberos {#kerberos_linux}
+
+        {% include [ad-sync-yaml-config-kerberos](../../_includes/organization/ad-sync-yaml-config-kerberos.md) %}
+
+        Где:
+
+        {% list tabs accordion %}
+
+        {% include [ad-sync-yaml-config-complete-kerberos-legend](../../_includes/organization/ad-sync-yaml-config-complete-kerberos-legend.md) %}
+
+        {% endlist %}
 
       {% endlist %}
 
@@ -166,23 +152,57 @@ description: Следуя данной инструкции, вы сможете
       2. Run: Start-Service yc-identityhub-sync-agent
       ```
   1. Скопируйте на ваш сервер файл с сохраненным ранее авторизованным ключом сервисного аккаунта. Для этого вы можете воспользоваться любым подходящим инструментом.
-  1. В любом текстовом редакторе откройте [YAML](https://yaml.org/)-файл конфигурации агента `config.yaml`, расположенный в папке `C:\ProgramData\YcIdentityHubSyncAgent\`, и добавьте в него следующую конфигурацию:
+  1. В любом текстовом редакторе откройте [YAML](https://yaml.org/)-файл конфигурации агента `config.yaml`, расположенный в папке `C:\ProgramData\YcIdentityHubSyncAgent\`.
+  1. В открывшемся файле задайте конфигурацию агента синхронизации. Конфигурация зависит от [способа аутентификации](../../organization/concepts/ad-sync/sync-agent.md#agent-ad-auth), используемого агентом на стороне {{ microsoft-idp.ad-short }}, и задается в [YAML](https://yaml.org/)-файле в следующем формате:
 
-      {% include [ad-synk-yaml-config](../../_includes/organization/ad-synk-yaml-config.md) %}
+      {% list tabs group=authentication_windows %}
 
-      Где:
+      - От имени аккаунта gMSA {#gmsa-windows}
 
-      {% include [ad-synk-yaml-config-legend-part1](../../_includes/organization/ad-synk-yaml-config-legend-part1.md) %}
+        {% include [ad-sync-yaml-config-gmsa](../../_includes/organization/ad-sync-yaml-config-gmsa.md) %}
 
-      {% include [ad-synk-yaml-config-legend-passw](../../_includes/organization/ad-synk-yaml-config-legend-passw.md) %}
+        Где:
 
-      {% include [ad-synk-yaml-config-legend-part3](../../_includes/organization/ad-synk-yaml-config-legend-part3.md) %}
+        {% list tabs accordion %}
+
+        {% include [ad-sync-yaml-config-complete-gmsa-legend](../../_includes/organization/ad-sync-yaml-config-complete-gmsa-legend.md) %}
+
+        {% endlist %}
+
+      - По логину и паролю {#password_windows}
+
+        {% include [ad-sync-yaml-config](../../_includes/organization/ad-sync-yaml-config.md) %}
+
+        Где:
+
+        {% list tabs accordion %}
+
+        {% include [ad-sync-yaml-config-complete-password-legend](../../_includes/organization/ad-sync-yaml-config-complete-password-legend.md) %}
+
+        {% endlist %}
+
+      - По протоколу Kerberos {#kerberos_windows}
+
+        {% include [ad-sync-yaml-config-kerberos](../../_includes/organization/ad-sync-yaml-config-kerberos.md) %}
+
+        Где:
+
+        {% list tabs accordion %}
+
+        {% include [ad-sync-yaml-config-complete-kerberos-legend](../../_includes/organization/ad-sync-yaml-config-complete-kerberos-legend.md) %}
+
+        {% endlist %}
+
+      {% endlist %}
 
   1. Запустите службу агента синхронизации:
 
       ```powershell
       Start-Service yc-identityhub-sync-agent
       ```
+
+      {% include [runas-gmsa-account-notice](../../_includes/organization/runas-gmsa-account-notice.md) %}
+
   1. Чтобы убедиться, что процесс синхронизации идет, посмотрите файл с логами агента. Например:
 
       ```bash
@@ -203,7 +223,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Протестируйте изменения в конфигурации агента {#dry-run}
 
-Агент {{ ad-sync-agent }} можно запустить в [тестовом режиме](../concepts/ad-sync.md#dry-run) (dry run). Этот режим позволяет убедиться в корректности вносимых в конфигурацию агента изменений прежде чем применять эти изменения в рабочем режиме.
+Агент {{ ad-sync-agent }} можно запустить в [тестовом режиме](../concepts/ad-sync/sync-agent.md#dry-run) (dry run). Этот режим позволяет убедиться в корректности вносимых в конфигурацию агента изменений прежде чем применять эти изменения в рабочем режиме.
 
 Чтобы запустить агент в режиме dry run:
 
@@ -232,7 +252,7 @@ description: Следуя данной инструкции, вы сможете
         --config /etc/yc-identityhub-sync-agent/config.yaml
       ```
 
-      {% include [ad-synk-dry-run-output](../../_includes/organization/ad-synk-dry-run-output.md) %}
+      {% include [ad-sync-dry-run-output](../../_includes/organization/ad-sync-dry-run-output.md) %}
 
   1. Если все сохраненные в файл логов изменения являются ожидаемыми, а операции не содержат ошибок, значит, внесенные в конфигурацию агента изменения корректны, и агент можно запускать в рабочем режиме:
 
@@ -266,7 +286,7 @@ description: Следуя данной инструкции, вы сможете
         --config C:\ProgramData\YcIdentityHubSyncAgent\config.yaml
       ```
 
-      {% include [ad-synk-dry-run-output](../../_includes/organization/ad-synk-dry-run-output.md) %}
+      {% include [ad-sync-dry-run-output](../../_includes/organization/ad-sync-dry-run-output.md) %}
 
   1. Если все сохраненные в файл логов изменения являются ожидаемыми, а операции не содержат ошибок, значит, внесенные в конфигурацию агента изменения корректны, и агент можно запускать в рабочем режиме:
 
@@ -287,4 +307,7 @@ description: Следуя данной инструкции, вы сможете
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](../concepts/ad-sync.md)
+* [{#T}](../concepts/ad-sync/index.md)
+* [{#T}](../concepts/ad-sync/sync-agent.md)
+
+[*gmsa_account]: {% include notitle [get-folder-id](../../_popups/identity-hub/gmsa.md) %}

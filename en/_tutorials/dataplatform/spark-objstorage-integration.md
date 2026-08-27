@@ -50,7 +50,7 @@ With a local Hive catalog, you can access tables by name without specifying a pa
 
     1. [Create a cloud network](../../vpc/operations/network-create.md) named `spark-network`.
 
-        This will automatically create three subnets in different availability zones.
+        This will automatically create three subnets in different [availability zones](../../overview/concepts/geo-scope.md).
 
     1. [Create a {{ msp-full-name }} cluster](../../managed-spark/operations/cluster-create.md) with the following parameters:
 

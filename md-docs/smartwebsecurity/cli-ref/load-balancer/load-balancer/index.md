@@ -2,7 +2,7 @@
 
 # yc smartwebsecurity load-balancer load-balancer
 
-A set of methods for managing Smart Web Security load balancers.
+Manage SmartWebSecurity load balancers
 
 #### Command Usage
 

@@ -71,12 +71,12 @@
 
 1. [Создайте кластер {{ maf-name }}](../../../managed-airflow/operations/cluster-create.md) с параметрами:
 
-   * **Сервисный аккаунт** — `integration-agent`.
-   * **Зона доступности** — `{{ region-id }}-a`.
-   * **Сеть** — `datalake-network`.
-   * **Подсеть** — `datalake-network-{{ region-id }}-a`.
-   * **Группа безопасности** — группа по умолчанию в сети `datalake-network`.
-   * **Имя бакета** — имя созданного ранее бакета.
+   * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `integration-agent`.
+   * **{{ ui-key.yacloud.compute.groups.create.field_zone }}** — `{{ region-id }}-a`.
+   * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `datalake-network`.
+   * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}** — `datalake-network-{{ region-id }}-a`.
+   * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — группа по умолчанию в сети `datalake-network`.
+   * **{{ ui-key.yacloud.airflow.field_connector-bucket-name }}** — имя созданного ранее бакета.
 
 ## Подготовьте PySpark-задание {#prepare-a-job}
 

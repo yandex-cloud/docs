@@ -21,7 +21,7 @@
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте облачную инфраструктуру](#setup-infrastructure).
-1. [Закажите виртуальный маршрутизатор](#request-ri).
+1. [Подготовьте виртуальный маршрутизатор](#request-ri).
 1. [Создайте приватное соединение](#create-prc).
 1. [Проверьте сетевую связность](#check-connectivity).
 
@@ -182,27 +182,21 @@
 {% endlist %}
 
 
-## Создайте виртуальный маршрутизатор {#request-ri}
+## Подготовьте виртуальный маршрутизатор {#request-ri}
 
-Для организации сетевой связности между подсетями {{ baremetal-name }}, подсетями {{ vpc-name }} и/или подсетями on-prem необходимо [создать виртуальный маршрутизатор](../../cloud-router/operations/ri-create.md).
+[Проверьте](../../cloud-router/operations/ri-get-info.md), есть ли в каталоге виртуальный маршрутизатор, который можно использовать для этого сценария.
 
-Если в вашем каталоге уже есть настроенная сетевая связность с использованием [{{ interconnect-name }}](../../interconnect/index.yaml) (VPC-to-On-Prem), то вы можете использовать уже существующий виртуальный маршрутизатор или создать новый, дополнительный виртуальный маршрутизатор для организации обособленной сетевой связности.
+Если подходящего маршрутизатора нет, [создайте его](../../cloud-router/operations/ri-create.md). При создании:
 
-### Проверьте наличие виртуального маршрутизатора в вашем каталоге {#check-for-ri}
+1. Задайте имя `bms-vpc-router`.
+1. В поле **{{ ui-key.yacloud.cloud-router.router.networks_fbzKL }}** выберите сеть `sample-network`.
+1. Для зоны доступности `{{ region-id }}-b` добавьте IP-префикс `192.168.11.0/24`.
 
-1. {% include [cli-install](../../_includes/cli-install.md) %}
-
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-1. {% include [check-for-routing-instance](../../_includes/baremetal/check-for-routing-instance.md) %}
-
-1. Если у вас уже есть виртуальный маршрутизатор, вы можете пропустить следующий шаг и [перейти](#create-private-connection) к созданию приватного соединения.
-
-    Если у вас нет виртуального маршрутизатора или вы хотите построить дополнительную обособленную сетевую связность, [создайте новый](../../cloud-router/operations/ri-create.md).
+Если вы используете существующий виртуальный маршрутизатор, [добавьте](../../cloud-router/operations/ri-prefixes-upsert.md#add-network) в него сеть `sample-network` и IP-префикс `192.168.11.0/24` для зоны доступности `{{ region-id }}-b`.
 
 ## Создайте приватное соединение {#create-prc}
 
-После того как в вашем каталоге будет создан необходимый виртуальный маршрутизатор, создайте [приватное соединение](../../baremetal/concepts/private-network.md#private-connection-to-vpc) {{ interconnect-name }} в сервисе {{ baremetal-name }}:
+После того как виртуальный маршрутизатор будет подготовлен, создайте [приватное соединение](../../baremetal/concepts/private-network.md#private-connection-to-vpc) {{ interconnect-name }} в сервисе {{ baremetal-name }}:
 
 {% include [create-private-connection](../../_includes/baremetal/create-private-connection.md) %}
 
@@ -329,3 +323,8 @@
       В результате статус соединения сменится на `Deleting`. После того как все связи будут удалены, соединение пропадет из списка.
 
     {% endlist %}
+
+1. Если вы добавляли сеть `sample-network` в существующий виртуальный маршрутизатор, [удалите ее](../../cloud-router/operations/ri-prefixes-upsert.md#remove-network).
+1. Если вы создавали виртуальный маршрутизатор специально для этого руководства, [удалите его](../../cloud-router/operations/ri-delete.md).
+1. [Удалите](../../vpc/operations/subnet-delete.md) подсеть `subnet-{{ region-id }}-b`.
+1. [Удалите](../../vpc/operations/network-delete.md) сеть `sample-network`.

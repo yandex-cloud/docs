@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v1alpha/bo
 
 # yc baremetal v1alpha boot-image list-operations
 
-Lists operations for the specified image.
+Lists operations for the specified BootImage.
 
 #### Command Usage
 
@@ -19,7 +19,7 @@ Syntax:
 ||Flag | Description ||
 || `--id` | `string`
 
-ID of the Image resource to list operations for. ||
+ID of the BootImage resource to list operations for. ||
 || `--page-size` | `int`
 
 The maximum number of results per page to return. If the number of available results is greater than 'page_size', the service returns a [ListImageOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value is 20. ||

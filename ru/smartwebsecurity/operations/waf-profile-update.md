@@ -23,7 +23,7 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите версию набора правил.
   1. {% include [waf-verdicts](../../_includes/smartwebsecurity/waf-verdicts.md) %}
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
-  1. При необходимости [настройте правила](configure-set-rules.md) в каждом из добавленных наборов.
+  1. При необходимости [настройте правила](configure-set-rules.md) в каждом наборе, который вы добавили.
 
 - {{ TF }} {#tf}
 
@@ -31,7 +31,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Чтобы изменить параметры профиля WAF {{ sws-full-name }}, созданного с помощью {{ TF }}:
+  Чтобы изменить параметры профиля WAF {{ sws-full-name }}, который вы создали с помощью {{ TF }}:
 
   1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием профиля WAF.
 
@@ -41,13 +41,13 @@ description: Следуя данной инструкции, вы сможете
 
      {% endcut %}
 
-      Подробнее о параметрах ресурса `sws_waf_profile` в [документации провайдера]({{ tf-provider-resources-link }}/sws_waf_profile).
+      Подробнее о параметрах ресурса `yandex_sws_waf_profile` в [документации провайдера]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Примените изменения:
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}).
+  Вы можете проверить изменение ресурсов в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 

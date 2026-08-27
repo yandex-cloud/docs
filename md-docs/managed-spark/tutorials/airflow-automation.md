@@ -140,7 +140,7 @@
      * **Версия** — `3.1`.
      * **Сеть** — `datalake-network`.
      * **Подсеть** — `datalake-network-ru-central1-a`.
-     * **Группа безопасности** — `metastore-sg`.
+     * **Группы безопасности** — `metastore-sg`.
 
      {% note info %}
 
@@ -154,7 +154,7 @@
      * **Зона доступности** — `ru-central1-a`.
      * **Сеть** — `datalake-network`.
      * **Подсеть** — `datalake-network-ru-central1-a`.
-     * **Группа безопасности** — `airflow-sg`.
+     * **Группы безопасности** — `airflow-sg`.
      * **Имя бакета** — `<бакет_для_исходного_кода_Airflow_DAG>`.
 
 - Упрощенная настройка
@@ -185,7 +185,7 @@
      * **Сервисный аккаунт** — `integration-agent`.
      * **Сеть** — `datalake-network`.
      * **Подсеть** — `datalake-network-ru-central1-a`.
-     * **Группа безопасности** — группа по умолчанию в сети `datalake-network`.
+     * **Группы безопасности** — группа по умолчанию в сети `datalake-network`.
 
      {% note info %}
    
@@ -199,7 +199,7 @@
      * **Зона доступности** — `ru-central1-a`.
      * **Сеть** — `datalake-network`.
      * **Подсеть** — `datalake-network-ru-central1-a`.
-     * **Группа безопасности** — группа по умолчанию в сети `datalake-network`.
+     * **Группы безопасности** — группа по умолчанию в сети `datalake-network`.
      * **Имя бакета** — `<бакет_для_заданий_и_данных>`.
 
 {% endlist %}

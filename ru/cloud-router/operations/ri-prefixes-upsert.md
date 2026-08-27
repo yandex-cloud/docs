@@ -36,7 +36,7 @@ description: Следуя этой инструкции, вы сможете и�
       yc cloudrouter routing-instance update-networks \
         --folder-id <идентификатор_каталога> \
         --id c3lgk007olse******** \
-        --add-vpc-net id=enpvt41bh5gk********,zone={{ region-id }}-a,ipv4-prefixes=192.168.100.0/24,192.168.101.0/24 \
+        --add-vpc-net 'id=enpvt41bh5gk********,zone={{ region-id }}-a,ipv4-prefixes=[192.168.100.0/24,192.168.101.0/24]' \
         --async
       ```
 
@@ -137,7 +137,7 @@ description: Следуя этой инструкции, вы сможете и�
       yc cloudrouter routing-instance update-networks \
         --folder-id <идентификатор_каталога> \
         --id c3lgk007olse******** \
-        --delete-vpc-net-id id=enpt8ok6snlp******** \
+        --delete-vpc-net-id enpt8ok6snlp******** \
         --async
       ```
 
@@ -228,10 +228,10 @@ description: Следуя этой инструкции, вы сможете и�
       yc cloudrouter routing-instance update-networks \
         --folder-id <идентификатор_каталога> \
         --id c3lgk007olse******** \
-        --update-vpc-net id=enpcfncr6uld********,zone={{ region-id }}-a,ipv4-prefixes=192.168.2.0/28 \
-        --update-vpc-net id=enpcfncr6uld********,zone={{ region-id }}-b,ipv4-prefixes=192.168.15.0/24 \
-        --update-vpc-net id=enpcfncr6uld********,zone={{ region-id }}-d,ipv4-prefixes=192.168.7.0/24 \
-        --update-vpc-net id=enpt8ok6snlp********,zone={{ region-id }}-d,ipv4-prefixes=192.168.47.0/28 \
+        --update-vpc-net 'id=enpcfncr6uld********,zone={{ region-id }}-a,ipv4-prefixes=[192.168.2.0/28]' \
+        --update-vpc-net 'id=enpcfncr6uld********,zone={{ region-id }}-b,ipv4-prefixes=[192.168.15.0/24]' \
+        --update-vpc-net 'id=enpcfncr6uld********,zone={{ region-id }}-d,ipv4-prefixes=[192.168.7.0/24]' \
+        --update-vpc-net 'id=enpt8ok6snlp********,zone={{ region-id }}-d,ipv4-prefixes=[192.168.47.0/28]' \
         --async
       ```
 
@@ -370,8 +370,8 @@ description: Следуя этой инструкции, вы сможете и�
       ```bash
       yc cloudrouter routing-instance upsert-prefixes c3l871dpin4f******** \
         --folder-id <идентификатор_каталога> \
-        --vpc-net id=c64ckjtr7b3l********,zone={{ region-id }}-b,ipv4-prefixes=10.129.0.0/24 \
-        --vpc-net id=c64ckjtr7b3l********,zone={{ region-id }}-d,ipv4-prefixes=172.16.1.0/24 \
+        --vpc-net 'id=c64ckjtr7b3l********,zone={{ region-id }}-b,ipv4-prefixes=[10.129.0.0/24]' \
+        --vpc-net 'id=c64ckjtr7b3l********,zone={{ region-id }}-d,ipv4-prefixes=[172.16.1.0/24]' \
         --async
       ```
 
@@ -516,8 +516,8 @@ description: Следуя этой инструкции, вы сможете и�
       ```bash
       yc cloudrouter routing-instance remove-prefixes c3l871dpin4f******** \
         --folder-id <идентификатор_каталога> \
-        --vpc-net id=c64ckjtr7b3l********,zone={{ region-id }}-b,ipv4-prefixes=10.128.0.0/24 \
-        --vpc-net id=c64ckjtr7b3l********,zone={{ region-id }}-d,ipv4-prefixes=10.129.0.0/24 \
+        --vpc-net 'id=c64ckjtr7b3l********,zone={{ region-id }}-b,ipv4-prefixes=[10.128.0.0/24]' \
+        --vpc-net 'id=c64ckjtr7b3l********,zone={{ region-id }}-d,ipv4-prefixes=[10.129.0.0/24]' \
         --async
       ```
 

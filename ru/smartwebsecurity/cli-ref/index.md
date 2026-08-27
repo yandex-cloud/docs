@@ -25,19 +25,19 @@ Aliases:
 
 #### Command Tree
 
-- [yc smartwebsecurity advanced-rate-limiter](advanced-rate-limiter/index.md) — 
+- [yc smartwebsecurity advanced-rate-limiter](advanced-rate-limiter/index.md) — Manage Advanced Rate Limiter profiles
 
 
 
-- [yc smartwebsecurity custom-page](custom-page/index.md) — 
+- [yc smartwebsecurity custom-page](custom-page/index.md) — Manage custom response pages
 
 
 
-- [yc smartwebsecurity load-balancer](load-balancer/index.md) — 
+- [yc smartwebsecurity load-balancer](load-balancer/index.md) — Manage SmartWebSecurity load balancers
 
 
 
-- [yc smartwebsecurity match-list](match-list/index.md) — 
+- [yc smartwebsecurity match-list](match-list/index.md) — Manage match lists
 
 
 
@@ -57,11 +57,7 @@ Aliases:
 
 
 
-- [yc smartwebsecurity v1](v1/index.md) — Manage SmartWebSecurity resources
-
-
-
-- [yc smartwebsecurity waf](waf/index.md) — 
+- [yc smartwebsecurity waf](waf/index.md) — Manage WAF profiles and rule set descriptors
 
 
 

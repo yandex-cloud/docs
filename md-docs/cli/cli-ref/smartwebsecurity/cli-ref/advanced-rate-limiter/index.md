@@ -2,7 +2,7 @@
 
 # yc smartwebsecurity advanced-rate-limiter
 
-
+Manage Advanced Rate Limiter profiles
 
 #### Command Usage
 

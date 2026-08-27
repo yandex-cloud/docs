@@ -2,7 +2,7 @@
 
 # yc smartwebsecurity custom-page custom-page
 
-A set of methods for managing CustomPage resources.
+Manage custom response pages
 
 #### Command Usage
 

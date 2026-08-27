@@ -19,6 +19,8 @@
 
 ## Публичное соединение
 - [{#T}](pub-con-get-info.md)
+- [{#T}](pub-con-create.md)
+- [{#T}](pub-con-delete.md)
 
 
 ## Прочие

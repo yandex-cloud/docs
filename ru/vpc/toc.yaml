@@ -206,38 +206,6 @@ items:
               Организация доступа через {{ interconnect-name }} к облачным
               сетям, размещенным за NGFW
             href: tutorials/cic-with-ngfw.md
-          - name: >-
-              Создание прямого транкового подключения и приватного соединения в
-              нем
-            href: tutorials/trunk-priv-add.md
-          - name: >-
-              Создание прямого транкового подключения и публичного соединения в
-              нем
-            href: tutorials/trunk-pub-add.md
-          - name: >-
-              Создание нового партнерского транкового подключения и приватного
-              соединения в нем
-            href: tutorials/partner-trunk-priv-add.md
-          - name: >-
-              Создание нового партнерского транкового подключения и публичного
-              соединения в нем
-            href: tutorials/partner-trunk-pub-add.md
-          - name: >-
-              Добавление приватного соединения в прямое или партнерское
-              транковое подключение
-            href: tutorials/priv-add.md
-          - name: >-
-              Добавление публичного соединения в прямое или партнерское
-              транковое подключение
-            href: tutorials/pub-add.md
-          - name: Изменение емкости транкового подключения
-            href: tutorials/trunk-capacity-change.md
-          - name: Удаление приватного соединения
-            href: tutorials/priv-del.md
-          - name: Удаление публичного соединения
-            href: tutorials/pub-del.md
-          - name: Удаление транкового подключения
-            href: tutorials/trunk-del.md
       - name: Настройка сетевых ресурсов и взаимодействие между ними
         items:
           - name: Архитектура и защита базового интернет-сервиса

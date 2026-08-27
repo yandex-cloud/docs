@@ -299,7 +299,7 @@ vpc:
   1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF** и выберите нужный виртуальный сегмент сети.
   1. В блоке **Приватное соединение с облачными сетями** нажмите кнопку **Настроить соединение** и в открывшемся окне:
 
-      1. В поле **Способ настройки** выберите вариант `Указать идентификатор` и в поле **Идентификатор виртуального маршрутизатора** вставьте идентификатор приватного соединения `Routing Instance`.
+      1. В поле **Способ настройки** выберите вариант `Указать идентификатор` и в поле **Идентификатор виртуального маршрутизатора** вставьте идентификатор виртуального маршрутизатора `Routing Instance`.
 
           Вы также можете выбрать вариант `Выбрать из каталога`. В этом случае в появившемся списке выберите нужный `Routing Instance`.
 
@@ -316,7 +316,7 @@ vpc:
 
 - API {#api}
 
-  Чтобы создать приватное соединение с облачными сетями, воспользуйтесь методом REST API [PrivateCloudConnection.Create](../api-ref/PrivateCloudConnection/create.md) или вызовом gRPC API [PrivateCloudConnectionService/Create](../api-ref/grpc/PrivateCloudConnection/create.md).
+  Чтобы создать приватное соединение с виртуальным маршрутизатором, воспользуйтесь методом REST API [PrivateCloudConnection.Create](../api-ref/PrivateCloudConnection/create.md) или вызовом gRPC API [PrivateCloudConnectionService/Create](../api-ref/grpc/PrivateCloudConnection/create.md).
 
   Выполните запрос:
 

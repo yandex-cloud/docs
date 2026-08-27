@@ -28,6 +28,9 @@ GET /v2/email/configuration-sets/{ConfigurationSetName} HTTP/2
 ```json
 {
   "ConfigurationSetName": "<название_конфигурации>",
+  "SuppressionOptions": {
+    "SuppressedReasons": ["BOUNCE", "COMPLAINT"]
+  },
   "Tags": [
     {
       "Key": "ключ_1",
@@ -47,6 +50,14 @@ GET /v2/email/configuration-sets/{ConfigurationSetName} HTTP/2
 || `ConfigurationSetName` | **Тип**: string.
 
 Название конфигурации. ||
+|| `SuppressionOptions` | **Тип**: object.
+
+Текущие настройки [стоп-листа](../../concepts/suppression-list.md) для конфигурации. Содержит массив `SuppressedReasons`. ||
+|| `SuppressedReasons` | **Тип**: array.
+
+[Причины](../../concepts/suppression-list.md#reasons), по которым адрес из стоп-листа блокирует отправку письма. Возможные значения элементов массива: `BOUNCE` и `COMPLAINT`.
+
+Если массив содержит значение `COMPLAINT`, адреса автоматически добавляются в стоп-лист по жалобам получателей. ||
 || `Tags` | **Тип**: array.
 
 Массив меток для конфигурации. ||

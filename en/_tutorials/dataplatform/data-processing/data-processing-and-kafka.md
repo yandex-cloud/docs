@@ -1,5 +1,6 @@
 # Working with {{ KF }} topics using PySpark jobs in {{ dataproc-full-name }}
 
+
 {{ dataproc-name }} clusters support integration with {{ mkf-name }} clusters. You can write and read messages to and from {{ KF }} topics using [PySpark jobs](../../../data-proc/operations/jobs-pyspark.md). Reading supports both batch processing and stream processing.
 
 To configure integration between {{ mkf-name }} and {{ dataproc-name }} clusters:
@@ -18,7 +19,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 * {{ mkf-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
-* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, volume of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
 * NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 * {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 
@@ -30,8 +31,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * Manually {#manual}
 
    1. [Create a cloud network](../../../vpc/operations/network-create.md) named `dataproc-network`, without subnets.
-   1. [Create a subnet](../../../vpc/operations/subnet-create.md) named `dataproc-subnet-b` in the `{{ region-id }}-b` availability zone.
-   1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for `dataproc-subnet-b`.
+   1. Create a `dataproc-subnet-b` [subnet](../../../vpc/operations/subnet-create.md) in the `{{ region-id }}-b` [availability zone](../../../overview/concepts/geo-scope.md).
+   1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the `dataproc-subnet-b` subnet.
    1. [Create a security group](../../../vpc/operations/security-group-create.md) named `dataproc-security-group` in `dataproc-network`.
    1. [Configure the security group](../../../data-proc/operations/cluster-create.md#change-security-groups).
    1. [Create a service account](../../../iam/operations/sa/create.md) named `dataproc-sa` with the following roles:
@@ -114,7 +115,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `folder_id`: Cloud folder ID, same as in the provider settings.
       * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate

@@ -39,4 +39,8 @@
 Подробнее о работе в веб-интерфейсе смотрите [документацию Kafka UI для Apache Kafka®](https://ui.docs.kafbat.io/).
 
 
-Пошаговые инструкции по включению веб-интерфейса Kafka UI в разделе [Веб-интерфейс Kafka UI для работы с Apache Kafka®](../operations/kafka-ui-enable.md).
+#### Полезные ссылки {#see-also}
+
+* Пошаговые инструкции по включению веб-интерфейса Kafka UI в разделе [Веб-интерфейс Kafka UI для работы с Apache Kafka®](../operations/kafka-ui-enable.md).
+
+* Руководство по развертыванию веб-интерфейса Kafka UI для кластера Managed Service for Apache Kafka® в разделе [Самостоятельное развертывание веб-интерфейса Apache Kafka®](../tutorials/deploy-kafka-ui.md).

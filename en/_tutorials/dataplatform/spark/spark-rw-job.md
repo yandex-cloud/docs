@@ -49,7 +49,7 @@ Set up your infrastructure:
 
 1. [Create a cloud network](../../../vpc/operations/network-create.md) named `integration-network`.
 
-    This will automatically create three subnets in different availability zones.
+    This will automatically create three subnets in different [availability zones](../../../overview/concepts/geo-scope.md).
 
 1. For the {{ msp-full-name }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `spark-sg` in `integration-network`. Add the following rule to it:
 
@@ -104,7 +104,7 @@ For a PySpark job, we will use a Python script that:
 
 Prepare a script file:
 
-1. Create the `ice_min_demo.py` file and paste the following code to it:
+1. Create the `ice_min_demo.py` file and paste the following code into it:
 
    {% cut "ice_min_demo.py" %}
 

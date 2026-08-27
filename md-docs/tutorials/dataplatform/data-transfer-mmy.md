@@ -4,10 +4,11 @@
 
 # Поставка данных из Yandex Managed Service for MySQL® в Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer
 
-Вы можете отслеживать изменения данных в _кластере-источнике_ Managed Service for MySQL® и отправлять их в _кластер-приемник_ Managed Service for Apache Kafka® с помощью технологии [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC).
+Вы можете отслеживать изменения данных в _кластере-источнике_ Yandex Managed Service for MySQL® и отправлять их в _кластер-приемник_ Yandex Managed Service for Apache Kafka® с помощью технологии [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC).
 
-Чтобы настроить CDC с использованием сервиса Data Transfer:
+Чтобы настроить CDC с использованием сервиса Yandex Data Transfer:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Подготовьте кластер-источник](#prepare-source).
 1. [Подготовьте кластер-приемник](#prepare-target).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
@@ -16,15 +17,26 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
 
-* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for MySQL®](../../managed-mysql/pricing.md)).
-* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер Managed Service for MySQL®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for MySQL®](../../managed-mysql/pricing.md)).
+* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../data-transfer/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
+
 
 {% note info %}
 
@@ -32,11 +44,15 @@
 
 {% endnote %}
 
+
 1. [Создайте кластер-источник Managed Service for MySQL®](../../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
     * с базой данных `db1`;
+
+    
     * с пользователем `my-user`;
     * с хостами в публичном доступе.
+
 
 1. [Создайте кластер-приемник Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
@@ -309,4 +325,4 @@
     * [Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md);
     * [Managed Service for MySQL®](../../managed-mysql/operations/cluster-delete.md).
 
-1. Если для доступа к хостам кластеров использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.
+1. Если для доступа к хостам кластеров использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md).

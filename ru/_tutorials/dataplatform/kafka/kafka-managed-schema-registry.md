@@ -1,5 +1,6 @@
 Чтобы использовать [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md#msr) совместно с {{ mkf-name }}:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Создайте скрипты производителя и потребителя на локальной машине](#create-scripts).
 1. [Проверьте правильность работы {{ mkf-msr }}](#check-schema-registry).
 1. [Удалите созданные ресурсы](#clear-out).
@@ -7,20 +8,24 @@
 В этом руководстве описана регистрация одной схемы данных. Подробнее о том, как зарегистрировать несколько схем данных, смотрите в документации [Confluent Schema Registry](https://docs.confluent.io/platform/current/control-center/topics/schema.html).
 
 
-## Необходимые платные ресурсы {#paid-resources}
-
-В стоимость поддержки инфраструктуры входит:
-
-* плата за вычислительные ресурсы кластера {{ mkf-name }} и объем хранилища ([тарифы {{ mkf-name }}](../../../managed-kafka/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../../compute/concepts/vm.md) ([тарифы {{ compute-full-name }}](../../../compute/pricing.md));
-* плата за использование [публичного IP-адреса](../../../vpc/concepts/ips.md) ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
-
-
 ## Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы {{ mkf-name }}](../../../managed-kafka/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы {{ compute-name }}](../../../compute/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
+
+
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 1. [Создайте кластер {{ mkf-name }}](../../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. При создании кластера включите опции **{{ ui-key.yacloud.kafka.field_schema-registry }}** и **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
+    
     {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
 
     1. [Создайте топик](../../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `messages` для обмена сообщениями между производителем и потребителем.
     1. [Создайте пользователя](../../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ему права](../../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:

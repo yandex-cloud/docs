@@ -5,6 +5,7 @@ description: In this guide, you will learn how to export logs from {{ cloud-logg
 
 # Exporting logs to {{ yds-name }}
 
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

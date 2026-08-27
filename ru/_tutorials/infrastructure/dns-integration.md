@@ -4,7 +4,7 @@
 
 Чтобы настроить разрешение внутренних облачных DNS-имен клиентами в вашей корпоративной сети, вы создадите на стороне {{ yandex-cloud }} [входящее DNS-подключение](../../dns/concepts/dns-connection.md#dns-inbound), которое будет перенаправлять DNS-запросы из корпоративной сети на [DNS-резолверы](../../dns/concepts/dns-resolver.md) в подсетях {{ vpc-name }}. На стороне корпоративной сети вы настроите DNS-сервер так, чтобы все DNS-запросы к облачным ресурсам направлялись на IP-адрес созданного входящего DNS-подключения.
 
-В данном сценарии пользователь, подключенный к корпоративной сети в `subnet1`, разрешает DNS-имя хоста в [кластере](../../managed-postgresql/concepts/index.md) {{ mpg-full-name }}, отправляя DNS-запросы через локальный [DNS-форвардер](*dns_forwarder).
+В этом сценарии вы разрешаете DNS-имя хоста в [кластере](../../managed-postgresql/concepts/index.md) {{ mpg-full-name }} из корпоративной сети в `subnet1`, отправляя DNS-запросы через локальный [DNS-форвардер](*dns_forwarder).
 
 Схема решения:
 
@@ -15,7 +15,7 @@
     * Состоит из подсети `subnet1` с диапазоном адресов `172.16.1.0/24`.
     * В подсети `subnet1` размещен DNS-сервер (DNS-форвардер) с IP-адресом `172.16.1.200`.
 
-        Этот сервер обслуживает DNS-зону в подсети `subnet1` и перенаправляет DNS-запросы компьютера пользователя с IP-адресом `172.16.1.10` в облачную сеть на IP-адрес [входящего DNS-подключения](../../dns/concepts/dns-connection.md#dns-inbound), созданного на стороне {{ yandex-cloud}}.
+        Этот сервер обслуживает DNS-зону в подсети `subnet1` и перенаправляет DNS-запросы вашего компьютера с IP-адресом `172.16.1.10` в облачную сеть на IP-адрес [входящего DNS-подключения](../../dns/concepts/dns-connection.md#dns-inbound), созданного на стороне {{ yandex-cloud}}.
 1. Облачная сеть {{ yandex-cloud }}:
 
     * Состоит из [подсети](../../vpc/concepts/network.md#subnet) `subnet2` с диапазоном адресов `192.168.1.0/24`.
@@ -39,6 +39,12 @@
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+Убедитесь, что у вас уже есть:
+
+* работающее [транковое подключение](../../interconnect/operations/trunk-create.md);
+* [приватное соединение](../../interconnect/operations/priv-con-create.md);
+* [виртуальный маршрутизатор](../../cloud-router/operations/ri-create.md), в который добавлено приватное соединение.
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -81,6 +87,12 @@
   1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
 {% endlist %}
+
+### Подключите облачную сеть к виртуальному маршрутизатору {#connect-network}
+
+[Добавьте](../../cloud-router/operations/ri-prefixes-upsert.md#add-network) сеть `my-vpc-network` в виртуальный маршрутизатор. Для зоны доступности `{{ region-id }}-b` укажите IP-префикс `192.168.1.0/24`.
+
+В результате ресурсы в подсети `subnet2` станут доступны из корпоративной сети через {{ interconnect-name }}.
 
 ### Создайте кластер {{ mpg-full-name }} {#create-cluster}
 
@@ -285,6 +297,7 @@
 * [удалите кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md);
 * [удалите входящее DNS-подключение](../../dns/operations/connection-inbound-delete.md);
 * [удалите зарезервированный внутренний IP-адрес](../../vpc/operations/private-ip-delete.md);
+* [удалите сеть `my-vpc-network` из виртуального маршрутизатора](../../cloud-router/operations/ri-prefixes-upsert.md#remove-network);
 * [удалите подсеть](../../vpc/operations/subnet-delete.md);
 * [удалите облачную сеть](../../vpc/operations/network-delete.md).
 

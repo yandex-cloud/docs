@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/cus
 
 # yc smartwebsecurity custom-page
 
-
+Manage custom response pages
 
 #### Command Usage
 
@@ -15,7 +15,7 @@ Syntax:
 
 #### Command Tree
 
-- [yc smartwebsecurity custom-page custom-page](custom-page/index.md) — A set of methods for managing CustomPage resources.
+- [yc smartwebsecurity custom-page custom-page](custom-page/index.md) — Manage custom response pages
 
   - [yc smartwebsecurity custom-page custom-page create](custom-page/create.md) — Creates a CustomPage resource in the specified folder.
 

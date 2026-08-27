@@ -1,8 +1,4 @@
-{% note info %}
-
-Задания в статусах `ERROR`, `DONE` или `CANCELLED` отменить нельзя. Чтобы узнать статус задания, получите [список заданий](#list) в кластере.
-
-{% endnote %}
+{% include [note-job-cancel](../../_includes/managed-spark/note-job-cancel.md) %}
 
 {% list tabs group=instructions %}
 
@@ -10,7 +6,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-  1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
+  1. Выберите нужный кластер и перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
   1. Нажмите на имя нужного задания.
   1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.common.cancel }}**.
   1. В открывшемся окне выберите **{{ ui-key.yacloud.mdb.dialogs.popup_button_cancel }}**.

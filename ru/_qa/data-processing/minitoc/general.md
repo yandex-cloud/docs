@@ -20,7 +20,7 @@
 
 * [Почему возникает ошибка `Create {{ dataproc-name }} cluster Error: 0 Address space exhausted`, и как ее исправить?](#addresses-exhausted)
 
-* [Почему кластер в статусе `Unknown`?](#unknown)
+* [Почему кластер находится в состоянии `UNKNOWN` или статусе `STATUS_UNKNOWN`?](#unknown)
 
 * [Какая минимальная вычислительная мощность нужна для работы подкластера с хостом-мастером?](#master-computing-power)
 
@@ -33,3 +33,5 @@
 * [Можно ли получить на хостах права суперпользователя?](#connect-root)
 
 * [Как исправить ошибку отсутствия прав при подключении сервисного аккаунта к кластеру?](#attach-service-account)
+
+* [Почему после выполнения заданий в YARN Resource Manager Web UI не появились логи?](#yarn-logs)

@@ -2,7 +2,7 @@
 
 # yc smartwebsecurity waf
 
-
+Manage WAF profiles and rule set descriptors
 
 #### Command Usage
 

@@ -1,5 +1,6 @@
 # Using {{ msp-full-name }} in {{ ml-platform-name }}
 
+
 In {{ ml-platform-name }}, you can use [{{ SPRK }}](../../../managed-spark/) clusters deployed in {{ msp-full-name }}. {{ SPRK }} clusters are connected via [Spark connectors](../../../datasphere/concepts/spark-connector.md). To run computations, a `SparkConnect` job is initiated in a cluster.
 
 To set up integration with {{ msp-name }} in {{ ml-platform-name }}:
@@ -197,5 +198,3 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 1. [{{ msp-name }} cluster](../../../managed-spark/operations/cluster-delete.md).
 1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md#delete-nat-gateway).
-
-{% endlist %}

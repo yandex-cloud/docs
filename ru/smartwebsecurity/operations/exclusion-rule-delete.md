@@ -23,45 +23,21 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Откройте файл конфигурации {{ TF }} и в описании профиля безопасности `yandex_sws_waf_profile` удалите блок `exclusion_rule` c правилом-исключением WAF.
+  1. Откройте файл конфигурации {{ TF }} и в описании профиля WAF `yandex_sws_waf_profile` удалите блок `exclusion_rule` с правилом-исключением WAF.
 
-      {% cut "Пример описания правила-исключения в конфигурации {{ TF }}" %}
+     {% cut "Пример настройки правил-исключений профиля WAF в конфигурации {{ TF }}" %}
 
-      ```hcl
-      # WAF профиль
-      resource "yandex_sws_waf_profile" "default" {
-        name = "waf-profile-default"
-        core_rule_set {
-          inbound_anomaly_score = 2
-          paranoia_level        = local.waf_paranoia_level
-          rule_set {
-            name    = "OWASP Core Ruleset"
-            version = "4.0.0"
-          }
-        }
+     {% include [waf-profile-exclusion-terraform-example](../../_includes/smartwebsecurity/waf-profile-exclusion-terraform-example.md) %}
 
-        ...
+     {% endcut %}
 
-        # Правило-исключение
-        exclusion_rule {
-          name = "<имя правила-исключения>"
-          exclude_rules {
-            exclude_all = <true_или_false>
-            rule_ids    = ["идентификатор_правила_1","идентификатор_правила_2"]
-          }
-        }
-      }
-      ```
-
-      {% endcut %}
-
-      Подробнее о параметрах ресурса `sws_waf_profile` в [документации провайдера]({{ tf-provider-resources-link }}/sws_waf_profile).
+      Подробнее о параметрах ресурса `yandex_sws_waf_profile` в [документации провайдера]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Примените изменения:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  Проверить удаление ресурсов можно в [консоли управления]({{ link-console-main }}).
+  Вы можете проверить удаление ресурсов в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 
