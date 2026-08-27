@@ -321,7 +321,7 @@ ZIP-архив через S3 бакет | 128 МБ
 `postbox.recipients_per_email.count` | 200 ||
 || Максимальный размер письма вместе с вложениями 
 `postbox.email.size` | 10 МБ ||
-|| Максимальное количество [адресов](../postbox/concepts/glossary.md#adress) 
+|| Максимальное количество [адресов](../postbox/concepts/glossary.md#address) 
 `postbox.identities.count` | 10 ||
 || Максимальная скорость отправки писем 
 `postbox.send.rate` | 1 письмо в секунду ||

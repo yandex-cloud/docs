@@ -123,9 +123,9 @@
     1. В бакете для исходного кода создайте папку `scripts` и [загрузите](../../../storage/operations/objects/upload.md#simple) в нее файл `job-create-table.py`.
     1. В бакете для выходных данных создайте папку `warehouse`, в которую будут загружены данные из БД `database_1`.
     1. [Создайте задание](../../../managed-spark/operations/jobs-pyspark.md) с параметрами:
-        * **Тип задания** — **PySpark**.
-        * **Main python файл** — `s3a://<бакет_для_исходного_кода>/scripts/job-create-table.py`.
-        * **Аргументы** — `s3a://<бакет_для_выходных_данных>/warehouse`.
+        * **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** — `PySpark`.
+        * **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** — `s3a://<бакет_для_исходного_кода>/scripts/job-create-table.py`.
+        * **{{ ui-key.yacloud.dataproc.jobs.field_args }}** — `s3a://<бакет_для_выходных_данных>/warehouse`.
 
 {% endlist %}
 
@@ -137,7 +137,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
+    1. Нажмите на имя нужного кластера и выберите **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
     1. Дождитесь, когда созданное PySpark-задание перейдет в статус **Done**.
     1. Убедитесь, что в бакете для выходных данных, в папке `warehouse`, появился файл с данными из БД `database_1`.
     1. Проверьте, что в кластере {{ metastore-name }} появились метаданные о БД `database_1`:

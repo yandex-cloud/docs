@@ -7580,6 +7580,9 @@ default:
           label_cpu-quota-period_tD5vD: CPU quota period
           RBACView:
             label_rbac-settings_o2F64: Access settings
+        field_retry-storage-properties: Storage properties
+        field_retry-storage-s3-bucket: Bucket name
+        field_retry-storage-type: Storage type
         label_private-access: Private access
         label_rbac-add-rule: Add rule
         label_rbac-catalog: Catalogs

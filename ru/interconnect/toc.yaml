@@ -36,6 +36,10 @@ items:
         href: operations/priv-con-delete.md
       - name: Получить информацию о публичных соединениях
         href: operations/pub-con-get-info.md
+      - name: Создать публичное соединение
+        href: operations/pub-con-create.md
+      - name: Удалить публичное соединение
+        href: operations/pub-con-delete.md
       - name: Получить информацию о Routing Instance
         href: ../cloud-router/operations/ri-get-info.md
   - name: Практические руководства
@@ -43,32 +47,6 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Создать прямое транковое подключение и приватное соединение в нем
-        href: tutorials/trunk-priv-add.md
-      - name: Создать прямое транковое подключение и публичное соединение в нем
-        href: tutorials/trunk-pub-add.md
-      - name: >-
-          Создать транковое подключение через партнера и приватное соединение в
-          нем
-        href: tutorials/partner-trunk-priv-add.md
-      - name: >-
-          Создать транковое подключение через партнера и публичное соединение в
-          нем
-        href: tutorials/partner-trunk-pub-add.md
-      - name: Добавить приватное соединение в транковое подключение
-        href: tutorials/priv-add.md
-      - name: Изменить IP-префиксы VPC в Routing Instance
-        href: tutorials/ri-prefixes-upsert.md
-      - name: Добавить публичное соединение в транковое подключение
-        href: tutorials/pub-add.md
-      - name: Изменить емкость транкового подключения
-        href: tutorials/trunk-capacity-change.md
-      - name: Удалить приватное соединение
-        href: tutorials/priv-del.md
-      - name: Удалить публичное соединение
-        href: tutorials/pub-del.md
-      - name: Удалить транковое подключение
-        href: tutorials/trunk-del.md
       - name: Разрешение облачных DNS-имен в корпоративной сети
         href: tutorials/dns-integration.md
       - name: >-
@@ -81,7 +59,7 @@ items:
         href: tutorials/bm-vrf-and-vpc-interconnect.md
       - name: >-
           Организация сетевой связности между приватной подсетью {{
-          baremetal-name }} и on-premise-ресурсами
+          baremetal-name }} и ресурсами в on-premises
         href: tutorials/bms-cic-onprem.md
   - name: Концепции
     expanded: true

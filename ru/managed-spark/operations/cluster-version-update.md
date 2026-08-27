@@ -23,9 +23,9 @@ description: Следуя данной инструкции, вы сможете
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Выберите кластер и нажмите на панели сверху кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**. Откроется страница редактирования кластера.
+    1. Выберите кластер и нажмите на панели сверху ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**. Откроется страница редактирования кластера.
       
-        Список доступных версий можно посмотреть в поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}**.
+    Список доступных версий можно посмотреть в поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}**.
 
 {% endlist %}
 
@@ -58,9 +58,9 @@ description: Следуя данной инструкции, вы сможете
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Выберите кластер и нажмите на панели сверху кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. Выберите кластер и нажмите на панели сверху ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** перейдите к полю **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_dependencies-type_wJq6n }}** → **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_software-configuration-type-packages_wJq6n }}** выберите версию {{ SPRK }}.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. Нажмите **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
@@ -206,9 +206,9 @@ description: Следуя данной инструкции, вы сможете
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Выберите кластер и нажмите на панели сверху кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. Выберите кластер и нажмите на панели сверху **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** в поле **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_dependencies-type_wJq6n }}** → **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_software-configuration-type-environment_wJq6n }}** выберите подготовленное окружение.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. Нажмите **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - gRPC API {#grpc-api}
 

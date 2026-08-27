@@ -166,7 +166,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
 ## Создайте адрес и пройдите проверку прав владения доменом в Yandex Cloud Postbox {#setup-postbox}
 
-Чтобы рабочий процесс мог отправлять письма, создайте [адрес](../../postbox/concepts/glossary.md#adress) Yandex Cloud Postbox и подтвердите владение доменом, с которого будут отправляться письма.
+Чтобы рабочий процесс мог отправлять письма, создайте [адрес](../../postbox/concepts/glossary.md#address) Yandex Cloud Postbox и подтвердите владение доменом, с которого будут отправляться письма.
 
 ### Создайте адрес Yandex Cloud Postbox {#create-address}
 

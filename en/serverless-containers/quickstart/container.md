@@ -147,7 +147,7 @@ To prepare the container Docker image:
 
 ## Invoke the container {#invoke}
 
-After creating the container, you will get an invocation link. Learn how to retrieve it [here](../operations/invoke.md#link). Make an HTTPS request by providing an [IAM token](../../iam/concepts/authorization/iam-token.md) in the `Authorization` header:
+After creating the container, you will get an invocation link. Learn how to retrieve it [here](../operations/invocation-link.md). Make an HTTPS request by providing an [IAM token](../../iam/concepts/authorization/iam-token.md) in the `Authorization` header:
 
 ```bash
 curl \

@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/adv
 
 # yc smartwebsecurity advanced-rate-limiter
 
-
+Manage Advanced Rate Limiter profiles
 
 #### Command Usage
 

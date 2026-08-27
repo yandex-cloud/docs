@@ -1,6 +1,5 @@
 # Visualizing logs in {{ grafana-name }} using the {{ cloud-logging-full-name }} plugin
 
-
 The [{{ cloud-logging-full-name }} plugin for {{ grafana-name }}](https://github.com/yandex-cloud/grafana-logs-plugin/tree/master) is an extension for {{ grafana-name }} that allows you to add [{{ cloud-logging-name }}](https://yandex.cloud/en/services/logging) as a data source.
 
 {% note info %}
@@ -239,7 +238,7 @@ The cost of resources includes a fee for logging operations and log storage in a
      * `description`: Key description. This is an optional setting.
      * `key_algorithm`: Key generation algorithm. This is an optional setting. The default algorithm is `RSA_2048`. For more information about the acceptable values, see [this API guide](../../iam/api-ref/Key/index.md).
 
-     Configuration file structure example:
+     Here is an example of the configuration file structure:
 
      ```hcl
      resource "yandex_iam_service_account_key" "sa-auth-key" {

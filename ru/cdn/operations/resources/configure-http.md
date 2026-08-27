@@ -172,33 +172,68 @@ description: Следуя данной инструкции, вы сможете
 
 ## Примеры {#examples}
 
+Разрешите для CDN-ресурса HTTP-методы `GET`, `HEAD` и `OPTIONS`:
+
 {% list tabs group=instructions %}
 
-- CLI {#cli}
+- CLI {#example-cli}
 
-  Добавьте ресурсу разрешенный метод GET:
-
-    ```bash
-    yc cdn resource update s0me1dkfjq******** --allowed-http-methods GET
-    ```
+  ```bash
+  yc cdn resource update <идентификатор_ресурса> \
+    --allowed-http-methods GET,HEAD,OPTIONS
+  ```
   
   Результат:
 
-    ```text
-    id: s0me1dkfjq********
+  ```text
+  id: s0me1dkfjq********
 
-    ...
+  ...
 
-    cname: testexample.com
-    active: true
+  cname: testexample.com
+  active: true
 
-    ...
+  ...
 
-    allowed_http_methods:
+  allowed_http_methods:
     enabled: true
     value:
-    - GET
-    ```
+      - GET
+      - HEAD
+      - OPTIONS
+  ```
+
+- cURL {#example-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и запишите его в переменную:
+
+      ```bash
+      export IAM_TOKEN=`yc iam create-token`
+      ```
+
+  1. Обновите CDN-ресурс с помощью REST API:
+
+      ```bash
+      curl \
+        --request PATCH \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://cdn.{{ api-host }}/cdn/v1/resources/<идентификатор_ресурса>' \
+        --data '{
+          "options": {
+            "allowedHttpMethods": {
+              "enabled": true,
+              "value": [
+                "GET",
+                "HEAD",
+                "OPTIONS"
+              ]
+            }
+          }
+        }'
+      ```
+
+      Метод REST API [update](../../api-ref/Resource/update.md) изменяет только переданные в теле запроса настройки CDN-ресурса. Параметр `updateMask` для этого метода не используется.
 
 {% endlist %}
 

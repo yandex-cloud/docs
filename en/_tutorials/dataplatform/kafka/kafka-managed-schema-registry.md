@@ -1,5 +1,3 @@
-
-
 To use [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md#msr) with {{ mkf-name }}:
 
 1. [Create producer and consumer scripts on your local machine](#create-scripts).

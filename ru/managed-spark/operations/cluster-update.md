@@ -30,9 +30,9 @@ keywords:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. Выберите кластер и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** измените имя, описание кластера и метки.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. Нажмите **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
@@ -177,12 +177,12 @@ keywords:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. Выберите кластер и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** выберите сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md#create-sa) с ролью `managed-spark.integrationProvider`. Это даст кластеру нужные права для работы с другими ресурсами.
 
         Для изменения сервисного аккаунта в кластере {{ msp-name }} [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. Нажмите **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
@@ -315,9 +315,9 @@ keywords:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. Выберите кластер и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите группы безопасности для кластера.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. Нажмите **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
@@ -454,9 +454,9 @@ keywords:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. Выберите кластер и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоках **{{ ui-key.yacloud.spark.section_driver }}** и **{{ ui-key.yacloud.spark.section_executor }}** укажите количество экземпляров и [конфигурацию вычислительных ресурсов](../concepts/instance-types.md). Количество экземпляров может быть фиксированным или автомасштабируемым.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. Нажмите **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
@@ -680,7 +680,7 @@ keywords:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  1. Выберите кластер и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
      
      * Выберите **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_dependencies-type_wJq6n }}**:
@@ -718,7 +718,7 @@ keywords:
            * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
         1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

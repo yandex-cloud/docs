@@ -11,7 +11,7 @@ locals {
   ruleset_type    = "CORE"
 }
 
-# Источник данных — набор правил
+# Источник данных OWASP Core Rule Set
 data "yandex_sws_waf_rule_set_descriptor" "source" {
   name    = local.ruleset_name
   version = local.ruleset_version

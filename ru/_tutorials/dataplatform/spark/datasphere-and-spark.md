@@ -83,7 +83,7 @@
    1. Привяжите таблицу маршрутизации к одной из подсетей, чтобы направить трафик из нее через NAT-шлюз:
       1. На панели слева выберите ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
       1. В строке нужной подсети нажмите ![image](../../../_assets/console-icons/ellipsis.svg).
-      1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
+      1. В открывшемся меню выберите **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
       1. В открывшемся окне выберите созданную таблицу в списке.
       1. Нажмите **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 

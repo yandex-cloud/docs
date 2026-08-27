@@ -617,7 +617,7 @@ Name | Description
 
 To deliver notifications, the service supports the `QoS 1: At least once` quality of service level, so it is possible to resend notifications. Identical notifications have the same `eventId`.
 
-If an address is linked to a [configuration](glossary.md#configuration) that has multiple [subscriptions](glossary.md#subscription.md) added to it, a separate notification will come for each assignment.
+If an address is linked to a [configuration](glossary.md#configuration) that has multiple [subscriptions](glossary.md#subscription) added to it, a separate notification will come for each assignment.
 
 ## Use case {#example}
 

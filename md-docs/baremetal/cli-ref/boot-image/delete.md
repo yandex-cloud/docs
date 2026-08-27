@@ -2,8 +2,8 @@
 
 # yc baremetal boot-image delete
 
-Deletes the specified image.
-Deleting an image removes its data permanently and is irreversible.
+Deletes the specified BootImage.
+Deleting a BootImage removes its data permanently and is irreversible.
 
 #### Command Usage
 
@@ -17,7 +17,7 @@ Syntax:
 ||Flag | Description ||
 || `--id` | `string`
 
-ID of the image to delete. To get the image ID, use a [ImageService.List] request. ||
+ID of the BootImage to delete. To get the BootImage ID, use a [ImageService.List] request. ||
 || `--name` | `string`
 
 Resolve id by resource name within the current scope. ||

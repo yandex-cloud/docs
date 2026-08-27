@@ -42,8 +42,8 @@ If a {{ dataproc-name }} cluster contains tables that should be available in ano
     1. [Create a service account](../../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign the `dataproc.agent` and `dataproc.provisioner` roles to it.
     1. {% include [basic-before-buckets](../../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
     1. [Create a cloud network](../../../vpc/operations/network-create.md) named `dataproc-network`.
-    1. In `dataproc-network`, [create a subnet](../../../vpc/operations/subnet-create.md) in any availability zone.
-    1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the subnet you created.
+    1. Within `dataproc-network`, [create a subnet](../../../vpc/operations/subnet-create.md) in any [availability zone](../../../overview/concepts/geo-scope.md).
+    1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for your new subnet.
     1. [Create two {{ dataproc-name }} clusters](../../../data-proc/operations/cluster-create.md) named `dataproc-source` and `dataproc-target` in any [suitable host configuration](../../../data-proc/concepts/instance-types.md) with the following settings:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`.

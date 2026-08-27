@@ -11,7 +11,7 @@ There are two ways to migrate topics from an {{ KF }} _source cluster_ to a {{ m
 
   This requires setting up the utility manually on an intermediate virtual machine. Use this method only if it is not possible to migrate data using the built-in MirrorMaker connector for whatever reason.
 
-Both methods are also suitable for [migrating](../../managed-kafka/operations/host-migration.md#one-host) a single-host {{ mkf-name }} cluster to a different availability zone.
+Both methods are also suitable for [migrating](../../managed-kafka/operations/host-migration.md#one-host) a single-host {{ mkf-name }} cluster to a different [availability zone](../../overview/concepts/geo-scope.md).
 
 
 ## Migrating data using {{ mkf-full-name }} Connector {#kf-connector}
@@ -363,7 +363,7 @@ If you no longer need the resources you created, [delete them](#clear-out-mm).
 
    * It performs one-way replication (`source->cloud.enabled = true`, `cloud->source.enabled = false`).
    * In the `topics` parameter, list the topics you want to migrate. You can also specify a regular expression for selecting topics. To migrate all topics, specify `.*`. This configuration replicates all topics.
-   * Topic names in the target cluster cluster match those in the source cluster.
+   * Topic names in the target cluster match those in the source cluster.
    * `<R>` stands for the [replication factor](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor) for MirrorMaker service topics. Its value should not exceed the lesser of the broker counts in the source and target clusters.
    * `<M>` stands for the [default replication factor](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor) defined for topics in the target cluster.
    * `<T>` stands for the number of concurrent MirrorMaker processes. To distribute replication load evenly, we recommend a value of at least `2`. For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/operations/geo-replication-cross-cluster-data-mirroring/#configuration-file-syntax).

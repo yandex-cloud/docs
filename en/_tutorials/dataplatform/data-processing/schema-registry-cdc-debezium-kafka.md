@@ -50,19 +50,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. [Navigate]({{ link-console-main }}/link/data-transfer) to **{{ data-transfer-full-name }}**. 
   1. [Create an {{ KF }} source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md) with the following settings:
 
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: **{{ KF }}**.
-      * **Connection type**: **Manual setup**.
-      * **Installation type**: **{{ mkf-name }}** cluster.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ KF }}`.
+      * **Connection type**: `Manual setup`.
+      * **Installation type**: `{{ mkf-name }} cluster`.
       * Under **{{ mkf-name }} cluster**:
 
           * **{{ mkf-name }} cluster**: Select the {{ mkf-name }} cluster you created previously.
-          * **Authentication**: **SASL**.
+          * **Authentication**: `SASL`.
           * **Username** and **Password**: User credentials in the {{ mkf-name }} cluster.
 
       * Under **Advanced settings** → **Conversion rules**:
 
-          * **Conversion rules**: **Debezium CDC parser**.
-          * **{{ schema-registry-name }} connection settings**: **On Premise {{ schema-registry-name }}**.
+          * **Conversion rules**: `Debezium CDC parser`.
+          * **{{ schema-registry-name }} connection settings**: `On Premise {{ schema-registry-name }}`.
           * **{{ schema-registry-name }} URL**: {{ schema-registry-name }} URL you [got earlier](#create-schema-registry).
 
   1. [Create and run](../../../data-transfer/operations/transfer.md) a data transfer.

@@ -5,6 +5,181 @@ description: This section contains the {{ at-name }} release notes.
 
 # {{ at-full-name }} release notes
 
+## July 2026 {#jul-2026}
+
+* Added new events for the services:
+
+  {% cut "{{ sw-full-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `ExecutionFinished` | Completing a workflow execution
+  `StartExecution` | Workflow execution
+  `StopExecution` | Stopping a workflow execution
+  `TerminateExecution` | Terminating a workflow execution
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateWorkflow` | Creating a workflow
+  `DeleteWorkflow` | Deleting a workflow
+  `SetWorkflowAccessBindings` | Assigning access permissions for a workflow
+  `UpdateWorkflow` | Updating a workflow
+  `UpdateWorkflowAccessBindings` | Updating access permissions for a workflow
+
+  {% endcut %}
+
+  {% cut "{{ maf-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ dataproc-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ metastore-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ cns-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateTopic` | Creating a topic
+  `DeleteTopic` | Deleting a topic
+  `UpdateTopic` | Updating a topic
+
+  {% endcut %}
+
+  {% cut "{{ org-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `policy.ActivateAuthenticationPolicyRule` | Activating an authentication policy rule
+  `policy.CreateAuthenticationPolicyRule` | Creating an authentication policy rule
+  `policy.DeactivateAuthenticationPolicyRule` | Deactivating an authentication policy rule
+  `policy.DeleteAuthenticationPolicyRule` | Deleting an authentication policy rule
+  `policy.UpdateAuthenticationPolicyRule` | Updating an authentication policy rule
+
+  {% endcut %}
+
+  {% cut "{{ msp-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ mtr-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ video-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `InitializeChannelAdminChat` | Initializing a channel admin chat
+  `InitializeEpisodeChat` | Initializing an episode chat
+  `RenewVideoSource` | Updating a video source
+  `ResetChannelAdminChat` | Resetting a channel admin chat
+  `ResyncEpisodeChatAdmins` | Synchronizing episode chat admins
+
+  {% endcut %}
+
+  {% cut "{{ lockbox-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetCurrentVersion` | Setting the current secret version
+
+  {% endcut %}
+
+  {% cut "{{ mkf-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `RescheduleMaintenance` | Changing scheduled maintenance date and time
+
+  {% endcut %}
+
+  {% cut "{{ cloud-registry-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateLifecyclePolicy` | Creating a [lifecycle policy](../cloud-registry/concepts/lifecycle-policy.md)
+  `DeleteLifecyclePolicy` | Deleting a lifecycle policy
+  `UpdateLifecyclePolicy` | Updating a lifecycle policy
+
+  {% endcut %}
+
+  {% cut "{{ objstorage-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `BucketInventoryConfigurationDelete` | Deleting an S3 Inventory configuration for a bucket
+  `BucketInventoryConfigurationUpdate` | Updating an S3 Inventory configuration for a bucket
+
+  {% endcut %}
+
+  {% cut "{{ sd-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `AddCluster` | Adding a cluster
+  `DeleteCluster` | Deleting a cluster
+
+  {% endcut %}
 
 ## Q2 2026 {#q2-2026}
 

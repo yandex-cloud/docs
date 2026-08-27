@@ -33,16 +33,16 @@ keywords:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер {{ SPRK }}.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+    1. Нажмите **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
         1. Задайте имя кластера. Имя должно быть уникальным в рамках каталога.
         1. (Опционально) Введите описание кластера.
         1. (Опционально) Создайте [метки](../../resource-manager/concepts/labels.md):
 
-            1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+            1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
             1. Введите метку в формате `ключ: значение`.
-            1. Нажмите **Enter**.
+            1. Нажмите **{{ ui-key.yacloud.component.label-set.label_enter-keyboard-key }}**.
 
         1. Выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или [создайте новый](../../iam/operations/sa/create.md).
 
@@ -52,8 +52,8 @@ keywords:
 
     1. Задайте вычислительные ресурсы, на которых будут запускаться Spark-приложения:
 
-       * Конфигурация драйвера — количество хостов и [их класс](../concepts/instance-types.md) для драйвера (driver). Может быть фиксированным или автомасштабируемым.
-       * Конфигурация исполнителя — количество хостов и [их класс](../concepts/instance-types.md) для исполнителя (executor). Может быть фиксированным или автомасштабируемым.
+       * **{{ ui-key.yacloud.spark.section_driver }}** — количество хостов и [их класс](../concepts/instance-types.md) для драйвера (driver). Может быть фиксированным или автомасштабируемым.
+       * **{{ ui-key.yacloud.spark.section_executor }}** — количество хостов и [их класс](../concepts/instance-types.md) для исполнителя (executor). Может быть фиксированным или автомасштабируемым.
 
     1. При необходимости задайте дополнительные настройки кластера:
 
@@ -95,7 +95,7 @@ keywords:
              * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
            1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 

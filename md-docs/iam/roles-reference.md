@@ -2276,7 +2276,7 @@
 Роль `postbox.auditor` позволяет просматривать информацию об адресах Yandex Cloud Postbox.
 
 Пользователи с этой ролью могут:
-* просматривать информацию об [адресах](../postbox/concepts/glossary.md#adress) и их [конфигурациях](../postbox/concepts/glossary.md#configuration);
+* просматривать информацию об [адресах](../postbox/concepts/glossary.md#address) и их [конфигурациях](../postbox/concepts/glossary.md#configuration);
 * получать списки адресов и их конфигураций.
 
 #### postbox.viewer {#postbox-viewer}
@@ -2284,7 +2284,7 @@
 Роль `postbox.viewer` позволяет просматривать информацию об адресах Yandex Cloud Postbox.
 
 Пользователи с этой ролью могут:
-* просматривать информацию об [адресах](../postbox/concepts/glossary.md#adress) и их [конфигурациях](../postbox/concepts/glossary.md#configuration);
+* просматривать информацию об [адресах](../postbox/concepts/glossary.md#address) и их [конфигурациях](../postbox/concepts/glossary.md#configuration);
 * получать списки адресов и их конфигураций.
 
 Включает разрешения, предоставляемые ролью `postbox.auditor`.
@@ -2294,7 +2294,7 @@
 Роль `postbox.editor` позволяет управлять адресами Yandex Cloud Postbox и отправлять письма.
 
 Пользователи с этой ролью могут:
-* создавать, изменять и удалять [адреса](../postbox/concepts/glossary.md#adress) и их [конфигурации](../postbox/concepts/glossary.md#configuration);
+* создавать, изменять и удалять [адреса](../postbox/concepts/glossary.md#address) и их [конфигурации](../postbox/concepts/glossary.md#configuration);
 * просматривать информацию об адресах и их конфигурациях;
 * получать список адресов и их конфигураций;
 * отправлять письма.
@@ -2314,7 +2314,7 @@
 Роль `postbox.admin` позволяет управлять адресами Yandex Cloud Postbox, отправлять письма, а также просматривать информацию об отправленных письмах и статистику по ним.
 
 Пользователи с этой ролью могут:
-* создавать, изменять и удалять [адреса](../postbox/concepts/glossary.md#adress) и их [конфигурации](../postbox/concepts/glossary.md#configuration);
+* создавать, изменять и удалять [адреса](../postbox/concepts/glossary.md#address) и их [конфигурации](../postbox/concepts/glossary.md#configuration);
 * просматривать информацию об адресах и их конфигурациях;
 * получать список адресов и их конфигураций;
 * отправлять письма;

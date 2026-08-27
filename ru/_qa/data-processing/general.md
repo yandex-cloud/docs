@@ -76,9 +76,9 @@ py4j.protocol.Py4JJavaError: An error occurred while calling o264.parquet.
 
 Подробнее о размерах подсетей смотрите в документации [{{ vpc-full-name }}](../../vpc/concepts/network.md#subnet).
 
-#### Почему кластер в статусе `Unknown`? {#unknown}
+#### Почему кластер находится в состоянии `UNKNOWN` или статусе `STATUS_UNKNOWN`? {#unknown}
 
-Если у кластера был статус `Alive`, а затем стал `Unknown`:
+##### Состояние кластера изменилось с `ALIVE` на `UNKNOWN` {#unknown-after-alive}
 
 1. Убедитесь, что вы [настроили сеть для {{ dataproc-name }}](../../data-proc/tutorials/configure-network.md). Для работы кластера нужно создать и настроить несколько сетевых ресурсов:
 
@@ -104,6 +104,19 @@ py4j.protocol.Py4JJavaError: An error occurred while calling o264.parquet.
    В параметрах `--since` и `--until` укажите границы периода. Формат времени: `YYYY-MM-DDThh:mm:ssZ`. Пример: `2020-08-10T12:00:00Z`. Время указывается в часовом поясе UTC.
 
    Подробнее в разделе [{#T}](../../data-proc/operations/logging.md).
+
+##### Статус кластера изменился на `STATUS_UNKNOWN` сразу после создания {#unknown-after-creating}
+
+Кластер может находиться в статусе `STATUS_UNKNOWN`, если его виртуальные машины создаются без публичных IP-адресов. Они недоступны из интернета по умолчанию.
+
+Чтобы предоставить этим ВМ доступ в интернет, используйте NAT-шлюз:
+
+1. [Создайте NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
+1. [Создайте таблицу маршрутизации](../../vpc/operations/static-route-create.md), выбрав созданный шлюз в качестве `next hop`.
+1. Привяжите таблицу маршрутизации к подсети, в которой находятся виртуальные машины кластера.
+1. При необходимости [настройте группы безопасности](../../data-proc/operations/cluster-create.md#change-security-groups). Если вы не используете группы безопасности, то настраивать их не нужно.
+
+После этого статус кластера должен смениться на `RUNNING` в течение нескольких минут.
 
 #### Какая минимальная вычислительная мощность нужна для работы подкластера с хостом-мастером? {#master-computing-power}
 
@@ -142,3 +155,82 @@ py4j.protocol.Py4JJavaError: An error occurred while calling o264.parquet.
 #### Как исправить ошибку отсутствия прав при подключении сервисного аккаунта к кластеру? {#attach-service-account}
 
 {% include notitle [attach-sa-create-update](../attach-sa-create-update.md) %}
+
+#### Почему после выполнения заданий в YARN Resource Manager Web UI не появились логи? {#yarn-logs}
+
+При попытке просмотреть логи отображается сообщение:
+
+{% cut "Сообщение об ошибке" %}
+
+```text
+Failed redirect for container_....
+
+Failed while trying to construct the redirect url to the log server. Log Server url may not be configured
+Local Logs:
+java.lang.Exception: Unknown container. Container either has not started or has already completed or doesn't belong to this node at all.
+```
+
+{% endcut %}
+
+На кластерах по умолчанию включена агрегация логов: после завершения работы контейнера его логи переносятся в HDFS. YARN Resource Manager Web UI отображает логи, только если они находятся непосредственно в файловой системе узла.
+
+Получить логи можно следующими способами:
+
+{% list tabs %}
+
+- HDFS
+
+  1. Посмотрите список файлов с логами:
+
+     ```bash
+     sudo -u hdfs hadoop fs -ls /var/log/spark/apps/
+     ```
+
+     Пример результата:
+
+     ```text
+     -rw-rw----   1 dataproc-agent spark     327130 2026-08-24 13:30 /var/log/spark/apps/application_1787577688417_0002_1
+     ```
+
+  1. Прочитайте содержимое нужного файла:
+
+     ```bash
+     sudo -u hdfs hadoop fs -cat /var/log/spark/apps/application_1787577688417_0002_1
+     ```
+
+- YARN
+
+  1. Получите список заданий:
+
+     ```bash
+     yarn app -list
+     ```
+
+  1. Прочитайте логи нужного задания:
+
+     ```bash
+     sudo -u yarn yarn logs -applicationId <идентификатор_приложения>
+     ```
+
+{% endlist %}
+
+Чтобы настроить выгрузку логов в бакет, выполните команду:
+
+```bash
+yc dataproc cluster update <идентификатор_кластера> \
+  --property "yarn:yarn.nodemanager.remote-app-log-dir=s3a://<имя_бакета>/yarn-logs/" \
+  --property "yarn:yarn.log-aggregation.retain-seconds=-1"
+```
+
+{% note warning %}
+
+Использование параметра `--property` переопределит все свойства компонентов, которые не были явно переданы в параметре, на значения по умолчанию. Чтобы сохранить ранее измененные свойства, передайте их в том же запросе.
+
+{% endnote %}
+
+Чтобы просматривать логи завершенного приложения в YARN Resource Manager Web UI, отключите агрегацию логов:
+
+```bash
+yc dataproc cluster update <идентификатор_кластера> \
+  --property "yarn:yarn.log-aggregation-enable=false"
+```

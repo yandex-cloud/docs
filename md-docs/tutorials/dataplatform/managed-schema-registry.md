@@ -4,6 +4,7 @@
 
 Чтобы использовать [Managed Schema Registry](../../managed-kafka/concepts/managed-schema-registry.md#msr) совместно с Managed Service for Apache Kafka®:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Создайте скрипты производителя и потребителя на локальной машине](#create-scripts).
 1. [Проверьте правильность работы Managed Schema Registry](#check-schema-registry).
 1. [Удалите созданные ресурсы](#clear-out).
@@ -11,24 +12,34 @@
 В этом руководстве описана регистрация одной схемы данных. Подробнее о том, как зарегистрировать несколько схем данных, смотрите в документации [Confluent Schema Registry](https://docs.confluent.io/platform/current/control-center/topics/schema.html).
 
 
-## Необходимые платные ресурсы {#paid-resources}
-
-В стоимость поддержки инфраструктуры входит:
-
-* плата за вычислительные ресурсы кластера Managed Service for Apache Kafka® и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование [публичного IP-адреса](../../vpc/concepts/ips.md) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
-
-
 ## Перед началом работы {#before-you-begin}
+
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+
+
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 1. [Создайте кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. При создании кластера включите опции **Реестр схем данных** и **Публичный доступ**.
 
+    
     {% note info %}
     
     Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
     
     {% endnote %}
+
 
     1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `messages` для обмена сообщениями между производителем и потребителем.
     1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ему права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:
@@ -240,4 +251,5 @@
 
 * [Удалите кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
 * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
-* Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md)
+
+* Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).

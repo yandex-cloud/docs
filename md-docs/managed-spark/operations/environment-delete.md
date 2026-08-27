@@ -11,8 +11,8 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, из которого нужно удалить окружение.
   1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **Окружения**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного окружения и выберите пункт **Удалить**.
-  1. В открывшемся окне подтвердите удаление и нажмите кнопку **Удалить**.
+  1. Нажмите![image](../../_assets/console-icons/ellipsis.svg) для нужного окружения и выберите **Удалить**.
+  1. В открывшемся окне подтвердите удаление и нажмите **Удалить**.
 
 - gRPC API {#grpc-api}
 

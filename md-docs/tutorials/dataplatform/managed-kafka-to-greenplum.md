@@ -13,7 +13,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
 * Кластер Yandex MPP Analytics for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/pricing/index.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
@@ -26,11 +26,13 @@
 
     - Вручную {#manual}
 
+        
         {% note info %}
         
         Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
         
         {% endnote %}
+
 
         1. [Создайте кластер-источник Yandex Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-create.md#create-cluster) любой подходящей конфигурации c хостами в публичном доступе.
 

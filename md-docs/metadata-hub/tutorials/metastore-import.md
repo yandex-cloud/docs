@@ -215,7 +215,7 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
 В кластере `dataproc-source` создайте тестовую таблицу `countries`:
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. [Перейдите]((https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
+1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
 1. Откройте страницу кластера `dataproc-source`.
 1. Перейдите по ссылке **Zeppelin Web UI** в разделе **UI Proxy**.
 1. Выберите **Notebook**, затем ![image](../../_assets/console-icons/plus.svg) **Create new note**.

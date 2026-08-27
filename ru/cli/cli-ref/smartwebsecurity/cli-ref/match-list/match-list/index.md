@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/mat
 
 # yc smartwebsecurity match-list match-list
 
-A set of methods for managing MatchList resources.
+Manage match lists
 
 #### Command Usage
 

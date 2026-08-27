@@ -63,7 +63,7 @@ Responses with the 4xx code mean that you can repeat your request later.
 || `550` | `5.7.1` | `sender is not allowed` | Sender not on allowed list for the address. | Use an [allowed sender](../operations/restrict-senders.md) or add the sender to the allowed list. ||
 |#
 
-### Quotas and message size {#quotas-and-message-size}
+### Quotas and limits {#quotas-and-message-size}
 
 #|
 || **Code** | **Enhanced code** | **Text** | **Cause** | **What to do** ||

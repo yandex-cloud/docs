@@ -176,7 +176,7 @@ Apache Hive™ Metastore обеспечивает:
     1. В бакете для исходного кода создайте папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `job-create-table.py`.
     1. В бакете для выходных данных создайте папку `warehouse`, в которую будут загружены данные из БД `database_1`.
     1. [Создайте задание](../operations/jobs-pyspark.md) с параметрами:
-        * **Тип задания** — **PySpark**.
+        * **Тип задания** — `PySpark`.
         * **Main python файл** — `s3a://<бакет_для_исходного_кода>/scripts/job-create-table.py`.
         * **Аргументы** — `s3a://<бакет_для_выходных_данных>/warehouse`.
 
@@ -190,7 +190,7 @@ Apache Hive™ Metastore обеспечивает:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
+    1. Нажмите на имя нужного кластера и выберите **Задания**.
     1. Дождитесь, когда созданное PySpark-задание перейдет в статус **Done**.
     1. Убедитесь, что в бакете для выходных данных, в папке `warehouse`, появился файл с данными из БД `database_1`.
     1. Проверьте, что в кластере Apache Hive™ Metastore появились метаданные о БД `database_1`:

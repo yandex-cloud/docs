@@ -21,8 +21,8 @@ description: Вы узнаете, как управлять заданиями S
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.spark.jobs.create_action }}**.
+    1. Нажмите на имя нужного кластера и перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
+    1. Нажмите **{{ ui-key.yacloud.spark.jobs.create_action }}**.
     1. Укажите имя задания.
     1. Выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или [создайте новый](../../iam/operations/sa/create.md).
     1. Выберите окружение, в котором будет выполнено задание. Доступные варианты:
@@ -40,7 +40,7 @@ description: Вы узнаете, как управлять заданиями S
         * В поле **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** укажите [свойства {{ SPRK }}](../concepts/spark-properties.md) в виде пар «ключ-значение».
         * Укажите координаты используемых и исключаемых Maven-пакетов, а также URL дополнительных репозиториев для поиска пакетов.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
+    1. Нажмите **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
 - CLI {#cli}
 
