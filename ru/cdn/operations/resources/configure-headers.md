@@ -23,7 +23,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Нажмите на имя необходимого ресурса.
 
-  1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/arrow-up-to-line.svg) **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**.
 
   1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
@@ -36,6 +36,9 @@ description: Следуя данной инструкции, вы сможете
 
       * В поле **{{ ui-key.yacloud.cdn.label_headers }}** нажмите **{{ ui-key.yacloud.common.add }}**.
       * Введите имена и значения нужных заголовков.
+      * (Опционально) Чтобы [скрыть заголовки, полученные от источника](../../concepts/hiding-headers.md), в поле **Скрытие заголовков источника** выберите `Скрывать все, кроме указанных`, а в поле **Какие оставить** укажите заголовки, которые нужно передавать клиентам, например `Content-Type`.
+
+      {% include [hiding-headers-warning](../../../_includes/cdn/hiding-headers-warning.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -191,3 +194,4 @@ description: Следуя данной инструкции, вы сможете
 
 * [{#T}](../../concepts/clients-to-servers.md)
 * [{#T}](../../concepts/servers-to-origins.md)
+* [{#T}](hiding-headers.md)

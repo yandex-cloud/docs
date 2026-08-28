@@ -126,8 +126,7 @@ description: Из этой статьи вы узнаете, как подклю
 
 {% endlist %}
 
-Чтобы обеспечить сетевой доступ:
-{#provide-access}
+Чтобы обеспечить сетевой доступ: {#provide-access}
 
 [Назначьте](../../../compute/operations/vm-control/vm-attach-public-ip.md) виртуальной машине публичный IP-адрес или примените [таблицу маршрутизации](../../../vpc/concepts/routing.md#rt-vm), разрешающую доступ в интернет через [NAT-шлюз](../../../vpc/concepts/gateways.md) или пользовательский маршрутизатор.
 

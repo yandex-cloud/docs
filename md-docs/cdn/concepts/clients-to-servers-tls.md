@@ -34,7 +34,7 @@
     Этот профиль используется по умолчанию.
 * `PROFILE_LEGACY` — шифры, совместимые с TLS версии 1.0 и новее без известных критических уязвимостей.
 
-Настройка доступна с помощью API при [создании](../operations/resources/create-resource.md) и [изменении](../operations/resources/configure-basics.md) CDN-ресурса. Подробнее на странице [Настройка профиля безопасности TLS для CDN-ресурса](../operations/resources/configure-tls-profile.md).
+Настройка доступна с помощью консоли управления и API при [создании](../operations/resources/create-resource.md) и [изменении](../operations/resources/configure-tls-profile.md) CDN-ресурса.
 
 Подробнее о протоколе TLS в разделе [Введение в TLS: обзор принципов и основных характеристик](../../glossary/tls.md).
 

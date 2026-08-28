@@ -28,7 +28,11 @@ All versions fall into the following types:
    The version is displayed:
    
    * To all users on dashboards.
+   
+   
    * When navigating to a report.
+   
+   
    * When opening a report in a workbook.
    * When using the dashboard context menu to open a report for editing.
    
@@ -42,11 +46,11 @@ All versions fall into the following types:
 
    {% endnote %}
   
-1. **Outdated**: This version is no longer current.  
-   When you open an outdated version, a panel appears at the top indicating the version type, creation date and time, and login of the version author. There are buttons in the right-hand panel:
+1. **Outdated**: Version that is no longer current.  
+   When you open an outdated version, you see a panel at the top stating the version type, creation date and time, and the version author's username. There are buttons in the right-hand panel:
 
-   * **Make current**: Turns an outdated version into the current one. The version current at the time will become outdated.
-   * **Open current**: Opens the current version.
+   * **Make actual**: Turns an outdated version into the current one. The version actual at the time will become outdated.
+   * **Open actual**: Opens the current version.
 
    {% cut "Outdated version" %}
 
@@ -67,7 +71,7 @@ You can share any report version by adding the `revId` parameter to the report l
 A new version is automatically created:
 
 * In the current/outdated report version edit mode, after you click **Save** (which creates a new current version).
-* In outdated report version view mode, after you click **Make current**.
+* In outdated report version view mode, after you click **Make actual**.
 
 Below are report configuration changes that create a new version once they are saved:
 
@@ -89,9 +93,9 @@ Editing a report opens its current version by default. To save your changes, cli
 
 To edit an outdated version, select it from the list of versions. To save your changes to an outdated version, click **Save** at the top right. This will create a new current version, making the previous one outdated.
 
-## Limitations {#restrictions}
+## Limits {#restrictions}
 
-* Change history is only available for the last three months.
+* You can only get the change history for the last three months.
 * The change history only contains a list of report versions and indicates the version type, save date and time, and user who made the change.
 * Report versions do not include changes to access permissions; this operation is performed separately from report edits.
-* Versions do not display a list of changes. You can only view the saved status of the report configuration.
+* Versions do not display the list of changes. You can only view the saved status of the report configuration.

@@ -57,6 +57,14 @@ index: 1
 
 ## 2026 год {#2026}
 
+### Август {#august2026}
+
+* Поддержана политика очистки данных в приемнике [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md).
+* Добавлены настройки для подключения вручную эндпоинтов {{ ydb-name }} и {{ yds-name }}.
+* Теперь [{{ IBRG }}](../operations/endpoint/target/iceberg.md) можно настроить в качестве приемника для [захвата изменений данных](../concepts/cdc.md).
+* Исправлены ошибки в поведении приемников данных {{ CH }}.
+* Переработан раздел [Начало работы с {{ data-transfer-name }}](../quickstart.md).
+
 ### Июль {#july2026}
 
 

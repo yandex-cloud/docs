@@ -410,7 +410,7 @@ Yandex Key Management Service — сервис для создания и упр
 
  - [UpdateAccessBindings](api-ref/grpc/SymmetricKey/updateAccessBindings.md)
 
-#### Key Management Service API
+#### Asymmetric encryption API
 
  - [Overview](asymmetricencryption/api-ref/grpc/index.md)
 
@@ -452,7 +452,7 @@ Yandex Key Management Service — сервис для создания и упр
 
  - [Cancel](asymmetricencryption/api-ref/grpc/Operation/cancel.md)
 
-#### Key Management Service API
+#### Asymmetric signature API
 
  - [Overview](asymmetricsignature/api-ref/grpc/index.md)
 
@@ -552,7 +552,7 @@ Yandex Key Management Service — сервис для создания и упр
 
  - [UpdateAccessBindings](api-ref/SymmetricKey/updateAccessBindings.md)
 
-#### Key Management Service API
+#### Asymmetric encryption API
 
  - [Overview](asymmetricencryption/api-ref/index.md)
 
@@ -594,7 +594,7 @@ Yandex Key Management Service — сервис для создания и упр
 
  - [Cancel](asymmetricencryption/api-ref/Operation/cancel.md)
 
-#### Key Management Service API
+#### Asymmetric signature API
 
  - [Overview](asymmetricsignature/api-ref/index.md)
 

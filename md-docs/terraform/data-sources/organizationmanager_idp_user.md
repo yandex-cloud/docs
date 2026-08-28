@@ -43,6 +43,8 @@ output "my_user.full_name" {
  Part of the user's profile information.
 - `id` (String). ID of the user to return.
 - `job_title` (String). User's job title.
+- `password_created_at` (*Read-Only*) (String). Timestamp when the user's current password was created.
+ For synchronized passwords, this is the time when the password was last set in the source directory.
 - `phone_number` (String). User's phone number.
 - `status` (*Read-Only*) (String). Current status of the user.
  Determines whether the user can authenticate and access the system.

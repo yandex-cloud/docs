@@ -137,25 +137,21 @@ description: Агент синхронизации {{ ad-sync-agent }} выпо�
 
   {% include [ad-sync-yaml-config-gmsa](../../../_includes/organization/ad-sync-yaml-config-gmsa.md) %}
 
-  Где:
-
-  {% list tabs accordion %}
+  {% cut "Описание параметров" %}
 
   {% include [ad-sync-yaml-config-complete-gmsa-legend](../../../_includes/organization/ad-sync-yaml-config-complete-gmsa-legend.md) %}
 
-  {% endlist %}
+  {% endcut %}
 
 - По логину и паролю {#password_linux}
 
   {% include [ad-sync-yaml-config](../../../_includes/organization/ad-sync-yaml-config.md) %}
 
-  Где:
-
-  {% list tabs accordion %}
+  {% cut "Описание параметров" %}
 
   {% include [ad-sync-yaml-config-complete-password-legend](../../../_includes/organization/ad-sync-yaml-config-complete-password-legend.md) %}
 
-  {% endlist %}
+  {% endcut %}
 
 - По протоколу Kerberos {#kerberos_linux}
 
@@ -167,13 +163,11 @@ description: Агент синхронизации {{ ad-sync-agent }} выпо�
 
   {% include [ad-sync-yaml-config-kerberos](../../../_includes/organization/ad-sync-yaml-config-kerberos.md) %}
 
-  Где:
-
-  {% list tabs accordion %}
+  {% cut "Описание параметров" %}
 
   {% include [ad-sync-yaml-config-complete-kerberos-legend](../../../_includes/organization/ad-sync-yaml-config-complete-kerberos-legend.md) %}
 
-  {% endlist %}
+  {% endcut %}
 
 {% endlist %}
 

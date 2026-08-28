@@ -82,7 +82,7 @@ output "fqdn" {
   - `lc_collate` (String). POSIX locale for string sorting order. Forbidden to change in an existing database.
   - `lc_type` (String). POSIX locale for character classification. Forbidden to change in an existing database.
   - `name` (**Required**)(String). The resource name.
-  - `owner` (**Required**)(String). Name of the user assigned as the owner of the database. Forbidden to change in an existing database.
+  - `owner` (**Required**)(String). Name of the user assigned as the owner of the database. Changing this value transfers ownership of the database to another user.
   - `template_db` (String). Name of the template database.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
 - `description` (String). The resource description.

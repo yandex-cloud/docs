@@ -25,7 +25,7 @@ To add a [header](../../dashboard/widget.md#title) to a dashboard:
    
    
    * Optionally, set the widget background color and opacity separately for the light and dark theme.
-   * Optionally, set corner rounding for your widget.
+   * Optionally, set rounding for your widget.
 
 
    * Optionally, enable **Tooltip** and enter the tooltip text. The input field supports [Markdown](../../dashboard/markdown.md).
@@ -37,3 +37,5 @@ To add a [header](../../dashboard/widget.md#title) to a dashboard:
 ## Adding to the table of contents {#dashboard-content}
 
 To add a header with an anchor link to the table of contents, enable the **Display in table of contents** option in the widget editing window. When you click the header in the table of contents, the dashboard page automatically scrolls to this section and its hash is added to the address bar.
+
+To enable showing the table of contents in a dashboard, [enable](./add-contents.md) **Table of contents** in the dashboard settings.

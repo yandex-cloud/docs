@@ -47,7 +47,14 @@ resource "yandex_organizationmanager_idp_user" "example_user" {
 - `id` (String). ID of the user to return.
 - `is_active` (Bool). Whether the user is active. Default is true.
 - `job_title` (String). User's job title.
+- `password_created_at` (*Read-Only*) (String). Timestamp when the user's current password was created.
+ For synchronized passwords, this is the time when the password was last set in the source directory.
 - `password_hash` [Block]. Password hash. Credentials type. Exactly one of credentials type must be specified.
+  - `created_at` (String). Timestamp when the password was created.
+ For synchronized passwords, use the time when the password was last set in the source directory.
+ If omitted, the current time is used.
+ Used by [CreateUserRequest] and [SetPasswordHashRequest].
+ This value is ignored if [CreateUserRequest.password_change_required] or [SetPasswordHashRequest.need_change] is true.
   - `password_hash` (**Required**)(String). The password hash string.
   - `password_hash_type` (**Required**)(String). Type of the password hash.
 - `password_spec` [Block]. Password specification. Credentials type. Exactly one of credentials type must be specified.

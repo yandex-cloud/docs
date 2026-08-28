@@ -67,6 +67,8 @@ Yandex Cloud CDN позволяет организовать доставку к
 
  - [Настроить доступ по защищенному токену](operations/resources/enable-secure-token.md)
 
+ - [Настройка политики доступа по странам](operations/resources/configure-geo-acl.md)
+
  - [Настроить локационные правила](operations/resources/location-rules.md)
 
  - [Настроить имя сервера для SNI](operations/resources/configure-server-name.md)
@@ -174,6 +176,8 @@ Yandex Cloud CDN позволяет организовать доставку к
  - [Защищенные токены](concepts/secure-tokens.md)
 
  - [Политика доступа по IP-адресам](concepts/ip-address-acl.md)
+
+ - [Политика доступа по странам](concepts/geo-acl.md)
 
  - [Выделенная IP-адресация](concepts/dedicated-ip-addressing.md)
 

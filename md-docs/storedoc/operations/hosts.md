@@ -108,9 +108,7 @@
 
 Количество хостов в кластерах Yandex StoreDoc ограничено квотами на количество CPU и объем памяти, которые доступны кластерам базы данных в вашем [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud). Чтобы проверить используемые ресурсы, откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) и найдите блок **Yandex StoreDoc**.
 
-Вы можете добавлять в кластер Yandex StoreDoc хосты разных типов. Их количество зависит от [типа шардирования](../concepts/sharding.md#shard-management):
-
-{#hosts-table}
+Вы можете добавлять в кластер Yandex StoreDoc хосты разных типов. Их количество зависит от [типа шардирования](../concepts/sharding.md#shard-management): {#hosts-table}
 
 Тип шардирования | MONGOD | MONGOINFRA | MONGOS | MONGOCFG
 --- | --- | --- | --- | ---

@@ -158,8 +158,8 @@ description: Вы научитесь взаимодействовать с API {
 
 {% endlist %}
 
-Результат:
-{#lock-list-response}
+Результат: {#lock-list-response}
+
 ```json
 {
   "locks": [
@@ -223,8 +223,8 @@ description: Вы научитесь взаимодействовать с API {
 
 {% endlist %}
 
-Результат:
-{#lock-ensured}
+Результат: {#lock-ensured}
+
 ```json
 {
   "id": "e2371l9d5u8a********",

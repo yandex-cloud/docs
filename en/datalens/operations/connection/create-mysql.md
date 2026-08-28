@@ -47,15 +47,17 @@ To create a {{ MY }} connection:
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
-       Click **Check connection** to make sure the parameters are correct.
+     ![image](../../../_assets/datalens/operations/connection/connection-mysql-org.png)
 
- 
+       Click **Check connection** to make sure the parameters are correct.
 
    - Specify manually {#manual}
 
      {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
 
      {% include [datalens-db-connection-parameters-mysql](../../../_includes/datalens/datalens-db-connection-parameters-mysql.md) %}
+
+     ![image](../../../_assets/datalens/operations/connection/connection-mysql-manual.png)
 
      Click **Check connection** to make sure the parameters are correct.
 
@@ -75,15 +77,14 @@ To create a {{ MY }} connection:
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
+     ![image](../../../_assets/datalens/operations/connection/connection-mysql-manager.png)
+
    {% endlist %}
 
 
 1. Click **Create connection**.
 
-
 1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
-
-
 1. Enter a name for the connection and click **Create**.
 
 

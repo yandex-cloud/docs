@@ -72,6 +72,8 @@ data "yandex_alb_load_balancer" "tf-alb-data" {
     - `default_handler` [Block]. TLS handler resource.
       - `certificate_ids` (**Required**)(Set Of String). Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used.
       - `client_certificates_verification` [Block]. Client certificates verification settings.
+        - `accept_untrusted` (Bool). If true, ALB will not check certification chain and will allow expired client certificates.
+        - `allow_expired` (Bool). If true, ALB will allow expired client certificates even if accept_untrusted is set to false.
         - `bytes` (String). Trusted certificate authority certificates bundle (PEM text).
         - `require_client_certificate` (Bool). If true, ALB will reject connections without a valid client certificate.
       - `http_handler` [Block]. HTTP handler.
@@ -88,6 +90,8 @@ data "yandex_alb_load_balancer" "tf-alb-data" {
       - `handler` [Block]. TLS handler resource.
         - `certificate_ids` (**Required**)(Set Of String). Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used.
         - `client_certificates_verification` [Block]. Client certificates verification settings.
+          - `accept_untrusted` (Bool). If true, ALB will not check certification chain and will allow expired client certificates.
+          - `allow_expired` (Bool). If true, ALB will allow expired client certificates even if accept_untrusted is set to false.
           - `bytes` (String). Trusted certificate authority certificates bundle (PEM text).
           - `require_client_certificate` (Bool). If true, ALB will reject connections without a valid client certificate.
         - `http_handler` [Block]. HTTP handler.

@@ -570,7 +570,7 @@
 
 #### ai.playground.user {#ai-playground-user}
 
-Роль `ai.playground.user` позволяет создавать эксперименты, получать список всех доступных моделей и использовать их в Playground в интерфейсе AI Studio. Для работы с поисковыми индексами в консоли управления дополнительно необходима роль `ai.assistants.editor`.
+Роль `ai.playground.user` позволяет создавать эксперименты, получать список всех доступных моделей и использовать их в AI Playground в консоли управления Yandex Cloud. Для работы с поисковыми индексами в консоли управления дополнительно необходима роль `ai.assistants.editor`.
 
 #### ai.languageModels.user {#languageModels-user}
 
@@ -2439,7 +2439,7 @@
 Роль `cloud-router.auditor` позволяет просматривать информацию о ресурсах сервиса Cloud Router.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [виртуальных маршрутизаторах](../cloud-router/concepts/routing-instance.md);
+* просматривать информацию о [Routing Instance](../cloud-router/concepts/routing-instance.md);
 * просматривать информацию о квотах сервиса Cloud Router;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -2449,7 +2449,7 @@
 Роль `cloud-router.viewer` позволяет просматривать информацию о ресурсах сервиса Cloud Router.
 
 "Пользователи с этой ролью могут:
-* просматривать информацию о [виртуальных маршрутизаторах](../cloud-router/concepts/routing-instance.md);
+* просматривать информацию о [Routing Instance](../cloud-router/concepts/routing-instance.md);
 * просматривать информацию о квотах сервиса Cloud Router;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -2458,11 +2458,11 @@
 
 #### cloud-router.prefixEditor {#cloudrouter-prefixEditor}
 
-Роль `cloud-router.prefixEditor` позволяет управлять IP-префиксами облачных подсетей в виртуальных маршрутизаторах, а также просматривать информацию о ресурсах сервиса Cloud Router.
+Роль `cloud-router.prefixEditor` позволяет управлять IP-префиксами облачных подсетей в Routing Instance, а также просматривать информацию о ресурсах сервиса Cloud Router.
 
 "Пользователи с этой ролью могут:
-* просматривать информацию о [виртуальных маршрутизаторах](../cloud-router/concepts/routing-instance.md);
-* добавлять, изменять и удалять [IP-префиксы](../cloud-router/concepts/announces.md) облачных [подсетей](../vpc/concepts/network.md#subnet) в виртуальных маршрутизаторах;
+* просматривать информацию о [Routing Instance](../cloud-router/concepts/routing-instance.md);
+* добавлять, изменять и удалять [IP-префиксы](../cloud-router/concepts/announces.md) облачных [подсетей](../vpc/concepts/network.md#subnet) в Routing Instance;
 * просматривать информацию о квотах сервиса Cloud Router;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -2471,11 +2471,11 @@
 
 #### cloud-router.editor {#cloudrouter-editor}
 
-Роль `cloud-router.editor` позволяет управлять виртуальными маршрутизаторами, а также просматривать информацию о ресурсах сервиса Cloud Router.
+Роль `cloud-router.editor` позволяет управлять Routing Instance, а также просматривать информацию о ресурсах сервиса Cloud Router.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [виртуальных маршрутизаторах](../cloud-router/concepts/routing-instance.md), а также создавать, изменять и удалять их;
-* добавлять, изменять и удалять [IP-префиксы](../cloud-router/concepts/announces.md) облачных [подсетей](../vpc/concepts/network.md#subnet) в виртуальных маршрутизаторах;
+* просматривать информацию о [Routing Instance](../cloud-router/concepts/routing-instance.md), а также создавать, изменять и удалять их;
+* добавлять, изменять и удалять [IP-префиксы](../cloud-router/concepts/announces.md) облачных [подсетей](../vpc/concepts/network.md#subnet) в Routing Instance;
 * просматривать информацию о квотах сервиса Cloud Router;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -2487,8 +2487,8 @@
 Роль `cloud-router.admin` позволяет управлять ресурсами сервиса Cloud Router.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [виртуальных маршрутизаторах](../cloud-router/concepts/routing-instance.md), а также создавать, изменять и удалять их;
-* добавлять, изменять и удалять [IP-префиксы](../cloud-router/concepts/announces.md) облачных [подсетей](../vpc/concepts/network.md#subnet) в виртуальных маршрутизаторах;
+* просматривать информацию о [Routing Instance](../cloud-router/concepts/routing-instance.md), а также создавать, изменять и удалять их;
+* добавлять, изменять и удалять [IP-префиксы](../cloud-router/concepts/announces.md) облачных [подсетей](../vpc/concepts/network.md#subnet) в Routing Instance;
 * просматривать информацию о квотах сервиса Cloud Router;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -5274,6 +5274,10 @@
 
 ## Yandex Managed Service for ClickHouse® {#managed-clickhouse-roles}
 
+#### managed-clickhouse.clusters.connector {#managed-clickhouse-clusters-connector}
+
+Роль `managed-clickhouse.clusters.connector` позволяет [пользователям](concepts/users/accounts.md) Yandex Cloud подключаться к базам данных в [кластерах ClickHouse®](../managed-clickhouse/concepts/index.md) с помощью механизмов сервиса [Yandex Identity and Access Management](index.md).
+
 #### managed-clickhouse.auditor {#managed-clickhouse-auditor}
 
 Роль `managed-clickhouse.auditor` позволяет просматривать информацию о [кластерах ClickHouse®](../managed-clickhouse/concepts/index.md) и назначенных [правах доступа](concepts/access-control/index.md) к ним, а также о [квотах](../managed-clickhouse/concepts/limits.md#mch-quotas) и операциях с ресурсами сервиса Managed Service for ClickHouse®.
@@ -6494,10 +6498,10 @@
 
 #### managed-mongodb.switcher {#managed-mongodb-switcher}
 
-Роль `managed-mongodb.switcher` позволяет переназначать первичную реплику в кластерах Yandex StoreDoc, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях Yandex StoreDoc, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
+Роль `managed-mongodb.switcher` позволяет переназначать хост-мастер в кластерах Yandex StoreDoc, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях Yandex StoreDoc, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
 
 Пользователи с этой ролью могут:
-* переназначать первичную реплику в [кластерах Yandex StoreDoc](../storedoc/concepts/index.md);
+* переназначать хост-мастер в [кластерах Yandex StoreDoc](../storedoc/concepts/index.md);
 * просматривать информацию о кластерах Yandex StoreDoc и назначенных [правах доступа](concepts/access-control/index.md) к ним;
 * просматривать информацию о заданиях на [техническое обслуживание](../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc;
 * просматривать информацию о [хостах](../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc;
@@ -6522,7 +6526,7 @@
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к кластерам Yandex StoreDoc;
 * просматривать информацию о заданиях на [техническое обслуживание](../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc и изменять такие задания;
 * создавать, изменять и удалять [хосты](../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc и просматривать информацию о них;
-* переназначать первичную реплику в кластерах Yandex StoreDoc;
+* переназначать хост-мастер в кластерах Yandex StoreDoc;
 * создавать и удалять [шарды](../storedoc/concepts/sharding.md) кластеров Yandex StoreDoc и просматривать информацию о них;
 * создавать и удалять базы данных Yandex StoreDoc и просматривать информацию о них;
 * создавать, изменять и удалять [пользователей](../storedoc/concepts/users-and-roles.md) Yandex StoreDoc и просматривать информацию о них;
@@ -6546,7 +6550,7 @@
 * создавать, использовать, изменять, удалять, запускать и останавливать кластеры Yandex StoreDoc и просматривать информацию о них;
 * просматривать информацию о заданиях на [техническое обслуживание](../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc и изменять такие задания;
 * создавать, изменять и удалять [хосты](../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc и просматривать информацию о них;
-* переназначать первичную реплику в кластерах Yandex StoreDoc;
+* переназначать хост-мастер в кластерах Yandex StoreDoc;
 * создавать и удалять [шарды](../storedoc/concepts/sharding.md) кластеров Yandex StoreDoc и просматривать информацию о них;
 * создавать и удалять базы данных Yandex StoreDoc и просматривать информацию о них;
 * создавать, изменять и удалять [пользователей](../storedoc/concepts/users-and-roles.md) Yandex StoreDoc и просматривать информацию о них;

@@ -51,11 +51,10 @@
 
 ## Автомасштабирование и ресурсные единицы {#lcu-scaling}
 
-В каждой зоне доступности балансировщика создается внутренняя группа виртуальных машин, которые называются _ресурсными единицами_.
+В каждой зоне доступности балансировщика создается внутренняя группа виртуальных машин, которые называются _ресурсными единицами_. {#lcu-scaling-example}
 
 {% include [lcu-thresholds](../../_includes/application-load-balancer/lcu-thresholds.md) %}
 
-{#lcu-scaling-example}
 > Например, рассмотрим следующую нагрузку:
 >
 > {% include [lcu-example](../../_includes/application-load-balancer/lcu-example.md) %}

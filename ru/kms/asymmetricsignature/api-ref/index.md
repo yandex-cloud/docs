@@ -8,11 +8,9 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/kms/v1/asymmetricsignature).
 
-**Service URL**: `https://{{ api-host-kms }}`
-
 #|
-||Service | Description ||
-|| [AsymmetricSignatureCrypto](AsymmetricSignatureCrypto/index.md) | Set of methods that perform asymmetric signature. ||
-|| [AsymmetricSignatureKey](AsymmetricSignatureKey/index.md) | Set of methods for managing asymmetric signature keys. ||
-|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
+||Service | Description | Service URL ||
+|| [AsymmetricSignatureCrypto](AsymmetricSignatureCrypto/index.md) | Set of methods that perform asymmetric signature. | `https://{{ api-host-kms-symcrypto }}` ||
+|| [AsymmetricSignatureKey](AsymmetricSignatureKey/index.md) | Set of methods for managing asymmetric signature keys. | `https://{{ api-host-kms }}` ||
+|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. | `https://operation.{{ api-host }}` ||
 |#

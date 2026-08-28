@@ -662,6 +662,13 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
   - `ydb_source` [Block]. package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/endpoint.proto
 
+    - `authentication` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+      - `service_account` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+        - `service_account_id` (String). Service account ID for interaction with database
     - `changefeed_custom_consumer_name` (String). Consumer for pre-created change feed if any
     - `changefeed_custom_name` (String). Pre-created change feed if any
     - `database` (String). Database path in YDB where tables are stored.
@@ -676,9 +683,37 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
     - `service_account_id` (String). Service account ID for interaction with database
     - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
  database. If omitted, the server has to be accessible via Internet
+    - `ydb_connection` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+      - `database_id` (String). Managed Service for YDB database ID
+      - `on_premise` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+        - `database` (String). Database path in YDB where tables are stored.
+ Example: `/ru/transfer_manager/prod/data-transfer`
+        - `instance` (String). Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
+        - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+ If omitted, the server has to be accessible via Internet
+        - `tls_mode` [Block]. TLS settings for server connection. Disabled by default.
+          - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
+ connection
+          - `enabled` [Block]. TLS is used for the server connection
+            - `ca_certificate` (String). CA certificate
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
   - `ydb_target` [Block]. package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/endpoint.proto
 
+    - `authentication` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+      - `service_account` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+        - `service_account_id` (String). Service account ID for interaction with database
     - `cleanup_policy` (String). Cleanup policy determine how to clean collections when activating the transfer.
  One of `YDB_CLEANUP_POLICY_DISABLED` or `YDB_CLEANUP_POLICY_DROP`
     - `database` (String). Database path in YDB where tables are stored.
@@ -699,12 +734,35 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
     - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
  database.
  If omitted, the server has to be accessible via Internet
+    - `ydb_connection` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+      - `database_id` (String). Managed Service for YDB database ID
+      - `on_premise` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+        - `database` (String). Database path in YDB where tables are stored.
+ Example: `/ru/transfer_manager/prod/data-transfer`
+        - `instance` (String). Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
+        - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+ If omitted, the server has to be accessible via Internet
+        - `tls_mode` [Block]. TLS settings for server connection. Disabled by default.
+          - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
+ connection
+          - `enabled` [Block]. TLS is used for the server connection
+            - `ca_certificate` (String). CA certificate
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
   - `yds_source` [Block]. package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/endpoint.proto
 
     - `allow_ttl_rewind` (Bool). Should continue working, if consumer read lag exceed TTL of topic
  False: stop the transfer in error state, if detected lost data. True: continue
  working with losing part of data
+    - `authentication` [Block]. Choose one of authentication methods, right now only service account is avaiable
+      - `service_account_id` (String). Service account ID for interaction with database
     - `consumer` (String). Custom consumer - for important streams
     - `database` (String). Database path in YDB for streams
  Example: `/ru/transfer_manager/prod/data-transfer`
@@ -751,9 +809,35 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
     - `supported_codecs` (List Of String). List of supported compression codecs
  Options: YDS_COMPRESSION_CODEC_RAW, YDS_COMPRESSION_CODEC_ZSTD,
  YDS_COMPRESSION_CODEC_GZIP
+    - `ydb_connection` [Block]. Connection settings for managed YDB or for on premise
+      - `managed_yds` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/yds.proto
+
+        - `database_id` (String). Managed Service for YDB database ID
+        - `stream` (String). Stream to read
+      - `on_premise` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/yds.proto
+
+        - `database` (String). Database path in YDB where tables are stored.
+ Example: `/ru/transfer_manager/prod/data-transfer`
+        - `instance` (String). Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
+        - `stream` (String). Stream to read
+        - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+ If omitted, the server has to be accessible via Internet
+        - `tls_mode` [Block]. TLS settings for server connection. Disabled by default.
+          - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
+ connection
+          - `enabled` [Block]. TLS is used for the server connection
+            - `ca_certificate` (String). CA certificate
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
   - `yds_target` [Block]. package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/endpoint.proto
 
+    - `authentication` [Block]. Choose one of authentication methods, right now only service account is avaiable
+      - `service_account_id` (String). Service account ID for interaction with database
     - `compression_codec` (String). Codec to use for output data compression. If not specified, no compression will
  be done
  Options: YDS_COMPRESSION_CODEC_RAW, YDS_COMPRESSION_CODEC_ZSTD,
@@ -778,6 +862,30 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
     - `stream` (String). Stream to write to
     - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
  database. If omitted, the server has to be accessible via Internet
+    - `ydb_connection` [Block]. Connection settings for managed YDB or for on premise
+      - `managed_yds` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/yds.proto
+
+        - `database_id` (String). Managed Service for YDB database ID
+        - `stream` (String). Stream to read
+      - `on_premise` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/yds.proto
+
+        - `database` (String). Database path in YDB where tables are stored.
+ Example: `/ru/transfer_manager/prod/data-transfer`
+        - `instance` (String). Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
+        - `stream` (String). Stream to read
+        - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+ If omitted, the server has to be accessible via Internet
+        - `tls_mode` [Block]. TLS settings for server connection. Disabled by default.
+          - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
+ connection
+          - `enabled` [Block]. TLS is used for the server connection
+            - `ca_certificate` (String). CA certificate
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

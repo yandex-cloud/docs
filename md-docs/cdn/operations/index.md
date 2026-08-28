@@ -23,6 +23,7 @@
 * [Настройка следования перенаправлениям запросов](resources/setup-follow-redirects.md)
 * [Настройка скрытия заголовков от источника](resources/hiding-headers.md)
 * [Настройка доступа по защищенному токену](resources/enable-secure-token.md)
+* [Настройка политики доступа по странам](resources/configure-geo-acl.md)
 * [Настроить локационные правила Yandex Cloud CDN](resources/location-rules.md)
 * [Настройка пользовательского имени сервера для SNI](resources/configure-server-name.md)
 * [Приостановить и возобновить работу ресурса](resources/disable-resource.md)

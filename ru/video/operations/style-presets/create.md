@@ -15,17 +15,20 @@ description: Следуя данной инструкции, вы сможете
   1. В поле **{{ ui-key.yacloud_video.presets.label_title }}** укажите название шаблона.
   1. В блоке **{{ ui-key.yacloud_video.presets.section_playback-settings }}** включите опцию **{{ ui-key.yacloud_video.presets.field_persist-playback-progress }}**, чтобы плеер продолжал воспроизведение с места, где пользователь остановился при прошлом просмотре.
   1. В блоке **{{ ui-key.yacloud_video.presets.section_wigets-settings }}**:
+     
      * Включите или выключите нужные виджеты.
      * Задайте их расположение в интерфейсе плеера.
 
   1. В блоке **{{ ui-key.yacloud_video.presets.section_styles-settings }}**:
+     
      * Выберите цветовую схему.
      * Настройте размеры элементов.
      * Задайте другие визуальные параметры.
   
   1. В блоке **{{ ui-key.yacloud_video.presets.section_logo-settings }}**:
+     
      1. Включите опцию **{{ ui-key.yacloud_video.presets.field_logo-enabled }}**, чтобы отображать ваш логотип поверх видео.
-     1. Загрузите изображение с логотипом не более 2 МБ в формате JPG, PNG или GIF.
+     1. Загрузите изображение с логотипом не более 10 МБ в формате JPG, PNG или SVG.
      1. Включите опцию **{{ ui-key.yacloud_video.presets.field_logo-show-with-controls }}**, чтобы логотип исчезал вместе с элементами управления плеера, когда пользователь не взаимодействует с видео.
      1. В поле **{{ ui-key.yacloud_video.presets.field_logo-redirect-on-click-url }}** добавьте URL, который будет открываться при нажатии на логотип.
   

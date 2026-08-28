@@ -109,7 +109,7 @@ You can [ban](../operations/dashboard/dashboard-neuroanalyst-off.md) the use of 
 
 ## Neuroanalyst 2.0 {#neuroanalyst-2}
 
-Neuroanalyst 2.0 analyzes the dataset underlying your dashboard and can return an existing chart as a response or build a new chart based on the dataset. It uses the dataset and a [reference tab](#reference-tab) as context. Neuroanalyst 2.0 uses charts from the reference tab as templates when constructing new charts.
+Neuroanalyst 2.0 analyzes the dataset underlying your dashboard and can return an existing chart as a response or build a new chart based on the dataset. It uses the dataset and [reference tab](#reference-tab) as context. Neuroanalyst 2.0 uses charts from the reference tab as templates when building new charts.
 
 To use Neuroanalyst's multi-agent mode, [enable the option](#turn-on) in the dashboard settings.
 
@@ -135,7 +135,7 @@ To enable Neuroanalyst 2.0 on your dashboard:
 1. In the left-hand panel, click ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. In the top-right corner, click **Edit**.
 1. Click ![image](../../_assets/console-icons/gear.svg) at the top of the screen. The settings window will open on the right.
-1. If the **Neuroanalyst** option is not enabled, re-enable it (by default, it is enabled).
+1. If the **Neuroanalyst** option is off, turn it on (on by default).
 1. Enable the **Beta version** option.
 1. [Select a reference tab](../operations/dashboard/dashboard-ai-reference-tab.md) if your dashboard has more than one tab.
 1. Optionally, [hide](../operations/dashboard/dashboard-hide-tabs.md) the reference tab in the dashboard settings.
@@ -144,4 +144,5 @@ To enable Neuroanalyst 2.0 on your dashboard:
 ### Limits {#restrictions-2}
 
 * It only applies to one dataset, the one underlying your reference tab.
-* Neuroanalyst's recommendations include the titles of the first three charts.
+* The titles of the first three charts get into Neuroanalyst's recommendations.
+* Neuroanalyst is not available on mobile devices.

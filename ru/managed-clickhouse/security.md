@@ -34,6 +34,10 @@ description: Управление доступом в сервисе созда�
 
 ### Сервисные роли {#service-roles}
 
+#### managed-clickhouse.clusters.connector {#managed-clickhouse-clusters-connector}
+
+{% include [managed-clickhouse.clusters.connector](../_roles/managed-clickhouse/clusters/connector.md) %}
+
 #### managed-clickhouse.auditor {#managed-clickhouse-auditor}
 
 {% include [managed-clickhouse.auditor](../_roles/managed-clickhouse/auditor.md) %}

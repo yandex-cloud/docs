@@ -1,28 +1,21 @@
 ---
-title: Service plan and payment settings in {{ datalens-full-name }}
-description: From this article, you will learn how to configure a service plan for {{ datalens-short-name }} by choosing a plan and adding a billing account.
+title: Billing and payment settings in {{ datalens-full-name }}
+description: From this article, you will learn how to configure billing for {{ datalens-short-name }} by selecting a plan and adding a billing account.
 ---
 
-# Service plan and payment settings in {{ datalens-full-name }}
+# Billing and payment settings in {{ datalens-full-name }}
 
 
 
-To access the service plan and payment settings:
+To access the billing and payment settings:
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
-1. In the left-hand panel, select ![image](../../_assets/console-icons/sliders.svg) **Service settings**. If you do not see ![image](../../_assets/console-icons/sliders.svg) in the panel, first select ![image](../../_assets/console-icons/ellipsis.svg) **More**, then ![image](../../_assets/console-icons/sliders.svg) **Service settings**.
-1. Select the **Service plans and payment** tab.
+1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
+1. In the left-hand panel, select ![image](../../_assets/console-icons/sliders.svg) **Service settings**. If the panel does not show ![image](../../_assets/console-icons/sliders.svg), first select ![image](../../_assets/console-icons/ellipsis.svg) **More**, then ![image](../../_assets/console-icons/sliders.svg) **Service settings**.
+1. Select the **Billing and payment** tab.
 
-This tab provides seat cost info, a link to support service plans, and allows you to manage your billing account.
+On this tab, you can manage your billing account, find out the cost of seats and their total number in an instance, and proceed to technical support plans.
 
 ![image](../../_assets/datalens/settings/payments-settings.png)
-
-
-## Pricing {#service-plans}
-
-{{ datalens-short-name }} offers the unified [service plan](../pricing.md) which packs all the features available in {{ datalens-short-name }}. Your cost depends on the number of [seats](./seats.md) per instance; use that to control your consumption.
-
-{{ yandex-cloud }} support offers [service plans](../../support/pricing.md#change-service-plan) of its own. You will find a link to [{{ support-center-name }}]({{ link-console-support }}) under **Support**. Follow this link to see what your service plan is and change it as needed.
 
 ## Billing account {#billing-account}
 
@@ -49,9 +42,9 @@ To link a billing account, the user needs to following [roles](../security/roles
 
 To add a billing account:
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
+1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
-1. Select the **Service plans and payment** tab.
+1. Select the **Billing and payment** tab.
 1. If you have not added a billing account in {{ datalens-short-name }} yet, click **Add account** under **Billing account**. If you already have one, click **Change account**.
 1. If you have billing accounts linked to your [organization](../concepts/organizations.md), you can select one from the list. To create a new account, click **Create account**. If you do not have any billing accounts linked to your organization, the new account form will open:
    1. Specify general details:
@@ -92,9 +85,20 @@ To add a billing account:
 
 ## View your payment history {#history}
 
-To [view your payment history](../../billing/operations/check-bill-history.md), click ![image](../../_assets/console-icons/logo-yandex-cloud.svg) **Go to Yandex Cloud Billing**.
+To [view your payment history](../../billing/operations/check-bill-history.md), under **Billing account**, follow the [{{ billing-name }}]({{ link-console-billing }}/yc.billing.support.service/history) link.
+
+## Pricing {#service-plans}
+
+At the top of the **Billing** section, you can see the number of [seats](./seats.md) in your instance. To proceed to their settings, click **Go to seats**, or **Add seats** if you have one seat.
+
+Below, you can see info on the cost of your seats.
+
+{{ datalens-short-name }} offers the unified [service plan](../pricing.md) which packs all the features available in {{ datalens-short-name }}. Your cost depends on the number of seats per instance; use that to control your consumption.
+
+{{ yandex-cloud }} support offers [service plans](../../support/pricing.md#change-service-plan) of its own. On the banner in the center of the screen, click the **More about support** button to navigate to [{{ support-center-name }}]({{ link-console-support }}). If you do not see the banner with the button, click [this link]({{ link-console-support }}/plans). Follow this link to see what your service plan is and change it as needed.
 
 #### Useful links {#see-also}
 
 * [Pricing policy](../pricing.md)
 * [Pricing questions](../qa/pricing.md)
+

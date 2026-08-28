@@ -6,11 +6,9 @@ Actions are performed by making RPC calls. For more information about API archit
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/kms/v1).
 
-**Service URL**: `https://kms.api.cloud.yandex.net`
-
 #|
-||Service | Description ||
-|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
-|| [SymmetricCrypto](SymmetricCrypto/index.md) | Set of methods that perform symmetric encryption and decryption. ||
-|| [SymmetricKey](SymmetricKey/index.md) | Set of methods for managing symmetric KMS keys. ||
+||Service | Description | Service URL ||
+|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. | `operation.api.cloud.yandex.net:443` ||
+|| [SymmetricCrypto](SymmetricCrypto/index.md) | Set of methods that perform symmetric encryption and decryption. | `kms.yandex:443` ||
+|| [SymmetricKey](SymmetricKey/index.md) | Set of methods for managing symmetric KMS keys. | `kms.api.cloud.yandex.net:443` ||
 |#

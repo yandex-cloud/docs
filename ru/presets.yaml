@@ -8,6 +8,7 @@ default:
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
   agents-atelier-name: Agent Atelier
+  ai-playground: AI Playground
   ai-studio-full-name: Yandex AI Studio
   ai-studio-name: AI Studio
   airflow-service-address: 10.248.0.0/13
@@ -5015,6 +5016,7 @@ default:
         label_source-type: Тип источника
         label_status-active: Основной
         label_status-backup: Резервный
+        label_tls-profile: Профиль безопасности TLS
         label_use-bucket-site: Использовать сайт бакета
         md_value_certificate-le: Let's Encrypt^®^
         resources:
@@ -5053,6 +5055,10 @@ default:
         value_source-type-url: Сервер
         value_stepper-additional: Дополнительно
         value_stepper-main-settings: Основные настройки
+        value_tls-profile-compatible: Безопасный (TLSv1.2+)
+        value_tls-profile-legacy: Устаревший (TLSv1.0+)
+        value_tls-profile-secure: Защищённый (TLSv1.2+ с поддержкой PFS и AEAD)
+        value_tls-profile-strict: Усиленный (TLSv1.3)
       certificate-manager:
         action_import: Пользовательский сертификат
         action_request: Сертификат от Let's Encrypt
