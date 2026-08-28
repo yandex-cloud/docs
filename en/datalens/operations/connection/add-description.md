@@ -21,4 +21,10 @@ To add connection details, do the following:
 
 Now all users will see the ![image](../../../_assets/console-icons/circle-info.svg) icon in the top-right corner of the connection. Clicking it will open the **Connection info** window with the information.
 
+{% cut "Viewing connection info" %}
+
+![description](../../../_assets/datalens/connection/connection-description.png)
+
+{% endcut %}
+
 To remove connection info, save an empty field in the **Connection info** window. Users will no longer see the ![image](../../../_assets/console-icons/circle-info.svg) icon.

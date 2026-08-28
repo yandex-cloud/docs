@@ -31,12 +31,12 @@ When copying widgets from a dashboard or report, consider the following:
   * You cannot copy [images](../../dashboard/markdown.md#image) from a report to a dashboard.
   * To copy a title, text, or chart from a report:
     
-    1. In the left-hand panel, select ![image](../../../_assets/console-icons/display-pulse.svg) **Reports** and select the report.
+    1. In the left-hand panel, click ![image](../../../_assets/console-icons/display-pulse.svg) **Reports** and select the report.
     1. On the dashboard, next to the widget, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/copy.svg) **Copy**.
   
   * To copy a selector from a report:
   
-    1. In the left-hand panel, select ![image](../../../_assets/console-icons/display-pulse.svg) **Reports** and select the report.
+    1. In the left-hand panel, click ![image](../../../_assets/console-icons/display-pulse.svg) **Reports** and select the report.
     1. At the top right, click ![icon](../../../_assets/console-icons/funnel.svg).
     1. On the right, in the **Selectors** window, click ![icon](../../../_assets/console-icons/pencil.svg).
     1. Next to the selector, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/copy.svg) **Copy**.
@@ -64,6 +64,6 @@ To paste a copied widget onto your dashboard:
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need. If you do not have a dashboard, [create one](create.md).
 1. At the top of the page, click **Edit**.
 1. Select the dashboard tab you want to paste the widget onto.
-1. In the panel at the bottom of the page, hold down ![image](../../../_assets/console-icons/copy-plus.svg) **Paste** and drag the widget to a desired area.
+1. In the panel at the bottom of the page, hold down ![image](../../../_assets/console-icons/copy-plus.svg) **Paste** and drag the widget to a desired location.
 1. Resize the widget and drag it where you need on the page.
 1. In the top-right corner of the dashboard, click **Save**.

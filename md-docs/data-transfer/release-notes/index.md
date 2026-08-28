@@ -53,6 +53,14 @@ index: 1
 
 ## 2026 год {#2026}
 
+### Август {#august2026}
+
+* Поддержана политика очистки данных в приемнике [Object Storage](../operations/endpoint/target/object-storage.md).
+* Добавлены настройки для подключения вручную эндпоинтов Managed Service for YDB и Data Streams.
+* Теперь [Apache Iceberg™](../operations/endpoint/target/iceberg.md) можно настроить в качестве приемника для [захвата изменений данных](../concepts/cdc.md).
+* Исправлены ошибки в поведении приемников данных ClickHouse®.
+* Переработан раздел [Начало работы с Data Transfer](../quickstart.md).
+
 ### Июль {#july2026}
 
 

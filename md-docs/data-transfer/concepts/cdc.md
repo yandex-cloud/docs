@@ -10,7 +10,7 @@ CDC (change data capture — [захват изменения данных](http
 
 В Yandex Cloud одним из способов реализации CDC-подхода может быть трансфер из базы данных в брокер сообщений. Все обновления в базе отслеживаются трансфером и отправляются в брокер сообщений, а потребители подключаются к брокеру и считывают поступающие сообщения.
 
-Data Transfer поддерживает CDC-режим для трансферов из баз данных PostgreSQL, MySQL® и YDB в Apache Kafka® и Yandex Data Streams^1^. При этом данные в приемник попадают в формате [Debezium](https://debezium.io/).
+Data Transfer поддерживает CDC-режим для трансферов из баз данных PostgreSQL, MySQL® и YDB в Apache Kafka®, Apache Iceberg™ и Yandex Data Streams^1^. При этом данные в приемник попадают в формате [Debezium](https://debezium.io/).
 
 ![image](../../_assets/data-transfer/concepts/cdc-flow.png)
 

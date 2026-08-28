@@ -158,8 +158,8 @@ To get a list of links of subscriptions to resources, use the [List](../api-ref/
 
 {% endlist %}
 
-Result:
-{#lock-list-response}
+Result: {#lock-list-response}
+
 ```json
 {
   "locks": [
@@ -223,8 +223,8 @@ To link a subscription to a resource and to make sure it is linked to a resource
 
 {% endlist %}
 
-Result:
-{#lock-ensured}
+Result: {#lock-ensured}
+
 ```json
 {
   "id": "e2371l9d5u8a********",

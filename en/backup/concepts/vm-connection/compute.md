@@ -126,8 +126,7 @@ For the {{ backup-name }} agent to be able to exchange data with the backup pro
 
 {% endlist %}
 
-To provide network access:
-{#provide-access}
+To provide network access: {#provide-access}
 
 [Assign](../../../compute/operations/vm-control/vm-attach-public-ip.md) the VM a public IP or use a [route table](../../../vpc/concepts/routing.md#rt-vm) that allows internet access via a [NAT gateway](../../../vpc/concepts/gateways.md) or a custom router.
 

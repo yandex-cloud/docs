@@ -19,7 +19,7 @@ You can connect to {{ yandex-cloud }} managed database clusters from {{ yandex-c
 * {{ CH }}: 23 or higher.
 * {{ RD }}/{{ VLK }} (non-sharded clusters only): 6 or higher.
 * {{ MG }}/{{ SD }}: 6 or higher.
-* [{{ mtr-full-name }}](../../managed-trino/) (currently at the [Preview](../../overview/concepts/launch-stages.md) stage): 454 or higher.
+* [{{ mtr-full-name }}](../../managed-trino/): 454 or higher.
 * {{ GP }}: 6 or higher.
 
 ## GUI {#user-interface}

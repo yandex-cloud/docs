@@ -38,17 +38,15 @@ An indicator reflects the value of a single key measure. To build a more [comple
 
 Wizard<br/> section| Description
 ----- | ----
-Measure | Measure. One measure that determines the indicator value.
+Measure  | Measure. One measure that determines the indicator value.
 Colors | The field from the **Measure** section is used. The setting in this section allows [changing the color](#color-setting) of the indicator.
-Filters | Dimension or measure. Used as a filter.
+Filters | Dimension or measure. It is used as a filter.
 
 ## Creating an indicator {#create-diagram}
 
 To create an indicator:
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
@@ -66,9 +64,9 @@ To customize header display:
 1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
 1. Select header display options:
 
-   * `Field name`: Show field name in header.
-   * `Manually`: Rename header.
-   * `Hide`: Hide header.
+   * `Field name`: Show the field name in the header.
+   * `Manually`: Rename the header.
+   * `Hide`: Hide the header.
 
 1. Click **Apply**.
 

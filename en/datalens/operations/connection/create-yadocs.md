@@ -55,11 +55,7 @@ To create a connection to Yandex Documents:
 1. Set the **Show column headers** option to **Yes** or **No**.
 1. Optionally, enable automatic updates for spreadsheet data. To do this, in the top-right corner, select **Update automatically**. Spreadsheet data will be updated every 30 minutes or less often. To update your data manually, click **Update data**.
 1. Click **Create connection**.
-
-
 1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
-
-
 1. Enter a name for the connection and click **Create**.
 
 You can add, rename, and delete files in the connection.

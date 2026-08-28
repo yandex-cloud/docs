@@ -20,14 +20,9 @@ At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) an
 
 ## Creating a QL chart from the home page {#main-page}
 
-
 {% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
 
-
-
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
-
-
+1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![image](../../../_assets/console-icons/chart-column.svg) **Charts**.
 1. Click **Create chart** → **QL chart**.
 1. In the window that opens, select the **Chart type**:
@@ -52,7 +47,7 @@ At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) an
      1. In the list, select a {{ prometheus-name }} connection you have access to.
      1. Click **Create**.
      1. Click **Add query** and specify a query in the {{ prometheus-name }} language.
-     1. In the bottom-left corner, click **Run**.
+     1. In the bottom-left corner, click **Execute**.
 
      After the query runs, your data will be visualized.
 
@@ -79,7 +74,7 @@ At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) an
      1. In the list, select a {{ monitoring-short-name }} connection you have access to.
      1. Click **Create**.
      1. Click **Add query** and specify a query in the {{ monitoring-short-name }} language.
-     1. In the bottom-left corner, click **Run**.
+     1. In the bottom-left corner, click **Execute**.
 
 
      After the query runs, your data will be visualized.

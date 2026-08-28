@@ -15,6 +15,9 @@ description: В данном разделе описана опция CDN-рес
 * Исполнение требований, запрещающих передачу определенных заголовков клиентам.
 * Уменьшение размера ответа.
 
+Вы можете настроить скрытие заголовков источника с помощью консоли управления или API при [создании](../operations/resources/create-resource.md) или [изменении](../operations/resources/hiding-headers.md) CDN-ресурса.
+
+{% include [hiding-headers-warning](../../_includes/cdn/hiding-headers-warning.md) %}
 
 ## Рекомендации {#recommendations}
 
@@ -39,3 +42,5 @@ description: В данном разделе описана опция CDN-рес
 #### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/resources/hiding-headers.md)
+* [{#T}](../operations/resources/configure-headers.md)
+* [{#T}](../operations/resources/create-resource.md)

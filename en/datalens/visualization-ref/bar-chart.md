@@ -5,9 +5,9 @@ description: In this tutorial, you will learn how to create and customize the ba
 
 # Bar chart ![](../../_assets/datalens/horizontal-bar.svg) in {{ datalens-full-name }}
 
-A horizontal bar chart plots the values of one or more measures for each category.
+A horizontal bar chart plots values of one or multiple measures for each category. 
 
-The length of a bar reflects the measure value: the longer the bar, the larger the value.
+The length of a bar reflects the measure value: the longer the bar, the larger the value. 
 
 **Example**
 
@@ -70,7 +70,7 @@ You can use a chart grouped by dimension to compare the values of a single measu
 
   {% endcut %}
 
-* Use a grouped chart to compare _two or more measures_, e.g., the number of orders and the number of products. The bar length corresponds to the measure value.
+* Use a grouped chart to compare _two or more measures_, e.g., the number of orders and the number of products. The bar length reflects the measure value.
 
   {% cut "Example" %}
 
@@ -138,36 +138,34 @@ A stacked chart shows a ratio of internal segments to the total value.
 Wizard<br/> section| Description
 ----- | ----
 Y | Dimensions. You can specify one or two dimensions.
-X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). You can move [Measure Names](../concepts/chart/measure-values.md) to the Y axis.
+X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain the [Measure Names](../concepts/chart/measure-values.md) dimension. You can move [Measure Names](../concepts/chart/measure-values.md) to the Y axis.
 Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field. Affects the column color. To delete [Measure Names](../concepts/chart/measure-values.md), click the cross icon or remove measures from the X axis.
 Sorting | Dimension or measure. Affects the column sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
-Labels | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
-Filters | Dimension or measure. Used as a filter.
+Labels | Measure. Displays measure values on the chart. If you added multiple measures to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using the basic [{#T}](../dashboard/markdown.md) syntax: click the icon next to the field name and enable **Markdown**.
+Filters | Dimension or measure. It is used as a filter.
 
 ## Creating a bar chart {#create-diagram}
 
 To create a bar chart:
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
 1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
 1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Select **Line chart** as the chart type.
-1. Drag one or more dimensions from the dataset to the **Y** section. The values will be displayed on the Y axis.
-1. Drag one or more measures from the dataset to the **X** section.
-1. Drag a dimension from the dataset or the [Measure Names](../concepts/chart/measure-values.md) field to the **Color** section.
+1. Drag one or multiple dimensions from the dataset to the **Y** section. Their values will appear on the Y axis.
+1. Drag one or multiple measures from the dataset to the **X** section.
+1. Drag a dimension from the dataset or the [Measure Names](../concepts/chart/measure-values.md) field to the **Colors** section. 
 
-A stacked column chart is displayed by default.
+A stacked column chart will be plotted by default.
 
 ### Creating a grouped bar chart {#grouped-bar-chart}
 
 To display an Y-axis grouped bar chart:
 
-1. Go to the bar chart that you created.
+1. Go to the bar chart you created.
 1. Depending on the number of measures in the **X** section, follow these steps:
     
    {% list tabs group=indicators_number %}
@@ -175,12 +173,12 @@ To display an Y-axis grouped bar chart:
    - Single measure {#one}
        
      1. Check if there is a dimension in the **Colors** section.
-     1. Duplicate this dimension in the **Y** section. The sequence of dimensions affects the grouping order.
+     1. Duplicate this dimension in the **Y** section. The order of dimensions will affect the grouping order.
     
    - Two or more measures {#more}
     
      1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **Colors** section.
-     1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **Y** section. The sequence of dimensions affects the grouping order.
+     1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **Y** section. The order of dimensions will affect the grouping order.
 
    {% endlist %}
 
@@ -188,14 +186,14 @@ To display an Y-axis grouped bar chart:
 
 To color columns in a chart based on the value of a measure:
 
-1. Go to the column chart that you created.
-1. Depending on the number of measures in the **X** section, follow the steps below:
+1. Go to the column chart you created.
+1. Depending on the number of measures in the **X** section, follow these steps:
 
    {% list tabs group=indicators_number %}
 
     - Single measure {#one}
 
-      Copy the measure from the **X** section to the **Colors** section.
+      Duplicate the measure from the **X** section in the **Colors** section.
 
       The colors of the columns in the chart will apply based on the measure values.
 
@@ -219,15 +217,15 @@ To color columns in a chart based on the value of a measure:
 
    {% endlist %}
 
-1. Configure a color gradient for the measure as well. To do so, in the top-right corner of the **Colors** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
+1. Configure a color gradient for the measure as well. To do so, in the top-right corner of the **Colors** section, click ![image](../../_assets/console-icons/gear.svg) (the icon appears when hovering over the section).
 1. In the color settings, specify:
 
    * **Gradient type**: Select two or three colors.
    * **Gradient color**: Select a color palette for the gradient from the list.
    * **Gradient direction**: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
-   * **Set threshold values**: Set numeric thresholds for each color. Works if the **X** section contains a single value.
+   * **Set threshold values**: Set numeric thresholds for each color. This setting applies if the **X** section contains a single measure.
 
-### Configuring display of null values {#null-settings}
+### Configuring display of `null` values {#null-settings}
 
 {% include [datalens-chart-null-settings](../../_includes/datalens/datalens-chart-null-settings.md) %}
 

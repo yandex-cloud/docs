@@ -1,6 +1,112 @@
+---
+title: Изменить целевую группу {{ alb-full-name }}
+description: Следуя данной инструкции, вы сможете изменить параметры, добавить или удалить виртуальные машины из целевой группы {{ alb-name }}.
+---
+
 # Изменить целевую группу
 
-Вы можете добавлять или удалять [виртуальные машины](../../compute/concepts/vm.md) из [целевой группы](../concepts/target-group.md).
+Вы можете изменять параметры, добавлять или удалять [виртуальные машины](../../compute/concepts/vm.md) из [целевой группы](../concepts/target-group.md).
+
+## Изменить параметры целевой группы {#params}
+
+Чтобы изменить параметры целевой группы:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создана целевая группа.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
+  1. В строке с целевой группой нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Внесите нужные изменения.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды [CLI](../../cli/) для изменения параметров целевой группы:
+
+     ```bash
+     yc alb target-group update --help
+     ```
+
+  1. Выполните команду:
+
+     ```bash
+     yc alb target-group update \
+        --name <имя_целевой_группы> \
+        --new-name <новое_имя_целевой_группы> \
+        --description "<описание_целевой_группы>" \
+        --labels <ключ_метки_1>=<значение_метки_1>[,<ключ_метки_n>=<значение_метки_n>]
+     ```
+
+     Результат:
+
+     ```text
+     id: ds7d3ah05hg9********
+     name: new-name
+     description: this is a target group
+     folder_id: b1g681qpemb4********
+     labels:
+       my-label: my-value
+     targets:
+       - ip_address: 10.129.0.12
+         subnet_id: e2lb1da2dd9v********
+     created_at: "2026-08-25T13:12:37.409977826Z"
+     ```
+
+     Подробнее о команде `yc alb target-group update` с полным перечнем параметров в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/target-group/update.md).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Откройте конфигурационный файл {{ TF }} и измените фрагмент с описанием целевой группы:
+
+     ```hcl
+     resource "yandex_alb_target_group" "foo" {
+       name           = "<имя_целевой_группы>"
+       description    = "<описание_целевой_группы>"
+       labels      = {
+         <ключ_метки_1> = "<значение_метки_1>",
+         <ключ_метки_2> = "<значение_метки_2>"
+       }
+
+     ...
+     }
+     ```
+
+     Где `yandex_alb_target_group` — параметры целевой группы:
+     
+     * `name` — имя целевой группы.
+     * `description` — описание целевой группы.
+     * `labels` — метки целевой группы.
+
+     Подробнее о параметрах ресурса `yandex_alb_target_group` в [документации провайдера]({{ tf-provider-alb-targetgroup }}).
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     Проверить изменения целевой группы можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
+
+     ```bash
+     yc alb target-group get --name <имя_целевой_группы>
+     ```
+
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-target-group.md) %}
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [update](../api-ref/TargetGroup/update.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Update](../api-ref/grpc/TargetGroup/update.md).
+
+{% endlist %}
 
 ## Добавить ВМ в целевую группу {#add-targets}
 

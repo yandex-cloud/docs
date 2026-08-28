@@ -5,7 +5,7 @@ description: In {{ datalens-full-name }}, a calculated field is an additional da
 
 # Calculated fields in {{ datalens-full-name }}
 
-A calculated field is an additional [data field](../../dataset/index.md#field) with values calculated using a formula.
+A calculated field is an additional [data field](../../dataset/data-model.md#field) with values calculated using a formula.
 You can use calculated fields to create new dimensions and measures. The data source remains unchanged.
 
 To write formulas, you can use the existing dataset fields, [parameters](../parameters.md), constants, and [functions](#functions).
@@ -99,7 +99,7 @@ You can create calculated fields in the dataset or wizard interface.
 
   ![chart-calculated-field](../../../_assets/datalens/concepts/chart-calculated-field.png)
 
-  You can also [duplicate](../../dataset/create-dataset.md#duplicate-fields) any dataset field, including the calculated field you previously created.
+  You can also [duplicate](../../dataset/create-dataset.md#dublicate-fields) any dataset field, including the calculated field you previously created.
 
 {% endlist %}
 

@@ -8,7 +8,7 @@ description: In this tutorial, you will learn about {{ datalens-full-name }} wor
 
 Workbooks and collections are a new way to store objects in {{ datalens-short-name }}, which is alternative to the old navigation across folders. This new approach allows you to place {{ datalens-short-name }} objects in special containers:
 
-* A **workbook** stores [connections](../concepts/connection/index.md), [datasets](../dataset/index.md), [charts](../concepts/chart/index.md), [dashboards](../concepts/dashboard.md), and [reports](../reports/index.md).
+* A **workbook** stores your [connections](../concepts/connection/index.md), [datasets](../dataset/index.md), [charts](../concepts/chart/index.md), [dashboards](../concepts/dashboard.md), [reports](../reports/index.md), and [HTML pages](../html-pages/index.md).
 
   {% cut "Workbook" %}
 
@@ -41,11 +41,14 @@ Objects in workbooks and in folders of the legacy object model are independent:
 * Folders do not support customization of user group access.
 * An object from a workbook cannot be moved to a folder.
 
+
+
 {% note info %}
 
 To transfer any object from a folder to a workbook, perform [migration](./migrations.md). If you are not going to use folder navigation anymore, you can [disable](../settings/navigation.md#disable-folder-navigation) it.
 
 {% endnote %}
+
 
 
 

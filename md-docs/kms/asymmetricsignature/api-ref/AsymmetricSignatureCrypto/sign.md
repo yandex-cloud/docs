@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Key Management Service API](../index.md) > [AsymmetricSignatureCrypto](index.md) > Sign
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Asymmetric signature API](../index.md) > [AsymmetricSignatureCrypto](index.md) > Sign
 
 # Key Management Service API, REST: AsymmetricSignatureCrypto.Sign
 
@@ -7,7 +7,7 @@ Signs data specified KMS key.
 ## HTTP request
 
 ```
-POST https://kms.api.cloud.yandex.net/kms/v1/asymmetricSignatureKeys/{keyId}:sign
+POST https://kms.yandex/kms/v1/asymmetricSignatureKeys/{keyId}:sign
 ```
 
 ## Path parameters

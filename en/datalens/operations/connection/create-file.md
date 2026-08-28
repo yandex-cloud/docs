@@ -44,11 +44,7 @@ To create a connection to a file:
 
 1. Repeat steps 3 and 4 to add files.
 1. Click **Create connection**.
-
-
-1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
-
-
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 1. Enter a name for the connection and click **Create**.
 
 You can add, rename, [replace](#file-replace), and delete existing files in the connection.

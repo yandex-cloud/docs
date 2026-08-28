@@ -23,19 +23,17 @@ This map type is used to monitor the territorial distribution of points. For exa
 
 Wizard<br/> section| Description
 ----- | ----
-Points (Geopoints) | Measure of the [Geopoint](../dataset/data-types.md#geopoint) type
-Point size | Measure. Sets point size depending on the measure value.
-Colors | Dimension or measure. Affects the intensity of point fill.
-Labels | Measure. Displayed as text on a point. When used, point size control is blocked.
-Tooltips | Dimension or measure. A tooltip that appears when you hover over a point. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
-Layer filters | Dimension or measure. Used as a filter for the current layer.
-Filters | Dimension or measure. Used as a filter for the entire chart.
+Points (Geopoints) | Dimension of the [Geopoint](../dataset/data-types.md#geopoint) type.
+Point size | Measure. Sets the point size depending on the measure value.
+Colors | Dimension or measure. It affects the intensity of point fill.
+Labels | Measure. Displayed as text on a point. When using labels, you cannot manage the point size.
+Tooltips | Dimension or measure. A tooltip that appears when you hover over a point. For `String` type fields, you can configure using the basic [Markdown](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+Layer filters | Dimension or measure. It is used as a filter for the current layer.
+Filters | Dimension or measure. It is used as a filter for the entire chart.
 
 ## Creating a point map {#create-diagram}
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
@@ -44,7 +42,7 @@ Filters | Dimension or measure. Used as a filter for the entire chart.
 1. {% include [create-5](../../_includes/datalens/visualization-ref/create-5.md) %}
 1. Select the **Points (Geopoints)** layer type.
 1. Drag a dimension of the [Geopoint](../dataset/data-types.md#geopoint) type from the dataset to the layer type selection section.
-1. Set the size of the points displayed on the point map. Drag a measure to the **Point size** section or click ![image](../../_assets/console-icons/gear.svg) in the line with the section name.
+1. Set the point size for the point map. Drag a measure to the **Point size** section or click ![image](../../_assets/console-icons/gear.svg) in the line with the section name.
 1. Color the points on the map. Move the measure or dimension to the **Colors** section.
 1. Add tooltips to show the dimension and measure values when hovering over a point.
 
@@ -54,7 +52,7 @@ Filters | Dimension or measure. Used as a filter for the entire chart.
 
 ## Recommendations {#recomendations}
 
-* Use color palettes corresponding to the goals and objectives of visualization.
+* Use color palettes suitable for the goals and objectives of visualization.
 * If the points are too clustered, lower their opacity. This will help you see where data intersects.
 
 

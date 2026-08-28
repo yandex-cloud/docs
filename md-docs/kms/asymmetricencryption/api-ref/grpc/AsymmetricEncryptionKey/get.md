@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Key Management Service](../../../../index.md) > Справочник API > gRPC (англ.) > [Key Management Service API](../index.md) > [AsymmetricEncryptionKey](index.md) > Get
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Key Management Service](../../../../index.md) > Справочник API > gRPC (англ.) > [Asymmetric encryption API](../index.md) > [AsymmetricEncryptionKey](index.md) > Get
 
 # Key Management Service API, gRPC: AsymmetricEncryptionKeyService.Get
 

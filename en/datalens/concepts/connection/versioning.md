@@ -17,12 +17,12 @@ To select a version from the list, click it. The version number will be displaye
 
 All versions fall into the following types:
 
-1. **Current**: This is the most recently saved version of a connection. It is displayed for all users that open the connection for viewing in the workbook or from the navigation panel. A connection can only have one current version.
-1. **Outdated**: This version is no longer current.  
-   When you open an outdated version, a panel appears at the top indicating the version type, creation date and time, and login of the version author. There are buttons in the right-hand panel:
+1. **Actual**: This is the most recently saved version of a connection. It is displayed for all users that open the connection for viewing in the workbook or from the navigation panel. A connection can only have one current version.
+1. **Outdated**: Version that is no longer current.  
+   When you open an outdated version, you see a panel at the top stating the version type, creation date and time, and the version author's login. There are buttons in the right-hand panel:
 
-   * **Make current**: Turns an outdated version into the current one. The version current at the time will become outdated.
-   * **Open current**: Opens the current version.
+   * **Make actual**: Turns an outdated version into the current one. The version actual at the time will become outdated.
+   * **Open actual**: Opens the current version.
    
    {% cut "Outdated version" %}
 
@@ -44,16 +44,16 @@ You can edit any version of a connection.
 
 To edit an outdated version, select it from the list of versions. To save your changes to an outdated version, click **Save** at the top right. This will create a new current version, and all others will become outdated.
 
-## Limitations {#restrictions}
+## Limits {#restrictions}
 
 * Versioning is not available for the following connections: [Files](../../operations/connection/create-file.md), [Yandex Documents](../../operations/connection/create-yadocs.md), and [Google Sheets](../../operations/connection/create-google-sheets.md).
 * Sensitive connection data, such as passwords and tokens, is not versioned.
 * You can only switch to versions created starting December 1, 2024. Therefore, if your connection was created before this date, editing it now and saving your changes will permanently delete the previous version.
-* You can only get change history for the last three months.
+* You can only get the change history for the last three months.
 * The change history only contains a list of connection versions and indicates the version type, save date and time, and user who made the change.
 * Connection versions do not include:
 
   * Access permission changes (this operation is performed separately from connection edits).
   * Changes to the source data (rows added, updated, or deleted in the data source).
 
-* Versions do not display a list of changes. You can only view the saved status of the connection configuration.
+* Versions do not display the list of changes. You can only view the saved status of the connection configuration.

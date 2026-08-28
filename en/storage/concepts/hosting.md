@@ -80,7 +80,7 @@ You can configure [static website hosting](../operations/hosting/setup.md#hostin
 
 All hosting settings are available through the Amazon S3-compatible [HTTP API](../s3/api-ref/hosting.md).
 
-{#bucket-url}After you configure the bucket for hosting, the website will become accessible at:
+After you configure the bucket for hosting, the website will become accessible at: {#bucket-url}
 
 
 ```

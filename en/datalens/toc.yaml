@@ -800,6 +800,8 @@ items:
             href: visualization-ref/bar-chart.md
           - name: Normalized bar chart
             href: visualization-ref/normalized-bar-chart.md
+          - name: Funnel
+            href: visualization-ref/funnel.md
           - name: Scatter chart
             href: visualization-ref/scatter-chart.md
           - name: Pie chart
@@ -1020,7 +1022,7 @@ items:
         href: settings/seats.md
       - name: Users
         href: security/add-new-user.md
-      - name: Service plans and payment
+      - name: Billing and payment
         href: settings/service-plan.md
       - name: Appearance
         href: settings/appearance.md
@@ -1340,8 +1342,10 @@ items:
     href: at-ref.md
   - name: Release notes
     items:
-      - name: June 2026
+      - name: July 2026
         href: release-notes/index.md
+      - name: June 2026
+        href: release-notes/2606.md
       - name: May 2026
         href: release-notes/2605.md
       - name: April 2026
@@ -1350,10 +1354,10 @@ items:
         href: release-notes/2603.md
       - name: February 2026
         href: release-notes/2602.md
-      - name: January 2026
-        href: release-notes/2601.md
       - name: Archive
         items:
+          - name: January 2026
+            href: release-notes/2601.md
           - name: December 2025
             href: release-notes/2512.md
           - name: November 2025
@@ -1575,7 +1579,7 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-DB-CHYT-SUBQ_WEIGHT_LIMIT_EXCEEDED.md
-      - name: Use of QL charts is prohibited at the connection level
+      - name: Using QL charts is prohibited at the connection level
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-DASHSQL_NOT_ALLOWED.md

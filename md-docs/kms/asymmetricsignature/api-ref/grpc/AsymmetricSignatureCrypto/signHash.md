@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Key Management Service](../../../../index.md) > Справочник API > gRPC (англ.) > [Key Management Service API](../index.md) > [AsymmetricSignatureCrypto](index.md) > SignHash
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Key Management Service](../../../../index.md) > Справочник API > gRPC (англ.) > [Asymmetric signature API](../index.md) > [AsymmetricSignatureCrypto](index.md) > SignHash
 
 # Key Management Service API, gRPC: AsymmetricSignatureCryptoService.SignHash
 

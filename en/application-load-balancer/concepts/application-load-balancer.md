@@ -51,11 +51,10 @@ To correctly distribute the load across backends, add a permission for incoming 
 
 ## Autoscaling and resource units {#lcu-scaling}
 
-An internal group of VM instances called _resource units_ is created in each availability zone of the load balancer.
+An internal group of VM instances called _resource units_ is created in each availability zone of the load balancer. {#lcu-scaling-example}
 
 {% include [lcu-thresholds](../../_includes/application-load-balancer/lcu-thresholds.md) %}
 
-{#lcu-scaling-example}
 > As an example, let's take a look at the following load:
 >
 > {% include [lcu-example](../../_includes/application-load-balancer/lcu-example.md) %}

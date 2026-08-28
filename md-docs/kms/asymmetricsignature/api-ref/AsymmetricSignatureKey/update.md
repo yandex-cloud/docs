@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Key Management Service API](../index.md) > [AsymmetricSignatureKey](index.md) > Update
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Asymmetric signature API](../index.md) > [AsymmetricSignatureKey](index.md) > Update
 
 # Key Management Service API, REST: AsymmetricSignatureKey.Update
 

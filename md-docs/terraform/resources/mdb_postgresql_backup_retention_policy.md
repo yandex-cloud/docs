@@ -66,6 +66,10 @@ resource "yandex_vpc_subnet" "foo" {
  Defaults to "*".
   - `day_of_week` (String). Day of week in cron format. Valid values: 0-7 (0 and 7 both mean Sunday), *, ranges (1-5), steps (0-6/2), lists (1,3,5).
  Defaults to "*".
+  - `hour` (String). Hour in cron format. Valid values: 0-23, *, ranges (8-18), steps (*/2), lists (0,12).
+ Defaults to "". Support depends on the database engine.
+  - `minute` (String). Minute in cron format. Valid values: 0-59, *, ranges (0-30), steps (*/5), lists (0,15,30,45).
+ Defaults to "". Support depends on the database engine.
   - `month` (String). Month in cron format. Valid values: 1-12, *, ranges (1-6), steps (*/3), lists (1,6,12).
  Defaults to "*".
 - `description` (String). Human-readable description.

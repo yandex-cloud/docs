@@ -40,7 +40,7 @@ The maximum value is 1000. ||
 Page token. To get the next page of results, set `page_token` to the
 [ListSymmetricKeysResponse.next_page_token](#yandex.cloud.kms.v1.ListSymmetricKeysResponse) returned by a previous list request.
 
-The maximum string length in characters is 100. ||
+The maximum string length in characters is 256. ||
 |#
 
 ## ListSymmetricKeysResponse {#yandex.cloud.kms.v1.ListSymmetricKeysResponse}

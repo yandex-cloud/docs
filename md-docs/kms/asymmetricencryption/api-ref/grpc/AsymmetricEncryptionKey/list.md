@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Key Management Service](../../../../index.md) > Справочник API > gRPC (англ.) > [Key Management Service API](../index.md) > [AsymmetricEncryptionKey](index.md) > List
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Key Management Service](../../../../index.md) > Справочник API > gRPC (англ.) > [Asymmetric encryption API](../index.md) > [AsymmetricEncryptionKey](index.md) > List
 
 # Key Management Service API, gRPC: AsymmetricEncryptionKeyService.List
 
@@ -38,7 +38,7 @@ The maximum value is 1000. ||
 Page token. To get the next page of results, set `page_token` to the
 [ListAsymmetricEncryptionKeysResponse.next_page_token](#yandex.cloud.kms.v1.asymmetricencryption.ListAsymmetricEncryptionKeysResponse) returned by a previous list request.
 
-The maximum string length in characters is 100. ||
+The maximum string length in characters is 256. ||
 |#
 
 ## ListAsymmetricEncryptionKeysResponse {#yandex.cloud.kms.v1.asymmetricencryption.ListAsymmetricEncryptionKeysResponse}

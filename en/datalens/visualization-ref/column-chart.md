@@ -5,7 +5,7 @@ description: In this tutorial, you will learn how to create and customize the co
 
 # Column chart ![](../../_assets/datalens/column.svg) in {{ datalens-full-name }}
 
-This chart plots the values of one or more measures by period or category. The column height represents the measure value: the higher the column, the larger the value.
+This chart plots the values of one or multiple measures by period or category. The column height reflects the measure value: the higher the column, the larger the value.
 
 Unlike a line chart, this type of chart allows you to compare individual periods and focus on individual values rather than the general trend.
 
@@ -35,7 +35,7 @@ Unlike a line chart, this type of chart allows you to compare individual periods
 
 ### Grouped {#groupped}
 
-A chart with grouping lets you compare two or more measures: for example, the number of products delivered and the number picked up. The column height corresponds to the measure value.
+Use a grouped chart to compare two or more measures, e.g., the number of products delivered and the number picked up. The column height reflects the measure value.
 
 {% cut "Example" %}
 
@@ -62,7 +62,7 @@ A chart with grouping lets you compare two or more measures: for example, the nu
 
 ### Stacked {#stacked}
 
-This chart depicts the ratio of internal segments by period or category. The segments are stacked one on top of the other, i.e., the base of the above segment is the top side of the one below.
+This chart depicts the ratio of internal segments by period or category. The segments are stacked one on top of the other, i.e., the base of the above segment is the top boundary of the one below.
 Since the sum of all segments is equal to the overall column length, the stacked chart is used when you need to visualize the total column values.
 
 {% cut "Example" %}
@@ -92,29 +92,27 @@ Since the sum of all segments is equal to the overall column length, the stacked
 
 Wizard<br/> section| Description
 ----- | ----
-X | Dimensions You can specify one or two dimensions. Affects X-axis value grouping. The order of specified dimensions affects the order of value grouping on the X-axis. For the `Date` and `Date and time` types, you can set grouping by time: minutes, hours, weeks, and so on.
-Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). 
+X | Dimensions. You can specify one or two dimensions. Affects value grouping on the X-axis. The order of specified dimensions affects the order of value grouping on the X-axis. For the `Date` and `Date and time` types, you can set grouping by time: minutes, hours, weeks, and so on.
+Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain the [Measure Names](../concepts/chart/measure-values.md) dimension. 
 Colors | Dimension, measure, [Measure Names or Measure Values](../concepts/chart/measure-values.md) field. Affects the column color. To delete `Measure Names` and `Measure Values`, click the ![image](../../_assets/datalens/cross.svg) icon or remove measures from the Y axis.
-Sorting | Dimension or measure. Affects the column sorting. Sorting only applies to dimensions used when building a chart. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
-Labels | Measure. Displays measure values on the chart. When using multiple measures for a signature, add [Measure Values](../concepts/chart/measure-values.md). [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+Sorting | Dimension or measure. Affects the column sorting. Sorting only applies to dimensions used when plotting a chart. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
+Labels | Measure. Displays measure values on the chart. When using multiple measures for a label, add [Measure Values](../concepts/chart/measure-values.md). [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using the basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
 Split | Dimension. Splits a chart horizontally by the selected dimension's values. The maximum number of splits per chart is 25.
-Filters | Dimension or measure. Used as a filter. A filter can be overridden by a dashboard selector if the selector is based on the same field.
+Filters | Dimension or measure. It is used as a filter. A filter can be overridden by a dashboard selector if the selector is based on the same field.
 
 ## Creating a column chart {#create-diagram}
 
 To create a column chart:
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
 1. Click **Create chart** → **Chart in Wizard**.
 1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Select **Column chart** as the chart type.
-1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
-1. Drag one or more measures from the dataset to the **Y** section. The values will be displayed as columns on the Y-axis.
+1. Drag a dimension from the dataset to the **X** section. The values will appear in the lower part of the chart on the X axis.
+1. Drag one or multiple measures from the dataset to the **Y** section. The values will be displayed as columns on the Y-axis.
 
 {% note info %}
 
@@ -134,8 +132,8 @@ To display an X-axis grouped column chart:
 
     - Single measure {#one}
 
-      1. Drag a dimension that you want to group the chart columns by to the **Color** section.
-      1. Duplicate this dimension in the **X** section. The sequence of dimensions affects the grouping order.
+      1. Drag a dimension you want to group the chart columns by to the **Colors** section.
+      1. Duplicate this dimension in the **X** section. The order of dimensions will affect the grouping order.
 
         {% cut "Example" %}
 
@@ -145,8 +143,8 @@ To display an X-axis grouped column chart:
 
     - Two or more measures {#more}
 
-      1. Drag the `Measure Names` dimension to the **Color** section.
-      1. Drag the `Measure Names` dimension to the **X** section. The sequence of dimensions affects the grouping order.
+      1. Drag the `Measure Names` dimension to the **Colors** section.
+      1. Drag the `Measure Names` dimension to the **X** section. The order of dimensions will affect the grouping order.
 
         {% cut "Example" %}
 
@@ -161,13 +159,13 @@ To display an X-axis grouped column chart:
 To color columns in a chart based on the value of a measure:
 
 1. Open a column chart or create a new one.
-1. Depending on the number of measures in the **Y** section, follow the steps below:
+1. Depending on the number of measures in the **Y** section, follow these steps:
 
    {% list tabs group=indicators_number %}
 
    - Single measure {#one}
 
-     Copy the measure from the **Y** section to the **Colors** section.
+     Duplicate the measure from the **Y** section in the **Colors** section.
 
      The colors of the columns in the chart will apply based on the measure values.
 
@@ -179,7 +177,7 @@ To color columns in a chart based on the value of a measure:
 
    - Two or more measures {#more}
 
-     Drag the `Measure Values` measure to the **Color** section.
+     Drag the `Measure Values` measure to the **Colors** section.
 
      The colors of the columns in the chart will apply based on the values of all the measures listed in the **Y** section.
 
@@ -191,13 +189,13 @@ To color columns in a chart based on the value of a measure:
 
    {% endlist %}
 
-1. Configure a color gradient for the measure as well. To do so, in the top-right corner of the **Colors** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
+1. Configure a color gradient for the measure as well. To do so, in the top-right corner of the **Colors** section, click ![image](../../_assets/console-icons/gear.svg) (the icon appears when hovering over the section).
 1. In the color settings, specify:
 
    * **Gradient type**: Select two or three colors.
    * **Gradient color**: Select a color palette for the gradient from the list.
    * **Gradient direction**: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
-   * **Set threshold values**: Set numeric thresholds for each color. Works if the **Y** section contains a single value.
+   * **Set threshold values**: Set numeric thresholds for each color. This setting applies if the **Y** section contains a single measure.
 
 ### Adding column sorting by aggregated value {#column-aggregate-sorting}
 
@@ -209,7 +207,7 @@ For example, to sort your sales by total amount:
 
 1. Open a column chart or create a new one.
 1. On the left side of the screen above the list of dimensions and measures, click ![image](../../_assets/console-icons/plus.svg) and select **Field**.
-1. In the **Field settings** window, enter:
+1. In the **Field settings** window, enter the following:
 
    * Field name: `sum_Price`
    * Formula: `SUM([Price])`
@@ -230,8 +228,8 @@ For example, to sort your sales by total amount:
 ## Recommendations {#recomentations}
 
 * **Labels.** If the values of the categories contain lots of text, try to shorten it to make the labels look neater. You can use string functions in calculated fields or the `CASE` conditional statements.
-* **Sorting.** If each column is a category, not time, consider sorting the columns in ascending or descending order of the measure. This will make your chart look better and more informative. Sorting may also be helpful inside each column's subcategories.
-* We recommend using a column chart to display changes to a measure or measures over time. In this case, be careful when sorting values on the X-axis, because the user usually expects to see changes over time on the X-axis.
+* **Sorting.** If each column is a category rather than time, consider sorting the columns in ascending or descending order of the measure. This will make your chart look neater and more informative. Sorting may also be helpful inside each column's subcategories.
+* We recommend using a column chart to display changes to a measure or measures over time. In this case, be careful when using the X-axis for sorting, because the user usually expects to see changes over time on the X-axis.
 * {% include [colors](../../_includes/datalens/visualization-ref/colors.md) %}
 * {% include [split](../../_includes/datalens/visualization-ref/split.md) %}
 

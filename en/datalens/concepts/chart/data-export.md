@@ -85,12 +85,12 @@ The following limitations apply to the background export:
   * [{{ yandex-cloud }} Billing](../../operations/connection/create-cloud-billing.md)
 
 
-* Maximum export file size is 1 GB.
+* The maximum export file size is 1 GB.
 * File is available for download for 24 hours after the export is complete.
 
 ### Exporting data in background {#how-to-background-export}
 
-To initiate a background export, do the following:
+To initiate a background export, follow these steps:
 
 1. Open the data export window by doing one of the following:
 

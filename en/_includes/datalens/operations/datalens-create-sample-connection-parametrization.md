@@ -13,8 +13,15 @@
       * Username: `samples_ro`.
       * Password: `MsgfcjEhJk`.
 
-   1. Enable **SQL query access level** and select **Allow subqueries in datasets and source parameterization**.
+   1. Enable the **Raw SQL level** option and select **Subqueries and parameters**.
+
+
    1. Click **Check connection** and make sure you get a green check mark.
+   
+            
+      ![image](../../../_assets/datalens/operations/connection/create-sample-connection-parametrization.png)
+
+
    1. Click **Create connection**.
    1. Enter the connection name: `Sample ClickHouse`.
    1. Click **Create**.

@@ -1608,6 +1608,12 @@ items:
                   - name: sws_advanced_rate_limiter_profile
                     href: data-sources/sws_advanced_rate_limiter_profile.md
                     title: ''
+                  - name: sws_domain
+                    href: data-sources/sws_domain.md
+                    title: ''
+                  - name: sws_load_balancer
+                    href: data-sources/sws_load_balancer.md
+                    title: ''
                   - name: sws_match_list
                     href: data-sources/sws_match_list.md
                     title: ''
@@ -1625,6 +1631,12 @@ items:
                 items:
                   - name: sws_advanced_rate_limiter_profile
                     href: resources/sws_advanced_rate_limiter_profile.md
+                    title: ''
+                  - name: sws_domain
+                    href: resources/sws_domain.md
+                    title: ''
+                  - name: sws_load_balancer
+                    href: resources/sws_load_balancer.md
                     title: ''
                   - name: sws_match_list
                     href: resources/sws_match_list.md
@@ -1650,6 +1662,14 @@ items:
                     title: ''
                   - name: resource_manager_folder_iam_policy_binding
                     href: resources/resource_manager_folder_iam_policy_binding.md
+                    title: ''
+                  - name: >-
+                      sws_security_profile_advanced_rate_limiter_profile_attachment
+                    href: >-
+                      resources/sws_security_profile_advanced_rate_limiter_profile_attachment.md
+                    title: ''
+                  - name: sws_security_profile_waf_profile_attachment
+                    href: resources/sws_security_profile_waf_profile_attachment.md
                     title: ''
                 title: ''
             title: ''

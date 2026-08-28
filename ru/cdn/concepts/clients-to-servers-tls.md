@@ -15,7 +15,7 @@
 
 {% include [tls-profiles-list](../../_includes/cdn/tls-profiles-list.md) %}
 
-Настройка доступна с помощью API при [создании](../operations/resources/create-resource.md) и [изменении](../operations/resources/configure-basics.md) CDN-ресурса. Подробнее на странице [{#T}](../operations/resources/configure-tls-profile.md).
+Настройка доступна с помощью консоли управления и API при [создании](../operations/resources/create-resource.md) и [изменении](../operations/resources/configure-tls-profile.md) CDN-ресурса.
 
 Подробнее о протоколе TLS в разделе [{#T}](../../glossary/tls.md).
 

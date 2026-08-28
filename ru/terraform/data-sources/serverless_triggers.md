@@ -127,6 +127,16 @@ subcategory: Serverless Triggers
     - `cron_expression` (**Required**)(String). Cron expression defining the trigger schedule.
  See http://man7.org/linux/man-pages/man5/crontab.5.html for the format; some limitations apply.
     - `payload` (String). Payload passed to the invoked target on each firing.
+  - `yandex_messenger` [Block]. Yandex Messenger source: fires on Yandex Messenger bot updates.
+    - `bot_display_name` (String). Display name of the bot the token belongs to. output only.
+    - `bot_id` (String). ID of the bot the token belongs to. output only.
+    - `bot_login` (String). Login of the bot the token belongs to. output only.
+    - `force` (Bool). input only. Overwrite a webhook the bot already has set to a different URL,
+ instead of failing with "webhook already in use". If the webhook already
+ points to this trigger, force does nothing - the existing webhook is kept.
+    - `oauth_token` (String). OAuth token of the Yandex Messenger bot.
+ input only, always empty in output.
+ Required on Create; on Update, changing it re-registers the webhook.
   - `yds` [Block]. YDS source: fires on records in a Yandex Data Streams stream.
     - `batch_settings` [Block]. Batch settings for reading records from the stream.
       - `cutoff` (**Required**)(String). Maximum time to wait before flushing an incomplete batch.
