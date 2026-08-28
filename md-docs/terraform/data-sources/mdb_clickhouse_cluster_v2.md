@@ -234,7 +234,7 @@ output "network_id" {
     - `distributed_ddl_task_timeout` (Number). Timeout for DDL queries, in milliseconds.
     - `distributed_product_mode` (String). Determine the behavior of distributed subqueries.
     - `do_not_merge_across_partitions_select_final` (Bool). Enable or disable independent processing of partitions for **SELECT** queries with **FINAL**.
-    - `empty_result_for_aggregation_by_empty_set` (Bool). Allows to retun empty result.
+    - `empty_result_for_aggregation_by_empty_set` (Bool). Allows to retunr empty result.
     - `enable_analyzer` (Bool). Enable new query analyzer.
     - `enable_http_compression` (Bool). Enables or disables data compression in the response to an HTTP request.
     - `enable_reads_from_query_cache` (Bool). If turned on, results of SELECT queries are retrieved from the query cache.
@@ -508,7 +508,7 @@ If the parameter is set to 0 (default), no hops is allowed.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
   - `shard_name` (String). The name of the shard to which the host belongs.
   - `subnet_id` (String). ID of the subnet where the host is located.
-  - `type` (**Required**)(String). The type of the host to be deployed. Can be either `CLICKHOUSE` or `ZOOKEEPER`.
+  - `type` (**Required**)(String). The type of the host to be deployed. Can be `CLICKHOUSE`, `ZOOKEEPER`, or `KEEPER`.
   - `zone` (**Required**)(String). The [availability zone](../../overview/concepts/geo-scope.md) where resource is located. If it is not provided, the default provider zone will be used.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
@@ -533,8 +533,8 @@ If the parameter is set to 0 (default), no hops is allowed.
     - `disk_type_id` (String). Type of the storage of hosts. For more information see [the official documentation](../../managed-clickhouse/concepts/storage.md).
     - `resource_preset_id` (String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](../../managed-clickhouse/concepts/index.md).
   - `weight` (Number). The weight of shard.
-- `sql_database_management` (Bool). Grants `admin` user database management permission.
-- `sql_user_management` (Bool). Enables `admin` user with user management permission.
+- `sql_database_management` (Bool). Grants `admin` user database management permission. Can be enabled in-place, disabling requires the cluster to be recreated.
+- `sql_user_management` (Bool). Enables `admin` user with user management permission. Can be enabled in-place, disabling requires the cluster to be recreated.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

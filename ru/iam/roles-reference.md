@@ -1937,6 +1937,10 @@ description: В статье приведен полный справочник 
 
 ## {{ mch-full-name }} {#managed-clickhouse-roles}
 
+#### managed-clickhouse.clusters.connector {#managed-clickhouse-clusters-connector}
+
+{% include [managed-clickhouse.clusters.connector](../_roles/managed-clickhouse/clusters/connector.md) %}
+
 #### managed-clickhouse.auditor {#managed-clickhouse-auditor}
 
 {% include [managed-clickhouse.auditor](../_roles/managed-clickhouse/auditor.md) %}

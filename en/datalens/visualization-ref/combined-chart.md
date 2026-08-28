@@ -5,14 +5,14 @@ description: In this tutorial, you will learn how to create and customize the co
 
 # Combined chart ![](../../_assets/datalens/combined.svg) in {{ datalens-full-name }}
 
-Combined chart is a separate type of visualization consisting of layers. Each layer is a separate type of diagram. You can combine [line charts](line-chart.md), [column charts](column-chart.md), and [area charts](area-chart.md).
+A combined chart is a separate type of visualization consisting of layers. Each layer is a separate chart type. You can combine [line charts](line-chart.md), [column charts](column-chart.md), and [area charts](area-chart.md).
 
 ### Features
 
-* The **X**, **Sort**, and **Filters** sections are the same for all layers.
-* You can add, delete, reorder and rename layers.
-* Each layer is executed with a separate query in the database.
-* The maximum number of layers is 5.
+* The **X**, **Sorting**, and **Filters** sections are shared by all layers.
+* You can add, delete, reorder, and rename layers.
+* Each layer takes a separate database query to run.
+* The maximum number of layers is five.
 
 {% note info %}
 
@@ -21,9 +21,9 @@ Combined chart is a separate type of visualization consisting of layers. Each la
 
 {% endnote %}
 
-## What is important to know
+## Important info
 
-* A combined chart is often used for plan/actual comparison. You can show the plan as a dashed line on the line chart layer, while presenting the actual values broken down into categories on the column chart layer.
+* A combined chart is often used for planned vs actual comparisons. You can show the planned values as a dashed line on the line chart layer, while depicting the actual values by categories on the column chart layer.
 
    {% cut "Example" %}
 
@@ -35,7 +35,7 @@ Combined chart is a separate type of visualization consisting of layers. Each la
 
    - Source table
 
-      |Year|Category|Plan|Sales|
+      |Year|Category|Planned|Sales|
       |-----|-----|-----|-----|
       |2018|Household cleaners|435.53|449|
       |2018|Household goods|null|null|
@@ -57,7 +57,7 @@ Combined chart is a separate type of visualization consisting of layers. Each la
 
    {% endcut %}
 
-* It is sometimes convenient to use a combined chart for same-type layers. For example, when one layer represents sales by category and another one shows the plan constant.
+* It is sometimes convenient to use a combined chart for same-type layers. For example, when one layer reflects sales by category and another one shows the planned constant.
 
    {% cut "Example" %}
 
@@ -77,25 +77,23 @@ Combined chart is a separate type of visualization consisting of layers. Each la
 
 Wizard<br/> section| Description
 ----- | ----
-X | Dimension. You can specify only one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings). The **X** section is common for all layers.
+X | Dimension. You can specify only one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset for the correct sorting and display of labels. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings). The **X** section is shared by all layers.
 Layer section | Allows you to add, delete, reorder, and rename layers. You can select a chart type for a layer: [line chart](line-chart.md), [column chart](column-chart.md), or [area chart](area-chart.md). The list of other sections depends on the layer chart type you select.<br/><br/> You can manage data display in the chart layers using the legend. To do this, click individual legend elements or select multiple elements by pressing and holding `Ctrl`/`Cmd`. You can enable or disable the legend in the chart settings. For more information, see [{#T}](../concepts/chart/settings.md#common-settings).
 
 ## Creating a combined chart {#create-diagram}
 
 To create a combined chart:
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
 1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
 1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Select **Combined chart** as your chart type.
-1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
+1. Drag a dimension from the dataset to the **X** section. The values will appear in the lower part of the chart on the X axis.
 1. Select a layer chart type: line chart ![](../../_assets/datalens/line.svg), column chart ![](../../_assets/datalens/column.svg), or area chart ![](../../_assets/datalens/area.svg). Rename the layer, if required.
-1. Create a chart of the appropriate type:
+1. Build a chart of the appropriate type:
 
    * [{#T}](line-chart.md#create-diagram)
    * [{#T}](column-chart.md#create-diagram)

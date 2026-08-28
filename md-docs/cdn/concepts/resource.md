@@ -18,7 +18,7 @@ _Ресурс_ — это основная логическая сущность
 * [сжатие](compression.md) и [сегментирование](slicing.md) контента.
 * [нестандартные HTTP-ответы](../operations/resources/configure-response.md).
 
-Доступ к ресурсу можно ограничить с помощью [защищенных токенов](secure-tokens.md) и [политики доступа по IP-адресам](ip-address-acl.md).
+Доступ к ресурсу можно ограничить с помощью [защищенных токенов](secure-tokens.md), [политики доступа по IP-адресам](ip-address-acl.md) и [политики доступа по странам](geo-acl.md).
 
 Можно настроить [перенаправление запросов](http-rewrite.md) от CDN-ресурса к источнику, изменив [URI](https://ru.wikipedia.org/wiki/URI) запроса с помощью [правила](http-rewrite.md#rewrite-rule) `Rewrite`.
 

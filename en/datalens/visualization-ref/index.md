@@ -34,6 +34,7 @@ The following types of charts are available in {{ datalens-full-name }}:
   * [Normalized column chart](normalized-column-chart.md)
   * [Bar chart](bar-chart.md)
   * [Normalized bar chart](normalized-bar-chart.md)
+  * [Funnel](funnel.md)
   * [Scatter chart](scatter-chart.md)
   * [Pie chart](pie-chart.md)
   * [Donut chart](ring-chart.md)

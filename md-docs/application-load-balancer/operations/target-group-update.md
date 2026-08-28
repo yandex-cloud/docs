@@ -2,7 +2,166 @@
 
 # Изменить целевую группу
 
-Вы можете добавлять или удалять [виртуальные машины](../../compute/concepts/vm.md) из [целевой группы](../concepts/target-group.md).
+Вы можете изменять параметры, добавлять или удалять [виртуальные машины](../../compute/concepts/vm.md) из [целевой группы](../concepts/target-group.md).
+
+## Изменить параметры целевой группы {#params}
+
+Чтобы изменить параметры целевой группы:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создана целевая группа.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **Целевые группы**.
+  1. В строке с целевой группой нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. Внесите нужные изменения.
+  1. Нажмите **Сохранить**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Посмотрите описание команды [CLI](../../cli/index.md) для изменения параметров целевой группы:
+
+     ```bash
+     yc alb target-group update --help
+     ```
+
+  1. Выполните команду:
+
+     ```bash
+     yc alb target-group update \
+        --name <имя_целевой_группы> \
+        --new-name <новое_имя_целевой_группы> \
+        --description "<описание_целевой_группы>" \
+        --labels <ключ_метки_1>=<значение_метки_1>[,<ключ_метки_n>=<значение_метки_n>]
+     ```
+
+     Результат:
+
+     ```text
+     id: ds7d3ah05hg9********
+     name: new-name
+     description: this is a target group
+     folder_id: b1g681qpemb4********
+     labels:
+       my-label: my-value
+     targets:
+       - ip_address: 10.129.0.12
+         subnet_id: e2lb1da2dd9v********
+     created_at: "2026-08-25T13:12:37.409977826Z"
+     ```
+
+     Подробнее о команде `yc alb target-group update` с полным перечнем параметров в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/target-group/update.md).
+
+- Terraform {#tf}
+
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+
+  1. Откройте конфигурационный файл Terraform и измените фрагмент с описанием целевой группы:
+
+     ```hcl
+     resource "yandex_alb_target_group" "foo" {
+       name           = "<имя_целевой_группы>"
+       description    = "<описание_целевой_группы>"
+       labels      = {
+         <ключ_метки_1> = "<значение_метки_1>",
+         <ключ_метки_2> = "<значение_метки_2>"
+       }
+
+     ...
+     }
+     ```
+
+     Где `yandex_alb_target_group` — параметры целевой группы:
+     
+     * `name` — имя целевой группы.
+     * `description` — описание целевой группы.
+     * `labels` — метки целевой группы.
+
+     Подробнее о параметрах ресурса `yandex_alb_target_group` в [документации провайдера](../../terraform/resources/alb_target_group.md).
+
+  1. Примените изменения:
+
+     1. В терминале перейдите в директорию с конфигурационным файлом.
+     1. Проверьте корректность конфигурации с помощью команды:
+     
+        ```bash
+        terraform validate
+        ```
+     
+        Если конфигурация является корректной, появится сообщение:
+     
+        ```bash
+        Success! The configuration is valid.
+        ```
+     
+     1. Выполните команду:
+     
+        ```bash
+        terraform plan
+        ```
+     
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     1. Примените изменения конфигурации:
+     
+        ```bash
+        terraform apply
+        ```
+     
+     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+     Проверить изменения целевой группы можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
+
+     ```bash
+     yc alb target-group get --name <имя_целевой_группы>
+     ```
+
+     {% note warning "Ограничения по времени" %}
+     
+     Провайдер Terraform ограничивает время на выполнение операций с целевыми группами Application Load Balancer 10 минутами.
+     
+     Операции, которые длятся дольше указанного времени, прерываются.
+     
+     {% cut "Как изменить эти ограничения?" %}
+     
+     Добавьте к описанию целевой группы блок `timeouts`, например:
+     
+     ```hcl
+     resource "yandex_alb_target_group" "<имя_целевой_группы>" {
+       ...
+       timeouts {
+         create = "60m"
+         update = "60m"
+         delete = "60m"
+       }
+     }
+     ```
+     
+     {% endcut %}
+     
+     {% endnote %}
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [update](../api-ref/TargetGroup/update.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Update](../api-ref/grpc/TargetGroup/update.md).
+
+{% endlist %}
 
 ## Добавить ВМ в целевую группу {#add-targets}
 

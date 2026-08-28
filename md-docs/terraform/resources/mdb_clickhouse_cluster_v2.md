@@ -353,6 +353,7 @@ resource "yandex_vpc_subnet" "baz" {
 - `admin_password` (String). A password used to authorize as user `admin` when `sql_user_management` enabled.
 - `admin_password_wo` (String). A password used to authorize as user `admin` when `sql_user_management` enabled. This attribute is write-only and is not stored in state. Requires `admin_password_wo_version` to trigger updates. Write-only arguments are supported in Terraform 1.11 and later.
 - `admin_password_wo_version` (Number). A version number for the write-only password. Increment this to trigger a password update.
+- `allow_degradation_to_read_only` (Bool). Allows the cluster to become read-only during migration from ZooKeeper to ClickHouse Keeper. Must be enabled when changing coordinator host types from `ZOOKEEPER` to `KEEPER`.
 - `allow_host_recreation` (Bool). Allows or denies re-creation of hosts during cluster configuration changes that require it, such as a disk type change. Note: only data of replicated tables is preserved during host re-creation; data of non-replicated tables is lost.
 - `backup_retain_period_days` (Number). The period in days during which backups are stored.
 - `backup_window_start` [Block]. Time to start the daily backup, in the UTC timezone.
@@ -825,7 +826,7 @@ If the parameter is set to 0 (default), no hops is allowed.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
   - `shard_name` (String). The name of the shard to which the host belongs.
   - `subnet_id` (String). ID of the subnet where the host is located.
-  - `type` (**Required**)(String). The type of the host to be deployed. Can be either `CLICKHOUSE` or `ZOOKEEPER`.
+  - `type` (**Required**)(String). The type of the host to be deployed. Can be `CLICKHOUSE`, `ZOOKEEPER`, or `KEEPER`.
   - `zone` (**Required**)(String). The [availability zone](../../overview/concepts/geo-scope.md) where resource is located. If it is not provided, the default provider zone will be used.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
@@ -854,8 +855,8 @@ If the parameter is set to 0 (default), no hops is allowed.
     - `disk_type_id` (String). Type of the storage of hosts. For more information see [the official documentation](../../managed-clickhouse/concepts/storage.md).
     - `resource_preset_id` (String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](../../managed-clickhouse/concepts/index.md).
   - `weight` (Number). The weight of shard.
-- `sql_database_management` (Bool). Grants `admin` user database management permission.
-- `sql_user_management` (Bool). Enables `admin` user with user management permission.
+- `sql_database_management` (Bool). Grants `admin` user database management permission. Can be enabled in-place, disabling requires the cluster to be recreated.
+- `sql_user_management` (Bool). Enables `admin` user with user management permission. Can be enabled in-place, disabling requires the cluster to be recreated.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

@@ -94,9 +94,7 @@ You can add or remove [cluster hosts](../concepts/index.md), restart host synchr
 
 The number of hosts in {{ mmg-name }} clusters is limited by the CPU and memory quotas allocated to the database clusters in your[cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). To review current resource usage, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mmg-name }}** section.
 
-You can add hosts of different types to your {{ mmg-name }} cluster. Their number depends on the [sharding type](../concepts/sharding.md#shard-management):
-
-{#hosts-table}
+You can add hosts of different types to your {{ mmg-name }} cluster. Their number depends on the [sharding type](../concepts/sharding.md#shard-management): {#hosts-table}
 
 {% include [sharding-and-host-roles-table](../../_includes/mdb/mmg/sharding-and-host-roles-table.md) %}
 

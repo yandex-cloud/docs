@@ -34,6 +34,7 @@ resource "yandex_spark_cluster" "my_spark_cluster" {
         resource_preset_id = "c4-m16"
         min_size           = 1
         max_size           = 2
+        preemptible        = true
       }
     }
     dependencies = {
@@ -78,6 +79,7 @@ resource "yandex_spark_cluster" "my_spark_cluster" {
     - `executor` [Block]. Computational resources for the executor pool.
       - `max_size` (Number). Maximum node count for the executor pool with autoscaling.
       - `min_size` (Number). Minimum node count for the executor pool with autoscaling.
+      - `preemptible` (Bool). Whether executor nodes use preemptible (interruptible) compute instances. Defaults to `false`. For more information, see [Preemptible Virtual Machines](https://yandex.cloud/docs/compute/concepts/preemptible-vm).
       - `resource_preset_id` (**Required**)(String). Resource preset ID for the executor pool.
       - `size` (Number). Node count for the executor pool with fixed size.
   - `spark_version` (String). Version of Apache Spark.

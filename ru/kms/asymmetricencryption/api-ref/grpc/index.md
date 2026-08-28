@@ -8,11 +8,9 @@ Actions are performed by making RPC calls. For more information about API archit
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/kms/v1/asymmetricencryption).
 
-**Service URL**: `https://{{ api-host-kms }}`
-
 #|
-||Service | Description ||
-|| [AsymmetricEncryptionCrypto](AsymmetricEncryptionCrypto/index.md) | Set of methods that perform asymmetric decryption. ||
-|| [AsymmetricEncryptionKey](AsymmetricEncryptionKey/index.md) | Set of methods for managing asymmetric KMS keys. ||
-|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
+||Service | Description | Service URL ||
+|| [AsymmetricEncryptionCrypto](AsymmetricEncryptionCrypto/index.md) | Set of methods that perform asymmetric decryption. | `{{ api-host-kms-symcrypto }}:443` ||
+|| [AsymmetricEncryptionKey](AsymmetricEncryptionKey/index.md) | Set of methods for managing asymmetric KMS keys. | `{{ api-host-kms }}:443` ||
+|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. | `operation.{{ api-host }}:443` ||
 |#

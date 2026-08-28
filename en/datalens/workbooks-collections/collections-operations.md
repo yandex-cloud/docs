@@ -14,6 +14,7 @@ In this section, you will learn how to use a collection:
 * [Deleting a collection](#delete-collections)
 
 ## Creating a collection {#create-collections}
+   
 
 To create a collection:
 
@@ -33,7 +34,7 @@ To create a collection:
 
 ## Editing a collection {#edit-collections}
 
-To change collection name and description:
+To change a collection name and description:
 
 1. At the top of the collection page, next to the name, click ![image](../../_assets/console-icons/pencil-to-line.svg) **Edit**.
 1. Enter a new name and description for the collection and click **Save**.
@@ -43,7 +44,7 @@ To change collection name and description:
 To move a collection:
 
 1. At the top of the collection page, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/arrow-right.svg) **Move**.
-1. Select the collection you want to move the collection to and click **Move**. To move it to a new collection, click **Create collection**.
+1. Select the collection you want to move your collection to and click **Move**. To move it to a new collection, click **Create collection**.
 
 
 ## Setting up access to a collection {#security}
@@ -56,14 +57,14 @@ To assign access permissions for a collection:
   
 1. At the top of the collection page, click ![icon](../../_assets/console-icons/lock-open.svg) **Access**.
 
-   Under **Inherited permissions**, you can see the users who inherited object permissions, because they were granted permissions to one of its parent objects. For each user, the inherited permission and the object that it is inherited from are displayed.
+   Under **Inherited permissions**, you can see the users who inherited object permissions, because they were granted permissions for one of its parent objects. For each user, the inherited permission and the object it is inherited from are displayed.
 
-   Under **Direct permissions**, you can see the users who are granted permissions to the selected object.
+   Under **Direct permissions**, you can see the users who have permissions for the selected object.
 
 1. Click ![image](../../_assets/console-icons/plus.svg) **Add user**.
 1. In the window that opens, select a user or user group, specify the appropriate permission, and click **Save**. The user or user group will get permissions for this object.
 
-### Revoking privileges {#wb-coll-revoke}
+### Revoking permissions {#wb-coll-revoke}
 
 To revoke access permissions for a collection:
 
@@ -72,7 +73,7 @@ To revoke access permissions for a collection:
 
    {% note info %}
 
-   If the user is missing from the list, they might have been granted permissions to the parent object. You can revoke permissions for the parent object. To switch to the permission inheritance object, find the user in the **Inherited permissions** list and click the object name.
+   If the user is missing from the list, they might have permissions for the parent object. You can revoke permissions for the parent object. To switch to the object that inherits permissions, find the user in the **Inherited permissions** list and click the object name.
 
    {% endnote %}
 
