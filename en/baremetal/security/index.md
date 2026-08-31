@@ -30,9 +30,9 @@ In {{ baremetal-name }}, you can manage access using both service and primitive 
 
 {% include [baremetal-editor](../../_roles/baremetal/editor.md) %}
 
-{% note warning %}
+{% note info %}
 
-Starting August 1, 2026, the `baremetal.editor` role gets new permissions from the [backup.user](../../backup/security/index.md#backup-user) role allowing it to connect servers to [{{ backup-full-name }}](../../backup/index.yaml), link and unlink them from [backup policies](../../backup/concepts/policy.md).
+The `baremetal.editor` role includes the [backup.user](../../backup/security/index.md#backup-user) permissions that enable connecting servers to [{{ backup-full-name }}](../../backup/index.yaml) as well as linking and unlinking them from [backup policies](../../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -42,9 +42,9 @@ Starting August 1, 2026, the `baremetal.editor` role gets new permissions from t
 
 {% include [baremetal-admin](../../_roles/baremetal/admin.md) %}
 
-{% note warning %}
+{% note info %}
 
-Starting August 1, 2026, the `baremetal.admin` role gets new permissions from the [backup.user](../../backup/security/index.md#backup-user) role allowing it to connect servers to [{{ backup-full-name }}](../../backup/index.yaml), link and unlink them from [backup policies](../../backup/concepts/policy.md).
+The `baremetal.admin` role includes the [backup.user](../../backup/security/index.md#backup-user) permissions that enable connecting servers to [{{ backup-full-name }}](../../backup/index.yaml) as well as linking and unlinking them from [backup policies](../../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 

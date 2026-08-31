@@ -5,6 +5,7 @@ description: Follow this guide to connect {{ dataproc-name }} to {{ metastore-na
 
 # Connecting {{ dataproc-name }} to {{ metastore-name }}
 
+
 {% note info %}
 
 To use a {{ metastore-name }} cluster, your [{{ dataproc-full-name }} cluster](../../../data-proc/concepts/index.md) must contain the `SPARK` and `YARN` components.

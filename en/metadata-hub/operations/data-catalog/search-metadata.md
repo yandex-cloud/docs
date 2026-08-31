@@ -5,11 +5,13 @@ description: Follow this guide to search for metadata in {{ data-catalog-full-na
 
 # Metadata search
 
+
 {% note info %}
 
 {% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

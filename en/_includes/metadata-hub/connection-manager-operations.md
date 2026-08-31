@@ -3,9 +3,9 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ metadata-hub-full-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}** and click the name of the connection you need.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+  1. Select **{{ ui-key.yacloud.common.operations-key-value }}**.
 
      In the list of operations, you can view all the operations for the selected connection since its creation:
 

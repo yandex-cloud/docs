@@ -15,7 +15,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
       * **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-generated }}**: To generate the value automatically:
   
         * In the **{{ ui-key.yacloud.lockbox.SecretGeneratedVersion.label_key }}** field, enter a non-secret ID.
-        * (Optional) Expand the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_auto-generation_params_section }}** section and set the confidential value parameters (e.g., password).
+        * Optionally, expand the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_auto-generation_params_section }}** section to customize the confidential value parameters, e.g., for passwords.
   
       * **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}**: To set the value manually:
 
@@ -71,7 +71,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
        >For instance, to save the `username` key with the `myusername` text value and the `avatar` key with a binary value loaded from the `avatar.jpg` file, you can specify:
        >
        >`[{'key': 'username', 'text_value': 'myusername'},{'key': 'avatar', 'binary_value': $(base64 -w 0 ./avatar.jpg)}]`
-
+     
      * `--cloud-id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) where you want to create your secret.
      * `--folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to create your secret.
      * `--deletion-protection`: Secret deletion protection. You cannot delete a secret with this option enabled. This does not protect the secret's contents. This is an optional setting.
@@ -134,7 +134,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
      * `labels`: Resource [label](../../overview/concepts/services.md#labels) in `<key>:"<value>"` format. This is an optional setting.
 
      For more information about the properties of the `yandex_lockbox_secret` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lockbox_secret).
-
+  
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

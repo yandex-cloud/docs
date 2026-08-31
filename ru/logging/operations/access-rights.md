@@ -48,50 +48,23 @@
 
     Выполните команду, чтобы назначить [роль](../security/index.md) на пользовательскую лог-группу:
 
-    * пользователю:
+    ```bash
+    yc logging group add-access-binding \
+      --name <имя_лог-группы> \
+      --role <роль> \
+      --subject <тип_субъекта>:<идентификатор_субъекта>
+    ```
 
-        ```
-        yc logging group add-access-binding \
-          --name <имя_лог-группы> \
-          --user-account-id <идентификатор_пользователя> \
-          --role <роль>
-        ```
+    Где:
 
-        Результат:
+    * `--role` — назначаемая [роль](../security/index.md#roles-list).
+    * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-        ```
-        done (1s)
-        ```
+        {% cut "Обозначения субъектов" %}
 
-    * [сервисному аккаунту](../../iam/concepts/users/service-accounts.md):
+        {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-        ```
-        yc logging group add-access-binding \
-          --name <имя_лог-группы> \
-          --service-account-id <идентификатор_сервисного_аккаунта> \
-          --role <роль>
-        ```
-
-        Результат:
-
-        ```
-        done (1s)
-        ```
-
-    * всем авторизованным пользователям ([публичная группа](../../iam/concepts/access-control/public-group.md) `All authenticated users`):
-
-        ```
-        yc logging group add-access-binding \
-          --name <имя_лог-группы> \
-          --all-authenticated-users \
-          --role <роль>
-        ```
-
-        Результат:
-
-        ```
-        done (1s)
-        ```
+        {% endcut %}
 
 - API {#api}
 
@@ -105,55 +78,34 @@
 
 - CLI {#cli}
 
-    Выполните команду, чтобы отозвать [роль](../security/index.md) на пользовательскую лог-группу:
+  Выполните команду, чтобы отозвать [роль](../security/index.md) на пользовательскую лог-группу:
 
-    * у пользователя:
+  ```bash
+  yc logging group remove-access-binding \
+    --name <имя_лог-группы> \
+    --role <идентификатор_роли> \
+    --subject <тип_субъекта>:<идентификатор_субъекта>
+  ```
 
-        ```
-        yc logging group remove-access-binding \
-          --name <имя_лог-группы> \
-          --user-account-id <идентификатор_пользователя> \
-          --role <роль>
-        ```
-    
-        Результат:
-    
-        ```
-        done (1s)
-        ```
+  Где:
 
-    * у [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):
+  * `--role` — идентификатор роли, которую надо отозвать.
+  * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
 
-        ```
-        yc logging group remove-access-binding \
-          --name <имя_лог-группы> \
-          --service-account-id <идентификатор_сервисного_аккаунта> \
-          --role <роль>
-        ```
+      {% cut "Обозначения субъектов" %}
 
-        Результат:
+      {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-        ```
-        done (1s)
-        ```
-
-    * у всех авторизованных пользователей ([публичная группа](../../iam/concepts/access-control/public-group.md) `All authenticated users`):
-
-        ```
-        yc logging group remove-access-binding \
-          --name <имя_лог-группы> \
-          --all-authenticated-users \
-          --role <роль>
-        ```
-
-        Результат:
-
-        ```
-        done (1s)
-        ```
+      {% endcut %}
 
 - API {#api}
 
-  Чтобы отозвать роли, назначенные на пользовательскую лог-группу, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/UpdateAccessBindings](../api-ref/grpc/LogGroup/updateAccessBindings.md).
+  Чтобы отозвать роли, назначенные на пользовательскую лог-группу, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/UpdateAccessBindings](../api-ref/grpc/LogGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

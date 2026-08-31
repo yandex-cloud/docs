@@ -24,7 +24,7 @@ description: На странице приведено описание ошиб�
 Если источник данных — {{ CH }}, найдите запросы от {{ datalens-short-name }} в [system.query_log]({{ ch.docs }}{{ lang }}/operations/system-tables/query_log).
 
 
-Если  источник данных — MBD {{ PG }}, посмотрите [анализ производительности](../../../tutorials/dataplatform/mpg-profiling.md).
+Если  источник данных — MBD {{ PG }}, посмотрите [анализ производительности]({{ link-docs }}/tutorials/dataplatform/mpg-profiling).
 
 
 {% endnote %}

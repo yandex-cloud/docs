@@ -10,6 +10,6 @@ A set of methods to retrieve information about HardwarePool resources.
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Returns the specific HardwarePool resource. ||
-|| [List](list.md) | Retrieves the list of HardwarePool resources. ||
+|| [GetHardwarePool](getHardwarePool.md) | Returns the specific HardwarePool resource. ||
+|| [ListHardwarePools](listHardwarePools.md) | Retrieves the list of HardwarePool resources. ||
 |#

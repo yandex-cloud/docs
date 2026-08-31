@@ -230,8 +230,6 @@ CREATE VIEW ... (
 
 Чтобы избежать ошибок при работе с представлениями в DataLens, содержащими секцию JOIN, создайте заново все представления с настройкой `join_use_nulls = 1`. Пустые ячейки при этом заполнятся значениями `NULL`, а тип соответствующих полей преобразуется в [Nullable](https://clickhouse.com/docs/ru/sql-reference/data-types/nullable#data_type-nullable).
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
-
 
 ## Примеры использования {#examples}
 
@@ -239,3 +237,6 @@ _ClickHouse® является зарегистрированным товарн
 * [Дашборд сети магазинов из БД ClickHouse®](../../tutorials/data-from-ch-visualization.md)
 * [Геокодинг с помощью API Яндекс Карт для визуализации в DataLens](../../tutorials/data-from-ch-geocoder.md)
 * [Примеры создания QL-чартов](../../tutorials/data-from-ch-to-sql-chart.md)
+
+
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

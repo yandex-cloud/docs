@@ -7,7 +7,7 @@
 
 При работе с API учитывайте действующие [лимиты](../concepts/limits.md#datalens-api-limits).
 
-Для работы с API требуется [IAM-токен](../../iam/operations/iam-token/create) и [идентификатор организации](../settings/index.md#service-settings).
+Для работы с API требуется [IAM-токен]({{ link-docs }}/iam/operations/iam-token/create) и [идентификатор организации](../settings/index.md#service-settings).
 
 Например, подставьте свои значения `<IAM_TOKEN>`, `<ORG_ID>` и `<ENTRY_ID>` в следующий запрос, чтобы получить список всех связанных с сущностью объектов:
 
@@ -122,7 +122,7 @@ curl -X 'POST' \
 
 * [Node.js](https://nodejs.org/) версии 18 или выше;
 * `npm` и `npx`, доступные через `PATH` (как правило, они идут в комплекте с Node.js);
-* [`yc` CLI](../../cli/quickstart.md) — при использовании рекомендуемого способа авторизации через {{ yandex-cloud }}. При авторизации с помощью статического токена `yc` CLI не требуется.
+* [`yc` CLI]({{ link-docs }}/cli/quickstart) — при использовании рекомендуемого способа авторизации через {{ yandex-cloud }}. При авторизации с помощью статического токена `yc` CLI не требуется.
 
 
 ### Примеры использования {#example}

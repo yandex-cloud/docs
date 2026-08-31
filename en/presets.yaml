@@ -120,6 +120,8 @@ default:
   cloud-registry: registry.yandexcloud.net
   cloud-registry-full-name: Yandex Cloud Registry
   cloud-registry-name: Cloud Registry
+  cloud-router-full-name: Yandex Cloud Router
+  cloud-router-name: Cloud Router
   cloud-shell-full-name: Yandex Cloud Shell
   cloud-shell-name: Cloud Shell
   cluster-id: cat0adul1fj0********
@@ -577,6 +579,7 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL®
   mmy-name: Managed Service for MySQL®
   mmy-short-name: Managed Service for MySQL®
+  model-gallery-name: Model Gallery
   monitoring-doc-links: ../monitoring/concepts/index.md
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
@@ -7186,6 +7189,9 @@ default:
       shared:
         iam:
           action_assign-roles_8vkmR: Assign roles
+        layout:
+          PageTabs:
+            button_other_hnYwF: Other
       smart-web-security:
         action_empty: Create profile
         advanced_waf:

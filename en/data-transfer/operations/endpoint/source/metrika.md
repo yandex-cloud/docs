@@ -9,14 +9,14 @@ noIndex: true
 
 {{ data-transfer-name }} enables you to transfer data from a [{{ metrika }}]({{ metrika-link }}) tag to a {{ yandex-cloud }} managed database.
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
 1. Perform required operations with the database and [control the transfer](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](../../../troubleshooting/index.md) to resolve them.
+1. If you run into any problems, [check the available solutions](../../../troubleshooting/index.md) for troubleshooting.
 
-## Scenarios for transferring data from {{ metrika }} {#scenarios}
+## {{ metrika }} data transfer scenarios {#scenarios}
 
 {{ data-transfer-name }} enables you to transfer metrics from [{{ metrika }}]({{ metrika-link }}) to a {{ CH }} cluster. This approach guarantees the completeness of the data transferred from {{ metrika }} and allows:
 
@@ -88,14 +88,14 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 For more about the settings, see [this guide]({{ link-yandex }}/support/metrica/index.html).
 
-## Configuring the data target {#supported-targets}
+## Configuring the target {#supported-targets}
 
 Configure the supported data target:
 
-* [{{ CH }}](../target/clickhouse.md).
+[{{ CH }}](../target/clickhouse.md).
 
 For a full list of sources and targets supported in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
 {% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

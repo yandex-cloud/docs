@@ -12,7 +12,7 @@
 
 {% note warning %}
 
-Максимальное количество экземпляров {{ datalens-short-name }} в одной [организации](../../organization/quickstart.md) или [облаке {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md#cloud) — 1.
+Максимальное количество экземпляров {{ datalens-short-name }} в одной [организации]({{ link-docs }}/organization/quickstart) или [облаке {{ yandex-cloud }}]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#cloud) — 1.
 
 {% endnote %}
 

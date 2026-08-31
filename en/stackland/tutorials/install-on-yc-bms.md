@@ -1,12 +1,12 @@
 # Installing {{ stackland-name }} on {{ baremetal-full-name }}
 
-[{{ baremetal-full-name }}](https://yandex.cloud/en/services/baremetal) allows you to rent dedicated physical servers, with all their resources only used for your needs. {{ stackland-full-name }} supports {{ baremetal-full-name }} as one of its target environments for deployment.
+[{{ baremetal-full-name }}](https://yandex.cloud/ru/services/baremetal) allows you to rent dedicated physical servers, with all their resources only used for your needs. {{ stackland-full-name }} supports {{ baremetal-full-name }} as one of its target environments for deployment.
 
 In this tutorial, you will learn how to rent {{ baremetal-full-name }} servers and get them ready for {{ stackland-name }} deployment, as well as how to prepare a configuration file for installing {{ stackland-name }} on your rented servers. For details as to deploying a {{ stackland-full-name }} cluster on a ready-to-go infrastructure, see our [Installation guide](../quickstart.md).
 
 If you want to use network boot instead of manually booting the ISO image via the KVM console, see the [Installing {{ stackland-name }} on {{ baremetal-full-name }} via PXE](install-on-yc-bms-pxe.md) guide.
 
-To configure the environment, this tutorial employs the [Yandex Cloud management console](http://console.yandex.cloud). To use a different {{ baremetal-full-name }} interface, refer to the [relevant articles](https://yandex.cloud/en/services/baremetal).
+To configure the environment, this tutorial employs the [Yandex Cloud management console](http://console.yandex.cloud). To use a different {{ baremetal-full-name }} interface, refer to the [relevant articles](https://yandex.cloud/ru/services/baremetal).
 
 ## Introduction {#introduction}
 
@@ -81,7 +81,9 @@ Before installation begins, make sure the DHCP-assigned addresses are valid and 
       * Select **No address** for the public address: all interaction with your {{ stackland-name }} cluster will occur via the bastion.
 
 
-Wait until your servers are rented. Then, open the **Overview** tab for each of the future {{ stackland-name }} cluster servers one by one and save their MAC addresses listed under **Private network** / **MAC address**.
+Wait until your servers are rented. Then, open the **Overview** tab for each of the future {{ stackland-name }} cluster servers one by one and save their MAC addresses listed under **Private network** / **MAC address**:
+
+![baremetal-network](../_assets/yc-bms-mac-address.png)
 
 You will need them in Step 6.
 

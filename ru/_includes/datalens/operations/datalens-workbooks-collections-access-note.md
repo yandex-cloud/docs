@@ -1,5 +1,5 @@
 {% note info %}
 
-Назначение прав [группам пользователей](../../../organization/concepts/groups.md) поддерживается для [воркбуков и коллекций](../../../datalens/workbooks-collections/index.md).
+Назначение прав [группам пользователей]({{ link-docs }}/organization/concepts/groups) поддерживается для [воркбуков и коллекций](../../../datalens/workbooks-collections/index.md).
 
 {% endnote %}

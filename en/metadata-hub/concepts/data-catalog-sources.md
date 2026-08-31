@@ -1,28 +1,29 @@
 ---
 title: Data sources in {{ data-catalog-name }}
-description: A data source is the connection to a database or service used to load metadata into the catalog. The set of loaded metadata depends on the source type.
+description: A data source is a connection to a database or service used to ingest metadata into a catalog. The scope of ingested metadata depends on the source type.
 ---
 
 
 # Data sources
 
-A data source is the connection to a database or service used to load metadata into the [catalog](data-catalog.md). User data itself is not loaded. When profiling is enabled, additional read queries are executed on data or samples to calculate statistics on columns and tables.
 
-The metadata with the following resource information is loaded into the catalog:
+A data source is a connection to a database or service used to ingest metadata into a [catalog](data-catalog.md). User data is never ingested. When profiling is enabled, the system runs additional read queries against data or samples to calculate column and table statistics.
 
-| Source details | Description  |
+The metadata ingested into a catalog contains the following source information:
+
+| Source information | Description  |
 | ----------------------- | --------- |
-| Storage objects | Databases, schemas, tables, views, indexes |
-| Data structure | Column/field names, their data types, and whether they can store `NULL` values (nullable), nested columns/fields |
+| Stored objects | Databases, schemas, tables, views, and indexes |
+| Data structure | Column or field names, their data types and support for storing `NULL` values (nullability), nested columns or fields |
 | Comments | Descriptions of tables and columns |
 | Data lineage | Links between tables and views |
 | Data profiling | Statistics on tables and columns |
-| Deleted objects | Objects that were deleted from the source since the previous upload |
+| Deleted objects | Objects removed from the source since the previous ingestion |
 
 
 ## Source metadata
 
-The set of loaded metadata depends on the data source:
+The scope of ingested metadata depends on the data source:
 
 * [{{ PG }}](#source-pg)
 * [{{ MY }}](#source-my)
@@ -39,67 +40,67 @@ The set of loaded metadata depends on the data source:
 
 ### {{ PG }} {#source-pg}
 
-The metadata with the following resource information is loaded into the catalog from {{ PG }}:
+Metadata with the following source information is ingested from {{ PG }} into the catalog:
 
-| Source details | Description  |
+| Source information | Description  |
 | ----------------------- | --------- |
 | Databases and schemas | Databases and schemas available in the source |
-| Tables | Tables, their technical names and the schema they belong to |
+| Tables | Tables, their technical names, and parent schema mapping |
 | Views | Views and their SQL definitions |
 | Stored procedures | Stored procedures and their SQL definitions |
-| Columns | Names, data types, and the schema they belong to |
+| Columns | Names, data types, and parent schema mapping |
 | Comments | Table and column descriptions defined via `COMMENT ON` |
 | Data lineage | Links between tables and views, as well as between views |
 | Column-level data lineage | Links between columns in views |
 | Data profiling | Statistics on tables, rows, and columns |
-| Deleted objects | Objects that were deleted from the source since the previous upload |
+| Deleted objects | Objects removed from the source since the previous ingestion |
 
-In the catalog, metadata is structured as: database → schema → table/view → column.
+Within a catalog, metadata has the following structure: database → schema → table/view → column.
 
-Data lineage can be determined by:
+There are two methods for data lineage tracing:
 
-* Parsing SQL definitions of views.
+* Parsing the SQL definitions of views.
 * Analyzing SQL queries.
   
   SQL query analysis requires {{ PG }} version `13` or higher and the `pg_stat_statements` extension.
 
-For data profiling, the user needs `SELECT` privileges on the tables.
+For data profiling, the user needs the `SELECT` permissions for the tables.
 
 
 ### {{ MY }} {#source-my}
 
-The metadata with the following resource information is loaded into the catalog from {{ MY }}:
+Metadata with the following source information is ingested from {{ MY }} into the catalog:
 
-| Source details | Description  |
+| Source information | Description  |
 | ----------------------- | --------- |
 | Databases | Databases available in the source |
-| Tables | Tables and the database they belong to |
+| Tables | Tables and their parent database mapping |
 | Views | Views and their SQL definitions |
 | Stored procedures | Stored procedures and their SQL definitions |
 | Columns | Names and data types |
-| Comments | Comments on tables and columns |
+| Comments | Comments to tables and columns |
 | Data lineage | Links between tables and views, as well as between views |
 | Column-level data lineage | Links between source columns and view columns |
 | Data profiling | Statistics on tables and columns |
-| Deleted objects | Objects that were deleted from the source since the previous upload |
+| Deleted objects | Objects removed from the source since the previous ingestion |
 
-Metadata is loaded from the {{ MY }} system tables. In the catalog, metadata is structured as: database → table/view → column.
+Metadata is ingested from the {{ MY }} system tables. Within a catalog, metadata has the following structure: database → table/view → column.
 
-Data lineage is determined by parsing SQL definitions of views.
+Data lineage is traced by parsing SQL definitions of views.
 
 To collect metadata, the user needs the following privileges:
 
-* `SHOW VIEW`: For views.
-* `SELECT` for the tables: For data profiling metrics.
+* `SHOW VIEW` for views.
+* `SELECT` for tables to access data profiling metrics.
 
 Learn more about [user privileges in {{ MY }}](../../managed-mysql/concepts/user-rights.md).
 
 
 ### {{ CH }} {#source-ch}
 
-The metadata with the following resource information is loaded into the catalog from {{ CH }}:
+Metadata with the following source information is ingested from {{ CH }} into the catalog:
 
-| Source details | Description  |
+| Source information | Description  |
 | ----------------------- | --------- |
 | Databases | Databases available in the source |
 | Tables | User tables |
@@ -107,111 +108,111 @@ The metadata with the following resource information is loaded into the catalog 
 | Materialized views | Materialized views and their SQL definitions |
 | [Dictionaries](../../managed-clickhouse/concepts/dictionaries.md) | Dictionaries and their structure |
 | Columns | Names and data types |
-| Comments | Comments on tables and columns |
+| Comments | Comments to tables and columns |
 | Data lineage | Links between tables and views, as well as between views |
 | Column-level data lineage | Links between columns |
 | Use of objects | Object access statistics |
 | Data profiling | Statistics on tables and columns |
-| Deleted objects | Objects that were deleted from the source since the previous upload |
+| Deleted objects | Objects removed from the source since the previous ingestion |
 
-Metadata is loaded from the {{ CH }} system tables using `SQLAlchemy`. In the catalog, metadata is structured as: database → table/view → column.
+Metadata is ingested from the {{ CH }} system tables using `SQLAlchemy`. Within a catalog, metadata has the following structure: database → table/view → column.
 
-Data lineage is determined by parsing SQL definitions of views stored in `system.tables.create_table_query`.
+Data lineage is traced by parsing SQL definitions of views stored in `system.tables.create_table_query`.
 
-For data profiling, the user needs `SELECT` privileges on the tables.
+For data profiling, the user needs the `SELECT` permissions for the tables.
 
 
 ### {{ OS }} {#source-os}
 
-The metadata with the following resource information is loaded into the catalog from {{ OS }}:
+Metadata with the following source information is ingested from {{ OS }} into the catalog:
 
-| Source details | Description  |
+| Source information | Description  |
 | ----------------------- | --------- |
 | [Indexes](../../managed-opensearch/concepts/indexing.md) | Indexes available in the source |
 | Index fields | Fields included in indexes |
 | Field types | Field data types |
 | Index templates | Rules applied when creating indexes |
 | Data profiling | Statistics on indexes and fields |
-| Deleted objects | Indexes that were deleted from the source since the previous upload |
+| Deleted objects | Indexes removed from the source since the previous ingestion |
 
-Metadata is loaded from {{ OS }} using the API. In the catalog, each index is represented as a dataset with fields. The field name and type are determined based on the index schema.
+Metadata is ingested from {{ OS }} via the API. Within a catalog, each index is represented as a dataset with fields. The field name and type are determined based on the index schema.
 
-For data profiling, the user needs read permissions on the indexes.
+For data profiling, the user needs permissions to read indexes.
 
 
 ### {{ mgp-name }}/{{ GP }} {#source-gp}
 
 {% note warning %}
 
-Exporting metadata from {{ mgp-name }} with {{ CB }} DBMS is not supported.
+Export of metadata from {{ mgp-name }} with {{ CB }} is not supported.
 
 {% endnote %}
 
-The metadata with the following resource information is loaded into the catalog from {{ GP }} and [{{ mgp-name }}](../../managed-greenplum/index.yaml):
+Metadata with the following source information is ingested from {{ GP }} and [{{ mgp-name }}](../../managed-greenplum/index.yaml) into the catalog:
 
-| Source details | Description  |
+| Source information | Description  |
 | ----------------------- | --------- |
 | Databases and schemas | Databases and schemas available in the source |
-| Tables | Tables, their technical names and the schema they belong to |
+| Tables | Tables, their technical names, and parent schema mapping |
 | Views | Views and their SQL definitions |
 | Materialized views | Materialized views and their SQL definitions |
 | [External tables](../../managed-greenplum/concepts/external-tables.md) | Information about external tables |
 | Columns | Names, data types, and the schema they belong to |
-| Limitations | Check the data integrity |
+| Limitations | Rules for maintaining data integrity |
 | Indexes | Table indexes |
 | Comments | Table and column descriptions defined via `COMMENT ON` |
 | Data lineage | Links between tables, views, and materialized views |
 | Data profiling | Statistics on tables and columns |
-| Deleted objects | Objects that were deleted from the source since the previous upload |
+| Deleted objects | Objects removed from the source since the previous ingestion |
 
-In the catalog, metadata is structured as: database → schema → table/view → column.
+Within a catalog, metadata has the following structure: database → schema → table/view → column.
 
-Data lineage can be determined by:
+There are two methods for data lineage tracing:
 
-* Parsing SQL definitions of views.
-* Analyzing SQL queries.
+* Parsing the SQL definitions of views
+* Analyzing SQL queries
 
-For data profiling, the user needs `SELECT` privileges on the tables.
+For data profiling, the user needs the `SELECT` permissions for the tables.
 
 
 ### {{ SD }}/{{ MG }} {#source-mg}
 
-The metadata with the following resource information is loaded into the catalog from [{{ SD }}](../../storedoc/index.yaml) and {{ MG }}:
+Metadata with the following source information is ingested from {{ MG }} and [{{ SD }}](../../storedoc/index.yaml) into the catalog:
 
 | Source details | Description  |
 | ----------------------- | --------- |
 | Databases | Databases available in the source |
-| Collections | Names, database they belong to, list of fields and their types, document structure, technical attributes |
-| Fields | Names, nested fields, types, whether they can store `NULL` values, mixed types |
-| Deleted objects | Collections that were deleted from the source since the previous upload |
+| Collections | Names, parent database mapping, list of fields and their types, document structure, technical attributes |
+| Fields | Names, nested fields, types, support for storing `NULL` values, mixed types |
+| Deleted objects | Collections removed from the source since the previous ingestion |
 
-In the catalog, metadata is structured as: database → collection → field.
+Within a catalog, metadata has the following structure: database → collection → field.
 
-In {{ SD }} and {{ MG }}, there is no unified collection schema, as documents may have different structures. If schema inference is enabled, a merged collection schema is built based on a sample of documents. To build the schema, you need read permissions on the databases from which metadata is loaded.
+In {{ SD }} and {{ MG }}, there is no single collection schema, as individual documents may have varying structures. If schema inference is enabled, a unified collection schema is generated based on a sample of documents. To build the schema, you need read permissions for the databases metadata is ingested from.
 
 
 ### {{ data-transfer-full-name }} {#source-dt}
 
-Metadata from [{{ data-transfer-name }}](../../data-transfer/index.yaml) is loaded into the catalog for [transfers](../../data-transfer/concepts/index.md#transfer) running in selected [{{ yandex-cloud }} folders](../../resource-manager/concepts/resources-hierarchy.md#folder).
+The metadata ingested from [{{ data-transfer-name }}](../../data-transfer/index.yaml) into a catalog constitutes metadata of [transfers](../../data-transfer/concepts/index.md#transfer) running within the selected [{{ yandex-cloud }} folders](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-The metadata contains the following information about the transfer:
+This metadata includes the following transfer information:
 
-* Links between storages, tables and columns.
-* [Data transformation](../../data-transfer/concepts/data-transformation.md).
+* Links between storages, tables, and columns.
+* [Data transformations](../../data-transfer/concepts/data-transformation.md).
 
-A storage without an active source is created for each transfer participant with no [source created](../operations/data-catalog/create-source.md) in the catalog. In this case, only the metadata obtained within the transfer will be available in the catalog. Later, you can create a source for each storage and configure metadata loading.
+For each transfer participant without a corresponding [source](../operations/data-catalog/create-source.md) in the catalog, a storage without an active source is created. In this case, the catalog will only store metadata obtained during the transfer. You can later create a source for each storage and configure metadata ingestion.
 
 
 ### {{ websql-full-name }} {#source-websql}
 
-Metadata from [{{ websql-name }}](../../websql/index.yaml) is loaded into the catalog for SQL queries and database objects used in queries. Query results are not loaded. Queries are loaded only for databases for which a source was created in the catalog.
+The metadata ingested from [{{ websql-name }}](../../websql/index.yaml) into a catalog constitutes the metadata of SQL queries and database objects used in queries. Query results are not ingested. The ingested queries are restricted to databases which have a corresponding source in the catalog.
 
-In the catalog, a user sees only their own queries or queries for which they have view permissions.
+In the catalog, a user will only see their queries or queries for which they have view permissions.
 
 
 ### {{ datalens-full-name }} {#source-datalens}
 
-Metadata from [{{ datalens-name }}](../../datalens/index.yaml) is loaded into the catalog for the following objects:
+A catalog ingests metadata for the following [{{ datalens-name }}](../../datalens/index.yaml) objects:
 
 * [Datasets](../../datalens/dataset/index.md)
 * [Charts](../../datalens/concepts/chart/index.md)
@@ -219,9 +220,9 @@ Metadata from [{{ datalens-name }}](../../datalens/index.yaml) is loaded into th
 * [Reports](../../datalens/reports/index.md)
 * [Workbooks and collections](../../datalens/workbooks-collections/index.md)
 
-Metadata is loaded for selected [connections](../../datalens/concepts/connection/index.md). If no connections are selected, metadata is loaded for all available connections.
+The ingested metadata is limited to the pre-selected [connections](../../datalens/concepts/connection/index.md). If no connections are selected, the system will ingest metadata from all available connections.
 
-To load metadata, the [service account](../../iam/concepts/users/service-accounts.md) needs the `datalens.visitor` and `datalens.admin` roles for the organization. Instead of the `datalens.admin` role, you can grant permissions to access individual {{ datalens-name }} resources (e.g., `datalens.workbooks.viewer`). In that case, only metadata for resources to which the service account has access is loaded.
+To ingest metadata, the [service account](../../iam/concepts/users/service-accounts.md) needs the `datalens.visitor` and `datalens.admin` roles for the organization. Instead of the `datalens.admin` role, you can grant granular permissions to access individual {{ datalens-name }} resources (e.g., `datalens.workbooks.viewer`). In this scenario, the ingested metadata will be limited to the specific resources to which the service account has access.
 
 [Learn more about roles in {{ datalens-name }}](../../datalens/security/roles.md).
 

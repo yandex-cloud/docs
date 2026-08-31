@@ -8,7 +8,7 @@ This issuer is enabled by default and cannot be additionally configured. If you 
 
 ## Let's Encrypt HTTP01
 
-The certificate from the [Let's Encrypt](https://letsencrypt.org/) certificate authority (CA) is recognized as trusted by all modern browsers; therefore, this option is suitable for services that are expected to receive connections from outside the organization.
+The certificate from the [Let's Encrypt](https://letsencrypt.org/ru/) certificate authority (CA) is recognized as trusted by all modern browsers; therefore, this option is suitable for services that are expected to receive connections from outside the organization.
 
 Let's Encrypt supports various methods for verifying domain ownership. Certificate Manager supports the most common one: HTTP01. All required communication with the certificate authority is handled automatically, eliminating the need for the Stackland cluster administrator to intervene.
 

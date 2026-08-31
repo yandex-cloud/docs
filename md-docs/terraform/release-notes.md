@@ -1,5 +1,13 @@
 [Документация Yandex Cloud](../index.md) > [Terraform в Yandex Cloud](index.md) > Справочник Terraform > История изменений (англ.)
 
+## 0.225.0 (August 31, 2026)
+
+##### ENHANCEMENTS:
+* organizationmanager: add `password_change_required` to `yandex_organizationmanager_idp_user` resource
+* audittrails: add `include_rule` and `exclude_rule` field filters to the `yandex_audit_trails_trail` resource and data source
+
+
+
 ## 0.224.0 (August 27, 2026)
 
 ##### BUG FIXES:

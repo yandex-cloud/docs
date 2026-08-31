@@ -2,7 +2,7 @@ You can assign the `datalens.collections.limitedViewer` role to a collection. It
 
 Users with this role can:
 * View info on the relevant collection and its nested [workbooks and collections](../../../datalens/workbooks-collections/index.md).
-* View info on the [access permissions](../../../iam/concepts/access-control/index.md) granted for the appropriate collection, as well as for its nested collections and workbooks.
+* View info on the [access permissions]({{ link-docs }}/iam/concepts/access-control/) granted for the appropriate collection, as well as for its nested collections and workbooks.
 * View [charts](../../../datalens/concepts/chart/index.md), [dashboards](../../../datalens/concepts/dashboard.md), and [reports](../../../datalens/reports/index.md) nested into the workbooks related to the appropriate collection and its nested collections.
 
 This role includes the `datalens.workbooks.limitedViewer` permissions.

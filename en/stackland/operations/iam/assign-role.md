@@ -11,6 +11,12 @@ To assign cluster-level permissions, you need the organization admin privileges.
 
 {% endnote %}
 
+{% note warning %}
+
+For a user, one `*AccessBinding` resource binds to the first successfully resolved IAM user. Once `status.boundSubjectID` is populated, modifying `spec.subject` will not assign the role to another user. To reassign the role, delete the federated credentials resource and create a new one. You can resolve name ambiguities via `subject.id` or `federationId` only until the first successful assignment.
+
+{% endnote %}
+
 ## Assigning a cluster-level role {#cluster-level}
 
 Use the `ClusterAccessBinding` resource to assign roles at the organization level.

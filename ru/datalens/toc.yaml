@@ -1047,10 +1047,13 @@ items:
       - name: Архив
         items:
           - name: Изменения в правилах тарификации 1 декабря
+            hidden: true
             href: pricing-changes.md
           - name: Правила тарификации до 1 декабря 2025
+            hidden: true
             href: pricing-old.md
           - name: Тарифные планы до 1 декабря 2025
+            hidden: true
             href: concepts/service-plans-comparison.md
   - name: '{{ datalens-name }} Public API'
     items:

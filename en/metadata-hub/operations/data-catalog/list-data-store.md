@@ -5,11 +5,13 @@ description: How to get a list of data storages in {{ data-catalog-full-name }}.
 
 # Getting a list of data storages
 
+
 {% note info %}
 
 {% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

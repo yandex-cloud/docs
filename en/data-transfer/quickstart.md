@@ -125,7 +125,7 @@ For more information, see [{#T}](./operations/endpoint/index.md).
   1. Enter a name for the transfer.
   1. (Optional) Add a transfer description.
   1. Select the endpoint for the source and the endpoint for the target.
-  1. Select the [type of transfer](./concepts/index.md#transfer-type.md):
+  1. Select the [type of transfer](./concepts/index.md#transfer-type):
      * {{ dt-type-copy }}: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](concepts/transfer-lifecycle.md#select-transfer-type).
        If you need to create a full copy of the data at specific intervals, enable **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.regular_snapshot.title }}**.
      * {{ dt-type-repl }}: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).

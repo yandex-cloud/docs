@@ -36,35 +36,48 @@
      * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса, на который назначена роль.
 
   1. Отзовите роль:
-     
-     * у пользователя:
-       
-       ```bash
-       yc container <ресурс> remove-access-binding <имя_или_идентификатор_ресурса> \
-         --role <роль> \
-         --user-account-id <идентификатор_пользователя>
-       ```
 
-     * [у сервисного аккаунта](../../../iam/concepts/users/service-accounts.md):
-       
-       ```bash
-       yc container <ресурс> remove-access-binding <имя_или_идентификатор_ресурса> \
-         --role <роль> \
-         --service-account-id <идентификатор_сервисного_аккаунта>
-       ```
+     ```bash
+     yc container <ресурс> remove-access-binding <имя_или_идентификатор_ресурса> \
+       --role <роль> \
+       --subject <тип_субъекта>:<идентификатор_субъекта>
+     ```
 
-     * у всех авторизованных пользователей ([публичная группа](../../../iam/concepts/access-control/public-group.md) `All authenticated users`):
-       
-       ```bash
-       yc container <ресурс> remove-access-binding <имя_или_идентификатор_ресурса> \
-         --role <роль> \
-         --all-authenticated-users
-       ```
+     Где:
 
-       Где:
-       * `<ресурс>` — тип ресурса `registry` (реестр) или `repository` (репозиторий);
-       * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса, на который отзывается роль;
-       * `<идентификатор_роли>` — [роль](../../security/index.md#service-roles), которую необходимо отозвать.
+     * `<ресурс>` — тип ресурса `registry` (реестр) или `repository` (репозиторий);
+     * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса, на который отзывается роль;
+     * `<идентификатор_роли>` — [роль](../../security/index.md#service-roles), которую необходимо отозвать;
+     * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+
+         {% cut "Обозначения субъектов" %}
+
+         Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+         
+         #|
+         || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+         || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+         || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+         || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+         || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+         || `system`         | `system:allAuthenticatedUsers`
+         
+         (группа `All authenticated users`) | `--all-authenticated-users` ||
+         || ^                | `system:allUsers`
+         
+         (группа `All users`) | — ||
+         || ^                | `system:group:organization:<идентификатор_организации>:users`
+         
+         (группа `All users in organization X`) | `--organization-users` ||
+         || ^                | `system:group:federation:<идентификатор_федерации>:users`
+         
+         (группа `All users in federation N`) | `--federation-users` ||
+         || ^                | `system:group:userpool:<идентификатор_пула>:users`
+         
+         (группа `All users in userpool P`) | — ||
+         |#
+
+         {% endcut %}
      
      **Пример**
 
@@ -73,7 +86,7 @@
      ```bash
      yc container registry remove-access-binding my-first-registry \
        --role container-registry.admin \
-       --user-account-id ajeugsk5ubk6********
+       --subject userAccount:ajeugsk5ubk6********
      ```
 
      Результат:
@@ -99,10 +112,45 @@
          role        = "<роль>"
        
          members = [
-           "userAccount:<идентификатор_пользователя>",
+           "<тип_субъекта>:<идентификатор_субъекта>",
          ]
        }
        ```
+
+       Где:
+
+       * `registry_id` — идентификатор реестра, на который назначена роль.
+       * `role` — [роль](../../security/index.md#service-roles), которую необходимо отозвать.
+       * `members` — список обозначений [субъектов](../../../iam/concepts/access-control/index.md#subject), у которых отзывается роль.
+
+           {% cut "Обозначения субъектов" %}
+
+           Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+           
+           #|
+           || **Тип субъекта** | **Обозначение субъекта** ||
+           || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+           || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+           || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+           || `group`          | `group:<идентификатор_группы>` ||
+           || `system`         | `system:allAuthenticatedUsers`
+           
+           (группа `All authenticated users`) ||
+           || ^                | `system:allUsers`
+           
+           (группа `All users`) ||
+           || ^                | `system:group:organization:<идентификатор_организации>:users`
+           
+           (группа `All users in organization X`) ||
+           || ^                | `system:group:federation:<идентификатор_федерации>:users`
+           
+           (группа `All users in federation N`) ||
+           || ^                | `system:group:userpool:<идентификатор_пула>:users`
+           
+           (группа `All users in userpool P`) ||
+           |#
+
+           {% endcut %}
 
        Подробнее о параметрах ресурса `yandex_container_registry_iam_binding` в [документации провайдера](../../../terraform/resources/container_registry_iam_binding.md).
   
@@ -155,6 +203,37 @@
   Чтобы отозвать роли, назначенные на реестр, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md).
 
   Чтобы отозвать роли, назначенные на репозиторий, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Repository/updateAccessBindings.md) для ресурса [Repository](../../api-ref/Repository/index.md) или вызовом gRPC API [RepositoryService/UpdateAccessBindings](../../api-ref/grpc/Repository/updateAccessBindings.md).
+
+  В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+  
+  #|
+  || **subject.type** | **subject.id** ||
+  || `userAccount`    | `<идентификатор_пользователя>` ||
+  || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+  || `federatedUser`  | `<идентификатор_пользователя>` ||
+  || `group`          | `<идентификатор_группы>` ||
+  || `system`         | `allAuthenticatedUsers`
+  
+  (группа `All authenticated users`) ||
+  || ^                | `allUsers`
+  
+  (группа `All users`) ||
+  || ^                | `group:organization:<идентификатор_организации>:users`
+  
+  (группа `All users in organization X`) ||
+  || ^                | `group:federation:<идентификатор_федерации>:users`
+  
+  (группа `All users in federation N`) ||
+  || ^                | `group:userpool:<идентификатор_пула>:users`
+  
+  (группа `All users in userpool P`) ||
+  |#
+
+  {% endcut %}
 
 {% endlist %}
 

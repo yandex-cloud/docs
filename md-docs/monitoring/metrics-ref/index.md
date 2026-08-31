@@ -32,6 +32,7 @@
 * [Yandex Managed Service for GitLab](managed-gitlab-ref.md)
 * [Yandex MPP Analytics for PostgreSQL](managed-greenplum-ref.md)
 * [Yandex Managed Service for Kubernetes](managed-kubernetes-ref.md)
+* [Apache Hive™ Metastore](managed-metastore-ref.md)
 * [Yandex StoreDoc](managed-mongodb-ref.md)
 * [Yandex Managed Service for MySQL®](managed-mysql-ref.md)
 * [Yandex Managed Service for OpenSearch](managed-opensearch-ref.md)

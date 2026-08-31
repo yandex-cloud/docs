@@ -5,11 +5,13 @@ description: How to assign a domain and update a description, tags, or terms for
 
 # Data storage markup
 
+
 {% note info %}
 
 {% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
+
 
 When marking up your data storage, you can do the following:
 

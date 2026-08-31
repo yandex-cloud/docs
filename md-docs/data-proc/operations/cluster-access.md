@@ -116,7 +116,7 @@
       Где:
 
       * `--role` — назначаемая [роль](../security/index.md#roles-list), например `dataproc.editor`.
-      * `--subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+      * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
           Например:
 
@@ -124,21 +124,34 @@
           * `userAccount:aje8tj79************`,
           * `system:allAuthenticatedUsers`.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+          || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+          || `system`         | `system:allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) | `--all-authenticated-users` ||
+          || ^                | `system:allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) | — ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in organization X`) | `--organization-users` ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) | `--federation-users` ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) | — ||
+          |#
+
+          {% endcut %}
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду:
 
@@ -184,21 +197,34 @@
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -252,21 +278,34 @@
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -313,7 +352,7 @@
       Где `--access-binding` — назначает роль субъекту. Вы можете назначить несколько ролей одновременно, описав каждую в отдельном параметре `--access-binding`.
 
       * `role` — назначаемая [роль](../security/index.md#roles-list), например `dataproc.editor`.
-      * `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+      * `subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
           Например:
 
@@ -321,21 +360,34 @@
           * `userAccount:aje8tj79************`,
           * `system:allAuthenticatedUsers`.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+          || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+          || `system`         | `system:allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) | `--all-authenticated-users` ||
+          || ^                | `system:allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) | — ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in organization X`) | `--organization-users` ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) | `--federation-users` ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) | — ||
+          |#
+
+          {% endcut %}
 
 - REST API {#api}
 
@@ -393,21 +445,34 @@
       * `accessBindings.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `accessBindings.subject.type` — тип субъекта, которому назначается роль.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -479,21 +544,34 @@
       * `accessBindings.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `accessBindings.subject.type` — тип субъекта, которому назначается роль.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -533,7 +611,7 @@
       Где:
 
       * `--role` — отзываемая [роль](../security/index.md#roles-list), например `dataproc.editor`.
-      * `--subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначена роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+      * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
 
           Например:
 
@@ -541,21 +619,34 @@
           * `userAccount:aje8tj79************`,
           * `system:allAuthenticatedUsers`.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+          || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+          || `system`         | `system:allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) | `--all-authenticated-users` ||
+          || ^                | `system:allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) | — ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in organization X`) | `--organization-users` ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) | `--federation-users` ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) | — ||
+          |#
+
+          {% endcut %}
 
 - REST API {#api}
 
@@ -591,25 +682,38 @@
 
       Где:
 
-      * `access_binding_deltas.roleId` — назначаемая [роль](../security/index.md#roles-list), например `dataproc.editor`.
-      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
-      * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
+      * `access_binding_deltas.roleId` — отзываемая [роль](../security/index.md#roles-list), например `dataproc.editor`.
+      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+      * `access_binding_deltas.subject.type` — тип субъекта, у которого отзывается роль.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -659,25 +763,38 @@
       Где:
 
       * `resource_id` — идентификатор кластера.
-      * `access_binding_deltas.roleId` — назначаемая [роль](../security/index.md#roles-list), например `dataproc.editor`.
-      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
-      * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
+      * `access_binding_deltas.roleId` — отзываемая [роль](../security/index.md#roles-list), например `dataproc.editor`.
+      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+      * `access_binding_deltas.subject.type` — тип субъекта, у которого отзывается роль.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 

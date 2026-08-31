@@ -72,9 +72,13 @@
 
  - [Обзор](operations/cspm/index.md)
 
+ - [Работать с дашбордом](operations/cspm/use-cspm.md)
+
  - [Посмотреть правила контроля и нарушения](operations/cspm/view-rules.md)
 
  - [Запустить проверку окружения](operations/cspm/check-environment.md)
+
+ - [Управлять результатами проверок](operations/cspm/work-with-results.md)
 
  - [Проверить соответствие стандартам безопасности](operations/cspm/check-compliance.md)
 

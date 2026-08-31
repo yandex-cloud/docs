@@ -12,6 +12,10 @@
 
 * [Почему в кластере Managed Service for ClickHouse® должно быть три или пять хостов ZooKeeper?](#zookeeper-hosts-number)
 
+* [Как добавить хост в кластер с отключенным сервисом координации?](#add-hosts-disabled-coordination)
+
+* [Как добавить многохостовый шард в кластер с отключенным сервисом координации?](#add-shard-disabled-coordination)
+
 #### Как создать пользователя для доступа из DataLens с правами только на чтение? {#datalens-readonly}
 
 Воспользуйтесь [инструкцией](../operations/cluster-users.md#example-create-readonly-user), чтобы создать пользователя с правами только на чтение. Если в настройках кластера [включена опция](../operations/update.md#change-additional-settings) **Доступ из DataLens**, сервис сможет [подключаться](../operations/datalens-connect.md#create-connector) к кластеру с помощью этого пользователя.
@@ -63,5 +67,25 @@ ZooKeeper использует алгоритм консенсуса: серви
 Добавление в кластер более пяти хостов ZooKeeper не поддерживается.
 
 Таким образом, в кластере Managed Service for ClickHouse® рекомендуется создавать три или пять хостов ZooKeeper.
+
+#### Как добавить хост в кластер с отключенным сервисом координации? {#add-hosts-disabled-coordination}
+
+Если в кластере с одним хостом и отключенным [сервисом координации](../concepts/coordination-system.md) попытаться добавить хост, возникнет ошибка:
+
+```text
+ERROR: rpc error: code = FailedPrecondition desc = shard cannot have more than 1 host in non-HA cluster configuration
+```
+
+Чтобы добавить хост в кластер, сначала [включите сервис координации](../operations/update.md#enable-coordination) ClickHouse® Keeper или ZooKeeper на отдельных хостах.
+
+#### Как добавить многохостовый шард в кластер с отключенным сервисом координации? {#add-shard-disabled-coordination}
+
+Если в шардированном кластере с отключенным [сервисом координации](../concepts/coordination-system.md) попытаться добавить шард с несколькими хостами, возникнет ошибка:
+
+```text
+ERROR: rpc error: code = FailedPrecondition desc = To create a shard with two or more hosts, you must enable the coordination service first.
+```
+
+Чтобы добавить многохостовый шард в кластер, сначала [включите сервис координации](../operations/update.md#enable-coordination) ClickHouse® Keeper или ZooKeeper на отдельных хостах.
 
 _ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

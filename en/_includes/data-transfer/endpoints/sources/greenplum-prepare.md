@@ -32,7 +32,7 @@
         GRANT USAGE ON SCHEMA <schema_name> TO <username>;
         ```
 
-- {{ GP }}
+- {{ GP }}/{{ CB }}
     
     1. {% include notitle [White IP list](../../../../_includes/data-transfer/configure-white-ip.md) %}
     

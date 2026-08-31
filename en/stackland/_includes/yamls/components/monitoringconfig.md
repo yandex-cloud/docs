@@ -1,60 +1,75 @@
 ```yaml
 apiVersion: stackland.yandex.cloud/v1alpha1
 kind: MonitoringConfig
-metadata: ...
+metadata:
+  name: main
 status:
   datasourceConfigured: true
   grafanaReady: true
+  s3ExtensionProvisioned: true
   message: Grafana is ready
   observedGeneration: 1
 spec:
   enabled: true
   settings:
+    clusterIssuer: stackland-default
+    prometheus:
+      enabled: true
+      replicas: 2
+      retention: 15d
+      ingressEnabled: true
+      storage:
+        size: "10Gi"
+      resources:
+        requests:
+          cpu: "1"
+          memory: "2Gi"
+        limits:
+          cpu: "1"
+          memory: "2Gi"
+      thanos:
+        longTermStorage:
+          stackland: {}
     alertmanager:
       enabled: true
+      replicas: 3
+      retention: "240h"
       ingressEnabled: true
-      replicas: 2
-      retention: 120h
       storage:
-        storageClass: topolvm
-        size: 1Gi
+        enabled: true
+        size: "1Gi"
       resources:
         requests:
-          cpu: 50m
-          memory: 200Mi
-    grafana:
-      enabled: true
-      resources:
+          cpu: "100m"
+          memory: "256Mi"
         limits:
-          cpu: 500m
-          memory: 1Gi
-        requests:
-          cpu: 100m
-          memory: 256Mi
+          cpu: "500m"
+          memory: "1Gi"
     grafanaOperator:
       enabled: true
       resources:
-        limits:
-          cpu: 500m
-          memory: 512Mi
         requests:
-          cpu: 100m
-          memory: 128Mi
-    prometheus:
+          memory: "128Mi"
+          cpu: "50m"
+        limits:
+          cpu: "200m"
+          memory: "512Mi"
+    grafana:
       enabled: true
-      ingressEnabled: true
-      replicas: 2
       resources:
-        limits:
-          memory: 2Gi
         requests:
-          cpu: 100m
-          memory: 400Mi
-      storage:
-        storageClass: topolvm
-        size: 100Gi
-      # Optional: extend the default HA read path with S3-backed long-term storage.
-      # thanos:
-      #   longTermStorage:
-      #     stackland: {}
+          cpu: "200m"
+          memory: "512Mi"
+        limits:
+          cpu: "1"
+          memory: "2Gi"
+    hardwareMonitoring:
+      enabled: true
+      resources:
+        requests:
+          cpu: "50m"
+          memory: "64Mi"
+        limits:
+          cpu: "200m"
+          memory: "256Mi"
 ```

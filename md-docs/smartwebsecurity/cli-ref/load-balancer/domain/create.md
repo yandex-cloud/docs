@@ -255,6 +255,8 @@ Cookie name.
 If not set, session cookie will be used (not persisted between browser restarts).
 >>>> - path (string)\
 Optional cookie path.
+> - web-app-id (string)\
+ID of the Solid WAF web app.
 
 {% endcut %}
 
@@ -273,7 +275,8 @@ Optional cookie path.
       header-name = string
     }
   },
-  solid-waf-profile-id = string
+  solid-waf-profile-id = string,
+  web-app-id = string
 }
 ```
 
@@ -298,7 +301,8 @@ Optional cookie path.
       }
     }
   },
-  "solid-waf-profile-id": "string"
+  "solid-waf-profile-id": "string",
+  "web-app-id": "string"
 }
 ```
 

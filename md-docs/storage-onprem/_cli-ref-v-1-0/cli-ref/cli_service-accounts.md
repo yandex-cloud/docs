@@ -22,9 +22,11 @@ Manage service accounts
 ## See also
 
 * [cli](cli.md)	 — Yandex Object Storage control tool
+* [cli service-accounts activate](cli_service-accounts_activate.md)	 — Activate service account
 * [cli service-accounts create](cli_service-accounts_create.md)	 — Create service account
 * [cli service-accounts delete](cli_service-accounts_delete.md)	 — Delete service account
 * [cli service-accounts get](cli_service-accounts_get.md)	 — Get service account
 * [cli service-accounts list](cli_service-accounts_list.md)	 — List service accounts
+* [cli service-accounts suspend](cli_service-accounts_suspend.md)	 — Suspend service account
 * [cli service-accounts update](cli_service-accounts_update.md)	 — Update service account name
 * [cli service-accounts update-role](cli_service-accounts_update-role.md)	 — Update service account role

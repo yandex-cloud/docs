@@ -112,7 +112,7 @@
 * [SASL: фреймворк аутентификации и защиты данных](sasl.md)
 * [Введение в TLS: обзор принципов и основных характеристик](tls.md)
 * [Введение в WAF (Web Application Firewall)](waf.md)
-* [Зачем нужны SSL-сертификаты](ssl-certificate.md)
+* [HTTP и HTTPS: в чем разница и зачем нужен SSL-сертификат](ssl-certificate.md)
 * [Обзор IPsec: принципы и применение в сетевой безопасности](ipsec.md)
 * [Что такое DDoS-атаки и как от них защититься](ddos.md)
 * [JSON Web Token (JWT)](jwt.md)
@@ -264,7 +264,7 @@
 
  - [SASL](sasl.md)
 
- - [SSL-сертификат](ssl-certificate.md)
+ - [SSL-сертификат и протоколы HTTP/HTTPS](ssl-certificate.md)
 
  - [TLS](tls.md)
 

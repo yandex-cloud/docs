@@ -42,44 +42,27 @@ description: Следуя данной инструкции, вы сможете
      yc kms symmetric-key list
      ```
 
-  1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роль.
-  1. С помощью одной из команд ниже назначьте роль:
+  1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md), группы пользователей, организации или федерации удостоверений, которым или пользователям которых вы назначаете роль.
+  1. Чтобы назначить роль, выполните команду:
 
-     * Пользователю:
+     ```bash
+     yc kms symmetric-key add-access-binding \
+       --id <идентификатор_ключа> \
+       --role <роль> \
+       --subject <тип_субъекта>:<идентификатор_субъекта>
+     ```
 
-        ```bash
-        yc kms symmetric-key add-access-binding \
-          --id <идентификатор_ключа> \
-          --role <роль> \
-          --user-account-id <идентификатор_пользователя>
-        ```
+     Где:
 
-     * Федеративному пользователю:
+     * `--id` — идентификатор симметричного ключа.
+     * `--role` — назначаемая [роль](../security/index.md#roles-list).
+     * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-        ```bash
-        yc kms symmetric-key add-access-binding \
-          --id <идентификатор_ключа> \
-          --role <роль> \
-          --subject federatedUser:<идентификатор_пользователя>
-        ```
+         {% cut "Обозначения субъектов" %}
 
-     * Сервисному аккаунту:
+         {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-        ```bash
-        yc kms symmetric-key add-access-binding \
-          --id <идентификатор_ключа> \
-          --role <роль> \
-          --service-account-id <идентификатор_сервисного_аккаунта>
-        ```
-
-     * Группе пользователей:
-
-        ```bash
-        yc kms symmetric-key add-access-binding \
-          --id <идентификатор_ключа> \
-          --role <роль> \
-          --subject group:<идентификатор_группы>
-        ```
+         {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -104,7 +87,13 @@ description: Следуя данной инструкции, вы сможете
 
       * `symmetric_encryption_key_id` — идентификатор симметричного ключа шифрования.
       * `role` — назначаемая [роль](../security/index.md#roles-list).
-      * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
       Подробнее о параметрах ресурса `yandex_kms_symmetric_key_iam_member` в [документации провайдера]({{ tf-provider-resources-link }}/kms_symmetric_key_iam_member).
 
@@ -124,8 +113,14 @@ description: Следуя данной инструкции, вы сможете
 
   * Значение `ADD` в параметре `accessBindingDeltas[].action`, чтобы добавить роль.
   * Роль в параметре `accessBindingDeltas[].accessBinding.roleId`.
-  * Идентификатор субъекта, которому назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.id`.
+  * Идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.id`.
   * Тип субъекта, которому назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.type`.
+
+      {% cut "Обозначения субъектов" %}
+
+      {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+      {% endcut %}
 
 {% endlist %}
 
@@ -173,50 +168,35 @@ description: Следуя данной инструкции, вы сможете
      yc kms symmetric-key list
      ```
 
-  1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роли.
-  1. С помощью одной из команд ниже назначьте роли:
+  1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md), группы пользователей, организации или федерации удостоверений, которым или пользователям которых назначаете роли.
+  1. Чтобы назначить роли, выполните команду:
 
-     * Пользователю с аккаунтом на Яндексе или локальному пользователю:
+     ```bash
+     yc kms symmetric-key set-access-bindings \
+       --id <идентификатор_ключа> \
+       --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
+     ```
 
-        ```bash
-        yc kms symmetric-key set-access-bindings \
-          --id <идентификатор_ключа> \
-          --access-binding role=<роль>,user-account-id=<идентификатор_пользователя>
-        ```
+     Где:
 
-     * Федеративному пользователю:
+     * `--id` — идентификатор симметричного ключа.
+     * `--access-binding` — назначаемая [роль](../security/index.md#roles-list) и обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-        ```bash
-        yc kms symmetric-key set-access-bindings \
-          --id <идентификатор_ключа> \
-          --access-binding role=<роль>,subject=federatedUser:<идентификатор_пользователя>
-        ```
+         {% cut "Обозначения субъектов" %}
 
-     * Сервисному аккаунту:
+         {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-        ```bash
-        yc kms symmetric-key set-access-bindings \
-          --id <идентификатор_ключа> \
-          --access-binding role=<роль>,service-account-id=<идентификатор_сервисного_аккаунта>
-        ```
-
-     * Группе пользователей:
-
-        ```bash
-        yc kms symmetric-key set-access-bindings \
-          --id <идентификатор_ключа> \
-          --access-binding role=<роль>,subject=group:<идентификатор_группы>
-        ```
+         {% endcut %}
 
      Для каждой роли передайте отдельный параметр `--access-binding`. Пример:
 
-      ```bash
-      yc kms symmetric-key set-access-bindings \
-        --id <идентификатор_ключа> \
-        --access-binding role=<роль1>,service-account-id=<идентификатор_сервисного_аккаунта> \
-        --access-binding role=<роль2>,service-account-id=<идентификатор_сервисного_аккаунта> \
-        --access-binding role=<роль3>,service-account-id=<идентификатор_сервисного_аккаунта>
-      ```
+     ```bash
+     yc kms symmetric-key set-access-bindings \
+       --id <идентификатор_ключа> \
+       --access-binding role=<роль1>,subject=<тип_субъекта>:<идентификатор_субъекта> \
+       --access-binding role=<роль2>,subject=<тип_субъекта>:<идентификатор_субъекта> \
+       --access-binding role=<роль3>,subject=<тип_субъекта>:<идентификатор_субъекта>
+     ```
 
 - {{ TF }} {#tf}
 
@@ -250,7 +230,13 @@ description: Следуя данной инструкции, вы сможете
 
       * `symmetric_encryption_key_id` — идентификатор симметричного ключа шифрования.
       * `role` — назначаемая [роль](../security/index.md#roles-list).
-      * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
       Подробнее о параметрах ресурса `yandex_kms_symmetric_key_iam_member` в [документации провайдера]({{ tf-provider-resources-link }}/kms_symmetric_key_iam_member).
 
@@ -271,7 +257,13 @@ description: Следуя данной инструкции, вы сможете
   Воспользуйтесь методом [SetAccessBindings](../api-ref/SymmetricKey/setAccessBindings.md) для ресурса [SymmetricKey](../api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/SetAccessBindings](../api-ref/grpc/SymmetricKey/setAccessBindings.md). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
 
   * Роль в параметре `accessBindings[].roleId`.
-  * Идентификатор субъекта, на кого назначаются роли, в параметре `accessBindings[].subject.id`.
-  * Тип субъекта, на кого назначаются роли, в параметре `accessBindings[].subject.type`.
+  * Идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначаются роли, в параметре `accessBindings[].subject.id`.
+  * Тип субъекта, которому назначаются роли, в параметре `accessBindings[].subject.type`.
+
+      {% cut "Обозначения субъектов" %}
+
+      {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+      {% endcut %}
 
 {% endlist %}

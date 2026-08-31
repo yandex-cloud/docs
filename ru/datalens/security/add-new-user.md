@@ -7,9 +7,9 @@ description: Следуя данной инструкции, вы сможете
 
 Есть несколько способов, как добавить пользователя в {{ datalens-short-name }}:
 
-1. [Через {{ datalens-short-name }}](#dl-user) — если пользователь не планирует пользоваться другими сервисами {{ yandex-cloud }}. Так можно приглашать пользователей с аккаунтами на Яндексе. Если у пользователя появится необходимость в использовании других сервисов {{ yandex-cloud }}, вы сможете [назначить ему дополнительную роль](../../organization/security/index.md#add-role) в организации с текущим экземпляром {{ datalens-short-name }}.
+1. [Через {{ datalens-short-name }}](#dl-user) — если пользователь не планирует пользоваться другими сервисами {{ yandex-cloud }}. Так можно приглашать пользователей с аккаунтами на Яндексе. Если у пользователя появится необходимость в использовании других сервисов {{ yandex-cloud }}, вы сможете [назначить ему дополнительную роль]({{ link-docs }}/organization/security/#add-role) в организации с текущим экземпляром {{ datalens-short-name }}.
 
-1. [Через {{ org-full-name }}](#org-user) — если пользователь планирует пользоваться и другими сервисами {{ yandex-cloud }}. В этом случае можно пригласить в организацию [пользователей с аккаунтом на Яндексе](#passport-user) или добавить [федеративных](#federated-user) и [локальных](../../organization/operations/add-account.md#local) пользователей.
+1. [Через {{ org-full-name }}](#org-user) — если пользователь планирует пользоваться и другими сервисами {{ yandex-cloud }}. В этом случае можно пригласить в организацию [пользователей с аккаунтом на Яндексе](#passport-user) или добавить [федеративных](#federated-user) и [локальных]({{ link-docs }}/organization/operations/add-account#local) пользователей.
 
 {% note info %}
 
@@ -35,16 +35,16 @@ description: Следуя данной инструкции, вы сможете
 
 #### Пригласить пользователя с аккаунтом на Яндексе {#passport-user}
 
-Чтобы пригласить в организацию пользователя с аккаунтом на Яндексе, воспользуйтесь [инструкцией](../../organization/operations/add-account.md#useraccount) из документации {{ org-full-name }}.
+Чтобы пригласить в организацию пользователя с аккаунтом на Яндексе, воспользуйтесь [инструкцией]({{ link-docs }}/organization/operations/add-account#useraccount) из документации {{ org-full-name }}.
 
 {% note warning %}
 
-Пользователь сможет открыть {{ datalens-short-name }} только после получения роли для доступа к сервису. Поэтому дождитесь, когда он примет приглашение в организацию и [назначьте](../../organization/security/index.md#add-role) ему роль `{{ roles-datalens-visitor }}`.
+Пользователь сможет открыть {{ datalens-short-name }} только после получения роли для доступа к сервису. Поэтому дождитесь, когда он примет приглашение в организацию и [назначьте]({{ link-docs }}/organization/security/#add-role) ему роль `{{ roles-datalens-visitor }}`.
 
 {% endnote %}
 
 #### Добавить федеративного пользователя {#federated-user}
 
-Если у вас настроена [федерация удостоверений](../../organization/concepts/add-federation.md), добавьте федеративного пользователя по [инструкции](../../organization/operations/add-account.md#add-user-sso). После добавления [назначьте](../../organization/security/index.md#add-role) ему роль `{{ roles-datalens-visitor }}`.
+Если у вас настроена [федерация удостоверений]({{ link-docs }}/organization/concepts/add-federation), добавьте федеративного пользователя по [инструкции]({{ link-docs }}/organization/operations/add-account#add-user-sso). После добавления [назначьте]({{ link-docs }}/organization/security/#add-role) ему роль `{{ roles-datalens-visitor }}`.
 
 {% include [datalens-federation-user-link](../../_includes/datalens/datalens-federation-user-link.md) %}

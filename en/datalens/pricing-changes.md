@@ -62,7 +62,7 @@ Number of seats × Cost per seat
 
 You may schedule a cut in the number of seats at any time; however, the change will take effect only on the first day of the following month.
 
-Technical support coverage is determined by the [{{ yandex-cloud }}](../support/overview.md) support plan you select.
+Technical support coverage is determined by the [{{ yandex-cloud }}]({{ link-docs }}/support/overview) support plan you select.
 
 ## Transition timeline {#timeline}
 

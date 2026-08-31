@@ -374,9 +374,3 @@ To request a bandwidth package of 100 TB, contact [support]({{ link-console-supp
 #### {{ backup-full-name }} {#backup-traffic}
 
 {% include [bms-backup-free-traffic](../_includes/baremetal/bms-backup-free-traffic.md) %}
-
-
-
-
-
-

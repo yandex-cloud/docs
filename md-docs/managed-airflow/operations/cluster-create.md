@@ -17,11 +17,234 @@
 
 О назначении ролей читайте в [документации Yandex Identity and Access Management](../../iam/operations/roles/grant.md).
 
-## Создать кластер {#create-cluster}
+## Настройте NAT-шлюз для доступа в интернет {#nat-routing}
+
+Минимально необходимые роли для создания и настройки [NAT-шлюза](*nat): [vpc.admin](../../vpc/security/index.md#vpc-admin) и [vpc.gateways.user](../../vpc/security/index.md#vpc-gw-user).
+
+Настройте доступ в интернет из всех подсетей, к которым будет подключен кластер Managed Service for Apache Airflow™, при помощи NAT-шлюза. Это необходимо в следующих случаях:
+
+- Установка в кластер pip- и deb-пакетов из публичных репозиториев.
+- Использование внешнего хранилища Git для DAG-файлов.
+
+{% cut "Создайте и настройте NAT-шлюз" %}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
+  
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором планируется создать кластер Managed Service for Apache Airflow™.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите **Шлюзы**.
+  1. Нажмите кнопку **Создать шлюз** и в открывшемся окне:
+     1. В поле **Имя** задайте имя NAT-шлюза.
+     1. В поле **Тип** выберите `NAT-шлюз`.
+     1. Нажмите кнопку **Создать**.
+  
+- CLI {#cli}
+
+  1. Посмотрите описание команды CLI для создания NAT-шлюза:
+
+     ```bash
+     yc vpc gateway create --help
+     ```
+  
+  1. Создайте шлюз в каталоге по умолчанию:
+
+     ```bash
+     yc vpc gateway create \
+     --name <имя_NAT-шлюза>
+     ```
+
+     Подробнее о команде `yc vpc gateway create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/gateway/create.md).
+
+     Сохраните идентификатор (`id`) NAT-шлюза, он понадобится при создании таблицы маршрутизации.
+
+- Terraform {#tf}
+
+  Чтобы создать NAT-шлюз, используйте ресурс `yandex_vpc_gateway` в конфигурационном файле:
+
+  ```hcl
+  // ...
+  // Create a new VPC NAT Gateway.
+  resource "yandex_vpc_gateway" "nat_gateway" {
+    folder_id      = "<идентификатор_каталога>"
+    name = "<имя_NAT-шлюза>"
+    shared_egress_gateway {}
+  }
+  // ...
+  ```
+
+  Где `folder_id` — идентификатор каталога, в котором находятся подсети.
+
+  Подробнее о параметрах ресурса `yandex_vpc_gateway` в Terraform читайте в [документации провайдера](../../terraform/resources/vpc_gateway.md).
+
+- API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Воспользуйтесь методом REST API [create](../../vpc/api-ref/Gateway/create.md) для ресурса [Gateway](../../vpc/api-ref/Gateway/index.md) и передайте в запросе:
+
+     * Идентификатор каталога, в котором будет размещен шлюз, в параметре `folderId`.
+     * Имя шлюза в параметре `name`.
+  
+{% endlist %}
+
+{% endcut %}
+
+{% cut "Создайте и привяжите таблицу маршрутизации" %}
+
+{% list tabs group=instructions %}
+  
+- Консоль управления {#console}
+
+  1. На панели слева выберите **Таблицы маршрутизации**.
+  1. Нажмите кнопку **Создать таблицу маршрутизации** и введите параметры таблицы маршрутизации:
+      1. Введите имя таблицы.
+      1. Выберите сеть, в которой будут размещаться таблица маршрутизации и будущий кластер Managed Service for Apache Airflow™.
+      1. Нажмите кнопку **Добавить маршрут**.
+          * В поле **Next hop** выберите `Шлюз`.
+          * В поле **Шлюз** выберите созданный NAT-шлюз. Префикс назначения заполнится автоматически.
+      1. Нажмите кнопку **Добавить**.
+  1. Нажмите кнопку **Создать таблицу маршрутизации**.
+
+  Затем привяжите [таблицу маршрутизации](*routing-table) ко **всем подсетям будущего кластера**, чтобы направить трафик из них через NAT-шлюз:
+
+  1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **Подсети**.
+  1. В строке нужной подсети нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).
+  1. В открывшемся меню выберите пункт **Привязать таблицу маршрутизации**.
+  1. В открывшемся окне выберите созданную таблицу в списке.
+  1. Нажмите кнопку **Привязать**.
+  1. Повторите действия для всех подсетей будущего кластера.
+  
+- CLI {#cli}
+
+  1. Создайте таблицу маршрутизации со шлюзом в качестве next hop и префиксом назначения `0.0.0.0/0`:
+
+     ```bash
+     yc vpc route-table create \
+       --name=<имя_таблицы_маршрутизации> \
+       --network-name=<имя_сети> \
+       --route destination=0.0.0.0/0,gateway-id=<идентификатор_NAT-шлюза>
+     ```
+    
+     Где `--network-name` — имя сети, в которой создается таблица и в которой будет размещен кластер Managed Service for Apache Airflow™.
+
+  1. Привяжите таблицу ко всем подсетям будущего кластера:
+    
+     ```bash
+     yc vpc subnet update <имя_подсети> \
+       --route-table-name=<имя_таблицы_маршрутизации>
+     ```
+
+- Terraform {#tf}
+
+  Чтобы создать таблицу маршрутизации и привязать ее ко всем подсетям будущего кластера, используйте ресурс `yandex_vpc_route_table` в конфигурационном файле:
+
+  ```hcl
+  // ...
+  resource "yandex_vpc_subnet" "subnet-a" {
+    ...
+    route_table_id = yandex_vpc_route_table.rt.id
+  }
+
+  resource "yandex_vpc_subnet" "subnet-d" {
+    ...
+    route_table_id = yandex_vpc_route_table.rt.id
+  }
+
+  resource "yandex_vpc_gateway" "nat_gateway" {
+    // ...
+  }
+
+  // ...
+  // Create a new VPC Route Table.
+  //
+  resource "yandex_vpc_route_table" "rt" {
+    folder_id      = "<идентификатор_каталога>"
+    name       = "<имя_таблицы_маршрутизации>"
+    network_id = "<идентификатор_сети>"
+
+    static_route {
+      destination_prefix = "0.0.0.0/0"
+      gateway_id         = yandex_vpc_gateway.nat_gateway.id
+    }
+  }
+  ```
+
+  Где:
+  * `folder_id` — идентификатор каталога, в котором находятся подсети.
+  * `route_table_id` — идентификатор таблицы маршрутизации, которую необходимо привязать к каждой подсети кластера.
+
+  Подробнее о параметрах ресурса `yandex_vpc_route_table` в Terraform читайте в [документации провайдера](../../terraform/resources/vpc_route_table.md).
+
+- API {#api}
+
+  1. Создайте таблицу маршрутизации.
+  
+     1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "folderId": "<идентификатор_каталога>",
+          "name": "<имя_таблицы_маршрутизации>",
+          "networkId": "<идентификатор_сети>",
+          "staticRoutes": [
+            {
+              "destinationPrefix": "0.0.0.0/0",
+              "gatewayId": "<идентификатор_NAT-шлюза>"
+            }
+          ]
+        }
+        ```
+
+        Где:
+        * `folderId` — идентификатор каталога, в котором находятся подсети. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+        * `name` — имя таблицы маршрутизации.
+        * `networkId` — идентификатор сети, в которой будет размещена таблица маршрутизации.
+        * `staticRoutes.destinationPrefix` — префикс подсети назначения.
+        * `staticRoutes.gatewayId` — идентификатор NAT-шлюза, который будет использоваться для маршрутизации трафика.
+  
+     1. Воспользуйтесь методом REST API [create](../../vpc/api-ref/RouteTable/create.md) для ресурса [RouteTable](../../vpc/api-ref/RouteTable/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+           --url 'https://vpc.api.cloud.yandex.net/vpc/v1/routeTables' \
+           --data '@body.json'
+        ```
+  
+  1. Привяжите таблицу маршрутизации ко всем подсетям будущего кластера.
+
+     1. Воспользуйтесь методом REST API [update](../../vpc/api-ref/Subnet/update.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+        {% note warning %}
+        
+        Метод API переопределит все параметры изменяемого объекта, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `updateMask` (одной строкой через запятую).
+        
+        {% endnote %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://vpc.api.cloud.yandex.net/vpc/v1/subnets/<идентификатор_подсети>' \
+            --data '{
+                      "updateMask": "routeTableId",
+                      "routeTableId": "<идентификатор_таблицы_маршрутизации>"
+                   }'
+        ```
+  
+{% endlist %}
+
+{% endcut %}
+
+## Создайте кластер {#create-cluster}
 
   
   <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvxzljddzxt6u5z4s6?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
@@ -29,6 +252,10 @@
   [Смотреть видео на YouTube](https://www.youtube.com/watch?v=vWCmvbrhDsI).
 
 
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-airflow) в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
@@ -114,7 +341,7 @@
 
       {% note warning %}
 
-      Для установки pip- и deb-пакетов из публичных репозиториев необходимо в блоке **Сетевые настройки** указать сеть с настроенным [NAT в интернет](../../vpc/operations/create-nat-gateway.md).
+      Для установки pip- и deb-пакетов из публичных репозиториев необходимо в блоке **Сетевые настройки** указать сеть с настроенным [NAT в интернет](#nat-routing).
 
       {% endnote %}
 
@@ -123,7 +350,21 @@
 
         Сервисному аккаунту кластера должно быть [предоставлено разрешение](../../storage/operations/buckets/edit-acl.md) `READ` для этого бакета.
 
-     * **Git** — укажите адрес репозитория, рабочую ветку, путь к каталогу с DAG-файлами и содержимое закрытого SSH-ключа доступа к репозиторию.
+     * **Git**:
+        * **Адрес репозитория** — адрес репозитория в формате `git@github.com:<user>/<path_to_git_repo>.git`.
+        * **Ветка** — имя ветки в репозитории, например `main`.
+        * **Путь к DAG-файлам** — путь к каталогу с DAG-файлами относительно репозитория в формате `/<путь-к-DAG-файлам>`.
+        * **SSH-ключ** — содержимое закрытого SSH-ключа доступа к репозиторию.
+
+           {% cut "Пример ключа" %}
+
+           ```bash
+           -----BEGIN OPENSSH PRIVATE KEY-----
+           XXxxxxxxxD...DDXXXXXXXXXXXX
+           -----END OPENSSH PRIVATE KEY-----
+           ```
+           
+           {% endcut %}
 
        Поддерживаются закрытые ключи `RSA`, `DSA`, `ECDSA`, `Ed25519` в форматах `PKCS#1`, `PKCS#8`, `OpenSSL` и `OpenSSH`.
        
@@ -133,7 +374,7 @@
        
        * Закрытый ключ не должен быть защищен паролем.
        
-       * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](../../vpc/operations/create-nat-gateway.md) из сети кластера Managed Service for Apache Airflow™. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
+       * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](cluster-create.md#nat-routing) из сети кластера Managed Service for Apache Airflow™. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
        
        {% endnote %}
 
@@ -294,9 +535,9 @@
         
             * `--gitsync` — параметры Git-репозитория:
         
-              * `repo` — адрес репозитория.
-              * `branch` — рабочая ветка.
-              * `subpath` — путь к каталогу DAG-файлов в репозитории.
+              * `repo` — адрес репозитория в формате `git@github.com:<user>/<path_to_git_repo>.git`.
+              * `branch` — имя ветки в репозитории, например `main`.
+              * `subpath` — путь к каталогу с DAG-файлами относительно репозитория в формате `/<путь-к-DAG-файлам>`.
               * `ssh-key` — закрытый SSH-ключ доступа к репозиторию в одну строчку с символами переноса строки `\n`.
               * `ssh-key-path` — путь к файлу закрытого SSH-ключа доступа к репозиторию.
         
@@ -310,7 +551,7 @@
               
               * Закрытый ключ не должен быть защищен паролем.
               
-              * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](../../vpc/operations/create-nat-gateway.md) из сети кластера Managed Service for Apache Airflow™. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
+              * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](cluster-create.md#nat-routing) из сети кластера Managed Service for Apache Airflow™. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
               
               {% endnote %}
         
@@ -519,9 +760,9 @@
         
           * `git_sync` — параметры Git-репозитория:
         
-            * `repo` — адрес репозитория.
-            * `branch` — рабочая ветка.
-            * `sub_path` — путь к каталогу DAG-файлов в репозитории.
+            * `repo` — адрес репозитория в формате `git@github.com:<user>/<path_to_git_repo>.git`.
+            * `branch` — имя ветки в репозитории, например `main`.
+            * `sub_path` — путь к каталогу с DAG-файлами относительно репозитория в формате `/<путь-к-DAG-файлам>`.
             * `ssh_key` — закрытый SSH-ключ доступа к репозиторию в одну строчку с символами переноса строки `\n`.
         
             Поддерживаются закрытые ключи `RSA`, `DSA`, `ECDSA`, `Ed25519` в форматах `PKCS#1`, `PKCS#8`, `OpenSSL` и `OpenSSH`.
@@ -532,7 +773,7 @@
             
             * Закрытый ключ не должен быть защищен паролем.
             
-            * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](../../vpc/operations/create-nat-gateway.md) из сети кластера Managed Service for Apache Airflow™. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
+            * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](cluster-create.md#nat-routing) из сети кластера Managed Service for Apache Airflow™. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
             
             {% endnote %}
         
@@ -775,9 +1016,9 @@
 
             * `gitSync` — параметры Git-репозитория:
 
-              * `repo` — адрес репозитория.
-              * `branch` — рабочая ветка.
-              * `subPath` — путь к каталогу DAG-файлов в репозитории.
+              * `repo` — адрес репозитория в формате `git@github.com:<user>/<path_to_git_repo>.git`.
+              * `branch` — имя ветки в репозитории, например `main`.
+              * `subPath` — путь к каталогу с DAG-файлами относительно репозитория в формате `/<путь-к-DAG-файлам>`.
               * `sshKey` — закрытый SSH-ключ доступа к репозиторию в одну строчку с символами переноса строки `\n`.
 
               Поддерживаются закрытые ключи `RSA`, `DSA`, `ECDSA`, `Ed25519` в форматах `PKCS#1`, `PKCS#8`, `OpenSSL` и `OpenSSH`.
@@ -788,7 +1029,7 @@
               
               * Закрытый ключ не должен быть защищен паролем.
               
-              * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](../../vpc/operations/create-nat-gateway.md) из сети кластера Managed Service for Apache Airflow™. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
+              * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](cluster-create.md#nat-routing) из сети кластера Managed Service for Apache Airflow™. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
               
               {% endnote %}
 
@@ -1028,9 +1269,9 @@
 
             * `git_sync` — параметры Git-репозитория:
 
-              * `repo` — адрес репозитория.
-              * `branch` — рабочая ветка.
-              * `sub_path` — путь к каталогу DAG-файлов в репозитории.
+              * `repo` — адрес репозитория в формате `git@github.com:<user>/<path_to_git_repo>.git`.
+              * `branch` — имя ветки в репозитории, например `main`.
+              * `sub_path` — путь к каталогу с DAG-файлами относительно репозитория в формате `/<путь-к-DAG-файлам>`.
               * `ssh_key` — закрытый SSH-ключ доступа к репозиторию в одну строчку с символами переноса строки `\n`.
 
               Поддерживаются закрытые ключи `RSA`, `DSA`, `ECDSA`, `Ed25519` в форматах `PKCS#1`, `PKCS#8`, `OpenSSL` и `OpenSSH`.
@@ -1041,7 +1282,7 @@
               
               * Закрытый ключ не должен быть защищен паролем.
               
-              * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](../../vpc/operations/create-nat-gateway.md) из сети кластера Managed Service for Apache Airflow™. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
+              * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](cluster-create.md#nat-routing) из сети кластера Managed Service for Apache Airflow™. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
               
               {% endnote %}
 
@@ -1105,6 +1346,11 @@
 {% endlist %}
 
 ## Примеры {#examples}
+
+* [Создание кластера без NAT-шлюза](#without-nat-gateway)
+* [Создание кластера с NAT-шлюзом и Git-репозиторием](#with-nat-gateway)
+
+### Создание кластера без NAT-шлюза {#without-nat-gateway}
 
 {% list tabs group=instructions %}
 
@@ -1289,3 +1535,247 @@
     ```
 
 {% endlist %}
+
+### Создание кластера с NAT-шлюзом и Git-репозиторием {#with-nat-gateway}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    Создайте NAT-шлюз и кластер Managed Service for Apache Airflow™ с тестовыми характеристиками:
+
+    * Имя кластера — `myaf-nat`.
+    * Версия Apache Airflow™ — `3.0`.
+    * Версия Python — `3.12`.
+    * Пароль администратора — `Password*1`.
+    * Сервисный аккаунт с идентификатором `aje8r2rp7fkl********`.
+    * Сеть `af-net` с подсетями:
+
+      * `af-subnet-a` с идентификатором `e9bhbia2scnk********`;
+      * `af-subnet-b` с идентификатором `e2lfqbm5nt9r********`;
+      * `af-subnet-d` с идентификатором `fl8beqmjckv8********`.
+
+    * NAT-шлюз `af-nat-gateway`.
+    * Таблица маршрутизации `af-route-table`, привязанная ко всем подсетям кластера.
+    * Группа безопасности с идентификатором `enp68jq81uun********`.
+    * Один веб-сервер для размещения экземпляра Apache Airflow™ с классом хостов `c1-m2`.
+    * Один планировщик с классом хостов `c1-m2`.
+    * Задачи выполняют воркеры с классом хостов `c1-m2`, количество таких воркеров — от `1` до `4`.
+    * Один DAG-процессор с классом хостов `c1-m2`.
+    * Git-репозиторий `git@github.com:<имя_пользователя>/<имя_репозитория>.git` с DAG-файлами в каталоге `/dags` ветки `main`.
+
+    Создайте NAT-шлюз:
+
+    ```bash
+    yc vpc gateway create \
+      --name af-nat-gateway
+    ```
+
+    Получите идентификатор NAT-шлюза:
+
+    ```bash
+    yc vpc gateway get af-nat-gateway
+    ```
+
+    Создайте таблицу маршрутизации:
+
+    ```bash
+    yc vpc route-table create \
+      --name af-route-table \
+      --network-name af-net \
+      --route destination=0.0.0.0/0,gateway-id=<идентификатор_NAT-шлюза>
+    ```
+
+    Привяжите таблицу маршрутизации ко всем подсетям будущего кластера:
+
+    ```bash
+    yc vpc subnet update af-subnet-a \
+      --route-table-name af-route-table
+
+    yc vpc subnet update af-subnet-b \
+      --route-table-name af-route-table
+
+    yc vpc subnet update af-subnet-d \
+      --route-table-name af-route-table
+    ```
+
+    Создайте кластер:
+
+    ```bash
+    yc managed-airflow cluster create \
+      --name myaf-nat \
+      --airflow-version 3.0 \
+      --python-version 3.12 \
+      --admin-password Password*1 \
+      --service-account-id aje8r2rp7fkl******** \
+      --subnet-ids e9bhbia2scnk********,e2lfqbm5nt9r********,fl8beqmjckv8******** \
+      --security-group-ids enp68jq81uun******** \
+      --webserver count=1,resource-preset-id=c1-m2 \
+      --scheduler count=1,resource-preset-id=c1-m2 \
+      --worker min-count=1,max-count=4,resource-preset-id=c1-m2 \
+      --dag-processor count=1,resource-preset-id=c1-m2 \
+      --gitsync repo=git@github.com:<имя_пользователя>/<имя_репозитория>.git,`
+                `branch=main,`
+                `subpath=/dags,`
+                `ssh-key-path=<путь_к_закрытому_SSH-ключу>
+    ```
+
+- Terraform {#tf}
+
+    Создайте NAT-шлюз и кластер Managed Service for Apache Airflow™ с тестовыми характеристиками:
+
+    * Каталог с идентификатором `b1g4unjqq856********`.
+    * Имя кластера — `myaf-nat`.
+    * Версия Apache Airflow™ — `3.0`.
+    * Версия Python — `3.12`.
+    * Пароль администратора — `Password*1`.
+    * Новый сервисный аккаунт `af-sa` с ролями `managed-airflow.integrationProvider` и `monitoring.editor`.
+    * Новая сеть `af-net` с подсетями:
+
+      * `af-subnet-a` в зоне доступности `ru-central1-a` и с диапазоном адресов `10.1.0.0/24`;
+      * `af-subnet-b` в зоне доступности `ru-central1-b` и с диапазоном адресов `10.2.0.0/24`;
+      * `af-subnet-d` в зоне доступности `ru-central1-d` и с диапазоном адресов `10.3.0.0/24`.
+
+    * Новый NAT-шлюз `af-nat-gateway`.
+    * Новая таблица маршрутизации `af-route-table`, привязанная ко всем подсетям кластера.
+    * Новая группа безопасности `af-sg`, разрешающая весь входящий и исходящий трафик.
+    * Один веб-сервер для размещения экземпляра Apache Airflow™ с классом хостов `c1-m2`.
+    * Один планировщик с классом хостов `c1-m2`.
+    * Задачи выполняют воркеры с классом хостов `c1-m2`, количество таких воркеров — от `1` до `4`.
+    * Один DAG-процессор с классом хостов `c1-m2`.
+    * Git-репозиторий `git@github.com:<имя_пользователя>/<имя_репозитория>.git` с DAG-файлами в каталоге `/dags` ветки `main`.
+
+    Конфигурационный файл для такого кластера выглядит так:
+
+    ```hcl
+    locals {
+      folder_id = "b1g4unjqq856********"
+    }
+
+    resource "yandex_airflow_cluster" "myaf-nat" {
+      name               = "myaf-nat"
+      airflow_version    = "3.0"
+      python_version     = "3.12"
+      admin_password     = "Password*1"
+      service_account_id = yandex_iam_service_account.af-sa.id
+      subnet_ids         = [yandex_vpc_subnet.af-subnet-a.id,yandex_vpc_subnet.af-subnet-b.id,yandex_vpc_subnet.af-subnet-d.id]
+      security_group_ids = [yandex_vpc_security_group.af-sg.id]
+
+      webserver = {
+        count              = 1
+        resource_preset_id = "c1-m2"
+      }
+
+      scheduler = {
+        count              = 1
+        resource_preset_id = "c1-m2"
+      }
+
+      worker = {
+        min_count          = 1
+        max_count          = 4
+        resource_preset_id = "c1-m2"
+      }
+
+      dag_processor = {
+        count              = 1
+        resource_preset_id = "c1-m2"
+      }
+
+      code_sync = {
+        git_sync = {
+          repo     = "git@github.com:<имя_пользователя>/<имя_репозитория>.git"
+          branch   = "main"
+          sub_path = "/dags"
+          ssh_key  = file("<путь_к_закрытому_SSH-ключу>")
+        }
+      }
+    }
+
+    resource "yandex_vpc_network" "af-net" {
+      name = "af-net"
+    }
+
+    resource "yandex_vpc_subnet" "af-subnet-a" {
+      name           = "af-subnet-a"
+      zone           = "ru-central1-a"
+      network_id     = yandex_vpc_network.af-net.id
+      v4_cidr_blocks = ["10.1.0.0/24"]
+      route_table_id = yandex_vpc_route_table.af-route-table.id
+    }
+
+    resource "yandex_vpc_subnet" "af-subnet-b" {
+      name           = "af-subnet-b"
+      zone           = "ru-central1-b"
+      network_id     = yandex_vpc_network.af-net.id
+      v4_cidr_blocks = ["10.2.0.0/24"]
+      route_table_id = yandex_vpc_route_table.af-route-table.id
+    }
+
+    resource "yandex_vpc_subnet" "af-subnet-d" {
+      name           = "af-subnet-d"
+      zone           = "ru-central1-d"
+      network_id     = yandex_vpc_network.af-net.id
+      v4_cidr_blocks = ["10.3.0.0/24"]
+      route_table_id = yandex_vpc_route_table.af-route-table.id
+    }
+
+    resource "yandex_vpc_gateway" "af-nat-gateway" {
+      folder_id = local.folder_id
+      name      = "af-nat-gateway"
+
+      shared_egress_gateway {}
+    }
+
+    resource "yandex_vpc_route_table" "af-route-table" {
+      folder_id = local.folder_id
+      name       = "af-route-table"
+      network_id = yandex_vpc_network.af-net.id
+
+      static_route {
+        destination_prefix = "0.0.0.0/0"
+        gateway_id         = yandex_vpc_gateway.af-nat-gateway.id
+      }
+    }
+
+    resource "yandex_vpc_security_group" "af-sg" {
+      name       = "af-sg"
+      network_id = yandex_vpc_network.af-net.id
+
+      ingress {
+        protocol       = "ANY"
+        v4_cidr_blocks = ["0.0.0.0/0"]
+      }
+
+      egress {
+        protocol       = "ANY"
+        v4_cidr_blocks = ["0.0.0.0/0"]
+      }
+    }
+
+    resource "yandex_iam_service_account" "af-sa" {
+      name = "af-sa"
+    }
+
+    resource "yandex_resourcemanager_folder_iam_member" "sa-role-af" {
+      folder_id = local.folder_id
+      role      = "managed-airflow.integrationProvider"
+      member    = "serviceAccount:${yandex_iam_service_account.af-sa.id}"
+    }
+
+    resource "yandex_resourcemanager_folder_iam_member" "sa-role-monitoring" {
+      folder_id = local.folder_id
+      role      = "monitoring.editor"
+      member    = "serviceAccount:${yandex_iam_service_account.af-sa.id}"
+    }
+    ```
+
+{% endlist %}
+
+[*nat]: #### {#nat-gateway}
+        
+        _NAT-шлюз_ позволяет предоставлять доступ в интернет облачным ресурсам, не назначая им публичные IP-адреса. Вместо этого они будут выходить в интернет через NAT-шлюз, который получит адрес из отдельного диапазона публичных IP-адресов. Подробнее в статье [Шлюзы](../../vpc/concepts/gateways.md#nat-gateway).
+
+[*routing-table]: #### {#route-table}
+                  
+                  Таблица маршрутизации VPC создается внутри облачной сети и может быть применена в любой ее подсети. Подробнее в статье [Маршрутизация](../../vpc/concepts/routing.md).

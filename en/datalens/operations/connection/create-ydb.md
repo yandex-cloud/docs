@@ -8,7 +8,7 @@ description: Follow this guide to create a connection to {{ ydb-name }} in {{ da
 {% note info %}
 
 
-To create a connection, you will need a [service account](../../../iam/concepts/users/service-accounts.md) with the **ydb.viewer** or **viewer** [role](../../../iam/operations/sa/assign-role-for-sa.md).
+To create a connection, you will need a [service account]({{ link-docs }}/iam/concepts/users/service-accounts) with the **ydb.viewer** or **viewer** [role]({{ link-docs }}/iam/operations/sa/assign-role-for-sa).
 
 
 To write subqueries in datasets and queries in QL charts, use the [YQL syntax]({{ ydb.docs }}/yql/reference/syntax/).
@@ -51,12 +51,12 @@ To create a {{ ydb-short-name }} connection:
 
 {% cut "RESOURCE_EXHAUSTED error" %}
 
-If the {{ ydb-name }} [quotas and limits](../../../ydb/concepts/limits.md) are exceeded, you may get the [`RESOURCE_EXHAUSTED`](../../../ydb/faq.md#resource-exhausted) error message. To avoid the error, follow these recommendations:
+If the {{ ydb-name }} [quotas and limits]({{ link-docs }}/ydb/concepts/limits) are exceeded, you may get the [`RESOURCE_EXHAUSTED`]({{ link-docs }}/ydb/faq#resource-exhausted) error message. To avoid the error, follow these recommendations:
 
 * Reduce the query rate. To achieve this, you can use filters or specify only the required chart fields to limit the amount of data you get.
 * Follow the recommendations for database [query optimization](../../concepts/optimization_recommendations.md).
 * Use the {{ datalens-short-name }} [chart inspector](../../concepts/chart/inspector.md) to assess the data amount and upload time.
-* Check the {{ ydb-name }} monitoring charts for exceeded quotas and limits. If you need to, you may slightly [increase](../../../ydb/operations/manage-databases.md#update-db-serverless) the [throughput capacity](../../../ydb/concepts/serverless-and-dedicated.md#capacity) (request units, RUs) limit under **{{ ui-key.yacloud.ydb.overview.label_serverless-limits }}**.
+* Check the {{ ydb-name }} monitoring charts for exceeded quotas and limits. If you need to, you may slightly [increase]({{ link-docs }}/ydb/operations/manage-databases#update-db-serverless) the [throughput capacity]({{ link-docs }}/ydb/concepts/serverless-and-dedicated#capacity) (request units, RUs) limit under **{{ ui-key.yacloud.ydb.overview.label_serverless-limits }}**.
 
 {% note info %}
 

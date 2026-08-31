@@ -1,7 +1,7 @@
 The `datalens.collections.admin` role is assigned for a collection and enables managing this collection and access to it, as well as all its nested collections, workbooks, and all objects within such workbooks. In the {{ datalens-name }} UI, this role is referred to as `Admin`. We recommend assigning this role only via the {{ datalens-name }} UI.
 
 Users with this role can:
-* View info on the [access permissions](../../../iam/concepts/access-control/index.md) granted for the appropriate collection and for its nested [collections and workbooks](../../../datalens/workbooks-collections/index.md), as well as modify such access permissions.
+* View info on the [access permissions]({{ link-docs }}/iam/concepts/access-control/) granted for the appropriate collection and for its nested [collections and workbooks](../../../datalens/workbooks-collections/index.md), as well as modify such access permissions.
 * View info on the appropriate collection and its nested collections and workbooks.
 * Edit the appropriate collection and all its nested collections and workbooks.
 * Create copies of the appropriate collection's nested workbooks.

@@ -7,6 +7,20 @@ description: This section contains the {{ metadata-hub-name }} release notes.
 
 {% changelog %}
 ```
+date: 2026-07
+index: 4
+```
+
+### {{ TR }} and {{ AF }} metadata
+
+
+
+You can now upload metadata to {{ data-catalog-name }} from {{ TR }} and {{ AF }} sources. Metadata retrieved from {{ TR }} includes data structures, such as catalogs, schemas, tables, columns with types, partitions, table statistics, and query history. From {{ AF }}, orchestration metadata is collected: structure of DAG files and tasks, their dependencies, run schedules, progress statuses, and lineage events (via `OpenLineage`).
+
+{% endchangelog %}
+
+{% changelog %}
+```
 date: 2026-01
 index: 3
 ```
@@ -57,6 +71,10 @@ Configure an MCP server for {{ data-catalog-name }} and connect AI agents to acc
 
 ## 2026 {#2026}
 
+
+### July {#july26}
+
+Supported new data source types: {{ TR }} and {{ AF }}. Metadata retrieved from {{ TR }} includes data structures, such as catalogs, schemas, tables, columns with types, partitions, table statistics, and query history. From {{ AF }}, orchestration metadata is collected: structure of DAG files and tasks, their dependencies, run schedules, progress statuses, and lineage events (via `OpenLineage`).
 
 ### May {#may26}
 

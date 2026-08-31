@@ -76,6 +76,7 @@ description: Из статьи вы узнаете, как работать с �
 * [Создать триггер для бюджетов](./budget-trigger-create.md)
 * [Создать триггер для {{ yds-name }}](./data-streams-trigger-create.md)
 * [Создать триггер для почты](./mail-trigger-create.md)
+* [Создать триггер для Telegram](./telegram-trigger-create.md)
 
 ## Управление триггером {#manage-trigger}
 

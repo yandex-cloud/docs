@@ -41,8 +41,10 @@
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя и описание триггера.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите **{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}**.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите **{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}**.
+
+        * {% include [triggers-labels-step](../../../_includes/functions/triggers-labels-step.md) %}
+
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}** выберите очередь сообщений и сервисный аккаунт с правами на чтение из нее.
 
@@ -53,9 +55,17 @@
 
         {% include [batch-messages](../../../_includes/functions/batch-messages.md) %}
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию и укажите:
+    1. В блоке **Приёмники**:
 
-        {% include [function-settings](../../../_includes/functions/function-settings.md) %}
+        1. В поле **Тип приёмника** выберите `Функция`.
+
+        1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию и укажите:
+
+            {% include [function-settings](../../../_includes/functions/function-settings.md) %}
+
+        1. {% include [trigger-console-filter](../../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../../_includes/functions/trigger-console-template.md) %}
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -127,6 +137,81 @@
 
   1. Опишите в конфигурационном файле параметры триггера:
 
+     ```hcl
+     resource "yandex_serverless_triggers" "my_trigger" {
+       name        = "<имя_триггера>"
+       description = "<описание_триггера>"
+       source {
+         ymq {
+           queue_arn          = "<ARN_очереди>"
+           service_account_id = "<идентификатор_сервисного_аккаунта>"
+           visibility_timeout = "<таймаут_видимости_сообщений>"
+           batch_settings {
+             max_count = "<максимальное_число_сообщений>"
+             max_bytes = "<максимальный_размер_группы_в_байтах>"
+             cutoff    = "<максимальное_время_ожидания>"
+           }
+         }
+       }
+       action {
+         invoke_function {
+           function_id        = "<идентификатор_функции>"
+           service_account_id = "<идентификатор_сервисного_аккаунта>"
+         }
+       }
+     }
+     ```
+
+     Где:
+
+     {% include [tf-triggers-common-params](../../../_includes/tf-triggers-common-params.md) %}
+
+     * `source` — параметры источника событий:
+
+       * `ymq` — параметры очереди сообщений:
+
+         * `queue_arn` — ARN очереди сообщений.
+
+             Чтобы узнать ARN очереди:
+
+             1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится очередь.
+             1. [Перейдите]({{ link-console-main }}/link/message-queue) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+             1. Выберите очередь.
+             1. ARN очереди будет в блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, в поле **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}**.
+
+         * `service_account_id` — идентификатор сервисного аккаунта с правами на чтение из очереди сообщений.
+         * `visibility_timeout` — [таймаут видимости](../../../message-queue/concepts/visibility-timeout.md) сообщений, который переопределяет значение, заданное в очереди. Необязательный параметр.
+
+         {% include [tf-triggers-batch-settings](../../../_includes/tf-triggers-batch-settings.md) %}
+
+     * `action` — параметры приемника. Блок можно указать несколько раз, чтобы триггер вызывал несколько ресурсов, в том числе разных типов. Максимальное количество ресурсов ограничено [лимитами](../../concepts/limits.md#functions-limits).
+
+         * `invoke_function` — параметры функции:
+
+             * `function_id` — идентификатор функции.
+             * `function_tag` — тег версии функции. Необязательный параметр. Если параметр не указан, вызывается последняя версия функции.
+             * `service_account_id` — идентификатор сервисного аккаунта с правами на вызов функции.
+
+         * `filter` — фильтрация событий перед отправкой в приемник. Необязательный блок.
+
+             * `jq` — [jq-шаблон](https://jqlang.github.io/jq/manual/) для фильтрации событий, передаваемых в приемник. Если не указан, в приемник передаются все события.
+
+         * `transformer` — преобразование событий перед отправкой в приемник. Необязательный блок.
+
+             * `jq` — jq-шаблон для преобразования событий перед отправкой в приемник. Если не указан, события не преобразуются.
+
+         * `dead_letter` — параметры очереди сообщений Dead Letter Queue. Необязательный блок.
+
+             * `dead_letter_queue` — параметры очереди:
+
+                 * `queue_arn` — ARN очереди.
+                 * `service_account_id` — идентификатор сервисного аккаунта с правами на запись в очередь.
+                 * `message_attributes` — атрибуты, которые будут добавлены к каждому сообщению в очереди, в формате `ключ:значение`. Необязательный параметр.
+
+     Подробнее о параметрах ресурса `yandex_serverless_triggers` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_triggers).
+
+     {% cut "Конфигурация для ресурса yandex_function_trigger" %}
+
      ```
      resource "yandex_function_trigger" "my_trigger" {
        name        = "<имя_триггера>"
@@ -172,6 +257,8 @@
        * `batch_cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд. Триггер группирует сообщения не дольше `batch-cutoff` и отправляет их в функцию. Число сообщений при этом не превышает `batch-size`.
 
      Подробнее о параметрах ресурса `yandex_function_trigger` в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+
+     {% endcut %}
 
   1. Создайте ресурсы:
 

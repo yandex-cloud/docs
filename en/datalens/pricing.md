@@ -8,17 +8,19 @@ editable: false
 
 
 
+
+
 {{ datalens-full-name }} is **free for individual users**, while **teams are billed based on the number of seats**. New accounts are offered a free [trial period](#trial) of up to 30 days with no limits on seats. {#seats}
 
 * Every {{ datalens-full-name }} user needs a seat, even if only to view or edit dashboards.
 * Seats are issued automatically when new users first log in to {{ datalens-full-name }}.
 * [Seats are managed](./settings/seats.md) by the administrator.
 
-Technical support coverage is determined by the [{{ yandex-cloud }}](../support/overview.md) support plan you select.
+Technical support coverage is determined by the [{{ yandex-cloud }}]({{ link-docs }}/support/overview) support plan you select.
 
 ## Prices for the Russia region {#prices}
 
-{{ yandex-cloud }} resources are priced differently in different [regions](../overview/concepts/region.md). Your payment currency is determined by your contracting [legal entity](../billing/quickstart/index.md). All prices in RUB and KZT are inclusive of VAT.
+{{ yandex-cloud }} resources are priced differently in different [regions](../overview/concepts/region.md). Your payment currency is determined by your contracting [legal entity]({{ link-docs }}/billing/quickstart/). All prices in RUB and KZT are inclusive of VAT.
 
 
 

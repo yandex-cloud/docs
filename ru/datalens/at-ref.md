@@ -5,7 +5,7 @@ description: На этой странице приведен справочни�
 
 # Справочник аудитных логов {{ at-full-name }}
 
-В {{ at-name }} для {{ datalens-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane).
+В {{ at-name }} для {{ datalens-full-name }} поддерживается отслеживание [событий уровня конфигурации]({{ link-docs }}/audit-trails/concepts/format) (Control Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 

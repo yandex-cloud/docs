@@ -8,3 +8,4 @@ If you have an active billing account, you can create or select a [folder](../..
 [Learn more about clouds and folders here](../../resource-manager/concepts/resources-hierarchy.md).
 
 
+

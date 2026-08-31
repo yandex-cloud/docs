@@ -36,7 +36,7 @@ description: Следуя данной инструкции, вы сможете
       yc storage bucket update --help
       ```
 
-  1. Назначьте роль на бакет:
+  1. Настройте права доступа к бакету:
 
       ```bash
       yc storage bucket update \
@@ -48,7 +48,7 @@ description: Следуя данной инструкции, вы сможете
       * `--name` — имя бакета.
       * `--grants` — параметры настройки прав доступа [ACL](../../concepts/acl.md):
         * `grantee-id` — идентификатор аккаунта, которому выдаются права. Используется при значении параметра `grant-type=grant-type-account`.
-        * `grant-type` — тип субъекта, которому выдаются права. Возможные значения:
+        * `grant-type` — тип получателя доступа, которому выдаются права. Возможные значения:
           * `grant-type-account` — пользовательский или сервисный аккаунт;
           * `grant-type-all-authenticated-users` — все аутентифицированные пользователи;
           * `grant-type-all-users` — все пользователи.
@@ -100,7 +100,7 @@ description: Следуя данной инструкции, вы сможете
       +----------------------+--------------+--------+---------------------+-----------------------+
       ```
 
-  1. Назначьте роль на бакет:
+  1. Настройте права доступа к бакету:
 
       ```bash
       yc storage bucket update \
@@ -174,7 +174,13 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [tf-iam-binding-warning](../../../_includes/storage/tf-iam-binding-warning.md) %}
 
-      * `members` — список типов и идентификаторов [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список обозначений [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
       Подробнее о параметрах ресурса `yandex_storage_bucket_iam_binding` читайте в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket_iam_binding).
 
@@ -198,7 +204,13 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../../storage/api-ref/Bucket/updateAccessBindings.md) для ресурса [Bucket](../../../storage/api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/UpdateAccessBindings](../../../storage/api-ref/grpc/Bucket/updateAccessBindings.md).
+  Воспользуйтесь методом REST API [updateAccessBindings](../../../storage/api-ref/Bucket/updateAccessBindings.md) для ресурса [Bucket](../../../storage/api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/UpdateAccessBindings](../../../storage/api-ref/grpc/Bucket/updateAccessBindings.md). В теле запроса в свойстве `subject` укажите тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 

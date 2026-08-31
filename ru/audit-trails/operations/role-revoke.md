@@ -22,53 +22,32 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [get-list](../../_includes/audit-trails/get-list.md) %}
   1. Выполните команду, чтобы отозвать роль, назначенную на трейл.
 
-      * У пользователя:
+      ```bash
+      yc audit-trails trail remove-access-binding \
+        --id <идентификатор_трейла> \
+        --role <идентификатор_роли> \
+        --subject <тип_субъекта>:<идентификатор_субъекта>
+      ```
 
-          ```bash
-          yc audit-trails trail remove-access-binding \
-            --id <идентификатор_трейла> \
-            --user-account-id <идентификатор_пользователя> \
-            --role <роль>
-          ```
-          
-          Результат:
+     Где:
 
-          ```text
-          done (1s)
-          ```
+     * `--role` — идентификатор роли, которую надо отозвать.
+     * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
 
-      * У [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):
+         {% cut "Обозначения субъектов" %}
 
-          ```bash
-          yc audit-trails trail remove-access-binding \
-            --id <идентификатор_трейла> \
-            --service-account-id <идентификатор_сервисного_аккаунта> \
-            --role <роль>
-          ```
+         {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-          Результат:
-
-          ```text
-          done (1s)
-          ```
-
-      * У всех авторизованных пользователей ([публичная группа](../../iam/concepts/access-control/public-group.md) `All authenticated users`):
-
-          ```bash
-          yc audit-trails trail remove-access-binding \
-            --id <идентификатор_трейла> \
-            --all-authenticated-users \
-            --role <роль>
-          ```
-
-          Результат:
-        
-          ```text
-          done (1s)
-          ```
+         {% endcut %}
 
 - API {#api}
 
-  Чтобы отозвать роли, назначенные на [трейл](../concepts/trail.md), воспользуйтесь методом REST API [updateAccessBindings](../../audit-trails/api-ref/Trail/updateAccessBindings.md) для ресурса [Trail](../../audit-trails/api-ref/Trail/index.md) или вызовом gRPC API [TrailService/UpdateAccessBindings](../../audit-trails/api-ref/grpc/Trail/updateAccessBindings.md).
+  Чтобы отозвать роли, назначенные на [трейл](../concepts/trail.md), воспользуйтесь методом REST API [updateAccessBindings](../../audit-trails/api-ref/Trail/updateAccessBindings.md) для ресурса [Trail](../../audit-trails/api-ref/Trail/index.md) или вызовом gRPC API [TrailService/UpdateAccessBindings](../../audit-trails/api-ref/grpc/Trail/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

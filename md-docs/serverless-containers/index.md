@@ -150,6 +150,8 @@
 
  - [Создать триггер для почты](operations/mail-trigger-create.md)
 
+ - [Создать триггер для Telegram](operations/telegram-trigger-create.md)
+
 ### Управление триггером
 
  - [Изменить триггер](operations/trigger-update.md)
@@ -201,6 +203,8 @@
  - [Триггер для Data Streams](concepts/trigger/data-streams-trigger.md)
 
  - [Триггер для почты](concepts/trigger/mail-trigger.md)
+
+ - [Триггер для Telegram](concepts/trigger/telegram-trigger.md)
 
  - [Dead Letter Queue](concepts/dlq.md)
 

@@ -595,7 +595,7 @@
 
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится БД.
   1. [Перейдите]({{ link-console-main }}/link/ydb) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -605,7 +605,7 @@
   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-* CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -625,53 +625,40 @@
      yc ydb database list
      ```
 
-  1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роль.
-  1. С помощью одной из команд ниже назначьте роль:
+  1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md), группы пользователей, организации или федерации удостоверений, которым или пользователям которых назначаете роль.
+  1. Чтобы назначить роль, выполните команду:
 
-     * Пользователю:
+     ```bash
+     yc ydb database add-access-binding \
+        --id <идентификатор_БД> \
+        --role <роль> \
+        --subject <тип_субъекта>:<идентификатор_субъекта>
+     ```
 
-        ```bash
-        yc ydb database add-access-binding \
-           --id <идентификатор_БД> \
-           --role <роль> \
-           --user-account-id <идентификатор_пользователя>
-        ```
+     Где:
 
-     * Федеративному пользователю:
+     * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-        ```bash
-        yc ydb database add-access-binding \
-           --id <идентификатор_БД> \
-           --role <роль> \
-           --user-account-id <идентификатор_пользователя>
-        ```
+         {% cut "Обозначения субъектов" %}
 
-     * Сервисному аккаунту:
+         {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-        ```bash
-        yc ydb database add-access-binding \
-           --id <идентификатор_БД> \
-           --role <роль> \
-           --service-account-id <идентификатор_сервисного_аккаунта>
-        ```
+         {% endcut %}
 
-     * Группе пользователей:
-
-        ```bash
-        yc ydb database add-access-binding \
-           --id <идентификатор_БД> \
-           --role <роль> \
-           --subject group:<идентификатор_группы>
-        ```
-
-* API {#api}
+- API {#api}
 
   Воспользуйтесь вызовом gRPC API [DatabaseService/UpdateAccessBindings](../api-ref/grpc/Database/updateAccessBindings.md) и передайте в запросе:
 
   * Значение `ADD` в параметре `access_binding_deltas[].action`, чтобы добавить роль.
   * Роль в параметре `access_binding_deltas[].access_binding.role_id`.
-  * Идентификатор субъекта, которому назначается роль, в параметре `access_binding_deltas[].access_binding.subject.id`.
+  * Идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль, в параметре `access_binding_deltas[].access_binding.subject.id`.
   * Тип субъекта, которому назначается роль, в параметре `access_binding_deltas[].access_binding.subject.type`.
+
+      {% cut "Обозначения субъектов" %}
+
+      {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+      {% endcut %}
 
 {% endlist %}
 
@@ -679,7 +666,7 @@
 
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится БД.
   1. [Перейдите]({{ link-console-main }}/link/ydb) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -689,7 +676,7 @@
   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-* CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
 
@@ -718,60 +705,48 @@
      yc ydb database list
      ```
 
-  1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роли.
-  1. С помощью одной из команд ниже назначьте роли:
+  1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md), группы пользователей, организации или федерации удостоверений, которым или пользователям которых назначаете роли.
+  1. Чтобы назначить роли, выполните команду:
 
-     * Пользователю с аккаунтом на Яндексе или локальному пользователю:
+     ```bash
+     yc ydb database set-access-bindings \
+        --id <идентификатор_БД> \
+        --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
+     ```
 
-        ```bash
-        yc ydb database set-access-bindings \
-           --id <идентификатор_БД> \
-           --access-binding role=<роль>,user-account-id=<идентификатор_пользователя>
-        ```
+     Где `--access-binding` — назначаемая [роль](../security/index.md#roles-list) и обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-     * Федеративному пользователю:
+     {% cut "Обозначения субъектов" %}
 
-        ```bash
-        yc ydb database set-access-bindings \
-           --id <идентификатор_БД> \
-           --access-binding role=<роль>,subject=federatedUser:<идентификатор_пользователя>
-        ```
+     {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-     * Сервисному аккаунту:
-
-        ```bash
-        yc ydb database set-access-bindings \
-           --id <идентификатор_БД> \
-           --access-binding role=<роль>,service-account-id=<идентификатор_сервисного_аккаунта>
-        ```
-
-     * Группе пользователей:
-
-        ```bash
-        yc ydb database set-access-bindings \
-           --id <идентификатор_БД> \
-           --access-binding role=<роль>,subject=group:<идентификатор_группы>
-        ```
+     {% endcut %}
 
      Для каждой роли передайте отдельный параметр `--access-binding`. Пример:
 
      ```bash
      yc ydb database set-access-bindings \
         --id <идентификатор_БД> \
-        --access-binding role=<роль1>,service-account-id=<идентификатор_сервисного_аккаунта> \
-        --access-binding role=<роль2>,service-account-id=<идентификатор_сервисного_аккаунта> \
-        --access-binding role=<роль3>,service-account-id=<идентификатор_сервисного_аккаунта>
+        --access-binding role=<роль1>,subject=<тип_субъекта>:<идентификатор_субъекта> \
+        --access-binding role=<роль2>,subject=<тип_субъекта>:<идентификатор_субъекта> \
+        --access-binding role=<роль3>,subject=<тип_субъекта>:<идентификатор_субъекта>
      ```
 
-* API {#api}
+- API {#api}
 
   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
   Воспользуйтесь вызовом gRPC API [DatabaseService/SetAccessBindings](../api-ref/grpc/Database/setAccessBindings.md). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
 
   * Роль в параметре `access_bindings[].role_id`.
-  * Идентификатор субъекта, на кого назначаются роли, в параметре `access_bindings[].subject.id`.
-  * Тип субъекта, на кого назначаются роли, в параметре `access_bindings[].subject.type`.
+  * Идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначаются роли, в параметре `access_bindings[].subject.id`.
+  * Тип субъекта, которому назначаются роли, в параметре `access_bindings[].subject.type`.
+
+      {% cut "Обозначения субъектов" %}
+
+      {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+      {% endcut %}
 
 {% endlist %}
 

@@ -23,5 +23,5 @@ Manage tenant members
 
 * [cli tenants](cli_tenants.md)	 — Tenants management
 * [cli tenants members change](cli_tenants_members_change.md)	 — change tenant member role
-Valid values are viewer/editor/admin
+Valid values are viewer/editor/admin/bucket_manager
 * [cli tenants members list](cli_tenants_members_list.md)	 — list tenant members

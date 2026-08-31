@@ -107,7 +107,7 @@ Let's set up our alerts:
      * `Evaluation delay`: `15 seconds`
 
 1. Leave the default values under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}**.
-1. Optionally, under [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md), add the information to log when the alert is triggered.
+1. Optionally, under [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md), add the information to log when the alert triggers.
 1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}**, add the notification channel.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -187,7 +187,7 @@ Let's set up alerts to detect exceeded rate limits:
    1. Click ![image](../../_assets/monitoring/raw.svg) to switch to text mode to edit the query.
    1. Enter `100 * abs(A - B) / B` in the query string.
 
-1. Under **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}**, specify:
+1. Under **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}**, specify the following:
      
      * `Query to evaluate`: `C`
      * `Aggregation function`: `All values`
@@ -197,7 +197,7 @@ Let's set up alerts to detect exceeded rate limits:
      * `Evaluation delay`: `15 seconds`
 
 1. Leave the default values under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}**.
-1. Optionally, under [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md), add the information to log when the alert is triggered.
+1. Optionally, under [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md), add the information to log when the alert triggers.
 1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}**, add the notification channel.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 

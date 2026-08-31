@@ -32,7 +32,7 @@ To create a {{ PG }} connection:
      * **Host type**: Select the host type:
 
        * **Regular** (default): Allows you to select regular hosts to connect to.
-       * **Special FQDNs**: Enables you to select [special FQDNs](../../../managed-postgresql/operations/connect/fqdn.md#special-fqdns) for connection, which always point to the current master host or to its closest replica in the {{ PG }} cluster.
+       * **Special FQDNs**: Enables you to select [special FQDNs]({{ link-docs }}/managed-postgresql/operations/connect/fqdn#special-fqdns) for connection, which always point to the current master host or to its closest replica in the {{ PG }} cluster.
 
      * **Host name**: Select the host name from the list of hosts available in the {{ PG }} cluster. You can select multiple hosts. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
      * **Port**: Specify the {{ PG }} connection port. In {{ yandex-cloud }}, the default port is 6432.
@@ -61,10 +61,10 @@ To create a {{ PG }} connection:
 
      {% include [datalens-conn-man-role](../../../_includes/datalens/datalens-conn-man-role.md) %}
 
-     Select the [connection](../../../metadata-hub/concepts/connection-manager.md) to a {{ PG }} managed database cluster created in {{ connection-manager-full-name }}:
+     Select the [connection]({{ link-docs }}/metadata-hub/concepts/connection-manager) to a {{ PG }} managed database cluster created in {{ connection-manager-full-name }}:
 
      * **Cloud and folder**: Select the folder where you created the connection to the cluster.
-     * **Connection ID**: Select an available connection in {{ connection-manager-name }} or [create a new one](../../../metadata-hub/operations/create-connection.md).
+     * **Connection ID**: Select an available connection in {{ connection-manager-name }} or [create a new one]({{ link-docs }}/metadata-hub/operations/create-connection).
      * **Host**: Select the host from the list of available hosts in the {{ PG }} cluster.
      * **Port**: It is set automatically depending on the selected host.
      * **Database**: Specify the name of the database to connect.

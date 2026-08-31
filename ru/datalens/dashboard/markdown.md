@@ -432,20 +432,20 @@ val a: Int = 1
 
 
 
-В виджет можно добавлять изображения, размещенные в хранилище [{{ objstorage-full-name }}](../../storage/quickstart.md). С тарифами сервиса можно ознакомиться в разделе [{#T}](../../storage/pricing.md). Изображения из внешних источников не поддерживаются.
+В виджет можно добавлять изображения, размещенные в хранилище [{{ objstorage-full-name }}]({{ link-docs }}/storage/quickstart). С тарифами сервиса можно ознакомиться в разделе [{#T}]({{ link-docs }}/storage/pricing). Изображения из внешних источников не поддерживаются.
 
 
 
 
-Поддерживается добавление изображений любого формата по [ссылкам на объекты](../../storage/concepts/object.md#object-url) вида `https://{{ s3-storage-host }}/<bucket>/<key>`.
+Поддерживается добавление изображений любого формата по [ссылкам на объекты]({{ link-docs }}/storage/concepts/object#object-url) вида `https://{{ s3-storage-host }}/<bucket>/<key>`.
 
 
 Для загрузки изображения из **{{ objstorage-short-name }}** в виджет:
 
 1. Откройте [консоль управления]({{ link-console-main }}).
 1. В левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) и выберите сервис **{{ objstorage-short-name }}**.
-1. [Создайте бакет](../../storage/operations/buckets/create.md).
-1. [Загрузите изображение](../../storage/operations/objects/upload.md) в бакет.
+1. [Создайте бакет]({{ link-docs }}/storage/operations/buckets/create).
+1. [Загрузите изображение]({{ link-docs }}/storage/operations/objects/upload) в бакет.
 1. Перейдите в полученный объект и нажмите кнопку **Получить ссылку**.
 1. Укажите время жизни для ссылки и скопируйте ее.
 
@@ -464,18 +464,18 @@ val a: Int = 1
 
 {% cut "Как создать постоянную ссылку" %}
 
-Чтобы загруженное изображение оставалось доступным всегда, откройте к нему доступ с помощью [ACL](../../storage/concepts/acl.md) объекта.
+Чтобы загруженное изображение оставалось доступным всегда, откройте к нему доступ с помощью [ACL]({{ link-docs }}/storage/concepts/acl) объекта.
 
 {% note warning %}
 
-Публичный доступ к файлу предоставляется неограниченному кругу анонимных пользователей. Подробнее о способах управления доступом в {{ objstorage-name }} читайте в [документации сервиса](../../storage/security/overview.md).
+Публичный доступ к файлу предоставляется неограниченному кругу анонимных пользователей. Подробнее о способах управления доступом в {{ objstorage-name }} читайте в [документации сервиса]({{ link-docs }}/storage/security/overview).
 
 {% endnote %}
 
 1. Откройте [консоль управления]({{ link-console-main }}).
 1. В левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) и выберите сервис **{{ objstorage-short-name }}**.
-1. [Создайте бакет](../../storage/operations/buckets/create.md). При выборе имени бакета придерживайтесь [рекомендаций](../../storage/concepts/bucket.md#naming).
-1. [Загрузите изображение](../../storage/operations/objects/upload.md) в бакет.
+1. [Создайте бакет]({{ link-docs }}/storage/operations/buckets/create). При выборе имени бакета придерживайтесь [рекомендаций]({{ link-docs }}/storage/concepts/bucket#naming).
+1. [Загрузите изображение]({{ link-docs }}/storage/operations/objects/upload) в бакет.
 1. Настройте ACL созданного объекта:
 
    1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) справа от имени объекта и выберите **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
@@ -484,7 +484,7 @@ val a: Int = 1
 1. Составьте ссылку на объект в бакете вида `https://{{ s3-storage-host }}/<бакет>/<ключ>`, где:
 
    * `<бакет>` — имя бакета.
-   * `<ключ>` — [ключ](../../storage/concepts/object.md#key) объекта (путь к файлу).
+   * `<ключ>` — [ключ]({{ link-docs }}/storage/concepts/object#key) объекта (путь к файлу).
 
 1. Откройте дашборд в сервисе {{ datalens-name }} и [создайте](../operations/dashboard/add-text.md) виджет **Текст**.
 1. Вставьте в виджет следующий код:

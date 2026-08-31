@@ -2,6 +2,8 @@
 
 
 
+
+
 * [General questions](#overview)
 * [Managing seats](#manage-seats)
 * [Queries from embedded private objects](#embeds)

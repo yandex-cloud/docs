@@ -57,6 +57,17 @@ Use a new combination of endpoints to transfer data from {{ ydb-name }} to {{ PG
 
 ## 2026 {#2026}
 
+### July {#july2026}
+
+
+* Supported replication from [{{ KF }}](../operations/endpoint/source/kafka.md) and [{{ DS }}](../operations/endpoint/source/data-streams.md) to [{{ IBRG }}](../operations/endpoint/target/iceberg.md) in the management console and API.
+
+
+* Implemented cleanup policies for the [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md) target: 
+
+    * `Cleanup policy Drop` for copying: Automatically deletes stale bucket files upon successful copy completion.
+    * `Cleanup policy Replace`: Enforces atomic data replacement by removing legacy files only after new ones are fully uploaded.
+
 ### June {#june2026}
 
 

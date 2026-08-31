@@ -5,10 +5,11 @@ noIndex: true
 
 # Converting a video to a GIF in Python using the management console
 
+
 To create a [video-to-GIF conversion framework in Python](index.md) using the {{ yandex-cloud }} management console:
 
 {% include [console](../../../_tutorials/_tutorials_includes/video-converting-queue/console.md) %}
 
 #### Useful links {#see-also}
 
-* [{#T}](terraform.md)
+[{#T}](terraform.md)

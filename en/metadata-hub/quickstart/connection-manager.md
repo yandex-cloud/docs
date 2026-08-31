@@ -32,8 +32,8 @@ Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-  1. Enter a name and database type for the connection.
-  1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+  1. Specify the connection **{{ ui-key.yacloud.common.name }}** and the database **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
+  1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
   1. Specify connection parameters depending on the selected database:
      * [Connecting to a managed database in a cluster](../operations/create-connection.md#mdb-connection)
      * [Connecting to a user database installation](../operations/create-connection.md#on-premise-connection)
@@ -62,4 +62,3 @@ Once you create a connection, you can [view its settings](../operations/update-c
 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
-

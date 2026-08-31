@@ -1039,10 +1039,13 @@ items:
       - name: Archive
         items:
           - name: Pricing policy updates as of December 1
+            hidden: true
             href: pricing-changes.md
           - name: Pricing policy before December 1, 2025
+            hidden: true
             href: pricing-old.md
           - name: Service plans before December 1, 2025
+            hidden: true
             href: concepts/service-plans-comparison.md
   - name: '{{ datalens-name }} Public API'
     items:

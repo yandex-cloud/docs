@@ -116,7 +116,7 @@
       Где:
 
       * `--role` — назначаемая [роль](../security/index.md#roles-list), например `managed-mysql.editor`.
-      * `--subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+      * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
           Например:
 
@@ -124,27 +124,142 @@
           * `userAccount:aje8tj79************`,
           * `system:allAuthenticatedUsers`.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+          || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+          || `system`         | `system:allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) | `--all-authenticated-users` ||
+          || ^                | `system:allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) | — ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in organization X`) | `--organization-users` ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) | `--federation-users` ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) | — ||
+          |#
+
+          {% endcut %}
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду:
 
       ```bash
       yc managed-mysql cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
+
+- Terraform {#tf}
+
+   {% note info %}
+    
+   Для назначения ролей на кластер Managed Service for MySQL® используйте ресурс `yandex_mdb_mysql_cluster_iam_binding` с параметром `members`.
+   
+   {% endnote %}
+
+  1. Откройте актуальный конфигурационный файл с описанием кластера Managed Service for MySQL®.
+ 
+     Как создать такой файл описано в разделе [Создание кластера MySQL®](cluster-create.md).
+ 
+  1. Добавьте описание ресурса:
+   
+     ```hcl
+     resource "yandex_mdb_mysql_cluster_iam_binding" "<локальное_имя_ресурса>" {
+       cluster_id = "<идентификатор_кластера>"
+       role       = "<роль>"
+       members    = ["<тип_субъекта>:<идентификатор_субъекта>"]
+     }
+     ```
+
+     Где:
+
+     * `cluster_id` — идентификатор кластера.
+     * `role` — назначаемая [роль](../security/index.md#roles-list), например `managed-mysql.editor`.
+     * `members` — массив обозначений [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль.
+
+        Например:
+
+        * `serviceAccount:${yandex_iam_service_account.mmy_sa.id}`,
+        * `userAccount:ajerq94v************`,
+        * `system:allAuthenticatedUsers`.
+
+        {% cut "Обозначения субъектов" %}
+
+        Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+        
+        #|
+        || **Тип субъекта** | **Обозначение субъекта** ||
+        || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+        || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+        || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+        || `group`          | `group:<идентификатор_группы>` ||
+        || `system`         | `system:allAuthenticatedUsers`
+        
+        (группа `All authenticated users`) ||
+        || ^                | `system:allUsers`
+        
+        (группа `All users`) ||
+        || ^                | `system:group:organization:<идентификатор_организации>:users`
+        
+        (группа `All users in organization X`) ||
+        || ^                | `system:group:federation:<идентификатор_федерации>:users`
+        
+        (группа `All users in federation N`) ||
+        || ^                | `system:group:userpool:<идентификатор_пула>:users`
+        
+        (группа `All users in userpool P`) ||
+        |#
+
+        {% endcut %}
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. Выполните команду:
+     
+        ```bash
+        terraform validate
+        ```
+     
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Подтвердите изменение ресурсов.
+
+     1. Выполните команду для просмотра планируемых изменений:
+     
+        ```bash
+        terraform plan
+        ```
+     
+        Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+     
+     1. Если вас устраивают планируемые изменения, внесите их:
+        1. Выполните команду:
+     
+           ```bash
+           terraform apply
+           ```
+     
+        1. Подтвердите изменение ресурсов.
+        1. Дождитесь завершения операции.
+     
+     Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster_iam_binding` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_cluster_iam_binding.md).
+
+  1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../cli/index.md):
+   
+     ```bash
+     yc managed-mysql cluster list-access-bindings <имя_или_идентификатор_кластера>
+     ```
 
 - REST API {#api}
 
@@ -184,21 +299,34 @@
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -252,112 +380,36 @@
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
-
-- Terraform {#tf}
-
-   {% note info %}
-    
-   Для назначения ролей на кластер Managed Service for MySQL® используйте ресурс `yandex_mdb_mysql_cluster_iam_binding` с параметром `members`.
-   
-   {% endnote %}
-
-  1. Откройте актуальный конфигурационный файл с описанием кластера Managed Service for MySQL®.
- 
-     Как создать такой файл описано в разделе [Создание кластера MySQL®](cluster-create.md).
- 
-  1. Добавьте описание ресурса:
-   
-     ```hcl
-     resource "yandex_mdb_mysql_cluster_iam_binding" "<локальное_имя_ресурса>" {
-       cluster_id = "<идентификатор_кластера>"
-       role       = "<роль>"
-       members    = ["<тип_субъекта>:<идентификатор_субъекта>"]
-     }
-     ```
-
-     Где:
-
-     * `cluster_id` — идентификатор кластера.
-     * `role` — назначаемая [роль](../security/index.md#roles-list), например `managed-mysql.editor`.
-     * `members` — массив типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
-   
-       Например:
-       
-       * `serviceAccount:${yandex_iam_service_account.mmy_sa.id}`,
-       * `userAccount:ajerq94v************`,
-       * `system:allAuthenticatedUsers`.
-
-       Допустимые типы субъектов:
-       
-       * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-       * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-       * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-       * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
-       
-           Допустимые значения идентификатора субъекта:
-       
-           * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-           * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-           * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-           * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
-       
-       Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
-
-  1. Проверьте корректность конфигурационных файлов.
-
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
-     1. Выполните команду:
-     
-        ```bash
-        terraform validate
-        ```
-     
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
-
-  1. Подтвердите изменение ресурсов.
-
-     1. Выполните команду для просмотра планируемых изменений:
-     
-        ```bash
-        terraform plan
-        ```
-     
-        Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
-     
-     1. Если вас устраивают планируемые изменения, внесите их:
-        1. Выполните команду:
-     
-           ```bash
-           terraform apply
-           ```
-     
-        1. Подтвердите изменение ресурсов.
-        1. Дождитесь завершения операции.
-     
-     Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster_iam_binding` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_cluster_iam_binding.md).
-
-  1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../cli/index.md):
-   
-     ```bash
-     yc managed-mysql cluster list-access-bindings <имя_или_идентификатор_кластера>
-     ```
 
 {% endlist %}
 
@@ -402,7 +454,7 @@
       Где `--access-binding` — назначает роль субъекту. Вы можете назначить несколько ролей одновременно, описав каждую в отдельном параметре `--access-binding`.
 
       * `role` — назначаемая [роль](../security/index.md#roles-list), например `managed-mysql.editor`.
-      * `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+      * `subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
           Например:
 
@@ -410,21 +462,142 @@
           * `userAccount:aje8tj79************`,
           * `system:allAuthenticatedUsers`.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+          || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+          || `system`         | `system:allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) | `--all-authenticated-users` ||
+          || ^                | `system:allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) | — ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in organization X`) | `--organization-users` ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) | `--federation-users` ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) | — ||
+          |#
+
+          {% endcut %}
+
+- Terraform {#tf}
+
+   {% note info %}
+    
+   Для назначения ролей на кластер Managed Service for MySQL® используйте ресурс `yandex_mdb_mysql_cluster_iam_binding` с параметром `members`.
+    
+   {% endnote %}
+
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+ 
+     Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
+
+  1. Добавьте описание ресурсов:
+   
+     ```hcl
+     resource "yandex_mdb_mysql_cluster_iam_binding" "<локальное_имя_ресурса_1>" {
+       cluster_id = "<идентификатор_кластера>"
+       role       = "<роль_1>"
+       members    = ["<тип_субъекта>:<идентификатор_субъекта>"]
+     }
+
+     resource "yandex_mdb_mysql_cluster_iam_binding" "<локальное_имя_ресурса_2>" {
+       cluster_id = "<идентификатор_кластера>"
+       role       = "<роль_2>"
+       members    = ["<тип_субъекта>:<идентификатор_субъекта>"]
+     }
+     ```
+
+     Где:
+
+     * `cluster_id` — идентификатор кластера.
+     * `role` — назначаемая [роль](../security/index.md#roles-list), например `managed-mysql.editor`.
+     * `members` — массив типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+
+        Например:
+
+        * `serviceAccount:${yandex_iam_service_account.mmy_sa.id}`,
+        * `userAccount:ajerq94v************`,
+        * `system:allAuthenticatedUsers`.
+
+        {% cut "Обозначения субъектов" %}
+
+        Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+        
+        #|
+        || **Тип субъекта** | **Обозначение субъекта** ||
+        || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+        || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+        || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+        || `group`          | `group:<идентификатор_группы>` ||
+        || `system`         | `system:allAuthenticatedUsers`
+        
+        (группа `All authenticated users`) ||
+        || ^                | `system:allUsers`
+        
+        (группа `All users`) ||
+        || ^                | `system:group:organization:<идентификатор_организации>:users`
+        
+        (группа `All users in organization X`) ||
+        || ^                | `system:group:federation:<идентификатор_федерации>:users`
+        
+        (группа `All users in federation N`) ||
+        || ^                | `system:group:userpool:<идентификатор_пула>:users`
+        
+        (группа `All users in userpool P`) ||
+        |#
+
+        {% endcut %}
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. Выполните команду:
+     
+        ```bash
+        terraform validate
+        ```
+     
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Подтвердите изменение ресурсов.
+
+     1. Выполните команду для просмотра планируемых изменений:
+     
+        ```bash
+        terraform plan
+        ```
+     
+        Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+     
+     1. Если вас устраивают планируемые изменения, внесите их:
+        1. Выполните команду:
+     
+           ```bash
+           terraform apply
+           ```
+     
+        1. Подтвердите изменение ресурсов.
+        1. Дождитесь завершения операции.
+     
+     Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster_iam_binding` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_cluster_iam_binding.md).
+
+  1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../cli/index.md):
+   
+     ```bash
+     yc managed-mysql cluster list-access-bindings <имя_или_идентификатор_кластера>
+     ```
 
 - REST API {#api}
 
@@ -482,21 +655,34 @@
       * `accessBindings.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `accessBindings.subject.type` — тип субъекта, которому назначается роль.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -568,118 +754,36 @@
       * `accessBindings.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `accessBindings.subject.type` — тип субъекта, которому назначается роль.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation).
-
-- Terraform {#tf}
-
-   {% note info %}
-    
-   Для назначения ролей на кластер Managed Service for MySQL® используйте ресурс `yandex_mdb_mysql_cluster_iam_binding` с параметром `members`.
-    
-   {% endnote %}
-
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
- 
-     Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
-
-  1. Добавьте описание ресурсов:
-   
-     ```hcl
-     resource "yandex_mdb_mysql_cluster_iam_binding" "<локальное_имя_ресурса_1>" {
-       cluster_id = "<идентификатор_кластера>"
-       role       = "<роль_1>"
-       members    = ["<тип_субъекта>:<идентификатор_субъекта>"]
-     }
-
-     resource "yandex_mdb_mysql_cluster_iam_binding" "<локальное_имя_ресурса_2>" {
-       cluster_id = "<идентификатор_кластера>"
-       role       = "<роль_2>"
-       members    = ["<тип_субъекта>:<идентификатор_субъекта>"]
-     }
-     ```
-
-     Где:
-
-     * `cluster_id` — идентификатор кластера.
-     * `role` — назначаемая [роль](../security/index.md#roles-list), например `managed-mysql.editor`.
-     * `members` — массив типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
-   
-       Например:
-       
-       * `serviceAccount:${yandex_iam_service_account.mmy_sa.id}`,
-       * `userAccount:ajerq94v************`,
-       * `system:allAuthenticatedUsers`.
-
-       Допустимые типы субъектов:
-       
-       * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-       * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-       * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-       * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
-       
-           Допустимые значения идентификатора субъекта:
-       
-           * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-           * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-           * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-           * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
-       
-       Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
-
-  1. Проверьте корректность конфигурационных файлов.
-
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
-     1. Выполните команду:
-     
-        ```bash
-        terraform validate
-        ```
-     
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
-
-  1. Подтвердите изменение ресурсов.
-
-     1. Выполните команду для просмотра планируемых изменений:
-     
-        ```bash
-        terraform plan
-        ```
-     
-        Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
-     
-     1. Если вас устраивают планируемые изменения, внесите их:
-        1. Выполните команду:
-     
-           ```bash
-           terraform apply
-           ```
-     
-        1. Подтвердите изменение ресурсов.
-        1. Дождитесь завершения операции.
-     
-     Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster_iam_binding` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_cluster_iam_binding.md).
-
-  1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../cli/index.md):
-   
-     ```bash
-     yc managed-mysql cluster list-access-bindings <имя_или_идентификатор_кластера>
-     ```
 
 {% endlist %}
 
@@ -717,7 +821,7 @@
       Где:
 
       * `--role` — отзываемая [роль](../security/index.md#roles-list), например `managed-mysql.editor`.
-      * `--subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначена роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+      * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
 
           Например:
 
@@ -725,145 +829,34 @@
           * `userAccount:aje8tj79************`,
           * `system:allAuthenticatedUsers`.
 
-          Допустимые типы субъектов:
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+          || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+          || `system`         | `system:allAuthenticatedUsers`
           
-              Допустимые значения идентификатора субъекта:
+          (группа `All authenticated users`) | `--all-authenticated-users` ||
+          || ^                | `system:allUsers`
           
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
+          (группа `All users`) | — ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
           
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
-
-- REST API {#api}
-
-  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
-
-      ```bash
-      export IAM_TOKEN="<IAM-токен>"
-      ```
-
-  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
-
-      ```bash
-      curl \
-        --request PATCH \
-        --header "Authorization: Bearer $IAM_TOKEN" \
-        --header "Content-Type: application/json" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
-        --data '{
-                  "access_binding_deltas": [
-                    {
-                      "action": "REMOVE",
-                      "access_binding": {
-                        "role_id": "<роль>",
-                        "subject": {
-                          "id": "<идентификатор_субъекта>",
-                          "type": "<тип_субъекта>"
-                        }
-                      }
-                    }
-                  ]
-                }'
-      ```
-
-      Где:
-
-      * `access_binding_deltas.roleId` — назначаемая [роль](../security/index.md#roles-list), например `managed-mysql.editor`.
-      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
-      * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
-
-          Допустимые типы субъектов:
+          (группа `All users in organization X`) | `--organization-users` ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
+          (группа `All users in federation N`) | `--federation-users` ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
           
-              Допустимые значения идентификатора субъекта:
-          
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
-          
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          (группа `All users in userpool P`) | — ||
+          |#
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
-
-- gRPC API {#grpc-api}
-
-  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
-
-     ```bash
-     export IAM_TOKEN="<IAM-токен>"
-     ```
-
-  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
-     
-     ```bash
-     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
-     ```
-     
-     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
-
-      ```bash
-      grpcurl \
-        -format json \
-        -import-path ~/cloudapi/ \
-        -import-path ~/cloudapi/third_party/googleapis/ \
-        -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
-        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-        -d '{
-              "resource_id": "<идентификатор_кластера>",
-              "access_binding_deltas": [
-                {
-                  "action": "REMOVE",
-                  "access_binding": {
-                    "role_id": "<роль>",
-                    "subject": {
-                      "id": "<идентификатор_субъекта>",
-                      "type": "<тип_субъекта>"
-                    }
-                  }
-                }
-              ]
-            }' \
-        mdb.api.cloud.yandex.net:443 \
-        yandex.cloud.mdb.mysql.v1.ClusterService.UpdateAccessBindings
-      ```
-
-      Где:
-
-      * `resource_id` — идентификатор кластера.
-      * `access_binding_deltas.roleId` — назначаемая [роль](../security/index.md#roles-list), например `managed-mysql.editor`.
-      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
-      * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
-
-          Допустимые типы субъектов:
-          
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
-          * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
-          * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
-          
-              Допустимые значения идентификатора субъекта:
-          
-              * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
-              * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
-              * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
-              * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
-          
-          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
-
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
+          {% endcut %}
 
 - Terraform {#tf}
 
@@ -926,6 +919,156 @@
      yc managed-mysql cluster list-access-bindings <имя_или_идентификатор_кластера>
      ```
 
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+
+      ```bash
+      curl \
+        --request PATCH \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
+        --data '{
+                  "access_binding_deltas": [
+                    {
+                      "action": "REMOVE",
+                      "access_binding": {
+                        "role_id": "<роль>",
+                        "subject": {
+                          "id": "<идентификатор_субъекта>",
+                          "type": "<тип_субъекта>"
+                        }
+                      }
+                    }
+                  ]
+                }'
+      ```
+
+      Где:
+
+      * `access_binding_deltas.roleId` — отзываемая [роль](../security/index.md#roles-list), например `managed-mysql.editor`.
+      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+      * `access_binding_deltas.subject.type` — тип субъекта, у которого отзывается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+          
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     ```bash
+     export IAM_TOKEN="<IAM-токен>"
+     ```
+
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "resource_id": "<идентификатор_кластера>",
+              "access_binding_deltas": [
+                {
+                  "action": "REMOVE",
+                  "access_binding": {
+                    "role_id": "<роль>",
+                    "subject": {
+                      "id": "<идентификатор_субъекта>",
+                      "type": "<тип_субъекта>"
+                    }
+                  }
+                }
+              ]
+            }' \
+        mdb.api.cloud.yandex.net:443 \
+        yandex.cloud.mdb.mysql.v1.ClusterService.UpdateAccessBindings
+      ```
+
+      Где:
+
+      * `resource_id` — идентификатор кластера.
+      * `access_binding_deltas.roleId` — отзываемая [роль](../security/index.md#roles-list), например `managed-mysql.editor`.
+      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+      * `access_binding_deltas.subject.type` — тип субъекта, у которого отзывается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+          
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
+
 {% endlist %}
 
 ## Примеры {#examples}
@@ -958,6 +1101,59 @@
       ```bash
       yc managed-mysql cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
+
+- Terraform {#tf}
+
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+ 
+     Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
+
+  1. Добавьте описание ресурсов:
+
+     ```hcl
+     resource "yandex_resourcemanager_folder_iam_member" "mmy-viewer-account-iam" {
+       folder_id   = "<идентификатор_каталога>"
+       role        = "managed-mysql.viewer"
+       member      = "serviceAccount:<идентификатор_сервисного_аккаунта>"
+     }
+
+     resource "yandex_mdb_mysql_cluster_iam_binding" "mmy-cluster-api-editor" {
+       cluster_id = "<идентификатор_кластера>"
+       role       = "managed-mysql.editor"
+       members    = ["serviceAccount:<идентификатор_сервисного_аккаунта>"]
+     }
+     ```
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. Выполните команду:
+     
+        ```bash
+        terraform validate
+        ```
+     
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Подтвердите изменение ресурсов.
+
+     1. Выполните команду для просмотра планируемых изменений:
+     
+        ```bash
+        terraform plan
+        ```
+     
+        Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+     
+     1. Если вас устраивают планируемые изменения, внесите их:
+        1. Выполните команду:
+     
+           ```bash
+           terraform apply
+           ```
+     
+        1. Подтвердите изменение ресурсов.
+        1. Дождитесь завершения операции.
 
 - REST API {#api}
 
@@ -1145,58 +1341,5 @@
         mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.mysql.v1.ClusterService.ListAccessBindings
       ```
-
-- Terraform {#tf}
-
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
- 
-     Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
-
-  1. Добавьте описание ресурсов:
-
-     ```hcl
-     resource "yandex_resourcemanager_folder_iam_member" "mmy-viewer-account-iam" {
-       folder_id   = "<идентификатор_каталога>"
-       role        = "managed-mysql.viewer"
-       member      = "serviceAccount:<идентификатор_сервисного_аккаунта>"
-     }
-
-     resource "yandex_mdb_mysql_cluster_iam_binding" "mmy-cluster-api-editor" {
-       cluster_id = "<идентификатор_кластера>"
-       role       = "managed-mysql.editor"
-       members    = ["serviceAccount:<идентификатор_сервисного_аккаунта>"]
-     }
-     ```
-
-  1. Проверьте корректность конфигурационных файлов.
-
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
-     1. Выполните команду:
-     
-        ```bash
-        terraform validate
-        ```
-     
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
-
-  1. Подтвердите изменение ресурсов.
-
-     1. Выполните команду для просмотра планируемых изменений:
-     
-        ```bash
-        terraform plan
-        ```
-     
-        Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
-     
-     1. Если вас устраивают планируемые изменения, внесите их:
-        1. Выполните команду:
-     
-           ```bash
-           terraform apply
-           ```
-     
-        1. Подтвердите изменение ресурсов.
-        1. Дождитесь завершения операции.
 
 {% endlist %}

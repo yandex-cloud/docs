@@ -117,3 +117,13 @@ To use performance diagnostics, you need to:
    ```
 
 For more information, see [{#T}](../../operations/postgresql/performance-diagnostics.md).
+
+## Known issues {#known-issues}
+
+### Images displaying an incorrect PostgreSQL version {#pg-image-version}
+
+An error was detected in {{ PG }} images up to {{ stackland-name }} 26.2.0: images labeled as versions 15 and 16 actually contained PostgreSQL 17. As a result, clusters created with `spec.version: "15"` or `spec.version: "16"` were already running PostgreSQL 17.
+
+{{ stackland-name }} 26.2.0 resolves this error, and images display version 17 correctly. All previously created `spec.version: "15"` or `spec.version: "16"` clusters are now displayed as PostgreSQL 17 to indicate the actual deployed version.
+
+Required action: if your `PostgresqlCluster` manifests specify `"15"` or `"16"` in the `spec.version` field, update this value to `"17"`.

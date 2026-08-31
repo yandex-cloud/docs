@@ -110,6 +110,12 @@ description: Из статьи вы узнаете, как задать наст
 
     {% endlist %}
 
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1Target.cleanup_policy.title }}** — политика очистки данных перед копированием. Она применяется при активации, повторной активации и перезапуске трансфера и определяет порядок работы с данными, которые уже есть в бакете. Возможные значения:
+
+  * `Не очищать` — данные не удаляются из бакета. Это значение используется по умолчанию.
+  * `Drop` — данные удаляются из бакета перед копированием новых данных.
+  * `Replace` — данные удаляются из бакета после завершения копирования новых данных. Это позволяет сохранить доступ к существующим данным, пока новые данные копируются.
+
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1AdvancedWriterSettings.title }}** — дополнительные настройки записи выходных файлов:
 
     {% list tabs group=writer-settings %}

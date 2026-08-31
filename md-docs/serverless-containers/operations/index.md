@@ -73,6 +73,7 @@
 * [Создать триггер для бюджетов](budget-trigger-create.md)
 * [Создать триггер для Data Streams](data-streams-trigger-create.md)
 * [Создать триггер для почты](mail-trigger-create.md)
+* [Создать триггер для Telegram](telegram-trigger-create.md)
 
 ## Управление триггером {#manage-trigger}
 

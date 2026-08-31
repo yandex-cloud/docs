@@ -211,3 +211,32 @@ sladm install \
 ### _sladm_ ignores the node's DHCP requests {#unknown-mac}
 
 If the node's network bootloader does not receive an address, check the MAC address in the configuration. It must match the MAC address of the network interface used to boot the server via PXE. If the bootloader receives an address but makes no attempt to proceed with the boot, make sure there is no other DHCP server running on the network.
+
+### Initiating cloud synchronization with License Server {#force-sync}
+
+Under standard operating conditions, cloud synchronization takes place automatically according to the schedule and requires no intervention from the administrator. To bypass this schedule, e.g., to fetch updated limits or send accumulated usage data, you can use the `ForceSync` method. To call this method, send a request to the administrative License Server API:
+
+```bash
+curl -X POST \
+  -H "Authorization: Bearer <admin_token>" \
+  -H "Content-Type: application/json" \
+  -d '{}' \
+  'https://<license_server_address>:<port>/api/v1/admin/sync'
+```
+
+Where:
+
+* `<admin_token>`: Administrative API bearer token. It is specified in the License Server configuration under `security.admin_token`.
+* `<license_server_address>:<port>`: License Server address and HTTP port. The default port is `8080`.
+
+In offline mode, `ForceSync` re-reads the local license file from the disk. In online mode, License Server send another request to the {{ yandex-cloud }} API: transmits accumulated usage data and gets updated limits.
+
+The response contains the following:
+
+* `sync_status`: Final operation status (`CLOUD_SYNC_STATUS_COMPLETED` or `CLOUD_SYNC_STATUS_FAILED`).
+* `licenses_updated`: Flag indicating that the licenses were re-read.
+* `usage_uploaded`: Flag confirming that usage data was sent to the cloud (in online mode only).
+* `last_cloud_sync`: Operation completion time.
+* `message`: Empty string on success, or an error message.
+
+After the operation is successfully completed, the updated limits will propagate to `PlatformConfig.status.licensing` during the next licensing agent synchronization with License Server.

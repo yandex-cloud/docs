@@ -52,50 +52,46 @@
 
     Выполните команду, чтобы назначить [роль](../security/index.md) на пользовательскую лог-группу:
 
-    * пользователю:
+    ```bash
+    yc logging group add-access-binding \
+      --name <имя_лог-группы> \
+      --role <роль> \
+      --subject <тип_субъекта>:<идентификатор_субъекта>
+    ```
 
-        ```
-        yc logging group add-access-binding \
-          --name <имя_лог-группы> \
-          --user-account-id <идентификатор_пользователя> \
-          --role <роль>
-        ```
+    Где:
 
-        Результат:
+    * `--role` — назначаемая [роль](../security/index.md#roles-list).
+    * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-        ```
-        done (1s)
-        ```
+        {% cut "Обозначения субъектов" %}
 
-    * [сервисному аккаунту](../../iam/concepts/users/service-accounts.md):
+        Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+        
+        #|
+        || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+        || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+        || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+        || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+        || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+        || `system`         | `system:allAuthenticatedUsers`
+        
+        (группа `All authenticated users`) | `--all-authenticated-users` ||
+        || ^                | `system:allUsers`
+        
+        (группа `All users`) | — ||
+        || ^                | `system:group:organization:<идентификатор_организации>:users`
+        
+        (группа `All users in organization X`) | `--organization-users` ||
+        || ^                | `system:group:federation:<идентификатор_федерации>:users`
+        
+        (группа `All users in federation N`) | `--federation-users` ||
+        || ^                | `system:group:userpool:<идентификатор_пула>:users`
+        
+        (группа `All users in userpool P`) | — ||
+        |#
 
-        ```
-        yc logging group add-access-binding \
-          --name <имя_лог-группы> \
-          --service-account-id <идентификатор_сервисного_аккаунта> \
-          --role <роль>
-        ```
-
-        Результат:
-
-        ```
-        done (1s)
-        ```
-
-    * всем авторизованным пользователям ([публичная группа](../../iam/concepts/access-control/public-group.md) `All authenticated users`):
-
-        ```
-        yc logging group add-access-binding \
-          --name <имя_лог-группы> \
-          --all-authenticated-users \
-          --role <роль>
-        ```
-
-        Результат:
-
-        ```
-        done (1s)
-        ```
+        {% endcut %}
 
 - API {#api}
 
@@ -109,55 +105,80 @@
 
 - CLI {#cli}
 
-    Выполните команду, чтобы отозвать [роль](../security/index.md) на пользовательскую лог-группу:
+  Выполните команду, чтобы отозвать [роль](../security/index.md) на пользовательскую лог-группу:
 
-    * у пользователя:
+  ```bash
+  yc logging group remove-access-binding \
+    --name <имя_лог-группы> \
+    --role <идентификатор_роли> \
+    --subject <тип_субъекта>:<идентификатор_субъекта>
+  ```
 
-        ```
-        yc logging group remove-access-binding \
-          --name <имя_лог-группы> \
-          --user-account-id <идентификатор_пользователя> \
-          --role <роль>
-        ```
-    
-        Результат:
-    
-        ```
-        done (1s)
-        ```
+  Где:
 
-    * у [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):
+  * `--role` — идентификатор роли, которую надо отозвать.
+  * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
 
-        ```
-        yc logging group remove-access-binding \
-          --name <имя_лог-группы> \
-          --service-account-id <идентификатор_сервисного_аккаунта> \
-          --role <роль>
-        ```
+      {% cut "Обозначения субъектов" %}
 
-        Результат:
+      Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+      
+      #|
+      || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+      || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+      || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+      || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+      || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+      || `system`         | `system:allAuthenticatedUsers`
+      
+      (группа `All authenticated users`) | `--all-authenticated-users` ||
+      || ^                | `system:allUsers`
+      
+      (группа `All users`) | — ||
+      || ^                | `system:group:organization:<идентификатор_организации>:users`
+      
+      (группа `All users in organization X`) | `--organization-users` ||
+      || ^                | `system:group:federation:<идентификатор_федерации>:users`
+      
+      (группа `All users in federation N`) | `--federation-users` ||
+      || ^                | `system:group:userpool:<идентификатор_пула>:users`
+      
+      (группа `All users in userpool P`) | — ||
+      |#
 
-        ```
-        done (1s)
-        ```
-
-    * у всех авторизованных пользователей ([публичная группа](../../iam/concepts/access-control/public-group.md) `All authenticated users`):
-
-        ```
-        yc logging group remove-access-binding \
-          --name <имя_лог-группы> \
-          --all-authenticated-users \
-          --role <роль>
-        ```
-
-        Результат:
-
-        ```
-        done (1s)
-        ```
+      {% endcut %}
 
 - API {#api}
 
-  Чтобы отозвать роли, назначенные на пользовательскую лог-группу, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/UpdateAccessBindings](../api-ref/grpc/LogGroup/updateAccessBindings.md).
+  Чтобы отозвать роли, назначенные на пользовательскую лог-группу, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/UpdateAccessBindings](../api-ref/grpc/LogGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+  
+  #|
+  || **subject.type** | **subject.id** ||
+  || `userAccount`    | `<идентификатор_пользователя>` ||
+  || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+  || `federatedUser`  | `<идентификатор_пользователя>` ||
+  || `group`          | `<идентификатор_группы>` ||
+  || `system`         | `allAuthenticatedUsers`
+  
+  (группа `All authenticated users`) ||
+  || ^                | `allUsers`
+  
+  (группа `All users`) ||
+  || ^                | `group:organization:<идентификатор_организации>:users`
+  
+  (группа `All users in organization X`) ||
+  || ^                | `group:federation:<идентификатор_федерации>:users`
+  
+  (группа `All users in federation N`) ||
+  || ^                | `group:userpool:<идентификатор_пула>:users`
+  
+  (группа `All users in userpool P`) ||
+  |#
+
+  {% endcut %}
 
 {% endlist %}

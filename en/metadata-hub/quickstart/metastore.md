@@ -5,6 +5,7 @@ description: In {{ metadata-hub-name }}, you can create {{ metastore-full-name }
 
 # Getting started with {{ metastore-full-name }}
 
+
 In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](#create-metastore-cluster) and [use them](#connect-metastore-to-dataproc) to work with {{ dataproc-full-name }} clusters.
 
 ## Getting started {#before-you-begin}
@@ -130,4 +131,3 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
 * [Export and import Hive metadata in a {{ metastore-name }} cluster](../operations/metastore/export-and-import.md).
 
 {% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}
-

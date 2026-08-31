@@ -5,11 +5,13 @@ description: How to view information on exported data, ingestions, data sources,
 
 # Getting data storage info
 
+
 {% note info %}
 
 {% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
+
 
 You can view the following information about the data storage:
 

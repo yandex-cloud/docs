@@ -1,34 +1,33 @@
 ---
-title: How to set up an {{ GP }} target endpoint in {{ data-transfer-full-name }}
-description: In this tutorial, you will learn how to set up a {{ GP }} target endpoint in {{ data-transfer-full-name }}.
+title: How to set up a {{ GP }}/{{ CB }} target endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to set up a {{ GP }}/{{ CB }} target endpoint in {{ data-transfer-full-name }}.
 ---
-# Transferring data to a {{ GP }} target endpoint
+# Transferring data to a {{ GP }}/{{ CB }} target endpoint
 
+{{ data-transfer-full-name }} enables you to migrate data to a {{ GP }}/{{ CB }} database and implement various data transfer, processing, and transformation scenarios. To set up a transfer:
 
-{{ data-transfer-full-name }} enables you to migrate data to a {{ GP }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
-
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
-1. [Prepare the {{ GP }}](#prepare) database for the transfer.
+1. [Prepare your {{ GP }}/{{ CB }}](#prepare) database for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
 1. Perform required operations with the database and [control the transfer](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](../../../troubleshooting/index.md) to resolve them.
+1. If you run into any problems, [check the available solutions](../../../troubleshooting/index.md) for troubleshooting.
 
-## Scenarios for transferring data to {{ GP }} {#scenarios}
+## Scenarios for transferring data to {{ GP }}/{{ CB }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-    * [Migrating a {{ GP }} cluster](../../../tutorials/managed-greenplum.md).
-    * [Migration with change of storage from {{ MY }} to {{ GP }}](../../../tutorials/mmy-to-mgp.md).
-    * [Migration with change of storage from {{ OS }} to {{ GP }}](../../../tutorials/opensearch-to-greenplum.md).
+    * [Migrating a {{ GP }} or an {{ CB }} cluster](../../../tutorials/managed-greenplum.md).
+    * [Migrating with change of storage from {{ MY }} to {{ GP }} or {{ CB }}](../../../tutorials/mmy-to-mgp.md).
+    * [Migrating with change of storage from {{ OS }} to {{ GP }} or {{ CB }}](../../../tutorials/opensearch-to-greenplum.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-    * [Delivering data from {{ KF }} to {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).
+    * [Delivering data from {{ KF }} to {{ GP }} or {{ CB }}](../../../tutorials/managed-kafka-to-greenplum.md).
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
-    * [Loading data from {{ objstorage-name }} to {{ GP }}](../../../tutorials/object-storage-to-greenplum.md).
+    * [Loading data from {{ objstorage-name }} to {{ GP }} or {{ CB }}](../../../tutorials/object-storage-to-greenplum.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -38,7 +37,7 @@ Configure one of the supported data sources:
 
 * [{{ PG }}](../source/postgresql.md)
 * [{{ MY }}](../source/mysql.md)
-* [{{ GP }}](../source/greenplum.md)
+* [{{ GP }}/{{ CB }}](../source/greenplum.md)
 * [{{ KF }}](../source/kafka.md)
 * [{{ AB }}](../../../transfer-matrix.md#airbyte)
 * [{{ DS }}](../source/data-streams.md)
@@ -53,12 +52,12 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 {% include [prepare db](../../../../_includes/data-transfer/endpoints/targets/greenplum-prepare.md) %}
 
-## Configuring the {{ GP }} target endpoint {#endpoint-settings}
+## Configuring the {{ GP }} or {{ CB }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can configure:
 
-* [{{ mgp-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
-* [Additional parameters](#additional-settings).
+* Connection settings for a [{{ mgp-full-name }} cluster](#managed-service) or a [custom deployment](#on-premise), including those running on {{ compute-full-name }} VMs. These settings are required.
+* [Optional settings](#additional-settings).
 
 
 ### {{ mgp-name }} cluster {#managed-service}
@@ -66,7 +65,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mgp.viewer }}`](../../../../managed-greenplum/security/index.md#mgp-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mgp.viewer }}`](../../../../managed-greenplum/security/index.md#mgp-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 
@@ -99,20 +98,20 @@ Connection to the database with explicitly specified network addresses and ports
 
 - Management console {#console}
 
-    **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
+    **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.cleanup_policy.title }}**: Select the pre-transfer cleanup policy for the target database:
 
-    * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
+    * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only replicating data, without copying it.
 
-    * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete the tables included in the transfer (default).
+    * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Delete all tables included in the transfer. This is the default option.
 
-        Use this option to always transfer the latest version of the table schema to the target database from the source whenever the transfer is activated.
+        Use it to always transfer the latest table schemas on every transfer activation.
 
-    * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete only the data from the tables included in the transfer but keep the schema.
+    * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete data from the transferred tables, leaving the schema intact.
 
-        Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
+        Use this option if the target schema differs from the one that would be transferred from the source.
 
 {% endlist %}
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
 {% include [greenplum-trademark](../../../../_includes/mdb/mgp/trademark.md) %}

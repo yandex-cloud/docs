@@ -4,6 +4,27 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.31.0 (31.08.26) {#v-1-31-0}
+
+#### Yandex MPP Analytics for PostgreSQL {#v-1-31-0-mgp-name}
+
+* Добавлен параметр управления TLS для `gpfdist` в команды создания и обновления кластера:
+  * `yc managed-greenplum cluster create`;
+  * `yc managed-greenplum cluster update`;
+  * `yc managed-greenplum cluster restore`.
+* Добавлено отображение размеров WAL и общего хранилища для резервных копий Greenplum® и Apache Cloudberry™:
+  * `yc managed-greenplum backup get`;
+  * `yc managed-greenplum backup list`;
+  * `yc managed-greenplum cluster list-backups`.
+
+#### Cloud Functions {#v-1-31-0-sf-name}
+
+* Добавлены команды для создания и редактирования триггеров для Яндекс Мессенджера:
+  * `yc serverless trigger v2 create yandex-messenger`;
+  * `yc serverless trigger v2 update yandex-messenger`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.30.0 (27.08.26) {#v-1-30-0}
 
 #### Yandex MPP Analytics for PostgreSQL {#v-1-30-0-mgp-name}
@@ -17,8 +38,6 @@
 #### Smart Web Security {#v-1-30-0-sws-name}
 
 * Исправлено отображение документации команд `yc smartwebsecurity`: скрыто дублирующее поддерево `v1` и добавлены описания групп.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.29.0 (24.08.26) {#v-1-29-0}
 
