@@ -13,7 +13,7 @@ description: В разделе описано, какие роли необхо�
 
 ## Роли для доступа к сервису {#service-roles}
 
-Чтобы предоставить пользователю доступ к {{ datalens-short-name }}, [назначьте](../../organization/security/index.md#add-role) ему одну из ролей. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md).
+Чтобы предоставить пользователю доступ к {{ datalens-short-name }}, [назначьте]({{ link-docs }}/organization/security/#add-role) ему одну из ролей. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту]({{ link-docs }}/iam/concepts/users/service-accounts), [федеративным]({{ link-docs }}/iam/concepts/users/accounts#saml-federation) или [локальным]({{ link-docs }}/iam/concepts/users/accounts#local) пользователям, [группе пользователей]({{ link-docs }}/organization/operations/manage-groups), [системной группе]({{ link-docs }}/iam/concepts/access-control/system-group) или [публичной группе]({{ link-docs }}/iam/concepts/access-control/public-group).
 
 {% include [datalens-service-roles](../../_mermaid/roles/datalens-service.md) %}
 

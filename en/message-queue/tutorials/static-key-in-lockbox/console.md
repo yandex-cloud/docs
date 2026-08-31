@@ -10,4 +10,4 @@ To [use a static access key](index.md) saved in a {{ lockbox-name }} secret via 
 
 #### Useful links {#see-also}
 
-* [{#T}](terraform.md)
+[{#T}](terraform.md)

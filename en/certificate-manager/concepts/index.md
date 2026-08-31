@@ -12,8 +12,8 @@
 ## Certificate types {#types}
 
 {{ certificate-manager-name }} supports two types of certificates:
-* Let's Encrypt certificates (`Managed`): Certificates issued through [Let's Encrypt](https://letsencrypt.org) and managed by {{ certificate-manager-name }}. For more information about these certificates, see [Let's Encrypt certificate](managed-certificate.md).
-* Custom certificates (`Imported`): Certificates added by the user. Timely renewal of such certificates is under your own responsibility. For more information about these certificates, see [User certificate](imported-certificate.md).
+* Let's Encrypt certificates (`Managed`): Certificates issued through [Let's Encrypt](https://letsencrypt.org) and managed by {{ certificate-manager-name }}. For more on this type, see [Let's Encrypt certificate](managed-certificate.md).
+* Custom certificates (`Imported`): Certificates added by the user. Timely renewal of such certificates is under your own responsibility. For more on this type, see [User certificate](imported-certificate.md).
 
 ## Certificate statuses {#statuses}
 

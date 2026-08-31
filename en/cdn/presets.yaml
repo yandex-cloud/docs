@@ -1,5 +1,5 @@
 default:
-  cdn-pop-count: 74
+  cdn-pop-count: 75
   cdn-pops:
     '0':
       cities:

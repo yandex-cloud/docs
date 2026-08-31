@@ -128,6 +128,8 @@
 
  - [Подключение к бакету Yandex Object Storage с политикой доступа](operations/metastore/s3-policy-connect.md)
 
+ - [Мониторинг состояния кластера](operations/metastore/monitoring.md)
+
  - [Передача логов в Cloud Logging](operations/metastore/logging.md)
 
  - [Управление доступом к кластеру](operations/metastore/cluster-access.md)
@@ -343,6 +345,8 @@
  - [Get](api-ref/Operation/get.md)
 
  - [Cancel](api-ref/Operation/cancel.md)
+
+ - [Метрики Yandex Monitoring](metastore-metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

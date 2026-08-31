@@ -7,9 +7,9 @@ description: Follow this guide to add a user to {{ datalens-full-name }}.
 
 There are several ways to add a user to {{ datalens-short-name }}:
 
-1. [Via {{ datalens-short-name }}](#dl-user): If the user is not planning to use other {{ yandex-cloud }} services. This method allows you to invite users with a Yandex account. If the user asks for other {{ yandex-cloud }} services later on, you can [assign them an additional role](../../organization/security/index.md#add-role) in the organization with the current {{ datalens-short-name }} instance.
+1. [Via {{ datalens-short-name }}](#dl-user): If the user is not planning to use other {{ yandex-cloud }} services. This method allows you to invite users with a Yandex account. If the user asks for other {{ yandex-cloud }} services later on, you can [assign them an additional role]({{ link-docs }}/organization/security/#add-role) in the organization with the current {{ datalens-short-name }} instance.
 
-1. [Via {{ org-full-name }}](#org-user): If the user is planning to use other {{ yandex-cloud }} services. In which case you can invite to the organization [Yandex account users](#passport-user) or add [federated](#federated-user) and [local](../../organization/operations/add-account.md#local) users.
+1. [Via {{ org-full-name }}](#org-user): If the user is planning to use other {{ yandex-cloud }} services. In which case you can invite to the organization [Yandex account users](#passport-user) or add [federated](#federated-user) and [local]({{ link-docs }}/organization/operations/add-account#local) users.
 
 {% note info %}
 
@@ -35,16 +35,16 @@ The user will receive a {{ datalens-short-name }} invitation email. Once the use
 
 #### Inviting a user with a Yandex account {#passport-user}
 
-To invite a user with a Yandex account, follow [this guide](../../organization/operations/add-account.md#useraccount) from the {{ org-full-name }} documentation.
+To invite a user with a Yandex account, follow [this guide]({{ link-docs }}/organization/operations/add-account#useraccount) from the {{ org-full-name }} documentation.
 
 {% note warning %}
 
-Users can only use {{ datalens-short-name }} if they have a role that enables access to the service. To ensure they have access, wait for them to accept the invitation to your organization and [assign](../../organization/security/index.md#add-role) them the `{{ roles-datalens-visitor }}` role.
+Users can only use {{ datalens-short-name }} if they have a role that enables access to the service. To ensure they have access, wait for them to accept the invitation to your organization and [assign]({{ link-docs }}/organization/security/#add-role) them the `{{ roles-datalens-visitor }}` role.
 
 {% endnote %}
 
 #### Adding a federated user {#federated-user}
 
-If you set up an [identity federation](../../organization/concepts/add-federation.md), follow [this guide](../../organization/operations/add-account.md#add-user-sso) to add a new federated user. After that, make sure to [assign](../../organization/security/index.md#add-role) them the `{{ roles-datalens-visitor }}` role.
+If you set up an [identity federation]({{ link-docs }}/organization/concepts/add-federation), follow [this guide]({{ link-docs }}/organization/operations/add-account#add-user-sso) to add a new federated user. After that, make sure to [assign]({{ link-docs }}/organization/security/#add-role) them the `{{ roles-datalens-visitor }}` role.
 
 {% include [datalens-federation-user-link](../../_includes/datalens/datalens-federation-user-link.md) %}

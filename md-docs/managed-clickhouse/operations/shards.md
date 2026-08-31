@@ -6,13 +6,19 @@
 
 ## Включить шардирование {#enable}
 
-Кластеры Managed Service for ClickHouse® создаются с одним шардом. Чтобы начать непосредственно шардирование данных, [добавьте](#add-shard) еще один или несколько шардов и [создайте](../tutorials/sharding.md#example) распределенную таблицу.
+Если при создании кластера Managed Service for ClickHouse® не включить шардирование, будет создан один шард, содержащий все хосты кластера. Чтобы шардировать данные, [добавьте](#add-shard) еще один или несколько шардов и [создайте](../tutorials/sharding.md#example) распределенную таблицу.
 
 ## Создать шард {#add-shard}
 
 Количество шардов в кластерах Managed Service for ClickHouse® ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) и найдите блок **Managed Service for&nbsp;ClickHouse**.
 
 Вы можете создать сразу несколько шардов в кластере.
+
+{% note warning %}
+
+В кластере с отключенным [сервисом координации](../concepts/coordination-system.md) или встроенным ClickHouse® Keeper невозможно создать шард из двух и более хостов. Сначала [включите сервис координации](update.md#coordination) ClickHouse® Keeper или ZooKeeper на отдельных хостах.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

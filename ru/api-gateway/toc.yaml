@@ -75,6 +75,8 @@ items:
             href: operations/trigger/data-streams-trigger-create.md
           - name: Создать триггер для почты
             href: operations/trigger/mail-trigger-create.md
+          - name: Создать триггер для Telegram
+            href: operations/trigger/telegram-trigger-create.md
       - name: Управление триггером
         items:
           - name: Изменить триггер
@@ -267,6 +269,8 @@ items:
             href: concepts/trigger/data-streams-trigger.md
           - name: Триггер для почты
             href: concepts/trigger/mail-trigger.md
+          - name: Триггер для Telegram
+            href: concepts/trigger/telegram-trigger.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

@@ -98,7 +98,7 @@ PKCE широко поддерживается и рекомендуется с�
 
 * [Технология единого входа (SSO)](sso.md)
 * [JSON Web Token (JWT)](jwt.md)
-* [Зачем нужны SSL-сертификаты](ssl-certificate.md)
+* [HTTP и HTTPS: в чем разница и зачем нужен SSL-сертификат](ssl-certificate.md)
 * [RFC 7636: Proof Key for Code Exchange](https://datatracker.ietf.org/doc/html/rfc7636)
 
 [*popup-1]: [_OAuth 2.0_](https://ru.wikipedia.org/wiki/OAuth) — стандарт для предоставления доступа к ресурсам от имени владельца. Расширенная версия OAuth 2.0 (OpenID Connect) используется как протокол для единого входа ([SSO](sso.md)).

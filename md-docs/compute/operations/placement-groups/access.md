@@ -48,32 +48,45 @@
 
   1. Назначьте роль с помощью команды:
 
-     * Пользователю:
+     ```bash
+     yc compute placement-group add-access-binding <идентификатор_группы_размещения> \
+       --role <роль> \
+       --subject <тип_субъекта>:<идентификатор_субъекта>
+     ```
 
-       ```bash
-       yc compute placement-group add-access-binding <идентификатор_группы_размещения> \
-         --user-account-id <идентификатор_пользователя> \
-         --role <роль>
-       ```
+     Где:
 
-       Где:
+     * `--role` — назначаемая [роль](../../security/index.md#roles-list).
+     * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-       * `--user-account-id` — [идентификатор пользователя](../../../organization/operations/users-get.md). Чтобы назначить роль для всех аутентифицированных пользователей, воспользуйтесь флагом `--all-authenticated-users`.
-       * `--role` — назначаемая [роль](../../security/index.md#roles-list).
+         {% cut "Обозначения субъектов" %}
 
-     * Сервисному аккаунту:
+         Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+         
+         #|
+         || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+         || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+         || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+         || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+         || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+         || `system`         | `system:allAuthenticatedUsers`
+         
+         (группа `All authenticated users`) | `--all-authenticated-users` ||
+         || ^                | `system:allUsers`
+         
+         (группа `All users`) | — ||
+         || ^                | `system:group:organization:<идентификатор_организации>:users`
+         
+         (группа `All users in organization X`) | `--organization-users` ||
+         || ^                | `system:group:federation:<идентификатор_федерации>:users`
+         
+         (группа `All users in federation N`) | `--federation-users` ||
+         || ^                | `system:group:userpool:<идентификатор_пула>:users`
+         
+         (группа `All users in userpool P`) | — ||
+         |#
 
-       ```bash
-       yc compute placement-group add-access-binding <идентификатор_группы_размещения> \
-         --service-account-id <идентификатор_сервисного_аккаунта> \
-         --role <роль>
-       ```
-
-       Где:
-
-       * `--service-account-id` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md).
-       * `--role` — назначаемая [роль](../../security/index.md#roles-list).
-
+         {% endcut %}
 
 - Terraform {#tf}
 
@@ -104,7 +117,36 @@
 
       * `placement_group_id` — идентификатор группы размещения ВМ.
       * `role` — назначаемая [роль](../../security/index.md#roles-list).
-      * `members` — список типов и идентификаторов [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список обозначений [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
       Более подробную информацию о параметрах ресурса `yandex_compute_placement_group_iam_binding` читайте в [документации провайдера](../../../terraform/resources/compute_placement_group_iam_binding.md).
 
@@ -147,7 +189,36 @@
 
 - API {#api}
 
-  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/PlacementGroup/updateAccessBindings.md) для ресурса [PlacementGroup](../../api-ref/PlacementGroup/index.md) или вызовом gRPC API [PlacementGroupService/UpdateAccessBindings](../../api-ref/grpc/PlacementGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/PlacementGroup/updateAccessBindings.md) для ресурса [PlacementGroup](../../api-ref/PlacementGroup/index.md) или вызовом gRPC API [PlacementGroupService/UpdateAccessBindings](../../api-ref/grpc/PlacementGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+  
+  #|
+  || **subject.type** | **subject.id** ||
+  || `userAccount`    | `<идентификатор_пользователя>` ||
+  || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+  || `federatedUser`  | `<идентификатор_пользователя>` ||
+  || `group`          | `<идентификатор_группы>` ||
+  || `system`         | `allAuthenticatedUsers`
+  
+  (группа `All authenticated users`) ||
+  || ^                | `allUsers`
+  
+  (группа `All users`) ||
+  || ^                | `group:organization:<идентификатор_организации>:users`
+  
+  (группа `All users in organization X`) ||
+  || ^                | `group:federation:<идентификатор_федерации>:users`
+  
+  (группа `All users in federation N`) ||
+  || ^                | `group:userpool:<идентификатор_пула>:users`
+  
+  (группа `All users in userpool P`) ||
+  |#
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -204,19 +275,46 @@
        --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
      ```
 
-     Где:
+     Где `--access-binding` — параметры для установки прав доступа:
 
-     * `--access-binding` — параметры для установки прав доступа:
+     * `role` — назначаемая [роль](../../security/index.md#roles-list).
+     * `subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-       * `role` — назначаемая [роль](../../security/index.md#roles-list).
-       * `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+         {% cut "Обозначения субъектов" %}
+
+         Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+         
+         #|
+         || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+         || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+         || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+         || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+         || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+         || `system`         | `system:allAuthenticatedUsers`
+         
+         (группа `All authenticated users`) | `--all-authenticated-users` ||
+         || ^                | `system:allUsers`
+         
+         (группа `All users`) | — ||
+         || ^                | `system:group:organization:<идентификатор_организации>:users`
+         
+         (группа `All users in organization X`) | `--organization-users` ||
+         || ^                | `system:group:federation:<идентификатор_федерации>:users`
+         
+         (группа `All users in federation N`) | `--federation-users` ||
+         || ^                | `system:group:userpool:<идентификатор_пула>:users`
+         
+         (группа `All users in userpool P`) | — ||
+         |#
+
+         {% endcut %}
 
      Например, назначьте роли нескольким пользователям и сервисному аккаунту:
 
      ```bash
      yc compute placement-group set-access-bindings my-group \
-       --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
-       --access-binding role=viewer,subject=userAccount:helj89sfj80a********
+       --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
+       --access-binding role=viewer,subject=userAccount:helj89sfj80a******** \
        --access-binding role=editor,subject=serviceAccount:ajel6l0jcb9s********
      ```
 
@@ -256,7 +354,36 @@
 
       * `placement_group_id` — идентификатор группы размещения ВМ.
       * `role` — назначаемая [роль](../../security/index.md#roles-list).
-      * `members` — список типов и идентификаторов [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список обозначений [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
       Более подробную информацию о параметрах ресурса `yandex_compute_placement_group_iam_binding` читайте в [документации провайдера](../../../terraform/resources/compute_placement_group_iam_binding.md).
 
@@ -298,7 +425,36 @@
 
 - API {#api}
 
-  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../../api-ref/PlacementGroup/setAccessBindings.md) для ресурса [PlacementGroup](../../api-ref/PlacementGroup/index.md) или вызовом gRPC API [PlacementGroupService/SetAccessBindings](../../api-ref/grpc/PlacementGroup/setAccessBindings.md).
+  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../../api-ref/PlacementGroup/setAccessBindings.md) для ресурса [PlacementGroup](../../api-ref/PlacementGroup/index.md) или вызовом gRPC API [PlacementGroupService/SetAccessBindings](../../api-ref/grpc/PlacementGroup/setAccessBindings.md). В теле запроса в свойстве `subject` укажите тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+  
+  #|
+  || **subject.type** | **subject.id** ||
+  || `userAccount`    | `<идентификатор_пользователя>` ||
+  || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+  || `federatedUser`  | `<идентификатор_пользователя>` ||
+  || `group`          | `<идентификатор_группы>` ||
+  || `system`         | `allAuthenticatedUsers`
+  
+  (группа `All authenticated users`) ||
+  || ^                | `allUsers`
+  
+  (группа `All users`) ||
+  || ^                | `group:organization:<идентификатор_организации>:users`
+  
+  (группа `All users in organization X`) ||
+  || ^                | `group:federation:<идентификатор_федерации>:users`
+  
+  (группа `All users in federation N`) ||
+  || ^                | `group:userpool:<идентификатор_пула>:users`
+  
+  (группа `All users in userpool P`) ||
+  |#
+
+  {% endcut %}
 
   {% note alert %}
 
@@ -348,13 +504,42 @@
      ```bash
      yc compute placement-group remove-access-binding <идентификатор_группы_размещения> \
        --role=<роль> \
-       --subject=<тип_субъекта>:<идентификатор_субъекта> \
+       --subject=<тип_субъекта>:<идентификатор_субъекта>
      ```
 
      Где:
 
      * `--role` — идентификатор роли, которую надо отозвать.
-     * `--subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), у которого вы хотите отозвать роль.
+     * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), у которого вы хотите отозвать роль.
+
+         {% cut "Обозначения субъектов" %}
+
+         Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+         
+         #|
+         || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+         || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+         || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+         || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+         || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+         || `system`         | `system:allAuthenticatedUsers`
+         
+         (группа `All authenticated users`) | `--all-authenticated-users` ||
+         || ^                | `system:allUsers`
+         
+         (группа `All users`) | — ||
+         || ^                | `system:group:organization:<идентификатор_организации>:users`
+         
+         (группа `All users in organization X`) | `--organization-users` ||
+         || ^                | `system:group:federation:<идентификатор_федерации>:users`
+         
+         (группа `All users in federation N`) | `--federation-users` ||
+         || ^                | `system:group:userpool:<идентификатор_пула>:users`
+         
+         (группа `All users in userpool P`) | — ||
+         |#
+
+         {% endcut %}
 
      Например, чтобы отозвать роль `viewer` у пользователя с идентификатором `ajel6l0jcb9s********` на группу размещения:
 
@@ -427,6 +612,35 @@
 
 - API {#api}
 
-  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/PlacementGroup/updateAccessBindings.md) для ресурса [PlacementGroup](../../api-ref/PlacementGroup/index.md) или вызовом gRPC API [PlacementGroupService/UpdateAccessBindings](../../api-ref/grpc/PlacementGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/PlacementGroup/updateAccessBindings.md) для ресурса [PlacementGroup](../../api-ref/PlacementGroup/index.md) или вызовом gRPC API [PlacementGroupService/UpdateAccessBindings](../../api-ref/grpc/PlacementGroup/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+  
+  #|
+  || **subject.type** | **subject.id** ||
+  || `userAccount`    | `<идентификатор_пользователя>` ||
+  || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+  || `federatedUser`  | `<идентификатор_пользователя>` ||
+  || `group`          | `<идентификатор_группы>` ||
+  || `system`         | `allAuthenticatedUsers`
+  
+  (группа `All authenticated users`) ||
+  || ^                | `allUsers`
+  
+  (группа `All users`) ||
+  || ^                | `group:organization:<идентификатор_организации>:users`
+  
+  (группа `All users in organization X`) ||
+  || ^                | `group:federation:<идентификатор_федерации>:users`
+  
+  (группа `All users in federation N`) ||
+  || ^                | `group:userpool:<идентификатор_пула>:users`
+  
+  (группа `All users in userpool P`) ||
+  |#
+
+  {% endcut %}
 
 {% endlist %}

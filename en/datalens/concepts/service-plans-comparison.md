@@ -41,7 +41,7 @@ JavaScript customization options in [Editor](../charts/editor/index.md) | ![imag
 [Published content management](./datalens-public.md#publication-disable) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 {{ datalens-name }} usage statistics | General ([Light](./datalens-usage-analytics.md#light-dash)) | Advanced ([Detailed](./datalens-usage-analytics.md#detailed-dash)) 
 [SLA](https://yandex.com/legal/cloud_sla_datalens) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)  
-Support | [Basic plan](../../support/pricing.md#base) (if you do not have [Business](../../support/pricing.md#business) or [Premium](../../support/pricing.md#premium) enabled) | [Business plan](../../support/pricing.md#business) (only applies to {{ datalens-name }}) and priority over the Community plan when processing support requests
+Support | [Basic plan]({{ link-docs }}/support/pricing#base) (if you do not have [Business]({{ link-docs }}/support/pricing#business) or [Premium]({{ link-docs }}/support/pricing#premium) enabled) | [Business plan]({{ link-docs }}/support/pricing#business) (only applies to {{ datalens-name }}) and priority over the Community plan when processing support requests
 
 #### Useful links {#see-also}
 

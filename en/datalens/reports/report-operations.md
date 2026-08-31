@@ -103,7 +103,7 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
    - Image {#image}
 
           
-     * Add a link to an [image](../dashboard/markdown.md#image) from a [{{ objstorage-full-name }}](../../storage/quickstart.md) storage.
+     * Add a link to an [image](../dashboard/markdown.md#image) from a [{{ objstorage-full-name }}]({{ link-docs }}/storage/quickstart) storage.
 
        {% note warning %}
 

@@ -556,7 +556,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Настроить сервис координации {#coordination}
 
-Вы можете [включить сервис координации](#enable-coordination) {{ CK }} или {{ ZK }}, если он не был задан. Для включенного сервиса координации можно [изменить его настройки](#change-coordination).
+Вы можете [включить сервис координации](#enable-coordination) {{ CK }} или {{ ZK }} на отдельных хостах, если он не был задан. Если в кластере используется встроенный {{ CK }}, то можно включить только сервис координации {{ CK }} на отдельных хостах. Для включенного сервиса координации можно [изменить его настройки](#change-coordination).
 
 ### Включить сервис координации {#enable-coordination}
 
@@ -574,6 +574,7 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}**.
   1. В блоке **{{ ui-key.yacloud.clickhouse.AddCoordinatorHost.title_main-settings_68Grp }}** выберите [сервис координации](../concepts/coordination-system.md).
+
   1. В зависимости от выбранного сервиса задайте следующие настройки:
 
       * Для сервиса координации **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}**:

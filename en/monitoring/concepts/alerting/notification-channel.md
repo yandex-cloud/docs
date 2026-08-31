@@ -25,15 +25,15 @@ As soon as a notification channel is created, the following additional parameter
 * **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.sent-notify-statuses }}**. Select the alert statuses that will prompt notification.
 * **{{ ui-key.yacloud_monitoring.monitoring-alerts.channel-table.repeat }}**. Select the time after which {{ monitoring-short-name }} will repeat alert status notifications. Does not apply for the `OK` status.
 
-## Notification sending statuses {#dispatch-statuses}
+## Notification delivery statuses {#dispatch-statuses}
 
-Each sending of a notification can have one of the following statuses:
+Each notification can have one of the following delivery statuses:
 
-Stage | Description
+Status | Description
 ----- | -----
 `{{ ui-key.yacloud_monitoring.channel.status-description_success }}` | Notification successful.
 `{{ ui-key.yacloud_monitoring.channel.status-description_error }}` | Notification not sent due to an error.
-`{{ ui-key.yacloud_monitoring.channel.status-description_resource_exhausted }}` | Notification not sent due to a sending method restriction.
+`{{ ui-key.yacloud_monitoring.channel.status-description_resource_exhausted }}` | Notification not sent due to channel restrictions.
 
 #### Useful links {#see-also}
 

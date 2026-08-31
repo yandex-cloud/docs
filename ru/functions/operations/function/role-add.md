@@ -15,42 +15,32 @@ description: Следуя данной инструкции, вы сможете
 
     Выполните команду, чтобы назначить [роль](../../security/index.md#roles-list) на функцию:
 
-    * пользователю:
-        ```
-        yc serverless function add-access-binding \
-          --id <идентификатор_функции> \
-          --user-account-id <идентификатор_пользователя> \
-          --role <роль>
-        ```
-        Результат:
-        ```
-        done (1s)
-        ```
-    * [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md):  
-        ```
-        yc serverless function add-access-binding \
-          --id <идентификатор_функции> \
-          --service-account-id <идентификатор_сервисного_аккаунта> \
-          --role <роль>
-        ```
-        Результат:
-        ```
-        done (1s)
-        ```
-    * всем авторизованным пользователям ([публичная группа](../../../iam/concepts/access-control/public-group.md) `All authenticated users`):
-        ```
-        yc serverless function add-access-binding \
-          --id <идентификатор_функции> \
-          --all-authenticated-users \
-          --role <роль>
-        ```
-        Результат:
-        ```
-        done (1s)
-        ```
+    ```bash
+    yc serverless function add-access-binding \
+      --id <идентификатор_функции> \
+      --role <роль> \
+      --subject <тип_субъекта>:<идентификатор_субъекта>
+    ```
+
+    Где:
+
+    * `--role` — назначаемая [роль](../../security/index.md#roles-list).
+    * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+        {% cut "Обозначения субъектов" %}
+
+        {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+        {% endcut %}
 
 - API {#api}
 
-  Чтобы назначить роли на функцию, воспользуйтесь методом REST API [setAccessBindings](../../functions/api-ref/Function/setAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetAccessBindings](../../functions/api-ref/grpc/Function/setAccessBindings.md).
+  Чтобы назначить роли на функцию, воспользуйтесь методом REST API [setAccessBindings](../../functions/api-ref/Function/setAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetAccessBindings](../../functions/api-ref/grpc/Function/setAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

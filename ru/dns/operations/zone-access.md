@@ -37,31 +37,22 @@ description: Следуя данной инструкции, вы настрои
 
   1. Назначьте роль с помощью команды:
 
-      * Пользователю:
+      ```bash
+      yc dns zone add-access-binding <идентификатор_зоны> \
+        --role <роль> \
+        --subject <тип_субъекта>:<идентификатор_субъекта>
+      ```
 
-        ```bash
-        yc dns zone add-access-binding <идентификатор_зоны> \
-          --user-account-id <идентификатор_пользователя> \
-          --role <роль>
-        ```
+      Где:
 
-        Где:
+      * `--role` — назначаемая [роль](../security/index.md#roles-list).
+      * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-        * `--user-account-id` — [идентификатор пользователя](../../organization/operations/users-get.md). Чтобы назначить роль для всех аутентифицированных пользователей, воспользуйтесь параметром `--all-authenticated-users`.
-        * `--role` — назначаемая [роль](../security/index.md#roles-list).
+          {% cut "Обозначения субъектов" %}
 
-      * Сервисному аккаунту:
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-        ```bash
-        yc dns zone add-access-binding <идентификатор_зоны> \
-          --service-account-id <идентификатор_сервисного_аккаунта> \
-          --role <роль>
-        ```
-
-        Где:
-
-        * `--service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md).
-        * `--role` — назначаемая [роль](../security/index.md#roles-list).
+          {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -85,7 +76,13 @@ description: Следуя данной инструкции, вы настрои
 
       * `dns_zone_id` — идентификатор зоны DNS.
       * `role` — назначаемая [роль](../security/index.md#roles-list).
-      * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список обозначений [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
        Подробнее о параметрах ресурса `yandex_dns_zone_iam_binding` в [документации провайдера]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
@@ -101,7 +98,13 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -143,11 +146,16 @@ description: Следуя данной инструкции, вы настрои
        --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
      ```
 
-     Где:
+     Где `--access-binding` — параметры для установки прав доступа:
 
-     * `--access-binding` — параметры для установки прав доступа:
-         * `role` — назначаемая [роль](../security/index.md#roles-list).
-         * `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+     * `role` — назначаемая [роль](../security/index.md#roles-list).
+     * `subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+         {% cut "Обозначения субъектов" %}
+
+         {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
 
      Например, назначьте роли `dns.editor` нескольким пользователям и сервисному аккаунту:
 
@@ -185,7 +193,13 @@ description: Следуя данной инструкции, вы настрои
 
       * `dns_zone_id` — идентификатор зоны DNS.
       * `role` — назначаемая [роль](../security/index.md#roles-list).
-      * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список обозначений [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
       Подробнее о параметрах ресурса `yandex_dns_zone_iam_binding` в [документации провайдера]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
@@ -201,7 +215,13 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../api-ref/DnsZone/setAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/SetAccessBindings](../api-ref/grpc/DnsZone/setAccessBindings.md).
+  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../api-ref/DnsZone/setAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/SetAccessBindings](../api-ref/grpc/DnsZone/setAccessBindings.md). В теле запроса в свойстве `subject` укажите тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
   {% note alert %}
 
@@ -224,7 +244,7 @@ description: Следуя данной инструкции, вы настрои
   1. Посмотрите описание команды CLI для отзыва роли на зону DNS:
 
       ```bash
-      yc dns zone add-access-binding --help
+      yc dns zone remove-access-binding --help
       ```
 
   1. Посмотрите список ролей, которые уже назначены на ресурс:
@@ -238,13 +258,19 @@ description: Следуя данной инструкции, вы настрои
      ```bash
      yc dns zone remove-access-binding <идентификатор_зоны> \
        --role=<роль> \
-       --subject=<тип_субъекта>:<идентификатор_субъекта> \
+       --subject=<тип_субъекта>:<идентификатор_субъекта>
      ```
 
      Где:
 
      * `--role` — идентификатор роли, которую надо отозвать.
-     * `--subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+     * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+
+         {% cut "Обозначения субъектов" %}
+
+         {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
 
      Например, чтобы отозвать роль `dns.editor` у пользователя с идентификатором `ajel6l0jcb9s********` на DNS зону:
 
@@ -284,6 +310,12 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

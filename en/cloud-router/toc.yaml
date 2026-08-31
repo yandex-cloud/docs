@@ -14,7 +14,7 @@ items:
         href: operations/ri-operations.md
       - name: Creating a virtual router
         href: operations/ri-create.md
-      - name: Updating virtual router settings
+      - name: Changing the virtual router parameters
         href: operations/ri-update.md
       - name: Managing networks and IP prefixes in a virtual router
         href: operations/ri-prefixes-upsert.md
@@ -43,6 +43,8 @@ items:
         href: concepts/aggregates.md
       - name: VPC Stitching
         href: concepts/vpc-stitching.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: Use cases
     expanded: true
     items:

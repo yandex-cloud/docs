@@ -5,13 +5,12 @@ description: In this tutorial, you will learn how to set up a {{ IBRG }} target 
 
 # Transferring data to a {{ IBRG }} target endpoint
 
+{{ data-transfer-full-name }} enables you to migrate data to {{ IBRG }} tables in a {{ metastore-full-name }} cluster and implement various data transfer, processing, and transformation scenarios. To set up a transfer:
 
-{{ data-transfer-full-name }} enables you to migrate data to {{ IBRG }} tables in a {{ metastore-full-name }} cluster and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
-
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
 1. Perform the required operations with the tables and [see how the transfer is going](../../monitoring.md).
 
 ## Scenarios for transferring data to {{ IBRG }} {#scenarios}
@@ -37,21 +36,27 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 ## Configuring the {{ IBRG }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can configure:
 
 * [Settings for connecting to a {{ metastore-name }} cluster](#managed-service).
 * [Configuration settings](#bucket-config) for an {{ objstorage-full-name }} bucket or custom S3-compatible storage.
-* [Additional parameters](#additional-settings).
+* [Optional settings](#additional-settings).
 
 ### {{ metastore-name }} cluster {#managed-service}
 
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.metastore.viewer }}`](../../../../metadata-hub/security/metastore-roles.md#managed-metastore-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit a managed database endpoint, you will need the [`{{ roles.metastore.viewer }}`](../../../../metadata-hub/security/metastore-roles.md#managed-metastore-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 
+
+{% note info %}
+
+To configure the {{ IBRG }} target endpoint, use the {{ metastore-name }} cluster version 4.2.0 or higher. Versions below 4.2.0 do not support the REST protocol required for {{ IBRG }} tables. For more information on connection protocols, see [{{ metastore-full-name }} clusters](../../../../metadata-hub/concepts/metastore.md#connection-protocols).
+
+{% endnote %}
 
 Connection with the cluster specified in {{ yandex-cloud }}.
 
@@ -97,13 +102,13 @@ Connection with the cluster specified in {{ yandex-cloud }}.
 
 - Management console {#console}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.cleanup_policy.title }}**: Select the pre-transfer cleanup policy for the target database:
 
         * `{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergCleanupPolicy.ICEBERG_CLEANUP_POLICY_DISABLED.title }}`: Use the existing tables to write new data.
 
         * `{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergCleanupPolicy.ICEBERG_CLEANUP_POLICY_DROP.title }}`: Remove all tables involved in the transfer.
 
-        Use this option to always transfer the latest version of the table schema to the target database from the source whenever the transfer is activated.
+        Use this option to always transfer the latest table schemas on every transfer activation.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.writer_settings.title }}**: Settings for data writes to {{ IBRG }} tables:
 
@@ -119,4 +124,4 @@ Connection with the cluster specified in {{ yandex-cloud }}.
 
 {% endlist %}
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).

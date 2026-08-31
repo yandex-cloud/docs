@@ -23,7 +23,9 @@ Workbooks and collections are a new way to store objects in {{ datalens-short-na
 Workbooks make it much easier to work with objects:
 
 * They allow you to consistently [set up permissions](./workbooks-operations.md#wb-coll-grant) to linked objects: connections, datasets, charts, and dashboards.
-* With them, you can set up permissions for [user groups](../../organization/operations/create-group.md).
+
+* With them, you can set up permissions for [user groups]({{ link-docs }}/organization/operations/create-group).
+
 * You can copy workbooks maintaining the integrity of internal links and making their copies independent of the original.
 
   {% note info %}

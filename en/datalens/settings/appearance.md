@@ -75,7 +75,7 @@ For UI customization:
      {% endlist %}
 
    * **Contrasting color**: Select a color for the text on the button.
-   * **Logo and favicon**: To replace the logo and favicon, [upload](../../storage/quickstart.md#upload-files) a 1:1 aspect ratio SVG file to {{ objstorage-full-name }}. Then copy the link to the file in the storage and paste it into this field. Click **Apply** next to the field.
+   * **Logo and favicon**: To replace the logo and favicon, [upload]({{ link-docs }}/storage/quickstart#upload-files) a 1:1 aspect ratio SVG file to {{ objstorage-full-name }}. Then copy the link to the file in the storage and paste it into this field. Click **Apply** next to the field.
    
       
    * **Rounding**: Sets corner rounding for the following UI elements:

@@ -182,7 +182,7 @@ The **avg** function has the following function overloading options depending on
 
 #### count
 
-Returns the number of points in a metric or the number of items in a vector of numbers.
+Returns the count of metric points or number vectors.
 
 The **count** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
 
@@ -655,7 +655,7 @@ When you specify an optional *grid* parameter, the function populates the curren
 
 {% note warning %}
 
-Use the **constant_line** function only to show lines on charts. The use of this function in calculations will produce an incorrect result, because the function returns a timeseries of only two points: at the beginning and end of the definition interval.
+Use the **constant_line** function only to plot lines on charts. The use of this function in calculations will produce an incorrect result, because the function returns a timeseries of only two points: at the beginning and end of the definition interval.
 
 {% endnote %}
 

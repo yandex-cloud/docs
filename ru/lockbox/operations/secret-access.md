@@ -25,37 +25,26 @@ description: Следуя данной инструкции, вы сможете
 
   1. {% include [get-secret-id](../../_includes/lockbox/get-secret-id.md) %}
 
-  1. Чтобы назначить роль на секрет:
+  1. Чтобы назначить роль на секрет, выполните команду:
 
-      * Пользователю:
+      ```bash
+      yc lockbox secret add-access-binding \
+        --id <идентификатор_секрета> \
+        --role <роль> \
+        --subject <тип_субъекта>:<идентификатор_субъекта>
+      ```
 
-        ```bash
-        yc lockbox secret add-access-binding \
-          --id <идентификатор_секрета> \
-          --user-account-id <идентификатор_пользователя> \
-          --role <роль>
-        ```
+      Где:
 
-        Где:
-        
-        * `--id` — идентификатор секрета.
-        * `--user-account-id` — [идентификатор пользователя](../../organization/operations/users-get.md).
-        * `--role` — назначаемая [роль](../security/index.md#roles-list).
+      * `--id` — идентификатор секрета.
+      * `--role` — назначаемая [роль](../security/index.md#roles-list).
+      * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-      * [Сервисному аккаунту](../../iam/concepts/users/service-accounts.md):
+          {% cut "Обозначения субъектов" %}
 
-        ```bash
-        yc lockbox secret add-access-binding \
-          --id <идентификатор_секрета> \
-          --service-account-id <идентификатор_сервисного_аккаунта> \
-          --role <роль>
-        ```
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-        Где:
-        
-        * `--id` — идентификатор секрета.
-        * `--service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md).
-        * `--role` — назначаемая [роль](../security/index.md#roles-list).
+          {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -75,7 +64,13 @@ description: Следуя данной инструкции, вы сможете
 
       * `secret_id` — идентификатор секрета.
       * `role` — назначаемая [роль](../security/index.md#roles-list).
-      * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
       Подробнее о параметрах ресурса `yandex_lockbox_secret_iam_member` в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret_iam_member).
 
@@ -91,7 +86,13 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы настроить права доступа к секрету, воспользуйтесь методом REST API [setAccessBindings](../api-ref/Secret/setAccessBindings.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/SetAccessBindings](../api-ref/grpc/Secret/setAccessBindings.md).
+  Чтобы настроить права доступа к секрету, воспользуйтесь методом REST API [setAccessBindings](../api-ref/Secret/setAccessBindings.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/SetAccessBindings](../api-ref/grpc/Secret/setAccessBindings.md). В теле запроса в свойстве `subject` укажите тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 

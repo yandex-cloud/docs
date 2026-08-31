@@ -10,6 +10,7 @@ description: Various use cases for {{ baremetal-full-name }} in {{ yandex-cloud 
 * [{#T}](./bms-simple-subnet.md)
 * [{#T}](./bms-public-subnet.md)
 * [{#T}](./bm-vrf-and-vpc-interconnect.md)
+* [{#T}](./bm-vpc-dns-forwarder.md)
 * [{#T}](./usb-over-ip.md)
 * [{#T}](./opnsense-failover-cluster.md)
 * [{#T}](./webapp-on-bms-behind-sws.md)

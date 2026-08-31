@@ -3,7 +3,7 @@
 {% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
 
 
-In this tutorial, you will configure status monitoring for devices, e.g., vending machines, connected to [{{ iot-full-name }}](../../iot-core/index.yaml) scattered around the city. You can monitor the status of vending machines on the [{{ datalens-full-name }}](../../datalens/index.yaml) map and charts. To emulate sensors, we will use [{{ sf-full-name }}](../../functions/index.yaml). If you have any connected sensors, use them. [{{ mpg-full-name }}](../../managed-postgresql/index.yaml) will be used to store data.
+In this tutorial, you will configure status monitoring for devices, e.g., vending machines, connected to [{{ iot-full-name }}](../../iot-core/index.yaml) scattered around the city. You can monitor the status of vending machines on the [{{ datalens-full-name }}] map and charts. To emulate sensors, we will use [{{ sf-full-name }}](../../functions/index.yaml). If you have any connected sensors, use them. [{{ mpg-full-name }}](../../managed-postgresql/index.yaml) will be used to store data.
 
 The source code for the tutorial is available in a [GitHub repository](https://github.com/yandex-cloud-examples/yc-geo-dist-devices-iot-monitoring).
 

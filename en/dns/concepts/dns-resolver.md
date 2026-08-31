@@ -19,7 +19,7 @@ The IP connectivity between the VM and the DNS resolver is contributed by a spec
 
 You can configure integration of your corporate DNS services with internal DNS zones in {{ yandex-cloud }}.
 
-You can configure redirection of DNS requests from {{ yandex-cloud }} resources to corporate network resources by creating separate DNS forwarders in {{ vpc-name }} subnets. DNS requests from corporate network resources to resources in {{ vpc-name }} subnets are processed by [inbound DNS connections](./dns-connection.md#inbound-endpoints).
+You can configure redirection of DNS requests from {{ yandex-cloud }} resources to corporate network resources by creating separate DNS forwarders in {{ vpc-name }} subnets. DNS requests from corporate network resources to resources in {{ vpc-name }} subnets are processed by [inbound DNS connections](./dns-connection.md#dns-inbound).
 
 For more on integrating corporate DNS services with {{ yandex-cloud }} DNS services, see [{#T}](../tutorials/dns-integration.md).
 

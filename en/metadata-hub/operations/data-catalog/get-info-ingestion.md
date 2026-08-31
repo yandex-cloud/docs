@@ -5,11 +5,13 @@ description: Follow this guide to get information about an ingestion in {{ data-
 
 # Getting ingestion info
 
+
 {% note info %}
 
 {% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
+
 
 ## Getting ingestion info {#ingestion-info}
 

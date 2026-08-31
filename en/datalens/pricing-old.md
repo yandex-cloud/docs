@@ -8,6 +8,8 @@ editable: false
 
 
 
+
+
 {% note info %}
 
 On December 1, 2025, the {{ datalens-name }} pricing rules changed. For details of the changes, see [this article](./pricing-changes.md). To see the new pricing policy, follow [this link](./pricing.md).
@@ -53,7 +55,9 @@ Rules of the _Business_ trial period:
 
 To activate the _Business_ plan trial period, switch to the _Business_ service plan by following [this guide](./settings/service-plan.md#change-service-plan). Once the trial period ends, the second month of use will be charged to you proportionally to the remaining number of days.
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 
 

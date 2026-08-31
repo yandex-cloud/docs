@@ -27,9 +27,9 @@ As soon as a notification channel is created, the following additional parameter
 
 ## Notification sending statuses {#dispatch-statuses}
 
-Each sending of a notification can have one of the following statuses:
+Each sending can have one of the following statuses:
 
-Stage | Description
+Status | Description
 ----- | -----
 `{{ ui-key.yacloud_monitoring.channel.status-description_success }}` | Notification successful.
 `{{ ui-key.yacloud_monitoring.channel.status-description_error }}` | Notification not sent due to an error.

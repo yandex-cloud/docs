@@ -5,11 +5,13 @@ description: Follow this guide to mark up metadata in {{ data-catalog-full-name 
 
 # Metadata markup
 
+
 {% note info %}
 
 {% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
+
 
 To mark up metadata, you can:
 

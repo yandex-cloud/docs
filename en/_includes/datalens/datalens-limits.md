@@ -12,7 +12,7 @@ There are no quotas for {{ datalens-short-name }}.
 
 {% note warning %}
 
-The maximum number of {{ datalens-short-name }} instances per {{ yandex-cloud }} [organization](../../organization/quickstart.md) or [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) is one.
+The maximum number of {{ datalens-short-name }} instances per {{ yandex-cloud }} [organization]({{ link-docs }}/organization/quickstart) or [cloud]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#cloud) is one.
 
 {% endnote %}
 

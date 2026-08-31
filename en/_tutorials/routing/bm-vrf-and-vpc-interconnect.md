@@ -299,6 +299,10 @@ A network connectivity check assumes that:
 
       Network connectivity between the VM and the {{ baremetal-name }} server has been established with zero packet loss.
 
+## What's next {#next}
+
+To enable a {{ baremetal-name }} server to access cloud resources by domain names from {{ yandex-cloud }} internal DNS zones, [configure DNS name resolution](../../baremetal/tutorials/bm-vpc-dns-forwarder.md) using an inbound DNS connection.
+
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:

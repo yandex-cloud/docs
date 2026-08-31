@@ -35,7 +35,7 @@ You cannot join data from different sources at a single dataset level.
 
 #### Adding tables {#ui-join}
 
-You can [join data](../dataset/create-dataset.md#links) through the dataset creation interface by dragging tables to the workspace and configuring links between them using the [JOIN](../dataset/data-model.md#source) operator. Check out this [scenario](../../tutorials/datalens/data-from-ch-visualization.md#step2) for a use case of joining data by adding tables.
+You can [join data](../dataset/create-dataset.md#links) through the dataset creation interface by dragging tables to the workspace and configuring links between them using the [JOIN](../dataset/data-model.md#source) operator. Check out this [scenario](../tutorials/data-from-ch-visualization.md#step2) for a use case of joining data by adding tables.
 
 {% include [data-join-duplicate-fields-note](../../_includes/datalens/datalens-data-join-duplicate-fields-note.md) %}
 

@@ -22,8 +22,8 @@ To create a {{ TR }} connection:
       1. {% include [datalens-db-select](../../../_includes/datalens/datalens-db-select-2.md) %}
 
           * **Cloud and folder**: Select the folder where your service account will be located.
-          * **Service account**: Select an existing service account or [create a new one](../../../iam/operations/sa/create.md).
-          * **Cluster**. Specify the cluster from the list of available {{ TR }} clusters or [create](../../../managed-trino/operations/cluster-create.md) a new one.
+          * **Service account**: Select an existing service account or [create a new one]({{ link-docs }}/iam/operations/sa/create).
+          * **Cluster**. Specify the cluster from the list of available {{ TR }} clusters or [create]({{ link-docs }}/managed-trino/operations/cluster-create) a new one.
 
           {% include [datalens-db-sql-level-2](../../../_includes/datalens/datalens-db-connection-sql-level-2.md) %}
 

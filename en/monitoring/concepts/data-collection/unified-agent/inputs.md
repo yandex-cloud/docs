@@ -68,21 +68,21 @@ Parameter descriptions:
         timeout: 5s  # Optional, the default value is 5 seconds.
 
         # Headers to add to the request.
-        headers:  # optional, not set by default
+        headers:  # Optional, not set by default.
           h1: v1
           h2: v2
 
         # Names of HTTP response headers to be saved to the message metadata.
-        capture_response_headers: []  # optional, not set by default
+        capture_response_headers: []  # Optional, not set by default.
 
         # HTTP method to use in the request.
         # The possible values are: GET, POST.
         http_method: GET  # Optional, the default value is GET.
 
         # Section for setting up {{ prometheus-name }} labels
-        prometheus_config:  # optional, not set by default
+        prometheus_config:  # Optional, not set by default.
           # Sets a `job` label value for labels being collected.
-          job_name: my_job  # optional, not set by default
+          job_name: my_job  # Optional, not set by default.
           # An `instance` label is generated automatically based on the URL.
 
     # Description of the output channel for metric delivery to {{ monitoring-name }}.
@@ -163,9 +163,9 @@ Parameter descriptions:
         kernel: advanced  # Optional, the default value is `basic`.
 
         # Section for setting up {{ prometheus-name }} labels
-        prometheus_config:  # optional, not set by default
+        prometheus_config:  # Optional, not set by default.
           # Sets a `job` label value for labels being collected.
-          job_name: my_job  # optional, not set by default
+          job_name: my_job  # Optional, not set by default.
           # An `instance` label is generated automatically based on the URL.
 
     # Description of the output channel for metric delivery to {{ monitoring-name }}.
@@ -239,8 +239,8 @@ Parameter descriptions:
           # The parameter cannot be used when reading from a rotated file.
           min_bytes_read: 1Mb # Optional, the default value is 1kb.
 
-          # Line break character.
-          line_delimiter: "\n" # Optional, the default value is "\n".
+          # Line break character
+          line_delimiter: "\n" # Optional, set by default "\n".
 
           # Keeping the log file always open. Otherwise, the file opens only when read and the required reading position is set
           keep_open_file: false # Optional, the default value is false.
@@ -318,11 +318,11 @@ Parameter descriptions:
       path: '/write'  # Optional, the default value is '/write'.
 
       # Names of HTTP request headers you need to save to the message metadata.
-      capture_request_headers: []  # optional, not set by default
+      capture_request_headers: []  # Optional, not set by default.
 
       # Set of Unified Agent session metadata in "key:value" format.
-      # For each endpoint (from the _endpoints_ parameter below) a separate session is created.
-      session_meta: # optional, not set by default
+      # For each endpoint (from the _endpoints_ parameter below), a dedicated session is created.
+      session_meta: # Optional, not set by default.
         k: v
 
       # Allows you to define multiple connection points with different parameters on one HTTP port.
@@ -332,5 +332,5 @@ Parameter descriptions:
       endpoints:  # Optional, the default value is [].
         - path: '/my_path'  # Required.
           # Names of HTTP request headers you need to save to the message metadata.
-          capture_request_headers: [ ]  # optional, not set by default
+          capture_request_headers: [ ]  # Optional, not set by default.
 ```

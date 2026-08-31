@@ -3,11 +3,9 @@
 # Пользователи и управление доступом
 
 
-
 ### Поддерживает ли DataLens вход через SSO? {#sso-in-datalens}
 
 В Yandex DataLens можно [настроить аутентификацию](../security/add-new-user.md#federated-user) с помощью технологии Single Sign-On (SSO), если имеется [федерация удостоверений](../../organization/concepts/add-federation.md). При этом пользователи DataLens смогут аутентифицироваться с помощью своих корпоративных учетных записей.
-
 
 
 ### Как добавить пользователя и отправить ему ссылку на дашборд? {#how-add-user-send-ref}

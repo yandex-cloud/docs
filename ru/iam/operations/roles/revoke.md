@@ -67,7 +67,10 @@
         resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
             cloud_id    = "<идентификатор_облака>"
             role        = "<роль>"
-            members     = ["<субъект_1>","<субъект_2>,...,<субъект_n>"]
+            members     = ["<тип_субъекта_1>:<идентификатор_субъекта_1>",
+                           "<тип_субъекта_2>:<идентификатор_субъекта_2>",
+                           ...,
+                           "<тип_субъекта_n>:<идентификатор_субъекта_n>"]
         }
         ```
 
@@ -131,6 +134,17 @@
             ]
         }
         ```
+
+        Где:
+
+        * `roleId` — назначаемая роль.
+        * `subject` — [субъект](../../concepts/access-control/index.md#subject), которому назначается роль.
+
+            {% cut "Обозначения субъектов" %}
+
+            {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+            {% endcut %}
 
     1. Отзовите роль, удалив назначенные права доступа:
 

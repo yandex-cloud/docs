@@ -10586,6 +10586,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [timer](cli-ref/serverless/cli-ref/trigger/v2/create/timer.md)
 
+ - [yandex-messenger](cli-ref/serverless/cli-ref/trigger/v2/create/yandex-messenger.md)
+
  - [yds](cli-ref/serverless/cli-ref/trigger/v2/create/yds.md)
 
  - [delete](cli-ref/serverless/cli-ref/trigger/v2/delete.md)
@@ -10631,6 +10633,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [telegram](cli-ref/serverless/cli-ref/trigger/v2/update/telegram.md)
 
  - [timer](cli-ref/serverless/cli-ref/trigger/v2/update/timer.md)
+
+ - [yandex-messenger](cli-ref/serverless/cli-ref/trigger/v2/update/yandex-messenger.md)
 
  - [yds](cli-ref/serverless/cli-ref/trigger/v2/update/yds.md)
 
@@ -11136,6 +11140,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [timer](cli-ref/serverless/cli-ref/v0/trigger/v2/create/timer.md)
 
+ - [yandex-messenger](cli-ref/serverless/cli-ref/v0/trigger/v2/create/yandex-messenger.md)
+
  - [yds](cli-ref/serverless/cli-ref/v0/trigger/v2/create/yds.md)
 
  - [delete](cli-ref/serverless/cli-ref/v0/trigger/v2/delete.md)
@@ -11181,6 +11187,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [telegram](cli-ref/serverless/cli-ref/v0/trigger/v2/update/telegram.md)
 
  - [timer](cli-ref/serverless/cli-ref/v0/trigger/v2/update/timer.md)
+
+ - [yandex-messenger](cli-ref/serverless/cli-ref/v0/trigger/v2/update/yandex-messenger.md)
 
  - [yds](cli-ref/serverless/cli-ref/v0/trigger/v2/update/yds.md)
 

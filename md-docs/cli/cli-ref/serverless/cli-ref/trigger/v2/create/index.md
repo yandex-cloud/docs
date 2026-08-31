@@ -32,6 +32,8 @@ Syntax:
 
 - [yc serverless trigger v2 create timer](timer.md) — Create timer trigger
 
+- [yc serverless trigger v2 create yandex-messenger](yandex-messenger.md) — Create Yandex Messenger trigger
+
 - [yc serverless trigger v2 create yds](yds.md) — Create YDS trigger
 
 #### Global Flags

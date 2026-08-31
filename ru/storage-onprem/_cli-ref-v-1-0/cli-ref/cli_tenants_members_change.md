@@ -1,7 +1,7 @@
 # cli tenants members change
 
 change tenant member role
-Valid values are viewer/editor/admin
+Valid values are viewer/editor/admin/bucket_manager
 
 ```
 cli tenants members change <tenant_id> <username> role1,role2 [flags]

@@ -60,31 +60,45 @@
 
   1. Назначьте роль с помощью команды:
 
-     * Пользователю:
+     ```bash
+     yc compute filesystem add-access-binding <идентификатор_файлового_хранилища> \
+       --role <роль> \
+       --subject <тип_субъекта>:<идентификатор_субъекта>
+     ```
 
-       ```bash
-       yc compute filesystem add-access-binding <идентификатор_файлового_хранилища> \
-         --user-account-id <идентификатор_пользователя> \
-         --role <роль>
-       ```
+     Где:
 
-       Где:
+     * `--role` — назначаемая [роль](../../security/index.md#roles-list).
+     * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-       * `--user-account-id` — [идентификатор пользователя](../../../organization/operations/users-get.md).
-       * `--role` — назначаемая [роль](../../security/index.md#roles-list).
+         {% cut "Обозначения субъектов" %}
 
-     * Сервисному аккаунту:
+         Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+         
+         #|
+         || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+         || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+         || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+         || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+         || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+         || `system`         | `system:allAuthenticatedUsers`
+         
+         (группа `All authenticated users`) | `--all-authenticated-users` ||
+         || ^                | `system:allUsers`
+         
+         (группа `All users`) | — ||
+         || ^                | `system:group:organization:<идентификатор_организации>:users`
+         
+         (группа `All users in organization X`) | `--organization-users` ||
+         || ^                | `system:group:federation:<идентификатор_федерации>:users`
+         
+         (группа `All users in federation N`) | `--federation-users` ||
+         || ^                | `system:group:userpool:<идентификатор_пула>:users`
+         
+         (группа `All users in userpool P`) | — ||
+         |#
 
-       ```bash
-       yc compute filesystem add-access-binding <идентификатор_файлового_хранилища> \
-         --service-account-id <идентификатор_сервисного_аккаунта> \
-         --role <роль>
-       ```
-
-       Где:
-
-       * `--service-account-id` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md).
-       * `--role` — назначаемая роль.
+         {% endcut %}
 
 - Terraform {#tf}
 
@@ -115,7 +129,36 @@
 
       * `filesystem_id` — идентификатор файлового хранилища.
       * `role` — назначаемая [роль](../../security/index.md#roles-list).
-      * `members` — список типов и идентификаторов [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список обозначений [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
       Более подробную информацию о параметрах ресурса `yandex_compute_filesystem_iam_binding` читайте в [документации провайдера](../../../terraform/resources/compute_filesystem_iam_binding.md).
 
@@ -157,7 +200,36 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) для ресурса [Filesystem](../../api-ref/Filesystem/index.md) или вызовом gRPC API [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/Filesystem/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) для ресурса [Filesystem](../../api-ref/Filesystem/index.md) или вызовом gRPC API [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/Filesystem/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+  
+  #|
+  || **subject.type** | **subject.id** ||
+  || `userAccount`    | `<идентификатор_пользователя>` ||
+  || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+  || `federatedUser`  | `<идентификатор_пользователя>` ||
+  || `group`          | `<идентификатор_группы>` ||
+  || `system`         | `allAuthenticatedUsers`
+  
+  (группа `All authenticated users`) ||
+  || ^                | `allUsers`
+  
+  (группа `All users`) ||
+  || ^                | `group:organization:<идентификатор_организации>:users`
+  
+  (группа `All users in organization X`) ||
+  || ^                | `group:federation:<идентификатор_федерации>:users`
+  
+  (группа `All users in federation N`) ||
+  || ^                | `group:userpool:<идентификатор_пула>:users`
+  
+  (группа `All users in userpool P`) ||
+  |#
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -213,19 +285,46 @@
        --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
      ```
 
-     Где:
+     Где `--access-binding` — назначаемая роль:
 
-     * `--access-binding` — назначаемая роль:
+     * `role` — идентификатор назначаемой роли.
+     * `subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-       * `role` — идентификатор назначаемой роли.
-       * `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+         {% cut "Обозначения субъектов" %}
+
+         Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+         
+         #|
+         || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+         || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+         || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+         || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+         || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+         || `system`         | `system:allAuthenticatedUsers`
+         
+         (группа `All authenticated users`) | `--all-authenticated-users` ||
+         || ^                | `system:allUsers`
+         
+         (группа `All users`) | — ||
+         || ^                | `system:group:organization:<идентификатор_организации>:users`
+         
+         (группа `All users in organization X`) | `--organization-users` ||
+         || ^                | `system:group:federation:<идентификатор_федерации>:users`
+         
+         (группа `All users in federation N`) | `--federation-users` ||
+         || ^                | `system:group:userpool:<идентификатор_пула>:users`
+         
+         (группа `All users in userpool P`) | — ||
+         |#
+
+         {% endcut %}
 
      Например, назначьте роли нескольким пользователям и сервисному аккаунту:
 
      ```bash
      yc compute filesystem set-access-bindings my-filesystem \
-       --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
-       --access-binding role=viewer,subject=userAccount:helj89sfj80a********
+       --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
+       --access-binding role=viewer,subject=userAccount:helj89sfj80a******** \
        --access-binding role=editor,subject=serviceAccount:ajel6l0jcb9s********
      ```
 
@@ -264,7 +363,36 @@
 
       * `filesystem_id` — идентификатор файлового хранилища.
       * `role` — назначаемая [роль](../../security/index.md#roles-list).
-      * `members` — список типов и идентификаторов [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список обозначений [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
       Более подробную информацию о параметрах ресурса `yandex_compute_filesystem_iam_binding` читайте в [документации провайдера](../../../terraform/resources/compute_filesystem_iam_binding.md).
 
@@ -307,7 +435,36 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Filesystem/setAccessBindings.md) для ресурса [Filesystem](../../api-ref/Filesystem/index.md) или вызовом gRPC API [FilesystemService/SetAccessBindings](../../api-ref/grpc/Filesystem/setAccessBindings.md).
+  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Filesystem/setAccessBindings.md) для ресурса [Filesystem](../../api-ref/Filesystem/index.md) или вызовом gRPC API [FilesystemService/SetAccessBindings](../../api-ref/grpc/Filesystem/setAccessBindings.md). В теле запроса в свойстве `subject` укажите тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+  
+  #|
+  || **subject.type** | **subject.id** ||
+  || `userAccount`    | `<идентификатор_пользователя>` ||
+  || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+  || `federatedUser`  | `<идентификатор_пользователя>` ||
+  || `group`          | `<идентификатор_группы>` ||
+  || `system`         | `allAuthenticatedUsers`
+  
+  (группа `All authenticated users`) ||
+  || ^                | `allUsers`
+  
+  (группа `All users`) ||
+  || ^                | `group:organization:<идентификатор_организации>:users`
+  
+  (группа `All users in organization X`) ||
+  || ^                | `group:federation:<идентификатор_федерации>:users`
+  
+  (группа `All users in federation N`) ||
+  || ^                | `group:userpool:<идентификатор_пула>:users`
+  
+  (группа `All users in userpool P`) ||
+  |#
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -357,7 +514,36 @@
      Где:
 
      * `--role` — идентификатор роли, которую надо отозвать.
-     * `--subject` — [субъект](../../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+     * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+
+         {% cut "Обозначения субъектов" %}
+
+         Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+         
+         #|
+         || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+         || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+         || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+         || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+         || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+         || `system`         | `system:allAuthenticatedUsers`
+         
+         (группа `All authenticated users`) | `--all-authenticated-users` ||
+         || ^                | `system:allUsers`
+         
+         (группа `All users`) | — ||
+         || ^                | `system:group:organization:<идентификатор_организации>:users`
+         
+         (группа `All users in organization X`) | `--organization-users` ||
+         || ^                | `system:group:federation:<идентификатор_федерации>:users`
+         
+         (группа `All users in federation N`) | `--federation-users` ||
+         || ^                | `system:group:userpool:<идентификатор_пула>:users`
+         
+         (группа `All users in userpool P`) | — ||
+         |#
+
+         {% endcut %}
 
      Например, чтобы отозвать роль `viewer` у пользователя с идентификатором `ajel6l0jcb9s********` на файловое хранилище:
 
@@ -430,6 +616,35 @@
 
 - API {#api}
 
-  Чтобы отозвать роли на файловое хранилище, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) для ресурса [Filesystem](../../api-ref/Filesystem/index.md) или вызовом gRPC API [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/Filesystem/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роли на файловое хранилище, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) для ресурса [Filesystem](../../api-ref/Filesystem/index.md) или вызовом gRPC API [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/Filesystem/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+  
+  #|
+  || **subject.type** | **subject.id** ||
+  || `userAccount`    | `<идентификатор_пользователя>` ||
+  || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+  || `federatedUser`  | `<идентификатор_пользователя>` ||
+  || `group`          | `<идентификатор_группы>` ||
+  || `system`         | `allAuthenticatedUsers`
+  
+  (группа `All authenticated users`) ||
+  || ^                | `allUsers`
+  
+  (группа `All users`) ||
+  || ^                | `group:organization:<идентификатор_организации>:users`
+  
+  (группа `All users in organization X`) ||
+  || ^                | `group:federation:<идентификатор_федерации>:users`
+  
+  (группа `All users in federation N`) ||
+  || ^                | `group:userpool:<идентификатор_пула>:users`
+  
+  (группа `All users in userpool P`) ||
+  |#
+
+  {% endcut %}
 
 {% endlist %}

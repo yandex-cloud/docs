@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-Для создания подключения требуется [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/operations/sa/assign-role-for-sa.md) `yq.editor` (или `{{ roles-editor }}`) на каталог, в котором создано [соединение](../../../query/concepts/glossary.md#connection) {{ yq-full-name }}.
+Для создания подключения требуется [сервисный аккаунт]({{ link-docs }}/iam/concepts/users/service-accounts) с [ролью]({{ link-docs }}/iam/operations/sa/assign-role-for-sa) `yq.editor` (или `{{ roles-editor }}`) на каталог, в котором создано [соединение]({{ link-docs }}/query/concepts/glossary#connection) {{ yq-full-name }}.
 
 {% endnote %}
 
@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
 1. Укажите параметры подключения:
 
    * **Облако и каталог**. Выберите каталог, в котором создано соединение {{ yq-full-name }}.
-   * **Сервисный аккаунт**. Выберите существующий [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) или создайте новый.
+   * **Сервисный аккаунт**. Выберите существующий [сервисный аккаунт]({{ link-docs }}/iam/concepts/users/service-accounts) или создайте новый.
    * **Время жизни кеша в секундах**. Укажите время жизни кеша или оставьте значение по умолчанию.
    * **Уровень доступа SQL-запросов**. Позволяет использовать произвольный SQL-запрос для [формирования датасета](../../dataset/settings.md#sql-request-in-datatset).
 

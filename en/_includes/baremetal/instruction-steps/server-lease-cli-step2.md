@@ -1,7 +1,8 @@
 Get a list of configurations:
 
 ```bash
-yc baremetal configuration list
+yc baremetal configuration list \
+  --folder-id <folder_ID>
 ```
 
 Approximate result:

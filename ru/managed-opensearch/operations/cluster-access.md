@@ -105,7 +105,7 @@ description: Следуя данной инструкции, вы настрои
       Где:
 
       * `--role` — назначаемая [роль](../security/index.md#roles-list), например `managed-opensearch.editor`.
-      * `--subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+      * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
           Например:
 
@@ -113,7 +113,11 @@ description: Следуя данной инструкции, вы настрои
           * `userAccount:aje8tj79************`,
           * `system:allAuthenticatedUsers`.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду:
 
@@ -141,15 +145,19 @@ description: Следуя данной инструкции, вы настрои
 
       * `cluster_id` — идентификатор кластера.
       * `role` — назначаемая [роль](../security/index.md#roles-list), например `managed-opensearch.editor`.
-      * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
-    
-        Например:
-        
-        * `serviceAccount:${yandex_iam_service_account.mos_sa.id}`,
-        * `userAccount:ajerq94vab34********`,
-        * `system:allAuthenticatedUsers`.
+      * `members` — список обозначений [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль.
 
-        {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          Например:
+
+          * `serviceAccount:${yandex_iam_service_account.mos_sa.id}`,
+          * `userAccount:ajerq94vab34********`,
+          * `system:allAuthenticatedUsers`.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -203,7 +211,11 @@ description: Следуя данной инструкции, вы настрои
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -249,7 +261,11 @@ description: Следуя данной инструкции, вы настрои
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -294,7 +310,7 @@ description: Следуя данной инструкции, вы настрои
       Где `--access-binding` — назначает роль субъекту. Вы можете назначить несколько ролей одновременно, описав каждую в отдельном параметре `--access-binding`.
 
       * `role` — назначаемая [роль](../security/index.md#roles-list), например `managed-opensearch.editor`.
-      * `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+      * `subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
           Например:
 
@@ -302,7 +318,11 @@ description: Следуя данной инструкции, вы настрои
           * `userAccount:aje8tj79************`,
           * `system:allAuthenticatedUsers`.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -330,15 +350,19 @@ description: Следуя данной инструкции, вы настрои
 
       * `cluster_id` — идентификатор кластера.
       * `role` — назначаемая [роль](../security/index.md#roles-list), например `managed-opensearch.editor`.
-      * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
-    
-        Например:
-        
-        * `serviceAccount:${yandex_iam_service_account.mos_sa.id}`,
-        * `userAccount:ajerq94vab34********`,
-        * `system:allAuthenticatedUsers`.
+      * `members` — список обозначений [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль.
 
-        {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          Например:
+
+          * `serviceAccount:${yandex_iam_service_account.mos_sa.id}`,
+          * `userAccount:ajerq94vab34********`,
+          * `system:allAuthenticatedUsers`.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -410,7 +434,11 @@ description: Следуя данной инструкции, вы настрои
       * `accessBindings.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `accessBindings.subject.type` — тип субъекта, которому назначается роль.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -474,7 +502,11 @@ description: Следуя данной инструкции, вы настрои
       * `accessBindings.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `accessBindings.subject.type` — тип субъекта, которому назначается роль.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -512,7 +544,7 @@ description: Следуя данной инструкции, вы настрои
       Где:
 
       * `--role` — отзываемая [роль](../security/index.md#roles-list), например `managed-opensearch.editor`.
-      * `--subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначена роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+      * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
 
           Например:
 
@@ -520,7 +552,11 @@ description: Следуя данной инструкции, вы настрои
           * `userAccount:aje8tj79************`,
           * `system:allAuthenticatedUsers`.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
 - {{ TF }} {#tf}
   
@@ -586,11 +622,15 @@ description: Следуя данной инструкции, вы настрои
 
       Где:
 
-      * `access_binding_deltas.roleId` — назначаемая [роль](../security/index.md#roles-list), например `managed-opensearch.editor`.
-      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
-      * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
+      * `access_binding_deltas.roleId` — отзываемая [роль](../security/index.md#roles-list), например `managed-opensearch.editor`.
+      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+      * `access_binding_deltas.subject.type` — тип субъекта, у которого отзывается роль.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -632,11 +672,15 @@ description: Следуя данной инструкции, вы настрои
       Где:
 
       * `resource_id` — идентификатор кластера.
-      * `access_binding_deltas.roleId` — назначаемая [роль](../security/index.md#roles-list), например `managed-opensearch.editor`.
-      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
-      * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
+      * `access_binding_deltas.roleId` — отзываемая [роль](../security/index.md#roles-list), например `managed-opensearch.editor`.
+      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+      * `access_binding_deltas.subject.type` — тип субъекта, у которого отзывается роль.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 

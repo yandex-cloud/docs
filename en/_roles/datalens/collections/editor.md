@@ -6,6 +6,6 @@ Users with this role can:
 * Create copies of the appropriate collection's nested workbooks.
 * Create new collections and workbooks within the relevant collection and all its nested ones.
 * View and edit all nested [objects](../../../datalens/concepts/index.md#component-interrelation) of the workbooks pertaining to the appropriate collection and its nested collections.
-* View info on the [access permissions](../../../iam/concepts/access-control/index.md) granted for the appropriate collection, as well as for its nested collections and workbooks.
+* View info on the [access permissions]({{ link-docs }}/iam/concepts/access-control/) granted for the appropriate collection, as well as for its nested collections and workbooks.
 
 This role includes the `datalens.collections.viewer` and `datalens.workbooks.editor` permissions.

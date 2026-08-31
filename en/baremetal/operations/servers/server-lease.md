@@ -47,24 +47,27 @@ To lease a server in a stock configuration:
 
   1. {% include [server-lease-cli-step1](../../../_includes/baremetal/instruction-steps/server-lease-cli-step1.md) %}
   1. {% include [server-lease-cli-step2](../../../_includes/baremetal/instruction-steps/server-lease-cli-step2.md) %}
-  1. Get detailed info about a configuration by stating its ID or name:
+  1. Get details about a configuration by stating its ID:
 
       ```bash
-      yc baremetal configuration get <configuration_ID_or_name>
+      yc baremetal configuration get <configuration_ID>
       ```
 
       {% include [conf-get-cli-output](../../../_includes/baremetal/instruction-steps/conf-get-cli-output.md) %}
 
+  1. {% include [server-lease-cli-rental-period-list](../../../_includes/baremetal/instruction-steps/server-lease-cli-rental-period-list.md) %}
+  1. {% include [server-lease-cli-image-list](../../../_includes/baremetal/instruction-steps/server-lease-cli-image-list.md) %}
+  1. {% include [server-lease-cli-private-subnet-list](../../../_includes/baremetal/instruction-steps/server-lease-cli-private-subnet-list.md) %}
   1. {% include [server-lease-cli-step3](../../../_includes/baremetal/instruction-steps/server-lease-cli-step3.md) %}
 
       Where:
       * {% include [server-lease-cli-pool-id](../../../_includes/baremetal/instruction-steps/server-lease-cli-pool-id.md) %}
       * {% include [server-lease-cli-configuration](../../../_includes/baremetal/instruction-steps/server-lease-cli-configuration.md) %}
-      * {% include [server-lease-cli-storage](../../../_includes/baremetal/instruction-steps/server-lease-cli-storage.md) %}
       * {% include [server-lease-cli-os](../../../_includes/baremetal/instruction-steps/server-lease-cli-os.md) %}
 
           {% include [server-lease-step7-iso](../../../_includes/baremetal/instruction-steps/server-lease-step7-iso.md) %}
 
+      * {% include [server-lease-cli-storage](../../../_includes/baremetal/instruction-steps/server-lease-cli-storage.md) %}
       * {% include [server-lease-cli-rental-period](../../../_includes/baremetal/instruction-steps/server-lease-cli-rental-period.md) %}
 
           {% include [server-lease-step6-period](../../../_includes/baremetal/instruction-steps/server-lease-step6-period.md) %}
@@ -97,14 +100,13 @@ Lease a server with a public OS image:
 
   ```bash
   yc baremetal server create \
+    --folder-id b1g07hj5r6i4******** \
     --hardware-pool-id ru-central1-m4 \
     --configuration-id ly5lymxdltk3******** \
-    --storage "partition={type=EXT3,size-gib=1000,mount-point=/},partition={type=EXT4,size-gib=500,mount-point=/root},raid-type=RAID0,disk={id=1,size-gib=1862,type=HDD},disk={id=2,size-gib=1862,type=HDD}" \
-    --storage "partition={type=EXT3,size-gib=1000,mount-point=/boot},partition={type=SWAP,size-gib=10},disk={id=3,size-gib=1862,type=HDD}" \
-    --os-settings "image-id=ly5vhn4lapev********,ssh-key-public=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQYnYYjAoj********,password-lockbox-secret={secret-id=e6qmvglkitn6********,version-id=e6qquvv4kh8e********,key=password}" \
+    --os-settings-spec "image-id=ly5vhn4lapev********,storages=[{partitions=[{type=EXT3,size-gib=1000,mount-point=/},{type=EXT4,size-gib=500,mount-point=/root}],storage-type={raid={type=RAID0,disks=[{id=1,size-gib=1862,type=HDD},{id=2,size-gib=1862,type=HDD}]}}},{partitions=[{type=EXT3,size-gib=1000,mount-point=/boot},{type=SWAP,size-gib=10}],storage-type={disk={id=3,size-gib=1862,type=HDD}}}],ssh-key={ssh-public-key=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQYnYYjAoj********},password={password-lockbox-secret={secret-id=e6qmvglkitn6********,version-id=e6qquvv4kh8e********,key=password}}" \
     --rental-period-id 1-day \
-    --network-interfaces private-subnet-id=ly5ztavbezrf******** \
-    --network-interfaces public-subnet-id=ly5o6l7pxmk2********* \
+    --network-interfaces '{interface={private-interface={native-subnet-id=ly5ztavbezrf********}}}' \
+    --network-interfaces '{interface={public-interface={native-subnet-config={native-subnet={subnet-id=ly5o6l7pxmk2*********}}}}}' \
     --name demo-baremetal-server \
     --description "My first BareMetal server" \
     --labels env=test

@@ -27,8 +27,10 @@
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя и описание триггера.
+
+        * {% include [triggers-labels-step](../../_includes/functions/triggers-labels-step.md) %}
+
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container-registry }}`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_container-registry }}**:
 
@@ -36,20 +38,28 @@
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** выберите [события](../concepts/trigger/cr-trigger.md#event), после наступления которых триггер будет запускаться.
         * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_image-name }}** введите имя образа для [фильтрации](../concepts/trigger/cr-trigger.md#filter). Чтобы узнать имя Docker-образа, [получите список Docker-образов в реестре](../../container-registry/operations/docker-image/docker-image-list.md).
         * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_tag }}** введите тег образа для фильтрации.
-    
+
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
 
         {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
 
         {% include [batch-events](../../_includes/serverless-containers/batch-events.md) %}
 
-    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+    1. В блоке **Приёмники**:
 
-    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+        1. В поле **Тип приёмника** выберите `Контейнер`.
 
-        {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
+        1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
+        1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+
+            {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
+
+        1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
+
+        1. {% include [trigger-console-filter](../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../_includes/functions/trigger-console-template.md) %}
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -127,6 +137,73 @@
   1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
 
       ```hcl
+      resource "yandex_serverless_triggers" "my_trigger" {
+        name = "<имя_триггера>"
+        source {
+          container_registry {
+            registry_id = "<идентификатор_реестра>"
+            image_name  = "<имя_образа>"
+            tag         = "<тег_образа>"
+            event_type = [
+              "CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE",
+              "CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE",
+              "CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG",
+              "CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG",
+            ]
+            batch_settings {
+              max_count = "<максимальное_число_событий>"
+              max_bytes = "<максимальный_размер_группы_в_байтах>"
+              cutoff    = "<максимальное_время_ожидания>"
+            }
+          }
+        }
+        action {
+          invoke_container {
+            container_id       = "<идентификатор_контейнера>"
+            path               = "<HTTP-путь>"
+            service_account_id = "<идентификатор_сервисного_аккаунта>"
+          }
+          retry_policy {
+            retry_attempts = "<количество_повторных_отправок>"
+            interval       = "<интервал_между_повторными_отправками>"
+          }
+          dead_letter {
+            dead_letter_queue {
+              queue_arn          = "<ARN_очереди_Dead_Letter_Queue>"
+              service_account_id = "<идентификатор_сервисного_аккаунта>"
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      {% include [tf-triggers-common-params](../../_includes/tf-triggers-common-params.md) %}
+
+      * `source` — параметры источника событий:
+
+        * `container_registry` — параметры реестра:
+
+          * `registry_id` — [идентификатор реестра](../../container-registry/operations/registry/registry-list.md).
+          * `image_name` — имя образа для [фильтрации](../concepts/trigger/cr-trigger.md#filter). Чтобы узнать имя Docker-образа, [получите список Docker-образов в реестре](../../container-registry/operations/docker-image/docker-image-list.md).
+          * `tag` — тег образа для фильтрации.
+          * `event_type` — список [событий](../concepts/trigger/cr-trigger.md#event), после наступления которых триггер запускается. Укажите хотя бы одно значение:
+
+              * `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE` — создание нового Docker-образа в реестре.
+              * `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE` — удаление Docker-образа в реестре.
+              * `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG` — создание нового тега Docker-образа в реестре.
+              * `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG` — удаление тега Docker-образа в реестре.
+
+          {% include [tf-triggers-batch-settings](../../_includes/tf-triggers-batch-settings.md) %}
+
+      {% include [tf-triggers-action-container](../../_includes/serverless-containers/tf-triggers-action-container.md) %}
+
+      Подробнее о параметрах ресурса `yandex_serverless_triggers` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_triggers).
+
+      {% cut "Конфигурация для ресурса yandex_function_trigger" %}
+
+      ```hcl
       resource "yandex_function_trigger" "my_trigger" {
         name = "<имя_триггера>"
         container {
@@ -182,6 +259,8 @@
         {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
       Подробнее о параметрах ресурса `yandex_function_trigger` в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+
+      {% endcut %}
 
   1. Создайте ресурсы:
 

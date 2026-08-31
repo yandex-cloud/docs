@@ -133,6 +133,8 @@ items:
               Подключение к бакету {{ objstorage-full-name }} с политикой
               доступа
             href: operations/metastore/s3-policy-connect.md
+          - name: Мониторинг состояния кластера
+            href: operations/metastore/monitoring.md
           - name: Передача логов в {{ cloud-logging-name }}
             href: operations/metastore/logging.md
           - name: Управление доступом к кластеру
@@ -355,6 +357,8 @@ items:
                     href: api-ref/Operation/get.md
                   - name: Cancel
                     href: api-ref/Operation/cancel.md
+      - name: Метрики {{ monitoring-full-name }}
+        href: metastore-metrics.md
       - name: Аудитные логи {{ at-name }}
         href: at-ref.md
   - name: '{{ schema-registry-name }}'

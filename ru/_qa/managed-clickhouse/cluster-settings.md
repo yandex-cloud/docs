@@ -49,3 +49,23 @@ would use 14.10 GiB (attempt to allocate chunk of 4219924 bytes), maximum: 14.10
 Добавление в кластер более пяти хостов {{ ZK }} не поддерживается.
 
 Таким образом, в кластере {{ mch-name }} рекомендуется создавать три или пять хостов {{ ZK }}.
+
+#### Как добавить хост в кластер с отключенным сервисом координации? {#add-hosts-disabled-coordination}
+
+Если в кластере с одним хостом и отключенным [сервисом координации](../../managed-clickhouse/concepts/coordination-system.md) попытаться добавить хост, возникнет ошибка:
+
+```text
+ERROR: rpc error: code = FailedPrecondition desc = shard cannot have more than 1 host in non-HA cluster configuration
+```
+
+Чтобы добавить хост в кластер, сначала [включите сервис координации](../../managed-clickhouse/operations/update.md#enable-coordination) {{ CK }} или {{ ZK }} на отдельных хостах.
+
+#### Как добавить многохостовый шард в кластер с отключенным сервисом координации? {#add-shard-disabled-coordination}
+
+Если в шардированном кластере с отключенным [сервисом координации](../../managed-clickhouse/concepts/coordination-system.md) попытаться добавить шард с несколькими хостами, возникнет ошибка:
+
+```text
+ERROR: rpc error: code = FailedPrecondition desc = To create a shard with two or more hosts, you must enable the coordination service first.
+```
+
+Чтобы добавить многохостовый шард в кластер, сначала [включите сервис координации](../../managed-clickhouse/operations/update.md#enable-coordination) {{ CK }} или {{ ZK }} на отдельных хостах.

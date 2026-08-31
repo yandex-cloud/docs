@@ -53,8 +53,10 @@ description: Следуя данной инструкции, вы сможете
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя и описание триггера.
+
+        * {% include [triggers-labels-step](../../_includes/functions/triggers-labels-step.md) %}
+
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}** выберите поток данных и сервисный аккаунт с правами на чтение из потока данных и запись в него.
 
@@ -65,13 +67,21 @@ description: Следуя данной инструкции, вы сможете
 
         Триггер группирует сообщения не дольше указанного времени ожидания и отправляет их в контейнер. Суммарный объем данных, которые передаются в контейнер, может превышать указанный размер группы, если данные передаются в одном сообщении. Во всех остальных случаях объем данных не превышает размер группы.
 
-    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+    1. В блоке **Приёмники**:
 
-    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+        1. В поле **Тип приёмника** выберите `Контейнер`.
 
-        {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
+        1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
+        1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+
+            {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
+
+        1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
+
+        1. {% include [trigger-console-filter](../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../_includes/functions/trigger-console-template.md) %}
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -151,6 +161,66 @@ description: Следуя данной инструкции, вы сможете
   1. Опишите в конфигурационном файле параметры триггера:
 
      ```hcl
+     resource "yandex_serverless_triggers" "my_trigger" {
+       name = "<имя_триггера>"
+       source {
+         yds {
+           stream             = "<имя_потока_данных>"
+           database           = "<размещение_базы_данных>"
+           consumer           = "<имя_читателя>"
+           service_account_id = "<идентификатор_сервисного_аккаунта>"
+           batch_settings {
+             max_count = "<максимальное_число_сообщений>"
+             max_bytes = "<максимальный_размер_группы_в_байтах>"
+             cutoff    = "<максимальное_время_ожидания>"
+           }
+         }
+       }
+       action {
+         invoke_container {
+           container_id       = "<идентификатор_контейнера>"
+           path               = "<HTTP-путь>"
+           service_account_id = "<идентификатор_сервисного_аккаунта>"
+         }
+         retry_policy {
+           retry_attempts = "<количество_повторных_отправок>"
+           interval       = "<интервал_между_повторными_отправками>"
+         }
+         dead_letter {
+           dead_letter_queue {
+             queue_arn          = "<ARN_очереди_Dead_Letter_Queue>"
+             service_account_id = "<идентификатор_сервисного_аккаунта>"
+           }
+         }
+       }
+     }
+     ```
+
+     Где:
+
+     {% include [tf-triggers-common-params](../../_includes/tf-triggers-common-params.md) %}
+
+     * `source` — параметры источника событий:
+
+       * `yds` — параметры потока данных:
+
+         * `stream` — имя потока данных.
+         * `database` — размещение базы данных {{ ydb-short-name }}, к которой привязан поток {{ yds-name }}.
+
+             Чтобы узнать, где размещена база данных, выполните команду `yc ydb database list`. Размещение базы данных указано в столбце `ENDPOINT`, в параметре `database`, например `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
+
+         * `consumer` — имя читателя потока данных.
+         * `service_account_id` — идентификатор сервисного аккаунта, у которого есть права на чтение из потока данных и запись в него.
+
+         {% include [tf-triggers-batch-settings](../../_includes/tf-triggers-batch-settings.md) %}
+
+     {% include [tf-triggers-action-container](../../_includes/serverless-containers/tf-triggers-action-container.md) %}
+
+     Подробнее о параметрах ресурса `yandex_serverless_triggers` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_triggers).
+
+     {% cut "Конфигурация для ресурса yandex_function_trigger" %}
+
+     ```hcl
      resource "yandex_function_trigger" "my_trigger" {
        name = "<имя_триггера>"
        container {
@@ -200,6 +270,8 @@ description: Следуя данной инструкции, вы сможете
      {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
      Подробнее о параметрах ресурса `yandex_function_trigger` в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+
+     {% endcut %}
 
   1. Создайте ресурсы:
 

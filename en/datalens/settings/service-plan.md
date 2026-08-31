@@ -50,7 +50,7 @@ To add a billing account:
    1. Specify general details:
 
       * **Account name**: It will be displayed in the list of your billing accounts and will help you select the right one.
-      * **Country**: Select the country the [payer](../../billing/concepts/glossary.md#payer) is a resident of.
+      * **Country**: Select the country the [payer]({{ link-docs }}/billing/concepts/glossary#payer) is a resident of.
       * **Payer**: Select from the list of available payers.
       * **Account type**: Select an individual or legal entity. For a legal entity, select the payment method: `Credit/debit card` or `Wire transfer`.
 
@@ -85,7 +85,7 @@ To add a billing account:
 
 ## View your payment history {#history}
 
-To [view your payment history](../../billing/operations/check-bill-history.md), under **Billing account**, follow the [{{ billing-name }}]({{ link-console-billing }}/yc.billing.support.service/history) link.
+To [view your payment history]({{ link-docs }}/billing/operations/check-bill-history), under **Billing account**, follow the [{{ billing-name }}]({{ link-console-billing }}/yc.billing.support.service/history) link.
 
 ## Pricing {#service-plans}
 
@@ -95,7 +95,7 @@ Below, you can see info on the cost of your seats.
 
 {{ datalens-short-name }} offers the unified [service plan](../pricing.md) which packs all the features available in {{ datalens-short-name }}. Your cost depends on the number of seats per instance; use that to control your consumption.
 
-{{ yandex-cloud }} support offers [service plans](../../support/pricing.md#change-service-plan) of its own. On the banner in the center of the screen, click the **More about support** button to navigate to [{{ support-center-name }}]({{ link-console-support }}). If you do not see the banner with the button, click [this link]({{ link-console-support }}/plans). Follow this link to see what your service plan is and change it as needed.
+{{ yandex-cloud }} support offers [service plans]({{ link-docs }}/support/pricing#change-service-plan) of its own. On the banner in the center of the screen, click the **More about support** button to navigate to [{{ support-center-name }}]({{ link-console-support }}). If you do not see the banner with the button, click [this link]({{ link-console-support }}/plans). Follow this link to see what your service plan is and change it as needed.
 
 #### Useful links {#see-also}
 

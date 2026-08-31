@@ -5,8 +5,8 @@ description: Follow this guide to create a {{ yandex-cloud }} Billing connection
 
 # Creating a {{ yandex-cloud }} Billing connection
 
-You can only access statistics in the billing accounts where you have the `{{ roles-viewer }}`, `{{ roles-editor }}`, or `{{ roles-admin }}` role. To learn more, see [Access management](../../../billing/security/index.md#primitive-roles).
-Access to a billing account is granted to a user or service account [on the list of users](../../../billing/security/index.md#set-member-role) of the selected account. For more information, see [this guide](../../../billing/security/index.md#set-role).
+You can only access statistics in the billing accounts where you have the `{{ roles-viewer }}`, `{{ roles-editor }}`, or `{{ roles-admin }}` role. To learn more, see [Access management]({{ link-docs }}/billing/security/#primitive-roles).
+Access to a billing account is granted to a user or service account [on the list of users]({{ link-docs }}/billing/security/#set-member-role) of the selected account. For more information, see [this guide]({{ link-docs }}/billing/security/#set-role).
 
 To create a {{ yandex-cloud }} Billing connection:
 

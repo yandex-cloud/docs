@@ -11,6 +11,12 @@ description: Следуя данной инструкции, вы сможете
 
 Подробнее о том, какой сервис координации выбрать, читайте в разделе [{#T}](../concepts/coordination-system.md#coordination-system-selection).
 
+{% note warning %}
+
+С отключенным сервисом координации вы можете создать кластер только из одного хоста или нескольких однохостовых [шардов](../concepts/sharding.md).
+
+{% endnote %}
+
 {% include [note-pricing-zk-ck](../../_includes/mdb/mch/note-pricing-zk-ck.md) %}
 
 
@@ -118,6 +124,8 @@ description: Следуя данной инструкции, вы сможете
         Чтобы добавить хосты в кластер, нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
       * Выберите [сервис координации](../concepts/coordination-system.md) **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}** или **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-embedded-clickhouse-keeper }}**.
+
+      В Production-окружении для кластеров с двумя и более хостами поддерживается только **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}**. Это обеспечивает [высокую доступность](../concepts/high-availability.md) кластера. В Prestable-окружении кластер с **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-embedded-clickhouse-keeper }}** может содержать либо один, либо три и более хостов.
 
         {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
@@ -270,9 +278,12 @@ description: Следуя данной инструкции, вы сможете
       * `--clickhouse-resource-preset` — [класс хоста](../concepts/instance-types.md) {{ CH }}.
       * `--clickhouse-disk-type` — [тип диска](../concepts/storage.md) {{ CH }}.
       * `--clickhouse-disk-size` — размер хранилища {{ CH }} в ГБ.
+
       * `--embedded-keeper` — использование встроенного [сервиса координации](../concepts/coordination-system.md) {{ CK }}: `true` или `false`.
 
-        {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
+          В Production-окружении для кластера с двумя и более хостами встроенный сервис координации не поддерживается. В Prestable-окружении кластер со встроенным сервисом координации может содержать либо один, либо три и более хостов.
+
+          {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
       * `--user` — содержит имя (`name`) и пароль (`password`) пользователя {{ CH }}.
 
@@ -486,7 +497,7 @@ description: Следуя данной инструкции, вы сможете
        ```hcl
        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
          name                = "<имя_кластера>"
-         environment         = "<окружение>"
+         environment         = "PRESTABLE"
          network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
          security_group_ids  = ["<список_идентификаторов_групп_безопасности>"]
          embedded_keeper     = true
@@ -555,7 +566,11 @@ description: Следуя данной инструкции, вы сможете
 
        Где:
 
-       * `--embedded-keeper` — использование встроенного [сервиса координации](../concepts/coordination-system.md) {{ CK }}: `true` или `false`.
+       * `embedded-keeper` — использование встроенного [сервиса координации](../concepts/coordination-system.md) {{ CK }}: `true` или `false`.
+
+          В Production-окружении для кластера с двумя и более хостами встроенный сервис координации не поддерживается. В Prestable-окружении кластер со встроенным сервисом координации может содержать либо один, либо три и более хостов.
+
+          {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
           {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
@@ -573,8 +588,6 @@ description: Следуя данной инструкции, вы сможете
             {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
           * `shard_name` — имя шарда.
-
-          {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
        Для пользователя указываются:
 
@@ -805,7 +818,9 @@ description: Следуя данной инструкции, вы сможете
                 * `version` — версия {{ CH }}: {{ versions.api.str }}.
                 * `embeddedKeeper` — использование встроенного [сервиса координации](../concepts/coordination-system.md) {{ CK }}: `true` или `false`.
 
-                    {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
+                   В Production-окружении для кластера с двумя и более хостами встроенный сервис координации не поддерживается. В Prestable-окружении кластер со встроенным сервисом координации может содержать либо один, либо три и более хостов.
+
+                   {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
                 * `clickhouse` — конфигурация {{ CH }}:
 
@@ -1049,6 +1064,8 @@ description: Следуя данной инструкции, вы сможете
                 * `version` — версия {{ CH }}: {{ versions.api.str }}.
 
                 * `embedded_keeper` — использование встроенного [сервиса координации](../concepts/coordination-system.md) {{ CK }}: `true` или `false`.
+
+                    В Production-окружении для кластера с двумя и более хостами встроенный сервис координации не поддерживается. В Prestable-окружении кластер со встроенным сервисом координации может содержать либо один, либо три и более хостов.
 
                     {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
@@ -1365,10 +1382,6 @@ description: Следуя данной инструкции, вы сможете
 
         * `shard-name` — имя шарда, в котором будет размещен хост.
 
-        
-        {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
-
-
         Для каждого хоста необходимо указать отдельный флаг `--host`.
 
       * `--clickhouse-resource-preset` — [класс хоста](../concepts/instance-types.md) {{ CH }}.
@@ -1678,8 +1691,6 @@ description: Следуя данной инструкции, вы сможете
 
           * `shard_name` — имя шарда. Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
 
-          {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
-
        Для пользователя указываются:
 
        * `name`и `password`— имя и пароль пользователя {{ CH }}.
@@ -1982,8 +1993,6 @@ description: Следуя данной инструкции, вы сможете
 
                    {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
-                {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
-
 
             * `shardSpecs` — настройки шардов в виде массива элементов, где каждый элемент соответствует отдельному шарду. Если не передать этот блок в запросе, будет создан кластер с одним шардом `shard1`. Вы можете задать следующие настройки:
 
@@ -2244,8 +2253,6 @@ description: Следуя данной инструкции, вы сможете
                 * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
 
                    {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
-
-                {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
             * `shard_specs` — настройки шардов в виде массива элементов, где каждый элемент соответствует отдельному шарду. Если не передать этот блок в запросе, будет создан кластер с одним шардом `shard1`. Вы можете задать следующие настройки:

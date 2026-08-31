@@ -1,7 +1,7 @@
 # Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and analyzing them using {{ datalens-full-name }}
 
 
-In this tutorial, you will set up streaming of [{{ postbox-full-name }}](../../postbox/index.yaml) events to [{{ yds-full-name }}](../../data-streams/index.yaml) and their visualization in [{{ datalens-full-name }}](../../datalens/index.yaml) for further analysis. Sending emails generates events.
+In this tutorial, you will set up streaming of [{{ postbox-full-name }}](../../postbox/index.yaml) events to [{{ yds-full-name }}](../../data-streams/index.yaml) and their visualization in [{{ datalens-full-name }}] for further analysis. Sending emails generates events.
 
 You can implement this solution using the {{ yandex-cloud }} [management console]({{ link-console-main }}) even if you have no coding skills. To process and store data, you will use [{{ sf-full-name }}](../../functions/index.yaml) and [{{ ydb-full-name }}](../../ydb/index.yaml).
 

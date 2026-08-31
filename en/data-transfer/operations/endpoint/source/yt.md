@@ -5,15 +5,16 @@ description: In this tutorial, you will learn how to configure a YTsaurus source
 
 # Transferring data from a {{ ytsaurus-name }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data from {{ ytsaurus-name }} tables to managed databases and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+{{ data-transfer-full-name }} enables you to migrate data from {{ ytsaurus-name }} tables to managed databases and implement various data transfer, processing, and transformation scenarios. To set up a transfer:
+
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
 1. Perform the required operations with the database and [see how the transfer is going](../../monitoring.md).
 
-## Scenarios for transferring data from {{ ytsaurus-name }} {#scenarios}
+## {{ ytsaurus-name }} data transfer scenarios {#scenarios}
 
 You can implement scenarios for loading data from tables into {{ yandex-cloud }} managed databases for storage in the cloud, processing, and loading into data marts for visualization.
 
@@ -38,7 +39,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 {% endlist %}
 
 
-## Configuring the data target {#supported-targets}
+## Configuring the target {#supported-targets}
 
 Configure one of the supported data targets:
 
@@ -49,5 +50,5 @@ Configure one of the supported data targets:
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 

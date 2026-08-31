@@ -31,40 +31,23 @@ description: Следуя данной инструкции, вы сможете
      ```
 
   1. Отзовите роль:
-     
-     * у пользователя:
-       
-       ```bash
-       yc cloud-registry registry remove-access-binding <имя_или_идентификатор_реестра> \
-         --role <роль> \
-         --user-account-id <идентификатор_пользователя>
-       ```
 
-     * [у сервисного аккаунта](../../../iam/concepts/users/service-accounts.md):
-       
-       ```bash
-       yc cloud-registry registry remove-access-binding <имя_или_идентификатор_реестра> \
-         --role <роль> \
-         --service-account-id <идентификатор_сервисного_аккаунта>
-       ```
+     ```bash
+     yc cloud-registry registry remove-access-binding <имя_или_идентификатор_реестра> \
+       --role <роль> \
+       --subject <тип_субъекта>:<идентификатор_субъекта>
+     ```
 
-     * у всех авторизованных пользователей ([публичная группа](../../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers) `All authenticated users`):
-       
-       ```bash
-       yc cloud-registry registry remove-access-binding <имя_или_идентификатор_реестра> \
-         --role <роль> \
-         --allAuthenticatedUsers
-       ```
+     Где:
 
-     * у всех пользователей ([публичная группа](../../../iam/concepts/access-control/public-group.md#allUsers) `All users`):
-         
-       ```bash
-       yc cloud-registry registry remove-access-binding <имя_или_идентификатор_реестра> \
-         --role <роль> \
-         --subject system:allUsers
-       ```
+     * `--role` — [роль](../../security/index.md#service-roles), которую необходимо отозвать.
+     * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
 
-       Где `<роль>` — [роль](../../security/index.md#service-roles), которую необходимо отозвать.
+         {% cut "Обозначения субъектов" %}
+
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
 
     Чтобы отозвать все роли на реестр и сразу назначить новые, используйте команду `yc cloud-registry registry set-access-bindings`.
      
@@ -88,7 +71,13 @@ description: Следуя данной инструкции, вы сможете
 
   [Просмотрите](list-role.md#api) роли, назначенные на реестр.
   
-  Чтобы отозвать роли, назначенные на реестр, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md).
+  Чтобы отозвать роли, назначенные на реестр, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 

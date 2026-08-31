@@ -45,4 +45,3 @@ Automatic billing for the service starts with the earliest of the two events:
   />
 </MDX>
 
-

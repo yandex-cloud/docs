@@ -10,7 +10,7 @@
     {% include [name-format](name-format.md) %}
 
 1. Optionally, specify the description for your folder.
-1. Select **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. This will create a [network](../vpc/concepts/network.md#network) with subnets in each availability zone. Within this network, you will also have a [default security group](../vpc/concepts/security-groups.md#default-security-group), within which all network traffic will be allowed.
+1. Select **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. This will create a [network](../vpc/concepts/network.md#network) with subnets in each [availability zone](../overview/concepts/geo-scope.md). Within this network, you will also have a [default security group](../vpc/concepts/security-groups.md#default-security-group), within which all network traffic will be allowed.
 1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
    ![create-folder2](../_assets/resource-manager/create-folder-2.png)

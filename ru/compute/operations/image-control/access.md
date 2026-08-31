@@ -49,31 +49,22 @@ description: Следуя данной инструкции, вы настрои
 
   1. Назначьте роль с помощью команды:
 
-     * Пользователю:
+     ```bash
+     yc compute image add-access-binding <идентификатор_образа> \
+       --role <роль> \
+       --subject <тип_субъекта>:<идентификатор_субъекта>
+     ```
 
-       ```bash
-       yc compute image add-access-binding <идентификатор_образа> \
-         --user-account-id <идентификатор_пользователя> \
-         --role <роль>
-       ```
+     Где:
 
-       Где:
+     * `--role` — назначаемая [роль](../../security/index.md#roles-list).
+     * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-       * `--user-account-id` — [идентификатор пользователя](../../../organization/operations/users-get.md). Чтобы назначить роль для всех аутентифицированных пользователей, воспользуйтесь флагом `--all-authenticated-users`.
-       * `--role` — назначаемая [роль](../../security/index.md#roles-list).
+         {% cut "Обозначения субъектов" %}
 
-     * Сервисному аккаунту:
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
 
-       ```bash
-       yc compute image add-access-binding <идентификатор_образа> \
-         --service-account-id <идентификатор_сервисного_аккаунта> \
-         --role <роль>
-       ```
-
-       Где:
-
-       * `--service-account-id` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md).
-       * `--role` — назначаемая [роль](../../security/index.md#roles-list).
+         {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -97,7 +88,13 @@ description: Следуя данной инструкции, вы настрои
 
       * `image_id` — идентификатор образа.
       * `role` — назначаемая [роль](../../security/index.md#roles-list).
-      * `members` — список типов и идентификаторов [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список обозначений [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
       Более подробную информацию о параметрах ресурса `yandex_compute_image_iam_binding` читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_image_iam_binding).
 
@@ -113,7 +110,13 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Image/updateAccessBindings.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/UpdateAccessBindings](../../api-ref/grpc/Image/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Image/updateAccessBindings.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/UpdateAccessBindings](../../api-ref/grpc/Image/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -164,19 +167,23 @@ description: Следуя данной инструкции, вы настрои
        --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
      ```
 
-     Где:
+     Где `--access-binding` — параметры для установки прав доступа:
 
-     * `--access-binding` — параметры для установки прав доступа:
+     * `role` — назначаемая [роль](../../security/index.md#roles-list).
+     * `subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-       * `role` — назначаемая [роль](../../security/index.md#roles-list).
-       * `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+         {% cut "Обозначения субъектов" %}
+
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
 
      Например, назначьте роли нескольким пользователям и сервисному аккаунту:
 
      ```bash
      yc compute image set-access-bindings my-image \
-       --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
-       --access-binding role=viewer,subject=userAccount:helj89sfj80a********
+       --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
+       --access-binding role=viewer,subject=userAccount:helj89sfj80a******** \
        --access-binding role=editor,subject=serviceAccount:ajel6l0jcb9s********
      ```
 
@@ -208,7 +215,13 @@ description: Следуя данной инструкции, вы настрои
 
       * `image_id` — идентификатор образа.
       * `role` — назначаемая [роль](../../security/index.md#roles-list).
-      * `members` — список типов и идентификаторов [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список обозначений [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
       Более подробную информацию о параметрах ресурса `yandex_compute_image_iam_binding` читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_image_iam_binding).
 
@@ -224,7 +237,13 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Image/setAccessBindings.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/SetAccessBindings](../../api-ref/grpc/Image/setAccessBindings.md).
+  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../../api-ref/Image/setAccessBindings.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/SetAccessBindings](../../api-ref/grpc/Image/setAccessBindings.md). В теле запроса в свойстве `subject` укажите тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
   {% note alert %}
 
@@ -272,13 +291,19 @@ description: Следуя данной инструкции, вы настрои
      ```bash
      yc compute image remove-access-binding <идентификатор_образа> \
        --role=<роль> \
-       --subject=<тип_субъекта>:<идентификатор_субъекта> \
+       --subject=<тип_субъекта>:<идентификатор_субъекта>
      ```
 
      Где:
 
      * `--role` — идентификатор роли, которую надо отозвать.
-     * `--subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+     * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+
+         {% cut "Обозначения субъектов" %}
+
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
 
      Например, чтобы отозвать роль `{{ roles-viewer }}` у пользователя с идентификатором `ajel6l0jcb9s********` на образ:
 
@@ -319,6 +344,12 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Чтобы отозвать роли на образ диска, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Image/updateAccessBindings.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/UpdateAccessBindings](../../api-ref/grpc/Image/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роли на образ диска, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Image/updateAccessBindings.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/UpdateAccessBindings](../../api-ref/grpc/Image/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

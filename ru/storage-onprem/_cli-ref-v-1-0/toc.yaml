@@ -97,10 +97,56 @@ items:
         href: cli-ref/cli_login.md
       - name: renew
         href: cli-ref/cli_login_renew.md
+  - name: ops
+    items:
+      - name: Overview
+        href: cli-ref/cli_ops.md
+      - name: certs
+        items:
+          - name: Overview
+            href: cli-ref/cli_ops_certs.md
+          - name: generate-csr-console
+            href: cli-ref/cli_ops_certs_generate-csr-console.md
+          - name: generate-csr-s3
+            href: cli-ref/cli_ops_certs_generate-csr-s3.md
+          - name: get-csr
+            href: cli-ref/cli_ops_certs_get-csr.md
+          - name: install-cert-console
+            href: cli-ref/cli_ops_certs_install-cert-console.md
+          - name: install-cert-s3
+            href: cli-ref/cli_ops_certs_install-cert-s3.md
+          - name: list-csr
+            href: cli-ref/cli_ops_certs_list-csr.md
+          - name: upload-console
+            href: cli-ref/cli_ops_certs_upload-console.md
+          - name: upload-s3
+            href: cli-ref/cli_ops_certs_upload-s3.md
+      - name: tasks
+        items:
+          - name: Overview
+            href: cli-ref/cli_ops_tasks.md
+          - name: get
+            href: cli-ref/cli_ops_tasks_get.md
+          - name: list
+            href: cli-ref/cli_ops_tasks_list.md
+          - name: wait
+            href: cli-ref/cli_ops_tasks_wait.md
+      - name: updates
+        items:
+          - name: Overview
+            href: cli-ref/cli_ops_updates.md
+          - name: available
+            href: cli-ref/cli_ops_updates_available.md
+          - name: install
+            href: cli-ref/cli_ops_updates_install.md
+          - name: upload
+            href: cli-ref/cli_ops_updates_upload.md
   - name: service-accounts
     items:
       - name: Overview
         href: cli-ref/cli_service-accounts.md
+      - name: activate
+        href: cli-ref/cli_service-accounts_activate.md
       - name: create
         href: cli-ref/cli_service-accounts_create.md
       - name: delete
@@ -109,6 +155,8 @@ items:
         href: cli-ref/cli_service-accounts_get.md
       - name: list
         href: cli-ref/cli_service-accounts_list.md
+      - name: suspend
+        href: cli-ref/cli_service-accounts_suspend.md
       - name: update
         href: cli-ref/cli_service-accounts_update.md
       - name: update-role
@@ -141,8 +189,14 @@ items:
             href: cli-ref/cli_tenants_members_change.md
           - name: list
             href: cli-ref/cli_tenants_members_list.md
+      - name: reactivate
+        href: cli-ref/cli_tenants_reactivate.md
+      - name: suspend
+        href: cli-ref/cli_tenants_suspend.md
       - name: update
         href: cli-ref/cli_tenants_update.md
+  - name: update
+    href: cli-ref/cli_update.md
   - name: users
     items:
       - name: Overview
@@ -159,4 +213,38 @@ items:
         href: cli-ref/cli_users_unlock.md
       - name: whoami
         href: cli-ref/cli_users_whoami.md
+  - name: version
+    href: cli-ref/cli_version.md
+  - name: yarl
+    items:
+      - name: Overview
+        href: cli-ref/cli_yarl.md
+      - name: delete
+        items:
+          - name: Overview
+            href: cli-ref/cli_yarl_delete.md
+          - name: common
+            href: cli-ref/cli_yarl_delete_common.md
+          - name: couple
+            href: cli-ref/cli_yarl_delete_couple.md
+          - name: handler
+            href: cli-ref/cli_yarl_delete_handler.md
+          - name: shard
+            href: cli-ref/cli_yarl_delete_shard.md
+      - name: get
+        href: cli-ref/cli_yarl_get.md
+      - name: list
+        href: cli-ref/cli_yarl_list.md
+      - name: set
+        items:
+          - name: Overview
+            href: cli-ref/cli_yarl_set.md
+          - name: common
+            href: cli-ref/cli_yarl_set_common.md
+          - name: couple
+            href: cli-ref/cli_yarl_set_couple.md
+          - name: handler
+            href: cli-ref/cli_yarl_set_handler.md
+          - name: shard
+            href: cli-ref/cli_yarl_set_shard.md
 path: ru/storage-onprem/_cli-ref-v-1-0/toc.yaml

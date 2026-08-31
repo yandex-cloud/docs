@@ -41,7 +41,7 @@ JavaScript-кастомизации в [Editor](../charts/editor/index.md) | ![i
 [Контроль публикаций](./datalens-public.md#publication-disable) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Статистика использования сервиса {{ datalens-name }} | Общая ([Light](./datalens-usage-analytics.md#light-dash)) | Расширенная ([Detailed](./datalens-usage-analytics.md#detailed-dash)) 
 [SLA](https://yandex.ru/legal/cloud_sla_datalens) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)  
-Техническая поддержка | [Базовый тариф](../../support/pricing.md#base) (если у пользователя не подключен [Бизнес](../../support/pricing.md#business) или [Премиум](../../support/pricing.md#premium)) | [Тариф Бизнес](../../support/pricing.md#business) (распространяется только на {{ datalens-name }}) и повышенный приоритет в рассмотрении обращений относительно тарифа Community
+Техническая поддержка | [Базовый тариф]({{ link-docs }}/support/pricing#base) (если у пользователя не подключен [Бизнес]({{ link-docs }}/support/pricing#business) или [Премиум]({{ link-docs }}/support/pricing#premium)) | [Тариф Бизнес]({{ link-docs }}/support/pricing#business) (распространяется только на {{ datalens-name }}) и повышенный приоритет в рассмотрении обращений относительно тарифа Community
 
 #### Полезные ссылки {#see-also}
 

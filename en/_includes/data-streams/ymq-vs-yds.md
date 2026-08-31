@@ -41,5 +41,5 @@ Throughput | Up to 300 messages per second for a standard queue; up to 30 messag
 What you pay for | Queries to read and write messages | Shards, speed per shard, and amount of stored data
 Supported protocol | [Amazon SQS API](../../message-queue/api-ref/index.md) | [Amazon Kinesis Data Streams API](../../data-streams/kinesisapi/api-ref.md)
 {{ yandex-cloud }} service integration | [{{ sf-full-name }}](../../functions/), [{{ api-gw-full-name }}](../../api-gateway/) | [{{ sf-full-name }}](../../functions/), [{{ api-gw-full-name }}](../../api-gateway/), [{{ data-transfer-full-name }}](../../data-transfer/)
-Reliability | Data is stored in all availability zones. | Data is stored in all availability zones.
+Reliability | Data is stored in all [availability zones](../../overview/concepts/geo-scope.md). | Data is stored in all [availability zones](../../overview/concepts/geo-scope.md).
 Scalability in terms of read access | Server | Client ([KCL](https://docs.aws.amazon.com/streams/latest/dev/shared-throughput-kcl-consumers.html)). KCL 1.x versions are supported.

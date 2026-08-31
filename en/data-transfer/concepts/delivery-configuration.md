@@ -5,6 +5,7 @@ description: In this article, you will learn about data delivery guarantees.
 
 # Data delivery guarantees
 
+
 There are three data delivery strategies:
 
 * **At-most-once**: Producer sends a message only once. If the consumer fails to receive the message, it will be irrevocably lost. The rate of data transmission is higher, but its delivery is not guaranteed.

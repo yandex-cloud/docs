@@ -11,6 +11,7 @@ description: '{{ metadata-hub-full-name }} applies quotas on the number of conne
 
 ## {{ connection-manager-name }} quotas {#connection-manager-quota}
 
+
 {% include [connection-manager-quotas](../../_includes/metadata-hub/connection-manager-quotas.md) %}
 
 ## {{ metastore-name }} quotas {#metastore-quota}
@@ -19,11 +20,13 @@ description: '{{ metadata-hub-full-name }} applies quotas on the number of conne
 
 ## {{ schema-registry-name }} quotas {#schema-registry-quota}
 
+
 {% include [preview-pp](../../_includes/preview-pp.md) %}
 
 {% include [schema-registry-quotas](../../_includes/metadata-hub/schema-registry-quotas.md) %}
 
 ## {{ data-catalog-name }} quotas {#data-catalog-quota}
+
 
 {% include [preview-pp](../../_includes/preview-pp.md) %}
 

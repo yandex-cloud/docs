@@ -5,6 +5,7 @@ description: In this tutorial, you will learn how to set up a YTsaurus target en
 
 # Transferring data to a {{ ytsaurus-name }} target endpoint
 
+
 {{ data-transfer-full-name }} enables you to migrate data to {{ ytsaurus-name }} and implement various data transfer, processing, and transformation scenarios.
 
 
@@ -14,12 +15,12 @@ There are two types of target endpoints available for {{ ytsaurus-name }}:
 * `YTSaurus Static`: Writing data to [static tables](https://ytsaurus.tech/docs/ru/user-guide/storage/static-tables).
 
 
-To implement a transfer:
+To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
 1. Perform the required operations with the database and [see how the transfer is going](../../monitoring.md).
 
 
@@ -53,9 +54,9 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 ## Configuring the {{ ytsaurus-name }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can configure:
 
-* Settings for connecting to a [{{ myt-full-name }} cluster](#cluster). These are required parameters.
+* Settings for connecting to a [{{ myt-full-name }} cluster](#cluster). These settings are required.
 * [Advanced settings](#additional-settings).
 
 ### Supported data delivery schemas and limits {#supported-transfers}
@@ -138,5 +139,5 @@ For dynamic tables, primary keys in the data are a requirement. {{ ytsaurus-name
 
 {% endlist %}
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 

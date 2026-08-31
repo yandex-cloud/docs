@@ -3,7 +3,7 @@
 
 Сценарий будет полезен пользователям, у которых уже развернут и запущен один из сервисов {{ yandex-cloud }}.
 
-Вы создадите чарт на основе [языка запросов {{ monitoring-full-name }}](../../monitoring/concepts/querying.md) и разместите его на дашборде.
+Вы создадите чарт на основе [языка запросов {{ monitoring-full-name }}]({{ link-docs }}/monitoring/concepts/querying) и разместите его на дашборде.
 
 
 Для визуализации и исследования данных [подготовьте {{ datalens-short-name }} к работе](#before-you-begin), затем выполните следующие шаги:
@@ -29,11 +29,11 @@
       
       {% note info %}
 
-      Для активации экземпляра {{ datalens-short-name }} пользователю нужна роль `admin` или `owner`. Подробнее про роли смотрите в разделе [{#T}](../../organization/security/index.md).
+      Для активации экземпляра {{ datalens-short-name }} пользователю нужна роль `admin` или `owner`. Подробнее про роли смотрите в разделе [{#T}]({{ link-docs }}/organization/security/).
 
       {% endnote %}
 
-   * Если у вас есть облако, но нет организации, нажмите **Добавить новый DataLens**. В открывшемся окне введите название и описание организации и нажмите **Создать организацию и DataLens**. Подробнее о работе с организациями смотрите в разделе [Начало работы с организациями](../../organization/quickstart.md).
+   * Если у вас есть облако, но нет организации, нажмите **Добавить новый DataLens**. В открывшемся окне введите название и описание организации и нажмите **Создать организацию и DataLens**. Подробнее о работе с организациями смотрите в разделе [Начало работы с организациями]({{ link-docs }}/organization/quickstart).
 
    Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки]({{ link-console-support }}) {{ yandex-cloud }}. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [{{ datalens-short-name }}](https://t.me/YandexDataLens) в Telegram. 
 
@@ -42,8 +42,8 @@
 
 {% note info %}
 
-Для создания подключения требуется [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-viewer }}` (или `{{ roles-viewer }}`).
-Для написания запросов в QL-чартах используйте [язык запросов {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+Для создания подключения требуется [сервисный аккаунт]({{ link-docs }}/iam/concepts/users/service-accounts) с [ролью]({{ link-docs }}/iam/operations/sa/assign-role-for-sa) `{{ roles-monitoring-viewer }}` (или `{{ roles-viewer }}`).
+Для написания запросов в QL-чартах используйте [язык запросов {{ monitoring-full-name }}]({{ link-docs }}/monitoring/concepts/querying).
 
 {% endnote %}
 

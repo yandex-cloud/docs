@@ -28,4 +28,6 @@ Tenants management
 * [cli tenants get](cli_tenants_get.md)	 — Get tenant
 * [cli tenants list](cli_tenants_list.md)	 — List tenants
 * [cli tenants members](cli_tenants_members.md)	 — Manage tenant members
+* [cli tenants reactivate](cli_tenants_reactivate.md)	 — Reactivate suspended tenant
+* [cli tenants suspend](cli_tenants_suspend.md)	 — Suspend tenant
 * [cli tenants update](cli_tenants_update.md)	 — Update tenant

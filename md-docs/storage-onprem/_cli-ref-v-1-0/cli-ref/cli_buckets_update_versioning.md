@@ -13,7 +13,7 @@ cli buckets update versioning <bucket_name> [flags]
 ```
   -h, --help                help for versioning
   -t, --tenant string       Tenant ID
-  -v, --versioning string   Versioning
+  -v, --versioning string   Versioning. Available values: enabled, suspended
 ```
 
 ## Options inherited from parent commands
