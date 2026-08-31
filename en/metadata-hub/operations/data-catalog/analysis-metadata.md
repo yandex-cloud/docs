@@ -5,11 +5,13 @@ description: Follow this guide to analyze links between tables from all sources 
 
 # Analyzing links between metadata
 
+
 {% note info %}
 
 {% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
+
 
 You can analyze links between tables from all sources of the selected metadata catalog.
 

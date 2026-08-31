@@ -70,15 +70,19 @@ description: Следуя данной инструкции, вы настрои
       Где:
 
       * `--role` — назначаемая [роль](../../security/index.md#roles-list), например `k8s.cluster-api.editor`.
-      * `--subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+      * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-        Например: 
-        
-        * `serviceAccount:aje6p030************`,
-        * `userAccount:aje8tj79************`,
-        * `system:allAuthenticatedUsers`.
+          Например:
 
-        {% include [access-control-subject](../../../_includes/managed-kubernetes/access-control-subject.md) %}
+          * `serviceAccount:aje6p030************`,
+          * `userAccount:aje8tj79************`,
+          * `system:allAuthenticatedUsers`.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду:
 
@@ -112,15 +116,19 @@ description: Следуя данной инструкции, вы настрои
 
       * `cluster_id` — идентификатор кластера.
       * `role` — назначаемая [роль](../../security/index.md#roles-list), например `k8s.cluster-api.editor`.
-      * `member` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
-    
-        Например: 
-        
-        * `serviceAccount:${yandex_iam_service_account.k8s_sa.id}`,
-        * `userAccount:ajerq94v************`,
-        * `system:allAuthenticatedUsers`.
+      * `member` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-        {% include [access-control-subject](../../../_includes/managed-kubernetes/access-control-subject.md) %}
+          Например:
+
+          * `serviceAccount:${yandex_iam_service_account.k8s_sa.id}`,
+          * `userAccount:ajerq94v************`,
+          * `system:allAuthenticatedUsers`.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -175,19 +183,23 @@ description: Следуя данной инструкции, вы настрои
         --access-binding role=<роль_1>,subject=<тип_субъекта>:<идентификатор_субъекта_1> \
         --access-binding role=<роль_2>,subject=<тип_субъекта>:<идентификатор_субъекта_2>
       ```
-    
+
       Где `--access-binding` — назначает роль субъекту. Вы можете назначить несколько ролей одновременно, описав каждую в отдельном параметре `--access-binding`.
-      
+
         * `role` — назначаемая [роль](../../security/index.md#roles-list), например `k8s.cluster-api.editor`.
-        * `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+        * `subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-          Например:
-          
-          * `serviceAccount:aje6p030************`,
-          * `userAccount:aje8tj79************`,
-          * `system:allAuthenticatedUsers`.
+            Например:
 
-          {% include [access-control-subject](../../../_includes/managed-kubernetes/access-control-subject.md) %}
+            * `serviceAccount:aje6p030************`,
+            * `userAccount:aje8tj79************`,
+            * `system:allAuthenticatedUsers`.
+
+            {% cut "Обозначения субъектов" %}
+
+            {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+            {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -221,15 +233,19 @@ description: Следуя данной инструкции, вы настрои
 
       * `cluster_id` — идентификатор кластера.
       * `role` — назначаемая [роль](../../security/index.md#roles-list), например `k8s.cluster-api.editor`.
-      * `member` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
-    
-        Например:
-        
-        * `serviceAccount:${yandex_iam_service_account.k8s_sa.id}`,
-        * `userAccount:ajerq94v************`,
-        * `system:allAuthenticatedUsers`.
+      * `member` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-        {% include [access-control-subject](../../../_includes/managed-kubernetes/access-control-subject.md) %}
+          Например:
+
+          * `serviceAccount:${yandex_iam_service_account.k8s_sa.id}`,
+          * `userAccount:ajerq94v************`,
+          * `system:allAuthenticatedUsers`.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -281,15 +297,19 @@ description: Следуя данной инструкции, вы настрои
       Где:
 
       * `--role` — отзываемая [роль](../../security/index.md#roles-list), например `k8s.cluster-api.editor`.
-      * `--subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначена роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+      * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
 
-        Например:
-        
-        * `serviceAccount:aje6p030************`,
-        * `userAccount:aje8tj79************`,
-        * `system:allAuthenticatedUsers`.
+          Например:
 
-        {% include [access-control-subject](../../../_includes/managed-kubernetes/access-control-subject.md) %}
+          * `serviceAccount:aje6p030************`,
+          * `userAccount:aje8tj79************`,
+          * `system:allAuthenticatedUsers`.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
 
 - {{ TF }} {#tf}

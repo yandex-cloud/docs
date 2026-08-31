@@ -17,103 +17,103 @@ items:
             href: operations/endpoint/index.md
           - name: Migrating endpoints to a different availability zone
             href: operations/endpoint/migration-to-an-availability-zone.md
-          - name: Apache Iceberg®
+          - name: '{{ IBRG }}'
             items:
               - name: Target
                 href: operations/endpoint/target/iceberg.md
-          - name: Apache Kafka®
+          - name: '{{ KF }}'
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/kafka.md
               - name: Target
                 href: operations/endpoint/target/kafka.md
           - name: AWS CloudTrail
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/aws-cloudtrail.md
           - name: BigQuery
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/bigquery.md
-          - name: ClickHouse
+          - name: '{{ CH }}'
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/clickhouse.md
               - name: Target
                 href: operations/endpoint/target/clickhouse.md
-          - name: Elasticsearch
+          - name: '{{ ES }}'
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/elasticsearch.md
               - name: Target
                 href: operations/endpoint/target/elasticsearch.md
-          - name: Greenplum®
+          - name: '{{ GP }}/{{ CB }}'
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/greenplum.md
               - name: Target
                 href: operations/endpoint/target/greenplum.md
           - name: '{{ metrika-endpoint }}'
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/metrika.md
           - name: Microsoft SQL Server
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/mssql.md
           - name: '{{ MG }}/{{ SD }}'
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/mongodb.md
               - name: Target
                 href: operations/endpoint/target/mongodb.md
-          - name: MySQL
+          - name: '{{ MY }}'
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/mysql.md
               - name: Target
                 href: operations/endpoint/target/mysql.md
-          - name: Object Storage
+          - name: '{{ objstorage-name }}'
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/object-storage.md
               - name: Target
                 href: operations/endpoint/target/object-storage.md
-          - name: OpenSearch
+          - name: '{{ OS }}'
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/opensearch.md
               - name: Target
                 href: operations/endpoint/target/opensearch.md
           - name: Oracle
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/oracle.md
-          - name: PostgreSQL
+          - name: '{{ PG }}'
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/postgresql.md
               - name: Target
                 href: operations/endpoint/target/postgresql.md
           - name: S3
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/s3.md
           - name: '{{ yds-full-name }}'
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/data-streams.md
               - name: Target
                 href: operations/endpoint/target/data-streams.md
           - name: '{{ ydb-short-name }}'
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/ydb.md
               - name: Target
                 href: operations/endpoint/target/yandex-database.md
           - name: '{{ ytsaurus-name }}'
             items:
-              - name: Source
+              - name: Origin
                 href: operations/endpoint/source/yt.md
               - name: Target
                 href: operations/endpoint/target/yt.md
@@ -145,7 +145,7 @@ items:
             href: tutorials/storedoc-versions.md
           - name: '{{ CH }} cluster'
             href: tutorials/managed-clickhouse.md
-          - name: '{{ GP }} cluster'
+          - name: '{{ GP }}/{{ CB }} cluster'
             href: tutorials/managed-greenplum.md
           - name: Migrating data from AWS RDS for {{ PG }}
             href: tutorials/rds-to-mpg.md
@@ -171,11 +171,11 @@ items:
             href: tutorials/mmy-to-mpg.md
           - name: '{{ PG }} to {{ MY }}'
             href: tutorials/mpg-to-mmy.md
-          - name: '{{ MY }} to {{ GP }}'
+          - name: '{{ MY }} to {{ GP }}/{{ CB }}'
             href: tutorials/mmy-to-mgp.md
           - name: '{{ OS }} in {{ ydb-short-name }}'
             href: tutorials/opensearch-to-ydb.md
-          - name: '{{ OS }} in {{ GP }}'
+          - name: '{{ OS }} to {{ GP }}/{{ CB }}'
             href: tutorials/opensearch-to-greenplum.md
           - name: '{{ PG }} in {{ OS }}'
             href: tutorials/postgresql-to-opensearch.md
@@ -201,7 +201,7 @@ items:
             href: tutorials/mkf-to-mch.md
           - name: '{{ KF }} to {{ PG }}'
             href: tutorials/mkf-to-mpg.md
-          - name: '{{ KF }} to {{ GP }}'
+          - name: '{{ KF }} to {{ GP }}/{{ CB }}'
             href: tutorials/managed-kafka-to-greenplum.md
           - name: '{{ KF }} to {{ SD }}'
             href: tutorials/mkf-to-mmg.md
@@ -228,7 +228,7 @@ items:
             href: tutorials/data-ingestion.md
       - name: Uploading data to data marts
         items:
-          - name: '{{ GP }} to {{ CH }}'
+          - name: '{{ GP }}/{{ CB }} in {{ CH }}'
             href: tutorials/greenplum-to-clickhouse.md
           - name: '{{ MY }} in {{ CH }}'
             href: tutorials/mysql-to-clickhouse.md
@@ -236,13 +236,13 @@ items:
             href: tutorials/metrika-to-clickhouse.md
           - name: '{{ PG }} in {{ CH }}'
             href: tutorials/rdbms-to-clickhouse.md
-          - name: '{{ GP }} to {{ PG }}'
+          - name: '{{ GP }}/{{ CB }} in {{ PG }}'
             href: tutorials/greenplum-to-postgresql.md
           - name: '{{ objstorage-name }} in {{ MY }}'
             href: tutorials/objs-mmy-migration.md
           - name: '{{ objstorage-name }} to {{ PG }}'
             href: tutorials/object-storage-to-postgresql.md
-          - name: '{{ objstorage-name }} to {{ GP }}'
+          - name: '{{ objstorage-name }} to {{ GP }}/{{ CB }}'
             href: tutorials/object-storage-to-greenplum.md
           - name: '{{ yandex-direct }} to {{ CH }}'
             href: tutorials/direct-to-mch.md
@@ -284,7 +284,7 @@ items:
         href: concepts/data-transformation.md
       - name: Serialization
         href: concepts/serializer.md
-      - name: '{{ data-transfer-full-name }} specifics for sources and targets'
+      - name: '{{ data-transfer-full-name }} workflow for sources and targets'
         href: concepts/work-with-endpoints.md
       - name: Delivery guarantees
         href: concepts/delivery-configuration.md

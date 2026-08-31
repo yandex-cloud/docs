@@ -41,44 +41,50 @@
       yc kms asymmetric-encryption-key list
       ```
 
-   1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роль.
-   1. С помощью одной из команд ниже назначьте роль:
+   1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md), группы пользователей, организации или федерации удостоверений, которым или пользователям которых вы назначаете роль.
+   1. Чтобы назначить роль, выполните команду:
 
-      * Пользователю:
+      ```bash
+      yc kms asymmetric-encryption-key add-access-binding \
+        --id <идентификатор_ключевой_пары> \
+        --role <роль> \
+        --subject <тип_субъекта>:<идентификатор_субъекта>
+      ```
 
-         ```bash
-         yc kms asymmetric-encryption-key add-access-binding \
-           --id <идентификатор_ключевой_пары> \
-           --role <роль> \
-           --user-account-id <идентификатор_пользователя>
-         ```
+      Где:
 
-      * Федеративному пользователю:
+      * `--id` — идентификатор ключевой пары шифрования.
+      * `--role` — назначаемая [роль](../security/index.md#roles-list).
+      * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-         ```bash
-         yc kms asymmetric-encryption-key add-access-binding \
-           --id <идентификатор_ключевой_пары> \
-           --role <роль> \
-           --subject federatedUser:<идентификатор_пользователя>
-         ```
+          {% cut "Обозначения субъектов" %}
 
-      * Сервисному аккаунту:
+          Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+          || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) | `--all-authenticated-users` ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) | — ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) | `--organization-users` ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) | `--federation-users` ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) | — ||
+          |#
 
-         ```bash
-         yc kms asymmetric-encryption-key add-access-binding \
-           --id <идентификатор_ключевой_пары> \
-           --role <роль> \
-           --service-account-id <идентификатор_сервисного_аккаунта>
-         ```
-
-      * Группе пользователей:
-
-         ```bash
-         yc kms asymmetric-encryption-key add-access-binding \
-           --id <идентификатор_ключевой_пары> \
-           --role <роль> \
-           --subject group:<идентификатор_группы>
-         ```
+          {% endcut %}
 
 - Terraform {#tf}
 
@@ -108,9 +114,38 @@
 
        Где:
 
-       * `asymmetric_encryption_key_id` — идентификатор ассиметричной ключевой пары шифрования.
+       * `asymmetric_encryption_key_id` — идентификатор асимметричной ключевой пары шифрования.
        * `role` — назначаемая [роль](../security/index.md#roles-list).
-       * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+       * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+           {% cut "Обозначения субъектов" %}
+
+           Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+           
+           #|
+           || **Тип субъекта** | **Обозначение субъекта** ||
+           || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+           || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+           || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+           || `group`          | `group:<идентификатор_группы>` ||
+           || `system`         | `system:allAuthenticatedUsers`
+           
+           (группа `All authenticated users`) ||
+           || ^                | `system:allUsers`
+           
+           (группа `All users`) ||
+           || ^                | `system:group:organization:<идентификатор_организации>:users`
+           
+           (группа `All users in organization X`) ||
+           || ^                | `system:group:federation:<идентификатор_федерации>:users`
+           
+           (группа `All users in federation N`) ||
+           || ^                | `system:group:userpool:<идентификатор_пула>:users`
+           
+           (группа `All users in userpool P`) ||
+           |#
+
+           {% endcut %}
 
        Подробнее о параметрах ресурса `yandex_kms_asymmetric_encryption_key_iam_member` в [документации провайдера](../../terraform/resources/kms_asymmetric_encryption_key_iam_member.md).
 
@@ -156,8 +191,37 @@
 
    * Значение `ADD` в параметре `access_binding_deltas[].action`, чтобы добавить роль.
    * Роль в параметре `access_binding_deltas[].access_binding.role_id`.
-   * Идентификатор субъекта, которому назначается роль, в параметре `access_binding_deltas[].access_binding.subject.id`.
+   * Идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль, в параметре `access_binding_deltas[].access_binding.subject.id`.
    * Тип субъекта, которому назначается роль, в параметре `access_binding_deltas[].access_binding.subject.type`.
+
+       {% cut "Обозначения субъектов" %}
+
+       Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+       
+       #|
+       || **subject.type** | **subject.id** ||
+       || `userAccount`    | `<идентификатор_пользователя>` ||
+       || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+       || `federatedUser`  | `<идентификатор_пользователя>` ||
+       || `group`          | `<идентификатор_группы>` ||
+       || `system`         | `allAuthenticatedUsers`
+       
+       (группа `All authenticated users`) ||
+       || ^                | `allUsers`
+       
+       (группа `All users`) ||
+       || ^                | `group:organization:<идентификатор_организации>:users`
+       
+       (группа `All users in organization X`) ||
+       || ^                | `group:federation:<идентификатор_федерации>:users`
+       
+       (группа `All users in federation N`) ||
+       || ^                | `group:userpool:<идентификатор_пула>:users`
+       
+       (группа `All users in userpool P`) ||
+       |#
+
+       {% endcut %}
 
 {% endlist %}
 
@@ -211,49 +275,57 @@
       yc kms asymmetric-encryption-key list
       ```
 
-   1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роли.
-   1. С помощью одной из команд ниже назначьте роли:
+   1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md), группы пользователей, организации или федерации удостоверений, которым или пользователям которых назначаете роли.
+   1. Чтобы назначить роли, выполните команду:
 
-      * Пользователю с аккаунтом на Яндексе или локальному пользователю:
+      ```bash
+      yc kms asymmetric-encryption-key set-access-bindings \
+        --id <идентификатор_ключевой_пары> \
+        --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
+      ```
 
-         ```bash
-         yc kms asymmetric-encryption-key set-access-bindings \
-           --id <идентификатор_ключевой_пары> \
-           --access-binding role=<роль>,user-account-id=<идентификатор_пользователя>
-         ```
+      Где:
 
-      * Федеративному пользователю:
+      * `--id` — идентификатор ключевой пары шифрования.
+      * `--access-binding` — назначаемая [роль](../security/index.md#roles-list) и обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-         ```bash
-         yc kms asymmetric-encryption-key set-access-bindings \
-           --id <идентификатор_ключевой_пары> \
-           --access-binding role=<роль>,subject=federatedUser:<идентификатор_пользователя>
-         ```
+          {% cut "Обозначения субъектов" %}
 
-      * Сервисному аккаунту:
+          Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+          || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) | `--all-authenticated-users` ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) | — ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) | `--organization-users` ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) | `--federation-users` ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) | — ||
+          |#
 
-         ```bash
-         yc kms asymmetric-encryption-key set-access-bindings \
-           --id <идентификатор_ключевой_пары> \
-           --access-binding role=<роль>,service-account-id=<идентификатор_сервисного_аккаунта>
-         ```
-
-      * Группе пользователей:
-
-         ```bash
-         yc kms asymmetric-encryption-key set-access-bindings \
-           --id <идентификатор_ключевой_пары> \
-           --access-binding role=<роль>,subject=group:<идентификатор_группы>
-         ```
+          {% endcut %}
 
       Для каждой роли передайте отдельный параметр `--access-binding`. Пример:
 
       ```bash
       yc kms asymmetric-encryption-key set-access-bindings \
         --id <идентификатор_ключевой_пары> \
-        --access-binding role=<роль1>,service-account-id=<идентификатор_сервисного_аккаунта> \
-        --access-binding role=<роль2>,service-account-id=<идентификатор_сервисного_аккаунта> \
-        --access-binding role=<роль3>,service-account-id=<идентификатор_сервисного_аккаунта>
+        --access-binding role=<роль1>,subject=<тип_субъекта>:<идентификатор_субъекта> \
+        --access-binding role=<роль2>,subject=<тип_субъекта>:<идентификатор_субъекта> \
+        --access-binding role=<роль3>,subject=<тип_субъекта>:<идентификатор_субъекта>
       ```
 
 - Terraform {#tf}
@@ -293,9 +365,38 @@
 
        Где:
 
-       * `asymmetric_encryption_key_id` — идентификатор ассиметричной ключевой пары шифрования.
+       * `asymmetric_encryption_key_id` — идентификатор асимметричной ключевой пары шифрования.
        * `role` — назначаемая [роль](../security/index.md#roles-list).
-       * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+       * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+           {% cut "Обозначения субъектов" %}
+
+           Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+           
+           #|
+           || **Тип субъекта** | **Обозначение субъекта** ||
+           || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+           || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+           || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+           || `group`          | `group:<идентификатор_группы>` ||
+           || `system`         | `system:allAuthenticatedUsers`
+           
+           (группа `All authenticated users`) ||
+           || ^                | `system:allUsers`
+           
+           (группа `All users`) ||
+           || ^                | `system:group:organization:<идентификатор_организации>:users`
+           
+           (группа `All users in organization X`) ||
+           || ^                | `system:group:federation:<идентификатор_федерации>:users`
+           
+           (группа `All users in federation N`) ||
+           || ^                | `system:group:userpool:<идентификатор_пула>:users`
+           
+           (группа `All users in userpool P`) ||
+           |#
+
+           {% endcut %}
 
        Подробнее о параметрах ресурса `yandex_kms_asymmetric_encryption_key_iam_member` в [документации провайдера](../../terraform/resources/kms_asymmetric_encryption_key_iam_member.md).
 
@@ -346,7 +447,36 @@
    Воспользуйтесь методом [SetAccessBindings](../asymmetricencryption/api-ref/AsymmetricEncryptionKey/setAccessBindings.md) для ресурса [AsymmetricEncryptionKey](../asymmetricencryption/api-ref/AsymmetricEncryptionKey/index.md) или вызовом gRPC API [AsymmetricEncryptionKeyService/SetAccessBindings](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/setAccessBindings.md). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
 
    * Роль в параметре `access_bindings[].role_id`.
-   * Идентификатор субъекта, на кого назначаются роли, в параметре `access_bindings[].subject.id`.
-   * Тип субъекта, на кого назначаются роли, в параметре `access_bindings[].subject.type`.
+   * Идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначаются роли, в параметре `access_bindings[].subject.id`.
+   * Тип субъекта, которому назначаются роли, в параметре `access_bindings[].subject.type`.
+
+       {% cut "Обозначения субъектов" %}
+
+       Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+       
+       #|
+       || **subject.type** | **subject.id** ||
+       || `userAccount`    | `<идентификатор_пользователя>` ||
+       || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+       || `federatedUser`  | `<идентификатор_пользователя>` ||
+       || `group`          | `<идентификатор_группы>` ||
+       || `system`         | `allAuthenticatedUsers`
+       
+       (группа `All authenticated users`) ||
+       || ^                | `allUsers`
+       
+       (группа `All users`) ||
+       || ^                | `group:organization:<идентификатор_организации>:users`
+       
+       (группа `All users in organization X`) ||
+       || ^                | `group:federation:<идентификатор_федерации>:users`
+       
+       (группа `All users in federation N`) ||
+       || ^                | `group:userpool:<идентификатор_пула>:users`
+       
+       (группа `All users in userpool P`) ||
+       |#
+
+       {% endcut %}
 
 {% endlist %}

@@ -41,8 +41,10 @@
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя и описание триггера.
+
+        * {% include [triggers-labels-step](../../_includes/functions/triggers-labels-step.md) %}
+
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}** выберите очередь сообщений и сервисный аккаунт с правами на чтение из нее.
 
@@ -53,7 +55,15 @@
 
         {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %}
 
-    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+    1. В блоке **Приёмники**:
+
+        1. В поле **Тип приёмника** выберите `Контейнер`.
+
+        1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+
+        1. {% include [trigger-console-filter](../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../_includes/functions/trigger-console-template.md) %}
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -120,6 +130,76 @@
   1. Опишите в конфигурационном файле параметры триггера:
 
      ```hcl
+     resource "yandex_serverless_triggers" "my_trigger" {
+       name = "<имя_триггера>"
+       source {
+         ymq {
+           queue_arn          = "<ARN_очереди>"
+           service_account_id = "<идентификатор_сервисного_аккаунта>"
+           visibility_timeout = "<таймаут_видимости_сообщений>"
+           batch_settings {
+             max_count = "<максимальное_число_сообщений>"
+             max_bytes = "<максимальный_размер_группы_в_байтах>"
+             cutoff    = "<максимальное_время_ожидания>"
+           }
+         }
+       }
+       action {
+         invoke_container {
+           container_id       = "<идентификатор_контейнера>"
+           path               = "<HTTP-путь>"
+           service_account_id = "<идентификатор_сервисного_аккаунта>"
+         }
+       }
+     }
+     ```
+
+     Где:
+
+     {% include [tf-triggers-common-params](../../_includes/tf-triggers-common-params.md) %}
+
+     * `source` — параметры источника событий:
+
+       * `ymq` — параметры очереди сообщений:
+
+         * `queue_arn` — ARN очереди.
+
+             {% include [ymq-id](../../_includes/serverless-containers/ymq-id.md) %}
+
+         * `service_account_id` — идентификатор сервисного аккаунта с правами на чтение из очереди сообщений.
+         * `visibility_timeout` — [таймаут видимости](../../message-queue/concepts/visibility-timeout.md) сообщений, который переопределяет значение, заданное в очереди. Необязательный параметр.
+
+         {% include [tf-triggers-batch-settings](../../_includes/tf-triggers-batch-settings.md) %}
+
+     * `action` — параметры приемника. Блок можно указать несколько раз, чтобы триггер вызывал несколько ресурсов, в том числе разных типов. Максимальное количество ресурсов ограничено [лимитами](../concepts/limits.md#serverless-containers-limits).
+
+         * `invoke_container` — параметры контейнера:
+
+             * `container_id` — идентификатор контейнера.
+             * `path` — HTTP-путь, по которому будет вызван контейнер. Необязательный параметр.
+             * `service_account_id` — идентификатор сервисного аккаунта с правами на вызов контейнера.
+
+         * `filter` — фильтрация событий перед отправкой в приемник. Необязательный блок.
+
+             * `jq` — [jq-шаблон](https://jqlang.github.io/jq/manual/) для фильтрации событий, передаваемых в приемник. Если не указан, в приемник передаются все события.
+
+         * `transformer` — преобразование событий перед отправкой в приемник. Необязательный блок.
+
+             * `jq` — jq-шаблон для преобразования событий перед отправкой в приемник. Если не указан, события не преобразуются.
+
+         * `dead_letter` — параметры очереди сообщений Dead Letter Queue. Необязательный блок.
+
+             * `dead_letter_queue` — параметры очереди:
+
+                 * `queue_arn` — ARN очереди.
+                 * `service_account_id` — идентификатор сервисного аккаунта с правами на запись в очередь.
+                 * `message_attributes` — атрибуты, которые будут добавлены к каждому сообщению в очереди, в формате `ключ:значение`. Необязательный параметр.
+
+     Подробнее о параметрах ресурса `yandex_serverless_triggers` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_triggers).
+
+     {% cut "Конфигурация для ресурса yandex_function_trigger" %}
+
+     ```hcl
      resource "yandex_function_trigger" "my_trigger" {
        name = "<имя_триггера>"
        container {
@@ -157,6 +237,8 @@
          * `batch_size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 до 1000, значение по умолчанию — 1.
 
      Подробнее о параметрах ресурса `yandex_function_trigger` в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+
+     {% endcut %}
 
   1. Создайте ресурсы:
 

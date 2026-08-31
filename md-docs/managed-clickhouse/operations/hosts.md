@@ -123,6 +123,12 @@
 
 Для предотвращения потери данных на создаваемый хост автоматически копируется схема данных из существующих хостов.
 
+{% note warning %}
+
+В кластере с отключенным [сервисом координации](../concepts/coordination-system.md) или встроенным ClickHouse® Keeper невозможно создать хост в существующем шарде. Сначала [включите сервис координации](update.md#enable-coordination) ClickHouse® Keeper или ZooKeeper на отдельных хостах.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

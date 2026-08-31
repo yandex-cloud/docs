@@ -29,8 +29,8 @@ Where:
 * `vlan_id`: Public trunk connection 802.1Q `VLAN-ID`. This value is selected by the customer. It must be different from the `VLAN-ID` values of other private connections in this trunk.
 * `peer_bgp_asn`: Customer endpoint [BGP ASN](../../interconnect/concepts/priv-con.md#bgp-asn) in ASPlain format. This value is selected by the customer.
 * `allowed-public-services`: `FQDN API Endpoints` of [services](../../interconnect/concepts/pub-con.md#svc-list) you want to access through this public connection.
-* `is_nat_extra_ip_required`: Indicates whether the customer needs a `/32` subnet prefix (in addition to the point-to-point `/31` subnet prefix) to implement [NAT](../../interconnect/concepts/pub-con.md#svc-nat). By default, this value is `false`, which means no additional subnet prefix is allocated.
-* `folder_id` (optional): Folder to store public connection monitoring metrics. If left empty, monitoring metrics will be stored in the folder you specified when creating the trunk.
+* `is_nat_extra_ip_required`: Indicates whether the customer needs a `/32` subnet prefix (in addition to the point-to-point `/31` subnet prefix) to implement [NAT](../../interconnect/concepts/pub-con.md#pub-nat). By default, this value is `false`, which means no additional subnet prefix is allocated.
+* `folder_id` (optional): By default, public connection monitoring metrics will be saved to the folder specified when creating the trunk. If required, you can explicitly specify the folder to save the public connection monitoring metrics to.
 
 ### Support team's response to your ticket {#pub-ticket-resp}
 

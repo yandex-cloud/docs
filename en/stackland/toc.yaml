@@ -247,6 +247,8 @@ items:
         href: concepts/resource-model.md
       - name: Scaling a cluster
         href: concepts/cluster-scaling.md
+      - name: Licensing
+        href: concepts/licensing.md
       - name: Components
         items:
           - name: Overview

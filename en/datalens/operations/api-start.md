@@ -7,7 +7,7 @@ The {{ datalens-name }} Public API offers methods similar to those used in the {
 
 When using the API, please be aware of the [limits](../concepts/limits.md#datalens-api-limits) in place.
 
-To use the API, you need an [IAM token](../../iam/operations/iam-token/create.md) and an [organization ID](../settings/index.md#service-settings).
+To use the API, you need an [IAM token]({{ link-docs }}/iam/operations/iam-token/create) and an [organization ID](../settings/index.md#service-settings).
 
 For example, substitute your `<IAM_TOKEN>`, `<ORG_ID>`, and `<ENTRY_ID>` values into the following request to get a list of all objects related to the entity:
 
@@ -122,7 +122,7 @@ To run an MCP server alongside an agent or MCP client, make sure your environmen
 
 * [Node.js](https://nodejs.org/) version 18 or higher.
 * `npm` and `npx`, accessible via `PATH` (usually bundled with Node.js).
-* [`yc` CLI](../../cli/quickstart.md) if using the recommended authorization method via {{ yandex-cloud }}. When authorizing with a `yc` static token, the CLI is not required.
+* [`yc` CLI]({{ link-docs }}/cli/quickstart) if using the recommended authorization method via {{ yandex-cloud }}. When authorizing with a `yc` static token, the CLI is not required.
 
 
 ### Use cases {#example}

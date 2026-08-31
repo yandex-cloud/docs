@@ -20,7 +20,7 @@
    * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the system to deploy on the VM instance boot [disk](../../compute/concepts/disk.md).
 
    * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
-     * Select the [disk type](../../compute/concepts/disk.md#disks_types).
+     * Select the [disk type](../../compute/concepts/disk.md#disks-types).
      * Specify the disk size.
      * To add more disks, click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
@@ -60,7 +60,7 @@
      * **{{ ui-key.yacloud.compute.groups.create.field_warmup-duration }}**: Startup duration of an instance in the group.
      * **{{ ui-key.yacloud.compute.groups.create.field_cooldown-duration }}**: Interval during which the required number of instances in the group cannot be reduced.
      * **{{ ui-key.yacloud.compute.groups.create.field_initial-size }}**.
-1. Under **{{ ui-key.yacloud.compute.groups.create.label_custom-metrics }}**, specify:
+1. Under **{{ ui-key.yacloud.compute.groups.create.label_custom-metrics }}**, specify the following:
    * In the **{{ ui-key.yacloud.compute.groups.create.field_metric }}** field:
      * [{{ ui-key.yacloud.compute.groups.create.metric-type-cpu }}](../../compute/concepts/instance-groups/scale.md#cpu-utilization): Specify the average CPU utilization level that {{ ig-name }} must support.
      * [{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}](../../compute/concepts/instance-groups/scale.md#custom-metrics): Specify the name of the custom metric and target value that {{ ig-name }} must support.

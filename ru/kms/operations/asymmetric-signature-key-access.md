@@ -42,44 +42,27 @@ description: Следуя данной инструкции, вы сможете
       yc kms asymmetric-signature-key list
       ```
 
-   1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роль.
-   1. С помощью одной из команд ниже назначьте роль:
+   1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md), группы пользователей, организации или федерации удостоверений, которым или пользователям которых вы назначаете роль.
+   1. Чтобы назначить роль, выполните команду:
 
-      * Пользователю:
+      ```bash
+      yc kms asymmetric-signature-key add-access-binding \
+        --id <идентификатор_ключевой_пары> \
+        --role <роль> \
+        --subject <тип_субъекта>:<идентификатор_субъекта>
+      ```
 
-         ```bash
-         yc kms asymmetric-signature-key add-access-binding \
-           --id <идентификатор_ключевой_пары> \
-           --role <роль> \
-           --user-account-id <идентификатор_пользователя>
-         ```
+      Где:
 
-      * Федеративному пользователю:
+      * `--id` — идентификатор ключевой пары электронной подписи.
+      * `--role` — назначаемая [роль](../security/index.md#roles-list).
+      * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-         ```bash
-         yc kms asymmetric-signature-key add-access-binding \
-           --id <идентификатор_ключевой_пары> \
-           --role <роль> \
-           --subject federatedUser:<идентификатор_пользователя>
-         ```
+          {% cut "Обозначения субъектов" %}
 
-      * Сервисному аккаунту:
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-         ```bash
-         yc kms asymmetric-signature-key add-access-binding \
-           --id <идентификатор_ключевой_пары> \
-           --role <роль> \
-           --service-account-id <идентификатор_сервисного_аккаунта>
-         ```
-
-      * Группе пользователей:
-
-         ```bash
-         yc kms asymmetric-signature-key add-access-binding \
-           --id <идентификатор_ключевой_пары> \
-           --role <роль> \
-           --subject group:<идентификатор_группы>
-         ```
+          {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -102,9 +85,15 @@ description: Следуя данной инструкции, вы сможете
 
        Где:
 
-       * `asymmetric_signaturen_key_id ` — идентификатор ключевой пары электронной подписи.
+       * `asymmetric_signature_key_id` — идентификатор ключевой пары электронной подписи.
        * `role` — назначаемая [роль](../security/index.md#roles-list).
-       * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+       * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+           {% cut "Обозначения субъектов" %}
+
+           {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+           {% endcut %}
 
        Подробнее о параметрах ресурса `yandex_kms_asymmetric_signature_key` в [документации провайдера]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
 
@@ -124,8 +113,14 @@ description: Следуя данной инструкции, вы сможете
 
    * Значение `ADD` в параметре `access_binding_deltas[].action`, чтобы добавить роль.
    * Роль в параметре `access_binding_deltas[].access_binding.role_id`.
-   * Идентификатор субъекта, которому назначается роль, в параметре `access_binding_deltas[].access_binding.subject.id`.
+   * Идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль, в параметре `access_binding_deltas[].access_binding.subject.id`.
    * Тип субъекта, которому назначается роль, в параметре `access_binding_deltas[].access_binding.subject.type`.
+
+       {% cut "Обозначения субъектов" %}
+
+       {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+       {% endcut %}
 
 {% endlist %}
 
@@ -173,49 +168,34 @@ description: Следуя данной инструкции, вы сможете
       yc kms asymmetric-signature-key list
       ```
 
-   1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роли.
-   1. С помощью одной из команд ниже назначьте роли:
+   1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md), группы пользователей, организации или федерации удостоверений, которым или пользователям которых назначаете роли.
+   1. Чтобы назначить роли, выполните команду:
 
-      * Пользователю с аккаунтом на Яндексе или локальному пользователю:
+      ```bash
+      yc kms asymmetric-signature-key set-access-bindings \
+        --id <идентификатор_ключевой_пары> \
+        --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
+      ```
 
-         ```bash
-         yc kms asymmetric-signature-key set-access-bindings \
-           --id <идентификатор_ключевой_пары> \
-           --access-binding role=<роль>,user-account-id=<идентификатор_пользователя>
-         ```
+      Где:
 
-      * Федеративному пользователю:
+      * `--id` — идентификатор ключевой пары электронной подписи.
+      * `--access-binding` — назначаемая [роль](../security/index.md#roles-list) и обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-         ```bash
-         yc kms asymmetric-signature-key set-access-bindings \
-           --id <идентификатор_ключевой_пары> \
-           --access-binding role=<роль>,subject=federatedUser:<идентификатор_пользователя>
-         ```
+          {% cut "Обозначения субъектов" %}
 
-      * Сервисному аккаунту:
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-         ```bash
-         yc kms asymmetric-signature-key set-access-bindings \
-           --id <идентификатор_ключевой_пары> \
-           --access-binding role=<роль>,service-account-id=<идентификатор_сервисного_аккаунта>
-         ```
-
-      * Группе пользователей:
-
-         ```bash
-         yc kms asymmetric-signature-key set-access-bindings \
-           --id <идентификатор_ключевой_пары> \
-           --access-binding role=<роль>,subject=group:<идентификатор_группы>
-         ```
+          {% endcut %}
 
       Для каждой роли передайте отдельный параметр `--access-binding`. Пример:
 
       ```bash
       yc kms asymmetric-signature-key set-access-bindings \
         --id <идентификатор_ключевой_пары> \
-        --access-binding role=<роль1>,service-account-id=<идентификатор_сервисного_аккаунта> \
-        --access-binding role=<роль2>,service-account-id=<идентификатор_сервисного_аккаунта> \
-        --access-binding role=<роль3>,service-account-id=<идентификатор_сервисного_аккаунта>
+        --access-binding role=<роль1>,subject=<тип_субъекта>:<идентификатор_субъекта> \
+        --access-binding role=<роль2>,subject=<тип_субъекта>:<идентификатор_субъекта> \
+        --access-binding role=<роль3>,subject=<тип_субъекта>:<идентификатор_субъекта>
       ```
 
 - {{ TF }} {#tf}
@@ -250,7 +230,13 @@ description: Следуя данной инструкции, вы сможете
 
        * `asymmetric_signature_key_id` — идентификатор ключевой пары электронной подписи.
        * `role` — назначаемая [роль](../security/index.md#roles-list).
-       * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+       * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+           {% cut "Обозначения субъектов" %}
+
+           {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+           {% endcut %}
 
        Подробнее о параметрах ресурса `yandex_kms_asymmetric_signature_key` в [документации провайдера]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
 
@@ -271,7 +257,13 @@ description: Следуя данной инструкции, вы сможете
    Воспользуйтесь методом [SetAccessBindings](../asymmetricsignature/api-ref/AsymmetricSignatureKey/setAccessBindings.md) для ресурса [AsymmetricSignatureKey](../asymmetricsignature/api-ref/AsymmetricSignatureKey/index.md) или вызовом gRPC API [AsymmetricSignatureKeyService/SetAccessBindings](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/setAccessBindings.md). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
 
    * Роль в параметре `access_bindings[].role_id`.
-   * Идентификатор субъекта, на кого назначаются роли, в параметре `access_bindings[].subject.id`.
-   * Тип субъекта, на кого назначаются роли, в параметре `access_bindings[].subject.type`.
+   * Идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначаются роли, в параметре `access_bindings[].subject.id`.
+   * Тип субъекта, которому назначаются роли, в параметре `access_bindings[].subject.type`.
+
+       {% cut "Обозначения субъектов" %}
+
+       {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+       {% endcut %}
 
 {% endlist %}

@@ -6,18 +6,16 @@ description: На странице представлены вопросы и о
 # Пользователи и управление доступом
 
 
-
 ### Поддерживает ли {{ datalens-short-name }} вход через SSO? {#sso-in-datalens}
 
-В {{ datalens-full-name }} можно [настроить аутентификацию](../security/add-new-user.md#federated-user) с помощью технологии Single Sign-On (SSO), если имеется [федерация удостоверений](../../organization/concepts/add-federation.md). При этом пользователи {{ datalens-short-name }} смогут аутентифицироваться с помощью своих корпоративных учетных записей.
-
+В {{ datalens-full-name }} можно [настроить аутентификацию](../security/add-new-user.md#federated-user) с помощью технологии Single Sign-On (SSO), если имеется [федерация удостоверений]({{ link-docs }}/organization/concepts/add-federation). При этом пользователи {{ datalens-short-name }} смогут аутентифицироваться с помощью своих корпоративных учетных записей.
 
 
 ### Как добавить пользователя и отправить ему ссылку на дашборд? {#how-add-user-send-ref}
 
 Чтобы другой пользователь мог открыть ваш дашборд, настройте доступ к {{ datalens-full-name }}:
 
-1. [Пригласите пользователя](../../organization/operations/add-account.md#send-invitation) с аккаунтом на Яндексе, добавьте [федеративного](../../organization/operations/add-account.md#add-user-sso) или [локального](../../organization/operations/add-account.md#local) пользователя.
+1. [Пригласите пользователя]({{ link-docs }}/organization/operations/add-account#send-invitation) с аккаунтом на Яндексе, добавьте [федеративного]({{ link-docs }}/organization/operations/add-account#add-user-sso) или [локального]({{ link-docs }}/organization/operations/add-account#local) пользователя.
 1. Убедитесь, что у пользователя есть права доступа к дашборду:
 
    1. Откройте дашборд.
@@ -41,7 +39,6 @@ description: На странице представлены вопросы и о
 {% include [copy-into-folder](../../_qa/datalens/copy-into-folder.md) %}
 
 {% include [revoke-token.md](../../_qa/datalens/revoke-token.md) %}
-
 
 
 

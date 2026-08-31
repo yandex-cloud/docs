@@ -104,13 +104,13 @@ You must have a license key to get access to the required {{ stackland-name }} c
 Download `sladm` and the installation image:
 
 ```bash
-wget https://storage.yandexcloud.net/stackland-public/stackland/26.1.0/sladm-26.1.0-linux-amd64.zip
-unzip sladm-26.1.0-linux-amd64.zip
+wget https://storage.yandexcloud.net/stackland-public/stackland/{{ version }}/sladm-{{ version }}-linux-amd64.zip
+unzip sladm-{{ version }}-linux-amd64.zip
 chmod +x sladm
 
-wget https://storage.yandexcloud.net/stackland-public/stackland/26.1.0/images/stackland-amd64-26.1.0.iso
-wget https://storage.yandexcloud.net/stackland-public/stackland/26.1.0/images/stackland-amd64-26.1.0.iso.sha256
-sha256sum -c stackland-amd64-26.1.0.iso.sha256
+wget https://storage.yandexcloud.net/stackland-public/stackland/{{ version }}/images/stackland-amd64-{{ version }}.iso
+wget https://storage.yandexcloud.net/stackland-public/stackland/{{ version }}/images/stackland-amd64-{{ version }}.iso.sha256
+sha256sum -c stackland-amd64-{{ version }}.iso.sha256
 ```
 
 ### Preparing secrets {#prepare-secrets}
@@ -138,6 +138,8 @@ sladm secrets add \
 ```
 
 Here, `ca.crt` and `ca.key` stand for the signed intermediate CA certificate and key. For more information about certificate management, see [Certificate Manager](concepts/components/certificate-manager.md).
+
+In `--license-key`, specify the path to the file with the registration key obtained from the vendor. For more information, see [{#T}](concepts/licensing.md).
 
 You can update an existing `StacklandSecretsConfig` resource with the `sladm secrets update` command. Provide a new license key as well as the intermediate CA certificate and key in any combination, using the same flags as in the `sladm secrets add` command. Here is an example:
 
@@ -217,7 +219,7 @@ On an internet-connected machine, do the following:
    * `--config`: Path to the directory with {{ stackland-name }} configuration files.
    * `--image-bundle`: Image bundle type. Use `full` to get all required images.
 
-   The command will create a directory named `stackland-26.1.0-full-oci` with container images in OCI format. The directory takes up 20 to 25 GB.
+   The command will create a directory named `stackland-{{ version }}-full-oci` with container images in OCI format. The directory takes up 20 to 25 GB.
 
    {% note info %}
 
@@ -227,9 +229,9 @@ On an internet-connected machine, do the following:
 
 1. Prepare the files to move:
 
-   * `stackland-26.1.0-full-oci/`: Directory with container images.
+   * `stackland-{{ version }}-full-oci/`: Directory with container images.
    * `config/`: Directory with configuration files.
-   * `stackland-26.1.0-amd64.iso`: Installation ISO image.
+   * `stackland-{{ version }}-amd64.iso`: Installation ISO image.
    * `sladm`: Installer.
 
 #### Transferring artifacts to an isolated machine {#offline-transfer}
@@ -253,7 +255,7 @@ On your isolated machine, run the installation using the local image package:
 ```bash
 sladm install \
   --config config/ \
-  --image-bundle-folder stackland-26.1.0-full-oci \
+  --image-bundle-folder stackland-{{ version }}-full-oci \
   --image-bundle full
 ```
 
@@ -296,7 +298,7 @@ sladm install \
 
 By default, the installer does not replace the existing `kubeconfig` file; instead, it adds a new context named `admin@$cluster.$baseDomain` to it. Before running queries to the cluster, use the `kubectl config set-context admin@$cluster.$baseDomain` command to activate that context.
 
-The installer will also create artifacts in the `_out` directory. Once the {{ stackland-name }} cluster is deployed, save the content of this directory, as you might need it when collecting diagnostic data and analyzing potential issues (see [Diagnostics and troubleshooting](operations/troubleshooting.md) for details).
+The installer will also create artifacts in the `_out` directory. Once the {{ stackland-name }} cluster is deployed, save the content of this directory, as you might need it when collecting diagnostic data and analyzing potential issues (see [Diagnostics and troubleshooting](operations/troubleshooting.md)).
 
 After the installation is complete, `sladm` will display the cluster connection details, such as the management console address and default credentials.
 

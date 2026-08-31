@@ -104,7 +104,7 @@ description: Следуя данной инструкции, вы научите
    - Изображение {#image}
 
           
-     * Добавьте ссылку на [изображение](../dashboard/markdown.md#image), размещенное в хранилище [{{ objstorage-full-name }}](../../storage/quickstart.md).
+     * Добавьте ссылку на [изображение](../dashboard/markdown.md#image), размещенное в хранилище [{{ objstorage-full-name }}]({{ link-docs }}/storage/quickstart).
 
        {% note warning %}
 

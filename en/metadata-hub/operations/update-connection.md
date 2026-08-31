@@ -15,8 +15,7 @@ To change connection settings:
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-  1. In the list of connections, click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the connection you want to edit.
-  1. Select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** to the right of the connection you want to update.
   1. Change the required connection parameters, such as description, labels, database server settings, or user authentication information.
   1. Click **{{ ui-key.yacloud.common.apply }}** to save the changes.
 
@@ -184,7 +183,7 @@ To change connection settings:
 
           * `description`: Connection description.
 
-          * `--labels`: Labels in `"<key>" = "<value>"` format.
+          * `labels`: Labels in `"<key>" = "<value>"` format.
 
       1. To update the cluster ID, update the `managed_cluster_id` field value under `params.<database_type>`:
 
@@ -315,7 +314,7 @@ To change connection settings:
 
           * `description`: Connection description.
 
-          * `--labels`: Labels in `"<key>" = "<value>"` format.
+          * `labels`: Labels in `"<key>" = "<value>"` format.
 
       1. To update the list of hosts for all connections, except {{ TR }} connections, update the `hosts` field value under `params.<database_type>.cluster`:
 

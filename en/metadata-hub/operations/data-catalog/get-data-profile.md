@@ -5,11 +5,13 @@ description: Follow this guide to get a data profile in {{ data-catalog-full-nam
 
 # Getting a data profile
 
+
 {% note info %}
 
 {% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
+
 
 You can get a selected dataset's profile.
 

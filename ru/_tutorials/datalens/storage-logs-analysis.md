@@ -189,7 +189,7 @@
 ### Создайте кластер {{ CH }} {#create-ch-cluster}
 
 
-Для создания кластера {{ mch-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mch.editor }} или выше](../../managed-clickhouse/security.md#roles-list). О том, как назначить роль, смотрите в [документации {{ iam-name }}](../../iam/operations/roles/grant.md).
+Для создания кластера {{ mch-name }} нужна роль [{{ roles-vpc-user }}]({{ link-docs }}/vpc/security/#vpc-user) и роль [{{ roles.mch.editor }} или выше](../../managed-clickhouse/security.md#roles-list). О том, как назначить роль, смотрите в [документации {{ iam-name }}]({{ link-docs }}/iam/operations/roles/grant).
 
 
 {% list tabs group=instructions %}

@@ -97,7 +97,7 @@ To share a link to a hidden tab:
    * Set the language, theme, and menu display.
    * Save selector values.
 
-   * If you have set up an [identity federation](../../../organization/concepts/add-federation.md), save the federation to share your link with the federation users.
+   * If you have set up an [identity federation]({{ link-docs }}/organization/concepts/add-federation), save the federation to share your link with the federation users.
 
 1. Copy the link to the hidden tab with configured appearance settings by clicking ![image](../../../_assets/console-icons/copy.svg) in the **Link** field or click **Copy and close**. You can distribute this link to users with [access](../../security/index.md) to the dashboard. When you follow this link, the dashboard will open on the hidden tab.
 

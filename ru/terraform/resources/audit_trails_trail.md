@@ -226,10 +226,30 @@ filtering_policy {
     - `service` (**Required**)(String). ID of the service which events will be gathered.
     - `dns_filter` [Block]. Specific filter for DNS service.
       - `include_nonrecursive_queries` (**Required**)(Bool). All types of queries will be delivered.
+    - `exclude_rule` [Block]. Rules defining which data events will be excluded. Rules are combined using logical OR.
+      - `condition` [Block]. Condition that must be satisfied by an event. Conditions are combined using logical AND.
+        - `field` (**Required**)(String). Path to a scalar field of the event.
+        - `operator` (**Required**)(String). Operator that controls how the values are interpreted.
+        - `values` (**Required**)(List Of String). Values interpreted according to the selected field and operator.
+    - `include_rule` [Block]. Rules defining which data events will be included. Rules are combined using logical OR.
+      - `condition` [Block]. Condition that must be satisfied by an event. Conditions are combined using logical AND.
+        - `field` (**Required**)(String). Path to a scalar field of the event.
+        - `operator` (**Required**)(String). Operator that controls how the values are interpreted.
+        - `values` (**Required**)(List Of String). Values interpreted according to the selected field and operator.
     - `resource_scope` [Block]. Structure describing that events will be gathered from the specified resource.
       - `resource_id` (**Required**)(String). Resource ID.
       - `resource_type` (**Required**)(String). Resource type.
   - `management_events_filter` [Block]. Structure describing filtering process for management events.
+    - `exclude_rule` [Block]. Rules defining which management events will be excluded. Rules are combined using logical OR.
+      - `condition` [Block]. Condition that must be satisfied by an event. Conditions are combined using logical AND.
+        - `field` (**Required**)(String). Path to a scalar field of the event.
+        - `operator` (**Required**)(String). Operator that controls how the values are interpreted.
+        - `values` (**Required**)(List Of String). Values interpreted according to the selected field and operator.
+    - `include_rule` [Block]. Rules defining which management events will be included. Rules are combined using logical OR.
+      - `condition` [Block]. Condition that must be satisfied by an event. Conditions are combined using logical AND.
+        - `field` (**Required**)(String). Path to a scalar field of the event.
+        - `operator` (**Required**)(String). Operator that controls how the values are interpreted.
+        - `values` (**Required**)(List Of String). Values interpreted according to the selected field and operator.
     - `resource_scope` [Block]. Structure describing that events will be gathered from the specified resource.
       - `resource_id` (**Required**)(String). Resource ID.
       - `resource_type` (**Required**)(String). Resource type.

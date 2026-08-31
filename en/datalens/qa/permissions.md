@@ -8,14 +8,14 @@ description: This page presents FAQ about users and access permissions managemen
 
 ### Does {{ datalens-short-name }} support login via SSO? {#sso-in-datalens}
 
-In {{ datalens-full-name }}, you can [configure authentication](../security/add-new-user.md#federated-user) using SSO or [identity federation](../../organization/concepts/add-federation.md), if you have one. {{ datalens-short-name }} users can get authenticated using their corporate accounts.
+In {{ datalens-full-name }}, you can [configure authentication](../security/add-new-user.md#federated-user) using SSO or [identity federation]({{ link-docs }}/organization/concepts/add-federation), if you have one. {{ datalens-short-name }} users can get authenticated using their corporate accounts.
 
 
 ### How do I add a user and send them a link to the dashboard? {#how-add-user-send-ref}
 
 To allow another user to open your dashboard, configure access to {{ datalens-full-name }}:
 
-1. [Invite a user](../../organization/operations/add-account.md#send-invitation) with a Yandex account or add a [federated](../../organization/operations/add-account.md#add-user-sso) or [local](../../organization/operations/add-account.md#local) user.
+1. [Invite a user]({{ link-docs }}/organization/operations/add-account#send-invitation) with a Yandex account or add a [federated]({{ link-docs }}/organization/operations/add-account#add-user-sso) or [local]({{ link-docs }}/organization/operations/add-account#local) user.
 1. Make sure the user has access permissions for the dashboard:
 
    1. Open the dashboard.

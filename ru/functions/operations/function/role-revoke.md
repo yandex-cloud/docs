@@ -15,53 +15,32 @@ description: Следуя данной инструкции, вы сможете
 
     Выполните команду, чтобы отозвать [роль](../../security/index.md#roles-list) на функцию:
 
-    * у пользователя:
+    ```bash
+    yc serverless function remove-access-binding \
+      --id <идентификатор_функции> \
+      --role <идентификатор_роли> \
+      --subject <тип_субъекта>:<идентификатор_субъекта>
+    ```
 
-        ```
-        yc serverless function remove-access-binding \
-          --id <идентификатор_функции> \
-          --user-account-id <идентификатор_пользователя> \
-          --role <роль>
-        ```
+    Где:
 
-        Результат:
+    * `--role` — идентификатор роли, которую надо отозвать.
+    * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
 
-        ```
-        done (1s)
-        ```
+        {% cut "Обозначения субъектов" %}
 
-    * у [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md):
+        {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
 
-        ```
-        yc serverless function remove-access-binding \
-          --id <идентификатор_функции> \
-          --service-account-id <идентификатор_сервисного_аккаунта> \
-          --role <роль>
-        ```
-
-        Результат:
-
-        ```
-        done (1s)
-        ```
-
-    * у всех авторизованных пользователей ([публичная группа](../../../iam/concepts/access-control/public-group.md) `All authenticated users`):
-
-        ```
-        yc serverless function remove-access-binding \
-          --id <идентификатор_функции> \
-          --all-authenticated-users \
-          --role <роль>
-        ```
-
-        Результат:
-
-        ```
-        done (1s)
-        ```
+        {% endcut %}
 
 - API {#api}
 
-  Чтобы отозвать роли на функцию, воспользуйтесь методом REST API [updateAccessBindings](../../functions/api-ref/Function/updateAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/UpdateAccessBindings](../../functions/api-ref/grpc/Function/updateAccessBindings.md).
+  Чтобы отозвать роли на функцию, воспользуйтесь методом REST API [updateAccessBindings](../../functions/api-ref/Function/updateAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/UpdateAccessBindings](../../functions/api-ref/grpc/Function/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

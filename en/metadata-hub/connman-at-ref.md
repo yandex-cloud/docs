@@ -5,6 +5,7 @@ description: This page provides a reference for {{ connection-manager-name }} ev
 
 # {{ connection-manager-full-name }} event reference
 
+
 {{ at-name }} for {{ connection-manager-full-name }} supports tracking [management events](../audit-trails/concepts/format.md) (control plane).
 
 The general format of the `event_type` field value is as follows:

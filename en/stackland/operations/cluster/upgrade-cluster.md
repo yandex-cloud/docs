@@ -38,6 +38,93 @@ spec:
   releaseChannel: "stable"  # or "alpha"
 ```
 
+## Before upgrading to 27.x {#pre-upgrade-27}
+
+{{ stackland-name }} 26.2 introduced a new Contour-based Ingress controller deprecating the legacy implementation based on ingress-nginx. {{ stackland-name }} 27 will completely remove ingress-nginx from the distribution, and this serves as prior notice of these plans. In {{ stackland-name }} 26 releases, ingress-nginx remains available for custom workloads, but you must migrate to the new controller before upgrading to {{ stackland-name }} 27.
+
+In most cases, custom `Ingress` manifests with the `stackland-default` class will remain operational, but the new controller does not support `nginx.ingress.kubernetes.io/*` annotations, which are specific to ingress-nginx. Make sure to remove or replace them. For more information, see [{#T}](#check-user-ingress).
+
+Also note that operator action is required: the upgrade to version `>= 27.0.0` will fail to initialize unless you explicitly disable the legacy Ingress controller.
+
+### Checking custom Ingress resources {#check-user-ingress}
+
+If your cluster contains custom `Ingress` resources:
+
+1. Locate custom `Ingress` resources:
+
+    ```bash
+    kubectl get ingress -A
+    ```
+
+1. Check that they specify `spec.ingressClassName: stackland-default` or have no such field. In the latter case, the default class is used.
+1. Make sure resource annotations do not contain nginx-specific `nginx.ingress.kubernetes.io/*` keys. If you find any such annotations, remove or replace them with the new Ingress controller alternatives, or the rules will fail to apply after the upgrade.
+
+### Testing the application before the upgrade {#test-before-upgrade}
+
+While your cluster is still on version 26.x, you can proactively verify that your custom `Ingress` is compatible with the new Ingress controller.
+
+{% note warning %}
+
+When changing `spec.ingressClassName` to `stackland-system`, remember that `stackland-system` has its own external IP address that does not match the legacy Ingress controller IP address. If the DNS zone is delegated to the platform, the domain record will update automatically to point to the new LoadBalancer. However, during the standard DNS propagation delay, some client traffic will still be routed to the legacy Ingress controller IP address. A similar delay occurs after you change the class back to `stackland-default`.
+
+Perform this test within a maintenance window or on a non-critical host.
+
+{% endnote %}
+
+1. In a temporary copy of the manifest, replace `spec.ingressClassName: stackland-default` with `spec.ingressClassName: stackland-system` and apply the manifest:
+
+    ```bash
+    kubectl apply -f <file_name>.yaml
+    ```
+
+1. Check application availability. There are two ways to do this:
+
+    * Direct IP verification without DNS. This method works independently of DNS propagation or your application domain's DNS zone hosting.
+
+        1. Get the external IP of the LoadBalancer serving the `stackland-system` class:
+
+            ```bash
+            kubectl get svc -A \
+              -l app.kubernetes.io/name=contour,app.kubernetes.io/component=envoy
+            ```
+
+            If the selector does not work for your setup, manually locate the `LoadBalancer` service within your Contour namespace.
+
+        1. Send a request to the application using the retrieved IP:
+
+            ```bash
+            curl --resolve <domain>:443:<Envoy_external_IP> https://<domain>/
+            ```
+
+    * Domain-based verification. You can only use this method if your DNS zone is delegated: the domain record will automatically migrate to the `stackland-system` LoadBalancer. Keep in mind there is a DNS propagation delay. If you manage a custom DNS, the domain will continue to point to the legacy LoadBalancer, i.e., you will get a false negative result. Use `curl --resolve` instead.
+
+1. After verification, change the `spec.ingressClassName` value back to `stackland-default` or remove this field.
+
+You can skip this step on version 27.x: the new Ingress controller serves the `stackland-default` class by default.
+
+{% note warning %}
+
+`stackland-system`: Service class. Do not use it for production `Ingress` resources: this is a temporary class designed exclusively for compatibility tests prior to the upgrade.
+
+{% endnote %}
+
+### Disabling the legacy Ingress implementation {#disable-legacy-ingress}
+
+1. Disable the legacy Ingress implementation within the `IngressConfig` resource:
+
+    ```bash
+    kubectl patch ingressconfig main --type=merge \
+      -p '{"spec":{"settings":{"nginx":{"enabled":false}}}}'
+    ```
+
+  Disabling ingress-nginx automatically restarts existing Ingress controllers on top of Contour.
+
+1. Wait until the platform migrates to a single Ingress Controller. Check the current state:
+
+    ```bash
+    kubectl get ingressconfig main -o jsonpath='{.status.ingress.observedIngress}'
+    ```
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

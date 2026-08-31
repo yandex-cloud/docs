@@ -35,7 +35,7 @@ description: Следуя данной инструкции, вы сможете
 
 Коннектор необходимо создать на базе кластера {{ CH }}, в котором будут храниться данные ваших пользователей.
 
-1. Создайте [кластер {{ CH }}](../../../managed-clickhouse/operations/cluster-create.md) в облаке.
+1. Создайте [кластер {{ CH }}]({{ link-docs }}/managed-clickhouse/operations/cluster-create) в облаке.
 
    1. В кластере добавьте пользователя БД `datalens` с параметром [readonly = 2]({{ ch.docs }}{{ lang }}/operations/settings/permissions-for-queries#settings_readonly).
 

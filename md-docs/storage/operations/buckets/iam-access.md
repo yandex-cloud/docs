@@ -35,7 +35,7 @@
       yc storage bucket update --help
       ```
 
-  1. Назначьте роль на бакет:
+  1. Настройте права доступа к бакету:
 
       ```bash
       yc storage bucket update \
@@ -47,7 +47,7 @@
       * `--name` — имя бакета.
       * `--grants` — параметры настройки прав доступа [ACL](../../concepts/acl.md):
         * `grantee-id` — идентификатор аккаунта, которому выдаются права. Используется при значении параметра `grant-type=grant-type-account`.
-        * `grant-type` — тип субъекта, которому выдаются права. Возможные значения:
+        * `grant-type` — тип получателя доступа, которому выдаются права. Возможные значения:
           * `grant-type-account` — пользовательский или сервисный аккаунт;
           * `grant-type-all-authenticated-users` — все аутентифицированные пользователи;
           * `grant-type-all-users` — все пользователи.
@@ -99,7 +99,7 @@
       +----------------------+--------------+--------+---------------------+-----------------------+
       ```
 
-  1. Назначьте роль на бакет:
+  1. Настройте права доступа к бакету:
 
       ```bash
       yc storage bucket update \
@@ -184,7 +184,36 @@
         
         {% endnote %}
 
-      * `members` — список типов и идентификаторов [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список обозначений [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
       Подробнее о параметрах ресурса `yandex_storage_bucket_iam_binding` читайте в [документации провайдера](../../../terraform/resources/storage_bucket_iam_binding.md).
 
@@ -234,7 +263,36 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Bucket/updateAccessBindings.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/UpdateAccessBindings](../../api-ref/grpc/Bucket/updateAccessBindings.md).
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Bucket/updateAccessBindings.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/UpdateAccessBindings](../../api-ref/grpc/Bucket/updateAccessBindings.md). В теле запроса в свойстве `subject` укажите тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+  
+  #|
+  || **subject.type** | **subject.id** ||
+  || `userAccount`    | `<идентификатор_пользователя>` ||
+  || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+  || `federatedUser`  | `<идентификатор_пользователя>` ||
+  || `group`          | `<идентификатор_группы>` ||
+  || `system`         | `allAuthenticatedUsers`
+  
+  (группа `All authenticated users`) ||
+  || ^                | `allUsers`
+  
+  (группа `All users`) ||
+  || ^                | `group:organization:<идентификатор_организации>:users`
+  
+  (группа `All users in organization X`) ||
+  || ^                | `group:federation:<идентификатор_федерации>:users`
+  
+  (группа `All users in federation N`) ||
+  || ^                | `group:userpool:<идентификатор_пула>:users`
+  
+  (группа `All users in userpool P`) ||
+  |#
+
+  {% endcut %}
 
 {% endlist %}
 

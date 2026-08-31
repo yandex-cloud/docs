@@ -27,8 +27,10 @@
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя и описание триггера.
+
+        * {% include [triggers-labels-step](../../../_includes/functions/triggers-labels-step.md) %}
+
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_logging }}`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_logging }}** укажите:
 
@@ -40,15 +42,23 @@
 
         {% include [batch-messages](../../../_includes/functions/batch-messages.md) %}
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию и укажите:
+    1. В блоке **Приёмники**:
 
-        {% include [function-settings](../../../_includes/functions/function-settings.md) %}
+        1. В поле **Тип приёмника** выберите `Функция`.
 
-    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+        1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию и укажите:
 
-        {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
+            {% include [function-settings](../../../_includes/functions/function-settings.md) %}
 
-    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
+        1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+
+            {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
+
+        1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
+
+        1. {% include [trigger-console-filter](../../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../../_includes/functions/trigger-console-template.md) %}
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -133,6 +143,67 @@
 
   1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
 
+     ```hcl
+     resource "yandex_serverless_triggers" "my_trigger" {
+       name        = "<имя_триггера>"
+       description = "<описание_триггера>"
+       source {
+         logging {
+           log_group_id  = "<идентификатор_лог-группы>"
+           resource_type = [ "<тип_ресурса>" ]
+           resource_id   = [ "<идентификатор_ресурса>" ]
+           stream_name   = [ "<поток_логирования>" ]
+           levels        = [ "<уровень_логирования>", "<уровень_логирования>" ]
+           batch_settings {
+             max_count = "<максимальное_число_сообщений>"
+             max_bytes = "<максимальный_размер_группы_в_байтах>"
+             cutoff    = "<максимальное_время_ожидания>"
+           }
+         }
+       }
+       action {
+         invoke_function {
+           function_id        = "<идентификатор_функции>"
+           service_account_id = "<идентификатор_сервисного_аккаунта>"
+         }
+         retry_policy {
+           retry_attempts = "<количество_повторных_отправок>"
+           interval       = "<интервал_между_повторными_отправками>"
+         }
+         dead_letter {
+           dead_letter_queue {
+             queue_arn          = "<ARN_очереди_Dead_Letter_Queue>"
+             service_account_id = "<идентификатор_сервисного_аккаунта>"
+           }
+         }
+       }
+     }
+     ```
+
+     Где:
+
+     {% include [tf-triggers-common-params](../../../_includes/tf-triggers-common-params.md) %}
+
+     * `source` — параметры источника событий:
+
+       * `logging` — параметры лог-группы:
+
+         * `log_group_id` — идентификатор лог-группы, при добавлении записей в которую будет вызываться функция.
+         * `resource_type` — типы ресурсов, например функции {{ sf-name }} `resource_type = [ "serverless.function" ]`. Можно указать сразу несколько типов.
+         * `resource_id` — идентификаторы ваших ресурсов или ресурсов {{ yandex-cloud }}, например функций `resource_id = [ "<идентификатор_функции>" ]`. Вы можете указать несколько идентификаторов.
+         * `stream_name` — потоки логирования. Необязательный параметр.
+         * `levels` — уровни логирования. Например, `levels = [ "INFO", "ERROR" ]`.
+
+             Триггер срабатывает, когда в указанную лог-группу добавляют записи, которые соответствуют всем следующим параметрам: `resource_id`, `resource_type`, `stream_name` и `levels`. Если параметр не задан, триггер срабатывает при любом его значении.
+
+         {% include [tf-triggers-batch-settings](../../../_includes/tf-triggers-batch-settings.md) %}
+
+     {% include [tf-triggers-action-function](../../../_includes/functions/tf-triggers-action-function.md) %}
+
+     Подробнее о параметрах ресурса `yandex_serverless_triggers` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_triggers).
+
+     {% cut "Конфигурация для ресурса yandex_function_trigger" %}
+
      ```
      resource "yandex_function_trigger" "my_trigger" {
        name        = "<имя_триггера>"
@@ -179,6 +250,8 @@
      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
      Подробнее о параметрах ресурса `yandex_function_trigger` в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+
+     {% endcut %}
 
   1. Создайте ресурсы:
 

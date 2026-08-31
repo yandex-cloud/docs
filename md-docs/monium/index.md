@@ -124,6 +124,8 @@ Monium платформа для сбора, хранения и анализа 
 
  - [AI Studio](metrics-ref/ai-studio-ref.md)
 
+ - [Apache Hive™ Metastore](metrics-ref/managed-metastore-ref.md)
+
  - [API Gateway](metrics-ref/api-gateway-ref.md)
 
  - [Application Load Balancer](metrics-ref/alb-ref.md)

@@ -39,6 +39,8 @@ Syntax:
 
 - [yc serverless trigger v2 update timer](timer.md) — Update timer trigger
 
+- [yc serverless trigger v2 update yandex-messenger](yandex-messenger.md) — Update Yandex Messenger trigger
+
 - [yc serverless trigger v2 update yds](yds.md) — Update YDS trigger
 
 #### Flags

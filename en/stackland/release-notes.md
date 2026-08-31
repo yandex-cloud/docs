@@ -1,3 +1,77 @@
+# What's new in {{ stackland-name }} 26.2.1
+
+{{ stackland-name }} 26.2.1 introduces cluster scaling, the {{ ai-studio-name }} component, and a new ingress controller named Contour.
+
+## New features
+
+### Scaling a cluster
+
+Added support for adding and deleting nodes in an already installed {{ stackland-name }} cluster. For more information, see [{#T}](operations/cluster/scale-cluster.md).
+
+### {{ ai-studio-name }}
+
+Added the {{ ai-studio-name }} component that includes the [{{ model-gallery-name }}](concepts/components/overview.md#model-gallery) and [{{ agent-atelier-name }}](concepts/components/overview.md#agent-atelier) modules.
+
+### Contour ingress controller
+
+Added a new ingress controller, Contour, to replace older `ingress-nginx`. Please note the following:
+
+* The `ingress-nginx` controller is no longer supported and will be fully removed in {{ stackland-name }} 27.
+* In fresh installations of {{ stackland-name }} 26.2.1, both system and custom ingresses use the new Contour-based implementation.
+* When upgrading to {{ stackland-name }} 26.2.1, existing custom ingress controllers based on the old implementation remain unchanged, while system ingress controllers migrate to Contour.
+* Users planning to upgrade to {{ stackland-name }} 27 must proactively schedule migration of their custom ingresses to Contour. For more information, see [{#T}](operations/cluster/upgrade-cluster.md).
+
+## Fixed issues
+
+### Cluster installation and update
+
+* Fixed a deadlock scenario where installation over an ongoing upgrade would freeze at the Cilium readiness stage.
+* Restored support for the `available` image set: `sladm` now checks for the `full` image set in the registry and falls back to pulling `minimal` if missing the required images.
+* Fixed image validation when working with TLS-enabled container registries: `sladm` now correctly provides TLS options to the Docker client.
+* Resolved a potential air-gapped environment upgrade failure due to missing required images.
+* Fixed the issue causing a cluster upgrade task to crash with the `bundle "ytsaurus" references unknown component(s): ytsaurus` error.
+* Accelerated cluster recovery after node reboots.
+* Fixed a startup failure affecting the `iam-uber` init-container following node reboot.
+
+### {{ mch-name }}
+
+* Automatic {{ CH }} parameter configuration now respects individual shard resources, ensuring correct behavior in heterogeneous clusters.
+* The `ClickhouseBackup` finalizer is now properly freed up if S3 credentials are already absent during namespace deletion, thus preventing deletion freezes.
+
+### {{ yt-name }}
+
+* The container image registry for job environments and pause containers can now be overridden via `YTsaurusConfig`, now that `ImagePullBackOff` errors in custom registries have been resolved.
+* The {{ yt-name }} image registry host is now dynamically injected during reconciliation, eliminating `ImagePullBackOff` errors in production clusters.
+
+### {{ iam-name }}
+
+* Fixed an infinite reconciliation loop in `AccessBinding`.
+* Fixed a folder deletion issue in {{ iam-name }} during project resource cleanup.
+* Fixed the `get-tree` method in resource-manager.
+* Increased the YDB query limit for the `iam-role-list` method.
+
+### Monitoring and logging
+
+* Increased the Prometheus resources for stable operation under load.
+* Reduced the default Prometheus disk size.
+* {{ grafana-name }} now uses `prometheus.stackland.svc.cluster.local`, a stable DNS alias, instead of direct Thanos Query access.
+* Added explicit mounting of the Thanos Object Storage secret into the `thanos-sidecar` container, resolving secret access issues in certain configurations.
+* {{ grafana-name }} image version is now dynamically pulled from the component registry, preventing version desynchronization.
+* Fixed a re-login issue in {{ grafana-name }} after session expiration.
+* Added a network policy for the `logging` component to restrict Loki access exclusively through the proxy; fixed the {{ grafana-name }} OAuth client for {{ iam-name }} refresh-token policies.
+
+### {{ objstorage-name }}
+
+* Migrated the {{ objstorage-name }} dashboard to Thanos Querier, so now it correctly displays object sizes and counts.
+
+### Interface
+
+* Fixed access errors during bucket deletion, with deletion now possible even without read permissions.
+* Improved the user password update form.
+* {{ mtr-name }} access rules now use a card-based layout instead of tables, improving readability.
+* The `sinceSeconds` parameter in the pod log filter is now correctly provided to the Kubernetes API: the invalid `-1` value is no longer sent.
+* The stuck operations panel now displays in the correct color.
+
 # What's new in {{ stackland-name }} 26.2.0
 
 {{ stackland-name }} version 26.2.0 introduces new components for data analytics: {{ yt-name }}, {{ mtr-name }}, and {{ rest-catalog-name }}. It also offers more options for declarative user and database management in {{ mpg-name }} and {{ mch-name }}.
@@ -87,6 +161,103 @@ Updated the cluster upgrade form interface in the management console.
 * Added guides for PXE installation on {{ baremetal-full-name }}.
 * Added guides for installation on {{ yandex-cloud }} VMs.
 * Added a page on Secrets Store troubleshooting.
+
+## Fixed issues
+
+### Cluster installation and update
+
+* `sladm` now synchronizes `PlatformEnvironment` IP addresses when cluster size changes.
+* Restored correct `endpointURL` behavior at the end of installation.
+* Fixed `endpointURL` in the custom kubeconfig file.
+* `sladm` now starts the kubelet only after images are loaded, preventing race conditions on node startup.
+* Images are pushed to the local registry upon `sladm` restart.
+* Fixed stale node detection during cluster upgrades.
+* Improved TCP keepalive parameters in the Talos client.
+* Refined preflight disk checks in `sladm`.
+* Fixed CNI validation during upgrades.
+* Host configuration is now stored using custom `StacklandHostConfig` resources.
+
+### Component platform
+
+* Migrated component resources from `corev1.ResourceRequirements` to `v1alpha1.ResourceRequirements`, with unified resource specification formats.
+* Added {{ objstorage-name }} namespaces to the list of system namespaces, protecting them from accidental deletion.
+
+### {{ iam-name }}
+
+* Fixed the slow appearance of the folder-id annotation.
+* Asynchronous folder deletion in {{ iam-name }} now works correctly.
+* Fixed the removal of the service account finalizer when the namespace is in `Terminating` status.
+* Multiple CRDs (`AccessBinding`, `ClusterAccessBinding`, `ProjectAccessBinding`, and `GizmoAccessBinding`) are now correctly unified into a single {{ iam-name }} `AccessBinding`.
+* A dedicated `GizmoAccessBinding` is now used for the OAuth token exchange role, resolving naming conflicts with custom resources.
+* Cluster access binding names now follow this template: `stackland-<chart_name>-<short_role>`.
+* Removed an excessive default `iam-api` ingress.
+* `iam-uber` now recovers from error states after node reboot.
+* Fixed the {{ iam-name }} endpoint in the management console.
+
+### Projects
+
+* Fixed the deletion of `ProjectNamespace` and its associated namespace when manually removed via `kubectl`.
+* Fixed namespace disappearance when toggling the `ownedByNamespace` flag and deleting a PNS.
+* Prohibited using `project` as a project name.
+* Fixed overflow in the `managed-by` field length.
+
+### {{ mch-name }}
+
+* Increased `max_concurrent_queries` for small clusters.
+* Set default resources for sidecar containers.
+* Restored the ability to delete a cluster without the superuser secret.
+* Fixed Kyverno checks for {{ CH }} and Keeper installation.
+* Removed an excessive port of the `accesscontroller` sidecar.
+* Resolved cleanup errors when deleting a cluster, with excessive Jobs now removed properly.
+* Consolidated {{ CH }} dashboards; fixed the backup dashboard.
+
+### {{ mpg-name }}
+
+* Raised the WAL-G operator limits that were previously too low.
+* Fixed a {{ PG }} version labeling issue in images where those with tags 15 and 16 actually contained PostgreSQL 17. The actual database version remains unchanged. If your manifests specify version 15 or 16, update it to 17. For more information, see [{#T}](concepts/components/postgresql.md#pg-image-version).
+
+### {{ datalens-name }}
+
+* You now see a correctly displayed error when an access key's service accounts do not match.
+* Removed deprecated `api-key-*` secret keys.
+* The default configuration is one {{ PG }} instance for GA.
+
+### {{ speechsense-name }}
+
+* Fixed the password generator.
+* Fixed bucket name generation when using external S3.
+
+### Monitoring and logging
+
+* Reduced `kube-state-metrics` memory usage, eliminating OOM crashes.
+* Fixed the `retentionSize` configuration for Prometheus.
+* Restored the HWM disabling feature.
+* Updated default system metric alerts to working condition.
+* {{ grafana-name }} now uses the correct Loki application version.
+* Loki is sourced locally, with no external application download required.
+
+### Interface
+
+* Sanitized {{ CH }} resource names to comply with RFC 1123.
+* Fixed WebSocket idle timeout in pod terminal.
+* Expanded RBAC permissions for launching pod shell terminals to cover the required scope.
+* `OwnerReference` on {{ CH }} user secrets is now set correctly.
+* Restored shard override flags in the {{ CH }} cluster edit form.
+* The {{ PG }} cluster creation form now correctly provides the `fromBackup` parameter.
+* The backup creation button is now hidden for clusters without backup configuration.
+* Restored the `withHeader` parameter in the S3 object table.
+* Improved object sorting in buckets and refined S3 bucket tips and UX elements.
+* The redirect after bucket editing now leads to the detail page, not the bucket list.
+* The issuer URL validator error now displays a clear message.
+* Revised the {{ rest-catalog-name }} catalog form validation for improved consistency.
+* Fixed validation and saving issues in {{ rest-catalog-name }} and {{ mtr-name }} forms.
+* Fixed handling of an unbounded `sinceSeconds` value in the pod log filter.
+* In namespace forms, fixed texts and validation.
+* The `scheduledBackupEnabled` toggle now works correctly for {{ PG }} clusters.
+* The cluster creation form no longer leaves an orphaned superuser secret on failure.
+* Improved Auth-UI error handling and localized messages.
+* Updated the Kubeconfig page and refined texts in project and namespace forms.
+* Unified breadcrumbs, `namespace-not-found` redirects, the favorites provider, and the project path/name display logic.
 
 # What's new in {{ stackland-name }} 26.1.5
 

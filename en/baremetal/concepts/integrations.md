@@ -105,15 +105,13 @@ Tutorial: [{#T}](../tutorials/webapp-on-bms-behind-sws.md).
 
 ## {{ dns-full-name }} {#cloud-dns}
 
-[{{ dns-full-name }}](../../dns/index.yaml) is used to configure a DNS forwarder in a {{ vpc-name }} subnet. The DNS forwarder receives requests originating from the {{ baremetal-name }} private segment and routes them to {{ vpc-name }} DNS resolvers.
-
-This forwarder is required to resolve FQDNs of cloud services from a {{ baremetal-name }} private network.
+[{{ dns-full-name }}](../../dns/index.yaml) allows you to resolve domain names from {{ yandex-cloud }} internal DNS zones on {{ baremetal-name }} servers. To do this, create an [inbound DNS connection](../../dns/concepts/dns-connection.md#dns-inbound) in the {{ vpc-name }} network and specify its IP address as the DNS server on the {{ baremetal-name }} server.
 
 Tutorial: [{#T}](../tutorials/bm-vpc-dns-forwarder.md).
 
 ## {{ mpg-full-name }} {#managed-postgresql}
 
-[{{ mpg-full-name }}](../../managed-postgresql/index.yaml) may be accessible from a {{ baremetal-name }} private network via its FQDN once network connectivity with {{ vpc-name }} and a DNS forwarder is established.
+[{{ mpg-full-name }}](../../managed-postgresql/index.yaml) may be accessible from a {{ baremetal-name }} private network via its FQDN once network connectivity with {{ vpc-name }} and an inbound DNS connection is established.
 
 This enables you to connect applications on physical servers to a managed database without using cluster host IP addresses that may change.
 

@@ -375,37 +375,6 @@ items:
         href: datalens/known-issues/error-ssl-is-required.md
       - name: Resolving an incorrect `Total` value in a pivot table
         href: datalens/known-issues/incorrect-value-in-field-total.md
-  - name: '{{ ml-platform-name }}'
-    items:
-      - name: All solutions for {{ ml-platform-name }}
-        href: datasphere/index.md
-      - name: Solutions for known {{ ml-platform-name }} issues
-        href: datasphere/known-issues/index.md
-        hidden: true
-      - name: Resolving project startup errors in {{ ml-platform-name }}
-        href: datasphere/known-issues/datasphere-projects-starting-issue.md
-      - name: >-
-          Getting access to GPU g1.1 and higher configurations in {{
-          ml-platform-name }}
-        href: datasphere/known-issues/getting-access-go-g1-1-config.md
-      - name: >-
-          Resolving issues with long code execution within {{ ml-platform-name
-          }} project cells
-        href: datasphere/known-issues/project-cells-dont-load-for-a-long-time.md
-      - name: >-
-          Resolving the `Servant not allocated` error when running code within
-          {{ ml-platform-name }} project cells
-        href: datasphere/known-issues/servant-not-allocated-issue.md
-      - name: >-
-          Fixing the `ConnectTimeoutError` error when installing packages
-          through pip
-        href: >-
-          datasphere/known-issues/error-connect-timeout-when-installing-via-pip.md
-      - name: Resolving the `Device or resource busy` error
-        href: datasphere/known-issues/error-device-or-resource-busy.md
-      - name: Sample {{ ml-platform-name }} configurations and use cases
-        href: datasphere/how-to/index.md
-        hidden: true
   - name: '{{ dns-name }}'
     items:
       - name: All solutions for {{ dns-name }}

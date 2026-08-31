@@ -39,53 +39,78 @@
      ```
   1. Выполните команду, чтобы отозвать роль, назначенную на трейл.
 
-      * У пользователя:
+      ```bash
+      yc audit-trails trail remove-access-binding \
+        --id <идентификатор_трейла> \
+        --role <идентификатор_роли> \
+        --subject <тип_субъекта>:<идентификатор_субъекта>
+      ```
 
-          ```bash
-          yc audit-trails trail remove-access-binding \
-            --id <идентификатор_трейла> \
-            --user-account-id <идентификатор_пользователя> \
-            --role <роль>
-          ```
-          
-          Результат:
+     Где:
 
-          ```text
-          done (1s)
-          ```
+     * `--role` — идентификатор роли, которую надо отозвать.
+     * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
 
-      * У [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):
+         {% cut "Обозначения субъектов" %}
 
-          ```bash
-          yc audit-trails trail remove-access-binding \
-            --id <идентификатор_трейла> \
-            --service-account-id <идентификатор_сервисного_аккаунта> \
-            --role <роль>
-          ```
+         Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+         
+         #|
+         || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+         || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+         || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+         || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+         || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+         || `system`         | `system:allAuthenticatedUsers`
+         
+         (группа `All authenticated users`) | `--all-authenticated-users` ||
+         || ^                | `system:allUsers`
+         
+         (группа `All users`) | — ||
+         || ^                | `system:group:organization:<идентификатор_организации>:users`
+         
+         (группа `All users in organization X`) | `--organization-users` ||
+         || ^                | `system:group:federation:<идентификатор_федерации>:users`
+         
+         (группа `All users in federation N`) | `--federation-users` ||
+         || ^                | `system:group:userpool:<идентификатор_пула>:users`
+         
+         (группа `All users in userpool P`) | — ||
+         |#
 
-          Результат:
-
-          ```text
-          done (1s)
-          ```
-
-      * У всех авторизованных пользователей ([публичная группа](../../iam/concepts/access-control/public-group.md) `All authenticated users`):
-
-          ```bash
-          yc audit-trails trail remove-access-binding \
-            --id <идентификатор_трейла> \
-            --all-authenticated-users \
-            --role <роль>
-          ```
-
-          Результат:
-        
-          ```text
-          done (1s)
-          ```
+         {% endcut %}
 
 - API {#api}
 
-  Чтобы отозвать роли, назначенные на [трейл](../concepts/trail.md), воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Trail/updateAccessBindings.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/UpdateAccessBindings](../api-ref/grpc/Trail/updateAccessBindings.md).
+  Чтобы отозвать роли, назначенные на [трейл](../concepts/trail.md), воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Trail/updateAccessBindings.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/UpdateAccessBindings](../api-ref/grpc/Trail/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+  
+  #|
+  || **subject.type** | **subject.id** ||
+  || `userAccount`    | `<идентификатор_пользователя>` ||
+  || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+  || `federatedUser`  | `<идентификатор_пользователя>` ||
+  || `group`          | `<идентификатор_группы>` ||
+  || `system`         | `allAuthenticatedUsers`
+  
+  (группа `All authenticated users`) ||
+  || ^                | `allUsers`
+  
+  (группа `All users`) ||
+  || ^                | `group:organization:<идентификатор_организации>:users`
+  
+  (группа `All users in organization X`) ||
+  || ^                | `group:federation:<идентификатор_федерации>:users`
+  
+  (группа `All users in federation N`) ||
+  || ^                | `group:userpool:<идентификатор_пула>:users`
+  
+  (группа `All users in userpool P`) ||
+  |#
+
+  {% endcut %}
 
 {% endlist %}

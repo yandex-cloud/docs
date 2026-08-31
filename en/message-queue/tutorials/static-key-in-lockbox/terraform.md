@@ -10,4 +10,4 @@ To [use a static access key](index.md) saved in a {{ lockbox-name }} secret usin
 
 #### Useful links {#see-also}
 
-* [{#T}](console.md)
+[{#T}](console.md)

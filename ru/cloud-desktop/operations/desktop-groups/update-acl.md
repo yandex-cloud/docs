@@ -56,7 +56,13 @@ description: Из статьи вы узнаете, как изменить пр
       Где `--access-binding` — параметры для установки прав доступа:
 
       * `role` — назначаемая [роль](../../security/index.md#roles-list).
-      * `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+      * `subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
       Например, назначьте роли нескольким пользователям и сервисному аккаунту:
 
@@ -78,6 +84,12 @@ description: Из статьи вы узнаете, как изменить пр
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/DesktopGroup/updateAccessBindings.md) для ресурса [DesktopGroup](../../api-ref/DesktopGroup/index.md) или вызовом gRPC API [DesktopGroupService/UpdateAccessBindings](../../api-ref/grpc/DesktopGroup/updateAccessBindings.md).
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/DesktopGroup/updateAccessBindings.md) для ресурса [DesktopGroup](../../api-ref/DesktopGroup/index.md) или вызовом gRPC API [DesktopGroupService/UpdateAccessBindings](../../api-ref/grpc/DesktopGroup/updateAccessBindings.md). В теле запроса в свойстве `subject` укажите тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

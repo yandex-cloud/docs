@@ -11,7 +11,7 @@
       * Set language, theme, and menu display.
       * Optionally, save selector values.
       * Optionally, enable **Open current tab by default**.
-      * Optionally, if you have an [identity federation](../../../organization/concepts/add-federation.md) configured, save the federation to share the link with the federation users.
+      * Optionally, if you have an [identity federation]({{ link-docs }}/organization/concepts/add-federation) configured, save the federation to share the link with the federation users.
 
        Share the copied link with the users to whom you have granted access to the object.
 

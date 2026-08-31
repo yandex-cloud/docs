@@ -32,7 +32,7 @@ Yandex DataLens использует [подключение](connection/index.m
 
 #### Добавление таблиц {#ui-join}
 
-В интерфейсе создания датасета можно [объединять данные](../dataset/create-dataset.md#links), перетаскивая таблицы на рабочую область и настраивая связи между ними через [оператор JOIN](../dataset/data-model.md#source). Пример объединения данных с помощью добавления таблиц смотрите в [сценарии](../../tutorials/datalens/data-from-ch-visualization.md#step2).
+В интерфейсе создания датасета можно [объединять данные](../dataset/create-dataset.md#links), перетаскивая таблицы на рабочую область и настраивая связи между ними через [оператор JOIN](../dataset/data-model.md#source). Пример объединения данных с помощью добавления таблиц смотрите в [сценарии](../tutorials/data-from-ch-visualization.md#step2).
 
 {% note info %}
 

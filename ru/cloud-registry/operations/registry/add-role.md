@@ -24,41 +24,22 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Выполните команду, чтобы назначить роль на реестр:
+  ```bash
+  yc cloud-registry registry add-access-binding <имя_или_идентификатор_реестра> \
+    --role <роль> \
+    --subject <тип_субъекта>:<идентификатор_субъекта>
+  ```
 
-  * пользователю:
+    Где:
 
-    ```bash
-    yc cloud-registry registry add-access-binding <имя_или_идентификатор_реестра> \
-      --role <роль> \
-      --user-account-id <идентификатор_пользователя>
-    ```
+    * `--role` — [роль](../../security/index.md#service-roles), которую необходимо назначить.
+    * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-  * [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md):
+        {% cut "Обозначения субъектов" %}
 
-    ```bash
-    yc cloud-registry registry add-access-binding <имя_или_идентификатор_реестра> \
-      --role <роль> \
-      --service-account-id <идентификатор_сервисного_аккаунта>
-    ```
+        {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
 
-  * всем авторизованным пользователям ([публичная группа](../../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers) `All authenticated users`):
-
-    ```bash
-    yc cloud-registry registry add-access-binding <имя_или_идентификатор_реестра> \
-      --role <роль> \
-      --allAuthenticatedUsers
-    ```
-
-  * всем пользователям ([публичная группа](../../../iam/concepts/access-control/public-group.md#allUsers) `All users`):
-
-    ```bash
-    yc cloud-registry registry add-access-binding <имя_или_идентификатор_реестра> \
-      --role <роль> \
-      --subject system:allUsers
-    ```
-
-    Где `<роль>` — [роль](../../security/index.md#service-roles), которую необходимо назначить.
+        {% endcut %}
 
   Чтобы отозвать все роли на реестр и сразу назначить новые, используйте команду `yc cloud-registry registry set-access-bindings`.
   
@@ -77,9 +58,16 @@ description: Следуя данной инструкции, вы сможете
   ```text
   done (4s)
   ```
+
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md).
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 

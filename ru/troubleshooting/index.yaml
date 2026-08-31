@@ -45,9 +45,6 @@ links:
   - title: '{{ datalens-name }}'
     description: Решения для {{ datalens-name }}
     href: datalens/
-  - title: '{{ ml-platform-name }}'
-    description: Решения для {{ ml-platform-name }}
-    href: datasphere/
   - title: '{{ data-transfer-name }}'
     description: Решения для {{ data-transfer-name }}
     href: data-transfer/

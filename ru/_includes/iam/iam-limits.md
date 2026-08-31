@@ -2,19 +2,25 @@
 
 #|
 || Вид ограничения | Значение ||
-|| Количество федераций сервисных аккаунтов 
+|| {{ ui-key.yacloud_quotas.quotas.iam.accessBindings.count }} в облаке^1^
+`iam.accessBindings.count` | 1 000 ||
+|| {{ ui-key.yacloud_quotas.quotas.iam.accessBindings.count }} в организации^1^
+`iam.accessBindings.count` | 2 000 ||
+|| {{ ui-key.yacloud_quotas.quotas.iam.oidcWLIFederations.count }}
 `iam.oidcWLIFederations.count` | 50 ||
-|| Количество сервисных аккаунтов, привязанных к федерациям 
+|| {{ ui-key.yacloud_quotas.quotas.iam.saFederatedCredentials.count }}
 `iam.saFederatedCredentials.count` | 200 ||
-|| Максимальное количество сервисных аккаунтов в одном облаке 
+|| {{ ui-key.yacloud_quotas.quotas.iam.serviceAccounts.count }} в одном облаке
 `iam.serviceAccounts.count` | 100 ||
-|| Максимальное количество API-ключей в одном облаке 
+|| {{ ui-key.yacloud_quotas.quotas.iam.apiKeys.count }}  в одном облаке
 `iam.apiKeys.count` | 1 000 ||
-|| Максимальное количество авторизованных ключей в одном облаке 
+|| {{ ui-key.yacloud_quotas.quotas.iam.authorizedKeys.count }}  в одном облаке
 `iam.authorizedKeys.count` | 1 000 ||
-|| Максимальное количество статических ключей доступа в одном облаке 
+|| {{ ui-key.yacloud_quotas.quotas.iam.accessKeys.count }}  в одном облаке
 `iam.accessKeys.count` | 1 000 ||
 |#
+
+^1^ Квота учитывает не только привязки на само облако или организацию, но и все привязки на вложенные в них ресурсы, поэтому квота организации всегда не меньше квоты облака.
 
 
 #### Лимиты {#iam-limits}

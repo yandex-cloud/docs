@@ -25,15 +25,25 @@
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя и описание триггера.
+
+        * {% include [triggers-labels-step](../../../_includes/functions/triggers-labels-step.md) %}
+
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**:
 
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** укажите расписание отправки сообщений в WebSocket-соединения в формате [cron-выражения](../../concepts/trigger/timer.md#cron-expression).
         * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** укажите сообщение, которое будет передаваться в WebSocket-соединения при срабатывании таймера в поле `payload`. Тип данных — строка, длина которой не более 4096 символов.
 
-    1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
+    1. В блоке **Приёмники**:
+
+        1. В поле **Тип приёмника** выберите `API-шлюз`.
+
+        1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
+
+        1. {% include [trigger-console-filter](../../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../../_includes/functions/trigger-console-template.md) %}
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 

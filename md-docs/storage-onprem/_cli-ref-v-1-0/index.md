@@ -98,9 +98,55 @@
 
  - [renew](cli-ref/cli_login_renew.md)
 
+## ops
+
+ - [Overview](cli-ref/cli_ops.md)
+
+### certs
+
+ - [Overview](cli-ref/cli_ops_certs.md)
+
+ - [generate-csr-console](cli-ref/cli_ops_certs_generate-csr-console.md)
+
+ - [generate-csr-s3](cli-ref/cli_ops_certs_generate-csr-s3.md)
+
+ - [get-csr](cli-ref/cli_ops_certs_get-csr.md)
+
+ - [install-cert-console](cli-ref/cli_ops_certs_install-cert-console.md)
+
+ - [install-cert-s3](cli-ref/cli_ops_certs_install-cert-s3.md)
+
+ - [list-csr](cli-ref/cli_ops_certs_list-csr.md)
+
+ - [upload-console](cli-ref/cli_ops_certs_upload-console.md)
+
+ - [upload-s3](cli-ref/cli_ops_certs_upload-s3.md)
+
+### tasks
+
+ - [Overview](cli-ref/cli_ops_tasks.md)
+
+ - [get](cli-ref/cli_ops_tasks_get.md)
+
+ - [list](cli-ref/cli_ops_tasks_list.md)
+
+ - [wait](cli-ref/cli_ops_tasks_wait.md)
+
+### updates
+
+ - [Overview](cli-ref/cli_ops_updates.md)
+
+ - [available](cli-ref/cli_ops_updates_available.md)
+
+ - [install](cli-ref/cli_ops_updates_install.md)
+
+ - [upload](cli-ref/cli_ops_updates_upload.md)
+
 ## service-accounts
 
  - [Overview](cli-ref/cli_service-accounts.md)
+
+ - [activate](cli-ref/cli_service-accounts_activate.md)
 
  - [create](cli-ref/cli_service-accounts_create.md)
 
@@ -109,6 +155,8 @@
  - [get](cli-ref/cli_service-accounts_get.md)
 
  - [list](cli-ref/cli_service-accounts_list.md)
+
+ - [suspend](cli-ref/cli_service-accounts_suspend.md)
 
  - [update](cli-ref/cli_service-accounts_update.md)
 
@@ -142,7 +190,13 @@
 
  - [list](cli-ref/cli_tenants_members_list.md)
 
+ - [reactivate](cli-ref/cli_tenants_reactivate.md)
+
+ - [suspend](cli-ref/cli_tenants_suspend.md)
+
  - [update](cli-ref/cli_tenants_update.md)
+
+ - [update](cli-ref/cli_update.md)
 
 ## users
 
@@ -159,3 +213,37 @@
  - [unlock](cli-ref/cli_users_unlock.md)
 
  - [whoami](cli-ref/cli_users_whoami.md)
+
+ - [version](cli-ref/cli_version.md)
+
+## yarl
+
+ - [Overview](cli-ref/cli_yarl.md)
+
+### delete
+
+ - [Overview](cli-ref/cli_yarl_delete.md)
+
+ - [common](cli-ref/cli_yarl_delete_common.md)
+
+ - [couple](cli-ref/cli_yarl_delete_couple.md)
+
+ - [handler](cli-ref/cli_yarl_delete_handler.md)
+
+ - [shard](cli-ref/cli_yarl_delete_shard.md)
+
+ - [get](cli-ref/cli_yarl_get.md)
+
+ - [list](cli-ref/cli_yarl_list.md)
+
+### set
+
+ - [Overview](cli-ref/cli_yarl_set.md)
+
+ - [common](cli-ref/cli_yarl_set_common.md)
+
+ - [couple](cli-ref/cli_yarl_set_couple.md)
+
+ - [handler](cli-ref/cli_yarl_set_handler.md)
+
+ - [shard](cli-ref/cli_yarl_set_shard.md)

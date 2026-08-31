@@ -36,31 +36,45 @@
 
   1. Назначьте роль с помощью команды:
 
-      * Пользователю:
+      ```bash
+      yc dns zone add-access-binding <идентификатор_зоны> \
+        --role <роль> \
+        --subject <тип_субъекта>:<идентификатор_субъекта>
+      ```
 
-        ```bash
-        yc dns zone add-access-binding <идентификатор_зоны> \
-          --user-account-id <идентификатор_пользователя> \
-          --role <роль>
-        ```
+      Где:
 
-        Где:
+      * `--role` — назначаемая [роль](../security/index.md#roles-list).
+      * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-        * `--user-account-id` — [идентификатор пользователя](../../organization/operations/users-get.md). Чтобы назначить роль для всех аутентифицированных пользователей, воспользуйтесь параметром `--all-authenticated-users`.
-        * `--role` — назначаемая [роль](../security/index.md#roles-list).
+          {% cut "Обозначения субъектов" %}
 
-      * Сервисному аккаунту:
+          Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+          || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) | `--all-authenticated-users` ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) | — ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) | `--organization-users` ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) | `--federation-users` ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) | — ||
+          |#
 
-        ```bash
-        yc dns zone add-access-binding <идентификатор_зоны> \
-          --service-account-id <идентификатор_сервисного_аккаунта> \
-          --role <роль>
-        ```
-
-        Где:
-
-        * `--service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md).
-        * `--role` — назначаемая [роль](../security/index.md#roles-list).
+          {% endcut %}
 
 - Terraform {#tf}
 
@@ -91,7 +105,36 @@
 
       * `dns_zone_id` — идентификатор зоны DNS.
       * `role` — назначаемая [роль](../security/index.md#roles-list).
-      * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список обозначений [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
        Подробнее о параметрах ресурса `yandex_dns_zone_iam_binding` в [документации провайдера](../../terraform/resources/dns_zone_iam_binding.md).
 
@@ -133,7 +176,36 @@
 
 - API {#api}
 
-  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы назначить роль, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+  
+  #|
+  || **subject.type** | **subject.id** ||
+  || `userAccount`    | `<идентификатор_пользователя>` ||
+  || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+  || `federatedUser`  | `<идентификатор_пользователя>` ||
+  || `group`          | `<идентификатор_группы>` ||
+  || `system`         | `allAuthenticatedUsers`
+  
+  (группа `All authenticated users`) ||
+  || ^                | `allUsers`
+  
+  (группа `All users`) ||
+  || ^                | `group:organization:<идентификатор_организации>:users`
+  
+  (группа `All users in organization X`) ||
+  || ^                | `group:federation:<идентификатор_федерации>:users`
+  
+  (группа `All users in federation N`) ||
+  || ^                | `group:userpool:<идентификатор_пула>:users`
+  
+  (группа `All users in userpool P`) ||
+  |#
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -177,11 +249,39 @@
        --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
      ```
 
-     Где:
+     Где `--access-binding` — параметры для установки прав доступа:
 
-     * `--access-binding` — параметры для установки прав доступа:
-         * `role` — назначаемая [роль](../security/index.md#roles-list).
-         * `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+     * `role` — назначаемая [роль](../security/index.md#roles-list).
+     * `subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+         {% cut "Обозначения субъектов" %}
+
+         Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+         
+         #|
+         || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+         || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+         || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+         || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+         || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+         || `system`         | `system:allAuthenticatedUsers`
+         
+         (группа `All authenticated users`) | `--all-authenticated-users` ||
+         || ^                | `system:allUsers`
+         
+         (группа `All users`) | — ||
+         || ^                | `system:group:organization:<идентификатор_организации>:users`
+         
+         (группа `All users in organization X`) | `--organization-users` ||
+         || ^                | `system:group:federation:<идентификатор_федерации>:users`
+         
+         (группа `All users in federation N`) | `--federation-users` ||
+         || ^                | `system:group:userpool:<идентификатор_пула>:users`
+         
+         (группа `All users in userpool P`) | — ||
+         |#
+
+         {% endcut %}
 
      Например, назначьте роли `dns.editor` нескольким пользователям и сервисному аккаунту:
 
@@ -226,7 +326,36 @@
 
       * `dns_zone_id` — идентификатор зоны DNS.
       * `role` — назначаемая [роль](../security/index.md#roles-list).
-      * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список обозначений [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
       Подробнее о параметрах ресурса `yandex_dns_zone_iam_binding` в [документации провайдера](../../terraform/resources/dns_zone_iam_binding.md).
 
@@ -268,7 +397,36 @@
 
 - API {#api}
 
-  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../api-ref/DnsZone/setAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/SetAccessBindings](../api-ref/grpc/DnsZone/setAccessBindings.md).
+  Чтобы назначить роли на ресурс, воспользуйтесь методом REST API [setAccessBindings](../api-ref/DnsZone/setAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/SetAccessBindings](../api-ref/grpc/DnsZone/setAccessBindings.md). В теле запроса в свойстве `subject` укажите тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+  
+  #|
+  || **subject.type** | **subject.id** ||
+  || `userAccount`    | `<идентификатор_пользователя>` ||
+  || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+  || `federatedUser`  | `<идентификатор_пользователя>` ||
+  || `group`          | `<идентификатор_группы>` ||
+  || `system`         | `allAuthenticatedUsers`
+  
+  (группа `All authenticated users`) ||
+  || ^                | `allUsers`
+  
+  (группа `All users`) ||
+  || ^                | `group:organization:<идентификатор_организации>:users`
+  
+  (группа `All users in organization X`) ||
+  || ^                | `group:federation:<идентификатор_федерации>:users`
+  
+  (группа `All users in federation N`) ||
+  || ^                | `group:userpool:<идентификатор_пула>:users`
+  
+  (группа `All users in userpool P`) ||
+  |#
+
+  {% endcut %}
 
   {% note alert %}
 
@@ -293,7 +451,7 @@
   1. Посмотрите описание команды CLI для отзыва роли на зону DNS:
 
       ```bash
-      yc dns zone add-access-binding --help
+      yc dns zone remove-access-binding --help
       ```
 
   1. Посмотрите список ролей, которые уже назначены на ресурс:
@@ -307,13 +465,42 @@
      ```bash
      yc dns zone remove-access-binding <идентификатор_зоны> \
        --role=<роль> \
-       --subject=<тип_субъекта>:<идентификатор_субъекта> \
+       --subject=<тип_субъекта>:<идентификатор_субъекта>
      ```
 
      Где:
 
      * `--role` — идентификатор роли, которую надо отозвать.
-     * `--subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+     * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+
+         {% cut "Обозначения субъектов" %}
+
+         Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+         
+         #|
+         || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+         || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+         || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+         || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+         || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+         || `system`         | `system:allAuthenticatedUsers`
+         
+         (группа `All authenticated users`) | `--all-authenticated-users` ||
+         || ^                | `system:allUsers`
+         
+         (группа `All users`) | — ||
+         || ^                | `system:group:organization:<идентификатор_организации>:users`
+         
+         (группа `All users in organization X`) | `--organization-users` ||
+         || ^                | `system:group:federation:<идентификатор_федерации>:users`
+         
+         (группа `All users in federation N`) | `--federation-users` ||
+         || ^                | `system:group:userpool:<идентификатор_пула>:users`
+         
+         (группа `All users in userpool P`) | — ||
+         |#
+
+         {% endcut %}
 
      Например, чтобы отозвать роль `dns.editor` у пользователя с идентификатором `ajel6l0jcb9s********` на DNS зону:
 
@@ -386,6 +573,35 @@
 
 - API {#api}
 
-  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роль, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+  
+  #|
+  || **subject.type** | **subject.id** ||
+  || `userAccount`    | `<идентификатор_пользователя>` ||
+  || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+  || `federatedUser`  | `<идентификатор_пользователя>` ||
+  || `group`          | `<идентификатор_группы>` ||
+  || `system`         | `allAuthenticatedUsers`
+  
+  (группа `All authenticated users`) ||
+  || ^                | `allUsers`
+  
+  (группа `All users`) ||
+  || ^                | `group:organization:<идентификатор_организации>:users`
+  
+  (группа `All users in organization X`) ||
+  || ^                | `group:federation:<идентификатор_федерации>:users`
+  
+  (группа `All users in federation N`) ||
+  || ^                | `group:userpool:<идентификатор_пула>:users`
+  
+  (группа `All users in userpool P`) ||
+  |#
+
+  {% endcut %}
 
 {% endlist %}

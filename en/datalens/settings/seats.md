@@ -46,7 +46,7 @@ The **Total seats** section displays the total number of seats in an instance, a
 
 {% note info %}
 
-* If you [delete a user from the organization](../../organization/operations/edit-account.md) or [revoke](#revoke) their seat, the number of seats does not decrease automatically. The seat revoked from the user becomes free and available for assignment to another user.
+* If you [delete a user from the organization]({{ link-docs }}/organization/operations/edit-account) or [revoke](#revoke) their seat, the number of seats does not decrease automatically. The seat revoked from the user becomes free and available for assignment to another user.
 * To reduce the number of seats, change the seat count in the service settings.
 * If you revoke a seat from a user, the service will save their [roles and access permissions](../security/roles.md). So if you give the seat back to this user, they will get the same access to objects as before.
 

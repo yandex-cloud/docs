@@ -38,29 +38,30 @@ To reinstall a {{ baremetal-name }} server OS:
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View the description of the command for reinstalling the OS:
+  1. View the description of the command for reinstalling the OS:
 
-      ```bash
-      yc baremetal server reinstall --help
-      ```
+     ```bash
+     yc baremetal server reinstall --help
+     ```
 
-   1. Reinstall the OS:
+  1. {% include [server-lease-cli-image-list](../../../_includes/baremetal/instruction-steps/server-lease-cli-image-list.md) %}
 
-      ```bash
-      yc baremetal server reinstall \
-        --name <server_name> \
-        --os-settings "image-id=<image_ID>,image-name=<image_name>,ssh-key-public=<public_SSH_key_contents>,ssh-key-user-id=<SSH_key_user_ID>,password-plain-text=<user_password>,password-lockbox-secret={secret-id=<secret_ID>,version-id=<secret_version>,key=<secret_key>}" \
-        --storage "partition={type=<file_system>,size-gib=<partition_size>,mount-point=<mount_point>},raid-type=<RAID array level>,disk={id=<disk_number>,size-gib=<disk_size>,type=<disk_type>}"
-      ```
+  1. Reinstall the OS:
 
-      Where:
-      * `--name`: Server name.
-      * {% include [server-lease-cli-os](../../../_includes/baremetal/instruction-steps/server-lease-cli-os.md) %}
-      * {% include [server-lease-cli-storage](../../../_includes/baremetal/instruction-steps/server-lease-cli-storage.md) %}
+     ```bash
+     yc baremetal server reinstall \
+       --name <server_name> \
+       --os-settings-spec "image-id=<image_ID>,storages=[{partitions=[{type=<file_system>,size-gib=<partition_size>,mount-point=<mount_point>}],storage-type={raid={type=<RAID_array_level>,disks=[{id=<disk_number>,size-gib=<disk_size>,type=<disk_type>}]}}}],ssh-key={ssh-public-key=<SSH_public_key_contents>},password={password-plain-text=<user_password>}"
+     ```
+
+     Where:
+     * `--name`: Server name.
+     * {% include [server-lease-cli-os](../../../_includes/baremetal/instruction-steps/server-lease-cli-os.md) %}
+     * {% include [server-lease-cli-storage](../../../_includes/baremetal/instruction-steps/server-lease-cli-storage.md) %}
 
 - API {#api}
 
@@ -79,7 +80,7 @@ Reinstall the OS:
   ```bash
   yc baremetal server reinstall \
     --name demo-baremetal-server \
-    --os-settings "image-id=ly5vtno2mjr3k4iuecur,password-plain-text=FDrxicR********,ssh-key-public=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQ********"
+    --os-settings-spec "image-id=ly5vtno2mjr3k4iuecur,ssh-key={ssh-public-key=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQ********},password={password-plain-text=FDrxicR********}"
   ```
 
   Result:

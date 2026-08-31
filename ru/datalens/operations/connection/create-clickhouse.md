@@ -36,7 +36,7 @@ description: Следуя данной инструкции, вы сможете
      * **Тип хоста**. Выберите тип хоста:
 
        * **Обычный** (по умолчанию) — позволяет выбрать обычные хосты для подключения.
-       * **Особые FQDN** — позволяет выбрать [особый FQDN](../../../managed-clickhouse/operations/connect/fqdn.md#auto) для подключения к доступному хосту кластера {{ CH }}.
+       * **Особые FQDN** — позволяет выбрать [особый FQDN]({{ link-docs }}/managed-clickhouse/operations/connect/fqdn#auto) для подключения к доступному хосту кластера {{ CH }}.
 
      * **Имя хоста**. Выберите имя хоста из списка доступных в кластере {{ CH }}. Вы можете выбрать несколько хостов. Если к первому хосту подключиться не получится, {{ datalens-short-name }} выберет следующий из списка.
      * **Порт HTTP-интерфейса**. Укажите порт подключения к {{ CH }}. Порт по умолчанию — 8443.
@@ -67,10 +67,10 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [datalens-conn-man-role](../../../_includes/datalens/datalens-conn-man-role.md) %}
 
-     Выберите [подключение](../../../metadata-hub/concepts/connection-manager.md) к кластеру с управляемой БД {{ CH }}, созданное в сервисе {{ connection-manager-full-name }}:
+     Выберите [подключение]({{ link-docs }}/metadata-hub/concepts/connection-manager) к кластеру с управляемой БД {{ CH }}, созданное в сервисе {{ connection-manager-full-name }}:
 
      * **Облако и каталог**. Выберите каталог, в котором создано подключение к кластеру.
-     * **Идентификатор подключения**. Выберите одно из доступных подключений в {{ connection-manager-name }} или [создайте новое](../../../metadata-hub/operations/create-connection.md).
+     * **Идентификатор подключения**. Выберите одно из доступных подключений в {{ connection-manager-name }} или [создайте новое]({{ link-docs }}/metadata-hub/operations/create-connection).
      * **Хост**. Выберите хост из списка доступных в кластере {{ CH }}.
      * **Порт**. Заполняется автоматически в зависимости от выбранного хоста.
      * **Имя пользователя**. Заполняется автоматически из данных выбранного подключения.
@@ -128,8 +128,6 @@ CREATE VIEW ... (
 
 Чтобы избежать ошибок при работе с представлениями в {{ datalens-short-name }}, содержащими секцию JOIN, создайте заново все представления с настройкой `join_use_nulls = 1`. Пустые ячейки при этом заполнятся значениями `NULL`, а тип соответствующих полей преобразуется в [Nullable]({{ ch.docs }}{{ lang }}/sql-reference/data-types/nullable#data_type-nullable).
 
-{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}
-
 
 ## Примеры использования {#examples}
 
@@ -137,3 +135,6 @@ CREATE VIEW ... (
 * [{#T}](../../tutorials/data-from-ch-visualization.md)
 * [{#T}](../../tutorials/data-from-ch-geocoder.md)
 * [{#T}](../../tutorials/data-from-ch-to-sql-chart.md)
+
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

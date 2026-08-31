@@ -42,26 +42,36 @@
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * (Опционально) Введите имя и описание триггера.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_mail }}`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
-    
-    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_mail-attachments }}**:
-      
-        {% include [mail-trigger-attachements](../../_includes/functions/mail-trigger-attachements.md) %}
 
-    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+        * {% include [triggers-labels-step](../../_includes/functions/triggers-labels-step.md) %}
+
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_mail }}`.
+
+    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_mail-attachments }}**:
+
+        {% include [mail-trigger-attachements](../../_includes/functions/mail-trigger-attachements.md) %}
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
 
         {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
 
-        {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %} 
+        {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %}
 
-    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+    1. В блоке **Приёмники**:
 
-        {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
+        1. В поле **Тип приёмника** выберите `Контейнер`.
 
-    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
+        1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+
+        1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+
+            {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
+
+        1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
+
+        1. {% include [trigger-console-filter](../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../_includes/functions/trigger-console-template.md) %}
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -137,6 +147,65 @@
     1. Опишите в конфигурационном файле параметры триггера:
 
        ```hcl
+       resource "yandex_serverless_triggers" "my_trigger" {
+         name = "<имя_триггера>"
+         source {
+           mail {
+             attachments_bucket {
+               bucket_id          = "<имя_бакета>"
+               service_account_id = "<идентификатор_сервисного_аккаунта>"
+             }
+             batch_settings {
+               max_count = "<максимальное_число_сообщений>"
+               max_bytes = "<максимальный_размер_группы_в_байтах>"
+               cutoff    = "<максимальное_время_ожидания>"
+             }
+           }
+         }
+         action {
+           invoke_container {
+             container_id       = "<идентификатор_контейнера>"
+             path               = "<HTTP-путь>"
+             service_account_id = "<идентификатор_сервисного_аккаунта>"
+           }
+           retry_policy {
+             retry_attempts = "<количество_повторных_отправок>"
+             interval       = "<интервал_между_повторными_отправками>"
+           }
+           dead_letter {
+             dead_letter_queue {
+               queue_arn          = "<ARN_очереди_Dead_Letter_Queue>"
+               service_account_id = "<идентификатор_сервисного_аккаунта>"
+             }
+           }
+         }
+       }
+       ```
+
+       Где:
+
+       {% include [tf-triggers-common-params](../../_includes/tf-triggers-common-params.md) %}
+
+       * `source` — параметры источника событий:
+
+         * `mail` — параметры почтового триггера:
+
+           * `attachments_bucket` — параметры бакета, в который будут сохраняться вложения из писем. Необязательный блок:
+
+               * `bucket_id` — имя бакета.
+               * `service_account_id` — идентификатор сервисного аккаунта, у которого есть права на загрузку объектов в бакет {{ objstorage-name }}.
+
+           {% include [tf-triggers-batch-settings](../../_includes/tf-triggers-batch-settings.md) %}
+
+       {% include [tf-triggers-action-container](../../_includes/serverless-containers/tf-triggers-action-container.md) %}
+
+       Адрес электронной почты, на который нужно отправлять письма, будет назначен триггеру при создании — его можно посмотреть в свойствах триггера.
+
+       Подробнее о параметрах ресурса `yandex_serverless_triggers` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_triggers).
+
+       {% cut "Конфигурация для ресурса yandex_function_trigger" %}
+
+       ```hcl
        resource "yandex_function_trigger" "my_trigger" {
          name = "<имя_триггера>"
          container {
@@ -180,6 +249,8 @@
        {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
        Подробнее о параметрах ресурса `yandex_function_trigger` в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+
+       {% endcut %}
 
     1. Создайте ресурсы:
 

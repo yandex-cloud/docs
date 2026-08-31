@@ -9,16 +9,16 @@ description: This page presents reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-For {{ data-catalog-name }}, the following {{ TF }} provider resource is supported:
+For {{ metadata-hub-full-name }}, the following {{ TF }} provider resource is supported:
 
-| **{{ TF }} resource**                                       | **{{ yandex-cloud }} resource** |
-|-----------------------------------------------------------|---------------------------------|
-| [yandex_datacatalog_catalog]({{ tf-provider-resources-link }}/datacatalog_catalog) | [Data catalog](./concepts/data-catalog.md)   |
+| **{{ TF }} resource**                                                                | **{{ yandex-cloud }} resource**                    |
+|------------------------------------------------------------------------------------|--------------------------------------------------|
+| [yandex_datacatalog_catalog]({{ tf-provider-resources-link }}/datacatalog_catalog) | [Metadata catalog](./concepts/data-catalog.md) |
 
 ## Data sources {#data-sources}
 
-For {{ data-catalog-name }}, the following {{ TF }} data source is supported:
+For {{ metadata-hub-full-name }}, the following {{ TF }} data source is supported:
 
-| **{{ TF }} data source** | **Description**                                              |
-| --- |--------------------------------------------------------------|
-| [yandex_datacatalog_catalog]({{ tf-provider-datasources-link }}/datacatalog_catalog) | [Data catalog](./concepts/data-catalog.md) information |
+| **{{ TF }} data source**                                                         | **Description**                                                   |
+|--------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| [yandex_datacatalog_catalog]({{ tf-provider-datasources-link }}/datacatalog_catalog) | [Metadata catalog](./concepts/data-catalog.md) details |

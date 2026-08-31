@@ -5,6 +5,7 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
 
 # Canceling an operation
 
+
 {% list tabs group=instructions %}
 
 - API {#api}

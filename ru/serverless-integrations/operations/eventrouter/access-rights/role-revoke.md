@@ -15,29 +15,22 @@ description: Следуя данной инструкции, вы сможете
 
   Выполните команду, чтобы отозвать роль на ресурс {{ er-name }}:
 
-  * у пользователя:
+  ```bash
+  yc serverless <тип_ресурса> remove-access-binding <имя_или_идентификатор_ресурса> \
+    --user-account-id <идентификатор_пользователя> \
+    --role <роль>
+  ```
 
-      ```bash
-      yc serverless <тип_ресурса> remove-access-binding <имя_или_идентификатор_ресурса> \
-        --user-account-id <идентификатор_пользователя> \
-        --role <роль>
-      ```
+  Где:
 
-  * у [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md):
+  * `--role` — идентификатор роли, которую надо отозвать.
+  * `--subject` — обозначение [субъекта](../../../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
 
-      ```bash
-      yc serverless <тип_ресурса> remove-access-binding <имя_или_идентификатор_ресурса> \
-        --service-account-id <идентификатор_сервисного_аккаунта> \
-        --role <роль>
-      ```
+      {% cut "Обозначения субъектов" %}
 
-  * у всех авторизованных пользователей ([публичная группа](../../../../iam/concepts/access-control/public-group.md) `All authenticated users`):
+      {% include [subjects-designations-cli](../../../../_includes/iam/subjects-designations-cli.md) %}
 
-      ```bash
-      yc serverless <тип_ресурса> remove-access-binding <имя_или_идентификатор_ресурса> \
-        --all-authenticated-users \
-        --role <роль>
-      ```
+      {% endcut %}
 
   **Пример**
 
@@ -59,6 +52,12 @@ description: Следуя данной инструкции, вы сможете
 
   Воспользуйтесь методом REST API `updateAccessBinding` для соответствующего ресурса или вызовом gRPC API `<сервис>/UpdateAccessBinding`.
 
-  Например, для [шины](../../../concepts/eventrouter/bus.md) воспользуйтесь методом REST API [updateAccessBinding](../../../../serverless-integrations/eventrouter/api-ref/Bus/updateAccessBindings.md) для ресурса [Bus](../../../../serverless-integrations/eventrouter/api-ref/Bus/index.md) или вызовом gRPC API [BusService/UpdateAccessBinding](../../../../serverless-integrations/eventrouter/api-ref/grpc/Bus/updateAccessBindings.md).
+  Например, для [шины](../../../concepts/eventrouter/bus.md) воспользуйтесь методом REST API [updateAccessBinding](../../../../serverless-integrations/eventrouter/api-ref/Bus/updateAccessBindings.md) для ресурса [Bus](../../../../serverless-integrations/eventrouter/api-ref/Bus/index.md) или вызовом gRPC API [BusService/UpdateAccessBinding](../../../../serverless-integrations/eventrouter/api-ref/grpc/Bus/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

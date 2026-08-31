@@ -4038,6 +4038,18 @@ default:
             field_scope_kCG8J: Ресурс
             field_type_exclude_cigcD: Проверка не требуется
             field_type_manual_mbKxp: Проверено вручную
+        cspm:
+          PageActions:
+            action_title_check_environment_jovUa: Проверить окружение
+            action_title_configure_control_oGGv5: Настроить контроль
+            action_title_download_report_pP1y8: Скачать отчёт
+          PageHeader:
+            page_tab_title_about_fEPiv: О сервисе
+            page_tab_title_errors_g7fT6: Уведомления
+            page_tab_title_history_4o4Hr: История проверок
+            page_tab_title_overview_hvqrW: Дашборд
+          TopAlertsWidget:
+            card_heading_alerts_8fZB8: Топ алертов
         discovery:
           action_include-in-scan_2wT6B: Добавить к сканированию
           AnalyticsDashboard:
@@ -4181,6 +4193,8 @@ default:
           module_dspm_xxxxx: Контроль данных (DSPM)
           module-cspm_gozhj: Контроль конфигурации (CSPM)
           namespace-checkbox_85krx: Пространства имен
+          RuleErrorsList:
+            table_controls_long_e35UN: Топ правил с нарушениями
           section-title_9BLTm: Объекты (опционально)
           ServiceAccountResourceSelectDialog:
             action_save: Сохранить выбор
@@ -4188,9 +4202,6 @@ default:
           title_security-requirements_8r7hd: Наборы требований
           TriggeredRunsCheckEnvironmentDialog:
             action_start-check_w0jM2: Запустить проверку
-          TriggeredRunsControl:
-            action_check-environment_k3mP9: Проверить окружение на соответствие правилам контроля
-            action_download-check-report_q7nR2: Скачать отчёт о проверке
           workload-labels-checkbox_Wl4Cb: Метки рабочих нагрузок
           workload-names-checkbox_Wn4Cb: Имена рабочих нагрузок
           workload-types-checkbox_Wt4Cb: Типы рабочих нагрузок
@@ -4258,6 +4269,7 @@ default:
             investigations_wYxSe: Расследования
       shared:
         components:
+          severity_critical_uT8Xg: Максимальная критичность
           severity_high_cahHH: Высокая критичность
           severity_info_biSRh: Замечание
           severity_low_tqf9A: Низкая критичность
@@ -4273,6 +4285,8 @@ default:
           label_search-placeholder: Опишите проблему или задайте вопрос
           table:
             label_column_ticket_type: Тип обращения
+      ui:
+        label_cspm_amGv8: Контроль облачной конфигурации
       user:
         title_groups: Группы
         title_oslogin-profiles: Профили OS Login
@@ -4341,6 +4355,24 @@ default:
         support: Поддержка
     yacloud_quotas:
       quotas:
+        iam:
+          accessBindings:
+            count: >-
+              Суммарное количество
+              [привязок](https://yandex.cloud/ru/docs/iam/concepts/access-control/#access-bindings)
+              прав доступа
+          accessKeys:
+            count: Количество статических ключей
+          apiKeys:
+            count: Количество API-ключей
+          authorizedKeys:
+            count: Количество авторизованных ключей
+          oidcWLIFederations:
+            count: Количество федераций сервисных аккаунтов
+          saFederatedCredentials:
+            count: Количество сервисных аккаунтов, привязанных к федерациям
+          serviceAccounts:
+            count: Количество сервисных аккаунтов
         vdi:
           desktopCores:
             count: Количество vCPU рабочих столов
@@ -4527,6 +4559,15 @@ default:
         cluster:
           overview:
             title_resource-webserver: Веб-сервер
+        ClusterForm:
+          StorageSection:
+            source_git_pgAeB: Git
+            source_s3_t1FCM: S3
+            storage_git_branch_5sU67: Ветка
+            storage_git_repo_pKzRo: Адрес репозитория
+            storage_git_ssh_key_ewdAh: SSH-ключ
+            storage_git_subpath_rbaX6: Путь к DAG-файлам
+            storage_source_type_7Jvgw: Тип источника данных
         field_connector-bucket-name: Имя бакета
         field_lockbox: Использовать Lockbox Secret Backend
         section_accesses: Настройки доступа
@@ -5076,7 +5117,7 @@ default:
           field_chain: Цепочка промежуточных сертификатов
           field_privateKey: Приватный ключ
         metadata:
-          field_description: Описание
+          field_description: ' Описание'
           field_name: Имя
         overview:
           action_edit-meta: Изменить
@@ -9352,6 +9393,9 @@ default:
                         column_compression_codec:
                           title: Формат сжатия колонок
                       title: Формат данных
+                    ObjectStorageV1Target:
+                      cleanup_policy:
+                        title: Политика очистки
                     ObjectStorageV1WriterSettings:
                       ReplicationWriter:
                         title: Писатель репликации

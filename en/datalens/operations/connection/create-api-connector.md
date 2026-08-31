@@ -28,7 +28,7 @@ To create an API Connector connection, follow these steps:
        * `Accept-Language`: List of supported natural languages.
        * `Prefer`: HTTP status code to send in the response.
        * `X-Org-ID`: {{ ya-360 }} organization ID.
-       * `X-Cloud-Org-ID`: [Cloud organization](../../../organization/concepts/organization.md) ID.
+       * `X-Cloud-Org-ID`: [Cloud organization]({{ link-docs }}/organization/concepts/organization) ID.
      
      * **Private request headers** are used for sensitive data. Their values are encrypted; you cannot view them in the connection settings, but you can replace them with new values. The following private headers are available:
 

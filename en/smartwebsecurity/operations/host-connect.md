@@ -132,7 +132,7 @@ To connect a security profile to a virtual host:
 
   You can connect a {{ sws-full-name }} profile to a [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md) in the virtual host settings.
 
-  1. In the {{ TF }} configuration file, for the `yandex_alb_virtual_host` resource, specify `security_profile_id` under `route_options`.
+  1. In the {{ TF }} configuration file, specify `security_profile_id` under `route_options` for the `yandex_alb_virtual_host` resource.
 
       ```hcl
       resource "yandex_alb_virtual_host" "my-virtual-host" {

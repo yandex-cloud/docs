@@ -101,7 +101,7 @@ description: Следуя данной инструкции, вы настрои
 
       * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
       * `role` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
-      * `members` — список [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+      * `members` — список обозначений [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль.
 
           Например:
 
@@ -109,7 +109,11 @@ description: Следуя данной инструкции, вы настрои
           * `userAccount:ajerq94vab34********`,
           * `system:allAuthenticatedUsers`.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
 
   1. Проверьте корректность конфигурационных файлов.
@@ -160,7 +164,11 @@ description: Следуя данной инструкции, вы настрои
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
@@ -207,7 +215,11 @@ description: Следуя данной инструкции, вы настрои
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
       
 
 
@@ -251,7 +263,7 @@ description: Следуя данной инструкции, вы настрои
 
       * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
       * `role` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
-      * `members` — список [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+      * `members` — список обозначений [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль.
 
           Например:
 
@@ -259,7 +271,11 @@ description: Следуя данной инструкции, вы настрои
           * `userAccount:ajerq94vab34********`,
           * `system:allAuthenticatedUsers`.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
 
   1. Проверьте корректность конфигурационных файлов.
@@ -328,7 +344,11 @@ description: Следуя данной инструкции, вы настрои
       * `accessBindings.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `accessBindings.subject.type` — тип субъекта, которому назначается роль.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation).
@@ -394,7 +414,11 @@ description: Следуя данной инструкции, вы настрои
       * `accessBindings.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `accessBindings.subject.type` — тип субъекта, которому назначается роль.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
 
 
@@ -468,11 +492,15 @@ description: Следуя данной инструкции, вы настрои
       Где:
 
       * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
-      * `access_binding_deltas.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
-      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
-      * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
+      * `access_binding_deltas.roleId` — отзываемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
+      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+      * `access_binding_deltas.subject.type` — тип субъекта, у которого отзывается роль.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
@@ -516,11 +544,15 @@ description: Следуя данной инструкции, вы настрои
       Где:
 
       * {% include [cluster-id-resource](../../_includes/managed-spqr/cluster-id-resource.md) %}
-      * `access_binding_deltas.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
-      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
-      * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
+      * `access_binding_deltas.roleId` — отзываемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
+      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+      * `access_binding_deltas.subject.type` — тип субъекта, у которого отзывается роль.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).

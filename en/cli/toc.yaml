@@ -12049,6 +12049,9 @@ items:
                           cli-ref/serverless/cli-ref/trigger/v2/create/telegram.md
                       - name: timer
                         href: cli-ref/serverless/cli-ref/trigger/v2/create/timer.md
+                      - name: yandex-messenger
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/yandex-messenger.md
                       - name: yds
                         href: cli-ref/serverless/cli-ref/trigger/v2/create/yds.md
                   - name: delete
@@ -12105,6 +12108,9 @@ items:
                           cli-ref/serverless/cli-ref/trigger/v2/update/telegram.md
                       - name: timer
                         href: cli-ref/serverless/cli-ref/trigger/v2/update/timer.md
+                      - name: yandex-messenger
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/yandex-messenger.md
                       - name: yds
                         href: cli-ref/serverless/cli-ref/trigger/v2/update/yds.md
           - name: v0
@@ -12743,6 +12749,9 @@ items:
                           - name: timer
                             href: >-
                               cli-ref/serverless/cli-ref/v0/trigger/v2/create/timer.md
+                          - name: yandex-messenger
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/yandex-messenger.md
                           - name: yds
                             href: >-
                               cli-ref/serverless/cli-ref/v0/trigger/v2/create/yds.md
@@ -12806,6 +12815,9 @@ items:
                           - name: timer
                             href: >-
                               cli-ref/serverless/cli-ref/v0/trigger/v2/update/timer.md
+                          - name: yandex-messenger
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/yandex-messenger.md
                           - name: yds
                             href: >-
                               cli-ref/serverless/cli-ref/v0/trigger/v2/update/yds.md

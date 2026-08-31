@@ -16,7 +16,7 @@ This section describes typical problems that may arise during [transfer](../conc
 * [{{ PG }}](#postgresql)
 * [{{ ydb-full-name }}](#ydb)
 * [{{ yds-full-name }}](#yds)
-* [{{ GP }}](#greenplum)
+* [{{ GP }}/{{ CB }}](#greenplum)
 * [Who to report your problem to](#support)
 
 ## Problems that arise when working with {{ data-transfer-name }} {#overview}
@@ -111,6 +111,8 @@ Error example:
 {% include [connection-refused](../../_includes/data-transfer/troubles/network/connection-refused.md) %}
 
 {% include [failed-to-connect-to](../../_includes/data-transfer/troubles/network/failed-to-connect-to.md) %}
+
+{% include [hostname-resolving-error](../../_includes/data-transfer/troubles/network/hostname-resolving-error.md) %}
 
 {% include [common-network](../../_includes/data-transfer/troubles/network/common-network.md) %}
 
@@ -263,7 +265,7 @@ Error example:
 {% include [redirects](../../_includes/data-transfer/troubles/data-streams/data-streams-redirects.md) %}
 
 
-## {{ GP }} {#greenplum}
+## {{ GP }}/{{ CB }} {#greenplum}
 
 {% include [threads_limit](../../_includes/data-transfer/troubles/greenplum/threads_limit.md) %}
 

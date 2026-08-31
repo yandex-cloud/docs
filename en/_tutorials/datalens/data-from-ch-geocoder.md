@@ -1,7 +1,7 @@
 # Geocoding with the Yandex Maps API for data visualization in {{ datalens-short-name }}
 
 
-In this tutorial, you will learn how to convert addresses to geo-coordinates using the [Geocoder](https://yandex.com/maps-api/products/geocoder-api) API and visualize data in {{ datalens-short-name }}. Data is processed using Python scripts in Jupyter Notebooks in [{{ ml-platform-full-name }}](../../datasphere/).
+In this tutorial, you will learn how to convert addresses to geo-coordinates using the [Geocoder](https://yandex.com/maps-api/products/geocoder-api) API and visualize data in {{ datalens-short-name }}. Data is processed using Python scripts in Jupyter Notebooks in [{{ ml-platform-full-name }}](../../datasphere/index.yaml).
 
 We will use data from a [{{ CH }} demo database](../../datalens/quickstart.md#create-connection) as the data source.
 

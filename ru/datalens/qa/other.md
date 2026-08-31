@@ -6,7 +6,6 @@ description: На странице представлены вопросы и о
 # Другое
 
 
-
 ### Я могу получить логи моей работы в сервисах? {#logs}
 
 Вы можете самостоятельно получить логи сервисов {{ yandex-cloud }} с помощью подключения к [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md).
@@ -21,7 +20,7 @@ description: На странице представлены вопросы и о
 * {{ datalens-full-name }} в виде облачного сервиса. Хотим также отметить:
 
   * {{ datalens-full-name }} — это сервис {{ yandex-cloud }}, который соответствует ФЗ-152 и индустриальным стандартам безопасности. Подробнее в разделе [Безопасность {{ yandex-cloud }}](/security).
-  * Для {{ datalens-full-name }} можно [настроить федерацию учетных записей](../../organization/quickstart.md).
+  * Для {{ datalens-full-name }} можно [настроить федерацию учетных записей]({{ link-docs }}/organization/quickstart).
 
 * [{{ datalens-short-name }} Open Source]({{ link-datalens-main }}/opensource/) можно развернуть локально для ознакомления, возможности сервиса ограничены.
 
@@ -35,14 +34,13 @@ description: На странице представлены вопросы и о
 
 После блокировки облака ваш экземпляр {{ datalens-short-name }} будет недоступен. Работа с {{ datalens-short-name }} будет невозможна до восстановления облака.
 
-Подробнее о блокировке можно прочитать в разделе [Автоматическая блокировка облака](../../overview/concepts/data-deletion.md#block).
+Подробнее о блокировке можно прочитать в разделе [Автоматическая блокировка облака]({{ link-docs }}/overview/concepts/data-deletion#block).
 
 {% include [object-id](../../_qa/datalens/object-id.md) %}
 
 {% include [related-objects](../../_qa/datalens/related-objects.md) %}
 
 {% include [network-error](../../_qa/datalens/network-error.md) %}
-
 
 
 

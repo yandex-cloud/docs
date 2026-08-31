@@ -432,20 +432,20 @@ val a: Int = 1
 
 
 
-You can add images from the [{{ objstorage-full-name }}](../../storage/quickstart.md) storage to the widget. To learn more about the service pricing plans, see [{#T}](../../storage/pricing.md). Images from external sources are not supported.
+You can add images from the [{{ objstorage-full-name }}]({{ link-docs }}/storage/quickstart) storage to the widget. To learn more about the service pricing plans, see [{#T}]({{ link-docs }}/storage/pricing). Images from external sources are not supported.
 
 
 
 
-You can add images of any format using [object links](../../storage/concepts/object.md#object-url) in `https://{{ s3-storage-host }}/<bucket>/<key>` format.
+You can add images of any format using [object links]({{ link-docs }}/storage/concepts/object#object-url) in `https://{{ s3-storage-host }}/<bucket>/<key>` format.
 
 
 To upload an image from **{{ objstorage-short-name }}** to a widget:
 
 1. Open the [management console]({{ link-console-main }}).
 1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ objstorage-short-name }}**.
-1. [Create a bucket](../../storage/operations/buckets/create.md).
-1. [Upload the image](../../storage/operations/objects/upload.md) to the bucket.
+1. [Create a bucket]({{ link-docs }}/storage/operations/buckets/create).
+1. [Upload the image]({{ link-docs }}/storage/operations/objects/upload) to the bucket.
 1. Go to the object you got and click **Get link**.
 1. Specify link lifetime and copy the link.
 
@@ -464,18 +464,18 @@ To upload an image from **{{ objstorage-short-name }}** to a widget:
 
 {% cut "How to create a permanent link" %}
 
-For the uploaded image to be permanently available, open access to it via an [ACL](../../storage/concepts/acl.md) object.
+For the uploaded image to be permanently available, open access to it via an [ACL]({{ link-docs }}/storage/concepts/acl) object.
 
 {% note warning %}
 
-Public access to the file is granted to an unlimited number of anonymous users. For more information about methods of access management in {{ objstorage-name }}, see the [relevant documentation](../../storage/security/overview.md).
+Public access to the file is granted to an unlimited number of anonymous users. For more information about methods of access management in {{ objstorage-name }}, see the [relevant documentation]({{ link-docs }}/storage/security/overview).
 
 {% endnote %}
 
 1. Open the [management console]({{ link-console-main }}).
 1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ objstorage-short-name }}**.
-1. [Create a bucket](../../storage/operations/buckets/create.md). When selecting a bucket name, use these [recommendations](../../storage/concepts/bucket.md#naming).
-1. [Upload the image](../../storage/operations/objects/upload.md) to the bucket.
+1. [Create a bucket]({{ link-docs }}/storage/operations/buckets/create). When selecting a bucket name, use these [recommendations]({{ link-docs }}/storage/concepts/bucket#naming). 
+1. [Upload the image]({{ link-docs }}/storage/operations/objects/upload) to the bucket.
 1. Configure an ACL for the object you created:
 
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the object name and select **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
@@ -484,7 +484,7 @@ Public access to the file is granted to an unlimited number of anonymous users. 
 1. Make a link to the object in the bucket in `https://{{ s3-storage-host }}/<bucket>/<key>` format, where:
 
    * `<bucket>`: Bucket name.
-   * `<key>`: Object [key](../../storage/concepts/object.md#key) (file path).
+   * `<key>`: Object [key]({{ link-docs }}/storage/concepts/object#key) (file path).
 
 1. Open the dashboard in {{ datalens-name }} and [create](../operations/dashboard/add-text.md) a **Text** widget.
 1. Paste the following code in the widget:

@@ -22,8 +22,8 @@ description: Из статьи вы узнаете, как подключить�
       1. {% include [datalens-db-select](../../../_includes/datalens/datalens-db-select-2.md) %}
 
           * **Облако и каталог**. Выберите каталог, в котором будет находиться ваш сервисный аккаунт.
-          * **Сервисный аккаунт**. Выберите существующий сервисный аккаунт или [создайте](../../../iam/operations/sa/create.md) новый.
-          * **Кластер**. Укажите кластер из списка доступных кластеров {{ TR }} или [создайте](../../../managed-trino/operations/cluster-create.md) новый.
+          * **Сервисный аккаунт**. Выберите существующий сервисный аккаунт или [создайте]({{ link-docs }}/iam/operations/sa/create) новый.
+          * **Кластер**. Укажите кластер из списка доступных кластеров {{ TR }} или [создайте]({{ link-docs }}/managed-trino/operations/cluster-create) новый.
 
           {% include [datalens-db-sql-level-2](../../../_includes/datalens/datalens-db-connection-sql-level-2.md) %}
 

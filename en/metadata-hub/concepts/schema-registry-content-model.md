@@ -1,6 +1,7 @@
 # Content models and JSON schema evolution issues
 
-{{ schema-registry-full-name }} supports the [Avro](https://avro.apache.org/), [Protobuf](https://protobuf.dev/), and [JSON Schema](https://json-schema.org/) formats. Avro and Protobuf schemas rely on a preset structure that is strictly enforced and defines any schema evolution. In contrast, a JSON schema does not require a preset structure, so it has no formally defined rules for schema evolution. As a result, when handling optional properties, a JSON Schema behaves differently from Avro or Protobuf ones. 
+
+{{ schema-registry-full-name }} supports the [Avro](https://avro.apache.org/), [Protobuf](https://protobuf.dev/), and [JSON Schema](https://json-schema.org/) formats. Avro and Protobuf schemas rely on a preset structure that is strictly enforced and defines any schema evolution. In contrast, a JSON schema does not require a preset structure, so it has no formally defined rules for schema evolution. As a result, when handling optional properties, a JSON Schema behaves differently from Avro or Protobuf ones.
 
 > For example, adding an optional property to an Avro or Protobuf schema is considered a backward-compatible change, while in a JSON schema, the same action may either break or preserve compatibility depending on the employed [content model](#content-models).
 
@@ -185,7 +186,7 @@ In this scenario, only the producer data schema is registered. The consumer sche
 
 You can also use this solution to maintain JSON schema compatibility when delivering data to [{{ mkf-full-name }}](../../managed-kafka) via [{{ yds-full-name }}](../../data-streams/) [{{ data-transfer-full-name }}](../../data-transfer/). For more information about required {{ data-transfer-name }} endpoint settings, see [this guide](../../data-transfer/operations/endpoint/target/kafka.md#serializer).
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Understanding JSON Schema Compatibility by Robert Yokota](https://yokota.blog/2021/03/29/understanding-json-schema-compatibility/)
 * [Evolving JSON Schemas - Part I by Andy Coates](https://www.creekservice.org/articles/2024/01/08/json-schema-evolution-part-1.html)

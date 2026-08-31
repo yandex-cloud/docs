@@ -7,7 +7,7 @@ description: Follow this guide to create a connection to {{ yq-full-name }}.
 
 {% note info %}
 
-To create a connection, you need a [service account](../../../iam/concepts/users/service-accounts.md) with the `yq.editor` or `{{ roles-editor }}` [role](../../../iam/operations/sa/assign-role-for-sa.md) for the folder with your {{ yq-full-name }} [connection](../../../query/concepts/glossary.md#connection).
+To create a connection, you need a [service account]({{ link-docs }}/iam/concepts/users/service-accounts) with the `yq.editor` or `{{ roles-editor }}` [role]({{ link-docs }}/iam/operations/sa/assign-role-for-sa) for the folder with your {{ yq-full-name }} [connection]({{ link-docs }}/query/concepts/glossary#connection).
 
 {% endnote %}
 
@@ -18,7 +18,7 @@ To create a {{ yq-full-name }} connection:
 1. Configure the connection as follows:
 
    * **Cloud and folder**: Select the folder with your {{ yq-full-name }} connection.
-   * **Service account**: Select an existing [service account](../../../iam/concepts/users/service-accounts.md) or create a new one.
+   * **Service account**: Select an existing [service account]({{ link-docs }}/iam/concepts/users/service-accounts) or create a new one.
    * **Cache TTL in seconds**: Specify cache TTL or leave the default value.
    * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../dataset/settings.md#sql-request-in-datatset).
 

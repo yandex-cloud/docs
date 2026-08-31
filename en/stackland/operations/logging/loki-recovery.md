@@ -55,29 +55,29 @@ Do not remove the PVC as your first recovery step. In standalone, this will resu
    kubectl -n "$NS" get pvc "$PVC" -w
    ```
 
-1. Restart Loki if the pod does not recover by itself:
+1. Find out the `StatefulSet` name and delete only its object. The pod and PVC must keep running. This is required because Kubernetes does not allow resizing an existing `StatefulSet` via `volumeClaimTemplates`:
 
    ```bash
    STS=$(kubectl -n "$NS" get statefulset \
      -l app.kubernetes.io/name=loki,app.kubernetes.io/component=single-binary \
      -o jsonpath='{.items[0].metadata.name}')
-   kubectl -n "$NS" rollout restart statefulset/"$STS"
-   kubectl -n "$NS" rollout status statefulset/"$STS"
+   kubectl -n "$NS" delete statefulset "$STS" --cascade=orphan
    ```
 
-1. Fix the new size in `LoggingConfig` or else the next reconcile may return the old value:
+   Do not delete the orphaned pod and PVC.
 
-   ```yaml
-   apiVersion: stackland.yandex.cloud/v1alpha1
-   kind: LoggingConfig
-   metadata:
-     name: main
-   spec:
-     settings:
-       logStorage:
-         storage:
-           enabled: true
-           size: 100Gi
+1. Indicate the new size in `LoggingConfig` right away. The controller will recreate the StatefulSet with the updated `volumeClaimTemplates` and pick up the existing pods and PVC:
+
+   ```bash
+   kubectl patch loggingconfig main --type merge \
+     -p '{"spec":{"settings":{"logStorage":{"loki":{"singleBinary":{"storage":{"size":"100Gi"}}}}}}}'
+   ```
+
+1. Make sure the StatefulSet is recreated and Loki is ready:
+
+   ```bash
+   kubectl -n "$NS" get statefulset "$STS"
+   kubectl -n "$NS" rollout status statefulset/"$STS"
    ```
 
 ## If PVC cannot be expanded

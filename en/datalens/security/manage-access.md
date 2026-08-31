@@ -35,7 +35,7 @@ To control access to individual fields or their values, use [RLS](./row-level-se
 
 
 
-Permissions can be granted to individual users or the **All** group that includes users who passed [authentication](../../iam/concepts/authorization/index.md#authentication). Users can also request permissions on their own via the request form. For more information, see [{#T}](../operations/permission/request.md).
+Permissions can be granted to individual users or the **All** group that includes users who passed [authentication]({{ link-docs }}/iam/concepts/authorization/#authentication). Users can also request permissions on their own via the request form. For more information, see [{#T}](../operations/permission/request.md).
 
 
 You can grant the following permissions to objects and directories in {{ datalens-short-name }}:

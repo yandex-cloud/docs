@@ -2,6 +2,8 @@
 
 In {{ stackland-name }}, the cluster node composition can be changed post-installation: you can add new nodes and remove existing ones. Cluster scaling and updating are operations that cannot be performed simultaneously.
 
+When license terms are breached, adding new nodes to a cluster may be restricted. For more information, see [{#T}](licensing.md).
+
 ## StacklandHostConfig resource {#stacklandhostconfig}
 
 Each cluster node is described by a separate instance of the custom `StacklandHostConfig` resource in the `stackland-install` namespace. Existing nodes get the relevant resources during cluster installation or upgrade. The resource contains:
@@ -19,11 +21,11 @@ Creating a resource initiates the connection of a new node to the cluster. Delet
 
 The node's status is displayed in the `status.phase` field of the `StacklandHostConfig` resource:
 
-* `Pending`: Resource created, operation pending.
+* `Pending`: Resource created, pending launch.
 * `Installing`: Connecting node to the cluster.
 * `Installed`: Node connected and running in the cluster.
 * `Removing`: Removing node from the cluster.
-* `Failed`: Operation failed with an error.
+* `Failed`: Operation completed with an error.
 
 ## Node roles {#node-labels}
 
@@ -47,3 +49,4 @@ You cannot change an existing node's role. To change a role, remove the node and
 
 * [{#T}](../operations/cluster/scale-cluster.md)
 * [{#T}](../operations/cluster/upgrade-cluster.md)
+* [{#T}](licensing.md)

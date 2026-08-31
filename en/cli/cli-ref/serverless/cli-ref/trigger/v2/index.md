@@ -55,6 +55,8 @@ Syntax:
 
   - [yc serverless trigger v2 create timer](create/timer.md) — Create timer trigger
 
+  - [yc serverless trigger v2 create yandex-messenger](create/yandex-messenger.md) — Create Yandex Messenger trigger
+
   - [yc serverless trigger v2 create yds](create/yds.md) — Create YDS trigger
 
 - [yc serverless trigger v2 update](update/index.md) — Update the specified trigger. Only basic attributes are updated. Use subcommands to update source and actions.
@@ -82,6 +84,8 @@ Syntax:
   - [yc serverless trigger v2 update telegram](update/telegram.md) — Update Telegram trigger
 
   - [yc serverless trigger v2 update timer](update/timer.md) — Update timer trigger
+
+  - [yc serverless trigger v2 update yandex-messenger](update/yandex-messenger.md) — Update Yandex Messenger trigger
 
   - [yc serverless trigger v2 update yds](update/yds.md) — Update YDS trigger
 

@@ -96,6 +96,7 @@ ID of the service account used for access Yandex Cloud resources. ||
 || `--websql-access` | Allow access for Web SQL. ||
 || `--datatransfer-access` | Allow access for DataTransfer. ||
 || `--yandexquery-access` | Allow access for Yandex Query. ||
+|| `--trino-access` | Allow access for Trino (including TLS for gpfdist). ||
 || `--version` | `string`
 
 Version of Greenplum or Cloudberry used in the cluster. Values specific version or "default" ||

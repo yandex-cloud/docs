@@ -83,7 +83,6 @@ In this case, the user will be charged only for these 4 GB of legitimate traffic
 </MDX>
 
 
-
 #### Using security groups {#prices-security-groups}
 
 You can use [security groups](concepts/security-groups.md) free of charge.
@@ -93,7 +92,6 @@ You can use [security groups](concepts/security-groups.md) free of charge.
 {% include notitle [note-public-ip-traffic.md](../_includes/pricing/note-public-ip-traffic.md) %}
 
 {% include notitle [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
-
 
 
 
@@ -130,6 +128,7 @@ The excess is calculated by multiplying 1 Mbps of traffic by the prevailing traf
 | Testing customer's platforms | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | HTTPS filtering without private keys | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | API access | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Authentication via SSO | ![image](../_assets/common/no.svg) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 
 {% endcut %}
 

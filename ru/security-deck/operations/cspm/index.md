@@ -5,7 +5,9 @@ description: В этом разделе собраны пошаговые инс
 
 # Контроль конфигурации ({{ cspm-name }})
 
+* [{#T}](use-cspm.md).
 * [{#T}](view-rules.md).
 * [{#T}](check-environment.md).
+* [{#T}](work-with-results.md).
 * [{#T}](check-compliance.md).
 * [{#T}](manage-exceptions.md).

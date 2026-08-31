@@ -8,3 +8,4 @@
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md). 
 
 
+

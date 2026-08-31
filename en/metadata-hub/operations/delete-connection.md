@@ -17,8 +17,7 @@ A connection [created automatically](../quickstart/connection-manager.md#mdb-int
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in which to delete a connection.
     1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-    1. In the list of connections, click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the connection you want to delete.
-    1. Select **{{ ui-key.yacloud.common.delete }}**.
+    1. Click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** to the right of the connection you want to delete and confirm the deletion.
 
 - CLI {#cli}
 

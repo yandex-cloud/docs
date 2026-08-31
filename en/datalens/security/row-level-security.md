@@ -1,6 +1,6 @@
 # Row-level security (RLS)
 
-RLS (_row-level security_) enables you to restrict data access for users or [user group](../../organization/concepts/groups.md) within a single dataset. For example, you can introduce data access control for different customers.
+RLS (_row-level security_) enables you to restrict data access for users or [user group]({{ link-docs }}/organization/concepts/groups) within a single dataset. For example, you can introduce data access control for different customers.
 
 {% include [rls-note](../../_includes/datalens/datalens-rls-note.md) %}
 
@@ -15,8 +15,6 @@ With RLS, a query to a dataset passes through the following filter:
 ```sql
 where dimension in (value_1, value_2 ... value_N)
 ```
-
-
 
 
 ## Configuring RLS at the data source level {#datasource-rls}

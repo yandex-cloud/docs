@@ -36,7 +36,7 @@ To create a {{ GP }} connection:
      * **Host type**: Select the host type:
        
        * **Regular**: Enables you to select regular hosts to connect to.
-       * **Special FQDNs**: Enables you to select a [special FQDN](../../../managed-greenplum/operations/connect/fqdn.md#fqdn-master), which always points to the {{ GP }} primary master host.
+       * **Special FQDNs**: Enables you to select a [special FQDN]({{ link-docs }}/managed-greenplum/operations/connect/fqdn#fqdn-master), which always points to the {{ GP }} primary master host.
 
      * **Host name**: Select the host name from the list of hosts available in the {{ GP }} cluster. You can select multiple hosts. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
      * **Port**: Specify the {{ GP }} connection port. The default port is {{ port-mgp }}.
@@ -81,7 +81,7 @@ You can specify additional connection settings under **Advanced connection setti
 * **Setting collate in a query**: To explicitly define a collation for database queries, select a mode:
 
   * **Auto**: Applies the default setting. {{ datalens-short-name }} decides whether to enable the `en_US` locale.
-  * **On**: Applies the {{ datalens-short-name }} setting. The `en_US` locale is specified for individual expressions within a query. Thus the server uses the appropriate sorting logic, regardless of the server settings and specific tables. Use the {{ datalens-short-name }} setting if your database locale is incompatible with {{ datalens-short-name }}. For more information on the locale and `LC_COLLATE`, see [{#T}](../../../managed-postgresql/operations/cluster-create.md#create-cluster).
+  * **On**: Applies the {{ datalens-short-name }} setting. The `en_US` locale is specified for individual expressions within a query. Thus the server uses the appropriate sorting logic, regardless of the server settings and specific tables. Use the {{ datalens-short-name }} setting if your database locale is incompatible with {{ datalens-short-name }}. For more information on the locale and `LC_COLLATE`, see [{#T}]({{ link-docs }}/managed-postgresql/operations/cluster-create#create-cluster).
   * **Off**: Applies the default setting. {{ datalens-short-name }} only uses database-level locale settings.
 
 * {% include [datalens-db-connection-export-settings-item](../../../_includes/datalens/operations/datalens-db-connection-export-settings-item.md) %}
