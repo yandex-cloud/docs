@@ -60,7 +60,7 @@
 
 {% list tabs group=instructions %}
 
-* Высокий уровень безопасности
+- Высокий уровень безопасности
 
   Подготовьте инфраструктуру:
 
@@ -99,7 +99,7 @@
 
   1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `datalake-network`.
 
-     Вместе с ней автоматически создадутся три подсети в разных зонах доступности.
+     Вместе с ней автоматически создадутся три подсети в разных [зонах доступности](../../overview/concepts/geo-scope.md).
 
   1. Для кластера Apache Hive™ Metastore [создайте группу безопасности](../../vpc/operations/security-group-create.md) `metastore-sg` в сети `datalake-network`. Добавьте в группу следующие правила:
 
@@ -140,7 +140,7 @@
      * **Версия** — `3.1`.
      * **Сеть** — `datalake-network`.
      * **Подсеть** — `datalake-network-ru-central1-a`.
-     * **Группа безопасности** — `metastore-sg`.
+     * **Группы безопасности** — `metastore-sg`.
 
      {% note info %}
 
@@ -154,10 +154,10 @@
      * **Зона доступности** — `ru-central1-a`.
      * **Сеть** — `datalake-network`.
      * **Подсеть** — `datalake-network-ru-central1-a`.
-     * **Группа безопасности** — `airflow-sg`.
+     * **Группы безопасности** — `airflow-sg`.
      * **Имя бакета** — `<бакет_для_исходного_кода_Airflow_DAG>`.
 
-* Упрощенная настройка
+- Упрощенная настройка
 
   Подготовьте инфраструктуру:
 
@@ -178,14 +178,14 @@
 
   1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `datalake-network`.
 
-      Вместе с ней автоматически создадутся три подсети в разных зонах доступности и группа безопасности.
+      Вместе с ней автоматически создадутся три подсети в разных [зонах доступности](../../overview/concepts/geo-scope.md) и группа безопасности.
 
   1. [Создайте кластер Apache Hive™ Metastore](../../metadata-hub/operations/metastore/cluster-create.md) с параметрами:
 
      * **Сервисный аккаунт** — `integration-agent`.
      * **Сеть** — `datalake-network`.
      * **Подсеть** — `datalake-network-ru-central1-a`.
-     * **Группа безопасности** — группа по умолчанию в сети `datalake-network`.
+     * **Группы безопасности** — группа по умолчанию в сети `datalake-network`.
 
      {% note info %}
    
@@ -199,7 +199,7 @@
      * **Зона доступности** — `ru-central1-a`.
      * **Сеть** — `datalake-network`.
      * **Подсеть** — `datalake-network-ru-central1-a`.
-     * **Группа безопасности** — группа по умолчанию в сети `datalake-network`.
+     * **Группы безопасности** — группа по умолчанию в сети `datalake-network`.
      * **Имя бакета** — `<бакет_для_заданий_и_данных>`.
 
 {% endlist %}
@@ -264,7 +264,7 @@
      
      ```
 
-     { % endcut %}
+     {% endcut %}
 
   1. Создайте в бакете `<бакет_для_исходного_кода_PySpark_задания>` папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `job_with_table.py`.
 
@@ -322,7 +322,7 @@
      
      ```
 
-     { % endcut %}
+     {% endcut %}
 
   1. Создайте в бакете `<бакет_для_заданий_и_данных>` папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `job_with_table.py`.
 
@@ -608,7 +608,7 @@ DAG будет состоять из нескольких вершин, кото
      * `JOB_ARGS` — аргументы задания PySpark.
      * `JOB_PROPERTIES` — свойства задания PySpark.
 
-     { % endcut %}
+     {% endcut %}
 
   1. Загрузите DAG в кластер Apache Airflow™: создайте в бакете `<бакет_для_заданий_и_данных>` папку `dags` и загрузите в нее файл `dag.py`.
   1. Откройте веб-интерфейс Apache Airflow™.

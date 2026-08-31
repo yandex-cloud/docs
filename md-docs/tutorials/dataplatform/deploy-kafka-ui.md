@@ -5,16 +5,13 @@
 # Самостоятельное развертывание веб-интерфейса Apache Kafka®
 
 
-
 {% note info %}
 
 Managed Service for Apache Kafka® имеет [встроенную поддержку веб-интерфейса Kafka UI](../../managed-kafka/concepts/kafka-ui.md). Если вам по какой-то причине не подходит такой вариант, используйте информацию из этого руководства.
 
 {% endnote %}
 
-
 Вы можете установить [веб-интерфейс Apache Kafka®](https://ui.docs.kafbat.io/) для своего кластера Managed Service for Apache Kafka®. С помощью веб-интерфейса можно отслеживать потоки данных, находить и устранять неисправности, управлять [брокерами](../../managed-kafka/concepts/brokers.md), кластером, [производителями и потребителями](../../managed-kafka/concepts/producers-consumers.md).
-
 
 Развернуть веб-интерфейс Apache Kafka® можно двумя способами:
 
@@ -26,6 +23,7 @@ Managed Service for Apache Kafka® имеет [встроенную поддер
 
 Чтобы развернуть веб-интерфейс Apache Kafka® в Docker-контейнере:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure-for-docker).
 1. [Установите дополнительные зависимости](#infra-for-docker).
 1. [Создайте хранилище сертификатов TrustStore](#truststore-for-docker).
 1. [Подготовьте веб-интерфейс Apache Kafka®](#prepare-ui-via-docker).
@@ -33,27 +31,30 @@ Managed Service for Apache Kafka® имеет [встроенную поддер
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-### Необходимые платные ресурсы {#paid-resources}
-
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../../managed-kafka/pricing.md)).
-* Плата за ВМ: использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса для ВМ и хостов кластера, если для них включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-
-
 ### Перед началом работы {#before-you-begin-to-work-with-docker}
 
-Подготовьте инфраструктуру:
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+#### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+
+
+### Подготовьте инфраструктуру {#prepare-infrastructure-for-docker}
 
 {% list tabs group=instructions %}
 
-- Вручную {#manual}
+- Вручную {#manual}   
 
-   
-   1. [Настройте группу безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups) для кластера Managed Service for Apache Kafka® и ВМ так, чтобы к топикам можно было подключаться с ВМ в Облаке.
-
-
+   1. [Настройте группу безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups) для кластера Managed Service for Apache Kafka® и ВМ так, чтобы к топикам можно было подключаться с ВМ в Облаке.   
    1. [Создайте кластер](../../managed-kafka/operations/cluster-create.md) Managed Service for Apache Kafka®. При создании укажите настроенную группу безопасности.
    1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) Apache Kafka®.
    1. В той же сети, что и кластер Managed Service for Apache Kafka®, [создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) с Ubuntu 22.04, публичным IP-адресом и настроенной группой безопасности.
@@ -70,12 +71,8 @@ Managed Service for Apache Kafka® имеет [встроенную поддер
 
       * сеть;
       * подсеть;
-      * ВМ с Ubuntu 22.04;
-
-      
-      * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине из интернета;
-
-
+      * ВМ с Ubuntu 22.04;      
+      * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине из интернета;      
       * кластер Managed Service for Apache Kafka®;
       * пользователь Apache Kafka®.
 
@@ -131,7 +128,7 @@ Managed Service for Apache Kafka® имеет [встроенную поддер
    FQDN доступен в консоли управления:
 
       1. Перейдите на страницу кластера.
-      1. Перейдите в раздел **Хосты**.
+      1. Откройте вкладку **Хосты**.
       1. Скопируйте значение в столбце **FQDN хоста**, в строке хоста с ролью `KAFKA`.
 
    Если кластер доступен, появится сообщение:
@@ -230,6 +227,8 @@ TrustStore — это хранилище доверенных сертифика
 
 Чтобы развернуть веб-интерфейс Apache Kafka® в кластере Managed Service for Kubernetes:
 
+
+1. [Подготовьте инфраструктуру](#prepare-infrastructure-for-kubernetes).
 1. [Установите дополнительные зависимости](#infra-for-kubernetes).
 1. [Создайте хранилище сертификатов TrustStore](#truststore-for-kubernetes).
 1. [Разверните приложение с веб-интерфейсом Apache Kafka® в поде Kubernetes](#application-in-pod).
@@ -238,19 +237,25 @@ TrustStore — это хранилище доверенных сертифика
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-### Необходимые платные ресурсы {#paid-resources}
-
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../../managed-kafka/pricing.md)).
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера Managed Service for Kubernetes (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса для хостов кластера Managed Service for Apache Kafka® и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-
-
 ### Перед началом работы {#before-you-begin-to-work-with-kubernetes}
 
-Подготовьте инфраструктуру:
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+#### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса для хостов кластера Managed Service for Apache Kafka® и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+
+
+### Подготовьте инфраструктуру {#prepare-infrastructure-for-kubernetes}
 
 {% list tabs group=instructions %}
 
@@ -336,7 +341,7 @@ TrustStore — это хранилище доверенных сертифика
    FQDN доступен в консоли управления:
 
       1. Перейдите на страницу кластера.
-      1. Перейдите в раздел **Хосты**.
+      1. Откройте вкладку **Хосты**.
       1. Скопируйте значение в столбце **FQDN хоста**, в строке хоста с ролью `KAFKA`.
 
    Если кластер доступен, появится сообщение:
@@ -508,12 +513,10 @@ TrustStore — это хранилище доверенных сертифика
 
    Удалите:
 
-   
    1. [Кластер](../../managed-kafka/operations/cluster-delete.md) Managed Service for Apache Kafka®.
    1. [Виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
    1. [Группу узлов](../../managed-kubernetes/operations/node-group/node-group-delete.md) Managed Service for Kubernetes.
    1. [Кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) Managed Service for Kubernetes.
-
 
 - Terraform {#tf}
 

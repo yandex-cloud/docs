@@ -2,11 +2,13 @@
 
 # Поиск метаданных
 
+
 {% note info %}
 
 Эта функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 
@@ -14,9 +16,9 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
+  1. В блоке **Управляйте метаданными** выберите **Data Catalog**.
   1. В открывшемся списке выберите каталог метаданных.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/database-magnifier.svg) **Поиск по метаданным**.
+  1. Перейдите на вкладку **Поиск**.
 
   1. (Опционально) Настройте отображение колонок:
   

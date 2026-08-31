@@ -14,9 +14,8 @@ description: Пошаговые инструкции по работе с {{ con
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-  1. В списке подключений нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке подключения, которое вы хотите изменить.
-  1. Выберите пункт **{{ ui-key.yacloud.common.edit }}**.
+  1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Справа в строке подключения, которое хотите изменить, нажмите ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Измените требуемые параметры подключения, такие как описание, метки, настройки сервера базы данных или данные аутентификации пользователя.
   1. Нажмите **{{ ui-key.yacloud.common.apply }}** для сохранения изменений.
 
@@ -276,8 +275,8 @@ description: Пошаговые инструкции по работе с {{ con
             * `supported_mechanisms` — список механизмов аутентификации. Возможные значения:
               
               * `PLAIN` — аутентификация с передачей логина и пароля в открытом виде.
-              * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
-              * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
+              * `SCRAM_SHA256` — аутентификация с хешированием SHA-256.
+              * `SCRAM_SHA512` — аутентификация с хешированием SHA-512.
 
               [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
           
@@ -474,8 +473,8 @@ description: Пошаговые инструкции по работе с {{ con
             * `supported_mechanisms` — список механизмов аутентификации. Возможные значения:
               
               * `PLAIN` — аутентификация с передачей логина и пароля в открытом виде.
-              * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
-              * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
+              * `SCRAM_SHA256` — аутентификация с хешированием SHA-256.
+              * `SCRAM_SHA512` — аутентификация с хешированием SHA-512.
 
               [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
           

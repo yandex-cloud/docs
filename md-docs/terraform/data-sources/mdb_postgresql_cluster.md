@@ -48,7 +48,10 @@ output "fqdn" {
     - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](../../managed-postgresql/concepts/storage.md#auto-rescale) for details.
     - `emergency_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
     - `planned_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+  - `managed_repack` [Block]. Managed pg_repack settings.
+    - `enabled` (Bool). Enable managed pg_repack for the cluster.
   - `performance_diagnostics` [Block]. Cluster performance diagnostics settings. [YC Documentation](../../managed-postgresql/api-ref/grpc/cluster_service#PerformanceDiagnostics).
+    - `advanced_mode` (Bool). Switch performance diagnostics from standard to advanced mode.
     - `enabled` (Bool). Enable performance diagnostics.
     - `sessions_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_activity sampling. Acceptable values are 1 to 86400, inclusive.
     - `statements_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_statements sampling. Acceptable values are 1 to 86400, inclusive.
@@ -64,7 +67,7 @@ output "fqdn" {
     - `disk_size` (**Required**)(Number). Volume of the storage available to a PostgreSQL host, in gigabytes.
     - `disk_type_id` (String). Type of the storage of PostgreSQL hosts.
     - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a PostgreSQL host (CPU, memory etc.). For more information, see [the official documentation](../../managed-postgresql/concepts/instance-types.md).
-  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18, 18-1c).
+  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 15, 15-1c, 16, 16-1c, 17, 17-1c, 18, 18-1c).
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `database` [Block]. 
 
@@ -79,7 +82,7 @@ output "fqdn" {
   - `lc_collate` (String). POSIX locale for string sorting order. Forbidden to change in an existing database.
   - `lc_type` (String). POSIX locale for character classification. Forbidden to change in an existing database.
   - `name` (**Required**)(String). The resource name.
-  - `owner` (**Required**)(String). Name of the user assigned as the owner of the database. Forbidden to change in an existing database.
+  - `owner` (**Required**)(String). Name of the user assigned as the owner of the database. Changing this value transfers ownership of the database to another user.
   - `template_db` (String). Name of the template database.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
 - `description` (String). The resource description.

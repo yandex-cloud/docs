@@ -12,15 +12,15 @@ description: Follow this guide to create a device.
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder to create a device in.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
    1. Under **{{ ui-key.yacloud.common.section-base }}**, add:
 
       * Device **{{ ui-key.yacloud.common.name }}**, e.g., `my-device`.
-      * (Optional) **{{ ui-key.yacloud.common.description }}** with additional information about the device.
-      * (Optional) **{{ ui-key.yacloud.common.password }}** that you will use to access the device. To create a password, you can use [this password generator](https://passwordsgenerator.net/).
+      * Optionally, **{{ ui-key.yacloud.common.description }}** with additional information about the device.
+      * Optionally, **{{ ui-key.yacloud.common.password }}** that you will use to access the device. To create a password, you can use [this password generator](https://passwordsgenerator.net/).
 
          {% note info %}
 
@@ -28,12 +28,12 @@ description: Follow this guide to create a device.
 
          {% endnote %}
 
-   1. (Optional) Add [aliases](../../concepts/topic/usage.md#aliases):
+   1. Optionally, add [aliases](../../concepts/topic/usage.md#aliases):
 
       1. Click **{{ ui-key.yacloud.iot.button_add-alias }}**.
       1. Fill out the fields: enter an alias, e.g., `events`, and the topic type after `$devices/<device_ID>`, e.g., `events`. You will be able to use the `events` alias instead of the `$devices/<device_ID>/events` topic.
 
-   1. (Optional) Add a [certificate](../../operations/certificates/create-certificates.md):
+   1. Optionally, add a [certificate](../../operations/certificates/create-certificates.md):
 
       * To add a file:
 
@@ -78,7 +78,7 @@ description: Follow this guide to create a device.
       status: ACTIVE
       ```
 
-   1. (Optional) Assign the device a password for authentication with a [username and password](../../concepts/authorization.md#log-pass):
+   1. Optionally, assign the device a password for authentication with a [username and password](../../concepts/authorization.md#log-pass):
 
       ```bash
       yc iot device password add --device-name <device_name>
@@ -97,7 +97,7 @@ description: Follow this guide to create a device.
       created_at: "2019-05-28T16:12:30.938Z"
       ```
 
-   1. (Optional) Add to the registry a certificate for authentication with [certificates](../../concepts/authorization.md#certs):
+   1. Optionally, add to the registry a certificate for authentication with [certificates](../../concepts/authorization.md#certs):
 
       ```bash
       yc iot device certificate add \
@@ -122,7 +122,7 @@ description: Follow this guide to create a device.
       created_at: "2019-05-28T16:15:30.938Z"
       ```
 
-   1. (Optional) Add [aliases](../../concepts/topic/usage.md#aliases):
+   1. Optionally, add [aliases](../../concepts/topic/usage.md#aliases):
 
       ```bash
       yc iot device add-topic-aliases \
@@ -183,7 +183,7 @@ description: Follow this guide to create a device.
 
       {% endnote %}
 
-      Here is an example of the resource structure in the configuration file:
+      Here is an example of a resource structure in the configuration file:
       
       ```
       resource "yandex_iot_core_device" "my_device" {
@@ -212,17 +212,21 @@ description: Follow this guide to create a device.
       
       1. In the terminal, navigate to the directory where you created your configuration file.
       1. Run a check using this command:
+
          ```
          terraform plan
          ```
+
       If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
          
    1. Deploy the cloud resources.
 
       1. If the configuration is correct, run this command:
+
          ```
          terraform apply
          ```
+
       1. Confirm creating the resources.
       
       This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).

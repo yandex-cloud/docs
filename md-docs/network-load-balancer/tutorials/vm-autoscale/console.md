@@ -44,7 +44,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
-     1. Перейдите в сервис **Identity and Access Management**.
+     1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
      1. Нажмите кнопку **Создать сервисный аккаунт**. В открывшемся окне:
         * В поле **Имя** укажите `for-autoscale`.
         * Чтобы назначить сервисному аккаунту роль на текущий каталог, нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роли `compute.editor` и `load-balancer.editor`.
@@ -54,7 +54,9 @@
 
      1. Создайте сервисный аккаунт:
 
-        По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+        По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+        
+        Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
         ```bash
         yc iam service-account create --name for-autoscale
@@ -91,14 +93,14 @@
 
    {% endlist %}
 
-1. Создайте [сеть](../../../vpc/concepts/network.md#network) с именем `yc-auto-network` и [подсети](../../../vpc/concepts/network.md#subnet) в двух зонах доступности:
+1. Создайте [сеть](../../../vpc/concepts/network.md#network) с именем `yc-auto-network` и [подсети](../../../vpc/concepts/network.md#subnet) в двух [зонах доступности](../../../overview/concepts/geo-scope.md):
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать сеть.
-     1. Перейдите в сервис **Virtual Private Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
      1. Нажмите кнопку **Создать сеть**.
      1. В поле **Имя** задайте имя сети `yc-auto-network`.
      1. В поле **Дополнительно** включите опцию **Создать подсети**.
@@ -181,7 +183,7 @@
    - Консоль управления {#console}
 
      1. Откройте [консоль управления](https://console.yandex.cloud).
-     1. Перейдите в сервис **Virtual Private Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
      1. Откройте вкладку **Группы безопасности**.
      1. Создайте группу безопасности для балансировщика:
         1. Нажмите кнопку **Создать группу**.
@@ -332,7 +334,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ.
-     1. Перейдите в сервис **Compute Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. На панели слева нажмите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Выберите группу ВМ `auto-group`.
 
@@ -368,7 +370,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать балансировщик.
-     1. Перейдите в сервис **Network Load Balancer**.
+     1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer**.
      1. Нажмите кнопку **Создать сетевой балансировщик**.
      1. Укажите имя — `group-balancer`.
      1. В поле **Публичный адрес** укажите `Автоматически`.
@@ -422,7 +424,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали балансировщик.
-     1. Перейдите в сервис **Network Load Balancer**.
+     1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer**.
      1. Выберите балансировщик `group-balancer`.
 
    - CLI {#cli}
@@ -484,12 +486,12 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ.
-     1. Перейдите в сервис **Compute Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. На панели слева нажмите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Выберите группу ВМ `auto-group`.
      1. Перейдите на вкладку **Мониторинг**.
 
-        Балансировщик направил запрос на одну из ВМ группы. В зоне доступности этой ВМ среднее потребление CPU (график **Average CPU utilization in zone**) выше, чем в других.
+        Балансировщик направил запрос на одну из ВМ группы. В [зоне доступности](../../../overview/concepts/geo-scope.md) этой ВМ среднее потребление CPU (график **Average CPU utilization in zone**) выше, чем в других.
 
    {% endlist %}
 
@@ -536,7 +538,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ `auto-group`.
-     1. Перейдите в сервис **Compute Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. На панели слева нажмите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Выберите группу ВМ `auto-group`.
      1. Перейдите на вкладку **Мониторинг**.
@@ -556,4 +558,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Работа с группой виртуальных машин с автоматическим масштабированием с помощью Terraform](terraform.md)
+[Работа с группой виртуальных машин с автоматическим масштабированием с помощью Terraform](terraform.md)

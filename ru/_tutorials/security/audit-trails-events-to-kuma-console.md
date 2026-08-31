@@ -37,8 +37,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта для бакета: `kuma-bucket-sa`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -92,8 +92,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Выберите сервисный аккаунт `kuma-bucket-sa`.
   1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
@@ -146,8 +146,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Нажмите **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** и задайте атрибуты ключа:
 
@@ -221,7 +221,7 @@
 
   1. Назначьте роли на каталог:
 
-      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Нажмите **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
       1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
@@ -236,7 +236,7 @@
 
   1. Назначьте роли на ключ шифрования:
 
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+      1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}** и нажмите на строку с ключом `kuma-key`.
       1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. Выберите сервисный аккаунт `kuma-trail-sa`.
@@ -315,8 +315,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета, например `my-audit-logs-for-kuma`.
 
@@ -398,30 +398,29 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. Нажмите **{{ ui-key.yacloud.audit-trails.button_create-trail }}** и в открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Нажмите **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
 
-      1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя трейла `kuma-trail`.
-      1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
+      1. **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+      1. **{{ ui-key.yacloud.audit-trails.label_bucket }}** — созданный ранее бакет, например `my-audit-logs-for-kuma`.
+      1. **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
 
-          * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
-          * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — созданный ранее бакет, например `my-audit-logs-for-kuma`.
-          * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
-
-          {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
+      {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
       1. Убедитесь, что в поле **{{ ui-key.yacloud.audit-trails.title_kms-key }}** указан ключ шифрования `kuma-key`. Если ключ шифрования не задан, нажмите **{{ ui-key.yacloud.audit-trails.action_add-bucket-key }}** и выберите этот ключ.
 
-      1. В блоке **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** задайте параметры сбора аудитных логов уровня конфигурации:
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_control-plane-collection-new }}**:
 
-          * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** — выберите `{{ ui-key.yacloud.common.enabled }}`.
-          * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-          * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения, содержит имя текущего каталога.
+      1. Включите сбор логов.
+      1. **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+      1. **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения, содержит имя текущего каталога.
 
-      1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выше выберите сервисный аккаунт `kuma-trail-sa`.
-      1. В блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** оставьте значение `{{ ui-key.yacloud.common.disabled }}`.
-      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_data-plane-collection-new }}** отключите сбор логов.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выше выберите сервисный аккаунт `kuma-trail-sa`.
+  1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя трейла `kuma-trail`.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -488,8 +487,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Задайте имя сети, например `kuma-network`.
   1. Убедитесь, что опция **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** включена.
@@ -565,7 +564,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).

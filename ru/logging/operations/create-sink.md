@@ -13,11 +13,11 @@ description: Из статьи вы узнаете, как создать при
     1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Перейдите на вкладку **{{ ui-key.yacloud.logging.label_sinks }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-sink }}**.
-    1. (Опционально) Введите имя и описание приемника логов. Формат имени:
+    1. (Опционально) Введите **{{ ui-key.yacloud.common.name }}** и **{{ ui-key.yacloud.common.description }}** приемника логов. Формат имени:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
-    1. (Опционально) Добавьте метки.
+    1. (Опционально) Добавьте [метки](../../resource-manager/concepts/labels.md).
     1. В поле **{{ ui-key.yacloud.logging.label_destination }}** выберите `{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}`.
     1. Выберите бакет, в который будут сохраняться логи.
     1. (Опционально) Укажите [папку](../../storage/concepts/object.md#folder).

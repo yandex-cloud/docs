@@ -23,7 +23,6 @@ In this section, you will learn how to work with a report:
 ## Creating a report {#create-report}
 
 
-
 There is a number of ways to create a report:
 
 {% list tabs %}
@@ -39,9 +38,9 @@ There is a number of ways to create a report:
   1. In the top-right corner, click **Save**.
   1. In the window that opens, enter a name for the report and click **Create**.
 
-- Navigation bar
+- Navigation panel
 
-  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
+  1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
   1. In the left-hand panel, select ![image](../../_assets/console-icons/display-pulse.svg) **Reports** and click **Create report**.
   1. [Add pages](#report-pages) to your report.
   1. [Add](#add-widget) the required [widgets](../dashboard/widget.md) to the pages.
@@ -50,8 +49,6 @@ There is a number of ways to create a report:
   1. In the window that opens, enter a name for the report and click **Create**.
 
 {% endlist %}
-
-
 
 
 
@@ -286,7 +283,7 @@ To configure widget corner rounding:
 
 1. Select the report page the widget is on.
 1. Click ![image](../../_assets/console-icons/gear.svg) next to the widget.
-1. In the **Rounding** field, set the widget corner rounding from `0` to `24` in increments of `2`. The default value is `12`.
+1. In the **Rounding** field, set widget corner rounding from `0` to `24` in increments of `2`. The default value is `12`.
 1. Click **Save**.
 1. In the top-right corner, click **Save**.
 
@@ -373,7 +370,7 @@ For operations with [selectors](../dashboard/selector.md), click ![icon](../../_
 You can add, configure, or delete a selector in your report:
 
 * To enter edit mode, click ![icon](../../_assets/console-icons/pencil.svg).
-* To get back to filter mode, click ![icon](../../_assets/console-icons/check.svg).
+* To switch back to filter mode, click ![icon](../../_assets/console-icons/check.svg).
 
 To hide the **Selectors** window, click ![icon](../../_assets/console-icons/xmark.svg).
 

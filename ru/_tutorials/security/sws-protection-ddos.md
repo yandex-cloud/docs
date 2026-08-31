@@ -21,7 +21,7 @@
 
 1. [Создайте профиль безопасности](#setup-security-profile).
 1. [Подключите профиль безопасности](#connect-profile) к виртуальному хосту.
-   
+
    Если профиль безопасности был создан ранее и уже подключен к хосту, [проверьте его настройки](#setup-existing-profile).
 
 1. [Проверьте работу профиля безопасности](#check-the-result).
@@ -46,9 +46,9 @@ _Профиль безопасности_ — основной элемент {{
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся защищаемые ресурсы.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
   1. Введите имя профиля, например `anti-ddos`.
   1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`.
   1. В списке **{{ ui-key.yacloud.smart-web-security.form.label_smartcaptcha }}** оставьте значение `{{ ui-key.yacloud.smart-web-security.label_default-smartcaptcha-name }}`.
@@ -87,7 +87,7 @@ _Профиль безопасности_ — основной элемент {{
    * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** — `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`.
    * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`.
    * **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** — `1000000`.
-   
+
 ## Проверьте работу профиля безопасности {#check-the-result}
 
 Проверить работу профиля безопасности можно с помощью графиков мониторинга и записей в логах.
@@ -98,8 +98,8 @@ _Профиль безопасности_ — основной элемент {{
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Выберите раздел **{{ ui-key.yacloud.common.monitoring }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Выберите раздел ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
   1. Посмотрите информацию на графиках:
      * **Denied by Security Profile RPS** — количество входящих запросов в секунду, которые были проверены и заблокированы профилем безопасности.
      * **Redirected to SmartCaptcha RPS** — количество входящих запросов в секунду, направленных в {{ captcha-name }} для дополнительной верификации.
@@ -116,11 +116,11 @@ _Профиль безопасности_ — основной элемент {{
 - Консоль управления {#console}
 
   1. Убедитесь, что для L7-балансировщика настроено [логирование](../../smartwebsecurity/operations/configure-logging.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Выберите балансировщик, к которому привязан профиль безопасности.
-  1. Выберите раздел **{{ ui-key.yacloud.common.logs }}**.
-  1. Выберите количество сообщений на одной странице и период. Например, `1 час`.
-  1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите кнопку **Выполнить**.
+  1. Выберите раздел ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
+  1. Выберите период показа логов одним из способов, например **Последний час**.
+  1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 
       Примеры запросов:
 
@@ -148,20 +148,20 @@ _Профиль безопасности_ — основной элемент {{
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. Введите имя профиля, например `anti-ddos-arl`.
-  1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** и укажите:
-        
+  1. Нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** и укажите:
+
      {% include [arl-rule-properties](../_tutorials_includes/sws-protection-ddos/arl-rule-properties.md) %}
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Напротив профиля `anti-ddos` нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+  1. Напротив профиля `anti-ddos` нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
   1. В списке профилей ARL выберите `anti-ddos-arl`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -173,11 +173,11 @@ _Профиль безопасности_ — основной элемент {{
 
 - Консоль управления {#console}
 
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
    1. Выберите профиль безопасности `anti-ddos`.
-   1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
-   1. Введите **{{ ui-key.yacloud_billing.common.name }}**, например, `block-by-list`.
+   1. Нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+   1. Введите **{{ ui-key.yacloud.common.name }}**, например, `block-by-list`.
    1. Укажите параметры правила:
       * **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** — выше, чем у правила `sp-rule-1`. Например, `1000`.
       * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}** — `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
@@ -187,9 +187,9 @@ _Профиль безопасности_ — основной элемент {{
       * **Условия на IP** — `IP принадлежит списку`.
       * Выберите списки адресов. Запросы с этих адресов будут блокироваться:
          * `is_ddoser` — список IP-адресов, которые участвовали в DDoS-атаках.
-         * Нажмите кнопку **+ или** и выберите `is_tor` — IP-адреса сети TOR, которая используется для анонимизации трафика.
-         * Нажмите кнопку **+ или** и выберите `is_anonimous` — IP-адреса анонимных сетей, которые часто используются для сокрытия личности.
-    1. Нажмите кнопку **{{ ui-key.yacloud_billing.common.add }}**.
+         * Нажмите **+ или** и выберите `is_tor` — IP-адреса сети TOR, которая используется для анонимизации трафика.
+         * Нажмите **+ или** и выберите `is_anonymous` — IP-адреса анонимных сетей, которые часто используются для сокрытия личности.
+    1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
@@ -202,8 +202,8 @@ _Профиль безопасности_ — основной элемент {{
     Заблокируйте запросы из региона, откуда происходит атака. Если ваш сервис не работает в определенных регионах, можно сразу заблокировать трафик из этих регионов. Часто DDoS-атаки происходят с IP-адресов нецелевых стран.
 
    1. Выберите профиль безопасности `anti-ddos`.
-   1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
-   1. Введите **{{ ui-key.yacloud_billing.common.name }}**, например, `block-by-geo`.
+   1. Нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+   1. Введите **{{ ui-key.yacloud.common.name }}**, например, `block-by-geo`.
    1. Укажите параметры правила:
       * **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** — выше, чем у правила `sp-rule-1`, но ниже, чем у `block-by-list`. Например, `2000`.
       * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}** — `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
@@ -212,8 +212,8 @@ _Профиль безопасности_ — основной элемент {{
       * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
       * **Условия на IP** — `IP принадлежит региону`.
       * Выберите регион, из которого происходит атака. Например, `CN`, `US`, `IN`.
-  
-         Чтобы добавить еще регион, нажмите кнопку **+ или**.
+
+         Чтобы добавить еще регион, нажмите **+ или**.
 
       {% note tip %}
 
@@ -223,7 +223,7 @@ _Профиль безопасности_ — основной элемент {{
 
       {% endnote %}
 
-   1. Нажмите кнопку **{{ ui-key.yacloud_billing.common.add }}**.
+   1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 

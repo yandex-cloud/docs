@@ -145,7 +145,7 @@
 
         1. Заполните раздел [annotations](../../../../managed-kubernetes/alb-ref/ingress.md#annotations) для настроек L7-балансировщика:
 
-            * `ingress.alb.yc.io/subnets` — идентификаторы подсетей в трех зонах доступности для узлов L7-балансировщика. Идентификаторы перечисляются через запятую без пробелов.
+            * `ingress.alb.yc.io/subnets` — идентификаторы подсетей в трех [зонах доступности](../../../../overview/concepts/geo-scope.md) для узлов L7-балансировщика. Идентификаторы перечисляются через запятую без пробелов.
             * `ingress.alb.yc.io/security-groups` — идентификатор одной или нескольких групп безопасности для L7-балансировщика. Идентификаторы нескольких групп перечисляются через запятую без пробелов.
             * `ingress.alb.yc.io/external-ipv4-address` — зарезервированный ранее статический публичный IP-адрес.
             * `ingress.alb.yc.io/group-name` — имя группы ресурсов `Ingress`. Ресурсы `Ingress` объединяются в группы, каждая из которых обслуживается отдельным экземпляром Application Load Balancer с отдельным публичным IP-адресом.
@@ -289,8 +289,8 @@
 
 1. Перейдите в L7-балансировщик:
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится кластер Managed Service for Kubernetes.
-    1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер Managed Service for Kubernetes.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
     1. Выберите нужный кластер.
     1. Слева выберите ![image](../../../../_assets/console-icons/timestamps.svg) **Сервисы и Ingress**, а в правой части — вкладку **Ingresses**. Для вашего `Ingress`-ресурса в столбце **Балансировщик** перейдите по ссылке на L7-балансировщик.
     1. Наблюдайте за пользовательской нагрузкой, поступающей на L7-балансировщик, на графиках [статистики работы балансировщика](../../../../application-load-balancer/operations/application-load-balancer-get-stats.md).
@@ -356,8 +356,8 @@
 
 1. По мере распространения изменений в записи DNS наблюдайте за ростом запросов, поступающих на L7-балансировщик:
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится кластер Managed Service for Kubernetes.
-    1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер Managed Service for Kubernetes.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
     1. Выберите нужный кластер.
     1. Слева выберите ![image](../../../../_assets/console-icons/timestamps.svg) **Сервисы и Ingress**, а в правой части — вкладку **Ingresses**. Для вашего `Ingress`-ресурса в столбце **Балансировщик** перейдите по ссылке на L7-балансировщик.
     1. Наблюдайте за пользовательской нагрузкой, поступающей на L7-балансировщик, на графиках [статистики работы балансировщика](../../../../application-load-balancer/operations/application-load-balancer-get-stats.md).

@@ -10,8 +10,8 @@
     {% include [name-format](name-format.md) %}
 
 1. (Опционально) Введите описание каталога.
-1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. Будет создана [сеть](../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
-1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. Будет создана [сеть](../vpc/concepts/network.md#network) с подсетями в каждой [зоне доступности](../overview/concepts/geo-scope.md). Также в этой сети будет создана [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group), которая разрешает подключение к ресурсам по `SSH` и `RDP`, входящий трафик по `ICMP`, а также любой исходящий трафик.
+1. Нажмите **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
    ![create-folder2](../_assets/resource-manager/create-folder-2.png)
 

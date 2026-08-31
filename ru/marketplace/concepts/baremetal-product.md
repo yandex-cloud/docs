@@ -1,5 +1,6 @@
 # Создание продукта {{ baremetal-name }} на базе Linux для загрузки в {{ marketplace-name }}
 
+
 Чтобы добавить в {{ marketplace-name }} продукт для {{ baremetal-full-name }}, нужно загрузить образ в {{ yandex-cloud }}. Продукты могут быть созданы на базе ОС Linux. Этот раздел поможет создать образ на базе ОС Linux.
 
 ## Создание образа {#create}

@@ -12,7 +12,7 @@
 
   Для этого потребуется самостоятельная инсталляция и настройка утилиты на промежуточной виртуальной машине. Используйте этот способ только в том случае, если перенос данных с помощью встроенного MirrorMaker-коннектора по каким-либо причинам невозможен.
 
-Оба способа подойдут в том числе для [миграции кластера](../../managed-kafka/operations/host-migration.md#one-host) Managed Service for Apache Kafka® с одним хостом в другую зону доступности.
+Оба способа подойдут в том числе для [миграции кластера](../../managed-kafka/operations/host-migration.md#one-host) Managed Service for Apache Kafka® с одним хостом в другую [зону доступности](../../overview/concepts/geo-scope.md).
 
 
 ## Перенос данных с использованием сервиса Yandex Managed Service for Apache Kafka® Connector {#kf-connector}
@@ -38,8 +38,8 @@
 
 ##### **Необходимые платные ресурсы** {#paid-resources-connector}
 
-* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ### Подготовьте кластер-источник {#prepare-source}
@@ -218,9 +218,9 @@
 
 ##### **Необходимые платные ресурсы** {#paid-resources-mirrormaker}
 
-* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
 
 ### Подготовьте инфраструктуру {#prepare-infrastructure}

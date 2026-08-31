@@ -103,7 +103,14 @@
       * Пароль — `MsgfcjEhJk`.
 
    1. Включите опцию **Уровень доступа SQL-запросов** и выберите **Подзапросы и параметры**.
+
+
    1. Нажмите кнопку **Проверить подключение** и убедитесь, что появился зеленый значок.
+   
+            
+      ![image](../../_assets/datalens/operations/connection/create-sample-connection-parametrization.png)
+
+
    1. Нажмите кнопку **Создать подключение**.
    1. Введите название подключения — `Sample ClickHouse`.
    1. Нажмите кнопку **Создать**.
@@ -162,7 +169,7 @@
 
    1. Перейдите на вкладку **Источники**.
    1. В списке таблиц напротив **MS_SalesFacts** нажмите ![icon](../../_assets/console-icons/ellipsis.svg) → **Изменить настройки**.
-   1. Cправа от поля **Имя таблицы** со значением `MS_SalesFacts` нажмите ![icon](../../_assets/console-icons/plus.svg) и выберите параметр `table_name`. Теперь имя таблицы будет определяться указанным параметром.
+   1. Справа от поля **Имя таблицы** со значением `MS_SalesFacts` нажмите ![icon](../../_assets/console-icons/plus.svg) и выберите параметр `table_name`. Теперь имя таблицы будет определяться указанным параметром.
    
       ![image](../../_assets/datalens/dataset-parametrization/dataset-change-table-settings.png)
 

@@ -77,7 +77,7 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. [Navigate]({{ link-org-cloud-center }}) to **{{ org-full-name }}**.
 
   1. In the left-hand panel, select ![icon-federation](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 

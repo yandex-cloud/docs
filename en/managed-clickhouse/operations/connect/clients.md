@@ -58,7 +58,6 @@ The examples for Windows were tested in the following environment:
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
     ```bash
@@ -69,7 +68,6 @@ The examples for Windows were tested in the following environment:
                       --ask-password
     ```
 
-
 - Connecting with SSL {#with-ssl}
 
   {% include [default-connstring](../../../_includes/mdb/mch/default-connstring.md) %}
@@ -78,7 +76,7 @@ The examples for Windows were tested in the following environment:
 
 See [this guide](fqdn.md) to learn how to get a host FQDN.
 
-After runing this command, enter the user password to complete your connection.
+After running this command, enter the user password to complete your connection.
 
 Once connected to the DBMS, run the `SELECT version();` command.
 
@@ -98,7 +96,6 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
     ```bash
@@ -109,7 +106,6 @@ sudo apt update && sudo apt install --yes mysql-client
           --password \
           <DB_name>
     ```
-
 
 - Connecting with SSL {#with-ssl}
 
@@ -137,7 +133,6 @@ Once connected to the DBMS, run the `SELECT version();` command.
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
     ```bash
@@ -145,7 +140,6 @@ Once connected to the DBMS, run the `SELECT version();` command.
          --header "X-ClickHouse-Key: <DB_user_password>" \
          'http://<FQDN_of_any_{{ CH }}_host>:8123/?database=<DB_name>&query=SELECT%20version()'
     ```
-
 
 - Connecting with SSL {#with-ssl}
 
@@ -164,7 +158,6 @@ To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
     ```powershell
@@ -173,7 +166,6 @@ To learn how to get a host’s FQDN, see [this guide](fqdn.md).
         --header "X-ClickHouse-Key: <DB_user_password>" `
         'http://<FQDN_of_any_{{ CH }}_host>:8123/?database=<DB_name>&query=SELECT+version()'
     ```
-
 
 - Connecting with SSL {#with-ssl}
 
@@ -190,11 +182,10 @@ To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
 ## Connecting from graphical IDEs {#ide}
 
+
 {% include [ide-environments](../../../_includes/mdb/mdb-ide-envs.md) %}
 
-
 From graphical IDEs, you can only connect to public cluster hosts using an SSL certificate.
-
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -286,7 +277,6 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
    ```bash
@@ -304,7 +294,6 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
        wget "https://{{ s3-storage-host-doc-files }}/clickhouse-client.conf.example" \
             --output-document ~/.clickhouse-client/config.xml
    ```
-
 
 - Connecting with SSL {#with-ssl}
 

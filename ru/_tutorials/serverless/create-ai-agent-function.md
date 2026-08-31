@@ -1,6 +1,6 @@
 
 
-Узнайте, как с помощью [функции](../../functions/concepts/function.md) {{ sf-name }} с использованием [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) создать [AI-агента](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) — персонализированного помощника, реализующего сценарий генеративного ответа на основе [моделей генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ ai-studio-full-name }}.
+Узнайте, как с помощью [функции]({{ link-docs }}/functions/concepts/function) {{ sf-name }} с использованием [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) создать [AI-агента](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) — персонализированного помощника, реализующего сценарий генеративного ответа на основе [моделей генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ ai-studio-full-name }}.
 
 В данном руководстве вы создадите простого AI-агента, который через функцию {{ sf-name }} будет получать информацию о погоде, взаимодействовать с [языковой моделью]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ ai-studio-full-name }} и, чтобы было интереснее, отвечать пользователю в форме [хайку](https://ru.wikipedia.org/wiki/Хайку).
 
@@ -12,13 +12,13 @@
 1. Обработчик функции {{ sf-name }} создает и запускает AI-агента.
 1. AI-агент запрашивает дополнительные данные о погоде в нужном городе в пользовательской функции `get_weather()`.
 1. AI-агент отправляет расширенный дополнительным контекстом запрос пользователя в модель генерации текста {{ foundation-models-name }}.
-1. [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с помощью [API-ключа](../../iam/concepts/authorization/api-key.md) авторизует для AI-агента доступ к [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index) {{ foundation-models-name }}.
-1. Сервисный аккаунт предоставляет функции {{ sf-name }} доступ к секрету [{{ lockbox-name }}](../../lockbox/index.yaml), в котором хранится API-ключ сервисного аккаунта.
+1. [Сервисный аккаунт]({{ link-docs }}/iam/concepts/users/service-accounts) с помощью [API-ключа]({{ link-docs }}/iam/concepts/authorization/api-key) авторизует для AI-агента доступ к [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index) {{ foundation-models-name }}.
+1. Сервисный аккаунт предоставляет функции {{ sf-name }} доступ к секрету [{{ lockbox-name }}]({{ link-docs }}/lockbox/index.yaml), в котором хранится API-ключ сервисного аккаунта.
 1. Функция {{ sf-name }} получает из секрета {{ lockbox-name }} API-ключ сервисного аккаунта.
 1. Модель {{ foundation-models-name }} передает AI-агенту сгенерированный ответ.
 1. AI-агент возвращает полученный ответ пользователю.
 
-Созданный в этом руководстве AI-агент будет развернут в {{ yandex-cloud }} с помощью {{ sf-full-name }}. При этом вы создадите необходимые для доступа к модели {{ foundation-models-name }} ресурсы: [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), [API-ключ](../../iam/concepts/authorization/api-key.md) сервисного аккаунта, [секрет](../../lockbox/concepts/secret.md) {{ lockbox-full-name }} и [функцию](../../functions/concepts/function.md) {{ sf-name }}.
+Созданный в этом руководстве AI-агент будет развернут в {{ yandex-cloud }} с помощью {{ sf-full-name }}. При этом вы создадите необходимые для доступа к модели {{ foundation-models-name }} ресурсы: [сервисный аккаунт]({{ link-docs }}/iam/concepts/users/service-accounts), [API-ключ]({{ link-docs }}/iam/concepts/authorization/api-key) сервисного аккаунта, [секрет]({{ link-docs }}/lockbox/concepts/secret) {{ lockbox-full-name }} и [функцию]({{ link-docs }}/functions/concepts/function) {{ sf-name }}.
 
 Вы можете создать эти ресурсы [автоматически](#automatic-setup) или [вручную](#manual-setup).
 
@@ -32,10 +32,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для этого практического руководства входят:
-* Плата за использование функции ([тарифы {{ sf-full-name }}](../../functions/pricing.md)).
+* Плата за использование функции ([тарифы {{ sf-full-name }}]({{ link-docs }}/functions/pricing)).
 * Плата за генерацию текста ([тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing)).
-* Плата за хранение секрета и операции с ним ([тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md)).
-* Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) ([тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)), если вы используете сервис [{{ cloud-logging-name }}](../../logging/).
+* Плата за хранение секрета и операции с ним ([тарифы {{ lockbox-full-name }}]({{ link-docs }}/lockbox/pricing)).
+* Плата за запись и хранение данных в [лог-группе]({{ link-docs }}/logging/concepts/log-group) ([тарифы {{ cloud-logging-full-name }}]({{ link-docs }}/logging/pricing)), если вы используете сервис [{{ cloud-logging-name }}]({{ link-docs }}/logging/).
 
 ## Автоматизированное развертывание AI-агента с использованием {{ src-name }} CI/CD {#automatic-sourcecraft-setup}
 
@@ -86,7 +86,7 @@
 
 Чтобы создать AI-агента в автоматическом режиме:
 
-1. [Установите](../../cli/operations/install-cli.md) {{ yandex-cloud }} CLI и [аутентифицируйтесь](../../cli/operations/index.md#auth).
+1. [Установите]({{ link-docs }}/cli/operations/install-cli) {{ yandex-cloud }} CLI и [аутентифицируйтесь]({{ link-docs }}/cli/operations/index#auth).
 1. [Скачайте и установите Python](https://www.python.org/downloads/).
 1. Склонируйте [репозиторий](https://sourcecraft.dev/yandex-cloud-examples/yc-serverless-ai-agent) со скриптами для создания AI-агента:
 
@@ -178,8 +178,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder), в котором вы будете создавать инфраструктуру.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта: `function-sa`.
   1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) `ai.languageModels.user`.
@@ -210,7 +210,7 @@
 
       Сохраните идентификаторы сервисного аккаунта (значение поля `id`) и каталога (значение поля `folder_id`) — они понадобятся позднее.
 
-      Подробнее о команде `yc iam service-account create` читайте в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
+      Подробнее о команде `yc iam service-account create` читайте в [справочнике CLI]({{ link-docs }}/cli/cli-ref/iam/cli-ref/service-account/create).
 
   1. Назначьте созданному сервисному аккаунту [роль]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) `ai.languageModels.user` на каталог, указав сохраненные на предыдущем шаге идентификаторы каталога и сервисного аккаунта:
 
@@ -233,13 +233,13 @@
               type: serviceAccount
       ```
 
-      Подробнее о команде `yc resource-manager folder add-access-binding` читайте в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
+      Подробнее о команде `yc resource-manager folder add-access-binding` читайте в [справочнике CLI]({{ link-docs }}/cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding).
 
 - API {#api}
 
-  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
+  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create]({{ link-docs }}/iam/api-ref/ServiceAccount/create) для ресурса [ServiceAccount]({{ link-docs }}/iam/api-ref/ServiceAccount/index) или вызовом gRPC API [ServiceAccountService/Create]({{ link-docs }}/iam/api-ref/grpc/ServiceAccount/create).
 
-  Чтобы назначить сервисному аккаунту роль `ai.languageModels.user` на каталог, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md).
+  Чтобы назначить сервисному аккаунту роль `ai.languageModels.user` на каталог, воспользуйтесь методом REST API [updateAccessBindings]({{ link-docs }}/resource-manager/api-ref/Folder/updateAccessBindings) для ресурса [Folder]({{ link-docs }}/resource-manager/api-ref/Folder/index) или вызовом gRPC API [FolderService/UpdateAccessBindings]({{ link-docs }}/resource-manager/api-ref/grpc/Folder/updateAccessBindings).
 
 {% endlist %}
 
@@ -251,9 +251,9 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** и выберите созданный ранее сервисный аккаунт `function-sa`.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** и выберите созданный ранее сервисный аккаунт `function-sa`.
   1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
-  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите [область действия](../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.ai.languageModels.execute`.
+  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите [область действия]({{ link-docs }}/iam/concepts/authorization/api-key#scoped-api-keys) `yc.ai.languageModels.execute`.
   1. (Опционально) Укажите **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-expires-at }}** API-ключа.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните полученный секретный ключ — он понадобится при создании функции.
@@ -289,11 +289,11 @@
 
       Сохраните полученное значение ключа — получить его повторно будет невозможно.
 
-      Подробнее о команде `yc iam api-key create` читайте в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/api-key/create.md).
+      Подробнее о команде `yc iam api-key create` читайте в [справочнике CLI]({{ link-docs }}/cli/cli-ref/iam/cli-ref/api-key/create).
 
 - API {#api}
 
-  Чтобы создать API-ключ, воспользуйтесь методом REST API [create](../../iam/api-ref/ApiKey/create.md) для ресурса [ApiKey](../../iam/api-ref/ApiKey/index.md) или вызовом gRPC API [ApiKeyService/Create](../../iam/api-ref/grpc/ApiKey/create.md).
+  Чтобы создать API-ключ, воспользуйтесь методом REST API [create]({{ link-docs }}/iam/api-ref/ApiKey/create) для ресурса [ApiKey]({{ link-docs }}/iam/api-ref/ApiKey/index) или вызовом gRPC API [ApiKeyService/Create]({{ link-docs }}/iam/api-ref/grpc/ApiKey/create).
 
 {% endlist %}
 
@@ -305,7 +305,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** и нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
+  1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** и нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя секрета `api-key-secret`.
   1. В поле **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
   1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите ключ секрета `api-key`.
@@ -340,11 +340,11 @@
           - api-key
       ```
 
-      Подробнее о команде `yc lockbox secret create` читайте в [справочнике CLI](../../cli/cli-ref/lockbox/cli-ref/secret/create.md).
+      Подробнее о команде `yc lockbox secret create` читайте в [справочнике CLI]({{ link-docs }}/cli/cli-ref/lockbox/cli-ref/secret/create).
 
 - API {#api}
 
-  Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md).
+  Чтобы создать секрет, воспользуйтесь методом REST API [create]({{ link-docs }}/lockbox/api-ref/Secret/create) для ресурса [Secret]({{ link-docs }}/lockbox/api-ref/Secret/index) или вызовом gRPC API [SecretService/Create]({{ link-docs }}/lockbox/api-ref/grpc/Secret/create).
 
 {% endlist %}
 
@@ -355,16 +355,16 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** и выберите созданный ранее секрет `api-key-secret`.
+  1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** и выберите созданный ранее секрет `api-key-secret`.
   1. На панели слева выберите раздел ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите **{{ ui-key.yacloud_components.acl.action.assign-roles }}**. В открывшемся окне:
 
       1. В строке поиска введите имя созданного ранее сервисного аккаунта `function-sa` и выберите этот сервисный аккаунт.
-      1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
+      1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль]({{ link-docs }}/lockbox/security/index#lockbox-payloadViewer) `lockbox.payloadViewer`.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  1. Назначьте сервисному аккаунту `function-sa` [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer` на секрет `api-key-secret`:
+  1. Назначьте сервисному аккаунту `function-sa` [роль]({{ link-docs }}/lockbox/security/index#lockbox-payloadViewer) `lockbox.payloadViewer` на секрет `api-key-secret`:
 
       ```bash
       yc lockbox secret add-access-binding \
@@ -373,11 +373,11 @@
           --role lockbox.payloadViewer
       ```
 
-      Подробнее о команде `yc lockbox secret add-access-binding` читайте в [справочнике CLI](../../cli/cli-ref/lockbox/cli-ref/secret/add-access-binding.md).
+      Подробнее о команде `yc lockbox secret add-access-binding` читайте в [справочнике CLI]({{ link-docs }}/cli/cli-ref/lockbox/cli-ref/secret/add-access-binding).
 
 - API {#api}
 
-  Чтобы назначить сервисному аккаунту роль на секрет, воспользуйтесь методом REST API [setAccessBindings](../../lockbox/api-ref/Secret/setAccessBindings.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/SetAccessBindings](../../lockbox/api-ref/grpc/Secret/setAccessBindings.md).
+  Чтобы назначить сервисному аккаунту роль на секрет, воспользуйтесь методом REST API [setAccessBindings]({{ link-docs }}/lockbox/api-ref/Secret/setAccessBindings) для ресурса [Secret]({{ link-docs }}/lockbox/api-ref/Secret/index) или вызовом gRPC API [SecretService/SetAccessBindings]({{ link-docs }}/lockbox/api-ref/grpc/Secret/setAccessBindings).
 
 {% endlist %}
 
@@ -808,12 +808,12 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Создайте функцию:
      1. Нажмите **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
      1. В открывшемся окне введите имя функции `ai-agent-function`.
      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
-  1. Создайте [версию функции](../../functions/concepts/function.md#version):
+  1. Создайте [версию функции]({{ link-docs }}/functions/concepts/function#version):
      1. Выберите среду выполнения `{{ python-full-ver }}`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` и прикрепите созданный ранее файл `openai-function.zip`.
      1. Укажите точку входа `index.handler`.
@@ -822,7 +822,7 @@
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
          * **{{ ui-key.yacloud.forms.label_service-account-select }}** — выберите сервисный аккаунт `function-sa`.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-             * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете инфраструктуру.
+             * `FOLDER_ID` — [идентификатор каталога]({{ link-docs }}/resource-manager/operations/folder/get-id), в котором вы создаете инфраструктуру.
              * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ ai-studio-full-name }}.
 
                  Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`.
@@ -855,9 +855,9 @@
       status: ACTIVE
       ```
 
-      Подробнее о команде `yc serverless function create` читайте в [справочнике CLI](../../cli/cli-ref/serverless/cli-ref/function/create.md).
+      Подробнее о команде `yc serverless function create` читайте в [справочнике CLI]({{ link-docs }}/cli/cli-ref/serverless/cli-ref/function/create).
 
-  1. Создайте [версию функции](../../functions/concepts/function.md#version) `ai-agent-function`:
+  1. Создайте [версию функции]({{ link-docs }}/functions/concepts/function#version) `ai-agent-function`:
 
       ```bash
       yc serverless function version create \
@@ -875,10 +875,10 @@
 
       Где:
 
-      * `--service-account-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта `function-sa`, сохраненный ранее при его создании.
+      * `--service-account-id` — [идентификатор]({{ link-docs }}/iam/operations/sa/get-id) сервисного аккаунта `function-sa`, сохраненный ранее при его создании.
       * `--environment` — переменные окружения:
 
-          * `FOLDER_ID` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, сохраненный ранее при создании сервисного аккаунта.
+          * `FOLDER_ID` — [идентификатор]({{ link-docs }}/resource-manager/operations/folder/get-id) каталога, сохраненный ранее при создании сервисного аккаунта.
           * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ ai-studio-full-name }}.
 
                  Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`.
@@ -919,13 +919,13 @@
       concurrency: "1"
       ```
 
-      Подробнее о команде `yc serverless function version create` читайте в [справочнике CLI](../../cli/cli-ref/serverless/cli-ref/function/version/create.md).
+      Подробнее о команде `yc serverless function version create` читайте в [справочнике CLI]({{ link-docs }}/cli/cli-ref/serverless/cli-ref/function/version/create).
 
 - API {#api}
 
-  Чтобы создать функцию, воспользуйтесь методом REST API [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md).
+  Чтобы создать функцию, воспользуйтесь методом REST API [create]({{ link-docs }}/functions/functions/api-ref/Function/create) для ресурса [Function]({{ link-docs }}/functions/functions/api-ref/Function/index) или вызовом gRPC API [FunctionService/Create]({{ link-docs }}/functions/functions/api-ref/grpc/Function/create).
 
-  Чтобы создать версию функции, воспользуйтесь методом REST API [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md).
+  Чтобы создать версию функции, воспользуйтесь методом REST API [createVersion]({{ link-docs }}/functions/functions/api-ref/Function/createVersion) для ресурса [Function]({{ link-docs }}/functions/functions/api-ref/Function/index) или вызовом gRPC API [FunctionService/CreateVersion]({{ link-docs }}/functions/functions/api-ref/grpc/Function/createVersion).
 
 {% endlist %}
 
@@ -937,8 +937,8 @@
 - Простой AI-агент {#simple}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите созданную функцию.
-  1. Перейдите на вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите созданную функцию.
+  1. Откройте вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. Нажмите ![play-fill](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** и посмотрите результат тестирования.
 
       При успешном выполнении запроса состояние функции изменится на `Выполнена`, а ответ функции будет содержать код статуса `200` и ответ модели. Например:
@@ -952,8 +952,8 @@
 
 - Продвинутый AI-агент {#advanced}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите созданную функцию.
-  1. Перейдите на вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите созданную функцию.
+  1. Откройте вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** укажите:
 
       ```json
@@ -978,8 +978,8 @@
 
 - Агент-переводчик {#complex}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите созданную функцию.
-  1. Перейдите на вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите созданную функцию.
+  1. Откройте вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** укажите:
 
       ```json
@@ -1010,6 +1010,6 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
-1. [Удалите функцию](../../functions/operations/function/function-delete.md).
-1. [Удалите секрет](../../lockbox/operations/secret-delete.md).
-1. Если вы записывали логи в лог-группу, [удалите ее](../../logging/operations/delete-group.md).
+1. [Удалите функцию]({{ link-docs }}/functions/operations/function/function-delete).
+1. [Удалите секрет]({{ link-docs }}/lockbox/operations/secret-delete).
+1. Если вы записывали логи в лог-группу, [удалите ее]({{ link-docs }}/logging/operations/delete-group).

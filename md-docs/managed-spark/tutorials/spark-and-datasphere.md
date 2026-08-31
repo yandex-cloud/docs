@@ -4,6 +4,7 @@
 
 # Использование сервиса Yandex Managed Service for Apache Spark™ в DataSphere
 
+
 В DataSphere вы можете использовать кластеры [Apache Spark™](../index.md), развернутые в сервисе Yandex Managed Service for Apache Spark™. Подключение кластеров Apache Spark™ выполняется с помощью [коннекторов Spark](../../datasphere/concepts/spark-connector.md). Для выполнения вычислений в кластере запускается задание с типом `SparkConnect`.
 
 Чтобы в DataSphere настроить интеграцию с сервисом Managed Service for Apache Spark™:
@@ -90,7 +91,7 @@
    1. Привяжите таблицу маршрутизации к одной из подсетей, чтобы направить трафик из нее через NAT-шлюз:
       1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **Подсети**.
       1. В строке нужной подсети нажмите ![image](../../_assets/console-icons/ellipsis.svg).
-      1. В открывшемся меню выберите пункт **Привязать таблицу маршрутизации**.
+      1. В открывшемся меню выберите **Привязать таблицу маршрутизации**.
       1. В открывшемся окне выберите созданную таблицу в списке.
       1. Нажмите **Привязать**.
 
@@ -220,5 +221,3 @@
 
 1. [Кластер Managed Service for Apache Spark™](../operations/cluster-delete.md).
 1. [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md#delete-nat-gateway).
-
-{% endlist %}

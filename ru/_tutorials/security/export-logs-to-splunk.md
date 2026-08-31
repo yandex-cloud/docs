@@ -49,8 +49,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
+  1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. На странице создания бакета:
       1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
@@ -73,8 +73,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с бакетом.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с бакетом.
+  1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** и задайте атрибуты ключа:
 
      * Имя и опциональное описание в свободной форме.
@@ -109,8 +109,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы хотите создать сервисный аккаунт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сервисный аккаунт.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта. Требования к имени:
 
@@ -186,33 +186,28 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы хотите создать трейл.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}** и укажите:
-
-     * **{{ ui-key.yacloud.common.name }}** — имя создаваемого трейла.
-     * **{{ ui-key.yacloud.common.description }}** — описание трейла, необязательный параметр.
-
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать трейл.
+  1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
 
-     * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
-     * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — имя [бакета](../../storage/operations/buckets/create.md), в который будут загружаться аудитные логи.
-     * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
-  
+     1. **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+     1. **{{ ui-key.yacloud.audit-trails.label_bucket }}** — имя [бакета](../../storage/operations/buckets/create.md), в который будут загружаться аудитные логи.
+     1. **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
+
      {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
-      * **{{ ui-key.yacloud.audit-trails.title_kms-key }}** — укажите ключ шифрования, которым [зашифрован](../../storage/concepts/encryption.md) бакет.
-  
+      1. **{{ ui-key.yacloud.audit-trails.title_kms-key }}** — укажите ключ шифрования, которым [зашифрован](../../storage/concepts/encryption.md) бакет.
+
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_control-plane-collection-new }}**:
+
+     1. Включите сбор логов.
+     1. **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+     1. **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения, содержит имя текущего каталога.
+
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_data-plane-collection-new }}** отключите сбор логов.
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите сервисный аккаунт, от имени которого трейл будет загружать файлы аудитного лога в бакет.
-
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** задайте параметры сбора аудитных логов уровня конфигурации:
-
-     * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** — выберите `{{ ui-key.yacloud.common.enabled }}`.
-     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-     * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения, содержит имя текущего каталога.
-
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** в поле **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** выберите `{{ ui-key.yacloud.common.disabled }}`.
-
+  1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя создаваемого трейла.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
   {% note warning %}
@@ -234,8 +229,8 @@
 - Консоль управления {#console}
 
   1. Создайте NAT-шлюз:
-      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с подсетью для промежуточной ВМ.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог с подсетью для промежуточной ВМ.
+      1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. На панели слева выберите **{{ ui-key.yacloud.vpc.switch_gateways }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
       1. Задайте имя шлюза. Требования к имени:

@@ -8,7 +8,7 @@ description:
       <li>Partially shift loads from data origins to CDN servers through caching.</li>
       <li>Reduce content waiting time for end users.</li>
     </ul>
-  - You can manage Yandex Cloud CDN using the management console.
+  - You can manage this service using the management console.
   - >-
     This service is subject to a <a
     href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
@@ -45,12 +45,12 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits
-  - title: Troubleshooting
-    description: Common issues and how to fix them
+  - title: FAQ
+    description: Answers to frequently asked questions, common issues and fixes
     href: troubleshooting
   - title: Access management
-    description: Configure access permissions to use the service
+    description: Configure access permissions for the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Prices and cost calculation rules
     href: pricing

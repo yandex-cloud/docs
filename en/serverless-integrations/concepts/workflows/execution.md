@@ -10,6 +10,8 @@ keywords:
 
 # Workflow execution
 
+{% include [workflows-ai-studio-note](../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 An execution contains all information about a particular workflow run. Possible execution statuses: `In queue`, `In progress`, `Paused`, `Canceled`, `Error`, and `Executed`. Learn more about [possible error codes](#errors).
 
 You can start a workflow in one of the following ways:

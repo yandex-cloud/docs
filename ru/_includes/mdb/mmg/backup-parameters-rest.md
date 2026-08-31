@@ -35,6 +35,10 @@
 
                 Если указать значение `0`, автоматическое увеличение размера хранилища будет отключено.
 
+    * `autocompactConfig` — настройки автоматической перепаковки:
+          
+        {% include [Автоматическая перепаковка](autocompact-rest.md) %}
+
 * `hostSpecs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
     * `zoneId` — [зона доступности](../../../overview/concepts/geo-scope.md).
@@ -43,8 +47,8 @@
     * `type` — тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`. Если кластер нешардированный, укажите `MONGOD`.
     * `shardName` — имя шарда в шардированном кластере.
     * `hidden` — будет ли хост виден (`false`) или скрыт (`true`).
-    * `secondaryDelaySecs` — время отставания хоста от мастера.
-    * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../../../storedoc/concepts/replication.md#master-failover).
+    * `secondaryDelaySecs` — время отставания хоста от первичной реплики.
+    * `priority` — приоритет назначения хоста [первичной репликой](../../../storedoc/concepts/replication.md#master-failover).
     * `tags` — метки хоста.
 
 * {% include [maintenance-window](../api/maintenance-window-rest.md)%}

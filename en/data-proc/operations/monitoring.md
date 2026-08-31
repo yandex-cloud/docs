@@ -16,8 +16,8 @@ To view detailed information on the health state of a {{ dataproc-name }} cluste
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
 
   This tab displays the following charts:
@@ -39,8 +39,8 @@ To view detailed information on the state of individual {{ dataproc-name }} host
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
   1. Open the VM of the host you want to monitor and select the **{{ ui-key.yacloud.common.monitoring }}** tab.
 
@@ -65,9 +65,9 @@ To view detailed information on the state of individual {{ dataproc-name }} host
   To set up alerts for [cluster](#monitoring-cluster) health and [host](#monitoring-hosts) state metrics:
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to set up alerts.
-  1. Navigate to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Navigate]({{ link-monitoring }}) to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select **{{ dataproc-name }}**.
-  1. In the relevant metric chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
+  1. On the relevant chart with metrics, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
   1. If the chart shows multiple metrics, select the data query to generate the metric and click **{{ ui-key.yacloud.common.continue }}**. Learn more about the query language in [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -86,8 +86,8 @@ For a complete list of supported metrics, see [this {{ monitoring-name }} guide]
 
 To view the health state and status of a cluster:
 
-1. Open the [folder dashboard]({{ link-console-main }}).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 ### Cluster health states {#cluster-health}

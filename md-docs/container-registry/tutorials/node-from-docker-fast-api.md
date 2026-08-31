@@ -4,6 +4,7 @@
 
 # Развертывание сервиса на основе Docker-образа с FastAPI
 
+
 В этом практическом руководстве вы развернете сервис FastAPI на основе [Docker-образа](../../datasphere/concepts/deploy/index.md#docker-node). Сервис передает метрики в текстовом формате [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format). Сервис будет запускаться на IP-адресе `0.0.0.0` и порте `9875`.
 
 Чтобы развернуть сервис на основе Docker-образа с FastAPI:
@@ -69,8 +70,8 @@ DataSphere может создать ноду из Docker-образа, кото
 
 - Консоль управления {#console}
 
-  1. Перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Container Registry**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
   1. Нажмите кнопку **Создать реестр**.
   1. Задайте имя реестра, например `datasphere-registry`, и нажмите кнопку **Создать реестр**.
 
@@ -82,8 +83,8 @@ DataSphere может создать ноду из Docker-образа, кото
 
 - Консоль управления {#console}
 
-   1. Перейдите в каталог `data-folder`.
-   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+   1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
    1. Нажмите кнопку **Создать сервисный аккаунт**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `sa-for-datasphere`.
    1. Нажмите **Добавить роль** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
@@ -109,8 +110,8 @@ DataSphere может создать ноду из Docker-образа, кото
 
 - Консоль управления {#console}
 
-  1. Перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. В открывшемся списке выберите сервисный аккаунт `sa-for-datasphere`.
   1. Нажмите кнопку **Создать новый ключ** на верхней панели.

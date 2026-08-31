@@ -2,15 +2,15 @@
 
 In this tutorial, you will [prepare](#prepare) a [Docker image](../../container-registry/concepts/docker-image.md) for a container in {{ container-registry-full-name }} and [add](#deploy) it to {{ serverless-containers-name }}.
 
-## Prepare a Docker image for a container {#prepare}
+## Prepare the container Docker image {#prepare}
 
-A Docker image is an executable package that contains everything you need to run an application: code, runtime environment, libraries, environment variables, and configuration files.
+A Docker image is an executable package that contains everything you need to run an application: code, runtime, libraries, environment variables, and configuration files.
 
-The application must get the number of the port to receive requests at from the `PORT` environment variable. The variable value is set by the service automatically.
+The application must use the port defined in the `PORT` environment variable to accept requests. The variable value is set by the service automatically.
 
-To prepare a container's Docker image:
+To prepare the container Docker image:
 1. [Create a registry](../../container-registry/operations/registry/registry-create.md) in {{ container-registry-full-name }}.
-1. [Create and build](../../container-registry/operations/docker-image/docker-image-create.md) a Docker image based on [Dockerfile](https://docs.docker.com/engine/reference/builder/).
+1. [Create and build](../../container-registry/operations/docker-image/docker-image-create.md) the Docker image based on the [Dockerfile](https://docs.docker.com/engine/reference/builder/).
 1. [Push](../../container-registry/operations/docker-image/docker-image-push.md) the Docker image to the registry.
 
 ### App and Dockerfile examples {#examples}
@@ -147,7 +147,7 @@ To prepare a container's Docker image:
 
 ## Invoke the container {#invoke}
 
-After creating the container, you will get the invocation link. Here is how you can [retrieve it](../operations/invoke.md#link). Make an HTTPS request by sending an [IAM token](../../iam/concepts/authorization/iam-token.md) in the `Authorization` header:
+After creating the container, you will get an invocation link. Learn how to retrieve it [here](../operations/invocation-link.md). Make an HTTPS request by providing an [IAM token](../../iam/concepts/authorization/iam-token.md) in the `Authorization` header:
 
 ```bash
 curl \
@@ -163,4 +163,4 @@ Hello!
 
 ## What's next {#whats-next}
 
-* Read about the [service concepts](../concepts/invoke.md).
+Read about the [service concepts](../concepts/invoke.md).

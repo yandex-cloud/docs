@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* {{ mch-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for a {{ mch-name }} cluster: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -117,9 +117,7 @@ This table will use the `default` [storage policy](../../managed-clickhouse/conc
 
 {% endnote %}
 
-{#ttl}
-
-The `TTL ...` expression defines the policy for managing aging data:
+The `TTL ...` expression defines the policy for managing aging data: {#ttl}
 1. TTL sets the lifetime of a table row. In our example, it is the number of days from the current date to March 20, 2014. 
 1. The system manages table data based on the `EventDate` value:
    * Records where the elapsed time, in days, since `EventDate` is less than the TTL value are retained on the network disk storage.
@@ -264,8 +262,8 @@ As the SQL result shows, the user interacts with a single logical table. {{ CH }
 To monitor the amount of space [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) table parts occupy in {{ objstorage-name }}, use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}.
 
 1. Open the [management console]({{ link-console-main }}).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Navigate to the **Metric Explorer** section.
+1. [Navigate]({{ link-console-main }}/link/monitoring) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Open the **Metric Explorer** section.
 1. Run this query:
 
     ```text

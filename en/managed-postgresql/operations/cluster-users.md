@@ -3,7 +3,7 @@ title: Managing {{ PG }} cluster users in {{ mpg-full-name }}
 description: In this tutorial, you will learn how to add and remove users and how to manage individual user settings in the {{ PG }} database management service.
 ---
 
-# Managing {{ PG }} users
+# User management {{ PG }}
 
 
 You can add and remove users, as well as manage their individual settings.
@@ -20,7 +20,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
 
 - CLI {#cli}
@@ -94,7 +94,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 
@@ -131,7 +131,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
   
   1. Select the deletion protection option.
 
-     Possible values:
+     The possible values are:
      - **Same as cluster**
      - **Enabled**
      - **Disabled**
@@ -196,7 +196,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
         cluster_id = "<cluster_ID>"
         name       = "<username>"
         password   = "<password>"
-        grants     = [ "<role_1>","<role_2>" ]
+        grants     = [ "<role1>","<role2>" ]
         login      = <DB_login_permission>
         conn_limit = <maximum_number_of_connections>
         deletion_protection = <deletion_protection>
@@ -366,7 +366,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
 
@@ -603,7 +603,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Configure user access to specific databases:
@@ -796,7 +796,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Configure user deletion protection by selecting the relevant value in the **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** field.
@@ -923,7 +923,7 @@ A user account can have deletion protection enabled. To delete such a user, [dis
 
   To delete a user:
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. Confirm the deletion.

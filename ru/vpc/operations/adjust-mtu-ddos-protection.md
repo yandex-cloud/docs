@@ -33,6 +33,57 @@
    ss -i | grep mss
    ```
 
+### На ВМ с Debian без Netplan {#debian}
+
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH:
+
+   ```
+   ssh <имя_пользователя>@<IP-адрес_ВМ>
+   ```
+
+1. Откройте файл `/etc/network/interfaces` с правами суперпользователя, например с помощью `nano`:
+
+   ```bash
+   sudo nano /etc/network/interfaces
+   ```
+
+1. Найдите секцию нужного интерфейса — обычно `eth0` или `ens3`. В примерах ниже используется `eth0`.
+
+1. Добавьте параметр `mtu 1450` в секцию интерфейса:
+
+   ```text
+   auto eth0
+   iface eth0 inet dhcp
+       mtu 1450
+   ```
+
+1. Сохраните изменения и закройте редактор.
+
+1. Укажите имя вашего интерфейса вместо `eth0` и перезапустите его:
+
+   ```bash
+   sudo ifdown eth0 && sudo ifup eth0
+   ```
+
+   {% note alert %}
+
+   Перезапуск интерфейса может прервать SSH-соединение. После перезапуска подключитесь заново или используйте [серийную консоль](../../compute/operations/serial-console/index.md) для доступа к ВМ.
+
+   {% endnote %}
+
+1. Проверьте новые значения MTU и MSS:
+
+   ```bash
+   ip link show eth0 | grep mtu
+   ss -i | grep mss
+   ```
+
+   Результат:
+
+   ```text
+   2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 ...
+   ```
+
 ### На рабочих узлах кластера {{ managed-k8s-name }} {#managed-kubernetes}
 
 1. Создайте YAML-манифест DaemonSet следующего содержания:

@@ -2,12 +2,14 @@
 
 # Поставка данных из очереди Data Streams в Managed Service for Apache Kafka®
 
-# Поставка данных из очереди Data Streams в Managed Service for Apache Kafka® с помощью Data Transfer
+# Поставка данных из очереди Yandex Data Streams в Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer
 
-С помощью сервиса Data Transfer можно поставлять данные из потока Data Streams в кластер Managed Service for Apache Kafka®.
+
+С помощью сервиса Yandex Data Transfer можно поставлять данные из потока Yandex Data Streams в кластер Yandex Managed Service for Apache Kafka®.
 
 Чтобы перенести данные:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Подготовьте поток данных Data Streams](#prepare-source).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
@@ -15,24 +17,34 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
 
-* База данных Managed Service for YDB ([тарифы Managed Service for YDB](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-	* Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
-  	* Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* База данных Yandex Managed Service for YDB ([тарифы Managed Service for YDB](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+
+	* Для [бессерверного режима](../../ydb/pricing/serverless.md) — оплачиваются операции с данными, объем хранимых данных и резервных копий.
+    * Для [режима с выделенными инстансами](../../ydb/pricing/dedicated.md) — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервных копий.
 
 * Сервис Data Streams ([тарифы Data Streams](../../data-streams/pricing.md)). Стоимость зависит от режима тарификации:
 
-    * [По выделенным ресурсам](../../data-streams/pricing.md#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
+    * [По резерву ресурсов](../../data-streams/pricing.md#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
     * [По фактическому использованию](../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
 
-* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 Подготовьте инфраструктуру поставки данных:
 
@@ -42,18 +54,23 @@
 
     1. [Создайте базу данных Managed Service for YDB](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
 
+    
+    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роль](../../iam/operations/sa/assign-role-for-sa.md) `yds.editor` на каталог. Трансфер будет использовать его для доступа к потоку данных.
+
+
     1. [Создайте кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации c хостами в публичном доступе.
 
+        
         {% note info %}
         
         Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
         
         {% endnote %}
 
+
     1. [Создайте в кластере Managed Service for Apache Kafka® топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.
 
-    1. [Создайте в кластере Managed Service for Apache Kafka® пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `mkf-user` и правами доступа `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER` к созданному топику.
-
+    1. [Создайте в кластере Managed Service for Apache Kafka® пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с правами доступа `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER` к созданному топику.
 
 - Terraform {#tf}
 
@@ -69,19 +86,23 @@
         * [сеть](../../vpc/concepts/network.md#network);
         * [подсеть](../../vpc/concepts/network.md#subnet);
         * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру Managed Service for Apache Kafka®;
+        * сервисный аккаунт;
         * база данных Managed Service for YDB;
         * кластер Managed Service for Apache Kafka®;
         * топик Managed Service for Apache Kafka® с именем `sensors`;
-        * пользователь Managed Service for Apache Kafka® с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` к топику `sensors`;
+        * пользователь Managed Service for Apache Kafka® с правами доступа `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER` к топику `sensors`;
+        * эндпоинт для источника;
+        * эндпоинт для приемника;
         * трансфер.
 
     1. Укажите в файле `yds-to-kafka.tf` значения параметров:
 
-        * `mkf_version` — версия кластера Apache Kafka®;
+        * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md);
         * `ydb_name` — имя базы данных Managed Service for YDB;
+        * `stream_name` — имя потока Data Streams;
+        * `mkf_version` — версия кластера Apache Kafka®;
         * `mkf_user_name` — имя пользователя в кластере Managed Service for Apache Kafka®;
-        * `mkf_user_password` — пароль пользователя в кластере Managed Service for Apache Kafka®;
-        * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
+        * `mkf_user_password` — пароль пользователя в кластере Managed Service for Apache Kafka®.
 
     1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
@@ -121,132 +142,125 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт для источника Data Streams](../operations/endpoint/index.md#create).
+{% list tabs group=instructions %}
 
-    * **Тип базы данных** — `Yandex Data Streams`.
-    * **Параметры эндпоинта**:
+- Вручную {#manual}
 
-        * **Настройки подключения**:
+    1. [Создайте эндпоинт для источника Data Streams](../operations/endpoint/index.md#create).
 
-            * **База данных** — выберите базу данных Managed Service for YDB из списка.
-            * **Поток** — укажите имя потока Data Streams.
-            * **Сервисный аккаунт** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
+        * **Тип базы данных** — `Yandex Data Streams`.
+        * **Параметры эндпоинта**:
 
-        * **Расширенные настройки**:
+            * **Настройки подключения**:
 
-            * **Правила конвертации** — `JSON`.
-            * **Схема данных** — `JSON-спецификация`:
+                * **Тип подключения** — выберите `База Managed Service for YDB`.
+                * **База данных** — выберите [созданную ранее](#before-you-begin) базу данных Managed Service for YDB из списка.
+                * **Поток** — укажите имя [созданного ранее](#prepare-source) потока Data Streams.
+                * **Сервисный аккаунт** — выберите [созданный ранее](#before-you-begin) сервисный аккаунт с ролью `yds.editor`.
 
-            Заполните схему данных:
+            * **Расширенные настройки**:
 
-            {% cut "Схема данных" %}
+                * **Правила конвертации** — `JSON`.
+                * **Схема данных** — `JSON-спецификация`:
 
-            ```json
-                [
-                    {
-                        "name": "device_id",
-                        "type": "string"
-                    },
-                    {
-                        "name": "datetime",
-                        "type": "datetime"
-                    },
-                    {
-                        "name": "latitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "longitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "altitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "speed",
-                        "type": "double"
-                    },
-                    {
-                        "name": "battery_voltage",
-                        "type": "any"
-                    },
-                    {
-                        "name": "cabin_temperature",
-                        "type": "double"
-                    },
-                    {
-                        "name": "fuel_level",
-                        "type": "any"
-                    }
-                ]
-            ```
+                Заполните схему данных:
 
-            {% endcut %}
+                {% cut "Схема данных" %}
 
-1. [Создайте эндпоинт для приемника Managed Service for Apache Kafka®](../operations/endpoint/index.md#create).
+                ```json
+                    [
+                        {
+                            "name": "device_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "datetime",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "latitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "longitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "altitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "speed",
+                            "type": "double"
+                        },
+                        {
+                            "name": "battery_voltage",
+                            "type": "any"
+                        },
+                        {
+                            "name": "cabin_temperature",
+                            "type": "double"
+                        },
+                        {
+                            "name": "fuel_level",
+                            "type": "any"
+                        }
+                    ]
+                ```
 
-    * **Тип базы данных** — `Kafka`.
-    * **Параметры эндпоинта**:
+                {% endcut %}
 
-        * **Настройки подключения**:
+    1. [Создайте эндпоинт для приемника Managed Service for Apache Kafka®](../operations/endpoint/index.md#create).
+
+        * **Тип базы данных** — `Kafka`.
+        * **Параметры эндпоинта**:
+
+            * **Настройки подключения**:
+
+                * **Тип подключения** — выберите `Кластер Managed Service for Apache Kafka`.
+                * **Кластер Managed Service for Apache Kafka** — выберите [созданный ранее](#before-you-begin) кластер Managed Service for Apache Kafka® из списка.
+                * **Аутентификация** — выберите `SASL` и укажите данные [созданного ранее](#before-you-begin) пользователя Apache Kafka®.
+                * **Топик** — выберите `Полное имя топика`.
+                * **Полное имя топика** — укажите значение `sensors`.
+
+    1. [Создайте трансфер](../operations/transfer.md#create) типа **Репликация**, использующий созданные эндпоинты.
+    1. [Активируйте трансфер](../operations/transfer.md#activate).
+
+- Terraform {#tf}
+
+    1. Укажите в файле `data-transfer-ydb-mkf.tf` значение `1` для переменной `transfer_enabled`, чтобы создать эндпоинты и трансфер.
+
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+
+    1. Создайте необходимую инфраструктуру:
+
+        1. Выполните команду для просмотра планируемых изменений:
         
-            * **Тип подключения** — выберите `Кластер Managed Service for Apache Kafka`.
-            * **Кластер Managed Service for Apache Kafka** — выберите кластер Managed Service for Apache Kafka® из списка.
-            * **Аутентификация** — выберите **SASL**.
-            * **Имя пользователя** — введите имя пользователя в кластере Managed Service for Apache Kafka®.
-            * **Пароль** — введите пароль пользователя в кластере Managed Service for Apache Kafka®.
-            * **Топик** — выберите **Полное имя топика**.
-            * **Полное имя топика** — введите имя топика в кластере Managed Service for Apache Kafka®.
+           ```bash
+           terraform plan
+           ```
+        
+           Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+        
+        1. Если вас устраивают планируемые изменения, внесите их:
+           1. Выполните команду:
+        
+              ```bash
+              terraform apply
+              ```
+        
+           1. Подтвердите изменение ресурсов.
+           1. Дождитесь завершения операции.
 
-1. Создайте трансфер:
+        Трансфер активируется автоматически после создания.
 
-    {% list tabs group=instructions %}
-
-    - Вручную {#manual}
-
-        1. [Создайте трансфер](../operations/transfer.md#create) типа **Репликация**, использующий созданные эндпоинты.
-        1. [Активируйте](../operations/transfer.md#activate) его.
-
-    - Terraform {#tf}
-
-        1. Укажите в файле `yds-to-kafka.tf` значения переменных:
-
-            * `source_endpoint_id` — идентификатор эндпоинта для источника;
-            * `target_endpoint_id` — идентификатор эндпоинта для приемника;
-            * `transfer_enabled` – значение `1` для создания трансфера.
-
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
-
-        1. Создайте необходимую инфраструктуру:
-
-            1. Выполните команду для просмотра планируемых изменений:
-            
-               ```bash
-               terraform plan
-               ```
-            
-               Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
-            
-            1. Если вас устраивают планируемые изменения, внесите их:
-               1. Выполните команду:
-            
-                  ```bash
-                  terraform apply
-                  ```
-            
-               1. Подтвердите изменение ресурсов.
-               1. Дождитесь завершения операции.
-
-            Трансфер активируется автоматически.
-
-    {% endlist %}
+{% endlist %}
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
@@ -271,51 +285,51 @@
 1. Убедитесь, что данные перенеслись в топик `sensors` кластера Managed Service for Apache Kafka®:
 
     1. [Получите SSL-сертификат](../../managed-kafka/operations/connect/index.md#get-ssl-cert) для подключения к кластеру Managed Service for Apache Kafka®.
-    1. [Установите](../../managed-kafka/operations/connect/clients.md#bash-zsh) утилиту `kafkacat`.
+    1. [Установите](../../managed-kafka/operations/connect/clients.md#kafkactl) утилиту `kafkactl`.
     1. [Запустите](../../managed-kafka/operations/connect/clients.md#with-ssl_1) команду получения сообщений из топика.
 
 ## Удалите созданные ресурсы {#clear-out}
 
-{% note info %}
-
-Перед тем как удалить созданные ресурсы, [деактивируйте трансфер](../operations/transfer.md#deactivate).
-
-{% endnote %}
-
 Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-1. [Удалите трансфер](../operations/transfer.md#delete).
-1. [Удалите эндпоинты](../operations/endpoint/index.md#delete) для источника и приемника.
-1. Если при создании эндпоинта для источника вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
+1. [Удалите поток данных Data Streams](../../data-streams/operations/manage-streams.md#delete-data-stream).
+
 1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - Вручную {#manual}
+    - Вручную {#manual}
 
-       1. [Удалите кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
-       1. [Удалите базу данных Managed Service for YDB](../../ydb/operations/manage-databases.md#delete-db)..
+        1. [Деактивируйте](../operations/transfer.md#deactivate) и [удалите](../operations/transfer.md#delete) трансфер.
+        1. [Удалите эндпоинты](../operations/endpoint/index.md#delete) для источника и приемника.
 
-   - Terraform {#tf}
+        
+        1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-       1. В терминале перейдите в директорию с планом инфраструктуры.
-       
-           {% note warning %}
-       
-           Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
-       
-           {% endnote %}
-       
-       1. Удалите ресурсы:
-       
-           1. Выполните команду:
-       
-               ```bash
-               terraform destroy
-               ```
-       
-           1. Подтвердите удаление ресурсов и дождитесь завершения операции.
-       
-           Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
-   {% endlist %}
+        1. [Удалите кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
+        1. [Удалите базу данных Managed Service for YDB](../../ydb/operations/manage-databases.md#delete-db).
+
+    - Terraform {#tf}
+
+        1. В терминале перейдите в директорию с планом инфраструктуры.
+        
+            {% note warning %}
+        
+            Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        
+            {% endnote %}
+        
+        1. Удалите ресурсы:
+        
+            1. Выполните команду:
+        
+                ```bash
+                terraform destroy
+                ```
+        
+            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
+        
+            Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+
+    {% endlist %}

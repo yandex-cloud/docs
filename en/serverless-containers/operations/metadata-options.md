@@ -9,7 +9,7 @@ You can configure metadata service parameters when [creating a container revisio
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your [container](../../serverless-containers/concepts/container.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container.
   1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
   1. Expand the **Metadata service parameters** section.
@@ -29,6 +29,7 @@ You can configure metadata service parameters when [creating a container revisio
     ```
 
     Where:
+
     * `--container-id`: Container ID. To find out the ID, [get](list.md) the list of containers.
     * `--image`: {{ container-registry-full-name }} Docker image URL.
     * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image pull permissions.
@@ -68,6 +69,7 @@ You can configure metadata service parameters when [creating a container revisio
         Where:
 
         * `metadata_options`: Settings for the metadata service parameters, e.g., `metadata_options.0.gce_http_endpoint = "1"`. Specify the following:
+            
             * `0` if you want to keep the default value.
             * `1` to enable the parameter.
             * `2` to disable the parameter.

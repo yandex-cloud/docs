@@ -2,6 +2,7 @@
 
 # Создать SAML-приложение в Yandex Identity Hub для интеграции с Managed Service for OpenSearch
 
+
 [OpenSearch](https://opensearch.org/) — это легко масштабируемая система поисковых и аналитических инструментов с открытым исходным кодом. OpenSearch включает в себя пользовательский интерфейс визуализации данных [OpenSearch Dashboards](https://docs.opensearch.org/latest/dashboards/). [Yandex Managed Service for OpenSearch](../../../managed-opensearch/index.md) — сервис для управления кластерами OpenSearch в инфраструктуре Yandex Cloud. Managed Service for OpenSearch поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
 Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в Managed Service for OpenSearch с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../concepts/applications/saml.md) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне кластера OpenSearch.
@@ -68,7 +69,7 @@ https://c-cat0adul1fj0********.rw.mdb.yandexcloud.net/
     Чтобы настроить источник аутентификации Yandex Identity Hub:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Источники аутентификации**.
     1. Нажмите кнопку **Настроить**.
     1. Укажите нужные значения настроек:

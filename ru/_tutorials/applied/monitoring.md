@@ -42,7 +42,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы выполняете руководство.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_create-registry }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя реестра. Например, `my-registry`.
   1. В поле **{{ ui-key.yacloud.common.password }}** задайте пароль доступа к реестру. Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).
@@ -60,9 +60,9 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Выберите реестр, созданный на предыдущем шаге.
-  1. В меню слева выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-device }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя устройства. Например, `my-device`.
   1. В поле **{{ ui-key.yacloud.common.password }}** задайте пароль доступа к устройству. Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).
@@ -91,19 +91,20 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Создайте функцию:
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
       1. В поле **{{ ui-key.yacloud.common.name }}** введите имя функции. Например, `my-device-emulator-function`.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Создайте версию функции:
-      1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите `Node.js 18`.
+      1. На вкладке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду выполнения `Node.js 22`.
       1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
-          * Имя файла — `device-emulator.js`.
-          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring/blob/master/device-emulator.js).
+          1. Задайте имя файла — `device-emulator.js`.
+          1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+          1. Добавьте содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring/blob/master/device-emulator.js).
       1. Аналогичным образом создайте файл `package.json` со следующим содержимым:
 
           ```json
@@ -118,20 +119,20 @@
 
       1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `device-emulator.handler`.
       1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `10`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `10 {{ ui-key.yacloud.common.units.label_time-sec }}`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
           * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `my-emulator-function-service-account`.
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-              Ключ | Описание | Значение
-              :--- | :--- | :---
-              `HUMIDITY_SENSOR_VALUE`    | Базовое значение показания датчика влажности.         | `80.15`
-              `TEMPERATURE_SENSOR_VALUE` | Базовое значение показания датчика температуры.       | `25.25`
-              `RACK_DOOR_SENSOR_VALUE`   | Показания датчика открытия дверцы стойки.             | `False`
-              `ROOM_DOOR_SENSOR_VALUE`   | Показания датчика открытия двери в серверную комнату. | `False`
-              `SMOKE_SENSOR_VALUE`       | Показания детектора дыма.                             | `False`
-              `WATER_SENSOR_VALUE`       | Показания детектора воды.                             | `False`
-              `IOT_CORE_DEVICE_ID`       | Идентификатор устройства, которое вы создали.         | Идентификатор можно узнать в [консоли управления]({{ link-console-main }})<br>сервиса {{ iot-name }}.
-              `DEVICE_ID`                | Пользовательское название устройства.                 | Задается пользователем.
+      1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** укажите:
+          Ключ | Описание | Значение
+          :--- | :--- | :---
+          `HUMIDITY_SENSOR_VALUE`    | Базовое значение показания датчика влажности.         | `80.15`
+          `TEMPERATURE_SENSOR_VALUE` | Базовое значение показания датчика температуры.       | `25.25`
+          `RACK_DOOR_SENSOR_VALUE`   | Показания датчика открытия дверцы стойки.             | `False`
+          `ROOM_DOOR_SENSOR_VALUE`   | Показания датчика открытия двери в серверную комнату. | `False`
+          `SMOKE_SENSOR_VALUE`       | Показания детектора дыма.                             | `False`
+          `WATER_SENSOR_VALUE`       | Показания детектора воды.                             | `False`
+          `IOT_CORE_DEVICE_ID`       | Идентификатор устройства, которое вы создали.         | Идентификатор можно узнать в [консоли управления]({{ link-console-main }})<br>сервиса {{ iot-name }}.
+          `DEVICE_ID`                | Пользовательское название устройства.                 | Задается пользователем.
 
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -171,9 +172,9 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `my-device-emulator-function`.
-  1. В меню слева выберите **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В списке **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** выберите `$latest` — последнюю созданную функцию.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
 
@@ -211,8 +212,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. На панели слева выберите **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** введите имя триггера. Например, `my-emulator-function-trigger`.
   1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
@@ -237,8 +238,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. На панели слева выберите раздел **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
   1. Создайте функцию:
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
       1. В поле **{{ ui-key.yacloud.common.name }}** введите имя функции. Например, `my-monitoring-func`.
@@ -249,22 +250,23 @@
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
-          * Имя файла — `monitoring.py`.
-          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring/blob/master/monitoring.py).
+          1. Задайте имя файла — `monitoring.py`.
+          1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+          1. Добавьте содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring/blob/master/monitoring.py).
 
               В этой функции подготовка данных для отправки в сервис мониторинга находится в методе `makeAllMetrics`. Если вы захотите добавить или удалить параметры, выполните изменения в этом методе.
 
       1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `monitoring.msgHandler`.
       1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `10`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `10 {{ ui-key.yacloud.common.units.label_time-sec }}`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
           * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `my-metrics-function-service-account`.
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
+      1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** укажите:
 
-              Ключ | Описание | Значение
-              :--- | :--- | :---
-              `VERBOSE_LOG`       | Включение и отключение записи данных. | `True`
-              `METRICS_FOLDER_ID` | Идентификатор каталога, в котором развернуты сервисы и для которого вы создадите дашборд в сервисе {{ monitoring-name }}. | Идентификатор можно узнать в [консоли управления]({{ link-console-main }}).
+          Ключ | Описание | Значение
+          :--- | :--- | :---
+          `VERBOSE_LOG`       | Включение и отключение записи данных. | `True`
+          `METRICS_FOLDER_ID` | Идентификатор каталога, в котором развернуты сервисы и для которого вы создадите дашборд в сервисе {{ monitoring-name }}. | Идентификатор можно узнать в [консоли управления]({{ link-console-main }}).
 
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -277,9 +279,9 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `my-monitoring-func`.
-  1. В меню слева выберите **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В списке **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** выберите `$latest` — последнюю созданную функцию.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** вставьте данные:
 
@@ -328,8 +330,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. На панели слева выберите **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** введите имя триггера. Например, `my-monitoring-func-trigger`.
   1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}`.
@@ -406,11 +408,10 @@
 - Интерфейс {{ monitoring-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
-  1. Справа вверху нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
-  1. В открывшемся окне введите название дашборда и нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
+  1. [Перейдите]({{ link-console-main }}/link/monitoring) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. В открывшемся окне введите название дашборда и нажмите кнопку **{{ ui-key.yacloud_monitoring.navigation.dialogs.button_save }}**.
+  1. Справа вверху нажмите кнопку ![image](../../_assets/console-icons/floppy-disk.svg).
+  1. В открывшемся окне введите название дашборда и нажмите кнопку **{{ ui-key.yacloud_monitoring.navigation.dialogs.button_save }}**.
 
 {% endlist %}
 
@@ -423,18 +424,17 @@
 - Интерфейс {{ monitoring-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
-  1. Напротив названия нужного дашборда нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud_monitoring.actions.common.edit }}**.
-  1. В нижнем блоке нажмите **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
+  1. [Перейдите]({{ link-monitoring }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Справа вверху нажмите ![image](../../_assets/console-icons/plus.svg) → ![image](../../_assets/console-icons/chart-column.svg) **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
+  1. Напротив названия нужного дашборда нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud_monitoring.component.entities-list.action_edit }}**.
+  1. Справа вверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) → ![image](../../_assets/console-icons/chart-column.svg) **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
   1. Создайте запрос для графика:
 
-      1. В редакторе запроса нажмите значок ![image](../../_assets/console-icons/plus.svg).
-      1. В списке сервисов **service=** выберите `{{ ui-key.yacloud_monitoring.services.label_custom }}`.
-      1. В списке типов графиков **name=** выберите `Temperature` — температура в помещении.
-      1. В списке **device_id=** выберите идентификатор устройства, по которому вы хотите создать график.
-
-  1. Справа вверху нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
+      1. В редакторе запроса в строке ![image](../../_assets/monitoring/chart.svg) **{{ ui-key.yacloud_monitoring.querystring.tokens.placeholder.service }}** выберите:
+          * `service` → `custom`;
+          * `name` → `temperature` — температура в помещении;
+          * `device_id` → идентификатор устройства, по которому вы хотите создать график.
+  1. Справа вверху нажмите кнопку ![image](../../_assets/console-icons/floppy-disk.svg).
 
   Аналогичным способом создайте другие графики:
 
@@ -457,10 +457,10 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `my-device-emulator-function`.
-  1. Нажмите на вкладку **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**.
-  1. В нижней части окна в блоке **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** в поле **{{ ui-key.yacloud_components.forms.label_value }}** замените несколько исходных значений переменных на любые другие.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.
+  1. В нижней части окна в блоке **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** в поле **{{ ui-key.yacloud.component.key-values-input.label_value }}** замените несколько исходных значений переменных на любые другие.
 
       Ключ | Исходное значение | Новое значение
       :--- | :--- | :---
@@ -480,7 +480,7 @@
 - Интерфейс {{ monitoring-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** и посмотрите, как изменились показатели графиков.
+  1. [Перейдите]({{ link-console-main }}/link/monitoring) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** и посмотрите, как изменились показатели графиков.
 
 {% endlist %}
 
@@ -493,17 +493,18 @@
 - Интерфейс {{ monitoring-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
-  1. В поле **{{ ui-key.yacloud_monitoring.channel.field_name }}** укажите название канала. Например, `my-message-channel`.
-  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_method }}** выберите `{{ ui-key.yacloud_monitoring.channel.title_method-email }}`.
+  1. [Перейдите]({{ link-monitoring }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.channel.button_create }}**.
+  1. В открывшемся окне:
+      1. В поле **{{ ui-key.yacloud_monitoring.channel.field_name }}** укажите название канала. Например, `my-message-channel`.
+      1. В списке **{{ ui-key.yacloud_monitoring.channel.field_method }}** выберите ![image](../../_assets/console-icons/envelope.svg) `{{ ui-key.yacloud_monitoring.channel.title_method-email }}`.
 
-      Вы также можете настроить уведомления через SMS, push-уведомления или в Telegram.
+          Вы также можете настроить уведомления через SMS, push-уведомления или в Telegram.
 
-  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_recipients }}** выберите учетную запись.
+      1. В списке **{{ ui-key.yacloud_monitoring.channel.field_recipients }}** выберите учетную запись.
 
-      Вы можете выбрать несколько получателей уведомлений. В качестве получателей вы можете указать аккаунты пользователей, у которых есть доступ к вашему [облаку](../../resource-manager/concepts/resources-hierarchy.md#cloud). Подробнее о том, [как добавить пользователя в {{ yandex-cloud }}](../../organization/operations/add-account.md).
+          Вы можете выбрать несколько получателей уведомлений. В качестве получателей вы можете указать аккаунты пользователей, у которых есть доступ к вашему [облаку](../../resource-manager/concepts/resources-hierarchy.md#cloud). Подробнее о том, [как добавить пользователя в {{ yandex-cloud }}](../../organization/operations/add-account.md).
   1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.channel.button_create }}**.
 
 {% endlist %}
@@ -521,22 +522,25 @@
 - Интерфейс {{ monitoring-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя алерта.
-  1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}** нажмите значок ![image](../../_assets/console-icons/plus.svg) и заполните поля:
-      1. В списке сервисов **service=** выберите `{{ ui-key.yacloud_monitoring.services.label_custom }}`.
-      1. В списке типов алертов **name=** выберите `Temperature`.
-      1. В списке **device_id=** выберите идентификатор устройства, по которому вы хотите создать алерт.
+  1. [Перейдите]({{ link-monitoring }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Внизу страницы в блоке ![image](../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.homepage.title_alerts }}** нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
+  1. В поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.list-table.name }}** введите имя алерта.
+  1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}**:
+      
+      1. В редакторе запроса в строке ![image](../../_assets/monitoring/chart.svg) **{{ ui-key.yacloud_monitoring.querystring.tokens.placeholder.service }}** выберите:
+          * `service` → `custom`;
+          * `name` → `temperature` — температура в помещении;
+          * `device_id` → идентификатор устройства, по которому вы хотите создать алерт.
+  
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-conditions }}** задайте условия срабатывания алерта:
       1. В списке **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.evaluation-type }}** выберите `{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.avg }}`.
       1. В списке **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** выберите `{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}`.
       1. В поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}** введите `50`.
       1. В поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}** введите `70`.
-      1. В списке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}** выберите `5 минут`.
+      1. В списке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}** выберите `5m`.
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** нажмите кнопку **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.edit-notify-methods }}**, затем кнопку **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
   1. В открывшемся окне в поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.notification-method }}** выберите `my-message-channel` и нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
-  1. В нижней части окна нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 

@@ -192,7 +192,7 @@
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
 1. Откройте ваш кластер Managed Service for Trino.
-1. Перейдите в раздел **WebSQL**.
+1. Перейдите на вкладку **WebSQL**.
 1. Нажмите кнопку **Перейти в WebSQL**.
 1. В открывшемся редакторе SQL-запросов выполните запрос:
 

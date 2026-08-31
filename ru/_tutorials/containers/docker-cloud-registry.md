@@ -1,3 +1,5 @@
+
+
 В этом руководстве вы развернете [Docker-образ](../../cloud-registry/concepts/artifacts/docker.md) из [реестра](../../cloud-registry/concepts/registry.md) {{ cloud-registry-full-name }} и запустите контейнер на [виртуальной машине](../../compute/concepts/vm.md) {{ compute-full-name }}.
 
 Чтобы запустить Docker-образ на виртуальной машине:
@@ -47,7 +49,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать реестр.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+  1. [Перейдите]({{ link-console-main }}/link/cloud-registry) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Нажмите **{{ ui-key.yacloud.cloud-registry.action_registry-create }}**.
   1. Выберите формат ![image](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yacloud.cloud-registry.registries.registry-kind_docker }}**.
   1. Выберите тип реестра **Local**.
@@ -109,13 +111,13 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md): `docker-puller`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+  1. [Перейдите]({{ link-console-main }}/link/cloud-registry) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Выберите ранее созданный реестр.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
   1. Нажмите **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. В открывшемся окне выберите сервисный аккаунт `docker-puller`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `cloud-registry.artifacts.puller`.
@@ -169,7 +171,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. В открывшемся списке выберите сервисный аккаунт `docker-puller`.
   1. На панели сверху нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите `{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -213,13 +215,13 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `docker-ycr-network`.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Выберите созданную сеть `docker-ycr-network`.
-  1. Справа вверху нажмите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите `docker-ycr-subnet-{{ region-id }}-b`.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности `{{ region-id }}-b`.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** укажите `192.168.1.0/24`.
@@ -285,7 +287,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из образов и версию операционной системы на базе Linux.
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ.

@@ -42,11 +42,22 @@ In {{ mgp-short-name }}, the usage cost is calculated based on the following var
 
 #### Why is my cluster slow even though the computing resources are not fully utilized? {#throttling}
 
-{% include [throttling](../throttling.md) %}
+You may get this issue if maximum [IOPS and bandwidth](../../compute/concepts/storage-read-write.md) limits of your storage are too low for the current number of requests. This leads to [throttling](../../compute/concepts/storage-read-write.md#throttling) which degrades the overall performance of the cluster.
 
 To increase the maximum IOPS and bandwidth and reduce the risk of throttling, expand the storage size when [updating your cluster](../../managed-greenplum/operations/update.md#change-disk-size).
 
-For storage using the `network-hdd` disk type, we recommend switching to `network-ssd` or `network-ssd-nonreplicated` via a [cluster restore](../../managed-greenplum/operations/cluster-backups.md#restore) from backup.
+For each storage expansion step, maximum IOPS and bandwidth increase by a fixed increment. The step and increment depend on the disk type:
+
+| Disk type                  | Step, GB | Max IOPS increment (read/write) | Max bandwidth increment (read/write), MB/s |
+|-----------------------------|---------|------------------------------------|-----------------------------------------------|
+| `network-ssd`               | 32      | 1,000/1,000                          | 15/15                                         |
+| `network-ssd-nonreplicated` | 93      | 28,000/5,600                         | 110/82                                        |
+
+{% note info %}
+
+Non-replicated SSD storage (`network-ssd-nonreplicated`) is available for clusters with up to four segment hosts.
+
+{% endnote %}
 
 #### Why do I get a minimum memory error for {{ mgp-name }} processes? {#memory-limit}
 

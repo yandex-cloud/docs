@@ -9,7 +9,7 @@ You can configure metadata service parameters when [creating a function version]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [function](../../concepts/function.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select the function.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
   1. Expand **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}**.

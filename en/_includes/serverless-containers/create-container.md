@@ -3,7 +3,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [container](../../serverless-containers/concepts/container.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Click **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
   1. Enter a name and description for the container. The name format is as follows:
 
@@ -49,6 +49,7 @@
   {% endnote %}
 
   1. In the configuration file, describe the resources you want to create:
+
      * `name`: Container name. This is a required setting. Follow these naming requirements:
 
        {% include [name-format](../../_includes/name-format.md) %}

@@ -3,7 +3,6 @@ title: Bucket
 description: A bucket is an {{ objstorage-name }} storage unit allocated for user data. A bucket name is used as part of a URL to access data. Names of {{ yandex-cloud }} buckets are unique, i.e., you cannot create two buckets with the same name, even in different folders of different clouds. Keep this in mind if you are going to create buckets automatically through the API.
 keywords:
   - what is a bucket
-  - buckets
   - bucket
   - data storage bucket
   - cloud bucket
@@ -134,7 +133,9 @@ You can also access aggregate bucket statistics [through the {{ yandex-cloud }} 
 * [{#T}](../tutorials/bucket-to-bucket.md)
 * [{#T}](../tutorials/batch-recognition-stt.md)
 * [{#T}](../tutorials/mgp-config-server-for-s3.md)
+* [{#T}](../../architecture/static-website-in-yc.md)
 
 ### Useful links {#see-also}
 
 * [{#T}](../security/overview.md)
+

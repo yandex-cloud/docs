@@ -4,7 +4,7 @@
 
 Чтобы настроить разрешение внутренних облачных DNS-имен клиентами в вашей корпоративной сети, вы создадите на стороне {{ yandex-cloud }} [входящее DNS-подключение](../../dns/concepts/dns-connection.md#dns-inbound), которое будет перенаправлять DNS-запросы из корпоративной сети на [DNS-резолверы](../../dns/concepts/dns-resolver.md) в подсетях {{ vpc-name }}. На стороне корпоративной сети вы настроите DNS-сервер так, чтобы все DNS-запросы к облачным ресурсам направлялись на IP-адрес созданного входящего DNS-подключения.
 
-В данном сценарии пользователь, подключенный к корпоративной сети в `subnet1`, разрешает DNS-имя хоста в [кластере](../../managed-postgresql/concepts/index.md) {{ mpg-full-name }}, отправляя DNS-запросы через локальный [DNS-форвардер](*dns_forwarder).
+В этом сценарии вы разрешаете DNS-имя хоста в [кластере](../../managed-postgresql/concepts/index.md) {{ mpg-full-name }} из корпоративной сети в `subnet1`, отправляя DNS-запросы через локальный [DNS-форвардер](*dns_forwarder).
 
 Схема решения:
 
@@ -15,7 +15,7 @@
     * Состоит из подсети `subnet1` с диапазоном адресов `172.16.1.0/24`.
     * В подсети `subnet1` размещен DNS-сервер (DNS-форвардер) с IP-адресом `172.16.1.200`.
 
-        Этот сервер обслуживает DNS-зону в подсети `subnet1` и перенаправляет DNS-запросы компьютера пользователя с IP-адресом `172.16.1.10` в облачную сеть на IP-адрес [входящего DNS-подключения](../../dns/concepts/dns-connection.md#dns-inbound), созданного на стороне {{ yandex-cloud}}.
+        Этот сервер обслуживает DNS-зону в подсети `subnet1` и перенаправляет DNS-запросы вашего компьютера с IP-адресом `172.16.1.10` в облачную сеть на IP-адрес [входящего DNS-подключения](../../dns/concepts/dns-connection.md#dns-inbound), созданного на стороне {{ yandex-cloud}}.
 1. Облачная сеть {{ yandex-cloud }}:
 
     * Состоит из [подсети](../../vpc/concepts/network.md#subnet) `subnet2` с диапазоном адресов `192.168.1.0/24`.
@@ -40,6 +40,12 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+Убедитесь, что у вас уже есть:
+
+* работающее [транковое подключение](../../interconnect/operations/trunk-create.md);
+* [приватное соединение](../../interconnect/operations/priv-con-create.md);
+* [виртуальный маршрутизатор](../../cloud-router/operations/ri-create.md), в который добавлено приватное соединение.
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки создаваемой инфраструктуры входят:
@@ -58,7 +64,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать облачную инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** задайте [имя](*name) облачной сети `my-vpc-network`.
   1. Отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -72,7 +78,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** задайте [имя](*name) подсети `subnet2`.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
@@ -82,6 +88,12 @@
 
 {% endlist %}
 
+### Подключите облачную сеть к виртуальному маршрутизатору {#connect-network}
+
+[Добавьте](../../cloud-router/operations/ri-prefixes-upsert.md#add-network) сеть `my-vpc-network` в виртуальный маршрутизатор. Для зоны доступности `{{ region-id }}-b` укажите IP-префикс `192.168.1.0/24`.
+
+В результате ресурсы в подсети `subnet2` станут доступны из корпоративной сети через {{ interconnect-name }}.
+
 ### Создайте кластер {{ mpg-full-name }} {#create-cluster}
 
 {% list tabs group=instructions %}
@@ -89,7 +101,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** задайте [имя](*name) кластера `my-postgresql-cluster`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** в поле **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** выберите `{{ ui-key.yacloud.component.password-input.label_button-generate }}`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите созданную ранее облачную сеть `my-vpc-network`.
@@ -117,8 +129,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. На панели слева выберите ![nodes-down](../../_assets/console-icons/nodes-down.svg) **{{ ui-key.yacloud.dns.label_inbound-endpoints }}** и нажмите кнопку **{{ ui-key.yacloud.dns.DnsInboundEndpointsListScreen.create_button }}**. В открывшемся окне:
 
       1. В поле **{{ ui-key.yacloud.common.name }}** задайте [имя](*name) `corp-example-net-inbound`.
@@ -257,13 +269,13 @@
     Например:
 
     ```bash
-    host rc1d-oсfgp28n0k358fj1.{{ dns-zone }}
+    host rc1d-ocfgp28n0k358fj1.{{ dns-zone }}
     ```
 
     Результат:
 
     ```text
-    rc1d-oсfgp28n0k358fj1.{{ dns-zone }} has address 192.168.1.20
+    rc1d-ocfgp28n0k358fj1.{{ dns-zone }} has address 192.168.1.20
     ```
 1. Убедитесь, что на компьютере в корпоративной сети выполняется разрешение имен в публичных зонах, например:
 
@@ -285,9 +297,10 @@
 * [удалите кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md);
 * [удалите входящее DNS-подключение](../../dns/operations/connection-inbound-delete.md);
 * [удалите зарезервированный внутренний IP-адрес](../../vpc/operations/private-ip-delete.md);
+* [удалите сеть `my-vpc-network` из виртуального маршрутизатора](../../cloud-router/operations/ri-prefixes-upsert.md#remove-network);
 * [удалите подсеть](../../vpc/operations/subnet-delete.md);
 * [удалите облачную сеть](../../vpc/operations/network-delete.md).
 
-[*name]: {% include [name-format](../../_includes/_popups/name-format-general.md) %}
+[*name]: {% include [name-format](../../_popups/name-format-general.md) %}
 
 [*dns_forwarder]: DNS-форвардер — это специальный DNS-сервер, который по-разному перенаправляет DNS-запросы в зависимости от доменного имени, указанного в запросе.

@@ -83,6 +83,22 @@
 
     Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.scheduler.interval.ms).
 
+* **Log message timestamp type** <code><b><small>Все интерфейсы</small></b></code> {#settings-log-message-timestamp-type}
+
+    Тип временной метки, добавляемой к сообщениям топика:
+
+    #|
+    || **Консоль управления, Terraform и API**     | **CLI**              | **Описание**  ||
+    || `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`    | `create-time`     | Время создания сообщения [производителем](producers-consumers.md) ||
+    || `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`| `log-append-time` | Время добавления сообщения в лог брокером ||
+    |#
+
+    Если пользователь не задал значение настройки явно, то Apache Kafka® использует время создания сообщения производителем (`MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`).
+
+    Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на [уровне топика](#settings-topic-message-timestamp-type).
+
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.message.timestamp.type).
+
 * **Log preallocate** <code><b><small>Все интерфейсы</small></b></code> {#settings-log-preallocate}
 
     Определяет, будет ли заранее выделяться место под файлы сегментов лога.
@@ -312,7 +328,22 @@
 
     Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_max.message.bytes).
 
-* **Min compaction lag, ms** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-max-compaction-lag-ms}    
+* **Тип временной метки в сообщении** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-message-timestamp-type}
+
+    Тип временной метки, добавляемой к сообщениям топика:
+
+    #|
+    || **Консоль управления** | **API** | **Terraform** | **CLI** | **Описание** ||
+    || `Unspecified`      | `MESSAGE_TIMESTAMP_TYPE_UNSPECIFIED` | — | — | Используется значение [настройки уровня кластера](#settings-log-message-timestamp-type) ||
+    || `CreateTime`       | `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME` | `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME` | `create-time`     | Время создания сообщения [производителем](producers-consumers.md) ||
+    || `LogAppendTime`    | `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`  | `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME` | `log-append-time` | Время добавления сообщения в лог брокером ||
+    |#
+
+    Подробнее в настройке уровня кластера [Log message timestamp type](#settings-log-message-timestamp-type).
+
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_message.timestamp.type).
+
+* **Min compaction lag, ms** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-min-compaction-lag-ms}    
 
     Минимальное время, в течение которого сообщение в логе будет оставаться несжатым.
 

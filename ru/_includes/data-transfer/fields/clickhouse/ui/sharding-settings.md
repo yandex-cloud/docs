@@ -10,10 +10,6 @@
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_round_robin.title }}** — данные по шардам будут распределяться случайным образом (количество данных на каждом шарде будет примерно одинаковым).
 
-  {% note warning %}
+  Для трансферов из {{ CH }} в {{ CH }} шардирование не поддерживается. Возможное обходное решение: создайте на кластере-приемнике распределенную таблицу и выполните трансфер в нее, выбрав политику очистки `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`.
 
-  Для трансферов из {{ CH }} в {{ CH }} шардирование не поддерживается.
-
-  Возможное обходное решение: создайте на кластере-приемнике распределенную таблицу и выполните трансфер в нее, выбрав политику очистки `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`.
-
-  {% endnote %}
+  Настройки шардирования, включая **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_round_robin.title }}** и **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_column.title }}**, игнорируются при репликации из {{ PG }}. Это связано с архитектурными ограничениями: для обеспечения целостности данных при операциях `UPDATE` и `DELETE` репликационный поток направляется строго в один шард.

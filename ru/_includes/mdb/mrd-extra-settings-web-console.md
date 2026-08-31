@@ -11,3 +11,7 @@
 
 - **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** — опция разрешает [выполнять SQL-запросы](../../managed-valkey/operations/web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
 
+
+- **{{ ui-key.yacloud.redis.field_audit-log }}** — опция включает запись логов о подключении и авторизации. Логирование событий аудита может влиять на производительность кластера.
+
+    Эта настройка не влияет на запись стандартных логов {{ VLK }}.

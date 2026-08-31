@@ -43,6 +43,8 @@ To create a {{ PG }} connection:
 
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
+     ![connection-postgresql](../../../_assets/datalens/operations/connection/connection-postgresql-org.png)
+
        Click **Check connection** to make sure the parameters are correct.
 
    - Specify manually {#manual}
@@ -50,6 +52,8 @@ To create a {{ PG }} connection:
      {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
 
      {% include [datalens-db-connection-parameters-postgresql](../../../_includes/datalens/datalens-db-connection-parameters-postgresql.md) %}
+
+     ![connection-postgresql](../../../_assets/datalens/operations/connection/connection-postgresql-manual.png)
 
      Click **Check connection** to make sure the parameters are correct.
 
@@ -69,6 +73,8 @@ To create a {{ PG }} connection:
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
+     ![connection-postgresql](../../../_assets/datalens/operations/connection/connection-postgresql-manager.png)
+
    {% endlist %}
 
 
@@ -76,13 +82,11 @@ To create a {{ PG }} connection:
 
 1. In the window that opens:
 
-   
    1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to.
-
    1. Enter the connection name.
-   
    1. Click **Create**.
 
+   
    ![screen05](../../../_assets/datalens/operations/connection/create-postgresql/screen05.png)
 
 
@@ -101,3 +105,4 @@ You can specify additional connection settings under **Advanced connection setti
 * **TLS**: Indicates whether TLS is required. When the option is enabled, the `sslmode` parameter is set to `required`. When the option is disabled, the parameter is set to `prefer`.
 * **CA Certificate**: To upload a certificate, click **Attach file** and specify the certificate file. When the certificate is uploaded, the field shows the file name.
 * {% include [datalens-db-connection-export-settings-item](../../../_includes/datalens/operations/datalens-db-connection-export-settings-item.md) %}
+

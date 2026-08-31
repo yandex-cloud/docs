@@ -16,6 +16,8 @@ keywords:
 
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
+{% include [workflows-ai-studio-note](../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Using this tutorial, you will create and run a [workflow](../concepts/workflows/workflow.md). During the execution of the workflow, the [{{ sf-full-name }}](../../functions/) [functions](../../functions/concepts/function.md) will be called.
 
 
@@ -70,8 +72,8 @@ To get started in {{ yandex-cloud }}:
             };
             ```
         1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify the following in the field:
-            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
-            * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-for-function`
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
+            * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-for-function`.
         1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}
@@ -103,8 +105,8 @@ To get started in {{ yandex-cloud }}:
             };
             ```
         1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify the following in the field:
-            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
-            * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-for-function`
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
+            * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-for-function`.
         1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}

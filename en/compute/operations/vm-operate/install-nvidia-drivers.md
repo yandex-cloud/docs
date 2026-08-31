@@ -66,3 +66,7 @@ To install the drivers without the GUI:
    ```bash
    nvidia-smi nvlink -s
    ```
+
+#### Useful links {#see-also}
+
+* [{#T}](../enable-mig.md)

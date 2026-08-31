@@ -32,7 +32,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ SPRK }} cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -69,7 +69,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         
         1. **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance](../concepts/maintenance.md) window settings:
 
-           {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+           {% include [Maintenance window](../../_includes/managed-spark/maintenance-window-console.md) %}
 
         1. **{{ ui-key.yacloud.spark.label_metastore }}**: [Metastore server](../../metadata-hub/concepts/metastore.md) connected to your cluster.
 
@@ -440,7 +440,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
     * Name: `myspark`.
     * Service account: `ajev56jp96ji********`.
     * Network: `msp-network`.
-    * Subnet: `msp-subnet`. The subnet availability zone is `ru-central1-a`; the range is `10.1.0.0/16`.
+    * Subnet: `msp-subnet`. The subnet [availability zone](../../overview/concepts/geo-scope.md) is `ru-central1-a`; the range is `10.1.0.0/16`.
     * Two drivers with [computing resource class](../concepts/instance-types.md): `c2-m16`.
     * Four executors with computing resource class: `c2-m16`.
     * History server enabled.

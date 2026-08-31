@@ -18,7 +18,7 @@
 * [Приватная подсеть](../../baremetal/concepts/private-network.md#private-subnet) BareMetal `opnsense-private-subnet-m4`.
 * Два сервера BareMetal в составе кластера OPNsense: `opnsense-master` и `opnsense-backup`. При написании настоящего руководства использовался межсетевой экран OPNsense версии `25.1`.
 * Один сервер BareMetal `vmware-esxi` с запущенной платформой [виртуализации](../../glossary/virtualization.md) VMware [ESXi](https://ru.wikipedia.org/wiki/VMware_ESXi). При написании настоящего руководства использовался гипервизор ESXi версии `7.0U3g`.
-* На сервере `vmware-esxi` запущена [виртуальная машина](../../glossary/vm.md): `opnsense-tester-vm`. При написании настоящего руководства виртуальная машина создавались под управлением ОС [Linux Ubuntu 24.04](https://releases.ubuntu.com/24.04/) без графического пользовательского интерфейса.
+* На сервере `vmware-esxi` запущена [виртуальная машина](../../glossary/vm.md): `opnsense-tester-vm`. При написании настоящего руководства виртуальная машина создавалась под управлением ОС [Linux Ubuntu 24.04](https://releases.ubuntu.com/24.04/) без графического пользовательского интерфейса.
 * [Инсталляционный сервер](https://ru.wikipedia.org/wiki/Инсталляционный_сервер) `jump-server`, необходимый для настройки серверов OPNsense и ESXi, при помощи которого можно обращаться к приватным IP-адресам серверов OPNsense и ESXi.
 
     Инсталляционный сервер должен иметь [графический пользовательский интерфейс](https://ru.wikipedia.org/wiki/Графический_интерфейс_пользователя) и [браузер](https://ru.wikipedia.org/wiki/Браузер). Для упрощения настроек в настоящем руководстве в роли инсталляционного сервера будет выступать сервер BareMetal, загруженный в режиме восстановления и диагностики с [Rescue-CD](../../baremetal/operations/servers/rescue-boot.md).
@@ -85,7 +85,7 @@ Yandex Cloud не предоставляет дистрибутивы этих �
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы планируете создавать инфраструктуру.
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. На панели слева выберите ![icon](../../_assets/console-icons/layers.svg) **Загрузочные образы**.
   1. Нажмите кнопку **Загрузить образ**.
   1. Введите имя для образа OPNsense. Требования к имени:
@@ -108,7 +108,7 @@ Yandex Cloud не предоставляет дистрибутивы этих �
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. На панели слева выберите ![icon](../../_assets/console-icons/nodes-right.svg) **Приватные подсети** и нажмите кнопку **Создать подсеть**.
   1. В поле **Пул** выберите пул серверов `ru-central1-m4`.
   1. В поле **Имя** задайте имя подсети: `opnsense-private-subnet-m4`.

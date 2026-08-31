@@ -53,7 +53,7 @@
 
 1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `integration-network`.
 
-    Вместе с ней автоматически создадутся три подсети в разных зонах доступности.
+    Вместе с ней автоматически создадутся три подсети в разных [зонах доступности](../../overview/concepts/geo-scope.md).
 
 1. Для кластера Yandex Managed Service for Apache Spark™ [создайте группу безопасности](../../vpc/operations/security-group-create.md) `spark-sg` в сети `integration-network`. Добавьте в группу следующее правило:
 
@@ -158,9 +158,9 @@
 
 1. В бакете для исходного кода создайте папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `ice_min_demo.py`.
 1. [Создайте задание](../../managed-spark/operations/jobs-pyspark.md) с параметрами:
-    * **Тип задания**: **PySpark**.
-    * **Main python файл**: `s3a://<бакет_для_исходного_кода>/scripts/ice_min_demo.py`.
-    * **Настройки**: `spark.sql.warehouse.dir` – `s3a://<бакет_для_выходных_данных>/warehouse/`.
+    * **Тип задания** — `PySpark`.
+    * **Main python файл** — `s3a://<бакет_для_исходного_кода>/scripts/ice_min_demo.py`.
+    * **Настройки** — `spark.sql.warehouse.dir` — `s3a://<бакет_для_выходных_данных>/warehouse/`.
 
 ## Проверьте результат {#check-out}
 

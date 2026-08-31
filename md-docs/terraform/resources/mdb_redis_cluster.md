@@ -142,7 +142,9 @@ resource "yandex_vpc_subnet" "baz" {
   - `maxmemory_percent` (Number). Redis maxmemory usage in percent
   - `maxmemory_policy` (String). Redis key eviction policy for a dataset that reaches maximum memory. Can be any of the listed in [the official RedisDB documentation](https://docs.redislabs.com/latest/rs/administering/database-operations/eviction-policy/).
   - `notify_keyspace_events` (String). Select the events that Redis will notify among a set of classes.
-  - `password` (**Required**)(String). Password for the Redis cluster.
+  - `password` (String). Password for the Redis cluster.
+  - `password_wo` (String). Password for the Redis cluster. This attribute is write-only and is not stored in state. Requires `password_wo_version` to trigger updates. Write-only arguments are only supported in Terraform v1.11 or higher.
+  - `password_wo_version` (Number). A version number for the write-only password. Increment this to trigger a password update.
   - `repl_backlog_size_percent` (Number). Replication backlog size as a percentage of flavor maxmemory.
   - `slowlog_log_slower_than` (Number). Log slow queries below this number in microseconds.
   - `slowlog_max_len` (Number). Slow queries log length.
@@ -155,7 +157,7 @@ resource "yandex_vpc_subnet" "baz" {
     - `hours` (Number). The hour at which backup will be started.
     - `minutes` (Number). The minute at which backup will be started.
 - `disk_size_autoscaling` [Block]. Disk size autoscaling settings.
-  - `disk_size_limit` (**Required**)(Number). Limit of disk size after autoscaling (GiB).
+  - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
   - `emergency_usage_threshold` (Number). Immediate autoscaling disk usage (percent).
   - `planned_usage_threshold` (Number). Maintenance window autoscaling disk usage (percent).
 - `host` [Block]. A host of the Redis cluster.

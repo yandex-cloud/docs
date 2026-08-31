@@ -27,7 +27,7 @@
 
 В стоимость поддержки инфраструктуры для создания интеллектуального ассистента входит:
 
-* плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../../datasphere/pricing.md);
+* плата за использование [вычислительных ресурсов {{ ml-platform-name }}]({{ link-docs }}/datasphere/pricing);
 * плата за [генерацию текста]({{ link-docs-ai }}pricing) моделью.
 
 ## Подготовьте инфраструктуру {#infra}
@@ -50,7 +50,7 @@
 
 ### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} {#create-sa}
 
-Для обращения к модели из ноутбука нужно создать [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
+Для обращения к модели из ноутбука нужно создать [сервисный аккаунт]({{ link-docs }}/iam/concepts/users/service-accounts).
 
 {% list tabs group=instructions %}
 
@@ -81,7 +81,7 @@
 
 ## Создайте API-ключ для сервисного аккаунта {#create-key}
 
-Чтобы сервисный аккаунт получил доступ к модели, создайте [API-ключ](../../iam/concepts/authorization/api-key.md).
+Чтобы сервисный аккаунт получил доступ к модели, создайте [API-ключ]({{ link-docs }}/iam/concepts/authorization/api-key).
 
 {% list tabs group=instructions %}
 
@@ -106,7 +106,7 @@
 
 ## Создайте секреты {#create-secrets}
 
-Чтобы использовать API-ключ, идентификатор каталога и токен доступа к боту из ноутбука, создайте [секреты](../../datasphere/concepts/secrets.md) с соответствующими значениями.
+Чтобы использовать API-ключ, идентификатор каталога и токен доступа к боту из ноутбука, создайте [секреты]({{ link-docs }}/datasphere/concepts/secrets) с соответствующими значениями.
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![secret](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yc-ui-datasphere.resources.secret }}**.
@@ -152,4 +152,4 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы, [удалите проект](../../datasphere/operations/projects/delete.md).
+Чтобы перестать платить за созданные ресурсы, [удалите проект]({{ link-docs }}/datasphere/operations/projects/delete).

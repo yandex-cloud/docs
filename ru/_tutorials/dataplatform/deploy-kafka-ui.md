@@ -1,16 +1,13 @@
 # Самостоятельное развертывание веб-интерфейса {{ KF }}
 
 
-
 {% note info %}
 
 {{ mkf-name }} имеет [встроенную поддержку веб-интерфейса {{ kafka-ui }}](../../managed-kafka/concepts/kafka-ui.md). Если вам по какой-то причине не подходит такой вариант, используйте информацию из этого руководства.
 
 {% endnote %}
 
-
 Вы можете установить [веб-интерфейс {{ KF }}]({{ kafka-ui-kafbat }}) для своего кластера {{ mkf-name }}. С помощью веб-интерфейса можно отслеживать потоки данных, находить и устранять неисправности, управлять [брокерами](../../managed-kafka/concepts/brokers.md), кластером, [производителями и потребителями](../../managed-kafka/concepts/producers-consumers.md).
-
 
 Развернуть веб-интерфейс {{ KF }} можно двумя способами:
 
@@ -22,6 +19,7 @@
 
 Чтобы развернуть веб-интерфейс {{ KF }} в Docker-контейнере:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure-for-docker).
 1. [Установите дополнительные зависимости](#infra-for-docker).
 1. [Создайте хранилище сертификатов TrustStore](#truststore-for-docker).
 1. [Подготовьте веб-интерфейс {{ KF }}](#prepare-ui-via-docker).
@@ -29,27 +27,24 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-### Необходимые платные ресурсы {#paid-resources}
-
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ mkf-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы {{ KF }}](../../managed-kafka/pricing.md)).
-* Плата за ВМ: использование вычислительных ресурсов, операционной системы и хранилища ([тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за публичные IP-адреса для ВМ и хостов кластера, если для них включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
-
-
 ### Перед началом работы {#before-you-begin-to-work-with-docker}
 
-Подготовьте инфраструктуру:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+#### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+
+
+### Подготовьте инфраструктуру {#prepare-infrastructure-for-docker}
 
 {% list tabs group=instructions %}
 
-- Вручную {#manual}
+- Вручную {#manual}   
 
-   
-   1. [Настройте группу безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups) для кластера {{ mkf-name }} и ВМ так, чтобы к топикам можно было подключаться с ВМ в Облаке.
-
-
+   1. [Настройте группу безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups) для кластера {{ mkf-name }} и ВМ так, чтобы к топикам можно было подключаться с ВМ в Облаке.   
    1. [Создайте кластер](../../managed-kafka/operations/cluster-create.md) {{ mkf-name }}. При создании укажите настроенную группу безопасности.
    1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) {{ KF }}.
    1. В той же сети, что и кластер {{ mkf-name }}, [создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) с Ubuntu 22.04, публичным IP-адресом и настроенной группой безопасности.
@@ -66,12 +61,8 @@
 
       * сеть;
       * подсеть;
-      * ВМ с Ubuntu 22.04;
-
-      
-      * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине из интернета;
-
-
+      * ВМ с Ubuntu 22.04;      
+      * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине из интернета;      
       * кластер {{ mkf-name }};
       * пользователь {{ KF }}.
 
@@ -111,7 +102,7 @@
    FQDN доступен в консоли управления:
 
       1. Перейдите на страницу кластера.
-      1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+      1. Откройте вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
       1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**, в строке хоста с ролью `KAFKA`.
 
    Если кластер доступен, появится сообщение:
@@ -178,6 +169,8 @@
 
 Чтобы развернуть веб-интерфейс {{ KF }} в кластере {{ managed-k8s-name }}:
 
+
+1. [Подготовьте инфраструктуру](#prepare-infrastructure-for-kubernetes).
 1. [Установите дополнительные зависимости](#infra-for-kubernetes).
 1. [Создайте хранилище сертификатов TrustStore](#truststore-for-kubernetes).
 1. [Разверните приложение с веб-интерфейсом {{ KF }} в поде {{ k8s }}](#application-in-pod).
@@ -186,19 +179,19 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-### Необходимые платные ресурсы {#paid-resources}
-
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ mkf-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы {{ KF }}](../../managed-kafka/pricing.md)).
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера {{ managed-k8s-name }} (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за публичные IP-адреса для хостов кластера {{ mkf-name }} и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-
-
 ### Перед началом работы {#before-you-begin-to-work-with-kubernetes}
 
-Подготовьте инфраструктуру:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+#### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Публичные IP-адреса для хостов кластера {{ mkf-name }} и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+
+
+### Подготовьте инфраструктуру {#prepare-infrastructure-for-kubernetes}
 
 {% list tabs group=instructions %}
 
@@ -268,7 +261,7 @@
    FQDN доступен в консоли управления:
 
       1. Перейдите на страницу кластера.
-      1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+      1. Откройте вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
       1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**, в строке хоста с ролью `KAFKA`.
 
    Если кластер доступен, появится сообщение:
@@ -408,12 +401,10 @@
 
    Удалите:
 
-   
    1. [Кластер](../../managed-kafka/operations/cluster-delete.md) {{ mkf-name }}.
    1. [Виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
    1. [Группу узлов](../../managed-kubernetes/operations/node-group/node-group-delete.md) {{ managed-k8s-name }}.
    1. [Кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) {{ managed-k8s-name }}.
-
 
 - {{ TF }} {#tf}
 

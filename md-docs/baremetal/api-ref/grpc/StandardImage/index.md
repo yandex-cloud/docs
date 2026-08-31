@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > StandardImage > Overview
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > API v1alpha > [gRPC (англ.)](../index.md) > StandardImage > Overview
 
 # BareMetal API, gRPC: StandardImageService
 

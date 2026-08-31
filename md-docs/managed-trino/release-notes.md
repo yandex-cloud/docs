@@ -2,6 +2,9 @@
 
 # История изменений в Yandex Managed Service for Trino
 
+## Июль 2026 {#july-2026}
+
+* Добавлена возможность использовать [пользовательский бакет Object Storage](concepts/retry-policy.md#exchange-manager-storage) в качестве хранилища Exchange Manager.
 
 ## Май 2026 {#may-2026}
 

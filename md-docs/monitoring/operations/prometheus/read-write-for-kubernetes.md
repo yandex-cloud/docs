@@ -3,7 +3,7 @@
 # Чтение и запись метрик кластера Yandex Managed Service for Kubernetes с помощью Prometheus Operator
 
 
-Prometheus Operator с поддержкой Yandex Monitoring упрощает установку Prometheus Operator, популярного решения для мониторига кластеров Kubernetes, и добавляет интеграцию с системой мониторинга Yandex Monitoring. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных Prometheus и язык запросов [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/).
+Prometheus Operator с поддержкой Yandex Monitoring упрощает установку Prometheus Operator, популярного решения для мониторинга кластеров Kubernetes, и добавляет интеграцию с системой мониторинга Yandex Monitoring. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных Prometheus и язык запросов [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -61,7 +61,8 @@ Prometheus Operator с поддержкой Yandex Monitoring упрощает �
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
    1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-   1. Нажмите на имя нужного кластера Kubernetes и выберите вкладку ![image](../../../_assets/marketplace.svg) **Marketplace**.
+   1. Выберите [кластер Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+   1. Нажмите на вкладку **Другое** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **Marketplace**.
    1. В разделе **Доступные для установки приложения** выберите [Prometheus Operator с поддержкой Monitoring](https://yandex.cloud/ru/marketplace/products/yc/prometheus-operator) и нажмите кнопку **Перейти к установке**.
    1. Задайте настройки приложения:
 

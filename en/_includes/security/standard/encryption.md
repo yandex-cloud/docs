@@ -130,7 +130,7 @@ Check the list of returned encrypted disks. If the list matches your threat mode
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the disk.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** and find the disk you want to encrypt in the list.
 
       If the disk is attached to a VM and the VM is on, it is recommended to turn it off.
@@ -162,7 +162,7 @@ To protect critical data in {{ objstorage-full-name }}, we recommend using bucke
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. In the list of services, select **{{ objstorage-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ objstorage-name }}**.
   1. Go to the bucket settings.
   1. Go to the **Encryption** tab.
   1. Make sure that encryption is enabled and the {{ kms-short-name }} encryption key is specified.
@@ -210,7 +210,7 @@ Support for legacy TLS protocols in {{ yandex-cloud }} services will [gradually 
 #### 4.3 HTTPS for static website hosting is enabled in {{ objstorage-full-name }} {#storage-https}
 
 [{{ objstorage-name }}](../../../storage/) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your {{ objstorage-name }} website requires HTTPS access. Integration with [{{ certificate-manager-name }}](../../../certificate-manager/) is also supported. See the instructions in the {{ objstorage-name }} guides:
-* [Configuring HTTPS](../../../storage/operations/hosting/certificate.md)
+* [{#T}](../../../storage/operations/hosting/certificate.md)
 * [Bucket](../../../storage/concepts/bucket.md)
 
 When using [{{ objstorage-name }}](../../../storage/), make sure that support for TLS protocols below version 1.2 is disabled at the client level. Use the [`aws:securetransport`](../../../storage/s3/api-ref/policy/conditions.md) bucket policy to make sure running without TLS is disabled for the bucket.
@@ -258,7 +258,7 @@ When using [{{ objstorage-name }}](../../../storage/), make sure that support fo
 - Performing a check in the management console {#console}
  
   1. In the management console, select the cloud or folder to check the load balancers in.
-  1. In the list of services, select **{{ alb-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ alb-name }}**.
   1. Go to the load balancer settings.
   1. Make sure that **HTTPS** is specified for the load balancer.
   1. If HTTPS is specified, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
@@ -333,7 +333,7 @@ Enable an HTTPS listener using [this guide](../../../application-load-balancer/t
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the gateways in.
-  1. In the list of services, select **{{ api-gw-name }} → Gateway settings → Domains**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ api-gw-name }} → Gateway settings → Domains**.
   1. Make sure the domain and certificate are enabled.
   1. If the domain and certificate are active, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -365,7 +365,7 @@ Enable an HTTPS listener using [this guide](../../../application-load-balancer/t
 **Guides and solutions to use:**
 
 1. In the management console, select the cloud or folder to enable domains and certificates in.
-1. In the list of services, select **{{ api-gw-name }} → Gateway settings → Domains**.
+1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ api-gw-name }} → Gateway settings → Domains**.
 1. Enable the domains and certificates.
 
 #### 4.6 {{ cdn-full-name }} uses HTTPS and its own SSL certificate {#cdn-https}
@@ -381,7 +381,7 @@ Enable an HTTPS listener using [this guide](../../../application-load-balancer/t
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the resources in.
-  1. In the list of services, select **{{ cdn-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ cdn-name }}**.
   1. Go to the resource settings, the **Additional** tab.
   1. Make sure the **Origin request protocol** field is set to **HTTPS**.
   1. Make sure the **Certificate** field specifies your own certificate or a **Let’s encrypt** certificate.
@@ -500,7 +500,7 @@ We recommend using HSMs for {{ kms-short-name }} keys to enhance the security le
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the keys in.
-  1. In the list of services, select **{{ kms-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/kms) to **{{ kms-name }}**.
   1. Go to the **Keys** tab.
   1. Make sure the **Encryption algorithm** field is set to **AES-256 HSM**.
   1. If AES-256 HSM is specified, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
@@ -555,7 +555,7 @@ To check the {{ kms-short-name }} key access permissions, check who has access p
 - Performing a check in the management console {#console}
  
   1. In the management console, select the cloud or folder to check the key access permissions in.
-  1. Click the **Access permissions** tab.
+  1. Select the **Access permissions** tab.
   1. Make sure the `admin`, `editor`, `kms.admin`, `kms.editor`, and `kms.keys.encrypterDecrypter` roles are only granted to controlled users.
   1. You can check the actual key access permissions only via the CLI.
 
@@ -648,7 +648,7 @@ For more information about key rotation, see [Key version](../../../kms/concepts
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the keys in.
-  1. In the list of services, select **{{ kms-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/kms) to **{{ kms-name }}**.
   1. Go to the key settings.
   1. Find the **Rotation period** parameter.
   1. If the parameter is set to any value different from **No rotation**, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
@@ -693,7 +693,7 @@ Deleting a {{ kms-short-name }} key always means destroying data. Therefore, mak
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the keys in.
-  1. In the list of services, select **{{ kms-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/kms) to **{{ kms-name }}**.
   1. Go to the key settings.
   1. Find the **Deletion protection** parameter.
   1. If it is set to **Yes**, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
@@ -752,7 +752,7 @@ When working in {{ TF }}, we recommend using a script to [fill in]({{ tf-provide
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the secrets in.
-  1. In the list of services, select **{{ lockbox-short-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ lockbox-short-name }}**.
   1. Make sure that at least one {{ lockbox-short-name }} secret is used.
   1. If {{ lockbox-short-name }} is used, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -802,7 +802,7 @@ Make sure that the secrets are used as described above.
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the functions in.
-  1. In the list of services, select **{{ sf-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ sf-name }}**.
   1. Go to the function settings, the **Editor** tab.
   1. Find the **{{ lockbox-short-name }} secrets** parameter.
   1. If the parameters of each object specify **{{ lockbox-short-name }}** secrets or there are no environment variables with secret data, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".

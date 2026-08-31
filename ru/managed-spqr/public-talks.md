@@ -20,6 +20,10 @@ description: Видеозаписи конференций и вебинаров
 
 ### 2026 год {#2026-articles}
 
+* Перевоз данных по кусочкам: инженерная кухня SPQR.
+
+  * [Текст статьи](https://yandex.cloud/ru/blog/spqr-inside).
+
 * SPQR в финтехе: реальная миграция на шардированную {{ PG }}-инсталляцию.
 
   * [Текст статьи](https://habr.com/ru/companies/yandex_cloud_and_infra/articles/1020208/).

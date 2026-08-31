@@ -13,13 +13,13 @@ The following databases are supported:
 
     {{ GP }} was originally developed as an open-source project; however, in 2024, access to its source code was restricted. Despite this, {{ mgp-name }} continues to support {{ GP }} version 6 using its open-source [fork](https://github.com/open-gpdb/gpdb).
 
-* {{ CB }} 2: Based on {{ GP }} version 7 with a modernized {{ PG }} 14 kernel; supports dynamic tables and [PAX](https://cloudberry.apache.org/docs/operate-with-data/pax-table-format/) format.
+* {{ CB }} 2.x: Based on {{ GP }} version 7 with a modernized {{ PG }} 14 kernel; supports dynamic tables and [PAX](https://cloudberry.apache.org/docs/operate-with-data/pax-table-format/) format.
 
     {{ CB }} is an open-source project developed under Apache License v2.0. 
 
     {{ CB }} will serve as the basis for future major versions of {{ mgp-name }}.
 
-Learn more about the differences between {{ CB }} and {{ GP }} in [this section](./cloudberry-vs-greenplum/breaking-changes.md).
+Learn more about the differences between {{ CB }} and {{ GP }} in [this section](./cloudberry-vs-greenplum/why-cloudberry.md).
 
 {{ mgp-name }} handles most of the cluster maintenance operations, including:
 

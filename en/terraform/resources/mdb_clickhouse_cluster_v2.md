@@ -353,6 +353,9 @@ resource "yandex_vpc_subnet" "baz" {
   - `web_sql` (Bool). Allow access for Web SQL.
   - `yandex_query` (Bool). Allow access for YandexQuery.
 - `admin_password` (String). A password used to authorize as user `admin` when `sql_user_management` enabled.
+- `admin_password_wo` (String). A password used to authorize as user `admin` when `sql_user_management` enabled. This attribute is write-only and is not stored in state. Requires `admin_password_wo_version` to trigger updates. Write-only arguments are supported in Terraform 1.11 and later.
+- `admin_password_wo_version` (Number). A version number for the write-only password. Increment this to trigger a password update.
+- `allow_degradation_to_read_only` (Bool). Allows the cluster to become read-only during migration from ZooKeeper to ClickHouse Keeper. Must be enabled when changing coordinator host types from `ZOOKEEPER` to `KEEPER`.
 - `allow_host_recreation` (Bool). Allows or denies re-creation of hosts during cluster configuration changes that require it, such as a disk type change. Note: only data of replicated tables is preserved during host re-creation; data of non-replicated tables is lost.
 - `backup_retain_period_days` (Number). The period in days during which backups are stored.
 - `backup_window_start` [Block]. Time to start the daily backup, in the UTC timezone.
@@ -424,6 +427,8 @@ resource "yandex_vpc_subnet" "baz" {
       - `session_timeout_ms` (Number). Client group session and failure detection timeout.
     - `keep_alive_timeout` (Number). The number of seconds that ClickHouse waits for incoming requests for HTTP protocol before closing the connection.
     - `log_level` (String). Logging level.
+    - `mark_cache_size` (Number). Size of the cache for marks (index blocks). For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#mark_cache_size).
+    - `max_build_vector_similarity_index_thread_pool_size` (Number). Maximum number of threads for building vector similarity indexes. For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_build_vector_similarity_index_thread_pool_size).
     - `max_concurrent_queries` (Number). Limit on total number of concurrently executed queries.
     - `max_connections` (Number). Max server connections.
     - `max_partition_size_to_drop` (Number). Restriction on dropping partitions.
@@ -509,15 +514,189 @@ resource "yandex_vpc_subnet" "baz" {
     - `text_log_retention_size` (Number). The maximum size that text_log can grow to before old data will be removed.
     - `text_log_retention_time` (Number). The maximum time that text_log records will be retained before removal.
     - `timezone` (String). The server's time zone.
+    - `tls` [Block]. TLS configuration for outgoing connections from ClickHouse (e.g. remote tables, dictionaries). Change of the settings is applied with restart.
+      - `trusted_certificates` (List Of String). CA certificates in PEM format. Each element must contain a single self-signed CA certificate or a certificate chain ordered as leaf -> intermediates -> self-signed root. Change of the setting is applied with restart.
     - `total_memory_profiler_step` (Number). Whenever server memory usage becomes larger than every next step in number of bytes the memory profiler will collect the allocating stack trace.
     - `total_memory_tracker_sample_probability` (Number). Allows to collect random allocations and de-allocations and writes them in the system.trace_log system table with trace_type equal to a MemorySample with the specified probability.
     - `trace_log_enabled` (Bool). Enable or disable trace_log system table.
     - `trace_log_retention_size` (Number). The maximum size that trace_log can grow to before old data will be removed.
     - `trace_log_retention_time` (Number). The maximum time that trace_log records will be retained before removal.
     - `uncompressed_cache_size` (Number). Cache size (in bytes) for uncompressed data used by table engines from the MergeTree family. Zero means disabled.
+    - `vector_similarity_index_cache_max_entries` (Number). Maximum number of entries in the vector similarity index cache. For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#vector_similarity_index_cache_max_entries).
+    - `vector_similarity_index_cache_size` (Number). Maximum size of the cache for vector similarity index. For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#vector_similarity_index_cache_size).
     - `zookeeper_log_enabled` (Bool). Enable or disable zookeeper_log system table.
     - `zookeeper_log_retention_size` (Number). The maximum size that zookeeper_log can grow to before old data will be removed.
     - `zookeeper_log_retention_time` (Number). The maximum time that zookeeper_log records will be retained before removal.
+  - `default_user_settings` [Block]. Settings that are applied to all users of the ClickHouse cluster by default. They are overridden by the settings of a particular user. For more information, see [the official documentation](https://clickhouse.com/docs/ru/operations/settings/settings).
+    - `add_http_cors_header` (Bool). Include CORS headers in HTTP response.
+    - `allow_ddl` (Bool). Allows or denies DDL queries.
+    - `allow_introspection_functions` (Bool). Enables or disables introspection functions for query profiling.
+    - `allow_suspicious_low_cardinality_types` (Bool). Allows specifying LowCardinality modifier for types of small fixed size (8 or less) in CREATE TABLE statements. Enabling this may increase merge times and memory consumption.
+    - `any_join_distinct_right_table_keys` (Bool). Enables legacy ClickHouse server behaviour in ANY INNER|LEFT JOIN operations.
+    - `async_insert` (Bool). Enables asynchronous inserts. Disabled by default.
+    - `async_insert_busy_timeout` (Number). The maximum timeout in milliseconds since the first INSERT query before inserting collected data. If the parameter is set to 0, the timeout is disabled. Default value: 200.
+    - `async_insert_max_data_size` (Number). The maximum size of the unparsed data in bytes collected per query before being inserted. If the parameter is set to 0, asynchronous insertions are disabled. Default value: 100000.
+    - `async_insert_stale_timeout` (Number). The maximum timeout in milliseconds since the last INSERT query before dumping collected data. If enabled, the settings prolongs the async_insert_busy_timeout with every INSERT query as long as async_insert_max_data_size is not exceeded.
+    - `async_insert_threads` (Number). The maximum number of threads for background data parsing and insertion. If the parameter is set to 0, asynchronous insertions are disabled. Default value: 16.
+    - `async_insert_use_adaptive_busy_timeout` (Bool). If it is set to true, use adaptive busy timeout for asynchronous inserts.
+    - `cancel_http_readonly_queries_on_client_close` (Bool). Cancels HTTP read-only queries (e.g. SELECT) when a client closes the connection without waiting for the response. Default value: false.
+    - `compile_expressions` (Bool). Enable or disable compilation of some scalar functions and operators to native code.
+    - `connect_timeout` (Number). Connection timeout in milliseconds.
+    - `connect_timeout_with_failover` (Number). The timeout in milliseconds for connecting to a remote server for a Distributed table engine.  Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+    - `count_distinct_implementation` (String). Specifies which of the uniq* functions should be used to perform the COUNT(DISTINCT …) construction.
+    - `data_type_default_nullable` (Bool). Allows data types without explicit modifiers NULL or NOT NULL in column definition will be Nullable.
+    - `date_time_input_format` (String). Allows choosing a parser of the text representation of date and time, one of: `best_effort`, `basic`, `best_effort_us`. Default value: `basic`. Cloud default value: `best_effort`.
+    - `date_time_output_format` (String). Allows choosing different output formats of the text representation of date and time, one of: `simple`, `iso`, `unix_timestamp`. Default value: `simple`.
+    - `deduplicate_blocks_in_dependent_materialized_views` (Bool). Enables or disables the deduplication check for materialized views that receive data from Replicated* tables.
+    - `distinct_overflow_mode` (String). Sets behaviour on overflow when using DISTINCT.
+    - `distributed_aggregation_memory_efficient` (Bool). Enables of disables memory saving mode when doing distributed aggregation.
+    - `distributed_ddl_output_mode` (String). Determines the format of distributed DDL query result.
+    - `distributed_ddl_task_timeout` (Number). Timeout for DDL queries, in milliseconds.
+    - `distributed_product_mode` (String). Determine the behavior of distributed subqueries.
+    - `do_not_merge_across_partitions_select_final` (Bool). Enable or disable independent processing of partitions for **SELECT** queries with **FINAL**.
+    - `empty_result_for_aggregation_by_empty_set` (Bool). Allows to retunr empty result.
+    - `enable_analyzer` (Bool). Enable new query analyzer.
+    - `enable_http_compression` (Bool). Enables or disables data compression in the response to an HTTP request.
+    - `enable_reads_from_query_cache` (Bool). If turned on, results of SELECT queries are retrieved from the query cache.
+    - `enable_writes_to_query_cache` (Bool). If turned on, results of SELECT queries are stored in the query cache.
+    - `fallback_to_stale_replicas_for_distributed_queries` (Bool). Enables or disables query forcing to a stale replica in case the actual data is unavailable. If enabled, ClickHouse will choose the most up-to-date replica and force the query to use the data in this replica.
+    - `flatten_nested` (Bool). Sets the data format of a nested columns.
+    - `force_index_by_date` (Bool). Disable query execution if the index cannot be used by date.
+    - `force_primary_key` (Bool). Disable query execution if indexing by the primary key is not possible.
+    - `format_avro_schema_registry_url` (String). Avro schema registry URL.
+    - `format_regexp` (String). Regular expression (for Regexp format).
+    - `format_regexp_skip_unmatched` (Bool). Skip lines unmatched by regular expression.
+    - `group_by_overflow_mode` (String). Sets behaviour on overflow while GROUP BY operation.
+    - `group_by_two_level_threshold` (Number). Sets the threshold of the number of keys, after that the two-level aggregation should be used.
+    - `group_by_two_level_threshold_bytes` (Number). Sets the threshold of the number of bytes, after that the two-level aggregation should be used.
+    - `hedged_connection_timeout_ms` (Number). Connection timeout for establishing connection with replica for Hedged requests. Default value: 50 milliseconds.
+    - `http_connection_timeout` (Number). Timeout for HTTP connection in milliseconds.
+    - `http_headers_progress_interval` (Number). Sets minimal interval between notifications about request process in HTTP header X-ClickHouse-Progress.
+    - `http_max_field_name_size` (Number). Maximum length of field name in HTTP header.
+    - `http_max_field_value_size` (Number). Maximum length of field value in HTTP header.
+    - `http_receive_timeout` (Number). Timeout for HTTP connection in milliseconds.
+    - `http_send_timeout` (Number). Timeout for HTTP connection in milliseconds.
+    - `idle_connection_timeout` (Number). Timeout to close idle TCP connections after specified number of seconds. Default value: 3600 seconds.
+    - `ignore_materialized_views_with_dropped_target_table` (Bool). Ignore materialized views with dropped target table during pushing to views.
+    - `input_format_defaults_for_omitted_fields` (Bool). When performing INSERT queries, replace omitted input column values with default values of the respective columns.
+    - `input_format_import_nested_json` (Bool). Enables or disables the insertion of JSON data with nested objects.
+    - `input_format_null_as_default` (Bool). Enables or disables the initialization of NULL fields with default values, if data type of these fields is not nullable.
+    - `input_format_parallel_parsing` (Bool). Enables or disables order-preserving parallel parsing of data formats. Supported only for TSV, TKSV, CSV and JSONEachRow formats.
+    - `input_format_values_interpret_expressions` (Bool). Enables or disables the full SQL parser if the fast stream parser can’t parse the data.
+    - `input_format_with_names_use_header` (Bool). Enables or disables checking the column order when inserting data.
+    - `insert_keeper_max_retries` (Number). The setting sets the maximum number of retries for ClickHouse Keeper (or ZooKeeper) requests during insert into replicated MergeTree. Only Keeper requests which failed due to network error, Keeper session timeout, or request timeout are considered for retries.
+    - `insert_null_as_default` (Bool). Enables the insertion of default values instead of NULL into columns with not nullable data type. Default value: true.
+    - `insert_quorum` (Number). Enables the quorum writes.
+    - `insert_quorum_parallel` (Bool). Enables or disables parallelism for quorum INSERT queries.
+    - `insert_quorum_timeout` (Number). Quorum write timeout in milliseconds.
+    - `join_algorithm` (Set Of String). Specifies which JOIN algorithm to use.
+    - `join_overflow_mode` (String). Sets behaviour on overflow in JOIN.
+    - `join_use_nulls` (Bool). Sets the type of JOIN behaviour. When merging tables, empty cells may appear. ClickHouse fills them differently based on this setting.
+    - `joined_subquery_requires_alias` (Bool). Require aliases for subselects and table functions in FROM that more than one table is present.
+    - `load_balancing` (String). Specifies the algorithm of replicas selection that is used for distributed query processing, one of: random, nearest_hostname, in_order, first_or_random, round_robin. Default value: random.
+    - `local_filesystem_read_method` (String). Method of reading data from local filesystem. Possible values: 
+* 'read' - abort query execution, return an error.  
+* 'pread' - abort query execution, return an error.  
+* 'pread_threadpool' - stop query execution, return partial result. 
+If the parameter is set to 0 (default), no hops is allowed.
+    - `log_processors_profiles` (Bool). Enabled or disable logging of processors level profiling data to the the system.processors_profile_log table.
+    - `log_queries_probability` (Number). Log queries with the specified probability.
+    - `log_query_threads` (Bool). Setting up query threads logging. Query threads log into the system.query_thread_log table. This setting has effect only when log_queries is true. Queries’ threads run by ClickHouse with this setup are logged according to the rules in the query_thread_log server configuration parameter. Default value: true.
+    - `log_query_views` (Bool). Enables or disables query views logging to the the system.query_views_log table.
+    - `low_cardinality_allow_in_native_format` (Bool). Allows or restricts using the LowCardinality data type with the Native format.
+    - `max_ast_depth` (Number). Limits the maximum depth of query syntax tree.
+    - `max_ast_elements` (Number). Limits the maximum size of query syntax tree in number of nodes.
+    - `max_block_size` (Number). A recommendation for what size of the block (in a count of rows) to load from tables.
+    - `max_bytes_before_external_group_by` (Number). Limit in bytes for using memoru for GROUP BY before using swap on disk.
+    - `max_bytes_before_external_sort` (Number). This setting is equivalent of the max_bytes_before_external_group_by setting, except for it is for sort operation (ORDER BY), not aggregation.
+    - `max_bytes_in_distinct` (Number). Limits the maximum size of a hash table in bytes (uncompressed data) when using DISTINCT.
+    - `max_bytes_in_join` (Number). Limit on maximum size of the hash table for JOIN, in bytes.
+    - `max_bytes_in_set` (Number). Limit on the number of bytes in the set resulting from the execution of the IN section.
+    - `max_bytes_to_read` (Number). Limits the maximum number of bytes (uncompressed data) that can be read from a table when running a query.
+    - `max_bytes_to_sort` (Number). Limits the maximum number of bytes (uncompressed data) that can be read from a table for sorting.
+    - `max_bytes_to_transfer` (Number). Limits the maximum number of bytes (uncompressed data) that can be passed to a remote server or saved in a temporary table when using GLOBAL IN.
+    - `max_columns_to_read` (Number). Limits the maximum number of columns that can be read from a table in a single query.
+    - `max_concurrent_queries_for_user` (Number). The maximum number of concurrent requests per user. Default value: 0 (no limit).
+    - `max_execution_time` (Number). Limits the maximum query execution time in milliseconds.
+    - `max_expanded_ast_elements` (Number). Limits the maximum size of query syntax tree in number of nodes after expansion of aliases and the asterisk values.
+    - `max_final_threads` (Number). Sets the maximum number of parallel threads for the SELECT query data read phase with the FINAL modifier.
+    - `max_http_get_redirects` (Number). Limits the maximum number of HTTP GET redirect hops for URL-engine tables.
+    - `max_insert_block_size` (Number). The size of blocks (in a count of rows) to form for insertion into a table.
+    - `max_insert_threads` (Number). The maximum number of threads to execute the INSERT SELECT query. Default value: 0.
+    - `max_memory_usage` (Number). Maximum memory usage for processing all concurrently running queries for the user. Zero means unlimited.
+    - `max_memory_usage_for_user` (Number). Maximum memory usage for processing all concurrently running queries for the user. Zero means unlimited.
+    - `max_network_bandwidth` (Number). Limits the speed of the data exchange over the network in bytes per second.  This setting applies to every query.
+    - `max_network_bandwidth_for_user` (Number). Limits the speed of the data exchange over the network in bytes per second. This setting applies to all concurrently running queries performed by a single user.
+    - `max_parser_depth` (Number). Limits maximum recursion depth in the recursive descent parser. Allows controlling the stack size.
+    - `max_partitions_per_insert_block` (Number). Limits the maximum number of partitions in a single inserted block.
+    - `max_query_size` (Number). The maximum part of a query that can be taken to RAM for parsing with the SQL parser.
+    - `max_read_buffer_size` (Number). The maximum size of the buffer to read from the filesystem.
+    - `max_replica_delay_for_distributed_queries` (Number). Max replica delay in milliseconds. If a replica lags more than the set value,this replica is not used and becomes a stale one.
+    - `max_result_bytes` (Number). Limits the number of bytes in the result.
+    - `max_result_rows` (Number). Limits the number of rows in the result.
+    - `max_rows_in_distinct` (Number). Limits the maximum number of different rows when using DISTINCT.
+    - `max_rows_in_join` (Number). Limit on maximum size of the hash table for JOIN, in rows.
+    - `max_rows_in_set` (Number). Limit on the number of rows in the set resulting from the execution of the IN section.
+    - `max_rows_to_group_by` (Number). Limits the maximum number of unique keys received from aggregation function.
+    - `max_rows_to_read` (Number). Limits the maximum number of rows that can be read from a table when running a query.
+    - `max_rows_to_sort` (Number). Limits the maximum number of rows that can be read from a table for sorting.
+    - `max_rows_to_transfer` (Number). Limits the maximum number of rows that can be passed to a remote server or saved in a temporary table when using GLOBAL IN.
+    - `max_temporary_columns` (Number). Limits the maximum number of temporary columns that must be kept in RAM at the same time when running a query, including constant columns.
+    - `max_temporary_data_on_disk_size_for_query` (Number). The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. Zero means unlimited.
+    - `max_temporary_data_on_disk_size_for_user` (Number). The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running user queries. Zero means unlimited.
+    - `max_temporary_non_const_columns` (Number). Limits the maximum number of temporary columns that must be kept in RAM at the same time when running a query, excluding constant columns.
+    - `max_threads` (Number). The maximum number of query processing threads, excluding threads for retrieving data from remote servers.
+    - `memory_overcommit_ratio_denominator` (Number). It represents soft memory limit in case when hard limit is reached on user level. This value is used to compute overcommit ratio for the query. Zero means skip the query.
+    - `memory_overcommit_ratio_denominator_for_user` (Number). It represents soft memory limit in case when hard limit is reached on global level. This value is used to compute overcommit ratio for the query. Zero means skip the query.
+    - `memory_profiler_sample_probability` (Number). Collect random allocations and deallocations and write them into system.trace_log with 'MemorySample' trace_type. The probability is for every alloc/free regardless to the size of the allocation. Possible values: from 0 to 1. Default: 0.
+    - `memory_profiler_step` (Number). Memory profiler step (in bytes). If the next query step requires more memory than this parameter specifies, the memory profiler collects the allocating stack trace. Values lower than a few megabytes slow down query processing. Default value: 4194304 (4 MB). Zero means disabled memory profiler.
+    - `memory_usage_overcommit_max_wait_microseconds` (Number). Maximum time thread will wait for memory to be freed in the case of memory overcommit on a user level. If the timeout is reached and memory is not freed, an exception is thrown.
+    - `merge_tree_max_bytes_to_use_cache` (Number). If ClickHouse should read more than merge_tree_max_bytes_to_use_cache bytes in one query, it doesn’t use the cache of uncompressed blocks.
+    - `merge_tree_max_rows_to_use_cache` (Number). If ClickHouse should read more than merge_tree_max_rows_to_use_cache rows in one query, it doesn’t use the cache of uncompressed blocks.
+    - `merge_tree_min_bytes_for_concurrent_read` (Number). If the number of bytes to read from one file of a MergeTree-engine table exceeds merge_tree_min_bytes_for_concurrent_read, then ClickHouse tries to concurrently read from this file in several threads.
+    - `merge_tree_min_rows_for_concurrent_read` (Number). If the number of rows to be read from a file of a MergeTree table exceeds merge_tree_min_rows_for_concurrent_read then ClickHouse tries to perform a concurrent reading from this file on several threads.
+    - `min_bytes_to_use_direct_io` (Number). The minimum data volume required for using direct I/O access to the storage disk.
+    - `min_count_to_compile_expression` (Number). Minimum count of executing same expression before it is get compiled.
+    - `min_execution_speed` (Number). Minimal execution speed in rows per second.
+    - `min_execution_speed_bytes` (Number). Minimal execution speed in bytes per second.
+    - `min_insert_block_size_bytes` (Number). Sets the minimum number of bytes in the block which can be inserted into a table by an INSERT query.
+    - `min_insert_block_size_rows` (Number). Sets the minimum number of rows in the block which can be inserted into a table by an INSERT query.
+    - `output_format_json_quote_64bit_integers` (Bool). If the value is true, integers appear in quotes when using JSON* Int64 and UInt64 formats (for compatibility with most JavaScript implementations); otherwise, integers are output without the quotes.
+    - `output_format_json_quote_denormals` (Bool). Enables +nan, -nan, +inf, -inf outputs in JSON output format.
+    - `prefer_localhost_replica` (Bool). Enables/disables preferable using the localhost replica when processing distributed queries. Default value: true.
+    - `priority` (Number). Priority of the query.
+    - `query_cache_max_entries` (Number). The maximum number of query results the current user may store in the query cache. 0 means unlimited.
+    - `query_cache_max_size_in_bytes` (Number). The maximum amount of memory (in bytes) the current user may allocate in the query cache. 0 means unlimited.
+    - `query_cache_min_query_duration` (Number). Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
+    - `query_cache_min_query_runs` (Number). Minimum number of times a SELECT query must run before its result is stored in the query cache.
+    - `query_cache_nondeterministic_function_handling` (String). Controls how the query cache handles **SELECT** queries with non-deterministic functions like rand() or now().
+    - `query_cache_share_between_users` (Bool). If turned on, the result of SELECT queries cached in the query cache can be read by other users. It is not recommended to enable this setting due to security reasons.
+    - `query_cache_system_table_handling` (String). Controls how the query cache handles **SELECT** queries against system tables.
+    - `query_cache_tag` (String). A string which acts as a label for query cache entries. The same queries with different tags are considered different by the query cache.
+    - `query_cache_ttl` (Number). After this time in seconds entries in the query cache become stale.
+    - `quota_mode` (String). Quota accounting mode.
+    - `read_overflow_mode` (String). Sets behaviour on overflow while read. Possible values: * throw - abort query execution, return an error.  * break - stop query execution, return partial result.
+    - `readonly` (Number). Restricts permissions for non-DDL queries.
+    - `receive_timeout` (Number). Receive timeout in milliseconds.
+    - `remote_filesystem_read_method` (String). Method of reading data from remote filesystem, one of: `read`, `threadpool`.
+    - `replication_alter_partitions_sync` (Number). Wait mode for asynchronous actions in ALTER queries on replicated tables.
+    - `result_overflow_mode` (String). Sets behaviour on overflow in result.
+    - `s3_use_adaptive_timeouts` (Bool). Enables or disables adaptive timeouts for S3 requests.
+    - `select_sequential_consistency` (Bool). Determines the behavior of SELECT queries from replicated tables. If enabled, ClickHouse will terminate a query with error message in case the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum.
+    - `send_progress_in_http_headers` (Bool). Enables or disables X-ClickHouse-Progress HTTP response headers in clickhouse-server responses.
+    - `send_timeout` (Number). Send timeout in milliseconds.
+    - `set_overflow_mode` (String). Sets behaviour on overflow in the set resulting.
+    - `skip_unavailable_shards` (Bool). Enables or disables silent skipping of unavailable shards
+    - `sort_overflow_mode` (String). Sets behaviour on overflow while sort.
+    - `timeout_before_checking_execution_speed` (Number). Timeout (in seconds) between checks of execution speed. It is checked that execution speed is not less that specified in min_execution_speed parameter. Must be at least 1000.
+    - `timeout_overflow_mode` (String). Sets behaviour on overflow.
+    - `transfer_overflow_mode` (String). Sets behaviour on overflow.
+    - `transform_null_in` (Bool). Enables equality of NULL values for IN operator.
+    - `use_hedged_requests` (Bool). Enables hedged requests logic for remote queries. It allows to establish many connections with different replicas for query. New connection is enabled in case existent connection(s) with replica(s) were not established within hedged_connection_timeout or no data was received within receive_data_timeout. Query uses the first connection which send non empty progress packet (or data packet, if allow_changing_replica_until_first_data_packet); other connections are cancelled. Queries with max_parallel_replicas > 1 are supported. Default value: true.
+    - `use_query_cache` (Bool). If turned on, SELECT queries may utilize the query cache.
+    - `use_uncompressed_cache` (Bool). Whether to use a cache of uncompressed blocks.
+    - `wait_for_async_insert` (Bool). Enables waiting for processing of asynchronous insertion. If enabled, server returns OK only after the data is inserted.
+    - `wait_for_async_insert_timeout` (Number). The timeout (in seconds) for waiting for processing of asynchronous insertion. Value must be at least 1000 (1 second).
   - `disk_size_autoscaling` [Block]. Cluster disk size autoscaling settings.
     - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](https://yandex.cloud/en/docs/managed-postgresql/concepts/storage#auto-rescale) for details.
     - `emergency_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
@@ -643,15 +822,20 @@ resource "yandex_vpc_subnet" "baz" {
       - `null_value` (String). Default value for null.
       - `type` (**Required**)(String). Attribute type.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
+- `full_version` (*Read-Only*) (String). Full version of the ClickHouse server software.
 - `hosts` [Block]. A host configuration of the ClickHouse cluster.
   - `assign_public_ip` (Bool). Whether the host should get a public IP address.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
   - `shard_name` (String). The name of the shard to which the host belongs.
   - `subnet_id` (String). ID of the subnet where the host is located.
-  - `type` (**Required**)(String). The type of the host to be deployed. Can be either `CLICKHOUSE` or `ZOOKEEPER`.
+  - `type` (**Required**)(String). The type of the host to be deployed. Can be `CLICKHOUSE`, `ZOOKEEPER`, or `KEEPER`.
   - `zone` (**Required**)(String). The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
+- `monitoring` [Block]. Description of monitoring systems relevant to the ClickHouse cluster.
+  - `description` (*Read-Only*) (String). Description of the monitoring system.
+  - `link` (*Read-Only*) (String). Link to the monitoring system charts for the ClickHouse cluster.
+  - `name` (*Read-Only*) (String). Name of the monitoring system.
 - `name` (**Required**)(String). Name of the ClickHouse cluster. Provided by the client when the cluster is created.
 - `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
 - `performance_diagnostics` [Block]. Performance diagnostics configuration
@@ -673,8 +857,8 @@ resource "yandex_vpc_subnet" "baz" {
     - `disk_type_id` (String). Type of the storage of hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
     - `resource_preset_id` (String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts).
   - `weight` (Number). The weight of shard.
-- `sql_database_management` (Bool). Grants `admin` user database management permission.
-- `sql_user_management` (Bool). Enables `admin` user with user management permission.
+- `sql_database_management` (Bool). Grants `admin` user database management permission. Can be enabled in-place, disabling requires the cluster to be recreated.
+- `sql_user_management` (Bool). Enables `admin` user with user management permission. Can be enabled in-place, disabling requires the cluster to be recreated.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -707,7 +891,17 @@ resource "yandex_vpc_subnet" "baz" {
 - `shard_group` [Block]. A group of clickhouse shards.
   - `description` (String). Description of the shard group.
   - `name` (**Required**)(String). The name of the shard group, used as cluster name in Distributed tables.
-  - `shard_names` (**Required**)(List Of String). List of shards names that belong to the shard group.
+  - `shard_names` (List Of String). List of shards names that belong to the shard group. At least one of shard_names or external_shard must be specified.
+  - `external_shard` [Block]. List of external shards in the shard group. At least one of shard_names or external_shard must be specified.
+    - `name` (**Required**)(String). Name of the external shard.
+    - `weight` (Number). Relative weight of the external shard considered when writing data.
+    - `replica` [Block]. List of replicas in the external shard.
+      - `host` (**Required**)(String). Name (FQDN) or IP address of the external replica host.
+      - `password` (String). Password of the user to authenticate with on the external replica.
+      - `port` (Number). Port to connect to the external replica. Defaults to the ClickHouse native port (9000).
+      - `priority` (Number). Priority of the external replica for load balancing. Lower value is preferred.
+      - `secure` (Bool). Whether to use a secure (SSL/TLS) connection.
+      - `user` (String). Name of the user to authenticate with on the external replica.
 
 ## Import
 

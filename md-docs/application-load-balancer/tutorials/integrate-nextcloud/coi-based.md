@@ -44,8 +44,8 @@
    - Консоль управления {#console}
    
      1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-     1. Перейдите в сервис **Virtual Private Cloud**.
-     1. В правом верхнем углу нажмите **Создать сеть**.
+     1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
+     1. Нажмите кнопку **Создать сеть**.
      1. В поле **Имя** укажите имя сети `nextcloud-network`.
      1. Убедитесь, что опция **Создать подсети** включена, и нажмите **Создать сеть**.
    
@@ -57,7 +57,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Virtual Private Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
       1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **Группы безопасности**. 
       1. Нажмите **Создать группу безопасности**.
       1. В поле **Имя** укажите имя `nextcloud-sg`.
@@ -85,7 +85,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Identity and Access Management**.
+      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
       1. Нажмите кнопку **Создать сервисный аккаунт**.
       1. Укажите имя сервисного аккаунта — `nextcloud-sa`.
       1. Нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../../iam/roles-reference.md#editor) `editor`.
@@ -100,7 +100,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Identity and Access Management**.
+      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
       1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты** и выберите созданный ранее сервисный аккаунт `nextcloud-sa`.
       1. На панели сверху нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать статический ключ доступа**.
       1. Нажмите кнопку **Создать**.
@@ -123,7 +123,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Справа сверху нажмите **Создать бакет**.
   1. В поле **Имя** укажите имя бакета. Например: `my-nextcloud-bucket`. Имя бакета должно быть [уникальным](../../../storage/concepts/bucket.md#naming) в пределах Yandex Object Storage.
   1. В поле **Макс. размер** задайте нужный размер бакета или включите опцию **Без ограничения**.
@@ -140,7 +140,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** перейдите на вкладку **Container Solution** и нажмите кнопку **Настроить**. В открывшемся окне:
 
@@ -200,7 +200,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Cloud DNS**.
+  1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
   1. Выберите нужную зону DNS, нажмите кнопку **Создать запись** и в открывшемся окне:
 
       {% note info %}

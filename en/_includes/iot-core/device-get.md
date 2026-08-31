@@ -3,7 +3,7 @@
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the device is located.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry where the device is located.
    1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
    1. Select the device.
@@ -14,6 +14,7 @@
   {% include [cli-install](../cli-install.md) %}
   
   {% include [default-catalogue](../default-catalogue.md) %}
+
   1. View the description of the CLI command to get information about a device:
 	
       ```bash
@@ -42,6 +43,7 @@
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To get detailed information about a device using {{ TF }}:
+
   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
      ```hcl
@@ -55,9 +57,12 @@
      ```
 
      Where:
+
      * `data "yandex_iot_core_device"`: Description of the device as a data source:
+
        * `device_id`: Device ID.
      * `output "device_params"`: Output variable containing information about the registry the device belongs to:
+     
        * `value`: Return value.
 
      You can replace `registry_id` with another variable to get the information you need. For more on the properties of the `yandex_iot_core_device` data source, see [this provider guide]({{ tf-provider-datasources-link }}/iot_core_device).

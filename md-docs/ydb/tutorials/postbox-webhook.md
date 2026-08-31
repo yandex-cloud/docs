@@ -56,7 +56,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-      1. Перейдите в сервис **Identity and Access Management** и нажмите кнопку **Создать сервисный аккаунт**.
+      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management** и нажмите кнопку **Создать сервисный аккаунт**.
       1. В поле **Имя** укажите имя `yds-functions`.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роли](../../iam/concepts/access-control/roles.md) `yds.editor` и `functions.functionInvoker`.
       1. Нажмите кнопку **Создать**.
@@ -75,7 +75,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Identity and Access Management** и в списке сервисных аккаунтов выберите `postbox-user`. В открывшемся окне:
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management** и в списке сервисных аккаунтов выберите `postbox-user`. В открывшемся окне:
 
       1. На панели сверху нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать статический ключ доступа**.
       1. Нажмите кнопку **Создать**.
@@ -99,7 +99,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Managed Service for&nbsp;YDB** и нажмите кнопку **Создать базу данных**.
+  1. [Перейдите](https://console.yandex.cloud/link/ydb) в сервис **Managed Service for&nbsp;YDB** и нажмите кнопку **Создать базу данных**.
   1. В поле **Имя** укажите `postbox-events-ydb`.
   1. В поле **Тип базы данных** выберите `Serverless`.
   1. Другие параметры базы данных оставьте без изменений и нажмите кнопку **Создать базу данных**.
@@ -118,7 +118,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Data Streams** и нажмите кнопку **Создать поток**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-streams) в сервис **Data Streams** и нажмите кнопку **Создать поток**.
   1. В поле **База данных** выберите созданную ранее базу данных `postbox-events-ydb`.
   1. В поле **Имя** укажите имя потока данных `postbox-events-stream`.
   1. В поле **Режим тарификации** выберите `По фактическому использованию`.
@@ -131,7 +131,7 @@
 
 ## Подготовьте ресурсы Yandex Cloud Postbox {#postbox}
 
-В сервисе Yandex Cloud Postbox настройте [конфигурацию](../../postbox/concepts/glossary.md#subscription) для регистрации событий в Data Streams, создайте [адрес](../../postbox/concepts/glossary.md#adress) для отправки писем и [пройдите](../../postbox/operations/check-domain.md) проверку прав на домен.
+В сервисе Yandex Cloud Postbox настройте [конфигурацию](../../postbox/concepts/glossary.md#subscription) для регистрации событий в Data Streams, создайте [адрес](../../postbox/concepts/glossary.md#address) для отправки писем и [пройдите](../../postbox/operations/check-domain.md) проверку прав на домен.
 
 
 ### Создайте конфигурацию Yandex Cloud Postbox {#config}
@@ -141,7 +141,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Cloud Postbox**.
+  1. [Перейдите](https://console.yandex.cloud/link/postbox) в сервис **Cloud Postbox**.
   1. На панели слева выберите ![image](../../_assets/console-icons/list-ul.svg) **Конфигурации** и нажмите кнопку **Создать конфигурацию**.
   1. В поле **Имя** укажите имя конфигурации `postbox-events-config`.
   1. В блоке **Подписки** нажмите кнопку **Добавить** и в появившейся форме:
@@ -176,7 +176,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Cloud Postbox**.
+      1. [Перейдите](https://console.yandex.cloud/link/postbox) в сервис **Cloud Postbox**.
       1. На панели слева выберите ![at](../../_assets/console-icons/at.svg) **Адреса** и нажмите кнопку **Создать адрес**.
       1. В поле **Домен** укажите домен, с которого вы будете отправлять письма. Домен может быть любого уровня и должен принадлежать вам.
       1. В поле **Селектор** укажите селектор, например `postbox`. Указанный селектор должен использоваться только в одной ресурсной записи — той, которую необходимо создать при прохождении [проверки прав на домен](#domain).
@@ -198,6 +198,12 @@
 - Простая настройка {#easy}
 
     При простой настройке Yandex Cloud Postbox самостоятельно генерирует ключи DKIM. На странице адреса в блоке **Настройка подписи писем (DKIM)** отображаются две CNAME-записи, которые нужно добавить в DNS-провайдер.
+
+    {% note info %}
+
+    Обе CNAME-записи нужны для автоматической ротации ключей DKIM. Их необходимо добавить в DNS-провайдер и нельзя удалять после прохождения проверки владения доменом. При этом TXT-записи с публичными ключами доступны по обеим CNAME-записям одновременно только в момент ротации ключей, а в остальное время — по одной из них. Подробнее в разделе [Ротация ключей DKIM](../../postbox/concepts/dns-records.md#key-rotation).
+
+    {% endnote %}
 
     **Пример создания ресурсных записей в Yandex Cloud DNS**
 
@@ -283,7 +289,7 @@
 - Python {#python}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Создайте функцию:
 
       1. Нажмите кнопку **Создать функцию**.
@@ -331,7 +337,7 @@
 - JavaScript {#node}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Создайте функцию:
 
       1. Нажмите кнопку **Создать функцию**.
@@ -383,7 +389,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры** и нажмите кнопку **Создать триггер**.
   1. В поле **Имя** введите имя триггера `postbox-events-trigger`.
   1. В поле **Тип** выберите `Data Streams`.
@@ -408,7 +414,7 @@
         - Консоль управления {#console}
 
             1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-            1. Перейдите в сервис **Data Streams**.
+            1. [Перейдите](https://console.yandex.cloud/link/data-streams) в сервис **Data Streams**.
             1. Выберите поток данных `postbox-events-stream`.
             1. Перейдите на вкладку ![text-align-justify](../../_assets/console-icons/text-align-justify.svg) **Просмотр данных**.
             

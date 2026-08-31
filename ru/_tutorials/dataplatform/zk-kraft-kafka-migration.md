@@ -1,6 +1,5 @@
 # Обновление кластера {{ mkf-name }} с {{ ZK }} на кластер с поддержкой {{ kraft-short-name }}
 
-
 Многохостовые кластеры {{ mkf-name }} версии 3.5 и ниже используют {{ ZK }} для управления метаданными. С версией {{ KF }} 4.0 поддержка {{ ZK }} [прекратится](../../managed-kafka/concepts/update-policy.md#version-schedule). Для кластеров с хостами {{ ZK }} поддерживается переход на протокол {{ kraft-short-name }}. Начиная с версии 3.6 {{ KF }} использует [{{ kraft-short-name }}](../../managed-kafka/concepts/kraft.md) как основной протокол синхронизации метаданных.
 
 Чтобы перейти на протокол {{ kraft-short-name }} в кластере с {{ ZK }}:
@@ -13,22 +12,20 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ mkf-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ kraft-short-name }}), и дискового пространства ([тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
-* Плата за использование публичных IP-адресов для хостов кластеров ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Кластер {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Обновите версию кластера {#update-version}
 
-Обновите версию {{ KF }} вашего кластера с {{ ZK }} до версии `3.9` поэтапно, без пропуска версий. Обновление выполняется в такой последовательности: 3.5 → 3.6 → 3.7 → 3.8 → 3.9. Если версия кластера ниже `3.5`, вначале [обновите кластер](../../managed-kafka/operations/cluster-version-update.md) до этой версии.
+Обновите версию {{ KF }} вашего кластера с {{ ZK }} до версии `3.9` поэтапно, без пропуска версий. Обновление выполняется в такой последовательности: `3.5` → `3.6` → `3.7` → `3.8` → `3.9`. Если версия кластера ниже `3.5`, вначале [обновите кластер](../../managed-kafka/operations/cluster-version-update.md) до этой версии.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Перейдите]({{ link-console-main }}/link/managed-kafka) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. В строке с вашим кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите версию 3.6.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -162,7 +159,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Перейдите]({{ link-console-main }}/link/managed-kafka) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Нажмите на имя нужного кластера.
     1. В верхней части экрана нажмите кнопку **Мигрировать**.
     1. Выберите [платформу](../../compute/concepts/vm-platforms.md), тип хостов и класс хостов для контроллеров {{ kraft-short-name }}.

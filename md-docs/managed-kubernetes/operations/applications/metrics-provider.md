@@ -10,7 +10,9 @@ Metrics Provider транслирует метрики объектов [кла�
 
 1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+   
+   Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролью](../../../iam/concepts/access-control/roles.md) `monitoring.viewer`.
 1. [Создайте авторизованный ключ доступа](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `sa-key.json`:
@@ -33,7 +35,8 @@ Metrics Provider транслирует метрики объектов [кла�
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-1. Нажмите на имя нужного кластера Managed Service for Kubernetes и выберите вкладку **Marketplace**.
+1. Выберите [кластер Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster).
+1. Нажмите на вкладку **Другое** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [Metrics Provider](https://yandex.cloud/ru/marketplace/products/yc/metric-provider) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `metrics-provider-space`). Если вы оставите пространство имен по умолчанию, Metrics Provider может работать некорректно.
@@ -68,7 +71,7 @@ Metrics Provider транслирует метрики объектов [кла�
    ```bash
    cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/metric-provider/charts/metric-provider \
-     --version 0.1.14 \
+     --version 0.1.14-2 \
      --untar
    ```
 

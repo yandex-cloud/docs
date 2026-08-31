@@ -241,7 +241,7 @@ resource "yandex_vpc_subnet" "foo" {
 - `config` [Block]. Configuration of the PostgreSQL cluster.
   - `backup_retain_period_days` (Number). The period in days during which backups are stored.
   - `postgresql_config` (Map Of String). PostgreSQL cluster configuration. For detailed information specific to your PostgreSQL version, please refer to the [API proto specifications](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/mdb/postgresql/v1/config).
-  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18, 18-1c).
+  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 15, 15-1c, 16, 16-1c, 17, 17-1c, 18, 18-1c).
   - `access` [Block]. Access policy to the PostgreSQL cluster.
     - `data_lens` (Bool). Allow access for [Yandex DataLens](https://yandex.cloud/services/datalens).
     - `data_transfer` (Bool). Allow access for [DataTransfer](https://yandex.cloud/services/data-transfer).
@@ -259,7 +259,10 @@ resource "yandex_vpc_subnet" "foo" {
     - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](https://yandex.cloud/en/docs/managed-postgresql/concepts/storage#auto-rescale) for details.
     - `emergency_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
     - `planned_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+  - `managed_repack` [Block]. Managed pg_repack settings.
+    - `enabled` (Bool). Enable managed pg_repack for the cluster.
   - `performance_diagnostics` [Block]. Cluster performance diagnostics settings. [YC Documentation](https://yandex.cloud/docs/managed-postgresql/api-ref/grpc/cluster_service#PerformanceDiagnostics).
+    - `advanced_mode` (Bool). Switch performance diagnostics from standard to advanced mode.
     - `enabled` (Bool). Enable performance diagnostics.
     - `sessions_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_activity sampling. Acceptable values are 1 to 86400, inclusive.
     - `statements_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_statements sampling. Acceptable values are 1 to 86400, inclusive.
@@ -284,7 +287,7 @@ resource "yandex_vpc_subnet" "foo" {
   - `lc_collate` (String). POSIX locale for string sorting order. Forbidden to change in an existing database.
   - `lc_type` (String). POSIX locale for character classification. Forbidden to change in an existing database.
   - `name` (**Required**)(String). The resource name.
-  - `owner` (**Required**)(String). Name of the user assigned as the owner of the database. Forbidden to change in an existing database.
+  - `owner` (**Required**)(String). Name of the user assigned as the owner of the database. Changing this value transfers ownership of the database to another user.
   - `template_db` (String). Name of the template database.
   - `extension` [Block]. Set of database extensions.
     - `name` (**Required**)(String). Name of the database extension. For more information on available extensions see [the official documentation](https://yandex.cloud/docs/managed-postgresql/operations/cluster-extensions).

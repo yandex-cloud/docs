@@ -298,18 +298,6 @@
 
  - [Устранение неверного значения поля `Итого` в сводной таблице](datalens/known-issues/incorrect-value-in-field-total.md)
 
-## Yandex Data Processing
-
- - [Все решения для Yandex Data Processing](data-processing/index.md)
-
- - [Решения для известных проблем Yandex Data Processing](data-processing/known-issues/index.md)
-
- - [Кластер Yandex Data Processing находится в состоянии `UNKNOWN` сразу после создания](data-processing/known-issues/hosts-of-data-processing-cluster-are-in-status-unknown-after-creation.md)
-
- - [Нет логов в YARN Resource Manager Web UI после выполнения заданий](data-processing/known-issues/yarn-resource-manager-does-not-display-logs.md)
-
- - [Примеры конфигураций и сценариев Yandex Data Processing](data-processing/how-to/index.md)
-
 ## DataSphere
 
  - [Все решения для DataSphere](datasphere/index.md)
@@ -598,7 +586,7 @@
 
  - [Как узнать скорость загрузки и скачивания данных](storage/how-to/upload-download-speed.md)
 
- - [Как настроить заголовки кэширования `Cache-Control` для объектов в бакете при HTTP-запросах](storage/how-to/configure-cache-headings-with-http-queries.md)
+ - [Как настроить заголовки кеширования `Cache-Control` для объектов в бакете при HTTP-запросах](storage/how-to/configure-cache-headings-with-http-queries.md)
 
  - [Как ограничить доступ к бакету для пользователя](storage/how-to/restrict-bucket-access.md)
 
@@ -634,7 +622,7 @@
 
  - [Устранение ошибки `psql error could not translate host name to address nodename nor servname provided, or not known`](managed-postgresql/known-issues/error-could-not-translate-host-name-to-address-nodename-nor-servname-provided-or-not-known.md)
 
- - [Устранение ошибки `max_connections сonn_limit is too high`](managed-postgresql/known-issues/conn-limit-is-too-high.md)
+ - [Устранение ошибки `max_connections conn_limit is too high`](managed-postgresql/known-issues/conn-limit-is-too-high.md)
 
  - [Устранение ошибки `Must be superuser to create this extension`](managed-postgresql/known-issues/must-be-superuser-to-create-this-extension.md)
 
@@ -661,26 +649,6 @@
  - [Графики мониторинга имеют разрывы и пустоты при нормальной работе облачных ресурсов](monitoring/known-issues/gaps-in-chart-lines.md)
 
  - [Примеры конфигураций и сценариев Monitoring](monitoring/how-to/index.md)
-
-## Serverless Containers
-
- - [Все решения для Serverless Containers](serverless-containers/index.md)
-
- - [Решения для известных проблем Serverless Containers](serverless-containers/known-issues/index.md)
-
- - [Устранение ошибки `Code 502 Message Error during function invocation`](serverless-containers/known-issues/serverless-container-invoking-error-502.md)
-
- - [Устранение ошибки `Service account is not available`](serverless-containers/known-issues/service-account-is-not-available.md)
-
- - [Устранение ошибки `user container exec format error`](serverless-containers/known-issues/exec-format-error.md)
-
- - [Устранение ошибки `No space left on device`](serverless-containers/known-issues/no-space-left-on-device.md)
-
- - [Устранение ошибки 403 `Permission denied`](serverless-containers/known-issues/permission-denied.md)
-
- - [Примеры конфигураций и сценариев Serverless Containers](serverless-containers/how-to/index.md)
-
- - [Как настроить статический IP-адрес](serverless-containers/how-to/static-ip-address.md)
 
 ## SmartCaptcha
 
@@ -742,7 +710,7 @@
 
  - [Как включить Egress NAT](vpc/how-to/activate-egress-nat.md)
 
- - [Как осуществить маршутизацию трафика между двумя облачными сетями](vpc/how-to/routing-traffic-between-two-vpcs.md)
+ - [Как осуществить маршрутизацию трафика между двумя облачными сетями](vpc/how-to/routing-traffic-between-two-vpcs.md)
 
  - [Как использовать IPv6-адреса](vpc/how-to/using-ipv6.md)
 

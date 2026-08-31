@@ -19,7 +19,7 @@ The system logs all actions with {{ compute-name }} resources as a list of opera
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a VM. The same steps apply to other resources as well.
 
   1. In the [management console]({{ link-console-main }}), open the folder with the VM.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Select the VM.
   1. Go to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.operations_kRLeR }}** panel for the selected VM.

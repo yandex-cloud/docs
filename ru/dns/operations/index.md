@@ -12,6 +12,7 @@ description: Пошаговые инструкции по работе с DNS-з
 - [{#T}](zone-update.md)
 - [{#T}](zone-access.md)
 - [{#T}](zone-move-folder.md)
+- [{#T}](zone-delegate.md)
 - [{#T}](operation-logs.md)
 - [{#T}](zone-delete.md)
 

@@ -44,7 +44,7 @@
     - Консоль управления {#console}
 
        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана облачная сеть.
-       1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+       1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
        1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**
        1. Задайте имя сети: `ya-network`.
        1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -83,7 +83,7 @@
       1. Откройте раздел **{{ vpc-name }}** в каталоге, где требуется создать подсети.
       1. Выберите сеть `ya-network`.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg)**Добавить подсеть**.
-      1. Заполните форму: введите имя подсети `ya-sqlserver-rc1a`, выберите зону доступности `{{ region-id }}-a` из выпадающего списка.
+      1. Заполните форму: введите имя подсети `ya-sqlserver-rc1a`, выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a` из выпадающего списка.
       1. Введите CIDR подсети: IP-адрес и маску подсети: `192.168.1.0/28`.
       1. Нажмите кнопку **Создать подсеть**.
 

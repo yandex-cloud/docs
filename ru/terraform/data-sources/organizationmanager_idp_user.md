@@ -5,7 +5,6 @@ subcategory: Identity Hub
 # yandex_organizationmanager_idp_user (DataSource)
 
 A user in the Identity Provider system.
-
  Users are created within a userpool and can authenticate to access cloud resources.
  Each user has a unique identifier, credentials, and profile information.
 
@@ -30,8 +29,12 @@ output "my_user.full_name" {
 
 ## Arguments & Attributes Reference
 
+- `company_name` (String). User's company name.
 - `created_at` (*Read-Only*) (String). Timestamp when the user was created.
+- `department` (String). User's department.
 - `email` (String). User's email address.
+- `employee_id` (String). User's employee ID
+- `expires_at` (String). Timestamp when the user account expires.
 - `external_id` (String). External identifier for federation with external identity systems.
  This ID can be used to link this user with an account in an external system.
 - `family_name` (String). User's last name.
@@ -41,6 +44,9 @@ output "my_user.full_name" {
 - `given_name` (String). User's first name.
  Part of the user's profile information.
 - `id` (String). ID of the user to return.
+- `job_title` (String). User's job title.
+- `password_created_at` (*Read-Only*) (String). Timestamp when the user's current password was created.
+ For synchronized passwords, this is the time when the password was last set in the source directory.
 - `phone_number` (String). User's phone number.
 - `status` (*Read-Only*) (String). Current status of the user.
  Determines whether the user can authenticate and access the system.

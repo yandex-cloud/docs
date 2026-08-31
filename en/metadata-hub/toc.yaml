@@ -137,6 +137,8 @@ items:
             href: operations/metastore/logging.md
           - name: Managing cluster access
             href: operations/metastore/cluster-access.md
+          - name: Maintenance
+            href: operations/metastore/cluster-maintenance.md
           - name: Deleting a cluster
             href: operations/metastore/cluster-delete.md
       - name: Tutorials
@@ -163,6 +165,8 @@ items:
             href: concepts/metastore.md
           - name: Impersonation in {{ metastore-name }}
             href: concepts/metastore-impersonation.md
+          - name: Maintenance
+            href: concepts/metastore-maintenance.md
       - name: Service roles for access management
         href: security/metastore-roles.md
       - name: Troubleshooting
@@ -279,6 +283,16 @@ items:
                     href: api-ref/grpc/Cluster/setAccessBindings.md
                   - name: UpdateAccessBindings
                     href: api-ref/grpc/Cluster/updateAccessBindings.md
+              - name: Maintenance
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Maintenance/index.md
+                  - name: List
+                    href: api-ref/grpc/Maintenance/list.md
+                  - name: Get
+                    href: api-ref/grpc/Maintenance/get.md
+                  - name: Reschedule
+                    href: api-ref/grpc/Maintenance/reschedule.md
               - name: Operation
                 items:
                   - name: Overview
@@ -321,6 +335,16 @@ items:
                     href: api-ref/Cluster/setAccessBindings.md
                   - name: UpdateAccessBindings
                     href: api-ref/Cluster/updateAccessBindings.md
+              - name: Maintenance
+                items:
+                  - name: Overview
+                    href: api-ref/Maintenance/index.md
+                  - name: List
+                    href: api-ref/Maintenance/list.md
+                  - name: Get
+                    href: api-ref/Maintenance/get.md
+                  - name: Reschedule
+                    href: api-ref/Maintenance/reschedule.md
               - name: Operation
                 items:
                   - name: Overview
@@ -423,8 +447,10 @@ items:
                 href: operations/data-catalog/create-source.md
               - name: Editing a source
                 href: operations/data-catalog/update-source.md
-              - name: Deleting an origin
+              - name: Deleting a source
                 href: operations/data-catalog/delete-source.md
+              - name: Setting up a backend for a source
+                href: operations/data-catalog/settings-backend-source.md
           - name: Ingestions
             items:
               - name: Getting a list of ingestions
@@ -527,6 +553,64 @@ items:
             href: concepts/data-catalog-sources.md
       - name: Service roles for access management
         href: security/data-catalog-roles.md
+      - name: '{{ TF }} reference'
+        href: datacatalog-tf-ref.md
+      - name: API reference
+        items:
+          - name: API authentication
+            href: api-ref/authentication-datacatalog.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: datacatalog/api-ref/grpc/index.md
+              - name: Catalog
+                items:
+                  - name: Overview
+                    href: datacatalog/api-ref/grpc/Catalog/index.md
+                  - name: GetCatalog
+                    href: datacatalog/api-ref/grpc/Catalog/getCatalog.md
+                  - name: ListCatalogs
+                    href: datacatalog/api-ref/grpc/Catalog/listCatalogs.md
+                  - name: CreateCatalog
+                    href: datacatalog/api-ref/grpc/Catalog/createCatalog.md
+                  - name: DeleteCatalog
+                    href: datacatalog/api-ref/grpc/Catalog/deleteCatalog.md
+                  - name: UpdateCatalog
+                    href: datacatalog/api-ref/grpc/Catalog/updateCatalog.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: datacatalog/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: datacatalog/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: datacatalog/api-ref/grpc/Operation/cancel.md
+          - name: REST
+            items:
+              - name: Overview
+                href: datacatalog/api-ref/index.md
+              - name: Catalog
+                items:
+                  - name: Overview
+                    href: datacatalog/api-ref/Catalog/index.md
+                  - name: GetCatalog
+                    href: datacatalog/api-ref/Catalog/getCatalog.md
+                  - name: ListCatalogs
+                    href: datacatalog/api-ref/Catalog/listCatalogs.md
+                  - name: CreateCatalog
+                    href: datacatalog/api-ref/Catalog/createCatalog.md
+                  - name: DeleteCatalog
+                    href: datacatalog/api-ref/Catalog/deleteCatalog.md
+                  - name: UpdateCatalog
+                    href: datacatalog/api-ref/Catalog/updateCatalog.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: datacatalog/api-ref/Operation/index.md
+                  - name: Get
+                    href: datacatalog/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: datacatalog/api-ref/Operation/cancel.md
   - name: Access management
     href: security/index.md
   - name: Quotas and limits

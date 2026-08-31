@@ -13,7 +13,7 @@ Follow these steps to add a chart to a dashboard:
 
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need. If you do not have a dashboard, [create one](create.md).
 1. At the top of the page, click **Edit**.
-1. In the panel at the bottom of the page, click ![image](../../../_assets/console-icons/chart-column.svg) **Chart** and drag it where you want it to be.
+1. In the panel at the bottom of the page, click ![image](../../../_assets/console-icons/chart-column.svg) **Chart** and drag it to the desired location.
 
    ![image](../../../_assets/datalens/operations/widget-select.png =500x118)
 
@@ -38,7 +38,7 @@ Follow these steps to add a chart to a dashboard:
    * **Description**. This option allows adding a description for the widget. The description is displayed at the bottom of the widget. You can use either a visual editor or [Markdown](../../dashboard/markdown.md).
    * **Tooltip**. This option allows adding a tooltip to the widget. With this option on, the ![image](../../../_assets/console-icons/circle-question.svg) icon will appear next to the chart header. Hovering over the icon will bring up the tooltip. You can use either a visual editor or [Markdown](../../dashboard/markdown.md).
    * **Auto height**. It sets the automatic height for a widget of the **Table** type. If it is disabled, you can set the widget height on the page using the mouse.
-   * **Filtering**. It enables cross-chart [filtering](../../dashboard/chart-chart-filtration.md) on the dashboard.
+   * **Filtering**. It enables chart cross-[filtering](../../dashboard/chart-chart-filtration.md) on the dashboard.
 
    
    * **Background**. It sets the widget background color and opacity for the light and dark theme individually.

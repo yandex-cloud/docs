@@ -79,15 +79,9 @@ You pay for the following:
 
   To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
 
-* Database backup storage exceeding the cluster’s allocated space.
+{% include [pricing-backup-general](../../_includes/mdb/pricing-backup-ch-os-gp.md) %} 
 
-  {% include [pricing-backup](../../_includes/mdb/pricing-backup.md) %} 
-
-  * Backup storage is not billable until the total volume of backups exceeds that of the cluster storage. This calculation does not count in the data volume of the database itself.
-
-  * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
-
-  * When performing automatic backups, {{ mgp-name }} does not create a new backup but saves the database changes introduced since the previous one. As a result, the storage used by automatic backups grows only in proportion to the amount of changes.
+For more information, see [Backups in {{ mgp-name }}](../concepts/backup.md).
 
 The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
@@ -159,5 +153,9 @@ For dedicated hosts, there are two cost components: the [{{ compute-full-name }}
 </MDX>
 
 
+
+### Hybrid storage pricing
+
+{% include [usd-yezzey](../../_pricing/managed-greenplum/usd-yezzey.md) %}
 
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}

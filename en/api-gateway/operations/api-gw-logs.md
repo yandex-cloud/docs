@@ -12,7 +12,7 @@ The execution log uses [UTC time](https://en.wikipedia.org/wiki/Coordinated_Univ
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the API gateway.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select the API gateway for which you want to view the execution log.
     1. Go to the **{{ ui-key.yacloud.common.logs }}** tab and specify a time period. The default period is one hour.
 
@@ -21,4 +21,3 @@ The execution log uses [UTC time](https://en.wikipedia.org/wiki/Coordinated_Univ
 Each log event contains the `release` parameter set to `canary` if a request was handled by the canary release, and to `stable` if it was handled by the current release.
 
 Learn more about working with logs in the [{{ cloud-logging-full-name }} documentation](../../logging/).
-

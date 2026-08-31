@@ -1,6 +1,6 @@
 # Working with an AI assistant in {{ speechsense-name }}
 
-You can use an [AI assistant]({{ link-docs-ai }}speechsense/concepts/assistants.md) to retrieve information from a dialog by connecting it to audio conversations and chats. This tutorial explains how to connect an agent to chats and uses a conversation between a travel agency and a customer as an example.
+You can use an [AI assistant]({{ link-docs-ai }}speechsense/concepts/assistants.md) to retrieve information from a dialog by connecting it to audio dialogs and chats. This tutorial explains how to connect an agent to chats and uses a conversation between a travel agency and a customer as an example.
 
 To retrieve information you need from a chat using an AI assistant:
 
@@ -23,7 +23,7 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 
 ### Required paid resources {#paid-resources}
 
-* {{ speechsense-name }}: Number of characters in each chat transcript and conversation analysis by your AI assistant (see [{{ speechsense-name }} pricing]({{ link-docs-ai }}/speechsense/pricing)).
+* {{ speechsense-name }}: Number of characters in each chat transcript and AI assistant-enabled dialog analysis (see [{{ speechsense-name }} pricing]({{ link-docs-ai }}/speechsense/pricing)).
 
 ## Set up your infrastructure {#infrastructure-prepare}
 
@@ -34,7 +34,7 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Enter a name for the [service account](../../../iam/concepts/users/service-accounts.md), e.g., `speechsense`.
     1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -48,7 +48,7 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the `speechsense` service account.
   1. In the top panel, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
@@ -71,9 +71,9 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 - {{ speechsense-name }} UI {#speechsense}
 
     1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-    1. Click **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
+    1. Click **{{ ui-key.yc-ui-talkanalytics.spaces.create-space_FvLT9 }}**.
     1. Enter a name for the [space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space).
-    1. Click **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
+    1. Click **{{ ui-key.yc-ui-talkanalytics.common.create_JTJlL }}**.
     1. [Link a billing account]({{ link-docs-ai }}speechsense/operations/space/link-ba) to the space to pay for {{ speechsense-name }}.
 
 {% endlist %}
@@ -90,11 +90,11 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 
     1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
     1. Go to the space of your choice.
-    1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** tab.
-    1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}** → **{{ ui-key.yc-ui-talkanalytics.connections.template.default.name }}**.
+    1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.connections.connections_q5X2U }}** tab.
+    1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}** → **{{ ui-key.yc-ui-talkanalytics.connections.template_0duY8 }}**.
     1. Specify a connection name, e.g., `chats-default-metadata`.
-    1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** data type.
-    1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+    1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type_NWiH4 }}** data type.
+    1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
     1. On the page that opens, click **ID** in the top-left corner to copy the ID of the connection you created. Save this ID as you will need it later to [upload data to the project](#load-data).
 
 {% endlist %}
@@ -107,10 +107,10 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 
     1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
     1. Go to the space of your choice.
-    1. Click ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+    1. Click ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project_buUAo }}**.
     1. Enter a project name, e.g., `chats-travel-agency`.
-    1. Under **{{ ui-key.yc-ui-talkanalytics.connections.connection }}**, click **{{ ui-key.yc-ui-talkanalytics.projects.add-connection }}** and select the `chats-default-metadata` connection.
-    1. Click **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+    1. Under **{{ ui-key.yc-ui-talkanalytics.connections.connection_SezJG }}**, click **{{ ui-key.yc-ui-talkanalytics.projects.add-connection_bxENx }}** and select the `chats-default-metadata` connection.
+    1. Click **{{ ui-key.yc-ui-talkanalytics.projects.create-project_buUAo }}**.
     1. On the page that opens, click **ID** in the top-left corner to copy the ID of the project you created. Save this ID as you will need it later to [work with the API](#result-api).
 
 {% endlist %}
@@ -123,12 +123,12 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 
     1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
     1. Go to the space you need and select the `chats-travel-agency` project.
-    1. Select the **{{ ui-key.yc-ui-talkanalytics.assistants.assistants }}** tab.
+    1. Select the **{{ ui-key.yc-ui-talkanalytics.assistants.assistants_vsZCd }}** tab.
     1. Click **Create assistant**.
     1. Configure the new assistant:
 
         1. Enter `Dialog subject` as the name.
-        1. Under **{{ ui-key.yc-ui-talkanalytics.assistants.prompt }}**, enter this prompt:
+        1. Under **{{ ui-key.yc-ui-talkanalytics.assistants.prompt_4hIv3 }}**, enter this prompt:
 
             ```text
             You are analyzing a dialog between a call center agent and a customer. Pay close attention when generating a response.
@@ -144,7 +144,7 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
             * Field type: `String`.
             * Description: `Most suitable subject`.
 
-    1. Enable the **{{ ui-key.yc-ui-talkanalytics.assistants.applying }}** section to activate the assistant.
+    1. Enable the **{{ ui-key.yc-ui-talkanalytics.assistants.applying_T3ZVB }}** section to activate the assistant.
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -156,7 +156,7 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 
 1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
 1. {% include [install-grpcio-tools](../../../_includes/speechsense/data/install-grpcio-tools.md) %}
-1. Go to the directory hosting the {{ yandex-cloud }} API repository, create a directory named `upload_data`, and generate the client interface code in it. Then, go to the `upload_data` directory:
+1. In the directory containing the {{ yandex-cloud }} API repository, create a directory named `upload_data`, generate the client interface code in it, and then navigate to the directory:
 
     ```bash
     cd ~/cloudapi/ && \
@@ -321,7 +321,7 @@ To view the dialog subject selected by the AI assistant:
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select the `chats-travel-agency` project.
-1. On the **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** tab, enable **{{ ui-key.yc-ui-talkanalytics.assistants.assistants }}**.
+1. On the **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs_ouB03 }}** tab, enable **{{ ui-key.yc-ui-talkanalytics.assistants.assistants_vsZCd }}**.
 
 Below the dialog line, you will see a line indicating the `Guided Tours` subject. This is the subject the AI assistant has selected as the most suitable one for the dialog.
 

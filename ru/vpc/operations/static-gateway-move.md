@@ -46,6 +46,7 @@ description: Следуя данной инструкции, вы сможете
       yc vpc gateway list
       ```
       Результат:
+
       ```text
       +----------------------+----------+-------------+
       |          ID          |   NAME   | DESCRIPTION |
@@ -61,6 +62,7 @@ description: Следуя данной инструкции, вы сможете
       ```
 
       Результат:
+
       ```text
       +----------------------+------------------------+--------+--------+
       |          ID          |          NAME          | LABELS | STATUS |
@@ -80,9 +82,10 @@ description: Следуя данной инструкции, вы сможете
      ```
      Используйте либо параметр `--destination-folder-name`, либо `--destination-folder-id`.
 
-     Если шлюз находится не в текущем каталоге (каталоге по умолчанию), укажите исходный каталог с помощью опции `--folder-name` или `--folder-id`.
+     Если шлюз находится не в текущем каталоге (каталоге по умолчанию), укажите исходный каталог с помощью параметра `--folder-name` или `--folder-id`.
 
      Результат:
+
      ```text
      id: enckq19qqsr5********
      folder_id: b1chgf288nvg********
@@ -90,7 +93,7 @@ description: Следуя данной инструкции, вы сможете
      name: router-1
      shared_egress_gateway: {}
      ```
-     Подробнее о команде `yc vpc address move` в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/gateway/move.md).
+     Подробнее о команде `yc vpc gateway move` в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/gateway/move.md).
 
 - API {#api}
 

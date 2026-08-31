@@ -16,7 +16,7 @@
 * [Приватная подсеть](../../baremetal/concepts/private-network.md#private-subnet) {{ baremetal-name }} `opnsense-private-subnet-m4`.
 * Два сервера {{ baremetal-name }} в составе кластера OPNsense: `opnsense-master` и `opnsense-backup`. При написании настоящего руководства использовался межсетевой экран OPNsense версии `25.1`.
 * Один сервер {{ baremetal-name }} `vmware-esxi` с запущенной платформой [виртуализации](../../glossary/virtualization.md) VMware [ESXi](https://ru.wikipedia.org/wiki/VMware_ESXi). При написании настоящего руководства использовался гипервизор ESXi версии `7.0U3g`.
-* На сервере `vmware-esxi` запущена [виртуальная машина](../../glossary/vm.md): `opnsense-tester-vm`. При написании настоящего руководства виртуальная машина создавались под управлением ОС [Linux Ubuntu 24.04](https://releases.ubuntu.com/24.04/) без графического пользовательского интерфейса.
+* На сервере `vmware-esxi` запущена [виртуальная машина](../../glossary/vm.md): `opnsense-tester-vm`. При написании настоящего руководства виртуальная машина создавалась под управлением ОС [Linux Ubuntu 24.04](https://releases.ubuntu.com/24.04/) без графического пользовательского интерфейса.
 * [Инсталляционный сервер](https://ru.wikipedia.org/wiki/Инсталляционный_сервер) `jump-server`, необходимый для настройки серверов OPNsense и ESXi, при помощи которого можно обращаться к приватным IP-адресам серверов OPNsense и ESXi.
 
     Инсталляционный сервер должен иметь [графический пользовательский интерфейс](https://ru.wikipedia.org/wiki/Графический_интерфейс_пользователя) и [браузер](https://ru.wikipedia.org/wiki/Браузер). Для упрощения настроек в настоящем руководстве в роли инсталляционного сервера будет выступать сервер {{ baremetal-name }}, загруженный в режиме восстановления и диагностики с [Rescue-CD](../../baremetal/operations/servers/rescue-boot.md).
@@ -77,7 +77,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы планируете создавать инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Перейдите]({{ link-console-main }}/link/baremetal) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. На панели слева выберите ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images_duoXD }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_load-image }}**.
   1. Введите имя для образа OPNsense. Требования к имени:
@@ -98,7 +98,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Перейдите]({{ link-console-main }}/link/baremetal) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. На панели слева выберите ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. В поле **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** выберите пул серверов `{{ region-id }}-m4`.
   1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя подсети: `opnsense-private-subnet-m4`.

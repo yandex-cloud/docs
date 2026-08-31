@@ -31,14 +31,14 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** и нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 
       * Укажите имя группы ВМ, например `nlb-vm-group`.
       * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) `nlb-sa`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите зоны доступности `{{ region-id }}-a` и `{{ region-id }}-b`, чтобы обеспечить отказоустойчивость хостинга.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите [зоны доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a` и `{{ region-id }}-b`, чтобы обеспечить отказоустойчивость хостинга.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и укажите конфигурацию базовой ВМ:
 
       1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** откройте вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Выберите продукт:
@@ -96,7 +96,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать балансировщик.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** и нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
+  1. [Перейдите]({{ link-console-main }}/link/network-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** и нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. Укажите имя балансировщика, например `nlb-1`.
   1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**:
   

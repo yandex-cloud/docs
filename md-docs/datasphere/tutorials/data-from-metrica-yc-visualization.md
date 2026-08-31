@@ -82,7 +82,7 @@
 ### 1.1. Подключите ClickHouse® {#ch-connection}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог для создания кластера ClickHouse®.
-1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
 1. В открывшемся окне нажмите **Создать кластер ClickHouse**.
 1. Укажите настройки кластера ClickHouse®:
    1. В блоке **Базовые параметры** укажите произвольное имя кластера. 
@@ -200,7 +200,7 @@
 ### 3.1. Подключитесь к DataLens {#datalens-connection}
 
 1. В [консоли управления](https://console.yandex.cloud) откройте страницу созданного кластера ClickHouse®.
-1. В левой части окна выберите раздел ![datalens](../../_assets/console-icons/chart-column.svg) **DataLens**.
+1. Перейдите на вкладку **DataLens**.
 1. Нажмите кнопку **Создать подключение**.
 
 ### 3.2. Создайте подключение к ClickHouse® в DataLens {#creation-datalens-connection-to-ch}
@@ -233,7 +233,7 @@
     * `EventDate` — в область **X**.
     * `Браузер` — в область **Цвета**.
     * `Хиты` — в область **Y**.
-1. Измените тип чарта cо **Столбчатая диаграмма** на **Диаграмма с областями**. 
+1. Измените тип чарта со **Столбчатая диаграмма** на **Диаграмма с областями**.
 1. Нажмите кнопку **Сохранить**. 
 1. В появившемся окне укажите имя чарта `ch_metrica_data_hits_area` и нажмите кнопку **Сохранить**.
 

@@ -92,9 +92,9 @@
 
 ```js
 {
-  period: 40,
-  metric: ['2012', '2014'],
-  id: ['1215', '1217', '979', '483']
+    period: 40,
+    metric: ['2012', '2014'],
+    id: ['1215', '1217', '979', '483']
 }
 ```
 
@@ -303,9 +303,9 @@
 
   ```js
   module.exports = {
-    fields: {
-        datasetId: Editor.getId('mySource'),
-        path: 'fields'
+      fields: {
+          datasetId: Editor.getId('mySource'),
+          path: 'fields'
     }
   };
   ```
@@ -381,7 +381,7 @@
 
   * `apiConnectionId` — id подключения с типом API Connector, описанного на вкладке [Meta](#meta) и полученного с помощью метода [Editor.getId(arg)](methods.md#get-id).
   * `path` — путь к API после хоста.
-  * `method` — метод: поддерживаются GET и POST.
+  * `method` — метод запроса. Возможные значения: GET и POST.
   * `body` — тело запроса.
 
 
@@ -497,8 +497,8 @@
   Где:
   
   * `params` — объект с параметрами из элементов управления дашборда.
-  * `apiConnectionId` — ID подключения с типом [API Connector](../../operations/connection/create-api-connector.md), описанного на вкладке [Meta](#meta) и полученного с помощью метода [Editor.getId(arg)](methods.md#get-id).
-  * `mySourceKeyName` — имя-алиас источника данных, описанного на вкладке Meta.
+  * `apiConnectionId` — ID подключения, описанного на вкладке [Meta](#meta) и полученного с помощью метода [Editor.getId(arg)](methods.md#get-id). В качестве источников данных доступны запросы к датасетам, стандартным подключениям и подключениям [API Connector](../../operations/connection/create-api-connector.md). 
+  * `mySourceKeyName` — имя-алиас источника данных, описанного на вкладке **Meta**.
   * `path` — путь к API после хоста.
   * `method` — метод запроса.
   * `body` — данные запроса.
@@ -609,6 +609,102 @@
 
   {% endlist %}
 
+
+* `dialog` — модальная форма поверх чарта:
+
+  {% list tabs %}
+
+  - Формат
+
+    ```json
+    {
+        action: "dialog",
+        title: "<string>",
+        fields: ActivityFormField[],
+        onSubmit: ActivityFormSubmitAction,
+    }
+    ```
+
+    Где:
+
+    * `action` — тип действия, которое нужно вызывать после отправки запроса. Значение `dialog` показывает поверх чарта модальную форму. После заполнения и отправки форма либо обновляет параметры чарта, либо запускает следующее действие.
+    * (Опционально) `title` — заголовок диалога.
+    * `fields` — список полей формы.
+    * `onSubmit` — действие, которое выполняется при отправке формы.
+
+    Поля формы (`fields`) представлены элементами списка `ActivityFormField`. Поле формы (`ActivityFormField`):
+
+    ```js
+    {
+        type: "text-input"|"number-input"|"date-input"|"select"|"checkbox"|"radio"|"radio-tabs",
+        name: "<string>",
+        label: "<string>",
+        hint: "<string>",
+        required: boolean,
+        defaultValue: <зависит от type>,
+        options: {label: "<string>", value: "<string>"}[],
+        placeholder: "<string>",
+        filterable: boolean,
+        filterPlaceholder: "<string>",
+        min: number,
+        max: number,
+        step: number,
+    }
+    ```
+
+    Где:
+
+    * `type` — тип контрола поля:
+
+      * `text-input` — однострочное текстовое поле;
+      * `number-input` — числовое поле (дополнительные свойства: `placeholder`, `min`, `max`, `step`);
+      * `date-input` — поле выбора даты;
+      * `select` — выпадающий список (дополнительное  свойство `options`);
+      * `checkbox` — чекбокс;
+      * `radio` — группа радиокнопок (дополнительное свойство `options`);
+      * `radio-tabs` — переключатель табов (дополнительное свойство `options`).
+
+    * `name` — ключ, под которым значение поля попадет в params при отправке формы.
+    * (Опционально) `label` — подпись над контролом.
+    * (Опционально) `hint` — вспомогательный текст-подсказка под контролом.
+    * (Опционально) `required` — признак, является ли контрол обязательным для заполнения. Возможные значения: `true` или `false`.
+    
+    * (Опционально) `defaultValue` — начальное значение поля. Тип значения зависит от `type`.
+    * `options` — список возможных значений в формате `{label, value}` для `select`, `radio` и `radio-tabs`.
+    * `placeholder` — подсказка в пустом поле для `text-input` и `number-input`.
+    * `filterable` — признак, который показывает, доступна ли фильтрация данных по этому полю. Возможные значения: `true` или `false`. Доступно для `select`. 
+    * `filterPlaceholder` — подсказка в пустом поле для `select`.
+    * `min`, `max`, `step` — ограничения для `number-input`.
+
+    Действие при отправке формы (`onSubmit`):
+
+    * Обновить параметры чарта:
+
+      ```js
+      {
+          type: "setParams",
+      }
+      ```
+
+    Значения полей формы становятся новыми параметрами чарта, чарт перерисовывается с новыми значениями.
+
+    * Запустить следующее activity:
+
+      ```js
+      {
+          type: "runActivity",
+          extraParams: object,
+      }
+      ```
+    
+      Где:
+
+      * `type` — значение `runActivity` запускает следующий вызов activity, передавая в него значения полей формы как `params`.
+      * `extraParams` — дополнительные параметры, которые объединяются поверх значений формы (например, `_action` и `id`, чтобы отличить создание от редактирования и передать идентификатор записи).
+
+  {% endlist %}
+
+
 ### Выполнение действий {#run-activities}
 
 Чтобы выполнить действия вкладки **Activities**, обработайте события элементов интерфейса:
@@ -627,3 +723,5 @@
 * [Практическое руководство с примером использования вкладки Activities в Editor](../../tutorials/create-editor-activities.md)
 
 * [Пример использования вкладки Activities в Editor](https://datalens.yandex/nvkfwnekf9xy9?tab=vZX)
+
+* [Пример реализации Write-back через Activities в Editor и API Connector](https://datalens.yandex/2aztx9jtm06ko?tab=mv#Пример%20Таблицы%20с%20формой%20ввода)

@@ -20,7 +20,7 @@ To stop a VM:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. To stop a single VM, select the VM, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
@@ -68,7 +68,7 @@ To start a VM:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. To start a single VM, select the VM, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.start }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
@@ -114,7 +114,7 @@ To restart a VM:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. To restart a single VM, select the VM, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.compute.instances.button_action-restart }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_restart }}**.
 

@@ -20,7 +20,7 @@ To create a self-signed certificate using the `OpenSSL` library, run this comman
 
 - PowerShell {#powershell}
 
-  ```PowerShell
+  ```powershell
   openssl req -x509 -newkey rsa:4096 -nodes `
     -keyout key.pem `
     -out cert.pem `
@@ -31,6 +31,7 @@ To create a self-signed certificate using the `OpenSSL` library, run this comman
 {% endlist %}
 
 Where:
+
 * `-x509`: To output a certificate file.
 * `-newkey`: To create a new private key file.
 * `rsa:4096`: Algorithm and key length.
@@ -51,21 +52,29 @@ To add a custom certificate to {{ certificate-manager-name }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to add a custom certificate to.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
   1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_import }}**.
   1. In the window that opens, in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field, enter a custom certificate name.
   1. Optionally, in the **Description** field, describe your custom certificate.
   1. In the **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**.
+     
      1. Choose how to add it: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
      1. Click **Attach file**.
+        
         1. In the window that opens, select the `cert.pem` self-signed certificate file.
+     
      1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  
   1. In the **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**.
+     
      1. Choose how to add it: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
      1. Click **Attach file**.
+        
         1. In the window that opens, select the `key.pem` private key file.
+     
      1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -90,6 +99,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
      ```
 
      Where:
+     
      * `--name`: Certificate name.
      * `--chain`: Path to the certificate chain file.
      * `--key`: Path to the certificate private key file.
@@ -132,11 +142,13 @@ To add a custom certificate to {{ certificate-manager-name }}:
      ```
 
      Where:
+     
      * `name`: Certificate name.
      * `certificate`: [Certificate](../../concepts/imported-certificate.md) file contents.
      * `private_key`: Private key file contents.
 
      For more on the properties of the `yandex_cm_certificate` resource, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate).
+  
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -187,12 +199,14 @@ To avoid storing a private key of the user certificate as plain text in the {{ T
      ```
 
      Where:
+     
      * `name`: {{ lockbox-name }} [secret](../../../lockbox/concepts/secret.md) name.
      * `certificate`: Certificate file contents.
      * `id`: ID of the {{ lockbox-name }} secret containing the private key.
      * `key`: Key of the {{ lockbox-name }} secret containing the private key.
 
      For more on the properties of the `yandex_cm_certificate` resource, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate).
+  
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -30,10 +30,10 @@ description: Управляйте подключениями к источник
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-  1. Укажите имя подключения и тип базы данных.
-  1. Опционально добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+  1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** подключения и **{{ ui-key.yacloud.connection-manager.label_connection-type }}** базы данных.
+  1. Опционально добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
   1. Укажите параметры подключения в зависимости от выбранной базы данных:
      * [подключение к управляемой базе данных в кластере](../operations/create-connection.md#mdb-connection);
      * [подключение к пользовательской инсталляции базы данных](../operations/create-connection.md#on-premise-connection).
@@ -45,7 +45,7 @@ description: Управляйте подключениями к источник
 
      {% endnote %}
   
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 
 {% endlist %}
@@ -62,4 +62,3 @@ description: Управляйте подключениями к источник
 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
-

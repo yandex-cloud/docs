@@ -1,6 +1,6 @@
 # Дообучение моделей в {{ ml-platform-name }} Notebooks
 
-Вы можете [дообучать]({{ link-docs-ai }}ai-studio/concepts/tuning/index) языковые модели {{ ai-studio-full-name }}, чтобы они лучше понимали специфику ваших задач, через API или {{ ml-sdk-name }}. Дообучение удобно запускать в ноутбуках [{{ ml-platform-full-name }}](../../datasphere/).
+Вы можете [дообучать]({{ link-docs-ai }}ai-studio/concepts/tuning/index) языковые модели {{ ai-studio-full-name }}, чтобы они лучше понимали специфику ваших задач, через API или {{ ml-sdk-name }}. Дообучение удобно запускать в ноутбуках [{{ ml-platform-full-name }}]({{ link-docs }}/datasphere/).
 
 В этом руководстве вы дообучите модель в {{ ml-platform-name }} с помощью SDK. Вы также можете склонировать [репозиторий](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) и запустить ноутбук локально, изменив [параметры аутентификации]({{ link-docs-ai }}ai-studio/sdk/index).
 
@@ -21,7 +21,7 @@
 
 В стоимость поддержки инфраструктуры для дообучения модели входит:
 
-* плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../../datasphere/pricing.md);
+* плата за использование [вычислительных ресурсов {{ ml-platform-name }}]({{ link-docs }}/datasphere/pricing);
 * плата за [генерацию текста]({{ link-docs-ai }}ai-studio/pricing) моделью.
 
 ## Подготовьте инфраструктуру {#infra}
@@ -48,10 +48,10 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `gpt-user`.
+  1. Введите имя [сервисного аккаунта]({{ link-docs }}/iam/concepts/users/service-accounts), например `gpt-user`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роль `{{ roles-yagpt-user }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -73,14 +73,14 @@
 
 ## Создайте API-ключ для сервисного аккаунта {#create-key}
 
-Чтобы сервисный аккаунт мог получить доступ к модели, создайте [API-ключ](../../iam/concepts/authorization/api-key.md).
+Чтобы сервисный аккаунт мог получить доступ к модели, создайте [API-ключ]({{ link-docs }}/iam/concepts/authorization/api-key).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. В открывшемся списке выберите сервисный аккаунт `gpt-user`.
   1. На панели сверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
@@ -91,7 +91,7 @@
 
 ## Создайте секреты {#create-secrets}
 
-Чтобы получить API-ключ и идентификатор каталога из ноутбука, создайте [секреты](../../datasphere/concepts/secrets.md) с идентификаторами ключа и каталога.
+Чтобы получить API-ключ и идентификатор каталога из ноутбука, создайте [секреты]({{ link-docs }}/datasphere/concepts/secrets) с идентификаторами ключа и каталога.
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
@@ -235,4 +235,4 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы, [удалите проект](../../datasphere/operations/projects/delete.md).
+Чтобы перестать платить за созданные ресурсы, [удалите проект]({{ link-docs }}/datasphere/operations/projects/delete).

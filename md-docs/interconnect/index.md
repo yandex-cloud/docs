@@ -42,33 +42,15 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [Получить информацию о публичных соединениях](operations/pub-con-get-info.md)
 
+ - [Создать публичное соединение](operations/pub-con-create.md)
+
+ - [Удалить публичное соединение](operations/pub-con-delete.md)
+
  - [Получить информацию о Routing Instance](../cloud-router/operations/ri-get-info.md)
 
 ## Практические руководства
 
  - [Все руководства](tutorials/index.md)
-
- - [Создать прямое транковое подключение и приватное соединение в нем](tutorials/trunk-priv-add.md)
-
- - [Создать прямое транковое подключение и публичное соединение в нем](tutorials/trunk-pub-add.md)
-
- - [Создать транковое подключение через партнера и приватное соединение в нем](tutorials/partner-trunk-priv-add.md)
-
- - [Создать транковое подключение через партнера и публичное соединение в нем](tutorials/partner-trunk-pub-add.md)
-
- - [Добавить приватное соединение в транковое подключение](tutorials/priv-add.md)
-
- - [Изменить IP-префиксы VPC в Routing Instance](tutorials/ri-prefixes-upsert.md)
-
- - [Добавить публичное соединение в транковое подключение](tutorials/pub-add.md)
-
- - [Изменить емкость транкового подключения](tutorials/trunk-capacity-change.md)
-
- - [Удалить приватное соединение](tutorials/priv-del.md)
-
- - [Удалить публичное соединение](tutorials/pub-del.md)
-
- - [Удалить транковое подключение](tutorials/trunk-del.md)
 
  - [Разрешение облачных DNS-имен в корпоративной сети](tutorials/dns-integration.md)
 
@@ -76,7 +58,7 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [Настройка сетевой связности между подсетями BareMetal и Virtual Private Cloud](tutorials/bm-vrf-and-vpc-interconnect.md)
 
- - [Организация сетевой связности между приватной подсетью BareMetal и on-premise-ресурсами](tutorials/bms-cic-onprem.md)
+ - [Организация сетевой связности между приватной подсетью BareMetal и ресурсами в on-premises](tutorials/bms-cic-onprem.md)
 
 ## Концепции
 

@@ -13,8 +13,8 @@ description: Из статьи вы узнаете, как управлять з
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
+    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
+    1. Нажмите **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
     1. (Опционально) Укажите имя задания.
     1. В поле **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** выберите `{{ ui-key.yacloud.dataproc.jobs.field_spark-job-type }}`.
     1. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-jar }}** укажите путь к основному JAR-файлу приложения в формате:
@@ -32,7 +32,7 @@ description: Из статьи вы узнаете, как управлять з
         * Укажите пути к необходимым файлам и архивам.
         * В поле **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** укажите [свойства компонентов](../concepts/settings-list.md) в виде пары `ключ-значение`.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
+    1. Нажмите **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
 - CLI {#cli}
 

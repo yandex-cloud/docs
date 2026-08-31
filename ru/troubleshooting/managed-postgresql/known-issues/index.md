@@ -5,7 +5,7 @@
 * [Устранение проблем с изменением конфигурации кластера с дисками `local-ssd`](unprocessable-entity-issue-when-enlarging-local-disk.md)
 * [Устранение последствий переполнения хранилища кластера WAL-журналами](cluster-in-readonly-due-to-wal-overflow.md)
 * [Устранение ошибки `psql: error: could not translate host name to address: nodename nor servname provided, or not known`](error-could-not-translate-host-name-to-address-nodename-nor-servname-provided-or-not-known.md)
-* [Устранение ошибки `max_connections сonn_limit is too high`](conn-limit-is-too-high.md)
+* [Устранение ошибки `max_connections conn_limit is too high`](conn-limit-is-too-high.md)
 * [Устранение ошибки `Must be superuser to create this extension`](must-be-superuser-to-create-this-extension.md)
 * [Устранение ошибки `terminating connection due to administrator command` и `ERROR: odyssey: remote server read/write error`](terminating-connection-due-to-administrator-command.md)
 * [Устранение ошибки `422 UNPROCESSABLE ENTITY The specified extension <'ext_name'> is not present in shared_preload_libraries`](error-422.md)

@@ -3,7 +3,6 @@
 # This is a template - please update with your actual values
 
 userpool_id: "<user_pool_ID>"
-replication_tokens_path: "<path_to_directory_with_process_tokens>"
 working_directory: "<path_to_agent_working_directory>"
 
 # {{ yandex-cloud }} authentication settings
@@ -16,6 +15,10 @@ cloud_credentials_file_path: "<path_to_file_with_authorized_key>"
 # (only available when the agent is installed on a {{ compute-name }} VM).
 # If `true`, the cloud_credentials_file_path parameter will be ignored.
 use_metadata_service: true|false
+
+# Enable Password Writeback so the agent can synchronize password changes
+# back from {{ org-full-name }} to {{ microsoft-idp.ad-short }}.
+enable_password_writeback: true|false
 
 # Enable the Dry Run mode.
 # If `true`, no changes will be applied to users or groups in {{ org-full-name }}.
@@ -31,7 +34,7 @@ drsr:
 # LDAP client settings
 ldap:
   host: "ldaps://<domain_controller_address>:636"
-  certificate_path: "<path_to_certificate>"
+  certificate_path: "<path_to_CA_certificate>"
   insecure_skip_verify: false|true
   use_kerberos: true
 

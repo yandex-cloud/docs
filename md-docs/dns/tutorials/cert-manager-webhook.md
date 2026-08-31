@@ -31,11 +31,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичный IP-адрес для узлов кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Подготовьте окружение {#prepare-environment}
@@ -86,7 +84,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер Managed Service for Kubernetes.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите кнопку **Создать кластер**.
   1. Введите имя кластера: `kubernetes-cluster-wh`.
   1. **Сервисный аккаунт для ресурсов** — укажите сервисный аккаунт `sa-kubernetes`, который будет использоваться для создания ресурсов.
@@ -148,10 +146,9 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан нужный кластер Managed Service for Kubernetes.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Выберите кластер `kubernetes-cluster-wh`.
-  1. На странице кластера перейдите на вкладку ![nodes-management.svg](../../_assets/console-icons/graph-node.svg) **Управление узлами**.
-  1. Нажмите кнопку **Создать группу узлов**.
+  1. Перейдите на вкладку **Управление узлами** и нажмите кнопку **Создать группу узлов**.
   1. Введите имя и описание группы узлов Managed Service for Kubernetes.
   1. В поле **Версия Kubernetes** выберите версию Kubernetes для узлов Managed Service for Kubernetes.
   1. В блоке **Масштабирование** выберите его тип:
@@ -169,7 +166,7 @@
        * `Нереплицируемый SSD` — сетевой диск с повышенной производительностью, реализованной за счет устранения избыточности. Размер такого диска можно менять только с шагом 93 ГБ.
        * `SSD IO` — обладает теми же скоростными характеристиками, что и `Нереплицируемый SSD`, и одновременно обеспечивает избыточность. Размер такого диска можно менять только с шагом 93 ГБ.
 
-       Подробнее о типах дисков смотрите в [документации Yandex Compute Cloud](../../compute/concepts/disk.md#disks_types).
+       Подробнее о типах дисков смотрите в [документации Yandex Compute Cloud](../../compute/concepts/disk.md#disks-types).
      * Укажите размер дисков для узлов группы Managed Service for Kubernetes.
   1. В блоке **Сетевые настройки**:
      * В поле **Публичный адрес** выберите способ назначения IP-адреса:

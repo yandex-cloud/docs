@@ -2,14 +2,13 @@
 
 # Перенос данных между кластерами Managed Service for Apache Kafka® с помощью Yandex Data Transfer
 
-
 # Миграция данных между кластерами Apache Kafka® с помощью Yandex Data Transfer
 
 
 Данные из топиков Apache Kafka® можно переносить из одного кластера Apache Kafka® в другой в реальном времени. В том числе поддерживаются следующие виды миграции:
 
 * Между разными версиями Apache Kafka® — например, можно перенести топики из версии 2.8 в версию 3.1.
-* Между разными зонами доступности — можно [перенести кластер с одним хостом](../operations/host-migration.md#one-host) из одной зоны в другую.
+* Между разными [зонами доступности](../../overview/concepts/geo-scope.md) — можно [перенести кластер с одним хостом](../operations/host-migration.md#one-host) из одной зоны в другую.
 
 Зеркалирование кластеров Apache Kafka® позволяет:
 
@@ -33,7 +32,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластеры Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../pricing.md)).
+* Кластеры Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../data-transfer/pricing.md)).
 

@@ -1,5 +1,6 @@
 # Создать SAML-приложение в {{ org-full-name }} для интеграции с Jenkins
 
+
 [Jenkins](https://www.jenkins.io/) — программная система с открытым исходным кодом на Java, предназначенная для обеспечения процесса непрерывной интеграции программного обеспечения.
 
 Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Jenkins с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications/saml.md) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Jenkins.

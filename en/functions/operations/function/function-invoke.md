@@ -17,7 +17,7 @@ In our example, we will use the function described in [{#T}](../function/version
     
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. Select the function.
 
@@ -45,7 +45,7 @@ In our example, we will use the function described in [{#T}](../function/version
     {% include [call-limited-by-access-policies-notice](../../../_includes/functions/call-limited-by-access-policies-notice.md) %}
 
     You can find the function invocation link:
-    * In the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field. Do it by navigating to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** in the [management console]({{ link-console-main }}) and clicking the row with the function you need.
+    * In the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field. Do it by [navigating]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** and clicking the row with the function you need.
     * In the `http_invoke_url` parameter. Do it by running this command:
         ```
         yc serverless function get <function_name>

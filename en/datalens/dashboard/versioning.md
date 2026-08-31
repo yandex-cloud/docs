@@ -17,11 +17,11 @@ To select a version from the list, click it. The version number will be displaye
 
 All versions fall into the following types:
 
-1. **Current**: The most recent saved version of a dashboard. It is displayed for all users that open the dashboard for viewing in the workbook or from the navigation panel. Only one version of a dashboard can be current.
-1. **Draft**: A version with unsaved dashboard changes. Common users do not see changes being made to a draft. This enables you to hide dashboard edits until a version update. A dashboard can only have one draft.   
+1. **Actual**: The most recent saved version of a dashboard. It is displayed for all users that open the dashboard for viewing in the workbook or from the navigation panel. Only one version of a dashboard can be current.
+1. **Draft**: A version with unsaved dashboard changes. Common users see none of the changes made to the draft. This enables you to hide dashboard edits until a version update. A dashboard can only have one draft.   
    When you open a draft, a panel appears at the top indicating the version type, creation date and time, and login of the version author. There are buttons in the right-hand panel:
 
-   * **Make current**: Turns the draft into the current version. The version current at the time will become outdated.
+   * **Make actual**: Turns the draft into the current version. The version current at the time will become outdated.
    * **Open current**: Opens the current version.
 
    {% cut "Draft" %}
@@ -31,10 +31,10 @@ All versions fall into the following types:
    {% endcut %}
 
 1. **Outdated**: This is a version that is neither current nor a draft.  
-   When you open an outdated version, a panel appears at the top indicating the version type, creation date and time, and login of the version author. There are buttons in the right-hand panel:
+   When you open an outdated version, you see a panel at the top stating the version type, creation date and time, and the version author's username. There are buttons in the right-hand panel:
 
-   * **Make current**: Turns the currently outdated version into the current one. The current version and the draft (if any) will become outdated.
-   * **Open current**: Opens the current version.
+   * **Make actual**: Turns an outdated version into the current one. The current version and the draft (if any) will become outdated.
+   * **Open actual**: Opens the current version.
    
    {% cut "Outdated version" %}
 
@@ -76,20 +76,20 @@ Click:
 To edit a draft, select it in the version list. To save your draft edits, at the top right, click:
 
 * **Save as draft**: New draft will be created. The current draft will become the outdated version.
-* ![image](../../_assets/console-icons/chevron-down.svg) → **Save and make current**: New current version will be created and all others will become outdated.
-* ![image](../../_assets/console-icons/chevron-down.svg) → **Save as new dashboard**: New dashboard will be created.
+* ![image](../../_assets/console-icons/chevron-down.svg) → **Save and make actual** to create a new current version and make all other versions outdated.
+* ![image](../../_assets/console-icons/chevron-down.svg) → **Save as new dashboard** to create a new dashboard.
 
 ### Editing an outdated version {#current-version-edit}
 
 To edit an outdated version, select it from the list of versions. To save edits to an outdated version, at the top right, click:
 
 * **Save as draft**: Draft will be created from the edited version. If there is a current draft, it will become the outdated version.
-* ![image](../../_assets/console-icons/chevron-down.svg) → **Save and make current**: New current version will be created and all others, including the draft, will become outdated.
-* ![image](../../_assets/console-icons/chevron-down.svg) → **Save as new dashboard**: New dashboard will be created.
+* ![image](../../_assets/console-icons/chevron-down.svg) → **Save and make actual** to create a new current version and make all other versions, including the draft, outdated.
+* ![image](../../_assets/console-icons/chevron-down.svg) → **Save as new dashboard** to create a new dashboard.
 
-## Limitations {#restrictions}
+## Limits {#restrictions}
 
-* You can only get change history for the last three months.
+* You can only get the change history for the last three months.
 * The change history only contains a list of dashboard versions and includes: version type, save date and time, and the author of the edits.
 * Dashboard versions do not include:
 
@@ -99,5 +99,5 @@ To edit an outdated version, select it from the list of versions. To save edits 
   * Changes to connection settings made using the interface for editing connection parameters.
   * Changes to the source data (rows added, updated, or deleted in the data source).
 
-* Versions do not display a list of changes. You can only view the saved status of the dashboard configuration.
+* Versions do not display the list of changes. You can only view the saved status of the dashboard configuration.
 * [Mailing lists](./settings.md#maillists) are available for the current dashboard version only.

@@ -9,8 +9,8 @@ title: How to get DNS zone information in {{ dns-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing your [DNS zone](../concepts/dns-zone.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud.dns.label_zones-list }}**.
+  1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud.dns.label_zones-list }}**.
   1. Select the DNS zone you need.
   1. Navigate to the **{{ ui-key.yacloud.common.overview }}** tab.
   1. You will see DNS zone details on the **{{ ui-key.yacloud.common.overview }}** page.

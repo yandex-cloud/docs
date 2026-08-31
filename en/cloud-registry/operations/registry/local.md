@@ -10,7 +10,7 @@ description: '{{ cloud-registry-name }}Follow this guide to create a local regis
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a local registry.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+    1. [Navigate]({{ link-console-main }}/link/cloud-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud.cloud-registry.title_registries }}**.
     1. In the top-right corner, click **{{ ui-key.yacloud.cloud-registry.action_registry-create }}**.
     1. Select the registry format.
@@ -32,6 +32,8 @@ description: '{{ cloud-registry-name }}Follow this guide to create a local regis
         * `Debian`, optionally, configure registry metadata signing:
 
             Enable **Registry signing** and specify the [{{ lockbox-full-name }}](../../../lockbox/) secret containing the GPG key for signing. For more information on preparing a GPG key and creating a secret, see [{#T}](../debian/installation.md#prepare-gpg-key).
+
+    1. Specify the [filtering patterns](../../concepts/filtering-patterns.md).
 
     1. Under **Registry information**:
 
@@ -56,7 +58,7 @@ description: '{{ cloud-registry-name }}Follow this guide to create a local regis
     Where:
     * `--name`: Registry name.
     * `--description`: Registry description.
-    * `--registry-kind`: Registry format. Available formats: `maven`, `npm`, `docker`, `nuget`, `pypi`, `binary`, `debian`.
+    * `--registry-kind`: Registry format. Available formats: `maven`, `npm`, `docker`, `debian`, `nuget`, `pypi`, `binary`, `go`.
     * `--registry-type`: Registry [type](../../concepts/registry.md#registry-types).
     * `--properties`: Registry properties. Provide them as a string in `name1=value1,name2=value2` format. The available properties for local registries are as follows:
 

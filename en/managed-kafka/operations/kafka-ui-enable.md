@@ -15,8 +15,8 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Enable **{{ ui-key.yacloud.kafka.field_kafka-ui }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -43,9 +43,9 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-     For information about creating this file, see [{#T}](cluster-create.md).
+     For information on how to create this file, see [{#T}](cluster-create.md).
   
   1. To enable the {{ KF }} web UI, add the `config.kafka_ui` section to the cluster description. In this section, provide `enabled` set to `true`:
 
@@ -64,7 +64,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

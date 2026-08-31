@@ -272,9 +272,6 @@ items:
                   - name: function
                     href: resources/function.md
                     title: ''
-                  - name: function_iam_binding
-                    href: resources/function_iam_binding.md
-                    title: ''
                   - name: function_trigger
                     href: resources/function_trigger.md
                     title: ''
@@ -311,6 +308,9 @@ items:
                   - name: cloudregistry_folder_iam_binding
                     href: resources/cloudregistry_folder_iam_binding.md
                     title: ''
+                  - name: cloudregistry_folder_iam_member
+                    href: resources/cloudregistry_folder_iam_member.md
+                    title: ''
                   - name: cloudregistry_lifecycle_policy
                     href: resources/cloudregistry_lifecycle_policy.md
                     title: ''
@@ -319,6 +319,9 @@ items:
                     title: ''
                   - name: cloudregistry_registry_iam_binding
                     href: resources/cloudregistry_registry_iam_binding.md
+                    title: ''
+                  - name: cloudregistry_registry_iam_member
+                    href: resources/cloudregistry_registry_iam_member.md
                     title: ''
                   - name: cloudregistry_registry_ip_permission
                     href: resources/cloudregistry_registry_ip_permission.md
@@ -1463,6 +1466,18 @@ items:
                     title: ''
                 title: ''
             title: ''
+          - name: Serverless API Gateway
+            items:
+              - name: Resources
+                items:
+                  - name: api_gateway_iam_binding
+                    href: resources/api_gateway_iam_binding.md
+                    title: ''
+                  - name: api_gateway_iam_member
+                    href: resources/api_gateway_iam_member.md
+                    title: ''
+                title: ''
+            title: ''
           - name: Serverless Cloud Functions
             items:
               - name: Data Sources
@@ -1473,6 +1488,12 @@ items:
                 title: ''
               - name: Resources
                 items:
+                  - name: function_iam_binding
+                    href: resources/function_iam_binding.md
+                    title: ''
+                  - name: function_iam_member
+                    href: resources/function_iam_member.md
+                    title: ''
                   - name: function_scaling_policy
                     href: resources/function_scaling_policy.md
                     title: ''
@@ -1493,6 +1514,9 @@ items:
                     title: ''
                   - name: serverless_container_iam_binding
                     href: resources/serverless_container_iam_binding.md
+                    title: ''
+                  - name: serverless_container_iam_member
+                    href: resources/serverless_container_iam_member.md
                     title: ''
                 title: ''
             title: ''
@@ -1523,6 +1547,21 @@ items:
                     title: ''
                 title: ''
             title: ''
+          - name: Serverless Triggers
+            items:
+              - name: Data Sources
+                items:
+                  - name: serverless_triggers
+                    href: data-sources/serverless_triggers.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: serverless_triggers
+                    href: resources/serverless_triggers.md
+                    title: ''
+                title: ''
+            title: ''
           - name: Serverless Workflows
             items:
               - name: Data Sources
@@ -1539,6 +1578,9 @@ items:
                   - name: serverless_workflow_iam_binding
                     href: resources/serverless_workflow_iam_binding.md
                     title: ''
+                  - name: serverless_workflow_iam_member
+                    href: resources/serverless_workflow_iam_member.md
+                    title: ''
                 title: ''
             title: ''
           - name: Smart Captcha
@@ -1547,6 +1589,9 @@ items:
                 items:
                   - name: smartcaptcha_captcha
                     href: data-sources/smartcaptcha_captcha.md
+                    title: ''
+                  - name: smartcaptcha_captcha_keys
+                    href: data-sources/smartcaptcha_captcha_keys.md
                     title: ''
                 title: ''
               - name: Resources
@@ -1562,6 +1607,12 @@ items:
                 items:
                   - name: sws_advanced_rate_limiter_profile
                     href: data-sources/sws_advanced_rate_limiter_profile.md
+                    title: ''
+                  - name: sws_domain
+                    href: data-sources/sws_domain.md
+                    title: ''
+                  - name: sws_load_balancer
+                    href: data-sources/sws_load_balancer.md
                     title: ''
                   - name: sws_match_list
                     href: data-sources/sws_match_list.md
@@ -1581,6 +1632,12 @@ items:
                   - name: sws_advanced_rate_limiter_profile
                     href: resources/sws_advanced_rate_limiter_profile.md
                     title: ''
+                  - name: sws_domain
+                    href: resources/sws_domain.md
+                    title: ''
+                  - name: sws_load_balancer
+                    href: resources/sws_load_balancer.md
+                    title: ''
                   - name: sws_match_list
                     href: resources/sws_match_list.md
                     title: ''
@@ -1589,6 +1646,30 @@ items:
                     title: ''
                   - name: sws_waf_profile
                     href: resources/sws_waf_profile.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Unknown
+            items:
+              - name: Resources
+                items:
+                  - name: organization_manager_organization_iam_policy_binding
+                    href: >-
+                      resources/organization_manager_organization_iam_policy_binding.md
+                    title: ''
+                  - name: resource_manager_cloud_iam_policy_binding
+                    href: resources/resource_manager_cloud_iam_policy_binding.md
+                    title: ''
+                  - name: resource_manager_folder_iam_policy_binding
+                    href: resources/resource_manager_folder_iam_policy_binding.md
+                    title: ''
+                  - name: >-
+                      sws_security_profile_advanced_rate_limiter_profile_attachment
+                    href: >-
+                      resources/sws_security_profile_advanced_rate_limiter_profile_attachment.md
+                    title: ''
+                  - name: sws_security_profile_waf_profile_attachment
+                    href: resources/sws_security_profile_waf_profile_attachment.md
                     title: ''
                 title: ''
             title: ''

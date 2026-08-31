@@ -38,7 +38,7 @@ To create a {{ datalens-short-name }} connection to {{ yq-full-name }}, you will
 
    ![select-catalog](../../_assets/datalens/yandex-query-visualization/select-catalog.png)
 
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 
    ![select-yq](../../_assets/datalens/yandex-query-visualization/select-yq.png)
 
@@ -105,7 +105,7 @@ To create a {{ yq-full-name }} connection:
 
 ## Configure visualization {#create_comdo_chart}
 
-To visualize and analyze the data, use a [combined](../../datalens/concepts/chart/index.md) [chart](../../datalens/visualization-ref/combined-chart.md).
+To visualize and analyze the data, use a [combined](../../datalens/visualization-ref/combined-chart.md) [chart](../../datalens/concepts/chart/index.md).
 
 1. Select **Combined chart** as the visualization type.
 

@@ -215,7 +215,7 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
 В кластере `dataproc-source` создайте тестовую таблицу `countries`:
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. [Перейдите]((https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
+1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
 1. Откройте страницу кластера `dataproc-source`.
 1. Перейдите по ссылке **Zeppelin Web UI** в разделе **UI Proxy**.
 1. Выберите **Notebook**, затем ![image](../../_assets/console-icons/plus.svg) **Create new note**.
@@ -295,7 +295,7 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
 
 1. [Добавьте в настройки кластера](../operations/cluster-update.md) `dataproc-target` свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_Apache Hive™ Metastore>:9083`.
 
-    Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в консоли управления выберите сервис **Yandex MetaData Hub** и на левой панели выберите страницу ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
+    Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в консоли управления выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
 
 ## Импортируйте данные {#import-data}
 

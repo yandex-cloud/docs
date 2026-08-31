@@ -13,7 +13,7 @@ You can restore individual files and directories from a backup to any {{ compute
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the backup.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
   1. Depending on the resource you want to recover files and directories for, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
   1. Select the backup to restore individual files or directories from.
@@ -25,7 +25,7 @@ You can restore individual files and directories from a backup to any {{ compute
 
         {% note info %}
 
-        Make sure the [resource](../../concepts/index.md#protected-resources) you are recovering the files and directories to is [connected](../../concepts/vm-connection/index.md) to {{ backup-name }}.
+        Make sure the [backed up resource](../../concepts/index.md#protected-resources) you are recovering the files and directories to is [connected](../../concepts/vm-connection/index.md) to {{ backup-name }}.
 
         {% endnote %}
 
@@ -44,7 +44,7 @@ You can restore individual files and directories from a backup to any {{ compute
 
           {% endnote %}
 
-  1. Select an action to perform when file names from a backup match the names of existing files on a {{ compute-name }} VM or {{ baremetal-name }} server:
+  1. Select an action to perform when file names from a backup match file names on a {{ compute-name }} VM or {{ baremetal-name }} server:
       * `{{ ui-key.yacloud.backup.files-recovery.value_overwrite-all }}`.
       * `{{ ui-key.yacloud.backup.files-recovery.value_overwrite-older }}`.
       * `{{ ui-key.yacloud.backup.files-recovery.value_overwrite-none }}`: Files that are not in the source directory will not be written either.

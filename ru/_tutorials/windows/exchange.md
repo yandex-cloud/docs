@@ -5,7 +5,7 @@
 
 
 
-В сценарии описывается развертывание серверов Microsoft Exchange в {{ yandex-cloud }}. Инсталляция Microsoft Exchange будет состоять из двух почтовых серверов, двух серверов Active Directory и двух серверов Edge Transport в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b`. Нагрузка будет распределяться по серверам с помощью сетевого балансировщика нагрузки. Управление всеми серверами будет осуществляться через отдельную ВМ с доступом в интернет в зоне доступности `{{ region-id }}-d`.
+В сценарии описывается развертывание серверов Microsoft Exchange в {{ yandex-cloud }}. Инсталляция Microsoft Exchange будет состоять из двух почтовых серверов, двух серверов Active Directory и двух серверов Edge Transport в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a` и `{{ region-id }}-b`. Нагрузка будет распределяться по серверам с помощью сетевого балансировщика нагрузки. Управление всеми серверами будет осуществляться через отдельную ВМ с доступом в интернет в зоне доступности `{{ region-id }}-d`.
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте облачную сеть и подсети](#create-network).
@@ -54,7 +54,7 @@
      Чтобы создать [облачную сеть](../../vpc/concepts/network.md):
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана облачная сеть.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**
      1. Задайте имя сети: `exchange-network`.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -618,7 +618,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 ## Создайте Database Availability Group {#create-dag}
 
-Database Availability Group обеспечивает отказоусточивость почтовых серверов с помощью репликации баз данных и автоматического переключения баз при неполадках.
+Database Availability Group обеспечивает отказоустойчивость почтовых серверов с помощью репликации баз данных и автоматического переключения баз при неполадках.
 
 1. Подключитесь к ВМ `fsw-vm` с помощью RDP.
 1. Дайте группе `yantoso\Exchange Trusted Subsystem` администраторские права на ВМ `fsw-vm`:
@@ -771,22 +771,22 @@ Database Availability Group обеспечивает отказоусточив�
   Чтобы создать [сетевой балансировщик](../../network-load-balancer/concepts/index.md):
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать сервисный аккаунт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/network-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. Задайте имя балансировщика: `exchange-lb`.
   1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** выберите **{{ ui-key.yacloud.common.label_auto }}**.
   1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
-  1. Введите имя обработчика: `yassl`
-  1. Укажите порт и целевой порт обработчика: `443` и нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+      1. Введите имя обработчика: `yassl`
+      1. Укажите порт и целевой порт обработчика: `443` и нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
   1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
-  1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** раскройте выпадающий список и выберите **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
-  1. Введите имя целевой группы: `exchange-tg`.
-  1. Отметьте виртуальные машины `vm-exchange-a` и `vm-exchange-b` и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+      1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** раскройте выпадающий список и выберите **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
+      1. Введите имя целевой группы: `exchange-tg`.
+      1. Отметьте виртуальные машины `vm-exchange-a` и `vm-exchange-b` и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**.
-  1. Введите имя проверки состояния: `exchange-hc`.
-  1. Выберите тип проверки **{{ ui-key.yacloud.common.label_tcp }}**.
-  1. Укажите порт `443`.
-  1. Оставьте остальные параметры по умолчанию и нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+      1. Введите имя проверки состояния: `exchange-hc`.
+      1. Выберите тип проверки **{{ ui-key.yacloud.common.label_tcp }}**.
+      1. Укажите порт `443`.
+      1. Оставьте остальные параметры по умолчанию и нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}

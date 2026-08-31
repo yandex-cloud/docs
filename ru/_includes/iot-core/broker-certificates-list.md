@@ -4,7 +4,7 @@
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится брокер.
    1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/gear-branches.svg) **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Выберите брокер. Список сертификатов отобразится в разделе **{{ ui-key.yacloud.iot.label_certificates }}**.
 
 - CLI {#cli}

@@ -18,7 +18,7 @@ You can manage the {{ mspqr-name }} cluster hosts, including the following opera
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
 
 - CLI {#cli}
@@ -106,7 +106,7 @@ The number of `INFRA`, `ROUTER`, and `COORDINATOR` hosts in the {{ mspqr-short-n
 - Management console {#console}
 
   To create a host:
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
 
@@ -405,7 +405,7 @@ You can remove an `INFRA`, `ROUTER`, or `COORDINATOR` type host from a {{ SPQR }
 - Management console {#console}
 
   To delete a host from a cluster:
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the host you want to delete, select **{{ ui-key.yacloud.common.delete }}**, and confirm deletion.
 

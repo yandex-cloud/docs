@@ -32,7 +32,7 @@
 * Плата за вычислительные ресурсы и [диски](../../compute/concepts/disk.md) [ВМ](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 * Плата за хранение данных в [бакете](../../storage/concepts/bucket.md) и [операции](../../storage/operations/index.md) с ними ([тарифы Object Storage](../../storage/pricing.md)).
 * Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за использование Vision OCR ([тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/pricing)).
+* Плата за использование Vision OCR ([тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing#rules-image-recognition)).
 
 ## Создайте бакет {#create-bucket}
 
@@ -43,7 +43,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Нажмите кнопку **Создать бакет**.
   1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
   1. В поле **Чтение объектов** выберите **С авторизацией**.
@@ -61,7 +61,7 @@
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
   1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `CentOS 7` и выберите публичный образ [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7).
   1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-  1. В блоке **Диски и файловые хранилища** выберите тип [диска](../../compute/concepts/disk.md#disks_types) `SSD` и задайте размер `19 ГБ`.
+  1. В блоке **Диски и файловые хранилища** выберите тип [диска](../../compute/concepts/disk.md#disks-types) `SSD` и задайте размер `19 ГБ`.
   1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
       * **Платформа** — `Intel Cascade Lake`.
@@ -476,7 +476,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud выберите каталог, в котором находится бакет с результатами распознавания.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Откройте бакет с результатами распознавания.
   1. Убедитесь, что в бакете появился архив `my_pictures_text.tar`.
   1. Скачайте и распакуйте архив.

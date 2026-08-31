@@ -60,6 +60,8 @@
   * [yc cic private-connection upsert-static-routes](../../cli/cli-ref/cic/cli-ref/private-connection/upsert-static-routes.md) — позволяет добавлять в приватное соединение новые статические маршруты в дополнение к существующим.
   * [yc cic private-connection remove-static-routes](../../cli/cli-ref/cic/cli-ref/private-connection/remove-static-routes.md) — позволяет удалять из приватного соединения часть статических маршрутов, сохраняя остальные.
 
+  При использовании параметра `--labels` команды `yc cic private-connection update` текущий набор меток будет полностью перезаписан.
+
   **yc cic private-connection update**
 
   1. Посмотрите описание команды CLI для изменения параметров приватного соединения:

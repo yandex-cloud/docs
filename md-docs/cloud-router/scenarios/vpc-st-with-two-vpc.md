@@ -2,9 +2,10 @@
 
 # Организация сетевой связности между двумя и более облачными сетями (VPC Stitching)
 
+
 {% note warning %}
 
-Функция доступна только при подключенной услуге [Cloud Interconnect](../../interconnect/index.md).
+Функция доступна только при подключенной услуге [Cloud Interconnect](../../interconnect/index.md) с объемом трафика не менее [300 ТБ](../../interconnect/pricing.md).
 
 {% endnote %}
 

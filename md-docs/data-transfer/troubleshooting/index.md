@@ -18,7 +18,7 @@
 * [PostgreSQL](#postgresql)
 * [Yandex Managed Service for YDB](#ydb)
 * [Yandex Data Streams](#yds)
-* [Greenplum®](#greenplum)
+* [Greenplum®/Apache Cloudberry™](#greenplum)
 * [Куда заявить о проблеме](#support)
 
 ## Проблемы, возникающие при работе с сервисом Data Transfer {#overview}
@@ -332,6 +332,24 @@ Failed to connect to <адрес_хоста>
 
 1. Если вы подключаетесь к кластеру управляемых БД в Yandex Cloud как к пользовательской инсталляции через FQDN конкретного хоста, убедитесь, что адрес хоста введен корректно.
 
+### Ошибка hostname resolving error {#hostname-resolving-error}
+
+Текст ошибки:
+
+```text
+Cannot retrieve table information from the source database: failed to resolve storage: failed to connect to the destination cluster to get type information: unable to get master host: unable to create имя-сервиса service client: All hosts are unavailable
+hostname resolving error (lookup имя-хоста.mdb.yandexcloud.net on 127.0.0.1:53) failed to connect to `host=имя-хоста.mdb.yandexcloud.net user= database=`: hostname resolving error
+```
+
+Ошибка возникает, если в параметрах облачной подсети кластера-приемника или источника в трансфере указаны адреса сторонних DNS-серверов. В этом случае во время выполнения трансфера может возникнуть ошибка `hostname resolving error`.
+
+Подробнее о сетевых настройках сервиса в разделе [Сеть в Yandex Data Transfer](../concepts/network.md).
+
+**Решение:**
+
+* Настройте сторонние DNS-серверы так, чтобы они разрешали имена хостов кластера.
+* Если это невозможно, добавьте эндпоинт кластера по IP-адресу как внешнюю инсталляцию.
+
 ### Отсутствие общих зон доступности {#common-network}
 
 Текст ошибки:
@@ -371,7 +389,7 @@ collides with subnet <идентификатор_подсети_2> [<диапа�
 
 ### Отсутствие соединения с сервером {#subnet-without-nat}
 
-​Отсутствие соединения из-за указания подсети без настроенного NAT-шлюза.
+Отсутствие соединения из-за указания подсети без настроенного NAT-шлюза.
 
 Текст ошибки:
 
@@ -436,7 +454,7 @@ Failed permission check: No permission to use VPC Subnets: Permission denied
 
 ### Не добавляются новые таблицы {#no-new-tables}
 
-​В трансфер типа _**Копирование и репликация**_ не добавляются новые таблицы.
+В трансфер типа _**Копирование и репликация**_ не добавляются новые таблицы.
 
 **Решение:**
 
@@ -728,7 +746,7 @@ Last binlog file <имя_файла>:<размер_файла> is more than 4GB
 
 ### Не добавляются новые таблицы {#no-new-tables}
 
-​В трансфер типа _**Копирование и репликация**_ не добавляются новые таблицы.
+В трансфер типа _**Копирование и репликация**_ не добавляются новые таблицы.
 
 **Решение:**
 
@@ -1097,8 +1115,8 @@ ERROR: invalid snapshot identifier: "<идентификатор_снапшот�
 ### Превышение квоты на длительность соединения {#conn-duration-quota}
 
 В Yandex Managed Service for PostgreSQL существует квота на длительность соединения — 12 часов.
-​
-​**Решение:** если перенос базы данных требует больше времени, [измените настройку кластера](../../managed-postgresql/operations/update.md#change-postgresql-config) Yandex Managed Service for PostgreSQL [Session duration timeout](../../managed-postgresql/concepts/settings-list.md#setting-session-duration-timeout).
+
+**Решение:** если перенос базы данных требует больше времени, [измените настройку кластера](../../managed-postgresql/operations/update.md#change-postgresql-config) Yandex Managed Service for PostgreSQL [Session duration timeout](../../managed-postgresql/concepts/settings-list.md#setting-session-duration-timeout).
 
 ### Превышение количества подключений к базе данных {#conn-limit}
 
@@ -1152,7 +1170,7 @@ Push failed: ERROR: function <имя_схемы>.<имя_функции>() does 
 
 ### Низкая скорость трансфера  {#low-speed}
 
-​Может возникать у трансферов типа _**Копирование**_ или _**Копирование и репликация**_ из PostgreSQL в PostgreSQL.
+Может возникать у трансферов типа _**Копирование**_ или _**Копирование и репликация**_ из PostgreSQL в PostgreSQL.
 
 Возможные причины:
 
@@ -1448,11 +1466,11 @@ redirect to SOME_URL is requested but no redirects are allowed.
 По соображениям безопасности такие редиректы запрещены. Воздержитесь от использования редиректов в Cloud Functions в трансферах.
 
 
-## Greenplum® {#greenplum}
+## Greenplum®/Apache Cloudberry™ {#greenplum}
 
 ### Почему я не могу задать количество потоков больше N в трансфере из Greenplum® в Greenplum®? {#threads_limit}
 
-Если в трансфере из Greenplum® в Greenplum® не используется прямое чтение с сегментов, количество потоков не может превышать минимальное число сегментов в участвующих кластерах.
+Если в трансфере из Greenplum®/Apache Cloudberry™ в Greenplum®/Apache Cloudberry™ не используется прямое чтение с сегментов, количество потоков не может превышать минимальное число сегментов в участвующих кластерах.
 
 [Подробнее об особенностях работы с источником Greenplum®](../operations/endpoint/source/greenplum.md#advanced).
 

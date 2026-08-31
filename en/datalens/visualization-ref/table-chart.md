@@ -45,8 +45,8 @@ A table is a good choice for quantitative comparison, where you can see differen
   Household goods |	Non-essential goods |	Pickup |	1,521,937 |	447 |	475
   Home appliances |	Kitchenware |	Delivery |	829,157 |	213 |	218
   Home appliances |	Kitchenware |	Pickup |	2,048,211 |	482 |	513
-  Home appliances |	Health and beauty equipment |	Delivery |	944,770 |	255 |	258
-  Home appliances |	Health and beauty equipment |	Pickup |	2,387,410 |	550 |	581
+  Home appliances |	Health and beauty gadgets |	Delivery |	944,770 |	255 |	258
+  Home appliances |	Health and beauty gadgets |	Pickup |	2,387,410 |	550 |	581
 
 {% endlist %}
 
@@ -62,15 +62,13 @@ Wizard<br/> section| Description
 Columns | Dimensions and measures that will be used as columns. The field name appears in the column header. You can use [markup functions](../function-ref/markup-functions.md) in columns.
 Colors | Measure. Affects color fill of all cells within a row. It may only contain one measure.
 Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
-Filters | Dimension or measure. Used as a filter.
+Filters | Dimension or measure. It is used as a filter.
 
 ## How to create a table {#create-diagram}
 
 To create a table:
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
@@ -157,12 +155,33 @@ To set the width of any column to `Auto`, click **Reset**.
 {% endcut %}
 
 
+{% cut "Setting up column alignment" %}
+
+1. In the top-right corner of the **Columns** section, click ![image](../../_assets/console-icons/gear.svg) (the icon appears when you hover over the section).
+1. In the window that opens, select alignment for each column:
+
+   * `Auto`: Auto alignment.
+   * ![image](../../_assets/console-icons/text-align-left.svg): Left-aligned.
+   * ![image](../../_assets/console-icons/text-align-center.svg): Center-aligned.
+   * ![image](../../_assets/console-icons/text-align-right.svg): Right-aligned.
+
+1. Click **Apply**.
+
+   {% cut "Example of column alignment settings" %}
+
+   ![image](../../_assets/datalens/operations/chart/table-alignment-setting.png =529x184)
+
+   {% endcut %}
+
+{% endcut %}
+
+
 {% cut "Pinning table columns" %}
 
 You can pin multiple columns on the left side of the table:
 
 1. In the top-right corner of the **Columns** section, click ![image](../../_assets/console-icons/gear.svg) (the icon appears when you hover over the section).
-1. In the window that opens, click ![image](../../_assets/console-icons/pin.svg) next to the name of the far right column to pin the columns. This column and all columns to the left of it will stay in place as you scroll horizontally.
+1. In the window that opens, click ![image](../../_assets/console-icons/pin.svg) next to the name of the far right column you want to pin. This column and all columns to the left of it will stay in place as you scroll horizontally.
 1. Click **Apply**.
 
 {% endcut %}

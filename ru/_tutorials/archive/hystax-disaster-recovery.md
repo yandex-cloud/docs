@@ -94,7 +94,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
@@ -186,8 +186,8 @@
 
   Чтобы изменить тип публичного IP-адреса с динамического на статический:
   1. В [консоли управления]({{ link-console-main }}) откройте страницу каталога, в котором вы работаете.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.vpc.switch_addresses }}**.
   1. Нажмите значок ![image](../../_assets/options.svg) в строке адреса ВМ с Хайстекс Акура.
   1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
@@ -260,7 +260,7 @@
 
 1. По умолчанию на ВМ с Хайстекс Акура установлен самоподписанный сертификат.
 1. На открывшейся странице заполните следующие поля:
-   * **Огранизация** — название вашей организации.
+   * **Организация** — название вашей организации.
    * **Логин пользователя-администратора** — адрес электронной почты для входа в административную панель.
    * **Пароль** — пароль администратора.
    * **Подтвердите пароль** — пароль администратора повторно.

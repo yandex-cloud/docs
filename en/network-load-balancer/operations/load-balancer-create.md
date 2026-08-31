@@ -20,7 +20,7 @@ Before you create a network load balancer, make sure to [create](target-group-cr
   To create a [network load balancer](../concepts/index.md):
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a load balancer.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/network-load-balancer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. Name the load balancer. The naming requirements are as follows:
 

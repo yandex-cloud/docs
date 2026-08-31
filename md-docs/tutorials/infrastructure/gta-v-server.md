@@ -41,7 +41,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-   1. Перейдите в сервис **Virtual Private Cloud**.
+   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
    1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **Группы безопасности**. 
    1. Нажмите кнопку **Создать группу безопасности**.
    1. В поле **Имя** укажите имя `gta-v-sg`.
@@ -72,12 +72,12 @@
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-      1. Перейдите в сервис **Compute Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
       1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
       1. Нажмите кнопку **Создать виртуальную машину**.
       1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `Ubuntu 22.04 LTS` и выберите публичный образ [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
       1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-      1. В блоке **Диски и файловые хранилища** выберите [тип диска](../../compute/concepts/disk.md#disks_types) `HDD` и задайте размер `20 ГБ`.
+      1. В блоке **Диски и файловые хранилища** выберите [тип диска](../../compute/concepts/disk.md#disks-types) `HDD` и задайте размер `20 ГБ`.
       1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
           * **Платформа** — `Intel Ice Lake`.

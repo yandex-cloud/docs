@@ -48,7 +48,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder)для создания кластера.
-   1. Перейдите в сервис **Compute Cloud**.
+   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
    1. На панели слева выберите ![image](../../_assets/console-icons/cpus.svg) **Кластеры GPU**.
    1. Нажмите кнопку **Создать кластер GPU**.
    1. В поле **Имя** укажите `test-gpu-cluster`.
@@ -68,7 +68,7 @@
       1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите **Создать виртуальную машину**.
       1. В блоке **Образ загрузочного диска** выберите публичный образ [Ubuntu 20.04 LTS Secure Boot CUDA 12.2](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2004-lts-secureboot-cuda-12-2).
       1. В поле **Зона доступности** выберите `ru-central1-d`.
-      1. В блоке **Диски и файловые хранилища** выберите [тип диска](../../compute/concepts/disk.md#disks_types) `SSD` и задайте размер `800 ГБ`.
+      1. В блоке **Диски и файловые хранилища** выберите [тип диска](../../compute/concepts/disk.md#disks-types) `SSD` и задайте размер `800 ГБ`.
       1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите:
 
             * **Платформа** — `Gen2`.

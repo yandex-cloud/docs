@@ -83,6 +83,27 @@ The {{ ad-sync-agent }} syncs the following objects with the {{ microsoft-idp.ad
 
     {% endnote %}
 
+### Password writeback in {{ microsoft-idp.ad-short }} {#password-writeback}
+
+{% include [pw-writeback-preview-notice](../../_includes/organization/pw-writeback-preview-notice.md) %}
+
+The sync agent can perform user _password writeback_ in {{ microsoft-idp.ad-short }}. Password writeback ensures that a user's password gets updated in {{ microsoft-idp.ad-short }} once edited in {{ org-full-name }} in the following cases:
+
+* User who is configured to sync with {{ microsoft-idp.ad-short }} [edited their password](../../organization/operations/manage-account.md#edit-password) in {{ org-full-name }}.
+* Organization administrator [reset the password](../../organization/operations/user-pools/reset-user-password.md#reset) for a user configured to sync with {{ microsoft-idp.ad-short }}.
+* User who is configured to sync with {{ microsoft-idp.ad-short }} set a new password in {{ org-full-name }} after that user's password was reset by an administrator.
+
+Password writeback proceeds in the following order:
+
+1. A user or administrator initiate a change in the user's password in {{ org-full-name }}.
+1. The sync agent attempts to update this user's password in {{ microsoft-idp.ad-short }}.
+
+    An attempt to change the password in {{ microsoft-idp.ad-short }} may fail if the new password does not meet the requirements set in {{ microsoft-idp.ad-short }} security policies.
+1. If the attempt to change the password in {{ microsoft-idp.ad-short }} is successful, the user's password changes accordingly in {{ org-full-name }}.
+1. If the attempt to change the password in {{ microsoft-idp.ad-short }} fails, the user's password in {{ org-full-name }} also remains unchanged.
+
+For password writeback to work, the domain user on whose behalf the agent performs synchronization must also have the `Change Password`, `Reset Password`, and `Write pwdLastSet` permissions. Grant these permissions for the whole domain or for those organization units (OUs) that match the `sync_settings.filter` filters selected in the agent configuration.
+
 ## Setting up synchronization {#sync-setup}
 
 To implement {{ org-full-name }} user and group synchronization with {{ microsoft-idp.ad-short }}, you need to do the presetting both on the [domain controller](https://en.wikipedia.org/wiki/Domain_controller_(Windows)) side with {{ microsoft-idp.ad-short }} services deployed and on the {{ yandex-cloud }} side.
@@ -179,6 +200,8 @@ During continuous synchronization, the agent tracks the following changes in {{ 
 * Changing user and user group attributes.
 * Adding users to groups and removing them from groups.
 * Changing user passwords.
+
+{% include [ad-sync-account-expires-solution](../../_includes/organization/ad-sync-account-expires-solution.md) %}
 
 ### Synchronization logging {#logging}
 

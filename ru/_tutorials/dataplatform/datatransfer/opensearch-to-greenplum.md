@@ -1,5 +1,6 @@
 # Копирование данных из {{ mos-full-name }} в {{ mgp-full-name }} с помощью {{ data-transfer-full-name }}
 
+
 С помощью сервиса {{ data-transfer-full-name }} вы можете перенести данные из кластера-источника {{ mos-full-name }} в кластер-приемник {{ GP }} в сервисе {{ mgp-name }}.
 
 Чтобы перенести данные:

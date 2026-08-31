@@ -13,18 +13,14 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Выберите профиль, в который вы хотите добавить [правило-исключение](../concepts/waf.md#exclusion-rules).
-  1. В меню слева выберите ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** и нажмите кнопку **{{ ui-key.yacloud.smart-web-security.waf.label_create-exclusion-rule }}**.
+  1. Выберите ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** и нажмите **{{ ui-key.yacloud.smart-web-security.waf.label_create-exclusion-rule }}**.
   1. Введите имя правила-исключения.
-  1. (опционально) Введите описание.
-  1. (опционально) Включите опцию **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}**, чтобы логировать факты срабатывания правил-исключений.
-
+  1. (Опционально) Введите описание.
+  1. (Опционально) Включите опцию **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}**, чтобы логировать факты срабатывания правил-исключений.
   1. {% include [waf-rule-rules-section](../../_includes/smartwebsecurity/waf-rule-rules-section.md) %}
-  
   1. {% include [waf-rule-request-condition](../../_includes/smartwebsecurity/waf-rule-request-condition.md) %}
-
   1. {% include [waf-rule-traffic-conditions](../../_includes/smartwebsecurity/waf-rule-traffic-conditions.md) %}
-
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - {{ TF }} {#tf}
 
@@ -32,26 +28,18 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием профиля безопасности `yandex_sws_waf_profile`: добавьте блок `exclusion_rule` c правилом-исключением WAF.
+  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием профиля WAF `yandex_sws_waf_profile`: добавьте блок `exclusion_rule` с правилом-исключением WAF.
 
       ```hcl
-      # WAF профиль
+      # Профиль WAF
       resource "yandex_sws_waf_profile" "default" {
         name = "waf-profile-default"
-        core_rule_set {
-          inbound_anomaly_score = 2
-          paranoia_level        = local.waf_paranoia_level
-          rule_set {
-            name    = "OWASP Core Ruleset"
-            version = "4.0.0"
-          }
-        }
 
         ...
 
         # Правило-исключение
         exclusion_rule {
-          name = "<имя правила-исключения>"
+          name = "<имя_правила-исключения>"
           condition {
             source_ip {
               ip_ranges_match {
@@ -86,27 +74,33 @@ description: Следуя данной инструкции, вы сможете
       }
       ```
 
+     {% cut "Пример настройки правил-исключений профиля WAF в конфигурации {{ TF }}" %}
+
+     {% include [waf-profile-exclusion-terraform-example](../../_includes/smartwebsecurity/waf-profile-exclusion-terraform-example.md) %}
+
+     {% endcut %}
+
       Где:
-      
+
       * `exclusion_rule` — правило-исключение:
-         
+
          * `name` — имя правила-исключения.
          * `condition` — [условия](../concepts/conditions.md), при которых будет срабатывать правило-исключение. В приведенном примере применяется условие по IP-адресу источника трафика.
 
             В блоке `condition` вы можете использовать одновременно несколько разных типов условий.
-         
+
          * `exclude_rules` — параметры правила-исключения:
-            
-            * `exclude_all` — исключение будет срабатывать для всех правил. Возможные значения `false` или `true`.
+
+            * `exclude_all` — исключение будет срабатывать для всех правил. Возможные значения: `false` или `true`.
             * `rule_ids` — список идентификаторов правил из базового набора, для которых будет срабатывать исключение. Чтобы указать отдельные правила, для параметра `exclude_all` установите значение `false`.
 
-      Подробнее о параметрах ресурса `sws_waf_profile` в [документации провайдера]({{ tf-provider-resources-link }}/sws_waf_profile).
+      Подробнее о параметрах ресурса `yandex_sws_waf_profile` в [документации провайдера]({{ tf-provider-resources-link }}/sws_waf_profile).
 
-  1. Создайте ресурсы:
+  1. Примените изменения:
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}).
+  Вы можете проверить изменение ресурсов в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 

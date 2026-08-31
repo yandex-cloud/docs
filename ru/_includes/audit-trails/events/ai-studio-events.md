@@ -3,7 +3,7 @@
 `batch_inference.CancelBatchInference` | Остановка работы модели в пакетном режиме
 `batch_inference.DeleteBatchInference` | Удаление результата обработки в пакетном режиме
 `batch_inference.StartBatchInference` | Запуск модели в пакетном режиме
-`dedicated_instance.CreateDedicatedInstance` | Создание [выделенного инстанса]({{ link-docs-ai }}/ai-studio/concepts/generation/dedicated-instance)
+`dedicated_instance.CreateDedicatedInstance` | Создание [выделенного инстанса]({{ link-docs-ai }}ai-studio/concepts/generation/dedicated-instance)
 `dedicated_instance.DeleteDedicatedInstance` | Удаление выделенного инстанса
 `dedicated_instance.StartDedicatedInstance` | Запуск выделенного инстанса
 `dedicated_instance.StopDedicatedInstance` | Остановка выделенного инстанса
@@ -13,7 +13,7 @@
 `guardrails.BlockContentByDictionary` | Блокировка контента по словарю
 `guardrails.ChangeDefaultGuardrail` | Изменение правила модерации по умолчанию
 `guardrails.CompleteContentCheck` | Завершение проверки контента
-`guardrails.CreateDictionary` | Создание [словаря]({{ link-docs-ai }}/ai-studio/concepts/security/guardrails#dictionaries) фраз и регулярных выражений в [правиле модерации]({{ link-docs-ai }}/ai-studio/concepts/security/guardrails#rules)
+`guardrails.CreateDictionary` | Создание [словаря]({{ link-docs-ai }}ai-studio/concepts/security/guardrails#dictionaries) фраз и регулярных выражений в [правиле модерации]({{ link-docs-ai }}ai-studio/concepts/security/guardrails#rules)
 `guardrails.CreateGuardrail` | Создание правила модерации
 `guardrails.DeleteDictionary` | Удаление словаря фраз и регулярных выражений из правила модерации
 `guardrails.DeleteGuardrail` | Удаление правила модерации
@@ -38,5 +38,10 @@
 `responses.McpToolList` | Получение списка MCP-инструментов
 `responses.WebSearchToolSearch` | Поиск через инструмент веб-поиска (Web Search)
 `settings.SetFolderSettings` | Изменение настроек сервиса в каталоге
-`tuning.CancelTuning` | Остановка [дообучения]({{ link-docs-ai }}/ai-studio/concepts/tuning/index) модели
+`tuning.CancelTuning` | Остановка [дообучения]({{ link-docs-ai }}ai-studio/concepts/tuning/index) модели
 `tuning.StartTuning` | Запуск дообучения модели
+`createWorkflow` | Создание рабочего процесса
+`deleteWorkflow` | Удаление рабочего процесса
+`setWorkflowAccessBindings` | Назначение прав доступа к рабочему процессу
+`updateWorkflow` | Изменение рабочего процесса
+`updateWorkflowAccessBindings` | Изменение прав доступа к рабочему процессу

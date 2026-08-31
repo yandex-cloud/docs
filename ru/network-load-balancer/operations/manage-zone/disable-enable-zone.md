@@ -6,6 +6,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Отключить и включить зоны доступности
 
+
 {% include [about-zone-disable](../../../_includes/network-load-balancer/about-zone-disable.md) %}
 
 Вы можете отключать и включать зоны доступности по одной или перечислить нужные зоны через запятую. 
@@ -22,7 +23,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
   1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Выберите нужный сетевой балансировщик.
-  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings_button }}**.
+  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings }}** нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings_button }}**.
   1. Активируйте опцию **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.form_disable_traffic_3z2cs }}** напротив зон доступности, которые вы хотите отключить.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
@@ -145,7 +146,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
   1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Выберите нужный сетевой балансировщик.
-  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings_button }}**.
+  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings }}** нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings_button }}**.
   1. Деактивируйте опцию **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.form_disable_traffic_3z2cs }}** напротив зон доступности, которые вы хотите включить.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 

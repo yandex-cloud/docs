@@ -1,7 +1,7 @@
 # Создание агента на OpenAI Agents SDK со стримингом ответа через веб-сокеты на {{ sf-full-name }} и {{ api-gw-name }}
 
 
-В этом руководстве вы создадите агент со стримингом ответа через [веб-сокеты](https://{{ lang }}.wikipedia.org/wiki/WebSocket) на [{{ sf-full-name }}](../../functions/) и [{{ api-gw-full-name }}](../../api-gateway/). Функция будет использовать [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) для работы с моделями [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index#yandex).
+В этом руководстве вы создадите агент со стримингом ответа через [веб-сокеты](https://{{ lang }}.wikipedia.org/wiki/WebSocket) на [{{ sf-full-name }}]({{ link-docs }}/functions/) и [{{ api-gw-full-name }}]({{ link-docs }}/api-gateway/). Функция будет использовать [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) для работы с моделями [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index#yandex).
 
 Когда агент обрабатывает сложные запросы, ему может потребоваться продолжительное время на ответ. Например, при генерации больших текстов с рассуждениями, поиске и индексации. В таких случаях важно видеть прогресс и получать частичные результаты по мере готовности. Стриминг ответа позволяет сразу выводить токены или фразы, промежуточные сообщения и статусы шагов, отображать логи, а затем — финальный ответ, не дожидаясь завершения всего сценария. Это повышает воспринимаемую скорость, обеспечивает более интерактивный UI/UX, дает возможность отмены, повтора и динамического обновления интерфейса. Стриминг поддерживается большинством фреймворков. В OpenAI Agents SDK также предусмотрен [стриминг](https://openai.github.io/openai-agents-python/streaming/).
 
@@ -9,15 +9,15 @@
 
 На схеме:
 
-1. Пользователь устанавливает веб-сокетное соединение с [API-шлюзом](../../api-gateway/concepts/index.md) и отправляет по нему запрос к AI-агенту.
-1. API-шлюз перенаправляет запрос в обработчик [функции](../../functions/concepts/function.md).
+1. Пользователь устанавливает веб-сокетное соединение с [API-шлюзом]({{ link-docs }}/api-gateway/concepts/index) и отправляет по нему запрос к AI-агенту.
+1. API-шлюз перенаправляет запрос в обработчик [функции]({{ link-docs }}/functions/concepts/function).
 1. Обработчик функции создает и запускает AI-агента с помощью OpenAI Agent SDK в режиме стриминга. В этом режиме агент будет передавать данные от модели по мере их поступления, не дожидаясь полного ответа.
 1. AI-агент расширяет запрос пользователя дополнительным контекстом и отправляет его в [модель генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/index).
-1. [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с помощью [API-ключа](../../iam/concepts/authorization/api-key.md) предоставляет AI-агенту доступ к [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index).
-1. Сервисный аккаунт предоставляет функции доступ к [секрету](../../lockbox/concepts/secret.md), в котором хранится API-ключ сервисного аккаунта.
+1. [Сервисный аккаунт]({{ link-docs }}/iam/concepts/users/service-accounts) с помощью [API-ключа]({{ link-docs }}/iam/concepts/authorization/api-key) предоставляет AI-агенту доступ к [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index).
+1. Сервисный аккаунт предоставляет функции доступ к [секрету]({{ link-docs }}/lockbox/concepts/secret), в котором хранится API-ключ сервисного аккаунта.
 1. Функция получает из секрета API-ключ сервисного аккаунта.
 1. Модель передает AI-агенту сгенерированный ответ.
-1. AI-агент передает данные от модели по мере их поступления. Данные сразу перенаправляются в открытое пользователем веб-сокетное соединение с помощью [{{ api-gw-name }} WebSocket Connection Service](../../api-gateway/apigateway/websocket/api-ref/Connection/send.md). Завершается выполнение функции.
+1. AI-агент передает данные от модели по мере их поступления. Данные сразу перенаправляются в открытое пользователем веб-сокетное соединение с помощью [{{ api-gw-name }} WebSocket Connection Service]({{ link-docs }}/api-gateway/apigateway/websocket/api-ref/Connection/send). Завершается выполнение функции.
 1. API-шлюз перенаправляет ответ пользователю.
 
 Чтобы создать агент:
@@ -36,7 +36,7 @@
 
 {% note tip %}
 
-Если вы не хотите привязывать AI-агент к вендору, разверните функцию в {{ serverless-containers-full-name }}, как описано в руководстве [{#T}](../../tutorials/serverless/functions-framework-to-container.md).
+Если вы не хотите привязывать AI-агент к вендору, разверните функцию в {{ serverless-containers-full-name }}, как описано в руководстве [{#T}]({{ link-docs }}/tutorials/serverless/functions-framework-to-container).
 
 {% endnote %}
 
@@ -53,11 +53,11 @@
 
 В стоимость поддержки инфраструктуры для этого практического руководства входят:
 
-* Плата за количество запросов к API-шлюзу и исходящий трафик ([тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
+* Плата за количество запросов к API-шлюзу и исходящий трафик ([тарифы {{ api-gw-name }}]({{ link-docs }}/api-gateway/pricing)).
 * Плата за генерацию текста ([тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing)).
-* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы {{ sf-name }}](../../functions/pricing.md)).
-* Плата за хранение секрета и операции с ним ([тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md)).
-* Плата за получение и хранение логов ([тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
+* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы {{ sf-name }}]({{ link-docs }}/functions/pricing)).
+* Плата за хранение секрета и операции с ним ([тарифы {{ lockbox-full-name }}]({{ link-docs }}/lockbox/pricing)).
+* Плата за получение и хранение логов ([тарифы {{ cloud-logging-full-name }}]({{ link-docs }}/logging/pricing)).
 
 
 ## Настройте окружение {#setup-environment}
@@ -256,11 +256,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder), в котором вы будете создавать инфраструктуру.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта: `agent-streamer-sa`.
-  1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../../iam/roles-reference.md):
+  1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли]({{ link-docs }}/iam/roles-reference):
       * `serverless.functions.invoker`
       * `lockbox.payloadViewer`
       * `api-gateway.websocketWriter`
@@ -289,7 +289,7 @@
       name: agent-streamer-sa
       ```
 
-  1. Назначьте [роли](../../iam/roles-reference.md) сервисному аккаунту:
+  1. Назначьте [роли]({{ link-docs }}/iam/roles-reference) сервисному аккаунту:
 
       ```bash
       yc resource-manager folder add-access-binding <имя_или_идентификатор_каталога> \
@@ -347,9 +347,9 @@
 
 - API {#api}
 
-  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
+  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create]({{ link-docs }}/iam/api-ref/ServiceAccount/create) для ресурса [ServiceAccount]({{ link-docs }}/iam/api-ref/ServiceAccount/index) или вызовом gRPC API [ServiceAccountService/Create]({{ link-docs }}/iam/api-ref/grpc/ServiceAccount/create).
 
-  Чтобы назначить сервисному аккаунту [роли](../../iam/roles-reference.md) `serverless.functions.invoker`, `lockbox.payloadViewer`, `api-gateway.websocketWriter` и `ai.languageModels.user` на каталог, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md).
+  Чтобы назначить сервисному аккаунту [роли]({{ link-docs }}/iam/roles-reference) `serverless.functions.invoker`, `lockbox.payloadViewer`, `api-gateway.websocketWriter` и `ai.languageModels.user` на каталог, воспользуйтесь методом REST API [updateAccessBindings]({{ link-docs }}/resource-manager/api-ref/Folder/updateAccessBindings) для ресурса [Folder]({{ link-docs }}/resource-manager/api-ref/Folder/index) или вызовом gRPC API [FolderService/UpdateAccessBindings]({{ link-docs }}/resource-manager/api-ref/grpc/Folder/updateAccessBindings).
 
 {% endlist %}
 
@@ -363,10 +363,10 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Выберите созданный ранее сервисный аккаунт `agent-streamer-sa`.
   1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
-  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите [область действия](../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.ai.languageModels.execute`.
+  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите [область действия]({{ link-docs }}/iam/concepts/authorization/api-key#scoped-api-keys) `yc.ai.languageModels.execute`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните полученный идентификатор и секретный ключ — они понадобятся при создании функции.
 
@@ -391,7 +391,7 @@
   Где:
 
   * `--service-account-id` — идентификатор сервисного аккаунта `agent-streamer-sa`.
-  * `--scopes` — [области действия](../../iam/concepts/authorization/api-key.md#scoped-api-keys) ключа.
+  * `--scopes` — [области действия]({{ link-docs }}/iam/concepts/authorization/api-key#scoped-api-keys) ключа.
 
   Результат:
 
@@ -410,21 +410,21 @@
 
 - API {#api}
 
-  Чтобы создать API-ключ, воспользуйтесь методом REST API [create](../../iam/api-ref/ApiKey/create.md) для ресурса [ApiKey](../../iam/api-ref/ApiKey/index.md) или вызовом gRPC API [ApiKeyService/Create](../../iam/api-ref/grpc/ApiKey/create.md).
+  Чтобы создать API-ключ, воспользуйтесь методом REST API [create]({{ link-docs }}/iam/api-ref/ApiKey/create) для ресурса [ApiKey]({{ link-docs }}/iam/api-ref/ApiKey/index) или вызовом gRPC API [ApiKeyService/Create]({{ link-docs }}/iam/api-ref/grpc/ApiKey/create).
 
 {% endlist %}
 
 
 ## Создайте секрет {{ lockbox-name }} {#create-secret}
 
-В секрете [{{ lockbox-name }}](../../lockbox/) будет храниться секретный ключ.
+В секрете [{{ lockbox-name }}]({{ link-docs }}/lockbox/) будет храниться секретный ключ.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `api-key-secret`.
   1. В поле **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
@@ -465,7 +465,7 @@
 
 - API {#api}
 
-  Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md).
+  Чтобы создать секрет, воспользуйтесь методом REST API [create]({{ link-docs }}/lockbox/api-ref/Secret/create) для ресурса [Secret]({{ link-docs }}/lockbox/api-ref/Secret/index) или вызовом gRPC API [SecretService/Create]({{ link-docs }}/lockbox/api-ref/grpc/Secret/create).
 
 {% endlist %}
 
@@ -479,14 +479,14 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Создайте функцию:
 
      1. Нажмите **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
      1. В открывшемся окне введите имя функции: `agent-streamer`.
      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-  1. Создайте [версию функции](../../functions/concepts/function.md#version):
+  1. Создайте [версию функции]({{ link-docs }}/functions/concepts/function#version):
 
      1. Выберите среду выполнения `{{ python-full-ver }}`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` и прикрепите созданный ранее архив `function.zip`.
@@ -501,15 +501,15 @@
              * `BASE_URL` — URL сервиса {{ ai-studio-full-name }}: `https://{{ api-host-llm }}/v1`.
              * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ ai-studio-full-name }}.
 
-                 Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`, где `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете инфраструктуру.
+                 Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`, где `<идентификатор_каталога>` — [идентификатор каталога]({{ link-docs }}/resource-manager/operations/folder/get-id), в котором вы создаете инфраструктуру.
 
-             * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете инфраструктуру.
+             * `FOLDER_ID` — [идентификатор каталога]({{ link-docs }}/resource-manager/operations/folder/get-id), в котором вы создаете инфраструктуру.
 
          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
 
              * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}** укажите `API_KEY` и выберите созданный ранее секрет `api-key-secret`, его версию и ключ `api-key`.
 
-        * Если вы не хотите сохранять логи и [платить](../../logging/pricing.md) за использование сервиса [{{ cloud-logging-name }}](../../logging/), отключите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
+        * Если вы не хотите сохранять логи и [платить]({{ link-docs }}/logging/pricing) за использование сервиса [{{ cloud-logging-name }}]({{ link-docs }}/logging/), отключите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
 
      1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -560,9 +560,9 @@
           * `BASE_URL` — URL сервиса {{ ai-studio-full-name }}: `https://{{ api-host-llm }}/v1`.
           * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ ai-studio-full-name }}.
 
-              Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`, где `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете инфраструктуру.
+              Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`, где `<идентификатор_каталога>` — [идентификатор каталога]({{ link-docs }}/resource-manager/operations/folder/get-id), в котором вы создаете инфраструктуру.
 
-          * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете инфраструктуру.
+          * `FOLDER_ID` — [идентификатор каталога]({{ link-docs }}/resource-manager/operations/folder/get-id), в котором вы создаете инфраструктуру.
 
       * `--secret` — секрет `api-key-secret`.
 
@@ -598,9 +598,9 @@
 
 - API {#api}
 
-  Чтобы создать функцию, воспользуйтесь методом REST API [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md).
+  Чтобы создать функцию, воспользуйтесь методом REST API [create]({{ link-docs }}/functions/functions/api-ref/Function/create) для ресурса [Function]({{ link-docs }}/functions/functions/api-ref/Function/index) или вызовом gRPC API [FunctionService/Create]({{ link-docs }}/functions/functions/api-ref/grpc/Function/create).
 
-  Чтобы создать версию функции, воспользуйтесь методом REST API [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md).
+  Чтобы создать версию функции, воспользуйтесь методом REST API [createVersion]({{ link-docs }}/functions/functions/api-ref/Function/createVersion) для ресурса [Function]({{ link-docs }}/functions/functions/api-ref/Function/index) или вызовом gRPC API [FunctionService/CreateVersion]({{ link-docs }}/functions/functions/api-ref/grpc/Function/createVersion).
 
 {% endlist %}
 
@@ -621,7 +621,7 @@
     - Консоль управления {#console}
 
       1. Откройте [консоль управления]({{ link-console-main }}).
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+      1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
       1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
       1. В поле **{{ ui-key.yacloud.common.name }}** введите имя API-шлюза: `agent-streamer-gateway`.
       1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** вставьте содержимое файла `gateway-spec.yaml`.
@@ -662,7 +662,7 @@
 
     - API {#api}
 
-      Чтобы создать API-шлюз, воспользуйтесь методом REST API [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) для ресурса [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/ApiGateway/create.md).
+      Чтобы создать API-шлюз, воспользуйтесь методом REST API [create]({{ link-docs }}/api-gateway/apigateway/api-ref/ApiGateway/create) для ресурса [ApiGateway]({{ link-docs }}/api-gateway/apigateway/api-ref/ApiGateway/index) или вызовом gRPC API [ApiGatewayService/Create]({{ link-docs }}/api-gateway/apigateway/api-ref/grpc/ApiGateway/create).
 
     {% endlist %}
 
@@ -698,7 +698,7 @@
 
 Чтобы не [платить](#paid-resources) за ресурсы, которые вам больше не нужны, удалите их:
 
-1. [Удалите](../../api-gateway/operations/api-gw-delete.md) API-шлюз.
-1. [Удалите](../../functions/operations/function/function-delete.md) функцию.
-1. [Удалите](../../lockbox/operations/secret-delete.md) секрет.
-1. Если вы оставляли включенной опцию записи логов функции, [удалите](../../logging/operations/delete-group.md) лог-группу.
+1. [Удалите]({{ link-docs }}/api-gateway/operations/api-gw-delete) API-шлюз.
+1. [Удалите]({{ link-docs }}/functions/operations/function/function-delete) функцию.
+1. [Удалите]({{ link-docs }}/lockbox/operations/secret-delete) секрет.
+1. Если вы оставляли включенной опцию записи логов функции, [удалите]({{ link-docs }}/logging/operations/delete-group) лог-группу.

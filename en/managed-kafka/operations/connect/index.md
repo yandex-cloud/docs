@@ -11,8 +11,8 @@ You can connect to {{ mkf-name }} cluster hosts:
 * Over the internet if you configured [public access](../cluster-update.md#change-sg-set) for your cluster. This cluster allows connections only via [SSL](#get-ssl-cert).
 * From {{ yandex-cloud }} virtual machines located in the same [cloud network](../../../vpc/concepts/network.md). If the cluster is not publicly accessible, you do not need to use SSL to connect from these VMs.
 
-You can connect to an {{ KF }} cluster both with encryption (`SASL_SSL`, port {{ port-mkf-ssl }}) and without it (`SASL_PLAINTEXT`, port {{ port-mkf-text }}).
 
+You can connect to an {{ KF }} cluster both with encryption (`SASL_SSL`, port {{ port-mkf-ssl }}) and without it (`SASL_PLAINTEXT`, port {{ port-mkf-text }}).
 
 To connect to an {{ KF }} cluster:
 

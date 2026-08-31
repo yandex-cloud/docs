@@ -52,8 +52,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру для бастионного хоста.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Задайте имя сети: `external-bastion-network`.
   1. Отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -61,7 +61,7 @@
   1. Создайте подсеть:
 
      1. Выберите сеть `external-bastion-network`.
-     1. Справа сверху нажмите кнопку ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+     1. Нажмите кнопку ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Укажите параметры подсети:
 
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `bastion-external-segment`.
@@ -78,8 +78,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру для бастионного хоста.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Задайте имя сети: `internal-bastion-network`.
   1. Отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -87,7 +87,7 @@
   1. Создайте подсеть:
 
      1. Выберите сеть `internal-bastion-network`.
-     1. Справа сверху нажмите кнопку ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+     1. Нажмите кнопку ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Укажите параметры подсети:
 
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `bastion-internal-segment`.
@@ -108,9 +108,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** и выберите сеть `external-bastion-network`.
-  1. В меню слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру для бастионного хоста.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** и выберите сеть `external-bastion-network`.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Задайте имя группы безопасности: `secure-bastion-sg`.
   1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -133,9 +133,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** и выберите сеть `internal-bastion-network`.
-  1. В меню слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру для бастионного хоста.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** и выберите сеть `internal-bastion-network`.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Задайте имя группы безопасности: `internal-bastion-sg`.
   1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -167,8 +167,8 @@
 
 - Консоль управления {#console}  
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру для бастионного хоста.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
@@ -318,7 +318,7 @@ ssh -A bastion@<публичный_IP_адрес_бастионного_хост
    ```
 
 * **Удаленный** туннель работает в обратном, по отношению к локальному туннелю, направлении, открывая локальный порт для подключения к удаленному серверу.
-* **Динамический** туннель предоставляет SOCKS-прокси на локальном порту, при этом подключения устанавливаются с удаленного хоста. Например, можно настроить динамический туннель на порту 1080, а затем в браузере указать его как SOCKS-прокси. В итоге вы сможете подключаться ко всем ресурсам, которые доступны с вашего бастионного хоста и находятся в приватной подсети.
+* **Динамический** туннель предоставляет SOCKS-прокси на локальном порту, при этом подключения устанавливаются с удаленного хоста. Например, можно настроить динамический туннель на порте 1080, а затем в браузере указать его как SOCKS-прокси. В итоге вы сможете подключаться ко всем ресурсам, которые доступны с вашего бастионного хоста и находятся в приватной подсети.
 
    ```bash
    ssh bastion@<публичный_IP_адрес_бастионного_хоста> -D 1080

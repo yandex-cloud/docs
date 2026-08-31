@@ -32,7 +32,7 @@
 1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Gitlab` и выберите публичный образ [{{ GL }}](/marketplace/products/yc/gitlab).
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите [тип диска](../../compute/concepts/disk.md#disks_types) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` и задайте размер `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите [тип диска](../../compute/concepts/disk.md#disks-types) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` и задайте размер `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
@@ -57,7 +57,7 @@
 
 ## Настройте {{ GL }} {#confgure-gitlab}
 
-1. Перейдите в сервис **{{ compute-name }}**.
+1. [Перейдите]({{ link-console-main }}/link/compute) в сервис ***{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Выберите созданную ВМ `gitlab` и скопируйте ее публичный IP-адрес.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу SSH.
 1. Получите пароль администратора {{ GL }} с помощью команды ВМ:
@@ -80,7 +80,7 @@
 
 Отключите возможность регистрации других пользователей через страницу авторизации:
 1. Перейдите в раздел **Admin area**.
-1. В панели слева перейдите в раздел **Settings** и выберите вкладку **General**.
+1. На панели слева выберите раздел **Settings** и вкладку **General**.
 1. В блоке **Sign-up restrictions** нажмите кнопку **Expand**.
 1. Отключите опцию **Sign-up enabled**.
 1. Нажмите кнопку **Save changes**.
@@ -285,6 +285,6 @@
 Чтобы перестать платить за развернутый сервер, достаточно удалить созданную ВМ `gitlab`.
 
 Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** из вашего каталога.
+1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** из вашего каталога.
 1. Откройте вкладку **{{ ui-key.yacloud.vpc.switch_addresses }}**.
 1. Найдите нужный адрес, нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.common.delete }}**.

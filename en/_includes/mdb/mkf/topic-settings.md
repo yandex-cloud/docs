@@ -30,7 +30,7 @@
 
     Time (in milliseconds) to retain delete tombstone markers for topics with a compacted log. This setting only applies if the [log cleanup policy](#settings-topic-cleanup-policy) is set either to `Compact` or `CompactAndDelete`.
 
-    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_delete.retention.ms).
+    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_delete.retention.ms).
 
 * **Flush messages** {{ tag-all }} {#settings-topic-flush-messages}
 
@@ -62,7 +62,22 @@
 
     For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_max.message.bytes).
 
-* **Min compaction lag, ms** {{ tag-all }} {#settings-topic-max-compaction-lag-ms}    
+* **Timestamp type in a message** {{ tag-all }} {#settings-topic-message-timestamp-type}
+
+    Type of the timestamp added to messages in the topic:
+
+    #|
+    || **Management console** | **API** | **{{ TF }}** | **CLI** | **Description** ||
+    || `Unspecified`      | `MESSAGE_TIMESTAMP_TYPE_UNSPECIFIED` | — | — | Inherits the [cluster-level setting](#settings-log-message-timestamp-type) value. ||
+    || `CreateTime`       | `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME` | `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME` | `create-time`     | Time the message was created by the [producer](../../../managed-kafka/concepts/producers-consumers.md). ||
+    || `LogAppendTime`    | `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`  | `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME` | `log-append-time` | Time the broker appended the message to the log. ||
+    |#
+
+    For a full description of this setting, see the description of the [Log message timestamp type](#settings-log-message-timestamp-type) cluster-level setting.
+
+    For a full setting description, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_message.timestamp.type).
+
+* **Min compaction lag, ms** {{ tag-all }} {#settings-topic-min-compaction-lag-ms}    
 
     Minimum time a message remains uncompacted in the log.
 
@@ -79,7 +94,7 @@
     The recommended value depends on the number of [broker hosts](../../../managed-kafka/concepts/brokers.md):
 
     * For clusters with one broker host: `1`.
-    * For clusters with two or more broker hosts: `2`. This value is used to ensure high cluster availability. For more information, see [{#T}](../../../managed-kafka/concepts/ha-cluster.md#three-or-more-hosts).
+    * For clusters with three or more broker hosts: `2`. This value is used to ensure high cluster availability. For more information, see [{#T}](../../../managed-kafka/concepts/ha-cluster.md#three-or-more-hosts).
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}**.
 

@@ -32,7 +32,6 @@ editable: false
 
 
 
-
 Тарифицируются:
 * [Публичные](concepts/dns-zone.md#public-zones) или [внутренние](concepts/dns-zone.md#private-zones) DNS-зоны, созданные пользователем.
 
@@ -75,7 +74,6 @@ editable: false
   {% include [kzt-calculations](../_pricing_examples/dns/kzt-calculations.md) %}
 
 {% endlist %}
-
 
 
 

@@ -1,5 +1,5 @@
 {% note warning %}
 
-С 18 июня 2026 года автоматическое масштабирование мастера работает на всех кластерах в [релизном канале](../../managed-kubernetes/concepts/release-channels-and-updates.md) `RAPID`, где мастер развернут в [высокодоступной конфигурации](../../managed-kubernetes/concepts/index.md#master).
+Автоматическое масштабирование мастера работает на кластерах во всех [релизных каналах](../../managed-kubernetes/concepts/release-channels-and-updates.md), где мастер развернут в [высокодоступной конфигурации](../../managed-kubernetes/concepts/index.md#master).
 
 {% endnote %}

@@ -1,6 +1,6 @@
 ---
 title: Integration with Argo CD
-description: Follow this guide to configure integration with Argo CD.
+description: Follow this tutorial to configure integration with Argo CD.
 ---
 
 # Integrating {{ managed-k8s-full-name }} with Argo CD

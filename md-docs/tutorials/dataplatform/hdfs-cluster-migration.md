@@ -147,7 +147,7 @@
    Чтобы посмотреть список запущенных операций и заданий:
 
    1. Откройте [консоль управления](https://console.yandex.cloud).
-   1. [Перейдите]((https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
+   1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
    1. Нажмите на имя первоначального кластера и выберите вкладку **Операции**, затем — **Задания**.
 
    {% note info %}
@@ -218,7 +218,7 @@
    Объем копируемых данных можно посмотреть в веб-интерфейсе HDFS. Чтобы открыть его:
 
    1. Откройте [консоль управления](https://console.yandex.cloud).
-   1. [Перейдите]((https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
+   1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
    1. Нажмите на имя первоначального кластера.
    1. На его странице, в разделе **UI Proxy**, перейдите по ссылке **HDFS Namenode UI**.
 

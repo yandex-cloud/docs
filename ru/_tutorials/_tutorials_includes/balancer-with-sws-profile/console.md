@@ -41,9 +41,9 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать профиль.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![shield-check](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
 
       {% include [pre-configured-profile](../../../_includes/smartwebsecurity/pre-configured-profile.md) %}
 
@@ -51,7 +51,7 @@
 
   1. Введите имя профиля, например `test-sp1`.
   1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`. Таким образом, если не будет задано других правил, весь трафик к защищаемому ресурсу будет запрещен.
-  1. Нажмите кнопку ![plus-sign](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+  1. Нажмите ![plus-sign](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. В окне создания правила:
       1. Введите имя правила, например `test-rule1`.
       1. Задайте приоритет правила, например `999800`. Правило будет иметь больший приоритет, чем преднастроенные правила.
@@ -62,12 +62,12 @@
       1. Выберите действие — `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}`.
 
           В правиле будут описаны условия, при которых запросы будут направлены к бэкенду тестового приложения.
-      1. В поле **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** выберите {{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}.
+      1. В поле **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** выберите `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
       1. В появившемся поле **Условия на IP** выберите опцию `Совпадает или принадлежит диапазону` и задайте публичный IP-адрес устройства, с которого вы будете отправлять запросы L7-балансировщику, например `158.160.100.200`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-        
+      1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+
           В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** в таблице появится созданное вами правило.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

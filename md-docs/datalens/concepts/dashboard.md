@@ -9,38 +9,68 @@ _Дашборд_ — страница или набор страниц, на к�
 
 Ознакомьтесь с подробной информацией о дашборде в разделах:
 
-* [Виджеты в Yandex DataLens](../dashboard/widget.md)
-* [Связь в Yandex DataLens](../dashboard/link.md)
-* [Селекторы в Yandex DataLens](../dashboard/selector.md)
-* [Фильтрация чартов чартами в Yandex DataLens](../dashboard/chart-chart-filtration.md)
-* [Настройки дашборда в Yandex DataLens](../dashboard/settings.md)
-* [Версионирование в Yandex DataLens](../dashboard/versioning.md)
-* [Параметры дашборда в Yandex DataLens](../dashboard/dashboard_parameters.md)
-* [Markdown в Yandex DataLens](../dashboard/markdown.md)
+* [Виджеты](../dashboard/widget.md)
+* [Связь](../dashboard/link.md)
+* [Селекторы](../dashboard/selector.md)
+* [Фильтрация чартов чартами](../dashboard/chart-chart-filtration.md)
+* [Настройки дашборда](../dashboard/settings.md)
+* [Рассылки](../operations/dashboard/add-maillists.md)
+* [Версионирование](../dashboard/versioning.md)
+* [Параметры](../dashboard/dashboard_parameters.md)
+* [Нейроаналитик на дашборде](../dashboard/insights.md)
+* [Тренды и сглаживания в чартах на дашборде](../dashboard/trends-and-smoothing.md)
+* [Markdown](../dashboard/markdown.md)
 * Пошаговые инструкции:
 
-  * [Создание дашборда в Yandex DataLens](../operations/dashboard/create.md)
-  * [Добавление информации о дашборде в Yandex DataLens](../operations/dashboard/add-description.md)
-  * [Рассылки](../operations/dashboard/add-maillists.md)
-  * [Добавление сообщения при обращении в поддержку в Yandex DataLens](../operations/dashboard/add-support-message.md)
-  * [Добавление сообщения при ошибке доступа в Yandex DataLens](../operations/dashboard/add-access-message.md)
-  * [Добавление чарта на дашборд в Yandex DataLens](../operations/dashboard/add-chart.md)
-  * [Добавление селектора на дашборд в Yandex DataLens](../operations/dashboard/add-selector.md)
-  * [Добавление текста на дашборд в Yandex DataLens](../operations/dashboard/add-text.md)
-  * [Добавление заголовка на дашборд в Yandex DataLens](../operations/dashboard/add-title.md)
-  * [Добавление виджета с инсайтом на дашборд в Yandex DataLens](../operations/dashboard/add-ai.md)
-  * [Создание алиаса](../operations/dashboard/create-alias.md)
-  * [Удаление алиаса в Yandex DataLens](../operations/dashboard/edit-alias.md)
+  * [Создание дашборда](../operations/dashboard/create.md)
+
+  * Виджеты на дашборде:
+
+    * [Добавление чарта на дашборд](../operations/dashboard/add-chart.md)
+    * [Добавление селектора на дашборд](../operations/dashboard/add-selector.md)
+    * [Добавление текста на дашборд](../operations/dashboard/add-text.md)
+    * [Добавление заголовка на дашборд](../operations/dashboard/add-title.md)
+    * [Добавление селектора JS на дашборд](../charts/editor/add-js-selector.md)
+    * [Добавление виджета с инсайтом на дашборд](../operations/dashboard/add-ai.md)
+    * [Копирование виджетов на дашборде](../operations/dashboard/copying-widgets.md)
+
+  * [Добавление информации о дашборде](../operations/dashboard/add-description.md)
+  
+  * Настройки дашборда:
+
+    * [Изменение настроек дашборда](../operations/dashboard/dash-settings.md)
+    * [Добавление сообщения при обращении в поддержку](../operations/dashboard/add-support-message.md)
+    * [Добавление сообщения при ошибке доступа](../operations/dashboard/add-access-message.md)
+    * [Добавление параметров на дашборд](../operations/dashboard/add-parameters.md)
+    * [Автообновление дашборда](../operations/dashboard/auto-update.md)
+    * [Запрет Нейроаналитика на дашборде](../operations/dashboard/dashboard-neuroanalyst-off.md)
+
+  * Настройки связей:
+
+    * [Настройка связей на дашборде](../operations/dashboard/dashboard-links.md)
+    * [Создание алиаса](../operations/dashboard/create-alias.md)
+    * [Удаление алиаса](../operations/dashboard/edit-alias.md)
+
+  * Настройки внешнего вида:
+
+    * [Настройка фона дашборда](../operations/dashboard/add-dashboard-background.md)
+    * [Настройка фона и прозрачности виджетов на дашборде](../operations/dashboard/add-widget-background.md)
+    * [Настройка скругления на дашборде](../operations/dashboard/add-rounding.md)
+    * [Настройка отступов на дашборде](../operations/dashboard/add-margins.md)
+    * [Настройка заголовка дашборда](../operations/dashboard/add-title-dashboard.md)
+    * [Добавление оглавления на дашборд](../operations/dashboard/add-contents.md)
+
+
+  * Управление вкладками дашборда:
+
+    * [Настройка вкладок дашборда](../operations/dashboard/dashboard-tabs.md)
+    * [Изменить отображение вкладок](../operations/dashboard/dashboard-hide-tabs.md)
+    * [Эталонная вкладка для AI](../operations/dashboard/dashboard-ai-reference-tab.md)
+    * [Порядок отображения виджетов на мобильном устройстве](../operations/dashboard/display-modes.md)
+
+
+  * [Настройка фильтрации чартами](../operations/dashboard/add-filtration.md)
   * [Управление доступом к дашборду](../operations/dashboard/manage-access.md)
-  * [Добавление параметров на дашборд в Yandex DataLens](../operations/dashboard/add-parameters.md)
-  * [Настройка фильтрации чартами в Yandex DataLens](../operations/dashboard/add-filtration.md)
-  * [Автообновление дашборда в Yandex DataLens](../operations/dashboard/auto-update.md)
-  * [Изменение настроек дашборда Yandex DataLens](../operations/dashboard/dash-settings.md)
-  * [Порядок отображения виджетов на мобильном устройстве в Yandex DataLens](../operations/dashboard/display-modes.md)
-  * [Эталонная вкладка для AI на дашборде в Yandex DataLens](../operations/dashboard/dashboard-ai-reference-tab.md)
-  * [Настроить фон для дашборда в Yandex DataLens](../operations/dashboard/add-dashboard-background.md)
-  * [Настроить фон и прозрачность для виджетов на дашборде в Yandex DataLens](../operations/dashboard/add-widget-background.md)
-  * [Настроить скругление на дашборде в Yandex DataLens](../operations/dashboard/add-rounding.md)
 
 
 #### Полезные ссылки {#see-also}

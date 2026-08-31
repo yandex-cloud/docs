@@ -49,9 +49,9 @@ To create a {{ CH }} connection:
 
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
-       Click **Check connection** to make sure the parameters are correct.
+     ![image](../../../_assets/datalens/operations/connection/connection-clickhouse-org.png)
 
-  
+     Click **Check connection** to make sure the parameters are correct.
 
    - Specify manually {#manual}
 
@@ -59,6 +59,7 @@ To create a {{ CH }} connection:
 
      {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
      
+     ![image](../../../_assets/datalens/operations/connection/connection-clickhouse.png)
 
      Click **Check connection** to make sure the parameters are correct.
 
@@ -73,19 +74,20 @@ To create a {{ CH }} connection:
      * **Host**: Select the host from the list of available hosts in the {{ CH }} cluster.
      * **Port**: It is set automatically depending on the selected host.
      * **Username**: It is set automatically from the selected connection data.
+
+       {% include [datalens-db-note](../../../_includes/datalens/datalens-db-note.md) %}
+
      * **Cache TTL in seconds**: Specify cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
+
+     {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level-3.md) %}
      
-     {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
+     ![image](../../../_assets/datalens/operations/connection/connection-clickhouse-manager.png)
 
    {% endlist %}
 
 
 1. Click **Create connection**.
-
-
 1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
-
-
 1. Enter a name for the connection and click **Create**.
 
 
@@ -105,6 +107,7 @@ You can specify additional connection settings under **Advanced connection setti
   * `0`: Allows all queries.
   * `1`: Allows only data read queries.
   * `2`: Allows queries to read data and edit settings.
+
 
 ## Specifics of using a connection to {{ CH }} {#ch-connection-specify}
 

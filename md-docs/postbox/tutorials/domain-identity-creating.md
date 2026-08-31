@@ -3,7 +3,7 @@
 # Создание адреса Yandex Cloud Postbox и проверка владения доменом с помощью Terraform
 
 
-В этом руководстве вы с помощью Terraform создадите [адрес](../concepts/glossary.md#adress) в [Yandex Cloud Postbox](../index.md), а также добавите в [DNS-зону](../../dns/concepts/dns-zone.md) вашего домена необходимые [ресурсные записи](../../dns/concepts/resource-record.md#txt) для подтверждения владения доменом и отправки писем.
+В этом руководстве вы с помощью Terraform создадите [адрес](../concepts/glossary.md#address) в [Yandex Cloud Postbox](../index.md), а также добавите в [DNS-зону](../../dns/concepts/dns-zone.md) вашего домена необходимые [ресурсные записи](../../dns/concepts/resource-record.md#txt) для подтверждения владения доменом и отправки писем.
 
 Ресурсную запись для подтверждения владения доменом можно добавить в [Yandex Cloud DNS](../../dns/index.md), если вы [делегировали](#delegate) домен, или у вашего регистратора домена.
 
@@ -192,8 +192,8 @@ output "dkim_record" {
 ## Проверьте работу сервиса {#test}
 
 Убедитесь, что адрес успешно создан, и отправьте тестовое письмо:
-1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором создавали адрес.
-1. Перейдите в сервис **Cloud Postbox**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создавали адрес.
+1. [Перейдите](https://console.yandex.cloud/link/postbox) в сервис **Cloud Postbox**.
 1. Выберите созданный адрес и убедитесь, что статус проверки на странице адреса изменился на `Success`.
 1. [Отправьте](../operations/send-email.md) тестовое письмо.
 

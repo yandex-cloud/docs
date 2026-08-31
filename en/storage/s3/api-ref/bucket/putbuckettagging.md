@@ -14,15 +14,14 @@ PUT /{bucket}?tagging HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Query parameters {#request-params}
 
-Parameter | Description
---- | ---
-`tagging` | Required parameter that indicates the type of operation.
+#|
+|| **Parameter** | **Description** ||
+|| `tagging` | Required parameter that indicates the type of operation ||
+|#
 
 ### Data schema {#request-scheme}
 
@@ -38,15 +37,21 @@ Parameter | Description
 </Tagging>
 ```
 
-Element | Description
---- | ---
-`Tagging` | Root element.
-`TagSet` | Array of labels.
-`Tag` | Container for a label.
-`Key` | Label key.<br>Type: String.
-`Value` | Label value.<br>Type: String.
+#|
+|| **Element** | **Description** ||
+|| `Tagging` | Root element. ||
+|| `TagSet` | Array of labels. ||
+|| `Tag` | Container for a label. ||
+|| `Key` | Label key.
 
-### Headers {#request-headers}
+Type: String. ||
+|| `Value` | Label value.
+
+Type: String. ||
+|#
+
+### Headings {#request-headers}
+
 Use only [common headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}

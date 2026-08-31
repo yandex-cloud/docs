@@ -1,5 +1,6 @@
 # Использовать OIDC-приложение и OAuth2 Proxy для настройки единого входа в приложения, не поддерживающие SSO
 
+
 Не в каждом приложении реализована встроенная поддержка технологии [единого входа](../../../glossary/sso.md) (SSO). При этом иногда возникает потребность в настройке аутентификации пользователей в них с помощью {{ org-full-name }}.
 
 В данном руководстве вы воспользуетесь утилитой [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) в связке с прокси-сервером, чтобы настроить интеграцию простейшего приложения с {{ org-full-name }} и организовать доступ к этому приложению только для заданных пользователей {{ org-full-name }} с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC).
@@ -285,7 +286,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Ubuntu 24.04 LTS` и выберите публичный образ [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts).
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), соответствующую зоне доступности вашей подсети.

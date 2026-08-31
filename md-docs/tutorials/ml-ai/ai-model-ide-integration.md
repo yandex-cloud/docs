@@ -43,8 +43,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в каталог `aistudio`.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `aistudio`.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта, например `ai-model-user`.
   1. Нажмите **Добавить роль** и назначьте сервисному аккаунту [роль](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index#languageModels-user) `ai.languageModels.user`.
@@ -60,8 +60,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `aistudio`.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `aistudio`.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. В открывшемся списке выберите сервисный аккаунт `ai-model-user`.
   1. На панели сверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать API-ключ**.

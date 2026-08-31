@@ -97,7 +97,8 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать кластер {{ dataproc-name }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/data-processing/data-processing.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** в выпадающем списке.
+  1. [Перейдите]({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. Нажмите **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Укажите имя и при необходимости описание кластера {{ dataproc-name }}.
 
      Требования к имени:
@@ -106,10 +107,10 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [name-format.md](../../_includes/name-format.md) %}
 
+  1. Добавьте или удалите [метки](../../resource-manager/concepts/labels.md) кластера. Они позволяют разделить и сгруппировать ресурсы на логические группы.
   1. Выберите [окружение](../concepts/environment.md#environment), в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
      * `PRODUCTION` — для стабильных версий ваших приложений.
      * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
-  1. Добавьте или удалите [метки](../../resource-manager/concepts/labels.md) кластера. Они позволяют разделить и сгруппировать ресурсы на логические группы.
   1. Задайте следующие настройки кластера:
 
      * [Версия образа](../concepts/environment.md) и сервисы, которые вы хотите использовать в кластере {{ dataproc-name }}.
@@ -129,6 +130,7 @@ description: Следуя данной инструкции, вы сможете
 
        Если вы выбрали доступ по SSH-ключу, в поле **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** укажите его публичную часть. Как сгенерировать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * Сервисный аккаунт, которому нужно разрешить доступ к кластеру {{ dataproc-name }}.
+     * (Опционально) Сервисный аккаунт для управления [автомасштабируемыми кластерами {{ dataproc-name }}](../concepts/autoscaling.md).
      * Зона доступности для кластера {{ dataproc-name }}.
      * (Опционально) [Свойства компонентов кластера](../concepts/settings-list.md).
      * (Опционально) Пользовательские [скрипты инициализации](../concepts/init-action.md) хостов кластера. Для каждого скрипта укажите следующую информацию:
@@ -192,14 +194,14 @@ description: Следуя данной инструкции, вы сможете
      1. В настройках подкластера типа `{{ ui-key.yacloud.mdb.forms.label_compute-subcluster }}` включите настройку **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}**.
      1. Задайте параметры автоматического масштабирования.
      1. По умолчанию в качестве метрики для автоматического масштабирования используется `yarn.cluster.containersPending`. Чтобы включить масштабирование на основе загрузки CPU, выключите настройку **{{ ui-key.yacloud.compute.groups.create.field_default-utilization-target }}** и укажите целевой уровень загрузки CPU.
-     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-subcluster }}**.
+     1. Нажмите **{{ ui-key.yacloud.mdb.forms.button_add-subcluster }}**.
 
   1. (Опционально) Добавьте и настройте дополнительные подкластеры для хранения или обработки данных.
   1. (Опционально) В дополнительных настройках включите защиту от непреднамеренного удаления кластера.
 
      Включенная защита не помешает подключиться к кластеру {{ dataproc-name }} вручную и удалить данные.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
+  1. Нажмите **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 - CLI {#cli}
 
@@ -667,7 +669,7 @@ description: Следуя данной инструкции, вы сможете
 - API {#api}
 
   Чтобы создать кластер {{ dataproc-name }}, воспользуйтесь методом API [create](../api-ref/Cluster/create) и передайте в запросе:
-  * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластера {{ dataproc-name }}, в параметре `folderId`.
+  * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластер {{ dataproc-name }}, в параметре `folderId`.
   * Имя кластера {{ dataproc-name }} в параметре `name`.
   * [Окружение](../concepts/environment.md#environment) кластера в параметре `environment` — `PRESTABLE` или `PRODUCTION`.
   * Конфигурацию кластера {{ dataproc-name }} в параметре `configSpec`, в том числе:

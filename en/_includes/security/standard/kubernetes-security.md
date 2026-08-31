@@ -37,7 +37,7 @@ To comply with PCI DSS or other security standards when using {{ managed-k8s-nam
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your {{ managed-k8s-name }} instance is located.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Make sure that [{{ k8s }} node labels](../../../managed-kubernetes/concepts/index.md#node-labels) and [{{ yandex-cloud }} service resource labels](../../../resource-manager/concepts/labels.md) contain no sensitive data.
 
 {% endlist %}
@@ -197,13 +197,15 @@ In {{ k8s }}, both automatic and manual updates are available for [clusters](../
 - Performing a check in the management console {#console}
 
   To get a list of available versions for a {{ k8s }} cluster:
-  1. Navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), select the relevant [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ k8s }} cluster.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. View the list of available versions in the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**.
 
   To get a list of available versions for a {{ k8s }} node group:
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), select the relevant [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of your {{ k8s }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the {{ k8s }} node group from the list and click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. Get a list of available versions in the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field.

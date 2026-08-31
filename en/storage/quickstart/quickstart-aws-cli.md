@@ -65,7 +65,7 @@ To get started with the AWS CLI:
   1. Create a static access key {#create-keys}
 
       1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
       1. In the list that opens, select the service account you need.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.

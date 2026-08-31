@@ -12,7 +12,7 @@
   1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.audit-trails.label_trails }}**.
   1. Выберите нужный трейл.
-  1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранного трейла.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.operations-key-value }}** для выбранного трейла.
 
      В открывшемся списке отображаются операции с выбранным трейлом.
 

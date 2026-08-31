@@ -9,8 +9,9 @@ Output is paginated; you can get a list of up to 1,000 objects per request. If t
 {% note info %}
 
 This method has two versions:
-- `listObjectsV2`: Current version, which is easier to use.
-- `listObjectsV1`: Previous version.
+
+* `listObjectsV2`: Current version, which is easier to use.
+* `listObjectsV1`: Previous version.
 
 Both methods are called using the same `URL` but with different query parameters. To call `listObjectsV2`, use the [`list-type=2`](#requestV2) parameter.
 
@@ -28,24 +29,43 @@ GET /{bucket}?list-type=2&continuation-token=ContinuationToken&delimiter=Delimit
 
 #### Path parameters {#path-parametersV2}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 #### Query parameters {#parametersV2}
 
 All parameters listed in the table are optional.
 
-Parameter | Description
------ | -----
-`continuation-token` | Use to get the next part of the list if all results do not fit into a single response.<br/>To get the next part of the list, use the `NextContinuationToken` value from the previous response.
-`delimiter` | Delimiter character.<br/><br/>If this parameter is specified, {{ objstorage-name }} interprets the key as a file path, where folders are separated by the `delimiter` character. In the response, the user will get a list of <q>files</q> and <q>folders</q> in the bucket. <q>Files</q> will be output in the `Contents` elements, and <q>folders</q> in the `CommonPrefixes` elements.<br/><br/>If the request also specifies the `prefix` parameter, {{ objstorage-name }} will return a list of <q>files</q> and <q>folders</q> in the `prefix` <q>folder</q>.
-`encoding-type` | Encoding of server responses.<br/><br/>{{ objstorage-name }} can encode responses in the format requested by the client.<br/><br/>Possible values: `url`.
-`max-keys` | Maximum number of elements per response.<br/><br/>By default, {{ objstorage-name }} outputs no more than 1,000 `Contents` and `CommonPrefixes` elements. This parameter should be used if you need to get less than 1,000 elements per response.<br/><br/>If the selection criteria are met by more keys than the output has room for, the response contains `<IsTruncated>true</IsTruncated>`.<br/><br/>To get all output elements, if there are more than `max-keys` of them, make several consecutive requests to {{ objstorage-name }} with the `continuation-token` parameter, where for each request `continuation-token` is equal to the value of the `NextContinuationToken` element from the previous response.
-`prefix` | String to start the key from.<br/><br/>{{ objstorage-name }} will select only keys that start with `prefix`.<br/><br/>Can be used at the same time with the `delimiter` parameter. In this case, the output logic is determined by the `delimiter` parameter.
-`start-after` | Key to start the listing from.
+#|
+|| **Parameter** | **Description** ||
+|| `continuation-token` | Use this parameter to get the next part of the list if all results do not fit in a single response.
+To get the next part of the list, use the `NextContinuationToken` value from the previous response. ||
+|| `delimiter` | Delimiter character.
 
-#### Headers {#request-headersV2}
+If this parameter is specified, {{ objstorage-name }} interprets the key as the path to the file with folders separated by the `delimiter` character. In the response, the user will get a list of <q>files</q> and <q>folders</q> in the bucket. <q>Files</q> will be output in the `Contents` elements, and <q>folders</q>, in the `CommonPrefixes` elements.
+
+If the request also specifies the `prefix` parameter, {{ objstorage-name }} will return a list of <q>files</q> and <q>folders</q> in the `prefix` <q>folder</q>. ||
+|| `encoding-type` | Encoding of server responses.
+
+{{ objstorage-name }} can encode responses in the format requested by the client.
+
+The possible value is `url`. ||
+|| `max-keys` | Maximum number of elements in a response.
+
+By default, {{ objstorage-name }} outputs no more than 1,000 `Contents` and `CommonPrefixes` elements. Use this parameter if you need fewer than 1,000 elements in a single response.
+
+If the selection criteria are met by more keys than can fit into the output, the response will contain `<IsTruncated>true</IsTruncated>`.
+
+To get all the output elements if their number exceeds `max-keys`, run multiple requests to {{ objstorage-name }} with the `continuation-token` parameter, where the `continuation-token` of each request is equal to the value of the `NextContinuationToken` element in the previous response. ||
+|| `prefix` | String to start the key from.
+
+{{ objstorage-name }} selects only those keys which start with `prefix`.
+
+Can be used together with `delimiter`. In this case, the output logic is determined by the `delimiter` parameter. ||
+|| `start-after` | Key to start the listing from. ||
+|#
+
+#### Headings {#request-headersV2}
+
 Use only [common headers](../common-request-headers.md) in your requests.
 
 ### Response {#responseV2}
@@ -90,26 +110,69 @@ A successful response contains additional data in XML format with the schema des
 </ListBucketResult>
 ```
 
-Element | Description
------ | -----
-`ListBucketResult` | Root element.
-`IsTruncated` | Flag showing whether or not the response contains all the results.<br/><br/>`True` for not all, `False` for all.<br/><br/>Path: `/ListBucketResult/IsTruncated`.
-`Contents` | Object description.<br/><br/>The response will contain as many `Contents` elements as there are keys that meet the request criteria.<br/><br/>Path: `/ListBucketResult/Contents`.
-`ETag` | MD5 hash of the object. No metadata is included in the hash value calculation.<br/><br/>Path: `/ListBucketResult/Contents/ETag`.
-`Key` | Object key.<br/><br/>Path: `/ListBucketResult/Contents/Key`.
-`LastModified` | Date and time when the object was last modified.<br/><br/>Path: `/ListBucketResult/Contents/LastModified`.
-`Size` | Object size in bytes.<br/><br/>Path: `/ListBucketResult/Contents/Size`.
-`StorageClass` | Object [storage class](../../../concepts/storage-class.md): `STANDARD`, `COLD`, `ICE`, or `INTELLIGENT_TIERING`.<br/><br/>Path: `/ListBucketResult/Contents/StorageClass`.
-`Name` | Bucket name.<br/><br/>Path: `/ListBucketResult/Name`.
-`Prefix` | Value of the `prefix` query parameter.<br/><br/>Path: `/ListBucketResult/Prefix`.
-`Delimiter` | Value of the `delimiter` query parameter.<br/><br/>Path: `/ListBucketResult/Delimiter`.
-`MaxKeys` | Value of the `max-keys` query parameter.<br/><br/>Path: `/ListBucketResult/MaxKeys`.
-`CommonPrefixes` | Key name part identified when processing the `delimiter` and `prefix` query parameters.<br/><br/>Path: `/ListBucketResult/CommonPrefixes`.
-`EncodingType` | Encoding used by {{ objstorage-name }} to provide a key in an XML response.<br/><br/>You will get this tag if the client provided the `encoding-type` parameter in the request.<br/><br/>Path: `/ListBucketResult/EncodingType`.
-`KeyCount` | Number of keys returned by the request.<br/>The number of keys is always less than or equal to `MaxKeys`.<br/><br/>Path: `/ContinuationToken/KeyCount`.
-`ContinuationToken` | Value of the `continuation-token` query parameter.<br/><br/>Path: `/ContinuationToken/ContinuationToken`.
-`NextContinuationToken` | Value to substitute to the `continuation-token` query parameter to get the next part of the list, if the entire list does not fit into the current response.<br/>It is returned only when `IsTruncated = true`.<br/><br/>Path: `/ListBucketResult/NextContinuationToken`.
-`StartAfter` | Value of the `start-after` query parameter.<br/><br/>Path: `/ListBucketResult/StartAfter`.
+#|
+|| **Element** | **Description** ||
+|| `ListBucketResult` | Root element. ||
+|| `IsTruncated` | This flag shows whether all results are returned in the response.
+
+`True` means not all, `False` stands for all.
+
+Path: `/ListBucketResult/IsTruncated`. ||
+|| `Contents` | Object description.
+
+The response contains as many `Contents` elements as there are keys that meet the request criteria.
+
+Path: `/ListBucketResult/Contents`. ||
+|| `ETag` | MD5 hash of the object. No metadata is included in the hash value calculation.
+
+Path: `/ListBucketResult/Contents/ETag`. ||
+|| `Key` | Object key.
+
+Path: `/ListBucketResult/Contents/Key`. ||
+||`LastModified` | Date and time when the object was last modified.
+
+Path: `/ListBucketResult/Contents/LastModified`. ||
+|| `Size` | Object size in bytes.
+
+Path: `/ListBucketResult/Contents/Size`. ||
+|| `StorageClass` | Object [storage class](../../../concepts/storage-class.md): `STANDARD`, `COLD`, `ICE`, or `INTELLIGENT_TIERING`.
+
+Path: `/ListBucketResult/Contents/StorageClass`. ||
+|| `Name` | Bucket name.
+
+Path: `/ListBucketResult/Name`. ||
+|| `Prefix` | Value of the `prefix` request parameter.
+
+Path: `/ListBucketResult/Prefix`. ||
+|| `Delimiter` | Value of the `delimiter` request parameter.
+
+Path: `/ListBucketResult/Delimiter`. ||
+|| `MaxKeys` | Value of the `max-keys` request parameter.
+
+Path: `/ListBucketResult/MaxKeys`. ||
+|| `CommonPrefixes` | Key name part identified when processing the `delimiter` and `prefix` request parameters.
+
+Path: `/ListBucketResult/CommonPrefixes`. ||
+|| `EncodingType` | Encoding used by {{ objstorage-name }} to provide a key in an XML response.
+
+You will get this tag if the client provided the `encoding-type` parameter in the request.
+
+Path: `/ListBucketResult/EncodingType`. ||
+|| `KeyCount` | Number of keys the request returns.
+The number of keys is always less than or equal to `MaxKeys`.
+
+Path: `/ContinuationToken/KeyCount`. ||
+|| `ContinuationToken` | Value of the `continuation-token` request parameter.
+
+Path: `/ContinuationToken/ContinuationToken`. ||
+|| `NextContinuationToken` | Value to substitute into the `continuation-token` query parameter to get the next part of the list, if the entire list does not fit into the current response.
+It is returned only in case `IsTruncated = true`.
+
+Path: `/ListBucketResult/NextContinuationToken`. ||
+|| `StartAfter` | Value of the `start-after` request parameter.
+
+Path: `/ListBucketResult/StartAfter`. ||
+|#
 
 ## listObjectsV1 {#listObjectsV1}
 
@@ -121,23 +184,43 @@ GET /{bucket}?delimiter=Delimiter&encoding-type=EncodingType&marker=Marker&max-k
 
 #### Path parameters {#path-parametersV1}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 #### Query parameters {#parametersV1}
 
 All parameters listed in the table are optional.
 
-Parameter | Description
------ | -----
-`delimiter` | Delimiter character.<br/><br/>If this parameter is specified, {{ objstorage-name }} interprets the key as a file path, where folders are separated by the `delimiter` character. In the response, the user will get a list of <q>files</q> and <q>folders</q> in the bucket. <q>Files</q> will be output in the `Contents` elements, and <q>folders</q> in the `CommonPrefixes` elements.<br/><br/>If the request also specifies the `prefix` parameter, {{ objstorage-name }} will return a list of <q>files</q> and <q>folders</q> in the `prefix` <q>folder</q>.
-`encoding-type` | Encoding of server responses.<br/><br/>{{ objstorage-name }} can encode responses in the format requested by the client.<br/><br/>Possible values: `url`.
-`marker` | Key the output starts from.<br/><br/>In the output, {{ objstorage-name }} will leave the keys starting from the one that follows `marker`.
-`max-keys` | Maximum number of elements per response.<br/><br/>By default, {{ objstorage-name }} outputs no more than 1,000 `Contents` and `CommonPrefixes` elements. This parameter should be used if you need to get less than 1,000 elements per response.<br/><br/>If the selection criteria are met by more keys than the output has room for, the response contains `<IsTruncated>true</IsTruncated>`.<br/><br/>To get all output elements, if there are more than `max-keys` of them, make several consecutive requests to {{ objstorage-name }} with the `marker` parameter, where for each request `marker` is equal to the value of the `NextMarker` element from the previous response.
-`prefix` | String to start the key from.<br/><br/>{{ objstorage-name }} will select only keys that start with `prefix`.<br/><br/>Can be used at the same time with the `delimiter` parameter. In this case, the output logic is determined by the `delimiter` parameter.
+#|
+|| **Parameter** | **Description** ||
+|| `delimiter` | Delimiter character.
 
-#### Headers {#request-headersV1}
+If this parameter is specified, {{ objstorage-name }} interprets the key as the path to the file with folders separated by the `delimiter` character. In the response, the user will get a list of <q>files</q> and <q>folders</q> in the bucket. <q>Files</q> will be output in the `Contents` elements, and <q>folders</q>, in the `CommonPrefixes` elements.
+
+If the request also specifies the `prefix` parameter, {{ objstorage-name }} will return a list of <q>files</q> and <q>folders</q> in the `prefix` <q>folder</q>. ||
+|| `encoding-type` | Encoding of server responses.
+
+{{ objstorage-name }} can encode responses in the format requested by the client.
+
+The possible value is `url`. ||
+|| `marker` | Key to start the output from.
+
+In the output, {{ objstorage-name }} will leave the keys starting from the one that follows `marker`. ||
+|| `max-keys` | Maximum number of elements in a response.
+
+By default, {{ objstorage-name }} outputs no more than 1,000 `Contents` and `CommonPrefixes` elements. Use this parameter if you need fewer than 1,000 elements in a single response.
+
+If the selection criteria are met by more keys than can fit into the output, the response will contain `<IsTruncated>true</IsTruncated>`.
+
+To get all the output elements if their number exceeds `max-keys`, run multiple requests to {{ objstorage-name }} with the `marker` parameter, where the `marker` of each request is equal to the value of the `NextMarker` element in the previous response. ||
+|| `prefix` | String to start the key from.
+
+{{ objstorage-name }} selects only those keys which start with `prefix`.
+
+Can be used together with `delimiter`. In this case, the output logic is determined by the `delimiter` parameter. ||
+|#
+
+#### Headings {#request-headersV1}
+
 Use only [common headers](../common-request-headers.md) in your requests.
 
 ### Response {#responseV1}
@@ -180,24 +263,61 @@ A successful response contains additional data in XML format with the schema des
 </ListBucketResult>
 ```
 
-Element | Description
------ | -----
-`ListBucketResult` | Root element.
-`IsTruncated` | Flag showing whether or not the response contains all the results.<br/><br/>`True` stands for not all, `False` stands for all.<br/><br/>Path: `/ListBucketResult/IsTruncated`.
-`Marker` | Value of the `marker` query parameter.<br/><br/>Path: `/ListBucketResult/Marker`.
-`NextMarker` | Value to substitute to the `marker` query parameter to get the next part of the list, if the entire list does not fit into the current response.<br/><br/>Path: `/ListBucketResult/NextMarker`.
-`Contents` | Object description.<br/><br/>The response will contain as many `Contents` elements as there are keys that meet the request criteria.<br/><br/>Path: `/ListBucketResult/Contents`.
-`ETag` | MD5 hash of the object. No metadata is included in the hash value calculation.<br/><br/>Path: `/ListBucketResult/Contents/ETag`.
-`Key` | Object key.<br/><br/>Path: `/ListBucketResult/Contents/Key`.
-`LastModified` | Date and time when the object was last modified.<br/><br/>Path: `/ListBucketResult/Contents/LastModified`.
-`Size` | Object size in bytes.<br/><br/>Path: `/ListBucketResult/Contents/Size`.
-`StorageClass` | Object [storage class](../../../concepts/storage-class.md): `STANDARD`, `COLD`, `ICE`, or `INTELLIGENT_TIERING`.<br/><br/>Path: `/ListBucketResult/Contents/StorageClass`.
-`Name` | Bucket name.<br/><br/>Path: `/ListBucketResult/Name`.
-`Prefix` | Value of the `prefix` query parameter.<br/><br/>Path: `/ListBucketResult/Prefix`.
-`Delimiter` | Value of the `delimiter` query parameter.<br/><br/>Path: `/ListBucketResult/Delimiter`.
-`MaxKeys` | Value of the `max-keys` query parameter.<br/><br/>Path: `/ListBucketResult/MaxKeys`.
-`CommonPrefixes` | Key name part identified when processing the `delimiter` and `prefix` query parameters.<br/><br/>Path: `/ListBucketResult/CommonPrefixes`.
-`EncodingType` | Encoding used by {{ objstorage-name }} to provide a key in an XML response.<br/><br/>You will get this tag if the client provided the `encoding-type` parameter in the request.<br/><br/>Path: `/ListBucketResult/EncodingType`.
+#|
+|| **Element** | **Description** ||
+|| `ListBucketResult` | Root element. ||
+|| `IsTruncated` | This flag shows whether all results are returned in the response.
+
+`True` means not all, `False` stands for all.
+
+Path: `/ListBucketResult/IsTruncated`. ||
+|| `Marker` | Value of the `marker` request parameter.
+
+Path: `/ListBucketResult/Marker`. ||
+|| `NextMarker` | Value to substitute into the `marker` query parameter to get the next part of the list, if the entire list does not fit into the current response.
+
+Path: `/ListBucketResult/NextMarker`. ||
+|| `Contents` | Object description.
+
+The response contains as many `Contents` elements as there are keys that meet the request criteria.
+
+Path: `/ListBucketResult/Contents`. ||
+|| `ETag` | MD5 hash of the object. No metadata is included in the hash value calculation.
+
+Path: `/ListBucketResult/Contents/ETag`. ||
+|| `Key` | Object key.
+
+Path: `/ListBucketResult/Contents/Key`. ||
+|| `LastModified` | Date and time when the object was last modified.
+
+Path: `/ListBucketResult/Contents/LastModified`. ||
+|| `Size` | Object size in bytes.
+
+Path: `/ListBucketResult/Contents/Size`. ||
+|| `StorageClass` | Object [storage class](../../../concepts/storage-class.md): `STANDARD`, `COLD`, `ICE`, or `INTELLIGENT_TIERING`.
+
+Path: `/ListBucketResult/Contents/StorageClass`. ||
+|| `Name` | Bucket name.
+
+Path: `/ListBucketResult/Name`. ||
+|| `Prefix` | Value of the `prefix` request parameter.
+
+Path: `/ListBucketResult/Prefix`. ||
+|| `Delimiter` | Value of the `delimiter` request parameter.
+
+Path: `/ListBucketResult/Delimiter`. ||
+|| `MaxKeys` | Value of the `max-keys` request parameter.
+
+Path: `/ListBucketResult/MaxKeys`. ||
+|| `CommonPrefixes` | Key name part identified when processing the `delimiter` and `prefix` request parameters.
+
+Path: `/ListBucketResult/CommonPrefixes`. ||
+|| `EncodingType` | Encoding used by {{ objstorage-name }} to provide a key in an XML response.
+
+You will get this tag if the client provided the `encoding-type` parameter in the request.
+
+Path: `/ListBucketResult/EncodingType`. ||
+|#
 
 #### Related articles {#related-articles}
 

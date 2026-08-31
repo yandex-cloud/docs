@@ -117,7 +117,7 @@ The support cost for this solution includes:
 1. Verify that the cluster record has been automatically created in the DNS zone.
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your DNS zone.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+    1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
     1. Select the zone from the list.
     1. Make sure the list contains a record in the following format: `c-<cluster_ID>.rw.{{ dns-zone }}.`.
 

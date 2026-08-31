@@ -20,10 +20,10 @@
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать целевую группу.
 1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 1. На панели слева выберите ![image](../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
+1. Нажмите **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
 1. Введите имя целевой группы `test-target-group`.
 1. Выберите виртуальные машины, которые нужно добавить в целевую группу.
-1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 
 ## Создайте сетевой балансировщик {#create-load-balancer}
@@ -34,48 +34,14 @@
   
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать балансировщик.
 1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
+1. Нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
 1. Задайте имя балансировщика, например `test-load-balancer`.
-1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** выберите способ назначения адреса:
-
-   * **{{ ui-key.yacloud.common.label_auto }}** — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
-   * **{{ ui-key.yacloud.common.label_list }}** — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../vpc/operations/set-static-ip.md).
-
-1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}** нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
-1. В открывшемся окне задайте параметры обработчика:
-  
-   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**.
-   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}**, на котором балансировщик будет принимать входящий трафик, из диапазона от `1` до `32767`.
-   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**, на который балансировщик будет направлять трафик, из диапазона от `1` до `32767`.
-
-1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
-1. Выберите целевую группу или [создайте новую](operations/target-group-create.md):
-  
-   * Нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
-   * Введите имя целевой группы. Требования к имени:
-
-     {% include [name-format](../_includes/name-format.md) %}
-  
-   * Выберите виртуальные машины, которые нужно добавить в целевую группу.
-   * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-
-1. (Опционально) Под блоком **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}** нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}** и в открывшемся окне:
-  
-   * Введите имя проверки состояния. Требования к имени:
-
-     {% include [name-format](../_includes/name-format.md) %}
-  
-   * Выберите тип проверки: `{{ ui-key.yacloud.common.label_http }}` или `{{ ui-key.yacloud.common.label_tcp }}`.
-   * Если вы выбрали проверку через HTTP, то в поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** укажите URL, по которому будут выполняться проверки.
-   * Укажите порт из диапазона от `1` до `32767`.
-   * Укажите время ожидания ответа в секундах.
-   * Укажите интервал отправки проверок состояния в секундах.
-   * Укажите порог работоспособности — количество успешных проверок, после которого виртуальная машина будет считаться готовой к приему трафика.
-   * Укажите порог неработоспособности — количество проваленных проверок, после которого на виртуальную машину перестанет подаваться трафик.
-   * Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
-  
-1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+1. Выберите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}** балансировщика — `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_external }}`.
+1. {% include [select-external-ip](../_includes/network-load-balancer/select-external-ip.md) %}
+1. {% include [add-listener](../_includes/network-load-balancer/add-listener.md) %}
+1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** выберите созданную [ранее](#create-target-group) целевую группу.
+1. {% include [configure-health-check](../_includes/network-load-balancer/configure-health-check.md) %}
+1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 
 ## Проверьте состояния ресурсов {#health-check}

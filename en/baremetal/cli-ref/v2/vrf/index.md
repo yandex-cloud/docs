@@ -23,6 +23,8 @@ Syntax:
 
 - [yc baremetal v2 vrf list](list.md) — Retrieves the list of VRF resources in the specified folder.
 
+- [yc baremetal v2 vrf list-operations](list-operations.md) — Lists operations for the specified vrf.
+
 - [yc baremetal v2 vrf update](update.md) — Updates the specified VRF resource.
 
 #### Global Flags

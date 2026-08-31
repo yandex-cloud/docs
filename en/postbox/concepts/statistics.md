@@ -39,6 +39,8 @@ When viewing detailed statistics by time, all email events are grouped into the 
 
 You can view your sent email statistics on the **{{ ui-key.yacloud.postbox.label_statistics }}** page in the [management console]({{ link-console-postbox-statistics }}).
 
+To check how different delivery results are displayed in statistics, send an email to one of the [delivery simulator](mail-simulator.md) addresses.
+
 ## Filtering by configuration {#configuration-filter}
 
 The way data is grouped depends on the selected statistics level. In general folder statistics, the chart groups data by sender address. In statistics for a specific address, the chart groups data by [configurations](configuration.md) used to send messages from that address.

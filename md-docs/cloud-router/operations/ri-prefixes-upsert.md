@@ -102,7 +102,7 @@
       yc cloudrouter routing-instance update-networks \
         --folder-id <идентификатор_каталога> \
         --id c3lgk007olse******** \
-        --add-vpc-net id=enpvt41bh5gk********,zone=ru-central1-a,ipv4-prefixes=192.168.100.0/24,192.168.101.0/24 \
+        --add-vpc-net 'id=enpvt41bh5gk********,zone=ru-central1-a,ipv4-prefixes=[192.168.100.0/24,192.168.101.0/24]' \
         --async
       ```
 
@@ -122,7 +122,7 @@
       Где:
       
       * `id` — идентификатор операции, выполняемой с Routing Instance.
-      * `description` — описание выполняемой операции
+      * `description` — описание выполняемой операции.
       * `created_by` — идентификатор субъекта, который выполняет операцию.
       * `async` — выполнение операции в асинхронном режиме. Рекомендуем все операции с изменением ресурсов выполнять в этом режиме.
 
@@ -281,7 +281,7 @@
       yc cloudrouter routing-instance update-networks \
         --folder-id <идентификатор_каталога> \
         --id c3lgk007olse******** \
-        --delete-vpc-net-id id=enpt8ok6snlp******** \
+        --delete-vpc-net-id enpt8ok6snlp******** \
         --async
       ```
 
@@ -301,7 +301,7 @@
       Где:
       
       * `id` — идентификатор операции, выполняемой с Routing Instance.
-      * `description` — описание выполняемой операции
+      * `description` — описание выполняемой операции.
       * `created_by` — идентификатор субъекта, который выполняет операцию.
       * `async` — выполнение операции в асинхронном режиме. Рекомендуем все операции с изменением ресурсов выполнять в этом режиме.
 
@@ -450,10 +450,10 @@
       yc cloudrouter routing-instance update-networks \
         --folder-id <идентификатор_каталога> \
         --id c3lgk007olse******** \
-        --update-vpc-net id=enpcfncr6uld********,zone=ru-central1-a,ipv4-prefixes=192.168.2.0/28 \
-        --update-vpc-net id=enpcfncr6uld********,zone=ru-central1-b,ipv4-prefixes=192.168.15.0/24 \
-        --update-vpc-net id=enpcfncr6uld********,zone=ru-central1-d,ipv4-prefixes=192.168.7.0/24 \
-        --update-vpc-net id=enpt8ok6snlp********,zone=ru-central1-d,ipv4-prefixes=192.168.47.0/28 \
+        --update-vpc-net 'id=enpcfncr6uld********,zone=ru-central1-a,ipv4-prefixes=[192.168.2.0/28]' \
+        --update-vpc-net 'id=enpcfncr6uld********,zone=ru-central1-b,ipv4-prefixes=[192.168.15.0/24]' \
+        --update-vpc-net 'id=enpcfncr6uld********,zone=ru-central1-d,ipv4-prefixes=[192.168.7.0/24]' \
+        --update-vpc-net 'id=enpt8ok6snlp********,zone=ru-central1-d,ipv4-prefixes=[192.168.47.0/28]' \
         --async
       ```
 
@@ -474,7 +474,7 @@
       Где:
       
       * `id` — идентификатор операции, выполняемой с Routing Instance.
-      * `description` — описание выполняемой операции
+      * `description` — описание выполняемой операции.
       * `created_by` — идентификатор субъекта, который выполняет операцию.
       * `async` — выполнение операции в асинхронном режиме. Рекомендуем все операции с изменением ресурсов выполнять в этом режиме.
 
@@ -609,8 +609,8 @@
       ```bash
       yc cloudrouter routing-instance upsert-prefixes c3l871dpin4f******** \
         --folder-id <идентификатор_каталога> \
-        --vpc-net id=c64ckjtr7b3l********,zone=ru-central1-b,ipv4-prefixes=10.129.0.0/24 \
-        --vpc-net id=c64ckjtr7b3l********,zone=ru-central1-d,ipv4-prefixes=172.16.1.0/24 \
+        --vpc-net 'id=c64ckjtr7b3l********,zone=ru-central1-b,ipv4-prefixes=[10.129.0.0/24]' \
+        --vpc-net 'id=c64ckjtr7b3l********,zone=ru-central1-d,ipv4-prefixes=[172.16.1.0/24]' \
         --async
       ```
 
@@ -631,7 +631,7 @@
       Где:
       
       * `id` — идентификатор операции, выполняемой с Routing Instance.
-      * `description` — описание выполняемой операции
+      * `description` — описание выполняемой операции.
       * `created_by` — идентификатор субъекта, который выполняет операцию.
       * `async` — выполнение операции в асинхронном режиме. Рекомендуем все операции с изменением ресурсов выполнять в этом режиме.
 
@@ -772,8 +772,8 @@
       ```bash
       yc cloudrouter routing-instance remove-prefixes c3l871dpin4f******** \
         --folder-id <идентификатор_каталога> \
-        --vpc-net id=c64ckjtr7b3l********,zone=ru-central1-b,ipv4-prefixes=10.128.0.0/24 \
-        --vpc-net id=c64ckjtr7b3l********,zone=ru-central1-d,ipv4-prefixes=10.129.0.0/24 \
+        --vpc-net 'id=c64ckjtr7b3l********,zone=ru-central1-b,ipv4-prefixes=[10.128.0.0/24]' \
+        --vpc-net 'id=c64ckjtr7b3l********,zone=ru-central1-d,ipv4-prefixes=[10.129.0.0/24]' \
         --async
       ```
 
@@ -794,7 +794,7 @@
       Где:
       
       * `id` — идентификатор операции, выполняемой с Routing Instance.
-      * `description` — описание выполняемой операции
+      * `description` — описание выполняемой операции.
       * `created_by` — идентификатор субъекта, который выполняет операцию.
       * `async` — выполнение операции в асинхронном режиме. Рекомендуем все операции с изменением ресурсов выполнять в этом режиме.
 

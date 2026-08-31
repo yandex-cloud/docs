@@ -262,6 +262,12 @@ items:
                 href: security/single-sign-on/jenkins/saml-jenkins.md
               - name: OpenID Connect
                 href: security/single-sign-on/jenkins/oidc-jenkins.md
+          - name: Loop
+            items:
+              - name: SAML
+                href: security/single-sign-on/loop/saml-loop.md
+              - name: OpenID Connect
+                href: security/single-sign-on/loop/oidc-loop.md
           - name: '{{ mgl-name }}'
             href: security/single-sign-on/saml-managed-gitlab.md
           - name: '{{ mos-name }}'
@@ -284,10 +290,14 @@ items:
             href: security/single-sign-on/saml-sentry.md
           - name: SonarQube
             href: security/single-sign-on/saml-sonarqube.md
-          - name: VK Cloud
+          - name: Time
             items:
               - name: SAML
-                href: security/single-sign-on/vk-cloud/saml-vk-cloud.md
+                href: security/single-sign-on/time/saml-time.md
+              - name: OpenID Connect
+                href: security/single-sign-on/time/oidc-time.md
+          - name: VK Cloud
+            href: security/single-sign-on/saml-vk-cloud.md
           - name: Zabbix
             href: security/single-sign-on/saml-zabbix.md
           - name: Пассворк
@@ -557,6 +567,8 @@ items:
               Запуск языковой модели DeepSeek-R1 в кластере GPU {{ compute-name
               }}
             href: infrastructure/gpu-cluster-deepseek.md
+          - name: SLO-мониторинг веб-сервиса
+            href: infrastructure-management/slo-blackbox-exporter.md
       - name: Сеть
         items:
           - name: Настройка синхронизации часов с помощью NTP
@@ -857,6 +869,8 @@ items:
             href: web/user-agent-statistics.md
           - name: Оформление контента из {{ video-name }} в IFrame
             href: web/video-iframe.md
+          - name: Управление видеоконтентом для курсов Moodle
+            href: web/video-moodle-plugin.md
       - name: 1С
         items:
           - name: Интернет-магазин на «1С-Битрикс»
@@ -1095,6 +1109,10 @@ items:
       - name: Интеграция {{ mch-full-name }} с Oracle через {{ CH }} JDBC Bridge
         href: dataplatform/jdbc-ch-to-oracle-integration.md
       - name: >-
+          Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
+          mch-name }}
+        href: dataplatform/mpg-pg-clickhouse-extension.md
+      - name: >-
           Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
           других облачных сетей
         href: dataplatform/clickhouse-dns-peering.md
@@ -1295,6 +1313,10 @@ items:
           Настройка прав доступа к секрету, созданному {{
           connection-manager-name }}, для пользователя {{ mpg-name }}
         href: dataplatform/conn-man-secret-access.md
+      - name: >-
+          Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
+          mch-name }}
+        href: dataplatform/mpg-pg-clickhouse-extension.md
       - name: Миграция БД из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Миграция БД из {{ GP }} в {{ PG }}
@@ -1385,6 +1407,10 @@ items:
           Создание реестра схем для поставки данных в формате Debezium CDC из {{
           KF }}
         href: dataplatform/schema-registry-cdc-debezium-kafka.md
+      - name: >-
+          Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
+          mch-name }}
+        href: dataplatform/mpg-pg-clickhouse-extension.md
       - name: Автоматизация работы с помощью {{ maf-full-name }}
         href: dataplatform/airflow-and-spark.md
       - name: Работа с таблицей в {{ objstorage-name }} из PySpark-задания
@@ -1500,38 +1526,6 @@ items:
               Организация доступа через {{ interconnect-name }} к облачным
               сетям, размещенным за NGFW
             href: routing/cic-with-ngfw.md
-          - name: >-
-              Создание прямого транкового подключения и приватного соединения в
-              нем
-            href: routing/trunk-priv-add.md
-          - name: >-
-              Создание прямого транкового подключения и публичного соединения в
-              нем
-            href: routing/trunk-pub-add.md
-          - name: >-
-              Создание нового партнерского транкового подключения и приватного
-              соединения в нем
-            href: routing/partner-trunk-priv-add.md
-          - name: >-
-              Создание нового партнерского транкового подключения и публичного
-              соединения в нем
-            href: routing/partner-trunk-pub-add.md
-          - name: >-
-              Добавление приватного соединения в прямое или партнерское
-              транковое подключение
-            href: routing/priv-add.md
-          - name: >-
-              Добавление публичного соединения в прямое или партнерское
-              транковое подключение
-            href: routing/pub-add.md
-          - name: Изменить емкость транкового подключения
-            href: routing/trunk-capacity-change.md
-          - name: Удалить приватное соединение
-            href: routing/priv-del.md
-          - name: Удалить публичное соединение
-            href: routing/pub-del.md
-          - name: Удалить транковое подключение
-            href: routing/trunk-del.md
       - name: Настройка сетевых ресурсов и взаимодействие между ними
         items:
           - name: Настройка сетевого взаимодействия ресурсов из разных каталогов

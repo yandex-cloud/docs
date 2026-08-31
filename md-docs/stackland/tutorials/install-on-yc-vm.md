@@ -33,7 +33,7 @@
 В примерах CLI ниже используются переменные. Перед выполнением команд задайте их значения:
 
 ```bash
-export VERSION=26.1.5
+export VERSION=26.2.1
 export ZONE=ru-central1-d
 export NETWORK_NAME=stackland-network
 export SUBNET_NAME=stackland-subnet

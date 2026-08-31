@@ -1,6 +1,6 @@
 # Creating a registry
 
-The new [registry](../../../resource-manager/concepts/resources-hierarchy.md#folder) can be used by all users and [service accounts](../../concepts/registry.md) with access permissions for the [folder](../../../iam/concepts/users/service-accounts.md). 
+A new [registry](../../../resource-manager/concepts/resources-hierarchy.md#folder) can be used by all users and [service accounts](../../concepts/registry.md) with access permissions for the [folder](../../../iam/concepts/users/service-accounts.md). 
 
 You can create a secure registry with autoscanning using a [vulnerability scanner](../../concepts/vulnerability-scanner.md).
 
@@ -36,13 +36,14 @@ Scanning Docker images for vulnerabilities is [charged](../../pricing.md#scanner
      ```
 
      Where:
+     
      * `name`: Registry name.
      * `folder_id`: Folder ID.
      * `labels`: [Labels](../../../resource-manager/concepts/labels.md) used.
 
-     For more information about resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}).
+     For more information about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
   1. Make sure the configuration file is correct.
-     1. Use the command line to go to the directory where you saved the configuration file:
+     1. In the terminal, navigate to the directory with your configuration file:
 
         ```bash
         cd /Users/<username>/cloud-terraform
@@ -86,7 +87,7 @@ Scanning Docker images for vulnerabilities is [charged](../../pricing.md#scanner
           Enter a value:
         ```
 
-     1. Confirm creation of the registry. To do this, type `yes` and press **Enter**:
+     1. Confirm creating the registry by typing `yes` and pressing **Enter**:
 
         ```bash
         Enter a value: yes

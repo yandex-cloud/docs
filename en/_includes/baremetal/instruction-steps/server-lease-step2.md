@@ -1,1 +1,1 @@
-Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+[Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.

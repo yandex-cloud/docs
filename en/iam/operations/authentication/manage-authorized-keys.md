@@ -20,7 +20,7 @@ To create a service account authorized key:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
    1. In the list that opens, select the service account to create an authorized key for.
    1. In the top panel, click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
@@ -88,7 +88,7 @@ To create a service account authorized key:
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-    1. In the configuration file, describe the resources you want to create:
+    1. In the configuration file, specify the properties of the resources you want to create:
 
        ```
        resource "yandex_iam_service_account_key" "sa-auth-key" {
@@ -190,7 +190,7 @@ To delete a service account authorized key:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_keys }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the key to delete, and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.

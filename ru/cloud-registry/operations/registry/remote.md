@@ -96,7 +96,7 @@ description: Следуя данной инструкции, вы сможете
       --description <описание_реестра> \
       --registry-kind <формат реестра> \
       --registry-type remote \
-      --properties <cвойства_реестра>
+      --properties <свойства_реестра>
     ```
 
     Где:

@@ -42,8 +42,8 @@
       * первый символ — буква, последний — не дефис.
   
   1. (Опционально) Введите описание каталога.
-  1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
-  1. Нажмите кнопку **Создать**.
+  1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой [зоне доступности](../../overview/concepts/geo-scope.md). Также в этой сети будет создана [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group), которая разрешает подключение к ресурсам по `SSH` и `RDP`, входящий трафик по `ICMP`, а также любой исходящий трафик.
+  1. Нажмите **Создать**.
   
      ![create-folder2](../../_assets/resource-manager/create-folder-2.png)
 
@@ -87,12 +87,10 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса, если они назначены узлам кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за [использование хранилища](../../container-registry/pricing.md) Container Registry.
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Сервис Container Registry: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы Container Registry](../../container-registry/pricing.md)).
 
 
 ## Создайте сервисные аккаунты {#create-sa}

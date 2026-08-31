@@ -12,12 +12,12 @@
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором размещен кластер.
       1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-      1. Напротив кластера нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+      1. В строке кластера {{ managed-k8s-name }} нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. В поле **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** включите федерацию сервисных аккаунтов.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
-      1. На обзорной странице кластера в блоке **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** скопируйте значения параметров **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}** и **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-jwks-uri_x2AJJ }}**. Они понадобятся для дальнейшей интеграции.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
-      1. Напротив группы узлов нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+      1. На вкладке **{{ ui-key.yacloud.common.overview }}** кластера в блоке **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** скопируйте значения параметров **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}** и **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-jwks-uri_x2AJJ }}**. Они понадобятся для дальнейшей интеграции.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**, затем **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+      1. В строке группы узлов нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. В поле **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** включите федерацию сервисных аккаунтов.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 

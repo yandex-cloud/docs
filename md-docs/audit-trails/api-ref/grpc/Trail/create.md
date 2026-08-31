@@ -102,6 +102,32 @@ Creates a trail in the specified folder.
           "id": "string",
           "type": "string"
         }
+      ],
+      "include_rules": [
+        {
+          "conditions": [
+            {
+              "field": "string",
+              "operator": "Operator",
+              "values": [
+                "string"
+              ]
+            }
+          ]
+        }
+      ],
+      "exclude_rules": [
+        {
+          "conditions": [
+            {
+              "field": "string",
+              "operator": "Operator",
+              "values": [
+                "string"
+              ]
+            }
+          ]
+        }
       ]
     },
     "data_events_filters": [
@@ -128,6 +154,32 @@ Creates a trail in the specified folder.
           {
             "id": "string",
             "type": "string"
+          }
+        ],
+        "include_rules": [
+          {
+            "conditions": [
+              {
+                "field": "string",
+                "operator": "Operator",
+                "values": [
+                  "string"
+                ]
+              }
+            ]
+          }
+        ],
+        "exclude_rules": [
+          {
+            "conditions": [
+              {
+                "field": "string",
+                "operator": "Operator",
+                "values": [
+                  "string"
+                ]
+              }
+            ]
           }
         ]
       }
@@ -245,9 +297,9 @@ Name of the destination YDS ||
 
 Codec for compressing events
 
-- `RAW`
-- `GZIP`
-- `ZSTD` ||
+- `RAW`: Do not use compression. Insert raw data into the target topic
+- `GZIP`: Use GZIP compression.
+- `ZSTD`: Use ZSTD compression. ||
 |#
 
 ## EventRouter {#yandex.cloud.audittrails.v1.Trail.EventRouter}
@@ -413,6 +465,54 @@ Policy for gathering management events
 A list of resources which will be monitored by the trail
 
 The number of elements must be in the range 1-1024. ||
+|| include_rules[] | **[FieldFilterRule](#yandex.cloud.audittrails.v1.Trail.FieldFilterRule)**
+
+List of rules defining which events will be included. Combined using logical OR.
+
+The maximum number of elements is 64. ||
+|| exclude_rules[] | **[FieldFilterRule](#yandex.cloud.audittrails.v1.Trail.FieldFilterRule)**
+
+List of rules defining which events will be excluded. Combined using logical OR.
+
+The maximum number of elements is 64. ||
+|#
+
+## FieldFilterRule {#yandex.cloud.audittrails.v1.Trail.FieldFilterRule}
+
+#|
+||Field | Description ||
+|| conditions[] | **[FieldCondition](#yandex.cloud.audittrails.v1.Trail.FieldCondition)**
+
+Conditions within one rule are combined using logical AND.
+
+The number of elements must be in the range 1-64. ||
+|#
+
+## FieldCondition {#yandex.cloud.audittrails.v1.Trail.FieldCondition}
+
+#|
+||Field | Description ||
+|| field | **string**
+
+Required field. Path to a scalar field.
+
+Examples:
+$.details.kind
+$.details.user.groups[0]
+$.details.items[2].metadata['name'] ||
+|| operator | enum **Operator**
+
+Required field. Condition operator. Controls how values array is interpreted
+
+- `IN`: The scalar field is equal to one of the supplied values.
+- `IP_IN`: The scalar field is an IP address belonging to one of the
+supplied IP networks. ||
+|| values[] | **string**
+
+Textual operands interpreted according to the selected field
+and operator.
+
+The number of elements must be in the range 1-64. ||
 |#
 
 ## DataEventsFiltering {#yandex.cloud.audittrails.v1.Trail.DataEventsFiltering}
@@ -446,6 +546,16 @@ Required field. Name of the service whose events will be delivered ||
 A list of resources which will be monitored by the trail
 
 The number of elements must be in the range 1-1024. ||
+|| include_rules[] | **[FieldFilterRule](#yandex.cloud.audittrails.v1.Trail.FieldFilterRule)**
+
+List of rules defining which events will be included. Combined using logical OR.
+
+The maximum number of elements is 64. ||
+|| exclude_rules[] | **[FieldFilterRule](#yandex.cloud.audittrails.v1.Trail.FieldFilterRule)**
+
+List of rules defining which events will be excluded. Combined using logical OR.
+
+The maximum number of elements is 64. ||
 |#
 
 ## EventTypes {#yandex.cloud.audittrails.v1.Trail.EventTypes}
@@ -455,6 +565,8 @@ Policy with explicitly specified event group
 #|
 ||Field | Description ||
 || event_types[] | **string**
+
+Array of event type names. Holds at most 1024 elements
 
 The number of elements must be in the range 1-1024. ||
 |#

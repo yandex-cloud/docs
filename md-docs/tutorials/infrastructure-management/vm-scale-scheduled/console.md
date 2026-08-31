@@ -40,7 +40,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md): `vm-scale-scheduled-sa`.
   1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роли](../../../iam/concepts/access-control/roles.md):
@@ -119,7 +119,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Справа сверху нажмите **Создать сеть**.
   1. В поле **Имя** укажите `vm-scale-scheduled-network`.
   1. Выберите опцию **Создать подсети**.
@@ -205,7 +205,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
   1. Справа сверху нажмите **Создать группу виртуальных машин**.
   1. В блоке **Базовые параметры**:
@@ -424,7 +424,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Справа сверху нажмите **Создать функцию**.
   1. В поле **Имя** укажите `vm-scale-scheduled-function`.
   1. Нажмите **Создать**.
@@ -561,7 +561,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **Триггеры**.
   1. Справа сверху нажмите **Создать триггер**.
   1. В блоке **Базовые параметры**:
@@ -614,10 +614,10 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
   1. Выберите группу `vm-scale-scheduled-ig`.
-  1. Убедитесь, что в блоке **Виртуальные машины** каждые две минуты изменяется количество ВМ: увеличивается с 2 до 3, затем уменьшается с 3 до 2 и т. д. Также вы можете проверить обновление группы на вкладке ![image](../../../_assets/console-icons/list-check.svg) **Операции**.
+  1. Убедитесь, что в блоке **Виртуальные машины** каждые две минуты изменяется количество ВМ: увеличивается с 2 до 3, затем уменьшается с 3 до 2 и т. д. Также вы можете проверить обновление группы на вкладке **Операции**.
 
 - CLI {#cli}
 

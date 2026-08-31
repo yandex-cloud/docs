@@ -15,15 +15,17 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится трейл.
   1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
-  1. В строке с нужным трейлом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. В строке с нужным трейлом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Измените параметры трейла. Список настроек трейла, которые можно изменить, приведен в разделе [Настройки трейла](../concepts/trail.md#trail-settings).
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите **Сохранить**.
 
 - CLI {#cli}
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Посмотрите описание команды [CLI](../../cli/index.md) для изменения трейла, чтобы получить подробную информацию о доступных аргументах:
 
@@ -237,7 +239,7 @@
 
       {% note warning %}
       
-      Должно быть указано только одно место назначения: `storage_destination` , `logging_destination` или `data_stream_destination`.
+      Должно быть указано только одно место назначения: `storage_destination`, `logging_destination` или `data_stream_destination`.
       
       {% endnote %}
       
@@ -335,7 +337,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится трейл.
   1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
-  1. В строке с нужным трейлом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
+  1. В строке с нужным трейлом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. В открывшемся окне подтвердите удаление.
 
 - CLI {#cli}

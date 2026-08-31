@@ -175,6 +175,20 @@ items:
             href: cli-ref/artifact/list-access-bindings.md
           - name: remove-access-binding
             href: cli-ref/artifact/remove-access-binding.md
+          - name: scanner
+            items:
+              - name: Overview
+                href: cli-ref/artifact/scanner/index.md
+              - name: get-last-scan-result
+                href: cli-ref/artifact/scanner/get-last-scan-result.md
+              - name: get-scan-result
+                href: cli-ref/artifact/scanner/get-scan-result.md
+              - name: list-scan-results
+                href: cli-ref/artifact/scanner/list-scan-results.md
+              - name: list-vulnerabilities
+                href: cli-ref/artifact/scanner/list-vulnerabilities.md
+              - name: scan
+                href: cli-ref/artifact/scanner/scan.md
           - name: set-access-bindings
             href: cli-ref/artifact/set-access-bindings.md
           - name: update-access-bindings
@@ -183,6 +197,16 @@ items:
             href: cli-ref/artifact/upsert.md
       - name: configure-docker
         href: cli-ref/configure-docker.md
+      - name: migration
+        items:
+          - name: Overview
+            href: cli-ref/migration/index.md
+          - name: get-cloud-migration-status-dashboard
+            href: cli-ref/migration/get-cloud-migration-status-dashboard.md
+          - name: start-cloud
+            href: cli-ref/migration/start-cloud.md
+          - name: start-folder
+            href: cli-ref/migration/start-folder.md
       - name: registry
         items:
           - name: Overview
@@ -235,6 +259,20 @@ items:
             href: cli-ref/registry/remove-access-binding.md
           - name: remove-ip-permissions
             href: cli-ref/registry/remove-ip-permissions.md
+          - name: scan-policy
+            items:
+              - name: Overview
+                href: cli-ref/registry/scan-policy/index.md
+              - name: create
+                href: cli-ref/registry/scan-policy/create.md
+              - name: delete
+                href: cli-ref/registry/scan-policy/delete.md
+              - name: get
+                href: cli-ref/registry/scan-policy/get.md
+              - name: get-by-registry
+                href: cli-ref/registry/scan-policy/get-by-registry.md
+              - name: update
+                href: cli-ref/registry/scan-policy/update.md
           - name: set-access-bindings
             href: cli-ref/registry/set-access-bindings.md
           - name: set-ip-permissions
@@ -242,7 +280,15 @@ items:
           - name: update
             href: cli-ref/registry/update.md
       - name: tools
-        href: cli-ref/tools.md
+        items:
+          - name: Overview
+            href: cli-ref/tools/index.md
+          - name: debian
+            items:
+              - name: Overview
+                href: cli-ref/tools/debian/index.md
+              - name: reindex-packages
+                href: cli-ref/tools/debian/reindex-packages.md
       - name: v0
         items:
           - name: Overview
@@ -383,6 +429,20 @@ items:
                 href: cli-ref/v1/artifact/list-access-bindings.md
               - name: remove-access-binding
                 href: cli-ref/v1/artifact/remove-access-binding.md
+              - name: scanner
+                items:
+                  - name: Overview
+                    href: cli-ref/v1/artifact/scanner/index.md
+                  - name: get-last-scan-result
+                    href: cli-ref/v1/artifact/scanner/get-last-scan-result.md
+                  - name: get-scan-result
+                    href: cli-ref/v1/artifact/scanner/get-scan-result.md
+                  - name: list-scan-results
+                    href: cli-ref/v1/artifact/scanner/list-scan-results.md
+                  - name: list-vulnerabilities
+                    href: cli-ref/v1/artifact/scanner/list-vulnerabilities.md
+                  - name: scan
+                    href: cli-ref/v1/artifact/scanner/scan.md
               - name: set-access-bindings
                 href: cli-ref/v1/artifact/set-access-bindings.md
               - name: update-access-bindings
@@ -391,6 +451,16 @@ items:
                 href: cli-ref/v1/artifact/upsert.md
           - name: configure-docker
             href: cli-ref/v1/configure-docker.md
+          - name: migration
+            items:
+              - name: Overview
+                href: cli-ref/v1/migration/index.md
+              - name: get-cloud-migration-status-dashboard
+                href: cli-ref/v1/migration/get-cloud-migration-status-dashboard.md
+              - name: start-cloud
+                href: cli-ref/v1/migration/start-cloud.md
+              - name: start-folder
+                href: cli-ref/v1/migration/start-folder.md
           - name: registry
             items:
               - name: Overview
@@ -445,6 +515,20 @@ items:
                 href: cli-ref/v1/registry/remove-access-binding.md
               - name: remove-ip-permissions
                 href: cli-ref/v1/registry/remove-ip-permissions.md
+              - name: scan-policy
+                items:
+                  - name: Overview
+                    href: cli-ref/v1/registry/scan-policy/index.md
+                  - name: create
+                    href: cli-ref/v1/registry/scan-policy/create.md
+                  - name: delete
+                    href: cli-ref/v1/registry/scan-policy/delete.md
+                  - name: get
+                    href: cli-ref/v1/registry/scan-policy/get.md
+                  - name: get-by-registry
+                    href: cli-ref/v1/registry/scan-policy/get-by-registry.md
+                  - name: update
+                    href: cli-ref/v1/registry/scan-policy/update.md
               - name: set-access-bindings
                 href: cli-ref/v1/registry/set-access-bindings.md
               - name: set-ip-permissions
@@ -452,7 +536,15 @@ items:
               - name: update
                 href: cli-ref/v1/registry/update.md
           - name: tools
-            href: cli-ref/v1/tools.md
+            items:
+              - name: Overview
+                href: cli-ref/v1/tools/index.md
+              - name: debian
+                items:
+                  - name: Overview
+                    href: cli-ref/v1/tools/debian/index.md
+                  - name: reindex-packages
+                    href: cli-ref/v1/tools/debian/reindex-packages.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -703,6 +795,8 @@ items:
                     href: domain/api-ref/Operation/get.md
                   - name: Cancel
                     href: domain/api-ref/Operation/cancel.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
 path: ru/cloud-registry/toc.yaml

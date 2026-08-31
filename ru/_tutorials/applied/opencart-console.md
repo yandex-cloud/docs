@@ -25,14 +25,14 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `OpenCart` и выберите публичный образ [OpenCart](/marketplace/products/yc/opencart-3).
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный [диск](../../compute/concepts/disk.md):
 
-      * Выберите [тип диска](../../compute/concepts/disk.md#disks_types) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}`.
+      * Выберите [тип диска](../../compute/concepts/disk.md#disks-types) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}`.
       * Задайте размер диска `13 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
@@ -118,6 +118,6 @@
 1. Если вы использовали БД {{ MY }}, то [удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md) (в примере кластер БД создается с именем `opencart`).
 
 Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в вашем каталоге.
-1. Перейдите на вкладку **IP-адреса**.
+1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в вашем каталоге.
+1. Откройте вкладку **IP-адреса**.
 1. Найдите нужный IP-адрес, нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.

@@ -50,7 +50,7 @@
   1. Создайте сервисный аккаунт `queue-autoscale-sa` и назначьте ему роль `editor` в каталоге `example-folder`:
   
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. Перейдите в сервис **Identity and Access Management**.
+     1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
      1. Нажмите кнопку **Создать сервисный аккаунт**.
      1. В поле **Имя** укажите `queue-autoscale-sa`.
      1. Нажмите значок ![](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `editor`.
@@ -73,7 +73,7 @@
   1. Создайте облачную сеть `queue-autoscale-network`:
   
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. Перейдите в сервис **Virtual Private Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
      1. Нажмите кнопку **Создать сеть**.
      1. В поле **Имя** укажите `queue-autoscale-network`.
      1. Отключите опцию **Создать подсети**.
@@ -183,7 +183,7 @@
 
      * `--network-name` — имя сети, в которой создается подсеть: `queue-autoscale-network`.
      * `--range` — CIDR подсети.
-     * `--zone` — зона доступности, в которой создается подсеть: `ru-central1-d`.
+     * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой создается подсеть: `ru-central1-d`.
 
      Результат:
 
@@ -253,7 +253,7 @@
   1. Создайте очередь `queue-autoscale-queue`:
   
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. Перейдите в сервис **Message Queue**.
+     1. [Перейдите](https://console.yandex.cloud/link/message-queue) в сервис **Message Queue**.
      1. Нажмите кнопку **Создать очередь**.
      1. В поле **Имя** укажите `queue-autoscale-queue`.
      1. Нажмите кнопку **Создать**.
@@ -357,7 +357,7 @@
      - Консоль управления {#console}
 
        1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-       1. Перейдите в сервис **Identity and Access Management**.
+       1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
        1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
        1. В открывшемся списке выберите сервисный аккаунт `queue-autoscale-sa`.
        1. Скопируйте **Идентификатор** сервисного аккаунта.
@@ -398,8 +398,8 @@
      - Консоль управления {#console}
      
        1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-       1. Перейдите в сервис **Virtual Private Cloud**.
-       1. Перейдите на вкладку ![image](../../_assets/console-icons/nodes-right.svg) **Подсети**.
+       1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
+       1. Откройте вкладку ![image](../../_assets/console-icons/nodes-right.svg) **Подсети**.
        1. В списке подсетей найдите `queue-autoscale-subnet-d` и скопируйте ее **Идентификатор**.
             
      - CLI {#cli}
@@ -491,7 +491,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
   1. Нажмите кнопку **Создать группу виртуальных машин**.
   1. В блоке **Базовые параметры**:
@@ -605,7 +605,7 @@
        - Консоль управления {#console}
         
          1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-         1. Перейдите в сервис **Virtual Private Cloud**.
+         1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
          1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **Идентификатор**.
           
        - API {#api}
@@ -644,7 +644,7 @@
        - Консоль управления {#console}
         
          1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-         1. Перейдите в сервис **Virtual Private Cloud**.
+         1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
          1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **Идентификатор**.
                
        - CLI {#cli}

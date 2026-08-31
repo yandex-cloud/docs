@@ -6,9 +6,11 @@ description: Follow this guide to migrate {{ KF }} cluster hosts to a different 
 # Migrating {{ KF }} cluster hosts to a different availability zone
 
 
-{{ mkf-name }} cluster hosts reside in {{ yandex-cloud }} availability zones. You can move {{ KF }} hosts from one availability zone to another. The migration process is different for single-host and multi-host clusters.
+{{ mkf-name }} cluster hosts reside in {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). You can move {{ KF }} hosts from one availability zone to another. The migration process is different for single-host and multi-host clusters.
+
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
+
 
 If a {{ mkf-name }} cluster is an endpoint in {{ data-transfer-full-name }}, restart the transfer to make it work correctly. For more information on which transfers to restart and how to do it, see [Specifics of migration in {{ data-transfer-full-name }}](#data-transfer).
 
@@ -36,8 +38,8 @@ To move an {{ KF }} host to a different availability zone in a {{ mkf-name }} cl
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
       1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, specify the new availability zone.
       1. If the new availability zone has multiple subnets, specify the one you need.
@@ -61,9 +63,9 @@ To move an {{ KF }} host to a different availability zone in a {{ mkf-name }} cl
 
    - {{ TF }} {#tf}
 
-      1. Open the current {{ TF }} configuration file describing your infrastructure.
+      1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-         For information about creating this file, see [{#T}](cluster-create.md).
+         For information on how to create this file, see [{#T}](cluster-create.md).
 
       1. In the {{ mkf-name }} cluster description, specify the new subnet in `subnet_ids` and the new availability zone in `zones`:
 
@@ -85,7 +87,7 @@ To move an {{ KF }} host to a different availability zone in a {{ mkf-name }} cl
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm resource changes.
+      1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -238,8 +240,8 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} 3.5 clust
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
       1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab. The **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** column lists the availability zones for each host.
 
    - CLI {#cli}
@@ -314,8 +316,8 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} 3.5 clust
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
       1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, set the new availability zones. Their total number must not decrease.
 
@@ -354,9 +356,9 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} 3.5 clust
 
    - {{ TF }} {#tf}
 
-      1. Open the current {{ TF }} configuration file describing your infrastructure.
+      1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-         For information about creating this file, see [{#T}](cluster-create.md).
+         For information on how to create this file, see [{#T}](cluster-create.md).
 
       1. In the {{ mkf-name }} cluster description, change the list of availability zones under `zones`:
 
@@ -398,7 +400,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} 3.5 clust
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm resource changes.
+      1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -525,9 +527,9 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} cluster v
 
    - {{ TF }} {#tf}
 
-      1. Open the current {{ TF }} configuration file describing your infrastructure.
+      1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-         For information about creating this file, see [{#T}](cluster-create.md).
+         For information on how to create this file, see [{#T}](cluster-create.md).
 
       1. In the {{ mkf-name }} cluster description, change the availability zone in the `zones` parameter:
 
@@ -556,7 +558,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} cluster v
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm resource changes.
+      1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

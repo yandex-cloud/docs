@@ -12,12 +12,10 @@ GET /{bucket}?encryption HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
+### Headings {#request-headers}
 
-### Headers {#request-headers}
 Use only [common headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
@@ -46,13 +44,26 @@ A successful response contains additional data in XML format with the schema des
 </ServerSideEncryptionConfiguration>
 ```
 
-Element | Description
------ | -----
-`ApplyServerSideEncryptionByDefault` | Sets default encryption for the object, if no other encryption parameters are specified in the request.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault`.
-`KMSMasterKeyID` | [{{ kms-short-name }} key](../../../../kms/concepts/key.md) ID.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\KMSMasterKeyID`.
-`Rule` | Server-side encryption policy. <br/><br/>The encryption is defined by `KMSMasterKeyID` and `SSEAlgorithm`.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule`.
-`ServerSideEncryptionConfiguration` | Default encryption configuration for new objects in the bucket.<br/><br/>Path: `ServerSideEncryptionConfiguration`.
-`SSEAlgorithm` | Encryption algorithm Available values: `aws:kms`.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\SSEAlgorithm`.
+#|
+|| **Element** | **Description** ||
+|| `ApplyServerSideEncryptionByDefault` | Sets default encryption for the object, if other encryption parameters are not specified in the request.
+
+Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault`. ||
+|| `KMSMasterKeyID` | [{{ kms-short-name }}](../../../../kms/concepts/key.md) key ID.
+
+Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\KMSMasterKeyID`. ||
+|| `Rule` | Server-side encryption policy.
+
+The encryption is defined by `KMSMasterKeyID` and `SSEAlgorithm`.
+
+Path: `ServerSideEncryptionConfiguration\Rule`. ||
+|| `ServerSideEncryptionConfiguration` | Default encryption configuration for new objects in the bucket.
+
+Path: `ServerSideEncryptionConfiguration`. ||
+|| `SSEAlgorithm` | Encryption algorithm that takes the `aws:kms` value.
+
+Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\SSEAlgorithm`. ||
+|#
 
 #### Related articles {#related-articles}
 

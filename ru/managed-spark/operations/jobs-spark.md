@@ -21,9 +21,14 @@ description: Из статьи вы узнаете, как управлять з
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.spark.jobs.create_action }}**.
+    1. Нажмите на имя нужного кластера и перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
+    1. Нажмите **{{ ui-key.yacloud.spark.jobs.create_action }}**.
     1. Укажите имя задания.
+    1. Выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или [создайте новый](../../iam/operations/sa/create.md).
+    1. Выберите окружение, в котором будет выполнено задание. Доступные варианты:
+       * **{{ ui-key.yacloud.spark.EnvironmentSelect.field_environment_cluster_sP4vs }}** — используется окружение, указанное в параметрах кластера.
+       * **{{ ui-key.yacloud.spark.EnvironmentSelect.base_environments_fq7iF }}** — одно из нескольких базовых окружений с предустановленными версиями {{ SPRK }} и Python.
+       * **{{ ui-key.yacloud.spark.EnvironmentSelect.user_environments_fwNXU }}** — одно из [созданных пользовательских окружений](environment-create.md).
     1. В поле **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** выберите `{{ ui-key.yacloud.dataproc.jobs.field_spark-job-type }}`.
     1. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-jar }}** укажите путь к основному JAR-файлу приложения в формате:
 
@@ -41,7 +46,7 @@ description: Из статьи вы узнаете, как управлять з
         * В поле **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** укажите [свойства {{ SPRK }}](../concepts/spark-properties.md) в виде пар «ключ-значение».
         * Укажите координаты используемых и исключаемых Maven-пакетов, а также URL дополнительных репозиториев для поиска пакетов.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
+    1. Нажмите **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
 - CLI {#cli}
 
@@ -105,7 +110,7 @@ description: Из статьи вы узнаете, как управлять з
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [JobService.Create](../api-ref/grpc/Job/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [JobService/Create](../api-ref/grpc/Job/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -117,6 +122,8 @@ description: Из статьи вы узнаете, как управлять з
             -d '{
                    "cluster_id": "<идентификатор_кластера>",
                    "name": "<имя_задания>",
+                   "service_account_id": "<идентификатор_сервисного_аккаунта>",
+                   "environment_id": "<идентификатор_окружения>",
                    "spark_job": {
                      "args": [
                        <список_аргументов>
@@ -152,7 +159,10 @@ description: Из статьи вы узнаете, как управлять з
 
         Где:
 
+        * `cluster_id` — идентификатор кластера. Его можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
         * `name` — имя Spark-задания.
+        * `service_account_id` — идентификатор сервисного аккаунта, от имени которого будет выполняться задание.
+        * `environment_id` — идентификатор базового или пользовательского окружения, в котором будет выполняться задание. Идентификатор пользовательского окружения можно получить с помощью вызова [EnvironmentService/List](../environment/api-ref/grpc/Environment/list.md), базового окружения — с помощью вызова [EnvironmentService/ListBase](../environment/api-ref/grpc/Environment/listBase.md).
         * `spark_job` — параметры Spark-задания:
 
             * `args` — аргументы задания.
@@ -168,8 +178,6 @@ description: Из статьи вы узнаете, как управлять з
             * `packages` — Maven-координаты пакетов в формате `groupId:artifactId:version`.
             * `repositories` — URL дополнительных репозиториев для поиска пакетов.
             * `exclude_packages` — Maven-координаты пакетов, которые нужно исключить, в формате `groupId:artifactId`.
-
-        Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Job/create.md#yandex.cloud.operation.Operation).
 

@@ -23,7 +23,7 @@ fun handle(s: Int): Int = s
 
    ```bash
    curl \
-        --header "Authorization: Bearer <IAM-тoкен>" \
+        --header "Authorization: Bearer <IAM-токен>" \
         --data "<число>" \
         "https://functions.yandexcloud.net/<идентификатор_функции>?integration=raw"
    ```

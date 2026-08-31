@@ -1,5 +1,6 @@
 ---
 title: Как получить информацию об IP-адресе в {{ vpc-full-name }}
+description: Следуя данной инструкции, вы сможете получить информацию об IP-адресе.
 ---
 
 # Получить информацию об IP-адресе
@@ -11,7 +12,7 @@ title: Как получить информацию об IP-адресе в {{ v
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [адрес](../concepts/address.md).
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-  1. На открывшейся странице отобразится подробная информация о всех доступных адресах.
+  1. На открывшейся странице отобразится подробная информация обо всех доступных адресах.
 
 - CLI {#cli}
 
@@ -53,6 +54,7 @@ title: Как получить информацию об IP-адресе в {{ v
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы получить информацию об [адресе](../concepts/address.md) с помощью {{ TF }}:
+
   1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
 
      ```hcl
@@ -72,6 +74,7 @@ title: Как получить информацию об IP-адресе в {{ v
        * `value` — возвращаемое значение.
 
      Вместо `external_ipv4_address` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_vpc_address` в [документации провайдера]({{ tf-provider-datasources-link }}/vpc_address).
+
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -97,6 +100,6 @@ title: Как получить информацию об IP-адресе в {{ v
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [адресе](../concepts/address.md), воспользуйтесь методом REST API [get](../api-ref/Address/get.md) для ресурса [Address](../api-ref/Address/index.md), или вызовом gRPC API [AddressService/Get](../api-ref/grpc/Address/get.md).
+  Чтобы получить подробную информацию об [адресе](../concepts/address.md), воспользуйтесь методом REST API [get](../api-ref/Address/get.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Get](../api-ref/grpc/Address/get.md).
 
 {% endlist %}

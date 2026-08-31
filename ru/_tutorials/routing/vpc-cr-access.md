@@ -104,7 +104,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например, `sa-terraform`.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -142,7 +142,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится сервисный аккаунт.
-      1. Перейдите на вкладку ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+      1. Нажмите ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. В списке аккаунтов выберите `sa-terraform` и нажмите значок ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
       1. В открывшемся диалоге нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `admin`.
 
@@ -306,22 +306,22 @@
    | `cr_registry_id` | Идентификатор реестра в {{ container-registry-short-name }}. | `crp1r4h00mj*********` |
    | `path_for_private_ssh_key` | Файл с приватным ключом для подключения по протоколу SSH к ВМ с NAT и тестовой ВМ. | `./pt_key.pem` |
    | `s3_nlb_ip_address` | IP-адрес внутреннего балансировщика для {{ objstorage-short-name }}. | `10.10.1.200` |
-   | `test_vm_password` | Пароль пользователя `admin` для тестовой ВМ. | `v3RСqUrQN?x)` |
+   | `test_vm_password` | Пароль пользователя `admin` для тестовой ВМ. | `v3RCqUrQN?x)` |
    | `vm_username` | Имя пользователя для ВМ с NAT и тестовой ВМ. | `admin` |
 
    {% endcut %}
 
 ## Протестируйте работоспособность решения {#test-functionality}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором ранее были созданы ресурсы.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором ранее были созданы ресурсы.
 
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 
 1. В списке виртуальных машин выберите ВМ `test-cr-vm`.
 
-1. В меню слева выберите ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}**.
+1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instance.switch_console }}**.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_action-ssh }}**.
 
 1. Введите логин `admin` и пароль из вывода команды `terraform output test_vm_password` (укажите значение без кавычек).
 
@@ -389,9 +389,9 @@
    demo: digest: sha256:7e9b6e7ba284****************** size: 525
    ```
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором ранее были созданы ресурсы.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором ранее были созданы ресурсы.
 
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+1. [Перейдите]({{ link-console-main }}/link/container-registry) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
 
 1. Выберите реестр `test-registry`.
 
@@ -418,8 +418,8 @@
 
 * Вручную {#manual}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором ранее были созданы ресурсы.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором ранее были созданы ресурсы.
+    1. [Перейдите]({{ link-console-main }}/link/container-registry) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
     1. Выберите реестр `test-registry`.
     1. Выберите репозиторий `hello-world`.
     1. Для каждого Docker-образа в репозитории нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).

@@ -5,6 +5,12 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ objstorage-full-name }}
 
+## II квартал 2026 {#q2-2026}
+
+* Добавлен класс хранилища `INTELLIGENT_TIERING`. [Умное хранилище](./concepts/storage-class.md#features-intelligent-tiering) автоматически оптимизирует расходы, перемещая объекты между уровнями доступа в зависимости от частоты обращения к ним. Объекты можно [загружать](./operations/objects/upload.md) в умное хранилище или [перемещать в него с помощью жизненных циклов](./operations/buckets/lifecycles.md).
+* В [жизненные циклы](./operations/buckets/lifecycles.md) добавлен параметр `NewerNoncurrentVersions`. Параметр задает, сколько последних неактуальных версий объекта хранятся бессрочно.
+* Добавлена возможность [поиска чувствительных данных в бакете](./operations/buckets/sensitive-data-search.md) при помощи [модуля контроля данных ({{ dspm-name }})](../security-deck/concepts/dspm.md).
+
 ## I квартал 2026 {#q1-2026}
 
 * Функциональность [выгрузки метаданных объектов (S3 Inventory)](./concepts/s3-inventory.md) перешла на стадию [General Availability](../overview/concepts/launch-stages.md) в [регионе Россия](../overview/concepts/region.md), и за ее использование теперь взимается плата в соответствии с [правилами тарификации](./pricing.md). [Управлять конфигурациями выгрузки](./operations/buckets/manage-s3-inventory.md) можно с помощью [{{ yandex-cloud }} CLI](./cli-ref/bucket/create-inventory-configuration.md) и [API](./api-ref/Bucket/createInventoryConfiguration.md).
@@ -87,3 +93,4 @@ description: В разделе представлена история изме�
 * Улучшена работа в консоли управления:
   * добавлен фильтр по префиксу в списке объектов бакета;
   * добавлена возможность скачивания объектов из списка.
+

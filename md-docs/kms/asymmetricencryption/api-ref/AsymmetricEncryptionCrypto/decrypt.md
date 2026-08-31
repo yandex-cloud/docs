@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Key Management Service API](../index.md) > [AsymmetricEncryptionCrypto](index.md) > Decrypt
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Asymmetric encryption API](../index.md) > [AsymmetricEncryptionCrypto](index.md) > Decrypt
 
 # Key Management Service API, REST: AsymmetricEncryptionCrypto.Decrypt
 
@@ -7,7 +7,7 @@ Decrypts the given ciphertext with the specified key.
 ## HTTP request
 
 ```
-POST https://kms.api.cloud.yandex.net/kms/v1/asymmetricEncryptionKeys/{keyId}:decrypt
+POST https://kms.yandex/kms/v1/asymmetricEncryptionKeys/{keyId}:decrypt
 ```
 
 ## Path parameters

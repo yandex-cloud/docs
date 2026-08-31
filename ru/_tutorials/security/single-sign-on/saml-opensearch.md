@@ -1,5 +1,6 @@
 # Создать SAML-приложение в {{ org-full-name }} для интеграции с {{ mos-name }}
 
+
 [{{ OS }}](https://opensearch.org/) — это легко масштабируемая система поисковых и аналитических инструментов с открытым исходным кодом. {{ OS }} включает в себя пользовательский интерфейс визуализации данных [{{ OS }} Dashboards](https://docs.opensearch.org/latest/dashboards/). [{{ mos-full-name }}](../../../managed-opensearch/) — сервис для управления кластерами OpenSearch в инфраструктуре Yandex Cloud. {{ mos-name }} поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
 Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в {{ mos-name }} с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications/saml.md) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне кластера {{ OS }}.
@@ -66,7 +67,7 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
     Чтобы настроить источник аутентификации {{ org-full-name }}:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. [Перейдите]({{ link-console-main }}/link/managed-opensearch) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.opensearch.auth.section_auth }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
     1. Укажите нужные значения настроек:

@@ -79,8 +79,8 @@
    - Консоль управления {#console}
    
      1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-     1. Перейдите в сервис **Virtual Private Cloud**.
-     1. В правом верхнем углу нажмите **Создать сеть**.
+     1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
+     1. Нажмите кнопку **Создать сеть**.
      1. В поле **Имя** укажите имя сети `nextcloud-network`.
      1. Убедитесь, что опция **Создать подсети** включена, и нажмите **Создать сеть**.
    
@@ -92,7 +92,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Virtual Private Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
       1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **Группы безопасности**. 
       1. Нажмите **Создать группу безопасности**.
       1. В поле **Имя** укажите имя `nextcloud-sg`.
@@ -128,7 +128,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Virtual Private Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
       1. На панели слева выберите ![arrows-opposite-to-dots](../../../_assets/console-icons/arrows-opposite-to-dots.svg) **Шлюзы** и нажмите кнопку **Создать шлюз**.
       1. В поле **Имя** задайте имя шлюза `nextcloud-gateway`. 
       1. В поле **Тип** выберите `NAT-шлюз` и нажмите кнопку **Сохранить**.
@@ -142,7 +142,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Virtual Private Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
       1. На панели слева выберите ![route](../../../_assets/console-icons/route.svg) **Таблицы маршрутизации** и нажмите кнопку **Создать таблицу маршрутизации**.
       1. В поле **Имя** задайте имя `nextcloud-rt-table`.
       1. В поле **Cеть** выберите сеть `nextcloud-network`.
@@ -162,7 +162,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Virtual Private Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/nodes-right.svg) **Подсети**.
       1. В строке с нужной подсетью нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg) и в контекстном меню выберите пункт **Привязать таблицу маршрутизации**.
       1. В открывшемся окне выберите созданную на предыдущем шаге таблицу маршрутизации и нажмите кнопку **Привязать**.
@@ -182,7 +182,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Identity and Access Management**.
+      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
       1. Нажмите кнопку **Создать сервисный аккаунт**.
       1. Укажите имя сервисного аккаунта — `nextcloud-sa`.
       1. Нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../../iam/roles-reference.md#editor) `editor`.
@@ -197,7 +197,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Identity and Access Management**.
+      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
       1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты** и выберите созданный ранее сервисный аккаунт `nextcloud-sa`.
       1. На панели сверху нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать статический ключ доступа**.
       1. Нажмите кнопку **Создать**.
@@ -220,7 +220,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Справа сверху нажмите **Создать бакет**.
   1. В поле **Имя** укажите имя бакета. Например: `my-nextcloud-bucket`. Имя бакета должно быть [уникальным](../../../storage/concepts/bucket.md#naming) в пределах Yandex Object Storage.
   1. В поле **Макс. размер** задайте нужный размер бакета или включите опцию **Без ограничения**.
@@ -237,7 +237,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `Ubuntu 24.04 LTS` и выберите публичный образ [Ubuntu 24.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-24-04-lts).
   1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md) `ru-central1-a`.
@@ -289,7 +289,7 @@ Nextcloud использует базу данных MySQL® для хранен
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL** и нажмите кнопку **Создать кластер**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL** и нажмите кнопку **Создать кластер**.
   1. В поле **Имя кластера** введите имя `nextcloud-db-cluster`.
   1. В блоке **База данных**:
 
@@ -514,8 +514,8 @@ Nextcloud использует базу данных MySQL® для хранен
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL** и выберите кластер `nextcloud-db-cluster`.
-  1. В меню слева выберите ![cube](../../../_assets/console-icons/cube.svg) **Хосты**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL** и выберите кластер `nextcloud-db-cluster`.
+  1. Перейдите на вкладку **Хосты**.
   1. С помощью кнопки **Создать хост** добавьте дополнительные [хосты](../../../managed-mysql/concepts/instance-types.md), так чтобы в кластере было три хоста — по одному в каждой [зоне доступности](../../../overview/concepts/geo-scope.md).
 
         При создании хостов не включайте опцию **Публичный доступ**.
@@ -589,8 +589,8 @@ Nextcloud использует базу данных MySQL® для хранен
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Compute Cloud**.
-      1. На панели слева выберите ![hard-drive](../../../_assets/console-icons/hard-drive.svg) **Диски**.
+      1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
+      1. На панели слева выберите ![hard-drive](../../../_assets/console-icons/hard-drive.svg) **Диски и хранилища**.
       1. В строке с нужным диском нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **Создать снимок**.
       1. В поле **Имя** задайте имя снимка `nextcloud-vm-snapshot`.
       1. Нажмите кнопку **Создать**.
@@ -612,7 +612,7 @@ Nextcloud использует базу данных MySQL® для хранен
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Certificate Manager**.
+      1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
       1. Нажмите **Добавить сертификат** и выберите **Сертификат от Let's Encrypt**.
       1. В открывшемся окне в поле **Имя** укажите `mymanagedcert`.
       1. В поле **Домены** укажите имя вашего домена, например `example.com`.
@@ -628,7 +628,7 @@ Nextcloud использует базу данных MySQL® для хранен
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Certificate Manager**.
+      1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
       1. В списке сертификатов выберите `mymanagedcert`.
       1. В открывшемся окне в блоке **Проверка прав на домены** выберите `CNAME-запись`.
       1. Добавьте в публичную DNS-зону вашего домена [CNAME-запись](../../../dns/concepts/resource-record.md#cname), необходимую для проверки прав на домен. Порядок действий на этом шаге будет зависеть от того, управляет вашим доменом сервис Yandex Cloud DNS или сторонний DNS-провайдер:
@@ -673,7 +673,7 @@ Nextcloud использует базу данных MySQL® для хранен
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
   1. Нажмите кнопку **Создать группу виртуальных машин**.
   1. В поле **Имя** задайте имя группы `nextcloud-instance-group`.
@@ -732,7 +732,7 @@ Nextcloud использует базу данных MySQL® для хранен
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Application Load Balancer**.
+      1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов** и нажмите кнопку **Создать группу бэкендов**.
       1. В поле **Имя** укажите имя группы `nextcloud-bg`.
       1. Включите опцию **Привязка сессий** и в появившемся поле **Режим привязки** выберите `По IP-адресу`.
@@ -753,7 +753,7 @@ Nextcloud использует базу данных MySQL® для хранен
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Application Load Balancer**.
+      1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/route.svg) **HTTP-роутеры** и нажмите кнопку **Создать HTTP-роутер**.
       1. В поле **Имя** укажите имя HTTP-роутера `nextcloud-router`.
       1. В блоке **Виртуальные хосты** нажмите кнопку **Добавить виртуальный хост** и в открывшейся форме **Новый виртуальный хост**:
@@ -772,7 +772,7 @@ Nextcloud использует базу данных MySQL® для хранен
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Application Load Balancer**.
+      1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
       1. Нажмите кнопку **Создать L7-балансировщик** и выберите **Вручную**.
       1. В поле **Имя** укажите имя балансировщика `nextcloud-alb`.
       1. В поле **Сеть** выберите сеть `nextcloud-network`.
@@ -802,7 +802,7 @@ Nextcloud использует базу данных MySQL® для хранен
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Cloud DNS**.
+  1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
   1. Выберите нужную зону DNS, нажмите кнопку **Создать запись** и в открывшемся окне:
 
       1. В поле **Имя** выберите `Совпадает с именем зоны (@)`.

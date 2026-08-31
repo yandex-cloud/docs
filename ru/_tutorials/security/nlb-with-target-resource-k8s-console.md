@@ -16,7 +16,7 @@
 
 ## Создайте инфраструктуру {#before-you-begin}
 
-1. [Создайте подсети](../../vpc/operations/subnet-create.md) в трех зонах доступности. Эти подсети будут использоваться для L7-балансировщика.
+1. [Создайте подсети](../../vpc/operations/subnet-create.md) в трех [зонах доступности](../../overview/concepts/geo-scope.md). Эти подсети будут использоваться для L7-балансировщика.
 
 1. Создайте [группы безопасности](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md), которые разрешают L7-балансировщику получать входящий трафик и отправлять его на целевые ресурсы, а также разрешают целевым ресурсам получать входящий трафик от балансировщика.
 
@@ -73,8 +73,8 @@
 
 1. Перейдите в L7-балансировщик:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится кластер {{ managed-k8s-name }}.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер {{ managed-k8s-name }}.
+    1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Выберите нужный кластер.
     1. Слева выберите ![image](../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.k8s.cluster.switch_network }}**, а в правой части — вкладку **{{ ui-key.yacloud.k8s.network.label_ingress }}**. Для вашего `Ingress`-ресурса в столбце **Балансировщик** перейдите по ссылке на L7-балансировщик.
     1. Наблюдайте за пользовательской нагрузкой, поступающей на L7-балансировщик, на графиках [статистики работы балансировщика](../../application-load-balancer/operations/application-load-balancer-get-stats.md).

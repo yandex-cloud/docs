@@ -10,7 +10,7 @@ description: Follow this guide to update a container description.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your container.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container.
   1. Click **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the container description.
@@ -68,7 +68,7 @@ description: Follow this guide to update a container description.
      ...
      ```
 
-   For more on the properties of the `yandex_serverless_container` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+     For more on the properties of the `yandex_serverless_container` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Validate your configuration using this command:
      ```

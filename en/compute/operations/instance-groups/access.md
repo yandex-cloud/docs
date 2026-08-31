@@ -14,7 +14,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the instance group.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the group.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -39,13 +39,13 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
      {% include [instance-group-list](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Check what roles are currently assigned for the resource in question:
+  1. View the list of roles already assigned for the resource:
 
      ```bash
      {{ yc-compute-ig }} list-access-bindings <instance_group_name_or_ID>
      ```
 
-  1. Assign the role using this command:
+  1. Assign a role using this command:
 
      * To a user:
 
@@ -86,7 +86,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the instance group.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the group.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -132,7 +132,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        * `role`: Role ID.
        * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-     For example, assign roles to several users and one service account:
+     For example, this command will assign roles to multiple users and a single service account:
 
      ```bash
      {{ yc-compute-ig }} set-access-bindings test-group \
@@ -154,7 +154,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the instance group.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the group.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.

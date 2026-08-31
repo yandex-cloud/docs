@@ -925,33 +925,41 @@ description: Следуя данной инструкции, вы сможете
                                `day=<день_недели>,`
                                `hour=<порядковый_номер_часового_интервала> \
           --performance-diagnostics=<включить_диагностику> \
-          --deletion-protection
+          --deletion-protection \
+          --autocompact=<разрешить_автоматическую_перепаковку> \
+          --autocompact-bloat-percent <минимальный_процент_раздувания_коллекции> \
+          --autocompact-target-free-space <минимальный_объем_освобождаемого_дискового_пространства_в_МБ> \
+          --autocompact-compaction-type <настройки_перепаковки_хоста-мастера>
         ```
 
-    Вы можете изменить следующие настройки:
+        Где:
 
-    * `--backup-retain-period` — срок хранения автоматических резервных копий (в днях).
-      
-      Значение параметра `<срок_хранения>` задается в диапазоне от {{ mmg-backup-retention-min }} до {{ mmg-backup-retention-max }} (по умолчанию — {{ mmg-backup-retention }}). Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Подробнее читайте в разделе [Резервные копии](../concepts/backup.md).
+        * `<идентификатор_или_имя_кластера>` — идентификатор или имя кластера, которые можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
+        * `--backup-retain-period` — срок хранения автоматических резервных копий (в днях).
+          
+          
+          Значение параметра `<срок_хранения>` задается в диапазоне от {{ mmg-backup-retention-min }} до {{ mmg-backup-retention-max }} (по умолчанию — {{ mmg-backup-retention }}). Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Подробнее читайте в разделе [Резервные копии](../concepts/backup.md).
 
 
-      Изменение срока хранения затрагивает как новые автоматические резервные копии, так и уже существующие.
+          Изменение срока хранения затрагивает как новые автоматические резервные копии, так и уже существующие.
 
-      Например, если изначальный срок хранения был семь дней и оставшееся время жизни отдельной автоматической резервной копии при таком сроке — один день, то при увеличении срока хранения до девяти дней оставшееся время жизни этой резервной копии будет уже три дня.
+          Например, если изначальный срок хранения был семь дней и оставшееся время жизни отдельной автоматической резервной копии при таком сроке — один день, то при увеличении срока хранения до девяти дней оставшееся время жизни этой резервной копии будет уже три дня.
 
-    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
+        {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
+        * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
 
-        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+            {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-    * `--performance-diagnostics` — укажите параметр, чтобы воспользоваться инструментом [Диагностика производительности](performance-diagnostics.md) в кластере. Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+        * `--performance-diagnostics` — укажите параметр, чтобы воспользоваться инструментом [Диагностика производительности](performance-diagnostics.md) в кластере. Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
-    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+        * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+          {% include [deletion-protection-cluster](../../_includes/mdb/mmg/deletion-protection-cluster.md) %}
 
-    Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
+          {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+        {% include [Автоматическая перепаковка](../../_includes/mdb/mmg/autocompact-cli.md) %}
 
 
 - {{ TF }} {#tf}
@@ -989,9 +997,13 @@ description: Следуя данной инструкции, вы сможете
         }
         ```
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
-
         Чтобы отключить защиту, установите значение `false`.
+
+        После включения защиты от удаления кластера она также применяется ко всем новым базам данных и пользователям, для которых защита от удаления не задана явно. Если для базы данных или пользователя задано собственное значение настройки защиты от удаления, оно имеет приоритет над значением настройки кластера.
+
+        Настроить защиту от удаления для базы данных можно в ресурсе `yandex_mdb_mongodb_database`, а для пользователя — в ресурсе `yandex_mdb_mongodb_user`.
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     1. Проверьте корректность настроек.
 
@@ -1019,7 +1031,7 @@ description: Следуя данной инструкции, вы сможете
       
       ```json
       {
-        "updateMask": "configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.performanceDiagnostics,maintenanceWindow,deletionProtection",
+        "updateMask": "configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.performanceDiagnostics,configSpec.autocompactConfig.enabled,configSpec.autocompactConfig.targetFreeSpace,configSpec.autocompactConfig.bloatPercent,configSpec.autocompactConfig.compactionType,maintenanceWindow,deletionProtection",
         "configSpec": {
           "backupWindowStart":  {
             "hours": "<часы>",
@@ -1030,6 +1042,12 @@ description: Следуя данной инструкции, вы сможете
           "backupRetainPeriodDays": "<время_хранения_резервных_копий_в_днях>",
           "performanceDiagnostics": {
             "profilingEnabled": <включить_профилировщик>
+          },
+          "autocompactConfig": {
+            "enabled": <разрешить_автоматическую_перепаковку>,
+            "targetFreeSpace": "<минимальный_объем_освобождаемого_дискового_пространства_в_МБ>",
+            "bloatPercent": <минимальный_процент_раздувания_коллекции>,
+            "compactionType": "<настройки_перепаковки_хоста-мастера>"
           }
         }
         "maintenanceWindow": {
@@ -1062,6 +1080,10 @@ description: Следуя данной инструкции, вы сможете
         * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
           
           * `profilingEnabled` — включение [профилировщика](tools.md#explore-profiler): `true` или `false`.
+        
+        * `autocompactConfig` — настройки автоматической перепаковки:
+          
+          {% include [Автоматическая перепаковка](../../_includes/mdb/mmg/autocompact-rest.md) %}
 
       * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
 
@@ -1075,7 +1097,9 @@ description: Следуя данной инструкции, вы сможете
 
       * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-cluster](../../_includes/mdb/mmg/deletion-protection-cluster.md) %}
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
         
     1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
@@ -1112,6 +1136,10 @@ description: Следуя данной инструкции, вы сможете
             "config_spec.backup_window_start",
             "config_spec.backup_retain_period_days",
             "config_spec.performance_diagnostics",
+            "config_spec.autocompact_config.enabled",
+            "config_spec.autocompact_config.target_free_space",
+            "config_spec.autocompact_config.bloat_percent",
+            "config_spec.autocompact_config.compaction_type",
             "maintenance_window",
             "deletion_protection"
           ]
@@ -1126,6 +1154,12 @@ description: Следуя данной инструкции, вы сможете
           "backup_retain_period_days": "<время_хранения_резервных_копий_в_днях>",
           "performance_diagnostics": {
             "profiling_enabled": <включить_профилировщик>
+          },
+          "autocompact_config": {
+            "enabled": <разрешить_автоматическую_перепаковку>,
+            "target_free_space": "<минимальный_объем_освобождаемого_дискового_пространства_в_МБ>",
+            "bloat_percent": <минимальный_процент_раздувания_коллекции>,
+            "compaction_type": "<настройки_перепаковки_хоста-мастера>"
           }
         },
         "maintenance_window": {
@@ -1158,6 +1192,10 @@ description: Следуя данной инструкции, вы сможете
         * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
           * `profiling_enabled` — включение [профилировщика](tools.md#explore-profiler): `true` или `false`.
+        
+        * `autocompact_config` — настройки автоматической перепаковки:
+          
+          {% include [Автоматическая перепаковка](../../_includes/mdb/mmg/autocompact-grpc.md) %}
 
       * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
 
@@ -1171,7 +1209,9 @@ description: Следуя данной инструкции, вы сможете
 
       * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-cluster](../../_includes/mdb/mmg/deletion-protection-cluster.md) %}
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
   1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 

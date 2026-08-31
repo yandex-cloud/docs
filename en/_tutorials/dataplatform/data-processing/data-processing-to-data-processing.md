@@ -42,8 +42,8 @@ If a {{ dataproc-name }} cluster contains tables that should be available in ano
     1. [Create a service account](../../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign the `dataproc.agent` and `dataproc.provisioner` roles to it.
     1. {% include [basic-before-buckets](../../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
     1. [Create a cloud network](../../../vpc/operations/network-create.md) named `dataproc-network`.
-    1. In `dataproc-network`, [create a subnet](../../../vpc/operations/subnet-create.md) in any availability zone.
-    1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the subnet you created.
+    1. Within `dataproc-network`, [create a subnet](../../../vpc/operations/subnet-create.md) in any [availability zone](../../../overview/concepts/geo-scope.md).
+    1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for your new subnet.
     1. [Create two {{ dataproc-name }} clusters](../../../data-proc/operations/cluster-create.md) named `dataproc-source` and `dataproc-target` in any [suitable host configuration](../../../data-proc/concepts/instance-types.md) with the following settings:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`.
@@ -89,7 +89,7 @@ If a {{ dataproc-name }} cluster contains tables that should be available in ano
         * `output-bucket`: Output data bucket name.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -111,7 +111,7 @@ If a {{ dataproc-name }} cluster contains tables that should be available in ano
 
 1. [Add](../../../data-proc/operations/cluster-update.md) the `spark:spark.hive.metastore.uris` property with the `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}` value to the {{ dataproc-name }} cluster settings.
 
-   To find out the {{ metastore-name }} cluster IP address, open the [management console]({{ link-console-main }}), then go to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**, and select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster in question.
+   To find out the {{ metastore-name }} cluster IP address, open the [management console]({{ link-console-main }}), then [go]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**, and select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster in question.
 
 ## Create a test table {#create-table}
 

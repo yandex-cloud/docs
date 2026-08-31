@@ -24,7 +24,7 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a trigger.
   
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   
   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   
@@ -80,6 +80,7 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
   ```
 
   Where:
+
   * `--name`: Trigger name.
   * `--registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
   * `--device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can skip this setting.
@@ -184,7 +185,7 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
 
 {% include [check-result](check-result.md) %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../serverless-containers/operations/iot-core-trigger-create.md)
 * [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-create.md)

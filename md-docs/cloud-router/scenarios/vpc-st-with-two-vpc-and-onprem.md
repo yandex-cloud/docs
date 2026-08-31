@@ -2,9 +2,10 @@
 
 # Организация сетевой связности между двумя и более облачными сетями и On-Prem ресурсами (VPC Stitching)
 
+
 {% note warning %}
 
-Функция доступна только при подключенной услуге [Cloud Interconnect](../../interconnect/index.md).
+Функция доступна только при подключенной услуге [Cloud Interconnect](../../interconnect/index.md) с объемом трафика не менее [300 ТБ](../../interconnect/pricing.md).
 
 {% endnote %}
 
@@ -12,7 +13,7 @@
 
 ![ri-topology-7](../../_assets/cloud-router/ri-topology-7.svg)
 
-В данном сценарии используются следуюшие компоненты:
+В данном сценарии используются следующие компоненты:
 
 * `On-Prem` клиента с двумя локальными подсетями - `subnet-c1` и `subnet-c2`.
 

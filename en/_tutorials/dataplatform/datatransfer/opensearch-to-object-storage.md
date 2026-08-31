@@ -210,7 +210,7 @@ Make sure the data has been transferred from the {{ mos-name }} cluster to the {
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Select the bucket from the list.
 1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
 1. Make sure the {{ objstorage-name }} bucket contains the `from_MOS` folder with the test data JSON file.

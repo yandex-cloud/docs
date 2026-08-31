@@ -25,7 +25,7 @@ description: Из статьи вы узнаете, как создавать в
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
   1. Выберите нужный пул.
-  1. На панели слева перейдите в раздел ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 
 - CLI {#cli}
 

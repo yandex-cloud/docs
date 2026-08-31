@@ -87,11 +87,11 @@ To work with {{ container-registry-name }} and Docker images, [install the {{ ya
    {{ registry }}/<registry_ID>/ubuntu:hello
    ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
-* [Creating a registry](../operations/registry/registry-create.md).
-* [Authentication in {{ container-registry-name }}](../operations/authentication.md).
-* [Creating a Docker image](../operations/docker-image/docker-image-create.md).
-* [Pushing a Docker image](../operations/docker-image/docker-image-push.md).
-* [Pulling a Docker image](../operations/docker-image/docker-image-pull.md).
-* [Running a Docker image on a VM](../tutorials/index.md).
+* [Creating a registry](../operations/registry/registry-create.md)
+* [{{ container-registry-name }} authentication](../operations/authentication.md)
+* [Creating a Docker image](../operations/docker-image/docker-image-create.md)
+* [Pushing a Docker image](../operations/docker-image/docker-image-push.md)
+* [Pulling a Docker image](../operations/docker-image/docker-image-pull.md)
+* [Running a Docker image on a VM](../tutorials/index.md)

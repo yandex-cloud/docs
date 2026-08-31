@@ -1,7 +1,7 @@
 # Поставка данных из {{ ydb-full-name }} в {{ mkf-full-name }}
 
 
-Вы можете отслеживать изменения данных в _источнике_ {{ ydb-name }} и отправлять их в _кластер-приемник_ {{ mkf-name }} с помощью технологии [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC). Эти данные будут автоматически добавлены в топики {{ mkf-short-name }} с именами таблиц {{ ydb-name }}.
+Вы можете отслеживать изменения данных в _источнике_ {{ ydb-full-name }} и отправлять их в _кластер-приемник_ {{ mkf-full-name }} с помощью технологии [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC). Эти данные будут автоматически добавлены в топики {{ mkf-short-name }} с именами таблиц {{ ydb-name }}.
 
 {% include [CDC-YDB](../../_includes/data-transfer/note-ydb-cdc.md) %}
 
@@ -21,9 +21,8 @@
 	* Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
   	* Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
 
-* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+* Кластер {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -39,12 +38,18 @@
 
        1. Если вы выбрали режим БД {{ dd }}, [создайте](../../vpc/operations/security-group-create.md) и [настройте](../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.
 
+       
+       1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роль](../../iam/operations/sa/assign-role-for-sa.md) `editor`. Трансфер будет использовать его для доступа к БД.
+
+
        1. [Создайте кластер-приемник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
+          
           {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
+
        
-        1. Если вы используете группы безопасности, [настройте их так, чтобы к кластеру можно было подключаться из интернета](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
+       1. Если вы используете группы безопасности, [настройте их так, чтобы к кластеру можно было подключаться из интернета](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
        1. Настройте в кластере-приемнике топики {{ KF }}. Настройки различаются в зависимости от используемого [способа управления топиками](../../managed-kafka/concepts/topics.md#management). Имена топиков для данных формируются как `<префикс_топика>.<имя_таблицы_{{ ydb-short-name }}>`. В этом руководстве в качестве примера используется префикс `cdc`.
@@ -62,7 +67,7 @@
               1. Создайте [пользователя-администратора](../../managed-kafka/operations/cluster-accounts.md).
               1. Помимо роли `ACCESS_ROLE_ADMIN` назначьте пользователю-администратору роли `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` для топиков `cdc.*`, имена которых начинаются с префикса `cdc`.
 
-                 Необходимые топики будут созданы автоматически при первом изменении в отслеживаемых таблицах кластера-источника. Такое решение может быть удобным для отслеживания изменений во множестве таблиц, однако, требует запаса свободного места в хранилище кластера. Подробнее в разделе [{#T}](../../managed-kafka/concepts/storage.md).
+                 Необходимые топики будут созданы автоматически при первом изменении в отслеживаемых таблицах кластера-источника. Такое решение может быть удобным для отслеживания изменений во множестве таблиц, однако требует запаса свободного места в хранилище кластера. Подробнее в разделе [{#T}](../../managed-kafka/concepts/storage.md).
 
    - {{ TF }} {#tf}
 
@@ -78,10 +83,13 @@
            * [сеть](../../vpc/concepts/network.md#network);
            * [подсеть](../../vpc/concepts/network.md#subnet);
            * [группа безопасности](../../vpc/concepts/security-groups.md) и правило, необходимое для подключения к кластеру {{ mkf-name }};
+           * сервисный аккаунт;
            * база данных {{ ydb-name }};
            * кластер-приемник {{ mkf-name }};
            * топик {{ KF }};
            * пользователь {{ KF }};
+           * эндпоинт для источника;
+           * эндпоинт для приемника;
            * трансфер.
 
            Выбор [способа управления топиками](../../managed-kafka/concepts/topics.md#management) определяется переменной {{ TF }} `kf_topics_management`. Переменная задается при выполнении команд `terraform plan` и `terraform apply` (описано далее):
@@ -95,10 +103,9 @@
        1. Укажите в файле `data-transfer-ydb-mkf.tf` переменные:
 
            * `source_db_name` — имя базы данных {{ ydb-name }};
-           * `target_kf_version` – версия {{ KF }} в кластере-приемнике;
-           * `target_user_name` – имя пользователя для подключения к топику {{ KF }};
-           * `target_user_password` – пароль пользователя;
-           * `transfer_enabled` – значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
+           * `target_kf_version` — версия {{ KF }} в кластере-приемнике;
+           * `target_user_name` — имя пользователя для подключения к топику {{ KF }};
+           * `target_user_password` — пароль пользователя.
 
        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -164,71 +171,66 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
+{% list tabs group=instructions %}
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `YDB`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.title }}**:
+- Вручную {#manual}
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+    1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
-           
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `editor`.
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `YDB`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.title }}**:
+
+            * **Тип подключения** — выберите `База {{ ydb-name }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите [созданную ранее](#before-you-begin) базу данных {{ ydb-name }} из списка.
+
+                
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите [созданный ранее](#before-you-begin) сервисный аккаунт с ролью `editor`.
 
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}** — укажите имена таблиц и директорий базы данных {{ ydb-name }} для переноса.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}** — укажите путь к таблице `sensors` в базе данных {{ ydb-name }}.
 
-           {% note warning %}
+                {% note warning %}
 
-           Реплицируются только указанные таблицы и директории. Если не указать имен, то никакие таблицы не будут перенесены.
+                Реплицируются только указанные таблицы и директории. Если не указать имен, то никакие таблицы не будут перенесены.
 
-           {% endnote %}
+                {% endnote %}
 
-1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите [созданный ранее](#before-you-begin) кластер-источник {{ mkf-name }}.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — укажите данные [созданного ранее](#before-you-begin) пользователя {{ KF }}.
+    1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите [созданный ранее](#before-you-begin) кластер-источник {{ mkf-name }}.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — укажите данные [созданного ранее](#before-you-begin) пользователя {{ KF }}.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}** — `cdc.sensors`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}** — `cdc.sensors`.
 
-        Если необходимо отслеживать изменения в нескольких таблицах, заполните поля следующим образом:
+            Если необходимо отслеживать изменения в нескольких таблицах, заполните поля следующим образом:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}** — укажите префикс `cdc`, использованный при формировании имен топиков.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}** — укажите префикс `cdc`, использованный при формировании имен топиков.
 
-1. Создайте трансфер:
+    1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
+    1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate).
 
-    {% list tabs group=instructions %}
+- {{ TF }} {#tf}
 
-    - Вручную {#manual}
+    1. Укажите в файле `data-transfer-ydb-mkf.tf` значение `1` для переменной `transfer_enabled`, чтобы создать эндпоинты и трансфер.
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
-        1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-    - {{ TF }} {#tf}
+        ```bash
+        terraform validate
+        ```
 
-        1. Укажите в файле `data-transfer-ydb-mkf.tf` переменные:
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-            * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
-            * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
-            * `transfer_enabled` – значение `1` для создания трансфера.
+    1. Создайте необходимую инфраструктуру:
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Создайте необходимую инфраструктуру:
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            Трансфер активируется автоматически после создания.
+        Трансфер активируется автоматически после создания.
 
     {% endlist %}
 
@@ -422,32 +424,24 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-{% note info %}
-
-Перед тем как удалить созданные ресурсы, [деактивируйте трансфер](../../data-transfer/operations/transfer.md#deactivate).
-
-{% endnote %}
-
 Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
-1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+{% list tabs group=instructions %}
+
+- Вручную {#manual}
+
+    1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) и [удалите](../../data-transfer/operations/transfer.md#delete) трансфер.
+    1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+
+    
+    1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
 
 
-1. Если при создании эндпоинта для источника вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
+    1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+    1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
 
+- {{ TF }} {#tf}
 
-1. Остальные ресурсы удалите в зависимости от способа их создания:
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-   {% list tabs group=instructions %}
-
-   - Вручную {#manual}
-
-       1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
-       1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
-
-   - {{ TF }} {#tf}
-
-       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
-
-   {% endlist %}
+{% endlist %}

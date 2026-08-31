@@ -33,6 +33,13 @@
 * [Удалить аккаунт пользователя](edit-account.md)
 * [Покинуть организацию](leave-organization.md)
 
+## Управление аккаунтом пользователя {#manage-user-account}
+
+* [Первый вход в консоль](user-account/first-login.md)
+* [Управление аккаунтом на портале «Мой аккаунт»](manage-account.md)
+* [Сбросить пароль для входа в консоль управления Yandex Cloud](user-account/reset-password.md)
+* [Решение проблем](user-account/troubleshooting.md)
+
 ## Управление группами пользователей {#manage-groups}
 
 * [Создать группу](create-group.md)
@@ -106,6 +113,7 @@
 * [Удалить SSH-ключ](delete-ssh.md)
 * [Включить возможность использования refresh-токенов в Yandex Cloud CLI](enable-refresh-tokens.md)
 * [Включить требование двухфакторной аутентификации](enable-2fa-access.md)
+* [Настроить самостоятельный сброс пароля пользователями в Yandex Identity Hub](manage-sspr.md)
 
 ## Управление политиками аутентификации {#manage-authentication-policies}
 
@@ -128,7 +136,7 @@
 * [Отозвать роль у пользователя](revoke-role.md)
 * [Просмотреть список доступов субъекта](view-subject-access-bindings.md)
 
-## Синхронизация пользователей и групп с внешними источниками {#sync-external}
+## Синхронизация пользователей и групп с внешними службами каталогов {#sync-external}
 
 * [Синхронизировать пользователей и группы с Microsoft Active Directory](sync-ad.md)
 

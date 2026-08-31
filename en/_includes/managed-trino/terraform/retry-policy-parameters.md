@@ -10,7 +10,11 @@ resource "yandex_trino_cluster" "<cluster_name>" {
       additional_properties = {
         <list_of_additional_storage_parameters>
       }
+      # Specify either of the two sections: service_s3 or s3.
       service_s3 = {}
+      s3 = {
+        bucket = "<user_bucket_name>"
+      }
     }
   }
   ...
@@ -26,7 +30,14 @@ Where:
 
 * `additional_properties`: Additional query retry parameters in `"<key>" = "<value>"` format. Learn more about parameters in [this {{ TR }} guide]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
 
-* `exchangeManager`: Exchange Manager storage parameters:
+* `exchange_manager`: Exchange Manager storage parameters:
 
-    * `service_s3`: Use an S3 storage to write data when retrying queries.
     * `additional_properties`: Additional Exchange Manager storage parameters in `"<key>" = "<value>"` format. Learn more about parameters in [this {{ TR }} guide]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
+    * Storage type. Specify one of the two sections:
+
+        * `service_s3`: Use a service bucket on the {{ mtr-name }} side. Leave this section empty: `service_s3 = {}`.
+        * `s3`: Use a custom [{{ objstorage-name }} bucket](../../../storage/concepts/bucket.md):
+
+            * `bucket`: Bucket name. Make sure to grant the [storage.editor](../../../storage/security/index.md#storage-editor) role to the cluster's [service account](../../../iam/concepts/users/service-accounts.md).
+
+        For more on storage types, see [{#T}](../../../managed-trino/concepts/retry-policy.md#exchange-manager-storage).

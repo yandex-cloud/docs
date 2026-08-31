@@ -104,7 +104,8 @@ editable: false
         "string"
       ]
     },
-    "labels": "object"
+    "labels": "object",
+    "visibleInMyApps": "boolean"
   },
   "requestParameters": "object",
   "response": "object"
@@ -287,6 +288,7 @@ A list of messages that carry the error details. ||
 || groupClaimsSettings | **[GroupClaimsSettingsDetails](#yandex.cloud.audit.organizationmanager.application.oauth.GroupClaimsSettingsDetails)** ||
 || clientGrant | **[ClientGrantDetails](#yandex.cloud.audit.organizationmanager.application.oauth.ClientGrantDetails)** ||
 || labels | **object** (map<**string**, **string**>) ||
+|| visibleInMyApps | **boolean** ||
 |#
 
 ## GroupClaimsSettingsDetails {#yandex.cloud.audit.organizationmanager.application.oauth.GroupClaimsSettingsDetails}
@@ -317,7 +319,18 @@ The maximum string length in characters is 50. ||
 || authorizedScopes[] | **string**
 
 The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 255. ||
-|#Includes only one of the fields `resourceName`. ||
+|#] | **[Resource](#yandex.cloud.audit.Resource)** ||
+|#
+
+## Resource {#yandex.cloud.audit.Resource}
+
+#|
+||Field | Description ||
+|| resourceType | **string** ||
+|| resourceId | **string** ||
+|| resourceName | **string**
+
+Includes only one of the fields `resourceName`. ||
 |#
 
 ## RequestMetadata {#yandex.cloud.audit.RequestMetadata}
@@ -367,6 +380,7 @@ A list of messages that carry the error details. ||
 || attributeMapping | **[AttributeMappingDetails](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails)** ||
 || description | **string** ||
 || labels | **object** (map<**string**, **string**>) ||
+|| visibleInMyApps | **boolean** ||
 |#
 
 ## ServiceProviderDetails {#yandex.cloud.audit.organizationmanager.application.saml.ServiceProviderDetails}
@@ -467,16 +481,19 @@ Includes only one of the fields `groupAttributeValue`.
 ||Field | Description ||
 || extractBefore | **[ExtractBefore](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.ExtractBefore)**
 
-Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`. ||
 || extractAfter | **[ExtractAfter](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.ExtractAfter)**
 
-Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`. ||
 || ifEmpty | **[IfEmpty](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.IfEmpty)**
 
-Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`. ||
 || constant | **[Constant](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.Constant)**
 
-Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`. ||
+|| replace | **[Replace](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.Replace)**
+
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`. ||
 |#
 
 ## ExtractBefore {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.ExtractBefore}
@@ -510,6 +527,14 @@ Includes only one of the fields `attributeName`, `constant`. ||
 #|
 ||Field | Description ||
 || value | **string** ||
+|#
+
+## Replace {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.Replace}
+
+#|
+||Field | Description ||
+|| pattern | **string** ||
+|| replacement | **string** ||
 |#
 
 ## Attribute {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Attribute}

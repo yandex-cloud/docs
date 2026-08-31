@@ -13,7 +13,7 @@
 По запросу клиента партнер может предоставить услуги по организации прямого транкового подключения между оборудованием клиента и оборудованием {{ yandex-cloud }}.
 
 
-Для организации партнерского транкового подключения необходимо [следовать инструкции](../tutorials/partner-trunk-priv-add.md).
+Вы можете самостоятельно [создать партнерское транковое подключение](../operations/trunk-create.md#partner).
 
 
 {% note warning %}
@@ -32,10 +32,12 @@
 [ЭрТелеком](https://ertelecom.ru/) | M9, NORD | 1 000 | - |
 [Билайн](https://beeline.ru) | M9 | 1 000 | - |
 [Obit](https://www.obit.ru/company/channels/) | M9 | 1 000 | - |
-[Selectel](https://selectel.ru) | M9 | 1 000 | - |
+[Selectel](https://selectel.ru) | M9, OST | 1 000 | - |
 [Юл-ком](https://ul-com.ru) | TEHNO | 10 000 | - |
 [NEXTREMUM](https://nextremum.net/ru) | TEHNO, M9 | 10 000 | - |
 [Телеком биржа](https://cirex.ru) | NORD | 1 000 | - |
+[ТаймВеб](https://timeweb.com) | M9 | 10 000 | - |
+[China Mobile](https://www.cmi.chinamobile.com) | M9 | 1 000 | - |
 
 где:
 

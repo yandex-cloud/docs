@@ -30,14 +30,12 @@ L7-балансировщик автоматически проверяет ра
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за DNS-зону и DNS-запросы ([тарифы {{ dns-name }}](../../dns/pricing.md)).
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
-* Плата за публичные IP-адреса для узлов кластера и L7-балансировщика ([тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Плата за [использование хранилища](../../container-registry/pricing) {{ container-registry-name }}.
+* Публичные DNS-запросы и зона DNS ([тарифы {{ dns-full-name }}](../../dns/pricing.md)).
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Каждый активный L7-балансировщик: использование вычислительных ресурсов ([тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
+* Публичные IP-адреса ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Сервис {{ container-registry-full-name }}: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
 
 
 ## Подготовьте облако к работе {#before-begin}
@@ -58,7 +56,7 @@ L7-балансировщик автоматически проверяет ра
 
    1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
    1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
-   1. [Создайте реестр](../../container-registry/operations/registry/registry-create.md) {{ container-registry-full-name }}.
+   1. [Создайте реестр](../../container-registry/operations/registry/registry-create.md) {{ container-registry-name }}.
 
 - {{ TF }} {#tf}
 
@@ -76,7 +74,7 @@ L7-балансировщик автоматически проверяет ра
       * сервисный аккаунт, необходимый для работы кластера {{ k8s }};
       * кластер {{ k8s }};
       * группа узлов {{ k8s }};
-      * реестр {{ container-registry-full-name }}.
+      * реестр {{ container-registry-name }}.
 
    1. Укажите в файле `k8s-custom-health-checks.tf`:
 
@@ -116,7 +114,7 @@ L7-балансировщик автоматически проверяет ра
    {% include [Run kubectl cluster-info](../../_includes/managed-kubernetes/kubectl-info.md) %}
 
 1. [Установите Docker](https://docs.docker.com/get-docker/).
-1. [Аутентифицируйтесь в {{ container-registry-full-name }}](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker credential helper.
+1. [Аутентифицируйтесь в {{ container-registry-name }}](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker credential helper.
 
 ## Создайте Docker-образ {#docker-image}
 
@@ -337,11 +335,11 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
    Чтобы отслеживать создание балансировщика и убедиться в отсутствии ошибок, откройте логи пода, в котором запущен процесс создания:
 
-   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-   1. Нажмите на имя нужного кластера и на панели слева выберите **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Выберите кластер {{ managed-k8s-name }} и перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
    1. Выберите под `yc-alb-ingress-controller-*` (не `yc-alb-ingress-controller-hc-*`), в котором запущен процесс создания ресурсов.
-   1. На странице пода перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}**.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}**.
 
       В режиме реального времени записываются и отображаются логи о создании балансировщика. Если возникла ошибка во время создания, она появится в логах.
 
@@ -388,9 +386,9 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
    - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-      1. Нажмите на имя нужного балансировщика и на панели слева выберите **{{ ui-key.yacloud.alb.label_healthchecks }}**.
+      1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+      1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. Выберите нужный L7-балансировщик и перейдите на вкладку **{{ ui-key.yacloud.alb.label_healthchecks }}**.
       1. Проверьте состояние целевых ресурсов. Если они в статусе `HEALTHY`, значит, приложение доступно и работает.
 
    {% endlist %}

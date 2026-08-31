@@ -274,6 +274,16 @@
 
  - [UpdateAccessBindings](api-ref/grpc/Cluster/updateAccessBindings.md)
 
+##### Maintenance
+
+ - [Overview](api-ref/grpc/Maintenance/index.md)
+
+ - [List](api-ref/grpc/Maintenance/list.md)
+
+ - [Get](api-ref/grpc/Maintenance/get.md)
+
+ - [Reschedule](api-ref/grpc/Maintenance/reschedule.md)
+
 ##### Operation
 
  - [Overview](api-ref/grpc/Operation/index.md)
@@ -315,6 +325,16 @@
  - [SetAccessBindings](api-ref/Cluster/setAccessBindings.md)
 
  - [UpdateAccessBindings](api-ref/Cluster/updateAccessBindings.md)
+
+##### Maintenance
+
+ - [Overview](api-ref/Maintenance/index.md)
+
+ - [List](api-ref/Maintenance/list.md)
+
+ - [Get](api-ref/Maintenance/get.md)
+
+ - [Reschedule](api-ref/Maintenance/reschedule.md)
 
 ##### Operation
 
@@ -420,6 +440,8 @@
 
  - [Удаление источника](operations/data-catalog/delete-source.md)
 
+ - [Настройка бэкенда для источника](operations/data-catalog/settings-backend-source.md)
+
 #### Загрузки
 
  - [Получение списка загрузок](operations/data-catalog/list-ingestions.md)
@@ -521,6 +543,64 @@
  - [Источники данных](concepts/data-catalog-sources.md)
 
  - [Сервисные роли для управления доступом](security/data-catalog-roles.md)
+
+ - [Справочник Terraform](datacatalog-tf-ref.md)
+
+### Справочник API
+
+ - [Аутентификация в API](api-ref/authentication-datacatalog.md)
+
+#### gRPC (англ.)
+
+ - [Overview](datacatalog/api-ref/grpc/index.md)
+
+##### Catalog
+
+ - [Overview](datacatalog/api-ref/grpc/Catalog/index.md)
+
+ - [GetCatalog](datacatalog/api-ref/grpc/Catalog/getCatalog.md)
+
+ - [ListCatalogs](datacatalog/api-ref/grpc/Catalog/listCatalogs.md)
+
+ - [CreateCatalog](datacatalog/api-ref/grpc/Catalog/createCatalog.md)
+
+ - [DeleteCatalog](datacatalog/api-ref/grpc/Catalog/deleteCatalog.md)
+
+ - [UpdateCatalog](datacatalog/api-ref/grpc/Catalog/updateCatalog.md)
+
+##### Operation
+
+ - [Overview](datacatalog/api-ref/grpc/Operation/index.md)
+
+ - [Get](datacatalog/api-ref/grpc/Operation/get.md)
+
+ - [Cancel](datacatalog/api-ref/grpc/Operation/cancel.md)
+
+#### REST (англ.)
+
+ - [Overview](datacatalog/api-ref/index.md)
+
+##### Catalog
+
+ - [Overview](datacatalog/api-ref/Catalog/index.md)
+
+ - [GetCatalog](datacatalog/api-ref/Catalog/getCatalog.md)
+
+ - [ListCatalogs](datacatalog/api-ref/Catalog/listCatalogs.md)
+
+ - [CreateCatalog](datacatalog/api-ref/Catalog/createCatalog.md)
+
+ - [DeleteCatalog](datacatalog/api-ref/Catalog/deleteCatalog.md)
+
+ - [UpdateCatalog](datacatalog/api-ref/Catalog/updateCatalog.md)
+
+##### Operation
+
+ - [Overview](datacatalog/api-ref/Operation/index.md)
+
+ - [Get](datacatalog/api-ref/Operation/get.md)
+
+ - [Cancel](datacatalog/api-ref/Operation/cancel.md)
 
  - [Управление доступом](security/index.md)
 

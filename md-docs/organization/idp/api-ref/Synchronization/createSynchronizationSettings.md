@@ -43,7 +43,19 @@ POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/i
       "type": "string"
     }
   ],
-  "enablePasswordWriteback": "boolean"
+  "enablePasswordWriteback": "boolean",
+  "ldapSettings": {
+    "externalIdAttribute": "string",
+    "dnAttribute": "string",
+    "userObjectClass": "string",
+    "groupObjectClass": "string",
+    "accountDisabledAttribute": "string",
+    "accountDisabledValue": "string",
+    "accountEnabledValue": "string",
+    "passwordAttribute": "string",
+    "deltaSyncMode": "string",
+    "useRecursiveMembershipFilter": "boolean"
+  }
 }
 ```
 
@@ -92,6 +104,9 @@ The maximum number of elements is 50. ||
 || enablePasswordWriteback | **boolean**
 
 Enables password writeback feature. ||
+|| ldapSettings | **[CreateLdapSettingsRequest](#yandex.cloud.organizationmanager.v1.idp.CreateLdapSettingsRequest)**
+
+Settings for generic LDAP source. Empty for Active Directory source. ||
 |#
 
 ## SynchronizationFilter {#yandex.cloud.organizationmanager.v1.idp.SynchronizationFilter}
@@ -147,7 +162,8 @@ Required field. Target attribute to map to.
 Required field. Type of mapping.
 
 - `DIRECT`: Direct mapping from source to target.
-- `EMPTY`: Empty mapping (no source attribute). ||
+- `EMPTY`: Empty mapping (no source attribute).
+- `DIRECT_ARBITRARY_ATTRIBUTE`: Direct mapping from an arbitrary `source` attribute ||
 |#
 
 ## GroupAttributeMapping {#yandex.cloud.organizationmanager.v1.idp.GroupAttributeMapping}
@@ -172,7 +188,66 @@ Required field. Target attribute to map to.
 Required field. Type of mapping.
 
 - `DIRECT`: Direct mapping from source to target.
-- `EMPTY`: Empty mapping (no source attribute). ||
+- `EMPTY`: Empty mapping (no source attribute).
+- `DIRECT_ARBITRARY_ATTRIBUTE`: Direct mapping from an arbitrary `source` attribute ||
+|#
+
+## CreateLdapSettingsRequest {#yandex.cloud.organizationmanager.v1.idp.CreateLdapSettingsRequest}
+
+All fields must be provided to set up generic LDAP source.
+
+#|
+||Field | Description ||
+|| externalIdAttribute | **string**
+
+Required field. Name of the LDAP attribute that holds the unique entry identifier.
+
+The string length in characters must be 1-256. ||
+|| dnAttribute | **string**
+
+Required field. Name of the LDAP attribute that holds the DN of the entry.
+
+The string length in characters must be 1-256. ||
+|| userObjectClass | **string**
+
+Required field. ObjectClass of users.
+
+The string length in characters must be 1-256. ||
+|| groupObjectClass | **string**
+
+Required field. ObjectClass of groups.
+
+The string length in characters must be 1-256. ||
+|| accountDisabledAttribute | **string**
+
+Required field. Name of the LDAP attribute that stores the account status.
+
+The string length in characters must be 1-256. ||
+|| accountDisabledValue | **string**
+
+Required field. Value of `account_disabled_attribute` meaning the account is disabled.
+
+The string length in characters must be 1-256. ||
+|| accountEnabledValue | **string**
+
+Required field. Value of `account_disabled_attribute` meaning the account is enabled.
+
+The string length in characters must be 1-256. ||
+|| passwordAttribute | **string**
+
+Required field. Name of the LDAP attribute the agent writes the new password to during
+password writeback.
+
+The string length in characters must be 1-256. ||
+|| deltaSyncMode | **enum** (LdapDeltaSyncMode)
+
+Required field. Delta synchronization mode.
+
+- `LDAP_DELTA_SYNC_MODE_FULL_SYNC`: Every run is a full sync; no replication token is used. ||
+|| useRecursiveMembershipFilter | **boolean**
+
+Enables the AD-extension matching rule
+1.2.840.113556.1.4.1941 for the group-DN membership filter. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

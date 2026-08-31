@@ -16,8 +16,17 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **Рабочая нагрузка**.
-  1. В правом верхнем углу нажмите кнопку **Создать** и выберите тип рабочей нагрузки.
+  1. Выберите кластер Managed Service for Kubernetes и перейдите на вкладку **Рабочая нагрузка**.
+  1. Перейдите на вкладку с типом рабочей нагрузки, которую нужно создать:
+
+      * **Pods**;
+      * **Deployments**;
+      * **DaemonSets**;
+      * **StatefulSets**;
+      * **HPA**;
+      * **Jobs**;
+      * **CronJobs**.
+  1. Нажмите кнопку создания выбранной рабочей нагрузки.
   1. В выпадающем списке выберите **Пространство имён**, в котором будет создана рабочая нагрузка.
   1. Заполните файл манифеста в соответствии с документацией Kubernetes: [под](https://kubernetes.io/docs/concepts/workloads/pods/), [контроллер Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [контроллер DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), [контроллер StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/), [HPA](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/), [задача](https://kubernetes.io/docs/concepts/workloads/controllers/job/), [cron-задача](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/).
   1. Нажмите кнопку **Создать**.
@@ -38,9 +47,17 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **Рабочая нагрузка**.
-  1. Выберите вкладку с типом рабочей нагрузки, которую нужно отредактировать.
-  1. В строке рабочей нагрузки нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+  1. Выберите кластер Managed Service for Kubernetes и перейдите на вкладку **Рабочая нагрузка**.
+  1. Перейдите на вкладку с типом рабочей нагрузки, которую нужно отредактировать:
+
+      * **Pods**;
+      * **Deployments**;
+      * **DaemonSets**;
+      * **StatefulSets**;
+      * **HPA**;
+      * **Jobs**;
+      * **CronJobs**.
+  1. В строке рабочей нагрузки нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Внесите изменения в файл манифеста в правой части экрана. Изменения будут выделены цветом.
   1. В правом верхнем углу нажмите кнопку **Сохранить**.
 
@@ -58,9 +75,9 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **Рабочая нагрузка**.
-  1. Выберите вкладку **CronJobs**.
-  1. В строке cron-задачи нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Запустить** или **Остановить**.
+  1. Выберите кластер Managed Service for Kubernetes и перейдите на вкладку **Рабочая нагрузка**.
+  1. Перейдите на вкладку **CronJobs**.
+  1. В строке cron-задачи нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **Запустить** или **Остановить**.
   1. Подтвердите действие.
 
 {% endlist %}
@@ -77,9 +94,17 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **Рабочая нагрузка**.
-  1. Выберите вкладку с типом рабочей нагрузки, которую нужно удалить.
-  1. В строке рабочей нагрузки нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. Выберите кластер Managed Service for Kubernetes и перейдите на вкладку **Рабочая нагрузка**.
+  1. Перейдите на вкладку с типом рабочей нагрузки, которую нужно удалить:
+
+      * **Pods**;
+      * **Deployments**;
+      * **DaemonSets**;
+      * **StatefulSets**;
+      * **HPA**;
+      * **Jobs**;
+      * **CronJobs**.
+  1. В строке рабочей нагрузки нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. Подтвердите действие.
 
 {% endlist %}

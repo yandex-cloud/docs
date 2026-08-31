@@ -5,6 +5,10 @@ description: Follow this guide to add accessing the {{ tracker-full-name }} API 
 
 # Accessing the {{ tracker-full-name }} API
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

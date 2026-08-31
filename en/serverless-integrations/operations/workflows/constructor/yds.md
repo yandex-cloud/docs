@@ -5,6 +5,10 @@ description: Follow this guide to add sending messages to a {{ yds-full-name }} 
 
 # Sending messages to a {{ yds-full-name }} topic
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

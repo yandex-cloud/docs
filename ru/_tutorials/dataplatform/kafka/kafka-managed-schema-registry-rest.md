@@ -4,23 +4,25 @@
 
 Чтобы познакомиться с возможностями REST API для {{ mkf-msr }} и {{ KF }}:
 
+1. [Подготовьте инфраструктуру](#deploy-infrastructure).
+1. [Установите утилиты](#install-utilities).
 1. [Создайте схемы формата данных](#create-schemas).
 1. [Отправьте сообщения в топик](#send-messages).
 1. [Получите сообщения из топика](#receive-messages).
 1. [Удалите созданные ресурсы](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
-
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ mkf-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства ([тарифы {{ KF }}](../../../managed-kafka/pricing.md)).
-* Плата за использование публичных IP-адресов ([тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
-
-
 ## Перед началом работы {#before-you-begin}
 
-### Подготовьте инфраструктуру {#deploy-infrastructure}
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы {{ mkf-name }}](../../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
+
+
+## Подготовьте инфраструктуру {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -38,9 +40,11 @@
 
             В кластере станет доступен REST API для {{ KF }}.
 
+        
         * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
             {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
 
     1. [Создайте топик](../../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `messages` для обмена сообщениями между производителем и потребителем.
 
@@ -55,7 +59,7 @@
 
 {% endlist %}
 
-### Установите утилиты {#install-utilities}
+## Установите утилиты {#install-utilities}
 
 1. Установите утилиту [cURL](https://curl.se/):
 

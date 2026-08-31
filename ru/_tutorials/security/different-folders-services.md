@@ -105,19 +105,19 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог СИБ](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
-  1. Выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
+  1. Выберите `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
   1. Введите имя профиля — `sws-ddos`.
   1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
-  1. В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** напротив правила `sp-rule-1` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** напротив правила `sp-rule-1` нажмите ![image](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)**.
 
      Эта опция используется для тестирования работы профиля. В режиме логирования трафик не блокируется и пользователи не будут отключены от вашего сервиса из-за неправильно настроенного профиля. Проанализируйте работу профиля и настройте [правила](../../smartwebsecurity/concepts/rules.md) в соответствии с потребностями вашего сервиса.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save-changes }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save-changes }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -130,7 +130,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог СИБ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}** и выберите **{{ ui-key.yacloud.alb.label_alb-create-wizard }}**.
 
 {% endlist %}
@@ -235,7 +235,7 @@
   Если в вашей инфраструктуре уже используется L7-балансировщик и настроен обработчик с публичным IP-адресом:
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Выберите L7-балансировщик.
   1. В блоке **Обработчики** напротив обработчика с публичным IP-адресом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **Приём и обработка трафика** нажмите **Добавить обработчик SNI** и укажите:
@@ -261,13 +261,13 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог СИБ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Выберите созданный L7-балансировщик.
-  1. Слева выберите **{{ ui-key.yacloud.alb.label_healthchecks }}**. 
-   
+  1. Перейдите на вкладку **{{ ui-key.yacloud.alb.label_healthchecks }}**.
+
      Убедитесь, что все проверки состояния L7-балансировщика для вашей группы бэкендов находятся в состоянии `HEALTHY`.
 
-  1. Слева выберите **{{ ui-key.yacloud.alb.label_map }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.alb.label_map }}**.
    
      Проверьте корректность настройки по схеме: **Обработчик** > **HTTP-роутер** > **Группа бэкендов** > **Целевая группа**.
 

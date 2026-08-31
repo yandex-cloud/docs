@@ -25,7 +25,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the {{ managed-k8s-name }} cluster.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Select the {{ managed-k8s-name }} cluster to create a node group for.
      1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
      1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
@@ -51,14 +51,14 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
           * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign public IP addresses.
         * Specify how {{ managed-k8s-name }} nodes should be placed across the [availability zones](../../../overview/concepts/geo-scope.md) and [networks](../../../vpc/concepts/network.md#network).
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the credentials to access the {{ managed-k8s-name }} node:
-        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
+        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username.
         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/node-connect-ssh.md#creating-ssh-keys) file.
      1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
         * In the **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** field, select your preferred [maintenance](../../concepts/release-channels-and-updates.md#updates) window:
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}`: Automatic updates disabled.
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}`: Updates allowed at any time.
-          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}** field.
-          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.label_maintenance-weekly }}** field.
+          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Specify the start point and duration of the UTC time interval during which the update will start. This setting is not related to the update duration or its completion time.
+          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Specify the day, start point, and duration of the UTC time interval during which the update will start. This setting is not related to the update duration or its completion time.
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_additional }}**:
         * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-labels }}** field, click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}** and specify its key and value. Add multiple labels if needed.
      1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -177,7 +177,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the {{ managed-k8s-name }} cluster.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Select the {{ managed-k8s-name }} cluster where you created the node group.
      1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
      1. Open the page of one of the {{ managed-k8s-name }} nodes and navigate to the **{{ ui-key.yacloud.k8s.node.overview.label_labels }}** tab. The tab lists the system and user {{ k8s }} node labels.

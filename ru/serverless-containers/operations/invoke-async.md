@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Выберите контейнер, [ревизию](../concepts/container.md#revision) которого хотите создать.
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
-  1. В блоке **Асинхронный вызов**:
+  1. В блоке **{{ ui-key.yacloud.serverless-containers.section_async }}**:
 
       1. Включите асинхронный вызов.
       1. Укажите сервисный аккаунт для асинхронного вызова, у которого есть [роль](../security/index.md#serverless-containers-containerinvoker) `serverless-containers.containerInvoker`.

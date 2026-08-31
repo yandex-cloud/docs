@@ -15,10 +15,14 @@ items:
             href: operations/cluster-create.md
           - name: Изменение настроек кластера
             href: operations/update.md
+          - name: Управление алиасами кластера
+            href: operations/cluster-aliases.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
           - name: Управление хостами PostgreSQL
             href: operations/hosts.md
+          - name: Управление алиасами хостов
+            href: operations/hosts-aliases.md
           - name: Миграция хостов в другую зону доступности
             href: operations/host-migration.md
           - name: Управление слотами репликации
@@ -161,6 +165,10 @@ items:
           Настройка прав доступа к секрету, созданному {{
           connection-manager-name }}, для пользователя {{ mpg-name }}
         href: tutorials/conn-man-secret-access.md
+      - name: >-
+          Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
+          mch-name }}
+        href: tutorials/mpg-pg-clickhouse-extension.md
       - name: Репликация и миграция
         items:
           - name: Логическая репликация {{ PG }}
@@ -251,6 +259,8 @@ items:
         href: concepts/update-policy.md
   - name: Управление доступом
     href: security/index.md
+  - name: Инспекции и рекомендации
+    href: advisor.md
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник CLI (англ.)
@@ -357,6 +367,14 @@ items:
             href: cli-ref/hosts/update.md
           - name: update-config
             href: cli-ref/hosts/update-config.md
+      - name: performance-diagnostics
+        items:
+          - name: Overview
+            href: cli-ref/performance-diagnostics/index.md
+          - name: list-raw-sessions
+            href: cli-ref/performance-diagnostics/list-raw-sessions.md
+          - name: list-raw-statements
+            href: cli-ref/performance-diagnostics/list-raw-statements.md
       - name: repack
         items:
           - name: Overview
@@ -497,6 +515,14 @@ items:
                 href: cli-ref/v0/hosts/update.md
               - name: update-config
                 href: cli-ref/v0/hosts/update-config.md
+          - name: performance-diagnostics
+            items:
+              - name: Overview
+                href: cli-ref/v0/performance-diagnostics/index.md
+              - name: list-raw-sessions
+                href: cli-ref/v0/performance-diagnostics/list-raw-sessions.md
+              - name: list-raw-statements
+                href: cli-ref/v0/performance-diagnostics/list-raw-statements.md
           - name: repack
             items:
               - name: Overview

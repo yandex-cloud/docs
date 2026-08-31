@@ -16,9 +16,9 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder to delete the broker from.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
-    1. To the right of the name of the broker you want to delete, click the ![image](../../../_assets/console-icons/ellipsis.svg) icon and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+    1. To the right of the name of the broker to delete, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -57,7 +57,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
     1. Open the {{ TF }} configuration file and delete the fragment with the broker description.
 
-        Example broker description in the {{ TF }} configuration:
+        Here is an example of a broker description in the {{ TF }} configuration:
 
         ```hcl
         resource "yandex_iot_core_broker" "my_broker" {
@@ -69,7 +69,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
         ```
 
         For more on the properties of the `yandex_iot_core_broker` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
-    1. In the command line, change to the folder where you edited the configuration file.
+    1. In the terminal, navigate to the directory where you edited the configuration file.
     1. Make sure the configuration file is correct using this command:
 
         ```bash

@@ -11,8 +11,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором находится нужное входящее DNS-подключение.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужное входящее DNS-подключение.
+  1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. На панели слева выберите ![nodes-down](../../_assets/console-icons/nodes-down.svg) **{{ ui-key.yacloud.dns.label_inbound-endpoints }}**.
   1. В строке с нужным DNS-подключением нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне подтвердите удаление.
@@ -27,7 +27,7 @@ description: Следуя данной инструкции, вы сможете
 
       ```bash
       yc dns inbound-endpoint delete --help
-      ```   
+      ```
   1. {% include [list-inbound-endpoints-cli](../../_includes/dns/list-inbound-endpoints-cli.md) %}
   1. Удалите входящее DNS-подключение, указав его имя или идентификатор:
 
@@ -39,7 +39,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% note info %}
 
-      Если для удаляемого входящего DNS-подключения активирована опция защиты от удаления, перед удалением отключите эту опцию. Подробнее читайте в инструкции [{#T}](./connection-inbound-update.md).
+      Если для удаляемого входящего DNS-подключения активирована опция защиты от удаления, перед удалением отключите эту опцию. Подробнее об изменении DNS-подключения в разделе [{#T}](./connection-inbound-update.md).
 
       {% endnote %}
 

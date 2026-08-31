@@ -12,7 +12,7 @@ To create a [resource](../../concepts/resource.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a resource.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Configure the basic CDN resource settings:
 
@@ -100,7 +100,13 @@ To create a [resource](../../concepts/resource.md):
         * Select the cache lifetime from the list.
       * Under **{{ ui-key.yacloud.cdn.label_additional }}**:
         * Select the option to ignore Cookies.
-        * Select the option to ignore the Query parameters.
+        * In the **{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.label_query-params-caching_4zewB }}** field, select a mode:
+          * `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_do-not-cache_4J3Bg }}`: Ignore query parameters in the cache key.
+          * `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-all_4pexC }}`: Consider all query parameters.
+          * `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-all-except_vEGRW }}`: Consider all query parameters except those specified.
+          * `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-only_uJKZC }}`: Consider only specified query parameters.
+
+          Specify query parameters for the `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-all-except_vEGRW }}` and `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-only_uJKZC }}` modes. To add a field, click **{{ ui-key.yacloud.cdn.resources.QueriesField.button_add-query-param_x8JXA }}**. You can specify a maximum of ten parameters. The name may be up to 30 characters long. Use Latin letters, digits, and the `_` character.
       * For CDN servers to compress content before sending it to clients, select **{{ ui-key.yacloud.cdn.label_resource-content-gzip-on }}**.
 
         The content will be sent in `gzip` format with the `Content-Encoding` HTTP header. From origins, only uncompressed content will be requested.
@@ -144,7 +150,7 @@ To create a [resource](../../concepts/resource.md):
 
         [Learn more about configuring HTTP methods](configure-http.md).
 
-      * Optionally, under **{{ ui-key.yacloud.cdn.CdnResourceFormWizard.section_wizard-static-response_6DKzY }}**, set up the HTTP response.
+      * Optionally, under **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.section_static-response_v3GRn }}**, set up the HTTP response.
 
           [Learn more about setting up an HTTP response](configure-response.md).
 
@@ -263,9 +269,17 @@ To create a [resource](../../concepts/resource.md):
 
 - API {#api}
 
-  Use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/Resource/create.md) gRPC API call.
+    Use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/Resource/create.md) gRPC API call.
 
-  You can restrict access to the resource with [secure tokens](../../concepts/secure-tokens.md) and an [IP-based access policy](../../concepts/ip-address-acl.md).
+    To configure caching of query parameters, provide only one of the fields in the `options.queryParamsOptions` object and set `enabled: true` for it:
+
+    * `ignoreQueryString`: If `value: true`, ignore query parameters in the cache key; if `value: false`, consider all query parameters.
+    * `queryParamsWhitelist`: Consider only query parameters listed in `value`.
+    * `queryParamsBlacklist`: Consider all query parameters except those listed in `value`.
+
+    In the gRPC API, these fields correspond to `ignore_query_string`, `query_params_whitelist`, and `query_params_blacklist` in the `options.query_params_options` object.
+
+    You can restrict access to the resource with [secure tokens](../../concepts/secure-tokens.md) and an [IP-based access policy](../../concepts/ip-address-acl.md).
 
 {% endlist %}
 

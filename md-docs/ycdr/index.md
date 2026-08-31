@@ -43,3 +43,5 @@
  - [Справочник KQL](kql-reference.md)
 
  - [Управление доступом](security/index.md)
+
+ - [Правила тарификации](pricing.md)

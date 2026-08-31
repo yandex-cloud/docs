@@ -5,6 +5,16 @@
 ## Конференции и вебинары {#conf-and-webinars}
 
 
+### 2026: Статьи {#article-2026}
+
+* Как использовать Valkey™: три практических сценария для приложений и ИИ. 
+
+  * [Текст статьи](https://yandex.cloud/ru/blog/valkey-cache-locks-rag).
+
+* Valkey™ и Redis® два года спустя — за кем будущее. 
+
+  * [Текст статьи](https://yandex.cloud/ru/blog/valkey-vs-redis).
+
 ### 2025: Статьи {#article-2025}
 
 * Прирост производительности управляемых сервисов по работе с данными Yandex Cloud. 
@@ -52,7 +62,7 @@
 
   * [Запись трансляции](https://www.youtube.com/watch?v=5OcUo3J4Wdc).
 
-* Внутреннее устройство платформы баз данных в Yandex Cloud.
+* Внутреннее устройство платформы баз данных в Yandex Cloud.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=Cwdg425a_cw).
 

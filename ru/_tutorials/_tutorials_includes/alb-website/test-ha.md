@@ -1,6 +1,6 @@
 1. Откройте [консоль управления]({{ link-console-main }}).
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. Перейдите на страницу ВМ из созданной ранее группы.
+1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. Откройте страницу ВМ из созданной ранее группы.
 1. Скопируйте **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** из блока **{{ ui-key.yacloud.compute.instance.overview.section_network }}**.
 1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу SSH.
 1. Остановите веб-сервис, чтобы сымитировать сбой в работе веб-сервера:

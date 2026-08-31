@@ -47,7 +47,7 @@ description: Следуя данной инструкции, вы научите
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится виртуальная машина.
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и в открывшемся списке выберите нужную виртуальную машину.
-  1. В меню слева выберите **{{ ui-key.yacloud.compute.instance.switch_console }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instance.switch_console }}**.
   1. В верхней части экрана в раскрывающемся списке выберите [последовательный порт](../../concepts/serial-console.md#serial-ports), используемый серийной консолью для подключения к ВМ.
 
       {% include [serial-console-default-port-linux](../../../_includes/compute/serial-console-default-port-linux.md) %}

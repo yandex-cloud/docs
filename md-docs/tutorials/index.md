@@ -238,6 +238,12 @@
 
  - [OpenID Connect](security/single-sign-on/jenkins/oidc-jenkins.md)
 
+#### Loop
+
+ - [SAML](security/single-sign-on/loop/saml-loop.md)
+
+ - [OpenID Connect](security/single-sign-on/loop/oidc-loop.md)
+
  - [Managed Service for GitLab](security/single-sign-on/saml-managed-gitlab.md)
 
  - [Managed Service for OpenSearch](security/single-sign-on/saml-opensearch.md)
@@ -260,9 +266,13 @@
 
  - [SonarQube](security/single-sign-on/saml-sonarqube.md)
 
-#### VK Cloud
+#### Time
 
- - [SAML](security/single-sign-on/vk-cloud/saml-vk-cloud.md)
+ - [SAML](security/single-sign-on/time/saml-time.md)
+
+ - [OpenID Connect](security/single-sign-on/time/oidc-time.md)
+
+ - [VK Cloud](security/single-sign-on/saml-vk-cloud.md)
 
  - [Zabbix](security/single-sign-on/saml-zabbix.md)
 
@@ -479,6 +489,8 @@
  - [Передача логов через HTTP-вход Unified Agent в Cloud Logging](infrastructure-management/ua-http-logging.md)
 
  - [Запуск языковой модели DeepSeek-R1 в кластере GPU Compute Cloud](infrastructure/gpu-cluster-deepseek.md)
+
+ - [SLO-мониторинг веб-сервиса](infrastructure-management/slo-blackbox-exporter.md)
 
 ### Сеть
 
@@ -746,6 +758,8 @@
 
  - [Оформление контента из Cloud Video в IFrame](web/video-iframe.md)
 
+ - [Управление видеоконтентом для курсов Moodle](web/video-moodle-plugin.md)
+
 ### 1С
 
 #### Интернет-магазин на «1С-Битрикс»
@@ -926,6 +940,8 @@
 
  - [Интеграция Yandex Managed Service for ClickHouse® с Oracle через ClickHouse® JDBC Bridge](dataplatform/jdbc-ch-to-oracle-integration.md)
 
+ - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](dataplatform/mpg-pg-clickhouse-extension.md)
+
  - [Настройка Cloud DNS для доступа к кластеру Managed Service for ClickHouse® из других облачных сетей](dataplatform/clickhouse-dns-peering.md)
 
  - [Миграция кластера Yandex Data Processing с HDFS в другую зону доступности](dataplatform/hdfs-cluster-migration.md)
@@ -1070,6 +1086,8 @@
 
  - [Настройка прав доступа к секрету, созданному Connection Manager, для пользователя Managed Service for PostgreSQL](dataplatform/conn-man-secret-access.md)
 
+ - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](dataplatform/mpg-pg-clickhouse-extension.md)
+
  - [Миграция БД из Greenplum® в ClickHouse®](dataplatform/greenplum-to-clickhouse.md)
 
  - [Миграция БД из Greenplum® в PostgreSQL](dataplatform/greenplum-to-postgresql.md)
@@ -1129,6 +1147,8 @@
  - [Миграция кластера PostgreSQL](dataplatform/managed-postgresql.md)
 
  - [Создание реестра схем для поставки данных в формате Debezium CDC из Apache Kafka®](dataplatform/schema-registry-cdc-debezium-kafka.md)
+
+ - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](dataplatform/mpg-pg-clickhouse-extension.md)
 
  - [Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™](dataplatform/airflow-and-spark.md)
 
@@ -1215,26 +1235,6 @@
 ### Cloud Interconnect
 
  - [Организация доступа через Cloud Interconnect к облачным сетям, размещенным за NGFW](routing/cic-with-ngfw.md)
-
- - [Создание прямого транкового подключения и приватного соединения в нем](routing/trunk-priv-add.md)
-
- - [Создание прямого транкового подключения и публичного соединения в нем](routing/trunk-pub-add.md)
-
- - [Создание нового партнерского транкового подключения и приватного соединения в нем](routing/partner-trunk-priv-add.md)
-
- - [Создание нового партнерского транкового подключения и публичного соединения в нем](routing/partner-trunk-pub-add.md)
-
- - [Добавление приватного соединения в прямое или партнерское транковое подключение](routing/priv-add.md)
-
- - [Добавление публичного соединения в прямое или партнерское транковое подключение](routing/pub-add.md)
-
- - [Изменить емкость транкового подключения](routing/trunk-capacity-change.md)
-
- - [Удалить приватное соединение](routing/priv-del.md)
-
- - [Удалить публичное соединение](routing/pub-del.md)
-
- - [Удалить транковое подключение](routing/trunk-del.md)
 
 ### Настройка сетевых ресурсов и взаимодействие между ними
 

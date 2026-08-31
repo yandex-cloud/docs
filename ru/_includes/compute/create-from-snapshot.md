@@ -19,7 +19,7 @@
       * Нажмите значок ![image](../../_assets/console-icons/pencil.svg) и в открывшемся окне выберите **{{ ui-key.yacloud.common.create }}**.
       * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` и в списке ниже выберите нужный снимок диска. При необходимости воспользуйтесь фильтром.
       * Задайте имя создаваемого загрузочного диска.
-      * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
+      * Выберите [тип диска](../../compute/concepts/disk.md#disks-types).
       * Задайте нужные размер диска и размер блока.
       * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional_vt356 }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
       * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
@@ -31,7 +31,7 @@
       * В открывшемся окне выберите **{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}** → `Создать новый`.
       * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}`.
       * Задайте имя создаваемого диска.
-      * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
+      * Выберите [тип диска](../../compute/concepts/disk.md#disks-types).
       * Задайте нужные размер диска и размер блока.
       * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional_vt356 }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
       * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.

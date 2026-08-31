@@ -52,7 +52,7 @@
 ## Создайте кластер ClickHouse® {#create-cluster}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер БД.
-1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
 1. Нажмите кнопку **Создать кластер**.
 1. Укажите настройки кластера ClickHouse®:
     1. В блоке **Настройки СУБД** укажите имя БД, имя пользователя и пароль.
@@ -74,7 +74,7 @@
 ## Создайте поток данных {#create-stream}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать поток данных.
-1. Перейдите в сервис **Data Streams**.
+1. [Перейдите](https://console.yandex.cloud/link/data-streams) в сервис **Data Streams**.
 1. Нажмите кнопку **Создать поток**.
 1. Укажите существующую [бессерверную](../../ydb/concepts/serverless-and-dedicated.md#serverless) базу данных YDB или [создайте](../../ydb/quickstart.md#serverless) новую. Если вы создали новую базу данных, после ее создания нажмите кнопку ![refresh-button](../../_assets/data-streams/refresh-button.svg) для обновления списка баз.
 1. Введите имя потока данных.
@@ -96,17 +96,17 @@
 ## Создайте трансфер {#create-transfer}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать трансфер.
-1. Перейдите в сервис **Data Transfer**.
+1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
 1. Нажмите кнопку **Создать трансфер**.
 1. Введите имя трансфера.
-1. [Cоздайте](../../data-transfer/operations/endpoint/index.md#create) эндпоинт-источник:
+1. [Создайте](../../data-transfer/operations/endpoint/index.md#create) эндпоинт-источник:
     1. Укажите имя эндпоинта.
     1. В списке **Тип базы данных** выберите `Yandex Data Streams`.
     1. Выберите базу данных для источника.
     1. Введите имя созданного ранее потока данных.
     1. Выберите созданный ранее сервисный аккаунт.
     1. Нажмите кнопку **Создать**.
-1. [Cоздайте](../../data-transfer/operations/endpoint/index.md#create) эндпоинт-приемник:
+1. [Создайте](../../data-transfer/operations/endpoint/index.md#create) эндпоинт-приемник:
     1. Укажите имя эндпоинта.
     1. В списке **Тип базы данных** выберите `ClickHouse`.
     1. Выберите созданный ранее MDB кластер.

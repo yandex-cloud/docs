@@ -67,8 +67,8 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`.
-   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+   1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
    1. Нажмите кнопку **Создать сервисный аккаунт**.
    1. Введите имя сервисного аккаунта, например, `datasphere-sa`.
    1. Нажмите **Добавить роль** и назначьте сервисному аккаунту роли `storage.viewer` и `storage.uploader`.
@@ -84,8 +84,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, которому принадлежит сервисный аккаунт.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит сервисный аккаунт.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. В открывшемся списке выберите сервисный аккаунт `datasphere-sa`.
   1. На верхней панели нажмите кнопку ![](../../_assets/console-icons/plus.svg) **Создать новый ключ**.
@@ -199,7 +199,7 @@
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
   1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `Ubuntu 22.04` и выберите публичный образ [Ubuntu 22.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
   1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
-  1. В блоке **Диски и файловые хранилища** выберите [тип диска](../concepts/disk.md#disks_types) `SSD` и задайте размер `20 ГБ`.
+  1. В блоке **Диски и файловые хранилища** выберите [тип диска](../concepts/disk.md#disks-types) `SSD` и задайте размер `20 ГБ`.
   1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../concepts/vm-platforms.md), количество vCPU и объем RAM:
 
       * **Платформа** — `Intel Ice Lake`.
@@ -246,7 +246,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер БД.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите кнопку **Создать кластер**.
   1. Введите имя кластера, например `mlflow-bd`.
   1. В блоке **Класс хоста** выберите конфигурацию `s3-c2-m8`.
@@ -266,7 +266,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Справа сверху нажмите кнопку **Создать бакет**.
   1. В поле **Имя** укажите имя бакета, например `mlflow-bucket`.
   1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите **С авторизацией**.

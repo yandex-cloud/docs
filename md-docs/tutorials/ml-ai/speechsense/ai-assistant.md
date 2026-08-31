@@ -9,7 +9,7 @@
 Чтобы получить нужную информацию из чата с помощью AI-ассистента:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Подготовьте инфрастуктуру](#infrastructure-prepare).
+1. [Подготовьте инфраструктуру](#infrastructure-prepare).
 1. [Создайте AI-ассистента](#create-assistant).
 1. [Загрузите данные в проект](#load-data).
 1. [Проверьте результат работы AI-ассистента в интерфейсе SpeechSense](#result-console).
@@ -37,7 +37,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Сервис SpeechSense: количество символов в каждом текстовом диалоге и анализ диалогов с помощью AI-ассистента ([тарифы SpeechSense](https://aistudio.yandex.ru/docs/ru//speechsense/pricing)).
+* Сервис SpeechSense: количество символов в каждом текстовом диалоге и анализ диалогов с помощью AI-ассистента ([тарифы SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/pricing)).
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
 
@@ -48,7 +48,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-    1. Перейдите в сервис **Identity and Access Management**.
+    1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
     1. Нажмите кнопку **Создать сервисный аккаунт**.
     1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), например `speechsense`.
     1. Нажмите кнопку **Создать**.
@@ -62,7 +62,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. Выберите сервисный аккаунт `speechsense`.
   1. На панели сверху нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать API-ключ**.
@@ -120,7 +120,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md): `speechsense`.
   1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите `speech-sense.data.editor`.
@@ -136,7 +136,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором был создан сервисный аккаунт.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. Выберите сервисный аккаунт `speechsense`.
   1. На панели сверху нажмите ![image](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать API-ключ**.
@@ -196,7 +196,7 @@
 
     1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
     1. Перейдите в нужное пространство.
-    1. Перейдите на вкладку **Подключения**.
+    1. Откройте вкладку **Подключения**.
     1. Нажмите кнопку **Создать подключение** → **Пустая форма**.
     1. Укажите название подключения, например `chats-default-metadata`.
     1. Выберите тип данных **Чат**.
@@ -272,7 +272,7 @@
    ```python
    pip install grpcio-tools
    ```
-1. Перейдите в папку с репозиторием API Yandex Cloud, создайте папку `upload_data`, сгенерируйте в ней код интерфейса клиента и перейдите в папку `upload_data`:
+1. В папке с репозиторием API Yandex Cloud создайте папку `upload_data`, сгенерируйте в ней код интерфейса клиента и перейдите в эту папку:
 
     ```bash
     cd ~/cloudapi/ && \

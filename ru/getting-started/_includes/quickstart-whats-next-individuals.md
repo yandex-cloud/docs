@@ -16,7 +16,7 @@
 
 * [Взаимодействие пользователей и ресурсов {{ yandex-cloud }}](../../overview/roles-and-resources.md).
 
-* [Cписок сервисов {{ yandex-cloud }}](../../overview/concepts/services.md).
+* [Список сервисов {{ yandex-cloud }}](../../overview/concepts/services.md).
 
 * [Список доступных интерфейсов](../../overview/concepts/interfaces.md).
 
@@ -69,10 +69,6 @@
 * [{{ api-gw-full-name }}](../../api-gateway/quickstart/index.md).
 
   Сконфигурируйте API-шлюз и настройте интеграцию для вызова функции.
-
-* [{{ sw-full-name }}](../../serverless-integrations/quickstart/workflows.md).
-
-  Создайте рабочий процесс и запустите его.
 
 * [{{ serverless-containers-full-name }}](../../serverless-containers/quickstart/index.md).
 

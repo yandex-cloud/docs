@@ -1,6 +1,6 @@
 ---
 title: How to get information about existing repositories in {{ container-registry-full-name }}
-description: In this tutorial, you will learn how to get information about existing repositories in {{ container-registry-name }}.
+description: In this guide, you will learn how to get information about existing repositories in {{ container-registry-name }}.
 ---
 
 # Getting information about existing repositories
@@ -15,14 +15,14 @@ description: In this tutorial, you will learn how to get information about exist
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to get a list of repositories:
+  1. See the description of the CLI command for getting a list of repositories:
 
      ```bash
      yc container repository list --help
      ```
 
   1. Get a list of repositories.
-     * To get a list of all the repositories of all the registries in the current folder, run the command:
+     * To get a list of all repositories in all registries in the current folder, run this command:
 
        ```bash
        yc container repository list
@@ -39,7 +39,7 @@ description: In this tutorial, you will learn how to get information about exist
        +----------------------+-----------------------------+
        ```
 
-     * To get a list of all the repositories in a particular registry, run the command:
+     * To get a list of all repositories in a particular registry, run this command:
 
        ```bash
        yc container repository list --registry-id <registry_ID>
@@ -57,13 +57,13 @@ description: In this tutorial, you will learn how to get information about exist
 
 - API {#api}
 
-  To retrieve a list of repositories in a registry, use the [List](../../api-ref/Repository/list.md) method for the [Repository](../../api-ref/Repository/) resource.
+  To get a list of repositories in a registry, use the [List](../../api-ref/Repository/list.md) method for the [Repository](../../api-ref/Repository/) resource.
 
 {% endlist %}
 
 {% note info %}
 
-The repository appears in the list as soon as at least one [Docker image is pushed to it](../docker-image/docker-image-push.md).
+The repository appears in the list as soon as you [push at least one Docker image](../docker-image/docker-image-push.md) to it.
 
 {% endnote %}
 
@@ -73,7 +73,7 @@ The repository appears in the list as soon as at least one [Docker image is push
 
 - CLI {#cli}
 
-  1. View a description of the CLI command to get repository information:
+  1. See the description of the CLI command for getting repository information:
 
      ```bash
      yc container repository get --help
@@ -106,7 +106,7 @@ The repository appears in the list as soon as at least one [Docker image is push
        id: crp8bu81b5af********
        ```
 
-       You can specify both the full name of the Docker image and prefixes. For example, you can get information about the `crpvplula8p3********/myproject/myservice` repository by specifying `crpvplula8p3********/myproject/myservice`, `crpvplula8p3********/myproject`, or `crpvplula8p3********`.
+       You can specify both the full Docker image name and prefixes. For example, you can get information about the `crpvplula8p3********/myproject/myservice` repository by specifying `crpvplula8p3********/myproject/myservice`, `crpvplula8p3********/myproject`, or `crpvplula8p3********`.
 
 - API {#api}
 
@@ -118,6 +118,6 @@ The repository appears in the list as soon as at least one [Docker image is push
 
     Use the [GetByName](../../api-ref/Repository/getByName.md) method for the [Repository](../../api-ref/Repository/) resource. Specify the repository name in the `repositoryName` property.
 
-  You can retrieve a list of repositories in a registry by using the [List](../../api-ref/Repository/list.md) method for the [Repository](../../api-ref/Repository/) resource.
+  You can get a list of repositories in a registry by using the [List](../../api-ref/Repository/list.md) method for the [Repository](../../api-ref/Repository/) resource.
 
 {% endlist %}

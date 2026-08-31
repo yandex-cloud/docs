@@ -66,8 +66,8 @@ DataSphere позволяет разворачивать и эксплуатир
 
 - Консоль управления {#console}
 
-   1. Перейдите в каталог `data-folder`.
-   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+   1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
    1. Нажмите кнопку **Создать сервисный аккаунт**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `datasphere-sa`.
    1. Нажмите **Добавить роль** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):

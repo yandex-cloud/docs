@@ -5,6 +5,9 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ mtr-full-name }}
 
+## Июль 2026 {#july-2026}
+
+* Добавлена возможность использовать [пользовательский бакет {{ objstorage-name }}](concepts/retry-policy.md#exchange-manager-storage) в качестве хранилища Exchange Manager.
 
 ## Май 2026 {#may-2026}
 

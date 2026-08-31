@@ -31,7 +31,7 @@
 1. [Включите политику автоматического удаления Docker-образов](#lifecycle-policy).
 1. (Опционально) [Отсканируйте Docker-образы на наличие уязвимостей](#vulnerability-scanner).
 
-Если инстанс Yandex Managed Service for GitLab уже настроен для непрерывной интеграции ([Continuous Integration](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd), CI), убедитесь, что [инфраструктура для хранения Docker-образов](#deploy-infrastructure) подготовлена. Затем начните настройку с [создания переменных окружения](#add-variables).
+Если инстанс Managed Service for GitLab уже настроен для непрерывной интеграции ([Continuous Integration](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd), CI), убедитесь, что [инфраструктура для хранения Docker-образов](#deploy-infrastructure) подготовлена. Затем начните настройку с [создания переменных окружения](#add-variables).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -53,12 +53,15 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за следующие ресурсы:
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Сервис Container Registry: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы Container Registry](../../container-registry/pricing.md)).
+* Инстанс GitLab. Стоимость зависит от способа создания инстанса:
 
-* Диски и постоянно запущенные виртуальные машины ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Использование динамического публичного IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Хранение созданных Docker-образов и сканер уязвимостей, если вы его [активируете](#vulnerability-scanner) ([тарифы Container Registry](../../container-registry/pricing.md)).
-* Использование мастера Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+   * Managed Service for GitLab — оплачиваются вычислительные ресурсы ВМ, объем хранимых данных и резервных копий, объем исходящего трафика ([тарифы Managed Service for GitLab](../pricing.md)).
+   * ВМ с образом GitLab — оплачиваются вычислительные ресурсы ВМ и образ GitLab ([тарифы Compute Cloud](../../compute/pricing.md)).
+
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, а также для ВМ с образом GitLab, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
@@ -267,7 +270,9 @@
 
 1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+   
+   Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
 1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта `account-for-container-registry`, [созданного ранее](#before-you-begin):
 

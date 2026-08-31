@@ -1,5 +1,6 @@
 # Загрузка данных из {{ mos-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
 
+
 С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера {{ mos-name }} в объектное хранилище {{ objstorage-name }}.
 
 Чтобы перенести данные:
@@ -210,7 +211,7 @@
 
 1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужный бакет.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Выберите бакет из списка.
 1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
 1. Проверьте, что бакет {{ objstorage-name }} содержит папку `from_MOS` с файлом JSON с тестовыми данными.

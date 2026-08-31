@@ -8,7 +8,8 @@ Review the slow query log:
 #### How do I find out what is causing overall performance degradation? {#general-degradation}
 
 Check host monitoring charts:
-1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Go to the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** page:
    * We recommend upgrading your host class:
@@ -21,7 +22,8 @@ Check host monitoring charts:
 #### How do I find out why resources take long to load? {#long-load}
 
 Check host monitoring charts:
-1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Go to the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** page.
 1. Find the resource in question: its chart will be approaching or crossing the limit.

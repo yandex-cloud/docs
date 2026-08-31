@@ -28,9 +28,13 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [Изменение настроек кластера](operations/update.md)
 
+ - [Управление алиасами кластера](operations/cluster-aliases.md)
+
  - [Остановка и запуск кластера](operations/cluster-stop.md)
 
  - [Управление хостами PostgreSQL](operations/hosts.md)
+
+ - [Управление алиасами хостов](operations/hosts-aliases.md)
 
  - [Миграция хостов в другую зону доступности](operations/host-migration.md)
 
@@ -158,6 +162,8 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [Настройка прав доступа к секрету, созданному Connection Manager, для пользователя Managed Service for PostgreSQL](tutorials/conn-man-secret-access.md)
 
+ - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](tutorials/mpg-pg-clickhouse-extension.md)
+
 ### Репликация и миграция
 
  - [Логическая репликация PostgreSQL](tutorials/replication-overview.md)
@@ -235,6 +241,8 @@ Managed Service for PostgreSQL помогает разворачивать и п
  - [Политика поддержки версий PostgreSQL](concepts/update-policy.md)
 
  - [Управление доступом](security/index.md)
+
+ - [Инспекции и рекомендации](advisor.md)
 
  - [Правила тарификации](pricing.md)
 
@@ -341,6 +349,14 @@ Managed Service for PostgreSQL помогает разворачивать и п
  - [update](cli-ref/hosts/update.md)
 
  - [update-config](cli-ref/hosts/update-config.md)
+
+### performance-diagnostics
+
+ - [Overview](cli-ref/performance-diagnostics/index.md)
+
+ - [list-raw-sessions](cli-ref/performance-diagnostics/list-raw-sessions.md)
+
+ - [list-raw-statements](cli-ref/performance-diagnostics/list-raw-statements.md)
 
 ### repack
 
@@ -481,6 +497,14 @@ Managed Service for PostgreSQL помогает разворачивать и п
  - [update](cli-ref/v0/hosts/update.md)
 
  - [update-config](cli-ref/v0/hosts/update-config.md)
+
+#### performance-diagnostics
+
+ - [Overview](cli-ref/v0/performance-diagnostics/index.md)
+
+ - [list-raw-sessions](cli-ref/v0/performance-diagnostics/list-raw-sessions.md)
+
+ - [list-raw-statements](cli-ref/v0/performance-diagnostics/list-raw-statements.md)
 
 #### repack
 

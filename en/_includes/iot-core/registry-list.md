@@ -3,7 +3,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to get a list of registries.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. The **{{ ui-key.yacloud.iot.label_registries }}** page will show the list of registries.
 
 - CLI {#cli}

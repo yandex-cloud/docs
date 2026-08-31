@@ -22,6 +22,8 @@ items:
             href: operations/workspaces/update.md
           - name: Configuring workspace access permissions
             href: operations/workspaces/manage-access.md
+          - name: Deactivating and activating a workspace
+            href: operations/workspaces/deactivate-activate.md
           - name: Deleting a workspace
             href: operations/workspaces/delete.md
       - name: Alerts
@@ -56,6 +58,8 @@ items:
             href: operations/kspm/check-compliance.md
           - name: Managing exceptions to control rules
             href: operations/kspm/manage-exceptions.md
+          - name: Managing rule modes
+            href: operations/kspm/manage-rule-modes.md
       - name: '{{ ciem-full-name }} ({{ ciem-name }})'
         items:
           - name: Overview
@@ -110,6 +114,8 @@ items:
             href: concepts/standard-compliance/yc-security-baseline.md
           - name: Cloud infrastructure security standard {{ yandex-cloud }}
             href: concepts/standard-compliance/yc-cloud-security-standard.md
+          - name: Ransomware attack prevention standard
+            href: concepts/standard-compliance/ransomware-prevention.md
           - name: CIS Benchmark™ requirements for {{ k8s }}
             href: concepts/standard-compliance/cis-kubernetes-benchmark.md
           - name: Personal data protection standard for {{ yandex-cloud }} users
@@ -162,6 +168,10 @@ items:
         href: security/ciem-roles.md
       - name: '{{ cspm-name }} roles'
         href: security/cspm-roles.md
+      - name: '{{ td-name }} roles'
+        href: security/td-roles.md
+      - name: '{{ vuln-man-short-name }} roles'
+        href: security/vm-roles.md
       - name: '{{ atr-name }} roles'
         href: security/access-transparency-roles.md
       - name: '{{ alerts-name }} module roles'

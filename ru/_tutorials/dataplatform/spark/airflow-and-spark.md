@@ -52,7 +52,7 @@
 
 {% list tabs group=instructions %}
 
-* Высокий уровень безопасности
+- Высокий уровень безопасности
 
   Подготовьте инфраструктуру:
 
@@ -91,7 +91,7 @@
 
   1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) с именем `datalake-network`.
 
-     Вместе с ней автоматически создадутся три подсети в разных зонах доступности.
+     Вместе с ней автоматически создадутся три подсети в разных [зонах доступности](../../../overview/concepts/geo-scope.md).
 
   1. Для кластера {{ metastore-name }} [создайте группу безопасности](../../../vpc/operations/security-group-create.md) `metastore-sg` в сети `datalake-network`. Добавьте в группу следующие правила:
 
@@ -128,11 +128,11 @@
 
   1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) с параметрами:
 
-     * **Сервисный аккаунт** — `metastore-agent`.
-     * **Версия** — `{{ metastore.integration-version }}`.
-     * **Сеть** — `datalake-network`.
-     * **Подсеть** — `datalake-network-{{ region-id }}-a`.
-     * **Группа безопасности** — `metastore-sg`.
+     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `metastore-agent`.
+     * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — `{{ metastore.integration-version }}`.
+     * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `datalake-network`.
+     * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}** — `datalake-network-{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `metastore-sg`.
 
      {% note info %}
 
@@ -142,14 +142,14 @@
 
   1. [Создайте кластер {{ maf-name }}](../../../managed-airflow/operations/cluster-create.md) с параметрами:
 
-     * **Сервисный аккаунт** — `airflow-agent`.
-     * **Зона доступности** — `{{ region-id }}-a`.
-     * **Сеть** — `datalake-network`.
-     * **Подсеть** — `datalake-network-{{ region-id }}-a`.
-     * **Группа безопасности** — `airflow-sg`.
-     * **Имя бакета** — `<бакет_для_исходного_кода_Airflow_DAG>`.
+     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `airflow-agent`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_zone }}** — `{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `datalake-network`.
+     * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}** — `datalake-network-{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `airflow-sg`.
+     * **{{ ui-key.yacloud.airflow.field_connector-bucket-name }}** — `<бакет_для_исходного_кода_Airflow_DAG>`.
 
-* Упрощенная настройка
+- Упрощенная настройка
 
   Подготовьте инфраструктуру:
 
@@ -170,14 +170,14 @@
 
   1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) с именем `datalake-network`.
 
-      Вместе с ней автоматически создадутся три подсети в разных зонах доступности и группа безопасности.
+      Вместе с ней автоматически создадутся три подсети в разных [зонах доступности](../../../overview/concepts/geo-scope.md) и группа безопасности.
 
   1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) с параметрами:
 
-     * **Сервисный аккаунт** — `integration-agent`.
-     * **Сеть** — `datalake-network`.
-     * **Подсеть** — `datalake-network-{{ region-id }}-a`.
-     * **Группа безопасности** — группа по умолчанию в сети `datalake-network`.
+     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `integration-agent`.
+     * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `datalake-network`.
+     * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}** — `datalake-network-{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — группа по умолчанию в сети `datalake-network`.
 
      {% note info %}
    
@@ -187,12 +187,12 @@
 
   1. [Создайте кластер {{ maf-name }}](../../../managed-airflow/operations/cluster-create.md) с параметрами:
 
-     * **Сервисный аккаунт** — `integration-agent`.
-     * **Зона доступности** — `{{ region-id }}-a`.
-     * **Сеть** — `datalake-network`.
-     * **Подсеть** — `datalake-network-{{ region-id }}-a`.
-     * **Группа безопасности** — группа по умолчанию в сети `datalake-network`.
-     * **Имя бакета** — `<бакет_для_заданий_и_данных>`.
+     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `integration-agent`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_zone }}** — `{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `datalake-network`.
+     * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}** — `datalake-network-{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — группа по умолчанию в сети `datalake-network`.
+     * **{{ ui-key.yacloud.airflow.field_connector-bucket-name }}** — `<бакет_для_заданий_и_данных>`.
 
 {% endlist %}
 
@@ -210,7 +210,7 @@
 
      {% include [pyspark](../../_tutorials_includes/spark/job-with-table-pyspark.md) %}
 
-     { % endcut %}
+     {% endcut %}
 
   1. Создайте в бакете `<бакет_для_исходного_кода_PySpark_задания>` папку `scripts` и [загрузите](../../../storage/operations/objects/upload.md#simple) в нее файл `job_with_table.py`.
 
@@ -222,7 +222,7 @@
 
      {% include [pyspark](../../_tutorials_includes/spark/job-with-table-pyspark.md) %}
 
-     { % endcut %}
+     {% endcut %}
 
   1. Создайте в бакете `<бакет_для_заданий_и_данных>` папку `scripts` и [загрузите](../../../storage/operations/objects/upload.md#simple) в нее файл `job_with_table.py`.
 
@@ -508,7 +508,7 @@ DAG будет состоять из нескольких вершин, кото
      * `JOB_ARGS` — аргументы задания PySpark.
      * `JOB_PROPERTIES` — свойства задания PySpark.
 
-     { % endcut %}
+     {% endcut %}
 
   1. Загрузите DAG в кластер {{ AF }}: создайте в бакете `<бакет_для_заданий_и_данных>` папку `dags` и загрузите в нее файл `dag.py`.
   1. Откройте веб-интерфейс {{ AF }}.
@@ -565,4 +565,3 @@ DAG будет состоять из нескольких вершин, кото
   1. [Облачную сеть](../../../vpc/operations/network-delete.md).
 
 {% endlist %}
-

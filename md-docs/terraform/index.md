@@ -202,8 +202,6 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [function](resources/function.md)
 
- - [function_iam_binding](resources/function_iam_binding.md)
-
  - [function_trigger](resources/function_trigger.md)
 
  - [logging_group](resources/logging_group.md)
@@ -228,11 +226,15 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [cloudregistry_folder_iam_binding](resources/cloudregistry_folder_iam_binding.md)
 
+ - [cloudregistry_folder_iam_member](resources/cloudregistry_folder_iam_member.md)
+
  - [cloudregistry_lifecycle_policy](resources/cloudregistry_lifecycle_policy.md)
 
  - [cloudregistry_registry](resources/cloudregistry_registry.md)
 
  - [cloudregistry_registry_iam_binding](resources/cloudregistry_registry_iam_binding.md)
+
+ - [cloudregistry_registry_iam_member](resources/cloudregistry_registry_iam_member.md)
 
  - [cloudregistry_registry_ip_permission](resources/cloudregistry_registry_ip_permission.md)
 
@@ -984,6 +986,14 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [yq_monitoring_connection](resources/yq_monitoring_connection.md)
 
+#### Serverless API Gateway
+
+##### Resources
+
+ - [api_gateway_iam_binding](resources/api_gateway_iam_binding.md)
+
+ - [api_gateway_iam_member](resources/api_gateway_iam_member.md)
+
 #### Serverless Cloud Functions
 
 ##### Data Sources
@@ -991,6 +1001,10 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [function_scaling_policy](data-sources/function_scaling_policy.md)
 
 ##### Resources
+
+ - [function_iam_binding](resources/function_iam_binding.md)
+
+ - [function_iam_member](resources/function_iam_member.md)
 
  - [function_scaling_policy](resources/function_scaling_policy.md)
 
@@ -1005,6 +1019,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [serverless_container](resources/serverless_container.md)
 
  - [serverless_container_iam_binding](resources/serverless_container_iam_binding.md)
+
+ - [serverless_container_iam_member](resources/serverless_container_iam_member.md)
 
 #### Serverless Event Router
 
@@ -1024,6 +1040,16 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [serverless_eventrouter_rule](resources/serverless_eventrouter_rule.md)
 
+#### Serverless Triggers
+
+##### Data Sources
+
+ - [serverless_triggers](data-sources/serverless_triggers.md)
+
+##### Resources
+
+ - [serverless_triggers](resources/serverless_triggers.md)
+
 #### Serverless Workflows
 
 ##### Data Sources
@@ -1036,11 +1062,15 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [serverless_workflow_iam_binding](resources/serverless_workflow_iam_binding.md)
 
+ - [serverless_workflow_iam_member](resources/serverless_workflow_iam_member.md)
+
 #### Smart Captcha
 
 ##### Data Sources
 
  - [smartcaptcha_captcha](data-sources/smartcaptcha_captcha.md)
+
+ - [smartcaptcha_captcha_keys](data-sources/smartcaptcha_captcha_keys.md)
 
 ##### Resources
 
@@ -1051,6 +1081,10 @@ Yandex Cloud предоставляет провайдер, набор моду�
 ##### Data Sources
 
  - [sws_advanced_rate_limiter_profile](data-sources/sws_advanced_rate_limiter_profile.md)
+
+ - [sws_domain](data-sources/sws_domain.md)
+
+ - [sws_load_balancer](data-sources/sws_load_balancer.md)
 
  - [sws_match_list](data-sources/sws_match_list.md)
 
@@ -1064,11 +1098,29 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [sws_advanced_rate_limiter_profile](resources/sws_advanced_rate_limiter_profile.md)
 
+ - [sws_domain](resources/sws_domain.md)
+
+ - [sws_load_balancer](resources/sws_load_balancer.md)
+
  - [sws_match_list](resources/sws_match_list.md)
 
  - [sws_security_profile](resources/sws_security_profile.md)
 
  - [sws_waf_profile](resources/sws_waf_profile.md)
+
+#### Unknown
+
+##### Resources
+
+ - [organization_manager_organization_iam_policy_binding](resources/organization_manager_organization_iam_policy_binding.md)
+
+ - [resource_manager_cloud_iam_policy_binding](resources/resource_manager_cloud_iam_policy_binding.md)
+
+ - [resource_manager_folder_iam_policy_binding](resources/resource_manager_folder_iam_policy_binding.md)
+
+ - [sws_security_profile_advanced_rate_limiter_profile_attachment](resources/sws_security_profile_advanced_rate_limiter_profile_attachment.md)
+
+ - [sws_security_profile_waf_profile_attachment](resources/sws_security_profile_waf_profile_attachment.md)
 
 #### Virtual Private Cloud
 

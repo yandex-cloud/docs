@@ -4,7 +4,7 @@ Create a VM from a [{{ coi }}](../../cos/concepts/index.md) and run a Docker con
 
 ## Getting started {#before-you-begin}
 
-If the required Docker image has been pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in use. A {{ coi }} VM will pull the Docker image from the registry under this account.
+If the Docker image you need is stored in {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in question. Your {{ coi }} VM will use this account to pull the Docker image from the registry.
 
 ## Create a Docker container VM from a {{ coi }} {#create-vm}
 
@@ -13,12 +13,12 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab.
   1. Click **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
-  1. In the **{{ ui-key.yacloud.compute.instances.create.section_coi }}** window that opens, set the parameters using the suggestions:
+  1. In the **{{ ui-key.yacloud.compute.instances.create.section_coi }}** window that opens, configure the settings as described below:
 
       * Optionally, enter the **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** of the Docker container you will run on the VM. The naming requirements are as follows:
 
@@ -27,24 +27,24 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
       * Specify the [**{{ ui-key.yacloud.compute.instances.create.field_coi-image }}**](../../cos/concepts/docker-image.md) to use for running the Docker container on the VM. You can do this in one of these ways:
 
           * By selecting one of the available images. To do this, start typing the image name in the search bar. The image search reads all available cloud folders.
-          * By specifying the image name manually. To do this, click **{{ ui-key.yacloud.component.image-field.button_custom-image }}** and enter the image name. You can specify an image from the {{ container-registry-name }} or any publicly available Docker image library, such as [Docker Hub](https://hub.docker.com).
+          * By specifying the image name manually. To do this, click **{{ ui-key.yacloud.component.image-field.button_custom-image }}** and enter the image name. You can specify an image from {{ container-registry-name }} or any publicly available Docker image library, such as [Docker Hub](https://hub.docker.com).
 
-      * Optionally, specify the executable to run when the Docker container starts in the **{{ ui-key.yacloud.compute.instances.create.field_coi-command }}** field.
+      * Optionally, in the **{{ ui-key.yacloud.compute.instances.create.field_coi-command }}** field, specify the executable to run when the Docker container starts.
       * Optionally, set **{{ ui-key.yacloud.compute.instances.create.field_coi-arguments }}**.
       * Optionally, specify the **{{ ui-key.yacloud.compute.instances.create.field_coi-env }}** you want to make available in the Docker container, in `key:value` format.
       * Select the [**{{ ui-key.yacloud.compute.instances.create.field_coi-restart-policy }}**](../../cos/concepts/restart-policy.md) field value for the Docker container:
 
           * `{{ ui-key.yacloud.compute.instances.create.value_coi-restart-always }}`: Always restart the Docker container when it stops.
-          * `{{ ui-key.yacloud.compute.instances.create.value_coi-restart-on-failure }}`: Only restart the Docker container if it shuts down with a non-zero return code.
-          * `{{ ui-key.yacloud.compute.instances.create.value_coi-restart-never }}`: Do not restart the Docker container automatically.
+          * `{{ ui-key.yacloud.compute.instances.create.value_coi-restart-on-failure }}`: Restart the Docker container only if it exits with a non-zero exit code.
+          * `{{ ui-key.yacloud.compute.instances.create.value_coi-restart-never }}`: Never restart the Docker container automatically.
 
       * Optionally, enable **{{ ui-key.yacloud.compute.instances.create.field_coi-tty }}** to use the command shell in the Docker container.
-      * Optionally, enable **{{ ui-key.yacloud.compute.instances.create.field_coi-stdin }}** to link the input stream to the running Docker container.
+      * Optionally, enable **{{ ui-key.yacloud.compute.instances.create.field_coi-stdin }}** to attach the input stream to the running Docker container.
       * Optionally, enable **{{ ui-key.yacloud.compute.instances.create.field_coi-privileged }}** to allow the Docker container processes to access all VM resources.
 
   1. Click **{{ ui-key.yacloud.common.apply }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the service account you [created earlier](#before-you-begin).
-  1. Use [this guide](../../compute/operations/vm-create/create-linux-vm.md) to configure the remaining VM parameters.
+  1. Use [this guide](../../compute/operations/vm-create/create-linux-vm.md) to configure the remaining VM settings.
 
 - CLI with the help of parameters {#cli}
 
@@ -90,11 +90,11 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
      * `--public-ip`: Public IP address allocated to the VM.
      * `--container-name`: Docker container name.
      * `--container-image`: Name of the Docker image for running the Docker container.
-     * `--container-command`: Command to run when you start the Docker container.
+     * `--container-command`: Command to run when the Docker container starts.
      * `--container-arg`: Parameters for the command specified in `--container-command`.
      * `--container-env`: Environment variables available in the Docker container.
 
-        Use single and double quotes at the same time for `key:value` pairs, e.g., `--container-env='"KEY-GROUP={key1:value1,key2:value2,key3:value3}"'`.
+        Provide groups of `key:value` pairs enclosed in both single and double quotes, e.g., `--container-env='"KEY-GROUP={key1:value1,key2:value2,key3:value3}"'`.
      * `--container-privileged`: Run the Docker container in privileged mode.
 
      Result:
@@ -108,7 +108,7 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
      ...
      ```
 
-    Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}). For more information about working with VMs, see our step-by-step guides [here](../../compute/operations/index.md).
+    Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}). For more information about working with VMs, see our [step-by-step guides](../../compute/operations/index.md).
 
 - CLI with the help of a specification file {#spec-cli}
 

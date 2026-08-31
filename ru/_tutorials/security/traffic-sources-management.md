@@ -38,17 +38,17 @@ description: Как настроить правила обработки тра�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся защищаемые ресурсы.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
 
       {% include [pre-configured-profile](../../_includes/smartwebsecurity/pre-configured-profile.md) %}
-   
+
   1. Введите имя профиля, например `sources-manage`.
 
   1. Включите тестовый режим для правила Smart Protection `sp-rule-1`:
      1. Для опции **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
-     1. Напротив правила `sp-rule-1` нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
+     1. Напротив правила `sp-rule-1` нажмите ![image](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
      1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
      1. Нажмите **{{ ui-key.yacloud.common.save-changes }}**.
 
@@ -67,7 +67,7 @@ description: Как настроить правила обработки тра�
 - Консоль управления {#console}
 
   1. Откройте созданный ранее профиль безопасности.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Введите имя правила, например `traffic-sources-rule`.
   1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
   1. Задайте приоритет выше, чем у правил Smart Protection. Например, `9100`.
@@ -100,7 +100,7 @@ description: Как настроить правила обработки тра�
 
 - Консоль управления {#console}
 
-  1. В профиле безопасности нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+  1. В профиле безопасности нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Введите имя правила, например `vpn-traffic-rule`.
   1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
   1. Задайте приоритет так, чтобы правило выполнялось в нужном порядке относительно других правил по спискам.
@@ -126,7 +126,7 @@ description: Как настроить правила обработки тра�
 
 - Консоль управления {#console}
 
-  1. В профиле безопасности нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+  1. В профиле безопасности нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Введите имя правила, например `geo-traffic-rule`.
   1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
   1. Задайте приоритет выше, чем у правил Smart Protection, но с учетом уже созданных правил по спискам.

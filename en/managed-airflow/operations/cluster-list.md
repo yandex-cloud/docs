@@ -13,8 +13,8 @@ You can get detailed information about each {{ maf-name }} cluster you created.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-airflow) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 
 - CLI {#cli}
 
@@ -41,7 +41,7 @@ You can get detailed information about each {{ maf-name }} cluster you created.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -95,8 +95,8 @@ You can get detailed information about each {{ maf-name }} cluster you created.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-airflow) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. Click the cluster name.
 
 - CLI {#cli}
@@ -175,7 +175,7 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
     To get a list of operations for a {{ maf-name }} cluster:
 
     1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-airflow) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. Select the cluster.
     1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 

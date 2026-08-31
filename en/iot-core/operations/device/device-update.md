@@ -2,7 +2,7 @@
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
 
-You can update the [name](device-update.md#update-name) or [description](device-update.md#update-description) of a device.
+You can update a device [name](device-update.md#update-name) or [description](device-update.md#update-description).
 
 To access a device, use its unique ID or name. For information about how to get its unique ID or name, see [{#T}](device-list.md).
 
@@ -15,7 +15,7 @@ To access a device, use its unique ID or name. For information about how to get 
    To update the name of a device:
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the device name in.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. To the right of the device name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
@@ -33,6 +33,7 @@ To access a device, use its unique ID or name. For information about how to get 
   ```
 
   Result:
+
   ```text
   id: b9135goeh1uc********
   registry_id: b91ki3851hab********
@@ -50,7 +51,7 @@ To access a device, use its unique ID or name. For information about how to get 
   
   1. Open the {{ TF }} configuration file and edit the `name` parameter value in the device description fragment:
 
-      Example device description in the {{ TF }} configuration:
+      Here is an example of a device description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iot_core_device" "my_device" {
@@ -62,7 +63,7 @@ To access a device, use its unique ID or name. For information about how to get 
       ```
 
       For more on the properties of the `yandex_iot_core_device` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_device).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -90,7 +91,7 @@ To access a device, use its unique ID or name. For information about how to get 
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check the updated device name in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+      You can check the updated device name using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot device list --registry-id <registry_ID>
@@ -111,7 +112,7 @@ To access a device, use its unique ID or name. For information about how to get 
    To update the description of a device:
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the device description in.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. To the right of the device name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
@@ -148,7 +149,7 @@ To access a device, use its unique ID or name. For information about how to get 
   
   1. Open the {{ TF }} configuration file and edit the `description` parameter value in the device description fragment.
 
-      Example device description in the {{ TF }} configuration:
+      Here is an example of a device description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iot_core_device" "my_device" {
@@ -160,7 +161,7 @@ To access a device, use its unique ID or name. For information about how to get 
       ```
 
       For more on the properties of the `yandex_iot_core_device` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_device).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -188,7 +189,7 @@ To access a device, use its unique ID or name. For information about how to get 
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check the updated device description in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+      You can check the updated device description using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot device get <device_name>

@@ -5,7 +5,7 @@
 # Подпись и проверка Docker-образов Yandex Container Registry в Yandex Managed Service for Kubernetes
 
 
-В этом сценарии описано, как подписать [Docker-образы](../concepts/docker-image.md) с помощью [Cosign](https://docs.sigstore.dev/cosign/overview/) в [Yandex Container Registry](../index.md), а затем настроить проверку подписей в [Yandex Managed Service for Kubernetes](../../managed-kubernetes/index.md) с помощью ключей Yandex Key Management Service.
+В этом сценарии описано, как подписать [Docker-образы](../concepts/docker-image.md) с помощью [Cosign](https://docs.sigstore.dev/cosign/overview/) в [Yandex Container Registry](../index.md), а затем настроить проверку подписей в [Yandex Managed Service for Kubernetes](../../managed-kubernetes/index.md) с помощью ключей [Yandex Key Management Service](../../kms/index.md).
 
 Чтобы подписать и настроить проверку Docker-образов:
 1. [Подпишите Docker-образ с помощью Cosign](#cosign).
@@ -17,12 +17,11 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса, если они назначены узлам кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за [использование хранилища](../pricing.md) Container Registry.
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Сервис Container Registry: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы Container Registry](../pricing.md)).
+* Сервис Key Management Service: количество активных версий ключа и выполненных криптографических операций ([тарифы Key Management Service](../../kms/pricing.md)).
 
 
 ## Перед началом работы {#before-begin}
@@ -221,7 +220,7 @@
      Pushing signature to: cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>
      ```
 
-     В реестре Container Registry должен появиться второй объект с тегом `sha256-....sig` и хэшем `cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>@sha256:...`.
+     В реестре Container Registry должен появиться второй объект с тегом `sha256-....sig` и хешем `cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>@sha256:...`.
   1. Вручную проверьте, что подпись Docker-образа корректна:
 
      ```bash
@@ -285,7 +284,7 @@
      Pushing signature to: cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>
      ```
 
-     В реестре Container Registry должен появиться второй объект с тегом `sha256-....sig` и хэшем `cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>@sha256:...`.
+     В реестре Container Registry должен появиться второй объект с тегом `sha256-....sig` и хешем `cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>@sha256:...`.
   1. Вручную проверьте, что подпись Docker-образа корректна:
 
      ```bash

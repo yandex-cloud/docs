@@ -7,9 +7,9 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором была создана ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Нажмите на строку с ВМ, которую вы хотите изменить.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** на верхней панели.
+  1. Нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Внесите необходимые изменения в блоке **{{ ui-key.yacloud.compute.instances.create.section_coi }}**.
   1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 

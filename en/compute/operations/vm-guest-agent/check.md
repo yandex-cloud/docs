@@ -96,7 +96,7 @@ To get logs:
 - Management console {#console}
 
   1. Select the folder the VM belongs to.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Click the line with the VM in question.
   1. Go to the **Serial port** tab.
   1. Select **COM4** as your port.

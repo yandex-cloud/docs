@@ -1,5 +1,6 @@
 # Using a {{ lockbox-name }} secret in a PySpark job to connect to {{ mpg-full-name }}
 
+
 You can use a [{{ lockbox-name }}](../../../lockbox/concepts/secret.md) secret to connect to a [{{ mpg-full-name }}](../../../managed-postgresql/index.yaml) cluster from a PySpark job in [{{ msp-full-name }}](../../../managed-spark/index.yaml). To do this, grant the {{ msp-full-name }} cluster [service account](../../../iam/concepts/users/service-accounts.md) access to the secret. {{ connection-manager-full-name }} creates the secret automatically when creating the {{ mpg-name }} user.
 
 For the PySpark job, we use a Python script stored in a {{ objstorage-full-name }} bucket. The script retrieves the user password from the secret and uses it to connect to the {{ mpg-name }} cluster.
@@ -41,7 +42,7 @@ There is no charge for using {{ lockbox-name }} secrets created with {{ connecti
 
 1. [Create a cloud network](../../../vpc/operations/network-create.md) named `spark-network`.
 
-    This will automatically create three subnets in different availability zones.
+    This will automatically create three subnets in different [availability zones](../../../overview/concepts/geo-scope.md).
 
 1. In `spark-network`, [create a security group](../../../vpc/operations/security-group-create.md) named `spark-sg` for the {{ msp-full-name }} cluster to allow outgoing TCP connections on:
     
@@ -69,8 +70,8 @@ There is no charge for using {{ lockbox-name }} secrets created with {{ connecti
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you created the infrastructure.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the required infrastructure.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click the connection ID next to the user you need.
     

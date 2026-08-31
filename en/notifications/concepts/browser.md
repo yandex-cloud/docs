@@ -58,6 +58,7 @@ curl \
 ```
 
 Where:
+
 * `IAM_TOKEN`: [IAM token](../../iam/concepts/authorization/iam-token.md).
 * `Action`: Operation type.
 * `ResponseFormat`: Response format, JSON or XML.
@@ -84,6 +85,7 @@ curl \
 ```
 
 Where:
+
 * `IAM_TOKEN`: [IAM token](../../iam/concepts/authorization/iam-token.md).
 * `PlatformApplicationArn`: Notification channel ID (ARN).
 * `Action`: Operation type.
@@ -115,7 +117,7 @@ Where:
 You can also get the VAPID key using the management console. Proceed as follows:
 
 1. In the [management console]({{ link-console-main }}), select the folder containing the notification channel.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+1. [Navigate]({{ link-console-main }}/link/cns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
 1. Select the channel of interest.
 1. You will see the VAPID key value in the **{{ ui-key.yacloud.cns.field_vapid }}** field under **{{ ui-key.yacloud.common.overview }}**.
 
@@ -137,6 +139,7 @@ To create an endpoint, you need a PushSubscription object in JSON format obtaine
     }
    }
    ```
+
 {% endcut %}
 
 Example of creating an endpoint for the HTTP API:
@@ -155,6 +158,7 @@ curl \
 ```
 
 Where:
+
 * `IAM_TOKEN`: [IAM token](../../iam/concepts/authorization/iam-token.md).
 * `PlatformApplicationArn`: Notification channel ID (ARN).
 * `Action`: Operation type.
@@ -173,6 +177,7 @@ You can send notifications using one of these methods:
 * By sending the notification text in the `Message` parameter without providing text for a specific platform.
 
     Example of sending a notification in plain text for the HTTP API:
+    
     ```bash
     export IAM_TOKEN=<IAM_token>
     curl \
@@ -186,6 +191,7 @@ You can send notifications using one of these methods:
     ```
 
     Where:
+    
     * `IAM_TOKEN`: [IAM token](../../iam/concepts/authorization/iam-token.md).
     * `TargetArn`: Endpoint ID (ARN).
     * `Action`: Operation type.
@@ -195,6 +201,7 @@ You can send notifications using one of these methods:
 * By providing the default text and text for a specific platform. In which case the notification is likewise provided via the `Message` parameter but in JSON format. You need to additionally specify the `MessageStructure=json` parameter. The `WEB` line will be the key for the platform when sending a notification to the browser.
 
     Example of sending a notification in JSON format for the HTTP API:
+    
     ```bash
     export IAM_TOKEN=<IAM_token>
     curl \
@@ -209,6 +216,7 @@ You can send notifications using one of these methods:
     ```
 
     Where:
+    
     * `IAM_TOKEN`: [IAM token](../../iam/concepts/authorization/iam-token.md).
     * `TargetArn`: Mobile endpoint ID (ARN).
     * `Action`: Operation type.

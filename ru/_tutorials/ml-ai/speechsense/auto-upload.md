@@ -14,10 +14,10 @@
 
 На схеме:
 
-1. [Триггер](../../../functions/concepts/trigger/os-trigger.md) для {{ objstorage-name }} отслеживает появление новых JSON-файлов с метаданными в выделенной папке [бакета](../../../storage/concepts/bucket.md) или любой из ее подпапок.
-1. Когда в папке появляются новые файлы, триггер вызывает [функцию](../../../functions/concepts/function.md) `workflow-call`, которая запускает [рабочий процесс {{ sw-name }}](../../../serverless-integrations/concepts/workflows/workflow.md).
+1. [Триггер]({{ link-docs }}/functions/concepts/trigger/os-trigger) для {{ objstorage-name }} отслеживает появление новых JSON-файлов с метаданными в выделенной папке [бакета]({{ link-docs }}/storage/concepts/bucket) или любой из ее подпапок.
+1. Когда в папке появляются новые файлы, триггер вызывает [функцию]({{ link-docs }}/functions/concepts/function) `workflow-call`, которая запускает [рабочий процесс {{ sw-name }}]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow).
 1. Рабочий процесс получает содержимое JSON-файлов с метаданными и проверяет их синтаксис с помощью функции `verify-file`.
-1. Рабочий процесс получает параметры подключения {{ speechsense-name }} из [секрета {{ lockbox-full-name }}](../../../lockbox/concepts/secret.md).
+1. Рабочий процесс получает параметры подключения {{ speechsense-name }} из [секрета {{ lockbox-full-name }}]({{ link-docs }}/lockbox/concepts/secret).
 1. Путь к аудиозаписи или текстовому файлу, а также их метаданные передаются в функцию загрузки `speechsense-upload`.
 1. Функция `speechsense-upload` загружает файлы и их метаданные в пространство {{ speechsense-name }}.
 1. Во время выполнения рабочий процесс обращается к БД с метаданными:
@@ -51,10 +51,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Сервис {{ speechsense-name }}: длительность каждого двухканального аудиофайла или количество символов в каждом текстовом диалоге ([тарифы {{ speechsense-name }}]({{ link-docs-ai }}speechsense/pricing)).
-* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
-* Кластер {{ mpg-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
-* Функция {{ sf-full-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы ([тарифы {{ sf-name }}](../../../functions/pricing.md)).
-* Секрет {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним ([тарифы {{ lockbox-name }}](../../../lockbox/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}]({{ link-docs }}/storage/pricing)).
+* Кластер {{ mpg-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mpg-name }}]({{ link-docs }}/managed-postgresql/pricing)).
+* Функция {{ sf-full-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы ([тарифы {{ sf-name }}]({{ link-docs }}/functions/pricing)).
+* Секрет {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним ([тарифы {{ lockbox-name }}]({{ link-docs }}/lockbox/pricing)).
 
 ### Создайте сервисные аккаунты {#create-sa}
 
@@ -69,12 +69,12 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md): `deploy-sa`.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли: [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin), `serverless.workflows.admin`.
+  1. Введите имя [сервисного аккаунта]({{ link-docs }}/iam/concepts/users/service-accounts): `deploy-sa`.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли: [functions.admin]({{ link-docs }}/functions/security/index#functions-admin), [storage.editor]({{ link-docs }}/storage/security/index#storage-editor), [iam.editor]({{ link-docs }}/iam/roles-reference#iam-editor), [mdb.admin]({{ link-docs }}/iam/roles-reference#mdb-admin), `serverless.workflows.admin`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-  1. Повторите предыдущие шаги и создайте сервисный аккаунт `speechsense-sa` c ролями [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), `serverless.workflows.executor`.
+  1. Повторите предыдущие шаги и создайте сервисный аккаунт `speechsense-sa` c ролями [storage.viewer]({{ link-docs }}/storage/security/index#storage-viewer), [functions.functionInvoker]({{ link-docs }}/functions/security/index#functions-functionInvoker), [functions.mdbProxiesUser]({{ link-docs }}/functions/security/index#functions-mdbProxiesUser), [lockbox.payloadViewer]({{ link-docs }}/lockbox/security/index#lockbox-payloadViewer), `serverless.workflows.executor`.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -99,9 +99,9 @@
 
       Сохраните идентификатор сервисного аккаунта `deploy-sa` (`id`) и каталога, в котором его создали (`folder_id`).
 
-      Подробнее о команде `yc iam service-account create` читайте в [справочнике CLI](../../../cli/cli-ref/iam/cli-ref/service-account/create.md).
+      Подробнее о команде `yc iam service-account create` читайте в [справочнике CLI]({{ link-docs }}/cli/cli-ref/iam/cli-ref/service-account/create).
 
-  1. Назначьте сервисному аккаунту `deploy-sa` роли [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin), `serverless.workflows.admin` на каталог, указав сохраненные ранее идентификаторы каталога и сервисного аккаунта:
+  1. Назначьте сервисному аккаунту `deploy-sa` роли [functions.admin]({{ link-docs }}/functions/security/index#functions-admin), [storage.editor]({{ link-docs }}/storage/security/index#storage-editor), [iam.editor]({{ link-docs }}/iam/roles-reference#iam-editor), [mdb.admin]({{ link-docs }}/iam/roles-reference#mdb-admin), `serverless.workflows.admin` на каталог, указав сохраненные ранее идентификаторы каталога и сервисного аккаунта:
 
       ```bash
       yc resource-manager folder add-access-binding <идентификатор_каталога> \
@@ -111,20 +111,20 @@
   
       Команда принимает только одну роль за раз.
 
-      Подробнее о команде `yc resource-manager folder add-access-binding` читайте в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
+      Подробнее о команде `yc resource-manager folder add-access-binding` читайте в [справочнике CLI]({{ link-docs }}/cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding).
 
-      Если вы будете создавать секрет {{ lockbox-name }} через {{ yandex-cloud }} CLI  от имени сервисного аккаунта `deploy-sa`, также назначьте ему роль [lockbox.editor](../../../lockbox/security/index.md#lockbox-editor).
+      Если вы будете создавать секрет {{ lockbox-name }} через {{ yandex-cloud }} CLI  от имени сервисного аккаунта `deploy-sa`, также назначьте ему роль [lockbox.editor]({{ link-docs }}/lockbox/security/index#lockbox-editor).
 
-  1. Повторите предыдущие шаги и создайте сервисный аккаунт `speechsense-sa` c ролями [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), `serverless.workflows.executor`.
+  1. Повторите предыдущие шаги и создайте сервисный аккаунт `speechsense-sa` c ролями [storage.viewer]({{ link-docs }}/storage/security/index#storage-viewer), [functions.functionInvoker]({{ link-docs }}/functions/security/index#functions-functionInvoker), [functions.mdbProxiesUser]({{ link-docs }}/functions/security/index#functions-mdbProxiesUser), [lockbox.payloadViewer]({{ link-docs }}/lockbox/security/index#lockbox-payloadViewer), `serverless.workflows.executor`.
 
 - API {#api}
 
   
-  Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService.Create](../../../iam/api-ref/grpc/ServiceAccount/create.md).
+  Чтобы создать сервисный аккаунт, воспользуйтесь методом [create]({{ link-docs }}/iam/api-ref/ServiceAccount/create) для ресурса [ServiceAccount]({{ link-docs }}/iam/api-ref/ServiceAccount/index) или вызовом gRPC API [ServiceAccountService.Create]({{ link-docs }}/iam/api-ref/grpc/ServiceAccount/create).
 
-  Чтобы назначить сервисному аккаунту `deploy-sa` роли [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin) и `serverless.workflows.admin`, воспользуйтесь методом [setAccessBindings](../../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService.SetAccessBindings](../../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
+  Чтобы назначить сервисному аккаунту `deploy-sa` роли [functions.admin]({{ link-docs }}/functions/security/index#functions-admin), [storage.editor]({{ link-docs }}/storage/security/index#storage-editor), [iam.editor]({{ link-docs }}/iam/roles-reference#iam-editor), [mdb.admin]({{ link-docs }}/iam/roles-reference#mdb-admin) и `serverless.workflows.admin`, воспользуйтесь методом [setAccessBindings]({{ link-docs }}/iam/api-ref/ServiceAccount/setAccessBindings) для ресурса [ServiceAccount]({{ link-docs }}/iam/api-ref/ServiceAccount/index) или вызовом gRPC API [ServiceAccountService.SetAccessBindings]({{ link-docs }}/iam/api-ref/grpc/ServiceAccount/setAccessBindings).
 
-  Таким же способом назначьте сервисному аккаунту `speechsense-sa` роли [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), `serverless.workflows.executor`.
+  Таким же способом назначьте сервисному аккаунту `speechsense-sa` роли [storage.viewer]({{ link-docs }}/storage/security/index#storage-viewer), [functions.functionInvoker]({{ link-docs }}/functions/security/index#functions-functionInvoker), [functions.mdbProxiesUser]({{ link-docs }}/functions/security/index#functions-mdbProxiesUser), [lockbox.payloadViewer]({{ link-docs }}/lockbox/security/index#lockbox-payloadViewer), `serverless.workflows.executor`.
 
 
 {% endlist %}
@@ -137,12 +137,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится сервисный аккаунт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится сервисный аккаунт.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Выберите сервисный аккаунт `speechsense-sa`.
   1. На панели сверху нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
-  1. В открывшемся окне в поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите [область действия](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.speech-sense.use`.
+  1. В открывшемся окне в поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите [область действия]({{ link-docs }}/iam/concepts/authorization/api-key#scoped-api-keys) `yc.speech-sense.use`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните идентификатор и секретный ключ.
 
@@ -175,7 +175,7 @@
 - API {#api}
 
   
-  Создайте API-ключ с помощью метода REST API [create](../../../iam/api-ref/ApiKey/create.md) для ресурса [ApiKey](../../../iam/api-ref/ApiKey/index.md):
+  Создайте API-ключ с помощью метода REST API [create]({{ link-docs }}/iam/api-ref/ApiKey/create) для ресурса [ApiKey]({{ link-docs }}/iam/api-ref/ApiKey/index):
 
 
   ```bash
@@ -192,10 +192,10 @@
   Где:
 
   
-  * `SERVICEACCOUNT_ID` — [идентификатор](../../../iam/operations/sa/get-id.md) сервисного аккаунта.
-  * `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
+  * `SERVICEACCOUNT_ID` — [идентификатор]({{ link-docs }}/iam/operations/sa/get-id) сервисного аккаунта.
+  * `IAM_TOKEN` — [IAM-токен]({{ link-docs }}/iam/concepts/authorization/iam-token).
 
-  Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService.Create](../../../iam/api-ref/grpc/ApiKey/create.md).
+  Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService.Create]({{ link-docs }}/iam/api-ref/grpc/ApiKey/create).
 
 
 {% endlist %}      
@@ -207,9 +207,9 @@
 - Интерфейс {{ speechsense-name }} {#speechsense}
 
   1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.spaces.create-space_FvLT9 }}**.
   1. Введите название пространства.
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create_JTJlL }}**.
 
 {% endlist %}
 
@@ -223,10 +223,10 @@
 
   1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
   1. Перейдите в [новое пространство](#create-space).
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization-key-value }}**.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant_MeT49 }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization_2PoId }}**.
   1. Cкопируйте идентификатор [созданного ранее сервисного аккаунта](#create-sa) `speechsense-sa` и вставьте в строку поиска.
-  1. Выберите сервисный аккаунт `speechsense-sa` и укажите роль [{{ roles-speechsense-data-editor }}]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor). Эта роль позволит сервисному аккаунту `speechsense-sa` загружать данные в {{ speechsense-name }}.
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.add }}**.
+  1. Выберите сервисный аккаунт `speechsense-sa` и укажите роль [{{ roles-speechsense-data-editor }}]({{ link-docs-ai }}speechsense/security/index#speechsense-data-editor). Эта роль позволит сервисному аккаунту `speechsense-sa` загружать данные в {{ speechsense-name }}.
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.add_694qE }}**.
 
 {% endlist %}
 
@@ -242,25 +242,25 @@
 
   1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
   1. Перейдите в нужное пространство.
-  1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-talkanalytics.common.more }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-talkanalytics.common.more_Dnm3Y }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
   1. Укажите название подключения.
-  1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}**.
-  1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**:
+  1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type_13ZZh }}**.
+  1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator_aKjP0 }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client_qq11P }}**:
 
       1. Укажите каналы, в которых записаны голос оператора и голос клиента.
       1. Укажите для оператора и клиента ключи из файла метаданных. Этот файл содержит информацию о звонке, полученную из CRM-систем, АТС или других источников.
 
-        По умолчанию в подключение добавлены ключи с именем и идентификатором оператора и клиента. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
+        По умолчанию в подключение добавлены ключи с именем и идентификатором оператора и клиента. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
 
-        Чтобы указать дополнительные метаданные для оператора и клиента, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+        Чтобы указать дополнительные метаданные для оператора и клиента, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}** укажите не связанные с оператором и клиентом ключи из файла метаданных.
+  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.fields_QO3t6 }}** укажите не связанные с оператором и клиентом ключи из файла метаданных.
 
-      По умолчанию в подключение добавлены ключи с датой, направлением звонка и языком диалога. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
+      По умолчанию в подключение добавлены ключи с датой, направлением звонка и языком диалога. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
 
-      Чтобы указать дополнительные метаданные, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+      Чтобы указать дополнительные метаданные, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
 
 {% endlist %}
 
@@ -272,22 +272,22 @@
 
   1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
   1. Перейдите в нужное пространство.
-  1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-talkanalytics.common.more }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-talkanalytics.common.more_Dnm3Y }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
   1. Укажите название подключения.
-  1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}**.
-  1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.bot }}** укажите ключи из файла метаданных. Этот файл содержит информацию о диалоге, полученную из чатов, CRM-систем или других источников.
+  1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type_NWiH4 }}**.
+  1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator_aKjP0 }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client_qq11P }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.bot_ySBIh }}** укажите ключи из файла метаданных. Этот файл содержит информацию о диалоге, полученную из чатов, CRM-систем или других источников.
 
-      По умолчанию в подключение добавлены ключи с именем и идентификатором оператора, клиента и бота. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
+      По умолчанию в подключение добавлены ключи с именем и идентификатором оператора, клиента и бота. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
 
-      Чтобы указать дополнительные метаданные для оператора, клиента и бота, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+      Чтобы указать дополнительные метаданные для оператора, клиента и бота, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}** укажите не связанные с оператором, клиентом и ботом ключи из файла метаданных.
+  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.fields_QO3t6 }}** укажите не связанные с оператором, клиентом и ботом ключи из файла метаданных.
 
-      По умолчанию в подключение добавлены ключи с датой, направлением и языком диалога. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
+      По умолчанию в подключение добавлены ключи с датой, направлением и языком диалога. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
 
-      Чтобы указать дополнительные метаданные, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+      Чтобы указать дополнительные метаданные, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
 
 {% endlist %}
 
@@ -299,10 +299,10 @@
 
   1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
   1. Перейдите в нужное пространство.
-  1. Нажмите кнопку ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+  1. Нажмите кнопку ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project_buUAo }}**.
   1. Введите имя проекта.
-  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.connection }}** нажмите **{{ ui-key.yc-ui-talkanalytics.projects.add-connection }}** и выберите подключение, созданное [ранее](#create-connection).
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.connection_SezJG }}** нажмите **{{ ui-key.yc-ui-talkanalytics.projects.add-connection_bxENx }}** и выберите подключение, созданное [ранее](#create-connection).
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.projects.create-project_buUAo }}**.
 
 {% endlist %}
 
@@ -329,7 +329,7 @@
 
     - {{ yandex-cloud }} CLI {#cli}
 
-      1. Создайте [авторизованный ключ](../../../iam/concepts/authorization/key.md) для сервисного аккаунта `deploy-sa` и запишите его в файл:
+      1. Создайте [авторизованный ключ]({{ link-docs }}/iam/concepts/authorization/key) для сервисного аккаунта `deploy-sa` и запишите его в файл:
       
           ```bash
           yc iam key create --output <путь_к_файлу_ключа> --service-account-name deploy-sa
@@ -346,7 +346,7 @@
           key_algorithm: RSA_2048
           ```
       
-          Подробнее о команде `yc iam key create` смотрите в [справочнике CLI](../../../cli/cli-ref/iam/cli-ref/service-account/create.md).
+          Подробнее о команде `yc iam key create` смотрите в [справочнике CLI]({{ link-docs }}/cli/cli-ref/iam/cli-ref/service-account/create).
 
        1. Создайте профиль, который будет использоваться для выполнения операций от имени сервисного аккаунта `deploy-sa`:
 
@@ -375,7 +375,7 @@
     {% endlist %}
 
     
-    В командной строке введите [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), имя сервисного аккаунта `speechsense-sa`, от которого будут вызываться функции и запускаться рабочий процесс, и [имя бакета](../../../storage/concepts/bucket.md#naming).
+    В командной строке введите [идентификатор каталога]({{ link-docs }}/resource-manager/operations/folder/get-id), имя сервисного аккаунта `speechsense-sa`, от которого будут вызываться функции и запускаться рабочий процесс, и [имя бакета]({{ link-docs }}/storage/concepts/bucket#naming).
 
 
     Примерное время выполнения скрипта — 10-15 минут.
@@ -387,7 +387,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать секрет.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя секрета: `speechsense-secret`.
 
@@ -443,7 +443,7 @@
 - API {#api}
 
   
-  Чтобы создать секрет, воспользуйтесь методом REST API [create](../../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService.Create](../../../lockbox/api-ref/grpc/Secret/create.md).
+  Чтобы создать секрет, воспользуйтесь методом REST API [create]({{ link-docs }}/lockbox/api-ref/Secret/create) для ресурса [Secret]({{ link-docs }}/lockbox/api-ref/Secret/index) или вызовом gRPC API [SecretService.Create]({{ link-docs }}/lockbox/api-ref/grpc/Secret/create).
 
 
 {% endlist %}
@@ -473,7 +473,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Нажмите на имя кластера, [созданного ранее](#infra). По умолчанию это `speechsense-upload-metadata`.
         1. Выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}**.
         1. Нажмите на имя подключения, которое заканчивается на `-uploader`.
@@ -498,7 +498,7 @@
   Чтобы создать папку:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите нужный бакет.
     1. Нажмите **{{ ui-key.yacloud.storage.bucket.button_create }}** и укажите имя папки.
     1. Нажмите на кнопку **{{ ui-key.yacloud.storage.bucket.popup-create-folder_button_create }}**.
@@ -522,7 +522,7 @@
 
 - AWS CLI {#aws-cli}
 
-  Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../../storage/tools/aws-cli.md).
+  Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его]({{ link-docs }}/storage/tools/aws-cli).
 
   Чтобы создать папку, выполните команду:
 
@@ -543,7 +543,7 @@
 
 - API {#api}
 
-  Чтобы создать папку, воспользуйтесь методом S3 API [upload](../../../storage/s3/api-ref/object/upload.md).
+  Чтобы создать папку, воспользуйтесь методом S3 API [upload]({{ link-docs }}/storage/s3/api-ref/object/upload).
 
 {% endlist %}
 
@@ -644,13 +644,13 @@
   Чтобы загрузить файлы:
 
     1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-    1. Перейдите в бакет, в который нужно загрузить файлы.
+    1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Откройте бакет, в который нужно загрузить файлы.
     1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
     1. Перейдите в нужную папку, нажав на ее имя.
     1. Оказавшись в нужной папке, на верхней панели нажмите ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
     1. В появившемся окне выберите необходимые файлы и нажмите **Открыть**.
-    1. Консоль управления отобразит все файлы, выбранные для загрузки, и предложит для каждого из них выбрать [класс хранилища](../../../storage/concepts/storage-class.md). Класс хранилища по умолчанию определяется [настройкой бакета](../../../storage/concepts/bucket.md#bucket-settings).
+    1. Консоль управления отобразит все файлы, выбранные для загрузки, и предложит для каждого из них выбрать [класс хранилища]({{ link-docs }}/storage/concepts/storage-class). Класс хранилища по умолчанию определяется [настройкой бакета]({{ link-docs }}/storage/concepts/bucket#bucket-settings).
     1. Нажмите **{{ ui-key.yacloud.storage.button_upload }}**.
     1. Обновите страницу.
 
@@ -704,7 +704,7 @@
 
 - API {#api}
 
-  Чтобы загрузить файл, воспользуйтесь методом S3 API [upload](../../../storage/s3/api-ref/object/upload.md).     
+  Чтобы загрузить файл, воспользуйтесь методом S3 API [upload]({{ link-docs }}/storage/s3/api-ref/object/upload).     
 
 {% endlist %}
 
@@ -723,7 +723,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Перейдите]({{ link-console-main }}/link/serverless-integrations) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. На панели слева выберите ![GraphNode](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Нажмите на имя рабочего процесса. По умолчанию это `wf-speechsense-upload`.
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}**.
@@ -752,14 +752,14 @@
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать.
 
 
-1. [Удалите](../../../storage/operations/buckets/delete.md) объекты в бакете {{ objstorage-name }} и сам бакет.
-1. [Удалите](../../../managed-postgresql/operations/cluster-delete.md) кластер {{ mpg-name }}.
-1. [Удалите](../../../functions/operations/trigger/trigger-delete.md) триггер для вызова функции {{ sf-name }}.
-1. [Удалите](../../../functions/operations/function/function-delete.md) функции {{ sf-name }}.
+1. [Удалите]({{ link-docs }}/storage/operations/buckets/delete) объекты в бакете {{ objstorage-name }} и сам бакет.
+1. [Удалите]({{ link-docs }}/managed-postgresql/operations/cluster-delete) кластер {{ mpg-name }}.
+1. [Удалите]({{ link-docs }}/functions/operations/trigger/trigger-delete) триггер для вызова функции {{ sf-name }}.
+1. [Удалите]({{ link-docs }}/functions/operations/function/function-delete) функции {{ sf-name }}.
 1. Удалите подключение к базе данных кластера {{ mpg-name }}:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите удалить подключение.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
     1. В строке с подключением `speechsense-upload-metadata-connection` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
     1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
@@ -767,7 +767,7 @@
 1. Удалите рабочий процесс {{ sw-name }}:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите удалить рабочий процесс.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+    1. [Перейдите]({{ link-console-main }}/link/serverless-integrations) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. На панели слева выберите ![GraphNode](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. В строке с рабочим процессом `wf-speechsense-upload` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
     1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.

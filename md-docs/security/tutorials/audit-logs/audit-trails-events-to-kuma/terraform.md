@@ -46,7 +46,7 @@ Terraform распространяется под лицензией [Business S
 
 Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../../terraform/index.md).
 
-Чтобы создайть инфраструктуру с помощью Terraform:
+Чтобы создать инфраструктуру с помощью Terraform:
 
 1. [Установите Terraform](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файл с описанием инфраструктуры:
@@ -377,7 +377,7 @@ Terraform распространяется под лицензией [Business S
     "YCNpH34y9fzL6xEap3wkuxYfkc1PTNvr********"
     ```
 
-После создания инфраструктуры [cмонтируйте бакет на сервере](#mount-bucket) и [настройте коллектор KUMA](#setup-collector).
+После создания инфраструктуры [смонтируйте бакет на сервере](#mount-bucket) и [настройте коллектор KUMA](#setup-collector).
 
 
 ## Смонтируйте бакет на сервере {#mount-bucket}

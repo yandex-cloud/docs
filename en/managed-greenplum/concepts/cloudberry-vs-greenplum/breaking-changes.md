@@ -1098,6 +1098,11 @@ Modify the application codebase and scripts to remove all references to removed 
 
 ## Configuration and resource management changes {#config-updates}
 
+### Changes to how resource groups work {#resource-groups}
+
+For a detailed description of the differences in how resource groups work in {{ CB }} and {{ GP }}, see [this article](../resource-groups.md).
+
+
 ### Removal of configuration parameters {#config-params}
 
 As opposed to {{ GP }}, {{ CB }} no longer includes the following configuration parameters:

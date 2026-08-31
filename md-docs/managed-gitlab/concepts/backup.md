@@ -1,18 +1,22 @@
 [Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Концепции](index.md) > Резервные копии
 
-# Резервные копии в Managed Service for GitLab
+# Резервные копии в Yandex Managed Service for GitLab
 
-Managed Service for GitLab обеспечивает автоматическое и ручное резервное копирование [инстанса](index.md#instance).
+Managed Service for GitLab обеспечивает автоматическое и ручное резервное копирование [инстанса](index.md#instance). Вы можете восстановить инстанс или создать новый из резервной копий.
+
+{% note warning %}
 
 Помимо содержимого базы данных, репозиториев и вложений в резервную копию попадают секреты: SSH-ключи, токены и т. д.
 
-Чтобы восстановить инстанс из резервной копии, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+{% endnote %}
+
+Чтобы восстановить инстанс из резервной копии, [следуйте инструкции](../operations/instance/instance-backups.md#restore).
 
 ## Создание резервной копии {#size}
 
 Резервная копия автоматически создается раз в день. Отключить создание резервных копий нельзя.
 
-Как вручную создать резервную копию, читайте в разделе [Управление резервными копиями](../operations/instance/instance-backups.md).
+Как вручную создать резервную копию, читайте в разделе [Работа с резервными копиями в Yandex Managed Service for GitLab](../operations/instance/instance-backups.md).
 
 Если создание резервных копий завершается ошибкой (статус `Failed`), [настройте отдельную группу безопасности](../operations/configure-security-group.md) и привяжите ее к инстансу GitLab.
 
@@ -29,3 +33,8 @@ Managed Service for GitLab обеспечивает автоматическое
 При удалении инстанса автоматически создается резервная копия, которая хранится в течение двух недель.
 
 Объем резервных копий, которые хранятся в Yandex Object Storage, тарифицируется в соответствии с [Правилами тарификации](../pricing.md#prices-storage).
+
+#### Полезные ссылки {#see-also}
+
+* [Работа с резервными копиями в Yandex Managed Service for GitLab](../operations/instance/instance-backups.md)
+* [Взаимосвязь ресурсов в Managed Service for GitLab](index.md)

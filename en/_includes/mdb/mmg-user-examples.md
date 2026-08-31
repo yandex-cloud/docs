@@ -8,8 +8,8 @@ To add a new `user2` account with read-only access for the `db1` database to an 
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Enter `user2` for username and enter a password (from 8 to 128 characters).
@@ -25,22 +25,24 @@ To add a new `user2` account with read-only access for the `db1` database to an 
   yc managed-mongodb user create user2 \
     --cluster-name <cluster_name> \
     --password <user_password> \
-    --permission database=db1,role=read
+    --permission database=db1,role=read \
+    --deletion-protection=true
   ```
 
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](../../storedoc/operations/cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](../../storedoc/operations/cluster-create.md).
 
   1. Add the `yandex_mdb_mongodb_user` resource:
 
       ```hcl
       resource "yandex_mdb_mongodb_user" "user2" {
-        cluster_id = <cluster_ID>
-        name       = "user2"
-        password   = "<password>"
+        cluster_id          = <cluster_ID>
+        name                = "user2"
+        password            = "<password>"
+        deletion_protection = true
         permission {
           database_name = "db1"
           roles         = [ "read" ]
@@ -68,8 +70,8 @@ To grant read-only access to the `db2` database to an existing `cluster1` user n
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click `cluster1` and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with `user1` and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Click **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** and select `db2` as your database.
@@ -91,16 +93,17 @@ To grant read-only access to the `db2` database to an existing `cluster1` user n
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](../../storedoc/operations/cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](../../storedoc/operations/cluster-create.md).
 
   1. Locate the `yandex_mdb_mongodb_user` resource.
   1. Add the `permission` section:
 
       ```hcl
       resource "yandex_mdb_mongodb_user" "user1" {
-        cluster_id = <cluster_ID>
-        name       = "user1"
-        password   = "<password>"
+        cluster_id          = <cluster_ID>
+        name                = "user1"
+        password            = "<password>"
+        deletion_protection = true
         permission {
           database_name = "db2"
           roles         = [ "read" ]

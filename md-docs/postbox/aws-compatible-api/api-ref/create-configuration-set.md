@@ -19,6 +19,9 @@ POST /v2/email/configuration-sets HTTP/2
 ```json
 {
   "ConfigurationSetName": "<название_конфигурации>",
+  "SuppressionOptions": {
+    "SuppressedReasons": ["BOUNCE", "COMPLAINT"]
+  },
   "Tags": [
     {
       "Key": "<ключ_метки>",
@@ -33,6 +36,14 @@ POST /v2/email/configuration-sets HTTP/2
 || `ConfigurationSetName` | **Тип**: string.
 
 Название конфигурации.  ||
+|| `SuppressionOptions` | **Тип**: object.
+
+Настройки [стоп-листа](../../concepts/suppression-list.md) для конфигурации. Содержит массив `SuppressedReasons`. ||
+|| `SuppressedReasons` | **Тип**: array.
+
+[Причины](../../concepts/suppression-list.md#reasons), по которым адрес из стоп-листа блокирует отправку письма. Возможные значения элементов массива: `BOUNCE` и `COMPLAINT`.
+
+Если массив содержит значение `COMPLAINT`, адреса автоматически добавляются в стоп-лист по жалобам получателей. ||
 || `Tags` | **Тип**: array.
 
 Массив меток для конфигурации.
@@ -75,7 +86,7 @@ POST /v2/email/configuration-sets HTTP/2
 || **Код ошибки** | **Описание** ||
 || `400 BadRequestException` | В запросе переданы неправильные заголовки или параметры. ||
 || `404 NotFoundException` | Не найден запрашиваемый ресурс. ||
-|| `409 AlreadyExistsException` | Конфигурация с таким названием уже существует, выберите другие имя. ||
+|| `409 AlreadyExistsException` | Конфигурация с таким названием уже существует, выберите другое имя. ||
 || `409 ConcurrentModificationException` | Конфликт операций. Дождитесь завершения предыдущей операции и повторите запрос. ||
 || `429 TooManyRequestsException` | При вызове запроса превышена [квота](../../concepts/limits.md#postbox-quotas). ||
 || `429 LimitExceededException` | При вызове запроса превышен [лимит](../../concepts/limits.md). ||

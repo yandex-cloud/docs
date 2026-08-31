@@ -2,6 +2,7 @@
 
 # Хранение подключений и переменных Apache Airflow™ в Yandex Lockbox
 
+
 При работе с Yandex Managed Service for Apache Airflow™ вы можете использовать [Yandex Lockbox](../../../lockbox/index.md) для хранения артефактов, которые могут использоваться в DAG-файлах: подключений, переменных и конфигурационных данных. Yandex Lockbox интегрируется в Managed Service for Apache Airflow™ через провайдер [Yandex Lockbox Secret Backend](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/secrets-backends/yandex-cloud-lockbox-secret-backend.html). В результате доступ к хранилищу секретов настраивается автоматически.
 
 Ниже рассматривается [направленный ациклический граф (DAG)](../../../managed-airflow/concepts/index.md#about-the-service), выполняющий SQL-запрос `SELECT 1;` к БД в кластере Yandex Managed Service for PostgreSQL. Данные для подключения к БД хранятся в Yandex Lockbox и автоматически подставляются в граф.
@@ -34,7 +35,7 @@
    * `managed-airflow.integrationProvider`;
    * `lockbox.payloadViewer`.
 
-   {% note info }
+   {% note info %}
 
    Роль `lockbox.payloadViewer` не обязательно выдавать на весь каталог. Достаточно [назначить ее на конкретный секрет Yandex Lockbox](../../../lockbox/operations/secret-access.md) после [его создания](#create-lockbox-secret).
 

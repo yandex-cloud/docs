@@ -13,9 +13,10 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором нужно создать входящее DNS-подключение.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. На панели слева выберите ![nodes-down](../../_assets/console-icons/nodes-down.svg) **{{ ui-key.yacloud.dns.label_inbound-endpoints }}** и нажмите кнопку **{{ ui-key.yacloud.dns.DnsInboundEndpointsListScreen.create_button }}**. В открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать входящее DNS-подключение.
+  1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. На панели слева выберите ![nodes-down](../../_assets/console-icons/nodes-down.svg) **{{ ui-key.yacloud.dns.label_inbound-endpoints }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.dns.DnsInboundEndpointsListScreen.create_button }}**. В открывшемся окне:
 
       1. В поле **{{ ui-key.yacloud.common.name }}** задайте [имя](*name) создаваемого DNS-подключения.
       1. (Опционально) В поле **{{ ui-key.yacloud.common.description }}** задайте произвольное описание DNS-подключения.
@@ -47,7 +48,7 @@ description: Следуя данной инструкции, вы сможете
 
       ```bash
       yc dns inbound-endpoint create --help
-      ```   
+      ```
   1. Зарезервируйте IP-адрес для входящего DNS-подключения в нужной подсети:
 
       ```bash
@@ -122,7 +123,7 @@ description: Следуя данной инструкции, вы сможете
       Подробнее о команде `yc dns inbound-endpoint create` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/inbound-endpoint/create.md).
 
   1. (Опционально) После создания входящего DNS-подключения проверьте разрешение FQDN-имен через это подключение. Для этого выполните команду `dig`, указав IP-адрес входящего DNS-подключения и FQDN ресурса в {{ yandex-cloud }}.
-  
+
       Например:
 
       ```bash
@@ -212,7 +213,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы зарезервировать статический публичный IP-адрес, воспользуйтесь методом REST API [create](../../vpc/api-ref/Address/create.md) для ресурса [Address](../../vpc/api-ref/Address/index.md) или вызовом gRPC API [AddressService/Create](../../vpc/api-ref/grpc/Address/create.md).
+  Чтобы зарезервировать внутренний IP-адрес, воспользуйтесь методом REST API [create](../../vpc/api-ref/Address/create.md) для ресурса [Address](../../vpc/api-ref/Address/index.md) или вызовом gRPC API [AddressService/Create](../../vpc/api-ref/grpc/Address/create.md).
 
   Чтобы создать входящее DNS-подключение, воспользуйтесь методом REST API [create](../api-ref/DnsInboundEndpoint/create.md) для ресурса [DnsInboundEndpoint](../api-ref/DnsInboundEndpoint/index.md) или вызовом gRPC API [DnsInboundEndpointService/Create](../api-ref/grpc/DnsInboundEndpoint/create.md).
 
@@ -223,4 +224,4 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](../concepts/dns-connection.md)
 * [{#T}](../tutorials/dns-integration.md)
 
-[*name]: {% include [name-format](../../_includes/_popups/name-format-general.md) %}
+[*name]: {% include [name-format](../../_popups/name-format-general.md) %}

@@ -13,4 +13,4 @@ canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/con
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](terraform.md)
+[{#T}](terraform.md)

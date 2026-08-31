@@ -56,7 +56,7 @@ Learn more about creating a website based on a {{ compute-name }} VM instance [h
 
 <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplva6365yoayxar6ore?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
 1. Under **{{ ui-key.yacloud.cdn.value_stepper-main-settings }}**, configure the basic CDN resource settings:
     * Under **{{ ui-key.yacloud.cdn.label_section-content }}**:
@@ -103,4 +103,4 @@ Learn more about creating a website based on a {{ compute-name }} VM instance [h
 * [Renting a stock-configuration {{ baremetal-name }} server](../../baremetal/operations/servers/server-lease.md)
 * [Creating a website on the LAMP or LEMP stack](../../tutorials/web/lamp-lemp/index.md)
 * [Configuring a web server](../tutorials/protected-access-to-content/console.md#setup-web-server)
-* [Webinar: Reducing load on high-traffic infrastructure with Cloud CDN](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)
+* [Webinar: How to take load off a high-load infrastructure using Cloud CDN](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

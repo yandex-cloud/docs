@@ -18,9 +18,11 @@ Electronic document management is used for the electronic exchange of documents 
 
 ## Electronic document management operators {#operator}
 
-Documents are exchanged through electronic document management operators. They confirm that a document has been issued or received. {{ yandex-cloud }} works with the following providers:
+Documents are exchanged through electronic document management operators. The operators confirm that a document has been issued or received. {{ yandex-cloud }} works with the following operators:
 * [Kontur.Diadoc (SKB Kontur)](https://www.diadoc.ru/)
 * [SBIS (Tensor)](https://sbis.ru/)
+
+To exchange documents with other operators, set up [roaming](../operations/edo.md#roaming).
 
 ## What documents can be received via electronic document management {#document}
 
@@ -41,7 +43,7 @@ With EDM enabled, original documents are not provided.
 
 ## How to check if EDM is on {#check}
 
-1. Navigate to [**{{ billing-name }}**]({{ link-console-billing }}).
+1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 1. At the top of the page, select the account of interest.
 1. On the account page, under **{{ ui-key.yacloud_org.billing.account.dashboard-info.section_contract }}**:
      * If EDM is on, an EDM operator will be specified.

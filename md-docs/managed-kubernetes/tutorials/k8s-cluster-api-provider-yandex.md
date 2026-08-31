@@ -4,7 +4,7 @@
 
 # Создание управляемого пользователем (self-managed) кластера Kubernetes с помощью провайдера Yandex Cloud для Kubernetes Cluster API
 
-[Сluster-api-provider-yandex](https://github.com/yandex-cloud/cluster-api-provider-yandex) — провайдер для развертывания управляемого пользователем (self-managed) кластера Kubernetes в облачной инфраструктуре Yandex Cloud с помощью [Kubernetes Cluster API](https://cluster-api.sigs.k8s.io/).
+[Cluster-api-provider-yandex](https://github.com/yandex-cloud/cluster-api-provider-yandex) — провайдер для развертывания управляемого пользователем (self-managed) кластера Kubernetes в облачной инфраструктуре Yandex Cloud с помощью [Kubernetes Cluster API](https://cluster-api.sigs.k8s.io/).
 
 Кластер разворачивается на базе [виртуальных машин](../../compute/concepts/vm.md) Yandex Compute Cloud и [L7-балансировщика](../../application-load-balancer/concepts/application-load-balancer.md) Yandex Application Load Balancer.
 
@@ -52,12 +52,13 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входят:
-* Плата за вычислительные ресурсы и диски ВМ, на базе которых разворачивается кластер Kubernetes, вспомогательной ВМ, а также узлов управляющего кластера Managed Service for Kubernetes ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Yandex Application Load Balancer](../../application-load-balancer/pricing.md)).
-* Плата за использование мастера управляющего кластера Managed Service for Kubernetes и исходящий трафик ([тарифы Yandex Managed Service for Kubernetes](../pricing.md)).
-* Плата за [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) для вспомогательной ВМ и управляющего кластера Managed Service for Kubernetes ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за использование [NAT-шлюза](../../vpc/concepts/gateways.md) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Виртуальные машины: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Каждый активный L7-балансировщик: использование вычислительных ресурсов ([тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
+
 
 #### Опциональные траты {#optional-expenses}
 

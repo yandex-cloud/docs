@@ -14,8 +14,8 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder hosting your image.
-  1. Navigate to **{{ compute-name }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images.label_title }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images.label_title }}**.
   1. Select the image you need.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
@@ -41,7 +41,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      yc compute image list
      ```
 
-  1. View the roles already assigned for the resource:
+  1. View the list of roles already assigned for the resource:
 
      ```bash
      yc compute image list-access-bindings <image_ID>
@@ -97,7 +97,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `image_id`: Image ID.
       * `role`: [Role](../../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_compute_image_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_image_iam_binding).
 
@@ -124,8 +124,8 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder hosting your image.
-  1. Navigate to **{{ compute-name }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images.label_title }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images.label_title }}**.
   1. Select the image you need.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
@@ -208,7 +208,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `image_id`: Image ID.
       * `role`: [Role](../../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_compute_image_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_image_iam_binding).
 
@@ -241,8 +241,8 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder hosting your image.
-  1. Navigate to **{{ compute-name }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images.label_title }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images.label_title }}**.
   1. Select the image you need.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. In the line with the user in question, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.

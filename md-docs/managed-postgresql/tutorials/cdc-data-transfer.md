@@ -4,11 +4,12 @@
 
 # Поставка данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer
 
-Вы можете отслеживать изменения данных в _кластере-источнике_ Managed Service for PostgreSQL и отправлять их в _кластер-приемник_ Managed Service for Apache Kafka® с помощью технологии Change Data Capture (CDC).
 
-Чтобы настроить CDC с использованием сервиса Data Transfer:
+Вы можете отслеживать изменения данных в _кластере-источнике_ Yandex Managed Service for PostgreSQL и отправлять их в _кластер-приемник_ Yandex Managed Service for Apache Kafka® с помощью технологии Change Data Capture (CDC).
 
-1. [Подготовьте инфраструктуру](#infra).
+Чтобы настроить CDC с использованием сервиса Yandex Data Transfer:
+
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Подготовьте кластер-источник](#prepare-source).
 1. [Подготовьте кластер-приемник](#prepare-target).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
@@ -27,16 +28,16 @@
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../pricing.md)).
-* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Кластер Managed Service for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../pricing.md)).
+* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../data-transfer/pricing.md)).
 
 
-## Подготовьте инфраструктуру {#infra}
+
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 
 {% note info %}
@@ -205,7 +206,7 @@
 
     1. Помимо роли `ACCESS_ROLE_ADMIN` назначьте пользователю-администратору роли `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` на топики, имена которых начинаются с префикса `cdc`.
 
-        Необходимые топики будут созданы автоматически при первом событии изменения в отслеживаемых таблицах кластера-источника. Такое решение может быть удобным для отслеживания изменений во множестве таблиц, однако, требует запас свободного места в хранилище кластера. Подробнее в разделе [Хранилище в Managed Service for Apache Kafka®](../../managed-kafka/concepts/storage.md).
+        Необходимые топики будут созданы автоматически при первом событии изменения в отслеживаемых таблицах кластера-источника. Такое решение может быть удобным для отслеживания изменений во множестве таблиц, однако требует запаса свободного места в хранилище кластера. Подробнее в разделе [Хранилище в Managed Service for Apache Kafka®](../../managed-kafka/concepts/storage.md).
 
 {% endlist %}
 

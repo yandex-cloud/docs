@@ -12,7 +12,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.common.logs }}**.
     1. Укажите **Уровень** логов и период времени, за который нужно отобразить лог.
 
 - CLI {#cli}

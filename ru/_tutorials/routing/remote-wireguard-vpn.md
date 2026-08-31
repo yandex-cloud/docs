@@ -53,7 +53,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Введите имя сервисного аккаунта, например, `sa-firezone`.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -374,7 +374,7 @@
 
 - {{ TF }} {#tf}
 
-  1. Перейдите на вашей рабочей станции в папку `keycloak-config` и выполните команду `terraform destroy`.
-  1. После этого перейдите в папку `main` и выполните команду `terraform destroy`.
+  1. На рабочей станции в папке `keycloak-config` выполните команду `terraform destroy`.
+  1. В папке `main` выполните команду `terraform destroy`.
 
 {% endlist %}

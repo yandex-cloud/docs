@@ -7,7 +7,7 @@
 
 [HashiCorp Vault](https://www.vaultproject.io/) — инструмент с открытым исходным кодом, который обеспечивает безопасное хранение и доступ к различным секретам (паролям, сертификатам, токенам).
 
-Настройте хранение и доступ к секретам внутри кластера Yandex Managed Service for Kubernetes с помощью продукта Yandex Cloud Marketplace [HashiCorp Vault с поддержкой Key Management Service](https://yandex.cloud/ru/marketplace/products/yc/vault-yckms-k8s).
+Настройте хранение и доступ к секретам внутри кластера Yandex Managed Service for Kubernetes с помощью продукта Yandex Cloud Marketplace [HashiCorp Vault с поддержкой Yandex Key Management Service](https://yandex.cloud/ru/marketplace/products/yc/vault-yckms-k8s).
 
 В этом руководстве описан пример монтирования секрета из хранилища HashiCorp Vault через том [Container Storage Interface](https://kubernetes.io/docs/concepts/storage/volumes/#csi) (CSI).
 
@@ -26,12 +26,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичный IP-адрес, если он назначен узлам кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за сервис Key Management Service: количество активных версий ключа (в статусах `Active` и `Scheduled For Destruction`) и выполненных криптографических операций ([тарифы Key Management Service](../../kms/pricing.md)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Сервис Key Management Service: количество активных версий ключа и выполненных криптографических операций ([тарифы Key Management Service](../../kms/pricing.md)).
 
 
 ## Подготовьте облако к работе {#before-you-begin}

@@ -15,7 +15,7 @@ To view the statistics:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the backup [policy](../concepts/policy.md) was created in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Navigate]({{ link-monitoring }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Select the dashboard: **{{ backup-name }}**.
   1. In the **Resource name** field, select the resource you want to view statistics for.
 

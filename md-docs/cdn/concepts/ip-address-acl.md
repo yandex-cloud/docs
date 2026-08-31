@@ -32,3 +32,5 @@
 
 * [Создание ресурса](../operations/resources/create-resource.md)
 * [Изменение основных настроек ресурса](../operations/resources/configure-basics.md)
+* [Политика доступа по странам](geo-acl.md)
+* [Настройка политики доступа по странам](../operations/resources/configure-geo-acl.md)

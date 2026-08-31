@@ -11,8 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 	1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
 	1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
-	1. В строке с контейнером нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
-	1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+	1. В строке с контейнером нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
 	1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}

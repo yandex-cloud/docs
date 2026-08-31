@@ -17,7 +17,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где находится облачная сеть.
   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Выберите нужную сеть.
-  1. Перейдите на панель ![image](../../_assets/operations.svg) **Операции**.
+  1. Перейдите на вкладку ![image](../../_assets/operations.svg) **Операции**.
 
      В открывшемся списке отображаются операции с облачной сетью.
 
@@ -25,7 +25,9 @@
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список операций для ресурса сервиса Virtual Private Cloud, выполните команду:
 
@@ -88,46 +90,48 @@
 1. Скопируйте идентификатор нужной операции.
 1. Получите подробную информацию об операции:
 
-    {% list tabs group=instructions %}
+   {% list tabs group=instructions %}
 
-    - CLI {#cli}
+   - CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+     Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-      По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+     
+     Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-      Выполните команду:
+     Выполните команду:
 
-      ```bash
-      yc operation get <идентификатор_операции>
-      ```
+     ```bash
+     yc operation get <идентификатор_операции>
+     ```
 
-      Результат:
+     Результат:
 
-      ```text
-      id: enp75021agjg********
-      description: Create network
-      created_at: "2024-02-01T10:16:51.955Z"
-      created_by: ajego134p5h1********
-      modified_at: "2024-02-01T10:16:53.389Z"
-      done: true
-      metadata:
-        '@type': type.googleapis.com/yandex.cloud.vpc.v1.CreateNetworkMetadata
-        network_id: enpgl5o8te3k********
-      response:
-        '@type': type.googleapis.com/yandex.cloud.vpc.v1.Network
-        id: enpgl5o8te3kke6q3psa
-        folder_id: b1gmit33ngp3********
-        created_at: "2024-02-01T10:16:51Z"
-        name: test-network
-        default_security_group_id: enp0catll8gm********
-        ```
+     ```text
+     id: enp75021agjg********
+     description: Create network
+     created_at: "2024-02-01T10:16:51.955Z"
+     created_by: ajego134p5h1********
+     modified_at: "2024-02-01T10:16:53.389Z"
+     done: true
+     metadata:
+       '@type': type.googleapis.com/yandex.cloud.vpc.v1.CreateNetworkMetadata
+       network_id: enpgl5o8te3k********
+     response:
+       '@type': type.googleapis.com/yandex.cloud.vpc.v1.Network
+       id: enpgl5o8te3kke6q3psa
+       folder_id: b1gmit33ngp3********
+       created_at: "2024-02-01T10:16:51Z"
+       name: test-network
+       default_security_group_id: enp0catll8gm********
+     ```
 
-    - API {#api}
+   - API {#api}
 
-      Воспользуйтесь методом REST API [get](../api-ref/Operation/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
+     Воспользуйтесь методом REST API [get](../api-ref/Operation/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
-    {% endlist %}
+   {% endlist %}
 
 #### Полезные ссылки {#see-also}
 

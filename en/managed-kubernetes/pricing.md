@@ -27,6 +27,8 @@ In {{ managed-k8s-name }}, you are charged for using [masters](concepts/index.md
 
 Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compute/pricing.md).
 
+If the cluster is stopped, master resources are not billable. You pay only for cluster-related resources, such as [virtual machine disks](../compute/pricing.md), [public IP addresses](../vpc/pricing.md), and [network load balancers](../network-load-balancer/pricing.md).
+
 
 
 ## Prices for the Russia region {#prices}

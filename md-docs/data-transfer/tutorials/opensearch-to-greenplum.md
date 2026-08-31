@@ -1,8 +1,9 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Миграция со сменой типа хранения данных > OpenSearch в Greenplum®
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Миграция со сменой типа хранения данных > OpenSearch в Greenplum®/Apache Cloudberry™
 
 # Копирование данных из Managed Service for OpenSearch в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer
 
 # Копирование данных из Yandex Managed Service for OpenSearch в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer
+
 
 С помощью сервиса Yandex Data Transfer вы можете перенести данные из кластера-источника Yandex Managed Service for OpenSearch в кластер-приемник Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL.
 

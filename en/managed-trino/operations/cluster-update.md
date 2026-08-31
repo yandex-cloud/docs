@@ -32,8 +32,8 @@ Learn more about other cluster updates:
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, change the cluster's name and description.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -222,8 +222,8 @@ Learn more about other cluster updates:
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select a service account or [create a new one](../../iam/operations/sa/create.md#create-sa) with the `managed-trino.integrationProvider` and `storage.editor` roles. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
@@ -262,7 +262,7 @@ Learn more about other cluster updates:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. Edit the `service_account_id` parameter in the cluster's description:
       
@@ -403,8 +403,8 @@ Learn more about other cluster updates:
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select {{ TR }}. You can either upgrade or downgrade the version.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -438,7 +438,7 @@ Learn more about other cluster updates:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
         
     1. Edit the `version` parameter in the cluster's description:
       
@@ -583,8 +583,8 @@ Learn more about other cluster updates:
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for the cluster.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -618,7 +618,7 @@ Learn more about other cluster updates:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. Edit the `security_group_ids` parameter in the cluster's description:
       
@@ -769,16 +769,23 @@ Learn more about other cluster updates:
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **Retry policy**, update the [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
         
         * Change the **Retry object type**.
         
         * Add or delete additional parameters in `key:value` format in the **Retry parameters** field. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
-        
-        * Add or delete additional Exchange Manager storage parameters in `key: value` format in the **Storage parameters** field. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+
+        * Add or delete additional Exchange Manager storage parameters in `key: value` format in the **{{ ui-key.yacloud.trino.field_retry-storage-properties }}** field. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+
+        * Edit the **{{ ui-key.yacloud.trino.field_retry-storage-type }}** for Exchange Manager:
+
+            * `serviceS3`: Service bucket on the {{ mtr-name }} side.
+            * `s3`: User's [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). In the **{{ ui-key.yacloud.trino.field_retry-storage-s3-bucket }}** field, enter a name for the bucket. Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role to the cluster's [service account](../../iam/concepts/users/service-accounts.md).
+
+            Lear more about storage types [here](../concepts/retry-policy.md#exchange-manager-storage).
 
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -804,6 +811,7 @@ Learn more about other cluster updates:
           --retry-policy <object_type_for_retry> \
           --retry-policy-additional-properties <list_of_additional_parameters> \
           --retry-policy-exchange-manager-service-s3 \
+          --retry-policy-exchange-manager-s3-bucket <user_bucket_name> \
           --retry-policy-exchange-manager-additional-properties <list_of_additional_parameters>
         ```
 
@@ -817,9 +825,14 @@ Learn more about other cluster updates:
             * `task`: Retries the intermediate task within the query that caused worker failure.
 
         * `--retry-policy-additional-properties`: Additional query retry parameters in `<key>=<value>` format. [Learn more about parameters in the {{ TR }} documentation]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
-          
-        * `--retry-policy-exchange-manager-service-s3`: Activates the use of a service {{ objstorage-short-name }} bucket as an Exchange Manager storage for intermediate data.
-          
+
+        * Exchange Manager storage parameters. Specify either of these two parameters:
+
+            * `--retry-policy-exchange-manager-service-s3`: Employ a service bucket on the {{ mtr-name }} side.
+            * `--retry-policy-exchange-manager-s3-bucket`: Employ the user's [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). Name the bucket. Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role to the cluster's [service account](../../iam/concepts/users/service-accounts.md).
+
+            Lear more about storage types [here](../concepts/retry-policy.md#exchange-manager-storage).
+
         * `--retry-policy-exchange-manager-additional-properties`: Additional Exchange Manager storage parameters in `<key>=<value>` format. [Learn more about parameters in the {{ TR }} documentation]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
 
         You can get the cluster name and ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
@@ -828,7 +841,7 @@ Learn more about other cluster updates:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. To enable a [fault-tolerant query execution](../concepts/retry-policy.md) policy, add a `retry_policy` section to the cluster description:
       
@@ -858,7 +871,10 @@ Learn more about other cluster updates:
               "policy": "<object_type_for_retry>",
               "exchangeManager": {
                 "storage": {
-                  "serviceS3": {}
+                  "serviceS3": {},
+                  "s3": {
+                    "bucket": "<user_bucket_name>"
+                  }
                 },
                 "additionalProperties": {<additional_storage_parameters>}
               },
@@ -884,6 +900,13 @@ Learn more about other cluster updates:
 
                 * `TASK`: Retries the intermediate task within the query that caused worker failure.
                 * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
+
+            * `exchangeManager.storage`: Bucket type used as Exchange Manager storage. Specify either of these two parameters:
+
+                * `serviceS3`: Use a service bucket on the {{ mtr-name }} side. `"serviceS3": {}`: Leave the object empty.
+                * `s3.bucket`: The name of the user's [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role to the cluster's [service account](../../iam/concepts/users/service-accounts.md).
+
+                Lear more about storage types [here](../concepts/retry-policy.md#exchange-manager-storage).
 
             * `exchangeManager.additionalProperties`: Additional Exchange Manager storage parameters in `key: value` format. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
@@ -926,7 +949,10 @@ Learn more about other cluster updates:
               "policy": "<object_type_for_retry>",
               "exchange_manager": {
                 "storage": {
-                  "service_s3": ""
+                  "service_s3": "",
+                  "s3": {
+                    "bucket": "<user_bucket_name>"
+                  }
                 },
                 "additional_properties": {<additional_storage_parameters>}
               },
@@ -971,6 +997,13 @@ Learn more about other cluster updates:
 
                 * `TASK`: Retries the intermediate task within the query that caused worker failure.
                 * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
+
+            * `exchange_manager.storage`: Bucket type used as Exchange Manager storage. Specify either of these two parameters:
+
+                * `service_s3`: Use a service bucket on the {{ mtr-name }} side. `"service_s3": ""`: Leave empty.
+                * `s3.bucket`: The name of the user's [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role to the cluster's [service account](../../iam/concepts/users/service-accounts.md).
+
+                Lear more about storage types [here](../concepts/retry-policy.md#exchange-manager-storage).
 
             * `exchange_manager.additional_properties`: Additional Exchange Manager storage parameters in `key: value` format. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
@@ -1038,7 +1071,7 @@ Learn more about other cluster updates:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. Under `query_properties`, update the settings of query execution and cluster resource allocation for queries:
 
@@ -1178,8 +1211,8 @@ Learn more about other cluster updates:
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Change the configuration of the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -1230,7 +1263,7 @@ Learn more about other cluster updates:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. Edit the [coordinator](../concepts/index.md#coordinator) and [worker](../concepts/index.md#workers) configuration under `coordinator` and `worker`, respectively:
       
@@ -1477,8 +1510,8 @@ Learn more about other cluster updates:
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Configure advanced cluster settings:
         
@@ -1566,7 +1599,7 @@ Learn more about other cluster updates:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. To enable cluster protection against accidental deletion, add the `deletion_protection = true` parameter:
         

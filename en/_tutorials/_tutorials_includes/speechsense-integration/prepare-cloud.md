@@ -20,7 +20,7 @@ Create a service account with the `speech-sense.data.editor` [role]({{ link-docs
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the [service account]({{ link-docs }}/iam/concepts/users/service-accounts): `speechsense`.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `speech-sense.data.editor`.
@@ -36,7 +36,7 @@ Create a service account with the `speech-sense.data.editor` [role]({{ link-docs
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service account was created in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the `speechsense` service account.
   1. In the top panel, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
@@ -60,9 +60,9 @@ Create a service account with the `speech-sense.data.editor` [role]({{ link-docs
 - {{ speechsense-name }} UI {#speechsense}
 
   1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-  1. Click **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
+  1. Click **{{ ui-key.yc-ui-talkanalytics.spaces.create-space_FvLT9 }}**.
   1. Enter a name for the [space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space).
-  1. Click **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
+  1. Click **{{ ui-key.yc-ui-talkanalytics.common.create_JTJlL }}**.
   1. [Link a billing account]({{ link-docs-ai }}speechsense/operations/space/link-ba) to the space to pay for {{ speechsense-name }}.
 
       {% include [manage-ba-note](../../../_includes/speechsense/manage-ba-note.md) %}
@@ -77,9 +77,9 @@ Create a service account with the `speech-sense.data.editor` [role]({{ link-docs
 - {{ speechsense-name }} UI {#speechsense}
 
   1. Navigate to the [new space](#create-space) in the {{ speechsense-name }} [interface]({{ link-speechsense-main }}).
-  1. Click ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization-key-value }}**.
+  1. Click ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant_MeT49 }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization_2PoId }}**.
   1. Copy the ID of the `speechsense` [service account you created earlier](#create-sa) and paste it to the search bar.
   1. Select the `speechsense` service account and specify the [{{ roles-speechsense-data-editor }}]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor) role. This role will allow the service account to upload data to {{ speechsense-name }}.
-  1. Click **{{ ui-key.yc-ui-talkanalytics.common.add }}**.
+  1. Click **{{ ui-key.yc-ui-talkanalytics.common.add_694qE }}**.
 
 {% endlist %}

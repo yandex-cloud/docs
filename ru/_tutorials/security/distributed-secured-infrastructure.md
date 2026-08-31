@@ -96,7 +96,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `secured-entry-point`.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
   1. Нажмите **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
   1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.user-accounts }}**.
@@ -121,8 +121,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в созданный каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** введите `alb-network`.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -175,8 +175,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Выберите облачную сеть `alb-network`.
   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке подсети `subnet-service-1` и выберите **{{ ui-key.yacloud.common.move }}**.
   1. В выпадающем списке выберите каталог `service-1`.
@@ -200,7 +200,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `service-1`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите `service-1-security-group`.
@@ -230,7 +230,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите `alb-security-group`.
@@ -259,7 +259,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите `vm-security-group`.
@@ -291,9 +291,9 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
-  1. Выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
+  1. Выберите `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
   1. Введите имя профиля — `sws-profile`.
   1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
   1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
@@ -315,7 +315,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.group.switch_instances }}**.
   1. Нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите операционную систему [Ubuntu 24.04](/marketplace/products/yc/ubuntu-2404-lts-oslogin).
@@ -377,7 +377,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите **{{ ui-key.yacloud.alb.button_load-balancer-create }}** и выберите **{{ ui-key.yacloud.alb.label_alb-create-wizard }}**. Визард перейдет на страницу создания целевых групп.
 
 {% endlist %}
@@ -501,7 +501,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Нажмите **{{ ui-key.yacloud.alb.button_target-group-create }}**.
   1. Создайте целевую группу для каталога `service-2` по образцу [целевой группы для каталога `service-1`](#setup-target-group). В качестве параметров целевого ресурса используйте:
@@ -597,7 +597,7 @@
     При запуске команды:
 
     * Будет создана папка `test-server` с двумя файлами: `hello_1.txt` и `test_1.txt`.
-    * Запустится встроенный в Python тестовый веб-сервис на порту `8000`.
+    * Запустится встроенный в Python тестовый веб-сервис на порте `8000`.
 
     Результат:
 
@@ -618,7 +618,7 @@
 ### Посмотрите проверки состояний {#check-healthchecking}
 
 1. Перейдите на страницу балансировщика `app-load-balancer`.
-1. Слева выберите ![healthcheck](../../_assets/application-load-balancer/healthchecks.svg) **{{ ui-key.yacloud.alb.label_healthchecks }}**.
+1. Выберите вкладку **{{ ui-key.yacloud.alb.label_healthchecks }}**.
 1. Убедитесь, что целевые ресурсы имеют во всех подсетях балансировщика статусы `HEALTHY`.
 
 
@@ -655,7 +655,7 @@ http://<публичный_IP-адрес_балансировщика>/<преф
         ```
 
     1. На другой вкладке браузера перейдите на страницу балансировщика `app-load-balancer`.
-    1. Слева выберите ![logs](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
+    1. Выберите вкладку **{{ ui-key.yacloud.common.logs }}**.
     1. В поле **{{ ui-key.yacloud.logging.label_filter-query }}** укажите [фильтрующее выражение](../../logging/concepts/filter.md):
 
         ```text
@@ -670,15 +670,15 @@ http://<публичный_IP-адрес_балансировщика>/<преф
 1. Добавьте запрещающее базовое правило:
 
     1. Перейдите на страницу профиля безопасности `sws-profile`.
-    1. В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_add-rule }}**.
+    1. В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
     1. Введите имя правила: `deny-rule`.
     1. В поле **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** установите значение `1000`.
-    1. В блоке **{{ ui-key.yacloud.smart-web-security.label_search-rule-type }}** оставьте значение **{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}**.
-    1. Параметр **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** оставьте в положении **{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}**.
+    1. В блоке **{{ ui-key.yacloud.smart-web-security.label_search-rule-type }}** оставьте значение `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
+    1. Параметр **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** оставьте в положении `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}`.
     1. Параметр **Трафик** установите в положение `При условии`.
     1. Далее выберите:
 
-        * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `IP`.
+        * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
         * **Условия на IP** — `Совпадает или принадлежит диапазону`.
         * **IP совпадает или принадлежит диапазону** — укажите IP-адрес устройства, с которого проводится тестирование веб-сервиса.
 
@@ -693,7 +693,7 @@ http://<публичный_IP-адрес_балансировщика>/<преф
         ```
 
     1. На другой вкладке браузера перейдите на страницу балансировщика `app-load-balancer`.
-    1. Слева выберите ![logs](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
+    1. Выберите вкладку **{{ ui-key.yacloud.common.logs }}**.
     1. В поле **{{ ui-key.yacloud.logging.label_filter-query }}** укажите фильтрующее выражение:
 
         ```text

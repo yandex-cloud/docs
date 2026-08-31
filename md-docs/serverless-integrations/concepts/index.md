@@ -13,16 +13,6 @@ Serverless Integrations позволяет:
 
 ## Доступные функциональности {#instruments}
 
-### Workflows {#workflows}
-
-{% note info %}
-
-Workflows находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
-Выстраивайте и автоматизируйте рабочие процессы при помощи декларативной спецификации Yandex Workflows Language (YaWL).
-
 ### EventRouter {#eventrouter}
 
 {% note info %}
@@ -32,7 +22,3 @@ EventRouter находится на стадии [Preview](../../overview/concep
 {% endnote %}
 
 Настраивайте обмен событиями между вашими сервисами и сервисами Yandex Cloud с возможностью их фильтрации, трансформации и маршрутизации.
-
-### API Gateway {#api-gateway}
-
-Создавайте API-шлюзы, которые поддерживают [спецификацию OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) и набор расширений для взаимодействия с сервисами Yandex Cloud. Подробнее в [документации API Gateway](../../api-gateway/index.md).

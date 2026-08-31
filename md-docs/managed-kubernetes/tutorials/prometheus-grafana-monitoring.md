@@ -6,7 +6,7 @@ Managed Service for Kubernetes позволяет выгружать метри�
 
 Из этой статьи вы узнаете, как настроить мониторинг [кластера Yandex Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster) с помощью Prometheus Operator с поддержкой Yandex Monitoring.
 
-Prometheus Operator с поддержкой Monitoring упрощает установку Prometheus Operator, популярного решения для мониторига кластеров Kubernetes, и добавляет интеграцию с системой мониторинга Yandex Monitoring. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных Prometheus и язык запросов [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/).
+Prometheus Operator с поддержкой Monitoring упрощает установку Prometheus Operator, популярного решения для мониторинга кластеров Kubernetes, и добавляет интеграцию с системой мониторинга Yandex Monitoring. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных Prometheus и язык запросов [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/).
 
 Чтобы настроить мониторинг кластера Managed Service for Kubernetes:
 
@@ -19,11 +19,9 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за мастер Managed Service for Kubernetes: ([тарифы Managed Service for Kubernetes](../pricing.md)).
-* Плата за узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса для хостов кластера Managed Service for Kubernetes и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -132,7 +130,8 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
    1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-   1. Нажмите на имя нужного кластера Kubernetes и выберите вкладку ![image](../../_assets/marketplace.svg) **Marketplace**.
+   1. Выберите [кластер Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster).
+   1. Нажмите на вкладку **Другое** ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите **Marketplace**.
    1. В разделе **Доступные для установки приложения** выберите [Prometheus Operator с поддержкой Monitoring](https://yandex.cloud/ru/marketplace/products/yc/prometheus-operator) и нажмите кнопку **Перейти к установке**.
    1. Задайте настройки приложения:
 

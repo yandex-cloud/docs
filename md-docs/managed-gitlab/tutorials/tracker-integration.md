@@ -40,7 +40,7 @@
 
 ## Подключите Яндекс Трекер {#enable-tracker}
 
-[Подключите Трекер](https://yandex.ru/support/tracker/ru/enable-tracker) к вашей [организации Yandex Cloud](../../organization/index.md).
+[Подключите Трекер](https://yandex.ru/support/tracker/ru/enable-tracker) к вашей [организации Yandex Cloud](../../organization/concepts/organization.md).
 
 ## Создайте инстанс GitLab {#create-gitlab}
 
@@ -119,7 +119,7 @@
 
 - ВМ с образом GitLab {#gl-image-vm}
 
-    1. Перейдите в сервис Yandex Compute Cloud.
+    1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис Yandex Compute Cloud.
     1. Выберите созданную [ВМ](../../compute/concepts/vm.md) и скопируйте ее [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
     1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH.
     1. Получите пароль администратора GitLab с помощью команды ВМ:

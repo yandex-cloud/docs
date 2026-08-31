@@ -78,6 +78,10 @@ items:
                     href: operations/workflows/constructor/aistudioagent.md
                   - name: Vector Store
                     href: operations/workflows/constructor/vectorstore.md
+                  - name: OCR
+                    href: operations/workflows/constructor/ocr.md
+                  - name: Speech recognition
+                    href: operations/workflows/constructor/stt.md
                   - name: '{{ sf-short-name }}'
                     href: operations/workflows/constructor/functioncall.md
                   - name: '{{ serverless-containers-name }}'
@@ -344,6 +348,10 @@ items:
                     href: concepts/workflows/yawl/integration/vectorstore.md
                   - name: DatabaseQuery
                     href: concepts/workflows/yawl/integration/databasequery.md
+                  - name: OCR
+                    href: concepts/workflows/yawl/integration/ocr.md
+                  - name: STT
+                    href: concepts/workflows/yawl/integration/stt.md
               - name: Control steps
                 items:
                   - name: Switch

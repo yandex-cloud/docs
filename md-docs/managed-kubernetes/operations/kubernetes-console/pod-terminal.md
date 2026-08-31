@@ -12,9 +12,8 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **Рабочая нагрузка**.
-  1. Нажмите на имя нужного пода.
-  1. В правом верхнем углу нажмите ![Terminal](../../../_assets/console-icons/terminal.svg) **Терминал**.
+  1. Выберите кластер Managed Service for Kubernetes и перейдите на вкладку **Рабочая нагрузка**.
+  1. В строке пода нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![Terminal](../../../_assets/console-icons/terminal.svg) **Подключиться**.
 
       В нижней части экрана откроется терминал.
   1. (Опционально) Если в поде несколько контейнеров, откроется терминал первого контейнера, указанного в манифесте пода в поле `spec.containers`.

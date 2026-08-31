@@ -48,6 +48,8 @@ Principal
     * `"*"`
     * `"CanonicalUser": "<subject_ID>"`
 
+    {% include [canonical-user-identification](../../../_includes/storage/canonical-user-identification.md) %}
+
 
 Condition
 
@@ -470,6 +472,6 @@ See [configuration examples](#conditional-writes-rules) for setting up condition
 }
 ```
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [{#T}](../../../storage/operations/buckets/policy.md)
+[{#T}](../../../storage/operations/buckets/policy.md)

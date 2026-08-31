@@ -20,7 +20,7 @@ To create a service account static access key:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the service account to create a static access key for.
   1. In the top panel, click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
@@ -84,7 +84,7 @@ To create a service account static access key:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
       ```hcl
       resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
@@ -110,7 +110,7 @@ To create a service account static access key:
          * `entry_for_access_key`: Secret key to assign to the static access key ID value you are saving.
          * `entry_for_secret_key`: Secret key to assign to the secret key value you are saving.
 
-     For more on the properties of the `yandex_iam_service_account_static_access_key` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+     For more on `yandex_iam_service_account_static_access_key` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
          
   1. Make sure the configuration files are correct.
 
@@ -199,7 +199,7 @@ To delete a service account static access key:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_service-account-keys }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the key to delete, and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-confirm_button_delete }}**.

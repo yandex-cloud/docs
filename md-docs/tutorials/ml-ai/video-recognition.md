@@ -67,8 +67,8 @@ Yandex DataSphere позволяет строить [модели машинно
 
 - Консоль управления {#console}
 
-   1. Перейдите в каталог `data-folder`.
-   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+   1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
    1. Нажмите кнопку **Создать сервисный аккаунт**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `sa-for-project`.
    1. Нажмите **Добавить роль** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
@@ -87,8 +87,8 @@ Yandex DataSphere позволяет строить [модели машинно
 
 - Консоль управления {#console}
 
-  1. Перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. В открывшемся списке выберите сервисный аккаунт `sa-for-project`.
   1. Нажмите кнопку **Создать новый ключ** на верхней панели.
@@ -104,8 +104,8 @@ Yandex DataSphere позволяет строить [модели машинно
 
 - Консоль управления {#console}
 
-   1. Перейдите в каталог `data-folder`.
-   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
    1. На панели слева выберите **Шлюзы**.
    1. Нажмите кнопку **Создать** и задайте настройки шлюза:
       * Введите имя шлюза, например `nat-for-cluster`.
@@ -140,8 +140,8 @@ Yandex DataSphere позволяет строить [модели машинно
 
 - Консоль управления {#console}
 
-   1. Перейдите в каталог `data-folder`.
-   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+   1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
    1. Нажмите **Создать бакет**.
    1. На странице создания бакета:
       1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
@@ -204,7 +204,7 @@ Yandex DataSphere позволяет строить [модели машинно
    1. В верхнем меню нажмите **Git** и выберите **Clone**.
    1. В открывшемся окне введите URI репозитория `https://github.com/yandex-cloud-examples/yc-datasphere-video-recognition.git` и нажмите кнопку **Clone**.
    
-   Дождитесь окончания клонирования, это может занять некоторое время. Папка cклонированного репозитория появится в разделе ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser**.
+   Дождитесь окончания клонирования, это может занять некоторое время. Папка склонированного репозитория появится в разделе ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser**.
 
 В репозитории содержатся два ноутбука: 
 

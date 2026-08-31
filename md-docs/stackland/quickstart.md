@@ -217,13 +217,13 @@ spec:
 Скачайте инструмент `sladm` и установочный образ:
 
 ```bash
-wget https://storage.yandexcloud.net/stackland-public/stackland/26.1.0/sladm-26.1.0-linux-amd64.zip
-unzip sladm-26.1.0-linux-amd64.zip
+wget https://storage.yandexcloud.net/stackland-public/stackland/26.2.1/sladm-26.2.1-linux-amd64.zip
+unzip sladm-26.2.1-linux-amd64.zip
 chmod +x sladm
 
-wget https://storage.yandexcloud.net/stackland-public/stackland/26.1.0/images/stackland-amd64-26.1.0.iso
-wget https://storage.yandexcloud.net/stackland-public/stackland/26.1.0/images/stackland-amd64-26.1.0.iso.sha256
-sha256sum -c stackland-amd64-26.1.0.iso.sha256
+wget https://storage.yandexcloud.net/stackland-public/stackland/26.2.1/images/stackland-amd64-26.2.1.iso
+wget https://storage.yandexcloud.net/stackland-public/stackland/26.2.1/images/stackland-amd64-26.2.1.iso.sha256
+sha256sum -c stackland-amd64-26.2.1.iso.sha256
 ```
 
 ### Подготовка секретов {#prepare-secrets}
@@ -251,6 +251,8 @@ sladm secrets add \
 ```
 
 Здесь под `ca.crt` и `ca.key` подразумеваются подписанный сертификат и ключ промежуточного CA. Подробнее про управление сертификатами см. в [разделе "Certificate Manager"](concepts/components/certificate-manager.md).
+
+В `--license-key` укажите путь к файлу с регистрационным ключом, полученным у поставщика. Подробнее см. в разделе [Лицензирование](concepts/licensing.md).
 
 Обновить существующий ресурс `StacklandSecretsConfig` можно командой `sladm secrets update`, которой следует передать новые лицензионный ключ, сертификат и ключ промежуточного CA в любой комбинации, используя те же флаги, что и в команде `sladm secrets add`. Например, команда
 
@@ -330,7 +332,7 @@ sladm validate --config config/
    * `--config` — путь к папке с конфигурационными файлами Stackland;
    * `--image-bundle` — тип пакета образов. Используйте `full` для полного набора всех необходимых образов.
 
-   Команда создаст папку `stackland-26.1.0-full-oci` с образами контейнеров в формате OCI. Папка занимает 20-25 ГБ.
+   Команда создаст папку `stackland-26.2.1-full-oci` с образами контейнеров в формате OCI. Папка занимает 20-25 ГБ.
 
    {% note info %}
 
@@ -340,9 +342,9 @@ sladm validate --config config/
 
 2. Подготовьте список файлов для переноса:
 
-   * `stackland-26.1.0-full-oci/` — папка с образами контейнеров;
+   * `stackland-26.2.1-full-oci/` — папка с образами контейнеров;
    * `config/` — папка с конфигурационными файлами;
-   * `stackland-26.1.0-amd64.iso` — установочный ISO-образ;
+   * `stackland-26.2.1-amd64.iso` — установочный ISO-образ;
    * `sladm` — инструмент установки.
 
 #### Перенос артефактов на изолированную машину {#offline-transfer}
@@ -366,7 +368,7 @@ sladm validate --config config/
 ```bash
 sladm install \
   --config config/ \
-  --image-bundle-folder stackland-26.1.0-full-oci \
+  --image-bundle-folder stackland-26.2.1-full-oci \
   --image-bundle full
 ```
 

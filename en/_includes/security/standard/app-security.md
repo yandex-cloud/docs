@@ -17,7 +17,7 @@ To mitigate the risks associated with automated attacks on applications, we reco
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartcaptcha) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
   1. Make sure at least one CAPTCHA is [created](../../../smartcaptcha/operations/create-captcha.md) for your application.
 
 {% endlist %}
@@ -47,8 +47,8 @@ When creating a new [registry](../../../container-registry/concepts/registry.md)
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a registry.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your registry.
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. In the **{{ ui-key.yacloud.cr.overview.popup-create_field_name }}** field, enter a name for the registry. The naming requirements are as follows:
       
@@ -201,10 +201,10 @@ In a nutshell, the service checks the HTTP requests sent to the protected resour
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check the {{ sws-name }} status.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Make sure you have security profiles created.
-  1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -214,7 +214,7 @@ In a nutshell, the service checks the HTTP requests sent to the protected resour
   yc smartwebsecurity security-profile list
   ```
 
-  If the command returns information about the existing security profiles, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  If the command returns information about the existing security profiles, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -237,7 +237,7 @@ You can manage the web application firewall using a [WAF profile](../../../smart
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check a security profile for a WAF rule.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Make sure your security profile has a security rule of the **web application firewall** type.
 
 {% endlist %}
@@ -261,7 +261,7 @@ You need to connect your ARL profile to the [security profile](../../../smartweb
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to check for ARL profiles.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../../_assets/smartwebsecurity/arl.svg) **ARL profiles** and make sure you have ARL profiles connected to your security profile.
 
 {% endlist %}
@@ -287,7 +287,7 @@ If you manually resolve the thread, it will be recreated. If the merge request i
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your {{ GL }} instance is located.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Select the instance you need and click **{{ ui-key.yacloud.common.edit }}** in the top-right corner of the page.
   1. Make sure to select a configured approval rule [configuration](../../../managed-gitlab/concepts/approval-rules.md#packages) in the **{{ ui-key.yacloud.gitlab.field_approval-rules }}** field.
 
@@ -311,7 +311,7 @@ If you manually resolve the thread, it will be recreated. If the merge request i
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Navigate to **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
   1. Check that the lists have been created.
   1. If there are such lists, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".

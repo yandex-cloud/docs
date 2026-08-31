@@ -40,7 +40,7 @@
 
 В стоимость поддержки инфраструктуры для регулярного распознавания изображений и документов входят:
 * плата за хранение данных в бакете и операции с ними ([тарифы Object Storage](../pricing.md));
-* плата за использование Vision OCR ([тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/pricing));
+* плата за использование Vision OCR ([тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing#rules-image-recognition));
 * плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../../serverless-containers/pricing.md));
 * плата за хранение и операции с [секретом](../../lockbox/concepts/secret.md) ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
 

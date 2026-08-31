@@ -203,10 +203,10 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашей группой ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу `todo-ig`.
-  1. Перейдите на панель **{{ ui-key.yacloud.compute.placement-group.switch_instances }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-group.switch_instances }}**.
   1. В строке с нужной ВМ нажмите значок ![image](../../_assets/options.svg) → **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_delete }}**.
 
@@ -273,10 +273,10 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашей группой ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу `todo-ig`.
-  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.common.edit }}**.
+  1. Нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** снимите галочку с зоны доступности `{{ region-id }}-b`.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 
@@ -303,10 +303,10 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашей группой ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу `todo-ig`.
-  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.common.edit }}**.
+  1. Нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}**.
   1. Выберите необходимый Docker-контейнер и нажмите ![image](../../_assets/options.svg) → **{{ ui-key.yacloud.common.edit }}**.
@@ -346,7 +346,7 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашим кластером БД.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер `todo-postgresql`.
   1. Нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите `s2.medium`.

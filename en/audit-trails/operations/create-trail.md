@@ -104,7 +104,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. Enter a trail name. It must be unique within the folder.
   1. (Optional) Enter a description for your trail.
@@ -118,6 +118,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
               {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
           * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: Bucket encryption key. You only need to select it if encryption was enabled for the bucket.
+      
       * **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}**: Log group you [created earlier](#before-you-begin). Audit logs will be uploaded into this log group. Recommended for quick log collection and analysis.
       * **{{ ui-key.yacloud.audit-trails.label_dataStream }}**: Data stream you [created earlier](#before-you-begin). Audit logs will be uploaded into this stream. Recommended for streaming logs to other services or systems.
       * **{{ ui-key.yacloud.audit-trails.label_eventRouter }}**: {{ er-name }} bus connector. Recommended for detailed analysis of logs and their subsequent sending to various handlers and systems depending on the conditions specified in the bus.
@@ -215,6 +216,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
                   ```bash
                   yc storage bucket list
                   ```
+              
               * `object_prefix`: [Prefix](../../storage/concepts/object.md#folder) that will be assigned to the objects with audit logs in the bucket. It is an optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
 
                   {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
@@ -222,14 +224,17 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
           * `cloud_logging`: Uploading logs to a {{ cloud-logging-full-name }} [group](../../logging/concepts/log-group.md).
 
               In the `log_group_id` parameter, specify the ID of the log group you [created earlier](#before-you-begin). You can request the ID with the [list of log groups in the folder](../../logging/operations/list.md).
+          
           * `data_stream`: Uploading logs to a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) in {{ yds-full-name }}:
 
               * `stream_name`: Name of the data stream you [created earlier](#before-you-begin). You can request the name with the [list of data streams in the folder](../../data-streams/operations/manage-streams.md#list-data-streams).
               * `database_id`: ID of the {{ ydb-short-name }} database used by {{ yds-name }}. You can request the ID with the [list of {{ ydb-short-name }} databases in the folder](../../ydb/operations/manage-databases.md#list-db).
               * `codec`: Event compression method when writing to {{ yds-name }}. The possible values are `RAW` (no compression, default), `GZIP`, and `ZSTD`. Enable compression if you expect an event flow greater than 1 MB/s.
+          
           * `eventrouter`: Uploading logs to a {{ er-full-name }} [bus](../../serverless-integrations/concepts/eventrouter/bus.md):
 
               * `eventrouter_connector_id`: {{ er-name }} bus [connector](../../serverless-integrations/concepts/eventrouter/connector.md) ID with the `{{ at-name }}` source type.
+      
       * `service_account_id`: [ID](../../iam/operations/sa/get-id.md) of the service account you created [earlier](#before-you-begin).
 
       {% include [trail-create-cli-yaml-desc-filtering](../../_includes/audit-trails/trail-create-cli-yaml-desc-filtering.md) %}
@@ -277,6 +282,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
     ```
 
     Where:
+    
     * `--name`: Name of the new trail.
 
     {% include [trail-cli-flag-desc](../../_includes/audit-trails/trail-cli-flag-desc.md) %}
@@ -589,6 +595,7 @@ Create a trail with the following parameters:
       ```
 
       Where:
+      
       * `<request_body_file>` is the path to the previously created request body file (`body.json`).
 
       Result:

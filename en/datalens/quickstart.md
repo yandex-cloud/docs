@@ -26,7 +26,7 @@ This section outlines how you can connect to a data source, create your first [d
 To create a connection:
 
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
+1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, click ![image](../_assets/console-icons/thunderbolt.svg) **Connections**.
 1. Click **Create connection**.
 1. Under **Databases**, select the **{{ CH }}** connection.
@@ -38,8 +38,11 @@ To create a connection:
       * Username: `samples_ro`.
       * Password: `MsgfcjEhJk`.
 
-   1. Enable the **SQL to read** option.
+   1. Enable **Raw SQL level** → **SQL to read**.
    1. Click **Check connection** and make sure you get a green check mark.
+
+      ![image](../_assets/datalens/operations/connection/create-sample-connection.png)
+
    1. Click **Create connection**.
    1. In the window that opens, click **Create workbook**.
 
@@ -241,7 +244,7 @@ To add a selector to a dashboard:
 ## Learn how a dashboard works {#dashboard-work}
 
 
-1. Apply cross-chart filtering on the dashboard:
+1. Apply chart cross-filtering on the dashboard:
 
    1. Click a point on the map in the `Sales map` chart. This will filter the linked charts by the selected dimension.
 
@@ -270,7 +273,7 @@ You can grant access to your dashboard to other users:
    1. In the left-hand panel, select ![image](../_assets/console-icons/sliders.svg) **Service settings**.
    1. Select the **Users** tab.
    1. Under **Invite users**, do the following.
-   1. Enter the email addresses of the users you want to invite, e.g., `{{ login-example }}`.
+   1. Enter email addresses of the users you want to invite, e.g., `{{ login-example }}`.
 
       You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
 

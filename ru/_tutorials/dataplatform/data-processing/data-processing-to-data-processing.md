@@ -42,7 +42,7 @@
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с именем `dataproc-s3-sa` и назначьте ему роли `dataproc.agent` и `dataproc.provisioner`.
     1. {% include [basic-before-buckets](../../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
     1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) с именем `dataproc-network`.
-    1. В сети `dataproc-network` [создайте подсеть](../../../vpc/operations/subnet-create.md) в любой зоне доступности.
+    1. В сети `dataproc-network` [создайте подсеть](../../../vpc/operations/subnet-create.md) в любой [зоне доступности](../../../overview/concepts/geo-scope.md).
     1. [Настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) для созданной подсети.
     1. [Создайте два кластера {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) с именами `dataproc-source` и `dataproc-target`, с любой [подходящей конфигурацией хостов](../../../data-proc/concepts/instance-types.md) и следующими настройками:
 
@@ -111,7 +111,7 @@
 
 1. [Добавьте в настройки кластеров](../../../data-proc/operations/cluster-update.md) {{ dataproc-name }} свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}`.
 
-   Чтобы узнать IP-адрес кластера {{ metastore-name }}, откройте [консоль управления]({{ link-console-main }}), затем Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на левой панели выберите страницу ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**. Для нужного кластера скопируйте значение из колонки **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}**.
+   Чтобы узнать IP-адрес кластера {{ metastore-name }}, откройте [консоль управления]({{ link-console-main }}), затем [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и в блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.metastore.label_metastore }}**. Для нужного кластера скопируйте значение из колонки **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}**.
 
 ## Создайте тестовую таблицу {#create-table}
 

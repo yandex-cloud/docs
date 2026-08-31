@@ -33,7 +33,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you are going to use to work with your schema registry.
-  1. Navigate to **{{ metadata-hub-full-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layout-cells.svg) **{{ schema-registry-name }}** / **Namespace**.
   1. Click **Create namespace**. 
   1. Specify [namespace settings](../../../metadata-hub/operations/create-name-space.md). After saving a namespace, you can use its ID to get the {{ schema-registry-name }} URL: `{namespace_id}.{{ schema-registry-endpoint }}`.
@@ -47,22 +47,22 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. Navigate to **{{ data-transfer-full-name }}**. 
+  1. [Navigate]({{ link-console-main }}/link/data-transfer) to **{{ data-transfer-full-name }}**. 
   1. [Create an {{ KF }} source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md) with the following settings:
 
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: **{{ KF }}**.
-      * **Connection type**: **Manual setup**.
-      * **Installation type**: **{{ mkf-name }}** cluster.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ KF }}`.
+      * **Connection type**: `Manual setup`.
+      * **Installation type**: `{{ mkf-name }} cluster`.
       * Under **{{ mkf-name }} cluster**:
 
           * **{{ mkf-name }} cluster**: Select the {{ mkf-name }} cluster you created previously.
-          * **Authentication**: **SASL**.
+          * **Authentication**: `SASL`.
           * **Username** and **Password**: User credentials in the {{ mkf-name }} cluster.
 
       * Under **Advanced settings** → **Conversion rules**:
 
-          * **Conversion rules**: **Debezium CDC parser**.
-          * **{{ schema-registry-name }} connection settings**: **On Premise {{ schema-registry-name }}**.
+          * **Conversion rules**: `Debezium CDC parser`.
+          * **{{ schema-registry-name }} connection settings**: `On Premise {{ schema-registry-name }}`.
           * **{{ schema-registry-name }} URL**: {{ schema-registry-name }} URL you [got earlier](#create-schema-registry).
 
   1. [Create and run](../../../data-transfer/operations/transfer.md) a data transfer.

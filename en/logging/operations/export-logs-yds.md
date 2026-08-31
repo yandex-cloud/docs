@@ -5,12 +5,13 @@ description: In this guide, you will learn how to export logs from {{ cloud-logg
 
 # Exporting logs to {{ yds-name }}
 
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder with the log group.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the log group.
+    1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Next to the log group, click ![image](../../_assets/console-icons/ellipsis.svg).
     1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.logging.label_stream }}** field, select an existing [data stream](../../data-streams/concepts/glossary.md#stream-concepts) or [create](../../data-streams/operations/manage-streams.md#create-data-stream) a new one.
@@ -27,6 +28,7 @@ description: In this guide, you will learn how to export logs from {{ cloud-logg
     ```
 
     Where:
+    
     * `--name`: Log group name.
     * `--data-stream`: Data stream ID in [{{ yds-full-name }}](../../data-streams/index.yaml) consisting of the [availability zone](../../overview/concepts/geo-scope.md), [cloud ID](../../resource-manager/operations/cloud/get-id.md), [database](../../ydb/concepts/resources.md#database) ID, and [data stream](../../data-streams/concepts/glossary.md#stream-concepts) name.
 

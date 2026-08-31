@@ -110,6 +110,8 @@ Syntax:
 
   - [yc container v0 registry delete](registry/delete.md) — Delete a registry.
 
+  - [yc container v0 registry force-delete](registry/force-delete.md) — Force delete a registry with all its resources.
+
   - [yc container v0 registry get](registry/get.md) — Get information about a registry.
 
   - [yc container v0 registry list](registry/list.md) — List registries.

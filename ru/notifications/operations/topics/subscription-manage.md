@@ -15,7 +15,7 @@ description: Следуя этой инструкции, вы сможете и�
   1. [Перейдите]({{ link-console-main }}/link/cns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Слева выберите раздел **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}**.
   1. Выберите топик, в котором находится подписка.
-  1. Слева выберите **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}**.
   1. Выберите подписку и укажите новые параметры.
   1. Нажмите **{{ ui-key.yacloud.common.save-changes }}**.
 
@@ -69,7 +69,7 @@ description: Следуя этой инструкции, вы сможете и�
   1. [Перейдите]({{ link-console-main }}/link/cns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Слева выберите раздел **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}**.
   1. Выберите топик, в котором находится подписка.
-  1. Слева выберите **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}**.
   1. Напротив нужной подписки нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 

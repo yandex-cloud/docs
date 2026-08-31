@@ -13,6 +13,7 @@
 * Применится новая конфигурация кластера Managed Service for Kubernetes, в которой будет указано приложение для развертывания.
 
 Чтобы настроить необходимую инфраструктуру для хранения исходного кода, сборки Docker-образа и развертывания приложения:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 
    1. [Изучите список необходимых платных ресурсов](#paid-resources).
@@ -40,11 +41,15 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за следующие ресурсы:
-* [Диски](../../compute/concepts/disk.md) и постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Использование динамического [публичного IP-адреса](../../vpc/concepts/ips.md) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Хранение созданных Docker-образов ([тарифы Container Registry](../../container-registry/pricing.md)).
-* Использование [мастера Managed Service for Kubernetes](../concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../pricing.md)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Сервис Container Registry: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы Container Registry](../../container-registry/pricing.md)).
+* Инстанс GitLab. Стоимость зависит от способа создания инстанса:
+
+   * Yandex Managed Service for GitLab — оплачиваются вычислительные ресурсы ВМ, объем хранимых данных и резервных копий, объем исходящего трафика ([тарифы Managed Service for GitLab](../../managed-gitlab/pricing.md)).
+   * ВМ с образом GitLab — оплачиваются вычислительные ресурсы ВМ и образ GitLab ([тарифы Compute Cloud](../../compute/pricing.md)).
+
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, а также для ВМ с образом GitLab, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
@@ -54,7 +59,9 @@
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Если у вас еще нет [сети](../../vpc/concepts/network.md#network), [создайте ее](../../vpc/operations/network-create.md).
   1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы [кластер Yandex Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster) и [группа узлов](../concepts/index.md#node-group).

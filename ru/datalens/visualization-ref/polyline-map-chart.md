@@ -17,6 +17,10 @@ description: Из статьи вы узнаете, как в {{ datalens-full-n
 * Поле или набор полей для группировки точек в линии (идентификатор каждой линии).
 * Поле для сортировки порядка точек в каждой линии (например, отметка времени или номер точки).
 
+
+{% include [geointellect-using](../../_includes/datalens/visualization-ref/geointellect-using.md) %}
+
+
 Отрезки полилинии можно красить одним из способов:
 
 * градиентом по показателю (например, средняя скорость в точке);
@@ -55,9 +59,7 @@ description: Из статьи вы узнаете, как в {{ datalens-full-n
 
 Чтобы создать полилинейную карту:
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}

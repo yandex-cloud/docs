@@ -23,18 +23,31 @@ To link or re-link a cloud to a billing account:
 
 - {{ billing-interface }} {#billing}
 
-  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-  1. Select the billing account you want to link the cloud to.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**.
-  1. Click ![image](../../_assets/console-icons/link.svg) **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** in the top-right corner.
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Select the billing account you want to link the cloud to.
+   1. Proceed to linking your cloud or service using one of the following methods:
 
-     ![image](../../_assets/billing/billing-pin-cloud-1-4.png)
+       * Click ![alt text](../../_assets/console-icons/link.svg) **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** under **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_section-billable }}** in the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** section.
 
-  1. In the **{{ ui-key.yacloud_org.billing.account.entities.label_type }}** field, pick the entity type you need from the list and select the resource to link to the billing account.
-  1. Click **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}**; the cloud or service you added will appear in the list.
-  1. If you are re-linking the cloud, pay any outstanding charges on the old billing account.
+         {% cut "Steps in the UI" %}
 
-     ![image](../../_assets/billing/billing-pin-cloud-5-6.png) 
+         ![image](../../_assets/billing/pin-cloud-account.png)
+
+         {% endcut %}
+
+       * In the left-hand panel, select ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**. In the top-right corner of the page, click ![image](../../_assets/console-icons/link.svg) **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}**.
+
+         {% cut "Steps in the UI" %}
+
+         ![image](../../_assets/billing/pin-cloud-billable-entities.png)
+
+         {% endcut %}
+
+     1. In the **{{ ui-key.yacloud_org.billing.account.entities.label_type }}** field, pick the entity type you need from the list and select the resource to link to the billing account.
+     1. Click **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}**; the cloud or service you added will appear in the list.
+     1. If you are re-linking the cloud, pay any outstanding charges on the old billing account.
+
+         ![image](../../_assets/billing/pin-cloud-billable-entities-window.png)
 
 - {{ TF }} {#tf}
 
@@ -43,8 +56,8 @@ To link or re-link a cloud to a billing account:
   To link a cloud, the [service account](../../iam/concepts/users/service-accounts.md) must have the `billing.accounts.editor` [role](../security/index.md#set-role) or higher for the billing account you are linking your cloud to.
 
   To link a cloud to a billing account:
-
-  1. In the configuration file, describe the resources you want to create:
+  
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      ```hcl
      resource "yandex_billing_cloud_binding" "mycloud" {
@@ -76,21 +89,32 @@ Linking a cloud or another container to a [suspended account](../concepts/billin
 
 {% endnote %}
 
-## Checking a cloud's link {#check-binding}
+## How to check the cloud's link {#check-binding}
 
-To check a cloud's or service's link to a billing account:
+To check the cloud's or service's link to a billing account, use one of these methods:
 
-{% list tabs group=instructions %}
+  {% list tabs %}
 
-- {{ billing-interface }} {#billing}
+  - Via Account
+
+    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+    1. Select the billing account the new cloud or service was linked to.
   
-  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-  1. Select the billing account the new cloud or service was linked to.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**.
+        Under **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_section-billable }}**, you can see the type and number of your linked resources.
 
-  The list should include a new entry showing the ID of the linked cloud or service.
+    1. For detailed information about the linked resources, click a resource or ![alt text](../../_assets/console-icons/chevron-right.svg) **{{ ui-key.yacloud.common.action_show-all }}**.
 
-{% endlist %}
+      You will see the list of all linked clouds and services.
+
+  - Via Clouds and services
+
+    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+    1. Select the billing account the new cloud or service was linked to.
+    1. In the left-hand panel, select ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**.
+
+      You will see the list of all linked clouds and services.
+
+  {% endlist %}
 
 ## Resource management in organizations {#bind-cloud-organization}
 

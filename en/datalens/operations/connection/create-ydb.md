@@ -38,13 +38,14 @@ To create a {{ ydb-short-name }} connection:
    
    {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
+   
+   ![image](../../../_assets/datalens/operations/connection/connection-ydb.png)
+
+
+
 1. Optionally, test the connection by clicking **Check connection**.
 1. Click **Create connection**.
-
-
 1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
-
-
 1. Enter a name for the connection and click **Create**.
 
 

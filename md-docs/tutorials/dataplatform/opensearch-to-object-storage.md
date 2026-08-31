@@ -4,6 +4,7 @@
 
 # Загрузка данных из Yandex Managed Service for OpenSearch в Yandex Object Storage с помощью Yandex Data Transfer
 
+
 С помощью сервиса Data Transfer вы можете перенести данные из кластера Managed Service for OpenSearch в объектное хранилище Object Storage.
 
 Чтобы перенести данные:
@@ -256,7 +257,7 @@
 
 1. Дождитесь перехода трансфера в статус **Завершен**.
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится нужный бакет.
-1. Перейдите в сервис **Object Storage**.
+1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
 1. Выберите бакет из списка.
 1. Перейдите на вкладку **Объекты**.
 1. Проверьте, что бакет Object Storage содержит папку `from_MOS` с файлом JSON с тестовыми данными.

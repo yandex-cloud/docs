@@ -171,7 +171,7 @@ Terraform распространяется под лицензией [Business S
           git clone https://github.com/yandex-cloud-examples/yc-run-docker-on-vm.git
           ```
 
-      1. Перейдите в директорию с репозиторием. В ней должнен появиться файл `run-docker-on-vm-config.tf` с конфигурацией создаваемой инфраструктуры.
+      1. Перейдите в директорию с репозиторием. В ней должен появиться файл `run-docker-on-vm-config.tf` с конфигурацией создаваемой инфраструктуры.
 
     - Вручную {#manual}
 
@@ -211,7 +211,7 @@ Terraform распространяется под лицензией [Business S
             zone = local.zone
           }
           
-          # Создание репозитория Сontainer Registry
+          # Создание репозитория Container Registry
           
           resource "yandex_container_registry" "my-registry" {
             name       = local.registry_name
@@ -310,7 +310,7 @@ Terraform распространяется под лицензией [Business S
     * `network_name` — имя облачной сети.
     * `subnet_name` — имя подсети.
     * `vm_name` — имя ВМ.
-    * `image_id` — идентификатор образа, из которого будет создана ВМ. Подробнее в разделе [Получить список публичных образов](../../../compute/operations/images-with-pre-installed-software/get-list.md).
+    * `image_id` — идентификатор образа, из которого будет создана ВМ. Подробнее в разделе [Получить информацию о публичном образе](../../../compute/operations/images-with-pre-installed-software/get-list.md).
 
 1. Создайте ресурсы:
 

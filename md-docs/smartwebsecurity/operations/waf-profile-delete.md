@@ -2,7 +2,7 @@
 
 # Удалить профиль WAF
 
-Прежде чем удалить профиль WAF, необходимо удалить все правила WAF из связанных профилей безопасности.
+Прежде чем удалить профиль WAF, удалите все правила WAF из связанных профилей безопасности.
 
 {% list tabs group=instructions %}
 
@@ -16,12 +16,12 @@
   1. На вкладке **Правила безопасности** удалите правила профиля WAF:
 
      1. В фильтре **Тип правила:** выберите `Web Application Firewall`.
-     1. В строке с правилом, которое относится к профилю WAF с нужным идентификатором, нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+     1. В строке с правилом, которое относится к профилю WAF с нужным идентификатором, нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
      1. Подтвердите удаление.
-  
+
   1. Таким же способом удалите правила WAF из всех связанных профилей безопасности.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **Профили WAF**.
-  1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. Подтвердите удаление.
 
 - Terraform {#tf}
@@ -37,57 +37,67 @@
   
   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы удалить WAF профиль Yandex Smart Web Security, созданный с помощью Terraform:
+  Чтобы удалить профиль WAF Yandex Smart Web Security, который вы создали с помощью Terraform:
 
-  1. Откройте файл конфигурации Terraform и удалите фрагмент с описанием WAF профиля.
+  1. Откройте файл конфигурации Terraform и удалите фрагмент с описанием профиля WAF.
 
-     {% cut "Пример описания WAF профиля в конфигурации Terraform" %}
+     {% cut "Пример описания профиля WAF в конфигурации Terraform" %}
 
      ```hcl
-      # В базовом наборе будут активны правила этого уровня паранойи и ниже
-      locals {
-        waf_paranoia_level = 1
-      }
-
-      # Источник данных OWASP Core Rule Set
-      data "yandex_sws_waf_rule_set_descriptor" "owasp4" {
-        name    = "OWASP Core Ruleset"
-        version = "4.0.0"
-      }
-
-      # WAF профиль
-      resource "yandex_sws_waf_profile" "default" {
-        name = "<имя_WAF_профиля>"
-
-        # Базовый набор правил
-        core_rule_set {
-          inbound_anomaly_score = 2
-          paranoia_level        = local.waf_paranoia_level
-          rule_set {
-            name    = "OWASP Core Ruleset"
-            version = "4.0.0"
-          }
-        }
-
-        # Активируем правила из базового набора, если их уровень паранойи не выше заданного в переменной waf_paranoia_level
-        dynamic "rule" {
-          for_each = [
-            for rule in data.yandex_sws_waf_rule_set_descriptor.owasp4.rules : rule
-            if rule.paranoia_level <= local.waf_paranoia_level
-          ]
-          content {
-            rule_id     = rule.value.id
-            is_enabled  = true
-            is_blocking = false
-          }
-        }
-
-        analyze_request_body {
-          is_enabled        = true
-          size_limit        = 8
-          size_limit_action = "IGNORE"
-        }
-      }
+     # Объявление локальных переменных
+     locals {
+       # В базовом наборе будут активны правила этого уровня паранойи и ниже
+       waf_paranoia_level = 1
+     
+       # Идентификация набора правил OWASP Core Ruleset
+       ruleset_name    = "OWASP Core Ruleset"
+       ruleset_version = "4.0.0"
+       ruleset_id      = "OWASP_CRS_4_0_0"
+       ruleset_type    = "CORE"
+     }
+     
+     # Источник данных OWASP Core Rule Set
+     data "yandex_sws_waf_rule_set_descriptor" "source" {
+       name    = local.ruleset_name
+       version = local.ruleset_version
+     }
+     
+     # Профиль WAF
+     resource "yandex_sws_waf_profile" "default" {
+       name = "waf-profile-owasp"
+     
+       # Набор правил
+       rule_set {
+         action     = "DENY"
+         is_enabled = true
+         priority   = 1
+     
+         # Базовый набор правил
+         core_rule_set {
+           inbound_anomaly_score = 2
+           paranoia_level        = local.waf_paranoia_level
+           rule_set {
+             name    = local.ruleset_name
+             version = local.ruleset_version
+             id      = local.ruleset_id
+             type    = local.ruleset_type
+           }
+         }
+       }
+     
+       # Активируем правила из базового набора, если их уровень паранойи не выше заданного в переменной waf_paranoia_level
+       dynamic "rule" {
+         for_each = [
+           for rule in data.yandex_sws_waf_rule_set_descriptor.source.rules : rule
+           if rule.paranoia_level <= local.waf_paranoia_level
+         ]
+         content {
+           rule_id     = rule.value.id
+           is_enabled  = true
+           is_blocking = false
+         }
+       }
+     }
      ```
 
      {% endcut %}
@@ -122,7 +132,7 @@
        
        1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-  Проверить удаление ресурсов можно в [консоли управления](https://console.yandex.cloud).
+  Вы можете проверить удаление ресурсов в [консоли управления](https://console.yandex.cloud).
 
 - API {#api}
 

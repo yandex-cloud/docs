@@ -5,7 +5,7 @@ Create a new image using the link you got in {{ objstorage-name }}:
 - Management console {#console}
 
   1. In the management console, select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an image.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
   1. Click **{{ ui-key.yacloud.compute.images.button_upload }}**, and in the window that opens:
 

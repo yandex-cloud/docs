@@ -44,7 +44,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts).
@@ -139,7 +139,7 @@
           * `subnet-name` — имя выбранной подсети.
           * `nat-ip-version=ipv4` – [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses). Чтобы создать ВМ без публичного IP-адреса, исключите параметр.
 
-      * `--ssh-key` — путь к файлу и имя файла с открытой частю SSH-ключа. Пару SSH-ключей необходимо [создать самостоятельно](../../compute/operations/vm-connect/ssh.md).
+      * `--ssh-key` — путь к файлу и имя файла с открытой частью SSH-ключа. Пару SSH-ключей необходимо [создать самостоятельно](../../compute/operations/vm-connect/ssh.md).
 
       Результат:
 
@@ -258,7 +258,7 @@
           * Замените `SMTP_USERNAME` на идентификатор API-ключа, который вы получили при [подготовке ресурсов](#infrastructure).
           * Замените `SMTP_PASSWORD` на секретную часть API-ключа.
 
-        - Cтатический ключ доступа {#static-key}
+        - Статический ключ доступа {#static-key}
 
           1. Создайте файл `generate.py` и вставьте в него код:
 
@@ -488,5 +488,5 @@
 Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите](../../compute/operations/vm-control/vm-delete.md) ВМ `postfix-server`.
-1. Удалите [адрес](../../postbox/concepts/glossary.md#adress).
+1. Удалите [адрес](../../postbox/concepts/glossary.md#address).
 1. [Удалите](../../dns/operations/zone-delete.md) зону DNS, если создавали в ней ресурсную запись.

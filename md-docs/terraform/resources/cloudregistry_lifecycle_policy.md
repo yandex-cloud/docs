@@ -24,6 +24,7 @@ A LifecyclePolicy resource.
     - `type` (String). Type of deletion.
     - `version_condition` [Block]. Delete artifacts by version count condition.
       - `versions_count_greater_than` (Number). Delete when version count exceeds this number.
+  - `description` (String). Description of the lifecycle policy rule
   - `docker_filters` [Block]. Docker-specific filters.
     - `tag_status` (String). Filter by tag status.
   - `keep_by_age` [Block]. Rule that keeps artifacts by age.

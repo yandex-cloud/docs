@@ -54,7 +54,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта: `ci-cd-github-sa`.
   1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `functions.admin`.
@@ -64,7 +64,9 @@
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Создайте сервисный аккаунт:
 
@@ -119,7 +121,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![cpus](../../_assets/console-icons/cpus.svg) **Федерации сервисных аккаунтов**.
   1. Нажмите **Создать федерацию**.
   1. В поле **Значение Issuer (iss)** введите URL OIDC-провайдера: `https://token.actions.githubusercontent.com`.
@@ -183,7 +185,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Выберите сервисный аккаунт `ci-cd-github-sa`.
   1. На верхней панели нажмите ![image](../../_assets/console-icons/cpus.svg) **Привязать к федерации**.
   1. В поле **Федерация сервисных аккаунтов** выберите федерацию `ci-cd-github-federation`.
@@ -573,7 +575,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию `from-github-ci`.
   1. Перейдите на вкладку ![image](../../_assets/console-icons/circle-play.svg) **Тестирование**.
   1. В поле **Входные данные** введите следующий код и нажмите ![image](../../_assets/console-icons/play-fill.svg) **Запустить тест**:
@@ -620,7 +622,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию `from-github-ct`.
   1. Перейдите на вкладку ![image](../../_assets/console-icons/circle-play.svg) **Тестирование**.
   1. В поле **Входные данные** введите следующий код и нажмите ![image](../../_assets/console-icons/play-fill.svg) **Запустить тест**:
@@ -667,7 +669,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию `from-github-cd`.
   1. Перейдите на вкладку ![image](../../_assets/console-icons/circle-play.svg) **Тестирование**.
   1. В поле **Входные данные** введите следующий код и нажмите ![image](../../_assets/console-icons/play-fill.svg) **Запустить тест**:

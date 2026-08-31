@@ -8,6 +8,14 @@ In the CDN resource settings, you can enable _content caching_ to temporarily st
 
 {% include [cdn-content-caching-prgrph](../../_includes/cdn/cdn-content-caching-prgrph.md) %}
 
+{% note info %}
+
+{{ cdn-name }} does not guarantee any particular percentage of cached requests hitting the cache (cache hits). If the CDN server cannot respond to a request from the cache, it requests the content from the origin. Depending on caching settings, the frequency of publishing new content, and the nature of user requests, the amount of traffic to the origin can be comparable to the outgoing traffic of the CDN.
+
+Take this traffic into account when assessing the origin's acceptable load and operating costs. For more information, see [{#T}](../troubleshooting.md#origin-load-growth).
+
+{% endnote %}
+
 ### Cache lifetime {#server-side-cache-age}
 
 Until the cache lifetime expires, the CDN server returns a cached copy of the file to the clients without accessing origins.
@@ -35,13 +43,21 @@ Files from responses with other status codes are not cached.
 
 Requests to the CDN server may contain the same path in the URI but different cookies (the `Cookie` HTTP header) and/or different query parameters.
 
-In the resource settings, you can specify how to cache files that match such requests:
+Query parameters that are considered during caching form part of the _cache object key_. Requests with different values for these parameters correspond to different cache objects. Parameters ignored during caching do not form part of the key: requests that differ in these parameters only correspond to the same object.
+
+You can select one of the following query parameter caching modes in the resource settings:
 
 #|
-|| Argument | **{{ ui-key.yacloud.cdn.label_ignore }}** disabled | **{{ ui-key.yacloud.cdn.label_ignore }}** disabled ||
-|| Query parameters | Uses the query string as part of the object key in the cache. Each unique set of parameters is a separate copy of the file. | Ignores the query string. One copy of the file is saved for all options. ||
-|| Cookie | Does not cache any responses to requests with the `Cookie` header. When receiving a request, requests the file from the source again. | Caches responses to requests with the `Cookie` header. When receiving a request, uses the file from the cache. ||
+|| Mode | How to treat query parameters in cache key ||
+|| `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_do-not-cache_4J3Bg }}` | Ignore all query parameters. For requests with the same path, a single file copy is saved, regardless of the parameter values. ||
+|| `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-all_4pexC }}` | Consider all query parameters. A separate file copy is saved for each unique set of parameters. ||
+|| `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-all-except_vEGRW }}` | Ignore specified query parameters, consider the others. ||
+|| `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-only_uJKZC }}` | Consider only specified query parameters, ignore the others. ||
 |#
+
+For example, if you select `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-only_uJKZC }}` and specify the `segment` parameter, the same cache object will correspond to the `/file.m3u8?expires=1&segment=1` and `/file.m3u8?expires=2&segment=1` requests. And another object will correspond to `/file.m3u8?expires=1&segment=2`.
+
+Caching of responses to requests with cookie files is configured separately using the **{{ ui-key.yacloud.cdn.label_ignore }}** option. If this option is off, responses to requests with the `Cookie` header are not cached, and the files get re-requested from the origin. If this option is on, responses get cached, and the CDN server can return files from the cache.
 
 ## Cache prefetching {#prefetch}
 
@@ -54,12 +70,6 @@ There are technical [limits](limits.md) on cache prefetching.
 ## Purging cache {#purge}
 
 You can delete cached file copies from CDN servers by _purging the cache_. This lets you quickly update in the CDN the content that has changed in the origins.
-
-{% note warning %}
-
-{% include [purge-cache-limits-notice](../../_includes/cdn/purge-cache-limits-notice.md) %}
-
-{% endnote %}
 
 You can [purge](../operations/resources/purge-cache.md) cache either fully or partially. Partial purge is recommended: if you delete copies of all files from the cache, CDN servers will significantly increase the load on the origins, having to access them at every file request.
 
@@ -77,7 +87,7 @@ Examples of paths:
 
 {% endlist %}
 
-If the file is cached based on the [query parameters](#cookie-and-query) (that is, for each request with new parameters, a separate copy was saved), all copies of the file are deleted by default. To delete only specific copies, you need to explicitly specify their query parameters, e.g., `/image/foo.png?id=12345`.
+If the file is cached with all or some [query parameters](#cookie-and-query) duly considered, all copies of the file get deleted by default. To delete only specific copies, explicitly state the values of query parameters included in the cache key. Here is an example: `/image/foo.png?id=12345`.
 
 {% note warning %}
 

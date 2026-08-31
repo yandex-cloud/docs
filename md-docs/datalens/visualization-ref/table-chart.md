@@ -65,7 +65,6 @@
 
 Чтобы создать таблицу:
 
-
 {% note warning %}
 
 Если вы работаете с новой объектной моделью DataLens, включающей [воркбуки и коллекции](../workbooks-collections/index.md):
@@ -79,7 +78,6 @@
 Продолжайте инструкцию с шага 4.
 
 {% endnote %}
-
 
 1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
 1. На панели слева выберите ![chart](../../_assets/console-icons/chart-column.svg) **Чарты**.

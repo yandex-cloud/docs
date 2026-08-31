@@ -1,0 +1,189 @@
+<div class="openapi">
+
+# Start workbook import
+
+<!-- markdownlint-disable-file -->
+
+Starts the import of the specified workbook.
+
+## Request
+
+<div class="openapi__requests">
+
+<div class="openapi__request__wrapper" style="--method: var(--dc-openapi-methods-post);margin-bottom: 12px">
+
+<div class="openapi__request">
+
+POST {.openapi__method}
+```text translate=no
+https://api.datalens.tech/rpc/startWorkbookImport
+```
+
+</div>
+
+</div>
+
+</div>
+
+### Headers
+
+#|
+|| **Name** | **Description** ||
+||
+
+_x-dl-api-version_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+API version header.
+
+_Const:_{.json-schema-reset .json-schema-value} `2`
+
+_Example:_{.json-schema-reset .json-schema-example} `2`
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+<div class="openapi-entity">
+
+### Body
+
+{% cut "application/json" %}
+
+```json translate=no
+{
+  "data": {},
+  "title": "example",
+  "description": "example",
+  "collectionId": "example"
+}
+```
+
+{% endcut %}
+
+#|
+|| **Name** | **Description** ||
+||
+
+_collectionId_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string &#124; null
+
+ID of the collection in which to create the imported workbook.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_data_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+{% cut "**Type**: object" %}
+
+#|
+||
+
+_[additional]_{.json-schema-reset .json-schema-additional-property}
+{.table-cell}|
+**Type**: unknown
+
+_Example:_{.json-schema-reset .json-schema-example} `null`
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+{% endcut %}
+
+Serialized workbook export data to import.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{}
+```
+
+{% endcut %}
+{.table-cell}
+||
+||
+
+_title_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+Title of the imported workbook.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_description_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Description of the imported workbook.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+</div>
+
+## Responses
+
+<div class="openapi__response__code__200">
+
+## 200 OK
+
+Response
+
+<div class="openapi-entity">
+
+### Body
+
+{% cut "application/json" %}
+
+```json translate=no
+{
+  "importId": "example",
+  "workbookId": "example"
+}
+```
+
+{% endcut %}
+
+#|
+|| **Name** | **Description** ||
+||
+
+_importId_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+ID of the started workbook import.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_workbookId_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+ID of the workbook created by the import.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+</div>
+
+</div>
+
+</div>
+
+[*Deprecated]: No longer supported, please use an alternative and newer version.

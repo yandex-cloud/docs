@@ -42,6 +42,8 @@ flowchart BT
     mdb.viewer --> mdb.admin
     mdb.viewer --> mdb.restorer
     vpc.publicAdmin
+    managed-clickhouse.clusters.connector["`managed-clickhouse.
+    clusters.connector`"]
     managed-clickhouse.admin --> mdb.admin
     managed-clickhouse.viewer --> managed-clickhouse.restorer
     managed-clickhouse.restorer["`managed-clickhouse.
@@ -66,6 +68,10 @@ flowchart BT
 ```
 
 ### Сервисные роли {#service-roles}
+
+#### managed-clickhouse.clusters.connector {#managed-clickhouse-clusters-connector}
+
+Роль `managed-clickhouse.clusters.connector` позволяет [пользователям](../iam/concepts/users/accounts.md) Yandex Cloud подключаться к базам данных в [кластерах ClickHouse®](concepts/index.md) с помощью механизмов сервиса [Yandex Identity and Access Management](../iam/index.md).
 
 #### managed-clickhouse.auditor {#managed-clickhouse-auditor}
 

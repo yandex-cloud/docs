@@ -12,10 +12,11 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a load balancer.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
   1. Specify the load balancer name.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select:
+
      1. [Network](../../vpc/concepts/network.md#network) whose [subnets](../../vpc/concepts/network.md#subnet) will host load balancer nodes.
      1. Relevant [security groups](../concepts/application-load-balancer.md#security-groups):
 
@@ -45,20 +46,28 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
         You can add multiple rules.
 
   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**. Specify listener settings:
+  
      1. Specify the listener name.
      1. Optionally, enable **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Set **{{ ui-key.yacloud.alb.label_port }}** to `80` and select **{{ ui-key.yacloud.common.type }}**:
+        
         * `{{ ui-key.yacloud.alb.label_address-auto }}`.
         * `{{ ui-key.yacloud.alb.label_address-list }}`: Select an address from the drop-down list that appears on the right.
+
+        {% include [auto-address-note](../../_includes/application-load-balancer/auto-address-note.md) %}
+
      1. Optionally, enable **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Specify **{{ ui-key.yacloud.alb.label_port }}** and select **{{ ui-key.yacloud.common.label_subnet }}** from the drop-down list.
      1. Under **{{ ui-key.yacloud.alb.section_common-address-specs }}**, select the listener type: `{{ ui-key.yacloud.alb.label_listener-type-http }}` or `{{ ui-key.yacloud.alb.label_listener-type-stream }}`.
 
         For `{{ ui-key.yacloud.alb.label_listener-type-http }}`, select:
+        
         * `Protocol`: `{{ ui-key.yacloud.alb.label_proto-http-plain }}`, `{{ ui-key.yacloud.alb.label_proto-http-tls }}`, or `{{ ui-key.yacloud.alb.label_redirect-to-https }}`.
         * [`HTTP router`](http-router-create.md): Select it from the drop-down list.
 
         For `{{ ui-key.yacloud.alb.label_listener-type-stream }}`, select a protocol:
+        
         * `{{ ui-key.yacloud.alb.label_proto-stream-plain }}`: Select **{{ ui-key.yacloud.alb.label_backend-groups }}** from the drop-down list.
         * `{{ ui-key.yacloud.alb.label_proto-stream-tls }}`: Under **{{ ui-key.yacloud.alb.section_default-sni-match }}**, select **{{ ui-key.yacloud.alb.label_certificate }}** and **{{ ui-key.yacloud.alb.label_backend-groups }}** from the drop-down lists.
+  
   1. Add more listeners if needed.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -84,6 +93,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
      ```
 
      Where:
+     
      * `<load_balancer_name>`: New load balancer name.
      * `--network-name`: Name of the network containing the load balancer.
      * `--security-group-id`: Comma separated list of one to five [security group](../concepts/application-load-balancer.md#security-groups) IDs. This is an optional setting. If you skip it, the load balancer will accept all traffic.
@@ -131,8 +141,10 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
         ```
 
         Where:
+        
         * `--log-group-id`: [Log group](../../logging/concepts/log-group.md) ID.
         * `--discard`: Log discard rule. Rule options:
+          
           * `codes`: HTTP codes, HTTP code classes, or gRPC codes.
           * `percent`: Log discard rate.
 
@@ -158,7 +170,9 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
         ```
 
   1. Add a listener to an L7 load balancer:
+     
      * HTTP listener.
+       
        1. See the description of the CLI command for adding an HTTP listener to an L7 load balancer:
 
           ```bash
@@ -175,6 +189,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
           ```
 
      * Stream listener.
+       
        1. See the description of the CLI command for adding a Stream listener to an L7 load balancer:
 
           ```bash
@@ -189,6 +204,8 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
             --backend-group-id=<backend_group_ID> \
             --external-ipv4-endpoint port=<listener_port>
           ```
+
+     {% include [auto-address-note](../../_includes/application-load-balancer/auto-address-note.md) %}
 
      The result of adding two listeners:
  
@@ -359,6 +376,9 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
               {% include [name-format](../../_includes/name-format.md) %}
 
           * `endpoint`: Listener addresses and ports. Specify the external IPv4 address and port for receiving traffic. If the `external_ipv4_address` setting is not specified, a public IP address will be assigned automatically.
+
+              {% include [auto-address-note](../../_includes/application-load-balancer/auto-address-note.md) %}
+
           * `ports`: One or multiple ports. Listener ports must not match.
           * `http`: Listener HTTP endpoint description.
 
@@ -367,7 +387,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
         * `stream`: Listener Stream endpoint description.
 
             * `backend_group_id`: ID of the `Stream`-type backend group to forward the incoming TCP connections to.
-            * `idle_timeout`: Idle timeout to close the connection when it expires. This is an optional setting. The possible values are, e.g., `"10s"`, `"5m"`, or `"1h"`. Set `"0"` to have no timeout. The default value is one hour.
+            * `idle_timeout`: Idle timeout to close the connection when it expires. This is an optional setting. The possible values are, e.g., `"10s"`, `"5m"`, `"1h"`. Set `"0"` to have no timeout. The default value is one hour.
 
         * `tls`: TLS listener description.
 

@@ -1,5 +1,5 @@
 ---
-subcategory: Cloud Logging
+subcategory: Serverless Cloud Functions
 ---
 
 # yandex_function_iam_binding (Resource)

@@ -50,7 +50,7 @@ With a local Hive catalog, you can access tables by name without specifying a pa
 
     1. [Create a cloud network](../../vpc/operations/network-create.md) named `spark-network`.
 
-        This will automatically create three subnets in different availability zones.
+        This will automatically create three subnets in different [availability zones](../../overview/concepts/geo-scope.md).
 
     1. [Create a {{ msp-full-name }} cluster](../../managed-spark/operations/cluster-create.md) with the following parameters:
 
@@ -93,7 +93,7 @@ Prepare a script file:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select a folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Wait for the PySpark job you created to change its status to **Done**.
     1. Make sure the `warehouse` folder in `<bucket_for_PySpark_job_output_data>` now contains `database_1`. The data from the new DB is now stored in the {{ objstorage-name }} bucket in JSON format.

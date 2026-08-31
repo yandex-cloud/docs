@@ -1,5 +1,6 @@
 # Запуск PySpark-задания с помощью {{ maf-full-name }}
 
+
 {% include [af-restriction-version](../../../_includes/mdb/maf/af-restriction-version.md) %}
 
 С помощью кластера {{ maf-full-name }} можно автоматизировать работу с [сервисом {{ msp-full-name }}](../../../managed-spark/index.yaml), включая создание кластеров {{ msp-full-name }}, запуск заданий и другие операции. Для этого создайте DAG — [направленный ациклический граф задач](../../../managed-airflow/concepts/index.md) (DAG). Используя DAG, кластер {{ AF }} автоматически выполнит все необходимые действия по работе с {{ msp-full-name }}.
@@ -42,8 +43,8 @@
 
 В этом руководстве используется упрощенная настройка инфраструктуры:
 
-* один сервисный аккаунт с расширенными привилегиями,
-* один бакет для хранения всех данных,
+* один сервисный аккаунт с расширенными привилегиями;
+* один бакет для хранения всех данных;
 * группа безопасности по умолчанию.
 
 Такая настройка подходит для тестирования, но не предоставляет достаточный для решения реальных задач уровень безопасности. Чтобы повысить безопасность решения, обеспечьте соблюдение [принципа минимальных привилегий](../../../iam/best-practices/using-iam-securely.md#restrict-access).
@@ -66,16 +67,16 @@
 
 1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) с именем `datalake-network`.
 
-   Вместе с ней будут автоматически созданы три подсети в разных зонах доступности и группа безопасности.
+   Вместе с ней будут автоматически созданы три подсети в разных [зонах доступности](../../../overview/concepts/geo-scope.md) и группа безопасности.
 
 1. [Создайте кластер {{ maf-name }}](../../../managed-airflow/operations/cluster-create.md) с параметрами:
 
-   * **Сервисный аккаунт** — `integration-agent`.
-   * **Зона доступности** — `{{ region-id }}-a`.
-   * **Сеть** — `datalake-network`.
-   * **Подсеть** — `datalake-network-{{ region-id }}-a`.
-   * **Группа безопасности** — группа по умолчанию в сети `datalake-network`.
-   * **Имя бакета** — имя созданного ранее бакета.
+   * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `integration-agent`.
+   * **{{ ui-key.yacloud.compute.groups.create.field_zone }}** — `{{ region-id }}-a`.
+   * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `datalake-network`.
+   * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}** — `datalake-network-{{ region-id }}-a`.
+   * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — группа по умолчанию в сети `datalake-network`.
+   * **{{ ui-key.yacloud.airflow.field_connector-bucket-name }}** — имя созданного ранее бакета.
 
 ## Подготовьте PySpark-задание {#prepare-a-job}
 

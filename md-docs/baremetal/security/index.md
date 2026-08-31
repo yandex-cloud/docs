@@ -64,7 +64,7 @@ flowchart BT
 
 #### baremetal.editor {#baremetal-editor}
 
-Роль `baremetal.editor` позволяет управлять серверами BareMetal, приватными подсетями, виртуальными сегментами сети (VRF) и образами операционных систем серверов.
+Роль `baremetal.editor` позволяет управлять серверами BareMetal, приватными подсетями, виртуальными сегментами сети (VRF) и образами операционных систем серверов, а также резервным копированием серверов с помощью сервиса Cloud Backup.
 
 Пользователи с этой ролью могут:
 * просматривать информацию о [серверах](../concepts/servers.md) BareMetal, в том числе об их [конфигурации](../concepts/server-configurations.md);
@@ -75,22 +75,29 @@ flowchart BT
 * переустанавливать операционные системы серверов BareMetal;
 * [использовать KVM-консоль](../operations/servers/server-kvm.md) серверов;
 * использовать [IPMI](https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface) для управления питанием серверов — включать, выключать и перезагружать их;
+* просматривать информацию о подключенных [провайдерах](../../backup/concepts/index.md#providers) резервного копирования, а также подключать провайдеров, доступных в Cloud Backup;
+* просматривать информацию о [подключенных](../../backup/concepts/vm-connection/index.md) к Cloud Backup защищаемых ресурсах, а также подключать и отключать защищаемые ресурсы от сервиса;
+* просматривать информацию о [политиках резервного копирования](../../backup/concepts/policy.md) и привязанных к ним ресурсах;
+* привязывать политики резервного копирования к защищаемым ресурсам, а также отвязывать их;
+* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к политикам резервного копирования;
 * просматривать информацию о [квотах](../concepts/limits.md#baremetal-quotas) сервиса Yandex BareMetal;
+* просматривать информацию о [квотах](../../backup/concepts/limits.md#backup-quotas) сервиса Cloud Backup;
+* просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-Включает разрешения, предоставляемые ролью `baremetal.operator`.
+Включает разрешения, предоставляемые ролями `baremetal.operator` и `backup.user`.
 
-{% note warning %}
+{% note info %}
 
-С 1 августа 2026 года роль `baremetal.editor` получает новый набор разрешений от роли [backup.user](../../backup/security/index.md#backup-user), позволяющий подключать серверы к сервису [Yandex Cloud Backup](../../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../../backup/concepts/policy.md).
+Роль `baremetal.editor` включает разрешения роли [backup.user](../../backup/security/index.md#backup-user), позволяющие подключать серверы к сервису [Yandex Cloud Backup](../../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../../backup/concepts/policy.md).
 
-Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](../../iam/concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](../../iam/operations/access-policies/assign.md).
+Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете отключить эти возможности с помощью [политики авторизации](../../iam/concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](../../iam/operations/access-policies/assign.md).
 
 {% endnote %}
 
 #### baremetal.admin {#baremetal-admin}
 
-Роль `baremetal.admin` позволяет управлять серверами BareMetal, приватными подсетями, виртуальными сегментами сети (VRF) и образами операционных систем серверов.
+Роль `baremetal.admin` позволяет управлять серверами BareMetal, приватными подсетями, виртуальными сегментами сети (VRF) и образами операционных систем серверов, а также резервным копированием серверов с помощью сервиса Cloud Backup.
 
 Пользователи с этой ролью могут:
 * просматривать информацию о [серверах](../concepts/servers.md) BareMetal, в том числе об их [конфигурации](../concepts/server-configurations.md);
@@ -101,16 +108,23 @@ flowchart BT
 * переустанавливать операционные системы серверов BareMetal;
 * [использовать KVM-консоль](../operations/servers/server-kvm.md) серверов;
 * использовать [IPMI](https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface) для управления питанием серверов — включать, выключать и перезагружать их;
+* просматривать информацию о подключенных [провайдерах](../../backup/concepts/index.md#providers) резервного копирования, а также подключать провайдеров, доступных в Cloud Backup;
+* просматривать информацию о [подключенных](../../backup/concepts/vm-connection/index.md) к Cloud Backup защищаемых ресурсах, а также подключать и отключать защищаемые ресурсы от сервиса;
+* просматривать информацию о [политиках резервного копирования](../../backup/concepts/policy.md) и привязанных к ним ресурсах;
+* привязывать политики резервного копирования к защищаемым ресурсам, а также отвязывать их;
+* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к политикам резервного копирования;
 * просматривать информацию о [квотах](../concepts/limits.md#baremetal-quotas) сервиса Yandex BareMetal;
+* просматривать информацию о [квотах](../../backup/concepts/limits.md#backup-quotas) сервиса Cloud Backup;
+* просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 Включает разрешения, предоставляемые ролью `baremetal.editor`.
 
-{% note warning %}
+{% note info %}
 
-С 1 августа 2026 года роль `baremetal.admin` получает новый набор разрешений от роли [backup.user](../../backup/security/index.md#backup-user), позволяющий подключать серверы к сервису [Yandex Cloud Backup](../../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../../backup/concepts/policy.md).
+Роль `baremetal.admin` включает разрешения роли [backup.user](../../backup/security/index.md#backup-user), позволяющие подключать серверы к сервису [Yandex Cloud Backup](../../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../../backup/concepts/policy.md).
 
-Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](../../iam/concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](../../iam/operations/access-policies/assign.md).
+Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете отключить эти возможности с помощью [политики авторизации](../../iam/concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](../../iam/operations/access-policies/assign.md).
 
 {% endnote %}
 

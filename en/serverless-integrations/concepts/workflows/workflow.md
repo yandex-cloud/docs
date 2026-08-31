@@ -10,6 +10,8 @@ keywords:
 
 # Workflow
 
+{% include [workflows-ai-studio-note](../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 A _workflow_ is an event-driven application comprised of [integration](yawl/index.md#integration-steps) and [management](yawl/index.md#management-steps) _steps_ and transitions between them. Possible step attributes:
 
 * Name and description.

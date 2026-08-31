@@ -180,7 +180,31 @@ To get the endpoint ID, make an [EndpointService.List](/docs/data-transfer/api-r
         "string"
       ],
       "changefeedCustomName": "string",
-      "changefeedCustomConsumerName": "string"
+      "changefeedCustomConsumerName": "string",
+      "authentication": {
+        // Includes only one of the fields `serviceAccount`
+        "serviceAccount": {
+          "serviceAccountId": "string"
+        }
+        // end of the list of possible fields
+      },
+      "ydbConnection": {
+        // Includes only one of the fields `databaseId`, `onPremise`
+        "databaseId": "string",
+        "onPremise": {
+          "database": "string",
+          "instance": "string",
+          "tlsMode": {
+            // Includes only one of the fields `enabled`
+            "enabled": {
+              "caCertificate": "string"
+            }
+            // end of the list of possible fields
+          },
+          "subnetId": "string"
+        }
+        // end of the list of possible fields
+      }
     },
     "ydsSource": {
       "database": "string",
@@ -243,7 +267,33 @@ To get the endpoint ID, make an [EndpointService.List](/docs/data-transfer/api-r
       "securityGroups": [
         "string"
       ],
-      "consumer": "string"
+      "consumer": "string",
+      "authentication": {
+        // Includes only one of the fields `serviceAccountId`
+        "serviceAccountId": "string"
+        // end of the list of possible fields
+      },
+      "ydbConnection": {
+        // Includes only one of the fields `managedYds`, `onPremise`
+        "managedYds": {
+          "databaseId": "string",
+          "stream": "string"
+        },
+        "onPremise": {
+          "database": "string",
+          "stream": "string",
+          "instance": "string",
+          "tlsMode": {
+            // Includes only one of the fields `enabled`
+            "enabled": {
+              "caCertificate": "string"
+            }
+            // end of the list of possible fields
+          },
+          "subnetId": "string"
+        }
+        // end of the list of possible fields
+      }
     },
     "kafkaSource": {
       "connection": {
@@ -616,7 +666,31 @@ To get the endpoint ID, make an [EndpointService.List](/docs/data-transfer/api-r
       ],
       "isTableColumnOriented": "boolean",
       "defaultCompression": "string",
-      "isSchemaMigrationDisabled": "boolean"
+      "isSchemaMigrationDisabled": "boolean",
+      "authentication": {
+        // Includes only one of the fields `serviceAccount`
+        "serviceAccount": {
+          "serviceAccountId": "string"
+        }
+        // end of the list of possible fields
+      },
+      "ydbConnection": {
+        // Includes only one of the fields `databaseId`, `onPremise`
+        "databaseId": "string",
+        "onPremise": {
+          "database": "string",
+          "instance": "string",
+          "tlsMode": {
+            // Includes only one of the fields `enabled`
+            "enabled": {
+              "caCertificate": "string"
+            }
+            // end of the list of possible fields
+          },
+          "subnetId": "string"
+        }
+        // end of the list of possible fields
+      }
     },
     "kafkaTarget": {
       "connection": {
@@ -766,7 +840,33 @@ To get the endpoint ID, make an [EndpointService.List](/docs/data-transfer/api-r
       "subnetId": "string",
       "securityGroups": [
         "string"
-      ]
+      ],
+      "authentication": {
+        // Includes only one of the fields `serviceAccountId`
+        "serviceAccountId": "string"
+        // end of the list of possible fields
+      },
+      "ydbConnection": {
+        // Includes only one of the fields `managedYds`, `onPremise`
+        "managedYds": {
+          "databaseId": "string",
+          "stream": "string"
+        },
+        "onPremise": {
+          "database": "string",
+          "stream": "string",
+          "instance": "string",
+          "tlsMode": {
+            // Includes only one of the fields `enabled`
+            "enabled": {
+              "caCertificate": "string"
+            }
+            // end of the list of possible fields
+          },
+          "subnetId": "string"
+        }
+        // end of the list of possible fields
+      }
     }
     // end of the list of possible fields
   }
@@ -1323,6 +1423,60 @@ Pre-created change feed if any ||
 || changefeedCustomConsumerName | **string**
 
 Consumer for pre-created change feed if any ||
+|| authentication | **[AuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod)** ||
+|| ydbConnection | **[YDBConnection](#yandex.cloud.datatransfer.v1.endpoint.YDBConnection)** ||
+|#
+
+## AuthenticationMethod {#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod}
+
+#|
+||Field | Description ||
+|| serviceAccount | **[ServiceAccount](#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod.ServiceAccount)**
+
+Includes only one of the fields `serviceAccount`. ||
+|#
+
+## ServiceAccount {#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod.ServiceAccount}
+
+#|
+||Field | Description ||
+|| serviceAccountId | **string**
+
+Service account ID for interaction with database ||
+|#
+
+## YDBConnection {#yandex.cloud.datatransfer.v1.endpoint.YDBConnection}
+
+#|
+||Field | Description ||
+|| databaseId | **string**
+
+Managed Service for YDB database ID
+
+Includes only one of the fields `databaseId`, `onPremise`. ||
+|| onPremise | **[OnPremiseYDB](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDB)**
+
+Includes only one of the fields `databaseId`, `onPremise`. ||
+|#
+
+## OnPremiseYDB {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDB}
+
+#|
+||Field | Description ||
+|| database | **string**
+
+Database path in YDB where tables are stored.
+Example: `/ru/transfer_manager/prod/data-transfer` ||
+|| instance | **string**
+
+Instance of YDB. example: ydb-ru-prestable.yandex.net:2135. ||
+|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+
+TLS settings for server connection. Disabled by default. ||
+|| subnetId | **string**
+
+Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+If omitted, the server has to be accessible via Internet ||
 |#
 
 ## YDSSource {#yandex.cloud.datatransfer.v1.endpoint.YDSSource}
@@ -1372,6 +1526,12 @@ use ||
 || consumer | **string**
 
 Custom consumer - for important streams ||
+|| authentication | **[YDSAuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod)**
+
+Choose one of authentication methods, right now only service account is avaiable ||
+|| ydbConnection | **[YDSConnection](#yandex.cloud.datatransfer.v1.endpoint.YDSConnection)**
+
+Connection settings for managed YDB or for on premise ||
 |#
 
 ## Parser {#yandex.cloud.datatransfer.v1.endpoint.Parser}
@@ -1479,6 +1639,64 @@ Mark field as required ||
 || path | **string**
 
 Path to the field ||
+|#
+
+## YDSAuthenticationMethod {#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod}
+
+#|
+||Field | Description ||
+|| serviceAccountId | **string**
+
+Service account ID for interaction with database
+
+Includes only one of the fields `serviceAccountId`. ||
+|#
+
+## YDSConnection {#yandex.cloud.datatransfer.v1.endpoint.YDSConnection}
+
+#|
+||Field | Description ||
+|| managedYds | **[ManagedYDS](#yandex.cloud.datatransfer.v1.endpoint.ManagedYDS)**
+
+Includes only one of the fields `managedYds`, `onPremise`. ||
+|| onPremise | **[OnPremiseYDS](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDS)**
+
+Includes only one of the fields `managedYds`, `onPremise`. ||
+|#
+
+## ManagedYDS {#yandex.cloud.datatransfer.v1.endpoint.ManagedYDS}
+
+#|
+||Field | Description ||
+|| databaseId | **string**
+
+Managed Service for YDB database ID ||
+|| stream | **string**
+
+Stream to read ||
+|#
+
+## OnPremiseYDS {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDS}
+
+#|
+||Field | Description ||
+|| database | **string**
+
+Database path in YDB where tables are stored.
+Example: `/ru/transfer_manager/prod/data-transfer` ||
+|| stream | **string**
+
+Stream to read ||
+|| instance | **string**
+
+Instance of YDB. example: ydb-ru-prestable.yandex.net:2135. ||
+|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+
+TLS settings for server connection. Disabled by default. ||
+|| subnetId | **string**
+
+Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+If omitted, the server has to be accessible via Internet ||
 |#
 
 ## KafkaSource {#yandex.cloud.datatransfer.v1.endpoint.KafkaSource}
@@ -2083,6 +2301,8 @@ One of `YDB_DEFAULT_COMPRESSION_UNSPECIFIED`,
 || isSchemaMigrationDisabled | **boolean**
 
 Whether can change table schema if schema changed on source ||
+|| authentication | **[AuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod)** ||
+|| ydbConnection | **[YDBConnection](#yandex.cloud.datatransfer.v1.endpoint.YDBConnection)** ||
 |#
 
 ## KafkaTarget {#yandex.cloud.datatransfer.v1.endpoint.KafkaTarget}
@@ -2299,4 +2519,10 @@ database. If omitted, the server has to be accessible via Internet ||
 
 List of security groups that the transfer associated with this endpoint should
 use ||
+|| authentication | **[YDSAuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod)**
+
+Choose one of authentication methods, right now only service account is avaiable ||
+|| ydbConnection | **[YDSConnection](#yandex.cloud.datatransfer.v1.endpoint.YDSConnection)**
+
+Connection settings for managed YDB or for on premise ||
 |#

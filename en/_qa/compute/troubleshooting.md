@@ -232,3 +232,9 @@ If upgrading the OS is not possible or does not help:
     {% endlist %}
 
 1. If you previously had to remove additional network interfaces, [add](../../compute/operations/vm-control/attach-network-interface.md) them back.
+
+#### VM is not available {#vm-unavailable}
+
+A VM may be unavailable due to [throttling](../../compute/concepts/storage-read-write.md#throttling). In a throttling scenario, disk operations get postponed, which may cause the SSH session to freeze and the VM services to stop responding or become very slow. For more on troubleshooting this issue, see [{#T}](../../troubleshooting/compute/known-issues/throttling-and-vm-perfomance-issues.md).
+
+If the issue persists, contact [support]({{ link-console-support }}).

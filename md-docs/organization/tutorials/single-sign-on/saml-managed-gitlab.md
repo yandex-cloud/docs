@@ -2,6 +2,7 @@
 
 # Создать SAML-приложение в Yandex Identity Hub для интеграции с Managed Service for GitLab
 
+
 Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в Yandex Managed Service for GitLab с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../concepts/applications/saml.md) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Managed Service for GitLab.
 
 Управлять SAML-приложениями может пользователь, которому назначена [роль](../../security/index.md#organization-manager-samlApplications-admin) `organization-manager.samlApplications.admin` или выше.
@@ -20,7 +21,7 @@
 - Консоль управления {#console}
 
    1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [инстанс GitLab](../../../managed-gitlab/concepts/index.md#instance).
-   1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+   1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
    1. Нажмите кнопку **Создать инстанс**.
    1. В верхней части страницы:
 
@@ -80,7 +81,7 @@
 Чтобы интегрировать провайдер аутентификации для GitLab через OmniAuth, добавьте провайдер аутентификации:
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
 1. Нажмите на созданный инстанс и выберите вкладку **OmniAuth**.
 1. Нажмите кнопку **Настроить**.
 1. Чтобы добавить провайдера аутентификации, нажмите кнопку **Add**.

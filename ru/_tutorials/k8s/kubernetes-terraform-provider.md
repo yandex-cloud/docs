@@ -20,12 +20,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за сетевой балансировщик нагрузки ([тарифы {{ network-load-balancer-name }}](../../network-load-balancer/pricing.md)).
-* Плата за использование публичных IP-адресов для ВМ и сетевого балансировщика нагрузки ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Каждый сетевой балансировщик: обработанный балансировщиком входящий и исходящий трафик ([тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера {{ managed-k8s-name }}, а также сетевого балансировщика нагрузки ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Подготовьте инфраструктуру для {{ managed-k8s-name }} {#prepare-kubernetes-infrastructure}

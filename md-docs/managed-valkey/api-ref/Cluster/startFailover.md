@@ -28,7 +28,8 @@ The maximum string length in characters is 50. ||
   "hostNames": [
     "string"
   ],
-  "failoverType": "string"
+  "failoverType": "string",
+  "zoneId": "string"
 }
 ```
 
@@ -44,7 +45,11 @@ The maximum string length in characters for each value is 253. ||
 The type of failover request.
 
 - `SWITCH_TO_HOSTNAMES`: Switch master role to hosts identified by the provided hostnames.
-- `SWITCH_FROM_HOSTNAMES`: Switch master role away from hosts identified by the provided hostnames. ||
+- `SWITCH_FROM_HOSTNAMES`: Switch master role away from hosts identified by the provided hostnames.
+- `SWITCH_FROM_ZONE`: Switch master role away from the specified availability zone. ||
+|| zoneId | **string**
+
+ZoneID to switch hosts from. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

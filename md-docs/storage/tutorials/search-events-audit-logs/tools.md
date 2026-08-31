@@ -23,14 +23,14 @@
 
 {% list tabs group=instructions %}
 
-* Бакет Object Storage {#obj-storage}
+- Бакет Object Storage {#obj-storage}
 
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с именем `bucket-yq-sa`.
     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту `bucket-yq-sa` роль `storage.viewer` на каталог, в котором находится бакет с логами.
     1. Создайте соединение:
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится трейл, поставляющий логи в бакет.
-        1. Перейдите в сервис **Audit Trails**.
+        1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
         1. Выберите трейл, поставляющий логи в бакет.
         1. Нажмите **Обработать в YQ**.
         1. Выберите **Сервисный аккаунт** `bucket-yq-sa`.
@@ -41,7 +41,7 @@
 
     1. Выполните нужный [запрос](../../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
-* Поток данных Data Streams {#data-streams}
+- Поток данных Data Streams {#data-streams}
 
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с именем `bucket-yq-sa`.
     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту `bucket-yq-sa` роль `yds.editor`.

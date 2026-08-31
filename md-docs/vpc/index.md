@@ -158,6 +158,8 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Смарт-Софт NGFW](tutorials/high-accessible-dmz-ting.md)
 
+ - [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе UserGate NGFW](tutorials/high-accessible-dmz-usergate.md)
+
  - [Создание и настройка шлюза UserGate в режиме межсетевого экрана](tutorials/usergate-firewall.md)
 
 ### BareMetal
@@ -177,26 +179,6 @@ Yandex Virtual Private Cloud служит для управления облач
 ### Cloud Interconnect
 
  - [Организация доступа через Cloud Interconnect к облачным сетям, размещенным за NGFW](tutorials/cic-with-ngfw.md)
-
- - [Создание прямого транкового подключения и приватного соединения в нем](tutorials/trunk-priv-add.md)
-
- - [Создание прямого транкового подключения и публичного соединения в нем](tutorials/trunk-pub-add.md)
-
- - [Создание нового партнерского транкового подключения и приватного соединения в нем](tutorials/partner-trunk-priv-add.md)
-
- - [Создание нового партнерского транкового подключения и публичного соединения в нем](tutorials/partner-trunk-pub-add.md)
-
- - [Добавление приватного соединения в прямое или партнерское транковое подключение](tutorials/priv-add.md)
-
- - [Добавление публичного соединения в прямое или партнерское транковое подключение](tutorials/pub-add.md)
-
- - [Изменение емкости транкового подключения](tutorials/trunk-capacity-change.md)
-
- - [Удаление приватного соединения](tutorials/priv-del.md)
-
- - [Удаление публичного соединения](tutorials/pub-del.md)
-
- - [Удаление транкового подключения](tutorials/trunk-del.md)
 
 ### Настройка сетевых ресурсов и взаимодействие между ними
 

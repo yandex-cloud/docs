@@ -16,7 +16,7 @@
 
 ## Создайте инфраструктуру {#before-you-begin}
 
-1. [Создайте подсети](../../vpc/operations/subnet-create.md) в трех зонах доступности. Эти подсети будут использоваться для L7-балансировщика.
+1. [Создайте подсети](../../vpc/operations/subnet-create.md) в трех [зонах доступности](../../overview/concepts/geo-scope.md). Эти подсети будут использоваться для L7-балансировщика.
 
 1. Создайте [группы безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups), которые разрешают L7-балансировщику получать входящий трафик и отправлять его на целевые ресурсы, а также разрешают целевым ресурсам получать входящий трафик от балансировщика.
 
@@ -86,7 +86,7 @@
 
 1. Дождитесь, когда L7-балансировщик перейдет в статус `Active`.
 
-1. Перейдите в созданный L7-балансировщик и слева выберите **{{ ui-key.yacloud.alb.label_healthchecks }}**. Убедитесь, что все проверки показывают состояние `HEALTHY`.
+1. Перейдите в созданный L7-балансировщик и откройте вкладку **{{ ui-key.yacloud.alb.label_healthchecks }}**. Убедитесь, что все проверки показывают состояние `HEALTHY`.
 
 1. {% include [test](../_tutorials_includes/migration-from-nlb-to-alb/test.md) %}
 
@@ -104,8 +104,8 @@
 
 1. Измените для группы ВМ интеграцию с целевой группой:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится группа ВМ.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится группа ВМ.
+    1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
     1. Выберите группу, которую хотите изменить.
     1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.common.edit }}**.

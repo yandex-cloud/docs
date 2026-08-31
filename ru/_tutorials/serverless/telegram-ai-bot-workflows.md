@@ -1,9 +1,9 @@
 # Как создать бота в Telegram с поддержкой AI-агента с помощью {{ sw-full-name }}
 
 
-С помощью serverless-технологий можно создать [бота](../../glossary/chat-bot.md) для Telegram с поддержкой [модели генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) на базе сервиса [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index).
+С помощью serverless-технологий можно создать [бота]({{ link-docs }}/glossary/chat-bot) для Telegram с поддержкой [модели генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) на базе сервиса [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index).
 
-В этом руководстве вы создадите бота для подбора фильмов на основании предпочтений пользователя. Для этого вы создадите AI-агента, организуете хранение данных в [{{ objstorage-full-name }}](../../storage/) и [{{ lockbox-full-name }}](../../lockbox/), настроите логику бота в [{{ sw-full-name }}](../../serverless-integrations/) и вебхук для запуска по ссылке.
+В этом руководстве вы создадите бота для подбора фильмов на основании предпочтений пользователя. Для этого вы создадите AI-агента, организуете хранение данных в [{{ objstorage-full-name }}]({{ link-docs }}/storage/) и [{{ lockbox-full-name }}]({{ link-docs }}/lockbox/), настроите логику бота в [{{ sw-full-name }}]({{ link-docs }}/serverless-integrations/) и вебхук для запуска по ссылке.
 
 Чтобы создать бота:
 
@@ -31,9 +31,9 @@
 В стоимость поддержки Telegram-бота входят:
 
 * плата за генерацию текста ([тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
-* плата за хранение секрета и запросы к нему ([тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
-* плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик ([тарифы {{ objstorage-full-name }}](../../storage/pricing.md));
-* плата за получение и хранение логов ([тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
+* плата за хранение секрета и запросы к нему ([тарифы {{ lockbox-full-name }}]({{ link-docs }}/lockbox/pricing));
+* плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик ([тарифы {{ objstorage-full-name }}]({{ link-docs }}/storage/pricing));
+* плата за получение и хранение логов ([тарифы {{ cloud-logging-full-name }}]({{ link-docs }}/logging/pricing)).
 
 
 ## Зарегистрируйте Telegram-бота {#create-bot}
@@ -54,14 +54,14 @@
 
 ## Создайте секрет {#create-secret}
 
-Создайте [секрет](../../lockbox/concepts/secret.md), в котором будет храниться токен для доступа к API Telegram.
+Создайте [секрет]({{ link-docs }}/lockbox/concepts/secret), в котором будет храниться токен для доступа к API Telegram.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder), в котором вы будете создавать инфраструктуру.
+  1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета.
   1. Выберите тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
@@ -116,23 +116,23 @@
 
 - API {#api}
 
-  Чтобы создать секрет, воспользуйтесь методом REST API [Create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md).
+  Чтобы создать секрет, воспользуйтесь методом REST API [Create]({{ link-docs }}/lockbox/api-ref/Secret/create) для ресурса [Secret]({{ link-docs }}/lockbox/api-ref/Secret/index) или вызовом gRPC API [SecretService/Create]({{ link-docs }}/lockbox/api-ref/grpc/Secret/create).
 
 {% endlist %}
 
 
 ## Создайте бакет {#create-bucket}
 
-Создайте [бакет](../../storage/concepts/bucket.md) для хранения истории чата с ботом.
+Создайте [бакет]({{ link-docs }}/storage/concepts/bucket) для хранения истории чата с ботом.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. На панели сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+  1. Введите имя бакета в соответствии с [правилами именования]({{ link-docs }}/storage/concepts/bucket#naming).
   1. Укажите максимальный размер бакета `5 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
@@ -144,7 +144,7 @@
       yc storage bucket create --help
       ```
 
-  1. Создайте бакет в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
+  1. Создайте бакет в [каталоге]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder) по умолчанию:
 
       ```bash
       yc storage bucket create \
@@ -155,8 +155,8 @@
 
       Где:
 
-      * `--name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-      * `--default-storage-class` — [класс хранилища](../../storage/concepts/storage-class.md).
+      * `--name` — имя бакета в соответствии с [правилами именования]({{ link-docs }}/storage/concepts/bucket#naming).
+      * `--default-storage-class` — [класс хранилища]({{ link-docs }}/storage/concepts/storage-class).
       * `--max-size` — максимальный размер бакета в байтах.
 
       Результат:
@@ -176,7 +176,7 @@
 
   {% include [aws-cli-install](../../_includes/aws-cli-install.md) %}
 
-  Чтобы создать бакет, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту, через который работает AWS CLI, [роль](../../storage/security/index.md#storage-editor) `storage.editor`.
+  Чтобы создать бакет, [назначьте]({{ link-docs }}/iam/operations/sa/assign-role-for-sa) сервисному аккаунту, через который работает AWS CLI, [роль]({{ link-docs }}/storage/security/index#storage-editor) `storage.editor`.
 
   В терминале выполните команду:
 
@@ -189,28 +189,28 @@
   Где:
 
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
-  * `--bucket` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+  * `--bucket` — имя бакета в соответствии с [правилами именования]({{ link-docs }}/storage/concepts/bucket#naming).
 
 - API {#api}
 
-  Чтобы создать бакет, воспользуйтесь методом REST API [Create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/Bucket/create.md) или методом S3 API [create](../../storage/s3/api-ref/bucket/create.md).
+  Чтобы создать бакет, воспользуйтесь методом REST API [Create]({{ link-docs }}/storage/api-ref/Bucket/create) для ресурса [Bucket]({{ link-docs }}/storage/api-ref/Bucket/index), вызовом gRPC API [BucketService/Create]({{ link-docs }}/storage/api-ref/grpc/Bucket/create) или методом S3 API [create]({{ link-docs }}/storage/s3/api-ref/bucket/create).
 
 {% endlist %}
 
 
 ## Создайте сервисный аккаунт {#create-sa}
 
-Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) `sa-workflows` — от его имени будут выполняться шаги рабочего процесса.
+Создайте [сервисный аккаунт]({{ link-docs }}/iam/concepts/users/service-accounts) `sa-workflows` — от его имени будут выполняться шаги рабочего процесса.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта `sa-workflows`.
-  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте [роли](../../iam/roles-reference.md):
+  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте [роли]({{ link-docs }}/iam/roles-reference):
 
       * `storage.uploader`
       * `storage.viewer`
@@ -254,7 +254,7 @@
       FOLDER_ID=$(yc config get folder-id)
       ```
 
-  1. Посмотрите описание команды CLI для назначения [роли](../../iam/roles-reference.md) на каталог:
+  1. Посмотрите описание команды CLI для назначения [роли]({{ link-docs }}/iam/roles-reference) на каталог:
 
       ```bash
       yc resource-manager folder add-access-binding --help
@@ -317,9 +317,9 @@
   * `{{ roles-yagpt-user }}`
   * `ai.assistants.editor`
 
-  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [Create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
+  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [Create]({{ link-docs }}/iam/api-ref/ServiceAccount/create) для ресурса [ServiceAccount]({{ link-docs }}/iam/api-ref/ServiceAccount/index) или вызовом gRPC API [ServiceAccountService/Create]({{ link-docs }}/iam/api-ref/grpc/ServiceAccount/create).
 
-  Чтобы назначить роль сервисному аккаунту, воспользуйтесь методом REST API [updateAccessBindings](../../iam/api-ref/ServiceAccount/updateAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/UpdateAccessBindings](../../iam/api-ref/grpc/ServiceAccount/updateAccessBindings.md).
+  Чтобы назначить роль сервисному аккаунту, воспользуйтесь методом REST API [updateAccessBindings]({{ link-docs }}/iam/api-ref/ServiceAccount/updateAccessBindings) для ресурса [ServiceAccount]({{ link-docs }}/iam/api-ref/ServiceAccount/index) или вызовом gRPC API [ServiceAccountService/UpdateAccessBindings]({{ link-docs }}/iam/api-ref/grpc/ServiceAccount/updateAccessBindings).
 
 {% endlist %}
 
@@ -370,7 +370,7 @@
 
 ### Подготовьте YaWL-спецификацию {#prepare-spec-wf}
 
-Сохраните [YaWL-спецификацию](../../serverless-integrations/concepts/workflows/yawl/index.md) рабочего процесса в YAML-файле, например `yawl-spec.yaml`:
+Сохраните [YaWL-спецификацию]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/index) рабочего процесса в YAML-файле, например `yawl-spec.yaml`:
 
 ```yaml
 yawl: '0.1'
@@ -467,7 +467,7 @@ steps:
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Перейдите]({{ link-console-main }}/link/serverless-integrations) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
   1. Выберите способ `{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}`.
@@ -526,7 +526,7 @@ steps:
 
 - API {#api}
 
-  Чтобы создать рабочий процесс, воспользуйтесь методом REST API [Create](../../serverless-integrations/workflows/api-ref/Workflow/create.md) для ресурса [Workflows](../../serverless-integrations/workflows/api-ref/Workflow/index.md) или вызовом gRPC API [Workflow/Create](../../serverless-integrations/workflows/api-ref/grpc/Workflow/create.md).
+  Чтобы создать рабочий процесс, воспользуйтесь методом REST API [Create]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/create) для ресурса [Workflows]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/index) или вызовом gRPC API [Workflow/Create]({{ link-docs-ai }}ai-studio/workflows/api-ref/grpc/Workflow/create).
 
 {% endlist %}
 
@@ -539,8 +539,8 @@ steps:
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [рабочий процесс]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow).
+  1. [Перейдите]({{ link-console-main }}/link/serverless-integrations) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Выберите нужный рабочий процесс.
   1. Включите опцию **{{ ui-key.yacloud.serverless-workflows.label_public-access }}**.
@@ -548,7 +548,7 @@ steps:
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  1. Посмотрите описание команды CLI для изменения [рабочего процесса](../../serverless-integrations/concepts/workflows/workflow.md):
+  1. Посмотрите описание команды CLI для изменения [рабочего процесса]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow):
 
       ```bash
       yc serverless workflow update --help
@@ -573,7 +573,7 @@ steps:
 
 - API {#api}
 
-  Чтобы сделать [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md) публичным, воспользуйтесь методом REST API [Update](../../serverless-integrations/workflows/api-ref/Workflow/update.md) для ресурса [Workflows](../../serverless-integrations/workflows/api-ref/Workflow/index.md) или вызовом gRPC API [workflow/Update](../../serverless-integrations/workflows/api-ref/grpc/Workflow/update.md), установив параметр `isPublic: true`.
+  Чтобы сделать [рабочий процесс]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) публичным, воспользуйтесь методом REST API [Update]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/update) для ресурса [Workflows]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/index) или вызовом gRPC API [workflow/Update]({{ link-docs-ai }}ai-studio/workflows/api-ref/grpc/Workflow/update), установив параметр `isPublic: true`.
 
 {% endlist %}
 
@@ -595,8 +595,8 @@ steps:
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится рабочий процесс.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится рабочий процесс.
+  1. [Перейдите]({{ link-console-main }}/link/serverless-integrations) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Выберите рабочий процесс. Ссылка для запуска будет в поле **{{ ui-key.yacloud.serverless-workflows.label_execution-url }}**.
 
@@ -621,7 +621,7 @@ steps:
 
 - API {#api}
 
-  Чтобы получить ссылку для запуска рабочего процесса, воспользуйтесь методом REST API [get](../../serverless-integrations/workflows/api-ref/Workflow/get.md) для ресурса [Workflow](../../serverless-integrations/workflows/api-ref/Workflow/index.md) или вызовом gRPC API [WorkflowsService/Get](../../serverless-integrations/workflows/api-ref/grpc/Workflow/get.md). Ссылка для запуска будет в поле `execution_url`.
+  Чтобы получить ссылку для запуска рабочего процесса, воспользуйтесь методом REST API [get]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/get) для ресурса [Workflow]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/index) или вызовом gRPC API [WorkflowsService/Get]({{ link-docs-ai }}ai-studio/workflows/api-ref/grpc/Workflow/get). Ссылка для запуска будет в поле `execution_url`.
 
 {% endlist %}
 
@@ -714,8 +714,8 @@ steps:
 
 Чтобы не [платить](#paid-resources) за ресурсы, которые вам больше не нужны, удалите их:
 
-1. [Удалите](../../serverless-integrations/operations/workflows/workflow/delete.md) рабочий процесс.
-1. [Удалите](../../storage/operations/buckets/delete.md) бакет.
-1. [Удалите](../../lockbox/operations/secret-delete.md) секрет.
+1. [Удалите]({{ link-docs-ai }}ai-studio/operations/workflows/workflow/delete) рабочий процесс.
+1. [Удалите]({{ link-docs }}/storage/operations/buckets/delete) бакет.
+1. [Удалите]({{ link-docs }}/lockbox/operations/secret-delete) секрет.
 1. Удалите AI-агента в {{ ai-studio-name }}.
-1. Если вы оставляли включенной опцию записи логов рабочего процесса, [удалите](../../logging/operations/delete-group.md) лог-группу.
+1. Если вы оставляли включенной опцию записи логов рабочего процесса, [удалите]({{ link-docs }}/logging/operations/delete-group) лог-группу.

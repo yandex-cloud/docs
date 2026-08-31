@@ -14,9 +14,9 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Click the cluster name and open the ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
-  1. Optionally, select a maintenance status above the maintenance list.
+  1. Optionally, select a maintenance status above the list of maintenance jobs.
 
 {% endlist %}
 
@@ -27,7 +27,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Click the cluster name and open the ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Select the maintenance. The maintenance page will open.
   1. Click **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
@@ -41,7 +41,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Click the cluster name and open the ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status and select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
   1. Select the reschedule type for the planned maintenance:
@@ -51,7 +51,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 
         For this option, select the date and UTC time interval.
 
-        Maintenance can be postponed for a maximum of two weeks from the original scheduled date.
+        {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
   
   1. Click **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
 
@@ -89,7 +89,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
     
         > Here are some examples: `2006-01-02T15:04:05Z`, `15:04:05`, `2h`, `3h30m ago`.
 
-        Maintenance can be postponed for a maximum of two weeks from the original scheduled date.
+        {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
     
       You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -121,7 +121,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 
         > `2006-01-02T15:04:05Z`
     
-        Maintenance can be postponed for a maximum of two weeks from the original scheduled date.
+        {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
     
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
   
@@ -161,7 +161,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 
         > `2006-01-02T15:04:05Z`
 
-        Maintenance can be postponed for a maximum of two weeks from the original scheduled date.
+        {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
     
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
   
@@ -176,7 +176,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Click the cluster name and open the ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. In the maintenance row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
 
@@ -264,7 +264,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Click the cluster name and open the ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}** in the top-right corner of the page.
   1. Select a maintenance window:

@@ -150,6 +150,8 @@ Monium платформа для сбора, хранения и анализа 
 
  - [Container Registry](metrics-ref/container-registry-ref.md)
 
+ - [Cloud Registry](metrics-ref/cloud-registry-ref.md)
+
  - [Yandex Data Processing](metrics-ref/data-processing-ref.md)
 
  - [Data Transfer](metrics-ref/data-transfer-ref.md)
@@ -373,6 +375,10 @@ Monium платформа для сбора, хранения и анализа 
  - [Управление SLO](slo/management.md)
 
  - [Добавление виджета SLO на дашборд](slo/visualisation.md)
+
+## Практические руководства
+
+ - [SLO-мониторинг веб-сервиса](slo/slo-blackbox-exporter.md)
 
 ## Yandex Managed Service for Prometheus®
 

@@ -2,7 +2,7 @@
 1. [Create a service account](#create-account).
 1. [Create a {{ kms-short-name }} key](#create-key).
 1. [Create a secret](#create-secret).
-1. [Create a VM](#create-vm).
+1. [Create the VM](#create-vm).
 1. [Log in to Windows](#login-windows).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter the service account name, e.g., `win-secret-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -66,7 +66,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your key pair in.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+     1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
      1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
      1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify its attributes:
          * **{{ ui-key.yacloud.common.name }}**: `win-secret-key`.
@@ -134,7 +134,7 @@ Create a {{ lockbox-name }} secret to save usernames and passwords of Windows us
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `win-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.EncryptionInfoSection.title_kms-key }}** field, specify the `win-secret-key` key.

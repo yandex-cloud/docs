@@ -7,8 +7,13 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входит плата за сервис {{ kms-name }}: количество активных версий ключа (в статусах `Active` и `Scheduled For Destruction`) и выполненных криптографических операций ([тарифы {{ kms-name }}](../../kms/pricing.md)).
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Сервис {{ kms-name }}: количество активных версий ключа и выполненных криптографических операций ([тарифы {{ kms-name }}](../../kms/pricing.md)).
 
+
+## Создайте кластер с ключом шифрования {#create-cluster}
 
 {% list tabs group=instructions %}
 
@@ -16,7 +21,7 @@
 
   Укажите ключ при создании кластера {{ managed-k8s-name }}:
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан кластер {{ managed-k8s-name }}.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
   1. В поле **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}** укажите необходимый ключ или [создайте новый](../../kms/operations/key.md#create).
   1. Закончите заполнение параметров [создания кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).

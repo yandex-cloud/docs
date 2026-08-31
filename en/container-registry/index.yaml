@@ -1,8 +1,8 @@
 title: Yandex Container Registry
 description:
   - >-
-    Yandex Container Registry is a service for storing and distributing Docker
-    images.
+    Yandex Container Registry is a service that allows you to store and
+    distribute Docker images.
   - >-
     Container Registry offers a reliable storage solution independent of
     external locks. Docker images in {{ container-registry-name }} are stored in
@@ -12,8 +12,9 @@ description:
   - >-
     Container Registry comes with a built-in <a
     href="/docs/container-registry/concepts/vulnerability-scanner">vulnerability
-    scanner</a> which can scan Docker images either when uploaded to the
-    registry or based on a schedule, with flexible scan output management.
+    scanner</a> that enables you to scan Docker images both when they are pushed
+    to the registry and later on a schedule, as well as flexibly manage scan
+    results.
   - >-
     This service is subject to a <a
     href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
@@ -23,8 +24,8 @@ description:
 meta:
   title: Yandex Container Registry
   description: >-
-    Yandex Container Registry is a service for storing and distributing Docker
-    images.
+    Yandex Container Registry is a service that allows you to store and
+    distribute Docker images.
   keywords:
     - keyword: '{{ container-registry-name }}'
     - keyword: '{{ container-registry-full-name }}'
@@ -43,10 +44,10 @@ links:
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn more about the service's concepts and resources
+    description: Learn about the concepts and resources of the service
     href: concepts/
   - title: API reference
-    description: HTTP API methods
+    description: HTTP API method description
     href: api-ref/
   - title: Tutorials
     description: Address common Docker image management tasks using Container Registry
@@ -55,8 +56,8 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions to use the service
+    description: Configure access permissions for the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Prices and cost calculation rules
     href: pricing

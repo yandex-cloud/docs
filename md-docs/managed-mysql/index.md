@@ -28,9 +28,13 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Изменение кластера](operations/update.md)
 
+ - [Управление алиасами кластера](operations/cluster-aliases.md)
+
  - [Остановка и запуск кластера](operations/cluster-stop.md)
 
  - [Управление хостами кластера](operations/hosts.md)
+
+ - [Управление алиасами хостов](operations/hosts-aliases.md)
 
  - [Миграция хостов в другую зону доступности](operations/host-migration.md)
 
@@ -189,6 +193,8 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
  - [Миграция базы данных из MySQL® в ClickHouse® с помощью Yandex Data Transfer](tutorials/mysql-to-clickhouse.md)
 
  - [Управление доступом](security/index.md)
+
+ - [Инспекции и рекомендации](advisor.md)
 
  - [Правила тарификации](pricing.md)
 

@@ -29,10 +29,10 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость ресурсов для синхронизации секретов входит:
-* Плата за использование [мастера Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
-* Плата за [вычислительные ресурсы](../../../compute/concepts/vm-platforms.md) и [диски](../../../compute/concepts/disk.md) [группы узлов Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#node-group) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
-* Плата за хранение и операции с секретом ([тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+* Секрет Yandex Lockbox: количество хранимых версий секрета и запросы к ним ([тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
 
 ### Создайте инфраструктуру {#deploy-infrastructure}
 
@@ -70,6 +70,7 @@
      Сохраните идентификатор секрета, он понадобится в дальнейшем.
 
 - Terraform {#tf}
+
 
   1. Если у вас еще нет Terraform, [установите его](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. [Получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
@@ -132,7 +133,9 @@
 
 1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+   
+   Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
 1. Установите утилиту `jq`:
 

@@ -41,7 +41,7 @@ In addition to timers, the following types of triggers are available in {{ sf-na
 
     Create an [email trigger](../../concepts/trigger/mail-trigger.md) that invokes a function when an email arrives.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Step-by-step guides on how to create triggers](../../operations/index.md#trigger-create)
 * [{{ sf-name }} trigger overview](../../concepts/trigger/index.md)

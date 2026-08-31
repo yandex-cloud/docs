@@ -1,4 +1,4 @@
-# Running commands
+# Running the {{ yandex-cloud }} CLI commands
 
 CLI commands are grouped by {{ yandex-cloud }} service or component.
 
@@ -9,6 +9,45 @@ To get help information for a particular command, specify the `--help` global fl
 {% endnote %}
 
 Commands are executed after authentication, and the token is then saved in the file system. You can also get the token from the `YC_IAM_TOKEN` environment variable regardless of whether or not you have a saved token.
+
+## Providing multiple values for a single parameter {#multiple-values}
+
+Some CLI parameters can take multiple values. Depending on the command, you can either provide a comma-separated list of values or specify them individually by repeating the parameter:
+
+```bash
+yc <command> \
+  --<parameter> <value_1> \
+  --<parameter> <value_2>
+```
+
+The supported method for providing values depends on the command and parameter. Before running a command, view its description:
+
+```bash
+yc <command> --help
+```
+
+### Examples {#multiple-values-examples}
+
+When [creating a function version](../../functions/operations/function/environment-variables-add.md), you can provide each environment variable in a separate `--environment` parameter. For example, this method is useful if the variable value contains commas:
+
+```bash
+yc serverless function version create \
+  --function-name my-function \
+  --runtime python312 \
+  --entrypoint main.handler \
+  --source-path ./function.zip \
+  --environment OPENSEARCH_HOSTS='["hostname1","hostname2","hostname3"]' \
+  --environment OPENSEARCH_INDEX=index_v2
+```
+
+When [assigning roles for a certificate](../../certificate-manager/operations/cert-access.md), provide each binding individually by repeating the `--access-binding` parameter:
+
+```bash
+yc certificate-manager certificate set-access-bindings my-certificate \
+  --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
+  --access-binding role=viewer,subject=userAccount:helj89sfj80a******** \
+  --access-binding role=editor,subject=serviceAccount:ajel6l0jcb9s********
+```
 
 ## Managing a CLI configuration {#manage-properties}
 
@@ -49,7 +88,7 @@ yc config list
 
 {% note tip %}
 
-If using the resource ID, there is no need to specify the folder because their IDs are unique.
+If using a resource ID, you do not need to specify the folder because their IDs are unique.
 
 {% endnote %}
 
@@ -66,7 +105,9 @@ The CLI can send requests to {{ yandex-cloud }} through a proxy server. To do th
 * Proxy server domain name or IP address.
 * Port to connect to.
 
-{% note info %}
+{% note tip %}
+
+In the proxy server URL, specify the protocol used by the proxy server for incoming connections. If you do not know the protocol, contact your administrator. For more information about supported protocols, see [this net/http package guide](https://pkg.go.dev/net/http#Transport.Proxy).
 
 If the password contains special characters, replace them with hexadecimal ASCII codes. For example, if the password contains the `@` character, use `%40`.
 
@@ -117,3 +158,15 @@ If the password contains special characters, replace them with hexadecimal ASCII
     ```
 
 {% endlist %}
+
+## Command versioning {#versioning}
+
+{% include [command-ver-intro](../../_includes/cli/command-ver-intro.md) %}
+
+For more information, see [{#T}](../operations/command-versioning.md).
+
+
+#### Useful links {#see-also}
+
+[{#T}](../../overview/concepts/console-syntax-guide.md)
+

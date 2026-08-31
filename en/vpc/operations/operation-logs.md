@@ -13,7 +13,7 @@ The system logs all actions with {{ vpc-name }} resources as a list of operation
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a cloud network. The same steps apply to other resources.
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your cloud network.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Select the network you need.
   1. Go to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel.
 

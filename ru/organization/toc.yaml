@@ -69,6 +69,8 @@ items:
             href: operations/user-account/first-login.md
           - name: Управление аккаунтом на портале «Мой аккаунт»
             href: operations/manage-account.md
+          - name: Сброс пароля пользователя
+            href: operations/user-account/reset-password.md
           - name: Решение проблем
             href: operations/user-account/troubleshooting.md
       - name: Управление группами пользователей
@@ -179,6 +181,8 @@ items:
               Включить требование двухфакторной аутентификации для аккаунтов на
               Яндексе
             href: operations/enable-2fa-access.md
+          - name: Настроить самостоятельный сброс пароля пользователями (SSPR)
+            href: operations/manage-sspr.md
           - name: Управление MFA
             items:
               - name: Создать политику MFA
@@ -227,8 +231,10 @@ items:
             href: operations/view-subject-access-bindings.md
           - name: Отозвать роль у пользователя
             href: operations/revoke-role.md
-      - name: Синхронизировать пользователей и группы с {{ microsoft-idp.ad-short }}
-        href: operations/sync-ad.md
+      - name: Синхронизация пользователей и групп с внешними службами каталогов
+        items:
+          - name: '{{ microsoft-idp.ad-short }}'
+            href: operations/sync-ad.md
       - name: Управлять тарификацией {{ org-full-name }}
         href: operations/manage-billing.md
   - name: Практические руководства
@@ -293,6 +299,12 @@ items:
                 href: tutorials/single-sign-on/jenkins/saml-jenkins.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/jenkins/oidc-jenkins.md
+          - name: Loop
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/loop/saml-loop.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/loop/oidc-loop.md
           - name: '{{ mgl-name }}'
             href: tutorials/single-sign-on/saml-managed-gitlab.md
           - name: '{{ mos-name }}'
@@ -309,6 +321,12 @@ items:
             href: tutorials/single-sign-on/saml-sentry.md
           - name: SonarQube
             href: tutorials/single-sign-on/saml-sonarqube.md
+          - name: Time
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/time/saml-time.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/time/oidc-time.md
           - name: OpenVPN
             items:
               - name: OpenVPN Access Server
@@ -316,9 +334,7 @@ items:
               - name: OpenVPN Community Edition
                 href: tutorials/single-sign-on/oidc-ovpn.md
           - name: VK Cloud
-            items:
-              - name: SAML
-                href: tutorials/single-sign-on/vk-cloud/saml-vk-cloud.md
+            href: tutorials/single-sign-on/saml-vk-cloud.md
           - name: Zabbix
             href: tutorials/single-sign-on/saml-zabbix.md
           - name: Пассворк
@@ -365,12 +381,18 @@ items:
         href: concepts/branding.md
       - name: Портал Мой аккаунт
         href: concepts/my-account.md
+      - name: Самостоятельный сброс пароля пользователем (SSPR)
+        href: concepts/sspr.md
       - name: Аудитные логи и логи входа
         href: concepts/logs.md
       - name: Сессии
         href: concepts/sessions.md
-      - name: Синхронизация с {{ microsoft-idp.ad-short }}
-        href: concepts/ad-sync.md
+      - name: Синхронизация с внешними службами каталогов
+        items:
+          - name: Обзор
+            href: concepts/ad-sync/index.md
+          - name: Агент синхронизации {{ ad-sync-agent }}
+            href: concepts/ad-sync/sync-agent.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Диагностика ошибок
@@ -632,6 +654,32 @@ items:
                       - name: update
                         href: >-
                           cli-ref/idp/application/saml/signature-certificate/update.md
+          - name: synchronization-session
+            items:
+              - name: Overview
+                href: cli-ref/idp/synchronization-session/index.md
+              - name: get
+                href: cli-ref/idp/synchronization-session/get.md
+              - name: list
+                href: cli-ref/idp/synchronization-session/list.md
+          - name: synchronization-settings
+            items:
+              - name: Overview
+                href: cli-ref/idp/synchronization-settings/index.md
+              - name: create
+                href: cli-ref/idp/synchronization-settings/create.md
+              - name: delete
+                href: cli-ref/idp/synchronization-settings/delete.md
+              - name: get
+                href: cli-ref/idp/synchronization-settings/get.md
+              - name: list-supported-attributes
+                href: >-
+                  cli-ref/idp/synchronization-settings/list-supported-attributes.md
+              - name: reset-replication-token
+                href: >-
+                  cli-ref/idp/synchronization-settings/reset-replication-token.md
+              - name: update
+                href: cli-ref/idp/synchronization-settings/update.md
           - name: user
             items:
               - name: Overview
@@ -1067,6 +1115,32 @@ items:
                           - name: update
                             href: >-
                               cli-ref/v0/idp/application/saml/signature-certificate/update.md
+              - name: synchronization-session
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/idp/synchronization-session/index.md
+                  - name: get
+                    href: cli-ref/v0/idp/synchronization-session/get.md
+                  - name: list
+                    href: cli-ref/v0/idp/synchronization-session/list.md
+              - name: synchronization-settings
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/idp/synchronization-settings/index.md
+                  - name: create
+                    href: cli-ref/v0/idp/synchronization-settings/create.md
+                  - name: delete
+                    href: cli-ref/v0/idp/synchronization-settings/delete.md
+                  - name: get
+                    href: cli-ref/v0/idp/synchronization-settings/get.md
+                  - name: list-supported-attributes
+                    href: >-
+                      cli-ref/v0/idp/synchronization-settings/list-supported-attributes.md
+                  - name: reset-replication-token
+                    href: >-
+                      cli-ref/v0/idp/synchronization-settings/reset-replication-token.md
+                  - name: update
+                    href: cli-ref/v0/idp/synchronization-settings/update.md
               - name: user
                 items:
                   - name: Overview
@@ -1434,6 +1508,8 @@ items:
                     href: idp/api-ref/grpc/Synchronization/setReplicationToken.md
                   - name: ResetReplicationToken
                     href: idp/api-ref/grpc/Synchronization/resetReplicationToken.md
+                  - name: GetReplicationToken
+                    href: idp/api-ref/grpc/Synchronization/getReplicationToken.md
                   - name: CreateSynchronizationSettings
                     href: >-
                       idp/api-ref/grpc/Synchronization/createSynchronizationSettings.md
@@ -1898,6 +1974,8 @@ items:
                     href: idp/api-ref/Synchronization/setReplicationToken.md
                   - name: ResetReplicationToken
                     href: idp/api-ref/Synchronization/resetReplicationToken.md
+                  - name: GetReplicationToken
+                    href: idp/api-ref/Synchronization/getReplicationToken.md
                   - name: CreateSynchronizationSettings
                     href: >-
                       idp/api-ref/Synchronization/createSynchronizationSettings.md

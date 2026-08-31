@@ -33,11 +33,10 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входят:
-* Плата за вычислительные ресурсы и диски [узлов](../../managed-kubernetes/concepts/index.md#node-group) кластера {{ managed-k8s-name }} ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование [мастера](../../managed-kubernetes/concepts/index.md#master) {{ managed-k8s-name }} и исходящий трафик ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) кластера {{ managed-k8s-name }} ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему ([тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Секрет {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним ([тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
 
 ## Настройте кластер {{ managed-k8s-name }} {#prepare-cluster}
 
@@ -50,7 +49,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, к которому вы хотите получить доступ через API {{ yandex-cloud }}.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
   1. В поле **{{ ui-key.yacloud.iam.federations.field_issuer }}** введите значение **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}**, полученное ранее, например `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********`.
@@ -128,8 +127,6 @@
 
 {% endlist %}
 
-{% endlist %}
-
 ## Подготовьте сервисный аккаунт {{ iam-short-name }} {#prepare-sa}
 
 1. Создайте сервисный аккаунт {{ iam-short-name }}:
@@ -139,7 +136,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором размещен секрет {{ lockbox-name }}.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например `sa-lockbox`.
       1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -294,7 +291,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором был создан сервисный аккаунт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. В списке выберите сервисный аккаунт `sa-lockbox`.
   1. На верхней панели нажмите ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
   1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** выберите ранее созданную федерацию.
@@ -372,7 +369,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан секрет.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета `MY_SECRET`.
   1. Выберите **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.

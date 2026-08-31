@@ -55,8 +55,8 @@ Create a [folder](../../resource-manager/concepts/resources-hierarchy.md) and [n
 
 - Management console {#console}
 
-   1. Navigate to `data-folder`.
-   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. In the [management console]({{ link-console-main }}), select `data-folder`.
+   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-project`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
@@ -75,8 +75,8 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
 - Management console {#console}
 
-  1. Navigate to `data-folder`.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select `data-folder`.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `sa-for-project` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
@@ -92,8 +92,8 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
 - Management console {#console}
 
-   1. Navigate to `data-folder`.
-   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the [management console]({{ link-console-main }}), select `data-folder`.
+   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
    1. Click **{{ ui-key.yacloud.common.create }}** and set the gateway parameters:
       * Name the gateway, e.g., `nat-for-cluster`.
@@ -128,8 +128,8 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
 - Management console {#console}
 
-   1. Navigate to `data-folder`.
-   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. In the [management console]({{ link-console-main }}), select `data-folder`.
+   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
    1. On the bucket creation page:
       1. Enter a name for the bucket by following the [naming conventions](../../storage/concepts/bucket.md#naming).

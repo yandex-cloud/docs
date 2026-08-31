@@ -9,13 +9,13 @@ description: In this tutorial, you will learn how to get a list of broker certif
 
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
-To start exchanging messages between broker clients, you must [log in](../../concepts/authorization.md). This section describes how to manage broker certificates for the relevant authorization method.
+To start exchanging messages between broker clients, you must [log in](../../concepts/authorization.md). This section describes how to manage broker certificates for the relevant authentication method.
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
-- [Viewing a list of broker certificates](broker-certificates.md#list-cert)
-- [Adding a certificate to a broker](broker-certificates.md#add-cert)
-- [Deleting a broker certificate](broker-certificates.md#delete-cert)
+* [Viewing a list of broker certificates](broker-certificates.md#list-cert)
+* [Adding a certificate to a broker](broker-certificates.md#add-cert)
+* [Deleting a broker certificate](broker-certificates.md#delete-cert)
 
 To access a [broker](../../concepts/index.md#broker), use its unique ID or name. For info on how to get the unique broker ID or name, see [{#T}](../broker/broker-list.md).
 
@@ -30,19 +30,19 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the broker certificate to.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the appropriate broker from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section and click **{{ ui-key.yacloud.component.certificates.button_empty-add }}**.
 
-      - To add a file:
+      * To add a file:
 
          1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
          1. Click **Attach file**.
          1. Select the certificate file on your computer and click **Open**.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-      - To add text:
+      * To add text:
 
          1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
          1. Insert the certificate body in the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
@@ -63,10 +63,12 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
   ```
 
   Where:
+
   * `--broker-name`: Broker name.
   * `--certificate-file`: Path to the public part of the certificate.
   
   Result:
+
   ```text
   broker_id: b91ki3851h**********
   fingerprint: 589ce1605...
@@ -85,14 +87,15 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
   To add a certificate to a broker created using {{ TF }}:
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
-     * `yandex_iot_core_broker`: Broker parameters:
+     * `yandex_iot_core_broker`: Broker settings:
+     
        * `name`: Broker name.
        * `description`: Broker description.
        * `certificates`: List of broker certificates for authentication with [certificates](../../concepts/authorization.md#certs).
 
-      Example broker description in the {{ TF }} configuration:
+      Here is an example of a broker description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iot_core_broker" "my_broker" {
@@ -108,7 +111,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       ```
 
       For more on the properties of the `yandex_iot_core_broker` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -155,7 +158,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the broker certificate from.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the appropriate broker from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section.
@@ -199,7 +202,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
   1. Open the {{ TF }} configuration file and delete the certificate value in the `certificates` block, in the broker description fragment. To remove all certificates, delete the entire `certificates` section.
 
-      Example broker description in the {{ TF }} configuration:
+      Here is an example of a broker description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iot_core_broker" "my_broker" {
@@ -215,7 +218,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       ```
 
       For more on the properties of the `yandex_iot_core_broker` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash

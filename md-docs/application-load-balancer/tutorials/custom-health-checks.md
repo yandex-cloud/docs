@@ -40,14 +40,12 @@ L7-балансировщик автоматически проверяет ра
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../dns/pricing.md)).
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../pricing.md)).
-* Плата за публичные IP-адреса для узлов кластера и L7-балансировщика ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за [использование хранилища](../../container-registry/pricing.md) Container Registry.
+* Публичные DNS-запросы и зона DNS ([тарифы Yandex Cloud DNS](../../dns/pricing.md)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Каждый активный L7-балансировщик: использование вычислительных ресурсов ([тарифы Application Load Balancer](../pricing.md)).
+* Публичные IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Сервис Yandex Container Registry: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы Container Registry](../../container-registry/pricing.md)).
 
 
 ## Подготовьте облако к работе {#before-begin}
@@ -74,7 +72,7 @@ L7-балансировщик автоматически проверяет ра
       
       Если вы планируете работать с кластером в пределах сети Yandex Cloud, выделять кластеру публичный IP-адрес не нужно. Для подключений извне предоставьте кластеру публичный адрес.
    1. [Создайте группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). Выделите ей публичный адрес, чтобы предоставить доступ в интернет и возможность скачивать Docker-образы и компоненты. Укажите группы безопасности, подготовленные ранее.
-   1. [Создайте реестр](../../container-registry/operations/registry/registry-create.md) Yandex Container Registry.
+   1. [Создайте реестр](../../container-registry/operations/registry/registry-create.md) Container Registry.
 
 - Terraform {#tf}
 
@@ -92,7 +90,7 @@ L7-балансировщик автоматически проверяет ра
       * сервисный аккаунт, необходимый для работы кластера Kubernetes;
       * кластер Kubernetes;
       * группа узлов Kubernetes;
-      * реестр Yandex Container Registry.
+      * реестр Container Registry.
 
    1. Укажите в файле `k8s-custom-health-checks.tf`:
 
@@ -145,14 +143,16 @@ L7-балансировщик автоматически проверяет ра
 
 1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+   
+   Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
 1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
    Если для кластера не предоставлен публичный адрес и `kubectl` настроен через внутренний адрес кластера, выполняйте команды `kubectl` на ВМ Yandex Cloud, находящейся в одной сети с кластером.
 
 1. [Установите Docker](https://docs.docker.com/get-docker/).
-1. [Аутентифицируйтесь в Yandex Container Registry](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker credential helper.
+1. [Аутентифицируйтесь в Container Registry](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker credential helper.
 
 ## Создайте Docker-образ {#docker-image}
 
@@ -389,11 +389,11 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
    Чтобы отслеживать создание балансировщика и убедиться в отсутствии ошибок, откройте логи пода, в котором запущен процесс создания:
 
-   1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-   1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
-   1. Нажмите на имя нужного кластера и на панели слева выберите **Рабочая нагрузка**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
+   1. Выберите кластер Managed Service for Kubernetes и перейдите на вкладку **Рабочая нагрузка**.
    1. Выберите под `yc-alb-ingress-controller-*` (не `yc-alb-ingress-controller-hc-*`), в котором запущен процесс создания ресурсов.
-   1. На странице пода перейдите на вкладку **Логи**.
+   1. Перейдите на вкладку **Логи**.
 
       В режиме реального времени записываются и отображаются логи о создании балансировщика. Если возникла ошибка во время создания, она появится в логах.
 
@@ -448,9 +448,9 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
    - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-      1. Перейдите в сервис **Application Load Balancer**.
-      1. Нажмите на имя нужного балансировщика и на панели слева выберите **Проверки состояния**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+      1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
+      1. Выберите нужный L7-балансировщик и перейдите на вкладку **Проверки состояния**.
       1. Проверьте состояние целевых ресурсов. Если они в статусе `HEALTHY`, значит, приложение доступно и работает.
 
    {% endlist %}

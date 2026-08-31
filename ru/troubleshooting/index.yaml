@@ -45,9 +45,6 @@ links:
   - title: '{{ datalens-name }}'
     description: Решения для {{ datalens-name }}
     href: datalens/
-  - title: '{{ dataproc-name }}'
-    description: Решения для {{ dataproc-name }}
-    href: dataproc/
   - title: '{{ ml-platform-name }}'
     description: Решения для {{ ml-platform-name }}
     href: datasphere/
@@ -93,9 +90,6 @@ links:
   - title: Partner
     description: Решения для Partner
     href: partner/
-  - title: '{{ serverless-containers-name }}'
-    description: Решения для {{ serverless-containers-name }}
-    href: serverless-containers/
   - title: '{{ captcha-name }}'
     description: Решения для {{ captcha-name }}
     href: smartcaptcha/

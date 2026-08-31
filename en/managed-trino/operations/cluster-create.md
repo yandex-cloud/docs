@@ -32,7 +32,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -57,12 +57,25 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         1. Select a [network](../../vpc/operations/network-create.md), [subnet](../../vpc/operations/subnet-create.md), and [security group](../../vpc/concepts/security-groups.md) for the cluster.
         1. Optionally, enable the **{{ ui-key.yacloud.trino.label_private-access }}** parameter to make the cluster accessible only via a [service connection](../concepts/network.md#private-endpoint).
 
-    1. Under **Retry policy**, specify the [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
+    1. Optionally, under **Retry policy**, specify the [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
+
+        {% note warning %}
+        
+        This setting affects query performance.
+        
+        {% endnote %}
+
         1. Select an **Object type for retry**.
            * **Task**: Retries the intermediate task within the query that caused worker failure.
            * **Query**: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
         1. Optionally, specify additional parameters in `key: value` format in the **Retry parameters** field. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
-        1. Optionally, specify additional Exchange Manager storage parameters in `key: value` format in the **Storage parameters** field. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+        1. Optionally, specify additional Exchange Manager storage parameters in `key: value` format in the **{{ ui-key.yacloud.trino.field_retry-storage-properties }}** field. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+        1. Select **{{ ui-key.yacloud.trino.field_retry-storage-type }}** for Exchange Manager:
+
+            * `serviceS3`: Service bucket on the {{ mtr-name }} side.
+            * `s3`: User [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). In the **{{ ui-key.yacloud.trino.field_retry-storage-s3-bucket }}** field, enter a name for the bucket. Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role for the bucket to the cluster [service account](../../iam/concepts/users/service-accounts.md).
+
+            For more on storage types, see [{#T}](../concepts/retry-policy.md#exchange-manager-storage).
 
     1. Configure the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
     1. Optionally, under **{{ ui-key.yacloud.trino.title_catalogs }}**, add [{{ TR }} catalogs](../concepts/index.md#catalog). You can do this either when creating the cluster or later. For more information, see [Creating a {{ TR }} catalog](catalog-create.md).
@@ -218,6 +231,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            --retry-policy \
            --retry-policy-additional-properties <list_of_additional_retry_policy_parameters> \
            --retry-policy-exchange-manager-service-s3 \
+           --retry-policy-exchange-manager-s3-bucket <user_bucket_name> \
            --retry-policy-exchange-manager-additional-properties <list_of_additional_storage_parameters>
         ```
 
@@ -230,7 +244,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `query`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
 
         * `--retry-policy-additional-properties`: Additional query retry parameters in `<key>=<value>` format. Learn more about parameters in [this {{ TR }} guide]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
-        * `--retry-policy-exchange-manager-service-s3`: Use an S3 storage to write data when retrying queries.
+        * Exchange Manager storage parameters. Specify either of these two parameters:
+
+            * `--retry-policy-exchange-manager-service-s3`: Use a service bucket on the {{ mtr-name }} side.
+            * `--retry-policy-exchange-manager-s3-bucket`: Use a custom [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). Name the bucket. Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role for the bucket to the cluster [service account](../../iam/concepts/users/service-accounts.md).
+
+            For more on storage types, see [{#T}](../concepts/retry-policy.md#exchange-manager-storage).
+
         * `--retry-policy-exchange-manager-additional-properties`: Additional storage parameters in `<key>=<value>` format. Learn more about parameters in [this {{ TR }} guide]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
 
     1. To add the settings of query execution and resource allocation for queries, specify this parameter:
@@ -366,7 +386,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               "policy": "<object_type_for_retry>",
               "exchangeManager": {
                 "storage": {
-                  "serviceS3": {}
+                  "serviceS3": {},
+                  "s3": {
+                    "bucket": "<user_bucket_name>"
+                  }
                 },
                 "additionalProperties": {<additional_storage_parameters>}
               },
@@ -443,6 +466,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                   * `TASK`: Retries the intermediate task within the query that caused worker failure.
                   * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
+
+               * `exchangeManager.storage`: Bucket type used as Exchange Manager storage. Specify either of these two parameters:
+
+                  * `serviceS3`: Use a service bucket on the {{ mtr-name }} side. Leave the object empty: `"serviceS3": {}`.
+                  * `s3.bucket`: Name of the custom [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role for the bucket to the cluster [service account](../../iam/concepts/users/service-accounts.md).
+
+                  For more on storage types, see [{#T}](../concepts/retry-policy.md#exchange-manager-storage).
 
                * `exchangeManager.additionalProperties`: Additional Exchange Manager storage parameters in `key: value` format. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
@@ -553,7 +583,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               "policy": "<object_type_for_retry>",
               "exchange_manager": {
                 "storage": {
-                  "service_s3": ""
+                  "service_s3": "",
+                  "s3": {
+                    "bucket": "<user_bucket_name>"
+                  }
                 },
                 "additional_properties": {<additional_storage_parameters>}
               },
@@ -630,6 +663,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                   * `TASK`: Retries the intermediate task within the query that caused worker failure.
                   * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
+
+               * `exchange_manager.storage`: Bucket type used as Exchange Manager storage. Specify either of these two parameters:
+
+                  * `service_s3`: Use a service bucket on the {{ mtr-name }} side. Leave `"service_s3": ""` empty.
+                  * `s3.bucket`: Name of the custom [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role for the bucket to the cluster [service account](../../iam/concepts/users/service-accounts.md).
+
+                  For more on storage types, see [{#T}](../concepts/retry-policy.md#exchange-manager-storage).
 
                * `exchange_manager.additional_properties`: Additional Exchange Manager storage parameters in `key: value` format. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 

@@ -70,11 +70,11 @@ Storage usage is measured in GB per month. The amount of data stored for a month
 
 ### Data operations {#rules-operations}
 
-Operations encompass any actions performed on [objects](../storage/concepts/object.md) within a bucket, e.g., uploads, downloads, or metadata retrieval.
+Operations are any action you can perform on [objects](../storage/concepts/object.md) in buckets, e.g., uploading, downloading, or getting metadata.
 
-Operations may have the GET, PUT, POST, and other types. The operation type depends on the corresponding [AWS S3 API](../storage/s3/api-ref/) method. The only exceptions are LIST operations, which return lists of resources, and TRANSITION operations, which modify the storage class.
+Operation types can be GET, PUT, POST, and others. The type is defined by the [AWS S3 API](../storage/s3/api-ref/) method associated with the operation. The exception is LIST operations that return resource lists and TRANSITION operations that change storage class.
 
-You pay for the actual number of operations. The cost does not depend on the interface you use.
+You pay for the actual number of operations. Billing does not depend on the interface you use.
 
 Nothing is charged for deleting data (the `DELETE` operation).
 
@@ -182,8 +182,6 @@ The first 100 GB of outgoing traffic per month for {{ objstorage-name }} are fre
 
 
 {% include [usd-egress](../_pricing_examples/storage/usd-egress.md) %}
-
-
 
 
 ## Examples of storage class cost comparison {#comparison-examples}

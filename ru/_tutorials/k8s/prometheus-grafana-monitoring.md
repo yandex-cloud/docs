@@ -4,7 +4,7 @@
 
 Из этой статьи вы узнаете, как настроить мониторинг [кластера {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) с помощью {{ prometheus-name }} Operator с поддержкой {{ monitoring-full-name }}.
 
-{{ prometheus-name }} Operator с поддержкой {{ monitoring-name }} упрощает установку {{ prometheus-name }} Operator, популярного решения для мониторига кластеров {{ k8s }}, и добавляет интеграцию с системой мониторинга {{ monitoring-full-name }}. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/).
+{{ prometheus-name }} Operator с поддержкой {{ monitoring-name }} упрощает установку {{ prometheus-name }} Operator, популярного решения для мониторинга кластеров {{ k8s }}, и добавляет интеграцию с системой мониторинга {{ monitoring-full-name }}. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/).
 
 Чтобы настроить мониторинг кластера {{ managed-k8s-name }}:
 
@@ -17,11 +17,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за мастер {{ managed-k8s-name }}: ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за публичные IP-адреса для хостов кластера {{ managed-k8s-name }} и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}

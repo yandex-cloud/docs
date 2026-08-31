@@ -221,4 +221,5 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
 #### Useful links {#see-also}
 
 * [Changing VM configuration](../vm-control/vm-update-resources.md)
+* [{#T}](../enable-mig.md)
 * [Questions about GPUs](../../../compute/qa/gpu.md)

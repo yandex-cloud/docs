@@ -2,8 +2,8 @@
 
 # yc baremetal v1alpha boot-image get
 
-Returns the specific Image resource.
-To get the list of available Image resources, make a [List] request.
+Returns the specific BootImage resource.
+To get the list of available BootImage resources, make a [List] request.
 
 #### Command Usage
 
@@ -17,7 +17,7 @@ Syntax:
 ||Flag | Description ||
 || `--id` | `string`
 
-ID of the Image resource to return. To get the image ID, use a [ImageService.List] request. ||
+ID of the BootImage resource to return. To get the BootImage ID, use a [ImageService.List] request. ||
 || `--name` | `string`
 
 Resolve id by resource name within the current scope. ||

@@ -47,15 +47,17 @@ description: Из статьи вы узнаете, как подключить�
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
-       Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
+     ![image](../../../_assets/datalens/operations/connection/connection-mysql-org.png)
 
-     ![image](../../../_assets/datalens/connection/mysql.png) 
+       Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 
    - Указать вручную {#manual}
 
      {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
 
      {% include [datalens-db-connection-parameters-mysql](../../../_includes/datalens/datalens-db-connection-parameters-mysql.md) %}
+
+     ![image](../../../_assets/datalens/operations/connection/connection-mysql-manual.png)
 
      Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 
@@ -75,15 +77,14 @@ description: Из статьи вы узнаете, как подключить�
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
+     ![image](../../../_assets/datalens/operations/connection/connection-mysql-manager.png)
+
    {% endlist %}
 
 
 1. Нажмите кнопку **Создать подключение**.
 
-
 1. Выберите [воркбук](../../workbooks-collections/index.md), в котором сохранится подключение, или создайте новый. Если вы пользуетесь старой навигацией по папкам, выберите папку для сохранения подключения. Нажмите кнопку **Создать**.
-
-
 1. Укажите название подключения и нажмите кнопку **Создать**.
 
 

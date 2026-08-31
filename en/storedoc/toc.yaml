@@ -25,6 +25,8 @@ items:
             href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
+          - name: Managing backup policies
+            href: operations/backup-retention-policies.md
           - name: Managing cluster access
             href: operations/cluster-access.md
           - name: Deleting a cluster

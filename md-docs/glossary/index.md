@@ -44,6 +44,7 @@
 ## Хранение и обработка данных {#data}
 
 * [Big Data](bigdata.md)
+* [Дата-центр](data-center.md)
 * [Data Vault](datavault.md)
 * [S3](s3.md)
 * [Снапшот](snapshot.md)
@@ -65,6 +66,7 @@
 * [CI/CD](ci-cd.md)
 * [Спринт](sprints.md)
 * [Что такое Kanban-доска](kanban.md)
+* [Диаграмма Ганта](gantt-chart.md)
 
 ## Сети и доставка контента {#networks}
 
@@ -182,6 +184,8 @@
 
  - [Big Data](bigdata.md)
 
+ - [Дата-центр](data-center.md)
+
  - [Data Vault](datavault.md)
 
  - [S3](s3.md)
@@ -211,6 +215,8 @@
  - [CI/CD](ci-cd.md)
 
  - [Спринт](sprints.md)
+
+ - [Диаграмма Ганта](gantt-chart.md)
 
 ## Сети и доставка контента
 

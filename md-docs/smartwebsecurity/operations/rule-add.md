@@ -12,7 +12,7 @@
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
   1. Выберите профиль, в который вы хотите добавить правило.
-  1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **Добавить правило** и в открывшемся окне:
+  1. Нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **Добавить правило** и в открывшемся окне:
 
       1. Введите имя правила.
       1. (опционально) Введите описание.
@@ -22,7 +22,7 @@
           
           Чем меньше значение параметра, тем больший приоритет у правила. Приоритеты преднастроенных правил:
           * базовое правило по умолчанию — `1000000`;
-          * правило Smart Protection с полной защитой — `999900`.
+          * правило Smart Protection с защитой API — `999900`.
           
           {% endnote %}
       
@@ -49,6 +49,7 @@
       1. В блоке **Условия на трафик** определите трафик, для анализа которого будет использоваться правило:
          * `Весь трафик` — правило будет использоваться для анализа всего трафика.
          * `При условии` — правило будет использоваться для анализа трафика, заданного в поле **Условия**:
+         
              * `IP` — IP-адрес, диапазон адресов, регион адресов или [список адресов](../concepts/lists.md);
              * `HTTP header` — строка в заголовке HTTP;
              * `Request URI` — путь запроса;
@@ -63,7 +64,7 @@
          
              Вы можете задать несколько условий. Для этого в поле **Условия** выберите все необходимые типы условий.
          
-             Вы также можете задать несколько условий одного типа. Для этого в секции с нужным условием нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **и** или ![plus-sign](../../_assets/console-icons/plus.svg) **или**.
+             Вы также можете задать несколько условий одного типа. Для этого в секции с нужным условием нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **и** или ![plus-sign](../../_assets/console-icons/plus.svg) **или**.
          
              Чтобы удалить условие, нажмите ![options](../../_assets/console-icons/trash-bin.svg).
       
@@ -73,298 +74,300 @@
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Чтобы посмотреть список имеющихся профилей безопасности в каталоге по умолчанию, выполните команду:
 
-     ```bash
-     yc smartwebsecurity security-profile list
-     ```
-     
-     Результат:
-     
-     ```text
-     +----------------------+-------------------+---------------------+----------------+------------+-------------+
-     |          ID          |       NAME        |       CREATED       | DEFAULT ACTION | CAPTCHA ID | RULES COUNT |
-     +----------------------+-------------------+---------------------+----------------+------------+-------------+
-     | fev3s055oq64******** | my-new-profile    | 2024-08-05 06:57:18 | DENY           |            |           1 |
-     | fevlqk8vei9p******** | my-sample-profile | 2024-08-05 06:57:28 | DENY           |            |           2 |
-     +----------------------+-------------------+---------------------+----------------+------------+-------------+
-     ```
+      ```bash
+      yc smartwebsecurity security-profile list
+      ```
+      
+      Результат:
+      
+      ```text
+      +----------------------+-------------------+---------------------+----------------+------------+-------------+
+      |          ID          |       NAME        |       CREATED       | DEFAULT ACTION | CAPTCHA ID | RULES COUNT |
+      +----------------------+-------------------+---------------------+----------------+------------+-------------+
+      | fev3s055oq64******** | my-new-profile    | 2024-08-05 06:57:18 | DENY           |            |           1 |
+      | fevlqk8vei9p******** | my-sample-profile | 2024-08-05 06:57:28 | DENY           |            |           2 |
+      +----------------------+-------------------+---------------------+----------------+------------+-------------+
+      ```
 
   1. Обновите профиль безопасности, применив к нему [YAML](https://ru.wikipedia.org/wiki/YAML)-конфигурацию, содержащую описание как уже имеющихся, так и новых правил безопасности, которые необходимы для профиля:
-  
-     1. Чтобы получить YAML-конфигурацию уже имеющихся в профиле правил безопасности, выполните команду, указав имя или идентификатор профиля безопасности:
 
-         ```bash
-         yc smartwebsecurity security-profile get <имя_или_идентификатор_профиля_безопасности>
-         ```
-         
-         {% cut "Результат:" %}
-         
-         ```yaml
-         id: fev450d61ucv********
-         folder_id: b1gt6g8ht345********
-         cloud_id: b1gia87mbaom********
-         labels:
-           label1: value1
-           label2: value2
-         name: my-new-profile
-         description: my description
-         default_action: DENY
-         security_rules:
-           - name: rule-condition-deny
-             priority: "11111"
-             dry_run: true
-             rule_condition:
-               action: DENY
-               condition:
-                 authority:
-                   authorities:
-                     - exact_match: example.com
-                     - exact_match: example.net
-                 http_method:
-                   http_methods:
-                     - exact_match: GET
-                     - exact_match: POST
-                 request_uri:
-                   path:
-                     prefix_match: /search
-                   queries:
-                     - key: firstname
-                       value:
-                         pire_regex_match: .ivan.
-                     - key: lastname
-                       value:
-                         pire_regex_not_match: .petr.
-                 headers:
-                   - name: User-Agent
-                     value:
-                       pire_regex_match: .curl.
-                   - name: Referer
-                     value:
-                       pire_regex_not_match: .bot.
-                 source_ip:
-                   ip_ranges_match:
-                     ip_ranges:
-                       - 1.2.33.44
-                       - 2.3.4.56
-                   ip_ranges_not_match:
-                     ip_ranges:
-                       - 8.8.0.0/16
-                       - 10::1234:1abc:1/64
-                   geo_ip_match:
-                     locations:
-                       - ru
-                       - es
-                   geo_ip_not_match:
-                     locations:
-                       - us
-                       - fm
-                       - gb
-             description: My first security rule. This rule it's just example to show possibilities of configuration.
-         created_at: "2024-08-05T17:54:48.898624Z"
-         ```
-         
-         {% endcut %}
+      1. Чтобы получить YAML-конфигурацию уже имеющихся в профиле правил безопасности, выполните команду, указав имя или идентификатор профиля безопасности:
 
-     1. Скопируйте в любой текстовый редактор и сохраните в файл текущую конфигурацию правил (содержимое блока `security_rules`), добавив в нее новые правила, например:
+          ```bash
+          yc smartwebsecurity security-profile get <имя_или_идентификатор_профиля_безопасности>
+          ```
+          
+          {% cut "Результат:" %}
+          
+          ```yaml
+          id: fev450d61ucv********
+          folder_id: b1gt6g8ht345********
+          cloud_id: b1gia87mbaom********
+          labels:
+            label1: value1
+            label2: value2
+          name: my-new-profile
+          description: my description
+          default_action: DENY
+          security_rules:
+            - name: rule-condition-deny
+              priority: "11111"
+              dry_run: true
+              rule_condition:
+                action: DENY
+                condition:
+                  authority:
+                    authorities:
+                      - exact_match: example.com
+                      - exact_match: example.net
+                  http_method:
+                    http_methods:
+                      - exact_match: GET
+                      - exact_match: POST
+                  request_uri:
+                    path:
+                      prefix_match: /search
+                    queries:
+                      - key: firstname
+                        value:
+                          pire_regex_match: .ivan.
+                      - key: lastname
+                        value:
+                          pire_regex_not_match: .petr.
+                  headers:
+                    - name: User-Agent
+                      value:
+                        pire_regex_match: .curl.
+                    - name: Referer
+                      value:
+                        pire_regex_not_match: .bot.
+                  source_ip:
+                    ip_ranges_match:
+                      ip_ranges:
+                        - 1.2.33.44
+                        - 2.3.4.56
+                    ip_ranges_not_match:
+                      ip_ranges:
+                        - 8.8.0.0/16
+                        - 10::1234:1abc:1/64
+                    geo_ip_match:
+                      locations:
+                        - ru
+                        - es
+                    geo_ip_not_match:
+                      locations:
+                        - us
+                        - fm
+                        - gb
+              description: My first security rule. This rule it's just example to show possibilities of configuration.
+          created_at: "2024-08-05T17:54:48.898624Z"
+          ```
+          
+          {% endcut %}
 
-         {% cut "security-rules.yaml" %}
-         
-         ```yaml
-         - name: rule-condition-deny
-           description: My first security rule. This rule it's just example to show possibilities of configuration.
-           priority: "11111"
-           dry_run: true
-           rule_condition:
-             action: DENY
-             condition:
-               authority:
-                 authorities:
-                   - exact_match: example.com
-                   - exact_match: example.net
-               http_method:
-                 http_methods:
-                   - exact_match: GET
-                   - exact_match: POST
-               request_uri:
-                 path:
-                   prefix_match: /search
-                 queries:
-                   - key: firstname
-                     value:
-                       pire_regex_match: .ivan.
-                   - key: lastname
-                     value:
-                       pire_regex_not_match: .petr.
-               headers:
-                 - name: User-Agent
-                   value:
-                     pire_regex_match: .curl.
-                 - name: Referer
-                   value:
-                     pire_regex_not_match: .bot.
-               source_ip:
-                 ip_ranges_match:
-                   ip_ranges:
-                     - 1.2.33.44
-                     - 2.3.4.56
-                 ip_ranges_not_match:
-                   ip_ranges:
-                     - 8.8.0.0/16
-                     - 10::1234:1abc:1/64
-                 geo_ip_match:
-                   locations:
-                     - ru
-                     - es
-                 geo_ip_not_match:
-                   locations:
-                     - us
-                     - fm
-                     - gb
-         - name: rule-condition-allow
-           description: Let's show how to whitelist IP.
-           priority: "2"
-           rule_condition:
-             action: ALLOW
-             condition:
-               source_ip:
-                 ip_ranges_match:
-                   ip_ranges:
-                     - 44.44.44.44-44.44.44.45
-                     - 44.44.44.77
-         - name: smart-protection-full
-           description: Enable smart protection. Allow to show captcha on /search prefix.
-           priority: "11"
-           smart_protection:
-             mode: FULL
-             condition:
-               request_uri:
-                 path:
-                   prefix_match: /search
-         - name: smart-protection-api
-           description: Enable smart protection with mode API. We are not expect to see captcha on /api prefix.
-           priority: "10"
-           smart_protection:
-             mode: API
-             condition:
-               request_uri:
-                 path:
-                   prefix_match: /api
-         ```
-         
-         Где: `priority` — [приоритет](../concepts/rules.md#rules-order) правила.
-         
-         {% endcut %}
+      1. Скопируйте в любой текстовый редактор и сохраните в файл текущую конфигурацию правил (содержимое блока `security_rules`), добавив в нее новые правила, например:
 
-         {% note alert %}
-           
-         При изменении правил в профиле безопасности все существующие правила будут удалены. Поэтому YAML-файл с изменениями должен содержать полный набор правил, который будет действовать в профиле безопасности.
-           
-         {% endnote %}
+          {% cut "security-rules.yaml" %}
+          
+          ```yaml
+          - name: rule-condition-deny
+            description: My first security rule. This rule it's just example to show possibilities of configuration.
+            priority: "11111"
+            dry_run: true
+            rule_condition:
+              action: DENY
+              condition:
+                authority:
+                  authorities:
+                    - exact_match: example.com
+                    - exact_match: example.net
+                http_method:
+                  http_methods:
+                    - exact_match: GET
+                    - exact_match: POST
+                request_uri:
+                  path:
+                    prefix_match: /search
+                  queries:
+                    - key: firstname
+                      value:
+                        pire_regex_match: .ivan.
+                    - key: lastname
+                      value:
+                        pire_regex_not_match: .petr.
+                headers:
+                  - name: User-Agent
+                    value:
+                      pire_regex_match: .curl.
+                  - name: Referer
+                    value:
+                      pire_regex_not_match: .bot.
+                source_ip:
+                  ip_ranges_match:
+                    ip_ranges:
+                      - 1.2.33.44
+                      - 2.3.4.56
+                  ip_ranges_not_match:
+                    ip_ranges:
+                      - 8.8.0.0/16
+                      - 10::1234:1abc:1/64
+                  geo_ip_match:
+                    locations:
+                      - ru
+                      - es
+                  geo_ip_not_match:
+                    locations:
+                      - us
+                      - fm
+                      - gb
+          - name: rule-condition-allow
+            description: Let's show how to whitelist IP.
+            priority: "2"
+            rule_condition:
+              action: ALLOW
+              condition:
+                source_ip:
+                  ip_ranges_match:
+                    ip_ranges:
+                      - 44.44.44.44-44.44.44.45
+                      - 44.44.44.77
+          - name: smart-protection-full
+            description: Enable smart protection. Allow to show captcha on /search prefix.
+            priority: "11"
+            smart_protection:
+              mode: FULL
+              condition:
+                request_uri:
+                  path:
+                    prefix_match: /search
+          - name: smart-protection-api
+            description: Enable smart protection with mode API. We are not expect to see captcha on /api prefix.
+            priority: "10"
+            smart_protection:
+              mode: API
+              condition:
+                request_uri:
+                  path:
+                    prefix_match: /api
+          ```
+          
+          Где: `priority` — [приоритет](../concepts/rules.md#rules-order) правила.
+          
+          {% endcut %}
 
-     1. Чтобы внести изменения в профиль безопасности, выполните команду, указав имя или идентификатор профиля:
-    
-         ```bash
-         yc smartwebsecurity security-profile update <имя_или_идентификатор_профиля_безопасности> \
-            --security-rules-file <путь_к_файлу_с_правилами_безопасности>
-         ```
+          {% note alert %}
+            
+          При изменении правил в профиле безопасности все существующие правила будут удалены. Поэтому YAML-файл с изменениями должен содержать полный набор правил, который будет действовать в профиле безопасности.
+            
+          {% endnote %}
 
-         Где `--security-rules-file` — путь к [YAML](https://ru.wikipedia.org/wiki/YAML)-файлу с описанием правил безопасности.
+      1. Чтобы внести изменения в профиль безопасности, выполните команду, указав имя или идентификатор профиля:
 
-         {% cut "Результат:" %}
-         
-         ```yaml
-         id: fevr4g3121vn********
-         folder_id: b1g07hj5r6i4********
-         cloud_id: b1gia87mbaom********
-         name: my-sws-profile
-         default_action: ALLOW
-         security_rules:
-           - name: rule-condition-deny
-             description: My first security rule. This rule it's just example to show possibilities of configuration.
-             priority: "11111"
-             dry_run: true
-             rule_condition:
-               action: DENY
-               condition:
-                 authority:
-                   authorities:
-                     - exact_match: example.com
-                     - exact_match: example.net
-                 http_method:
-                   http_methods:
-                     - exact_match: GET
-                     - exact_match: POST
-                 request_uri:
-                   path:
-                     prefix_match: /search
-                   queries:
-                     - key: firstname
-                       value:
-                         pire_regex_match: .ivan.
-                     - key: lastname
-                       value:
-                         pire_regex_not_match: .petr.
-                 headers:
-                   - name: User-Agent
-                     value:
-                       pire_regex_match: .curl.
-                   - name: Referer
-                     value:
-                       pire_regex_not_match: .bot.
-                 source_ip:
-                   ip_ranges_match:
-                     ip_ranges:
-                       - 1.2.33.44
-                       - 2.3.4.56
-                   ip_ranges_not_match:
-                     ip_ranges:
-                       - 8.8.0.0/16
-                       - 10::1234:1abc:1/64
-                   geo_ip_match:
-                     locations:
-                       - ru
-                       - es
-                   geo_ip_not_match:
-                     locations:
-                       - us
-                       - fm
-                       - gb
-           - name: rule-condition-allow
-             description: Let's show how to whitelist IP.
-             priority: "2"
-             rule_condition:
-               action: ALLOW
-               condition:
-                 source_ip:
-                   ip_ranges_match:
-                     ip_ranges:
-                       - 44.44.44.44-44.44.44.45
-                       - 44.44.44.77
-           - name: smart-protection-full
-             description: Enable smart protection. Allow to show captcha on /search prefix.
-             priority: "11"
-             smart_protection:
-               mode: FULL
-               condition:
-                 request_uri:
-                   path:
-                     prefix_match: /search
-           - name: smart-protection-api
-             description: Enable smart protection with mode API. We are not expect to see captcha on /api prefix.
-             priority: "10"
-             smart_protection:
-               mode: API
-               condition:
-                 request_uri:
-                   path:
-                     prefix_match: /api
-         created_at: "2024-07-27T20:37:36.389730Z"
-         ```
-         
-         {% endcut %}
+          ```bash
+          yc smartwebsecurity security-profile update <имя_или_идентификатор_профиля_безопасности> \
+              --security-rules-file <путь_к_файлу_с_правилами_безопасности>
+          ```
+
+          Где `--security-rules-file` — путь к [YAML](https://ru.wikipedia.org/wiki/YAML)-файлу с описанием правил безопасности.
+
+          {% cut "Результат:" %}
+          
+          ```yaml
+          id: fevr4g3121vn********
+          folder_id: b1g07hj5r6i4********
+          cloud_id: b1gia87mbaom********
+          name: my-sws-profile
+          default_action: ALLOW
+          security_rules:
+            - name: rule-condition-deny
+              description: My first security rule. This rule it's just example to show possibilities of configuration.
+              priority: "11111"
+              dry_run: true
+              rule_condition:
+                action: DENY
+                condition:
+                  authority:
+                    authorities:
+                      - exact_match: example.com
+                      - exact_match: example.net
+                  http_method:
+                    http_methods:
+                      - exact_match: GET
+                      - exact_match: POST
+                  request_uri:
+                    path:
+                      prefix_match: /search
+                    queries:
+                      - key: firstname
+                        value:
+                          pire_regex_match: .ivan.
+                      - key: lastname
+                        value:
+                          pire_regex_not_match: .petr.
+                  headers:
+                    - name: User-Agent
+                      value:
+                        pire_regex_match: .curl.
+                    - name: Referer
+                      value:
+                        pire_regex_not_match: .bot.
+                  source_ip:
+                    ip_ranges_match:
+                      ip_ranges:
+                        - 1.2.33.44
+                        - 2.3.4.56
+                    ip_ranges_not_match:
+                      ip_ranges:
+                        - 8.8.0.0/16
+                        - 10::1234:1abc:1/64
+                    geo_ip_match:
+                      locations:
+                        - ru
+                        - es
+                    geo_ip_not_match:
+                      locations:
+                        - us
+                        - fm
+                        - gb
+            - name: rule-condition-allow
+              description: Let's show how to whitelist IP.
+              priority: "2"
+              rule_condition:
+                action: ALLOW
+                condition:
+                  source_ip:
+                    ip_ranges_match:
+                      ip_ranges:
+                        - 44.44.44.44-44.44.44.45
+                        - 44.44.44.77
+            - name: smart-protection-full
+              description: Enable smart protection. Allow to show captcha on /search prefix.
+              priority: "11"
+              smart_protection:
+                mode: FULL
+                condition:
+                  request_uri:
+                    path:
+                      prefix_match: /search
+            - name: smart-protection-api
+              description: Enable smart protection with mode API. We are not expect to see captcha on /api prefix.
+              priority: "10"
+              smart_protection:
+                mode: API
+                condition:
+                  request_uri:
+                    path:
+                      prefix_match: /api
+          created_at: "2024-07-27T20:37:36.389730Z"
+          ```
+          
+          {% endcut %}
 
   Подробнее о команде `yc smartwebsecurity security-profile update` в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
 
@@ -433,33 +436,33 @@
 
   1. Создайте ресурсы:
 
-       1. В терминале перейдите в директорию с конфигурационным файлом.
-       1. Проверьте корректность конфигурации с помощью команды:
-       
-          ```bash
-          terraform validate
-          ```
-       
-          Если конфигурация является корректной, появится сообщение:
-       
-          ```bash
-          Success! The configuration is valid.
-          ```
-       
-       1. Выполните команду:
-       
-          ```bash
-          terraform plan
-          ```
-       
-          В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
-       1. Примените изменения конфигурации:
-       
-          ```bash
-          terraform apply
-          ```
-       
-       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+      1. В терминале перейдите в директорию с конфигурационным файлом.
+      1. Проверьте корректность конфигурации с помощью команды:
+      
+         ```bash
+         terraform validate
+         ```
+      
+         Если конфигурация является корректной, появится сообщение:
+      
+         ```bash
+         Success! The configuration is valid.
+         ```
+      
+      1. Выполните команду:
+      
+         ```bash
+         terraform plan
+         ```
+      
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      1. Примените изменения конфигурации:
+      
+         ```bash
+         terraform apply
+         ```
+      
+      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
   Проверить изменение ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/index.md):
 

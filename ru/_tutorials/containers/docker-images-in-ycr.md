@@ -27,7 +27,7 @@
 1. [Включите политику автоматического удаления Docker-образов](#lifecycle-policy).
 1. (Опционально) [Отсканируйте Docker-образы на наличие уязвимостей](#vulnerability-scanner).
 
-Если инстанс {{ mgl-full-name }} уже настроен для непрерывной интеграции ([Continuous Integration](/blog/posts/2022/10/ci-cd), CI), убедитесь, что [инфраструктура для хранения Docker-образов](#deploy-infrastructure) подготовлена. Затем начните настройку с [создания переменных окружения](#add-variables).
+Если инстанс {{ mgl-name }} уже настроен для непрерывной интеграции ([Continuous Integration](/blog/posts/2022/10/ci-cd), CI), убедитесь, что [инфраструктура для хранения Docker-образов](#deploy-infrastructure) подготовлена. Затем начните настройку с [создания переменных окружения](#add-variables).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -43,12 +43,15 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за следующие ресурсы:
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Сервис {{ container-registry-name }}: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
+* Инстанс {{ GL }}. Стоимость зависит от способа создания инстанса:
 
-* Диски и постоянно запущенные виртуальные машины ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Использование динамического публичного IP-адреса ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Хранение созданных Docker-образов и сканер уязвимостей, если вы его [активируете](#vulnerability-scanner) ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
-* Использование мастера {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+   * {{ mgl-name }} — оплачиваются вычислительные ресурсы ВМ, объем хранимых данных и резервных копий, объем исходящего трафика ([тарифы {{ mgl-name }}](../../managed-gitlab/pricing.md)).
+   * ВМ с образом {{ GL }} — оплачиваются вычислительные ресурсы ВМ и образ {{ GL }} ([тарифы {{ compute-name }}](../../compute/pricing.md)).
+
+* Публичные IP-адреса для мастера и узлов кластера {{ managed-k8s-name }}, а также для ВМ с образом {{ GL }}, если для них включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 

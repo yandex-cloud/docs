@@ -1,6 +1,7 @@
 # Работа с топиками {{ KF }} с помощью PySpark-заданий в {{ dataproc-full-name }}
 
-Кластеры {{ dataproc-name }} поддерживают интеграцию с кластерами {{ mkf-name }}. Вы можете записывать сообщения в топики {{ KF }} и читать сообщения из топиков с помощью [PySpark-заданий](../../../data-proc/operations/jobs-pyspark.md). При чтении поддерживается пакетная обработка (batch processing) и потоковая обработка (stream processing).
+
+Кластеры {{ dataproc-full-name }} поддерживают интеграцию с кластерами {{ mkf-full-name }}. Вы можете записывать сообщения в топики {{ KF }} и читать сообщения из топиков с помощью [PySpark-заданий](../../../data-proc/operations/jobs-pyspark.md). При чтении поддерживается пакетная обработка (batch processing) и потоковая обработка (stream processing).
 
 Чтобы настроить интеграцию между кластерами {{ mkf-name }} и {{ dataproc-name }}:
 
@@ -14,14 +15,13 @@
 
 {% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mkf-name }}](../../../managed-kafka/pricing.md)).
+* Кластер {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы {{ mkf-name }}](../../../managed-kafka/pricing.md)).
 * Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы {{ dataproc-name }}](../../../data-proc/pricing.md)).
-* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
 * Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
-
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -30,7 +30,7 @@
 * Вручную {#manual}
 
    1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) `dataproc-network` без подсетей.
-   1. [Создайте подсеть](../../../vpc/operations/subnet-create.md) `dataproc-subnet-b` в зоне доступности `{{ region-id }}-b`.
+   1. [Создайте подсеть](../../../vpc/operations/subnet-create.md) `dataproc-subnet-b` в [зоне доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
    1. [Настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) для подсети `dataproc-subnet-b`.
    1. [Создайте группу безопасности](../../../vpc/operations/security-group-create.md) `dataproc-security-group` в сети `dataproc-network`.
    1. [Настройте группу безопасности](../../../data-proc/operations/cluster-create.md#change-security-groups).

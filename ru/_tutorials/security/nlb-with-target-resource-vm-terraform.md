@@ -92,8 +92,8 @@
 
     {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создан L7-балансировщик.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан L7-балансировщик.
+1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
 1. Дождитесь, когда L7-балансировщик перейдет в статус `Active`.
 1. Укажите настройки автомасштабирования в L7-балансировщике:
 
@@ -104,7 +104,7 @@
 
 ## Проверьте работу L7-балансировщика {#test}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в созданный L7-балансировщик и слева выберите **{{ ui-key.yacloud.alb.label_healthchecks }}**. Убедитесь, что все проверки состояния L7-балансировщика показывают состояние `HEALTHY`.
+1. В [консоли управления]({{ link-console-main }}) перейдите в созданный L7-балансировщик и откройте вкладку **{{ ui-key.yacloud.alb.label_healthchecks }}**. Убедитесь, что все проверки состояния L7-балансировщика показывают состояние `HEALTHY`.
 
 1. {% include [test](../_tutorials_includes/migration-from-nlb-to-alb/test.md) %}
 

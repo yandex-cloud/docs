@@ -19,14 +19,14 @@
 
 {% list tabs group=instructions %}
 
-* Бакет {{ objstorage-name }} {#obj-storage}
+- Бакет {{ objstorage-name }} {#obj-storage}
 
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с именем `bucket-yq-sa`.
     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту `bucket-yq-sa` роль `storage.viewer` на каталог, в котором находится бакет с логами.
     1. Создайте соединение:
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится трейл, поставляющий логи в бакет.
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+        1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
         1. Выберите трейл, поставляющий логи в бакет.
         1. Нажмите **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
         1. Выберите **{{ ui-key.yacloud.common.resource-acl.label_service-account }}** `bucket-yq-sa`.
@@ -37,7 +37,7 @@
 
     1. Выполните нужный [запрос](../../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
-* Поток данных {{ yds-name }} {#data-streams}
+- Поток данных {{ yds-name }} {#data-streams}
 
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с именем `bucket-yq-sa`.
     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту `bucket-yq-sa` роль `yds.editor`.

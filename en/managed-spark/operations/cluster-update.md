@@ -17,8 +17,8 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
 
@@ -38,7 +38,7 @@ After creating a cluster, you can edit its basic and advanced settings.
            The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
         1. In the **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** setting, update cluster [maintenance](../concepts/maintenance.md) time:
 
-           {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+           {% include [Maintenance window](../../_includes/managed-spark/maintenance-window-console.md) %}
 
         1. Select a [{{ metastore-name }} cluster](../../metadata-hub/concepts/metastore.md) to connect as a metadata storage.
         1. Enable or disable cluster deletion protection.

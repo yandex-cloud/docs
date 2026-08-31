@@ -8,7 +8,7 @@
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. On the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}** tab.
   1. Click **Create policy**.
@@ -54,45 +54,48 @@
 
       Where:
 
-      * `day-of-month`: Day of month. The possible value is `1–31`.
-      * `month`: Month. The possible values are `1–12` or `JAN–DEC`.
-      * `day-of-week`: Day of week. The possible values are `0–6` or `SUN–SAT`.
-      * `retain-for-days`: Backup retention period in days. The possible value range is `7–1095` (up to three years).
+      * `--cluster-id`: Cluster ID. You can get it with the [list of clusters](cluster-list.md#list-clusters).
 
-        The `day-of-month`, `month`, and `day-of-week` define the schedule for creating backups. The schedule is defined as a cron expression without hours and minutes.
-        
-        Cron expressions also support the following special characters:
+      {% include [backup-policy-create-settings](../../_includes/mdb/cli/backup-policy-create-settings.md) %}
 
-        * `*`: Selecting all possible values. A backup will be created on each scheduled interval (day or month) when possible, provided it does not conflict with other settings. This option is used by default if the setting is not specified.
-        * `,`: Listing multiple values.
-        * `–`: Specifying a range of values.
-        * `/`: Specifying a step value. For example, `*/3` for the `day-of-month` setting means a backup will be created every three days.
+- {{ TF }} {#tf}
 
-        If no schedule settings are specified, backups are created using the cron expression `* * *`, meaning they run daily.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        Examples of cron expressions:
+        For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
-        * `1 */6 *`: Backup is created on the first day of the month, every six months.
-        * `31 jan SUN`: Backup is created on Sundays in January, and also on January 31.
-        * `* * WED`: Backup is created every Wednesday.
+    1. Add a resource description:
 
-        You can test your cron expression in this [editor](https://crontab.guru).
+        ```hcl
+        resource "yandex_mdb_postgresql_backup_retention_policy" "<policy_name>" {
+          cluster_id      = "<cluster_ID>"
+          policy_name     = "<policy_name>"
+          description     = "<policy_description>"
+          retain_for_days = <backup_retention_period_in_days>
 
-      You can get the cluster ID from the [cluster list](cluster-list.md#list-clusters).
+          cron = {
+            day_of_month = "<day_of_month>"
+            day_of_week  = "<day_of_week>"
+            month        = "<month>"
+          }
+        }
+        ```
 
-      Result:
+        Where:
 
-      ```text
-      policy_id: mdbt553glp51********
-      cluster_id: c9q5le6h1a4k********
-      policy_name: test-policy
-      created_at: "2025-03-25T15:55:50.393000450Z"
-      cron:
-        day_of_month: "25"
-        month: mar
-        day_of_week: TUE
-      retain_for_days: "300"
-      ```
+        * `cluster_id`: Cluster ID. You can get it with the [list of clusters](cluster-list.md#list-clusters).
+
+        {% include [backup-policy-create-settings](../../_includes/mdb/terraform/backup-policy-create-settings.md) %}
+
+    1. Make sure the configuration files are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_backup_retention_policy).
 
 - REST API {#api}
 
@@ -120,34 +123,13 @@
               }'
      ```
 
-      Where:
-      * `dayOfMonth`: Day of the month. The possible value is `1-31`.
-      * `month`: Month. The possible values are `1-12` or `JAN-DEC`.
-      * `dayOfWeek`: Day of week. The possible values are `0-6` or `SUN-SAT`.
-      * `retainForDays`: Backup retention period in days. The possible value range is `7–1095` (up to three years).
+     Where:
 
-        The `dayOfMonth`, `month`, and `dayOfWeek` define the schedule for creating backups. The schedule is defined as a cron expression without hours and minutes.
-        
-        Cron expressions also support the following special characters:
+     * `<cluster_ID>`: Cluster ID which you can get with the [list of clusters](cluster-list.md#list-clusters).
 
-        * `*`: Selecting all possible values. A backup will be created on each scheduled interval (day or month) when possible, provided it does not conflict with other settings. This option is used by default if the setting is not specified.
-        * `,`: Listing multiple values.
-        * `–`: Specifying a range of values.
-        * `/`: Specifying a step value. For example, `*/3` for the `dayOfMonth` setting means a backup will be created every three days.
+     {% include [backup-policy-create-settings](../../_includes/mdb/api/backup-policy-create-settings-rest.md) %}
 
-        If no schedule settings are specified, backups are created using the cron expression `* * *`, meaning they run daily.
-
-        Examples of cron expressions:
-
-        * `1 */6 *`: Backup is created on the first day of the month, every six months.
-        * `31 jan SUN`: Backup is created on Sundays in January, and also on January 31.
-        * `* * WED`: Backup is created every Wednesday.
-
-        You can test your cron expression in this [editor](https://crontab.guru).
-
-     You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
-
-  1. Check the [server response](../api-ref/BackupRetentionPolicy/create.md#yandex.cloud.mdb.postgresql.v1.CreateBackupRetentionPolicyResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/BackupRetentionPolicy/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -185,33 +167,11 @@
 
         Where:
 
-        * `day_of_month`: Day of month. The possible value is `1–31`.
-        * `month`: Month. The possible values are `1–12` or `JAN–DEC`.
-        * `day_of_week`: Day of week. The possible values are `0–6` or `SUN–SAT`.
-        * `retain_for_days`: Backup retention period in days. The possible value range is `7–1095` (up to three years).
+        * `cluster_id`: Cluster ID. You can get it with the [list of clusters](cluster-list.md#list-clusters).
 
-          The `day_of_month`, `month`, and `day_of_week` define the schedule for creating backups. The schedule is defined as a cron expression without hours and minutes.
-          
-          Cron expressions also support the following special characters:
+        {% include [backup-policy-create-settings](../../_includes/mdb/api/backup-policy-create-settings-grpc.md) %}
 
-          * `*`: Selecting all possible values. A backup will be created on each scheduled interval (day or month) when possible, provided it does not conflict with other settings. This option is used by default if the setting is not specified.
-          * `,`: Listing multiple values.
-          * `–`: Specifying a range of values.
-          * `/`: Specifying a step value. For example, `*/3` for the `day_of_month` setting means a backup will be created every three days.
-
-          If no schedule settings are specified, backups are created using the cron expression `* * *`, meaning they run daily.
-
-          Examples of cron expressions:
-
-          * `1 */6 *`: Backup is created on the first day of the month, every six months.
-          * `31 jan SUN`: Backup is created on Sundays in January, and also on January 31.
-          * `* * WED`: Backup is created every Wednesday.
-
-          You can test your cron expression in this [editor](https://crontab.guru).
-
-        You can get the cluster ID from the [cluster list](cluster-list.md#list-clusters).
-
-      1. Check the [server response](../api-ref/grpc/BackupRetentionPolicy/create.md#yandex.cloud.mdb.postgresql.v1.CreateBackupRetentionPolicyResponse) to make sure your request was successful.
+      1. Check the [server response](../api-ref/grpc/BackupRetentionPolicy/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -221,7 +181,7 @@
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. On the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}** tab.
 
@@ -247,17 +207,7 @@
 
       You can get the cluster ID from the [cluster list](cluster-list.md#list-clusters).
 
-      Result:
-
-      ```text
-      +----------------------+-------------+--------------------+------------+-------------------+
-      |          ID          |     NAME    |     CLUSTER ID     |  CRONTAB   |  RETENTION PERIOD |
-      +----------------------+-------------+--------------------+------------+-------------------+
-      | mdbt553glp51******** | test-policy | c9q5le6h1a4******* | 31 JAN SUN |                50 |
-      +----------------------+-------------+--------------------+------------+-------------------+
-      ```
-
-      Order of parameters in the `CRONTAB` column: `day_of_month`, `month`, `day_of_week`.
+      {% include [backup-policy-list](../../_includes/mdb/cli/backup-policy-list.md) %}
 
 - REST API {#api}
 
@@ -273,10 +223,11 @@
         --header "Authorization: Bearer $IAM_TOKEN" \
         --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/retention_policies?pageSize=<number_of_results>'
       ```
-      
-      Where `page_size` is the number of query results per page. Specify a number greater than zero.
 
-     You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters).
+      Where:
+
+      * `<cluster_ID>`: Cluster ID which you can get with the [list of clusters](cluster-list.md#list-clusters).
+      * `pageSize`: Number of query results per page. Specify a number greater than zero.
 
   1. Check the [server response](../api-ref/BackupRetentionPolicy/list.md#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse) to make sure your request was successful.
 
@@ -307,9 +258,10 @@
           yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicyService.List
         ```
 
-        Where `page_size` is the number of query results per page. Specify a number greater than zero.
+        Where:
 
-        You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters).
+        * `cluster_id`: Cluster ID. You can get it with the [list of clusters](cluster-list.md#list-clusters).
+        * `page_size`: Number of query results per page. Specify a number greater than zero.
 
      1. Check the [server response](../api-ref/grpc/BackupRetentionPolicy/list.md#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse) to make sure your request was successful.      
 
@@ -321,7 +273,7 @@
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. On the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}** tab.
 
@@ -350,6 +302,22 @@
 
       You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters), and the policy ID from the [list of policies](#list-policies).
 
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
+
+        For information on how to create this file, see [Creating a cluster](cluster-create.md).
+
+    1. Delete the `yandex_mdb_postgresql_backup_retention_policy` resource with the name of the policy you want to delete.
+
+    1. Make sure the configuration files are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 - REST API {#api}
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
@@ -367,7 +335,7 @@
 
      You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters), and the policy ID from the [list of policies](#list-policies).
 
-  1. Check the [server response](../api-ref/BackupRetentionPolicy/delete.md#yandex.cloud.mdb.postgresql.v1.DeleteBackupRetentionPolicyResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/BackupRetentionPolicy/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 
 - gRPC API {#grpc-api}
@@ -399,6 +367,6 @@
 
         You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters), and the policy ID from the [list of policies](#list-policies).
 
-     1. Check the [server response](../api-ref/grpc/BackupRetentionPolicy/delete.md#yandex.cloud.mdb.postgresql.v1.DeleteBackupRetentionPolicyResponse) to make sure your request was successful.      
+     1. Check the [server response](../api-ref/grpc/BackupRetentionPolicy/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

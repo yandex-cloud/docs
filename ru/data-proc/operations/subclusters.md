@@ -16,7 +16,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
+  1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
 
 - CLI {#cli}
 
@@ -43,9 +43,9 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. [Перейдите]({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** и выберите нужный кластер.
-  1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.subclusters.action_add-subclaster }}**.
+  1. [Перейдите]({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
+  1. Нажмите **{{ ui-key.yacloud.mdb.cluster.subclusters.action_add-subclaster }}**.
   1. Укажите параметры подкластера:
      1. **{{ ui-key.yacloud.mdb.forms.base_field_hosts-count }}** — выберите количество хостов.
      1. **{{ ui-key.yacloud.mdb.forms.base_field_roles }}** — выберите роли подкластера в зависимости от того, какие сервисы должны быть развернуты на хостах:
@@ -163,11 +163,11 @@
 
   Чтобы удалить подкластер:
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. [Перейдите]({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** и выберите нужный кластер.
-  1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного подкластера и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+  1. [Перейдите]({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
+  1. В строке с нужным подкластером нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. (Опционально) Укажите таймаут [декомиссии](../concepts/decommission.md).
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-remove-subcluster_button }}**.
+  1. В открывшемся окне нажмите **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-remove-subcluster_button }}**.
 
 - CLI {#cli}
 

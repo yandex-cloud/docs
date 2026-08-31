@@ -1,9 +1,9 @@
 ---
-title: Удаление объекта в {{ objstorage-full-name }}
+title: Удалить объект в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете удалить объект в бакете в {{ objstorage-name }}.
 ---
 
-# Удаление объекта
+# Удалить объект
 
 {% include [restore-only-versioning](../../../_includes/storage/restore-only-versioning.md) %}
 

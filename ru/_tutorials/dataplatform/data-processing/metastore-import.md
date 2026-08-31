@@ -185,7 +185,7 @@
 В кластере `dataproc-source` создайте тестовую таблицу `countries`:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. [Перейдите](({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. [Перейдите]({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Откройте страницу кластера `dataproc-source`.
 1. Перейдите по ссылке **Zeppelin Web UI** в разделе **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 1. Выберите **Notebook**, затем ![image](../../../_assets/console-icons/plus.svg) **Create new note**.
@@ -265,7 +265,7 @@
 
 1. [Добавьте в настройки кластера](../../../data-proc/operations/cluster-update.md) `dataproc-target` свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}`.
 
-    Чтобы узнать IP-адрес кластера {{ metastore-name }}, в консоли управления выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на левой панели выберите страницу ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**. Для нужного кластера скопируйте значение из колонки **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}**.
+    Чтобы узнать IP-адрес кластера {{ metastore-name }}, в консоли управления выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и в блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.metastore.label_metastore }}**. Для нужного кластера скопируйте значение из колонки **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}**.
 
 ## Импортируйте данные {#import-data}
 

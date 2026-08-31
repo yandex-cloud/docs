@@ -5,7 +5,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your container.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container you want to change the [operation mode](../concepts/container.md#runtime) for.
   1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
   1. In the window that opens, under **{{ ui-key.yacloud.serverless-containers.section_general }}**, select `{{ ui-key.yacloud.serverless-containers.label_runtime-http-server }}` or `{{ ui-key.yacloud.serverless-containers.label_runtime-task-execution }}`.
@@ -24,6 +24,7 @@
   ```
 
   Where:
+  
   * `--container-id`: Container ID. To find out the ID, [get](list.md) the list of containers.
   * `--image`: {{ container-registry-full-name }} Docker image URL.
   * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image pull permissions.

@@ -62,10 +62,28 @@ Depending on the {{ sd-name }} [modules](../quickstart-overview.md#modules) conf
 
 {% include [dashboard-contents](../../_includes/security-deck/dashboard-contents.md) %}
 
+## Workspace status {#status}
+
+A {{ sd-name }} workspace can have one of the two statuses:
+
+* `Active`: Runs security checks and is editable.
+* `Inactive`: Suspended, runs no security checks. To put your workspace into this status, [deactivate](../operations/workspaces/deactivate-activate.md#deactivate) the former.
+
+Once the status switches to `Inactive`:
+
+{% include [workspace-after-deactivation](../../_includes/security-deck/workspace-after-deactivation.md) %}
+
+To modify the configuration and resume security checks, [activate](../operations/workspaces/deactivate-activate.md#deactivate) the workspace.  
+
+To view the statuses of all workspaces, navigate to the ![sliders](../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud_org.security-center.label_settings }}** page and open the **{{ ui-key.yacloud_org.security.settings.SettingsPageLayout.workspacesLabel_kZyU1 }}** tab.
+
+
+
 #### Useful links {#see-also}
 
 * [{#T}](../operations/workspaces/create.md)
 * [{#T}](../operations/workspaces/view-dashboard.md)
 * [{#T}](../operations/workspaces/update.md)
 * [{#T}](../operations/workspaces/manage-access.md)
+* [{#T}](../operations/workspaces/deactivate-activate.md)
 * [{#T}](../operations/workspaces/delete.md)

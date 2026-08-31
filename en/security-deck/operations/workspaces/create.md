@@ -5,10 +5,13 @@ description: In this guide, you will learn how to create an workspace in {{ sd-f
 
 # Creating a {{ sd-name }} workspace 
 
-Before creating a [workspace](../../concepts/workspace.md), make sure you have the necessary [permissions](../../security/index.md) to work with the {{ sd-name }} modules. You optimal roles are:
+Before creating a [workspace](../../concepts/workspace.md):
 
-* `security-deck.admin` for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to store the {{ sd-name }} resources and modules.
-* `auditor` for the [organization](../../../organization/concepts/organization.md), [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud), or folder security in which will be controlled by the workspace.
+1. Make sure you have the necessary [permissions](../../security/index.md) to work with the {{ sd-name }} modules. You optimal roles are:
+
+   * `security-deck.admin` for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to store the {{ sd-name }} resources and modules.
+   * `auditor` for the [organization](../../../organization/concepts/organization.md), [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud), or folder security in which will be controlled by the workspace.
+1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) to it the `security-deck.worker` [role](../../security/index.md#security-deck-worker) for the organization, cloud, or folder security in which will be controlled by the workspace.
 
 To create a {{ sd-name }} workspace:
 
@@ -34,4 +37,5 @@ To create a {{ sd-name }} workspace:
 * [{#T}](./view-dashboard.md)
 * [{#T}](./update.md)
 * [{#T}](./manage-access.md)
+* [{#T}](./deactivate-activate.md)
 * [{#T}](./delete.md)

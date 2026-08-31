@@ -16,9 +16,9 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать субъект.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **Schema Registry**.
+  1. В блоке **Управляйте метаданными** выберите **Schema Registry**.
   1. Выберите пространство имен, в котором вы хотите создать субъект.
-  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **Субъекты**.
+  1. Перейдите на вкладку **Субъекты**.
   1. В правом верхнем углу нажмите кнопку **Создать субъект**.
   1. Укажите следующие параметры:
       * Имя и описание субъекта;

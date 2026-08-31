@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Выберите сервисный аккаунт `forms-integration`.
   1. Перейдите в раздел **{{ ui-key.yacloud.common.overview }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.  
@@ -22,7 +22,7 @@
 
 - Интерфейс {{ forms-name }} {#forms}
 
-  1. Перейдите в сервис [{{ forms-name }}]({{ link-forms-b2b }}).
+  1. [Перейдите]({{ link-forms-b2b }}) в сервис **{{ forms-name }}**.
 
   1. Нажмите кнопку **Создать форму**.
 
@@ -40,7 +40,7 @@
 
 - Интерфейс {{ forms-name }} {#forms}
 
-  1. Перейдите в сервис [{{ forms-name }}]({{ link-forms-b2b }}).
+  1. [Перейдите]({{ link-forms-b2b }}) в сервис **{{ forms-name }}**.
 
   1. Откройте созданную ранее форму.
 
@@ -68,7 +68,7 @@
 
 1. Заполните форму и нажмите кнопку **Отправить**.
 
-1. Перейдите в сервис [{{ forms-name }}]({{ link-forms-b2b }}).
+1. [Перейдите]({{ link-forms-b2b }}) в сервис **{{ forms-name }}**.
 
 1. Откройте созданную ранее форму.
 

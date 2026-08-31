@@ -14,9 +14,9 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger to send messa
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -91,7 +91,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger to send messa
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Timer that invokes a {{ sf-name }} function](../../../functions/operations/trigger/timer-create.md)
 * [Timer that invokes a {{ serverless-containers-name }} container](../../../serverless-containers/operations/timer-create.md)

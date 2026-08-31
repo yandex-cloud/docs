@@ -14,7 +14,7 @@ To create a new message queue:
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select the folder to create your queue in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+  1. [Navigate]({{ link-console-main }}/link/message-queue) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
   1. Under **{{ ui-key.yacloud.ymq.queue.form.section_base }}**, fill in the following fields:
       * **{{ ui-key.yacloud.common.name }}**: Enter a name for the queue.

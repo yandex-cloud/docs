@@ -1,5 +1,6 @@
 # Создать SAML-приложение в {{ org-full-name }} для интеграции с {{ mgl-name }}
 
+
 Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в {{ mgl-full-name }} с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications/saml.md) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне {{ mgl-name }}.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
@@ -18,7 +19,7 @@
 - Консоль управления {#console}
 
    1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [инстанс {{ GL }}](../../../managed-gitlab/concepts/index.md#instance).
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+   1. [Перейдите]({{ link-console-main }}/link/managed-gitlab) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_create-instance }}**.
    1. В верхней части страницы:
 
@@ -78,7 +79,7 @@
 Чтобы интегрировать провайдер аутентификации для {{ GL }} через OmniAuth, добавьте провайдер аутентификации:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-gitlab) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 1. Нажмите на созданный инстанс и выберите вкладку **{{ ui-key.yacloud.gitlab.title_omniauth }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_setup-omniauth }}**.
 1. Чтобы добавить провайдера аутентификации, нажмите кнопку **Add**.

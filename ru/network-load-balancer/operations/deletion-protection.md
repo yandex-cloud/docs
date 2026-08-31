@@ -22,9 +22,9 @@ description: Чтобы предотвратить случайное удале
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-    1. Справа от имени нужного балансировщика нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+    1. Справа от имени нужного балансировщика нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. Включите настройку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_deletion-protection }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -92,9 +92,9 @@ description: Чтобы предотвратить случайное удале
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-    1. Справа от имени нужного балансировщика нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+    1. Справа от имени нужного балансировщика нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. Отключите настройку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_deletion-protection }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

@@ -54,7 +54,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Откройте вкладку ![image](../../../_assets/console-icons/shield.svg) **Группы безопасности**.
   1. Создайте группу безопасности:
 
@@ -88,7 +88,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** выберите один из [образов](../../../compute/concepts/image.md) и версию операционной системы на базе Linux.
@@ -137,7 +137,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** перейдите на вкладку **Marketplace** и выберите образ [NAT-инстанс](https://yandex.cloud/ru/marketplace/products/yc/nat-instance-ubuntu-18-04-lts).
@@ -194,7 +194,7 @@
   1. Создайте таблицу маршрутизации и добавьте в нее статический маршрут:
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать статический маршрут.
-      1. Перейдите в сервис **Virtual Private Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
       1. На панели слева выберите ![route-tables](../../../_assets/console-icons/route.svg) **Таблицы маршрутизации**.
       1. Нажмите кнопку **Создать**.
       1. В поле **Имя** задайте имя таблицы маршрутизации, например `nat-instance-route`. Требования к имени:
@@ -263,6 +263,8 @@
     ```
 
     Если команда вернет публичный IP-адрес NAT-инстанса, все настроено правильно.
+    
+    Таким образом проверяется только исходящий трафик. Входящий трафик через NAT-инстанс проверить нельзя.
 
 
 ## Как удалить созданные ресурсы {#clear-out}

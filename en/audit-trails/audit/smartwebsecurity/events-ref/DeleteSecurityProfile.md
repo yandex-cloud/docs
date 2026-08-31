@@ -2182,7 +2182,9 @@ Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
 
 - `ALLOW`
 - `DENY`
-- `CAPTCHA` ||
+- `CAPTCHA`
+- `JS_CHALLENGE`
+- `COOKIE_CHALLENGE` ||
 || condition | **[Condition](#yandex.cloud.audit.smartwebsecurity.Condition)** ||
 |#
 
@@ -2487,12 +2489,15 @@ Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`. ||
 
 - `ALLOW`
 - `DENY`
-- `CAPTCHA` ||
+- `CAPTCHA`
+- `JS_CHALLENGE`
+- `COOKIE_CHALLENGE` ||
 || discardAllowPercentage | **string** (int64) ||
 || outputs[] | **enum** (Output)
 
 - `CLOUD_LOGGING`
-- `AUDIT_TRAILS` ||
+- `AUDIT_TRAILS`
+- `MONIUM` ||
 |#
 
 ## HeadersUpstream {#yandex.cloud.audit.smartwebsecurity.SecurityProfileDetails.HeadersUpstream}

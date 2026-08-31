@@ -10,7 +10,6 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-
 {% include [vat](../_includes/vat.md) %}
 
 In {{ sd-name }}, each module is billed separately. You can also use package plans and subscriptions.
@@ -35,12 +34,17 @@ You do not pay for:
 
 #|
 || **Name** | **Description** | **Terms** ||
-|| {{ sd-name }}. Starter package | Configuration checks for compliance with standards in the [configuration control module](./concepts/cspm.md) and suspicious activity and threat alerts in the [threat detection module](./concepts/threat-detector.md).</br>There are several plans for different numbers of resources per environment. | The prices based on resources per month are fixed and do not depend on the number of days in the month. ||
-|| Package-based subscription to {{ dspm-name }} | Package-based subscription to {{ dspm-name }} is a special offer that includes all DSPM’s features. | To activate this subscription, contact [support]({{ link-console-support }}). ||
+|| {{ sd-name }}. Starter package | Configuration checks for compliance with standards in the [configuration control module](./concepts/cspm.md) and suspicious activity and threat alerts in the [threat detection module](./concepts/threat-detector.md).</br>There are several plans for different numbers of resources per environment. | Prices for the number of monthly resources are fixed and do not depend on the number of days in the month.</br>To start using the service plan, [accept the offer](../billing/operations/get-offers.md) in [{{ billing-name }}]({{ link-console-billing }}). ||
+|| Package-based subscription to {{ dspm-name }} | This is a special offer that covers all DSPM features. There are four plans for different amounts of scan data per month.
+What monthly subscription includes:
+* Data scans.
+* Operations with files.
+* Detection of sensitive information in various file formats.
+* Storing information pertaining to detected objects. |
+To subscribe, [accept the offer](../billing/operations/get-offers.md) in [{{ billing-name }}]({{ link-console-billing }}).
 |#
 
-The package prices and subscriptions below are per calendar month.
-A calendar month is a period from 00:00 on the first day of the month to 23:59 on the last day of the same month, UTC+3.
+The package plans and subscriptions are priced per calendar month. A calendar month is a period from 00:00 on the first day of the month to 23:59 on the last day of the same month, UTC+3. The cost is fixed and does not depend on the number of days in the month.
 
 ### Module pricing {#modules-rules}
 
@@ -51,12 +55,12 @@ You can estimate the resource consumption for your organization based on the [us
 {% endnote %}
 
 #|
-|| **Module** | **Billing unit** | **Terms** ||
+|| **Module** | **Fee-based services** | **Terms** ||
 || {{ atr-name }} | Overall consumption of resources over the previous month in the organization the module is enabled for. | Calculated monthly.</br>The price is calculated at the beginning of the calendar month and remains unchanged until its end.</br>If the module is used from the first day of the month, the price does not depend on the duration of the calendar month. If used from the second day of the calendar month or later, you pay only for the remaining time until the end of the month on an hourly basis.</br>If you cancel your subscription in the [management console]({{ link-console-main }}), payments will stop to be charged from the first day of the next calendar month. ||
 || Data Security Posture Management ({{ dspm-name }}) | <ul><li>[Data analysis](./concepts/dspm.md#discovery-mode): Once the limit is exceeded, you pay per 1,000,000 objects.</li><li>[Scanning](./concepts/dspm.md#scanning): Data read operations and the amount of data scanned.</li></ul> | <ul><li>[Data analysis](./concepts/dspm.md#discovery-mode): Once the free limit of 100,000 objects is exceeded, you pay per 1,000,000 objects based on the pricing ladder.</li><li>Continuous monitoring ([scanning](./concepts/dspm.md#scanning)): You pay for requests as per the {{ objstorage-name }} [pricing policy](../storage/pricing.md).</li></ul> ||
-|| {{ k8s }} Security Posture Management ({{ kspm-name }}) | Worker nodes in [{{ managed-k8s-full-name }}](../managed-kubernetes/) clusters covered by scanning | Calculated monthly. ||
-|| Cloud Security Posture Management ({{ cspm-name }}) | Number of the environment's resources checked for compliance with enabled standards:<ul><li>{{ compute-full-name }} virtual machine</li><li>{{ objstorage-full-name }} bucket</li><li>Database clusters ^1^</li><li>{{ k8s }} cluster</li><li>{{ vpc-full-name }} cloud network.</li></ul> | Calculated monthly.</br>All standards are billable except for the [{{ yandex-cloud }} basic security rules](concepts/standard-compliance/yc-security-baseline.md).</br>Each environment is billed separately, even if their resources overlap.</br>Inactive resources are also billable.</br>The price does not depend on the number of days in the calendar month. ||
-|| {{ vuln-man-name }} ({{ vuln-man-short-name }}) | You are charged per image stored in the {{ sd-name }} workspace. | The cost is calculated on a monthly basis. Each workspace is billed separately, even if their images overlap. If an image is stored for less than a calendar month, the cost is calculated on a daily basis, as `Price_per_image_per_month / 30`. ||
+|| {{ k8s }} Security Posture Management ({{ kspm-name }}) | Worker nodes in [{{ managed-k8s-full-name }}](../managed-kubernetes/) clusters covered by scanning | The cost is calculated on a monthly basis. ||
+|| Cloud Security Posture Management ({{ cspm-name }}) | Number of the environment's resources checked for compliance with enabled standards:<ul><li>{{ compute-full-name }} virtual machine</li><li>{{ objstorage-full-name }} bucket.</li><li>database clusters ^1^</li><li>{{ k8s }} cluster.</li><li>{{ vpc-full-name }} cloud network</li></ul> | The cost is calculated on a monthly basis.</br>All standards are billable except for the [{{ yandex-cloud }} basic security rules](concepts/standard-compliance/yc-security-baseline.md).</br>Each environment is billed separately, even if their resources overlap.</br>Inactive resources are also billable.</br>The price does not depend on the number of days in the calendar month. ||
+|| Vulnerability Management ({{ vuln-man-short-name }}) | Images stored in the {{ sd-name }} environment. | The cost is calculated on a monthly basis.</br>Each environment is billed separately, even if their images overlap.</br>If an image is stored for less than a calendar month, the cost is calculated on a daily basis, as `Price_per_image_per_month / 30`. ||
 |#
 
 ^1^ The check includes database clusters of the following services:
@@ -85,7 +89,7 @@ You can estimate the resource consumption for your organization based on the [us
 </MDX>
 
 
-## Cost calculation example {#amount-example}
+## Cost calculation examples {#amount-example}
 
 ### {{ dspm-full-name }} ({{ dspm-name }}) {#dspm-example}
 
@@ -94,3 +98,5 @@ Let’s assume you set up scanning a bucket with 50 text files, their overall si
 
 
 {% include [usd-scan-by-amount](../_pricing_examples/security-deck/usd-scan-by-amount.md) %}
+
+

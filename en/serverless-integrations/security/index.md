@@ -36,7 +36,6 @@ You can use {{ si-name }} roles (_service roles_) and {{ yandex-cloud }} roles (
 
 * [Roles to work with {{ er-full-name }}](./eventrouter.md).
 * [Roles to work with {{ sw-full-name }}](./workflows.md).
-* [Roles to work with {{ api-gw-full-name }}](../../api-gateway/security/index.md#service-roles).
 
 ### Primitive roles {#primitive-roles}
 

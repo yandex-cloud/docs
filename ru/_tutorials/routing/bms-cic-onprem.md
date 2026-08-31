@@ -1,5 +1,6 @@
 # Организация сетевой связности между подсетями {{ baremetal-full-name }} и on-premises с помощью {{ interconnect-name }}
 
+
 В данном руководстве вы установите сетевую связность между [сервером](../../baremetal/concepts/servers.md) {{ baremetal-name }}, расположенным в [приватной подсети](../../baremetal/concepts/private-network.md) {{ baremetal-full-name }}, и ресурсами, которые развернуты on-premises. Сетевая связность будет организована с помощью сервисов [{{ interconnect-name }}](../../interconnect/index.yaml) и [{{ cr-name }}](../../cloud-router/index.yaml).
 
 Схема решения:
@@ -12,15 +13,15 @@
 
 {% note info %}
 
-Предполагается, что сетевое взаимодействие между on-premises и виртуальной сетью {{ vpc-short-name }} с помощью сервиса {{ interconnect-name }} уже организовано и работает. 
+Предполагается, что подключение on-premises к {{ yandex-cloud }} с помощью сервиса {{ interconnect-name }} уже организовано и работает. У вас должны быть действующие транковое и приватное соединения.
 
 {% endnote %}
 
-Чтобы настроить сетевую связность между приватными подсетями {{ baremetal-name }} и on-premise-ресурсами с помощью {{ interconnect-name }} необходимо:
+Чтобы настроить сетевую связность между приватными подсетями {{ baremetal-name }} и ресурсами в on-premises с помощью {{ interconnect-name }}, необходимо:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте облачную инфраструктуру](#setup-infrastructure).
-1. [Создайте виртуальный маршрутизатор](#create-routing-instance).
+1. [Подготовьте виртуальный маршрутизатор](#create-routing-instance).
 1. [Создайте приватное соединение](#create-private-connection).
 1. [Проверьте сетевую связность](#check-connectivity).
 
@@ -30,23 +31,18 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры для организации сетевой связности между подсетями {{ baremetal-name }} и {{ vpc-short-name }} входят:
+В стоимость инфраструктуры для организации сетевой связности входят:
 
-* плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) виртуальной машины ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за аренду сервера {{ baremetal-name }} ([тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md)).
-
+* плата за аренду сервера {{ baremetal-name }} ([тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md));
+* плата за использование {{ interconnect-name }} ([тарифы {{ interconnect-name }}](../../interconnect/pricing.md)).
 
 ## Создайте облачную инфраструктуру {#setup-infrastructure}
 
 Создайте необходимую инфраструктуру {{ yandex-cloud }}, в которой вы будете настраивать сетевую связность.
 
-Для настройки {{ interconnect-name }} в сервисе {{ baremetal-name }} понадобятся приватная маршрутизируемая [подсеть](../../baremetal/concepts/private-network.md#private-subnet) и [VRF](../../baremetal/concepts/private-network.md#vrf-segment) в {{ baremetal-name }}, [облачная сеть](../../vpc/concepts/network.md#network) с одной или более [подсетями](../../vpc/concepts/network.md#subnet) {{ vpc-name }}, а также виртуальный маршрутизатор, в составе которого будут [анонсированы](../../interconnect/concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей {{ vpc-short-name }}.
-
-Для проверки сетевой связности понадобятся сервер {{ baremetal-name }} и виртуальная машина {{ compute-name }}.
+Для настройки понадобятся приватная маршрутизируемая [подсеть](../../baremetal/concepts/private-network.md#private-subnet) и [VRF](../../baremetal/concepts/private-network.md#vrf-segment) в {{ baremetal-name }}, сервер {{ baremetal-name }}, действующее приватное соединение {{ interconnect-name }} и виртуальный маршрутизатор {{ cr-name }}.
 
 ### Создайте VRF и приватную подсеть {{ baremetal-name }} {#setup-vrf}
 
@@ -59,10 +55,13 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать инфраструктуру.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Создайте виртуальный сегмент сети:
+
         1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
         1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя VRF: `my-vrf`.
         1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
+
   1. Создайте приватную подсеть:
+
         1. На панели слева выберите ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
         1. В поле **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** выберите пул серверов `{{ region-id }}-m3`.
         1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя подсети: `subnet-m3`.
@@ -98,6 +97,7 @@
       1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ. Например: `Ubuntu 24.04`.
       1. {% include [server-lease-step8](../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
       1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
+
           1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m3`.
           1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
 
@@ -116,52 +116,33 @@
 
 {% endnote %}
 
-## Создайте виртуальный маршрутизатор {#create-routing-instance}
+## Подготовьте виртуальный маршрутизатор {#create-routing-instance}
 
-Для организации сетевой связности между подсетями {{ baremetal-name }} и on-premise-подсетями необходимо [создать виртуальный маршрутизатор](../../cloud-router/operations/ri-create.md).
+1. [Проверьте](../../cloud-router/operations/ri-get-info.md), есть ли виртуальный маршрутизатор, через который on-premises подключена к {{ yandex-cloud }}.
+1. Если виртуального маршрутизатора нет, [создайте его](../../cloud-router/operations/ri-create.md).
+1. Убедитесь, что действующее приватное соединение {{ interconnect-name }} добавлено в выбранный виртуальный маршрутизатор. При необходимости [добавьте его](../../cloud-router/operations/ri-priv-con-add.md).
+1. Убедитесь, что ваше сетевое оборудование анонсирует в приватное соединение IP-префиксы on-premises по BGP.
 
-Если в вашем каталоге уже есть настроенная сетевая связность с использованием [{{ interconnect-name }}](../../interconnect/index.yaml) (VPC-to-On-Prem), то вы можете как использовать уже существующий виртуальный маршрутизатор, так и создать новый, дополнительный виртуальный маршрутизатор для организации обособленной сетевой связности.
-
-### Проверьте наличие виртуального маршрутизатора в вашем каталоге {#check-for-ri}
-
-1. {% include [cli-install](../../_includes/cli-install.md) %}
-
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-1. {% include [check-for-routing-instance](../../_includes/baremetal/check-for-routing-instance.md) %}
-
-1. Если у вас уже есть виртуальный маршрутизатор, вы можете пропустить следующий шаг и [перейти](#create-private-connection) к созданию приватного соединения.
-
-    Если у вас нет виртуального маршрутизатора или вы хотите построить дополнительную обособленную сетевую связность, [создайте новый](../../cloud-router/operations/ri-create.md).
-
-## Настройте виртуальный маршрутизатор {#config-ri}
-
-В дополнение к списку IP-префиксов из предыдущего шага в виртуальный маршрутизатор необходимо добавить:
-
-1. Список агрегированных IP-префиксов для приватных подсетей из сегмента Baremetal.
-1. Список агрегированных IP-префиксов для анонсируемых подсетей из on-premise.
-
-Список агрегированных IP-префиксов может быть ассоциирован с любой из существующих зон доступности.
-
-Например, для IP-префикса подсети `192.168.1.0/24`, агрегатом может быть префикс - `192.168.0.0/22`.
+IP-префиксы on-premises поступают в виртуальный маршрутизатор по BGP. Добавлять их как префиксы облачной сети не требуется.
 
 ## Создайте приватное соединение {#create-private-connection}
 
-После того как в вашем каталоге будет создан необходимый виртуальный маршрутизатор, создайте [приватное соединение](../../baremetal/concepts/private-network.md#private-connection-to-vpc) {{ interconnect-name }} в сервисе {{ baremetal-name }}:
+После того как виртуальный маршрутизатор будет подготовлен, создайте [приватное соединение](../../baremetal/concepts/private-network.md#private-connection-to-vpc) {{ interconnect-name }} в сервисе {{ baremetal-name }}:
 
 {% include [create-private-connection](../../_includes/baremetal/create-private-connection.md) %}
 
 ## Проверьте сетевую связность {#check-connectivity}
 
-После того как статус созданного приватного соединения изменится на `Ready`, сетевая связность между подсетями {{ baremetal-name }} и {{ vpc-short-name }} будет установлена и вы сможете приступить к ее проверке.
+После того как статус созданного приватного соединения изменится на `Ready`, сетевая связность между подсетью {{ baremetal-name }} и on-premises будет установлена и вы сможете приступить к ее проверке.
 
 Проверка сетевой связности предполагает, что:
-* процесс настройки приватного соединения с облачными подсетями успешно завершен (статус соединения отображается как `Ready`);
-* локальный сервис Firewall на сервере {{ baremetal-name }} разрешает прохождение трафика [ICMP](https://ru.wikipedia.org/wiki/ICMP);
-* маршрутная таблица в операционной системе сервера {{ baremetal-name }} содержит маршрут до CIDR подсети с виртуальной машиной;
-* [группа безопасности](../../vpc/concepts/security-groups.md), которая назначена [сетевому интерфейсу](../../compute/concepts/network.md) виртуальной машины, разрешает прохождение ICMP-трафика.
 
-### Проверьте сетевую связность из приватной подсети {{ baremetal-name }} к on-premise-ресурсам {#check-bms-to-onprem}
+* настройка приватного соединения успешно завершена, а его статус изменился на `Ready`;
+* локальный файрвол на сервере {{ baremetal-name }} разрешает прохождение трафика [ICMP](https://ru.wikipedia.org/wiki/ICMP);
+* маршрутная таблица в операционной системе сервера {{ baremetal-name }} содержит маршрут до IP-префикса on-premises;
+* файрвол на on-premises-ресурсе разрешает прохождение ICMP-трафика из подсети {{ baremetal-name }}.
+
+### Проверьте сетевую связность из приватной подсети {{ baremetal-name }} к ресурсам в on-premises {#check-bms-to-onprem}
 
 {% list tabs group=instructions %}
 
@@ -193,66 +174,32 @@
       ```
 
       Если вы не сохранили пароль администратора к серверу, вы можете создать новый пароль по [инструкции](../../baremetal/operations/servers/reset-password.md) или [переустановить](../../baremetal/operations/servers/reinstall-os-from-marketplace.md) на сервере операционную систему.
-  1. В терминале KVM-консоли выполните команду `ping`, чтобы убедиться в доступности виртуальной машины `sample-vm` по ее [внутреннему](../../compute/concepts/network.md#internal-ip) IP-адресу:
+  1. В терминале KVM-консоли выполните команду `ping`, чтобы убедиться в доступности ресурса в on-premises:
 
       ```bash
-      ping <внутренний_IP-адрес_ВМ> -c 5
+      ping <IP-адрес_on-premises-ресурса> -c 5
       ```
 
-      Узнать внутренний IP-адрес ВМ вы можете в [консоли управления]({{ link-console-main }}) в блоке **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}** на странице с информацией о ВМ.
-
-      Результат:
-
-      ```text
-      PING 192.168.11.2 (192.168.11.2) 56(84) bytes of data.
-      64 bytes from 192.168.11.2: icmp_seq=1 ttl=64 time=3.90 ms
-      64 bytes from 192.168.11.2: icmp_seq=2 ttl=64 time=0.235 ms
-      64 bytes from 192.168.11.2: icmp_seq=3 ttl=64 time=0.222 ms
-      64 bytes from 192.168.11.2: icmp_seq=4 ttl=64 time=0.231 ms
-      64 bytes from 192.168.11.2: icmp_seq=5 ttl=64 time=0.235 ms
-
-      --- 192.168.11.2 ping statistics ---
-      5 packets transmitted, 5 received, 0% packet loss, time 4086ms
-      rtt min/avg/max/mdev = 0.222/0.964/3.899/1.467 ms
-      ```
-
-      Сетевая связность между сервером {{ baremetal-name }} и виртуальной машиной установлена, пакеты проходят без потерь.
+      Если пакеты передаются без потерь, сетевая связность от сервера {{ baremetal-name }} к on-premises работает.
 
 {% endlist %}
 
-### Проверьте сетевую связность от on-premise-ресурса с приватной подсетью {{ baremetal-name }} {#check-onprem-to-bms}
+### Проверьте сетевую связность от ресурса в on-premises к приватной подсети {{ baremetal-name }} {#check-onprem-to-bms}
 
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
-1. В терминале выполните команду `ping`, чтобы убедиться в доступности сервера `server-m3` по его приватному IP-адресу:
+На ресурсе в on-premises выполните команду `ping`, чтобы убедиться в доступности сервера `server-m3` по его приватному IP-адресу:
 
-      ```bash
-      ping <приватный_IP-адрес_сервера> -c 5
-      ```
+```bash
+ping <приватный_IP-адрес_сервера> -c 5
+```
 
-      Узнать приватный IP-адрес сервера {{ baremetal-name }} вы можете в [консоли управления]({{ link-console-main }}) в блоке **Сетевые настройки** на странице с информацией о сервере.
+Узнать приватный IP-адрес сервера {{ baremetal-name }} можно в консоли управления в блоке **Сетевые настройки** на странице с информацией о сервере.
 
-      Результат:
-
-      ```text
-      PING 192.168.1.3 (192.168.1.3) 56(84) bytes of data.
-      64 bytes from 192.168.1.3: icmp_seq=1 ttl=64 time=0.271 ms
-      64 bytes from 192.168.1.3: icmp_seq=2 ttl=64 time=0.215 ms
-      64 bytes from 192.168.1.3: icmp_seq=3 ttl=64 time=0.262 ms
-      64 bytes from 192.168.1.3: icmp_seq=4 ttl=64 time=0.223 ms
-      64 bytes from 192.168.1.3: icmp_seq=5 ttl=64 time=0.208 ms
-
-      --- 192.168.1.3 ping statistics ---
-      5 packets transmitted, 5 received, 0% packet loss, time 4106ms
-      rtt min/avg/max/mdev = 0.208/0.235/0.271/0.025 ms
-      ```
-
-      Сетевая связность между виртуальной машиной и сервером {{ baremetal-name }} установлена, пакеты проходят без потерь.
+Если пакеты передаются без потерь, сетевая связность от on-premises к серверу {{ baremetal-name }} работает.
 
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
 
-1. [Удалите](../../compute/operations/vm-control/vm-delete.md) виртуальную машину.
 1. Удалить сервер {{ baremetal-name }} нельзя. Вместо этого [откажитесь](../../baremetal/operations/servers/server-lease-cancel.md) от продления аренды сервера.
 1. При необходимости удалите приватное соединение:
 
@@ -269,3 +216,5 @@
       В результате статус соединения сменится на `Deleting`. После того как все связи будут удалены, соединение пропадет из списка.
 
     {% endlist %}
+
+1. Если вы создавали виртуальный маршрутизатор специально для этого руководства, [удалите из него приватное соединение](../../cloud-router/operations/ri-priv-con-del.md), а затем [удалите маршрутизатор](../../cloud-router/operations/ri-delete.md).

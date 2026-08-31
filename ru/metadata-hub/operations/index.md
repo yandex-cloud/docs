@@ -101,6 +101,7 @@ description: Пошаговые инструкции по работе с {{ met
   * [{#T}](data-catalog/create-source.md)
   * [{#T}](data-catalog/update-source.md)
   * [{#T}](data-catalog/delete-source.md)
+  * [{#T}](data-catalog/settings-backend-source.md)
 * Работа с данными:
   * [{#T}](data-catalog/markup-metadata.md)
   * [{#T}](data-catalog/search-metadata.md)

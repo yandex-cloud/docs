@@ -1,19 +1,19 @@
 ---
-title: How to view resource roles in {{ container-registry-full-name }}
-description: Follow this guide to view roles assigned for resources.
+title: How to view roles for a resource in {{ container-registry-full-name }}
+description: Follow this guide to view roles assigned for a resource.
 ---
 
-# Viewing roles assigned for a resource
+# Viewing roles for a resource
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to view the [roles](../../../iam/concepts/access-control/roles.md) assigned for a resource.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to view [roles](../../../iam/concepts/access-control/roles.md) assigned for a resource.
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select a [registry](../../concepts/registry.md) or [repository](../../concepts/repository.md) in it.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-  1. Find the required user, group, or [service account](../../../iam/concepts/users/service-accounts.md) in the list. Assigned roles are specified in the **{{ ui-key.yacloud_components.acl.resource-acl.label_bindings }}** column.
+  1. Find the user, group, or [service account](../../../iam/concepts/users/service-accounts.md) in the list. The **{{ ui-key.yacloud_components.acl.resource-acl.label_bindings }}** column lists assigned roles.
 
 - CLI {#cli}
 
@@ -29,7 +29,7 @@ description: Follow this guide to view roles assigned for resources.
 
   Where:
   * `<resource>`: `registry` or `repository` resource type.
-  * `<resource_name_or_ID>`: Name or ID of the resource you want to view the assigned roles for.
+  * `<resource_name_or_ID>`: Name or ID of the resource to view assigned roles for.
 
   **Example**
   
@@ -55,4 +55,4 @@ description: Follow this guide to view roles assigned for resources.
 
 {% endlist %}
 
-You can read more about role management in the {{ iam-full-name }} [documentation](../../../iam/concepts/index.md).
+For more information about managing roles, see [this {{ iam-full-name }} guide](../../../iam/concepts/index.md).

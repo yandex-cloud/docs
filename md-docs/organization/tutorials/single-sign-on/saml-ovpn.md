@@ -2,6 +2,7 @@
 
 # Создать SAML-приложение в Yandex Identity Hub для интеграции с OpenVPN Access Server
 
+
 Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в OpenVPN Access Server с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../concepts/applications/saml.md) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне OpenVPN Access Server.
 
 ПО [OpenVPN Access Server](https://yandex.cloud/ru/marketplace/products/yc/openvpn-access-server) совместимо с [открытой версией](https://github.com/OpenVPN) OpenVPN и построено на ее основе. Продукт предоставляет клиенты для Windows, Mac, Android и iOS, а также позволяет управлять подключениями с помощью веб-интерфейса.
@@ -26,7 +27,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-   1. Перейдите в сервис **Compute Cloud**.
+   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
    1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
    1. Нажмите кнопку **Создать виртуальную машину**.
    1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `OpenVPN Access Server` и выберите образ [OpenVPN Access Server](https://yandex.cloud/ru/marketplace/products/yc/openvpn-access-server).

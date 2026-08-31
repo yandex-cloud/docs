@@ -23,7 +23,7 @@ Workflows находится на стадии [Preview](../../../overview/conce
 На схеме:
 
 1. [Триггер](../../../functions/concepts/trigger/os-trigger.md) для Object Storage отслеживает появление новых JSON-файлов с метаданными в выделенной папке [бакета](../../../storage/concepts/bucket.md) или любой из ее подпапок.
-1. Когда в папке появляются новые файлы, триггер вызывает [функцию](../../../functions/concepts/function.md) `workflow-call`, которая запускает [рабочий процесс Workflows](../../../serverless-integrations/concepts/workflows/workflow.md).
+1. Когда в папке появляются новые файлы, триггер вызывает [функцию](../../../functions/concepts/function.md) `workflow-call`, которая запускает [рабочий процесс Workflows](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow).
 1. Рабочий процесс получает содержимое JSON-файлов с метаданными и проверяет их синтаксис с помощью функции `verify-file`.
 1. Рабочий процесс получает параметры подключения SpeechSense из [секрета Yandex Lockbox](../../../lockbox/concepts/secret.md).
 1. Путь к аудиозаписи или текстовому файлу, а также их метаданные передаются в функцию загрузки `speechsense-upload`.
@@ -83,7 +83,7 @@ Workflows находится на стадии [Preview](../../../overview/conce
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md): `deploy-sa`.
   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роли: [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin), `serverless.workflows.admin`.
@@ -94,7 +94,9 @@ Workflows находится на стадии [Preview](../../../overview/conce
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Создайте сервисный аккаунт `deploy-sa`:
 
@@ -151,8 +153,8 @@ Workflows находится на стадии [Preview](../../../overview/conce
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится сервисный аккаунт.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится сервисный аккаунт.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. Выберите сервисный аккаунт `speechsense-sa`.
   1. На панели сверху нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите пункт **Создать API-ключ**.
@@ -239,7 +241,7 @@ Workflows находится на стадии [Preview](../../../overview/conce
   1. Перейдите в [новое пространство](#create-space).
   1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **Добавить участника** → ![image](../../../_assets/console-icons/persons.svg) **Добавить из организации**.
   1. Cкопируйте идентификатор [созданного ранее сервисного аккаунта](#create-sa) `speechsense-sa` и вставьте в строку поиска.
-  1. Выберите сервисный аккаунт `speechsense-sa` и укажите роль [Data editor](https://aistudio.yandex.ru/docs/ru/speechsense/security/#speechsense-data-editor). Эта роль позволит сервисному аккаунту `speechsense-sa` загружать данные в SpeechSense.
+  1. Выберите сервисный аккаунт `speechsense-sa` и укажите роль [Data editor](https://aistudio.yandex.ru/docs/ru/speechsense/security/index#speechsense-data-editor). Эта роль позволит сервисному аккаунту `speechsense-sa` загружать данные в SpeechSense.
   1. Нажмите кнопку **Добавить**.
 
 {% endlist %}
@@ -401,7 +403,7 @@ Workflows находится на стадии [Preview](../../../overview/conce
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать секрет.
-  1. Перейдите в сервис **Lockbox**.
+  1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox**.
   1. Нажмите кнопку **Создать секрет**.
   1. В поле **Имя** укажите имя секрета: `speechsense-secret`.
 
@@ -487,7 +489,7 @@ Workflows находится на стадии [Preview](../../../overview/conce
     - Консоль управления {#console}
 
         1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-        1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+        1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
         1. Нажмите на имя кластера, [созданного ранее](#infra). По умолчанию это `speechsense-upload-metadata`.
         1. Выберите вкладку **WebSQL**.
         1. Нажмите на имя подключения, которое заканчивается на `-uploader`.
@@ -512,7 +514,7 @@ Workflows находится на стадии [Preview](../../../overview/conce
   Чтобы создать папку:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится бакет.
-    1. Перейдите в сервис **Object Storage**.
+    1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
     1. Выберите нужный бакет.
     1. Нажмите **Создать папку** и укажите имя папки.
     1. Нажмите на кнопку **Создать**.
@@ -658,8 +660,8 @@ Workflows находится на стадии [Preview](../../../overview/conce
   Чтобы загрузить файлы:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-    1. Перейдите в сервис **Object Storage**.
-    1. Перейдите в бакет, в который нужно загрузить файлы.
+    1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
+    1. Откройте бакет, в который нужно загрузить файлы.
     1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты**.
     1. Перейдите в нужную папку, нажав на ее имя.
     1. Оказавшись в нужной папке, на верхней панели нажмите ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **Загрузить**.
@@ -737,7 +739,7 @@ Workflows находится на стадии [Preview](../../../overview/conce
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Serverless Integrations**.
+  1. [Перейдите](https://console.yandex.cloud/link/serverless-integrations) в сервис **Serverless Integrations**.
   1. На панели слева выберите ![GraphNode](../../../_assets/console-icons/graph-node.svg) **Workflows**.
   1. Нажмите на имя рабочего процесса. По умолчанию это `wf-speechsense-upload`.
   1. Перейдите на вкладку **Запуски**.
@@ -773,7 +775,7 @@ Workflows находится на стадии [Preview](../../../overview/conce
 1. Удалите подключение к базе данных кластера Managed Service for PostgreSQL:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите удалить подключение.
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/timestamps.svg) **Подключения к БД**.
     1. В строке с подключением `speechsense-upload-metadata-connection` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
     1. В открывшемся окне нажмите **Удалить**.
@@ -781,7 +783,7 @@ Workflows находится на стадии [Preview](../../../overview/conce
 1. Удалите рабочий процесс Workflows:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите удалить рабочий процесс.
-    1. Перейдите в сервис **Serverless Integrations**.
+    1. [Перейдите](https://console.yandex.cloud/link/serverless-integrations) в сервис **Serverless Integrations**.
     1. На панели слева выберите ![GraphNode](../../../_assets/console-icons/graph-node.svg) **Workflows**.
     1. В строке с рабочим процессом `wf-speechsense-upload` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
     1. В открывшемся окне нажмите **Удалить**.

@@ -31,13 +31,13 @@ description: Следуя этой инструкции, вы сможете п�
   1. Посмотрите описание команды CLI для получения информации о [транковых подключениях](../concepts/trunk.md):
 
       ```bash
-      yc cic trunk get --help
+      yc cic trunk-connection get --help
       ```
 
   1. Получите список транковых подключений в указанном каталоге:
 
       ```bash
-      yc cic trunk list --folder-id b1gt6g8ht345********
+      yc cic trunk-connection list --folder-id b1gt6g8ht345********
       ```
 
       Результат:
@@ -58,26 +58,26 @@ description: Следуя этой инструкции, вы сможете п�
   1. Получите информацию о транковом подключении, указав его идентификатор, полученный на предыдущем шаге:
 
       ```bash
-      yc cic trunk get cf3dcodot14p********
+      yc cic trunk-connection get cf3dcodot14p********
       ```
 
       Результат:
 
       
       ```yml
-      - id: cf3dcodot14p********
-        name: customer-name-m9
-        description: Trunk M9
-        cloud_id: b1gia87mbaom********
-        folder_id: b1gt6g8ht345********
-        region_id: {{ region-id }}
-        created_at: "2025-03-25T10:54:46Z"
-        single_port_direct_joint:
-          transceiver_type: TRANSCEIVER_TYPE_10GBASE_LR
-          port_name: 25GE1/0/12
-        point_of_presence_id: ru-msk-m9-0
-        capacity: CAPACITY_1_GBPS
-        status: ACTIVE
+      id: cf3dcodot14p********
+      name: customer-name-m9
+      description: Trunk M9
+      cloud_id: b1gia87mbaom********
+      folder_id: b1gt6g8ht345********
+      region_id: {{ region-id }}
+      created_at: "2025-03-25T10:54:46Z"
+      single_port_direct_joint:
+        transceiver_type: TRANSCEIVER_TYPE_10GBASE_LR
+        port_name: 25GE1/0/12
+      point_of_presence_id: ru-msk-m9-0
+      capacity: CAPACITY_1_GBPS
+      status: ACTIVE
       ```
 
 
@@ -108,4 +108,3 @@ description: Следуя этой инструкции, вы сможете п�
       * `created_at` — дата и время создания транкового подключения.
 
 {% endlist %}
-

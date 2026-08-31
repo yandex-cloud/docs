@@ -19,10 +19,10 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость ресурсов для синхронизации секретов входит:
-* Плата за использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за [вычислительные ресурсы](../../compute/concepts/vm-platforms.md) и [диски](../../compute/concepts/disk.md) [группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за хранение и операции с секретом ([тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Секрет {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним ([тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
 
 ### Создайте инфраструктуру {#deploy-infrastructure}
 
@@ -56,6 +56,7 @@
      Сохраните идентификатор секрета, он понадобится в дальнейшем.
 
 - {{ TF }} {#tf}
+
 
   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}

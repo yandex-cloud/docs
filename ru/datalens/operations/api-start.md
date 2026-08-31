@@ -1,9 +1,9 @@
-# Работа с Public API
+# Работа с Public API в {{ datalens-full-name }}
 
 
 {{ datalens-name }} предоставляет публичное API [https://api.datalens.tech](https://api.datalens.tech) для автоматизации операций с дашбордами, чартами, датасетами и подключениями.
 
-{{ datalens-name }} Public API — это набор методов, аналогичный тем, что используются в веб-интерфейсе {{ datalens-name }}. API описывается OpenAPI-спецификацией и аутентифицируется через IAM-токены Yandex Cloud.
+{{ datalens-name }} Public API — это набор методов, аналогичный тем, что используются в веб-интерфейсе {{ datalens-name }}. API описывается OpenAPI-спецификацией и аутентифицируется через IAM-токены {{ yandex-cloud }}.
 
 При работе с API учитывайте действующие [лимиты](../concepts/limits.md#datalens-api-limits).
 
@@ -128,4 +128,5 @@ curl -X 'POST' \
 ### Примеры использования {#example}
 
 * Примеры использования на [GitHub](https://github.com/datalens-tech/datalens-mcp/blob/HEAD/.env.example).
+
 

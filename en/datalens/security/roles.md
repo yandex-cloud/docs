@@ -9,7 +9,7 @@ description: This section describes the roles required for specific actions, the
 There are two types of roles in {{ datalens-short-name }}:
 
 * For service access: These roles are assigned to an [organization](../concepts/organizations.md) and grant access to {{ datalens-short-name }}.
-* For [workbooks and collections](../workbooks-collections/index.md): These roles define the access level to each workbook or collection. They apply to users who [switched to workbooks and collections](../workbooks-collections/index.md#enable-workbooks) to store their objects in {{ datalens-short-name }}.
+* For [workbooks and collections](../workbooks-collections/index.md): These roles define the access tier to each workbook or collection. They apply to users who [switched to workbooks and collections](../workbooks-collections/index.md#enable-workbooks) to store their objects in {{ datalens-short-name }}.
 
 ## Roles required to access the service {#service-roles}
 
@@ -45,7 +45,7 @@ To grant a user access to {{ datalens-short-name }}, [assign](../../organization
 
 {% endlist %}
 
-## Roles to work with API {#api-roles}
+## Roles to work with the API {#api-roles}
 
 #### datalens.metaReader {#datalens-metaReader}
 
@@ -53,7 +53,7 @@ To grant a user access to {{ datalens-short-name }}, [assign](../../organization
 
 ## Roles for workbooks, collections, and shared objects {#workbooks-collections-roles}
 
-These roles are valid for users who adopted the new {{ datalens-short-name }} object layout: in [workbooks and collections](../workbooks-collections/index.md). Roles allow you to define the level of access a user or group of users has to each workbook, collection, or shared object.
+These roles are valid for users who adopted the new {{ datalens-short-name }} object layout: in [workbooks and collections](../workbooks-collections/index.md). Roles allow you to define the access tier a user or group of users has to each workbook, collection, or shared object.
 
 {% include [datalens-workbooks-collections-roles](../../_mermaid/roles/datalens-workbooks-collections.md) %}
 

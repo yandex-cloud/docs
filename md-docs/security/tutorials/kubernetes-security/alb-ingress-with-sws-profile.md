@@ -26,14 +26,12 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../../dns/pricing.md)).
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md)).
-* Плата за публичные IP-адреса для узлов кластера и L7-балансировщика ([тарифы Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
-* Плата за количество запросов в сервис Smart Web Security ([тарифы Smart Web Security](../../../smartwebsecurity/pricing.md)).
+* Публичные DNS-запросы и зоны DNS ([тарифы Yandex Cloud DNS](../../../dns/pricing.md)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+* Каждый активный L7-балансировщик: использование вычислительных ресурсов ([тарифы Yandex Application Load Balancer](../../../application-load-balancer/pricing.md)).
+* Публичные IP-адреса ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+* Сервис Smart Web Security: количество запросов к сервису ([тарифы Smart Web Security](../../../smartwebsecurity/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -398,13 +396,13 @@
   Создайте профиль безопасности:
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать профиль.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![shield-check](../../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
-  1. Нажмите кнопку **Создать профиль** и выберите **По преднастроенному шаблону**.
+  1. Нажмите **Создать профиль** и выберите `По преднастроенному шаблону`.
 
       Профиль будет содержать несколько преднастроенных правил безопасности:
 
-      * [Правило Smart Protection](../../../smartwebsecurity/concepts/rules.md#smart-protection-rules) с полной защитой для всего трафика. Это правило является приоритетным по отношению к базовому правилу по умолчанию.
+      * [Правило Smart Protection](../../../smartwebsecurity/concepts/rules.md#smart-protection-rules) с защитой API для всего трафика. Это правило является приоритетным по отношению к базовому правилу по умолчанию.
       * [Базовое правило](../../../smartwebsecurity/concepts/rules.md#base-rules) по умолчанию, которое запрещает весь трафик, не попавший под более приоритетные правила.
 
           {% note tip %}
@@ -422,7 +420,7 @@
 
   1. Добавьте правило безопасности:
 
-      1. Нажмите кнопку ![plus-sign](../../../_assets/console-icons/plus.svg) **Добавить правило**.
+      1. Нажмите ![plus-sign](../../../_assets/console-icons/plus.svg) **Добавить правило**.
 
       1. Укажите основные настройки правила:
 
@@ -434,7 +432,7 @@
               
               Чем меньше значение параметра, тем больший приоритет у правила. Приоритеты преднастроенных правил:
               * базовое правило по умолчанию — `1000000`;
-              * правило Smart Protection с полной защитой — `999900`.
+              * правило Smart Protection с защитой API — `999900`.
               
               {% endnote %}
 
@@ -449,11 +447,11 @@
           1. Выберите условие на IP `Совпадает или принадлежит диапазону`.
           1. Укажите публичный IP-адрес, например `203.0.113.200`.
 
-      1. Нажмите кнопку **Добавить**.
+      1. Нажмите **Добавить**.
 
       В списке правил безопасности появится созданное правило.
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите **Создать**.
 
   В списке профилей безопасности появится созданный профиль. Запишите идентификатор этого профиля безопасности — он потребуется позднее.
 

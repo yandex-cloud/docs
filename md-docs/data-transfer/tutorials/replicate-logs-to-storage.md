@@ -64,6 +64,7 @@
     * `AWS Access Key ID [None]:` — [идентификатор ключа](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
     * `AWS Secret Access Key [None]:` — [секретный ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
     * `Default region name [None]:` — регион `ru-central1`.
+    * `Default output format [None]:` — формат вывода данных `json`.
 
 ## Создайте бакет {#create-bucket}
 
@@ -72,9 +73,9 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [бакет](../../storage/concepts/bucket.md).
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Нажмите **Создать бакет**.
-  1. Введите имя бакета.
+  1. Введите **Имя** бакета.
   1. В поле **Класс хранилища** выберите `Холодное`.
   1. Нажмите **Создать бакет**.
 
@@ -87,10 +88,10 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [поток данных](../../data-streams/concepts/glossary.md#stream-concepts).
-  1. Перейдите в сервис **Data Streams**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-streams) в сервис **Data Streams**.
   1. Нажмите кнопку **Создать поток**.
-  1. Укажите существующую [бессерверную](../../ydb/concepts/serverless-and-dedicated.md#serverless) базу данных YDB или [создайте](../../ydb/quickstart.md#serverless) новую. Если вы создали новую БД, нажмите значок ![refresh-button](../../_assets/data-streams/refresh-button.svg), чтобы обновить список БД.
-  1. Введите имя потока данных, например `logs-stream`.
+  1. Укажите существующую [бессерверную](../../ydb/concepts/serverless-and-dedicated.md#serverless) базу данных YDB или [создайте](../../ydb/quickstart.md#serverless) новую. Если вы создали новую БД, нажмите кнопку ![refresh-button](../../_assets/console-icons/arrow-rotate-right.svg), чтобы обновить список БД.
+  1. Введите **Имя** потока данных, например `logs-stream`.
   1. Нажмите кнопку **Создать**.
 
   Дождитесь запуска потока данных. Когда поток станет готов к использованию, его статус изменится с `Creating` на `Active`.
@@ -104,11 +105,12 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [трансфер](../concepts/index.md#transfer).
-  1. Перейдите в сервис **Data Transfer**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. Создайте [эндпоинт](../concepts/index.md#endpoint)-источник:
-     1. На вкладке ![endpoint](../../_assets/console-icons/aperture.svg) **Эндпоинты** нажмите кнопку **Создать эндпоинт**.
+     1. На панели слева выберите ![endpoint](../../_assets/console-icons/aperture.svg) **Эндпоинты**.
+     1. Нажмите кнопку **Создать эндпоинт**.
      1. В поле **Направление** выберите `Источник`.
-     1. Введите имя эндпоинта, например `logs-source`.
+     1. Введите **Имя** эндпоинта, например `logs-source`.
      1. В списке **Тип базы данных** выберите `Yandex Data Streams`.
      1. Выберите базу данных, которую указали в настройках [потока данных](../../data-streams/concepts/glossary.md#stream-concepts), созданного ранее.
      1. Введите имя потока данных `logs-stream`.
@@ -116,21 +118,23 @@
      1. В блоке **Расширенные настройки** укажите правила конвертации для данных `Парсер CloudLogging`.
      1. Нажмите кнопку **Создать**.
   1. Создайте эндпоинт-приемник:
-     1. На вкладке ![endpoint](../../_assets/console-icons/aperture.svg) **Эндпоинты** нажмите кнопку **Создать эндпоинт**.
+     1. На панели слева выберите ![endpoint](../../_assets/console-icons/aperture.svg) **Эндпоинты**.
+     1. Нажмите кнопку **Создать эндпоинт**.
      1. В поле **Направление** выберите `Приёмник`.
-     1. Введите имя эндпоинта, например `logs-receiver`.
+     1. Введите **Имя** эндпоинта, например `logs-receiver`.
      1. В списке **Тип базы данных** выберите `Object Storage`.
      1. Введите имя созданного ранее [бакета](../../storage/concepts/bucket.md).
      1. Выберите созданный ранее сервисный аккаунт `logs-sa`.
      1. В поле **Выходной формат** выберите `JSON`.
      1. Нажмите кнопку **Создать**.
   1. Создайте трансфер:
-     1. На вкладке ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы** нажмите кнопку **Создать трансфер**.
-     1. Введите имя трансфера, например `logs-transfer`.
+     1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
+     1. Нажмите кнопку **Создать трансфер**.
+     1. Введите **Имя** трансфера, например `logs-transfer`.
      1. Выберите созданный ранее эндпоинт-источник `logs-source`.
      1. Выберите созданный ранее эндпоинт-приемник `logs-receiver`.
      1. Нажмите кнопку **Создать**.
-  1. Напротив созданного трансфера нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Активировать**.
+  1. Справа в строке созданного трансфера нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/play.svg) **Активировать**.
 
   Дождитесь активации трансфера. Когда трансфер станет готов к использованию, его [статус](../concepts/transfer-lifecycle.md#statuses) сменится с `Создается` на `Реплицируется`.
 
@@ -204,7 +208,8 @@
     ```
     Где:
 
-    * `stream` — идентификатор потока данных Data Streams. 
+    * `stream` — идентификатор потока данных Data Streams.
+
         >Например, укажите идентификатор потока `/ru-central1/aoeu1kuk2dht********/cc8029jgtuab********/logs-stream`, если:
         >* `logs-stream` — имя потока;
         >* `ru-central1` — регион;
@@ -255,14 +260,14 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали [поток данных](../../data-streams/concepts/glossary.md#stream-concepts), [трансфер](../concepts/index.md##transfer) и [бакет](../../storage/concepts/bucket.md).
-  1. Перейдите в сервис **Data Streams**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали [поток данных](../../data-streams/concepts/glossary.md#stream-concepts), [трансфер](../concepts/index.md##transfer) и [бакет](../../storage/concepts/bucket.md).
+  1. [Перейдите](https://console.yandex.cloud/link/data-streams) в сервис **Data Streams**.
   1. Выберите поток данных `logs-stream`.
-  1. Перейдите на вкладку **Мониторинг** и посмотрите графики активности потока.
-  1. Перейдите в сервис **Data Transfer**.
+  1. Откройте вкладку **Мониторинг** и посмотрите графики активности потока.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. Выберите трансфер `logs-transfer`.
-  1. Перейдите на вкладку **Мониторинг** и посмотрите графики активности трансфера.
-  1. Перейдите в сервис **Object Storage**.
+  1. Откройте вкладку **Мониторинг** и посмотрите графики активности трансфера.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Выберите бакет, созданный ранее.
   1. Проверьте, что в бакете появились объекты. Скачайте и посмотрите полученные файлы с логами.
 

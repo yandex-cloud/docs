@@ -74,7 +74,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-      1. Перейдите в сервис **Cloud DNS**.
+      1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
       1. Нажмите **Создать зону**.
       1. Задайте настройки зоны, соответствующие вашему домену:
 
@@ -88,7 +88,9 @@
 
       Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-      По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+      По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+      
+      Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
       Выполните команду:
 
@@ -135,7 +137,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-      1. Перейдите в сервис **Certificate Manager**.
+      1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
       1. Нажмите **Добавить сертификат** и выберите **Сертификат от Let's Encrypt**.
       1. В открывшемся окне в поле **Имя** укажите `mymanagedcert`.
       1. В поле **Домены** укажите имя вашего домена, например `example.com`.
@@ -188,7 +190,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-        1. Перейдите в сервис **Certificate Manager**.
+        1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
         1. В списке сертификатов выберите `mymanagedcert`.
         1. В открывшемся окне в блоке **Проверка прав на домены** выберите `CNAME-запись` и ниже в секции с вашим доменом нажмите **Создать запись**.
         1. В открывшемся окне подтвердите создание ресурсной записи.
@@ -323,7 +325,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Справа сверху нажмите кнопку **Создать сеть**.
   1. В поле **Имя** укажите `example-network`.
   1. В поле **Дополнительно** выберите опцию `Создать подсети`.
@@ -443,7 +445,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/shield.svg) **Группы безопасности**.
   1. Справа сверху нажмите кнопку **Создать группу безопасности**.
   1. В поле **Имя** укажите `example-sg`.
@@ -538,7 +540,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Справа сверху нажмите кнопку **Создать бакет**.
   1. В поле **Имя** укажите уникальное [имя](../../../storage/concepts/bucket.md#naming) бакета.
   1. В полях **Чтение объектов** и **Чтение списка объектов** выберите `Для всех`.
@@ -597,7 +599,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-        1. Перейдите в сервис **Object Storage**.
+        1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
         1. Выберите бакет, созданный ранее.
         1. Нажмите кнопку ![arrow-up-from-line](../../../_assets/console-icons/arrow-up-from-line.svg) **Загрузить** и выберите для загрузки файл `index.html`.
         1. В открывшемся окне с подтверждением загрузки нажмите **Загрузить**.
@@ -641,7 +643,7 @@
 - Консоль управления {#console}
    
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
   1. Справа сверху нажмите кнопку **Создать группу бэкендов**.
   1. В поле **Имя** укажите `example-bg`.
@@ -672,7 +674,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/route.svg) **HTTP-роутеры**.
   1. Справа сверху нажмите кнопку **Создать HTTP-роутер**.
   1. В поле **Имя** укажите `example-router`.
@@ -773,7 +775,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Справа сверху нажмите кнопку **Создать L7-балансировщик** и выберите **Вручную**.
   1. В поле **Имя** укажите `example-balancer`.
   1. В блоке **Сетевые настройки**:
@@ -895,7 +897,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Cloud CDN**.
+  1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
   1. Нажмите кнопку **Создать ресурс**.
   1. Задайте основные настройки CDN-ресурса:
 
@@ -1048,7 +1050,7 @@
 
   1. [Получите](../../operations/resources/get-resources-info.md#get-cname) значение доменного имени провайдера CDN.
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Cloud DNS** и выберите созданную [ранее](#configure-dns) DNS-зону.
+  1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS** и выберите созданную [ранее](#configure-dns) DNS-зону.
   1. Нажмите **Создать запись**.
   1. Задайте параметры записи:
 

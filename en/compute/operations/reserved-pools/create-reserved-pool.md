@@ -16,7 +16,7 @@ To create a [reserved instance pool](../../concepts/reserved-pools.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a reserved instance pool in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
   1. Click **{{ ui-key.yacloud.compute.reserved-instance-pool.button_create-reserved-instance-pool_pZ1gY }}**.
   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) you want to reserve [computing resources](../../concepts/vm.md#types) in.

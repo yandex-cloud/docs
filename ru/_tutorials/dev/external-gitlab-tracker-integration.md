@@ -30,7 +30,7 @@
 
 ## Подключите {{ tracker-full-name }} {#enable-tracker}
 
-[Подключите {{ tracker-name }}]({{ link-tracker-cloudless }}enable-tracker) к вашей [организации {{ yandex-cloud }}](../../organization/).
+[Подключите {{ tracker-name }}]({{ link-tracker-cloudless }}enable-tracker) к вашей [организации {{ yandex-cloud }}](../../organization/concepts/organization.md).
 
 ## Создайте инстанс {{ GL }} {#create-gitlab}
 
@@ -70,7 +70,7 @@
 
 - ВМ с образом {{ GL }} {#gl-image-vm}
 
-    1. Перейдите в сервис {{ compute-full-name }}.
+    1. [Перейдите]({{ link-console-main }}/link/compute) в сервис {{ compute-full-name }}.
     1. Выберите созданную [ВМ](../../compute/concepts/vm.md) и скопируйте ее [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
     1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH.
     1. Получите пароль администратора {{ GL }} с помощью команды ВМ:

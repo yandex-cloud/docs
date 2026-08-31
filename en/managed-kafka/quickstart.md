@@ -53,7 +53,7 @@ To get started:
 
 To create a cluster:
 1. In the management console, select the folder where you want to create a cluster.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Specify the cluster settings and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running`, and its state, to `Alive`. This may take a while.
@@ -66,7 +66,7 @@ A [topic](concepts/topics.md) is used to group message streams by category. [Pro
 
 To create a topic:
 1. In the management console, select the folder containing the cluster.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click the cluster name and select the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
 1. Click **{{ ui-key.yacloud.kafka.button_create-topic }}**.
 1. Specify the topic settings and click **{{ ui-key.yacloud.common.create }}**. For details, see [{#T}](operations/cluster-topics.md).
@@ -81,7 +81,7 @@ Learn more about the permissions you get with each role [here](concepts/account-
 
 To create a user:
 1. In the management console, select the folder containing the cluster.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
 1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 1. Enter a username and password (from 8 to 128 characters).

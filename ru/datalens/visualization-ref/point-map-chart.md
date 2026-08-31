@@ -19,6 +19,10 @@ description: Из статьи вы узнаете, как в {{ datalens-full-n
 
 ![point-chart](../../_assets/datalens/visualization-ref/point-chart/point-chart.png =800x)
 
+
+{% include [geointellect-using](../../_includes/datalens/visualization-ref/geointellect-using.md) %}
+
+
 ## Секции в визарде {#wizard-sections}
 
 Секция<br/> в визарде| Описание
@@ -33,9 +37,7 @@ description: Из статьи вы узнаете, как в {{ datalens-full-n
 
 ## Создание точечной карты {#create-diagram}
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}

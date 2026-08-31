@@ -14,31 +14,31 @@
 - Интерфейс {{ speechsense-name }} {#speechsense}
 
   1. В [интерфейсе]({{ link-speechsense-main }}) {{ speechsense-name }} перейдите в нужное пространство.
-  1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** и выберите шаблон для создания подключения, либо нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**:
+  1. Откройте вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections_q5X2U }}** и выберите шаблон для создания подключения, либо нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**:
 
      {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %}
  
   1. Укажите название подключения.
-  1. Выберите тип данных `{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}`.
-  1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}** и **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}** укажите:
+  1. Выберите тип данных `{{ ui-key.yc-ui-talkanalytics.connections.type_13ZZh }}`.
+  1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator_aKjP0 }}** и **{{ ui-key.yc-ui-talkanalytics.dialogs.client_qq11P }}** укажите:
 
       1. Каналы, в которых записаны голос оператора и голос клиента.
       1. Ключи из файла метаданных для оператора и клиента. Этот файл содержит информацию о звонке, полученную из CRM-систем, АТС или других источников.
 
-        По умолчанию в подключение добавлены ключи с именем и идентификатором оператора и клиента. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
+        По умолчанию в подключение добавлены ключи с именем и идентификатором оператора и клиента. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
 
-        Чтобы указать дополнительные метаданные для оператора и клиента, нажмите **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+        Чтобы указать дополнительные метаданные для оператора и клиента, нажмите **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}** укажите не связанные с оператором и клиентом ключи из файла метаданных:
+  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.fields_QO3t6 }}** укажите не связанные с оператором и клиентом ключи из файла метаданных:
 
       * В поле **Ключ** укажите транслитерированное название поля — оно понадобится при сопоставлении полей в настройках модуля обмена. Например, `Дата звонка` → `data_zvonka`. Укажите название в системе и описание — они будут отображаться в формах и отчетах {{ speechsense-name }}.
       * В поле **Тип** на данный момент поддерживается только значение `Строка`.
 
-      По умолчанию в подключение добавлены ключи с датой, направлением звонка и языком диалога. Дополнительно можно задать набор ключей, которые вы хотите получать из внешнего сервиса. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
+      По умолчанию в подключение добавлены ключи с датой, направлением звонка и языком диалога. Дополнительно можно задать набор ключей, которые вы хотите получать из внешнего сервиса. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
 
-      Чтобы указать дополнительные метаданные, нажмите **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+      Чтобы указать дополнительные метаданные, нажмите **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. Нажмите **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. Нажмите **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
   1. На странице подключения в левом верхнем углу нажмите **ID** ![image](../../../_assets/console-icons/copy-transparent.svg), чтобы скопировать идентификатор подключения. Сохраните его — он понадобится позднее.
 
 {% endlist %}
@@ -77,7 +77,7 @@
 - Интерфейс {{ amocrm-name }} {#amocrm}
 
   1. Перейдите в раздел **Настройки** в вашем личном кабинете {{ amocrm-name }}.
-  1. Перейдите на вкладку **Настройки выгрузки {{ speechsense-name }}**.
+  1. Откройте вкладку **Настройки выгрузки {{ speechsense-name }}**.
   1. {% include [config-external-connection](../../_tutorials_includes/speechsense-integration/config-external-connection.md) %}
 
   1. Настройте остальные параметры:

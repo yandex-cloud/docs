@@ -54,7 +54,7 @@
 
     1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `spark-network`.
 
-        Вместе с ней автоматически будут созданы три подсети в разных зонах доступности.
+        Вместе с ней автоматически будут созданы три подсети в разных [зонах доступности](../../overview/concepts/geo-scope.md).
 
     1. [Создайте кластер Yandex Managed Service for Apache Spark™](../../managed-spark/operations/cluster-create.md) с параметрами:
 
@@ -135,7 +135,7 @@
 
     1. Создайте в бакете `<бакет_для_исходного_кода_PySpark_задания>` папку `scripts` и [загрузите](../operations/objects/upload.md#simple) в нее файл `job_save_table.py`.
     1. [Создайте задание](../../managed-spark/operations/jobs-pyspark.md) с параметрами:
-        * **Тип задания** — **PySpark**.
+        * **Тип задания** — `PySpark`.
         * **Main python файл** – `s3a://<бакет_для_исходного_кода_PySpark_задания>/scripts/job_save_table.py`.
         * **Аргументы** — `s3a://<бакет_для_выходных_данных_PySpark_задания>/warehouse`.
 
@@ -149,7 +149,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
+    1. Нажмите на имя нужного кластера и выберите **Задания**.
     1. Дождитесь, когда созданное PySpark-задание перейдет в статус **Done**.
     1. Убедитесь, что в бакете `<бакет_для_выходных_данных_PySpark_задания>` в папке `warehouse` появилась БД `database_1`. Теперь данные из созданной БД хранятся в бакете Object Storage в формате JSON.
 

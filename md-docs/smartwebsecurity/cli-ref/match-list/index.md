@@ -2,7 +2,7 @@
 
 # yc smartwebsecurity match-list
 
-
+Manage match lists
 
 #### Command Usage
 
@@ -12,7 +12,7 @@ Syntax:
 
 #### Command Tree
 
-- [yc smartwebsecurity match-list match-list](match-list/index.md) — A set of methods for managing MatchList resources.
+- [yc smartwebsecurity match-list match-list](match-list/index.md) — Manage match lists
 
   - [yc smartwebsecurity match-list match-list create](match-list/create.md) — Creates a MatchList resource in the specified folder.
 

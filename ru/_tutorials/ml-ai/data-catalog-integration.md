@@ -1,5 +1,6 @@
 # Интеграция с {{ data-catalog-full-name }}
 
+
 Вы можете использовать AI-ассистента для поиска и анализа закономерностей в [каталогах метаданных](../../metadata-hub/concepts/data-catalog.md), развернутых в сервисе {{ data-catalog-name }}. Для этого подключите MCP-сервер {{ data-catalog-name }} к {{ mcp-hub-name }}. Сервер позволяет запрашивать список каталогов метаданных, выполнять поиск в метаданных, а также получать граф их зависимостей (lineage) на уровне таблиц и колонок для использования в контексте диалога с агентами.
 
 Чтобы в {{ ai-studio-name }} настроить интеграцию с сервисом {{ data-catalog-name }}:
@@ -44,8 +45,8 @@
 
 - Консоль управления {#console}
 
-   1. Перейдите в каталог `data-folder`.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
+   1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `sa-for-mcp-server`.
    1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
@@ -66,8 +67,8 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать каталог метаданных.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
+    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+    1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-catalog }}**.
     1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя каталога `test-sales`.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -82,7 +83,7 @@
 
 - Консоль управления {#console}
 
-    1. На панели слева выберите ![image](../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.layout.label.sources-new-layout_N6vT1 }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-source-button }}**.
     1. Задайте имя источника `test-sales-source`.
     1. Выберите тип бэкенда, из которого будут поставляться метаданные для анализа. После создания источника нельзя будет изменить тип базы данных. Доступные бэкенды:
@@ -103,7 +104,7 @@
 
 - Консоль управления {#console}
 
-  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud.data-catalog.label_ingestions }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.label_ingestions }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-ingestion-action }}**.
   1. Задайте параметры загрузки:
 
@@ -121,7 +122,7 @@
   
      При загрузке данные будут автоматически размечены AI-ассистентом. После успешного завершения загрузка примет статус **{{ ui-key.yacloud.data-catalog.label_ingestion-status-Success }}**.
 
-  1. Чтобы посмотреть загруженные и размеченные данные, на панели слева выберите ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
+  1. Чтобы посмотреть загруженные и размеченные данные, перейдите на вкладку **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}**.
 
      На странице отображается информация о данных — источник данных, база данных и таблицы.
 
@@ -141,8 +142,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в каталог `data-folder`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
+  1. [Перейдите]({{ link-console-ai }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}**.
   1. На панели слева выберите ![logo-mcp](../../_assets/console-icons/logo-mcp.svg) **MCP-серверы** и нажмите кнопку **Создать MCP-сервер**. В открывшемся окне:
 
       1. В блоке **Способ добавления** выберите опцию ![plug-connection](../../_assets/console-icons/plug-connection.svg) **Подключить**.
@@ -237,3 +238,13 @@
    * `Где хранятся данные о поведении пользователей на сайте?`
    * `Какие данные использовать для анализа конверсии воронки продаж?`
    * `Покажи все зависимости таблицы transactions — нужно понять влияние изменений схемы`
+
+[*глоссарий]: {% include notitle [glossary](../../_popups/metadata-hub/data-catalog.md#glossary) %}
+
+[*домен]: {% include notitle [domain](../../_popups/metadata-hub/data-catalog.md#domain) %}
+
+[*классификация]: {% include notitle [classification](../../_popups/metadata-hub/data-catalog.md#classification) %}
+
+[*тег]: {% include notitle [tag](../../_popups/metadata-hub/data-catalog.md#tag) %}
+
+[*термин]: {% include notitle [term](../../_popups/metadata-hub/data-catalog.md#term) %}

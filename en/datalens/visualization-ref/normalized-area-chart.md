@@ -76,36 +76,34 @@ A normalized stacked area chart shows variations in the amount each category con
 
 Wizard<br/> section| Description
 ----- | ----
-X | Dimension. You can specify only one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings).
-Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md).
-Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field. Affects the color of lines. To remove [Measure Names](../concepts/chart/measure-values.md), delete measures from the Y axis.
-Sorting | Dimension or measure. You can use a dimension from the **X** and **Color** sections or a measure from the Y axis. This section affects the sorting of values on the X axis or areas along the Y axis. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
-Labels | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+X | Dimension. You can specify only one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset for the correct sorting and display of labels. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings).
+Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain the [Measure Names](../concepts/chart/measure-values.md) dimension.
+Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field that affects the color of lines. To remove [Measure Names](../concepts/chart/measure-values.md), delete measures from the Y axis.
+Sorting | Dimension or measure. You can use a dimension from the **X** and **Colors** sections or a measure from the Y axis. This section affects the sorting of values on the X axis or areas along the Y axis. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
+Labels | Measure. Displays measure values on the chart. If you added multiple measures to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using the basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
 Split | Dimension. Splits a chart horizontally by the selected dimension's values. The maximum number of splits per chart is 25.
-Filters | Dimension or measure. Used as a filter.
+Filters | Dimension or measure. It is used as a filter.
 
 ## Creating a normalized area chart {#create-diagram}
 
 To create a normalized area chart:
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
 1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
 1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Select **Normalized area chart** as the chart type.
-1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
-1. Drag one or more measures from the dataset to the **Y** section. The values will be displayed as areas along the Y axis.
+1. Drag a dimension from the dataset to the **X** section. The values will appear in the lower part of the chart on the X axis.
+1. Drag one or multiple measures from the dataset to the **Y** section. The values will be displayed as areas along the Y axis.
 1. Drag a dimension from the dataset to the **Color** section. Colored areas will indicate the share of an individual category in the total measure value.
 
 ## Recommendations {#recomendations}
 
 * {% include [category-text](../../_includes/datalens/datalens-category-text.md) %}
 * Do not display more than three to five areas on the chart.
-* To make it easier to track the dynamics, place the largest or most important categories closer to the chart base. To do this, drag the measure to the **Sorting** section or set up their order in the **Y** section.
+* To make it easier to track changes over time, place the largest or most important categories closer to the chart base. To do this, drag a measure in question to the **Sorting** section or set up their order in the **Y** section.
 
   For example, when comparing budget expenses.
 

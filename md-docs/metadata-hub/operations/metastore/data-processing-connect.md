@@ -2,6 +2,7 @@
 
 # Подключение Yandex Data Processing к Apache Hive™ Metastore
 
+
 {% note info %}
 
 Для использования кластера Apache Hive™ Metastore [кластер Yandex Data Processing](../../../data-proc/concepts/index.md) должен содержать компоненты `SPARK` и `YARN`.
@@ -19,7 +20,7 @@
         spark:spark.hive.metastore.uris : thrift://<IP-адрес_кластера_Apache Hive™ Metastore>:9083
         ```
 
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../../_assets/console-icons/database.svg) **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
 
     1. Если кластеры Apache Hive™ Metastore и Yandex Data Processing расположены в разных облачных сетях, настройте маршрутизацию между этими сетями таким образом, чтобы подсеть Apache Hive™ Metastore была доступна из подсети Yandex Data Processing.
 

@@ -10,3 +10,4 @@ description: This section contains step-by-step guides on how to use the {{ kspm
 * [{#T}](view-rules.md).
 * [{#T}](check-compliance.md).
 * [{#T}](manage-exceptions.md).
+* [{#T}](manage-rule-modes.md).

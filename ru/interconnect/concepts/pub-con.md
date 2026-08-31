@@ -30,7 +30,7 @@
 
 {% note alert %}
 
-[Cервисы](#svc-list), к которым предоставляется доступ через публичное соединение, размещаются [в собственных ДЦ](../../overview/concepts/geo-scope.md). Трафик внутри публичного соединения между вашей инфраструктурой и [сервисами](#svc-list) не покидает периметр {{ yandex-cloud }}.
+[Сервисы](#svc-list), к которым предоставляется доступ через публичное соединение, размещаются [в собственных ДЦ](../../overview/concepts/geo-scope.md). Трафик внутри публичного соединения между вашей инфраструктурой и [сервисами](#svc-list) не покидает периметр {{ yandex-cloud }}.
 
 {% endnote %}
 
@@ -58,7 +58,5 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/trunk-pub-add.md)
-* [{#T}](../tutorials/partner-trunk-pub-add.md)
-* [{#T}](../tutorials/pub-add.md)
-* [{#T}](../tutorials/pub-del.md)
+* [{#T}](../operations/pub-con-create.md)
+* [{#T}](../operations/pub-con-delete.md)

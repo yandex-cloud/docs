@@ -29,12 +29,11 @@ You can create a new dataset using one of the following methods:
 
 - Home page
 
-  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
+  1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
 
   
   1. In the left-hand panel, click ![image](../../_assets/console-icons/circles-intersection.svg) **Datasets**.
   1. In the top-right corner, click **Create dataset**.
-
 
 
 
@@ -44,8 +43,7 @@ You can create a new dataset using one of the following methods:
   1. Open the [workbook](../workbooks-collections/index.md) to create a dataset in.
   1. In the top-right corner, click **Create** and select **Dataset**.
 
-
-- Navigation bar
+- Navigation panel
 
   In the left-hand panel, select ![icon](../../_assets/console-icons/circles-intersection.svg) **Datasets** and click **Create dataset**.
 
@@ -232,7 +230,7 @@ You can perform the following operations on dataset fields:
 1. Select an aggregation type: Aggregation type determines the [aggregation function](./data-model.md#aggregation) to apply to the field. To change the aggregation type, click the current type and select a new one from the list of available aggregation types.
 
 
-1. Setting up field display. For dimensions, you can choose a color and set a display format for numeric types; for metrics, you can only set a display format for numbers. These settings apply when you use these fields in charts built from this dataset.
+1. Setting up field display. For dimensions, you can select a color and set a display format for numeric types; for measures, you can only set a display format for numbers. These settings apply when you use these fields in charts built from this dataset.
    
    {% cut "Field display settings" %}
 

@@ -83,8 +83,8 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version number.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -173,9 +173,9 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
           Here, we only specified a single setting, `configSpec.version`.
 
-        * `configSpec.version`: Target {{ KF }} version, {{ versions.cli.str-without-latest }}.
+        * `configSpec.version`: Target {{ KF }} version, {{ versions.cli.str }}.
 
-       You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+       You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -219,7 +219,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
           Here, we only specified a single setting, `config_spec.version`.
 
-        * `config_spec.version`: Target {{ KF }} version, {{ versions.cli.str-without-latest }}.
+        * `config_spec.version`: Target {{ KF }} version, {{ versions.cli.str }}.
 
         You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 

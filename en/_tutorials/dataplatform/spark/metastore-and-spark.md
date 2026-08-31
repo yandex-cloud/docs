@@ -27,10 +27,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ objstorage-name }} buckets: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* {{ objstorage-name }} buckets: use of storage and data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 * {{ cloud-logging-full-name }}: amount of written data and its retention time (see [{{ cloud-logging-name }} pricing](../../../logging/pricing.md)).
-* {{ msp-full-name }} cluster: computing resources of the cluster's components (see [{{ msp-full-name }} pricing](../../../managed-spark/pricing.md)).
-* {{ metastore-name }} cluster: computing resources of the cluster's components (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md)).
+* {{ msp-full-name }} cluster: computing resources of cluster components (see [{{ msp-full-name }} pricing](../../../managed-spark/pricing.md)).
+* {{ metastore-name }} cluster: computing resources of cluster components (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md)).
 
 
 ## Set up your infrastructure {#infra}
@@ -57,7 +57,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     1. [Create a cloud network](../../../vpc/operations/network-create.md) named `integration-network`.
 
-        This will automatically create three subnets in different availability zones.
+        This will automatically create three subnets in different [availability zones](../../../overview/concepts/geo-scope.md).
 
     1. For the {{ msp-full-name }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `spark-sg` in `integration-network`. Add the following rule to it:
 
@@ -135,7 +135,7 @@ Prepare a script file:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select a folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Wait for the PySpark job you created to change its status to **Done**.
     1. Make sure the file with data from `database_1` appears in the `warehouse` folder in your output data bucket.
@@ -159,5 +159,3 @@ Some resources are not free of charge. Delete the resources you no longer need t
     1. [{{ objstorage-name }} buckets](../../../storage/operations/buckets/delete.md). Before deleting your buckets, make sure to [have deleted](../../../storage/operations/objects/delete.md) all objects from those buckets.
 
 {% endlist %}
-
-

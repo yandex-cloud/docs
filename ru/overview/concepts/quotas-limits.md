@@ -96,6 +96,11 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
 
 
+### {{ cloud-router-full-name }} {#cloud-router}
+
+{% include [cloud-router-limits.md](../../_includes/cloud-router-limits.md) %}
+
+
 ### {{ cloud-logging-full-name }} {#logging}
 
 {% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
@@ -358,11 +363,21 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [smartwebsecurity-limits](../../_includes/sws-limits.md) %}
 
 
+### {{ src-full-name }} {#scr}
+
+{% include [limits](../../_includes/sourcecraft/limits.md) %}
+
+
 ### {{ ca-full-name }} {#ca}
 
 #### Квоты {#ca-quotas}
 
 Квоты {{ ca-full-name }} устанавливаются в зависимости от используемого тарифного плана. Подробнее на странице [Тарифные планы {{ ca-name }}]({{ link-src-docs }}/sourcecraft/pricing#ca-plans).
+
+
+### Vibecraft {#vc}
+
+{% include [limits](../../_includes/vibecraft/limits.md) %}
 
 
 ### {{ speechkit-full-name }} {#speechkit}

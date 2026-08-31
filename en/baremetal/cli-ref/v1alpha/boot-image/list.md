@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v1alpha/bo
 
 # yc baremetal v1alpha boot-image list
 
-Retrieves the list of Image resources in the specified folder.
+Retrieves the list of BootImage resources in the specified folder.
 
 #### Command Usage
 

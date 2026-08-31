@@ -62,7 +62,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** и нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+  1. [Перейдите]({{ link-console-main }}/link/ydb) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** и нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. В поле **{{ ui-key.yacloud.ydb.forms.label_field_name }}** укажите `postbox-events-ydb`.
   1. В поле **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите `{{ ui-key.yacloud.ydb.forms.label_serverless-type_pB7Wx }}`.
   1. Другие параметры базы данных оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
@@ -79,7 +79,7 @@
 - Консоль управления {#console}
 
   1. На странице **{{ ui-key.yacloud.ydb.databases.label_title }}** выберите вновь созданную БД `postbox-events-ydb`.
-  1. Чтобы открыть корневую директорию БД, перейдите на вкладку ![image](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
+  1. Чтобы открыть корневую директорию БД, перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
   1. Чтобы создать запрос к БД, в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**.
   1. В открывшемся поле **{{ ui-key.yacloud.ydb.sql.label_query }}** введите:
 
@@ -176,7 +176,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Перейдите]({{ link-console-main }}/link/ydb) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Выберите базу данных, для которой нужно получить эндпоинт и путь.
 
       * Эндпоинт БД указан в блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** в первой части значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`):
@@ -199,7 +199,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Создайте функцию:
 
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -240,7 +240,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** введите имя триггера `postbox-events-trigger`.
   1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}`.
@@ -269,9 +269,9 @@
       * Проверьте БД:
 
           1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-          1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+          1. [Перейдите]({{ link-console-main }}/link/ydb) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
           1. Выберите базу данных `postbox-events-ydb`.
-          1. Перейдите на вкладку ![image](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}**
+          1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**
           1. Выберите таблицу `postbox_events`.
 
               В таблице должны появиться записи. В некоторых столбцах может быть значение `NULL` — это зависит от [типа уведомления](../../postbox/concepts/notification.md#types), которое было получено от сервиса {{ postbox-name }}.

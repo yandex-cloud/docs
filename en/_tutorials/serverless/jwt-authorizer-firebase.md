@@ -65,7 +65,7 @@ Firebase:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an API gateway.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `jwt-api-gw`.
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification:
@@ -264,7 +264,7 @@ Firebase:
    * `providerId`: ID of the OpenID Connect provider previously created in Firebase, in `oidc.<provider_name>` format.
    * `apiGwDomain`: Service domain of the API gateway you created earlier.
 1. [Install Node.js](https://nodejs.org/en/download) and `npm`. `npm` comes bundled with Node.js.
-1. In your app folder:
+1. In your app directory:
    1. Install `react-scripts` in your project and include it under `devDependencies` in `package.json`:
 
       ```bash
@@ -301,7 +301,7 @@ Deploy a static website.
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+     1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
      1. On the bucket creation page:
         1. Enter the bucket name: `bucket-for-tutorial`.
@@ -397,7 +397,7 @@ Deploy a static website.
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to upload your objects.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+     1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Click `bucket-for-tutorial`.
      1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the objects you [previously generated](#project-prepare) in the `build` directory.
      1. The management console will display all the objects you selected for uploading and prompt you to select a [storage class](../../storage/concepts/storage-class.md). The [bucket configuration](../../storage/concepts/bucket.md#bucket-settings) determines the default storage class.

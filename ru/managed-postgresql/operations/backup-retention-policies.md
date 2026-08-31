@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
   1. На странице **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}**.
   1. Нажмите кнопку **Создать политику**.
   1. Укажите параметры новой политики:
@@ -57,6 +57,45 @@
       * `--cluster-id` — идентификатор кластера. Его можно получить со [списком кластеров](cluster-list.md#list-clusters).
 
       {% include [backup-policy-create-settings](../../_includes/mdb/cli/backup-policy-create-settings.md) %}
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
+
+    1. Добавьте описание ресурса:
+
+        ```hcl
+        resource "yandex_mdb_postgresql_backup_retention_policy" "<имя_политики>" {
+          cluster_id      = "<идентификатор_кластера>"
+          policy_name     = "<имя_политики>"
+          description     = "<описание_политики>"
+          retain_for_days = <срок_хранения_копии_в_днях>
+
+          cron = {
+            day_of_month = "<день_месяца>"
+            day_of_week  = "<день_недели>"
+            month        = "<месяц>"
+          }
+        }
+        ```
+
+        Где:
+
+        * `cluster_id` — идентификатор кластера. Его можно получить со [списком кластеров](cluster-list.md#list-clusters).
+
+        {% include [backup-policy-create-settings](../../_includes/mdb/terraform/backup-policy-create-settings.md) %}
+
+    1. Проверьте корректность конфигурационных файлов.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_postgresql_backup_retention_policy).
 
 - REST API {#api}
 
@@ -143,7 +182,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
   1. На странице **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}**.
 
 
@@ -235,7 +274,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
   1. На странице **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}**.
 
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке политики, которую вы хотите удалить.
@@ -262,6 +301,22 @@
       ```
 
       Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters), а идентификатор политики — со [списком политик](#list-policies).
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
+
+    1. Удалите ресурс `yandex_mdb_postgresql_backup_retention_policy` с именем удаляемой политики.
+
+    1. Проверьте корректность конфигурационных файлов.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 

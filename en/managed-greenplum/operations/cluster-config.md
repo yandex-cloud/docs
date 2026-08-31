@@ -30,9 +30,16 @@ We recommend changing the host class only when your cluster has no active worklo
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the relevant class for {{ mgp-name }} master hosts or segment hosts.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, on the **Master** and **Segment** tabs, select the following:
+
+     
+     1. One of the available [platforms](../../compute/concepts/vm-platforms.md).
+     1. Configuration type: **memory-optimized**, **cpu-optimized**, **io-optimized**, or **standard**.
+     1. [Host class](../../storedoc/concepts/instance-types.md): Determines the technical specifications of the VMs the {{ mgp-name }} hosts will be deployed on. When you change the host class for the cluster, the characteristics of all existing hosts change, too.  
+
+
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -228,7 +235,7 @@ We recommend changing the host class only when your cluster has no active worklo
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:

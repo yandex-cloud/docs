@@ -2,7 +2,7 @@
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
 
-For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage registry certificates for the appropriate authorization method.
+For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage registry certificates for the relevant authentication method.
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
@@ -25,18 +25,18 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
    To add a certificate to a registry:
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the registry certificate to.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section and click **{{ ui-key.yacloud.component.certificates.button_empty-add }}**.
 
-      - To add a file:
+      * To add a file:
 
          1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
          1. Click **Attach file**.
          1. Specify the certificate file on your computer and click **Open**.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-      - To add text:
+      * To add text:
 
          1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
          1. Insert the certificate body in the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
@@ -55,6 +55,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
   ```
   
   Result:
+
   ```
   registry_id: b91ki3851hab********
   fingerprint: 589ce1605...
@@ -73,14 +74,15 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
   To add a certificate to a registry created using {{ TF }}:
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
-     * `yandex_iot_core_registry`: Registry parameters:
+     * `yandex_iot_core_registry`: Registry settings:
+
        * `name`: Registry name.
        * `description`: Registry description.
        * `certificates`: List of registry certificates for authentication with [certificates](../../concepts/authorization.md#certs).
 
-      Example registry description in the {{ TF }} configuration:
+      Here is an example of a registry description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iot_core_registry" "my_registry" {
@@ -96,7 +98,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       ```
 
       For more on the properties of the `yandex_iot_core_registry` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -145,7 +147,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
    To delete a registry certificate:
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the registry certificate from.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section.
    1. In the line with the certificate, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
@@ -186,7 +188,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
   1. Open the {{ TF }} configuration file and delete the certificate value in the `certificates` section, in the registry description fragment. To remove all certificates, delete the entire `certificates` section.
 
-      Example registry description in the {{ TF }} configuration:
+      Here is an example of a registry description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iot_core_registry" "my_registry" {
@@ -202,7 +204,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       ```
 
       For more on the properties of the `yandex_iot_core_registry` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash

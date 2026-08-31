@@ -30,6 +30,8 @@ Cloud Postbox позволяет не тратить бюджет и время 
 
  - [Привязка конфигурации к адресу](operations/bind-configuration.md)
 
+ - [Управление пользовательским стоп-листом](operations/manage-suppression-list.md)
+
  - [Ограничение списка отправителей](operations/restrict-senders.md)
 
  - [Запись логов](operations/logs-write.md)
@@ -43,6 +45,8 @@ Cloud Postbox позволяет не тратить бюджет и время 
  - [DNS-записи](concepts/dns-records.md)
 
  - [Конфигурации](concepts/configuration.md)
+
+ - [Стоп-листы](concepts/suppression-list.md)
 
  - [Уведомления об операциях с письмами](concepts/notification.md)
 
@@ -135,6 +139,18 @@ Cloud Postbox позволяет не тратить бюджет и время 
  - [Метод DeleteConfigurationSet](aws-compatible-api/api-ref/delete-configuration-set.md)
 
  - [Метод PutConfigurationSetDeliveryOptions](aws-compatible-api/api-ref/put-configuration-set-delivery-options.md)
+
+ - [Метод PutConfigurationSetSuppressionOptions](aws-compatible-api/api-ref/put-configuration-set-suppression-options.md)
+
+#### Стоп-лист
+
+ - [Метод ListSuppressedDestinations](aws-compatible-api/api-ref/list-suppressed-destinations.md)
+
+ - [Метод GetSuppressedDestination](aws-compatible-api/api-ref/get-suppressed-destination.md)
+
+ - [Метод PutSuppressedDestination](aws-compatible-api/api-ref/put-suppressed-destination.md)
+
+ - [Метод DeleteSuppressedDestination](aws-compatible-api/api-ref/delete-suppressed-destination.md)
 
 #### Подписки
 

@@ -32,7 +32,9 @@
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для редактирования ресурсов:
 
@@ -172,33 +174,68 @@
 
 ## Примеры {#examples}
 
+Разрешите для CDN-ресурса HTTP-методы `GET`, `HEAD` и `OPTIONS`:
+
 {% list tabs group=instructions %}
 
-- CLI {#cli}
+- CLI {#example-cli}
 
-  Добавьте ресурсу разрешенный метод GET:
-
-    ```bash
-    yc cdn resource update s0me1dkfjq******** --allowed-http-methods GET
-    ```
+  ```bash
+  yc cdn resource update <идентификатор_ресурса> \
+    --allowed-http-methods GET,HEAD,OPTIONS
+  ```
   
   Результат:
 
-    ```text
-    id: s0me1dkfjq********
+  ```text
+  id: s0me1dkfjq********
 
-    ...
+  ...
 
-    cname: testexample.com
-    active: true
+  cname: testexample.com
+  active: true
 
-    ...
+  ...
 
-    allowed_http_methods:
+  allowed_http_methods:
     enabled: true
     value:
-    - GET
-    ```
+      - GET
+      - HEAD
+      - OPTIONS
+  ```
+
+- cURL {#example-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и запишите его в переменную:
+
+      ```bash
+      export IAM_TOKEN=`yc iam create-token`
+      ```
+
+  1. Обновите CDN-ресурс с помощью REST API:
+
+      ```bash
+      curl \
+        --request PATCH \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://cdn.api.cloud.yandex.net/cdn/v1/resources/<идентификатор_ресурса>' \
+        --data '{
+          "options": {
+            "allowedHttpMethods": {
+              "enabled": true,
+              "value": [
+                "GET",
+                "HEAD",
+                "OPTIONS"
+              ]
+            }
+          }
+        }'
+      ```
+
+      Метод REST API [update](../../api-ref/Resource/update.md) изменяет только переданные в теле запроса настройки CDN-ресурса. Параметр `updateMask` для этого метода не используется.
 
 {% endlist %}
 

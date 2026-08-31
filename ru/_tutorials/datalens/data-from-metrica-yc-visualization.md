@@ -68,7 +68,7 @@
 ### 1.1. Подключите {{ CH }} {#ch-connection}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог для создания кластера {{ CH }}.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. В открывшемся окне нажмите **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Укажите настройки кластера {{ CH }}:
    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** укажите произвольное имя кластера. 
@@ -184,7 +184,7 @@
 ### 3.1. Подключитесь к {{ datalens-short-name }} {#datalens-connection}
 
 1. В [консоли управления]({{ link-console-main }}) откройте страницу созданного кластера {{ CH }}.
-1. В левой части окна выберите раздел ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
+1. Перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
 1. Нажмите кнопку **Создать подключение**.
 
 ### 3.2. Создайте подключение к {{ CH }} в {{ datalens-short-name }} {#creation-datalens-connection-to-ch}
@@ -217,7 +217,7 @@
     * `EventDate` — в область **X**.
     * `Браузер` — в область **Цвета**.
     * `Хиты` — в область **Y**.
-1. Измените тип чарта cо **Столбчатая диаграмма** на **Диаграмма с областями**. 
+1. Измените тип чарта со **Столбчатая диаграмма** на **Диаграмма с областями**.
 1. Нажмите кнопку **Сохранить**. 
 1. В появившемся окне укажите имя чарта `ch_metrica_data_hits_area` и нажмите кнопку **Сохранить**.
 

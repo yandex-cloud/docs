@@ -1,8 +1,8 @@
-{{ yq-full-name }} is an interactive service for serverless data analysis. You can use it to process information from various storages without having to to create a dedicated cluster. {{ yq-full-name }} supports [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
+{{ yq-full-name }} is an interactive service for serverless data analysis. You can use it to process information from various storages without the need to create a dedicated cluster. {{ yq-full-name }} supports [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
 
 Follow this tutorial to connect to a {{ mch-name }} database and query it from a {{ jlab }}Lab notebook with the help of {{ yq-name }}.
 
-1. [Set up the infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Get started in {{ yq-name }}](#yq-begin).
 1. [Create a {{ mch-name }} cluster](#create-cluster).
 1. [Connect to the {{ mch-name }} data](#mch-connect).
@@ -46,8 +46,8 @@ The cost of infrastructure support for working with {{ mch-name }} data includes
 
 - Management console {#console}
 
-  1. Navigate to `data-folder`.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select `data-folder`.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `yq-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following roles to the service account:
@@ -76,8 +76,8 @@ To allow the service account to send queries using {{ yq-name }}, create an [aut
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to `data-folder`.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select `data-folder`.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select `yq-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
@@ -93,7 +93,7 @@ To get an authorized key from the notebook, create a [secret](../../datasphere/c
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter a name for the secret: `yq_access_key`.
+1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter the name for the secret: `yq_access_key`.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, paste the full contents of the authorized key file you downloaded.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
@@ -119,7 +119,7 @@ Any running {{ mch-name }} cluster with the **{{ ui-key.yacloud.mdb.forms.additi
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter the cluster name, e.g., `clickhouse`.
 
@@ -165,7 +165,7 @@ In this step, you will create a test table with numbers from 0 to 100.
 
 {% endlist %}
 
-## Connect to {{ mch-name }} data {#mch-connect}
+## Connect to the data in {{ mch-name }} {#mch-connect}
 
 To create a {{ yq-name }} [connection](../../query/concepts/glossary.md#connection):
 
@@ -174,7 +174,7 @@ To create a {{ yq-name }} [connection](../../query/concepts/glossary.md#connecti
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+  1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
   1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Name the connection, e.g., `clickhouse`.

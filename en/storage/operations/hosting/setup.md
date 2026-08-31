@@ -27,7 +27,7 @@ For more information, see [{#T}](../../security/overview.md).
 
 {% endnote %}
 
-## Static website hosting {#hosting}
+## Setting up static website hosting {#hosting}
 
 {% include [static-site-all-redirection-exception](../../../_includes/storage/static-site-all-redirection-exception.md) %}
 
@@ -56,7 +56,7 @@ For more information, see [{#T}](../../security/overview.md).
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -134,7 +134,7 @@ For more information, see [{#T}](../../security/overview.md).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to redirect all requests for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
@@ -261,7 +261,7 @@ For more information, see [{#T}](../../security/overview.md).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure conditional request redirects for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
@@ -291,7 +291,7 @@ For more information, see [{#T}](../../security/overview.md).
      yc storage bucket update --help
      ```
      
-  1. Create a conditional redirect configuration file in JSON format. For example:
+  1. Create a conditional redirect configuration file in JSON format. Here is an example:
      
      ```json
      {
@@ -438,9 +438,16 @@ For more information, see [{#T}](../../security/overview.md).
 
 {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../qa.md#qa-mime-type)
+
 * [{#T}](own-domain.md)
+
 * [{#T}](multiple-domains/index.md)
+
+
 * [{#T}](certificate.md)
+
+* [{#T}](../../../architecture/static-website-in-yc.md)
+

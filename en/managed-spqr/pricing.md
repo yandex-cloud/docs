@@ -51,15 +51,9 @@ You are billed for the following:
 
     * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
 
-* Database backup storage exceeding the cluster’s allocated space.
+{% include [pricing-backup-general](../_includes/mdb/pricing-backup-general.md) %} 
 
-    {% include [pricing-backup](../_includes/mdb/pricing-backup.md) %}
-
-    * Backup storage is not billable until the total volume of backups exceeds that of the cluster storage. This calculation does not count in the data volume of the database itself.
-  
-    * The number of hosts in a cluster does not affect the storage size and, consequently, the free backup quota.
-
-    * When performing automatic backups, {{ mspqr-name }} does not create a new backup but saves the database changes introduced since the previous one. As a result, the storage used by automatic backups grows only in proportion to the amount of changes.
+For more information, see [Backups in {{ mspqr-name }}](concepts/backup.md).
 
 The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
@@ -84,19 +78,6 @@ A CVoS discount is only available for certain resource types. For unsupported re
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
 
 {% include [ice-lake-local-ssd-note](../_includes/ice-lake-local-ssd-note.md) %}
-
-Pricing for backup storage has the following specifics:
-
-* Backup storage is not billable until the total volume of backups exceeds that of the cluster storage. This calculation does not count in the data volume of the database itself.
-
-* Adding a host increases the total cost per cluster. However, expenses for storing backups beyond the storage size will be lower due to the increased total storage size.
-
-* To reduce expenses for storing backups beyond the storage size:
-
-    * Reduce the retention period for automatic backups in the [advanced settings](./operations/cluster-update.md).
-    * Delete the backups created manually.
-
-* {% include [backup-wal](../_includes/mdb/mpg/backup-wal.md) %}
 
 
 

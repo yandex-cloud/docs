@@ -49,7 +49,7 @@
 
 1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) с именем `integration-network`.
 
-    Вместе с ней автоматически создадутся три подсети в разных зонах доступности.
+    Вместе с ней автоматически создадутся три подсети в разных [зонах доступности](../../../overview/concepts/geo-scope.md).
 
 1. Для кластера {{ msp-full-name }} [создайте группу безопасности](../../../vpc/operations/security-group-create.md) `spark-sg` в сети `integration-network`. Добавьте в группу следующее правило:
 
@@ -154,9 +154,9 @@
 
 1. В бакете для исходного кода создайте папку `scripts` и [загрузите](../../../storage/operations/objects/upload.md#simple) в нее файл `ice_min_demo.py`.
 1. [Создайте задание](../../../managed-spark/operations/jobs-pyspark.md) с параметрами:
-    * **Тип задания**: **PySpark**.
-    * **Main python файл**: `s3a://<бакет_для_исходного_кода>/scripts/ice_min_demo.py`.
-    * **Настройки**: `spark.sql.warehouse.dir` – `s3a://<бакет_для_выходных_данных>/warehouse/`.
+    * **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** — `PySpark`.
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** — `s3a://<бакет_для_исходного_кода>/scripts/ice_min_demo.py`.
+    * **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** — `spark.sql.warehouse.dir` — `s3a://<бакет_для_выходных_данных>/warehouse/`.
 
 ## Проверьте результат {#check-out}
 

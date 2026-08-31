@@ -35,7 +35,7 @@ To pass this scenario in full, deploy Active Directory. If you use your own DNS 
 The infrastructure support cost includes:
 
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for VM disk storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for VM disk space (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for {{ yandex-cloud }} outbound internet traffic (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
@@ -260,7 +260,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to. 
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Select the VM → click ![image](../../_assets/console-icons/ellipsis.svg) → select **Delete**.
       1. Confirm the deletion.
 

@@ -43,7 +43,7 @@ description: Следуя данной инструкции, вы сможете
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** введите описание [шаблона](../../concepts/instance-groups/instance-template.md).
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите, какую систему развернуть на загрузочном [диске](../../concepts/disk.md) ВМ.
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
-       * Выберите [тип диска](../../../compute/concepts/disk.md#disks_types).
+       * Выберите [тип диска](../../../compute/concepts/disk.md#disks-types).
        * Укажите размер диска.
        * Чтобы добавить дополнительные диски, нажмите **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
@@ -206,7 +206,7 @@ description: Следуя данной инструкции, вы сможете
        ```
 
        Где:
-       * `target_group_spec` — cпецификация целевой группы {{ network-load-balancer-name }}, связанной с группой ВМ.
+       * `target_group_spec` — спецификация целевой группы {{ network-load-balancer-name }}, связанной с группой ВМ.
        * `name` — произвольное имя целевой группы {{ network-load-balancer-name }}. Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
  
        Подробнее о настройках целевой группы читайте в разделе [{#T}](../../concepts/instance-groups/balancers.md#settings-nlb).

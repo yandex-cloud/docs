@@ -45,7 +45,7 @@
    * `managed-airflow.integrationProvider`;
    * `lockbox.payloadViewer`.
 
-   {% note info }
+   {% note info %}
 
    Роль `lockbox.payloadViewer` не обязательно выдавать на весь каталог. Достаточно [назначить ее на конкретный секрет Yandex Lockbox](../../lockbox/operations/secret-access.md) после его создания.
 

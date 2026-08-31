@@ -54,7 +54,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Перейдите]({{ link-console-main }}/link/baremetal) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
   1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя VRF: `vrrp-vrf`.
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
@@ -70,7 +70,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Перейдите]({{ link-console-main }}/link/baremetal) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. На панели слева выберите ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. В поле **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** выберите пул серверов `{{ region-id }}-m3`.
   1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя подсети: `subnet-m3`.
@@ -228,7 +228,7 @@
     * `authentication` — секция с настройками аутентификации для обеспечения безопасности. Содержимое секции должно совпадать для всех серверов в группе.
     * `virtual_ipaddress` — виртуальный IP-адрес, который будет управляться этим узлом. Виртуальный IP-адрес:
 
-        * должен относиться к диапазону CIDR, заданному для виртуальной подсети, в которой создана группа северов;
+        * должен относиться к диапазону CIDR, заданному для виртуальной подсети, в которой создана группа серверов;
         * должен быть не занят;
         * должен совпадать для всех серверов в группе.
     * `preempt` — позволяет серверу перейти в состояние `MASTER`, если его приоритет оказывается выше чем у текущего мастера в группе.

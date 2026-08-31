@@ -15,10 +15,10 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. Выберите профиль, в котором вы хотите изменить правило.
-  1. В строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
-      
+  1. В строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
+
       1. Измените основные параметры правила:
-          
+
           * **{{ ui-key.yacloud.common.name }}**.
           * **{{ ui-key.yacloud.common.description }}**.
           * **Приоритет** правила. Чем меньше значение параметра, тем больший приоритет у правила.
@@ -31,9 +31,9 @@ description: Следуя данной инструкции, вы сможете
           {% include [arl-rule-request-count](../../_includes/smartwebsecurity/arl-rule-request-count.md) %}
 
       1. {% include [arl-rule-action-over-limit](../../_includes/smartwebsecurity/arl-rule-action-over-limit.md) %}
-      
+
       1. Выберите или [создайте](template-create.md) шаблон ответа, который будет возвращаться клиенту при срабатывании правила. По умолчанию используется стандартный шаблон {{ yandex-cloud }}.
-      1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
+      1. Нажмите **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
 
 - {{ TF }} {#tf}
 
@@ -82,7 +82,7 @@ description: Следуя данной инструкции, вы сможете
           priority    = <приоритет_правила>
           description = "<описание_правила>"
           dry_run     = true
-  
+
           static_quota {
             action = "DENY"
             limit  = <лимит_правила>

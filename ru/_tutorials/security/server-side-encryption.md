@@ -1,6 +1,5 @@
 # Шифрование для бакета {{ objstorage-name }} на стороне сервера
 
-
 В этом сценарии вы включите шифрование для бакета. В качестве ключа симметричного шифрования будет использоваться [ключ {{ kms-full-name }}](../../kms/concepts/key.md). Все новые объекты в бакете будут шифроваться указанным ключом по схеме [envelope encryption](../../kms/concepts/envelope.md).
 
 
@@ -39,7 +38,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
 
@@ -169,7 +168,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать ключ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}**.
   1. В открывшемся окне:
 
@@ -312,7 +311,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, созданный ранее.
   1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
@@ -460,7 +459,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, созданный ранее.
   1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.

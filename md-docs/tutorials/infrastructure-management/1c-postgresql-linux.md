@@ -59,8 +59,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, где требуется создать облачную сеть.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется создать облачную сеть.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. В правом верхнем углу нажмите **Создать сеть**.
   1. В поле **Имя** укажите имя сети `my-1c-network`.
   1. Включите опцию **Создать подсети**.
@@ -93,7 +93,7 @@
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите `Виртуальная машина`.
   1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `OpenVPN Access Server` и выберите публичный образ [OpenVPN Access Server](https://yandex.cloud/ru/marketplace/products/yc/openvpn-access-server).
   1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), например: `ru-central1-b`.
-  1. В блоке **Диски и файловые хранилища** выберите [тип диска](../../compute/concepts/disk.md#disks_types) `HDD` и задайте размер `20 ГБ`.
+  1. В блоке **Диски и файловые хранилища** выберите [тип диска](../../compute/concepts/disk.md#disks-types) `HDD` и задайте размер `20 ГБ`.
   1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
       * **Платформа** — `Intel Ice Lake`.
@@ -546,10 +546,10 @@ OpenVPN Access Server предоставляет два веб-интерфей�
 
         - Консоль управления {#console}
 
-          * В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-          * Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+          * В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан кластер `1c-pg`.
+          * [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
           * В открывшемся окне выберите созданный ранее кластер `1c-pg`.
-          * В меню слева выберите вкладку **Хосты**.
+          * Перейдите на вкладку **Хосты**.
           * В поле **FQDN хоста** подведите курсор к имени хоста (вида `rc1b-cfazv1db********`) и скопируйте полное доменное имя базы данных, нажав появившийся значок ![copy](../../_assets/copy.svg). К имени хоста добавится полное доменное имя, в результате в поле **Сервер баз данных** должно быть указано имя вида `rc1c-cfazv1db********.mdb.yandexcloud.net port=6432`.
 
         {% endlist %}

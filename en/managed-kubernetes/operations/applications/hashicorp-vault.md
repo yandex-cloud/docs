@@ -72,7 +72,7 @@ When using {{ marketplace-name }} to install HashiCorp Vault that supports {{ km
 {% endnote %}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/yc/vault-yckms-k8s) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -128,7 +128,7 @@ Once HashiCorp Vault is installed, you need to initialize one of its servers. Th
 
 While initializing the vault, you do not need to perform the `unseal` operation as the application image is integrated with {{ kms-name }}.
 
-For more information, see [Auto Unseal](../../../kms/tutorials/vault-secret.md) and the [HashiCorp Vault guide](https://learn.hashicorp.com/tutorials/vault/kubernetes-raft-deployment-guide?in=vault/kubernetes#initialize-and-unseal-vault).
+For more information, see [Auto Unseal](../../../kms/tutorials/vault-secret.md) and [this HashiCorp Vault guide](https://learn.hashicorp.com/tutorials/vault/kubernetes-raft-deployment-guide?in=vault/kubernetes#initialize-and-unseal-vault).
 
 {% endnote %}
 
@@ -187,7 +187,7 @@ To initialize the vault:
    vault-yckms-k8s-0  1/1    Running  0         5m
    ```
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [HashiCorp Vault documentation](https://developer.hashicorp.com/vault/docs?product_intent=vault)
 * [{{ kms-name }} guides](../../../kms/)

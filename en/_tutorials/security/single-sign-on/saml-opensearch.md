@@ -66,7 +66,7 @@ To configure {{ mos-name }} integration with the SAML app you created in {{ org-
     To set up a {{ org-full-name }} authentication source:
 
     1. In the [management console]({{ link-console-main }}), select a folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-opensearch) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
     1. Click **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
     1. Specify the required values for these settings:

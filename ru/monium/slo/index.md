@@ -144,4 +144,8 @@ SLO — аналитический инструмент, помогающий п
 
 {% include [ttl_warning](../../_includes/monium/ttl_warning.md) %}
 
+## Полезные ссылки {#see-also}
+
+[SLO-мониторинг веб-сервиса в {{ monium-name }} с blackbox_exporter и {{ unified-agent-short-name }}](../../tutorials/infrastructure-management/slo-blackbox-exporter.md)
+
 [golden-sgnals]: https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals

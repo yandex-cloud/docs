@@ -47,11 +47,10 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входят:
-* Плата за вычислительные ресурсы и диски [узлов](../../managed-kubernetes/concepts/index.md#node-group) кластера Managed Service for Kubernetes ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование [мастера](../../managed-kubernetes/concepts/index.md#master) Managed Service for Kubernetes и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) кластера Managed Service for Kubernetes ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Секрет Yandex Lockbox: количество хранимых версий секрета и запросы к ним ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
 
 ## Настройте кластер Managed Service for Kubernetes {#prepare-cluster}
 
@@ -69,12 +68,12 @@
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором размещен кластер.
       1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-      1. Напротив кластера нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+      1. В строке кластера Managed Service for Kubernetes нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
       1. В поле **Управление идентификацией и доступом** включите федерацию сервисных аккаунтов.
       1. Нажмите **Сохранить**.
-      1. На обзорной странице кластера в блоке **Управление идентификацией и доступом** скопируйте значения параметров **URL эмитента** и **URL набора ключей JWKS**. Они понадобятся для дальнейшей интеграции.
-      1. Перейдите на вкладку **Группы узлов**.
-      1. Напротив группы узлов нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+      1. На вкладке **Обзор** кластера в блоке **Управление идентификацией и доступом** скопируйте значения параметров **URL эмитента** и **URL набора ключей JWKS**. Они понадобятся для дальнейшей интеграции.
+      1. Перейдите на вкладку **Управление узлами**, затем **Группы узлов**.
+      1. В строке группы узлов нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
       1. В поле **Управление идентификацией и доступом** включите федерацию сервисных аккаунтов.
       1. Нажмите **Сохранить**.
 
@@ -82,7 +81,9 @@
 
       Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-      По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+      По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+      
+      Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
       1. Включите поддержку интеграции с федерацией сервисных аккаунтов в кластере:
 
@@ -232,7 +233,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, к которому вы хотите получить доступ через API Yandex Cloud.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![cpus](../../_assets/console-icons/cpus.svg) **Федерации сервисных аккаунтов**.
   1. Нажмите **Создать федерацию**.
   1. В поле **Значение Issuer (iss)** введите значение **URL эмитента**, полученное ранее, например `https://storage.yandexcloud.net/mk8s-oidc/v1/clusters/c49i54tk66ob********`.
@@ -333,8 +334,6 @@
 
 {% endlist %}
 
-{% endlist %}
-
 ## Подготовьте сервисный аккаунт IAM {#prepare-sa}
 
 1. Создайте сервисный аккаунт IAM:
@@ -344,7 +343,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором размещен секрет Yandex Lockbox.
-      1. Перейдите в сервис **Identity and Access Management**.
+      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
       1. Нажмите **Создать сервисный аккаунт**.
       1. Введите имя сервисного аккаунта, например `sa-lockbox`.
       1. Нажмите **Создать**.
@@ -545,7 +544,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором был создан сервисный аккаунт.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. В списке выберите сервисный аккаунт `sa-lockbox`.
   1. На верхней панели нажмите ![image](../../_assets/console-icons/cpus.svg) **Привязать к федерации**.
   1. В поле **Федерация сервисных аккаунтов** выберите ранее созданную федерацию.
@@ -646,7 +645,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создан секрет.
-  1. Перейдите в сервис **Lockbox**.
+  1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox**.
   1. Нажмите **Создать секрет**.
   1. В поле **Имя** введите имя секрета `MY_SECRET`.
   1. Выберите **Тип секрета** `Пользовательский`.

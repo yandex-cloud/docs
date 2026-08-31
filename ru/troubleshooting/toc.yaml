@@ -391,24 +391,6 @@ items:
         href: datalens/known-issues/err-1043-bad-handshake-mysql.md
       - name: Устранение неверного значения поля `Итого` в сводной таблице
         href: datalens/known-issues/incorrect-value-in-field-total.md
-  - name: '{{ dataproc-name }}'
-    items:
-      - name: Все решения для {{ dataproc-name }}
-        href: data-processing/index.md
-      - name: Решения для известных проблем {{ dataproc-name }}
-        href: data-processing/known-issues/index.md
-        hidden: true
-      - name: >-
-          Кластер {{ dataproc-name }} находится в состоянии `UNKNOWN` сразу
-          после создания
-        href: >-
-          data-processing/known-issues/hosts-of-data-processing-cluster-are-in-status-unknown-after-creation.md
-      - name: Нет логов в YARN Resource Manager Web UI после выполнения заданий
-        href: >-
-          data-processing/known-issues/yarn-resource-manager-does-not-display-logs.md
-      - name: Примеры конфигураций и сценариев {{ dataproc-name }}
-        href: data-processing/how-to/index.md
-        hidden: true
   - name: '{{ ml-platform-name }}'
     items:
       - name: Все решения для {{ ml-platform-name }}
@@ -818,7 +800,7 @@ items:
       - name: Как узнать скорость загрузки и скачивания данных
         href: storage/how-to/upload-download-speed.md
       - name: >-
-          Как настроить заголовки кэширования `Cache-Control` для объектов в
+          Как настроить заголовки кеширования `Cache-Control` для объектов в
           бакете при HTTP-запросах
         href: storage/how-to/configure-cache-headings-with-http-queries.md
       - name: Как ограничить доступ к бакету для пользователя
@@ -877,7 +859,7 @@ items:
           nodename nor servname provided, or not known`
         href: >-
           managed-postgresql/known-issues/error-could-not-translate-host-name-to-address-nodename-nor-servname-provided-or-not-known.md
-      - name: Устранение ошибки `max_connections сonn_limit is too high`
+      - name: Устранение ошибки `max_connections conn_limit is too high`
         href: managed-postgresql/known-issues/conn-limit-is-too-high.md
       - name: Устранение ошибки `Must be superuser to create this extension`
         href: >-
@@ -919,29 +901,6 @@ items:
       - name: Примеры конфигураций и сценариев {{ monitoring-name }}
         href: monitoring/how-to/index.md
         hidden: true
-  - name: '{{ serverless-containers-name }}'
-    items:
-      - name: Все решения для {{ serverless-containers-name }}
-        href: serverless-containers/index.md
-      - name: Решения для известных проблем {{ serverless-containers-name }}
-        href: serverless-containers/known-issues/index.md
-        hidden: true
-      - name: Устранение ошибки `Code 502 Message Error during function invocation`
-        href: >-
-          serverless-containers/known-issues/serverless-container-invoking-error-502.md
-      - name: Устранение ошибки `Service account is not available`
-        href: serverless-containers/known-issues/service-account-is-not-available.md
-      - name: Устранение ошибки `user container exec format error`
-        href: serverless-containers/known-issues/exec-format-error.md
-      - name: Устранение ошибки `No space left on device`
-        href: serverless-containers/known-issues/no-space-left-on-device.md
-      - name: Устранение ошибки 403 `Permission denied`
-        href: serverless-containers/known-issues/permission-denied.md
-      - name: Примеры конфигураций и сценариев {{ serverless-containers-name }}
-        href: serverless-containers/how-to/index.md
-        hidden: true
-      - name: Как настроить статический IP-адрес
-        href: serverless-containers/how-to/static-ip-address.md
   - name: '{{ captcha-name }}'
     items:
       - name: Все решения для {{ captcha-name }}
@@ -1018,7 +977,7 @@ items:
         href: vpc/how-to/link-ip-address-to-nat-gateway.md
       - name: Как включить Egress NAT
         href: vpc/how-to/activate-egress-nat.md
-      - name: Как осуществить маршутизацию трафика между двумя облачными сетями
+      - name: Как осуществить маршрутизацию трафика между двумя облачными сетями
         href: vpc/how-to/routing-traffic-between-two-vpcs.md
       - name: Как использовать IPv6-адреса
         href: vpc/how-to/using-ipv6.md

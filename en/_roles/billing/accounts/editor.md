@@ -11,6 +11,7 @@ To use the `billing.accounts.editor` role, you need to assign it for a billing a
 * Get and view notifications on consumption.
 * Monitor expenses.
 * [View usage details](../../../billing/operations/check-charges.md).
+* [Execute API queries](../../../billing/operations/get-charges-via-api.md) to get usage details.
 * [Export details](../../../billing/operations/get-folder-report.md).
 * Create [budgets](../../../billing/concepts/budget.md).
 * [Reserve resource usage](../../../billing/concepts/cvos.md).
@@ -23,7 +24,6 @@ To use the `billing.accounts.editor` role, you need to assign it for a billing a
 
 {% cut "On the {{ yandex-cloud }} partner portal, users with this role can:" %}
 
-* Link [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) to [subaccounts](../../../partner/terms.md#sub-account).
 * View [rebate credit](../../../partner/terms.md#rebate) history.
 * View assigned [specializations](../../../partner/specializations/index.md).
 * View the history of crediting [referral program](../../../partner/program/referral.md) bonuses.
@@ -33,6 +33,7 @@ To use the `billing.accounts.editor` role, you need to assign it for a billing a
 * Create referral links.
 * Activate referral links.
 * Modify referral links.
+* Link [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) to [subaccounts](../../../partner/terms.md#sub-account).
 
 {% endcut %}
 

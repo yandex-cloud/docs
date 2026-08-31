@@ -11,8 +11,8 @@ description: You can delete all access rules applied within the cluster in one s
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to the **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** section.
   1. Click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the row of the rule you want to delete.
@@ -46,7 +46,7 @@ description: You can delete all access rules applied within the cluster in one s
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
  
@@ -135,7 +135,7 @@ You can delete all access rules applied within the cluster in one step.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
  
@@ -186,7 +186,7 @@ You can delete all access rules applied within the cluster in one step.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

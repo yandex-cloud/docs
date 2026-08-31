@@ -10,8 +10,8 @@
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **Профили WAF**.
   1. Выберите профиль, в котором вы хотите удалить [правило-исключение](../concepts/waf.md#exclusion-rules).
-  1. В меню слева перейдите на вкладку ![image](../../_assets/console-icons/file-xmark.svg) **Правила-исключения**.
-  1. В строке с нужным правилом-исключением нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. Перейдите на вкладку **Правила-исключения**.
+  1. В строке с нужным правилом-исключением нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. Подтвердите удаление.
 
 - Terraform {#tf}
@@ -27,39 +27,86 @@
   
   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  1. Откройте файл конфигурации Terraform и в описании профиля безопасности `yandex_sws_waf_profile` удалите блок `exclusion_rule` c правилом-исключением WAF.
+  1. Откройте файл конфигурации Terraform и в описании профиля WAF `yandex_sws_waf_profile` удалите блок `exclusion_rule` с правилом-исключением WAF.
 
-      {% cut "Пример описания правила-исключения в конфигурации Terraform" %}
+     {% cut "Пример настройки правил-исключений профиля WAF в конфигурации Terraform" %}
 
-      ```hcl
-      # WAF профиль
-      resource "yandex_sws_waf_profile" "default" {
-        name = "waf-profile-default"
-        core_rule_set {
-          inbound_anomaly_score = 2
-          paranoia_level        = local.waf_paranoia_level
-          rule_set {
-            name    = "OWASP Core Ruleset"
-            version = "4.0.0"
-          }
-        }
+     ```hcl
+     # Объявление локальных переменных
+     locals {
+       # В базовом наборе будут активны правила этого уровня паранойи и ниже
+       waf_paranoia_level = 1
+     
+       # Идентификация набора правил OWASP Core Ruleset
+       ruleset_name    = "OWASP Core Ruleset"
+       ruleset_version = "4.0.0"
+       ruleset_id      = "OWASP_CRS_4_0_0"
+       ruleset_type    = "CORE"
+     }
+     
+     # Источник данных OWASP Core Rule Set
+     data "yandex_sws_waf_rule_set_descriptor" "source" {
+       name    = local.ruleset_name
+       version = local.ruleset_version
+     }
+     
+     # Профиль WAF
+     resource "yandex_sws_waf_profile" "default" {
+       name = "configure-set-rules"
+     
+       # Базовый набор правил
+       rule_set {
+         action     = "CAPTCHA"
+         is_enabled = true
+         priority   = 1
+         core_rule_set {
+           inbound_anomaly_score = 2
+           paranoia_level        = local.waf_paranoia_level
+           rule_set {
+             name    = local.ruleset_name
+             version = local.ruleset_version
+             id      = local.ruleset_id
+             type    = local.ruleset_type
+           }
+         }
+       }
+     
+       # Правило-исключение
+       exclusion_rule {
+         name = "test-exclusion-1"
+     
+         condition {
+           source_ip {
+             ip_ranges_match {
+               ip_ranges = [
+                 "192.0.2.0/24",
+                 "198.51.100.0/24"
+               ]
+             }
+             ip_ranges_not_match {
+               ip_ranges = [
+                 "203.0.113.10/32",
+                 "203.0.113.0/24"
+               ]
+             }
+           }
+         }
+     
+         exclude_rules {
+           exclude_all = false
+           rule_ids = [
+             "owasp-crs-v4.8.0-id942330-attack-sqli",
+             "owasp-crs-v4.8.0-id920202-protocol-enforcement"
+           ]
+         }
+     
+       }
+     }
+     ```
 
-        ...
+     {% endcut %}
 
-        # Правило-исключение
-        exclusion_rule {
-          name = "<имя правила-исключения>"
-          exclude_rules {
-            exclude_all = <true_или_false>
-            rule_ids    = ["идентификатор_правила_1","идентификатор_правила_2"]
-          }
-        }
-      }
-      ```
-
-      {% endcut %}
-
-      Подробнее о параметрах ресурса `sws_waf_profile` в [документации провайдера](../../terraform/resources/sws_waf_profile.md).
+      Подробнее о параметрах ресурса `yandex_sws_waf_profile` в [документации провайдера](../../terraform/resources/sws_waf_profile.md).
 
   1. Примените изменения:
 
@@ -91,7 +138,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-  Проверить удаление ресурсов можно в [консоли управления](https://console.yandex.cloud).
+  Вы можете проверить удаление ресурсов в [консоли управления](https://console.yandex.cloud).
 
 - API {#api}
 

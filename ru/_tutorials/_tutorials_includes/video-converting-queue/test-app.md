@@ -37,7 +37,7 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. Выберите очередь `converter-queue`.
   1. В блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** отображается количество сообщений в очереди и в обработке.
-  1. Перейдите в раздел **{{ ui-key.yacloud.common.monitoring }}**. Посмотрите графики **Overall queue stats**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**. Посмотрите графики **Overall queue stats**.
 
 {% endlist %}
 

@@ -1114,7 +1114,29 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [Overview](cli-ref/baremetal/cli-ref/v2/index.md)
 
- - [configuration](cli-ref/baremetal/cli-ref/v2/configuration.md)
+##### boot-image
+
+ - [Overview](cli-ref/baremetal/cli-ref/v2/boot-image/index.md)
+
+ - [create](cli-ref/baremetal/cli-ref/v2/boot-image/create.md)
+
+ - [delete](cli-ref/baremetal/cli-ref/v2/boot-image/delete.md)
+
+ - [get](cli-ref/baremetal/cli-ref/v2/boot-image/get.md)
+
+ - [list](cli-ref/baremetal/cli-ref/v2/boot-image/list.md)
+
+ - [list-operations](cli-ref/baremetal/cli-ref/v2/boot-image/list-operations.md)
+
+ - [update](cli-ref/baremetal/cli-ref/v2/boot-image/update.md)
+
+##### configuration
+
+ - [Overview](cli-ref/baremetal/cli-ref/v2/configuration/index.md)
+
+ - [resolve-configuration-default-storage](cli-ref/baremetal/cli-ref/v2/configuration/resolve-configuration-default-storage.md)
+
+ - [resolve-configurations-default-storages](cli-ref/baremetal/cli-ref/v2/configuration/resolve-configurations-default-storages.md)
 
 ##### extend
 
@@ -1134,6 +1156,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list.md)
 
+ - [list-stackland-cluster-operations](cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list-stackland-cluster-operations.md)
+
  - [update](cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/update.md)
 
 ##### hardware-pool
@@ -1143,6 +1167,30 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [get](cli-ref/baremetal/cli-ref/v2/hardware-pool/get.md)
 
  - [list](cli-ref/baremetal/cli-ref/v2/hardware-pool/list.md)
+
+##### image
+
+ - [Overview](cli-ref/baremetal/cli-ref/v2/image/index.md)
+
+ - [get](cli-ref/baremetal/cli-ref/v2/image/get.md)
+
+ - [list](cli-ref/baremetal/cli-ref/v2/image/list.md)
+
+ - [resolve](cli-ref/baremetal/cli-ref/v2/image/resolve.md)
+
+##### private-cloud-connection
+
+ - [Overview](cli-ref/baremetal/cli-ref/v2/private-cloud-connection/index.md)
+
+ - [create](cli-ref/baremetal/cli-ref/v2/private-cloud-connection/create.md)
+
+ - [delete](cli-ref/baremetal/cli-ref/v2/private-cloud-connection/delete.md)
+
+ - [get](cli-ref/baremetal/cli-ref/v2/private-cloud-connection/get.md)
+
+ - [list](cli-ref/baremetal/cli-ref/v2/private-cloud-connection/list.md)
+
+ - [update](cli-ref/baremetal/cli-ref/v2/private-cloud-connection/update.md)
 
 ##### private-subnet
 
@@ -1155,6 +1203,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [get](cli-ref/baremetal/cli-ref/v2/private-subnet/get.md)
 
  - [list](cli-ref/baremetal/cli-ref/v2/private-subnet/list.md)
+
+ - [list-operations](cli-ref/baremetal/cli-ref/v2/private-subnet/list-operations.md)
 
  - [update](cli-ref/baremetal/cli-ref/v2/private-subnet/update.md)
 
@@ -1180,6 +1230,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/baremetal/cli-ref/v2/public-subnet/list.md)
 
+ - [list-operations](cli-ref/baremetal/cli-ref/v2/public-subnet/list-operations.md)
+
  - [update](cli-ref/baremetal/cli-ref/v2/public-subnet/update.md)
 
 ##### rental-period
@@ -1200,6 +1252,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/baremetal/cli-ref/v2/server/list.md)
 
+ - [list-operations](cli-ref/baremetal/cli-ref/v2/server/list-operations.md)
+
  - [power-off](cli-ref/baremetal/cli-ref/v2/server/power-off.md)
 
  - [power-on](cli-ref/baremetal/cli-ref/v2/server/power-on.md)
@@ -1209,6 +1263,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [reinstall](cli-ref/baremetal/cli-ref/v2/server/reinstall.md)
 
  - [renew-rental](cli-ref/baremetal/cli-ref/v2/server/renew-rental.md)
+
+ - [skip-quarantine](cli-ref/baremetal/cli-ref/v2/server/skip-quarantine.md)
 
  - [update](cli-ref/baremetal/cli-ref/v2/server/update.md)
 
@@ -1223,6 +1279,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [get](cli-ref/baremetal/cli-ref/v2/vrf/get.md)
 
  - [list](cli-ref/baremetal/cli-ref/v2/vrf/list.md)
+
+ - [list-operations](cli-ref/baremetal/cli-ref/v2/vrf/list-operations.md)
 
  - [update](cli-ref/baremetal/cli-ref/v2/vrf/update.md)
 
@@ -1754,6 +1812,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [remove-access-binding](cli-ref/cloud-registry/cli-ref/artifact/remove-access-binding.md)
 
+##### scanner
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/artifact/scanner/index.md)
+
+ - [get-last-scan-result](cli-ref/cloud-registry/cli-ref/artifact/scanner/get-last-scan-result.md)
+
+ - [get-scan-result](cli-ref/cloud-registry/cli-ref/artifact/scanner/get-scan-result.md)
+
+ - [list-scan-results](cli-ref/cloud-registry/cli-ref/artifact/scanner/list-scan-results.md)
+
+ - [list-vulnerabilities](cli-ref/cloud-registry/cli-ref/artifact/scanner/list-vulnerabilities.md)
+
+ - [scan](cli-ref/cloud-registry/cli-ref/artifact/scanner/scan.md)
+
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/artifact/set-access-bindings.md)
 
  - [update-access-bindings](cli-ref/cloud-registry/cli-ref/artifact/update-access-bindings.md)
@@ -1761,6 +1833,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [upsert](cli-ref/cloud-registry/cli-ref/artifact/upsert.md)
 
  - [configure-docker](cli-ref/cloud-registry/cli-ref/configure-docker.md)
+
+#### migration
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/migration/index.md)
+
+ - [get-cloud-migration-status-dashboard](cli-ref/cloud-registry/cli-ref/migration/get-cloud-migration-status-dashboard.md)
+
+ - [start-cloud](cli-ref/cloud-registry/cli-ref/migration/start-cloud.md)
+
+ - [start-folder](cli-ref/cloud-registry/cli-ref/migration/start-folder.md)
 
 #### registry
 
@@ -1814,13 +1896,35 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [remove-ip-permissions](cli-ref/cloud-registry/cli-ref/registry/remove-ip-permissions.md)
 
+##### scan-policy
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/registry/scan-policy/index.md)
+
+ - [create](cli-ref/cloud-registry/cli-ref/registry/scan-policy/create.md)
+
+ - [delete](cli-ref/cloud-registry/cli-ref/registry/scan-policy/delete.md)
+
+ - [get](cli-ref/cloud-registry/cli-ref/registry/scan-policy/get.md)
+
+ - [get-by-registry](cli-ref/cloud-registry/cli-ref/registry/scan-policy/get-by-registry.md)
+
+ - [update](cli-ref/cloud-registry/cli-ref/registry/scan-policy/update.md)
+
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/registry/set-access-bindings.md)
 
  - [set-ip-permissions](cli-ref/cloud-registry/cli-ref/registry/set-ip-permissions.md)
 
  - [update](cli-ref/cloud-registry/cli-ref/registry/update.md)
 
- - [tools](cli-ref/cloud-registry/cli-ref/tools.md)
+#### tools
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/tools/index.md)
+
+##### debian
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/tools/debian/index.md)
+
+ - [reindex-packages](cli-ref/cloud-registry/cli-ref/tools/debian/reindex-packages.md)
 
 #### v0
 
@@ -1962,6 +2066,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [remove-access-binding](cli-ref/cloud-registry/cli-ref/v1/artifact/remove-access-binding.md)
 
+###### scanner
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/index.md)
+
+ - [get-last-scan-result](cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/get-last-scan-result.md)
+
+ - [get-scan-result](cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/get-scan-result.md)
+
+ - [list-scan-results](cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/list-scan-results.md)
+
+ - [list-vulnerabilities](cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/list-vulnerabilities.md)
+
+ - [scan](cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/scan.md)
+
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/v1/artifact/set-access-bindings.md)
 
  - [update-access-bindings](cli-ref/cloud-registry/cli-ref/v1/artifact/update-access-bindings.md)
@@ -1969,6 +2087,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [upsert](cli-ref/cloud-registry/cli-ref/v1/artifact/upsert.md)
 
  - [configure-docker](cli-ref/cloud-registry/cli-ref/v1/configure-docker.md)
+
+##### migration
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v1/migration/index.md)
+
+ - [get-cloud-migration-status-dashboard](cli-ref/cloud-registry/cli-ref/v1/migration/get-cloud-migration-status-dashboard.md)
+
+ - [start-cloud](cli-ref/cloud-registry/cli-ref/v1/migration/start-cloud.md)
+
+ - [start-folder](cli-ref/cloud-registry/cli-ref/v1/migration/start-folder.md)
 
 ##### registry
 
@@ -2022,13 +2150,35 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [remove-ip-permissions](cli-ref/cloud-registry/cli-ref/v1/registry/remove-ip-permissions.md)
 
+###### scan-policy
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/index.md)
+
+ - [create](cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/create.md)
+
+ - [delete](cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/delete.md)
+
+ - [get](cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/get.md)
+
+ - [get-by-registry](cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/get-by-registry.md)
+
+ - [update](cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/update.md)
+
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/v1/registry/set-access-bindings.md)
 
  - [set-ip-permissions](cli-ref/cloud-registry/cli-ref/v1/registry/set-ip-permissions.md)
 
  - [update](cli-ref/cloud-registry/cli-ref/v1/registry/update.md)
 
- - [tools](cli-ref/cloud-registry/cli-ref/v1/tools.md)
+##### tools
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v1/tools/index.md)
+
+###### debian
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v1/tools/debian/index.md)
+
+ - [reindex-packages](cli-ref/cloud-registry/cli-ref/v1/tools/debian/reindex-packages.md)
 
 ### cloudrouter
 
@@ -3296,6 +3446,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [delete](cli-ref/container/cli-ref/registry/delete.md)
 
+ - [force-delete](cli-ref/container/cli-ref/registry/force-delete.md)
+
  - [get](cli-ref/container/cli-ref/registry/get.md)
 
  - [list](cli-ref/container/cli-ref/registry/list.md)
@@ -3463,6 +3615,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [create](cli-ref/container/cli-ref/v0/registry/create.md)
 
  - [delete](cli-ref/container/cli-ref/v0/registry/delete.md)
+
+ - [force-delete](cli-ref/container/cli-ref/v0/registry/force-delete.md)
 
  - [get](cli-ref/container/cli-ref/v0/registry/get.md)
 
@@ -7690,6 +7844,14 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update-config](cli-ref/managed-postgresql/cli-ref/hosts/update-config.md)
 
+#### performance-diagnostics
+
+ - [Overview](cli-ref/managed-postgresql/cli-ref/performance-diagnostics/index.md)
+
+ - [list-raw-sessions](cli-ref/managed-postgresql/cli-ref/performance-diagnostics/list-raw-sessions.md)
+
+ - [list-raw-statements](cli-ref/managed-postgresql/cli-ref/performance-diagnostics/list-raw-statements.md)
+
 #### repack
 
  - [Overview](cli-ref/managed-postgresql/cli-ref/repack/index.md)
@@ -7829,6 +7991,14 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [update](cli-ref/managed-postgresql/cli-ref/v0/hosts/update.md)
 
  - [update-config](cli-ref/managed-postgresql/cli-ref/v0/hosts/update-config.md)
+
+##### performance-diagnostics
+
+ - [Overview](cli-ref/managed-postgresql/cli-ref/v0/performance-diagnostics/index.md)
+
+ - [list-raw-sessions](cli-ref/managed-postgresql/cli-ref/v0/performance-diagnostics/list-raw-sessions.md)
+
+ - [list-raw-statements](cli-ref/managed-postgresql/cli-ref/v0/performance-diagnostics/list-raw-statements.md)
 
 ##### repack
 
@@ -8646,6 +8816,70 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [stop](cli-ref/managed-ytsaurus/cli-ref/v0/cluster/stop.md)
 
+### managed-zonalshift
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/index.md)
+
+#### config
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/config/index.md)
+
+ - [create](cli-ref/managed-zonalshift/cli-ref/config/create.md)
+
+ - [delete](cli-ref/managed-zonalshift/cli-ref/config/delete.md)
+
+ - [get](cli-ref/managed-zonalshift/cli-ref/config/get.md)
+
+ - [list](cli-ref/managed-zonalshift/cli-ref/config/list.md)
+
+ - [update](cli-ref/managed-zonalshift/cli-ref/config/update.md)
+
+#### drill-type
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/drill-type/index.md)
+
+ - [list](cli-ref/managed-zonalshift/cli-ref/drill-type/list.md)
+
+#### task
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/task/index.md)
+
+ - [cancel](cli-ref/managed-zonalshift/cli-ref/task/cancel.md)
+
+ - [list](cli-ref/managed-zonalshift/cli-ref/task/list.md)
+
+#### v0
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/v0/index.md)
+
+##### config
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/v0/config/index.md)
+
+ - [create](cli-ref/managed-zonalshift/cli-ref/v0/config/create.md)
+
+ - [delete](cli-ref/managed-zonalshift/cli-ref/v0/config/delete.md)
+
+ - [get](cli-ref/managed-zonalshift/cli-ref/v0/config/get.md)
+
+ - [list](cli-ref/managed-zonalshift/cli-ref/v0/config/list.md)
+
+ - [update](cli-ref/managed-zonalshift/cli-ref/v0/config/update.md)
+
+##### drill-type
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/v0/drill-type/index.md)
+
+ - [list](cli-ref/managed-zonalshift/cli-ref/v0/drill-type/list.md)
+
+##### task
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/v0/task/index.md)
+
+ - [cancel](cli-ref/managed-zonalshift/cli-ref/v0/task/cancel.md)
+
+ - [list](cli-ref/managed-zonalshift/cli-ref/v0/task/list.md)
+
 ### marketplace
 
  - [Overview](cli-ref/marketplace/cli-ref/index.md)
@@ -9033,6 +9267,30 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [list](cli-ref/organization-manager/cli-ref/idp/application/saml/signature-certificate/list.md)
 
  - [update](cli-ref/organization-manager/cli-ref/idp/application/saml/signature-certificate/update.md)
+
+##### synchronization-session
+
+ - [Overview](cli-ref/organization-manager/cli-ref/idp/synchronization-session/index.md)
+
+ - [get](cli-ref/organization-manager/cli-ref/idp/synchronization-session/get.md)
+
+ - [list](cli-ref/organization-manager/cli-ref/idp/synchronization-session/list.md)
+
+##### synchronization-settings
+
+ - [Overview](cli-ref/organization-manager/cli-ref/idp/synchronization-settings/index.md)
+
+ - [create](cli-ref/organization-manager/cli-ref/idp/synchronization-settings/create.md)
+
+ - [delete](cli-ref/organization-manager/cli-ref/idp/synchronization-settings/delete.md)
+
+ - [get](cli-ref/organization-manager/cli-ref/idp/synchronization-settings/get.md)
+
+ - [list-supported-attributes](cli-ref/organization-manager/cli-ref/idp/synchronization-settings/list-supported-attributes.md)
+
+ - [reset-replication-token](cli-ref/organization-manager/cli-ref/idp/synchronization-settings/reset-replication-token.md)
+
+ - [update](cli-ref/organization-manager/cli-ref/idp/synchronization-settings/update.md)
 
 ##### user
 
@@ -9427,6 +9685,30 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [list](cli-ref/organization-manager/cli-ref/v0/idp/application/saml/signature-certificate/list.md)
 
  - [update](cli-ref/organization-manager/cli-ref/v0/idp/application/saml/signature-certificate/update.md)
+
+###### synchronization-session
+
+ - [Overview](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-session/index.md)
+
+ - [get](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-session/get.md)
+
+ - [list](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-session/list.md)
+
+###### synchronization-settings
+
+ - [Overview](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/index.md)
+
+ - [create](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/create.md)
+
+ - [delete](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/delete.md)
+
+ - [get](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/get.md)
+
+ - [list-supported-attributes](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/list-supported-attributes.md)
+
+ - [reset-replication-token](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/reset-replication-token.md)
+
+ - [update](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/update.md)
 
 ###### user
 
@@ -10206,6 +10488,152 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [yds](cli-ref/serverless/cli-ref/trigger/update/yds.md)
 
+##### v1
+
+ - [Overview](cli-ref/serverless/cli-ref/trigger/v1/index.md)
+
+ - [add-labels](cli-ref/serverless/cli-ref/trigger/v1/add-labels.md)
+
+###### create
+
+ - [Overview](cli-ref/serverless/cli-ref/trigger/v1/create/index.md)
+
+ - [billing-budget](cli-ref/serverless/cli-ref/trigger/v1/create/billing-budget.md)
+
+ - [container-registry](cli-ref/serverless/cli-ref/trigger/v1/create/container-registry.md)
+
+ - [internet-of-things](cli-ref/serverless/cli-ref/trigger/v1/create/internet-of-things.md)
+
+ - [iot-broker](cli-ref/serverless/cli-ref/trigger/v1/create/iot-broker.md)
+
+ - [logging](cli-ref/serverless/cli-ref/trigger/v1/create/logging.md)
+
+ - [mail](cli-ref/serverless/cli-ref/trigger/v1/create/mail.md)
+
+ - [message-queue](cli-ref/serverless/cli-ref/trigger/v1/create/message-queue.md)
+
+ - [object-storage](cli-ref/serverless/cli-ref/trigger/v1/create/object-storage.md)
+
+ - [timer](cli-ref/serverless/cli-ref/trigger/v1/create/timer.md)
+
+ - [yds](cli-ref/serverless/cli-ref/trigger/v1/create/yds.md)
+
+ - [delete](cli-ref/serverless/cli-ref/trigger/v1/delete.md)
+
+ - [get](cli-ref/serverless/cli-ref/trigger/v1/get.md)
+
+ - [list](cli-ref/serverless/cli-ref/trigger/v1/list.md)
+
+ - [list-operations](cli-ref/serverless/cli-ref/trigger/v1/list-operations.md)
+
+ - [pause](cli-ref/serverless/cli-ref/trigger/v1/pause.md)
+
+ - [remove-labels](cli-ref/serverless/cli-ref/trigger/v1/remove-labels.md)
+
+ - [resume](cli-ref/serverless/cli-ref/trigger/v1/resume.md)
+
+###### update
+
+ - [Overview](cli-ref/serverless/cli-ref/trigger/v1/update/index.md)
+
+ - [billing-budget](cli-ref/serverless/cli-ref/trigger/v1/update/billing-budget.md)
+
+ - [container-registry](cli-ref/serverless/cli-ref/trigger/v1/update/container-registry.md)
+
+ - [internet-of-things](cli-ref/serverless/cli-ref/trigger/v1/update/internet-of-things.md)
+
+ - [iot-broker](cli-ref/serverless/cli-ref/trigger/v1/update/iot-broker.md)
+
+ - [logging](cli-ref/serverless/cli-ref/trigger/v1/update/logging.md)
+
+ - [mail](cli-ref/serverless/cli-ref/trigger/v1/update/mail.md)
+
+ - [message-queue](cli-ref/serverless/cli-ref/trigger/v1/update/message-queue.md)
+
+ - [object-storage](cli-ref/serverless/cli-ref/trigger/v1/update/object-storage.md)
+
+ - [timer](cli-ref/serverless/cli-ref/trigger/v1/update/timer.md)
+
+ - [yds](cli-ref/serverless/cli-ref/trigger/v1/update/yds.md)
+
+##### v2
+
+ - [Overview](cli-ref/serverless/cli-ref/trigger/v2/index.md)
+
+ - [add-labels](cli-ref/serverless/cli-ref/trigger/v2/add-labels.md)
+
+###### create
+
+ - [Overview](cli-ref/serverless/cli-ref/trigger/v2/create/index.md)
+
+ - [billing-budget](cli-ref/serverless/cli-ref/trigger/v2/create/billing-budget.md)
+
+ - [container-registry](cli-ref/serverless/cli-ref/trigger/v2/create/container-registry.md)
+
+ - [internet-of-things](cli-ref/serverless/cli-ref/trigger/v2/create/internet-of-things.md)
+
+ - [iot-broker](cli-ref/serverless/cli-ref/trigger/v2/create/iot-broker.md)
+
+ - [logging](cli-ref/serverless/cli-ref/trigger/v2/create/logging.md)
+
+ - [mail](cli-ref/serverless/cli-ref/trigger/v2/create/mail.md)
+
+ - [message-queue](cli-ref/serverless/cli-ref/trigger/v2/create/message-queue.md)
+
+ - [object-storage](cli-ref/serverless/cli-ref/trigger/v2/create/object-storage.md)
+
+ - [telegram](cli-ref/serverless/cli-ref/trigger/v2/create/telegram.md)
+
+ - [timer](cli-ref/serverless/cli-ref/trigger/v2/create/timer.md)
+
+ - [yds](cli-ref/serverless/cli-ref/trigger/v2/create/yds.md)
+
+ - [delete](cli-ref/serverless/cli-ref/trigger/v2/delete.md)
+
+ - [get](cli-ref/serverless/cli-ref/trigger/v2/get.md)
+
+ - [help-action](cli-ref/serverless/cli-ref/trigger/v2/help-action.md)
+
+ - [list](cli-ref/serverless/cli-ref/trigger/v2/list.md)
+
+ - [list-operations](cli-ref/serverless/cli-ref/trigger/v2/list-operations.md)
+
+ - [pause](cli-ref/serverless/cli-ref/trigger/v2/pause.md)
+
+ - [remove-labels](cli-ref/serverless/cli-ref/trigger/v2/remove-labels.md)
+
+ - [resume](cli-ref/serverless/cli-ref/trigger/v2/resume.md)
+
+###### update
+
+ - [Overview](cli-ref/serverless/cli-ref/trigger/v2/update/index.md)
+
+ - [add-actions](cli-ref/serverless/cli-ref/trigger/v2/update/add-actions.md)
+
+ - [billing-budget](cli-ref/serverless/cli-ref/trigger/v2/update/billing-budget.md)
+
+ - [container-registry](cli-ref/serverless/cli-ref/trigger/v2/update/container-registry.md)
+
+ - [internet-of-things](cli-ref/serverless/cli-ref/trigger/v2/update/internet-of-things.md)
+
+ - [iot-broker](cli-ref/serverless/cli-ref/trigger/v2/update/iot-broker.md)
+
+ - [logging](cli-ref/serverless/cli-ref/trigger/v2/update/logging.md)
+
+ - [mail](cli-ref/serverless/cli-ref/trigger/v2/update/mail.md)
+
+ - [message-queue](cli-ref/serverless/cli-ref/trigger/v2/update/message-queue.md)
+
+ - [object-storage](cli-ref/serverless/cli-ref/trigger/v2/update/object-storage.md)
+
+ - [replace-actions](cli-ref/serverless/cli-ref/trigger/v2/update/replace-actions.md)
+
+ - [telegram](cli-ref/serverless/cli-ref/trigger/v2/update/telegram.md)
+
+ - [timer](cli-ref/serverless/cli-ref/trigger/v2/update/timer.md)
+
+ - [yds](cli-ref/serverless/cli-ref/trigger/v2/update/yds.md)
+
 #### v0
 
  - [Overview](cli-ref/serverless/cli-ref/v0/index.md)
@@ -10610,6 +11038,152 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [yds](cli-ref/serverless/cli-ref/v0/trigger/update/yds.md)
 
+###### v1
+
+ - [Overview](cli-ref/serverless/cli-ref/v0/trigger/v1/index.md)
+
+ - [add-labels](cli-ref/serverless/cli-ref/v0/trigger/v1/add-labels.md)
+
+####### create
+
+ - [Overview](cli-ref/serverless/cli-ref/v0/trigger/v1/create/index.md)
+
+ - [billing-budget](cli-ref/serverless/cli-ref/v0/trigger/v1/create/billing-budget.md)
+
+ - [container-registry](cli-ref/serverless/cli-ref/v0/trigger/v1/create/container-registry.md)
+
+ - [internet-of-things](cli-ref/serverless/cli-ref/v0/trigger/v1/create/internet-of-things.md)
+
+ - [iot-broker](cli-ref/serverless/cli-ref/v0/trigger/v1/create/iot-broker.md)
+
+ - [logging](cli-ref/serverless/cli-ref/v0/trigger/v1/create/logging.md)
+
+ - [mail](cli-ref/serverless/cli-ref/v0/trigger/v1/create/mail.md)
+
+ - [message-queue](cli-ref/serverless/cli-ref/v0/trigger/v1/create/message-queue.md)
+
+ - [object-storage](cli-ref/serverless/cli-ref/v0/trigger/v1/create/object-storage.md)
+
+ - [timer](cli-ref/serverless/cli-ref/v0/trigger/v1/create/timer.md)
+
+ - [yds](cli-ref/serverless/cli-ref/v0/trigger/v1/create/yds.md)
+
+ - [delete](cli-ref/serverless/cli-ref/v0/trigger/v1/delete.md)
+
+ - [get](cli-ref/serverless/cli-ref/v0/trigger/v1/get.md)
+
+ - [list](cli-ref/serverless/cli-ref/v0/trigger/v1/list.md)
+
+ - [list-operations](cli-ref/serverless/cli-ref/v0/trigger/v1/list-operations.md)
+
+ - [pause](cli-ref/serverless/cli-ref/v0/trigger/v1/pause.md)
+
+ - [remove-labels](cli-ref/serverless/cli-ref/v0/trigger/v1/remove-labels.md)
+
+ - [resume](cli-ref/serverless/cli-ref/v0/trigger/v1/resume.md)
+
+####### update
+
+ - [Overview](cli-ref/serverless/cli-ref/v0/trigger/v1/update/index.md)
+
+ - [billing-budget](cli-ref/serverless/cli-ref/v0/trigger/v1/update/billing-budget.md)
+
+ - [container-registry](cli-ref/serverless/cli-ref/v0/trigger/v1/update/container-registry.md)
+
+ - [internet-of-things](cli-ref/serverless/cli-ref/v0/trigger/v1/update/internet-of-things.md)
+
+ - [iot-broker](cli-ref/serverless/cli-ref/v0/trigger/v1/update/iot-broker.md)
+
+ - [logging](cli-ref/serverless/cli-ref/v0/trigger/v1/update/logging.md)
+
+ - [mail](cli-ref/serverless/cli-ref/v0/trigger/v1/update/mail.md)
+
+ - [message-queue](cli-ref/serverless/cli-ref/v0/trigger/v1/update/message-queue.md)
+
+ - [object-storage](cli-ref/serverless/cli-ref/v0/trigger/v1/update/object-storage.md)
+
+ - [timer](cli-ref/serverless/cli-ref/v0/trigger/v1/update/timer.md)
+
+ - [yds](cli-ref/serverless/cli-ref/v0/trigger/v1/update/yds.md)
+
+###### v2
+
+ - [Overview](cli-ref/serverless/cli-ref/v0/trigger/v2/index.md)
+
+ - [add-labels](cli-ref/serverless/cli-ref/v0/trigger/v2/add-labels.md)
+
+####### create
+
+ - [Overview](cli-ref/serverless/cli-ref/v0/trigger/v2/create/index.md)
+
+ - [billing-budget](cli-ref/serverless/cli-ref/v0/trigger/v2/create/billing-budget.md)
+
+ - [container-registry](cli-ref/serverless/cli-ref/v0/trigger/v2/create/container-registry.md)
+
+ - [internet-of-things](cli-ref/serverless/cli-ref/v0/trigger/v2/create/internet-of-things.md)
+
+ - [iot-broker](cli-ref/serverless/cli-ref/v0/trigger/v2/create/iot-broker.md)
+
+ - [logging](cli-ref/serverless/cli-ref/v0/trigger/v2/create/logging.md)
+
+ - [mail](cli-ref/serverless/cli-ref/v0/trigger/v2/create/mail.md)
+
+ - [message-queue](cli-ref/serverless/cli-ref/v0/trigger/v2/create/message-queue.md)
+
+ - [object-storage](cli-ref/serverless/cli-ref/v0/trigger/v2/create/object-storage.md)
+
+ - [telegram](cli-ref/serverless/cli-ref/v0/trigger/v2/create/telegram.md)
+
+ - [timer](cli-ref/serverless/cli-ref/v0/trigger/v2/create/timer.md)
+
+ - [yds](cli-ref/serverless/cli-ref/v0/trigger/v2/create/yds.md)
+
+ - [delete](cli-ref/serverless/cli-ref/v0/trigger/v2/delete.md)
+
+ - [get](cli-ref/serverless/cli-ref/v0/trigger/v2/get.md)
+
+ - [help-action](cli-ref/serverless/cli-ref/v0/trigger/v2/help-action.md)
+
+ - [list](cli-ref/serverless/cli-ref/v0/trigger/v2/list.md)
+
+ - [list-operations](cli-ref/serverless/cli-ref/v0/trigger/v2/list-operations.md)
+
+ - [pause](cli-ref/serverless/cli-ref/v0/trigger/v2/pause.md)
+
+ - [remove-labels](cli-ref/serverless/cli-ref/v0/trigger/v2/remove-labels.md)
+
+ - [resume](cli-ref/serverless/cli-ref/v0/trigger/v2/resume.md)
+
+####### update
+
+ - [Overview](cli-ref/serverless/cli-ref/v0/trigger/v2/update/index.md)
+
+ - [add-actions](cli-ref/serverless/cli-ref/v0/trigger/v2/update/add-actions.md)
+
+ - [billing-budget](cli-ref/serverless/cli-ref/v0/trigger/v2/update/billing-budget.md)
+
+ - [container-registry](cli-ref/serverless/cli-ref/v0/trigger/v2/update/container-registry.md)
+
+ - [internet-of-things](cli-ref/serverless/cli-ref/v0/trigger/v2/update/internet-of-things.md)
+
+ - [iot-broker](cli-ref/serverless/cli-ref/v0/trigger/v2/update/iot-broker.md)
+
+ - [logging](cli-ref/serverless/cli-ref/v0/trigger/v2/update/logging.md)
+
+ - [mail](cli-ref/serverless/cli-ref/v0/trigger/v2/update/mail.md)
+
+ - [message-queue](cli-ref/serverless/cli-ref/v0/trigger/v2/update/message-queue.md)
+
+ - [object-storage](cli-ref/serverless/cli-ref/v0/trigger/v2/update/object-storage.md)
+
+ - [replace-actions](cli-ref/serverless/cli-ref/v0/trigger/v2/update/replace-actions.md)
+
+ - [telegram](cli-ref/serverless/cli-ref/v0/trigger/v2/update/telegram.md)
+
+ - [timer](cli-ref/serverless/cli-ref/v0/trigger/v2/update/timer.md)
+
+ - [yds](cli-ref/serverless/cli-ref/v0/trigger/v2/update/yds.md)
+
 ##### workflow
 
  - [Overview](cli-ref/serverless/cli-ref/v0/workflow/index.md)
@@ -10782,6 +11356,60 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/update.md)
 
+#### custom-page
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/custom-page/index.md)
+
+##### custom-page
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/list.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/update.md)
+
+#### load-balancer
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/load-balancer/index.md)
+
+##### domain
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/list.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/update.md)
+
+##### load-balancer
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/list.md)
+
+ - [start](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/start.md)
+
+ - [stop](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/stop.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/update.md)
+
 #### match-list
 
  - [Overview](cli-ref/smartwebsecurity/cli-ref/match-list/index.md)
@@ -10831,84 +11459,6 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [list](cli-ref/smartwebsecurity/cli-ref/v0/security-profile/list.md)
 
  - [update](cli-ref/smartwebsecurity/cli-ref/v0/security-profile/update.md)
-
-#### v1
-
- - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/index.md)
-
-##### advanced-rate-limiter
-
- - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/index.md)
-
-###### advanced-rate-limiter-profile
-
- - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/index.md)
-
- - [create](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/create.md)
-
- - [delete](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/delete.md)
-
- - [get](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/get.md)
-
- - [list](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/list.md)
-
- - [update](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/update.md)
-
-##### match-list
-
- - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/match-list/index.md)
-
-###### match-list
-
- - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/index.md)
-
- - [create](cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/create.md)
-
- - [delete](cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/delete.md)
-
- - [get](cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/get.md)
-
- - [list](cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/list.md)
-
- - [update](cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/update.md)
-
-##### security-profile
-
- - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/security-profile/index.md)
-
- - [create](cli-ref/smartwebsecurity/cli-ref/v1/security-profile/create.md)
-
- - [delete](cli-ref/smartwebsecurity/cli-ref/v1/security-profile/delete.md)
-
- - [get](cli-ref/smartwebsecurity/cli-ref/v1/security-profile/get.md)
-
- - [list](cli-ref/smartwebsecurity/cli-ref/v1/security-profile/list.md)
-
- - [update](cli-ref/smartwebsecurity/cli-ref/v1/security-profile/update.md)
-
-##### waf
-
- - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/waf/index.md)
-
-###### rule-set-descriptor
-
- - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/waf/rule-set-descriptor/index.md)
-
- - [get](cli-ref/smartwebsecurity/cli-ref/v1/waf/rule-set-descriptor/get.md)
-
-###### waf-profile
-
- - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/index.md)
-
- - [create](cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/create.md)
-
- - [delete](cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/delete.md)
-
- - [get](cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/get.md)
-
- - [list](cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/list.md)
-
- - [update](cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/update.md)
 
 #### waf
 

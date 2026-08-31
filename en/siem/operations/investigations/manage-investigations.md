@@ -26,7 +26,8 @@ To create an investigation:
   1. Navigate to the **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}** tab.
   1. Click **{{ ui-key.yacloud_org.security.siem.InvestigationsPage.create-investigation_iCPUP }}**.
   1. Enter a name for your investigation in the header field.
-  1. Under **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.fieldDescription_wiAxw }}**, add a description for your investigation.
+  1. Add an optional description of the investigation in the **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.fieldDescription_wiAxw }}** field.
+  1. Add optional labels to be able to group and search for investigations.
 
   {% note tip %}
 
@@ -68,6 +69,27 @@ To edit an investigation description:
 
 {% endlist %}
 
+### Label management {#manage-labels}
+
+Labels allow you to group investigations by category and simplify search.
+
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  To add a label:
+
+  1. Open an investigation.
+  1. Click the labels field under **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.information_cZr8L }}**.
+  1. Enter a name for the label.
+  1. Press **Enter**.
+
+  To delete a label:
+
+  1. Open an investigation.
+  1. Click ![xmark](../../../_assets/console-icons/xmark.svg) next to the label under **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.information_cZr8L }}**.
+
+{% endlist %}
 
 ## Copying an investigation {#copy}
 

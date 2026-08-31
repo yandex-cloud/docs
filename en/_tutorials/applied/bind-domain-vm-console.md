@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `webserver-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
@@ -103,18 +103,18 @@ Create a [security group](../../vpc/concepts/security-groups.md) that allows inb
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, enter this name: `webserver-sg`.
-  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `webserver-network`, which you created earlier.
+  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `webserver-network` you created earlier.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
 
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
-      | Inbound | `http`           | `80` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Inbound | `https`            | `443`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Inbound | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Ingress | `http`           | `80` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Ingress | `https`            | `443`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Ingress | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | Egress | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -206,7 +206,7 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
@@ -306,7 +306,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Specify your domain’s [DNS zone](../../dns/concepts/dns-zone.md) settings:
 
@@ -365,7 +365,7 @@ In your DNS zone, create a [type A resource record](../../dns/concepts/resource-
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the DNS zone you created earlier.
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Specify the record settings:
@@ -391,7 +391,7 @@ In your DNS zone, create a [type A resource record](../../dns/concepts/resource-
 
   * `--name`: Name of the public DNS zone you created earler.
   * `--record`: Settings for the new resource record:
-      * `<domain_name>`: Domain name that must end with a trailing dot, e.g., `example.com.` for the `example.com` domain.
+      * `<domain_name>`: Domain name that must end with a trailing dot. For example, for the `example.com.` domain, the correct value is `example.com.`.
       * `<VM_IP_address>`: Web server’s [public IP address](../../vpc/concepts/address.md#public-addresses).
 
           You can get your VM IP address either in the [management console]({{ link-console-main }}) on the VM page under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** or with the `yc compute instance get <VM_name>` CLI command.

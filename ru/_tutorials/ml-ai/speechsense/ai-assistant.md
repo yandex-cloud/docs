@@ -5,7 +5,7 @@
 Чтобы получить нужную информацию из чата с помощью AI-ассистента:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Подготовьте инфрастуктуру](#infrastructure-prepare).
+1. [Подготовьте инфраструктуру](#infrastructure-prepare).
 1. [Создайте AI-ассистента](#create-assistant).
 1. [Загрузите данные в проект](#load-data).
 1. [Проверьте результат работы AI-ассистента в интерфейсе {{ speechsense-name }}](#result-console).
@@ -23,7 +23,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Сервис {{ speechsense-name }}: количество символов в каждом текстовом диалоге и анализ диалогов с помощью AI-ассистента ([тарифы {{ speechsense-name }}]({{ link-docs-ai }}/speechsense/pricing)).
+* Сервис {{ speechsense-name }}: количество символов в каждом текстовом диалоге и анализ диалогов с помощью AI-ассистента ([тарифы {{ speechsense-name }}]({{ link-docs-ai }}speechsense/pricing)).
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
 
@@ -34,7 +34,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), например `speechsense`.
     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -48,7 +48,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Выберите сервисный аккаунт `speechsense`.
   1. На панели сверху нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
@@ -71,9 +71,9 @@
 - Интерфейс {{ speechsense-name }} {#speechsense}
 
     1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
-    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
+    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.spaces.create-space_FvLT9 }}**.
     1. Введите название [пространства]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space).
-    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
+    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create_JTJlL }}**.
     1. [Привяжите платежный аккаунт]({{ link-docs-ai }}speechsense/operations/space/link-ba) к пространству для оплаты {{ speechsense-name }}.
 
 {% endlist %}
@@ -90,11 +90,11 @@
 
     1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
     1. Перейдите в нужное пространство.
-    1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}**.
-    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}** → **{{ ui-key.yc-ui-talkanalytics.connections.template.default.name }}**.
+    1. Откройте вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections_q5X2U }}**.
+    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}** → **{{ ui-key.yc-ui-talkanalytics.connections.template_0duY8 }}**.
     1. Укажите название подключения, например `chats-default-metadata`.
-    1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}**.
-    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+    1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type_NWiH4 }}**.
+    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
     1. На открывшейся странице нажмите в левом верхнем углу кнопку **ID**, чтобы скопировать идентификатор созданного подключения. Сохраните этот идентификатор, он понадобится далее для [загрузки данных в проект](#load-data).
 
 {% endlist %}
@@ -107,10 +107,10 @@
 
     1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
     1. Перейдите в нужное пространство.
-    1. Нажмите кнопку ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+    1. Нажмите кнопку ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project_buUAo }}**.
     1. Введите имя проекта, например `chats-travel-agency`.
-    1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.connection }}** нажмите **{{ ui-key.yc-ui-talkanalytics.projects.add-connection }}** и выберите подключение `chats-default-metadata`.
-    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+    1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.connection_SezJG }}** нажмите **{{ ui-key.yc-ui-talkanalytics.projects.add-connection_bxENx }}** и выберите подключение `chats-default-metadata`.
+    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.projects.create-project_buUAo }}**.
     1. На открывшейся странице нажмите в левом верхнем углу кнопку **ID**, чтобы скопировать идентификатор созданного проекта. Сохраните этот идентификатор, он понадобится далее для [работы с API](#result-api).
 
 {% endlist %}
@@ -123,12 +123,12 @@
 
     1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
     1. Перейдите в нужное пространство, затем выберите проект `chats-travel-agency`.
-    1. Выберите вкладку **{{ ui-key.yc-ui-talkanalytics.assistants.assistants }}**.
+    1. Выберите вкладку **{{ ui-key.yc-ui-talkanalytics.assistants.assistants_vsZCd }}**.
     1. Нажмите кнопку **Создать ассистента**.
     1. Задайте параметры ассистента:
 
         1. Введите название `Тематика диалога`.
-        1. В блоке **{{ ui-key.yc-ui-talkanalytics.assistants.prompt }}** введите промпт:
+        1. В блоке **{{ ui-key.yc-ui-talkanalytics.assistants.prompt_4hIv3 }}** введите промпт:
 
             ```text
             Ты оцениваешь диалог оператора и клиента контактного центра. Будь крайне внимателен при ответе.
@@ -144,7 +144,7 @@
             * Тип поля — `Строка`.
             * Описание — `Наиболее подходящая тематика.`
 
-    1. Включите блок **{{ ui-key.yc-ui-talkanalytics.assistants.applying }}**, чтобы активировать ассистента.
+    1. Включите блок **{{ ui-key.yc-ui-talkanalytics.assistants.applying_T3ZVB }}**, чтобы активировать ассистента.
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -156,7 +156,7 @@
 
 1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
 1. {% include [install-grpcio-tools](../../../_includes/speechsense/data/install-grpcio-tools.md) %}
-1. Перейдите в папку с репозиторием API {{ yandex-cloud }}, создайте папку `upload_data`, сгенерируйте в ней код интерфейса клиента и перейдите в папку `upload_data`:
+1. В папке с репозиторием API {{ yandex-cloud }} создайте папку `upload_data`, сгенерируйте в ней код интерфейса клиента и перейдите в эту папку:
 
     ```bash
     cd ~/cloudapi/ && \
@@ -321,7 +321,7 @@
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство, затем выберите проект `chats-travel-agency`.
-1. На вкладке **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** включите опцию **{{ ui-key.yc-ui-talkanalytics.assistants.assistants }}**.
+1. На вкладке **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs_ouB03 }}** включите опцию **{{ ui-key.yc-ui-talkanalytics.assistants.assistants_vsZCd }}**.
 
 Под строкой диалога отобразится строка с указанием тематики `Экскурсии`. Эту тематику AI-ассистент определил как наиболее подходящую диалогу.
 

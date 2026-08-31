@@ -198,7 +198,10 @@ Currently you can use filtering only on the [Instance.name](#yandex.cloud.comput
         "legacy_features": {
           "pci_topology": "PCITopology"
         },
-        "generation2_features": "Generation2HardwareFeatures"
+        "generation2_features": {
+          "secure_boot_template_id": "string",
+          "vtpm_enabled": "bool"
+        }
         // end of the list of possible fields
       },
       "application": {
@@ -669,8 +672,12 @@ These features significantly determine how the instance is created, thus cannot 
 ||Field | Description ||
 || legacy_features | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
 
+A first hardware generation, by default compatible with all legacy images.
+
 Includes only one of the fields `legacy_features`, `generation2_features`. ||
 || generation2_features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
+
+A second hardware generation, which by default assumes PCI_TOPOLOGY_V2 and UEFI boot.
 
 Includes only one of the fields `legacy_features`, `generation2_features`. ||
 |#
@@ -684,8 +691,10 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pci_topology | enum **PCITopology**
 
-- `PCI_TOPOLOGY_V1`
-- `PCI_TOPOLOGY_V2` ||
+PCI topology of the instance.
+
+- `PCI_TOPOLOGY_V1`: Legacy PCI topology.
+- `PCI_TOPOLOGY_V2`: Modern PCI topology. ||
 |#
 
 ## Generation2HardwareFeatures {#yandex.cloud.compute.v1.Generation2HardwareFeatures}
@@ -695,7 +704,13 @@ and UEFI boot (with UEFI related features).
 
 #|
 ||Field | Description ||
-|| Empty | > ||
+|| secure_boot_template_id | **string**
+
+ID of the secure boot template containing the UEFI key databases used to verify boot components.
+If empty, secure boot is disabled. ||
+|| vtpm_enabled | **bool**
+
+Whether the virtual Trusted Platform Module (vTPM) is enabled for the instance. ||
 |#
 
 ## Application {#yandex.cloud.compute.v1.Application}

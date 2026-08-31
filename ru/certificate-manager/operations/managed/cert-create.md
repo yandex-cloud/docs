@@ -1,3 +1,8 @@
+---
+title: Как добавить сертификат от Let's Encrypt® в {{ certificate-manager-full-name }}
+description: Следуя этой инструкции, вы сможете добавить сертификат от Let's Encrypt® и посмотреть статус его выпуска.
+---
+
 # Добавить сертификат от Let's Encrypt®
 
 [Сертификат](../../concepts/managed-certificate.md) из {{ certificate-manager-name }} можно использовать только в [указанных сервисах](../../concepts/services.md) {{ yandex-cloud }}.
@@ -44,7 +49,7 @@
      Где:
      
      * `--name` — имя сертификата.
-     * `--domains` — домены сертификатов.
+     * `--domains` — домены, для которых нужно выпустить сертификат.
 
      Результат:
 
@@ -70,7 +75,7 @@
        domains = ["<домен>"]
 
        managed {
-       challenge_type = "<тип_проверки>"
+         challenge_type = "<тип_проверки>"
        }
      }
      ```

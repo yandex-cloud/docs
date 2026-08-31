@@ -1,5 +1,6 @@
 # Создать OIDC-приложение в {{ org-full-name }} для интеграции с Cloud.ru
 
+
 [Cloud.ru](https://cloud.ru/) — российский провайдер облачных услуг, предоставляющий IaaS- и PaaS-сервисы, инструменты для AI/ML-разработки, а также решения для публичных, частных и гибридных облаков с поддержкой миграции и эксплуатации ИТ-инфраструктуры. Cloud.ru поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
 Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Cloud.ru с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications/oidc.md) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Cloud.ru.

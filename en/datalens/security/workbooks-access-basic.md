@@ -20,7 +20,7 @@ The workbook or collection author automatically gets the `Admin` role for the wo
 
 To view permissions assigned for a workbook or collection:
 
-1. In the left-hand panel, click ![image](../../_assets/console-icons/plus.svg) **Collections and workbooks**.
+1. In the left-hand panel, click ![image](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. Select from the list and open the workbook or collection you want to view access permissions for.
 1. In the top panel, click ![image](../../_assets/console-icons/lock-open.svg) **Access**. If you do not see this icon, it means you do not have enough permissions to view the object's access permissions.
 
@@ -151,7 +151,7 @@ To configure access:
 
 To edit access:
 
-1. In the left-hand panel, click ![image](../../_assets/console-icons/plus.svg) **Collections and workbooks**.
+1. In the left-hand panel, click ![image](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. Select from the list and open the workbook or collection you want to edit access for.
 1. In the top panel, click ![image](../../_assets/console-icons/lock-open.svg) **Access**.
 1. Select the user you want to edit access for. Click ![](../../_assets/console-icons/gear.svg) in the list next to it.
@@ -162,7 +162,7 @@ To edit access:
 
 To delete access:
 
-1. In the left-hand panel, click ![image](../../_assets/console-icons/plus.svg) **Collections and workbooks**.
+1. In the left-hand panel, click ![image](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. Select from the list and open the workbook or collection you want to edit access for.
 1. In the top panel, click ![image](../../_assets/console-icons/lock-open.svg) **Access**.
 1. Select the user you want to delete access for. Click ![](../../_assets/console-icons/gear.svg) in the list next to it.

@@ -18,7 +18,9 @@
 
 1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+   
+   Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
 1. Убедитесь, что кластер Managed Service for Kubernetes расположен в том же [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), что и [публичная зона Cloud DNS](../../../dns/concepts/dns-zone.md#public-zones).
 
@@ -51,7 +53,8 @@
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-1. Нажмите на имя нужного кластера Managed Service for Kubernetes и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
+1. Выберите [кластер Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster).
+1. Нажмите на вкладку **Другое** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [cert-manager c плагином Yandex Cloud DNS ACME webhook](https://yandex.cloud/ru/marketplace/products/yc/cert-manager-webhook-yandex) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `cert-manager-dns-space`). Если вы оставите пространство имен по умолчанию, cert-manager с плагином Yandex Cloud DNS может работать некорректно.

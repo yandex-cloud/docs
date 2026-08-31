@@ -1,7 +1,6 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > [Пошаговые инструкции](../../index.md) > [Настройка эндпоинтов](../index.md) > Apache Iceberg® > Приемник
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > [Пошаговые инструкции](../../index.md) > [Настройка эндпоинтов](../index.md) > Apache Iceberg™ > Приемник
 
 # Передача данных в эндпоинт-приемник Apache Iceberg™
-
 
 С помощью сервиса Yandex Data Transfer вы можете переносить данные в таблицы Apache Iceberg™ в кластере Apache Hive™ Metastore и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
 
@@ -49,6 +48,12 @@
 
 {% endnote %}
 
+
+{% note info %}
+
+Чтобы настроить эндпоинт-приемник Apache Iceberg™ используйте кластер Apache Hive™ Metastore версии 4.2.0 или выше. Версии ниже 4.2.0 не поддерживают REST-протокол для работы с таблицами Apache Iceberg™. Подробнее о протоколах подключения читайте в разделе [Кластеры Apache Hive™ Metastore](../../../../metadata-hub/concepts/metastore.md#connection-protocols).
+
+{% endnote %}
 
 Подключение с указанием кластера в Yandex Cloud.
 

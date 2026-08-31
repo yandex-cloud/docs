@@ -1,5 +1,6 @@
 # Поставка данных из очереди {{ yds-name }} в {{ ydb-name }} с помощью {{ data-transfer-name }}
 
+
 С помощью сервиса {{ data-transfer-name }} можно поставлять данные из потока {{ yds-name }} в базу данных {{ ydb-name }}.
 
 Чтобы перенести данные:
@@ -216,7 +217,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором база данных.
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. [Перейдите]({{ link-console-main }}/link/ydb) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Выберите базу из списка.
         1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
         1. Проверьте, что в таблицу `<название_потока>` добавились тестовые данные.

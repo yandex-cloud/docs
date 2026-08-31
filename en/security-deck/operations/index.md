@@ -11,6 +11,7 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 * [{#T}](./workspaces/view-dashboard.md)
 * [{#T}](./workspaces/update.md)
 * [{#T}](./workspaces/manage-access.md)
+* [{#T}](./workspaces/deactivate-activate.md)
 * [{#T}](./workspaces/delete.md)
 
 ## Alerts {#alerts}
@@ -30,7 +31,9 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 * [{#T}](kspm/enable-kspm.md)
 * [{#T}](kspm/use-kspm.md)
 * [{#T}](kspm/view-rules.md)
+* [{#T}](kspm/check-compliance.md)
 * [{#T}](kspm/manage-exceptions.md)
+* [{#T}](kspm/manage-rule-modes.md)
 
 ## {{ cspm-full-name }} ({{ cspm-name }}) {#cspm}
 
