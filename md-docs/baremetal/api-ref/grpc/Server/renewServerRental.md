@@ -4,9 +4,7 @@
 
 Enable prolongation after rental period end
 
-https://google.aip.dev/130 --)
 
-Required for backward compatibility with old clients. --)
 
 ## gRPC request
 

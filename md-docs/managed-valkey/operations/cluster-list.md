@@ -204,7 +204,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **Кластеры**.
-  1. Выберите нужный кластер и перейдите на вкладку ![image](../../_assets/console-icons/list-check.svg) **Операции**.
+  1. Выберите нужный кластер и перейдите на вкладку **Операции**.
 
      В открывшемся списке отображаются операции с выбранным кластером.
 

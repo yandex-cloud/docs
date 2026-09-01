@@ -9,4 +9,5 @@ description: This section contains guides for organization users on how to manag
 
 * [{#T}](first-login.md)
 * [{#T}](../manage-account.md)
+* [{#T}](reset-password.md)
 * [{#T}](troubleshooting.md)

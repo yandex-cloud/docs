@@ -107,7 +107,7 @@ keywords:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором [создан](#cluster-create) кластер {{ SPQR }}.
 1. [Создайте кластер](../managed-postgresql/operations/cluster-create.md#create-cluster) {{ mpg-name }} в той же облачной сети, что и кластер {{ SPQR }}.
-1. Откройте ваш кластер {{ SPQR }} и перейдите на вкладку ![image](../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**.
+1. Откройте ваш кластер {{ SPQR }} и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**.
 1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
 1. В открывшемся окне:
 

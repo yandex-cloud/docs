@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-        1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) with your preferred configuration. For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
+        1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration. For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
 
         1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
@@ -39,8 +39,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * Database name: `db1`.
             * Username: `mmy-user`.
-            * In the same availability zone as the source cluster.
-            * To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster hosts.
+            * In the same [availability zone](../../overview/concepts/geo-scope.md) as the source cluster.
+            * To connect to the cluster from your local machine, enable public access to its hosts. Connections from within the {{ yandex-cloud }} network are enabled by default.
 
         
         1. To connect to the cluster from the user's local machine, configure security groups:
@@ -79,7 +79,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `target_user_password`: `mmy-user` password in the target cluster.
             * `transfer_enabled`: `0` value.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
@@ -256,7 +256,7 @@ On your local machine, create a `sample.json` file with the following test data:
 
     1. In the `data-transfer-mkf-mmy.tf` file, set the `transfer_enabled` variable to `1` to create your endpoints and transfer.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate

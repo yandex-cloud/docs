@@ -1,5 +1,7 @@
 # Перенос данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
 
+
+
 Чтобы перенести базу данных из {{ MY }} в {{ mmy-name }}:
 
 1. [Запустите перенос данных](#start-transfer).
@@ -137,4 +139,3 @@
 
 
 Реальный пример миграции базы данных {{ MY }} с помощью сервиса {{ data-transfer-name }} приведен в разделе [Синхронизация данных из MySQL с помощью {{ data-transfer-full-name }}](../../../tutorials/dataplatform/sync-mysql.md).
-

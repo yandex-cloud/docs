@@ -168,7 +168,7 @@ You can get detailed information about each {{ mkf-name }} cluster you created.
 
 ## Viewing operations with clusters {#list-operations}
 
-All actions with {{ mkf-name }} clusters are logged as a list of operations. Each operation gets an ID.
+All actions with {{ mkf-name }} clusters are logged as a list of operations. Each operation gets a unique ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -181,7 +181,7 @@ All actions with {{ mkf-name }} clusters are logged as a list of operations. Eac
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
-  1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
+  1. Select the cluster and open the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
      This will open the list of operations with the cluster.
 

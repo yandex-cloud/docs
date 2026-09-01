@@ -1,5 +1,6 @@
 # Creating an OIDC application in {{ org-full-name }} for integration with Harbor
 
+
 [Harbor](https://goharbor.io/) is an open-source registry of container development artifacts: container images, Helm charts, and other data types. Harbor supports authentication via [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC), allowing you to use an external identity provider for user single sign-on.
 
 For the users of your [organization](../../../organization/concepts/organization.md) to sign in to Harbor using OpenID Connect, create an [OIDC application](../../../organization/concepts/applications/oidc.md) in {{ org-full-name }} and set up the integration both in {{ org-full-name }} and Harbor.

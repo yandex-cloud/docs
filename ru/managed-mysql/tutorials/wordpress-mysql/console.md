@@ -7,10 +7,11 @@ noIndex: true
 
 # Создание сайта на WordPress с кластером базы данных {{ MY }} с помощью консоли управления
 
+
 Чтобы создать инфраструктуру для [сайта на WordPress с кластером базы данных {{ MY }}](index.md) с помощью консоли управления {{ yandex-cloud }}:
 
 {% include [wordpress-mysql-console](../../../_tutorials/applied/wordpress-mysql-console.md) %}
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](terraform.md)
+[{#T}](terraform.md)

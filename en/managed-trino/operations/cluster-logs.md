@@ -12,7 +12,7 @@
 
     1. In the [management console]({{ link-console-main }}), select a folder.
     1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-    1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.common.logs }}** tab.
     1. Specify the logging **Level** and time period for which you want to display the log.
 
 - CLI {#cli}
@@ -23,7 +23,7 @@
 
     1. {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. To view records in the log group, run this command:
+    1. To view the log group entries, run this command:
 
         ```
         yc logging read --group-name <log_group_name> --follow

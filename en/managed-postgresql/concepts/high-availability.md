@@ -27,11 +27,23 @@ For more information, see [Planning cluster topology](planning-cluster-topology.
 
 ## Replication settings {#replication-settings}
 
-High availability is achieved through [replication and master failover](replication.md), which work as follows:
+High cluster availability is achieved through [replication and master failover](replication.md) mechanisms, which have the following features:
 
 * Clusters uses streaming replication. Each replica host receives a replication stream from another host, typically the master. {{ mpg-name }} manages replication streams in the cluster [automatically](replication.md#replication-auto), but you can [manage them manually](../operations/hosts.md#update) if you need to. When you set the replication source manually, the replicas will [have a number of limitations](replication.md#replication-manual).
+* If you have configured public access for the host, you must also enable it for the replicas, otherwise the cluster may become unavailable after a master failover.
 * The cluster uses automatic master selection and failover in case the current master fails.
-* If you use public access for the host, you must also enable it for the replicas, otherwise the cluster will become unavailable following master failover.
+
+Replication management and automatic failover ensure the highest possible write availability for clusters with any number of hosts.  
+
+In a cluster of three or more hosts:
+   * If the master fails, the system automatically switches to a new master.
+   * Loss of a replica does not affect cluster availability.
+
+In a two-host cluster:
+   * If the master fails, the system automatically fails over to a synchronous replica with zero data loss.
+   * If a replica fails, the cluster automatically switches to asynchronous replication mode within 15 seconds. During this period, transactions may pause while awaiting confirmation but resume and complete successfully once the cluster switches to asynchronous mode. While recovering from the failure, the replica fully synchronizes with the master, and the cluster resumes operation in synchronous replication mode.
+
+To minimize the risk of a cluster being unavailable for writes, we recommend deploying {{ mpg-name }} clusters with three or more hosts.
 
 {% note warning %}
 
@@ -41,9 +53,11 @@ Using a [special FQDN](../operations/connect/fqdn.md#special-fqdns) simplifies a
 
 ## Maintenance settings {#maintenance-settings}
 
-During [maintenance](maintenance.md), a cluster with two or more hosts may not be available for writes until the master automatically fails over. A single host cluster is completely unavailable during maintenance. Therefore, we recommend selecting the [maintenance day and time](maintenance.md#maintenance-window) based on expected cluster load.
+In some cases, [maintenance](maintenance.md) is impossible without connection loss. Therefore, any application that accesses the database must be resilient to connection drops.
 
-When updating a [{{ PG }} version](../operations/cluster-version-update.md), a cluster with three or more hosts is unavailable for writes but has at least one readable replica. A cluster with one or two hosts is completely unavailable during {{ PG }} version updates. Consider the expected load on your cluster when planning updates.
+During maintenance, a cluster with two or more hosts may be unavailable for writes while switching masters. The host being restarted becomes unreadable. Single-host clusters are completely unavailable during restarts. We recommend selecting [maintenance day and hour](maintenance.md#maintenance-window) based on estimated cluster load.
+
+[{{ PG }} version upgrades](../operations/cluster-version-update.md) make a cluster unavailable for writes. Replicas become unreadable one by one, i.e., at least one replica remains readable in a three-host cluster, two in a four-host cluster, etc. Single-host and two-host clusters become completely unavailable during {{ PG }} version upgrades. Take this into account when planning to upgrade your cluster version.
 
 ## Other settings {#other-settings}
 

@@ -315,8 +315,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             While the script runs, you may see data insertion error messages. This is normal behavior for the `redis-cli` command, as each shard in a sharded cluster stores only a portion of the data. For more information, see [{#T}](../../managed-valkey/concepts/sharding.md).
 
-        {% endcut %}
-
     {% endlist %}
 
 1. Terminate the interactive `screen` session:

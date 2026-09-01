@@ -133,7 +133,6 @@ apiPlayground:
 
 Updates the specified boot image.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 

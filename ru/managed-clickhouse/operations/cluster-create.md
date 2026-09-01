@@ -47,6 +47,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Создать кластер с {{ CK }} {#create-cluster}
 
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

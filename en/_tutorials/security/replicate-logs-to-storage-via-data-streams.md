@@ -1,5 +1,6 @@
 # Replicating logs to {{ objstorage-full-name }} using {{ yds-full-name }}
 
+
 With [{{ yds-full-name }}](../../data-streams/), you can set up automatic replication of service and user application logs to [{{ objstorage-full-name }}](../../storage/).
 
 The solution works as follows:

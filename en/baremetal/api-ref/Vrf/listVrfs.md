@@ -64,7 +64,6 @@ apiPlayground:
 
 Retrieves the list of VRF resources in the specified folder.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 

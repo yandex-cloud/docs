@@ -2813,11 +2813,14 @@ default:
           oauth_idp_section_title: Identity provider (IdP) configuration
           oauth_security_section_title: OAuth/OIDC security
           oauth_service_section_title: Service provider (SP) configuration
+          saml_field_encrypt_response_data_algo: Data encryption algorithm
+          saml_field_encrypt_response_key_algo: Key encryption algorithm
           saml_field_issuer: Issuer / IdP EntityID
           saml_field_login: Login URL
           saml_field_logout: Logout URL
           saml_field_metadata: Metadata URL
           saml_field_request_signing_enabled: Only accept signed requests
+          saml_field_security_mode: Signature mode
           saml_field_sp_entity: SP EntityID
           secret_section_add_new_secret_action: Add secret
           secret_section_title: App secrets
@@ -2892,6 +2895,7 @@ default:
           column_id: Identifier
         confirm: Confirm
         create: Create
+        delete: Delete
         more: More
         operations: Operations
         overview: Overview
@@ -3032,6 +3036,8 @@ default:
           create:
             action:
               create: Create federation
+          note:
+            tab-domains: Domains
         group-mapping:
           create:
             add: Add group
@@ -3188,6 +3194,8 @@ default:
           SamlAppAcsUrlsField:
             add-acs-url_eMunC: Add URL
           SamlAppEditForm:
+            encrypt-key-algo-sha1: RSA-OAEP-SHA1
+            encrypt-key-algo-sha256: RSA-OAEP-SHA256 (recommended)
             EncryptResponseSection:
               add-cert-action: Add certificate
               field-encode-data-algo: Data encryption algorithm
@@ -3201,7 +3209,9 @@ default:
             field-sp-entity-id_snAsX: 'SP EntityID '
             field-sp-logout-url_sLuRl: SP Logout URL
             RequestSigningSection:
+              add-cert-action: Add certificate
               field-request-signing: Only accept signed requests
+            section-service-provider_83p1J: Service provider (SP) configuration
             signature-mode-assertions_thJgN: Assertions
             signature-mode-response_x7SKD: Response
             signature-mode-response-and-assertions_u2j6T: Assertions and Response
@@ -3246,6 +3256,9 @@ default:
             backgroundName: Background image
             faviconName: Favicon
             logoName: Logo
+        federations:
+          action:
+            add_domain: Add domain
         idp:
           PasswordDialog:
             action_save-password_gaB2s: Save password
@@ -3262,9 +3275,16 @@ default:
             action-deactivate: Deactivate
           AuthPolicyForm:
             section_title_scope_b9vbe: Conditions
+          i18n:
+            ts:
+              sspr_two-any_16pJs: Sequential entry of any two authenticators
           mfa-overview-action-activate: Activate
           mfa-overview-action-suspend: Suspend
           mfa-policies-create-policy-action: Create policy
+          MfaPolicyForm:
+            caption_sspr_enabled_dXFne: Allow password reset
+            caption_sspr_methods_7Xw6F: Reset method
+            sspr-section_4HP7w: Self-reset password
           MfaPolicyPageLayout:
             policies_title: MFA policies
             tab_exclusions: Exclusions

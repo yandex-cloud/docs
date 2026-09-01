@@ -1,5 +1,6 @@
 # Creating an OIDC application in {{ org-full-name }} for integration with Jenkins
 
+
 [Jenkins](https://www.jenkins.io/) is an open-source Java-based software system designed to support continuous software integration.
 
 For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Jenkins via OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications/oidc.md) and configure it both in {{ org-full-name }} and Jenkins.
@@ -25,7 +26,7 @@ To give access to Jenkins to the users of your organization:
 - {{ cloud-center }} UI {#cloud-center}
 
    1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
+   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
    1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
       1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}** single sign-on method.
       1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
@@ -61,7 +62,7 @@ After installing the plugin, a new **Security Realm** option, `Login with Openid
 
 ### Configure your OIDC application in {{ org-full-name }} {#setup-idp}
 
-#### Configure the redirect URI {#setup-redirect}
+#### Configure a redirect URI {#setup-redirect}
 
 {% list tabs group=instructions %}
 
@@ -96,7 +97,7 @@ For your organization's users to be able to authenticate in Jenkins with {{ org-
 
 {% note info %}
 
-Users and groups added to an OIDC application can be managed by a user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
+Users and groups added to an OIDC application can be managed by any user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
 
 {% endnote %}
 

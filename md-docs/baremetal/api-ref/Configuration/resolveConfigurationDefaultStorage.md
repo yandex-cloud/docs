@@ -4,11 +4,7 @@
 
 Returns the default storage for the specified configuration.
 
-https://google.aip.dev/130 --)
 
-https://google.aip.dev/130 --)
-
-https://google.aip.dev/130 --)
 
 ## HTTP request
 

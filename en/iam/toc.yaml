@@ -21,6 +21,8 @@ items:
         href: ../organization/operations/manage-groups.md
       - name: Service accounts
         items:
+          - name: Overview
+            href: operations/sa/index.md
           - name: Creating a service account
             href: operations/sa/create.md
           - name: Viewing the folder's service accounts
@@ -37,10 +39,14 @@ items:
             href: operations/sa/get-id.md
           - name: Getting an ID token for a service account
             href: operations/sa/get-id-token.md
+          - name: Suspending and reactivating a service account
+            href: operations/sa/suspend-reactivate.md
           - name: Deleting a service account
             href: operations/sa/delete.md
       - name: Access policies
         items:
+          - name: Overview
+            href: operations/access-policies/index.md
           - name: Getting a list of supported policy templates
             href: operations/access-policies/list.md
           - name: Creating a policy for a resource
@@ -51,7 +57,9 @@ items:
             href: operations/access-policies/revoke.md
       - name: Roles
         items:
-          - name: Assigning roles
+          - name: Overview
+            href: operations/roles/index.md
+          - name: Assigning a role
             href: operations/roles/grant.md
           - name: Viewing assigned roles
             href: operations/roles/get-assigned-roles.md
@@ -59,8 +67,12 @@ items:
             href: operations/roles/revoke.md
       - name: Authentication
         items:
+          - name: Overview
+            href: operations/authentication/index.md
           - name: IAM tokens
             items:
+              - name: Overview
+                href: operations/iam-token/index.md
               - name: Getting an IAM token for a Yandex account
                 href: operations/iam-token/create.md
               - name: Getting an IAM token for a service account
@@ -71,12 +83,14 @@ items:
                 href: operations/iam-token/create-for-local.md
               - name: Revoking an IAM token
                 href: operations/iam-token/revoke-iam-token.md
-              - name: Refresh tokens
-                items:
-                  - name: Getting a list of refresh tokens
-                    href: operations/refresh-token/list.md
-                  - name: Revoking a refresh token
-                    href: operations/refresh-token/revoke.md
+          - name: Refresh tokens
+            items:
+              - name: Overview
+                href: operations/refresh-token/index.md
+              - name: Getting a list of refresh tokens
+                href: operations/refresh-token/list.md
+              - name: Revoking a refresh token
+                href: operations/refresh-token/revoke.md
           - name: Managing static access keys
             href: operations/authentication/manage-access-keys.md
           - name: Managing API keys
@@ -90,6 +104,8 @@ items:
       - name: Service access to user resources
         stage: preview
         items:
+          - name: Overview
+            href: operations/service-control/index.md
           - name: Viewing the status of services
             href: operations/service-control/list-get.md
           - name: Enabling and disabling services
@@ -97,6 +113,8 @@ items:
       - name: Workload identity federations
         stage: preview
         items:
+          - name: Overview
+            href: operations/wlif/index.md
           - name: Setting up workload identity federations
             href: operations/wlif/setup-wlif.md
   - name: Tutorials

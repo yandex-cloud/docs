@@ -3,7 +3,7 @@
 
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
-В данном руководстве вы создадите [рабочие процессы]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) {{ sw-full-name }} и настроите их интеграцию с [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index) и [{{ postbox-full-name }}]({{ link-docs }}/postbox/index.yaml).
+В данном руководстве вы создадите [рабочие процессы]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) {{ sw-full-name }} и настроите их интеграцию с [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index) и [{{ postbox-full-name }}]({{ link-docs }}/postbox/index).
 
 Созданные рабочие процессы будут получать информацию о задачах в указанной [очереди]({{ link-tracker-cloudless }}about-tracker#ochered) {{ tracker-name }}, с помощью модели {{ gpt-pro }} анализировать проделанную в этих задачах работу, статусы задач и выставленные оценки. Результаты анализа и краткий отчет о проделанной работе будут сохраняться в комментарии к одной из задач в {{ tracker-name }}, а также дублироваться письмом на заданный адрес электронной почты с помощью сервиса {{ postbox-name }}.
 

@@ -81,7 +81,7 @@ View metadata about a folder or cloud | `get`, `list` | `resource-manager.audito
 [Updating a folder](../operations/folder/update.md) | `update` | `editor` or `resource-manager.editor` for the folder
 [Deleting a folder](../operations/folder/delete.md) | `delete` | `editor` or `resource-manager.editor` for the folder
 **Managing resource access** | |
-Invite a new user to an organization | | `{{ roles-organization-admin }}` |
+Inviting a new user to an organization | | `{{ roles-organization-admin }}` |
 [Making a new user the owner of the cloud](../operations/cloud/set-access-bindings.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` for this cloud
 View roles granted for a resource | `listAccessBindings` | `viewer` for this resource
 View roles granted for the folder or cloud | `listAccessBindings` | `resource-manager.viewer` for the folder or cloud

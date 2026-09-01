@@ -5,7 +5,6 @@ editable: false
 # BareMetal API, gRPC: ConfigurationService.ListConfigurationNetworkInterface
 
 
-ConfigurationNetworkInterface is not a resource. --)
 Retrieves the list of ConfigurationNetworkInterface resources.
 
 ## gRPC request

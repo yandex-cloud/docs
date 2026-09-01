@@ -5,14 +5,13 @@
 
 Хосты ClickHouse® и ZooKeeper кластера Managed Service for ClickHouse® располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) Yandex Cloud. Хосты ClickHouse® и ZooKeeper можно перенести из одной зоны в другую с помощью этой инструкции, а хосты со встроенным ClickHouse® Keeper — с помощью обращения в [службу поддержки](https://center.yandex.cloud/support).
 
+
 {% note info %}
 
-Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`, недоступно:
-
-- использование платформы Intel Broadwell;
-- хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
+Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`, недоступно хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
 
 {% endnote %}
+
 
 ## Перенести хосты ClickHouse® {#clickhouse-hosts}
 

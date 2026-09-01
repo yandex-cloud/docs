@@ -6,7 +6,6 @@ editable: false
 
 Updates the specified VRF resource.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

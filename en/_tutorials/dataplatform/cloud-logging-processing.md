@@ -1,5 +1,6 @@
 # Processing {{ cloud-logging-full-name }} logs
 
+
 [{{ cloud-logging-full-name }}](../../logging/index.yaml) is a service for reading and writing logs of {{ yandex-cloud }} services and user applications.
 
 You can send logs to a {{ yds-full-name }} [stream](../../data-streams/concepts/glossary.md#stream-concepts) to process in real time using {{ yq-full-name }}. You can do the following with processed data:

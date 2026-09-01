@@ -6,8 +6,6 @@ For a custom (self-managed) {{ GL }} installation, you can manually install {{ G
 
 For {{ mgl-full-name }}, you can also manually install {{ GLR }} or automatically deploy a [runner](../../managed-gitlab/concepts/index.md#runners) via the [management console]({{ link-console-main }}) to ensure the required number of workers running in {{ compute-name }}.
 
-{% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
-
 To get started with {{ GLR }} using {{ compute-name }}:
 
 1. [Set up your infrastructure](#infra).
@@ -90,8 +88,6 @@ You can [install {{ GLR }} manually](#install) or [deploy a runner in the manage
    ```
 
 ### Create a runner using the management console {#create-runner}
-
-{% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
 
 {% include [note-payment](../../_includes/managed-gitlab/note-payment.md) %}
 

@@ -150,7 +150,6 @@ apiPlayground:
 
 Updates the specified VRF resource.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 

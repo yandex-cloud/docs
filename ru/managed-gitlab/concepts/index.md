@@ -51,8 +51,6 @@ _Инстанс_ {{ GL }} — основная сущность, которой 
 
 ### Управляемые раннеры {#managed-runners}
 
-{% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
-
 {% include [gl-runners-intro](../../_includes/managed-gitlab/gl-runners-intro.md) %}
 
 {% include [note-payment](../../_includes/managed-gitlab/note-payment.md) %}

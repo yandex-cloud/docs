@@ -46,11 +46,7 @@ description: Создайте триггер для топика устройс�
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}** укажите реестр, устройство и MQTT-топик, для которого хотите создать триггер. Если вы создаете триггер для топика реестра, устройство и MQTT-топик можно не указывать. Если MQTT-топик не указан, триггер срабатывает для всех топиков реестра или устройства.
  
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
-
-        {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
-
-        {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %} 
+    1. {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 

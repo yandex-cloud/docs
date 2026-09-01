@@ -1,6 +1,6 @@
 ---
 title: Public materials about {{ mkf-full-name }}
-description: Videos of conferences and webinars on {{ mkf-full-name }}.
+description: Video recordings of conferences and webinars on {{ mkf-full-name }}.
 ---
 
 # Public materials about {{ mkf-full-name }}
@@ -16,7 +16,7 @@ description: Videos of conferences and webinars on {{ mkf-full-name }}.
 
 ### 2021: Yandex Scale {#yandex-scale-2021}
 
-* Data platform updates and future plans.
+* Data platform news and roadmap.
 
   * Click [here](https://www.youtube.com/watch?v=34azYnDBiYY) to watch the video.
 

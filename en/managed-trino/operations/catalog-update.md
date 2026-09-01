@@ -12,7 +12,7 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
     1. In the [management console]({{ link-console-main }}), select a folder.
     1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click the cluster name.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
+    1. Navigate to the **{{ ui-key.yacloud.trino.title_catalogs }}** tab.
     1. Next to the {{ TR }} catalog, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
     1. Update your {{ TR }} catalog parameters and click **{{ ui-key.yacloud.common.update }}**.
 

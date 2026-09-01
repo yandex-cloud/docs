@@ -2,7 +2,7 @@
 
 # BareMetal API, REST: Image.Create
 
-Creates an image in the specified folder.
+Creates a BootImage in the specified folder.
 
 ## HTTP request
 
@@ -26,24 +26,24 @@ POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/images
 ||Field | Description ||
 || folderId | **string**
 
-ID of the folder to create an image in.
+ID of the folder to create a BootImage in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
 
 The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
 || name | **string**
 
-Name of the image.
+Name of the BootImage.
 The name must be unique within the folder.
 
 The string length in characters must be 2-63. Value must match the regular expression ` [a-z]([-a-z0-9]*[a-z0-9])? `. ||
 || description | **string**
 
-Description of the image.
+Description of the BootImage.
 
 The maximum string length in characters is 1024. ||
 || uri | **string**
 
-Required field. URI of the source image to create the new image from.
+Required field. URI of the source image to create the new BootImage from.
 Currently only supports links to images that are stored in Object Storage.
 Currently only supports ISO formats.
 

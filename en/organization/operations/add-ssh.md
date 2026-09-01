@@ -125,7 +125,7 @@ To add a public SSH key to a profile:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
       ```hcl
       resource "yandex_organizationmanager_user_ssh_key" "my_user_ssh_key" {

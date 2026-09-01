@@ -9,8 +9,8 @@ apiPlayground:
         imageId:
           description: |-
             **string**
-            ID of the Image resource to update.
-            To get the image ID, use a [ImageService.List](/docs/baremetal/api-ref/Image/list#List) request.
+            ID of the BootImage resource to update.
+            To get the BootImage ID, use a [ImageService.List](/docs/baremetal/api-ref/Image/list#List) request.
             Value must match the regular expression ` [a-z][a-z0-9]* `.
           pattern: '[a-z][a-z0-9]*'
           type: string
@@ -34,7 +34,7 @@ apiPlayground:
         name:
           description: |-
             **string**
-            Name of the image.
+            Name of the BootImage.
             The name must be unique within the folder.
             The string length in characters must be 2-63. Value must match the regular expression ` [a-z]([-a-z0-9]*[a-z0-9])? `.
           pattern: '[a-z]([-a-z0-9]*[a-z0-9])?'
@@ -42,7 +42,7 @@ apiPlayground:
         description:
           description: |-
             **string**
-            Description of the image.
+            Description of the BootImage.
             The maximum string length in characters is 1024.
           type: string
         labels:
@@ -68,7 +68,7 @@ apiPlayground:
 
 # BareMetal API, REST: Image.Update
 
-Updates the specified image.
+Updates the specified BootImage.
 
 ## HTTP request
 
@@ -82,8 +82,8 @@ PATCH https://baremetal.{{ api-host }}/baremetal/v1alpha/images/{imageId}
 ||Field | Description ||
 || imageId | **string**
 
-Required field. ID of the Image resource to update.
-To get the image ID, use a [ImageService.List](/docs/baremetal/api-ref/Image/list#List) request.
+Required field. ID of the BootImage resource to update.
+To get the BootImage ID, use a [ImageService.List](/docs/baremetal/api-ref/Image/list#List) request.
 
 Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#
@@ -113,13 +113,13 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-Name of the image.
+Name of the BootImage.
 The name must be unique within the folder.
 
 The string length in characters must be 2-63. Value must match the regular expression ` [a-z]([-a-z0-9]*[a-z0-9])? `. ||
 || description | **string**
 
-Description of the image.
+Description of the BootImage.
 
 The maximum string length in characters is 1024. ||
 || labels | **object** (map<**string**, **string**>)

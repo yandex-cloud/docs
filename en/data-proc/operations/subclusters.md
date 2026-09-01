@@ -16,7 +16,7 @@ Each cluster can only have one subcluster with a master host, so you cannot crea
 
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
+  1. Select the cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
 
 - CLI {#cli}
 
@@ -43,8 +43,8 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and select the cluster.
-  1. Navigate to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
+  1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. Select the cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.subclusters.action_add-subclaster }}**.
   1. Specify the subcluster settings:
      1. **{{ ui-key.yacloud.mdb.forms.base_field_hosts-count }}**: Select the number of hosts.
@@ -163,9 +163,9 @@ You cannot delete data storage subclusters.
 
   To delete a subcluster:
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and select the cluster.
-  1. Navigate to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster in question and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+  1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. Select the cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
+  1. Next to the subcluster, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. Optionally, specify the [decommissioning](../concepts/decommission.md) timeout.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-remove-subcluster_button }}**.
 

@@ -1,7 +1,5 @@
 # Working with a managed runner
 
-{% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
-
 {% include [gl-runners-intro](../../_includes/managed-gitlab/gl-runners-intro.md) %}
 
 {% include [note-payment](../../_includes/managed-gitlab/note-payment.md) %}
@@ -40,7 +38,7 @@ You can get a token when creating a {{ GLR }} in {{ GL }}. You specify this toke
 
   1. Add labels for the worker.
   1. Select a new configuration of the worker computing resources.
-  1. Change the [type](../../compute/concepts/disk.md#disks_types) and size of the boot disk.
+  1. Change the [type](../../compute/concepts/disk.md#disks-types) and size of the boot disk.
   1. Select or create a service account for the worker.
 
       {% include [sa-worker-info](../../_includes/managed-gitlab/sa-worker-info.md) %}

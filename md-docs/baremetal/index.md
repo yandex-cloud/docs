@@ -76,6 +76,14 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Проанализировать состояние сервера с помощью HWCheck](operations/servers/use-hwatcher.md)
 
+### BareMetal Extend
+
+ - [Подключить Extend: Virtualization](operations/extend/virtualization.md)
+
+ - [Создать кластер Extend: Yandex Cloud Stackland](operations/extend/stackland.md)
+
+ - [Создать группу узлов BareMetal для Extend: Managed Service for Kubernetes®](operations/extend/managed-kubernetes.md)
+
 ### Сеть
 
  - [Создать VRF](operations/network-create.md)
@@ -113,6 +121,16 @@ Yandex BareMetal предоставляет возможность арендо�
  - [Оценка состояния дисков](concepts/smart-disk-analysis.md)
 
  - [RAID](concepts/disks/raid.md)
+
+### BareMetal Extend
+
+ - [Обзор](concepts/extend.md)
+
+ - [Extend: Virtualization](concepts/extend/virtualization.md)
+
+ - [Extend: Yandex Cloud Stackland](concepts/extend/stackland.md)
+
+ - [Extend: Managed Service for Kubernetes®](concepts/extend/managed-kubernetes.md)
 
 ### Сеть
 
@@ -201,6 +219,10 @@ Yandex BareMetal предоставляет возможность арендо�
  - [UpdateServer](events-ref/UpdateServer.md)
 
  - [UpdateVRF](events-ref/UpdateVRF.md)
+
+###### BareMetal Audit Trails Events
+
+ - [ExternalFlow](flowlogs/events-ref/ExternalFlow.md)
 
  - [Управление доступом](security/index.md)
 
@@ -1450,6 +1472,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [DeleteServer](api-ref/grpc/Server/deleteServer.md)
 
+ - [SkipQuarantineServer](api-ref/grpc/Server/skipQuarantineServer.md)
+
  - [PowerOffServer](api-ref/grpc/Server/powerOffServer.md)
 
  - [PowerOnServer](api-ref/grpc/Server/powerOnServer.md)
@@ -1485,6 +1509,36 @@ Yandex BareMetal предоставляет возможность арендо�
  - [GetZone](api-ref/grpc/Zone/getZone.md)
 
  - [ListZones](api-ref/grpc/Zone/listZones.md)
+
+####### Extend API
+
+ - [Overview](extend/api-ref/grpc/index.md)
+
+######## Operation
+
+ - [Overview](extend/api-ref/grpc/Operation/index.md)
+
+ - [Get](extend/api-ref/grpc/Operation/get.md)
+
+ - [Cancel](extend/api-ref/grpc/Operation/cancel.md)
+
+######## StacklandCluster
+
+ - [Overview](extend/api-ref/grpc/StacklandCluster/index.md)
+
+ - [GetStacklandCluster](extend/api-ref/grpc/StacklandCluster/getStacklandCluster.md)
+
+ - [ListStacklandClusters](extend/api-ref/grpc/StacklandCluster/listStacklandClusters.md)
+
+ - [CreateStacklandCluster](extend/api-ref/grpc/StacklandCluster/createStacklandCluster.md)
+
+ - [UpdateStacklandCluster](extend/api-ref/grpc/StacklandCluster/updateStacklandCluster.md)
+
+ - [DeleteStacklandCluster](extend/api-ref/grpc/StacklandCluster/deleteStacklandCluster.md)
+
+ - [GetStacklandClusterConfigs](extend/api-ref/grpc/StacklandCluster/getStacklandClusterConfigs.md)
+
+ - [ListStacklandClusterOperations](extend/api-ref/grpc/StacklandCluster/listStacklandClusterOperations.md)
 
 ###### REST (англ.)
 
@@ -1620,6 +1674,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [DeleteServer](api-ref/Server/deleteServer.md)
 
+ - [SkipQuarantineServer](api-ref/Server/skipQuarantineServer.md)
+
  - [PowerOffServer](api-ref/Server/powerOffServer.md)
 
  - [PowerOnServer](api-ref/Server/powerOnServer.md)
@@ -1655,6 +1711,36 @@ Yandex BareMetal предоставляет возможность арендо�
  - [GetZone](api-ref/Zone/getZone.md)
 
  - [ListZones](api-ref/Zone/listZones.md)
+
+####### Extend API
+
+ - [Overview](extend/api-ref/index.md)
+
+######## Operation
+
+ - [Overview](extend/api-ref/Operation/index.md)
+
+ - [Get](extend/api-ref/Operation/get.md)
+
+ - [Cancel](extend/api-ref/Operation/cancel.md)
+
+######## StacklandCluster
+
+ - [Overview](extend/api-ref/StacklandCluster/index.md)
+
+ - [GetStacklandCluster](extend/api-ref/StacklandCluster/getStacklandCluster.md)
+
+ - [ListStacklandClusters](extend/api-ref/StacklandCluster/listStacklandClusters.md)
+
+ - [CreateStacklandCluster](extend/api-ref/StacklandCluster/createStacklandCluster.md)
+
+ - [UpdateStacklandCluster](extend/api-ref/StacklandCluster/updateStacklandCluster.md)
+
+ - [DeleteStacklandCluster](extend/api-ref/StacklandCluster/deleteStacklandCluster.md)
+
+ - [GetStacklandClusterConfigs](extend/api-ref/StacklandCluster/getStacklandClusterConfigs.md)
+
+ - [ListStacklandClusterOperations](extend/api-ref/StacklandCluster/listStacklandClusterOperations.md)
 
  - [Метрики Monitoring](metrics.md)
 

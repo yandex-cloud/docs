@@ -1,5 +1,6 @@
 # Creating a SAML app in {{ org-full-name }} for integration with VK Cloud
 
+
 [VK Cloud](https://cloud.vk.com/) is a Russian cloud platform offering IaaS and PaaS services, data and AI/ML tools, as well as solutions you need to build a cloud infrastructure. VK Cloud supports [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)-based user authentication via an identity federation.
 
 For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to VK Cloud via SAML SSO, create a [SAML app](../../../organization/concepts/applications/saml.md) in {{ org-full-name }} and configure it both in {{ yandex-cloud }} and VK Cloud.

@@ -8,7 +8,9 @@ description: Следуя данной инструкции, вы сможете
 
 Хосты {{ CH }} и {{ ZK }} кластера {{ mch-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Хосты {{ CH }} и {{ ZK }} можно перенести из одной зоны в другую с помощью этой инструкции, а хосты со встроенным {{ CK }} — с помощью обращения в [службу поддержки]({{ link-console-support }}).
 
+
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
+
 
 ## Перенести хосты {{ CH }} {#clickhouse-hosts}
 

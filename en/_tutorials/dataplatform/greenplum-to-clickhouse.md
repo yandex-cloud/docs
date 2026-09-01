@@ -1,3 +1,5 @@
+
+
 You can migrate a database from {{ GP }} to {{ CH }} using {{ data-transfer-full-name }}.
 
 To transfer a database from {{ GP }} to {{ CH }}:
@@ -158,7 +160,7 @@ To minimize resource consumption, delete the resources you no longer need:
 
 1. Make sure the transfer status is **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**, upon which you can [delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the rest of the resources depending on how you created them:
+1. Delete the other resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

@@ -5,7 +5,6 @@ editable: false
 # BareMetal API, gRPC: ZoneService.GetZone
 
 
-https://google.aip.dev/130 --)
 Returns the specific Zone resource.
 
 To get the list of Zone resources, make a [List] request.

@@ -19,7 +19,7 @@ To use {{ yq-full-name }}, set up a data binding based on the target object:
 
 {% list tabs group=instructions %}
 
-* {{ objstorage-name }} bucket {#obj-storage}
+- {{ objstorage-name }} bucket {#obj-storage}
 
     1. [Create a service account](../../../iam/operations/sa/create.md) named `bucket-yq-sa`.
     1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `bucket-yq-sa` service account the `storage.viewer` role for the folder containing the bucket with logs.
@@ -37,7 +37,7 @@ To use {{ yq-full-name }}, set up a data binding based on the target object:
 
     1. Run the appropriate [query](../../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
-* {{ yds-name }} {#data-streams}
+- {{ yds-name }} {#data-streams}
 
     1. [Create a service account](../../../iam/operations/sa/create.md) named `bucket-yq-sa`.
     1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `yds.editor` role to the `bucket-yq-sa` service account.

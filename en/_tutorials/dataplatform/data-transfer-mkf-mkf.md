@@ -4,7 +4,7 @@
 You can transfer your data from {{ KF }} topics between one {{ KF }} cluster and another in real time. Among others, the following migration types are supported:
 
 * Between different {{ KF }} versions, e.g., you can migrate topics from version 2.8 to version 3.1.
-* Between different availability zones: you can [migrate a cluster with a single host](../../managed-kafka/operations/host-migration.md#one-host) from one zone to another.
+* Between different [availability zones](../../overview/concepts/geo-scope.md): you can [migrate a cluster with a single host](../../managed-kafka/operations/host-migration.md#one-host) from one zone to another.
 
 {{ KF }} cluster mirroring allows you to:
 
@@ -65,7 +65,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
            * [Network](../../vpc/concepts/network.md#network).
            * [Subnet](../../vpc/concepts/network.md#subnet).
-           * [Security group](../../vpc/concepts/security-groups.md) and the rule required for connecting to the {{ mkf-name }} cluster.
+           * [Security group](../../vpc/concepts/security-groups.md) and rule required for connection to the {{ mkf-name }} cluster.
            * {{ mkf-name }} source cluster with public access from the internet.
            * {{ KF }} topic for the source cluster.
            * {{ KF }} user for the source cluster.

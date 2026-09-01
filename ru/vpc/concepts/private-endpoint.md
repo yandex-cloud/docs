@@ -45,7 +45,7 @@ DNS-записи A-типа создаются в [сервисной зоне i
 | --- | --- | --- | --- | --- | --- |
 | [{{ objstorage-short-name }}](../../storage/) | yandex.cloud.storage | [Есть](#s3-policy) | [Консоль управления, CLI, {{ TF }}](../operations/private-endpoint-create.md) | `storage.pe.yandexcloud.net` | `storage.yandexcloud.net` |
 | [{{ cloud-registry-name }}](../../cloud-registry) | yandex.cloud.registry | Нет | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `registry.pe.yandexcloud.net` | `registry.yandexcloud.net` |
-| [{{ ai-studio-name }}](../../ai-studio/concepts/) | yandex.cloud.ai-studio | Нет | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `ai.pe.api.cloud.yandex.net` | `ai.api.cloud.yandex.net` |
+| [{{ ai-studio-name }}]({{ link-docs-ai }}ai-studio/concepts/) | yandex.cloud.ai-studio | Нет | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `ai.pe.api.cloud.yandex.net` | `ai.api.cloud.yandex.net` |
 | [AI Studio MCP Gateway](https://aistudio.yandex.ru/docs/ai-studio/mcp-gateway/api-ref/) | yandex.cloud.mcp-gateway | Нет | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `*.mcpgw.serverless.pe.yandexcloud.net` | `*.mcpgw.serverless.yandexcloud.net` |
 | [{{ mtr-name }}](../../managed-trino) | yandex.cloud.managed-trino | Нет | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `trino.pe.yandexcloud.net`, `*.trino.pe.yandexcloud.net` | - |
 | [{{ serverless-containers-name }}](../../serverless-containers) | yandex.cloud.serverless-containers | Нет | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `*.containers.pe.yandexcloud.net` | `*.containers.yandexcloud.net` |

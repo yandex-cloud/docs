@@ -95,4 +95,6 @@ To create an ephemeral access key, the user needs the `iam.serviceAccounts.ephem
       download: s3://<bucket_name>/<prefix><object_name> to ./<object_name>
       ```
 
+  You can save the ephemeral key to the AWC credentials file right after issuing it. For more information, see [this tutorial](../../tutorials/security/ephemeral-key-storage.md#prepare-script).      
+
 {% endlist %}

@@ -831,6 +831,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить дополнительные настройки кластера {#change-additional-settings}
 
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

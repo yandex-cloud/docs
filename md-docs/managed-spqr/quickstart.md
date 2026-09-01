@@ -117,7 +117,7 @@
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором [создан](#cluster-create) кластер Sharded PostgreSQL.
 1. [Создайте кластер](../managed-postgresql/operations/cluster-create.md#create-cluster) Managed Service for PostgreSQL в той же облачной сети, что и кластер Sharded PostgreSQL.
-1. Откройте ваш кластер Sharded PostgreSQL и перейдите на вкладку ![image](../_assets/console-icons/copy-transparent.svg) **Шарды**.
+1. Откройте ваш кластер Sharded PostgreSQL и перейдите на вкладку **Шарды**.
 1. В правом верхнем углу страницы нажмите кнопку **Создать шард**.
 1. В открывшемся окне:
 

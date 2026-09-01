@@ -48,11 +48,7 @@
 
     1. В блоке **Настройки Telegram** укажите токен Telegram-бота, полученный от [@BotFather](https://core.telegram.org/bots/features#botfather).
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
-
-        {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
-
-        {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %}
+    1. {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
 
     1. В блоке **Приёмники**:
 

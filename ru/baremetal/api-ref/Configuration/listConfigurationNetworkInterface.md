@@ -61,7 +61,6 @@ apiPlayground:
 # BareMetal API, REST: Configuration.ListConfigurationNetworkInterface
 
 
-ConfigurationNetworkInterface is not a resource. --)
 Retrieves the list of ConfigurationNetworkInterface resources.
 
 ## HTTP request

@@ -1,5 +1,13 @@
 {% list tabs group=instructions %}
 
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
+  1. In the left-hand panel, click ![icon-federation](../../_assets/organization/icon-federation.svg) **{{ ui-key.yacloud_org.pages.federations }}** and select a target [federation](../../organization/concepts/add-federation.md).
+  1. Click the name of the domain you need to verify.
+  1. In the section that opens, you will see the details you will need to pass the domain rights check.
+  1. After completing the verification, click **{{ ui-key.yacloud_org.common.confirm }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}

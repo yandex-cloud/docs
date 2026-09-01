@@ -8,8 +8,6 @@
 
 О том, как создать триггер для {{ iot-short-name }}, читайте в инструкциях [{#T}](../../operations/trigger/iot-core-trigger-create.md) и [{#T}](../../operations/trigger/iot-core-trigger-broker-create.md).
 
-{% include [batching-messages](../../../_includes/functions/batching-messages.md) %}
-
 ## Роли, необходимые для корректной работы триггера для {{ iot-short-name }} {#roles}
 
 * Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user), [{{ roles-editor }}](../../../iam/roles-reference.md#editor) и выше.

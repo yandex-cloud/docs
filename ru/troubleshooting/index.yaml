@@ -45,9 +45,6 @@ links:
   - title: '{{ datalens-name }}'
     description: Решения для {{ datalens-name }}
     href: datalens/
-  - title: '{{ data-transfer-name }}'
-    description: Решения для {{ data-transfer-name }}
-    href: data-transfer/
   - title: '{{ iam-name }}'
     description: Решения для {{ iam-short-name }}
     href: iam/

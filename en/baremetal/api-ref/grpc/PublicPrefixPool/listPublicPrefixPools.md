@@ -6,7 +6,6 @@ editable: false
 
 Lists public prefix pools in the specified folder.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 
@@ -109,9 +108,7 @@ Each subsequent page will have its own `next_page_token` to continue paging thro
 ||Field | Description ||
 || public_prefix_pool_id | **string**
 
-ID of the public prefix pool.
-
-The maximum string length in characters is 20. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
+ID of the public prefix pool. ||
 || cloud_id | **string**
 
 ID of the cloud that the public prefix pool belongs to. ||
@@ -122,7 +119,7 @@ ID of the folder that the public prefix pool belongs to. ||
 
 Name of the public prefix pool.
 
-The string length in characters must be 2-63. Value must match the regular expression ` [a-z]([-a-z0-9]*[a-z0-9])? `. ||
+The maximum string length in characters is 63. ||
 || description | **string**
 
 Description of the public prefix pool.

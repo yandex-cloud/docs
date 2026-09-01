@@ -6,7 +6,6 @@ Returns the specific PrivateSubnet resource.
 
 To get the list of available PrivateSubnet resources, make a [List] request.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

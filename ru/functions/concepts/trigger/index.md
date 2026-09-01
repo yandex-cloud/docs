@@ -41,24 +41,7 @@ _Триггер_ — условие, при выполнении которог�
 
 {% include [trigger-transform-messages](../../../_includes/functions/trigger-transform-messages.md) %}
 
-## Группирование сообщений {#batch-messages}
-
-Вы можете настроить группирование сообщений перед вызовом функции у следующих триггеров:
-
-* триггер для {{ message-queue-name }};
-* триггер для {{ cloud-logging-name }};
-* триггер для {{ objstorage-name }};
-* триггер для {{ container-registry-name }};
-* триггер для {{ iot-name }};
-* триггер для {{ yds-name }};
-* триггер для почты.
-
-Это позволит вызывать функцию не для каждого отдельного сообщения, а для целой группы сообщений. Для этого в параметрах триггера задайте:
-
-* **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}** — время, в течение которого происходит группирование сообщений. Число сообщений при этом не превышает указанный размер группы.
-* **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}** — количество сообщений для группирования.
-
-Подробнее о группировании сообщений читайте в инструкциях по созданию соответствующего триггера.
+{% include [batching-events](../../../_includes/functions/batching-events.md) %}
 
 ## Повторные вызовы функции {#invoke-retry}
 

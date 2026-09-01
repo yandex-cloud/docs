@@ -10,7 +10,7 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 
     1. In the [management console]({{ link-console-main }}), select a folder.
     1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
+    1. Select the cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
     1. Optionally, enter a name for the job.
     1. In the **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** field, select `{{ ui-key.yacloud.dataproc.jobs.field_hive-job-type }}`.

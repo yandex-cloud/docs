@@ -452,7 +452,7 @@ If you need [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_r
 
 [{{ sts-full-name }}](../../../iam/concepts/authorization/sts.md): {{ iam-full-name }} component used to get _temporary access keys_ compatible with [AWS S3 API](../../../storage/s3/index.md).
 
-Temporary access keys as an authentication method are only supported in [{{ objstorage-full-name }}](../../../storage/index.yaml).
+Authentication with temporary access keys is only supported in [{{ objstorage-full-name }}](../../../storage/index.yaml).
 
 With temporary keys, you can set up granular access to [buckets](../../../storage/concepts/bucket.md) for multiple users with a single [service account](../../../iam/concepts/users/service-accounts.md). The service account permissions must include all the permissions you want to grant using temporary keys.
 
@@ -1546,7 +1546,7 @@ Make sure that security enhancement extensions were added to the {{ api-gw-name 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. OpenAPI 3.0 is used in the **Specification** section.
 

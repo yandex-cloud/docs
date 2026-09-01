@@ -4,7 +4,6 @@
 
 Deletes the specified server.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 

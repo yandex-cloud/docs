@@ -117,7 +117,7 @@ Users with this role can:
 * Create copies of the relevant collection and all its nested collections and workbooks.
 * Create new collections and workbooks within the relevant collection and all its nested ones.
 * View and edit all nested [objects](../concepts/index.md#component-interrelation) of the workbooks pertaining to the appropriate collection and its nested collections.
-* View info on the [access permissions]({{ link-docs }}/iam/concepts/access-control/index.md) granted for this collection, as well as for its nested collections and workbooks.
+* View info on the [access permissions]({{ link-docs }}/iam/concepts/access-control/index) granted for this collection, as well as for its nested collections and workbooks.
 
 Includes permissions granted by the `Viewer` role for collections and the `Editor` role for workbooks inside the collection.
 

@@ -2,6 +2,7 @@
 
 # Создание сайта на WordPress с кластером базы данных MySQL® с помощью консоли управления
 
+
 Чтобы создать инфраструктуру для [сайта на WordPress с кластером базы данных MySQL®](index.md) с помощью консоли управления Yandex Cloud:
 
 Чтобы настроить сайт на WordPress с кластером MySQL®:
@@ -549,4 +550,4 @@ ns1.yandexcloud.net.
 
 #### Полезные ссылки {#see-also}
 
-* [Создание сайта на WordPress с кластером базы данных MySQL® с помощью Terraform](terraform.md)
+[Создание сайта на WordPress с кластером базы данных MySQL® с помощью Terraform](terraform.md)

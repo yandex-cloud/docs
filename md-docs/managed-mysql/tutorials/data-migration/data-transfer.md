@@ -4,6 +4,8 @@
 
 # Перенос данных с использованием сервиса Yandex Data Transfer {#data-transfer}
 
+
+
 Чтобы перенести базу данных из MySQL® в Managed Service for MySQL®:
 
 1. [Запустите перенос данных](#start-transfer).

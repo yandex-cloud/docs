@@ -36,9 +36,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
-        1. [Create a {{ mos-name }} target cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in any suitable configuration with the following settings:
+        1. [Create a {{ mos-name }} target cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) of any suitable configuration with the following settings:
 
-            * In the same availability zone as the source cluster.
+            * In the same [availability zone](../../overview/concepts/geo-scope.md) as the source cluster.
             * With public access to hosts with the `DATA` role.
 
 
@@ -78,7 +78,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `os_user_password`: `admin` user password.
             * `transfer_enabled`: `0` not to create a transfer until [an {{ OS }} endpoint is created manually](#prepare-transfer).
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate

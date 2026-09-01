@@ -452,6 +452,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 ### DashStringDefaultValue {#entity-DashStringDefaultValue}
 
+A dashboard parameter value represented by one or multiple strings.
+
 {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
 - **Type**: string
@@ -1686,7 +1688,7 @@ Control item data.
   {.table-cell}|
   **Type**: array &#124; null
 
-  Identifiers of tabs selected by the impact scope.
+  Identifiers of the tabs where the control is displayed when 'impactType' is 'currentTab' or 'selectedTabs'.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -1705,7 +1707,7 @@ Control item data.
   {.table-cell}|
   **Type**: string
 
-  Scope of tabs affected by the control.
+  Determines where the control is displayed: 'allTabs' on all tabs, 'currentTab' on its current tab, 'selectedTabs' on the tabs listed in 'impactTabsIds', and 'asGroup' according to the containing group's settings.
 
   _Enum:_{.json-schema-reset .json-schema-value} `allTabs`, `currentTab`, `selectedTabs`, `asGroup`
   {.table-cell}
@@ -1912,7 +1914,7 @@ Control item data.
   {.table-cell}|
   **Type**: array &#124; null
 
-  Identifiers of tabs selected by the impact scope.
+  Identifiers of the tabs where the control is displayed when 'impactType' is 'currentTab' or 'selectedTabs'.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -1931,7 +1933,7 @@ Control item data.
   {.table-cell}|
   **Type**: string
 
-  Scope of tabs affected by the control.
+  Determines where the control is displayed: 'allTabs' on all tabs, 'currentTab' on its current tab, 'selectedTabs' on the tabs listed in 'impactTabsIds', and 'asGroup' according to the containing group's settings.
 
   _Enum:_{.json-schema-reset .json-schema-value} `allTabs`, `currentTab`, `selectedTabs`, `asGroup`
   {.table-cell}
@@ -2120,7 +2122,7 @@ Control item data.
   {.table-cell}|
   **Type**: array &#124; null
 
-  Identifiers of tabs selected by the impact scope.
+  Identifiers of the tabs where the control is displayed when 'impactType' is 'currentTab' or 'selectedTabs'.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -2139,7 +2141,7 @@ Control item data.
   {.table-cell}|
   **Type**: string
 
-  Scope of tabs affected by the control.
+  Determines where the control is displayed: 'allTabs' on all tabs, 'currentTab' on its current tab, 'selectedTabs' on the tabs listed in 'impactTabsIds', and 'asGroup' according to the containing group's settings.
 
   _Enum:_{.json-schema-reset .json-schema-value} `allTabs`, `currentTab`, `selectedTabs`, `asGroup`
   {.table-cell}
@@ -2287,6 +2289,8 @@ _defaults_{.json-schema-reset .json-schema-property .json-schema-required}
 _[additional]_{.json-schema-reset .json-schema-additional-property}
 {.table-cell}|
 **Type**: [DashStringDefaultValue](#entity-DashStringDefaultValue)
+
+A dashboard parameter value represented by one or multiple strings.
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
@@ -2508,6 +2512,8 @@ Current item order.
   {.table-cell}|
   **Type**: [DashStringDefaultValue](#entity-DashStringDefaultValue)
 
+  A dashboard parameter value represented by one or multiple strings.
+
   _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
   ||
@@ -2532,7 +2538,7 @@ Current item order.
   {.table-cell}|
   **Type**: array &#124; null
 
-  Identifiers of tabs selected by the impact scope.
+  Identifiers of the tabs where the control is displayed when 'impactType' is 'currentTab' or 'selectedTabs'.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -2551,7 +2557,7 @@ Current item order.
   {.table-cell}|
   **Type**: string
 
-  Scope of tabs affected by the control.
+  Determines where the control is displayed: 'allTabs' on all tabs, 'currentTab' on its current tab, 'selectedTabs' on the tabs listed in 'impactTabsIds', and 'asGroup' according to the containing group's settings.
 
   _Enum:_{.json-schema-reset .json-schema-value} `allTabs`, `currentTab`, `selectedTabs`, `asGroup`
   {.table-cell}
@@ -2726,6 +2732,8 @@ Current item order.
   {.table-cell}|
   **Type**: [DashStringDefaultValue](#entity-DashStringDefaultValue)
 
+  A dashboard parameter value represented by one or multiple strings.
+
   _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
   ||
@@ -2750,7 +2758,7 @@ Current item order.
   {.table-cell}|
   **Type**: array &#124; null
 
-  Identifiers of tabs selected by the impact scope.
+  Identifiers of the tabs where the control is displayed when 'impactType' is 'currentTab' or 'selectedTabs'.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -2769,7 +2777,7 @@ Current item order.
   {.table-cell}|
   **Type**: string
 
-  Scope of tabs affected by the control.
+  Determines where the control is displayed: 'allTabs' on all tabs, 'currentTab' on its current tab, 'selectedTabs' on the tabs listed in 'impactTabsIds', and 'asGroup' according to the containing group's settings.
 
   _Enum:_{.json-schema-reset .json-schema-value} `allTabs`, `currentTab`, `selectedTabs`, `asGroup`
   {.table-cell}
@@ -3339,45 +3347,53 @@ Current item order.
 
   _background_{.json-schema-reset .json-schema-property}
   {.table-cell}|
-  {% cut "**Type**: object" %}
+  {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-  #|
-  ||
+  - **Type**: string
 
-  _color_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: string
+    _Example:_{.json-schema-reset .json-schema-example} `example`
 
-  Legacy background color.
+  - **Type**: object
 
-  _Example:_{.json-schema-reset .json-schema-example} `example`
-  {.table-cell}
-  ||
-  ||
+    #|
+    ||
 
-  _enabled_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  **Type**: boolean
+    _color_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: string
 
-  Whether the legacy background is enabled.
-  {.table-cell}
-  ||
-  |#{.json-schema-properties}
+    Legacy background color.
+
+    _Example:_{.json-schema-reset .json-schema-example} `example`
+    {.table-cell}
+    ||
+    ||
+
+    _enabled_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: boolean
+
+    Whether the legacy background is enabled.
+    {.table-cell}
+    ||
+    |#{.json-schema-properties}
+
+    {% cut "**Example**" %}{.json-schema-example}
+
+    ```json translate=no
+    {
+      "enabled": true,
+      "color": "example"
+    }
+    ```
+
+    {% endcut %}
 
   {% endcut %}
 
   Deprecated. Use backgroundSettings instead.
 
-  {% cut "**Example**" %}{.json-schema-example}
-
-  ```json translate=no
-  {
-    "enabled": true,
-    "color": "example"
-  }
-  ```
-
-  {% endcut %}
+  _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
   ||
   ||
@@ -3467,10 +3483,7 @@ Current item order.
   {
     "text": "example",
     "autoHeight": true,
-    "background": {
-      "enabled": true,
-      "color": "example"
-    },
+    "background": "example",
     "backgroundSettings": {
       "color": {
         "light": "example",
@@ -3557,10 +3570,7 @@ Current item order.
     "data": {
       "text": "example",
       "autoHeight": true,
-      "background": {
-        "enabled": true,
-        "color": "example"
-      },
+      "background": "example",
       "backgroundSettings": {
         "color": {
           "light": "example",
@@ -3659,45 +3669,53 @@ Current item order.
 
   _background_{.json-schema-reset .json-schema-property}
   {.table-cell}|
-  {% cut "**Type**: object" %}
+  {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-  #|
-  ||
+  - **Type**: string
 
-  _color_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: string
+    _Example:_{.json-schema-reset .json-schema-example} `example`
 
-  Legacy background color.
+  - **Type**: object
 
-  _Example:_{.json-schema-reset .json-schema-example} `example`
-  {.table-cell}
-  ||
-  ||
+    #|
+    ||
 
-  _enabled_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  **Type**: boolean
+    _color_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: string
 
-  Whether the legacy background is enabled.
-  {.table-cell}
-  ||
-  |#{.json-schema-properties}
+    Legacy background color.
+
+    _Example:_{.json-schema-reset .json-schema-example} `example`
+    {.table-cell}
+    ||
+    ||
+
+    _enabled_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: boolean
+
+    Whether the legacy background is enabled.
+    {.table-cell}
+    ||
+    |#{.json-schema-properties}
+
+    {% cut "**Example**" %}{.json-schema-example}
+
+    ```json translate=no
+    {
+      "enabled": true,
+      "color": "example"
+    }
+    ```
+
+    {% endcut %}
 
   {% endcut %}
 
   Deprecated. Use backgroundSettings.
 
-  {% cut "**Example**" %}{.json-schema-example}
-
-  ```json translate=no
-  {
-    "enabled": true,
-    "color": "example"
-  }
-  ```
-
-  {% endcut %}
+  _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
   ||
   ||
@@ -3822,6 +3840,15 @@ Current item order.
   ||
   ||
 
+  _internalMarginsEnabled_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: boolean
+
+  Whether the title includes internal margins. This experimental field may change in future API versions.
+  {.table-cell}
+  ||
+  ||
+
   _showInTOC_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   **Type**: boolean
@@ -3931,14 +3958,12 @@ Current item order.
       "enabled": true,
       "text": "example"
     },
-    "background": {
-      "enabled": true,
-      "color": "example"
-    },
+    "background": "example",
     "backgroundSettings": {
       "color": null
     },
-    "borderRadius": 0.5
+    "borderRadius": 0.5,
+    "internalMarginsEnabled": true
   }
   ```
 
@@ -4031,14 +4056,12 @@ Current item order.
         "enabled": true,
         "text": "example"
       },
-      "background": {
-        "enabled": true,
-        "color": "example"
-      },
+      "background": "example",
       "backgroundSettings": {
         "color": null
       },
-      "borderRadius": 0.5
+      "borderRadius": 0.5,
+      "internalMarginsEnabled": true
     }
   }
   ```
@@ -4110,6 +4133,8 @@ Current item order.
   {.table-cell}|
   **Type**: [DashStringDefaultValue](#entity-DashStringDefaultValue)
 
+  A dashboard parameter value represented by one or multiple strings.
+
   _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
   ||
@@ -4154,45 +4179,53 @@ Current item order.
 
   _background_{.json-schema-reset .json-schema-property}
   {.table-cell}|
-  {% cut "**Type**: object" %}
+  {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-  #|
-  ||
+  - **Type**: string
 
-  _color_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: string
+    _Example:_{.json-schema-reset .json-schema-example} `example`
 
-  Legacy background color.
+  - **Type**: object
 
-  _Example:_{.json-schema-reset .json-schema-example} `example`
-  {.table-cell}
-  ||
-  ||
+    #|
+    ||
 
-  _enabled_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  **Type**: boolean
+    _color_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: string
 
-  Whether the legacy background is enabled.
-  {.table-cell}
-  ||
-  |#{.json-schema-properties}
+    Legacy background color.
+
+    _Example:_{.json-schema-reset .json-schema-example} `example`
+    {.table-cell}
+    ||
+    ||
+
+    _enabled_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: boolean
+
+    Whether the legacy background is enabled.
+    {.table-cell}
+    ||
+    |#{.json-schema-properties}
+
+    {% cut "**Example**" %}{.json-schema-example}
+
+    ```json translate=no
+    {
+      "enabled": true,
+      "color": "example"
+    }
+    ```
+
+    {% endcut %}
 
   {% endcut %}
 
   Deprecated. Use backgroundSettings.
 
-  {% cut "**Example**" %}{.json-schema-example}
-
-  ```json translate=no
-  {
-    "enabled": true,
-    "color": "example"
-  }
-  ```
-
-  {% endcut %}
+  _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
   ||
   ||
@@ -4275,10 +4308,7 @@ Current item order.
       "params": {},
       "autoHeight": true,
       "enableActionParams": true,
-      "background": {
-        "enabled": true,
-        "color": "example"
-      }
+      "background": "example"
     }
   ]
   ```
@@ -4392,10 +4422,7 @@ Current item order.
         "params": {},
         "autoHeight": true,
         "enableActionParams": true,
-        "background": {
-          "enabled": true,
-          "color": "example"
-        }
+        "background": "example"
       }
     ]
   }
@@ -4496,10 +4523,7 @@ Current item order.
           "params": {},
           "autoHeight": true,
           "enableActionParams": true,
-          "background": {
-            "enabled": true,
-            "color": "example"
-          }
+          "background": "example"
         }
       ]
     }
@@ -4544,45 +4568,53 @@ Current item order.
 
   _background_{.json-schema-reset .json-schema-property}
   {.table-cell}|
-  {% cut "**Type**: object" %}
+  {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-  #|
-  ||
+  - **Type**: string
 
-  _color_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: string
+    _Example:_{.json-schema-reset .json-schema-example} `example`
 
-  Legacy background color.
+  - **Type**: object
 
-  _Example:_{.json-schema-reset .json-schema-example} `example`
-  {.table-cell}
-  ||
-  ||
+    #|
+    ||
 
-  _enabled_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  **Type**: boolean
+    _color_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: string
 
-  Whether the legacy background is enabled.
-  {.table-cell}
-  ||
-  |#{.json-schema-properties}
+    Legacy background color.
+
+    _Example:_{.json-schema-reset .json-schema-example} `example`
+    {.table-cell}
+    ||
+    ||
+
+    _enabled_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: boolean
+
+    Whether the legacy background is enabled.
+    {.table-cell}
+    ||
+    |#{.json-schema-properties}
+
+    {% cut "**Example**" %}{.json-schema-example}
+
+    ```json translate=no
+    {
+      "enabled": true,
+      "color": "example"
+    }
+    ```
+
+    {% endcut %}
 
   {% endcut %}
 
   Deprecated. Use backgroundSettings.
 
-  {% cut "**Example**" %}{.json-schema-example}
-
-  ```json translate=no
-  {
-    "enabled": true,
-    "color": "example"
-  }
-  ```
-
-  {% endcut %}
+  _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
   ||
   ||
@@ -4682,10 +4714,7 @@ Current item order.
     "src": "example",
     "alt": "example",
     "preserveAspectRatio": true,
-    "background": {
-      "enabled": true,
-      "color": "example"
-    },
+    "background": "example",
     "backgroundSettings": {
       "color": {
         "light": "example",
@@ -4773,10 +4802,7 @@ Current item order.
       "src": "example",
       "alt": "example",
       "preserveAspectRatio": true,
-      "background": {
-        "enabled": true,
-        "color": "example"
-      },
+      "background": "example",
       "backgroundSettings": {
         "color": {
           "light": "example",
@@ -5147,10 +5173,7 @@ Current item order.
   "data": {
     "text": "example",
     "autoHeight": true,
-    "background": {
-      "enabled": true,
-      "color": "example"
-    },
+    "background": "example",
     "backgroundSettings": {
       "color": {}
     },
@@ -5548,10 +5571,7 @@ Items displayed on the tab.
     "data": {
       "text": "example",
       "autoHeight": true,
-      "background": {
-        "enabled": true,
-        "color": "example"
-      },
+      "background": "example",
       "backgroundSettings": {
         "color": null
       },
@@ -5712,7 +5732,7 @@ Tab settings.
       "data": {
         "text": "example",
         "autoHeight": true,
-        "background": {},
+        "background": null,
         "backgroundSettings": {},
         "borderRadius": 0.5
       }
@@ -6787,24 +6807,6 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
 
 <div class="openapi-entity">
 
-### EntryAnnotation {#entity-EntryAnnotation}
-
-**Type**: object | null
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{
-  "description": "example"
-}
-```
-
-{% endcut %}
-
-</div>
-
-<div class="openapi-entity">
-
 ### DashboardV1 {#entity-DashboardV1}
 
 #|
@@ -6815,6 +6817,8 @@ _createdAt_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
+Date and time when the dashboard was created.
+
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
@@ -6824,6 +6828,8 @@ _createdBy_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
+ID of the user who created the dashboard.
+
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
@@ -6831,7 +6837,627 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _data_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
-**Type**: [DashData](#entity-DashData)
+{% cut "**Type**: object" %}
+
+#|
+||
+
+_counter_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: integer
+
+Counter used to generate item identifiers.
+
+_Min value:_{.json-schema-reset .json-schema-assertion} `1`
+{.table-cell}
+||
+||
+
+_salt_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+Salt used to generate item identifiers.
+
+_Min length:_{.json-schema-reset .json-schema-assertion} `1`
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_schemeVersion_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: number
+
+Dashboard schema version.
+
+_Const:_{.json-schema-reset .json-schema-value} `8`
+{.table-cell}
+||
+||
+
+_settings_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+{% cut "**Type**: object" %}
+
+#|
+||
+
+_autoupdateInterval_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+{% cut "**Any of 3 types**" %}{.json-schema-combinators data-marker=or}
+
+- **Type**: number
+
+  _Min value:_{.json-schema-reset .json-schema-assertion} `30`
+
+- **Type**: null
+
+  _Example:_{.json-schema-reset .json-schema-example} `null`
+
+- **Type**: null
+
+  _Example:_{.json-schema-reset .json-schema-example} `null`
+
+{% endcut %}
+
+Automatic refresh interval in seconds.
+
+_Example:_{.json-schema-reset .json-schema-example} `30`
+{.table-cell}
+||
+||
+
+_dependentSelectors_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: boolean
+
+Whether selectors can depend on each other.
+{.table-cell}
+||
+||
+
+_expandTOC_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: boolean
+
+Whether to expand the table of contents.
+{.table-cell}
+||
+||
+
+_maxConcurrentRequests_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+{% cut "**Any of 3 types**" %}{.json-schema-combinators data-marker=or}
+
+- **Type**: number
+
+  _Min value:_{.json-schema-reset .json-schema-assertion} `1`
+
+- **Type**: null
+
+  _Example:_{.json-schema-reset .json-schema-example} `null`
+
+- **Type**: null
+
+  _Example:_{.json-schema-reset .json-schema-example} `null`
+
+{% endcut %}
+
+Maximum number of concurrent requests.
+
+_Example:_{.json-schema-reset .json-schema-example} `1`
+{.table-cell}
+||
+||
+
+_silentLoading_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: boolean
+
+Whether to suppress the loading indicator.
+{.table-cell}
+||
+||
+
+_aiChatHistoryEnabled_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean
+
+Whether AI chat history is enabled for the dashboard.
+{.table-cell}
+||
+||
+
+_backgroundSettings_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+{% cut "**Type**: object" %}
+
+#|
+||
+
+_color_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+{% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
+
+- **Type**: [DashColorByTheme](#entity-DashColorByTheme)
+
+  {% cut "**Example**" %}{.json-schema-example}
+
+  ```json translate=no
+  {
+    "light": "example",
+    "dark": "example"
+  }
+  ```
+
+  {% endcut %}
+
+- **Type**: string
+
+  _Example:_{.json-schema-reset .json-schema-example} `example`
+
+{% endcut %}
+
+Widget background color in hex.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{
+  "light": "example",
+  "dark": "example"
+}
+```
+
+{% endcut %}
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+{% endcut %}
+
+Dashboard background settings.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{
+  "color": {
+    "light": "example",
+    "dark": "example"
+  }
+}
+```
+
+{% endcut %}
+{.table-cell}
+||
+||
+
+_enableAssistant_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean
+
+Whether the Neuroanalyst on a dashboard is enabled.
+{.table-cell}
+||
+||
+
+_globalParams_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+{% cut "**Type**: object" %}
+
+#|
+||
+
+_[additional]_{.json-schema-reset .json-schema-additional-property}
+{.table-cell}|
+{% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
+
+- **Type**: string
+
+  _Example:_{.json-schema-reset .json-schema-example} `example`
+
+- **Type**: string[]
+
+  {% cut "**Example**" %}{.json-schema-example}
+
+  ```json translate=no
+  [
+    "example"
+  ]
+  ```
+
+  {% endcut %}
+
+{% endcut %}
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+{% endcut %}
+
+Dashboard-wide parameter values.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{}
+```
+
+{% endcut %}
+{.table-cell}
+||
+||
+
+_hideDashTitle_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean
+
+Whether to hide the dashboard title.
+{.table-cell}
+||
+||
+
+_hideTabs_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean
+
+Whether to hide the tab bar.
+{.table-cell}
+||
+||
+
+_loadOnlyVisibleCharts_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean
+
+Whether to load only visible charts.
+{.table-cell}
+||
+||
+
+_loadPriority_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Dashboard loading priority.
+
+_Enum:_{.json-schema-reset .json-schema-value} `charts`, `selectors`
+{.table-cell}
+||
+||
+
+_margins_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: unknown[]
+
+Spacing between dashboard widgets.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+[
+  null
+]
+```
+
+{% endcut %}
+{.table-cell}
+||
+||
+
+_signedGlobalParams_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+{% cut "**Type**: object" %}
+
+#|
+||
+
+_[additional]_{.json-schema-reset .json-schema-additional-property}
+{.table-cell}|
+{% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
+
+- **Type**: string
+
+  _Example:_{.json-schema-reset .json-schema-example} `example`
+
+- **Type**: string[]
+
+  {% cut "**Example**" %}{.json-schema-example}
+
+  ```json translate=no
+  [
+    "example"
+  ]
+  ```
+
+  {% endcut %}
+
+{% endcut %}
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+{% endcut %}
+
+Signed dashboard-wide parameters for secure use cases.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{}
+```
+
+{% endcut %}
+{.table-cell}
+||
+||
+
+_widgetsSettings_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+{% cut "**Type**: object" %}
+
+#|
+||
+
+_backgroundSettings_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+{% cut "**Type**: object" %}
+
+#|
+||
+
+_color_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+{% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
+
+- **Type**: [DashColorByTheme](#entity-DashColorByTheme)
+
+  {% cut "**Example**" %}{.json-schema-example}
+
+  ```json translate=no
+  {
+    "light": "example",
+    "dark": "example"
+  }
+  ```
+
+  {% endcut %}
+
+- **Type**: string
+
+  _Example:_{.json-schema-reset .json-schema-example} `example`
+
+{% endcut %}
+
+Widget background color in hex.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{
+  "light": "example",
+  "dark": "example"
+}
+```
+
+{% endcut %}
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+{% endcut %}
+
+Default widget background settings.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{
+  "color": {
+    "light": "example",
+    "dark": "example"
+  }
+}
+```
+
+{% endcut %}
+{.table-cell}
+||
+||
+
+_borderRadius_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: number
+
+Default widget border radius.
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+{% endcut %}
+
+Default visual settings for dashboard widgets.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{
+  "borderRadius": 0.5,
+  "backgroundSettings": {
+    "color": {
+      "light": "example",
+      "dark": "example"
+    }
+  }
+}
+```
+
+{% endcut %}
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+{% endcut %}
+
+Dashboard settings.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{
+  "autoupdateInterval": 30,
+  "maxConcurrentRequests": 1,
+  "loadPriority": "charts",
+  "silentLoading": true,
+  "dependentSelectors": true,
+  "globalParams": {},
+  "signedGlobalParams": {},
+  "hideTabs": true,
+  "hideDashTitle": true,
+  "expandTOC": true,
+  "backgroundSettings": {
+    "color": {
+      "light": "example",
+      "dark": "example"
+    }
+  },
+  "widgetsSettings": {
+    "borderRadius": 0.5,
+    "backgroundSettings": {
+      "color": null
+    }
+  },
+  "loadOnlyVisibleCharts": true,
+  "margins": [
+    null
+  ],
+  "enableAssistant": true,
+  "aiChatHistoryEnabled": true
+}
+```
+
+{% endcut %}
+{.table-cell}
+||
+||
+
+_tabs_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: [DashTab](#entity-DashTab)[]
+
+Dashboard tabs.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+[
+  {
+    "id": "example",
+    "title": "example",
+    "hidden": true,
+    "items": [
+      {
+        "id": "example",
+        "namespace": "default",
+        "orderId": 0.5,
+        "defaultOrderId": 0.5,
+        "type": "text",
+        "data": {}
+      }
+    ],
+    "layout": [
+      {
+        "i": "example",
+        "h": 0.5,
+        "w": 0.5,
+        "x": 0.5,
+        "y": 0.5,
+        "parent": "example"
+      }
+    ],
+    "connections": [
+      {
+        "from": "example",
+        "to": "example",
+        "kind": "ignore"
+      }
+    ],
+    "aliases": {
+      "default": [
+        [
+          "example",
+          "example"
+        ]
+      ]
+    },
+    "globalItems": [
+      {
+        "id": "example",
+        "namespace": "default",
+        "orderId": 0.5,
+        "defaultOrderId": 0.5,
+        "type": "control",
+        "data": null,
+        "defaults": {}
+      }
+    ],
+    "settings": {
+      "fixedHeaderCollapsedDefault": true,
+      "isGoldenset": true
+    }
+  }
+]
+```
+
+{% endcut %}
+{.table-cell}
+||
+||
+
+_accessDescription_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Custom message shown when access is denied.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_description_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Deprecated. Use `annotation` from the parent object instead.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_supportDescription_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Custom message shown when contacting support.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+{% endcut %}
+
+Versioned data of the dashboard.
 
 {% cut "**Example**" %}{.json-schema-example}
 
@@ -6927,6 +7553,8 @@ _entryId_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
+Unique identifier of the dashboard.
+
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
@@ -6935,6 +7563,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 _hidden_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: boolean
+
+Whether the dashboard is hidden.
 {.table-cell}
 ||
 ||
@@ -6943,6 +7573,8 @@ _key_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string &#124; null
 
+Key of the dashboard entry.
+
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
@@ -6950,7 +7582,9 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _meta_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
-**Type**: [DashMeta](#entity-DashMeta)
+**Type**: object &#124; null
+
+Metadata of the dashboard.
 
 {% cut "**Example**" %}{.json-schema-example}
 
@@ -6966,6 +7600,8 @@ _meta_{.json-schema-reset .json-schema-property .json-schema-required}
 _public_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: boolean
+
+Whether the dashboard is public.
 {.table-cell}
 ||
 ||
@@ -6973,6 +7609,8 @@ _public_{.json-schema-reset .json-schema-property .json-schema-required}
 _publishedId_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string &#124; null
+
+ID of the published dashboard revision.
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
@@ -6983,6 +7621,8 @@ _revId_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
+ID of the current dashboard revision.
+
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
@@ -6992,6 +7632,8 @@ _savedId_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
+ID of the saved dashboard revision.
+
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
@@ -7000,6 +7642,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 _scope_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
+
+Scope of the dashboard entry.
 
 _Const:_{.json-schema-reset .json-schema-value} `dash`
 
@@ -7012,6 +7656,8 @@ _tenantId_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
+ID of the tenant that owns the dashboard.
+
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
@@ -7020,6 +7666,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 _type_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
+
+Type of the dashboard entry. Always an empty string.
 
 _Const:_{.json-schema-reset .json-schema-value} ``
 
@@ -7032,6 +7680,8 @@ _updatedAt_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
+Date and time when the dashboard was last updated.
+
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
@@ -7040,6 +7690,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 _updatedBy_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
+
+ID of the user who last updated the dashboard.
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
@@ -7050,6 +7702,8 @@ _version_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: number
 
+Schema version of the dashboard.
+
 _Const:_{.json-schema-reset .json-schema-value} `1`
 {.table-cell}
 ||
@@ -7059,6 +7713,8 @@ _workbookId_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string &#124; null
 
+ID of the workbook containing the dashboard.
+
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
@@ -7066,7 +7722,9 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _annotation_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: [EntryAnnotation](#entity-EntryAnnotation)
+**Type**: object &#124; null
+
+Annotation of the dashboard.
 
 {% cut "**Example**" %}{.json-schema-example}
 
@@ -7085,6 +7743,8 @@ _links_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: object &#124; null
 
+Links associated with the dashboard.
+
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
@@ -7100,6 +7760,8 @@ _revUpdatedAt_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
+Date and time when the current revision was last updated.
+
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
@@ -7108,6 +7770,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 _revUpdatedBy_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
+
+ID of the user who last updated the current revision.
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}

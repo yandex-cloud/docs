@@ -5,6 +5,12 @@ description: This section contains the {{ mrd-name }} release notes.
 
 # {{ mrd-full-name }} release notes
 
+## June 2026 {#jun-2026}
+
+* Added support for database-level access control lists (ACLs) to manage access permissions for individual databases. This enables you to isolate data and improve cluster security.
+* Added one-click Terraform code export within the management console when creating or updating cluster settings. This option is also supported for existing service resources.
+* Added a public API [method to list available DBMS versions](api-ref/Versions/list.md).
+
 ## May 2026 {#may-2026}
 
 * Added the ability to [create and restore](./operations/cluster-backups.md) clusters with encrypted local disks from a backup. The encryption uses a custom KMS key.

@@ -190,6 +190,10 @@ items:
                     href: events-ref/UpdateServer.md
                   - name: UpdateVRF
                     href: events-ref/UpdateVRF.md
+                  - name: BareMetal Audit Trails Events
+                    items:
+                      - name: ExternalFlow
+                        href: flowlogs/events-ref/ExternalFlow.md
           - name: Access management
             href: security/index.md
           - name: Additional server settings
@@ -1459,6 +1463,8 @@ items:
                             href: api-ref/grpc/Server/updateServer.md
                           - name: DeleteServer
                             href: api-ref/grpc/Server/deleteServer.md
+                          - name: SkipQuarantineServer
+                            href: api-ref/grpc/Server/skipQuarantineServer.md
                           - name: PowerOffServer
                             href: api-ref/grpc/Server/powerOffServer.md
                           - name: PowerOnServer
@@ -1495,6 +1501,43 @@ items:
                             href: api-ref/grpc/Zone/getZone.md
                           - name: ListZones
                             href: api-ref/grpc/Zone/listZones.md
+                      - name: Extend API
+                        items:
+                          - name: Overview
+                            href: extend/api-ref/grpc/index.md
+                          - name: Operation
+                            items:
+                              - name: Overview
+                                href: extend/api-ref/grpc/Operation/index.md
+                              - name: Get
+                                href: extend/api-ref/grpc/Operation/get.md
+                              - name: Cancel
+                                href: extend/api-ref/grpc/Operation/cancel.md
+                          - name: StacklandCluster
+                            items:
+                              - name: Overview
+                                href: extend/api-ref/grpc/StacklandCluster/index.md
+                              - name: GetStacklandCluster
+                                href: >-
+                                  extend/api-ref/grpc/StacklandCluster/getStacklandCluster.md
+                              - name: ListStacklandClusters
+                                href: >-
+                                  extend/api-ref/grpc/StacklandCluster/listStacklandClusters.md
+                              - name: CreateStacklandCluster
+                                href: >-
+                                  extend/api-ref/grpc/StacklandCluster/createStacklandCluster.md
+                              - name: UpdateStacklandCluster
+                                href: >-
+                                  extend/api-ref/grpc/StacklandCluster/updateStacklandCluster.md
+                              - name: DeleteStacklandCluster
+                                href: >-
+                                  extend/api-ref/grpc/StacklandCluster/deleteStacklandCluster.md
+                              - name: GetStacklandClusterConfigs
+                                href: >-
+                                  extend/api-ref/grpc/StacklandCluster/getStacklandClusterConfigs.md
+                              - name: ListStacklandClusterOperations
+                                href: >-
+                                  extend/api-ref/grpc/StacklandCluster/listStacklandClusterOperations.md
                   - name: REST
                     items:
                       - name: Overview
@@ -1638,6 +1681,8 @@ items:
                             href: api-ref/Server/updateServer.md
                           - name: DeleteServer
                             href: api-ref/Server/deleteServer.md
+                          - name: SkipQuarantineServer
+                            href: api-ref/Server/skipQuarantineServer.md
                           - name: PowerOffServer
                             href: api-ref/Server/powerOffServer.md
                           - name: PowerOnServer
@@ -1674,6 +1719,43 @@ items:
                             href: api-ref/Zone/getZone.md
                           - name: ListZones
                             href: api-ref/Zone/listZones.md
+                      - name: Extend API
+                        items:
+                          - name: Overview
+                            href: extend/api-ref/index.md
+                          - name: Operation
+                            items:
+                              - name: Overview
+                                href: extend/api-ref/Operation/index.md
+                              - name: Get
+                                href: extend/api-ref/Operation/get.md
+                              - name: Cancel
+                                href: extend/api-ref/Operation/cancel.md
+                          - name: StacklandCluster
+                            items:
+                              - name: Overview
+                                href: extend/api-ref/StacklandCluster/index.md
+                              - name: GetStacklandCluster
+                                href: >-
+                                  extend/api-ref/StacklandCluster/getStacklandCluster.md
+                              - name: ListStacklandClusters
+                                href: >-
+                                  extend/api-ref/StacklandCluster/listStacklandClusters.md
+                              - name: CreateStacklandCluster
+                                href: >-
+                                  extend/api-ref/StacklandCluster/createStacklandCluster.md
+                              - name: UpdateStacklandCluster
+                                href: >-
+                                  extend/api-ref/StacklandCluster/updateStacklandCluster.md
+                              - name: DeleteStacklandCluster
+                                href: >-
+                                  extend/api-ref/StacklandCluster/deleteStacklandCluster.md
+                              - name: GetStacklandClusterConfigs
+                                href: >-
+                                  extend/api-ref/StacklandCluster/getStacklandClusterConfigs.md
+                              - name: ListStacklandClusterOperations
+                                href: >-
+                                  extend/api-ref/StacklandCluster/listStacklandClusterOperations.md
           - name: '{{ monitoring-name }} metrics'
             href: metrics.md
       - name: Quotas and limits

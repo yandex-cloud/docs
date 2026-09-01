@@ -106,12 +106,12 @@ A *security group* (SG) is a resource created at the [cloud network](../../../vp
 
 A *default security group* (DSG) is created automatically while creating a [new cloud network](../../../vpc/concepts/network.md#network). The default security group has the following properties:
 
-* It will allow any network traffic, both egress and ingress, in the new cloud network.
+* In a new network, allows all outgoing (egress) traffic, incoming (ingress) traffic over `SSH` (`TCP` and `UDP` on port `22`), `RDP` (`TCP` and `UDP` on port `3389`), and `ICMP` from any IPv4 address, as well as traffic between objects within the group (the `self` rule).
 * It applies to traffic passing through all subnets in the network where the DSG is created.
 * It is only used if no security group is explicitly assigned to the object yet.
 * You cannot delete the DSG: it is deleted automatically when deleting the network.
 
-The default security group is a convenient but insecure mechanism that automatically allows all network traffic (incoming and outgoing) for your network objects. While simplifying the initial setup, such openness creates significant risks:
+The default security group is a convenient yet insecure mechanism. It allows incoming `SSH` and `RDP` traffic from all IPv4 addresses and any outgoing traffic. This simplifies the initial setup at the expense of creating significant risks:
 
 * Attackers can get access to resources through public interfaces.
 * Uncontrolled traffic makes your network more vulnerable to DDoS attacks and port scanning.

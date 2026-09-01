@@ -25,6 +25,12 @@
 * [Восстановить загрузчик ОС](servers/restore-grub.md)
 * [Проанализировать состояние сервера BareMetal с помощью утилиты HWCheck](servers/use-hwatcher.md)
 
+## BareMetal Extend {#extend}
+
+* [Подключить Extend: Virtualization](extend/virtualization.md)
+* [Создать кластер Extend: Yandex Cloud Stackland](extend/stackland.md)
+* [Создать группу узлов BareMetal для Extend: Managed Service for Kubernetes®](extend/managed-kubernetes.md)
+
 ## Сеть {#network}
 
 * [Создать VRF](network-create.md)

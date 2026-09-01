@@ -5,7 +5,6 @@ editable: false
 # BareMetal API, gRPC: ServerService.PowerOff
 
 
-Required for backward compatibility with old clients. --)
 Powers off the specified server.
 
 ## gRPC request

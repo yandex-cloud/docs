@@ -2,7 +2,7 @@
 
 # BareMetal API, REST: Image.Update
 
-Updates the specified image.
+Updates the specified BootImage.
 
 ## HTTP request
 
@@ -16,8 +16,8 @@ PATCH https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/images/{imageId}
 ||Field | Description ||
 || imageId | **string**
 
-Required field. ID of the Image resource to update.
-To get the image ID, use a [ImageService.List](list.md#List) request.
+Required field. ID of the BootImage resource to update.
+To get the BootImage ID, use a [ImageService.List](list.md#List) request.
 
 Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#
@@ -47,13 +47,13 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-Name of the image.
+Name of the BootImage.
 The name must be unique within the folder.
 
 The string length in characters must be 2-63. Value must match the regular expression ` [a-z]([-a-z0-9]*[a-z0-9])? `. ||
 || description | **string**
 
-Description of the image.
+Description of the BootImage.
 
 The maximum string length in characters is 1024. ||
 || labels | **object** (map<**string**, **string**>)

@@ -1,3 +1,5 @@
+
+
 With [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md), you can protect apps in a {{ managed-k8s-full-name }} cluster against DDoS attacks and bots. To do this, publish your apps through an ingress resource associated with a {{ sws-name }} [profile](../../smartwebsecurity/concepts/profiles.md) that uses a [Gwin controller](../../application-load-balancer/tools/gwin/index.md) or an [{{ alb-name }} ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}

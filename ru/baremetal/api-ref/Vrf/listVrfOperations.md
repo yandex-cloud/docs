@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/vrf/{vrfId}:listOperations
+  - url: https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/vrf/{vrfId}/operations
     method: get
     path:
       type: object
@@ -56,12 +56,11 @@ apiPlayground:
 
 Lists operations for the specified vrf.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 
 ```
-GET https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/vrf/{vrfId}:listOperations
+GET https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/vrf/{vrfId}/operations
 ```
 
 ## Path parameters

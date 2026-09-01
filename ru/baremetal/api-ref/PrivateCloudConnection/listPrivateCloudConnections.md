@@ -67,7 +67,6 @@ apiPlayground:
 
 Retrieves the list of Private cloud connection resources in the specified folder.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 

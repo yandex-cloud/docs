@@ -5,6 +5,14 @@ description: This section contains the {{ mgp-name }} release notes.
 
 # {{ mgp-full-name }} release notes
 
+## June 2026 {#jun-2026}
+
+* Enabled resource group management for {{ CB }} 2 core clusters in the Command Center.
+* Added the **Recommendations** tab to the management console. It features checks for CPU load, ZSTD memory tracking, and memory allocation.
+* Updated the dashboard for tracking [PXF metrics](metrics.md#managed-greenplum-pxf-metrics).
+* Added a public API [method to list available DBMS versions](api-ref/Versions/list.md).
+* Added one-click Terraform code export within the management console when creating or updating cluster settings. This option is also supported for existing service resources.
+
 ## May 2026 {#may-2026}
 
 Increased the maximum local disk size per host to 36 TB. Disks of this size are available for Intel Ice Lake (`standard-v3`) configurations with 16 or more cores. To create extra large clusters, you may need to contact [support]({{ link-console-support }}) to reserve the required resources.
@@ -86,8 +94,8 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 
 * You can now [expand a cluster](operations/cluster-expand.md) via the CLI and API by adding new segment hosts with data redistribution across all segments.
 * You can now view cluster backups, recover from backups, and modify public access to the cluster via the CLI. For more information, see [YC CLI releases](../cli/release-notes.md#version0.100.0).
-* Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more information, see [this {{ PG }} guide]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
-* Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-gp_toolkit.html#topic34).
+* Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more details, see [this {{ PG }} guide]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
+* Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more details, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-gp_toolkit.html#topic34).
 * Improved the algorithm for creating clusters via the wizard:
     * The cluster size cannot exceed `<maximum_number_of_hosts> × <maximum_disk_size_per_host>`.
     * You can select groups of dedicated hosts to deploy the cluster.

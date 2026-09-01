@@ -4,7 +4,6 @@
 
 Lists operations for the specified public subnet.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

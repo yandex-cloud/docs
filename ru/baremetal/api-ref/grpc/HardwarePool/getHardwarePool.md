@@ -8,7 +8,6 @@ Returns the specific HardwarePool resource.
 
 To get the list of available HardwarePool resource, make a [List] request.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

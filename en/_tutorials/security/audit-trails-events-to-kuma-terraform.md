@@ -21,13 +21,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [paid-resources](../_tutorials_includes/audit-trails-events-to-kuma/paid-resources.md) %}
 
 
-## Create an infrastructure {#deploy}
+## Create your infrastructure {#deploy}
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
-To create an infrastructure using {{ TF }}:
+To create an infrastructure with {{ TF }}:
 
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see the [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider) section, Step 1).
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the {{ yandex-cloud }} provider source (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
 1. Set up your infrastructure description file:
 
     {% list tabs group=infrastructure_description %}
@@ -48,7 +48,7 @@ To create an infrastructure using {{ TF }}:
     - Manually {#manual}
 
       1. Create a folder for the infrastructure description file.
-      1. Create a configuration file named `at-events-to-kuma.tf` in the folder:
+      1. Create a configuration file named `at-events-to-kuma.tf` in the directory:
 
           {% cut "at-events-to-kuma.tf" %}
 
@@ -66,7 +66,7 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    For more on the properties of resources used in {{ TF }}, see these provider guides:
+    Learn more about the properties of resources used in {{ TF }} in these provider guides:
 
     * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
     * [Static access key](../../iam/concepts/authorization/access-key.md): [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key)

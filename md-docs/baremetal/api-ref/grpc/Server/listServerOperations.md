@@ -4,7 +4,6 @@
 
 Lists operations for the specified server.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

@@ -145,7 +145,7 @@ To create a federation:
 
   1. Describe the federation parameters in the configuration file.
 
-      Configuration file structure example:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
