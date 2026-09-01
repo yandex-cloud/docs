@@ -22,7 +22,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
+  1. Navigate to the **{{ ui-key.yacloud.trino.title_catalogs }}** tab.
   1. Click **{{ ui-key.yacloud.trino.catalogs.create_action }}**.
   1. In the **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** field, enter the catalog name, {{ TR }}.
   1. In the **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** field, select the [connector](../concepts/index.md#connector) type.

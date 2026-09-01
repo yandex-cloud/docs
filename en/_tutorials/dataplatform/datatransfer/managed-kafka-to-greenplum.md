@@ -1,4 +1,6 @@
-You can set up data transfer from a {{ mkf-full-name }} topic to {{ GP }} in {{ mgp-name }} using {{ data-transfer-full-name }}. Proceed as follows:
+
+
+You can set up data transfer from a {{ mkf-full-name }} topic to {{ GP }}/{{ CB }} in {{ mgp-name }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Prepare your test data](#prepare-data).
 1. [Prepare and activate the transfer](#prepare-transfer).

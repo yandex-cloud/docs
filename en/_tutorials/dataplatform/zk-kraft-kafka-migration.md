@@ -1,6 +1,5 @@
 # Upgrading a {{ mkf-name }} cluster to migrate from {{ ZK }} to {{ kraft-short-name }}
 
-
 {{ mkf-name }} multi-host clusters version 3.5 and lower use {{ ZK }} to manage metadata. {{ ZK }} support will be [discontinued](../../managed-kafka/concepts/update-policy.md#version-schedule) starting from {{ KF }} 4.0. You can migrate clusters with {{ ZK }} hosts to the {{ kraft-short-name }} protocol. Starting with version 3.6, {{ KF }} uses [{{ kraft-short-name }}](../../managed-kafka/concepts/kraft.md) as the main metadata synchronization protocol.
 
 To switch to {{ kraft-short-name }} in a {{ ZK }} cluster:

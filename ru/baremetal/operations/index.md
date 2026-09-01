@@ -28,6 +28,12 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./servers/restore-grub.md)
 * [{#T}](./servers/use-hwatcher.md)
 
+## BareMetal Extend {#extend}
+
+* [{#T}](./extend/virtualization.md)
+* [{#T}](./extend/stackland.md)
+* [{#T}](./extend/managed-kubernetes.md)
+
 ## Сеть {#network}
 
 * [{#T}](./network-create.md)

@@ -78,7 +78,7 @@ blocks:
     
     * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами и более:
 
-        * для платформ Intel Broadwell и Intel Cascade Lake — с шагом 100 ГБ;
+        * для платформы Intel Cascade Lake — с шагом 100 ГБ;
         * для платформ Intel Ice Lake и AMD Zen 4 — с шагом {{ local-ssd-v3-step }}.
 
 

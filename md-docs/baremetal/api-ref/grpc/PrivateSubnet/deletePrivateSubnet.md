@@ -6,7 +6,6 @@ Deletes the specified private subnet.
 
 Deleting a private subnet removes its data permanently and is irreversible.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

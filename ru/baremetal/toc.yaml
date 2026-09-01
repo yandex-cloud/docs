@@ -60,6 +60,16 @@ items:
             href: operations/servers/restore-grub.md
           - name: Проанализировать состояние сервера с помощью HWCheck
             href: operations/servers/use-hwatcher.md
+      - name: BareMetal Extend
+        items:
+          - name: Подключить {{ baremetal-extend-virtualization-name }}
+            href: operations/extend/virtualization.md
+          - name: Создать кластер {{ baremetal-extend-stackland-name }}
+            href: operations/extend/stackland.md
+          - name: >-
+              Создать группу узлов {{ baremetal-name }} для {{
+              baremetal-extend-managed-k8s-name }}
+            href: operations/extend/managed-kubernetes.md
       - name: Сеть
         items:
           - name: Создать VRF
@@ -100,6 +110,17 @@ items:
                 href: concepts/smart-disk-analysis.md
               - name: RAID
                 href: concepts/disks/raid.md
+      - name: BareMetal Extend
+        expanded: true
+        items:
+          - name: Обзор
+            href: concepts/extend.md
+          - name: '{{ baremetal-extend-virtualization-name }}'
+            href: concepts/extend/virtualization.md
+          - name: '{{ baremetal-extend-stackland-name }}'
+            href: concepts/extend/stackland.md
+          - name: '{{ baremetal-extend-managed-k8s-name }}'
+            href: concepts/extend/managed-kubernetes.md
       - name: Сеть
         expanded: true
         items:
@@ -190,6 +211,10 @@ items:
                     href: events-ref/UpdateServer.md
                   - name: UpdateVRF
                     href: events-ref/UpdateVRF.md
+                  - name: BareMetal Audit Trails Events
+                    items:
+                      - name: ExternalFlow
+                        href: flowlogs/events-ref/ExternalFlow.md
           - name: Управление доступом
             href: security/index.md
           - name: Дополнительные настройки серверов
@@ -1459,6 +1484,8 @@ items:
                             href: api-ref/grpc/Server/updateServer.md
                           - name: DeleteServer
                             href: api-ref/grpc/Server/deleteServer.md
+                          - name: SkipQuarantineServer
+                            href: api-ref/grpc/Server/skipQuarantineServer.md
                           - name: PowerOffServer
                             href: api-ref/grpc/Server/powerOffServer.md
                           - name: PowerOnServer
@@ -1495,6 +1522,43 @@ items:
                             href: api-ref/grpc/Zone/getZone.md
                           - name: ListZones
                             href: api-ref/grpc/Zone/listZones.md
+                      - name: Extend API
+                        items:
+                          - name: Overview
+                            href: extend/api-ref/grpc/index.md
+                          - name: Operation
+                            items:
+                              - name: Overview
+                                href: extend/api-ref/grpc/Operation/index.md
+                              - name: Get
+                                href: extend/api-ref/grpc/Operation/get.md
+                              - name: Cancel
+                                href: extend/api-ref/grpc/Operation/cancel.md
+                          - name: StacklandCluster
+                            items:
+                              - name: Overview
+                                href: extend/api-ref/grpc/StacklandCluster/index.md
+                              - name: GetStacklandCluster
+                                href: >-
+                                  extend/api-ref/grpc/StacklandCluster/getStacklandCluster.md
+                              - name: ListStacklandClusters
+                                href: >-
+                                  extend/api-ref/grpc/StacklandCluster/listStacklandClusters.md
+                              - name: CreateStacklandCluster
+                                href: >-
+                                  extend/api-ref/grpc/StacklandCluster/createStacklandCluster.md
+                              - name: UpdateStacklandCluster
+                                href: >-
+                                  extend/api-ref/grpc/StacklandCluster/updateStacklandCluster.md
+                              - name: DeleteStacklandCluster
+                                href: >-
+                                  extend/api-ref/grpc/StacklandCluster/deleteStacklandCluster.md
+                              - name: GetStacklandClusterConfigs
+                                href: >-
+                                  extend/api-ref/grpc/StacklandCluster/getStacklandClusterConfigs.md
+                              - name: ListStacklandClusterOperations
+                                href: >-
+                                  extend/api-ref/grpc/StacklandCluster/listStacklandClusterOperations.md
                   - name: REST (англ.)
                     items:
                       - name: Overview
@@ -1638,6 +1702,8 @@ items:
                             href: api-ref/Server/updateServer.md
                           - name: DeleteServer
                             href: api-ref/Server/deleteServer.md
+                          - name: SkipQuarantineServer
+                            href: api-ref/Server/skipQuarantineServer.md
                           - name: PowerOffServer
                             href: api-ref/Server/powerOffServer.md
                           - name: PowerOnServer
@@ -1674,6 +1740,43 @@ items:
                             href: api-ref/Zone/getZone.md
                           - name: ListZones
                             href: api-ref/Zone/listZones.md
+                      - name: Extend API
+                        items:
+                          - name: Overview
+                            href: extend/api-ref/index.md
+                          - name: Operation
+                            items:
+                              - name: Overview
+                                href: extend/api-ref/Operation/index.md
+                              - name: Get
+                                href: extend/api-ref/Operation/get.md
+                              - name: Cancel
+                                href: extend/api-ref/Operation/cancel.md
+                          - name: StacklandCluster
+                            items:
+                              - name: Overview
+                                href: extend/api-ref/StacklandCluster/index.md
+                              - name: GetStacklandCluster
+                                href: >-
+                                  extend/api-ref/StacklandCluster/getStacklandCluster.md
+                              - name: ListStacklandClusters
+                                href: >-
+                                  extend/api-ref/StacklandCluster/listStacklandClusters.md
+                              - name: CreateStacklandCluster
+                                href: >-
+                                  extend/api-ref/StacklandCluster/createStacklandCluster.md
+                              - name: UpdateStacklandCluster
+                                href: >-
+                                  extend/api-ref/StacklandCluster/updateStacklandCluster.md
+                              - name: DeleteStacklandCluster
+                                href: >-
+                                  extend/api-ref/StacklandCluster/deleteStacklandCluster.md
+                              - name: GetStacklandClusterConfigs
+                                href: >-
+                                  extend/api-ref/StacklandCluster/getStacklandClusterConfigs.md
+                              - name: ListStacklandClusterOperations
+                                href: >-
+                                  extend/api-ref/StacklandCluster/listStacklandClusterOperations.md
           - name: Метрики {{ monitoring-name }}
             href: metrics.md
       - name: Квоты и лимиты

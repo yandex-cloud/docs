@@ -11,7 +11,7 @@ A {{ mkf-name }} cluster allows you to manage topics and partitions in two ways,
 
     You can do the following with {{ mkf-name }} topics:
 
-    * [Create a topic](#create-topic).
+    * [Creating a topic](#create-topic).
     * [Update topic settings](#update-topic).
     * [Get a list of topics in a cluster](#list-topics).
     * [Get detailed information about a topic](#get-topic).

@@ -179,6 +179,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.title }}**:
 
+            * **Connection type**: Select `{{ ydb-name }} database`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the [previously created](#before-you-begin) {{ ydb-name }} database from the list.
 
@@ -432,7 +433,7 @@ To minimize resource consumption, delete the resources you no longer need:
     1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
 
     
-    1. If you created a service account when creating the source endpoint, [delete it](../../iam/operations/sa/delete.md).
+    1. [Delete the service account](../../iam/operations/sa/delete.md).
 
 
     1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).

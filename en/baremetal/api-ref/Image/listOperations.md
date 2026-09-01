@@ -9,7 +9,7 @@ apiPlayground:
         imageId:
           description: |-
             **string**
-            ID of the Image resource to list operations for.
+            ID of the BootImage resource to list operations for.
             Value must match the regular expression ` [a-z][a-z0-9]* `.
           pattern: '[a-z][a-z0-9]*'
           type: string
@@ -41,7 +41,7 @@ apiPlayground:
 
 # BareMetal API, REST: Image.ListOperations
 
-Lists operations for the specified image.
+Lists operations for the specified BootImage.
 
 ## HTTP request
 
@@ -55,7 +55,7 @@ GET https://baremetal.{{ api-host }}/baremetal/v1alpha/images/{imageId}/operatio
 ||Field | Description ||
 || imageId | **string**
 
-Required field. ID of the Image resource to list operations for.
+Required field. ID of the BootImage resource to list operations for.
 
 Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#
@@ -114,7 +114,7 @@ Page token. To get the next page of results, set `page_token` to the
 ||Field | Description ||
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
-List of operations for the specified Image resource. ||
+List of operations for the specified BootImage resource. ||
 || nextPageToken | **string**
 
 Token for getting the next page of the list. If the number of results is greater than

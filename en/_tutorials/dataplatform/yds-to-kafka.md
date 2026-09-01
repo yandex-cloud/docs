@@ -1,5 +1,6 @@
 # Delivering data from a {{ yds-name }} queue to {{ mkf-name }} using {{ data-transfer-name }}
 
+
 With {{ data-transfer-name }}, you can deliver data from a stream in {{ yds-name }} to a {{ mkf-name }} cluster.
 
 To transfer data:
@@ -38,14 +39,17 @@ Set up your data delivery infrastructure:
 
     1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of any suitable configuration.
 
+    
+    1. [Create a service account](../../iam/operations/sa/create.md) and [assign it the `yds.editor` role](../../iam/operations/sa/assign-role-for-sa.md) for the folder. The transfer will use it to access the data stream.
+
+
     1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration with publicly accessible hosts.
 
         {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     1. [In the {{ mkf-name }} cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
-    1. [In the {{ mkf-name }} cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions for the new topic.
-
+    1. [In the {{ mkf-name }} cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions for the new topic.
 
 - {{ TF }} {#tf}
 
@@ -60,20 +64,24 @@ Set up your data delivery infrastructure:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) and rules for connecting to a {{ mkf-name }} cluster.
+        * [Security group](../../vpc/concepts/security-groups.md) and rules for connection to a {{ mkf-name }} cluster.
+        * Service account.
         * {{ ydb-name }} database.
         * {{ mkf-name }} cluster.
         * {{ mkf-name }} topic named `sensors`.
         * {{ mkf-name }} user with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions for the `sensors` topic.
+        * Source endpoint.
+        * Target endpoint.
         * Transfer.
 
     1. In the `yds-to-kafka.tf` file, specify the following settings:
 
-        * `mkf_version`: {{ KF }} cluster version.
+        * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
         * `ydb_name`: {{ ydb-name }} database name.
+        * `stream_name`: {{ yds-name }} stream name.
+        * `mkf_version`: {{ KF }} cluster version.
         * `mkf_user_name`: {{ mkf-name }} cluster user name.
-        * `mkf_user_password`: {{ mkf-name }} cluster user password.
-        * `transfer_enabled`: Set to `0` to ensure no transfer is created until you [create endpoints manually](#prepare-transfer).
+        * `mkf_user_password`: User password in the {{ mkf-name }} cluster.
 
     1. Validate your {{ TF }} configuration files using this command:
 
@@ -97,116 +105,109 @@ Set up your data delivery infrastructure:
 
 ## Prepare and activate a transfer {#prepare-transfer}
 
-1. [Create a {{ yds-name }} source endpoint](../../data-transfer/operations/endpoint/index.md#create).
+{% list tabs group=instructions %}
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
+- Manually {#manual}
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
+    1. [Create a {{ yds-name }} source endpoint](../../data-transfer/operations/endpoint/index.md#create).
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the stream in {{ yds-name }}.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select an existing service account or create a new one with the `yds.editor` role.
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
+                * **Connection type**: Select `{{ ydb-name }} database`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the [previously created](#before-you-begin) {{ ydb-name }} database from the list.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream [you created](#prepare-source).
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select the [previously created](#before-you-begin) service account with the `yds.editor` role.
 
-            Fill in the data schema:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-            {% cut "Data schema" %}
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
-            ```json
-                [
-                    {
-                        "name": "device_id",
-                        "type": "string"
-                    },
-                    {
-                        "name": "datetime",
-                        "type": "datetime"
-                    },
-                    {
-                        "name": "latitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "longitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "altitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "speed",
-                        "type": "double"
-                    },
-                    {
-                        "name": "battery_voltage",
-                        "type": "any"
-                    },
-                    {
-                        "name": "cabin_temperature",
-                        "type": "double"
-                    },
-                    {
-                        "name": "fuel_level",
-                        "type": "any"
-                    }
-                ]
-            ```
+                Fill in the data schema:
 
-            {% endcut %}
+                {% cut "Data schema" %}
 
-1. [Create a target endpoint in {{ mkf-name }}](../../data-transfer/operations/endpoint/index.md#create).
+                ```json
+                    [
+                        {
+                            "name": "device_id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "datetime",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "latitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "longitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "altitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "speed",
+                            "type": "double"
+                        },
+                        {
+                            "name": "battery_voltage",
+                            "type": "any"
+                        },
+                        {
+                            "name": "cabin_temperature",
+                            "type": "double"
+                        },
+                        {
+                            "name": "fuel_level",
+                            "type": "any"
+                        }
+                    ]
+                ```
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
+                {% endcut %}
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}**:
-        
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select your {{ mkf-name }} cluster from the list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Select **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}**.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}**: Enter the {{ mkf-name }} cluster user name.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}**: Enter the {{ mkf-name }} cluster user password.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: Select **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: Enter the name of the topic in the {{ mkf-name }} cluster.
+    1. [Create a target endpoint in {{ mkf-name }}](../../data-transfer/operations/endpoint/index.md#create).
 
-1. Create a transfer:
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
 
-    {% list tabs group=instructions %}
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}**:
 
-    - Manually {#manual}
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select your [previously created](#before-you-begin) {{ mkf-name }} cluster from the list.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}` and specify the credentials of the {{ KF }} user [you created](#before-you-begin).
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: Set it to `sensors`.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the endpoints you created.
-        1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
+    1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the new endpoints.
+    1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate).
 
-    - {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
-        1. In the `yds-to-kafka.tf` file, specify the values of the following variables:
+    1. In the `data-transfer-ydb-mkf.tf` file, set the `transfer_enabled` variable to `1` to create your endpoints and transfer.
 
-            * `source_endpoint_id`: Source endpoint ID.
-            * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+    1. Validate your {{ TF }} configuration files using this command:
 
-        1. Validate your {{ TF }} configuration files using this command:
+        ```bash
+        terraform validate
+        ```
 
-            ```bash
-            terraform validate
-            ```
+        {{ TF }} will display any configuration errors detected in your files.
 
-            {{ TF }} will display any configuration errors detected in your files.
+    1. Create the required infrastructure:
 
-        1. Create the required infrastructure:
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        The transfer will be activated automatically upon creation.
 
-            The transfer will be activated automatically.
-
-    {% endlist %}
+{% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
@@ -231,33 +232,33 @@ Set up your data delivery infrastructure:
 1. Make sure the data has been transferred to the `sensors` topic in the {{ mkf-name }} cluster:
 
     1. [Get an SSL certificate](../../managed-kafka/operations/connect/index.md#get-ssl-cert) to connect to the {{ mkf-name }} cluster.
-    1. [Install](../../managed-kafka/operations/connect/clients.md#bash-zsh) `kafkacat`.
+    1. [Install](../../managed-kafka/operations/connect/clients.md#kafkactl) `kafkactl`:
     1. [Run](../../managed-kafka/operations/connect/clients.md#with-ssl_1) the command for receiving messages from a topic.
 
 ## Delete the resources you created {#clear-out}
 
-{% note info %}
-
-Before deleting any resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
-
-{% endnote %}
-
 To minimize resource consumption, delete the resources you no longer need:
 
-1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
-1. If you created a service account when creating the source endpoint, [delete it](../../iam/operations/sa/delete.md).
-1. Delete the rest of the resources depending on how you created them:
+1. [Delete the {{ yds-name }} data stream](../../data-streams/operations/manage-streams.md#delete-data-stream).
 
-   {% list tabs group=instructions %}
+1. Delete the other resources depending on how you created them:
 
-   - Manually {#manual}
+    {% list tabs group=instructions %}
 
-       1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
-       1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
+    - Manually {#manual}
 
-   - {{ TF }} {#tf}
+        1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
+        1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
 
-       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
+        
+        1. [Delete the service account](../../iam/operations/sa/delete.md).
 
-   {% endlist %}
+
+        1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+        1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
+
+    - {{ TF }} {#tf}
+
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
+
+    {% endlist %}

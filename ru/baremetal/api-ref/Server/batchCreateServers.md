@@ -718,7 +718,6 @@ apiPlayground:
 
 Creates multiple servers in the specified folder.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 
@@ -956,7 +955,9 @@ State of the server.
 - `REINSTALLING`: Server operating system is being reinstalled.
 - `UPDATING`: Server is being updated.
 - `QUARANTINED`: Server has been quarantined
-- `RUNNING`: Server is running normally ||
+- `RUNNING`: Server is running normally
+- `ASSEMBLING`: Server is being assembled.
+- `MAINTENANCE`: Server is under maintenance. ||
 || osSettings | **[OsSettings](#yandex.cloud.baremetal.v2.OsSettings)**
 
 Operating system specific settings of the server. Optional, will be empty if the server is

@@ -5,6 +5,16 @@ description: This section contains the {{ mos-name }} release notes.
 
 # {{ mos-full-name }} release notes
 
+## June 2026 {#jun-2026}
+
+* The following configuration templates appeared when creating a cluster: **Starter**, **Standard**, **Hybrid**, **AI/RAG**, and **Test**.
+* Added the ability to specify storage size in GB using the `disk_size_gb` parameter in {{ TF }}.
+* Added more detailed and transparent information about cluster maintenance to the management console: maintenance operation duration, impact on the user, estimated start time of the operation, and what the user should do if the maintenance task fails.
+* Added the `opensearch_breakers_parent_tripped` metric, which signals throttling.
+* Added a [method for available DBMS version listing](api-ref/Versions/list.md) to the public API.
+* Added the option to export Terraform code in a single click when creating or editing cluster settings in the management console. This option also works for existing resources in the service.
+* New {{ OS }} versions are out: [3.6.0 and 3.7.0](https://docs.opensearch.org/latest/version-history/).
+
 ## May 2026 {#may-2026}
 
 * Added the ability to [create and restore](./operations/cluster-backups.md) clusters with encrypted local disks from a backup. The encryption uses a custom KMS key.

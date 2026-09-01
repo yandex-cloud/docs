@@ -4,7 +4,33 @@
 
 {% changelog %}
 ```
-date: 2025-06
+date: 2026-08
+index: 5
+```
+
+### Новые возможности эндпоинтов
+
+* Наведите порядок в приёмнике Object Storage — подключайте политику очистки данных, чтобы автоматически удалять устаревшие, ненужные или избыточные данные из таблиц.
+* Подключайте эндпоинты Managed Service for YDB и Data Streams вручную.
+* Сделайте Apache Iceberg™ приёмником для CDC и отслеживайте, фиксируйте и передавайте изменения данных.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2026-07
+index: 4
+```
+
+### Больше возможностей поставки данных из очередей
+
+Настраивайте репликацию из [Apache Kafka®](../operations/endpoint/source/kafka.md) и [YDS](../operations/endpoint/source/data-streams.md) в [Apache Iceberg™](../operations/endpoint/target/iceberg.md) с помощью консоли управления или API.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2026-06
 index: 3
 ```
 

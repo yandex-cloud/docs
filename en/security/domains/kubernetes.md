@@ -128,9 +128,9 @@ The [CIS {{ k8s }} Benchmark](https://www.cisecurity.org/benchmark/kubernetes) s
 
 In {{ yandex-cloud }}, the {{ k8s }} node groups are deployed by default with the configuration that complies with CIS {{ k8s }} Benchmark.
 
-The [kube-bench](https://github.com/aquasecurity/kube-bench) tool enables you to check whether the node group configuration is compliant with CIS {{ k8s }} Benchmark. The tool officially supports the {{ yandex-cloud }} node groups.
+The [kube-bench](https://github.com/aquasecurity/kube-bench) tool enables you to check whether the node group configuration is compliant with the CIS {{ k8s }} Benchmark. The tool officially supports the {{ yandex-cloud }} node groups.
 
-[Here](https://github.com/aquasecurity/kube-bench/blob/main/docs/running.md) you can see the examples of launching kube-bench on the nodes.
+For examples of launching kube-bench on the nodes, see [here](https://github.com/aquasecurity/kube-bench/blob/main/docs/running.md).
 
 In addition, kube-bench supports integration with [Starboard Operator](https://blog.aquasec.com/automate-kubernetes-compliance) — another product for kube-bench automatic launching.
 

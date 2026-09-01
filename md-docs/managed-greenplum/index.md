@@ -68,6 +68,8 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [Запросы в Yandex WebSQL](operations/web-sql-query.md)
 
+ - [Работа с политиками распределения данных](operations/distribution-policy-management.md)
+
 ### Пользователи и сессии
 
  - [Управление ролями и пользователями](operations/roles-and-users.md)
@@ -190,7 +192,7 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [Ресурсные группы](concepts/resource-groups.md)
 
- - [Шардирование](concepts/sharding.md)
+ - [Распределение данных](concepts/sharding.md)
 
  - [Пользователи и роли](concepts/cluster-users.md)
 

@@ -4,8 +4,8 @@ To upload objects to an {{ objstorage-name }} bucket using an ephemeral access k
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a service account](#create-sa).
-1. [Prepare a script for creating an ephemeral access key](#prepare-script).
-1. [Configure the AWS CLI](#setup-aws-cli).
+1. [Create an ephemeral access key](#prepare-script).
+1. [Check your AWS CLI configuration](#setup-aws-cli).
 1. [Create a bucket](#create-bucket).
 1. [Upload an object to the bucket](#upload-files).
 
@@ -102,9 +102,9 @@ To manage [access](../../storage/security/overview.md) to the bucket, your servi
 {% include [encryption-roles](../../_includes/storage/encryption-roles.md) %}
 
 
-## Prepare a script for creating an ephemeral access key {#prepare-script}
+## Create an ephemeral access key {#prepare-script}
 
-With a script, you can avoid updating the ephemeral key in the AWS CLI profile after the key expires. For instructions on how to manage ephemeral keys manually, see [{#T}](../../iam/operations/authentication/manage-ephemeral-keys.md).
+You can write an ephemeral access key to the AWS CLI credentials file. Learn how to manage ephemeral keys manually [here](../../iam/operations/authentication/manage-ephemeral-keys.md).
 
 To create an ephemeral access key, the user needs the `iam.serviceAccounts.ephemeralAccessKeyAdmin` [role](../../iam/security/index.md#iam-serviceAccounts-ephemeralAccessKeyAdmin) or higher for the folder.
 
@@ -120,49 +120,43 @@ To create an ephemeral access key, the user needs the `iam.serviceAccounts.ephem
       yc iam service-account get --name ephemeral-sa --format json | jq -r .id
       ```
 
-  1. Create a file, e.g., `issue-ephemeral-script.sh`, and paste this code into it:
+  1. Create an ephemeral access key and write it to the AWS CLI credentials file:
 
       ```bash
-      #!/bin/sh
       yc iam access-key issue-ephemeral \
         --subject-id <service_account_ID> \
         --session-name ephemeral-sa-1 \
-        --jq '{Version: 1, AccessKeyId: .access_key_id, SecretAccessKey: .secret, SessionToken: .session_token, ExpiresAt: .expires_at}'
+        --aws-profile ephemeral-profile \
+        --aws-credentials-file ~/.aws/credentials
       ```
 
       Where:
 
       * `--subject-id`: `ephemeral-sa` service account ID.
       * `--session-name`: Session name, 1 to 64 characters long. It is required for identifying a session if the service account is [impersonated](../../iam/concepts/access-control/impersonation.md) for multiple users.
-      * `--jq`: jq output formatting template. It allows you to convert the result into a structure required by the AWS CLI.
+      * `--aws-profile`: Name of the AWS CLI profile that will store the ephemeral key. If a profile with this name already exists, its data will be overwritten.
+      * `--aws-credentials-file`: Path to the AWS CLI credentials file. The default value is `~/.aws/credentials`.
 
-  1. Make the file executable:
-
-      ```bash
-      sudo chmod +x issue-ephemeral-script.sh
-      ```
+      After you run the command, the `ephemeral-profile` profile with the ephemeral key data will appear in the `~/.aws/credentials` file. The key values are not displayed in the console.
 
 {% endlist %}
 
 
-## Configure the AWS CLI {#setup-aws-cli}
+## Check your AWS CLI configuration {#setup-aws-cli}
 
-Configure the AWS CLI to work with the ephemeral access key.
+Make sure the AWS CLI uses the ephemeral key you created.
 
 {% list tabs group=instructions %}
 
 - AWS CLI {#aws-cli}
 
-  1. Add a new `ephemeral-profile` profile to `~/.aws/credentials`:
+  1. Add the region and the {{ objstorage-name }} endpoint parameters to `ephemeral-profile` in the `~/.aws/credentials` file if required:
 
       ```text
       [ephemeral-profile]
       region = {{ region-id }}
       endpoint_url = https://{{ s3-storage-host }}
-      credential_process = <file_path>
       ```
-
-      In `credential_process`, enter the absolute path to the file you created when [preparing a script](#prepare-script), e.g., `/home/yc-user/issue-ephemeral-script.sh`.
 
   1. Check your profile configuration:
 

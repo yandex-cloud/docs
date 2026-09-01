@@ -1,6 +1,6 @@
 <!-- markdownlint-disable-file -->
 
-# DataLens API 
+# DataLens API
 
 ##version: 2##
 
@@ -17,7 +17,6 @@
 - [Workbook](Workbook/index.md)
 - [WorkbookExport](WorkbookExport/index.md)
 - [WorkbookImport](WorkbookImport/index.md)
-- [EntryLock](EntryLock/index.md)
 - [Editor](Editor/index.md)
 - [Embeds](Embeds/index.md)
 - [Permissions](Permissions/index.md)
@@ -26,6 +25,8 @@
 - [Audit](Audit/index.md)
 - [Folder](Folder/index.md)
 - [SharedEntry](SharedEntry/index.md)
+- [Licensing](Licensing/index.md)
+- [EntryLock](EntryLock/index.md)
 - [Access](Access/index.md)
 - [HtmlPages](HtmlPages/index.md)
-- [Licensing](Licensing/index.md)
+- [Data](Data/index.md)

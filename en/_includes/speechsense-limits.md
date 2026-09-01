@@ -22,7 +22,7 @@ Total number of requests for dialogs via API and for viewing in the {{ speechsen
 Type of limit | Value
 ----- | -----
 User data storage period | 3 months
-Recalculation of modified and newly created [dictionary and semantic tags]({{ link-docs-ai }}speechsense/concepts/tags) per month | Once per night
+Recalculation of modified and new [dictionary and semantic tags]({{ link-docs-ai }}speechsense/concepts/tags) | On schedule every 3 hours (the exact time depends on the recalculation queue)
 Number of returned search results | 10,000
 Maximum number of [projects]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#project) per [space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space) | 100
 Maximum number of [connections]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#connection) per [space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space) | 20

@@ -6,9 +6,7 @@ editable: false
 
 Powers off the specified server.
 
-https://google.aip.dev/130 --)
 
-Required for backward compatibility with old clients. --)
 
 ## gRPC request
 

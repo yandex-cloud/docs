@@ -8,6 +8,8 @@ Creating service accounts may be prohibited by [access policies](../../concepts/
 
 Create a [service account](../../concepts/users/service-accounts.md) to manage resources under a different account.
 
+To pause a service account without deleting it, [suspend](suspend-reactivate.md#suspend) it. A suspended account cannot be used until [reactivated](suspend-reactivate.md#reactivate).
+
 You must have the `{{ roles-iam-sa-admin }}` [role](../../../iam/security/#iam-serviceAccounts-admin) or higher for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create a service account.
 
 {% note info %}
@@ -143,9 +145,44 @@ Create a service account with the following name and description:
 
 {% endlist %}
 
+### Setting your service account lifetime {#add-expires-at}
+
+Create a service account with a limited lifetime. Once this lifetime expires, the system will automatically [suspend](../../concepts/users/service-accounts.md#sa-suspend) the account.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  ```bash
+  yc iam service-account create --name my-robot \
+    --expires-at 2026-12-02T15:04:05Z
+  ```
+
+  When setting the `--expires-at` parameter value, use the [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339) format.
+
+- API {#api}
+
+  ```bash
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM_token>" \
+    --data '{
+      "folderId": "<folder_ID>",
+      "name": "<service_account_name>",
+      "expiresAt": "2026-12-02T15:04:05Z"
+    }' \
+    https://iam.{{ api-host }}/iam/v1/serviceAccounts
+  ```
+
+  When setting the `expiresAt` field value, use the [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339) format.
+
+{% endlist %}
+
 #### Useful links {#see-also}
 
 * [{#T}](list-get.md)
 * [{#T}](assign-role-for-sa.md)
 * [{#T}](set-access-bindings.md)
+* [{#T}](suspend-reactivate.md)
 * [{#T}](../../concepts/users/service-accounts.md#sa-key)

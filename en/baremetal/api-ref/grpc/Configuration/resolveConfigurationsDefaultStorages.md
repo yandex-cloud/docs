@@ -6,11 +6,7 @@ editable: false
 
 Returns the default storages for the specified configurations.
 
-https://google.aip.dev/130 --)
 
-https://google.aip.dev/130 --)
-
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

@@ -9,7 +9,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
 {% endnote %}
 
-В данном руководстве вы создадите [рабочие процессы](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Yandex Workflows и настроите их интеграцию с [Яндекс Трекер](https://yandex.ru/support/tracker/ru/), [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/index) и [Yandex Cloud Postbox](../../postbox/index.md).
+В данном руководстве вы создадите [рабочие процессы](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Yandex Workflows и настроите их интеграцию с [Яндекс Трекер](https://yandex.ru/support/tracker/ru/), [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/index) и [Yandex Cloud Postbox](../../postbox/index).
 
 Созданные рабочие процессы будут получать информацию о задачах в указанной [очереди](https://yandex.ru/support/tracker/ru/about-tracker#ochered) Трекер, с помощью модели YandexGPT Pro анализировать проделанную в этих задачах работу, статусы задач и выставленные оценки. Результаты анализа и краткий отчет о проделанной работе будут сохраняться в комментарии к одной из задач в Трекер, а также дублироваться письмом на заданный адрес электронной почты с помощью сервиса Yandex Cloud Postbox.
 

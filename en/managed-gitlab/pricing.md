@@ -14,12 +14,16 @@ blocks:
     animated: false
     colSizes:
       all: 12
-      sm: 4
+      md: 4
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Price calculator
         text: Calculate the cost of the service based on your needs
-        icon: _assets/icons/calculator.svg
+        gravityIcon: Calculator
+        iconPosition: left
         urlTitle: Price calculator
         url: https://yandex.cloud/en/prices?state=aeece8ec0f13#calculator
         size: s
@@ -31,7 +35,8 @@ blocks:
       - type: basic-card
         title: Price list
         text: Current prices of all our services
-        icon: _assets/icons/circle-ruble.svg
+        gravityIcon: CircleRuble
+        iconPosition: left
         urlTitle: Price list
         url: https://yandex.cloud/en/price-list?services=dn2g45ennmllm0knk0gi
         size: s

@@ -1,5 +1,6 @@
 # Copying data from {{ mos-name }} to {{ mch-name }} using {{ data-transfer-full-name }}
 
+
 {{ data-transfer-name }} enables you to transfer data from a {{ mos-name }} source cluster to {{ mch-name }}.
 
 To transfer data:
@@ -144,7 +145,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          --request GET 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_search?pretty'
     ```
 
-## Prepare and activate a transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) for your [pre-configured](#before-you-begin) {{ mos-name }} cluster using the following settings:
 

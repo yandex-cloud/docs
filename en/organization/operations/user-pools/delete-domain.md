@@ -6,7 +6,9 @@ description: Follow this guide to delete a domain from an {{ org-full-name }} us
 # Deleting a domain
 
 
-You cannot delete the default [domain](../../concepts/domains.md) or a domain with associated users.
+You cannot delete a [domain](../../concepts/domains.md) if:
+* This domain is the default one.
+* The domain has active user associations, i.e., there are accounts in the user pool or federation that utilize email addresses with this domain.
 
 ## Deleting a domain from a user pool {#userpool}
 

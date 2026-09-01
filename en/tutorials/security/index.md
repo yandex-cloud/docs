@@ -94,6 +94,9 @@ description: Various security use cases in {{ yandex-cloud }}.
 * Jenkins
     * [{#T}](./single-sign-on/jenkins/saml-jenkins.md)
     * [{#T}](./single-sign-on/jenkins/oidc-jenkins.md)
+* Loop
+    * [{#T}](./single-sign-on/loop/saml-loop.md)
+    * [{#T}](./single-sign-on/loop/oidc-loop.md)
 * [{{ mgl-name }}](./single-sign-on/saml-managed-gitlab.md)
 * [{{ mos-name }}](./single-sign-on/saml-opensearch.md)
 * [MWS](./single-sign-on/oidc-mws.md)
@@ -104,8 +107,10 @@ description: Various security use cases in {{ yandex-cloud }}.
 * [Selectel](./single-sign-on/saml-selectel.md)
 * [Sentry](./single-sign-on/saml-sentry.md)
 * [SonarQube](single-sign-on/saml-sonarqube.md)
-* VK Cloud
-    * [{#T}](./single-sign-on/vk-cloud/saml-vk-cloud.md)
+* Time
+    * [{#T}](./single-sign-on/time/saml-time.md)
+    * [{#T}](./single-sign-on/time/oidc-time.md)
+* [{#T}](./single-sign-on/saml-vk-cloud.md)
 * [Zabbix](./single-sign-on/saml-zabbix.md)
 * [Passwork](./single-sign-on/saml-passwork.md)
 * [{{ yandex-360 }}](./single-sign-on/saml-yandex-360.md)

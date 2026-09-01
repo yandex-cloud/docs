@@ -6,8 +6,6 @@
 
 О том, как создать триггер для Telegram, читайте в инструкции [{#T}](../../operations/telegram-trigger-create.md).
 
-{% include [batching-messages](../../../_includes/serverless-containers/batching-messages.md) %}
-
 ## Роли, необходимые для корректной работы триггера для Telegram {#roles}
 
 * Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) и выше.

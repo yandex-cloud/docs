@@ -1,5 +1,6 @@
 # Migrating to a third-party {{ MY }} cluster
 
+
 To migrate a database deployed in a {{ mmy-full-name }} cluster to a third-party {{ MY }} cluster:
 
 1. Transfer the data.

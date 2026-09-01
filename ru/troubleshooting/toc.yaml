@@ -409,21 +409,6 @@ items:
         hidden: true
       - name: Как делегировать домен на серверы {{ dns-name }}
         href: dns/how-to/delegate-public-zone.md
-  - name: '{{ data-transfer-name }}'
-    items:
-      - name: Все решения для {{ data-transfer-name }}
-        href: data-transfer/index.md
-      - name: Решения для известных проблем {{ data-transfer-name }}
-        href: data-transfer/known-issues/index.md
-        hidden: true
-      - name: >-
-          Устранение ошибки `failed to connect to the destination cluster to get
-          type information`
-        href: >-
-          data-transfer/known-issues/failed-to-connect-to-the-destination-cluster-to-get-type-information.md
-      - name: Примеры конфигураций и сценариев {{ data-transfer-name }}
-        href: data-transfer/how-to/index.md
-        hidden: true
   - name: '{{ sf-name }}'
     items:
       - name: Все решения для {{ sf-name }}

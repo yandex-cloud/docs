@@ -1,5 +1,6 @@
 # Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}
 
+
 You can track data changes in a {{ mpg-name }} _source cluster_ and send them to a {{ mkf-name }} _target cluster_ using change data capture (CDC).
 
 To set up CDC using {{ data-transfer-name }}:
@@ -22,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
@@ -94,7 +95,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `transfer_name`: Transfer name.
       * `transfer_enabled = 0`: Disables the creation of endpoints and transfers. They will be created during the [preparation of the transfer](#prepare-transfer).
 
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
@@ -229,7 +230,7 @@ The target cluster's setup will vary depending on the [topic management method](
 
   1. Specify `transfer_enabled = 1` in the `cdc-mpg-mkf.tf` file.
 
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate

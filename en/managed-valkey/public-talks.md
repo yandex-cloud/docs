@@ -1,6 +1,6 @@
 ---
 title: Public materials about {{ mrd-full-name }}
-description: Videos of conferences and webinars on {{ mrd-full-name }}.
+description: Video recordings of conferences and webinars on {{ mrd-full-name }}.
 ---
 
 # Public materials about {{ mrd-full-name }}
@@ -22,7 +22,7 @@ description: Videos of conferences and webinars on {{ mrd-full-name }}.
 
 ### 2021: Yandex Scale {#yandex-scale-2021}
 
-* Data platform updates and future plans.
+* Data platform news and roadmap.
 
   * Click [here](https://www.youtube.com/watch?v=34azYnDBiYY) to watch the video.
 
@@ -34,7 +34,7 @@ description: Videos of conferences and webinars on {{ mrd-full-name }}.
 
 ### 2019: HighLoad++ {#highload-2019}
 
-* Backing up heavily loaded DBMS's.
+* Backing up high-load databases.
 
   * Click [here](https://highload.ru/moscow/2019/abstracts/5981) to watch the video.
 

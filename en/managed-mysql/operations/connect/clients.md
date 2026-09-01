@@ -54,7 +54,7 @@ Before connecting, [download](https://dev.mysql.com/downloads/shell/) and instal
 
 - Connecting with SSL {#with-ssl}
 
-  ```PowerShell
+  ```powershell
   mysqlsh --host=<FQDN_of_any_{{ MY }}_host> `
           --port={{ port-mmy }} `
           --ssl-ca=<absolute_path_to_certificate_file> `
@@ -67,7 +67,7 @@ Before connecting, [download](https://dev.mysql.com/downloads/shell/) and instal
 
 - Connecting without SSL {#without-ssl}
 
-  ```PowerShell
+  ```powershell
   mysqlsh --host=<FQDN_of_any_{{ MY }}_host> `
           --port={{ port-mmy }} `
           --ssl-mode=DISABLED `

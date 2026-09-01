@@ -13,7 +13,7 @@
 1. AI-агент запрашивает дополнительные данные о погоде в нужном городе в пользовательской функции `get_weather()`.
 1. AI-агент отправляет расширенный дополнительным контекстом запрос пользователя в модель генерации текста {{ foundation-models-name }}.
 1. [Сервисный аккаунт]({{ link-docs }}/iam/concepts/users/service-accounts) с помощью [API-ключа]({{ link-docs }}/iam/concepts/authorization/api-key) авторизует для AI-агента доступ к [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index) {{ foundation-models-name }}.
-1. Сервисный аккаунт предоставляет функции {{ sf-name }} доступ к секрету [{{ lockbox-name }}]({{ link-docs }}/lockbox/index.yaml), в котором хранится API-ключ сервисного аккаунта.
+1. Сервисный аккаунт предоставляет функции {{ sf-name }} доступ к секрету [{{ lockbox-name }}]({{ link-docs }}/lockbox/index), в котором хранится API-ключ сервисного аккаунта.
 1. Функция {{ sf-name }} получает из секрета {{ lockbox-name }} API-ключ сервисного аккаунта.
 1. Модель {{ foundation-models-name }} передает AI-агенту сгенерированный ответ.
 1. AI-агент возвращает полученный ответ пользователю.

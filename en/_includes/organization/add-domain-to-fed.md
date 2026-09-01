@@ -1,5 +1,16 @@
 {% list tabs group=instructions %}
 
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
+  1. In the left-hand panel, click ![icon-federation](../../_assets/organization/icon-federation.svg) **{{ ui-key.yacloud_org.pages.federations }}** and select a target federation.
+  1. Navigate to the **{{ ui-key.yacloud_org.form.federation.note.tab-domains }}** tab.
+  1. In the top-right corner, click **{{ ui-key.yacloud_org.organization.federations.action.add_domain }}**.
+  1. Enter the domain name.
+  1. Click **{{ ui-key.yacloud.common.add }}**.
+
+  To use the domain to add new users, have it [verified](../../organization/operations/user-pools/validate-domain.md).
+
 - CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}

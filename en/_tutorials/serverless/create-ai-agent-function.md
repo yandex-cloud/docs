@@ -13,7 +13,7 @@ On the diagram:
 1. The AI agent requests additional weather data for a given city using the custom `get_weather()` function.
 1. The AI agent sends the user request together with the extra context to the {{ foundation-models-name }} text generation model.
 1. A [service account](../../iam/concepts/users/service-accounts.md) authorizes the AI agent to access the {{ foundation-models-name }} [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index) using an [API key](../../iam/concepts/authorization/api-key.md).
-1. The service account grants access to the [{{ lockbox-name }}](../../lockbox/index.yaml) secret with the service account API key to the function in {{ sf-name }}.
+1. The service account grants access to the [{{ lockbox-name }}]({{ link-docs }}/lockbox/index) secret with the service account API key to the function in {{ sf-name }}.
 1. The function in {{ sf-name }} retrieves the service account API key from the {{ lockbox-name }} secret.
 1. The {{ foundation-models-name }} model sends the generated response to the AI agent.
 1. The AI agent returns the response to the user.

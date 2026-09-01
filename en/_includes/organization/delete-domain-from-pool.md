@@ -25,6 +25,12 @@
      yc organization-manager idp userpool domain delete <pool_ID> <domain>
      ```
 
+     For example, delete `my-domain.ru` from `ek05kcb9vm2d********`:
+
+      ```bash
+      yc organization-manager idp userpool domain delete ek05kcb9vm2d******** my-domain.ru
+      ```
+
 - API {#api}
 
   Use the [Userpool.DeleteDomain](../../organization/idp/api-ref/Userpool/deleteDomain.md) REST API method for the [Userpool](../../organization/idp/api-ref/Userpool/index.md) resource or the [UserpoolService/DeleteDomain](../../organization/idp/api-ref/grpc/Userpool/deleteDomain.md) gRPC API call.

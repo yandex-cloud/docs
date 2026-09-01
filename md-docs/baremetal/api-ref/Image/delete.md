@@ -2,8 +2,8 @@
 
 # BareMetal API, REST: Image.Delete
 
-Deletes the specified image.
-Deleting an image removes its data permanently and is irreversible.
+Deletes the specified BootImage.
+Deleting a BootImage removes its data permanently and is irreversible.
 
 ## HTTP request
 
@@ -17,8 +17,8 @@ DELETE https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/images/{imageId}
 ||Field | Description ||
 || imageId | **string**
 
-Required field. ID of the image to delete.
-To get the image ID, use a [ImageService.List](list.md#List) request.
+Required field. ID of the BootImage to delete.
+To get the BootImage ID, use a [ImageService.List](list.md#List) request.
 
 Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#

@@ -777,7 +777,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
             INSERT 0 1
             ```
 
-        1. Make sure that [a new object has been created](../../../storage/operations/objects/info.md) in the bucket.
+        1. [Make sure](../../../storage/operations/objects/info.md) that a new object has been created in the bucket.
 
     {% note info %}
 

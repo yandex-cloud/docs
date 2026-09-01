@@ -4,7 +4,6 @@
 
 Updates the specified private subnet.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 

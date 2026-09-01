@@ -6,7 +6,6 @@ editable: false
 
 Removes a private cloud connection and all allocated network resouces.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

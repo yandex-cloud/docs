@@ -2,8 +2,8 @@
 
 # BareMetal API, gRPC: ImageService.Delete
 
-Deletes the specified image.
-Deleting an image removes its data permanently and is irreversible.
+Deletes the specified BootImage.
+Deleting a BootImage removes its data permanently and is irreversible.
 
 ## gRPC request
 
@@ -21,8 +21,8 @@ Deleting an image removes its data permanently and is irreversible.
 ||Field | Description ||
 || image_id | **string**
 
-ID of the image to delete.
-To get the image ID, use a [ImageService.List](list.md#List) request.
+ID of the BootImage to delete.
+To get the BootImage ID, use a [ImageService.List](list.md#List) request.
 
 Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#

@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/bootImages/{bootImageId}:listOperations
+  - url: https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/bootImages/{bootImageId}/operations
     method: get
     path:
       type: object
@@ -56,12 +56,11 @@ apiPlayground:
 
 Lists operations for the specified boot image.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 
 ```
-GET https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/bootImages/{bootImageId}:listOperations
+GET https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/bootImages/{bootImageId}/operations
 ```
 
 ## Path parameters

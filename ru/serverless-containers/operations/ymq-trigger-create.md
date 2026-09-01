@@ -48,12 +48,7 @@
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}** выберите очередь сообщений и сервисный аккаунт с правами на чтение из нее.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
-
-        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд.
-        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**. Допустимые значения от 1 до 1000, значение по умолчанию — 1.
-
-        {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %}
+    1. {% include [batch-settings-ymq](../../_includes/functions/batch-settings-ymq.md) %}
 
     1. В блоке **Приёмники**:
 

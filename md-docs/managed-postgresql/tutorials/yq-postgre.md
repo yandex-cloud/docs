@@ -2,6 +2,7 @@
 
 # Работа с данными с помощью Yandex Query
 
+
 Yandex Query — это интерактивный сервис для бессерверного анализа данных. С его помощью можно обрабатывать информацию из различных хранилищ без необходимости создания выделенного кластера. Поддерживается работа с хранилищами данных [Yandex Object Storage](../../storage/index.md), [Yandex Managed Service for PostgreSQL](../index.md), [Yandex Managed Service for ClickHouse®](../../managed-clickhouse/index.md).
 
 В этом руководстве вы подключитесь к базе данных Managed Service for PostgreSQL и выполните запросы к ней из ноутбука JupyterLab с помощью Query.

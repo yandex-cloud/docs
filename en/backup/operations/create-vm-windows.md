@@ -1,6 +1,6 @@
 ---
 title: How to create a Windows Server {{ compute-full-name }} VM with a connection to {{ backup-full-name }}
-description: Follow this guide to create a Windows Server {{ compute-full-name }} VM with a connection to {{ backup-full-name }}.
+description: Follow this guide to create a {{ compute-full-name }} Windows Server VM with a connection to {{ backup-full-name }}.
 ---
 
 # Creating a Windows Server VM with a connection to {{ backup-name }}
@@ -15,13 +15,7 @@ You can back up your {{ compute-full-name }} [VMs](../../compute/concepts/vm.md)
 
     {% include [user-console-vm-creation-notice](../../_includes/backup/user-console-vm-creation-notice.md) %}
 
-    {% note warning %}
-
-    Starting August 1, 2026, the [compute.editor](../../compute/security/index.md#compute-editor) and [compute.admin](../../compute/security/index.md#compute-admin) roles get new permissions from the [backup.user](../security/index.md#backup-user) role, allowing them to connect VM instances to {{ backup-full-name }}, link and unlink them from [backup policies](../concepts/policy.md).
-
-    {% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
-
-    {% endnote %}
+    {% include [backup-user-roles-notice](../../_includes/backup/backup-user-roles-notice.md) %}
 
 1. [Set up](../concepts/vm-connection/compute.md#vm-network-access) network access for your VM.
 
@@ -103,7 +97,7 @@ You can back up your {{ compute-full-name }} [VMs](../../compute/concepts/vm.md)
       Invoke-WebRequest https://{{ s3-storage-host }}/backup-distributions/agent_installer.ps1 -UseBasicParsing | Invoke-Expression
       ```
 
-  1. Create a VM:
+  1. Create the VM:
 
       ```bash
       yc compute instance create \

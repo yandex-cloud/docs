@@ -2,13 +2,13 @@
 
 # Yandex Serverless Integrations
 
-Yandex Serverless Integrations — это сервис для настройки интеграций и управления ими с помощью serverless-технологий в Yandex Cloud.
+Сервис Yandex Serverless Integrations прекращает работу.
 
-Serverless Integrations позволяет:<ul><li>разрабатывать микросервисные архитектуры без необходимости конфигурировать виртуальные машины;</li> <li>создавать и автоматизировать рабочие процессы для реагирования на инциденты безопасности;</li> <li>автоматизировать бизнес-операции;</li> <li>настраивать пайпланы CI/CD;</li> <li>разрабатывать событийно-ориентированные приложения на базе serverless, используя оркестрацию и хореографию, чтобы организовывать взаимодействие между событиями и управлять ими.</li></ul>
-
-EventRouter находятся на стадии <a href="../overview/concepts/launch-stages.md">Preview</a>.
+Подробнее о сроках и порядке закрытия читайте на странице <a href="sunset.md">Закрытие сервиса</a>.
 
 # Yandex Serverless Integrations
+
+ - [Закрытие сервиса](sunset.md)
 
 ## Начало работы
 
@@ -161,6 +161,10 @@ EventRouter находятся на стадии <a href="../overview/concepts/l
  - [Cron-выражения](concepts/cron.md)
 
  - [Квоты и лимиты](concepts/limits.md)
+
+## Практические руководства
+
+ - [Миграция с EventRouter на триггеры](tutorials/eventrouter-migration.md)
 
 ## Управление доступом
 

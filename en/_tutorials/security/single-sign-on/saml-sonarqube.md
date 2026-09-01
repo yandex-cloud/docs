@@ -1,5 +1,6 @@
 # Creating a SAML app in {{ org-full-name }} for integration with SonarQube
 
+
 [SonarQube](https://www.sonarsource.com/products/sonarqube/) is a platform that automatically scans source code to identify errors and vulnerabilities and evaluate test coverage. SonarQube supports SAML authentication to provide secure SSO for your organization's users.
 
 For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to SonarQube via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications/saml.md) in {{ org-full-name }} and configure it both in {{ org-full-name }} and SonarQube.

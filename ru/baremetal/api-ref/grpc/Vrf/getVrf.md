@@ -8,7 +8,6 @@ Returns the specific VRF resource.
 
 To get the list of available VRFs, make a [List] request.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

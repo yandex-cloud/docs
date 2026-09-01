@@ -37,7 +37,7 @@ description: Из статьи вы узнаете про классы хост�
 
 {% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
 
-Например, в `{{ region-id }}-d` недоступны платформы Intel Broadwell и хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
+Например, в `{{ region-id }}-d` недоступно хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
 
 Типы конфигураций:
 

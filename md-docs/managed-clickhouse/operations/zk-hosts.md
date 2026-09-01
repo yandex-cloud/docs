@@ -120,11 +120,13 @@ ZooKeeper — это сервис, который обеспечивает ко�
 
 ## Добавить хосты ZooKeeper {#add-zk}
 
+
 {% note info %}
 
 В [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d` недоступно использование платформы Intel Broadwell.
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

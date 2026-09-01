@@ -9,8 +9,8 @@ apiPlayground:
         imageId:
           description: |-
             **string**
-            ID of the Image resource to return.
-            To get the image ID, use a [ImageService.List](/docs/baremetal/api-ref/Image/list#List) request.
+            ID of the BootImage resource to return.
+            To get the BootImage ID, use a [ImageService.List](/docs/baremetal/api-ref/Image/list#List) request.
             Value must match the regular expression ` [a-z][a-z0-9]* `.
           pattern: '[a-z][a-z0-9]*'
           type: string
@@ -22,8 +22,8 @@ apiPlayground:
 
 # BareMetal API, REST: Image.Get
 
-Returns the specific Image resource.
-To get the list of available Image resources, make a [List](/docs/baremetal/api-ref/Image/list#List) request.
+Returns the specific BootImage resource.
+To get the list of available BootImage resources, make a [List](/docs/baremetal/api-ref/Image/list#List) request.
 
 ## HTTP request
 
@@ -37,8 +37,8 @@ GET https://baremetal.{{ api-host }}/baremetal/v1alpha/images/{imageId}
 ||Field | Description ||
 || imageId | **string**
 
-Required field. ID of the Image resource to return.
-To get the image ID, use a [ImageService.List](/docs/baremetal/api-ref/Image/list#List) request.
+Required field. ID of the BootImage resource to return.
+To get the BootImage ID, use a [ImageService.List](/docs/baremetal/api-ref/Image/list#List) request.
 
 Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#

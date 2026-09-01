@@ -106,7 +106,7 @@ Before connecting:
 1. In the [management console]({{ link-console-main }}), select a folder.
 1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
 1. Open your {{ mtr-name }} cluster.
-1. Navigate to **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
+1. Navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}** tab.
 1. Click **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_go-to-websql }}**.
 1. In the SQL query editor that opens, run the following query:
 

@@ -2,7 +2,6 @@
 
 # Синхронизация данных из стороннего кластера MySQL® в Yandex Managed Service for MySQL® с помощью Yandex Data Transfer
 
-
 # Синхронизация данных из MySQL с помощью Yandex Data Transfer
 
 

@@ -51,6 +51,18 @@ New host classes are available for {{ PG }} clusters on AMD Zen 4 and AMD Zen 4 
 
 # {{ mpg-full-name }} release notes
 
+## June 2026 {#jun-2026}
+
+* Added a graph view of query plans to the [Performance diagnostics](operations/performance-diagnostics.md) section. This section also now features a **Blocking tree** allowing users to view blocking database queries.
+* Revised the cluster creation form: improved its design, streamlined feature display, added UI tooltips. Added the [Encrypt disk with custom KMS key](../compute/concepts/encryption.md#user-keys) option to the **Cluster resources** section.
+* Added the option to set cascade replicas when creating a cluster using Terraform.
+* Added one-click Terraform code export within the management console when creating or updating cluster settings. This option is also supported for existing service resources.
+* Added a [method to output available DBMS versions](api-ref/Versions/list.md) to the public API.
+* Introduced the [Load balancer for hosts](concepts/load-balancer.md) option at the Preview stage.
+* Increased maximum disk size for autoscaling in the cluster creation form.
+* Added the `pg_textsearch`, `pg_clickhouse`, `ip4r`, `prefix`, `insert_username`, `tcn`, `tsm_system_rows`, and `tsm_system_time` [extensions](operations/extensions/cluster-extensions.md).
+* Added support for new DBMS settings: `checkpoint_warning`, `max_active_replication_origins`, and `pg_hint_plan.hints_anywhere`.
+
 ## May 2026 {#may-2026}
 
 * In the [Performance diagnostics](operations/performance-diagnostics.md) section, you can now navigate from the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** tab to detailed query info. Tooltips for the query plan were added to the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_plan-text }}** tab.

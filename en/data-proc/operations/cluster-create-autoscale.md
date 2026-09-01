@@ -108,7 +108,8 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a {{ dataproc-name }} cluster.
-  1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/data-processing/data-processing.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** from the drop-down list.
+  1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Enter a name for the {{ dataproc-name }} cluster. Optionally, add a cluster description.
 
      Follow these naming requirements:
@@ -117,10 +118,10 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      {% include [name-format.md](../../_includes/name-format.md) %}
 
+  1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md). You can use them to organize resources into logical groups.
   1. Select the [environment](../concepts/environment.md#environment) where you want to create your cluster (you cannot change the environment once the cluster is created):
      * `PRODUCTION`: For stable versions of your applications.
      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
-  1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md). You can use them to organize resources into logical groups.
   1. Specify the following cluster settings:
 
      * [Image version](../concepts/environment.md) and services you want to use in the {{ dataproc-name }} cluster.
@@ -135,6 +136,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      * Public part of the SSH key in the **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** field. For information on how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * Service account that needs access to the {{ dataproc-name }} cluster.
+     * Optionally, service account to manage [{{ dataproc-name }} autoscaling clusters](../concepts/autoscaling.md).
      * Availability zone for the {{ dataproc-name }} cluster.
      * Optionally, [cluster component properties](../concepts/settings-list.md).
      * Optionally, custom [initialization scripts](../concepts/init-action.md) for cluster hosts. For each script, specify the following information:
@@ -296,7 +298,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
        * `disk-size`: Storage size, in GB.
        * `subnet-name`: Subnet name.
        * `hosts-count`: Number of hosts in the {{ dataproc-name }} subclusters for data storage or processing. The valid values range from `1` to `32`.
-       * `assign-public-ip`: Access to {{ dataproc-name }} subcluster hosts from the internet. It can either be `true` or `false`. If access is enabled, you can only connect to the {{ dataproc-name }} cluster over SSL. For more information, see [{#T}](connect.md).
+       * `assign-public-ip`: Access to {{ dataproc-name }} subcluster hosts from the internet. It can be either `true` or `false`. If access is enabled, you can only connect to the {{ dataproc-name }} cluster over SSL. For more information, see [{#T}](connect.md).
 
          {% note warning %}
 

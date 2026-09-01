@@ -1,6 +1,7 @@
 # Migrating a {{ mmg-name }} (Managed Service for MongoDB) cluster from version 4.4 to 6.0 using {{ data-transfer-full-name }}
 
 
+
 You can migrate a sharded production database under load from a {{ mmg-name }} cluster version 4.4 to version 6.0.
 
 To transfer data:

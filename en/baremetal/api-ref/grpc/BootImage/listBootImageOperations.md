@@ -6,7 +6,6 @@ editable: false
 
 Lists operations for the specified boot image.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

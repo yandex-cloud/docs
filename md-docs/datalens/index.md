@@ -2,14 +2,6 @@
 
 # Yandex DataLens
 
-Yandex DataLens — это сервис бизнес-аналитики для визуализации ваших данных. Подключайтесь к различным источникам и визуализируйте данные, собирайте дашборды и формируйте отчеты в виде интерактивных презентаций.
-
-Отслеживайте ключевые продуктовые и бизнес-метрики в реальном времени, делитесь результатами с командой и принимайте обоснованные решения.
-
-Используйте Нейроаналитика для автоматического анализа данных, получения инсайтов, создания и редактирования визуализаций.
-
-# Yandex DataLens
-
 ## Знакомство с сервисом
 
  - [Обзор сервиса](concepts/index.md)
@@ -1222,16 +1214,6 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Get workbook import status](api-ref/WorkbookImport/rpcgetWorkbookImportStatus-post.md)
 
-#### EntryLock
-
- - [Overview](api-ref/EntryLock/index.md)
-
- - [Create entry lock](api-ref/EntryLock/rpccreateEntryLock-post.md)
-
- - [Extend entry lock](api-ref/EntryLock/rpcextendEntryLock-post.md)
-
- - [Delete entry lock](api-ref/EntryLock/rpcdeleteEntryLock-post.md)
-
 #### Editor
 
  - [Overview](api-ref/Editor/index.md)
@@ -1316,6 +1298,28 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [List shared entry access bindings](api-ref/SharedEntry/rpclistSharedEntryAccessBindings-post.md)
 
+#### Licensing
+
+ - [Overview](api-ref/Licensing/index.md)
+
+ - [Get licenses](api-ref/Licensing/rpcgetLicenses-post.md)
+
+ - [Get licenses limit](api-ref/Licensing/rpcgetLicensesLimit-post.md)
+
+ - [Set licenses limit](api-ref/Licensing/rpcsetLicenseLimit-post.md)
+
+ - [Assign licenses](api-ref/Licensing/rpcassignLicenses-post.md)
+
+#### EntryLock
+
+ - [Overview](api-ref/EntryLock/index.md)
+
+ - [Create entry lock](api-ref/EntryLock/rpccreateEntryLock-post.md)
+
+ - [Extend entry lock](api-ref/EntryLock/rpcextendEntryLock-post.md)
+
+ - [Delete entry lock](api-ref/EntryLock/rpcdeleteEntryLock-post.md)
+
 #### Access
 
  - [Overview](api-ref/Access/index.md)
@@ -1334,17 +1338,11 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Delete HTML page](api-ref/HtmlPages/rpcdeleteHtmlPage-post.md)
 
-#### Licensing
+#### Data
 
- - [Overview](api-ref/Licensing/index.md)
+ - [Overview](api-ref/Data/index.md)
 
- - [Get licenses](api-ref/Licensing/rpcgetLicenses-post.md)
-
- - [Get licenses limit](api-ref/Licensing/rpcgetLicensesLimit-post.md)
-
- - [Set licenses limit](api-ref/Licensing/rpcsetLicenseLimit-post.md)
-
- - [Assign licenses](api-ref/Licensing/rpcassignLicenses-post.md)
+ - [🚧 [Experimental] Get dataset data](api-ref/Data/rpcgetDatasetData-post.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

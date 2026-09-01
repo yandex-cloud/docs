@@ -47,6 +47,8 @@ items:
             href: operations/databases.md
           - name: Запросы в {{ websql-full-name }}
             href: operations/web-sql-query.md
+          - name: Работа с политиками распределения данных
+            href: operations/distribution-policy-management.md
       - name: Пользователи и сессии
         items:
           - name: Управление ролями и пользователями
@@ -177,7 +179,7 @@ items:
         href: concepts/backup.md
       - name: Ресурсные группы
         href: concepts/resource-groups.md
-      - name: Шардирование
+      - name: Распределение данных
         href: concepts/sharding.md
       - name: Пользователи и роли
         href: concepts/cluster-users.md

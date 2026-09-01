@@ -1,0 +1,1 @@
+If using the [compute.editor](../../compute/security/index.md#compute-editor) role or higher, or the [baremetal.editor](../../baremetal/security/index.md#baremetal-editor) role or higher, you may skip assigning the `backup.user` role. Those roles already include the permissions provided by `backup.user`.

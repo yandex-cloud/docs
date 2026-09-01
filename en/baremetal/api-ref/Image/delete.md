@@ -9,8 +9,8 @@ apiPlayground:
         imageId:
           description: |-
             **string**
-            ID of the image to delete.
-            To get the image ID, use a [ImageService.List](/docs/baremetal/api-ref/Image/list#List) request.
+            ID of the BootImage to delete.
+            To get the BootImage ID, use a [ImageService.List](/docs/baremetal/api-ref/Image/list#List) request.
             Value must match the regular expression ` [a-z][a-z0-9]* `.
           pattern: '[a-z][a-z0-9]*'
           type: string
@@ -22,8 +22,8 @@ apiPlayground:
 
 # BareMetal API, REST: Image.Delete
 
-Deletes the specified image.
-Deleting an image removes its data permanently and is irreversible.
+Deletes the specified BootImage.
+Deleting a BootImage removes its data permanently and is irreversible.
 
 ## HTTP request
 
@@ -37,8 +37,8 @@ DELETE https://baremetal.{{ api-host }}/baremetal/v1alpha/images/{imageId}
 ||Field | Description ||
 || imageId | **string**
 
-Required field. ID of the image to delete.
-To get the image ID, use a [ImageService.List](/docs/baremetal/api-ref/Image/list#List) request.
+Required field. ID of the BootImage to delete.
+To get the BootImage ID, use a [ImageService.List](/docs/baremetal/api-ref/Image/list#List) request.
 
 Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#

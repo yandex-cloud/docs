@@ -39,7 +39,7 @@ The infrastructure support cost includes:
 * Fee for the {{ managed-k8s-name }} cluster's [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for storing the [secret](../../lockbox/concepts/secret.md) and requests to it (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 
-## Set up a {{ managed-k8s-name }} cluster {#prepare-cluster}
+## Configure your {{ managed-k8s-name }} cluster {#prepare-cluster}
 
 {% include [wlif-mk8s-cluster-setup](../../_includes/managed-kubernetes/wlif-mk8s-cluster-setup.md) %}
 
@@ -125,8 +125,6 @@ The infrastructure support cost includes:
 - API {#api}
 
   To create a workload identity federation, use the [create](../../iam/workload/oidc/workload-identity/api-ref/Federation/create.md) REST API method for the [Federation](../../iam/workload/oidc/workload-identity/api-ref/Federation/index.md) resource or the [FederationService/Create](../../iam/workload/oidc/workload-identity/api-ref/grpc/Federation/create.md) gRPC API call.
-
-{% endlist %}
 
 {% endlist %}
 

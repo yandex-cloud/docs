@@ -4,7 +4,7 @@ editable: false
 
 # BareMetal API, gRPC: ImageService.ListOperations
 
-Lists operations for the specified image.
+Lists operations for the specified BootImage.
 
 ## gRPC request
 
@@ -24,7 +24,7 @@ Lists operations for the specified image.
 ||Field | Description ||
 || image_id | **string**
 
-ID of the Image resource to list operations for.
+ID of the BootImage resource to list operations for.
 
 Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 || page_size | **int64**
@@ -69,7 +69,7 @@ Page token. To get the next page of results, set `page_token` to the
 ||Field | Description ||
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
-List of operations for the specified Image resource. ||
+List of operations for the specified BootImage resource. ||
 || next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than

@@ -1,15 +1,3 @@
-title: Yandex DataLens
-description:
-  - >-
-    Yandex DataLens — это сервис бизнес-аналитики для визуализации ваших данных.
-    Подключайтесь к различным источникам и визуализируйте данные, собирайте
-    дашборды и формируйте отчеты в виде интерактивных презентаций.
-  - >-
-    Отслеживайте ключевые продуктовые и бизнес-метрики в реальном времени,
-    делитесь результатами с командой и принимайте обоснованные решения.
-  - >-
-    Используйте Нейроаналитика для автоматического анализа данных, получения
-    инсайтов, создания и редактирования визуализаций.
 meta:
   title: Yandex DataLens
   description: >-
@@ -27,42 +15,132 @@ meta:
     - keyword: Как подключиться к источнику данных
     - keyword: бизнес-метрики в {{ yandex-cloud }}
     - keyword: Аналитика {{ yandex-cloud }}
-links:
-  - title: Начало работы
-    description: Как начать работать с DataLens
-    href: quickstart
-  - title: Нейроаналитик
-    description: Поможет интерпретировать ваши данные и написать код
-    href: concepts/neuroanalyst
-  - title: Подключения
-    description: Подключайте различные источники данных
-    href: concepts/connection
-  - title: Датасеты
-    description: Описывайте структуру данных, полученных из источника
-    href: dataset/
-  - title: Чарты
+blocks:
+  - type: card-layout-block
+    title: "Yandex\_DataLens"
     description: >-
-      Стройте чарты с помощью Self-service-конструктора визуализаций или
-      используйте JavaScript-кастомизацию
-    href: concepts/chart/
-  - title: Дашборды
-    description: Собирайте свои чарты на одной странице
-    href: concepts/dashboard
-  - title: Отчеты
-    description: Готовьте многостраничные документы для печати
-    href: reports/
-  - title: Квоты и лимиты
-    description: Технические и организационные ограничения сервиса
-    href: concepts/limits
-  - title: Управление доступом
-    description: Какие права доступа нужны для работы с сервисом
-    href: security/
-  - title: Правила тарификации
-    description: Цены и правила расчета стоимости услуг сервиса
-    href: pricing
-  - title: Обучающие курсы
-    description: Информация о доступных программах обучения
-    href: training
-  - title: Галерея в DataLens
-    description: Готовые дашборды для вдохновения и решения бизнес-задач
-    href: concepts/gallery
+      Yandex DataLens — сервис бизнес-аналитики для визуализации данных.
+      Подключайтесь к источникам, собирайте дашборды и формируйте отчеты в виде
+      интерактивных презентаций.
+
+
+      Отслеживайте продуктовые и бизнес-метрики, делитесь результатами с
+      командой. Используйте Нейроаналитика для анализа данных и создания
+      визуализаций.
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 3
+    children:
+      - type: basic-card
+        title: Начало работы
+        text: Как начать работать с DataLens
+        icon: ../_assets/console-icons/rocket.svg
+        urlTitle: Начало работы
+        url: quickstart
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Нейроаналитик
+        text: Поможет интерпретировать ваши данные и написать код
+        icon: ../_assets/console-icons/sparkles-fill.svg
+        urlTitle: Нейроаналитик
+        url: ./concepts/neuroanalyst
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Подключения
+        text: Подключайте различные источники данных
+        icon: ../_assets/console-icons/thunderbolt.svg
+        urlTitle: Подключения
+        url: concepts/connection/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Датасеты
+        text: Описывайте структуру данных, полученных из источника
+        icon: ../_assets/console-icons/circles-intersection.svg
+        urlTitle: Датасеты
+        url: dataset/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Чарты
+        text: >-
+          Стройте чарты с помощью Self-service-конструктора визуализаций или
+          используйте JavaScript-кастомизацию
+        icon: ../_assets/console-icons/chart-column.svg
+        urlTitle: Чарты
+        url: concepts/chart/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Дашборды
+        text: Собирайте свои чарты на одной странице
+        icon: ../_assets/console-icons/layout-cells-large.svg
+        urlTitle: Дашборды
+        url: ./concepts/dashboard
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Отчеты
+        text: Готовьте многостраничные документы для печати
+        icon: ../_assets/console-icons/display-pulse.svg
+        urlTitle: Отчеты
+        url: reports/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Квоты и лимиты
+        text: Технические и организационные ограничения сервиса
+        icon: ../_assets/console-icons/sliders.svg
+        urlTitle: Квоты и лимиты
+        url: ./concepts/limits
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Управление доступом
+        text: Какие права доступа нужны для работы с сервисом
+        icon: ../_assets/console-icons/persons-lock.svg
+        urlTitle: Управление доступом
+        url: security/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Правила тарификации
+        text: Цены и правила расчета стоимости услуг сервиса
+        icon: ../_assets/console-icons/calculator.svg
+        urlTitle: Правила тарификации
+        url: pricing
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Обучающие курсы
+        text: Информация о доступных программах обучения
+        icon: ../_assets/console-icons/graduation-cap.svg
+        urlTitle: Обучающие курсы
+        url: training
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Галерея в DataLens
+        text: Готовые дашборды для вдохновения и решения бизнес-задач
+        icon: ../_assets/console-icons/layers-3-diagonal.svg
+        urlTitle: Галерея в DataLens
+        url: ./concepts/gallery
+        size: s
+        controlPosition: content
+        animated: false
+links: []

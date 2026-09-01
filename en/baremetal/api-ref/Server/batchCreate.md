@@ -657,9 +657,6 @@ Acceptable values are 1 to 100, inclusive. ||
 
 ## NetworkInterfaceSpec {#yandex.cloud.baremetal.v1alpha.NetworkInterfaceSpec}
 
-
-Required for backward compatibility with old clients. --)
-
 #|
 ||Field | Description ||
 || privateSubnet | **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface)**

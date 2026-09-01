@@ -424,6 +424,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 ### DashStringDefaultValue {#entity-DashStringDefaultValue}
 
+A dashboard parameter value represented by one or multiple strings.
+
 {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
 - **Type**: string
@@ -1807,45 +1809,53 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
   _background_{.json-schema-reset .json-schema-property}
   {.table-cell}|
-  {% cut "**Type**: object" %}
+  {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-  #|
-  ||
+  - **Type**: string
 
-  _color_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: string
+    _Example:_{.json-schema-reset .json-schema-example} `example`
 
-  Legacy background color.
+  - **Type**: object
 
-  _Example:_{.json-schema-reset .json-schema-example} `example`
-  {.table-cell}
-  ||
-  ||
+    #|
+    ||
 
-  _enabled_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  **Type**: boolean
+    _color_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: string
 
-  Whether the legacy background is enabled.
-  {.table-cell}
-  ||
-  |#{.json-schema-properties}
+    Legacy background color.
+
+    _Example:_{.json-schema-reset .json-schema-example} `example`
+    {.table-cell}
+    ||
+    ||
+
+    _enabled_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: boolean
+
+    Whether the legacy background is enabled.
+    {.table-cell}
+    ||
+    |#{.json-schema-properties}
+
+    {% cut "**Example**" %}{.json-schema-example}
+
+    ```json translate=no
+    {
+      "enabled": true,
+      "color": "example"
+    }
+    ```
+
+    {% endcut %}
 
   {% endcut %}
 
   Deprecated. Use backgroundSettings instead.
 
-  {% cut "**Example**" %}{.json-schema-example}
-
-  ```json translate=no
-  {
-    "enabled": true,
-    "color": "example"
-  }
-  ```
-
-  {% endcut %}
+  _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
   ||
   ||
@@ -1935,10 +1945,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   {
     "text": "example",
     "autoHeight": true,
-    "background": {
-      "enabled": true,
-      "color": "example"
-    },
+    "background": "example",
     "backgroundSettings": {
       "color": {
         "light": "example",
@@ -2023,10 +2030,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
     "data": {
       "text": "example",
       "autoHeight": true,
-      "background": {
-        "enabled": true,
-        "color": "example"
-      },
+      "background": "example",
       "backgroundSettings": {
         "color": {
           "light": "example",
@@ -2116,45 +2120,53 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
   _background_{.json-schema-reset .json-schema-property}
   {.table-cell}|
-  {% cut "**Type**: object" %}
+  {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-  #|
-  ||
+  - **Type**: string
 
-  _color_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: string
+    _Example:_{.json-schema-reset .json-schema-example} `example`
 
-  Legacy background color.
+  - **Type**: object
 
-  _Example:_{.json-schema-reset .json-schema-example} `example`
-  {.table-cell}
-  ||
-  ||
+    #|
+    ||
 
-  _enabled_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  **Type**: boolean
+    _color_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: string
 
-  Whether the legacy background is enabled.
-  {.table-cell}
-  ||
-  |#{.json-schema-properties}
+    Legacy background color.
+
+    _Example:_{.json-schema-reset .json-schema-example} `example`
+    {.table-cell}
+    ||
+    ||
+
+    _enabled_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: boolean
+
+    Whether the legacy background is enabled.
+    {.table-cell}
+    ||
+    |#{.json-schema-properties}
+
+    {% cut "**Example**" %}{.json-schema-example}
+
+    ```json translate=no
+    {
+      "enabled": true,
+      "color": "example"
+    }
+    ```
+
+    {% endcut %}
 
   {% endcut %}
 
   Deprecated. Use backgroundSettings.
 
-  {% cut "**Example**" %}{.json-schema-example}
-
-  ```json translate=no
-  {
-    "enabled": true,
-    "color": "example"
-  }
-  ```
-
-  {% endcut %}
+  _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
   ||
   ||
@@ -2279,6 +2291,15 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
+  _internalMarginsEnabled_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: boolean
+
+  Whether the title includes internal margins. This experimental field may change in future API versions.
+  {.table-cell}
+  ||
+  ||
+
   _textColor_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   **Type**: string
@@ -2377,14 +2398,12 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
       "enabled": true,
       "text": "example"
     },
-    "background": {
-      "enabled": true,
-      "color": "example"
-    },
+    "background": "example",
     "backgroundSettings": {
       "color": null
     },
-    "borderRadius": 0.5
+    "borderRadius": 0.5,
+    "internalMarginsEnabled": true
   }
   ```
 
@@ -2473,14 +2492,12 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
         "enabled": true,
         "text": "example"
       },
-      "background": {
-        "enabled": true,
-        "color": "example"
-      },
+      "background": "example",
       "backgroundSettings": {
         "color": null
       },
-      "borderRadius": 0.5
+      "borderRadius": 0.5,
+      "internalMarginsEnabled": true
     }
   }
   ```
@@ -2552,6 +2569,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [DashStringDefaultValue](#entity-DashStringDefaultValue)
 
+  A dashboard parameter value represented by one or multiple strings.
+
   _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
   ||
@@ -2587,45 +2606,53 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
   _background_{.json-schema-reset .json-schema-property}
   {.table-cell}|
-  {% cut "**Type**: object" %}
+  {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-  #|
-  ||
+  - **Type**: string
 
-  _color_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: string
+    _Example:_{.json-schema-reset .json-schema-example} `example`
 
-  Legacy background color.
+  - **Type**: object
 
-  _Example:_{.json-schema-reset .json-schema-example} `example`
-  {.table-cell}
-  ||
-  ||
+    #|
+    ||
 
-  _enabled_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  **Type**: boolean
+    _color_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: string
 
-  Whether the legacy background is enabled.
-  {.table-cell}
-  ||
-  |#{.json-schema-properties}
+    Legacy background color.
+
+    _Example:_{.json-schema-reset .json-schema-example} `example`
+    {.table-cell}
+    ||
+    ||
+
+    _enabled_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: boolean
+
+    Whether the legacy background is enabled.
+    {.table-cell}
+    ||
+    |#{.json-schema-properties}
+
+    {% cut "**Example**" %}{.json-schema-example}
+
+    ```json translate=no
+    {
+      "enabled": true,
+      "color": "example"
+    }
+    ```
+
+    {% endcut %}
 
   {% endcut %}
 
   Deprecated. Use backgroundSettings in data instead.
 
-  {% cut "**Example**" %}{.json-schema-example}
-
-  ```json translate=no
-  {
-    "enabled": true,
-    "color": "example"
-  }
-  ```
-
-  {% endcut %}
+  _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
   ||
   ||
@@ -2707,10 +2734,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
       "isDefault": true,
       "params": {},
       "enableActionParams": true,
-      "background": {
-        "enabled": true,
-        "color": "example"
-      }
+      "background": "example"
     }
   ]
   ```
@@ -2823,10 +2847,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
         "isDefault": true,
         "params": {},
         "enableActionParams": true,
-        "background": {
-          "enabled": true,
-          "color": "example"
-        }
+        "background": "example"
       }
     ]
   }
@@ -2924,10 +2945,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
           "isDefault": true,
           "params": {},
           "enableActionParams": true,
-          "background": {
-            "enabled": true,
-            "color": "example"
-          }
+          "background": "example"
         }
       ]
     }
@@ -2964,6 +2982,59 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   **Type**: string
 
   Alternative text for the image.
+
+  _Example:_{.json-schema-reset .json-schema-example} `example`
+  {.table-cell}
+  ||
+  ||
+
+  _background_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
+
+  - **Type**: string
+
+    _Example:_{.json-schema-reset .json-schema-example} `example`
+
+  - **Type**: object
+
+    #|
+    ||
+
+    _color_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: string
+
+    Legacy background color.
+
+    _Example:_{.json-schema-reset .json-schema-example} `example`
+    {.table-cell}
+    ||
+    ||
+
+    _enabled_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: boolean
+
+    Whether the legacy background is enabled.
+    {.table-cell}
+    ||
+    |#{.json-schema-properties}
+
+    {% cut "**Example**" %}{.json-schema-example}
+
+    ```json translate=no
+    {
+      "enabled": true,
+      "color": "example"
+    }
+    ```
+
+    {% endcut %}
+
+  {% endcut %}
+
+  Deprecated. Use backgroundSettings.
 
   _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
@@ -3065,6 +3136,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
     "src": "example",
     "alt": "example",
     "preserveAspectRatio": true,
+    "background": "example",
     "backgroundSettings": {
       "color": {
         "light": "example",
@@ -3150,6 +3222,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
       "src": "example",
       "alt": "example",
       "preserveAspectRatio": true,
+      "background": "example",
       "backgroundSettings": {
         "color": {
           "light": "example",
@@ -3251,6 +3324,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   _[additional]_{.json-schema-reset .json-schema-additional-property}
   {.table-cell}|
   **Type**: [DashStringDefaultValue](#entity-DashStringDefaultValue)
+
+  A dashboard parameter value represented by one or multiple strings.
 
   _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
@@ -3498,6 +3573,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
     {.table-cell}|
     **Type**: [DashStringDefaultValue](#entity-DashStringDefaultValue)
 
+    A dashboard parameter value represented by one or multiple strings.
+
     _Example:_{.json-schema-reset .json-schema-example} `example`
     {.table-cell}
     ||
@@ -3679,6 +3756,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
     _[additional]_{.json-schema-reset .json-schema-additional-property}
     {.table-cell}|
     **Type**: [DashStringDefaultValue](#entity-DashStringDefaultValue)
+
+    A dashboard parameter value represented by one or multiple strings.
 
     _Example:_{.json-schema-reset .json-schema-example} `example`
     {.table-cell}
@@ -3990,6 +4069,59 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
+  _background_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
+
+  - **Type**: string
+
+    _Example:_{.json-schema-reset .json-schema-example} `example`
+
+  - **Type**: object
+
+    #|
+    ||
+
+    _color_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: string
+
+    Legacy background color.
+
+    _Example:_{.json-schema-reset .json-schema-example} `example`
+    {.table-cell}
+    ||
+    ||
+
+    _enabled_{.json-schema-reset .json-schema-property}
+    {.table-cell}|
+    **Type**: boolean
+
+    Whether the legacy background is enabled.
+    {.table-cell}
+    ||
+    |#{.json-schema-properties}
+
+    {% cut "**Example**" %}{.json-schema-example}
+
+    ```json translate=no
+    {
+      "enabled": true,
+      "color": "example"
+    }
+    ```
+
+    {% endcut %}
+
+  {% endcut %}
+
+  Deprecated. Use backgroundSettings.
+
+  _Example:_{.json-schema-reset .json-schema-example} `example`
+  {.table-cell}
+  ||
+  ||
+
   _backgroundSettings_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   {% cut "**Type**: object" %}
@@ -4087,7 +4219,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
   {% endcut %}
 
-  Neuro widget item data.
+  Insight widget item data.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -4104,7 +4236,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
       }
     },
     "borderRadius": 0.5,
-    "hideActions": true
+    "hideActions": true,
+    "background": "example"
   }
   ```
 
@@ -4191,7 +4324,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
         }
       },
       "borderRadius": 0.5,
-      "hideActions": true
+      "hideActions": true,
+      "background": "example"
     }
   }
   ```
@@ -4217,10 +4351,7 @@ Items in the slide group.
     "data": {
       "text": "example",
       "autoHeight": true,
-      "background": {
-        "enabled": true,
-        "color": "example"
-      },
+      "background": "example",
       "backgroundSettings": {
         "color": null
       },
@@ -4597,7 +4728,7 @@ _internalMarginsEnabled_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: boolean
 
-Whether widgets include internal margins.
+Whether widgets include internal margins. This experimental field may change in future API versions.
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -4936,7 +5067,7 @@ _internalMarginsEnabled_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: boolean
 
-Whether widgets include internal margins.
+Whether widgets include internal margins. This experimental field may change in future API versions.
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -5163,7 +5294,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 <div class="openapi-entity">
 
-### DashMeta {#entity-DashMeta}
+### ReportMeta {#entity-ReportMeta}
 
 **Type**: object | null
 
@@ -5332,7 +5463,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _meta_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
-**Type**: [DashMeta](#entity-DashMeta)
+**Type**: [ReportMeta](#entity-ReportMeta)
 
 {% cut "**Example**" %}{.json-schema-example}
 

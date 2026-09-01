@@ -1,6 +1,7 @@
 # Loading data from {{ objstorage-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
-You can migrate data from {{ objstorage-full-name }} to the {{ GP }} table in {{ mgp-name }} using {{ data-transfer-full-name }}. Proceed as follows:
+
+You can migrate data from {{ objstorage-full-name }} to a {{ GP }}/{{ CB }} table in {{ mgp-name }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Prepare your test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
@@ -123,7 +124,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     CREATE DATABASE db1;
     ```
 
-## Prepare and activate a transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#objstorage-name) of the `{{ objstorage-name }}` type with the following settings:
 
@@ -255,7 +256,7 @@ To reduce the consumption of resources, delete those you do not need:
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
-1. Delete the rest of the resources depending on how you created them:
+1. Delete the other resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

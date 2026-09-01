@@ -9,6 +9,8 @@ description: Follow this guide to delete a service account.
 
 Deleting a [service account](../../concepts/users/service-accounts.md) is permanent. You cannot restore a deleted service account; you can only [re-create it](create.md).
 
+To pause a service account without deleting it, [suspend](suspend-reactivate.md#suspend) it. A suspended account cannot be used until [reactivated](suspend-reactivate.md#reactivate).
+
 {% endnote %}
 
 {% list tabs group=instructions %}
@@ -77,7 +79,7 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```text
      Success! The configuration is valid.
@@ -88,14 +90,14 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
 
   1. Apply the configuration changes:
      ```bash
      terraform apply
      ```
      
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
      You can check the deletion of the service account using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 

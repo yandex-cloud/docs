@@ -10,9 +10,10 @@ Maintenance in {{ mpg-name }} includes:
 * Installing minor updates and security fixes for the DBMS and/or connection pooler.
 * Updating the host OS and other underlying software.
 * Scheduled [automatic storage expansion](./storage.md#auto-rescale).
+* Forced DBMS version upgrade.
 * Other maintenance activities.
 
-A major DBMS version update is not part of maintenance. For more information about upgrading between major versions, see [{#T}](../operations/cluster-version-update.md).
+For more information on self-managed major version upgrades, see [{#T}](../operations/cluster-version-update.md).
 
 ## Maintenance window {#maintenance-window}
 
@@ -24,6 +25,7 @@ In the management console, you select the maintenance start time as an hour inte
 
 > For example, to start maintenance in the interval from `00:00` to `01:00`, put `1`; from `04:00` to `05:00`, `5`.
 
+{{ mpg-name }} sends email notifications for upcoming maintenance. We recommend setting up monitoring of incoming messages from {{ yandex-cloud }}. You can always [reschedule maintenance](../operations/cluster-maintenance.md#postpone-planned-maintenance) to a more convenient time, if required. 
 {% note info %}
 
 To view maintenance task information, you need the `managed-postgresql.maintenanceTask.viewer` [role](../security/index.md#managed-postgresql-maintenanceTask-viewer) or higher.
@@ -43,6 +45,16 @@ In multi-host clusters, the maintenance is run as follows:
 
     If you access a cluster using the [FQDN of the master host](../operations/connect/fqdn.md), the cluster may become unavailable. To ensure uninterrupted operation of your application, list all the hosts and specify `target_session_attrs` when connecting to the cluster. [Read more](../operations/connect/fqdn.md#automatic-master-host-selection).
 
+More information on operations during maintenance:
+
+| Operation | Trigger | Process | Impact on application |
+| :--- | :--- | :--- | :--- |
+| Restart | {{ PG }} minor updates, system library updates | Each cluster node stops and starts in turn. The {{ PG }} process restarts on each node. | There is a brief connection drop on each host while the {{ PG }} process stops and restarts. It may last from a few seconds to several minutes depending on the load. To minimize downtime, a checkpoint runs right before the restart. Incomplete write operations will be aborted. |
+| Master switchover | Updates that require a server reboot | Each cluster node stops and reboots in turn. If the current master reboots, a replica is promoted to the new master. | Connections are terminated. Switchover is faster than a full server reboot. Your application must be able to handle a brief read-only state and search for a master. |
+| Forced version upgrade | Major upgrades of clusters on unsupported versions | The master stops, updates, and stays offline. Replicas are switched off and updated one by one. Updated replicas restart in read-only mode. The master turns back on after all replicas update. | Connections are terminated during the installation of updates. We recommend that you plan a manual cluster version [upgrade](../operations/cluster-version-update.md) before it reaches end-of-life. |
+
 ## How maintenance impacts a cluster {#impact-on-cluster}
 
 {% include [impact-on-cluster](../../_includes/impact-on-cluster.md) %}
+
+

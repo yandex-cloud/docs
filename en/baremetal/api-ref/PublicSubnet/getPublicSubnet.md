@@ -36,7 +36,6 @@ Returns the specific PublicSubnet resource.
 
 To get the list of available PublicSubnet resources, make a [List] request.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 

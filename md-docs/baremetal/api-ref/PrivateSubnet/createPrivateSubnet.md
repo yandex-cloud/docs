@@ -4,7 +4,6 @@
 
 Creates a private subnet in the specified folder.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 

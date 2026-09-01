@@ -22,7 +22,7 @@ description: Вы можете отслеживать состояние кла�
 - Консоль управления {#console}
 
   1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**.
       
       На открывшейся странице будут отображены графики, отражающие состояние кластера.
   
@@ -90,7 +90,7 @@ description: Вы можете отслеживать состояние кла�
 - Консоль управления {#console}
 
   1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**.
   1. Перейдите на вкладку **Хосты** и выберите хост.
 
       На открывшейся странице будут отображены графики, отражающие состояние хостов кластера.

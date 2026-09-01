@@ -108,7 +108,6 @@ apiPlayground:
 
 Creates a private cloud connection in the specified folder.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 

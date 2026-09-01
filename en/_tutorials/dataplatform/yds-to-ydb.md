@@ -1,5 +1,6 @@
 # Delivering data from a {{ yds-name }} queue to {{ ydb-name }} using {{ data-transfer-name }}
 
+
 With {{ data-transfer-name }}, you can deliver data from a stream in {{ yds-name }} to a {{ ydb-name }} database.
 
 To transfer data:
@@ -23,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * [Based on allocated resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
     * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
 
-* Each transfer: Use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
