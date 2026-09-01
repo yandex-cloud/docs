@@ -12,10 +12,10 @@ description: Класс хостов определяет вычислитель
 
 От класса хоста зависит список доступных [типов диска](./storage.md):
 
-* **s1**, **s2**, **s3**, **m2**, **m3**, **c3**  — `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
+* **s2**, **s3**, **m2**, **m3**, **c3**  — `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
 * **s4a**, **m4a**, **c4a** — `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
 * **s4af**, **m4af**, **c4af** — `network-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
-* **b1**, **b2**, **b3** — `network-ssd`, `network-hdd`.
+* **b2**, **b3** — `network-ssd`, `network-hdd`.
 
 
 
@@ -33,7 +33,7 @@ description: Класс хостов определяет вычислитель
 
 {% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
 
-Например, в `{{ region-id }}-d` недоступны платформы Intel Broadwell и хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
+Например, в `{{ region-id }}-d` недоступно хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
 
 {% include [instance-types-code](../../_includes/mdb/instance-types-code-c3-b3.md) %}
 
@@ -42,13 +42,6 @@ description: Класс хостов определяет вычислитель
 
 | Имя класса хостов | Количество vCPU | Гарантированная доля vCPU | RAM, ГБ | Размер <br>диска, ГБ |
 |-------------------|-----------------|---------------------------|---------|----------------------|
-| **Intel Broadwell**                                                                              |
-| b1.medium         | 2               | 50%                       | 4       | 10 — 512             |
-| s1.micro          | 2               | 100%                      | 8       | 10 — 8 184            |
-| s1.small          | 4               | 100%                      | 16      | 10 — 8 184            |
-| s1.medium         | 8               | 100%                      | 32      | 10 — 8 184            |
-| s1.large          | 16              | 100%                      | 64      | 10 — 8 184            |
-| s1.xlarge         | 32              | 100%                      | 128     | 10 — 8 184            |
 | **Intel Cascade Lake**                                                                           |
 | b2.medium         | 2               | 50%                       | 4       | 10 — 512             |
 | m2.micro          | 2               | 100%                      | 16      | 10 — 4 096            |

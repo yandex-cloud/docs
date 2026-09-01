@@ -139,7 +139,7 @@ Use the `encrypt` and `decrypt` methods to encrypt and decrypt data. The code us
 
 - Java {#java}
 
-    ```Java
+    ```java
     SymmetricCryptoServiceBlockingStub symmetricCryptoService = ServiceFactory.builder()
         .endpoint(endpoint)
         .credentialProvider(credentialProvider)

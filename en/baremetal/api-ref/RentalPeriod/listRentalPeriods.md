@@ -33,7 +33,6 @@ apiPlayground:
 
 Retrieves the list of RentalPeriod resources.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 

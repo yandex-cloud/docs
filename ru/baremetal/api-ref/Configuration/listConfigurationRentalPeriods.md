@@ -44,7 +44,6 @@ apiPlayground:
 
 Retrieves the list of RentalPeriods for the specified Configuration resource.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 

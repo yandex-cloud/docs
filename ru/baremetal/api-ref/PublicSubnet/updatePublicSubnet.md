@@ -216,7 +216,6 @@ apiPlayground:
 
 Updates the specified public subnet.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 

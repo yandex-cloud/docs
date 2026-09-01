@@ -3,7 +3,6 @@
 # BareMetal API, gRPC: ServerService.Reboot
 
 
-Required for backward compatibility with old clients. --)
 Reboots the specified server.
 
 ## gRPC request

@@ -33,15 +33,13 @@
   1. Run this command:
 
       ```bash
-      yc organization-manager idp userpool domain validate <pool_ID> <domain> \
-        --name <domain>
+      yc organization-manager idp userpool domain validate <pool_ID> <domain>
       ```
 
-      For example, validate `my-domain.ru` in `my-federation`:
+      For example, validate `my-domain.ru` in `ek05kcb9vm2d********`:
 
       ```bash
-      yc organization-manager federation saml validate-domain my-federation \
-        --domain my-domain.ru
+      yc organization-manager idp userpool domain validate ek05kcb9vm2d******** my-domain.ru
       ```
 
 - API {#api}

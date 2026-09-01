@@ -1217,16 +1217,6 @@ items:
                 name: Start workbook import
               - href: api-ref/WorkbookImport/rpcgetWorkbookImportStatus-post.md
                 name: Get workbook import status
-          - name: EntryLock
-            items:
-              - name: Overview
-                href: api-ref/EntryLock/index.md
-              - href: api-ref/EntryLock/rpccreateEntryLock-post.md
-                name: Create entry lock
-              - href: api-ref/EntryLock/rpcextendEntryLock-post.md
-                name: Extend entry lock
-              - href: api-ref/EntryLock/rpcdeleteEntryLock-post.md
-                name: Delete entry lock
           - name: Editor
             items:
               - name: Overview
@@ -1311,6 +1301,28 @@ items:
                 href: api-ref/SharedEntry/index.md
               - href: api-ref/SharedEntry/rpclistSharedEntryAccessBindings-post.md
                 name: List shared entry access bindings
+          - name: Licensing
+            items:
+              - name: Overview
+                href: api-ref/Licensing/index.md
+              - href: api-ref/Licensing/rpcgetLicenses-post.md
+                name: Get licenses
+              - href: api-ref/Licensing/rpcgetLicensesLimit-post.md
+                name: Get licenses limit
+              - href: api-ref/Licensing/rpcsetLicenseLimit-post.md
+                name: Set licenses limit
+              - href: api-ref/Licensing/rpcassignLicenses-post.md
+                name: Assign licenses
+          - name: EntryLock
+            items:
+              - name: Overview
+                href: api-ref/EntryLock/index.md
+              - href: api-ref/EntryLock/rpccreateEntryLock-post.md
+                name: Create entry lock
+              - href: api-ref/EntryLock/rpcextendEntryLock-post.md
+                name: Extend entry lock
+              - href: api-ref/EntryLock/rpcdeleteEntryLock-post.md
+                name: Delete entry lock
           - name: Access
             items:
               - name: Overview
@@ -1329,18 +1341,12 @@ items:
                 name: Update HTML page
               - href: api-ref/HtmlPages/rpcdeleteHtmlPage-post.md
                 name: Delete HTML page
-          - name: Licensing
+          - name: Data
             items:
               - name: Overview
-                href: api-ref/Licensing/index.md
-              - href: api-ref/Licensing/rpcgetLicenses-post.md
-                name: Get licenses
-              - href: api-ref/Licensing/rpcgetLicensesLimit-post.md
-                name: Get licenses limit
-              - href: api-ref/Licensing/rpcsetLicenseLimit-post.md
-                name: Set licenses limit
-              - href: api-ref/Licensing/rpcassignLicenses-post.md
-                name: Assign licenses
+                href: api-ref/Data/index.md
+              - href: api-ref/Data/rpcgetDatasetData-post.md
+                name: 🚧 [Experimental] Get dataset data
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

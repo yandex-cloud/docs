@@ -5,7 +5,7 @@
 * Для нереплицируемых SSD-дисков и сверхбыстрых сетевых SSD-дисков с тремя репликами — на 93 ГБ.
 * Для локальных SSD-дисков:
 
-    * **Intel Broadwell** и **Intel Cascade Lake** — на 100 ГБ.
+    * **Intel Cascade Lake** — на 100 ГБ.
     * **Intel Ice Lake** и **AMD Zen 4** — на {{ local-ssd-v3-step }}.
 
 

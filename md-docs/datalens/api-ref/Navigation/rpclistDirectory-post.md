@@ -523,7 +523,7 @@ Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
 
 **Type**: string
 
-_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`
+_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
 
 </div>
 
@@ -673,7 +673,7 @@ _scope_{.json-schema-reset .json-schema-property .json-schema-required}
 
 Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
 
-_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`
+_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
 {.table-cell}
 ||
 ||

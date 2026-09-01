@@ -1,5 +1,6 @@
 # Transferring logs from a VM to {{ cloud-logging-full-name }}
 
+
 The [Fluent Bit](https://fluentbit.io/) logging processor allows you to transfer logs from [VM instances](../../compute/concepts/vm.md) to [{{ cloud-logging-full-name }}](../../logging/). To transfer logs, you will use the [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
 To set up log transfer:
@@ -264,11 +265,11 @@ To set up log transfer:
     ```
 
     Where:
-    * `folder_id`: ID of the {{ yandex-cloud }} folder whose default log group will receive the logs.
-    * `authorization`: Authorization settings. The `instance-service-account` value is used for authorization as the service account specified when creating the VM.
-    * `level_key`: Field indicating the logging level.
-    * `message_key`: Field with the message text.
-    * `default_level`: Default logging level if not specified in the message.
+    - `folder_id`: ID of the {{ yandex-cloud }} folder whose default log group will receive the logs.
+    - `authorization`: Authorization settings. The `instance-service-account` value is used for authorization as the service account specified when creating the VM.
+    - `level_key`: Field indicating the logging level.
+    - `message_key`: Field with the message text.
+    - `default_level`: Default logging level if not specified in the message.
 
 1. Restart Fluent Bit:
 
@@ -318,8 +319,8 @@ To set up log transfer:
 
         1. The status of both services must be `active (running)`.
         1. Test service logs should display these messages:
-           * `Path: /admin?query=90` for successful requests.
-           * `Error: /docs?bar=44` for failed requests.
+           - `Path: /admin?query=90` for successful requests.
+           - `Error: /docs?bar=44` for failed requests.
         1. Make sure the Fluent Bit logs are error-free.
 
     1. Check the logs in the management console:
@@ -328,8 +329,8 @@ To set up log transfer:
        1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
        1. Open the `default` log group.
        1. On the **{{ ui-key.yacloud.common.logs }}** tab, configure filters:
-          * `resource_type=logtest` to view test service logs.
-          * `timestamp > now()-1h` to view logs for the last hour.
+          - `resource_type=logtest` to view test service logs.
+          - `timestamp > now()-1h` to view logs for the last hour.
 
 - CLI {#cli}
 
@@ -354,7 +355,7 @@ To set up log transfer:
 ## Troubleshooting {#troubleshooting}
 
 1. File access errors and system issues:
-   * Check access permissions for critical files:
+   - Check access permissions for critical files:
   
      ```bash
      ls -l /usr/local/lib/fluent-bit/yc-logging.so
@@ -370,7 +371,7 @@ To set up log transfer:
      -rw-r--r-- 1 root root 456 May 30 12:34 /etc/fluent-bit/fluent-bit.conf
      ```
 
-   * Check system logs for errors:
+   - Check system logs for errors:
 
      ```bash
      sudo tail -f /var/log/syslog
@@ -397,7 +398,7 @@ To set up log transfer:
      ```
 
 1. `Permission denied` error:
-   * Check the service account permissions:
+   - Check the service account permissions:
 
      ```bash
      yc iam service-account list
@@ -413,7 +414,7 @@ To set up log transfer:
      +----------------------+---------------+
      ```
 
-   * Check the service account roles:
+   - Check the service account roles:
 
      ```bash
      yc iam service-account get service-acc-1
@@ -430,7 +431,7 @@ To set up log transfer:
      ```
 
 1. Logs do not show up in Cloud Logging:
-   * Make sure the `folder_id` in the configuration is correct:
+   - Make sure the `folder_id` in the configuration is correct:
 
      ```bash
      grep folder_id /etc/fluent-bit/fluent-bit.conf
@@ -442,7 +443,7 @@ To set up log transfer:
      folder_id b1g4c2a3v000000000000
      ```
 
-   * Make sure the yc-logging plugin is loaded correctly:
+   - Make sure the yc-logging plugin is loaded correctly:
 
      ```bash
      sudo systemctl status fluent-bit | grep yc-logging
@@ -455,7 +456,7 @@ To set up log transfer:
      ```
 
 1. Log format issues:
-   * Check the settings in the configuration:
+   - Check the settings in the configuration:
 
      ```bash
      grep -A 5 '\[OUTPUT\]' /etc/fluent-bit/fluent-bit.conf
@@ -472,7 +473,7 @@ To set up log transfer:
          level_key       SEVERITY
      ```
 
-   * Check the log format in `journald`:
+   - Check the log format in `journald`:
 
      ```bash
      journalctl -u logtest -n 5
@@ -486,7 +487,7 @@ To set up log transfer:
      ```
 
 1. File access errors and system issues:
-   * Check access permissions for critical files:
+   - Check access permissions for critical files:
   
      ```bash
      ls -l /usr/local/lib/fluent-bit/yc-logging.so
@@ -494,38 +495,38 @@ To set up log transfer:
      ls -l /etc/fluent-bit/fluent-bit.conf
      ```
 
-   * Check system logs for errors:
+   - Check system logs for errors:
 
      ```bash
      sudo tail -f /var/log/syslog
      journalctl -xe
      ```
 
-   * Make sure all files have correct access permissions (644 for configuration files, 755 for libraries).
+   - Make sure all files have correct access permissions (644 for configuration files, 755 for libraries).
 
 1. `Permission denied` error:
-   * Check the service account permissions.
-   * Make sure the `logging.writer` role is assigned for the appropriate folder.
-   * Make sure the service account token is valid.
+   - Check the service account permissions.
+   - Make sure the `logging.writer` role is assigned for the appropriate folder.
+   - Make sure the service account token is valid.
 
 1. Logs do not appear in Cloud Logging:
-   * Make sure the `folder_id` in the configuration is correct.
-   * Make sure the log format matches the expected one.
-   * Make sure the yc-logging plugin is loaded correctly:
+   - Make sure the `folder_id` in the configuration is correct.
+   - Make sure the log format matches the expected one.
+   - Make sure the yc-logging plugin is loaded correctly:
   
      ```bash
      sudo systemctl status fluent-bit | grep yc-logging
      ```
 
 1. Log format issues:
-   * Check the `message_key` and `level_key` settings.
-   * Make sure the logs contain the required fields.
-   * Check the time format in logs.
+   - Check the `message_key` and `level_key` settings.
+   - Make sure the logs contain the required fields.
+   - Check the time format in logs.
 
 ## Useful diagnostic commands {#diagnostic-commands}
 
 1. View extended Fluent Bit logs:
-   * Real-time log monitoring:
+   - Real-time log monitoring:
 
      ```bash
      sudo journalctl -u fluent-bit -n 100 -f
@@ -540,7 +541,7 @@ To set up log transfer:
      ```
 
 1. Checking CPU and memory usage:
-   * Monitoring the Fluent Bit process:
+   - Monitoring the Fluent Bit process:
 
      ```
      ps aux | grep fluent-bit
@@ -553,7 +554,7 @@ To set up log transfer:
      ```
 
 1. Monitoring network connections:
-   * Checking open ports and connections:
+   - Checking open ports and connections:
 
      ```bash
      sudo netstat -tupn | grep fluent-bit
@@ -566,7 +567,7 @@ To set up log transfer:
      ```
 
 1. Verifying plugin loading:
-   * Viewing open files of the process:
+   - Viewing open files of the process:
 
      ```bash
      sudo lsof -p $(pgrep fluent-bit) | grep yc-logging
@@ -578,7 +579,7 @@ To set up log transfer:
      ```
 
 1. Checking configuration files:
-   * Getting checksums:
+   - Getting checksums:
 
      ```
      find /etc/fluent-bit/ -type f -exec md5sum {} \;

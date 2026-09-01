@@ -4,12 +4,11 @@
 
 Lists operations for the specified public subnet.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 
 ```
-GET https://baremetal.api.cloud.yandex.net/baremetal/v2/clouds/{cloudId}/folders/{folderId}/publicSubnets/{publicSubnetId}:listOperations
+GET https://baremetal.api.cloud.yandex.net/baremetal/v2/clouds/{cloudId}/folders/{folderId}/publicSubnets/{publicSubnetId}/operations
 ```
 
 ## Path parameters

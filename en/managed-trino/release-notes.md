@@ -5,6 +5,9 @@ description: This section contains the {{ mtr-name }} release notes.
 
 # {{ mtr-full-name }} release notes
 
+## July 2026 {#july-2026}
+
+* Added the ability to employ a [user's {{ objstorage-name }} bucket](concepts/retry-policy.md#exchange-manager-storage) as an Exchange Manager storage.
 
 ## May 2026 {#may-2026}
 

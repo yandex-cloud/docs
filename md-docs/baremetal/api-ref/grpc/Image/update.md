@@ -2,7 +2,7 @@
 
 # BareMetal API, gRPC: ImageService.Update
 
-Updates the specified image.
+Updates the specified BootImage.
 
 ## gRPC request
 
@@ -24,22 +24,22 @@ Updates the specified image.
 ||Field | Description ||
 || image_id | **string**
 
-ID of the Image resource to update.
-To get the image ID, use a [ImageService.List](list.md#List) request.
+ID of the BootImage resource to update.
+To get the BootImage ID, use a [ImageService.List](list.md#List) request.
 
 Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
-Field mask that specifies which fields of the Image resource are going to be updated. ||
+Field mask that specifies which fields of the BootImage resource are going to be updated. ||
 || name | **string**
 
-Name of the image.
+Name of the BootImage.
 The name must be unique within the folder.
 
 The string length in characters must be 2-63. Value must match the regular expression ` [a-z]([-a-z0-9]*[a-z0-9])? `. ||
 || description | **string**
 
-Description of the image.
+Description of the BootImage.
 
 The maximum string length in characters is 1024. ||
 || labels | **object** (map<**string**, **string**>)

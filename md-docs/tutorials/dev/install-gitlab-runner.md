@@ -8,12 +8,6 @@
 
 Для Yandex Managed Service for GitLab вы также можете воспользоваться ручной установкой GitLab Runner или автоматически развернуть [раннер](../../managed-gitlab/concepts/index.md#runners) в [консоли управления](https://console.yandex.cloud), который будет обеспечивать нужное количество воркеров, запущенных в Compute Cloud.
 
-{% note info %}
-
-Функциональность создания и управления раннерами с помощью консоли управления находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы запросить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
-
-{% endnote %}
-
 Чтобы начать работу с GitLab Runner с помощью Compute Cloud:
 
 1. [Подготовьте инфраструктуру](#infra).
@@ -111,12 +105,6 @@
    ```
 
 ### Создайте раннер с помощью консоли управления {#create-runner}
-
-{% note info %}
-
-Функциональность создания и управления раннерами с помощью консоли управления находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы запросить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
-
-{% endnote %}
 
 {% note warning %}
 

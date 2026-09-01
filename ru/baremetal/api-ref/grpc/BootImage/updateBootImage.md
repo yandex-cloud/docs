@@ -6,7 +6,6 @@ editable: false
 
 Updates the specified boot image.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

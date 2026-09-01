@@ -69,6 +69,8 @@ items:
             href: operations/user-account/first-login.md
           - name: Managing an account on the My account portal
             href: operations/manage-account.md
+          - name: Reset user password
+            href: operations/user-account/reset-password.md
           - name: Troubleshooting
             href: operations/user-account/troubleshooting.md
       - name: Managing user groups
@@ -149,7 +151,7 @@ items:
                 href: operations/applications/saml-update.md
               - name: Setting up access to the application
                 href: operations/applications/saml-set-access-bindings.md
-              - name: Getting app information
+              - name: Getting the app info
                 href: operations/applications/saml-get.md
               - name: Deactivating and deleting an app
                 href: operations/applications/saml-deactivate-remove.md
@@ -163,7 +165,7 @@ items:
                 href: operations/applications/oidc-set-access-bindings.md
               - name: Getting a list of apps
                 href: operations/applications/oidc-list.md
-              - name: Getting app information
+              - name: Getting the app info
                 href: operations/applications/oidc-get.md
               - name: Deactivating and deleting an app
                 href: operations/applications/oidc-deactivate-remove.md
@@ -179,6 +181,8 @@ items:
               Enabling the two-factor authentication requirement for Yandex
               accounts
             href: operations/enable-2fa-access.md
+          - name: Configuring self-service password reset (SSPR)
+            href: operations/manage-sspr.md
           - name: Managing MFA
             items:
               - name: Creating an MFA policy
@@ -289,6 +293,12 @@ items:
                 href: tutorials/single-sign-on/jenkins/saml-jenkins.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/jenkins/oidc-jenkins.md
+          - name: Loop
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/loop/saml-loop.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/loop/oidc-loop.md
           - name: '{{ mgl-name }}'
             href: tutorials/single-sign-on/saml-managed-gitlab.md
           - name: '{{ mos-name }}'
@@ -305,6 +315,12 @@ items:
             href: tutorials/single-sign-on/saml-sentry.md
           - name: SonarQube
             href: tutorials/single-sign-on/saml-sonarqube.md
+          - name: Time
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/time/saml-time.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/time/oidc-time.md
           - name: OpenVPN
             items:
               - name: OpenVPN Access Server
@@ -312,9 +328,7 @@ items:
               - name: OpenVPN Community Edition
                 href: tutorials/single-sign-on/oidc-ovpn.md
           - name: VK Cloud
-            items:
-              - name: SAML
-                href: tutorials/single-sign-on/vk-cloud/saml-vk-cloud.md
+            href: tutorials/single-sign-on/saml-vk-cloud.md
           - name: Zabbix
             href: tutorials/single-sign-on/saml-zabbix.md
           - name: Passwork
@@ -361,6 +375,8 @@ items:
         href: concepts/branding.md
       - name: My account portal
         href: concepts/my-account.md
+      - name: Self-service password reset (SSPR)
+        href: concepts/sspr.md
       - name: Audit logs and login logs
         href: concepts/logs.md
       - name: Sessions

@@ -5,7 +5,6 @@
 Deletes the specified boot image.
 Deleting a boot image removes its data permanently and is irreversible.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

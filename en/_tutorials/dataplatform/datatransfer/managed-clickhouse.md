@@ -1,5 +1,6 @@
 # Migrating data using {{ data-transfer-full-name }}
 
+
 With {{ data-transfer-name }}, you can transfer your database from a third-party {{ CH }} source cluster to a {{ mch-name }} target cluster.
 
 This method enables you to:
@@ -105,7 +106,7 @@ For more information, see [{#T}](../../../data-transfer/concepts/use-cases.md).
             }
             ```
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate

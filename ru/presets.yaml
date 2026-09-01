@@ -70,6 +70,9 @@ default:
   backup-full-name: Yandex Cloud Backup
   backup-name: Cloud Backup
   backup-short-name: Cloud Backup
+  baremetal-extend-managed-k8s-name: 'Extend: Managed Service for Kubernetes®'
+  baremetal-extend-stackland-name: 'Extend: Yandex Cloud Stackland'
+  baremetal-extend-virtualization-name: 'Extend: Virtualization'
   baremetal-full-name: Yandex BareMetal
   baremetal-name: BareMetal
   bash-cli-ver: bash-2204
@@ -4874,6 +4877,17 @@ default:
         action_stop-prolongation-server-dialog: Выключить
         actions_add-partition: Добавить раздел
         addAdditionalSubnet: Добавить дополнительную подсеть
+        extend:
+          RequestClusterDialog:
+            actionSubmit: Отправить заявку
+            fieldRam: Количество RAM
+            fieldStorage: Хранилище
+            fieldTask: Опишите вашу техническую задачу
+            fieldVcpu: Ядра vCPU
+          StacklandListPage:
+            leaveRequest: Оставить заявку
+          VirtualizationListPage:
+            leaveRequest: Оставить заявку
         field_choose-marketplace-os: Marketplace
         field_choose-no-os: Без операционной системы
         field_CIDR_rwYMi: CIDR
@@ -4906,6 +4920,9 @@ default:
         label_create-public-subnet-full: Заказать публичную подсеть
         label_create-server: Заказать сервер
         label_create-subnetwork: Создать подсеть
+        label_extend: BareMetal Extend
+        label_extend-stackland: 'Extend: Yandex Cloud Stackland'
+        label_extend-virtualization: 'Extend: Virtualization'
         label_images_duoXD: Загрузочные образы
         label_kvm-console_37Kma: KVM-консоль
         label_load-image: Загрузить образ
@@ -6619,6 +6636,18 @@ default:
           label_title: Управление доступом
           popup-add-sa_field_name: Имя
           popup-add-sa_field_namespace: Пространство имен
+        baremetal-node-groups:
+          create:
+            field_node-count: Количество узлов в группе
+            settings:
+              action_create-node-group: Создать группу узлов
+              field_k8s-version: Версия Kubernetes
+              field_max-unavailable: Максимум недоступных узлов
+              field_private-subnet: Приватная подсеть
+              label_internet-access: Доступ в интернет
+              section_network-interfaces: Сетевые интерфейсы
+            step_configuration: Конфигурация серверов BareMetal
+            step_settings: Настройка группы узлов
         cluster:
           button_create-resource: Создать
           field_namespace: Пространство имён
@@ -6628,6 +6657,8 @@ default:
             section_releases: Установленные приложения
           node-groups:
             button_create: Создать группу узлов
+            button_create-baremetal-ng: BareMetal
+            label_type-baremetal: BareMetal
             label_type-custom: Внешняя
           overview:
             label_health: Состояние
@@ -7082,8 +7113,10 @@ default:
             column_attributes-type: Тип данных
             field_access-to-key-from-attributes: Доступ к ключу из атрибутов
             field_allow-read-expired-keys: Чтение просроченных ключей
+            field_block-size: Размер блока
             field_collection: Коллекция
             field_db: База данных
+            field_file-size: Размер файла кеша
             field_fixed-lifetime: Длительность периода
             field_host: Хост
             field_hosts: Хосты
@@ -7102,23 +7135,32 @@ default:
             field_query-wait-timeout-milliseconds: Таймаут ожидания очереди
             field_range-lifetime-max: Максимум
             field_range-lifetime-min: Минимум
+            field_range-max-name: Имя
+            field_range-max-type: Тип
+            field_range-min-name: Имя
+            field_range-min-type: Тип
+            field_read-buffer-size: Размер буфера чтения
             field_replicas: Реплики
             field_size-in-cells: Размер кэша
             field_source: Источник
             field_structure-attributes: Столбцы данных
             field_structure-id: Числовой ключ
+            field_structure-key: Составной ключ
             field_table: Таблица
-            field_update-interval: Период
             field_update-queue-push-timeout-milliseconds: Таймаут размещения в очереди
             field_user: Пользователь
             field_where: Условие выбора
+            field_write-buffer-size: Размер буфера записи
             label_fixed-lifetime: фиксированный
             label_range-lifetime: переменный
+            label_range-max: 'Столбец конца диапазона:'
+            label_range-min: 'Столбец начала диапазона:'
             label_source-clickhouse: ClickHouse
             label_source-http: HTTP(s)
             label_source-mongodb: StoreDoc
             label_source-mysql: MySQL
             label_source-postgresql: PostgreSQL
+            section_lifetime: Частота обновления
           field_diskSizeLimit: Максимальный размер хранилища
           field_emergencyUsageThreshold: Незамедлительно при заполненности более
           field_plannedUsageThreshold: В окно обслуживания при заполненности более
@@ -7774,7 +7816,6 @@ default:
             field_retry-interval: Интервал
             field_service-account: Сервисный аккаунт
             field_size: Размер группы
-            field_stream-size: Размер группы, Б
             field_suffix: Суффикс ключа объекта
             field_tag: Тег Docker-образа
             field_type: Тип

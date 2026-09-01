@@ -78,7 +78,6 @@ _Example:_{.json-schema-reset .json-schema-example} ``
     "direction": "desc"
   },
   "excludeLocked": true,
-  "includeData": true,
   "includeLinks": true,
   "filters": {
     "name": "example"
@@ -87,7 +86,8 @@ _Example:_{.json-schema-reset .json-schema-example} ``
   "includePermissionsInfo": true,
   "ignoreWorkbookEntries": true,
   "ignoreSharedEntries": true,
-  "pageToken": "example"
+  "pageToken": "example",
+  "includeData": true
 }
 ```
 
@@ -305,7 +305,7 @@ _scope_{.json-schema-reset .json-schema-property}
 
 Scope used to filter entries.
 
-_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`
+_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
 {.table-cell}
 ||
 ||
@@ -408,7 +408,7 @@ _entries_{.json-schema-reset .json-schema-property .json-schema-required}
 
   Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
 
-  _Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`
+  _Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
   {.table-cell}
   ||
   ||
@@ -589,7 +589,7 @@ _entries_{.json-schema-reset .json-schema-property .json-schema-required}
 
   Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
 
-  _Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`
+  _Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
   {.table-cell}
   ||
   ||
@@ -847,7 +847,7 @@ Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
 
 **Type**: string
 
-_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`
+_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
 
 </div>
 

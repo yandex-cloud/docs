@@ -8,7 +8,6 @@ Deletes the specified public subnet.
 
 Deleting a public subnet removes its data permanently and is irreversible.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

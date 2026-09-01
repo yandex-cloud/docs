@@ -26,7 +26,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
 
         На странице отображаются следующие графики:
 
@@ -84,7 +84,7 @@
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
-1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/cube.svg) **Хосты**.
+1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
 1. Выберите вкладку **Мониторинги**.
 1. Выберите нужный хост из выпадающего списка.
 
@@ -164,7 +164,7 @@
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
-1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/copy-transparent.svg) **Группы хостов**.
+1. Нажмите на имя нужного кластера и выберите вкладку **Группы хостов**.
 1. Выберите вкладку **Мониторинги**.
 1. Выберите нужную группу хостов из выпадающего списка.
 

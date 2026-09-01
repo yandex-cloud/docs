@@ -27,4 +27,4 @@ description: Различные сценарии использования {{ m
 * [{#T}](mysql-to-clickhouse.md)
 
 
-О миграции хостов кластера {{ mmy-name }} в другую зону доступности читайте в [инструкции](../operations/host-migration.md).
+О миграции хостов кластера {{ mmy-name }} в другую [зону доступности](../../overview/concepts/geo-scope.md) читайте в [инструкции](../operations/host-migration.md).

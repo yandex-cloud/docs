@@ -1,7 +1,6 @@
 # Поставка данных из очереди {{ KF }} в {{ CH }} с помощью {{ data-transfer-full-name }}
 
-
-В кластер {{ mch-full-name }} можно в реальном времени поставлять данные из топиков {{ KF }}. Эти данные будут автоматически вставлены в таблицы {{ CH }} на [движке `Kafka`]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
+В кластер {{ mch-name }} можно в реальном времени поставлять данные из топиков {{ KF }}. Эти данные будут автоматически вставлены в таблицы {{ CH }} на [движке `Kafka`]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 
 Чтобы настроить поставку данных из {{ mkf-full-name }} в {{ mch-name }}:
 

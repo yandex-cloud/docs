@@ -1,5 +1,6 @@
 # Creating a SAML app in {{ org-full-name }} for integration with Sentry
 
+
 [Sentry](https://sentry.io/) is a real-time error monitoring and tracking platform for applications allowing developers to quickly detect, diagnose, and fix failures and performance issues.
 
 For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Sentry via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications/saml.md) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Sentry.

@@ -15,7 +15,7 @@
 1. AI-агент запрашивает дополнительные данные о погоде в нужном городе в пользовательской функции `get_weather()`.
 1. AI-агент отправляет расширенный дополнительным контекстом запрос пользователя в модель генерации текста AI Studio.
 1. [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с помощью [API-ключа](../../iam/concepts/authorization/api-key.md) авторизует для AI-агента доступ к [Text Generation API](https://aistudio.yandex.ru/docs/ru/ai-studio/text-generation/api-ref/index) AI Studio.
-1. Сервисный аккаунт предоставляет функции Cloud Functions доступ к секрету [Yandex Lockbox](../../lockbox/index.md), в котором хранится API-ключ сервисного аккаунта.
+1. Сервисный аккаунт предоставляет функции Cloud Functions доступ к секрету [Yandex Lockbox](../../lockbox/index), в котором хранится API-ключ сервисного аккаунта.
 1. Функция Cloud Functions получает из секрета Yandex Lockbox API-ключ сервисного аккаунта.
 1. Модель AI Studio передает AI-агенту сгенерированный ответ.
 1. AI-агент возвращает полученный ответ пользователю.

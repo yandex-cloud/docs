@@ -5,6 +5,7 @@ description: In this article, you will learn about errors related to user pools.
 
 # Diagnosing user pool-related errors
 
+
 ## Login not found {#login-not-found}
 
 Error on attempt to log in. Username not found in the pool.

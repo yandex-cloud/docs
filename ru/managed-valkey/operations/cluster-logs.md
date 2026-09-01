@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
     1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mdb.cluster.logs.label_title }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.logs.label_title }}**.
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
     1. Выберите тип отображаемых событий: **{{ ui-key.yacloud.redis.label_log-type-valkey }}** или **{{ ui-key.yacloud.redis.label_log-type-valkey-audit }}** (события аудита).
 

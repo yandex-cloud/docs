@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/privateSubnets/{privateSubnetId}:listOperations
+  - url: https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/privateSubnets/{privateSubnetId}/operations
     method: get
     path:
       type: object
@@ -54,12 +54,11 @@ apiPlayground:
 
 Lists operations for the specified private subnet.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 
 ```
-GET https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/privateSubnets/{privateSubnetId}:listOperations
+GET https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/privateSubnets/{privateSubnetId}/operations
 ```
 
 ## Path parameters

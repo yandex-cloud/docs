@@ -4,7 +4,6 @@
 
 Returns the specified public prefix pool.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 
@@ -58,9 +57,7 @@ The maximum string length in characters is 20. Value must match the regular expr
 ||Field | Description ||
 || publicPrefixPoolId | **string**
 
-ID of the public prefix pool.
-
-The maximum string length in characters is 20. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
+ID of the public prefix pool. ||
 || cloudId | **string**
 
 ID of the cloud that the public prefix pool belongs to. ||
@@ -71,7 +68,7 @@ ID of the folder that the public prefix pool belongs to. ||
 
 Name of the public prefix pool.
 
-The string length in characters must be 2-63. Value must match the regular expression ` [a-z]([-a-z0-9]*[a-z0-9])? `. ||
+The maximum string length in characters is 63. ||
 || description | **string**
 
 Description of the public prefix pool.

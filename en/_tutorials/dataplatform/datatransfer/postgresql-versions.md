@@ -1,4 +1,4 @@
-# Migrating a {{ mpg-name }} cluster to another version using {{ data-transfer-full-name }}
+# Migrating a {{ mpg-name }} cluster to a different version using {{ data-transfer-full-name }}
 
 
 You can migrate a loaded production database deployed in a {{ mpg-name }} cluster to a higher version cluster. This tutorial discusses migration from version 14 directly to version 17, without going through several successive versions (14 → 15 → 16 → 17).

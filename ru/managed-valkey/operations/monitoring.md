@@ -23,7 +23,7 @@ description: Вы можете отслеживать состояние кла�
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
   1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}**.
       
       На открывшейся странице будут отображены графики, отражающие состояние кластера.
   
@@ -152,7 +152,7 @@ description: Вы можете отслеживать состояние кла�
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
   1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}**.
   1. Перейдите на вкладку **Шарды** и выберите шард.
       
       На открывшейся странице будут отображены графики, отражающие состояние выбранного шарда и его хостов.

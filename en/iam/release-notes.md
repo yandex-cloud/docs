@@ -5,6 +5,58 @@ description: This section contains the {{ iam-name }} release notes.
 
 # {{ iam-full-name }} release notes
 
+## July 2026 {#july-2026}
+
+### {{ iam-name }} updates {#iam-july-2026}
+
+* Added the ability to suspend a service account and manage its lifetime.
+* Added the `resourceManager.denyFolderRemoval` [authorization policy](concepts/access-control/access-policies.md#resourceManager-denyFolderRemoval) template that allows you to prohibit folder deletion.
+* Added the `aistudio.responses.restrictNetworkAccess` [authorization policy](concepts/access-control/access-policies.md#aistudio-responses-restrictNetworkAccess) template that allows restricting access to the Responses API in {{ ai-studio-full-name }} by IP addresses and cloud networks.
+
+### New roles {#roles-july-2026}
+
+{% cut "{{ cloud-registry-full-name }}" %}
+
+   Role | Description
+   --- | ---
+   `cloud-registry.artifacts.scanner` | This role enables scanning registry artifacts for vulnerabilities, pulling artifacts, as well as viewing info on artifacts and registries, on access permissions granted for registries, and on {{ cloud-registry-name }} quotas.
+
+{% endcut %}
+
+{% cut "{{ src-full-name }}" %}
+
+   Role | Description
+   --- | ---
+   `src.projects.admin` | This role includes the permissions to manage the project and administer all its repositories. It enables deleting the project and assigning its administrators.
+   `src.projects.maintainer` | This role enables managing all the project's repositories. It allows creating and updating the project, managing access to it, as well as adding or deleting its repositories.
+   `src.projects.viewer` | This role enables viewing all the project's repositories. It allows viewing the project as well as its access permissions and repositories.
+
+{% endcut %}
+
+{% cut "{{ sd-full-name }}" %}
+
+   Role | Description
+   --- | ---
+   `threat-detector.admin` | This role enables viewing info on {{ td-full-name }}'s security management rules, creating exceptions from such rules, as well as viewing info on access permissions granted for {{ td-full-name }} and modifying them.
+   `threat-detector.auditor` | This role enables viewing info on {{ td-full-name }}'s security management rules and access permissions granted for it.
+   `threat-detector.editor` | This role enables viewing info on access permissions granted for {{ td-full-name }} and its security management rules, as well as creating exceptions from such rules.
+   `threat-detector.viewer` | This role enables viewing info on {{ td-full-name }}'s security management rules and access permissions granted for it.
+   `threat-detector.worker` | This role enables viewing logs registered in the customer's infrastructure using {{ at-full-name }}.
+   `vulnerability-manager.admin` | This role enables viewing info on {{ vuln-man-name }} scan jobs, running and modifying them, as well as viewing their results.
+   `vulnerability-manager.auditor` | This role enables viewing {{ vuln-man-name }} scan results.
+   `vulnerability-manager.editor` | This role enables viewing info on {{ vuln-man-name }} scan jobs, running and modifying them, as well as viewing their results.
+   `vulnerability-manager.viewer` | This role enables viewing info on {{ vuln-man-name }} scan jobs and their results.
+
+{% endcut %}
+
+{% cut "{{ mmg-full-name }}" %}
+
+   Role | Description
+   --- | ---
+   `managed-mongodb.clusters.connector` | Enables {{ yandex-cloud }} users to connect to databases in {{ SD }} clusters via {{ iam-full-name }}.
+
+{% endcut %}
+
 ## June 2026 {#june-2026}
 
 ### {{ iam-name }} updates {#iam-june-2026}

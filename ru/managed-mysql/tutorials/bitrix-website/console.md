@@ -6,10 +6,11 @@ canonical: '{{ link-docs }}/tutorials/web/bitrix-website/console'
 
 # Создание сайта на базе «1С-Битрикс» с помощью консоли управления
 
+
 Чтобы создать инфраструктуру для [сайта на базе «1С-Битрикс»](index.md) c помощью консоли управления {{ yandex-cloud }}:
 
 {% include [bitrix-website-console](../../../_tutorials/applied/bitrix-website-console.md) %}
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](terraform.md).
+[{#T}](terraform.md)

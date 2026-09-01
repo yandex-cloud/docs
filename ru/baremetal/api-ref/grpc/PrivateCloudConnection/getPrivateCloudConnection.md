@@ -7,7 +7,6 @@ editable: false
 Returns the specific Private cloud connection resource.
 To get the list of available Private cloud connection resources, make a [List] request.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

@@ -269,7 +269,6 @@
 
 ## Восстановить кластер из резервной копии {#restore}
 
-
 {% note warning %}
 
 {% include [deprecated-note](../../_includes/mdb/backups/deprecated-note.md) %}

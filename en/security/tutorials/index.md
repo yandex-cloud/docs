@@ -35,6 +35,9 @@ description: Various {{ yandex-cloud }} security tutorials
 * Jenkins
     * [{#T}](single-sign-on/saml-jenkins.md)
     * [{#T}](single-sign-on/oidc-jenkins.md)
+* Loop
+    * [{#T}](single-sign-on/saml-loop.md)
+    * [{#T}](single-sign-on/oidc-loop.md)
 * [{#T}](single-sign-on/saml-managed-gitlab.md)
 * [{#T}](single-sign-on/saml-opensearch.md)
 * [{#T}](single-sign-on/oidc-mws.md)
@@ -45,14 +48,15 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](single-sign-on/saml-selectel.md)
 * [{#T}](single-sign-on/saml-sentry.md)
 * [{#T}](single-sign-on/saml-sonarqube.md)
-* VK Cloud
-    * [{#T}](single-sign-on/saml-vk-cloud.md)
+* Time
+    * [{#T}](single-sign-on/saml-time.md)
+    * [{#T}](single-sign-on/oidc-time.md)
+* [{#T}](single-sign-on/saml-vk-cloud.md)
 * [{#T}](single-sign-on/saml-zabbix.md)
 * [{#T}](single-sign-on/saml-passwork.md)
 * [{#T}](single-sign-on/saml-yandex-360.md)
 * [{#T}](single-sign-on/saml-ya-browser-corporate.md)
 * [{#T}](single-sign-on/oidc-nginx-oauth2-proxy.md)
-
 
 ## Network security {#network-security}
 
@@ -63,7 +67,6 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](network-security/remote-wireguard-vpn.md)
 * [{#T}](network-security/protected-access-to-content/index.md)
 
-
 ## Secure virtual environment configuration {#virtualenv-safe-config}
 
 * [{#T}](virtualenv-safe-config/gatsby-static-website.md)
@@ -73,7 +76,6 @@ description: Various {{ yandex-cloud }} security tutorials
     * [{#T}](virtualenv-safe-config/nlb-with-target-resource-vm.md)
     * [{#T}](virtualenv-safe-config/nlb-with-target-resource-group-vm.md)
     * [{#T}](virtualenv-safe-config/nlb-as-target-resource-alb.md)
-
 
 ## Data encryption and key management {#data-encryption-and-key-management}
 
@@ -94,7 +96,6 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](data-encryption-and-key-management/wlif-gitlab-integration.md)
 * [{#T}](data-encryption-and-key-management/ephemeral-key-storage.md)
 
-
 ## Collecting, monitoring, and analyzing audit logs {#audit-logs}
 
 * [{#T}](audit-logs/query.md)
@@ -112,7 +113,6 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](audit-logs/logging.md)
 * [{#T}](audit-logs/coi-fluent-bit-logging.md)
 
-
 ## Application security {#app-security}
 
 * [{#T}](app-security/ci-cd-serverless.md)
@@ -125,7 +125,6 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](app-security/invisible-captcha-android.md)
 * [{#T}](app-security/quickstart-android-flutter.md)
 * [{#T}](app-security/quickstart-ios.md)
-
 
 ## {{ k8s }} security {#kubernetes-security}
 

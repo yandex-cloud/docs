@@ -3,7 +3,6 @@
 # BareMetal API, REST: Server.Reinstall
 
 
-Required for backward compatibility with old clients. --)
 Reinstalls the specified server.
 
 ## HTTP request

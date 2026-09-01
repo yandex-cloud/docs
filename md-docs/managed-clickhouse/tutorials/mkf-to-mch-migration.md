@@ -2,11 +2,9 @@
 
 # Поставка данных из Yandex Managed Service for Apache Kafka® в Managed Service for ClickHouse® с помощью Yandex Data Transfer
 
-
 # Поставка данных из очереди Apache Kafka® в ClickHouse® с помощью Yandex Data Transfer
 
-
-В кластер Yandex Managed Service for ClickHouse® можно в реальном времени поставлять данные из топиков Apache Kafka®. Эти данные будут автоматически вставлены в таблицы ClickHouse® на [движке `Kafka`](https://clickhouse.com/docs/ru/engines/table-engines/integrations/kafka).
+В кластер Managed Service for ClickHouse® можно в реальном времени поставлять данные из топиков Apache Kafka®. Эти данные будут автоматически вставлены в таблицы ClickHouse® на [движке `Kafka`](https://clickhouse.com/docs/ru/engines/table-engines/integrations/kafka).
 
 Чтобы настроить поставку данных из Yandex Managed Service for Apache Kafka® в Managed Service for ClickHouse®:
 

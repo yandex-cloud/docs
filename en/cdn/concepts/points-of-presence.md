@@ -67,11 +67,11 @@ If your city does not host a {{ cdn-full-name }} PoP, traffic will be automatica
 {% endcut %}
 
 
-{% cut "Are these resources available outside Russia, Kazakhstan, and Uzbekistan?" %}
+{% cut "Are resources available in the countries without PoPs?" %}
 
 
 
-Yes, {{ cdn-full-name }} resources are available worldwide, even though its PoPs can only be found in Russia, Kazakhstan, and Uzbekistan. Users in other countries will be receiving content from PoPs in Russia, Kazakhstan, and Uzbekistan. With high throughput and modern hardware, content delivery stays efficient even for users in other countries.
+Yes, the {{ cdn-full-name }} resources are available worldwide. If there is no PoP in the user's country, the traffic is automatically routed to an optimal available point based on the server load and communication link quality. Thanks to high throughput and modern hardware, content delivery stays efficient.
 
 {% endcut %}
 

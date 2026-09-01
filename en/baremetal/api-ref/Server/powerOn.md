@@ -23,7 +23,6 @@ apiPlayground:
 # BareMetal API, REST: Server.PowerOn
 
 
-Required for backward compatibility with old clients. --)
 Powers on the specified server.
 
 ## HTTP request

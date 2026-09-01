@@ -19,7 +19,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку ![image-users](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
 
 - CLI {#cli}
 
@@ -134,7 +134,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите кнопку **Создать пользователя**.
 
   
@@ -427,7 +427,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Изменить пароль**.
 
   
@@ -702,7 +702,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Настроить**.
   1. Задайте [настройки MySQL®](../concepts/settings-list.md#dbms-user-settings) для пользователя.
   1. Нажмите кнопку **Сохранить**.
@@ -970,7 +970,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.
 
 - CLI {#cli}

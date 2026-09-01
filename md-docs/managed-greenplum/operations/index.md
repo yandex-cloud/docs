@@ -27,6 +27,7 @@
 
 * [Управление базами данных в Yandex MPP Analytics for PostgreSQL](databases.md)
 * [Запросы в Yandex WebSQL](web-sql-query.md)
+* [Работа с политиками распределения данных](distribution-policy-management.md)
 
 ## Пользователи и сессии {#users-and-sessions}
 

@@ -7,10 +7,11 @@ noIndex: true
 
 # Создание сайта на WordPress с кластером базы данных {{ MY }} с помощью {{ TF }}
 
+
 Чтобы создать инфраструктуру для [сайта на WordPress с кластером базы данных {{ MY }}](index.md) с помощью {{ TF }}:
 
 {% include [wordpress-mysql-terraform](../../../_tutorials/applied/wordpress-mysql-terraform.md) %}
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](console.md)
+[{#T}](console.md)

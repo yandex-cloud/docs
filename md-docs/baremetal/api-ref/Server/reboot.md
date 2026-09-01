@@ -3,7 +3,6 @@
 # BareMetal API, REST: Server.Reboot
 
 
-Required for backward compatibility with old clients. --)
 Reboots the specified server.
 
 ## HTTP request

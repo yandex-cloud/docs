@@ -22,7 +22,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **Группы хостов**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку **Группы хостов**.
 
 - CLI {#cli}
 
@@ -125,7 +125,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **Группы хостов**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку **Группы хостов**.
     1. Нажмите кнопку **Создать группу хостов**.
     1. Укажите параметры группы:
 
@@ -645,7 +645,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **Группы хостов**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку **Группы хостов**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной группы и выберите пункт **Изменить**.
     1. Измените настройки группы хостов:
 
@@ -1164,7 +1164,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **Группы хостов**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку **Группы хостов**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной группы и выберите пункт **Удалить**.
 
 - CLI {#cli}
@@ -1367,7 +1367,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![hosts](../../_assets/console-icons/cube.svg) **Хосты**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
 
 - REST API {#api}
 

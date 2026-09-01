@@ -5,6 +5,13 @@ description: This section contains the {{ mmy-name }} release notes.
 
 # {{ mmy-full-name }} release notes
 
+## June 2026 {#jun-2026}
+
+* Added deletion protection for databases and users.
+* Added the option to set cascade replicas when creating a cluster using Terraform.
+* Added one-click Terraform code export within the management console when creating or updating cluster settings. This option is also supported for existing service resources.
+* Added a [method to list available DBMS versions](api-ref/Versions/list.md) to the public API.
+
 ## May 2026 {#may-2026}
 
 * Added the ability to [create and restore](./operations/cluster-backups.md) clusters with encrypted local disks from a backup. The encryption uses a custom KMS key.

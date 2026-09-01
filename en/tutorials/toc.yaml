@@ -254,6 +254,12 @@ items:
                 href: security/single-sign-on/jenkins/saml-jenkins.md
               - name: OpenID Connect
                 href: security/single-sign-on/jenkins/oidc-jenkins.md
+          - name: Loop
+            items:
+              - name: SAML
+                href: security/single-sign-on/loop/saml-loop.md
+              - name: OpenID Connect
+                href: security/single-sign-on/loop/oidc-loop.md
           - name: '{{ mgl-name }}'
             href: security/single-sign-on/saml-managed-gitlab.md
           - name: '{{ mos-name }}'
@@ -276,10 +282,14 @@ items:
             href: security/single-sign-on/saml-sentry.md
           - name: SonarQube
             href: security/single-sign-on/saml-sonarqube.md
-          - name: VK Cloud
+          - name: Time
             items:
               - name: SAML
-                href: security/single-sign-on/vk-cloud/saml-vk-cloud.md
+                href: security/single-sign-on/time/saml-time.md
+              - name: OpenID Connect
+                href: security/single-sign-on/time/oidc-time.md
+          - name: VK Cloud
+            href: security/single-sign-on/saml-vk-cloud.md
           - name: Zabbix
             href: security/single-sign-on/saml-zabbix.md
           - name: Passwork
@@ -851,7 +861,7 @@ items:
         items:
           - name: Working with Mosquitto
             items:
-              - name: Sending messages
+              - name: Sending a message
                 href: iot/mosquitto/mosquitto-publish.md
               - name: Subscribing a device or registry to receive messages
                 href: iot/mosquitto/mosquitto-subscribe.md

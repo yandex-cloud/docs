@@ -9,7 +9,6 @@ The VRF must not have any associated PrivateSubnet resources.
 Delete all private subnets before deleting the VRF, otherwise
 the request will fail with INVALID_ARGUMENT error.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 

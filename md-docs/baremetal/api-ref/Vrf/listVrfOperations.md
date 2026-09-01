@@ -4,12 +4,11 @@
 
 Lists operations for the specified vrf.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 
 ```
-GET https://baremetal.api.cloud.yandex.net/baremetal/v2/clouds/{cloudId}/folders/{folderId}/vrf/{vrfId}:listOperations
+GET https://baremetal.api.cloud.yandex.net/baremetal/v2/clouds/{cloudId}/folders/{folderId}/vrf/{vrfId}/operations
 ```
 
 ## Path parameters

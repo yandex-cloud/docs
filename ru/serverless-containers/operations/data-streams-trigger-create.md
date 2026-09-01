@@ -60,12 +60,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}** выберите поток данных и сервисный аккаунт с правами на чтение из потока данных и запись в него.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
-
-        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}**. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда.
-        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_stream-size }}**. Допустимые значения от 1 Б до 64 КБ, значение по умолчанию — 1 Б.
-
-        Триггер группирует сообщения не дольше указанного времени ожидания и отправляет их в контейнер. Суммарный объем данных, которые передаются в контейнер, может превышать указанный размер группы, если данные передаются в одном сообщении. Во всех остальных случаях объем данных не превышает размер группы.
+    1. {% include [batch-settings-yds](../../_includes/functions/batch-settings-yds.md) %}
 
     1. В блоке **Приёмники**:
 

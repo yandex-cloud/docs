@@ -73,7 +73,7 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
   To view operations with all {{ dataproc-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}** in the left-hand panel. In the list that opens, you will also see operations for the deleted clusters.
 
-  You can get a list of operations for a specific resource. The steps below describe how you can do this for a {{ dataproc-name }} cluster.
+  To get a list of operations for a specific {{ dataproc-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.

@@ -14,7 +14,7 @@ description: Follow this guide to get a list of catalogs in a {{ mtr-name }} clu
     1. In the [management console]({{ link-console-main }}), select a folder.
     1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click the cluster name.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
+    1. Navigate to the **{{ ui-key.yacloud.trino.title_catalogs }}** tab.
 
 - CLI {#cli}
 
@@ -99,7 +99,7 @@ description: Follow this guide to get a list of catalogs in a {{ mtr-name }} clu
     1. In the [management console]({{ link-console-main }}), select a folder.
     1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click the cluster name.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
+    1. Navigate to the **{{ ui-key.yacloud.trino.title_catalogs }}** tab.
     1. Click the {{ TR }} catalog name.
 
 - CLI {#cli}

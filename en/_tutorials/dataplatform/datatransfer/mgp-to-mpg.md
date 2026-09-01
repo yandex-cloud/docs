@@ -1,3 +1,5 @@
+
+
 You can migrate a database from {{ GP }} to a {{ PG }} cluster using {{ data-transfer-full-name }}.
 
 To transfer a database from {{ GP }} to {{ PG }}:
@@ -113,7 +115,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
     - {{ TF }} {#tf}
 
-        1. In the `greenplum-postgresql.tf` file, specify these variables:
+        1. In the `greenplum-postgresql.tf` file, specify the following variables:
 
             * `gp_source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: Set to `1` to create the transfer.
@@ -201,7 +203,7 @@ To reduce the consumption of resources, delete those you do not need:
 
 1. Make sure the transfer status is **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**, upon which you can [delete](../../../data-transfer/operations/transfer.md#delete) the transfer.
 1. [Delete both the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the rest of the resources depending on how you created them:
+1. Delete the other resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

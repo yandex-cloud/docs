@@ -1,5 +1,6 @@
 # Migrating data from {{ mmy-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
+
 You can set up a data transfer from {{ mmy-full-name }} to {{ GP }} databases in {{ mgp-name }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Prepare your test data](#prepare-data).
@@ -120,7 +121,7 @@ Set up your infrastructure:
     CREATE DATABASE mgp_db;
     ```
 
-## Prepare and activate a transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create a `{{ GP }}` target endpoint](../../data-transfer/operations/endpoint/target/greenplum.md) with these cluster connection settings:
 

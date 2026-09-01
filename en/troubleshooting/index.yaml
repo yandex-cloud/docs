@@ -41,9 +41,6 @@ links:
   - title: '{{ datalens-name }}'
     description: Solutions for {{ datalens-name }}
     href: datalens/
-  - title: '{{ data-transfer-name }}'
-    description: Solutions for {{ data-transfer-name }}
-    href: data-transfer/
   - title: '{{ iam-name }}'
     description: Solutions for {{ iam-short-name }}
     href: iam/

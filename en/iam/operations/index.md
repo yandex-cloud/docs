@@ -26,8 +26,9 @@ To learn more about user group management, see [this {{ org-full-name }} guide](
 - [{#T}](sa/set-access-bindings.md)
 - [{#T}](sa/impersonate-sa.md)
 - [{#T}](sa/get-id.md)
-- [{#T}](sa/delete.md)
 - [{#T}](sa/get-id-token.md)
+- [{#T}](sa/suspend-reactivate.md)
+- [{#T}](sa/delete.md)
 
 ## Identity federations {#federations}
 

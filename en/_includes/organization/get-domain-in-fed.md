@@ -1,5 +1,13 @@
 {% list tabs group=instructions %}
 
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
+  1. In the left-hand panel, click ![icon-federation](../../_assets/organization/icon-federation.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+  1. Select a [federation](../../organization/concepts/add-federation.md) from the federation list.
+  1. Navigate to the **{{ ui-key.yacloud_org.form.federation.note.tab-domains }}** tab. 
+  1. Click the [domain](../../organization/concepts/domains.md) name.
+
 - CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}

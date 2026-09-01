@@ -42,7 +42,7 @@ To prevent a hacker from using your token:
 
 ### Authorized key {#key-reissue}
 
-If you need to prevent damage from a compromised key as quickly as possible, [delete](sa/delete.md) the service account.
+If you need to prevent threats posed by a compromised key as quickly as possible, [suspend](sa/suspend-reactivate.md#suspend) or [delete](sa/delete.md) the service account.
 
 If the continuity of the process that the service account is part of is more important to you, reissue authorized keys:
 

@@ -88,7 +88,7 @@ Run the `ALTER TABLE` sequence within a single transaction. To enable this featu
 ALTER TABLE ... /* __spqr__multishard_ddl: true */;
 ```
 
-{% note warning}
+{% note warning %}
 
 The operation is non-transactional. Be careful when renaming tables.
 

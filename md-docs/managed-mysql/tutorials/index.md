@@ -24,4 +24,4 @@
 * [Миграция базы данных из MySQL® в ClickHouse® с помощью Yandex Data Transfer](mysql-to-clickhouse.md)
 
 
-О миграции хостов кластера Managed Service for MySQL® в другую зону доступности читайте в [инструкции](../operations/host-migration.md).
+О миграции хостов кластера Managed Service for MySQL® в другую [зону доступности](../../overview/concepts/geo-scope.md) читайте в [инструкции](../operations/host-migration.md).

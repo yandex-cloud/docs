@@ -312,16 +312,6 @@
 
  - [Как делегировать домен на серверы Cloud DNS](dns/how-to/delegate-public-zone.md)
 
-## Data Transfer
-
- - [Все решения для Data Transfer](data-transfer/index.md)
-
- - [Решения для известных проблем Data Transfer](data-transfer/known-issues/index.md)
-
- - [Устранение ошибки `failed to connect to the destination cluster to get type information`](data-transfer/known-issues/failed-to-connect-to-the-destination-cluster-to-get-type-information.md)
-
- - [Примеры конфигураций и сценариев Data Transfer](data-transfer/how-to/index.md)
-
 ## Cloud Functions
 
  - [Все решения для Cloud Functions](functions/index.md)

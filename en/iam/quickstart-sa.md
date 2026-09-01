@@ -16,7 +16,7 @@ You will learn how to:
 
 ## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
+1. Log in to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the instructions.
 1. Make sure that you have the required [roles](./concepts/access-control/roles.md):
 
     1. In the management console, click ![image](../_assets/console-icons/layout-side-content-left.svg) or ![image](../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
@@ -53,9 +53,9 @@ Now you can perform operations on behalf of a service account, such as viewing t
 yc resource-manager folder list
 ```
 
-## Delete the service account {#delete-sa}
+## Suspend or delete the service account {#disable-or-delete-sa}
 
-Delete the service account if you no longer need it:
+To pause a service account, [suspend](operations/sa/suspend-reactivate.md#suspend) it. A suspended account cannot be used until [reactivated](operations/sa/suspend-reactivate.md#reactivate). Delete the account if you no longer need it:
 
 {% include [delete-sa-via-console](../_includes/iam/delete-sa-via-console.md) %}
 

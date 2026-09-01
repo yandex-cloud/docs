@@ -36,19 +36,19 @@ Create a VM and give it a public IP address:
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
 
-      * Select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` boot disk [type](../../compute/concepts/disk.md#disks_types) and specify the disk size: `40 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * Select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` boot disk [type](../../compute/concepts/disk.md#disks-types) and specify the disk size: `40 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
       * Create a secondary disk:
           * Click **{{ ui-key.yacloud.common.add }}**.
-          * Select the [disk type](../../compute/concepts/disk.md#disks_types): `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}`.
+          * Select the [disk type](../../compute/concepts/disk.md#disks-types): `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}`.
           * Specify the disk size: `24 {{ ui-key.yacloud.common.units.label_gigabyte }}`. 
           * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 

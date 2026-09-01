@@ -393,21 +393,6 @@ items:
         hidden: true
       - name: How to delegate a domain to {{ dns-name }} servers
         href: dns/how-to/delegate-public-zone.md
-  - name: '{{ data-transfer-name }}'
-    items:
-      - name: All solutions for {{ data-transfer-name }}
-        href: data-transfer/index.md
-      - name: Solutions for known {{ data-transfer-name }} issues
-        href: data-transfer/known-issues/index.md
-        hidden: true
-      - name: >-
-          Resolving the `failed to connect to the destination cluster to get
-          type information` error
-        href: >-
-          data-transfer/known-issues/failed-to-connect-to-the-destination-cluster-to-get-type-information.md
-      - name: Sample {{ data-transfer-name }} configurations and use cases
-        href: data-transfer/how-to/index.md
-        hidden: true
   - name: '{{ sf-name }}'
     items:
       - name: All solutions for {{ sf-name }}

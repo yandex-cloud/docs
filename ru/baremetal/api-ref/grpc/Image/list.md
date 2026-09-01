@@ -4,7 +4,7 @@ editable: false
 
 # BareMetal API, gRPC: ImageService.List
 
-Retrieves the list of Image resources in the specified folder.
+Retrieves the list of BootImage resources in the specified folder.
 
 ## gRPC request
 
@@ -88,7 +88,7 @@ Both snake_case and camelCase are supported for fields. ||
 ||Field | Description ||
 || images[] | **[Image](#yandex.cloud.baremetal.v1alpha.Image)**
 
-List of Image resources. ||
+List of BootImage resources. ||
 || next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than

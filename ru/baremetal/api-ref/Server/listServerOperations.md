@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/servers/{serverId}:listOperations
+  - url: https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/servers/{serverId}/operations
     method: get
     path:
       type: object
@@ -56,12 +56,11 @@ apiPlayground:
 
 Lists operations for the specified server.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 
 ```
-GET https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/servers/{serverId}:listOperations
+GET https://baremetal.{{ api-host }}/baremetal/v2/clouds/{cloudId}/folders/{folderId}/servers/{serverId}/operations
 ```
 
 ## Path parameters

@@ -2,6 +2,8 @@ title: '{{ si-full-name }}'
 stage: preview
 href: index.yaml
 items:
+  - name: Закрытие сервиса
+    href: sunset.md
   - name: Начало работы
     items:
       - name: Обзор
@@ -155,6 +157,10 @@ items:
         href: concepts/cron.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Практические руководства
+    items:
+      - name: Миграция с {{ er-name }} на триггеры
+        href: tutorials/eventrouter-migration.md
   - name: Управление доступом
     items:
       - name: Обзор

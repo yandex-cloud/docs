@@ -1,5 +1,6 @@
 # Creating a SAML app in {{ org-full-name }} for integration with Cloud.ru
 
+
 [Cloud.ru](https://cloud.ru/) is a Russian provider of cloud services, spanning IaaS, PaaS, AI/ML tools, and solutions for public, private, and hybrid cloud deployments, including support for infrastructure migration and operation.
 
 For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Cloud.ru via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications/saml.md) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Cloud.ru.

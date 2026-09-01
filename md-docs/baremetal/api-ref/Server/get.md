@@ -219,7 +219,9 @@ Status of the server.
 - `REINSTALLING`: Server operating system is being reinstalled.
 - `UPDATING`: Server is being updated.
 - `QUARANTINED`: Server has been quarantined
-- `RUNNING`: Server is running normaly ||
+- `RUNNING`: Server is running normaly
+- `ASSEMBLING`: Server is being assembled.
+- `MAINTENANCE`: Server is under maintenance. ||
 || osSettings | **[OsSettings](#yandex.cloud.baremetal.v1alpha.OsSettings)**
 
 Operating system specific settings of the server. Optional, will be empty if the server is
