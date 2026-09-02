@@ -6,7 +6,6 @@ editable: false
 
 Deletes the HTTPS configuration for the specified bucket.
 
-for compatibility with old format --)
 
 ## gRPC request
 

@@ -5,6 +5,8 @@ description: In this article, you will learn about integration with an S3-compat
 
 # Integration with {{ objstorage-full-name }}
 
+{% include [objstorage-pricing-warning](../../_includes/managed-gitlab/objstorage-pricing-warning.md) %}
+
 {{ GL }} supports storing various types of data in an S3 storage. Integration with an S3 storage allows you to reduce the amount of data on [instance](index.md#instance) disks to prevent their overflow. Learn more about data storage in [this {{ GL }} guide](https://docs.gitlab.com/administration/object_storage/).
 
 In {{ mgl-name }}, you can [enable integration with an S3-compatible {{ objstorage-name }}](../operations/objstorage-integration.md) using the [management console]({{ link-console-main }}). In which case {{ mgl-name }} will manage the storage creation, usage, and scaling.

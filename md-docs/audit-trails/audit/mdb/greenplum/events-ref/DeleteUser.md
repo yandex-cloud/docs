@@ -95,7 +95,10 @@
       "login": "boolean",
       "resourceGroup": "string",
       "settings": {
-        "poolMode": "string"
+        "poolMode": "string",
+        "poolSize": "string",
+        "poolClientIdleTimeout": "string",
+        "poolIdleInTransactionTimeout": "string"
       }
     }
   },
@@ -299,4 +302,13 @@ Value must match the regular expression ``` ^([^\|/*?.,;'<>]+|)$ ```. ||
 
 - `SESSION`
 - `TRANSACTION` ||
+|| poolSize | **string** (int64)
+
+The minimum value is 0. ||
+|| poolClientIdleTimeout | **string** (int64)
+
+The minimum value is 0. ||
+|| poolIdleInTransactionTimeout | **string** (int64)
+
+The minimum value is 0. ||
 |#

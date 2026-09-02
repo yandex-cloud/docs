@@ -468,8 +468,8 @@ default:
         tag: 2.8.0
     yc_crossplane:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.20.6
+        name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/charts/crossplane
+        tag: 2.3.4+yc0.15.0
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -513,7 +513,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart
-        tag: v1.9.1
+        tag: v1.10.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
@@ -553,7 +553,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/prometheus/charts/kube-prometheus-stack
-        tag: 86.2.3-1
+        tag: 88.5.2-1
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
@@ -2358,6 +2358,7 @@ default:
         dspm:
           action_button_apply: Download file
           action_button_export_without_validation: Export without validation
+          action_export: Export
           action_export_with_validation: Validate and export
           card_field_title: Data for search
           card_title_image: "On\_images"
@@ -7210,6 +7211,8 @@ default:
         iam:
           action_assign-roles_8vkmR: Assign roles
         layout:
+          PageActions:
+            button_more_sGEBS: More
           PageTabs:
             button_other_hnYwF: Other
       smart-web-security:
@@ -7404,6 +7407,20 @@ default:
         section_sharding-type-advanced: Advanced
         section_sharding-type-standard: Standard
       storage:
+        Bucket:
+          BucketSecurityScanForm:
+            button_submit: Create scan
+            title_file-filter: Include files into the scope
+            title_profiles: Sensitive data search
+          BucketSecuritySensitiveDataTab:
+            button_download_hR9sN: Download results
+            button_export_gQ8rM: Export to bucket
+            button_repeat_scan_fN7pL: Repeat scan
+            button_run_scan_af4cy: New scan
+            sub_tab_issues: Messages and errors
+            sub_tab_results: Results
+          NewerNoncurrentVersionsField:
+            field_newer_noncurrent_versions_ezq3T: Versions to store
         bucket:
           button_action-permissions: Object ACL
           button_create: Create folder
@@ -7493,6 +7510,7 @@ default:
           switch_object-lock: Object locks
           switch_policy: Access policy
           switch_security: Security
+          switch_sensitive-data-search: Sensitive data search
           switch_server-logs: Logging
           switch_settings: Settings
           switch_versioning: Versioning
@@ -7518,9 +7536,6 @@ default:
             switch_redirect: Redirect
             title_connected-domains: Domains in Cloud DNS
             title_redirect: Redirect
-        Bucket:
-          NewerNoncurrentVersionsField:
-            field_newer_noncurrent_versions_ezq3T: Versions to store
         buckets:
           button_create: Create bucket
           button_open-multipart-uploads: Show uploads

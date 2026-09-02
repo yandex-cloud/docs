@@ -6,15 +6,15 @@ description: Follow this guide to manage storage classes.
 # Managing storage classes
 
 
-The _storage class_ (`StorageClass`) allows administrators to divide storages they provide into classes with defined parameters. Classes differ by the [disk type](../../../compute/concepts/disk.md#disks_types) and pricing policy.
+The _storage class_ (`StorageClass`) allows administrators to divide storages they provide into classes with defined parameters. Classes differ by the [disk type](../../../compute/concepts/disk.md#disks-types) and pricing policy.
 
 {% note alert %}
 
-The storage usage cost depends on its [disk](../../../compute/concepts/disk.md) type. Check out the [{{ compute-full-name }} disk prices](../../../compute/concepts/disk.md#disks_types) before creating a storage.
+The storage usage cost depends on its [disk](../../../compute/concepts/disk.md) type. Check out the [{{ compute-full-name }} disk prices](../../../compute/concepts/disk.md#disks-types) before creating a storage.
 
 {% endnote %}
 
-{{ managed-k8s-name }} has the following storage classes available that differ by the [disk type](../../../compute/concepts/disk.md#disks_types):
+{{ managed-k8s-name }} has the following storage classes available that differ by the [disk type](../../../compute/concepts/disk.md#disks-types):
 * `yc-network-hdd` (default): Network HDD storage (`network-hdd`).
 * `yc-network-ssd`: Network SSD storage (`network-ssd`).
 * `yc-network-ssd-nonreplicated`: Enhanced performance non-replicated SSD storage (`network-ssd-nonreplicated`).

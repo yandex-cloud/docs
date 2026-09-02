@@ -13,6 +13,13 @@ Once a [regular scan](../../concepts/dspm.md#scanning) is complete, you can perf
 * [View errors](#errors)
 * [Delete](#delete)
 
+{% note tip %}
+
+If you initiated bucket scanning via the {{ objstorage-full-name }} interface, you can also use it to [view and manage](../../../storage/operations/buckets/sensitive-data-search.md#view) the scanning results.
+
+{% endnote %}
+
+
 ## Viewing scan results {#view}
 
 {% list tabs group=instructions %}
@@ -36,13 +43,7 @@ Once a [regular scan](../../concepts/dspm.md#scanning) is complete, you can perf
 
 ## Downloading scan results {#download}
 
-As you download, a CSV file with the scan results is saved locally on your computer.
-
-{% note info %}
-
-The file can contain a maximum of 10,000 sensitive data records. To export a larger number of records, use [export](#export) to {{ objstorage-name }}.
-
-{% endnote %}
+{% include [download-scan-intro](../../../_includes/security-deck/download-scan-intro.md) %}
 
 {% list tabs group=instructions %}
 
@@ -61,7 +62,7 @@ The file can contain a maximum of 10,000 sensitive data records. To export a lar
 
 ## Exporting scan results {#export}
 
-When exporting, the file with scan results is saved to the bucket you select.
+{% include [export-scan-intro](../../../_includes/security-deck/export-scan-intro.md) %}
 
 {% list tabs group=instructions %}
 
@@ -104,6 +105,8 @@ When exporting, the file with scan results is saved to the bucket you select.
   For more information about scanning errors, see [{#T}](../../diagnostics/dspm-diagnostics.md).
 
 {% endlist %}
+
+{% include [errors-scan-outro](../../../_includes/security-deck/errors-scan-outro.md) %}
 
 ## Deleting scan results {#delete}
 

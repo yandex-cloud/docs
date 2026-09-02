@@ -73,6 +73,6 @@ Error | Description | HTTP code
 
 * [{#T}](../../../concepts/multipart.md)
 
-* [Uploading object parts into a bucket](../../../operations/objects/multipart-upload.md#upload-parts)
+* [Uploading parts of an object to a bucket](../../../operations/objects/multipart-upload.md#upload-parts)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

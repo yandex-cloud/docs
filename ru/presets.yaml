@@ -479,8 +479,8 @@ default:
         tag: 2.8.0
     yc_crossplane:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.20.6
+        name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/charts/crossplane
+        tag: 2.3.4+yc0.15.0
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -524,7 +524,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart
-        tag: v1.9.1
+        tag: v1.10.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
@@ -564,7 +564,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/prometheus/charts/kube-prometheus-stack
-        tag: 86.2.3-1
+        tag: 88.5.2-1
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor

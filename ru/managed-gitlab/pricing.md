@@ -8,6 +8,12 @@ editable: false
 
 
 
+{% note warning %}
+
+Начиная с 11 сентября 2026 года [хранение данных {{ GL }} в {{ objstorage-full-name }}](./concepts/s3-integration.md) тарифицируется.
+
+{% endnote %}
+
 ::: page-constructor
 blocks:
   - type: card-layout-block
@@ -174,3 +180,4 @@ blocks:
 ## Лицензии {#license}
 
 По умолчанию {{ mgl-name }} использует Community Edition версию {{ GL }}. Если у вас есть оплаченная [лицензия](https://about.gitlab.com/pricing/) {{ GL }} (`Premium` или `Ultimate`) — обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру, чтобы воспользоваться ею в {{ mgl-name }}.
+

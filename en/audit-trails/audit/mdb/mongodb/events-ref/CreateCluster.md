@@ -3737,7 +3737,8 @@ editable: false
         "authType": "string",
         "deletionProtection": "boolean"
       }
-    ]
+    ],
+    "clusterName": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -3913,6 +3914,7 @@ A list of messages that carry the error details. ||
 || hosts[] | **[HostDetails](#yandex.cloud.audit.mdb.mongodb.HostDetails)** ||
 || databases[] | **[Database](#yandex.cloud.mdb.mongodb.v1.Database)** ||
 || users[] | **[User](#yandex.cloud.mdb.mongodb.v1.User)** ||
+|| clusterName | **string** ||
 |#
 
 ## Cluster {#yandex.cloud.mdb.mongodb.v1.Cluster}

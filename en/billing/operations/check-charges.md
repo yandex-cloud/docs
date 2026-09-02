@@ -68,7 +68,7 @@ By default, usage details show the cost of consumed resources. Details in consum
 
 - Cloud folders {#folders}
 
-  You can view usage details for one or more folders, including in different clouds. To do this, select folders whose details you want to display from the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_folders }}** list.
+  You can view usage details for one or more folders, including in different clouds. To do this, select the relevant folders from the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_folders }}** list.
 
   To get usage details for selected folders filtered by a product or label, click **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** or **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}** and select the values.
 
@@ -142,7 +142,7 @@ By default, usage details show the cost of consumed resources. Details in consum
 The chart shows how data changed over time.
 The number of details and their values depend on the selected detail depth, chart type, and filters.
 
-You can choose to display costs:
+You can choose how to display costs:
 
 * **{{ ui-key.yacloud_billing.billing.account.detail.value_cost }}**: Shows the cost of consumed services before discounts. For resources within a committed volume, this value reflects the base cost.
 * **{{ ui-key.yacloud_billing.billing.account.detail.label_top-total }}**: Shows the cost of consumed services after discounts. The discount for committed volume of services is applied as soon as you start consuming the resources.
@@ -152,11 +152,11 @@ There are two types of charts:
 * ![image](../../_assets/billing/graph-icon.svg): Line chart
 * ![image](../../_assets/billing/gistogram-icon.svg): Column chart
 
-Point the cursor at a line or column on the chart to see a popup with the following information:
+Hover over a line or column on the chart to bring up a tooltip with the following information:
 
 * Date for which the current point's value is valid.
-* Cost of services consumed within space/service/product.
-* Names of spaces/services/products/labels.
+* Cost of services consumed within the space, service, or product.
+* Names of the spaces, services, products, or labels.
 * Total cost of consumed services.
 
 Each space, service, product, or label is mapped to a unique color.

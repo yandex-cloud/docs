@@ -97,7 +97,7 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
 
    ```bash
    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/prometheus/charts/kube-prometheus-stack \
-     --version 86.2.3-1 \
+     --version 88.5.2-1 \
      --untar && \
    helm install \
      --namespace <пространство_имен_для_Prometheus_Operator> \

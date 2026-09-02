@@ -96,7 +96,8 @@
           "url": "string",
           "index": "string"
         }
-      ]
+      ],
+      "signOnUrl": "string"
     },
     "securitySettings": {
       "signatureMode": "string",
@@ -376,6 +377,7 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || entityId | **string** ||
 || acsUrls[] | **[AssertionConsumerServiceURLDetails](#yandex.cloud.audit.organizationmanager.application.saml.AssertionConsumerServiceURLDetails)** ||
+|| signOnUrl | **string** ||
 |#
 
 ## AssertionConsumerServiceURLDetails {#yandex.cloud.audit.organizationmanager.application.saml.AssertionConsumerServiceURLDetails}

@@ -1,0 +1,1 @@
+When exporting, the file with scan results is saved to the bucket you select.

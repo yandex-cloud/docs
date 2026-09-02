@@ -14,7 +14,7 @@
       * Click ![image](../../_assets/console-icons/pencil.svg), and, in the window that opens, select **{{ ui-key.yacloud.common.create }}**.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` and then select the disk snapshot you need from the list below. Optionally, use the filter.
       * Enter a name for the new boot disk.
-      * Select the [disk type](../../compute/concepts/disk.md#disks_types).
+      * Select the [disk type](../../compute/concepts/disk.md#disks-types).
       * Specify the required disk and block size.
       * Optionally, enable **{{ ui-key.yacloud.compute.field_additional_vt356 }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}** field if you need this disk automatically deleted when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
@@ -26,7 +26,7 @@
       * In the window that opens, select **{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}** → `Create new`.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}`.
       * Enter a name for the new disk.
-      * Select the [disk type](../../compute/concepts/disk.md#disks_types).
+      * Select the [disk type](../../compute/concepts/disk.md#disks-types).
       * Specify the required disk and block size.
       * Optionally, enable **{{ ui-key.yacloud.compute.field_additional_vt356 }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}** field if you need this disk automatically deleted when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.

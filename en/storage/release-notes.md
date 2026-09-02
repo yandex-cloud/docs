@@ -5,6 +5,12 @@ description: This section contains the {{ objstorage-name }} release notes.
 
 # {{ objstorage-full-name }} release notes
 
+## Q2 2026 {#q2-2026}
+
+* Added the `INTELLIGENT_TIERING` storage class. [Intelligent-tiering storage](./concepts/storage-class.md#features-intelligent-tiering) automatically optimizes costs by moving objects across access tiers based on access frequency. You can [upload](./operations/objects/upload.md) or move objects to intelligent-tiering storage [using lifecycles](./operations/buckets/lifecycles.md).
+* Added the `NewerNoncurrentVersions` parameter to [lifecycles](./operations/buckets/lifecycles.md). This parameter specifies how many non-current object versions are stored indefinitely.
+* Added the option to [search for sensitive data within a bucket](./operations/buckets/sensitive-data-search.md) using the [Data Security Posture Management ({{ dspm-name }}) module](../security-deck/concepts/dspm.md).
+
 ## Q1 2026 {#q1-2026}
 
 * The [object metadata export (S3 Inventory)](./concepts/s3-inventory.md) feature entered the [General Availability](../overview/concepts/launch-stages.md) stage in the [Russia region](../overview/concepts/region.md) and is now charged as per the [pricing policy](./pricing.md). [To manage export configurations](./operations/buckets/manage-s3-inventory.md), you can use the [{{ yandex-cloud }} CLI](./cli-ref/bucket/create-inventory-configuration.md) and [API](./api-ref/Bucket/createInventoryConfiguration.md).
@@ -87,3 +93,4 @@ Improved the management console design: bucket settings are now grouped under th
 * Improved the management console interface:
   * Added filtering by prefix in the list of bucket objects.
   * Added the feature to download objects from a list.
+

@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Интеграция с {{ objstorage-name }}
 
+{% include [objstorage-pricing-warning](../../_includes/managed-gitlab/objstorage-pricing-warning.md) %}
+
 {% note warning %}
 
 Перед включением интеграции с {{ objstorage-name }} убедитесь, что [группа безопасности](configure-security-group.md) инстанса {{ mgl-name }} разрешает входящие подключения на порт `80` с внешних IP-адресов {{ lets-encrypt }}. Подробнее об [ограничениях интеграции {{ objstorage-name }}](../concepts/s3-integration.md#restrictions).

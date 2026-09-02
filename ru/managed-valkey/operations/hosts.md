@@ -110,8 +110,7 @@
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
   1. Укажите параметры хоста:
-     
-     * Зону доступности.
+     * [Зону доступности](../../overview/concepts/geo-scope.md).
 
      
      * Подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md)).

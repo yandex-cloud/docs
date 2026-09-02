@@ -2,9 +2,6 @@
 
 # Yandex Cloud Registry Domains API, gRPC: DebianService.ReindexPackages
 
-
-Calculates Packages and Release metadata files for specified index artifact
-
 ## gRPC request
 
 **rpc ReindexPackages ([DebianReindexPackagesRequest](#yandex.cloud.cloudregistry.v1.domain.DebianReindexPackagesRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

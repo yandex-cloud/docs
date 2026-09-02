@@ -12,22 +12,15 @@ GET /{bucket}?lifecycle HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.
-
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Query parameters {#request-params}
 
-Parameter | Description
------ | -----
-`lifecycle` | Required parameter that indicates the type of operation.
+{% include [lifecycles-query-parameters](../../../_includes_service/storage-lifecycles-query-parameters.md) %}
 
-
-### Headers {#request-headers}
+### Headings {#request-headers}
 
 Use the appropriate [common headers](../common-request-headers.md) in your request.
-
 
 ## Response {#response}
 

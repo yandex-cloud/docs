@@ -1164,6 +1164,9 @@ editable: false
             "readonly": "string",
             "allowDdl": "boolean",
             "allowIntrospectionFunctions": "boolean",
+            "allowReorderPrewhereConditions": "boolean",
+            "asyncSocketForRemote": "boolean",
+            "asyncQuerySendingForRemote": "boolean",
             "connectTimeout": "string",
             "connectTimeoutWithFailover": "string",
             "connectTimeoutWithFailoverSecure": "string",
@@ -1222,6 +1225,8 @@ editable: false
             "maxNetworkBandwidth": "string",
             "maxNetworkBandwidthForUser": "string",
             "maxNetworkBytes": "string",
+            "maxRemoteReadNetworkBandwidth": "string",
+            "maxRemoteWriteNetworkBandwidth": "string",
             "maxTemporaryDataOnDiskSizeForQuery": "string",
             "maxTemporaryDataOnDiskSizeForUser": "string",
             "maxConcurrentQueriesForUser": "string",
@@ -1329,6 +1334,7 @@ editable: false
             "maxFinalThreads": "string",
             "maxReadBufferSize": "string",
             "insertKeeperMaxRetries": "string",
+            "databaseAtomicWaitForDropAndDetachSynchronously": "boolean",
             "doNotMergeAcrossPartitionsSelectFinal": "boolean",
             "ignoreMaterializedViewsWithDroppedTargetTable": "boolean",
             "enableAnalyzer": "boolean",
@@ -1395,7 +1401,12 @@ editable: false
           "enabled": "boolean",
           "processesRefreshInterval": "string"
         },
-        "fullVersion": "string"
+        "fullVersion": "string",
+        "connectionManager": {
+          "enabled": "boolean",
+          "connectionsFolderId": "string",
+          "secretsFolderId": "string"
+        }
       },
       "networkId": "string",
       "health": "string",
@@ -1465,6 +1476,9 @@ editable: false
           "readonly": "string",
           "allowDdl": "boolean",
           "allowIntrospectionFunctions": "boolean",
+          "allowReorderPrewhereConditions": "boolean",
+          "asyncSocketForRemote": "boolean",
+          "asyncQuerySendingForRemote": "boolean",
           "connectTimeout": "string",
           "connectTimeoutWithFailover": "string",
           "connectTimeoutWithFailoverSecure": "string",
@@ -1523,6 +1537,8 @@ editable: false
           "maxNetworkBandwidth": "string",
           "maxNetworkBandwidthForUser": "string",
           "maxNetworkBytes": "string",
+          "maxRemoteReadNetworkBandwidth": "string",
+          "maxRemoteWriteNetworkBandwidth": "string",
           "maxTemporaryDataOnDiskSizeForQuery": "string",
           "maxTemporaryDataOnDiskSizeForUser": "string",
           "maxConcurrentQueriesForUser": "string",
@@ -1630,6 +1646,7 @@ editable: false
           "maxFinalThreads": "string",
           "maxReadBufferSize": "string",
           "insertKeeperMaxRetries": "string",
+          "databaseAtomicWaitForDropAndDetachSynchronously": "boolean",
           "doNotMergeAcrossPartitionsSelectFinal": "boolean",
           "ignoreMaterializedViewsWithDroppedTargetTable": "boolean",
           "enableAnalyzer": "boolean",
@@ -1657,7 +1674,12 @@ editable: false
         "connectionManager": {
           "connectionId": "string"
         },
-        "authMethod": "string"
+        "authMethod": "string",
+        "userConnectionManager": {
+          "connectionId": "string",
+          "connectionFolderId": "string",
+          "secretFolderId": "string"
+        }
       }
     ]
   },
@@ -1911,6 +1933,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || backupRetainPeriodDays | **string** (int64) ||
 || performanceDiagnostics | **[PerformanceDiagnostics](#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics)** ||
 || fullVersion | **string** ||
+|| connectionManager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)** ||
 |#
 
 ## Clickhouse {#yandex.cloud.mdb.clickhouse.v1.ClusterConfig.Clickhouse}
@@ -2484,6 +2507,9 @@ The maximum string length in characters is 63. ||
 || readonly | **string** (int64) ||
 || allowDdl | **boolean** ||
 || allowIntrospectionFunctions | **boolean** ||
+|| allowReorderPrewhereConditions | **boolean** ||
+|| asyncSocketForRemote | **boolean** ||
+|| asyncQuerySendingForRemote | **boolean** ||
 || connectTimeout | **string** (int64) ||
 || connectTimeoutWithFailover | **string** (int64) ||
 || connectTimeoutWithFailoverSecure | **string** (int64) ||
@@ -2572,6 +2598,8 @@ The maximum string length in characters is 63. ||
 || maxNetworkBandwidth | **string** (int64) ||
 || maxNetworkBandwidthForUser | **string** (int64) ||
 || maxNetworkBytes | **string** (int64) ||
+|| maxRemoteReadNetworkBandwidth | **string** (int64) ||
+|| maxRemoteWriteNetworkBandwidth | **string** (int64) ||
 || maxTemporaryDataOnDiskSizeForQuery | **string** (int64) ||
 || maxTemporaryDataOnDiskSizeForUser | **string** (int64) ||
 || maxConcurrentQueriesForUser | **string** (int64) ||
@@ -2746,6 +2774,7 @@ The maximum string length in characters is 63. ||
 || maxFinalThreads | **string** (int64) ||
 || maxReadBufferSize | **string** (int64) ||
 || insertKeeperMaxRetries | **string** (int64) ||
+|| databaseAtomicWaitForDropAndDetachSynchronously | **boolean** ||
 || doNotMergeAcrossPartitionsSelectFinal | **boolean** ||
 || ignoreMaterializedViewsWithDroppedTargetTable | **boolean** ||
 || enableAnalyzer | **boolean** ||
@@ -2832,6 +2861,15 @@ Acceptable values are 0 to 1, inclusive. ||
 ||Field | Description ||
 || enabled | **boolean** ||
 || processesRefreshInterval | **string** (duration) ||
+|#
+
+## ClusterConnectionManager {#yandex.cloud.mdb.v1.ClusterConnectionManager}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| connectionsFolderId | **string** ||
+|| secretsFolderId | **string** ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.clickhouse.v1.MaintenanceWindow}
@@ -2944,6 +2982,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 - `AUTH_METHOD_PASSWORD`
 - `AUTH_METHOD_IAM` ||
+|| userConnectionManager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)** ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
@@ -2970,4 +3009,13 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 #|
 ||Field | Description ||
 || connectionId | **string** ||
+|#
+
+## UserConnectionManager {#yandex.cloud.mdb.v1.UserConnectionManager}
+
+#|
+||Field | Description ||
+|| connectionId | **string** ||
+|| connectionFolderId | **string** ||
+|| secretFolderId | **string** ||
 |#

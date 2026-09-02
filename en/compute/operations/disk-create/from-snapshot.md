@@ -28,7 +28,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
   1. Provide a description for the disk, if required.
   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
   1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` and select your snapshot from the list that opens. Optionally, use the filter.
-  1. Set the disk parameters: [disk type](../../concepts/disk.md#disks_types), [disk size](../../concepts/disk.md#maximum-disk-size), and [block size](../../concepts/disk.md#maximum-disk-size).
+  1. Set the disk parameters: [disk type](../../concepts/disk.md#disks-types), [disk size](../../concepts/disk.md#maximum-disk-size), and [block size](../../concepts/disk.md#maximum-disk-size).
   1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
   1. Optionally, select or create a [schedule](../../concepts/snapshot-schedule.md) for automatic disk snapshots. For more information on scheduling settings, see [this guide](../snapshot-control/create-schedule.md).
 

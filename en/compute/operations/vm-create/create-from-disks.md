@@ -157,7 +157,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
      Where:
      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
        * `name`: Disk name.
-       * `type`: Disk [type](../../concepts/disk.md#disks_types).
+       * `type`: Disk [type](../../concepts/disk.md#disks-types).
        * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
        * `size`: Disk size, in GB.
        * `image_id`: ID of the [image](../../concepts/image.md) to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).

@@ -2,7 +2,6 @@
 
 # Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища сессий PHP
 
-
 # Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища сессий PHP
 
 

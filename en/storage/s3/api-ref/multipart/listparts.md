@@ -114,6 +114,6 @@ Tag | Description
 
 * [{#T}](../../../concepts/multipart.md)
 
-* [Multipart upload of an object](../../../operations/objects/multipart-upload.md)
+* [{#T}](../../../operations/objects/multipart-upload.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

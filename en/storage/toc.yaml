@@ -45,6 +45,8 @@ items:
               Accessing a bucket using a service connection from {{
               vpc-short-name }}
             href: operations/buckets/access-via-vpc.md
+          - name: Searching for sensitive data in a bucket
+            href: operations/buckets/sensitive-data-search.md
           - name: Managing bucket versioning
             href: operations/buckets/versioning.md
           - name: Enabling logging
@@ -65,25 +67,25 @@ items:
         items:
           - name: Uploading an object
             href: operations/objects/upload.md
-          - name: Multipart upload of an object
+          - name: Uploading an object via multipart upload
             href: operations/objects/multipart-upload.md
-          - name: Get a list of bucket objects
+          - name: Getting a list of objects in a bucket
             href: operations/objects/list.md
           - name: Getting information about an object
             href: operations/objects/info.md
-          - name: Downloading an object
+          - name: Download an object
             href: operations/objects/download.md
-          - name: Restoring an object's version
+          - name: Restoring an object version
             href: operations/objects/restore-object-version.md
-          - name: Renaming and moving objects
+          - name: Renaming and moving an object
             href: operations/objects/rename-move.md
-          - name: Copying objects
+          - name: Copying an object
             href: operations/objects/copy.md
-          - name: Downloading an object using a pre-signed URL
+          - name: Downloading an object via a pre-signed URL
             href: operations/objects/link-for-download.md
-          - name: Uploading an object using a pre-signed URL
+          - name: Uploading an object via a pre-signed URL
             href: operations/objects/link-for-upload.md
-          - name: Configuring an object lock
+          - name: Enabling an object lock
             href: operations/objects/edit-object-lock.md
           - name: Deleting an object
             href: operations/objects/delete.md
@@ -91,11 +93,11 @@ items:
             href: operations/objects/delete-all.md
           - name: Deleting a partially uploaded object
             href: operations/objects/deleting-multipart.md
-          - name: Editing an object's ACL
+          - name: Editing an object ACL
             href: operations/objects/edit-acl.md
           - name: Managing object labels
             href: operations/objects/tagging.md
-          - name: Managing object custom metadata
+          - name: Managing custom object metadata
             href: operations/objects/object-meta.md
       - name: Hosting static websites
         items:
@@ -416,6 +418,8 @@ items:
         href: concepts/acl.md
       - name: Bucket policy
         href: concepts/policy.md
+      - name: Search for sensitive data
+        href: concepts/sensitive-data-search.md
       - name: Uploading files via an HTML form
         href: concepts/presigned-post-forms.md
       - name: Storage class

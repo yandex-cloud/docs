@@ -515,7 +515,8 @@ description: Следуя данной инструкции, вы сможете
           },
           "databaseSpecs": [
               {
-                  "name": "<имя_БД>"
+                  "name": "<имя_БД>",
+                  "deletionProtectionMode": "<защита_от_удаления>"
               },
               { <аналогичный_набор_настроек_для_БД_2> },
               { ... },
@@ -525,6 +526,7 @@ description: Следуя данной инструкции, вы сможете
               {
                   "name": "<имя_пользователя>",
                   "password": "<пароль_пользователя>",
+                  "deletionProtectionMode": "<защита_от_удаления>",
                   "permissions": [
                       {
                           "databaseName": "<имя_БД>",
@@ -599,9 +601,15 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [disk-size-autoscaling-rest](../../_includes/mdb/mmy/disk-size-autoscaling-rest.md) %}
 
-      * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.
+      * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и имеет следующую структуру:
+          * `name` — имя БД.
 
-          {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+            {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
+          * `deletionProtectionMode` — защита базы данных от непреднамеренного удаления:
+              * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+              * `DELETION_PROTECTION_MODE_DISABLED`(по умолчанию) — выключена;
+              * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
 
       * `userSpecs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
 
@@ -614,6 +622,11 @@ description: Следуя данной инструкции, вы сможете
 
               Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
+
+          * `deletionProtectionMode` — защита пользователя от непреднамеренного удаления:
+             * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+             * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+             * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
 
           * `permissions` — настройки разрешений пользователя:
 
@@ -694,7 +707,8 @@ description: Следуя данной инструкции, вы сможете
           },
           "database_specs": [
                 {
-                    "name": "<имя_БД>"
+                    "name": "<имя_БД>",
+                    "deletion_protection_mode": "<защита_от_удаления>"
                 },
                 { <аналогичный_набор_настроек_для_БД_2> },
                 { ... },
@@ -704,6 +718,7 @@ description: Следуя данной инструкции, вы сможете
               {
                   "name": "<имя_пользователя>",
                   "password": "<пароль_пользователя>",
+                  "deletion_protection_mode": "<защита_от_удаления>",
                   "permissions": [
                       {
                           "database_name": "<имя_БД>",
@@ -772,7 +787,15 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mmy/disk-size-autoscaling-grpc.md) %}
 
-      * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.
+      * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и имеет следующую структуру:
+
+          * `name` — имя БД.
+
+          * `deletion_protection_mode` — защита базы данных от непреднамеренного удаления:
+            * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+            * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+            * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
+
       * `user_specs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
 
           * `name` — имя пользователя.
@@ -784,6 +807,12 @@ description: Следуя данной инструкции, вы сможете
 
               Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
+
+          * `deletion_protection_mode` — защита пользователя от непреднамеренного удаления:
+
+             * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+             * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+             * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
 
           * `permissions` — настройки разрешений пользователя:
 
