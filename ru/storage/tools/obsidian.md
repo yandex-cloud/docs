@@ -16,9 +16,10 @@ description: Remotely Save — плагин для Obsidian, который си
 ## Установка {#installation}
 
 1. В Obsidian откройте **Settings** → **Community plugins**.
-1. Отключите **Safe mode**, если он включен.
+1. Отключите **Restricted mode**, если он включен.
 1. Нажмите **Browse** и в строке поиска введите `Remotely Save`.
-1. Нажмите **Install**, затем **Enable**.
+1. Выберите плагин **Remotely Save**, для установки нажмите **Install**.
+1. Чтобы включить плагин после установки, нажмите **Enable**.
 
 ## Настройка {#configuration}
 
@@ -31,16 +32,12 @@ description: Remotely Save — плагин для Obsidian, который си
     * **Secret Access Key** — содержимое статического ключа, [полученное ранее](#before-you-begin);
     * **Bucket Name** — имя бакета, [созданного ранее](#before-you-begin).
 1. Нажмите **Check** для проверки подключения.
-1. После успешной проверки нажмите **Save settings**.
+1. Закройте окно настроек, данные сохранятся автоматически.
 
 ## Синхронизация {#sync}
 
 Для запуска синхронизации нажмите на иконку плагина на боковой панели Obsidian или воспользуйтесь командой `Remotely Save: start sync` через палитру команд (`Ctrl+P` / `Cmd+P`).
 
-{% note info %}
-
-Remotely Save работает с {{ objstorage-name }} как с иерархической файловой системой. Ключи объектов, которые загружены через плагин, будут иметь вид пути к файлу, например `folder/subfolder/note.md`.
-
-{% endnote %}
+После синхронизации файлы из Obsidian должны появиться в бакете как объекты с ключами вида `folder/subfolder/note.md`.
 
 Подробнее о работе плагина читайте в [документации Remotely Save](https://github.com/remotely-save/remotely-save).
