@@ -19,6 +19,10 @@ description: На странице представлен список прак�
 * [Резервное копирование ВМ с помощью «Хайстекс Акура — Система резервного копирования»](./hystax-backup.md)
 * [Резервное копирование кластера {{ managed-k8s-name }}](./kubernetes-backup.md)
 
+## Миграция данных {#migration}
+
+* [Миграция данных из Amazon S3 с помощью rclone](./storage-migration-from-amazon-s3.md)
+
 ## Другие руководства {#other}
 
 

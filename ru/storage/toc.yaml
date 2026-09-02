@@ -153,6 +153,9 @@ items:
               Резервное копирование кластера {{ managed-k8s-name }} в {{
               objstorage-name }}
             href: tutorials/kubernetes-backup.md
+      - name: >-
+          Миграция данных из Amazon S3 в {{ objstorage-name }} с помощью rclone
+        href: tutorials/storage-migration-from-amazon-s3.md
       - name: Получение статистики запросов к объекту с использованием S3 Select
         href: tutorials/server-logs.md
       - name: Получение статистики посещения сайта с использованием S3 Select
