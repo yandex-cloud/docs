@@ -69,3 +69,4 @@ description: На странице представлен список поша�
 - [{#T}](enable-ddos-protection.md)
 - [{#T}](adjust-mtu-ddos-protection.md)
 - [{#T}](connections-view.md)
+- [{#T}](operation-logs.md)

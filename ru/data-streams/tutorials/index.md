@@ -25,7 +25,5 @@ description: Различные сценарии использования {{ y
 - [{#T}](websocket-app.md)
 - [{#T}](maxpatrol/index.md)
 - [{#T}](search-events-query.md)
-- [{#T}](audit-trails.md)
 - [{#T}](search-events-audit-logs/index.md)
-- [{#T}](debezium.md)
 - [{#T}](postbox-webhook.md)
