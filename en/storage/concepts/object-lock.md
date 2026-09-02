@@ -72,10 +72,10 @@ Default lock setting changes do not affect the object versions that were previou
 1. [Lock an existing object version](../operations/objects/edit-object-lock) or [upload an object version with a lock](../operations/objects/upload.md#w-object-lock).
 
 See also:
-* [Setting up default object locks](../operations/buckets/configure-object-lock.md).
-* [Setting, updating, and removing locks](../operations/objects/edit-object-lock.md).
-* [Deleting a locked object version](../operations/objects/delete.md#w-object-lock).
-* [Restoring an object version in a versioned bucket](../operations/objects/restore-object-version.md).
+* [{#T}](../operations/buckets/configure-object-lock.md).
+* [{#T}](../operations/objects/edit-object-lock.md).
+* [{#T}](../operations/objects/delete.md#w-object-lock).
+* [{#T}](../operations/objects/restore-object-version.md).
 
 
 ## Use cases {#examples}

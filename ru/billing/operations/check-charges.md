@@ -119,6 +119,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [currency](../_includes/currency.md) %}
 
+{% include [final-payment-info](../../_includes/billing/final-payment-info.md) %}
 
 ## Посмотреть детализацию по скидкам {#discount}
 

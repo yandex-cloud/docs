@@ -1,4 +1,4 @@
-You can create snapshots of network [disks](../../compute/concepts/disk.md#disks_types) and drives, such as HDDs, SSDs, and non-replicated SSDs, as well as ultra high-speed network storages with three replicas (SSD).
+You can create snapshots of network [disks](../../compute/concepts/disk.md#disks-types) and drives, such as HDDs, SSDs, and non-replicated SSDs, as well as ultra high-speed network storages with three replicas (SSD).
 
 For non-replicated SSDs and ultra high-speed network storages with three replicas (SSD), the snapshot time is not determined.
 

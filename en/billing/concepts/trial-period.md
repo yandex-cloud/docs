@@ -1,15 +1,17 @@
 ---
 title: Trial period for new customers
-description: The trial period is a one-time introductory offer for businesses. You are eligible for a trial period provided you never purchased {{ yandex-cloud }} services nor activated the trial period before.
+description: The trial period is a one-time introductory offer for businesses that selected the _Wire transfer_ payment method. You are eligible for a trial period provided you never purchased {{ yandex-cloud }} services nor activated the trial period before.
 ---
 
 # Trial period for new customers
+
+{% include [free-trial-invoice-only](../../_includes/billing/free-trial-invoice-only.md) %}
 
 {% include [free-trial-conditions](../../_includes/free-trial-conditions.md) %}
 
 {% include [free-trial-first-section](../../_includes/free-trial-first-section.md) %}
 
-Your trial period will end automatically depending on the payment method you selected when [creating your billing account for businesses](../quickstart/index.md). For more information, see [{#T}](../../getting-started/free-trial/concepts/trial-ending.md).
+The trial period ends automatically. For more information, see [{#T}](../../getting-started/free-trial/concepts/trial-ending.md).
 
 {% include [free-trial-second-section](../../_includes/free-trial-second-section.md) %}
 

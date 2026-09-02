@@ -585,7 +585,8 @@ editable: false
         "enabled": "boolean",
         "aclOptions": "string"
       }
-    ]
+    ],
+    "clusterName": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -760,6 +761,7 @@ A list of messages that carry the error details. ||
 || cluster | **[Cluster](#yandex.cloud.mdb.redis.v1.Cluster)** ||
 || hosts[] | **[HostDetails](#yandex.cloud.audit.mdb.redis.HostDetails)** ||
 || users[] | **[User](#yandex.cloud.mdb.redis.v1.User)** ||
+|| clusterName | **string** ||
 |#
 
 ## Cluster {#yandex.cloud.mdb.redis.v1.Cluster}

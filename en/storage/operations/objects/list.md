@@ -1,9 +1,9 @@
 ---
-title: Getting a list of bucket objects in {{ objstorage-full-name }}
-description: Follow this guide to get a list of bucket object in {{ objstorage-name }}.
+title: Get a list of objects in a bucket in {{ objstorage-full-name }}
+description: Follow this guide to get a list of bucket objects in {{ objstorage-name }}.
 ---
 
-# Get a list of bucket objects
+# Getting a list of objects in a bucket
 
 {% list tabs group=instructions %}
 

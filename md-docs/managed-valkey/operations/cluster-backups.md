@@ -2,7 +2,6 @@
 
 # Управление резервными копиями в Yandex Managed Service for Valkey™
 
-
 Вы можете создавать [резервные копии](../concepts/backup.md) и восстанавливать кластеры из имеющихся резервных копий.
 
 Также Yandex Managed Service for Valkey™ ежедневно создает автоматическую резервную копию. Вы можете [задать время начала резервного копирования](#set-backup-window) для нее.
@@ -95,7 +94,7 @@
       * С именем `mynewrd`.
       * В окружении `PRODUCTION`.
       * В сети `default`.
-      * С одним хостом класса `hm1.nano` в подсети `b0rcctk2rvtr********`, в зоне доступности `ru-central1-a`, публичным доступом и [приоритетом реплики](../concepts/replication.md#master-failover) `50`.
+      * С одним хостом класса `hm1.nano` в подсети `b0rcctk2rvtr********`, в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`, публичным доступом и [приоритетом реплики](../concepts/replication.md#master-failover) `50`.
       * С паролем `P@ssWord`.
       * С хранилищем на сетевых SSD-дисках (`network-ssd`) размером 20 ГБ.
 

@@ -4,7 +4,6 @@
 
 Updates access bindings for the specified bucket.
 
-for compatibility with old format --)
 
 ## HTTP request
 

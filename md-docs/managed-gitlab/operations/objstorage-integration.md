@@ -4,6 +4,12 @@
 
 {% note warning %}
 
+Начиная с 11 сентября 2026 года хранение данных GitLab в Object Storage [тарифицируется](../pricing.md).
+
+{% endnote %}
+
+{% note warning %}
+
 Перед включением интеграции с Object Storage убедитесь, что [группа безопасности](configure-security-group.md) инстанса Managed Service for GitLab разрешает входящие подключения на порт `80` с внешних IP-адресов Let's Encrypt®. Подробнее об [ограничениях интеграции Object Storage](../concepts/s3-integration.md#restrictions).
 
 {% endnote %}

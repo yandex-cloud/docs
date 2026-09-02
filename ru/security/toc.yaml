@@ -153,6 +153,8 @@ items:
                   Настройка единого входа в OpenVPN Community Edition по
                   стандарту OIDC
                 href: tutorials/single-sign-on/oidc-ovpn.md
+          - name: Настройка единого входа в Open WebUI по стандарту OIDC
+            href: tutorials/single-sign-on/oidc-open-webui.md
           - name: Настройка единого входа в Selectel по стандарту SAML
             href: tutorials/single-sign-on/saml-selectel.md
           - name: Настройка единого входа в Sentry по стандарту SAML

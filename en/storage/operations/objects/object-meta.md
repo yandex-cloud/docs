@@ -1,11 +1,11 @@
 ---
-title: Managing object custom metadata in {{ objstorage-full-name }}
-description: Follow this guide to manage object custom metadata in an {{ objstorage-name }} bucket.
+title: Managing custom object metadata in {{ objstorage-full-name }}
+description: Follow this guide to manage custom object metadata in an {{ objstorage-name }} bucket.
 ---
 
-# Managing object custom metadata
+# Managing custom object metadata
 
-When uploading an object to {{ objstorage-name }}, you can provide [custom metadata](../../concepts/object.md#user-meta) in the form of `key-value` pairs.
+When uploading an object to {{ objstorage-name }}, you can provide [custom metadata](../../concepts/object.md#user-meta) as `key-value` pairs.
 
 
 ## Uploading an object with metadata {#load-object-with-meta}

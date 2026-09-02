@@ -44,7 +44,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Database.list](../api-ref/Database/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Database.list](../api-ref/Database/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
@@ -72,7 +72,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService/List](../api-ref/grpc/Database/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [DatabaseService/List](../api-ref/grpc/Database/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -144,10 +144,20 @@
   1. Если владельцем новой базы данных должен стать еще не существующий пользователь, [создайте его](cluster-users.md#adduser).
   1. Выберите вкладку **Базы данных**.
   1. Нажмите кнопку **Создать базу данных**.
-  1. Введите имя для базы данных и нажмите кнопку **Создать**.
+  1. Укажите параметры базы данных:
 
-      Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд Managed Service for MySQL®. Создавать БД с этими именами нельзя.
+     * Имя.
 
+       Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд Managed Service for MySQL®. Создавать БД с этими именами нельзя.
+
+     * Защита от непреднамеренного удаления. Возможные значения:
+        - **Как у кластера**.
+        - **Включена**.
+        - **Выключена**.
+
+        Защита от удаления действует только на уровне конкретной базы данных. При удалении кластера будут удалены все БД, в том числе защищенные от удаления.
+
+  1. Нажмите кнопку **Создать**.
   1. [Выдайте привилегии](grant.md#grant-privilege) на доступ к созданной базе данных нужным пользователям кластера.
 
 - CLI {#cli}
@@ -169,10 +179,16 @@
   1. Выполните команду создания БД:
 
       ```bash
-      yc managed-mysql database create <имя_БД> --cluster-name=<имя_кластера>
+      yc managed-mysql database create <имя_БД> \
+        --cluster-name=<имя_кластера> \
+        --deletion-protection=<защита_от_удаления>
       ```
 
       Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд Managed Service for MySQL®. Создавать БД с этими именами нельзя.
+
+      Возможные значения защиты БД от непреднамеренного удаления: `enabled`, `disabled` или `inherited` (наследует значение от кластера). Значение по умолчанию — `disabled`.
+
+      Защита от удаления действует только на уровне конкретной базы данных. При удалении кластера будут удалены все БД, в том числе защищенные от удаления.
 
       Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
@@ -184,16 +200,23 @@
 
       Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
 
-  1. Добавьте ресурс `yandex_mdb_mysql_database`:
+  1. Добавьте ресурс `yandex_mdb_mysql_database_v2`:
 
       ```hcl
-      resource "yandex_mdb_mysql_database" "<имя_БД>" {
-        cluster_id = "<идентификатор_кластера>"
-        name       = "<имя_БД>"
+      resource "yandex_mdb_mysql_database_v2" "<имя_БД>" {
+        cluster_id               = "<идентификатор_кластера>"
+        name                     = "<имя_БД>"
+        deletion_protection_mode = "<защита_от_удаления>"
       }
       ```
 
       Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд Managed Service for MySQL®. Создавать БД с этими именами нельзя.
+
+      Возможные значения защиты базы данных от непреднамеренного удаления:
+
+      * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+      * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+      * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
 
   1. Проверьте корректность настроек.
 
@@ -226,7 +249,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее о параметрах ресурса `yandex_mdb_mysql_database` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_database.md).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_database_v2` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_database_v2.md).
 
 - REST API {#api}
 
@@ -236,7 +259,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Database.create](../api-ref/Database/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Database.create](../api-ref/Database/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
@@ -246,12 +269,21 @@
           --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>/databases' \
           --data '{
                     "databaseSpec": {
-                      "name": "<имя_БД>"
+                      "name": "<имя_БД>",
+                      "deletionProtectionMode": "<защита_от_удаления>"
                     }
                   }'
       ```
 
       Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд Managed Service for MySQL®. Создавать БД с этими именами нельзя.
+
+      Возможные значения защиты базы данных от непреднамеренного удаления:
+
+      * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+      * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+      * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
+
+      Защита от удаления действует только на уровне конкретной базы данных. При удалении кластера будут удалены все БД, в том числе защищенные от удаления.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -272,7 +304,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService/Create](../api-ref/grpc/Database/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [DatabaseService/Create](../api-ref/grpc/Database/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -284,7 +316,8 @@
           -d '{
                 "cluster_id": "<идентификатор_кластера>",
                 "database_spec": {
-                  "name": "<имя_БД>"
+                  "name": "<имя_БД>",
+                  "deletion_protection_mode": "<защита_от_удаления>"
                 }
               }' \
           mdb.api.cloud.yandex.net:443 \
@@ -293,13 +326,21 @@
 
       Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд Managed Service for MySQL®. Создавать БД с этими именами нельзя.
 
+      Возможные значения защиты базы данных от непреднамеренного удаления:
+
+      * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+      * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+      * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
+
+      Защита от удаления действует только на уровне конкретной базы данных. При удалении кластера будут удалены все БД, в том числе защищенные от удаления.
+
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
-## Удалить базу данных {#remove-db}
+## Настроить защиту от удаления {#update-db-deletion-protection}
 
 {% list tabs group=instructions %}
 
@@ -307,7 +348,12 @@
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **Настроить**.
+  1. Выберите нужное значение в поле **Защита от удаления**.
+
+     Защита от удаления действует только на уровне конкретной базы данных. При удалении кластера будут удалены все БД, в том числе защищенные от удаления.
+
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
@@ -317,11 +363,17 @@
   
   Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы удалить базу данных, выполните команду:
+  Чтобы настроить защиту от удаления базы данных, выполните команду:
 
   ```bash
-   yc managed-mysql database delete <имя_БД> --cluster-name=<имя_кластера>
+  yc managed-mysql database update <имя_БД> \
+    --cluster-name=<имя_кластера> \
+    --deletion-protection=<защита_от_удаления>
   ```
+
+  Возможные значения защиты БД от непреднамеренного удаления: `enabled`, `disabled` или `inherited` (наследует значение от кластера). Значение по умолчанию — `disabled`.
+
+  Защита от удаления действует только на уровне конкретной базы данных. При удалении кластера будут удалены все БД, в том числе защищенные от удаления.
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
@@ -329,9 +381,21 @@
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-      Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
+  1. Найдите ресурс `yandex_mdb_mysql_database_v2` нужной БД.
 
-  1. Удалите ресурс `yandex_mdb_mysql_database` с именем удаляемой базы данных.
+  1. Добавьте параметр `deletion_protection_mode`. Возможные значения:
+
+      * `DELETION_PROTECTION_MODE_ENABLED` — защита от удаления включена;
+      * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — защита от удаления выключена;
+      * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
+
+      ```hcl
+      resource "yandex_mdb_mysql_database_v2" "<имя_базы_данных>" {
+        ...
+        deletion_protection_mode = "<защита_от_удаления>"
+        ...
+      }
+      ```
 
   1. Проверьте корректность настроек.
 
@@ -364,36 +428,60 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее о параметрах ресурса `yandex_mdb_mysql_database` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_database.md).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_database_v2` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_database_v2.md).
 
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-      ```bash
-      export IAM_TOKEN="<IAM-токен>"
-      ```
+     ```bash
+     export IAM_TOKEN="<IAM-токен>"
+     ```
 
-  1. Воспользуйтесь методом [Database.delete](../api-ref/Database/delete.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
-      ```bash
-      curl \
-          --request DELETE \
-          --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>'
-      ```
+     {% note warning %}
+     
+     Метод API переопределит все параметры изменяемого объекта, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `updateMask` (одной строкой через запятую).
+     
+     {% endnote %}
 
-      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>' \
+       --data '{
+                 "updateMask": "deletionProtectionMode",
+                 "deletionProtectionMode": "<защита_от_удаления>"
+               }'
+     ```
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/delete.md#yandex.cloud.operation.Operation).
+     Где:
+
+     * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+       В данном случае передается только один параметр.
+
+     * `deletionProtectionMode` — защита базы данных от непреднамеренного удаления:
+        * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+        * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+        * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
+
+        Защита от удаления действует только на уровне конкретной базы данных. При удалении кластера будут удалены все БД, в том числе защищенные от удаления.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-      ```bash
-      export IAM_TOKEN="<IAM-токен>"
-      ```
+     ```bash
+     export IAM_TOKEN="<IAM-токен>"
+     ```
 
   1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
      
@@ -402,34 +490,68 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
-      ```bash
-      grpcurl \
-          -format json \
-          -import-path ~/cloudapi/ \
-          -import-path ~/cloudapi/third_party/googleapis/ \
-          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/database_service.proto \
-          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-          -d '{
-                "cluster_id": "<идентификатор_кластера>",
-                "database_name": "<имя_БД>"
-              }' \
-          mdb.api.cloud.yandex.net:443 \
-          yandex.cloud.mdb.mysql.v1.DatabaseService.Delete
-      ```
+     {% note warning %}
+     
+     Метод API переопределит все параметры изменяемого объекта, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `update_mask` (в виде массива строк `paths[]`).
+     
+     {% cut "Формат перечисления настроек" %}
+     
+     ```yaml
+     "update_mask": {
+         "paths": [
+             "<настройка_1>",
+             "<настройка_2>",
+             ...
+             "<настройка_N>"
+         ]
+     }
+     ```
+     
+     {% endcut %}
+     
+     {% endnote %}
 
-      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/database_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "database_name": "<имя_БД>",
+             "update_mask": {
+               "paths": [
+                 "deletion_protection_mode"
+               ]
+             },
+             "deletion_protection_mode": "<защита_от_удаления>"
+           }' \
+       mdb.api.cloud.yandex.net:443 \
+       yandex.cloud.mdb.mysql.v1.DatabaseService.Update
+     ```
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation).
+     Где:
+
+     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+       В данном случае передается только один параметр.
+
+     * `deletion_protection_mode` — защита базы данных от непреднамеренного удаления:
+        * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+        * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+        * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
+
+        Защита от удаления действует только на уровне конкретной базы данных. При удалении кластера будут удалены все БД, в том числе защищенные от удаления.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
-
-{% note warning %}
-
-Прежде чем создать новую базу с тем же именем, дождитесь завершения операции удаления, иначе будет восстановлена удаляемая база. Статус операции можно получить вместе со [списком операций в кластере](cluster-list.md#list-operations).
-
-{% endnote %}
 
 ## Установить режим SQL {#sql-mode}
 
@@ -555,7 +677,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       {% note warning %}
       
@@ -611,7 +733,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       {% note warning %}
       
@@ -693,3 +815,141 @@
    ```sql
    ALTER TABLE <имя_БД>.<имя_таблицы> CONVERT TO CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci';
    ```
+
+## Удалить базу данных {#remove-db}
+
+{% note info %}
+
+Перед удалением базы данных [отключите ее защиту от удаления](#update-db-deletion-protection).
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  Чтобы удалить базу данных, выполните команду:
+
+  ```bash
+   yc managed-mysql database delete <имя_БД> --cluster-name=<имя_кластера>
+  ```
+
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
+
+- Terraform {#tf}
+
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+
+      Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
+
+  1. Удалите ресурс `yandex_mdb_mysql_database_v2` с именем удаляемой базы данных.
+
+  1. Проверьте корректность настроек.
+
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+      1. Выполните команду:
+      
+         ```bash
+         terraform validate
+         ```
+      
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Подтвердите изменение ресурсов.
+
+      1. Выполните команду для просмотра планируемых изменений:
+      
+         ```bash
+         terraform plan
+         ```
+      
+         Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+      
+      1. Если вас устраивают планируемые изменения, внесите их:
+         1. Выполните команду:
+      
+            ```bash
+            terraform apply
+            ```
+      
+         1. Подтвердите изменение ресурсов.
+         1. Дождитесь завершения операции.
+
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_database_v2` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_database_v2.md).
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Воспользуйтесь методом [Database.delete](../api-ref/Database/delete.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+      ```bash
+      curl \
+          --request DELETE \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>'
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/delete.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+  1. Воспользуйтесь вызовом [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/database_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "database_name": "<имя_БД>"
+              }' \
+          mdb.api.cloud.yandex.net:443 \
+          yandex.cloud.mdb.mysql.v1.DatabaseService.Delete
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+{% note warning %}
+
+Прежде чем создать новую базу с тем же именем, дождитесь завершения операции удаления, иначе будет восстановлена удаляемая база. Статус операции можно получить вместе со [списком операций в кластере](cluster-list.md#list-operations).
+
+{% endnote %}

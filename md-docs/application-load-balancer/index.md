@@ -246,21 +246,23 @@ Yandex Application Load Balancer служит для распределения 
 
  - [BackendTLSPolicy](gwin-ref/backendtlspolicy.md)
 
+ - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
+
  - [Gateway](gwin-ref/gateway.md)
 
- - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
+ - [IngressPolicy](gwin-ref/ingresspolicy.md)
+
+ - [IngressBackendGroup](gwin-ref/ingressbackendgroup.md)
 
  - [GRPCRoute](gwin-ref/grpcroute.md)
 
  - [HTTPRoute](gwin-ref/httproute.md)
 
- - [IngressBackendGroup](gwin-ref/ingressbackendgroup.md)
-
- - [Ingress](gwin-ref/ingress.md)
+ - [ListenerSet](gwin-ref/listenerset.md)
 
  - [ListenerSetPolicy](gwin-ref/listenersetpolicy.md)
 
- - [IngressPolicy](gwin-ref/ingresspolicy.md)
+ - [Ingress](gwin-ref/ingress.md)
 
  - [RoutePolicy](gwin-ref/routepolicy.md)
 
@@ -268,13 +270,11 @@ Yandex Application Load Balancer служит для распределения 
 
  - [ServicePolicy](gwin-ref/servicepolicy.md)
 
- - [YCCertificate](gwin-ref/yccertificate.md)
-
  - [TLSRoute](gwin-ref/tlsroute.md)
 
- - [YCStorageBucket](gwin-ref/ycstoragebucket.md)
+ - [YCCertificate](gwin-ref/yccertificate.md)
 
- - [ListenerSet](gwin-ref/listenerset.md)
+ - [YCStorageBucket](gwin-ref/ycstoragebucket.md)
 
 ### Ingress-контроллер
 

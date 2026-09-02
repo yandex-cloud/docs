@@ -12,6 +12,8 @@
 * утилизация фиксированного потребления;
 * детализация по кластерам {{ managed-k8s-name }}.
 
+{% include [final-payment-info](../../_includes/billing/final-payment-info.md) %}
+
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}

@@ -2,7 +2,7 @@ Before you start using the {{ dspm-name }} module, set up your [workspace](../..
 
 {% list tabs group=instructions %}
 
-- {{ sd-name }} UI {#console}
+- {{ sd-name }} UI {#cloud-sd}
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select ![database-magnifier](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}**.

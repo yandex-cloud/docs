@@ -14,7 +14,17 @@ Retrieves the list of Registry resources in the specified folder.
 {
   "folder_id": "string",
   "page_size": "int64",
-  "page_token": "string"
+  "page_token": "string",
+  "name_filter": "string",
+  "kind": [
+    "Kind"
+  ],
+  "type": [
+    "Type"
+  ],
+  "status": [
+    "Status"
+  ]
 }
 ```
 
@@ -39,6 +49,48 @@ The maximum value is 1000. ||
 
 Page token. To get the next page of results, set `page_token` to the
 [ListRegistriesResponse.next_page_token](#yandex.cloud.cloudregistry.v1.ListRegistriesResponse) returned by a previous list request. ||
+|| name_filter | **string**
+
+Filter by registry name.
+The expression must specify:
+1. The field name
+2. An operator: =, !=.
+3. The value in double quotes.
+Examples:
+name = "my-registry"
+name != "my-registry"
+No regular expressions allowed.
+
+The maximum string length in characters is 1000. ||
+|| kind[] | enum **Kind**
+
+Match by registry kind (for example DOCKER, MAVEN, NPM).
+Empty list means any kind.
+
+- `MAVEN`: Registry kind is maven.
+- `NPM`: Registry kind is npm.
+- `DOCKER`: Registry kind is docker.
+- `DEBIAN`: Registry kind is debian.
+- `NUGET`: Registry kind is nuget.
+- `PYPI`: Registry kind is pypi.
+- `BINARY`: Regisrty kind is binary.
+- `GO`: Registry kind is go. ||
+|| type[] | enum **Type**
+
+Match by registry type (for example LOCAL, REMOTE).
+Empty list means any type.
+
+- `LOCAL`: Registry type is local.
+- `REMOTE`: Registry type is remote.
+- `VIRTUAL`: Registry type is virtual.
+- `TRANSITIONAL`: Registry type is transitional. ||
+|| status[] | enum **Status**
+
+Match by registry status. Empty list means any status.
+
+- `CREATING`: Registry is being created.
+- `ACTIVE`: Registry is ready to use.
+- `DELETING`: Registry is being deleted. ||
 |#
 
 ## ListRegistriesResponse {#yandex.cloud.cloudregistry.v1.ListRegistriesResponse}
@@ -57,7 +109,15 @@ Page token. To get the next page of results, set `page_token` to the
       "labels": "map<string, string>",
       "properties": "map<string, string>",
       "created_at": "google.protobuf.Timestamp",
-      "modified_at": "google.protobuf.Timestamp"
+      "modified_at": "google.protobuf.Timestamp",
+      "pattern_filter": {
+        "include_patterns": [
+          "string"
+        ],
+        "exclude_patterns": [
+          "string"
+        ]
+      }
     }
   ],
   "next_page_token": "string"
@@ -136,4 +196,25 @@ Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.tx
 || modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Modification timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
+|| pattern_filter | **[PatternFilter](#yandex.cloud.cloudregistry.v1.PatternFilter)**
+
+Pattern filters for artifacts in the registry. ||
+|#
+
+## PatternFilter {#yandex.cloud.cloudregistry.v1.PatternFilter}
+
+Default filter includes all artifacts ("**") and excludes none.
+
+#|
+||Field | Description ||
+|| include_patterns[] | **string**
+
+List of patterns for artifacts to include.
+
+Each value must match the regular expression ` [A-Za-z0-9._~:@!$PATTERN+\-?*/]+ `. ||
+|| exclude_patterns[] | **string**
+
+List of patterns for artifacts to exclude.
+
+Each value must match the regular expression ` [A-Za-z0-9._~:@!$PATTERN+\-?*/]+ `. ||
 |#

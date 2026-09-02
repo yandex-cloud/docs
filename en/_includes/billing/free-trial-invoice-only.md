@@ -1,0 +1,1 @@
+The trial period is available only for businesses that selected **Wire transfer** as the payment method when [creating the billing account](../../billing/quickstart/index.md). If you add a credit or debit card to your business account, no trial period is offered and paid consumption begins immediately.

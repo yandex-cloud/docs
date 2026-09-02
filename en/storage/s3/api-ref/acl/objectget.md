@@ -12,19 +12,13 @@ GET /{bucket}/{key}?acl HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.
-`key` | Object key.
-
+{% include [path-parameters](../../../_includes_service/storage-multipart-path-parameters.md) %}
 
 ### Query parameters {#request-params}
 
-Parameter | Description
------ | -----
-`acl` | Required parameter that indicates the type of operation.
+{% include [request-params](../../../_includes_service/storage-request-params.md) %}
 
-### Headers {#request-headers}
+### Headings {#request-headers}
 
 Use the appropriate [common headers](../common-request-headers.md) in your request.
 

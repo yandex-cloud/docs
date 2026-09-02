@@ -4,6 +4,12 @@
 
 
 
+{% note warning %}
+
+Начиная с 11 сентября 2026 года [хранение данных GitLab в Yandex Object Storage](concepts/s3-integration.md) тарифицируется.
+
+{% endnote %}
+
 ::: page-constructor
 blocks:
   - type: card-layout-block

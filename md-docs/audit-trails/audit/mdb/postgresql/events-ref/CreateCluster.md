@@ -16217,7 +16217,7 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || login | **boolean** ||
 || grants[] | **string**
 
-The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_@.-]* `. ||
 || deletionProtection | **boolean** ||
 || userPasswordEncryption | **enum** (UserPasswordEncryption)
 

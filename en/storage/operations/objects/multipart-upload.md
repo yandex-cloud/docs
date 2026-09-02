@@ -1,9 +1,9 @@
 ---
-title: Uploading an object to a {{ objstorage-full-name }} bucket using a multipart upload
+title: Uploading an object via multipart upload to a bucket in {{ objstorage-full-name }}
 description: Follow this guide to upload an object to an {{ objstorage-name }} bucket in parts and set the conditional writes for the upload.
 ---
 
-# Multipart upload
+# Uploading an object via multipart upload
 
 A network failure while uploading an [object](../../concepts/object.md) to an {{ objstorage-name }} [bucket](../../concepts/bucket.md) will terminate the upload, so you will have to re-upload your file. The larger the file size, the longer the upload, thus increasing the risk of network errors.
 
@@ -68,7 +68,7 @@ The `split` command has split `video.mp4` into three parts: `part.aa`, `part.ab`
       Where:
 
       * `--bucket`: Name of your bucket.
-      * `--key`: [Key](../../concepts/object.md#key) by which the object will be stored in the bucket.
+      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
 
       Result:
 
@@ -127,7 +127,7 @@ The `split` command has split `video.mp4` into three parts: `part.aa`, `part.ab`
       Where:
 
       * `--bucket`: Name of your bucket.
-      * `--key`: [Key](../../concepts/object.md#key) by which the object will be stored in the bucket.
+      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
 
       Result:
 

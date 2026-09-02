@@ -64,6 +64,8 @@ blocks:
 
 Стоимость тарифицируемых сервисов рассчитывается на основе количества потребленных ресурсов и времени потребления. Каждый сервис реализует собственную логику подсчета потребленных ресурсов.
 
+Окончательная сумма рассчитывается в течение 7 дней после завершения [отчетного периода](concepts/reporting-period.md). Указанные суммы предварительные и могут быть скорректированы. Итоговая сумма к оплате будет указана в [отчетных документах](payment/documents.md).
+
 * <code><b><small>Preview</small></b></code> [GOST Gateway](../gost-gateway/pricing.md)
 * [Monium](../monium/pricing.md)
 * [SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing)

@@ -64,7 +64,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
    {% note info %}
 
-   Please note that [{{ k8s }} storage classes](manage-storage-class.md) and [{{ compute-full-name }} disk types](../../../compute/concepts/disk.md#disks_types) are different concepts.
+   Please note that [{{ k8s }} storage classes](manage-storage-class.md) and [{{ compute-full-name }} disk types](../../../compute/concepts/disk.md#disks-types) are different concepts.
 
    {% endnote %}
 

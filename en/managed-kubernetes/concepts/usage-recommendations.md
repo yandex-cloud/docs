@@ -61,7 +61,7 @@ Use these recommendations if the load on your {{ managed-k8s-name }} cluster is 
 * Consider node storage requirements in advance:
   * Check the [disk limits](../../compute/concepts/limits.md) for {{ compute-full-name }}.
   * Load test your disk subsystem in a test environment.
-* To reduce latency at high IOPS, use [non-replicated disks](../../compute/concepts/disk.md#disks_types).
+* To reduce latency at high IOPS, use [non-replicated disks](../../compute/concepts/disk.md#disks-types).
 
 ### Network load balancer {#nlb}
 

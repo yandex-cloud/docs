@@ -593,12 +593,22 @@ items:
                 href: api-ref/grpc/LifecyclePolicy/changeState.md
               - name: DryRun
                 href: api-ref/grpc/LifecyclePolicy/dryRun.md
+              - name: GetDryRunResult
+                href: api-ref/grpc/LifecyclePolicy/getDryRunResult.md
+              - name: ListDryRunResults
+                href: api-ref/grpc/LifecyclePolicy/listDryRunResults.md
+              - name: ListDryRunArtifacts
+                href: api-ref/grpc/LifecyclePolicy/listDryRunArtifacts.md
           - name: Migration
             items:
               - name: Overview
                 href: api-ref/grpc/Migration/index.md
               - name: StartCloud
                 href: api-ref/grpc/Migration/startCloud.md
+              - name: StartFolder
+                href: api-ref/grpc/Migration/startFolder.md
+              - name: GetCloudMigrationStatusDashboard
+                href: api-ref/grpc/Migration/getCloudMigrationStatusDashboard.md
           - name: Operation
             items:
               - name: Overview
@@ -725,6 +735,12 @@ items:
                 href: api-ref/LifecyclePolicy/changeState.md
               - name: DryRun
                 href: api-ref/LifecyclePolicy/dryRun.md
+              - name: GetDryRunResult
+                href: api-ref/LifecyclePolicy/getDryRunResult.md
+              - name: ListDryRunResults
+                href: api-ref/LifecyclePolicy/listDryRunResults.md
+              - name: ListDryRunArtifacts
+                href: api-ref/LifecyclePolicy/listDryRunArtifacts.md
           - name: Operation
             items:
               - name: Overview

@@ -28,6 +28,33 @@ keywords:
     1. Укажите имя шарда и выберите кластер {{ PG }}, хосты которого будут использоваться в качестве хостов с данными в кластере {{ SPQR }}.
     1. Нажмите кнопку **Создать**.
 
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл с описанием кластера {{ mspqr-name }}.
+
+      Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
+
+  1. Добавьте описание ресурса:
+
+      ```hcl
+      resource "yandex_mdb_sharded_postgresql_shard" "<имя_шарда>" {
+        cluster_id = "<идентификатор_кластера>"
+        name       = "<имя_шарда>"
+        shard_spec = {
+          mdb_postgresql = "<идентификатор_кластера_{{ PG }}>"
+        }
+      }
+      ```
+
+      Где:
+
+      * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+      * `shard_spec.mdb_postgresql` — идентификатор кластера {{ mpg-name }} в составе шарда.
+
+      Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_shard).
+
+      {% include [Terraform timeouts](../../_includes/mdb/mspqr/terraform/timeouts.md) %}
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -109,6 +136,26 @@ keywords:
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+     Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
+
+  1. Удалите ресурс `yandex_mdb_sharded_postgresql_shard` с именем удаляемого шарда.
+
+  1. Проверьте корректность настроек.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_shard).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mspqr/terraform/timeouts.md) %}
 
 - REST API {#api}
 

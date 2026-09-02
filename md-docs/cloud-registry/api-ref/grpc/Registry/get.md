@@ -41,7 +41,15 @@ The maximum string length in characters is 50. ||
   "labels": "map<string, string>",
   "properties": "map<string, string>",
   "created_at": "google.protobuf.Timestamp",
-  "modified_at": "google.protobuf.Timestamp"
+  "modified_at": "google.protobuf.Timestamp",
+  "pattern_filter": {
+    "include_patterns": [
+      "string"
+    ],
+    "exclude_patterns": [
+      "string"
+    ]
+  }
 }
 ```
 
@@ -100,4 +108,25 @@ Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.tx
 || modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Modification timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
+|| pattern_filter | **[PatternFilter](#yandex.cloud.cloudregistry.v1.PatternFilter)**
+
+Pattern filters for artifacts in the registry. ||
+|#
+
+## PatternFilter {#yandex.cloud.cloudregistry.v1.PatternFilter}
+
+Default filter includes all artifacts ("**") and excludes none.
+
+#|
+||Field | Description ||
+|| include_patterns[] | **string**
+
+List of patterns for artifacts to include.
+
+Each value must match the regular expression ` [A-Za-z0-9._~:@!$PATTERN+\-?*/]+ `. ||
+|| exclude_patterns[] | **string**
+
+List of patterns for artifacts to exclude.
+
+Each value must match the regular expression ` [A-Za-z0-9._~:@!$PATTERN+\-?*/]+ `. ||
 |#

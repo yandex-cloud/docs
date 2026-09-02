@@ -8,6 +8,12 @@ editable: false
 
 
 
+{% note warning %}
+
+Starting September 11, 2026, [storing {{ GL }} data in {{ objstorage-name }}](./concepts/s3-integration.md) is subject to charges.
+
+{% endnote %}
+
 ::: page-constructor
 blocks:
   - type: card-layout-block
@@ -132,3 +138,4 @@ The price of computing resources depends on the selected [approval rule](concept
 ## Licenses {#license}
 
 By default, {{ mgl-name }} uses {{ GL }} Community Edition. If you have a paid {{ GL }} [license](https://about.gitlab.com/pricing/) (either `Premium` or `Ultimate`), contact [our support]({{ link-console-support }}) or your account manager to use it in {{ mgl-name }}.
+

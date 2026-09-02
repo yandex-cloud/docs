@@ -479,6 +479,9 @@ editable: false
           "trustedCertificates": [
             "string"
           ]
+        },
+        "eventListeners": {
+          "dataCatalog": "object"
         }
       },
       "health": "string",
@@ -1024,6 +1027,7 @@ The maximum string length in characters is 50. ||
 || accessControl | **[AccessControlConfig](#yandex.cloud.trino.v1.AccessControlConfig)** ||
 || resourceManagement | **[ResourceManagementConfig](#yandex.cloud.trino.v1.ResourceManagementConfig)** ||
 || tls | **[TLSConfig](#yandex.cloud.trino.v1.TLSConfig)** ||
+|| eventListeners | **[EventListenersConfig](#yandex.cloud.trino.v1.EventListenersConfig)** ||
 |#
 
 ## CoordinatorConfig {#yandex.cloud.trino.v1.CoordinatorConfig}
@@ -1569,6 +1573,13 @@ Value must be greater than 0. ||
 || trustedCertificates[] | **string**
 
 The maximum string length in characters for each value is 8192. The maximum number of elements is 8. ||
+|#
+
+## EventListenersConfig {#yandex.cloud.trino.v1.EventListenersConfig}
+
+#|
+||Field | Description ||
+|| dataCatalog | **object** ||
 |#
 
 ## NetworkConfig {#yandex.cloud.trino.v1.NetworkConfig}

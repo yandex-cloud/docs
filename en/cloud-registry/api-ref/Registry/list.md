@@ -32,6 +32,79 @@ apiPlayground:
             Page token. To get the next page of results, set `pageToken` to the
             [ListRegistriesResponse.nextPageToken](#yandex.cloud.cloudregistry.v1.ListRegistriesResponse) returned by a previous list request.
           type: string
+        nameFilter:
+          description: |-
+            **string**
+            Filter by registry name.
+            The expression must specify:
+            1. The field name
+            2. An operator: =, !=.
+            3. The value in double quotes.
+            Examples:
+            name = "my-registry"
+            name != "my-registry"
+            No regular expressions allowed.
+            The maximum string length in characters is 1000.
+          type: string
+        kind:
+          description: |-
+            **enum** (Kind)
+            Match by registry kind (for example DOCKER, MAVEN, NPM).
+            Empty list means any kind.
+            - `MAVEN`: Registry kind is maven.
+            - `NPM`: Registry kind is npm.
+            - `DOCKER`: Registry kind is docker.
+            - `DEBIAN`: Registry kind is debian.
+            - `NUGET`: Registry kind is nuget.
+            - `PYPI`: Registry kind is pypi.
+            - `BINARY`: Regisrty kind is binary.
+            - `GO`: Registry kind is go.
+          type: array
+          items:
+            type: string
+            enum:
+              - KIND_UNSPECIFIED
+              - MAVEN
+              - NPM
+              - DOCKER
+              - DEBIAN
+              - NUGET
+              - PYPI
+              - BINARY
+              - GO
+        type:
+          description: |-
+            **enum** (Type)
+            Match by registry type (for example LOCAL, REMOTE).
+            Empty list means any type.
+            - `LOCAL`: Registry type is local.
+            - `REMOTE`: Registry type is remote.
+            - `VIRTUAL`: Registry type is virtual.
+            - `TRANSITIONAL`: Registry type is transitional.
+          type: array
+          items:
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - LOCAL
+              - REMOTE
+              - VIRTUAL
+              - TRANSITIONAL
+        status:
+          description: |-
+            **enum** (Status)
+            Match by registry status. Empty list means any status.
+            - `CREATING`: Registry is being created.
+            - `ACTIVE`: Registry is ready to use.
+            - `DELETING`: Registry is being deleted.
+          type: array
+          items:
+            type: string
+            enum:
+              - STATUS_UNSPECIFIED
+              - CREATING
+              - ACTIVE
+              - DELETING
       required:
         - folderId
       additionalProperties: false
@@ -72,6 +145,48 @@ The maximum value is 1000. ||
 
 Page token. To get the next page of results, set `pageToken` to the
 [ListRegistriesResponse.nextPageToken](#yandex.cloud.cloudregistry.v1.ListRegistriesResponse) returned by a previous list request. ||
+|| nameFilter | **string**
+
+Filter by registry name.
+The expression must specify:
+1. The field name
+2. An operator: =, !=.
+3. The value in double quotes.
+Examples:
+name = "my-registry"
+name != "my-registry"
+No regular expressions allowed.
+
+The maximum string length in characters is 1000. ||
+|| kind[] | **enum** (Kind)
+
+Match by registry kind (for example DOCKER, MAVEN, NPM).
+Empty list means any kind.
+
+- `MAVEN`: Registry kind is maven.
+- `NPM`: Registry kind is npm.
+- `DOCKER`: Registry kind is docker.
+- `DEBIAN`: Registry kind is debian.
+- `NUGET`: Registry kind is nuget.
+- `PYPI`: Registry kind is pypi.
+- `BINARY`: Regisrty kind is binary.
+- `GO`: Registry kind is go. ||
+|| type[] | **enum** (Type)
+
+Match by registry type (for example LOCAL, REMOTE).
+Empty list means any type.
+
+- `LOCAL`: Registry type is local.
+- `REMOTE`: Registry type is remote.
+- `VIRTUAL`: Registry type is virtual.
+- `TRANSITIONAL`: Registry type is transitional. ||
+|| status[] | **enum** (Status)
+
+Match by registry status. Empty list means any status.
+
+- `CREATING`: Registry is being created.
+- `ACTIVE`: Registry is ready to use.
+- `DELETING`: Registry is being deleted. ||
 |#
 
 ## Response {#yandex.cloud.cloudregistry.v1.ListRegistriesResponse}
@@ -92,7 +207,15 @@ Page token. To get the next page of results, set `pageToken` to the
       "labels": "object",
       "properties": "object",
       "createdAt": "string",
-      "modifiedAt": "string"
+      "modifiedAt": "string",
+      "patternFilter": {
+        "includePatterns": [
+          "string"
+        ],
+        "excludePatterns": [
+          "string"
+        ]
+      }
     }
   ],
   "nextPageToken": "string"
@@ -185,4 +308,25 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| patternFilter | **[PatternFilter](#yandex.cloud.cloudregistry.v1.PatternFilter)**
+
+Pattern filters for artifacts in the registry. ||
+|#
+
+## PatternFilter {#yandex.cloud.cloudregistry.v1.PatternFilter}
+
+Default filter includes all artifacts ("**") and excludes none.
+
+#|
+||Field | Description ||
+|| includePatterns[] | **string**
+
+List of patterns for artifacts to include.
+
+Each value must match the regular expression ` [A-Za-z0-9._~:@!$PATTERN+\-?*/]+ `. ||
+|| excludePatterns[] | **string**
+
+List of patterns for artifacts to exclude.
+
+Each value must match the regular expression ` [A-Za-z0-9._~:@!$PATTERN+\-?*/]+ `. ||
 |#

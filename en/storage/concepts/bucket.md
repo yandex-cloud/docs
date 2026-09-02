@@ -108,7 +108,7 @@ For the list of metrics delivered to {{ monitoring-name }}, see the [reference](
 You can also access aggregate bucket statistics [through the {{ yandex-cloud }} CLI](../operations/buckets/get-info.md#get-statistics).
 
 
-## Recommendations and limitations {#details-of-usage}
+## Usage specifics {#details-of-usage}
 
 - Updating bucket information may take up to 20 minutes. Therefore, sometimes the specified maximum bucket size may be exceeded (e.g., during fast sequential upload of multiple objects).
 - In the management console, the information about the number of objects in the bucket and used up space is updated with a delay.

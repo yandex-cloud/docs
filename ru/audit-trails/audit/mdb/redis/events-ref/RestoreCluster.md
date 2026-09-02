@@ -89,7 +89,8 @@ editable: false
   },
   "details": {
     "clusterId": "string",
-    "backupId": "string"
+    "backupId": "string",
+    "clusterName": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -262,4 +263,5 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || clusterId | **string** ||
 || backupId | **string** ||
+|| clusterName | **string** ||
 |#

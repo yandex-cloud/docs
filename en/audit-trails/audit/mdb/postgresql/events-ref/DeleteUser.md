@@ -324,7 +324,7 @@ A list of messages that carry the error details. ||
 || login | **boolean** ||
 || grants[] | **string**
 
-The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_@.-]* `. ||
 || deletionProtection | **boolean** ||
 || userPasswordEncryption | **enum** (UserPasswordEncryption)
 

@@ -22,7 +22,7 @@ description: Follow this guide to encrypt a disk snapshot in {{ compute-short-na
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      1. Set the disk parameters, such as [disk type](../../../compute/concepts/disk.md#disks_types), [block size](../../../compute/concepts/disk.md#maximum-disk-size), and [disk size](../../../compute/concepts/disk.md#maximum-disk-size).
+      1. Set the disk parameters, such as [disk type](../../../compute/concepts/disk.md#disks-types), [block size](../../../compute/concepts/disk.md#maximum-disk-size), and [disk size](../../../compute/concepts/disk.md#maximum-disk-size).
       1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` and then select the snapshot you created earlier from the list below. Use the filter to find the snapshot.
       1. Under **{{ ui-key.yacloud.compute.disk-form.section_encryption }}**, enable **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** and select the [key](../../../kms/concepts/key.md) you created earlier in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
 

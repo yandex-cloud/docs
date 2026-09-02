@@ -19,9 +19,6 @@ apiPlayground:
 
 # Yandex Cloud Registry Domains API, REST: Debian.ReindexPackages
 
-
-Calculates Packages and Release metadata files for specified index artifact
-
 ## HTTP request
 
 ```
