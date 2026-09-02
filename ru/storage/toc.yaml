@@ -23,6 +23,8 @@ items:
             href: operations/buckets/limit-max-volume.md
           - name: Шифрование бакета
             href: operations/buckets/encrypt.md
+          - name: Проверка шифрования бакета и объектов
+            href: operations/buckets/check-encryption.md
           - name: Управление жизненными циклами объектов
             href: operations/buckets/lifecycles.md
           - name: Управление конфигурацией CORS
