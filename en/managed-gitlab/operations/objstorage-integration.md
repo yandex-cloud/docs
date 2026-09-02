@@ -5,6 +5,8 @@ description: Follow this guide to enable storing {{ GL }} data in {{ objstorage-
 
 # Integration with {{ objstorage-name }}
 
+{% include [objstorage-pricing-warning](../../_includes/managed-gitlab/objstorage-pricing-warning.md) %}
+
 {% note warning %}
 
 Before enabling integration with {{ objstorage-name }}, make sure the [security group](configure-security-group.md) of the {{ mgl-name }} instance allows incoming connections on port `80` from external IP addresses of {{ lets-encrypt }}. Read more on [{{ objstorage-name }} integration limitations](../concepts/s3-integration.md#restrictions).

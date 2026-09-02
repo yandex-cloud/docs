@@ -5,6 +5,8 @@ description: Из статьи вы узнаете об интеграции с 
 
 # Интеграция с хранилищем {{ objstorage-full-name }}
 
+{% include [objstorage-pricing-warning](../../_includes/managed-gitlab/objstorage-pricing-warning.md) %}
+
 {{ GL }} поддерживает использование S3-хранилища для хранения различных типов данных. Интеграция с S3-хранилищем позволяет уменьшить объем данных на дисках [инстанса](index.md#instance) и предотвратить их переполнение. Подробнее о хранении данных в [документации {{ GL }}](https://docs.gitlab.com/administration/object_storage/).
 
 В {{ mgl-name }} можно [включить интеграцию с {{ objstorage-name }}](../operations/objstorage-integration.md), совместимым с S3, через [консоль управления]({{ link-console-main }}). При этом {{ mgl-name }} управляет созданием, использованием и масштабированием хранилища.

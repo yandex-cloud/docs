@@ -25,6 +25,7 @@
 * [Добавить правило-исключение WAF](exclusion-rule-add.md)
 * [Изменить правило-исключение WAF](exclusion-rule-update.md)
 * [Удалить правило-исключение WAF](exclusion-rule-delete.md)
+* [Мониторинг и корректировка защиты ML WAF](waf-ml-tuning-recommendations.md)
 
 ## Управление профилями ARL {#arl-profiles}
 

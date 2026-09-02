@@ -21,7 +21,7 @@
 
   Чтобы получить список пользователей кластера, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-my }} user list --cluster-name=<имя_кластера>
   ```
 
@@ -33,7 +33,7 @@
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [User.list](../api-ref/User/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.list](../api-ref/User/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -53,7 +53,7 @@
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService/List](../api-ref/grpc/User/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService/List](../api-ref/grpc/User/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -151,6 +151,13 @@
       1. Выберите привилегию, которую вы хотите добавить пользователю из выпадающего списка.
       1. Повторите два предыдущих шага, пока не будут добавлены все требуемые привилегии.
   1. Чтобы отозвать привилегию, выданную по ошибке, нажмите значок ![image](../../_assets/console-icons/xmark.svg) справа от ее имени.
+  1. Выберите тип защиты от удаления. Возможные значения:
+     - **Как у кластера**.
+     - **Включена**.
+     - **Выключена**.
+
+     {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
   1. (Опционально) В блоке **Дополнительные настройки**: 
       * Задайте [настройки {{ MY }}](../concepts/settings-list.md#dbms-user-settings) для пользователя.
       * В поле **Global permissions** задайте [административные привилегии пользователя](../concepts/settings-list.md#setting-administrative-privileges) на уровне кластера.
@@ -168,7 +175,8 @@
   {{ yc-mdb-my }} user create <имя_пользователя> \
     --cluster-name=<имя_кластера> \
     --password=<пароль_пользователя> \
-    --permissions=<список_БД>
+    --deletion-protection=<защита_от_удаления> \
+    --permissions database=<имя_БД>,role=<привилегия_1>,role=<привилегия_2>,...,role=<привилегия_N>
   ```
 
   Где:
@@ -183,7 +191,13 @@
     Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите нужный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
-  * `permissions` — список БД, к которым пользователь должен иметь доступ.
+  * `deletion-protection` — защита пользователя от непреднамеренного удаления: `enabled`, `disabled` или `inherited` (наследует значение от кластера). Значение по умолчанию — `disabled`.
+
+    {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
+  * `permissions` — БД, к которой пользователь получает доступ, и привилегии пользователя для этой БД. Список доступных привилегий приведен в разделе [{#T}](../concepts/user-rights.md#db-privileges).
+
+    Для каждой базы данных, к которой пользователю нужен доступ, добавьте отдельный параметр `permissions`.
 
   {% include [username-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
@@ -195,13 +209,14 @@
 
       Как создать такой файл описано в разделе [Создание кластера](./cluster-create.md).
 
-  1. Добавьте ресурс `yandex_mdb_mysql_user`:
+  1. Добавьте ресурс `yandex_mdb_mysql_user_v2`:
 
       ```hcl
-      resource "yandex_mdb_mysql_user" "<имя_пользователя>" {
-        cluster_id = "<идентификатор_кластера>"
-        name       = "<имя_пользователя>"
-        password   = "<пароль>"
+      resource "yandex_mdb_mysql_user_v2" "<имя_пользователя>" {
+        cluster_id               = "<идентификатор_кластера>"
+        name                     = "<имя_пользователя>"
+        password                 = "<пароль>"
+        deletion_protection_mode = "<защита_от_удаления>"
         permission {
           database_name = "<имя_БД>"
           roles         = [<список_привилегий>]
@@ -213,6 +228,12 @@
       Где:
 
       * `database_name` — имя БД, к которой пользователь должен иметь доступ.
+      * `deletion_protection_mode` — защита пользователя от непреднамеренного удаления:
+
+         * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+         * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+         * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
+
       * `roles` — список привилегий пользователя по отношению к БД.
 
       {% include [username-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
@@ -233,7 +254,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее о параметрах ресурса `yandex_mdb_mysql_user` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_user_v2` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/mdb_mysql_user_v2).
 
 - REST API {#api}
 
@@ -248,6 +269,7 @@
           "userSpec": {
               "name": "<имя_пользователя>",
               "password": "<пароль_пользователя>",
+              "deletionProtectionMode": "<защита_от_удаления>",
               "permissions": [
                   {
                       "databaseName": "<имя_БД>",
@@ -274,6 +296,14 @@
           Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
+      * `deletionProtectionMode` — защита пользователя от непреднамеренного удаления:
+
+         * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+         * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+         * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
+
+         {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
       * `permissions` — настройки разрешений пользователя:
 
           * `databaseName` — имя базы данных, к которой пользователь получает доступ.
@@ -281,7 +311,7 @@
 
           Для каждой базы данных добавьте отдельный элемент с настройками разрешений в массив `permissions`.
 
-  1. Воспользуйтесь методом [User.create](../api-ref/User/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.create](../api-ref/User/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -311,6 +341,7 @@
           "user_spec": {
               "name": "<имя_пользователя>",
               "password": "<пароль_пользователя>",
+              "deletion_protection_mode": "<защита_от_удаления>",
               "permissions": [
                   {
                       "database_name": "<имя_БД>",
@@ -337,6 +368,14 @@
         Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
+      * `deletion_protection_mode` — защита пользователя от непреднамеренного удаления:
+
+         * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+         * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+         * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
+
+         {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
       * `permissions` — настройки разрешений пользователя:
 
           * `database_name` — имя базы данных, к которой пользователь получает доступ.
@@ -346,7 +385,7 @@
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Воспользуйтесь вызовом [UserService/Create](../api-ref/grpc/User/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService/Create](../api-ref/grpc/User/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -458,7 +497,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее о параметрах ресурса `yandex_mdb_mysql_user` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_user_v2` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/mdb_mysql_user_v2).
 
 - REST API {#api}
 
@@ -466,7 +505,7 @@
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -516,7 +555,7 @@
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -591,6 +630,7 @@
   1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Настройте защиту пользователя от непреднамеренного удаления. Для этого выберите нужное значение в поле **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**.
   1. Задайте [настройки {{ MY }}](../concepts/settings-list.md#dbms-user-settings) для пользователя.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
@@ -602,9 +642,10 @@
 
   Чтобы задать [настройки {{ MY }}](../concepts/settings-list.md#dbms-user-settings) для пользователя, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-my }} user update <имя_пользователя> \
     --cluster-name=<имя_кластера> \
+    --deletion-protection=<защита_от_удаления> \
     --global-permissions=<список_привилегий> \
     --authentication-plugin=<плагин_аутентификации> \
     --max-questions-per-hour=<максимум_запросов> \
@@ -615,6 +656,7 @@
 
   Где:
 
+  * `deletion-protection` — защита пользователя от непреднамеренного удаления: `enabled`, `disabled` или `inherited` (наследует значение от кластера).
   * `global-permissions` — список административных привилегий через запятую.
   * `max-questions-per-hour` — максимальное количество запросов в час.
   * `max-updates-per-hour` — максимальное количество запросов `UPDATE` в час.
@@ -629,12 +671,12 @@
 
       Как создать такой файл описано в разделе [Создание кластера](./cluster-create.md).
 
-  1. Найдите ресурс `yandex_mdb_mysql_user` нужного пользователя.
+  1. Найдите ресурс `yandex_mdb_mysql_user_v2` нужного пользователя.
 
   1. Чтобы задать ограничения по количеству соединений и запросов, добавьте блок `connection_limits` к его описанию:
 
       ```hcl
-      resource "yandex_mdb_mysql_user" "<имя_пользователя>" {
+      resource "yandex_mdb_mysql_user_v2" "<имя_пользователя>" {
         ...
         connection_limits {
           max_questions_per_hour   = <максимум_запросов>
@@ -653,12 +695,25 @@
       * `max-connections-per-hour` — максимальное количество соединений в час.
       * `max-user-connections` — максимальное количество одновременных соединений.
 
-  1. Чтобы настроить плагин аутентификации пользователя, добавьте блок `authentication_plugin` к его описанию:
+  1. Чтобы настроить плагин аутентификации пользователя, добавьте параметр `authentication_plugin` к его описанию:
 
       ```hcl
-      resource "yandex_mdb_mysql_user" "<имя_пользователя>" {
+      resource "yandex_mdb_mysql_user_v2" "<имя_пользователя>" {
         ...
         authentication_plugin = "<плагин_аутентификации>"
+      }
+      ```
+
+  1. Чтобы настроить защиту от непреднамеренного удаления пользователя, добавьте параметр `deletion_protection_mode` к его описанию. Возможные значения:
+
+      * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+      * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+      * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
+
+      ```hcl
+      resource "yandex_mdb_mysql_user_v2" "<имя_пользователя>" {
+        ...
+        deletion_protection_mode = "<защита_от_удаления>"
       }
       ```
 
@@ -670,7 +725,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее о параметрах ресурса `yandex_mdb_mysql_user` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_user_v2` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/mdb_mysql_user_v2).
 
 - REST API {#api}
 
@@ -678,7 +733,7 @@
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -689,7 +744,7 @@
           --header "Content-Type: application/json" \
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
           --data '{
-                    "updateMask": "globalPermissions,connectionLimits,authenticationPlugin",
+                    "updateMask": "globalPermissions,connectionLimits,authenticationPlugin,deletionProtectionMode",
                     "globalPermissions": [
                       "<административная_привилегия_1>",
                       "<административная_привилегия_2>",
@@ -702,7 +757,8 @@
                       "maxConnectionsPerHour": "<максимум_соединений>",
                       "maxUserConnections": "<максимум_одновременных_соединений>"
                     },
-                    "authenticationPlugin": "<плагин_аутентификации>"
+                    "authenticationPlugin": "<плагин_аутентификации>",
+                    "deletionProtectionMode": "<защита_от_удаления>"
                   }'
       ```
 
@@ -720,6 +776,10 @@
           Минимальное значение для каждой настройки подключений — `0`.
 
       * `authenticationPlugin` — плагин аутентификации пользователя. Список доступных плагинов приведен в [описании метода](../api-ref/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
+      * `deletionProtectionMode` — защита пользователя от непреднамеренного удаления:
+         * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+         * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+         * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
@@ -732,7 +792,7 @@
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -750,7 +810,8 @@
                   "paths": [
                     "global_permissions",
                     "connection_limits",
-                    "authentication_plugin"
+                    "authentication_plugin",
+                    "deletion_protection_mode"
                   ]
                 },
                 "global_permissions": [
@@ -765,7 +826,8 @@
                   "max_connections_per_hour": "<максимум_соединений>",
                   "max_user_connections": "<максимум_одновременных_соединений>"
                 },
-                "authentication_plugin": "<плагин_аутентификации>"
+                "authentication_plugin": "<плагин_аутентификации>",
+                "deletion_protection_mode": "<защита_от_удаления>"
               }' \
           {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.mysql.v1.UserService.Update
@@ -785,6 +847,10 @@
           Минимальное значение для каждой настройки подключений — `0`.
 
       * `authentication_plugin` — плагин аутентификации пользователя. Список доступных плагинов приведен в [описании метода](../api-ref/grpc/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
+      * `deletion_protection_mode` — защита пользователя от непреднамеренного удаления:
+         * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+         * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+         * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
@@ -793,6 +859,12 @@
 {% endlist %}
 
 ## Удалить пользователя {#removeuser}
+
+{% note info %}
+
+Перед удалением пользователя [отключите его защиту от удаления](#update-settings).
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -810,7 +882,7 @@
 
   Чтобы удалить пользователя, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-my }} user delete <имя_пользователя> --cluster-name=<имя_кластера>
   ```
 
@@ -822,7 +894,7 @@
 
       Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
 
-  1. Удалите ресурс `yandex_mdb_mysql_user` с описанием нужного пользователя.
+  1. Удалите ресурс `yandex_mdb_mysql_user_v2` с описанием нужного пользователя.
 
   1. Проверьте корректность настроек.
 
@@ -832,7 +904,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее о параметрах ресурса `yandex_mdb_mysql_user` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_user_v2` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/mdb_mysql_user_v2).
 
 - REST API {#api}
 
@@ -840,7 +912,7 @@
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [User.delete](../api-ref/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.delete](../api-ref/User/delete.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -860,7 +932,7 @@
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService/Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService/Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \

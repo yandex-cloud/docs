@@ -3,7 +3,7 @@ title: Renaming and moving an object in {{ objstorage-full-name }}
 description: Follow this guide to rename or move an object in an {{ objstorage-name }} bucket.
 ---
 
-# Renaming and moving objects
+# Renaming and moving an object
 
 
 {% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}

@@ -43,7 +43,7 @@ To create an instance group with an L7 load balancer:
      * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the [template](../../concepts/instance-groups/instance-template.md).
      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the system to deploy on the VM instance boot [disk](../../concepts/disk.md).
      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
-       * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
+       * Select the [disk type](../../../compute/concepts/disk.md#disks-types).
        * Specify the disk size.
        * To add more disks, click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
      * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
@@ -164,7 +164,7 @@ To create an instance group with an L7 load balancer:
            * `READ_ONLY`: Read-only access.
            * `READ_WRITE`: Read/write access.
          * `image_id`: Public image ID. You can view image IDs in the [management console]({{ link-console-main }}) when creating an instance or in [{{ marketplace-name }}](/marketplace) on the image page under **Product IDs**.
-         * `type_id`: [Disk type](../../../compute/concepts/disk.md#disks_types).
+         * `type_id`: [Disk type](../../../compute/concepts/disk.md#disks-types).
          * `size`: Disk size.
          * `network_id`: `default-net` network ID.
          * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).

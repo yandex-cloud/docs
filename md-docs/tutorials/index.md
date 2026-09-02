@@ -260,6 +260,8 @@
 
  - [OpenVPN Community Edition](security/single-sign-on/oidc-ovpn.md)
 
+ - [Open WebUI](security/single-sign-on/oidc-open-webui.md)
+
  - [Selectel](security/single-sign-on/saml-selectel.md)
 
  - [Sentry](security/single-sign-on/saml-sentry.md)

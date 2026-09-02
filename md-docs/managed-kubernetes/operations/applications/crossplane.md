@@ -61,8 +61,8 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Crossplane выполните команду:
 
    ```bash
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane \
-     --version v1.20.6 \
+   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/crossplane/charts/crossplane \
+     --version 2.3.4+yc0.15.0 \
      --untar && \
    helm install \
      --namespace <пространство_имен> \

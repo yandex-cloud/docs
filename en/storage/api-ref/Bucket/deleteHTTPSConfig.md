@@ -23,7 +23,6 @@ apiPlayground:
 
 Deletes the HTTPS configuration for the specified bucket.
 
-for compatibility with old format --)
 
 ## HTTP request
 

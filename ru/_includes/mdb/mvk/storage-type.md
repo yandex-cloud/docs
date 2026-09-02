@@ -22,7 +22,9 @@
 
   Список классов хостов и соответствующих им платформ описан в разделе [{#T}](../../../managed-valkey/concepts/instance-types.md).
 
+    
   {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
+
 
 {% include [disk-block-size](../disk-block-size.md) %}
 

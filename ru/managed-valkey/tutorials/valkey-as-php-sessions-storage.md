@@ -6,5 +6,4 @@ canonical: '{{ link-docs }}/tutorials/dataplatform/valkey-as-php-sessions-storag
 
 # Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP
 
-
 {% include notitle [valkey-as-php-sessions-storage](../../_tutorials/dataplatform/valkey-as-php-sessions-storage.md) %}

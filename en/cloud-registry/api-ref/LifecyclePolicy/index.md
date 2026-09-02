@@ -17,4 +17,7 @@ A set of methods for managing LifecyclePolicy resources.
 || [List](list.md) | Retrieves the list of lifecycle policies in the specified registry. ||
 || [ChangeState](changeState.md) | Changes the state of the specified lifecycle policy. ||
 || [DryRun](dryRun.md) | Creates a request of a dry run of the lifecycle policy. ||
+|| [GetDryRunResult](getDryRunResult.md) | Returns one dry run result by its ID. ||
+|| [ListDryRunResults](listDryRunResults.md) | Returns the list of dry run results of one lifecycle policy. ||
+|| [ListDryRunArtifacts](listDryRunArtifacts.md) | Returns the list of artifacts that the dry run would delete. ||
 |#

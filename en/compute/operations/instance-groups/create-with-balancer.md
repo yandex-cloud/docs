@@ -43,7 +43,7 @@ To create an instance group with a network load balancer:
      * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the [template](../../concepts/instance-groups/instance-template.md).
      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the system to deploy on the VM instance boot [disk](../../concepts/disk.md).
      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
-       * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
+       * Select the [disk type](../../../compute/concepts/disk.md#disks-types).
        * Specify the disk size.
        * To add more disks, click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
      * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:

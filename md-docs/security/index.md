@@ -142,6 +142,8 @@
 
  - [Настройка единого входа в OpenVPN Community Edition по стандарту OIDC](tutorials/single-sign-on/oidc-ovpn.md)
 
+ - [Настройка единого входа в Open WebUI по стандарту OIDC](tutorials/single-sign-on/oidc-open-webui.md)
+
  - [Настройка единого входа в Selectel по стандарту SAML](tutorials/single-sign-on/saml-selectel.md)
 
  - [Настройка единого входа в Sentry по стандарту SAML](tutorials/single-sign-on/saml-sentry.md)

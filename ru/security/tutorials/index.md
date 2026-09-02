@@ -45,6 +45,7 @@ description: Различные практические руководства 
 * OpenVPN
     * [{#T}](single-sign-on/saml-ovpn.md)
     * [{#T}](single-sign-on/oidc-ovpn.md)
+* [{#T}](single-sign-on/oidc-open-webui.md)
 * [{#T}](single-sign-on/saml-selectel.md)
 * [{#T}](single-sign-on/saml-sentry.md)
 * [{#T}](single-sign-on/saml-sonarqube.md)

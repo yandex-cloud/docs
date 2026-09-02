@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ compute-full-name }}
-description: Access management in {{ compute-full-name }}, a service providing scalable computing capacities for creating and managing virtual machines. This section describes the resources for which you can assign a role and the roles existing in the service.
+description: Access management in {{ compute-full-name }}, a service providing scalable computing capacities for creating and managing virtual machines. This section describes the resources you can assign a role for and the roles existing in the service.
 ---
 
 # Access management in {{ compute-name }}
@@ -75,9 +75,9 @@ You can also assign roles for individual resources within the service:
 
 {% include [compute.editor](../../_roles/compute/editor.md) %}
 
-{% note warning %}
+{% note info %}
 
-Starting August 1, 2026, the `compute.editor` role gets new permissions from the [backup.user](../../backup/security/index.md#backup-user) role allowing it to connect VM instances to [{{ backup-full-name }}](../../backup/index.yaml), link and unlink them from [backup policies](../../backup/concepts/policy.md).
+The `compute.editor` role includes the [backup.user](../../backup/security/index.md#backup-user) permissions that enable connecting VM instances to [{{ backup-full-name }}](../../backup/index.yaml) as well as linking and unlinking them from [backup policies](../../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -87,9 +87,9 @@ Starting August 1, 2026, the `compute.editor` role gets new permissions from the
 
 {% include [compute.admin](../../_roles/compute/admin.md) %}
 
-{% note warning %}
+{% note info %}
 
-Starting August 1, 2026, the `compute.admin` role gets new permissions from the [backup.user](../../backup/security/index.md#backup-user) role allowing it to connect VM instances to [{{ backup-full-name }}](../../backup/index.yaml), link and unlink them from [backup policies](../../backup/concepts/policy.md).
+The `compute.admin` role includes the [backup.user](../../backup/security/index.md#backup-user) permissions that enable connecting VM instances to [{{ backup-full-name }}](../../backup/index.yaml) as well as linking and unlinking them from [backup policies](../../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 

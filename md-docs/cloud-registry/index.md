@@ -598,11 +598,21 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [DryRun](api-ref/grpc/LifecyclePolicy/dryRun.md)
 
+ - [GetDryRunResult](api-ref/grpc/LifecyclePolicy/getDryRunResult.md)
+
+ - [ListDryRunResults](api-ref/grpc/LifecyclePolicy/listDryRunResults.md)
+
+ - [ListDryRunArtifacts](api-ref/grpc/LifecyclePolicy/listDryRunArtifacts.md)
+
 #### Migration
 
  - [Overview](api-ref/grpc/Migration/index.md)
 
  - [StartCloud](api-ref/grpc/Migration/startCloud.md)
+
+ - [StartFolder](api-ref/grpc/Migration/startFolder.md)
+
+ - [GetCloudMigrationStatusDashboard](api-ref/grpc/Migration/getCloudMigrationStatusDashboard.md)
 
 #### Operation
 
@@ -729,6 +739,12 @@ Yandex Cloud Registry — сервис для безопасного хране�
  - [ChangeState](api-ref/LifecyclePolicy/changeState.md)
 
  - [DryRun](api-ref/LifecyclePolicy/dryRun.md)
+
+ - [GetDryRunResult](api-ref/LifecyclePolicy/getDryRunResult.md)
+
+ - [ListDryRunResults](api-ref/LifecyclePolicy/listDryRunResults.md)
+
+ - [ListDryRunArtifacts](api-ref/LifecyclePolicy/listDryRunArtifacts.md)
 
 #### Operation
 

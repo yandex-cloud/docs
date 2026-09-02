@@ -62,6 +62,8 @@ blocks:
 
 Стоимость тарифицируемых сервисов рассчитывается на основе количества потребленных ресурсов и времени потребления. Каждый сервис реализует собственную логику подсчета потребленных ресурсов.
 
+{% include [final-payment-info](../_includes/billing/final-payment-info.md) %}
+
 * {{ preview-stage }} [{{ gost-gateway-name }}](../gost-gateway/pricing.md)
 * [{{ monium-name }}](../monium/pricing.md)
 * [{{ src-full-name }}]({{ link-src-docs }}/sourcecraft/pricing)

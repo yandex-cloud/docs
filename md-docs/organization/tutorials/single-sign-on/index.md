@@ -25,6 +25,7 @@
 * OpenVPN
     * [OpenVPN Access Server](saml-ovpn.md)
     * [OpenVPN Community Edition](oidc-ovpn.md)
+* [Open WebUI](oidc-open-webui.md)
 * [Selectel](saml-selectel.md)
 * [Sentry](saml-sentry.md)
 * [SonarQube](saml-sonarqube.md)

@@ -139,7 +139,8 @@
       "logGroupId": "string",
       "environment": "string",
       "autoscalingServiceAccountId": "string"
-    }
+    },
+    "clusterName": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -312,6 +313,7 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || clusterId | **string** ||
 || cluster | **[Cluster](#yandex.cloud.dataproc.v1.Cluster)** ||
+|| clusterName | **string** ||
 |#
 
 ## Cluster {#yandex.cloud.dataproc.v1.Cluster}

@@ -1,11 +1,11 @@
 ---
-title: Copying objects in {{ objstorage-full-name }}
+title: Copying an object in {{ objstorage-full-name }}
 description: Follow this guide to copy an object from a bucket in {{ objstorage-name }}.
 ---
 
-# Copying objects
+# Copying an object
 
-{{ objstorage-name }} supports server-side copy.
+{{ objstorage-name }} supports server-side copy. 
 
 If [bucket](../../concepts/bucket.md) [encryption](../../concepts/encryption.md) is disabled, [objects](../../concepts/object.md) will be copied to server-side buckets. The host running the copy command and {{ objstorage-name }} only exchange object [keys](../../concepts/object.md#key). No fee is charged for the copying traffic in this case because the traffic is internal for the object storage. However, you will be [billed](../../pricing.md#prices-operations) for copy requests.
 

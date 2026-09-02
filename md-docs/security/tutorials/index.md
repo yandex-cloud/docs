@@ -42,6 +42,7 @@
 * OpenVPN
     * [Создать SAML-приложение в Yandex Identity Hub для интеграции с OpenVPN Access Server](single-sign-on/saml-ovpn.md)
     * [Настроить аутентификацию в OpenVPN Community Edition через Yandex Identity Hub по протоколу OIDC](single-sign-on/oidc-ovpn.md)
+* [Создать OIDC-приложение в Yandex Identity Hub для интеграции с Open WebUI](single-sign-on/oidc-open-webui.md)
 * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Selectel](single-sign-on/saml-selectel.md)
 * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Sentry](single-sign-on/saml-sentry.md)
 * [Создать SAML-приложение в Yandex Identity Hub для интеграции с SonarQube](single-sign-on/saml-sonarqube.md)

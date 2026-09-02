@@ -39,7 +39,7 @@ keywords:
         1. В поле **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** измените платформу.
         1. Измените **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** виртуальной машины, на которой развернуты хосты.
         1. Измените **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
-        1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** измените тип диска и размер хранилища.
+        1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** измените размер хранилища.
 
     1. Измените дополнительные настройки кластера:
 
@@ -48,6 +48,286 @@ keywords:
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** и измените [настройки СУБД уровня кластера](../concepts/settings-list.md).
 
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить параметры кластера и хостов:
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        yc managed-sharded-postgresql cluster update --help
+        ```
+
+    1. Укажите новые параметры кластера в команде изменения (в примере приведены не все параметры):
+
+       * Для кластера со стандартным шардированием:
+
+         
+         
+         ```bash
+         yc managed-sharded-postgresql cluster update <имя_или_идентификатор_кластера>  \
+          --new-name <имя_кластера> \
+          --security-group-ids <идентификаторы_групп_безопасности> \      
+          --infra-resource-preset <класс_хоста> \
+          --infra-disk-size <размер_хранилища_ГБ> \
+          --deletion-protection \
+          --maintenance-window type=<тип_технического_обслуживания>,`
+                               `day=<день_недели>,`
+                               `hour=<порядковый_номер_часового_интервала> \
+          --websql-access=<true_или_false> \
+          --backup-window-start <время_начала_резервного_копирования> \
+          --backup-retain-period-days <срок_хранения_автоматических_резервных_копий>
+         ```
+
+
+
+       * Для кластера с расширенным шардированием:
+
+         
+         
+         ```bash
+         yc managed-sharded-postgresql cluster update <имя_или_идентификатор_кластера>  \
+           --new-name <имя_кластера> \
+           --security-group-ids <идентификаторы_групп_безопасности> \      
+           --router-resource-preset <класс_хоста> \
+           --router-disk-size <размер_хранилища_ГБ> \
+           --coordinator-resource-preset <класс_хоста> \
+           --coordinator-disk-size <размер_хранилища_ГБ> \
+           --deletion-protection \
+           --maintenance-window type=<тип_технического_обслуживания>,`
+                                  `day=<день_недели>,`
+                                  `hour=<порядковый_номер_часового_интервала> \
+           --websql-access=<true_или_false> \
+           --backup-window-start <время_начала_резервного_копирования> \
+           --backup-retain-period-days <срок_хранения_автоматических_резервных_копий>
+         ```
+
+
+
+         Где:
+
+         * `<имя_или_идентификатор_кластера>` — имя или идентификатор кластера, которые можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+         * `--new-name` — новое имя кластера.
+
+         
+         * `--security-group-ids` — список идентификаторов групп безопасности.
+
+            {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
+
+
+         * `--infra-resource-preset`, `--router-resource-preset`, `--coordinator-resource-preset` — классы хостов `INFRA`, `ROUTER`, `COORDINATOR` соответственно.
+         * `--infra-disk-size`, `--router-disk-size`, `--coordinator-disk-size` — размеры хранилища хостов `INFRA`, `ROUTER`, `COORDINATOR` соответственно.
+         * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+           {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+         * `--maintenance-window` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
+
+           {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
+         * `--backup-retain-period` — срок хранения автоматических резервных копий (в днях).
+
+         {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
+
+    Чтобы изменить конфигурацию сервисов кластера:
+
+    1. Посмотрите описание команды CLI для изменения конфигурации:
+
+        ```bash
+        yc managed-sharded-postgresql cluster update-config --help
+        ```
+
+    1. Укажите новые параметры конфигурации в команде изменения (в примере приведены не все параметры):
+
+        ```bash
+        yc managed-sharded-postgresql cluster update-config <имя_или_идентификатор_кластера>  \
+          --set router.show_notice_messages=<показывать_информационные_уведомления>,`
+                router.prefer_same_availability_zone=<приоритет_маршрутизации_в_зону_доступности_роутера>,`
+                router.default_route_behavior=<разрешать_мультишардовые_запросы>,`
+                router.time_quantiles="<список_квантилей_времени_для_отображения_статистики>"
+        ```
+
+        Где:
+
+        * `<имя_или_идентификатор_кластера>` — имя или идентификатор кластера, которые можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+        * `--set` — новая конфигурация роутера:
+          * `router.show_notice_messages` — показывать информационные уведомления: `true` или `false`.
+          * `router.prefer_same_availability_zone` — включить приоритет маршрутизации запросов на чтение в зону доступности роутера: `true` или `false`.
+          * `router.default_route_behavior` — политика выполнения мультишардовых запросов роутером. Возможные значения: `BLOCK` — блокировать, `ALLOW` — разрешать.
+          * `router.time_quantiles` — список временных квантилей для отображения статистики. По умолчанию используется значение `"0.5,0.75,0.9,0.95,0.99,0.999,0.9999"`.
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mspqr-name }} вы найдете в [документации провайдера {{ TF }}](https://yandex.cloud/ru/docs/terraform/resources/mdb_sharded_postgresql_cluster).
+
+    1. Измените описание ресурсов:
+
+       * Для кластера со стандартным шардированием:
+
+         
+         ```hcl
+         resource "yandex_mdb_sharded_postgresql_cluster" "<имя_кластера>" {
+           ...
+           security_group_ids = [ "<список_идентификаторов_групп_безопасности>" ]
+           config = {
+             sharded_postgresql_config = {
+               infra = {
+                 resources = {
+                   resource_preset_id = "<класс_хоста>"
+                   disk_size          = <размер_хранилища_ГБ>
+                 }
+                 router = {
+                   show_notice_messages = <показывать_информационные_уведомления>
+                   prefer_same_availability_zone = <приоритет_маршрутизации_в_зону_доступности_роутера>
+                   default_route_behavior = <разрешать_мультишардовые_запросы>
+                   time_quantiles = [ <список_квантилей_времени_для_отображения_статистики> ]
+                 }
+               }
+             }
+             deletion_protection = <защитить_кластер_от_удаления>
+             maintenance_window = {
+               type = "<тип_технического_обслуживания>"
+               day  = "<день_недели>"
+               hour = <порядковый_номер_часового_интервала>
+             }
+             backup_retain_period_days = <количество_дней>
+             backup_window_start = {
+               hours   = <час_начала_резервного_копирования>
+               minutes = <минута_начала_резервного_копирования>
+             }
+           }
+         }
+         ```
+
+
+       * Для кластера с расширенным шардированием:
+
+         
+         ```hcl
+         resource "yandex_mdb_sharded_postgresql_cluster" "<имя_кластера>" {
+           ...
+           security_group_ids = [ "<список_идентификаторов_групп_безопасности>" ]
+           config = {
+             sharded_postgresql_config = {
+               router = {
+                 resources = {
+                   resource_preset_id = "<класс_хоста>"
+                   disk_size          = <размер_хранилища_ГБ>
+                 }
+                 config = {
+                   show_notice_messages = <показывать_информационные_уведомления>
+                   prefer_same_availability_zone = <приоритет_маршрутизации_в_зону_доступности_роутера>
+                   default_route_behavior = <разрешать_мультишардовые_запросы>
+                   time_quantiles = [ <список_квантилей_времени_для_отображения_статистики> ]
+                 }
+               }
+               coordinator = {
+                 resources = {
+                   resource_preset_id = "<класс_хоста>"
+                   disk_size          = <размер_хранилища_ГБ>
+                 }
+               }
+             }
+             deletion_protection = <защитить_кластер_от_удаления>
+             maintenance_window = {
+               type = "<тип_технического_обслуживания>"
+               day  = "<день_недели>"
+               hour = <порядковый_номер_часового_интервала>
+             }
+             backup_retain_period_days = <количество_дней>
+             backup_window_start = {
+               hours   = <час_начала_резервного_копирования>
+               minutes = <минута_начала_резервного_копирования>
+             }
+           }
+         }
+         ```
+
+
+       Где:
+
+       
+       * `security_group_ids` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md).
+
+         {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
+
+
+       * `deletion_protection` — защита кластера от удаления: `true` или `false`.
+
+          {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+       * `config` — настройки кластера:
+
+         * `sharded_postgresql_config` — настройки сервиса {{ SPQR }}:
+
+           * `router` — настройки роутера:
+
+             * `config` — конфигурация роутера:
+
+                * `show_notice_messages` — показывать информационные уведомления: `true` или `false`.
+                * `time_quantiles` — массив строк временных квантилей для отображения статистики. По умолчанию используются значения `"0.5"`, `"0.75"`, `"0.9"`, `"0.95"`, `"0.99"`, `"0.999"`, `"0.9999"`.
+                * `default_route_behavior` — политика выполнения мультишардовых запросов роутером. Возможные значения: `BLOCK` — блокировать, `ALLOW` — разрешать.
+                * `prefer_same_availability_zone` — включить приоритет маршрутизации запросов на чтение в зону доступности роутера: `true` или `false`.
+
+             * `resources` — параметры ресурсов хостов `ROUTER`:
+                * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
+                * `disk_size` — размер диска в ГБ.
+
+           * `coordinator` – настройки координатора:
+             * `resources` — параметры ресурсов:
+               * `resource_preset_id` — класс хостов;
+               * `disk_size` — размер диска в ГБ.
+
+           * `infra` – настройки хостов `INFRA`:
+
+             * `resources` — параметры ресурсов:
+               * `resource_preset_id` — класс хостов;
+               * `disk_size` — размер диска в ГБ.
+
+             * `router` — конфигурация роутера:
+
+               * `show_notice_messages` — показывать информационные уведомления: `true` или `false`.
+               * `time_quantiles` — массив строк временных квантилей для отображения статистики. По умолчанию используются значения `"0.5"`, `"0.75"`, `"0.9"`, `"0.95"`, `"0.99"`, `"0.999"`, `"0.9999"`.
+               * `default_route_behavior` — политика выполнения мультишардовых запросов роутером. Возможные значения: `BLOCK` — блокировать, `ALLOW` — разрешать.
+               * `prefer_same_availability_zone` — включить приоритет маршрутизации запросов на чтение в зону доступности роутера: `true` или `false`.
+
+       * `backup_window_start` — настройки окна резервного копирования.
+
+         В параметре укажите время, когда начинать резервное копирование. Возможные значения параметров:
+
+         * `hours` — от `0` до `23` часов;
+         * `minutes` — от `0` до `59` минут;
+
+       * `backup_retain_period_days` — сколько дней хранить резервную копию кластера. Возможные значения: от `7` до `60` дней.
+
+       * `maintenance_window` — настройки расписания окна технического обслуживания:
+
+         * `type` — тип технического обслуживания. Принимает значения:
+             * `ANYTIME` — в любое время.
+             * `WEEKLY` — по расписанию.
+         * `day` — день недели для типа `WEEKLY`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`        или `SUN`.
+         * `hour` — порядковый номер часового интервала по UTC для типа `WEEKLY`: от `1` до `24`.
+
+           > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
+
+    1. Проверьте корректность настроек.
+
+       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+       {% include [Terraform timeouts](../../_includes/mdb/mspqr/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -84,22 +364,19 @@ keywords:
              },
              "resources": {
                "resourcePresetId": "<класс_хостов_роутера>",
-               "diskSize": "<размер_хранилища_в_байтах>",
-               "diskTypeId": "<тип_диска>"
+               "diskSize": "<размер_хранилища_в_байтах>"
              }
            },
            "coordinator": {
              "resources": {
                "resourcePresetId": "<класс_хостов_координатора>",
-               "diskSize": "<размер_хранилища_в_байтах>",
-               "diskTypeId": "<тип_диска>"
+               "diskSize": "<размер_хранилища_в_байтах>"
              }
            },
            "infra": {
              "resources": {
                "resourcePresetId": "класс_хостов_INFRA",
-               "diskSize": "<размер_хранилища_в_байтах>",
-               "diskTypeId": "<тип_диска>"
+               "diskSize": "<размер_хранилища_в_байтах>"
              },
              "router": {
                "showNoticeMessages": <показывать_информационные_уведомления>,
@@ -168,21 +445,18 @@ keywords:
 
            * `resources` — параметры ресурсов хостов `ROUTER`:
              * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
-             * `diskSize` — размер диска в байтах;
-             * `diskTypeId` — [тип диска](../concepts/storage.md).
+             * `diskSize` — размер диска в байтах.
 
            * `coordinator` – при расширенном шардировании задайте настройки координатора:
              * `resources` — параметры ресурсов:
                * `resourcePresetId` — класс хостов;
-               * `diskSize` — размер диска в байтах;
-               * `diskTypeId` — тип диска.
+               * `diskSize` — размер диска в байтах.
 
            * `infra` – при стандартном шардировании задайте настройки хостов `INFRA`:
 
              * `resources` — параметры ресурсов:
                * `resourcePresetId` — класс хостов;
-               * `diskSize` — размер диска в байтах;
-               * `diskTypeId` — тип диска.
+               * `diskSize` — размер диска в байтах.
 
              * `router` — конфигурация роутера:
 
@@ -270,22 +544,19 @@ keywords:
              },
              "resources": {
                "resource_preset_id": "<класс_хостов_роутера>",
-               "disk_size": "<размер_хранилища_в_байтах>",
-               "disk_type_id": "<тип_диска>"
+               "disk_size": "<размер_хранилища_в_байтах>"
              }
            },
            "coordinator": {
              "resources": {
                "resource_preset_id": "<класс_хостов_координатора>",
-               "disk_size": "<размер_хранилища_в_байтах>",
-               "disk_type_id": "<тип_диска>"
+               "disk_size": "<размер_хранилища_в_байтах>"
              }
            },
            "infra": {
              "resources": {
                "resource_preset_id": "класс_хостов_INFRA",
-               "disk_size": "<размер_хранилища_в_байтах>",
-               "disk_type_id": "<тип_диска>"
+               "disk_size": "<размер_хранилища_в_байтах>"
              },
              "router": {
                "show_notice_messages": {
@@ -374,21 +645,18 @@ keywords:
 
            * `resources` — параметры ресурсов хостов `ROUTER`:
              * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
-             * `disk_size` — размер диска в байтах;
-             * `disk_type_id` — [тип диска](../concepts/storage.md).
+             * `disk_size` — размер диска в байтах.
 
            * `coordinator` – при расширенном шардировании задайте настройки координатора:
              * `resources` — параметры ресурсов:
                * `resource_preset_id` — класс хостов;
-               * `disk_size` — размер диска в байтах;
-               * `disk_type_id` — тип диска.
+               * `disk_size` — размер диска в байтах.
 
            * `infra` – при стандартном шардировании задайте настройки хостов `INFRA`:
 
              * `resources` — параметры ресурсов:
                * `resource_preset_id` — класс хостов;
-               * `disk_size` — размер диска в байтах;
-               * `disk_type_id` — тип диска.
+               * `disk_size` — размер диска в байтах.
 
              * `router` — конфигурация роутера:
 

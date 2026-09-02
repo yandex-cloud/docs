@@ -308,6 +308,14 @@
 
  - [OpenSearch](tutorials/single-sign-on/saml-opensearch-self-managed.md)
 
+#### OpenVPN
+
+ - [OpenVPN Access Server](tutorials/single-sign-on/saml-ovpn.md)
+
+ - [OpenVPN Community Edition](tutorials/single-sign-on/oidc-ovpn.md)
+
+ - [Open WebUI](tutorials/single-sign-on/oidc-open-webui.md)
+
  - [Selectel](tutorials/single-sign-on/saml-selectel.md)
 
  - [Sentry](tutorials/single-sign-on/saml-sentry.md)
@@ -319,12 +327,6 @@
  - [SAML](tutorials/single-sign-on/time/saml-time.md)
 
  - [OpenID Connect](tutorials/single-sign-on/time/oidc-time.md)
-
-#### OpenVPN
-
- - [OpenVPN Access Server](tutorials/single-sign-on/saml-ovpn.md)
-
- - [OpenVPN Community Edition](tutorials/single-sign-on/oidc-ovpn.md)
 
  - [VK Cloud](tutorials/single-sign-on/saml-vk-cloud.md)
 

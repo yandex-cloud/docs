@@ -176,7 +176,13 @@ editable: false
           "repo": "string",
           "branch": "string",
           "subPath": "string",
-          "sshKey": "string"
+          // Includes only one of the fields `sshKey`, `usernameAndPassword`
+          "sshKey": "string",
+          "usernameAndPassword": {
+            "username": "string",
+            "password": "string"
+          }
+          // end of the list of possible fields
         }
         // end of the list of possible fields
       },
@@ -581,7 +587,20 @@ Includes only one of the fields `s3`, `gitSync`. ||
 || repo | **string** ||
 || branch | **string** ||
 || subPath | **string** ||
-|| sshKey | **string** ||
+|| sshKey | **string**
+
+Includes only one of the fields `sshKey`, `usernameAndPassword`. ||
+|| usernameAndPassword | **[GitSyncUsernameAndPassword](#yandex.cloud.airflow.v1.GitSyncUsernameAndPassword)**
+
+Includes only one of the fields `sshKey`, `usernameAndPassword`. ||
+|#
+
+## GitSyncUsernameAndPassword {#yandex.cloud.airflow.v1.GitSyncUsernameAndPassword}
+
+#|
+||Field | Description ||
+|| username | **string** ||
+|| password | **string** ||
 |#
 
 ## LoggingConfig {#yandex.cloud.airflow.v1.LoggingConfig}

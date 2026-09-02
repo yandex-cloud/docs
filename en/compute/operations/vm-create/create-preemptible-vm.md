@@ -29,7 +29,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../../overview/concepts/geo-scope.md) to host your preemptible VM.
   1. Optionally, configure the boot [disk](../../concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
 
-      * Select the [disk type](../../concepts/disk.md#disks_types).
+      * Select the [disk type](../../concepts/disk.md#disks-types).
       * Specify the required disk size.
       * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
 
@@ -175,7 +175,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
      Where:
      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
        * `name`: Disk name.
-       * `type`: Disk [type](../../concepts/disk.md#disks_types).
+       * `type`: Disk [type](../../concepts/disk.md#disks-types).
        * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
        * `size`: Disk size, in GB.
        * `image_id`: ID of the [image](../../concepts/image.md) to create the preemptible VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).

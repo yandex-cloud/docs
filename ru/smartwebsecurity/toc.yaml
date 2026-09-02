@@ -47,6 +47,8 @@ items:
             href: operations/exclusion-rule-update.md
           - name: Удалить правило-исключение
             href: operations/exclusion-rule-delete.md
+          - name: Мониторинг и корректировка защиты ML WAF
+            href: operations/waf-ml-tuning-recommendations.md
       - name: Профили ARL
         items:
           - name: Создать профиль

@@ -52,6 +52,8 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Удалить правило-исключение](operations/exclusion-rule-delete.md)
 
+ - [Мониторинг и корректировка защиты ML WAF](operations/waf-ml-tuning-recommendations.md)
+
 ### Профили ARL
 
  - [Создать профиль](operations/arl-profile-create.md)

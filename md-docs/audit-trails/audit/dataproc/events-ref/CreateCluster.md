@@ -166,7 +166,8 @@
         },
         "instanceGroupId": "string"
       }
-    ]
+    ],
+    "clusterName": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -340,6 +341,7 @@ A list of messages that carry the error details. ||
 || clusterId | **string** ||
 || cluster | **[Cluster](#yandex.cloud.dataproc.v1.Cluster)** ||
 || subclusters[] | **[Subcluster](#yandex.cloud.dataproc.v1.Subcluster)** ||
+|| clusterName | **string** ||
 |#
 
 ## Cluster {#yandex.cloud.dataproc.v1.Cluster}

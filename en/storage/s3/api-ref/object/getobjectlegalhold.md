@@ -57,6 +57,6 @@ Element | Description
 
 * [{#T}](../../../concepts/object-lock.md)
 
-* [Configuring an object lock](../../../operations/objects/edit-object-lock.md)
+* [{#T}](../../../operations/objects/edit-object-lock.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -20,7 +20,15 @@ POST https://registry.api.cloud.yandex.net/cloud-registry/v1/registries
   "kind": "string",
   "type": "string",
   "description": "string",
-  "properties": "object"
+  "properties": "object",
+  "patternFilter": {
+    "includePatterns": [
+      "string"
+    ],
+    "excludePatterns": [
+      "string"
+    ]
+  }
 }
 ```
 
@@ -73,6 +81,27 @@ The maximum string length in characters is 1024. ||
 Property names and values.
 
 The maximum string length in characters for each value is 255. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-zA-Z]+ `. Each value must match the regular expression ` [-_.~!*'();/?:@&=+$,%#0-9a-zA-Z]+ `. No more than 64 per resource. ||
+|| patternFilter | **[PatternFilter](#yandex.cloud.cloudregistry.v1.PatternFilter)**
+
+Pattern filter for artifacts in the registry. ||
+|#
+
+## PatternFilter {#yandex.cloud.cloudregistry.v1.PatternFilter}
+
+Default filter includes all artifacts ("**") and excludes none.
+
+#|
+||Field | Description ||
+|| includePatterns[] | **string**
+
+List of patterns for artifacts to include.
+
+Each value must match the regular expression ` [A-Za-z0-9._~:@!$PATTERN+\-?*/]+ `. ||
+|| excludePatterns[] | **string**
+
+List of patterns for artifacts to exclude.
+
+Each value must match the regular expression ` [A-Za-z0-9._~:@!$PATTERN+\-?*/]+ `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

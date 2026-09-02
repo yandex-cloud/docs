@@ -100,7 +100,8 @@ editable: false
       "size": "string",
       "type": "string",
       "method": "string",
-      "journalSize": "string"
+      "journalSize": "string",
+      "sharedSize": "string"
     }
   },
   "requestParameters": "object",
@@ -311,4 +312,5 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 - `BASE`
 - `INCREMENTAL` ||
 || journalSize | **string** (int64) ||
+|| sharedSize | **string** (int64) ||
 |#

@@ -30,7 +30,9 @@ Yandex Managed Service for Valkey™ позволяет использовать
 
   Список классов хостов и соответствующих им платформ описан в разделе [Классы хостов Valkey™](instance-types.md).
 
+    
   Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`, недоступно хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
+
 
 Размер [блока](https://en.wikipedia.org/wiki/Block_(data_storage)) всех типов дисков — 4 КБ.
 

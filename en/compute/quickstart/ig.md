@@ -35,7 +35,7 @@ To create an instance group:
    * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the basic instance.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the public image.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
-     * Select the [disk type](../../compute/concepts/disk.md#disks_types).
+     * Select the [disk type](../../compute/concepts/disk.md#disks-types).
      * Specify the disk size.
      * Optionally, click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}** to add more disks.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
@@ -64,7 +64,7 @@ To create an instance group:
      * Click **{{ ui-key.yacloud.common.add }}**.
      * Enable [serial console](../concepts/serial-console.md) access, if required.
    * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
-1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**, specify:
+1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**, specify the following:
    * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}**: Maximum number of instances the group size can be scaled up by.
 
        {% include [max-expansion-notice](../../_includes/instance-groups/max-expansion-notice.md) %}

@@ -3,7 +3,7 @@ title: Restoring an object version in a versioned bucket in {{ objstorage-full-n
 description: Follow this guide to restore an object version in a versioned bucket in {{ objstorage-name }}.
 ---
 
-# Restoring an object version in a versioned bucket
+# Restoring an object's version
 
 To restore object versions, the bucket must be [versioned](../../concepts/versioning.md). You can only restore the versions that were uploaded with versioning enabled. To enable versioning, follow [this guide](../buckets/versioning.md).
 
