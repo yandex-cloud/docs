@@ -20,8 +20,9 @@
       1. [Перейдите]({{ link-console-main }}/link/postbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
       1. На панели слева выберите ![at](../../../_assets/console-icons/at.svg) **{{ ui-key.yacloud.postbox.label_identities }}** и нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
       1. В поле **{{ ui-key.yacloud.postbox.label_address }}** укажите домен, с которого вы будете отправлять письма. Домен может быть любого уровня и должен принадлежать вам.
-      1. В поле **{{ ui-key.yacloud.postbox.label_selector }}** укажите селектор, например `postbox`. Указанный селектор должен использоваться только в одной ресурсной записи — той, которую необходимо создать при прохождении [проверки прав на домен](#domain).
       1. В поле **{{ ui-key.yacloud.postbox.label_configuration-set }}** выберите созданную ранее конфигурацию `postbox-events-config`.
+      1. В поле **{{ ui-key.yacloud.postbox.section_dkim }}** выберите `{{ ui-key.yacloud.postbox.label_signing-type-external }}`.
+      1. В поле **{{ ui-key.yacloud.postbox.label_selector }}** укажите селектор, например `postbox`. Указанный селектор должен использоваться только в одной ресурсной записи — той, которую необходимо создать при прохождении [проверки прав на домен](#domain).
       1. В поле **{{ ui-key.yacloud.postbox.label_private-key }}** вставьте содержимое файла приватного ключа `privatekey.pem`, созданного на предыдущем шаге.
       1. Другие параметры адреса оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
       1. В открывшемся списке адресов нажмите на строку с вновь созданным адресом.

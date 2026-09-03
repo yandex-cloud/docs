@@ -2,6 +2,12 @@
 
 # Записать логи в журнал выполнения шины
 
+{% note warning %}
+
+Сервис Yandex Serverless Integrations прекращает работу 8 октября 2026 года. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса Yandex Serverless Integrations](../../../sunset.md).
+
+{% endnote %}
+
 {% note info %}
 
 Логирование тарифицируется. Подробнее в [документации Yandex Cloud Logging](../../../../logging/pricing.md).

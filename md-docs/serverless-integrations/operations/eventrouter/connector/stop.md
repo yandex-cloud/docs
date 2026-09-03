@@ -2,6 +2,12 @@
 
 # Остановить коннектор
 
+{% note warning %}
+
+Сервис Yandex Serverless Integrations прекращает работу 8 октября 2026 года. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса Yandex Serverless Integrations](../../../sunset.md).
+
+{% endnote %}
+
 Когда [коннектор](../../../concepts/eventrouter/connector.md) остановлен, он перестает отправлять сообщения в [шину](../../../concepts/eventrouter/bus.md).
 
 {% list tabs group=instructions %}

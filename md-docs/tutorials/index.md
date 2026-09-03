@@ -1236,6 +1236,8 @@
 
 ### Cloud Interconnect
 
+ - [Организация сетевой связности между несколькими виртуальными сетями с помощью VPC Stitching](routing/vpc-stitching.md)
+
  - [Организация доступа через Cloud Interconnect к облачным сетям, размещенным за NGFW](routing/cic-with-ngfw.md)
 
 ### Настройка сетевых ресурсов и взаимодействие между ними

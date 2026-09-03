@@ -74,7 +74,11 @@ Possible property names:
 
 - `password`: Password of the ClickHouse user.
 
-- `generate-password`: Generate password using Connection Manager. ||
+- `generate-password`: Generate password using Connection Manager.
+
+- `connection-folder-id`: ID of the folder where connection for the user is created.
+
+- `secret-folder-id`: ID of the folder where connection secret is created. ||
 || `--database` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Descriptions of databases to be created with the ClickHouse cluster.
@@ -1453,6 +1457,15 @@ Possible property names:
 - `hour`: Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.
 
 - `day`: Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun' ||
+|| `--connection-manager` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Connection Manager cluster integration settings
+
+Possible property names:
+
+- `connections-folder-id`: ID of the folder where connections for the cluster are created
+
+- `secrets-folder-id`: ID of the folder where connection secrets are created. ||
 |#
 
 #### Global Flags

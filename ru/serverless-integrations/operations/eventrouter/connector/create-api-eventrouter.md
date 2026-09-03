@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать коннектор для API {{ er-name }}
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

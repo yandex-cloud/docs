@@ -5,6 +5,8 @@ description: На этой странице приведен справочни�
 
 # Справочник {{ TF }} для {{ si-full-name }}
 
+{% include [sunset-note](../_includes/serverless-integrations/sunset-note.md) %}
+
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
 ## Ресурсы {#resources}

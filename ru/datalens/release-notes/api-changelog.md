@@ -6,6 +6,7 @@ description: Версионирование Public API в {{ datalens-full-name 
 
 В этом разделе собрана история изменений {{ datalens-name }} Public API. Подробнее про версионирование в [документации](../operations/api-versioning.md).
 
+
 ## Версия 2 {#version-2}
 
 

@@ -457,7 +457,6 @@
       | `Исходящий` | `any` | `Весь` | `Любой` | `Диапазон адресов` | `0.0.0.0/0` |
       | `Входящий` | `ext-http` | `80` | `TCP` | `Диапазон адресов` | `0.0.0.0/0` |
       | `Входящий` | `ext-https` | `443` | `TCP` | `Диапазон адресов` | `0.0.0.0/0` |
-      | `Входящий` | `healthchecks` | `30080` | `TCP` | `Проверки состояния балансировщика` | — |
 
   1. Нажмите кнопку **Создать**.
 
@@ -470,8 +469,7 @@
     --network-name example-network \
     --rule "direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0]" \
     --rule "direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
-    --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
-    --rule "direction=ingress,port=30080,protocol=tcp,predefined=loadbalancer_healthchecks"
+    --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0]"
   ```
   
   Результат:
@@ -511,14 +509,6 @@
       cidr_blocks:
         v4_cidr_blocks:
           - 0.0.0.0/0
-    - id: enp6j82kiu2p********
-      direction: INGRESS
-      ports:
-        from_port: "30080"
-        to_port: "30080"
-      protocol_name: TCP
-      protocol_number: "6"
-      predefined_target: loadbalancer_healthchecks
   ```
 
   Сохраните полученный идентификатор группы безопасности — он понадобится позднее при создании L7-балансировщика.
@@ -528,8 +518,6 @@
 - API {#api}
 
   Воспользуйтесь методом REST API [create](../../../vpc/api-ref/SecurityGroup/create.md) для ресурса [SecurityGroup](../../../vpc/api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Create](../../../vpc/api-ref/grpc/SecurityGroup/create.md).
-
-  Чтобы добавить правило для проверок состояния балансировщика, используйте параметр `loadbalancer_healthchecks` в поле [predefinedTarget](../../../vpc/api-ref/SecurityGroup/create.md#yandex.cloud.vpc.v1.CreateSecurityGroupRequest) для REST API или в поле [SecurityGroupRuleSpec.target.predefined_target](../../../vpc/api-ref/grpc/SecurityGroup/create.md#yandex.cloud.vpc.v1.SecurityGroupRuleSpec) для gRPC API.
 
 {% endlist %}
 

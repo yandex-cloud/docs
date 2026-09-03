@@ -493,6 +493,8 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `application.linked.UpdateApplicationAssignments` | Изменение списка пользователей связанного приложения
 `idp.AddUserBlock` | Добавление блока пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
+`idp.application.CreateAsset` | Загрузка ресурса приложения
+`idp.application.DeleteAsset` | Удаление ресурса приложения
 `idp.branding.CreateAsset` | Загрузка ресурса для [брендирования](../../organization/concepts/branding.md)
 `idp.branding.CreateBranding` | Создание брендирования
 `idp.branding.DeleteAsset` | Удаление ресурса для брендирования
@@ -531,9 +533,12 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `policy.CreateAuthenticationPolicyRule` | Создание правила политики аутентификации
 `policy.DeactivateAuthenticationPolicyRule` | Деактивация правила политики аутентификации
 `policy.DeleteAuthenticationPolicyRule` | Удаление правила политики аутентификации
+`policy.DeleteRefreshTokenPolicy` | Удаление политики обновления токена
 `policy.UpdateAuthenticationPolicyRule` | Изменение правила политики аутентификации
+`policy.UpdateRefreshTokenPolicy` | Изменение политики обновления токена
 `RejectInvitation` | Отказ от приглашения
 `ResendInvitation` | Повторная отправка приглашения
+`SetTwoFactorAuthenticationPassportRequired` | Установка требования двухфакторной аутентификации для аккаунтов на Яндексе
 `saml.AddFederatedUserAccounts` | Добавление пользователя в федерацию
 `saml.AddFederationDomain` | Привязка [домена](../../organization/concepts/domains.md) к федерации
 `saml.CreateApplication` | Создание [SAML](../../organization/concepts/add-federation.md)-приложения
@@ -617,6 +622,40 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateScanPolicy` | Изменение политики сканирования
 `UpdateRegistryAccessBindings` | Изменение прав доступа на реестр
 `UpdateRegistryFolderAccessBindings` | Изменение прав доступа к каталогу реестра
+
+## SourceCraft {#sourcecraft}
+
+Имя сервиса — `sourcecraft`.
+
+Имя события | Описание
+--- | ---
+`AddPersonalEmail` | Добавление личного адреса электронной почты
+`AddPersonalPublicGpgKey` | Добавление личного открытого ключа GPG
+`AddPersonalPublicSshKey` | Добавление личного [открытого SSH-ключа](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/ssh)
+`CreatePersonalAccessToken` | Создание [персонального токена (PAT)](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/pat)
+`CreateRepository` | Создание [репозитория](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/index#repos)
+`CreateSecret` | Создание [секрета](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/secrets)
+`CreateServiceConnection` | Создание [сервисного подключения](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/service-connections)
+`DeleteAllSecrets` | Удаление всех секретов
+`DeletePersonalAccessToken` | Удаление персонального токена (PAT)
+`DeleteRepository` | Удаление репозитория
+`DeleteSecret` | Удаление секрета
+`DeleteServiceConnection` | Удаление подключения к сервису
+`OffboardCloudRegistry` | Отключение реестра pkg.sourcecraft.tech
+`OffboardOrganization` | Отключение организации
+`OnboardCloudRegistry` | Подключение реестра pkg.sourcecraft.tech
+`OnboardOrganization` | Подключение организации
+`RemovePersonalEmail` | Удаление личного адреса электронной почты
+`RemovePersonalPublicGpgKey` | Удаление личного открытого ключа GPG
+`RemovePersonalPublicSshKey` | Удаление личного открытого ключа SSH
+`UpdateAppsecSettings` | Изменение настроек [SourceCraft Security](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/security-overview)
+`UpdateOrganization` | Изменение организации
+`UpdatePersonalAccessToken` | Изменение персонального токена (PAT)
+`UpdateRepository` | Изменение репозитория
+`UpdateRepositoryAccessBindings` | Изменение прав доступа к [репозиторию](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/index#repos)
+`UpdateSecret` | Изменение [секрета](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/secrets)
+`UpdateServiceConnection` | Изменение подключения к сервису
+`VerifyPersonalEmail` | Подтверждение личного адреса электронной почты
 
 ## Yandex Cloud Video {#video}
 

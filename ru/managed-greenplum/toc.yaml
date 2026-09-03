@@ -281,6 +281,8 @@ items:
         items:
           - name: Overview
             href: cli-ref/hba-rules/index.md
+          - name: batch-update
+            href: cli-ref/hba-rules/batch-update.md
           - name: create
             href: cli-ref/hba-rules/create.md
           - name: delete
@@ -445,6 +447,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/v0/hba-rules/index.md
+              - name: batch-update
+                href: cli-ref/v0/hba-rules/batch-update.md
               - name: create
                 href: cli-ref/v0/hba-rules/create.md
               - name: delete

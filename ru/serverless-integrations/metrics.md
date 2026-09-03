@@ -5,6 +5,8 @@ description: На этой странице приведен справочни�
 
 # Справочник метрик {{ monitoring-full-name }}
 
+{% include [sunset-note](../_includes/serverless-integrations/sunset-note.md) %}
+
 В этом разделе описаны метрики сервиса {{ si-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/index.yaml).
 
 {% include [serverless-integrations](../_includes/monitoring/metrics-ref/serverless-integrations.md) %}

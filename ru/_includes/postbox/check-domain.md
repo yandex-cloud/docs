@@ -21,8 +21,6 @@
     При расширенной настройке вы самостоятельно [генерируете ключ](../../postbox/operations/create-address.md) для создания DKIM-подписи. На странице адреса в блоке **{{ ui-key.yacloud.postbox.section_dkim }}** отображается одна TXT-запись, которую нужно добавить в DNS-провайдер.
 
     **Пример создания ресурсных записей в {{ dns-full-name }}**
-    
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся адрес и ваша доменная зона.
 
         Если у вас еще нет [публичной зоны](../../dns/concepts/dns-zone.md#public-zones) DNS, [создайте](../../dns/operations/zone-create-public.md) ее.
     1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.

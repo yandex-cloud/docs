@@ -5,6 +5,8 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ si-full-name }}
 
+{% include [sunset-note](../_includes/serverless-integrations/sunset-note.md) %}
+
 ## Февраль 2026 {#february-2026}
 
 ### Обновления {#updates}

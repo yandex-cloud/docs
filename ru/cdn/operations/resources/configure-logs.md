@@ -10,33 +10,39 @@
 
 Чтобы включить выгрузку для [ресурса](../../concepts/resource.md):
 
-{% list tabs group=instructions %}
+1. [Создайте](../../../storage/operations/buckets/create.md) бакет {{ objstorage-name }}.
 
-- Консоль управления {#console}
-  
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
+   {% include [logs-bucket-policy](../../../_includes/cdn/logs-bucket-policy.md) %}
 
-  1. [Перейдите]({{ link-console-main }}/link/cdn) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+1. Включите выгрузку логов:
 
-  1. Нажмите на имя необходимого ресурса.
+   {% list tabs group=instructions %}
 
-  1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-raw-logs }}**.
+   - Консоль управления {#console}
 
-  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.cdn.button_resource-activate-raw-logs }}**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. Выберите **{{ ui-key.yacloud.cdn.label_bucket }}**.
+     1. [Перейдите]({{ link-console-main }}/link/cdn) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-  1. (Опционально) Укажите **{{ ui-key.yacloud.cdn.label_bucket-key-prefix }}** для имен файлов с логами.
+     1. Нажмите на имя необходимого ресурса.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-activate-raw-logs }}**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-raw-logs }}**.
 
-- API {#api}
+     1. В правом верхнем углу нажмите **{{ ui-key.yacloud.cdn.button_resource-activate-raw-logs }}**.
 
-  Воспользуйтесь методом REST API [activate](../../api-ref/RawLogs/activate.md) для ресурса [RawLogs](../../api-ref/RawLogs/index.md) или вызовом gRPC API [RawLogsService/Activate](../../api-ref/grpc/RawLogs/activate.md).
+     1. Выберите **{{ ui-key.yacloud.cdn.label_bucket }}**.
 
-{% endlist %}
+     1. (Опционально) Укажите **{{ ui-key.yacloud.cdn.label_bucket-key-prefix }}** для имен файлов с логами.
 
-После включения статус выгрузки изменится с `NOT_ACTIVATED`  на `OK`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-activate-raw-logs }}**.
+
+   - API {#api}
+
+     Воспользуйтесь методом REST API [activate](../../api-ref/RawLogs/activate.md) для ресурса [RawLogs](../../api-ref/RawLogs/index.md) или вызовом gRPC API [RawLogsService/Activate](../../api-ref/grpc/RawLogs/activate.md).
+
+   {% endlist %}
+
+После включения статус выгрузки изменится с `NOT_ACTIVATED` на `OK`.
 
 При статусе `FAIL` сервис не выгружает логи, обратитесь в [техническую поддержку]({{ link-console-support }}).
 

@@ -1348,7 +1348,9 @@
 
 ## История изменений
 
- - [Июль 2026](release-notes/index.md)
+ - [Август 2026](release-notes/index.md)
+
+ - [Июль 2026](release-notes/2607.md)
 
  - [Июнь 2026](release-notes/2606.md)
 
@@ -1358,9 +1360,9 @@
 
  - [Март 2026](release-notes/2603.md)
 
- - [Февраль 2026](release-notes/2602.md)
-
 ### Архив
+
+ - [Февраль 2026](release-notes/2602.md)
 
  - [Январь 2026](release-notes/2601.md)
 

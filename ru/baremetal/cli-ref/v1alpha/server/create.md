@@ -37,7 +37,7 @@ ID of the configuration to use for the server. To get the configuration ID, use 
 A period of time for which the server is rented. To get the rental period ID, use a [RentalPeriodService.List] request. ||
 || `--network-interfaces` | `shorthand/json`
 
-Network configuration for the server. Specifies how the network interface is configured to interact with other servers on the internal network and on the internet. Currently up to 2 network interfaces are supported: required private network interface and optional public network interface.
+Network configuration for the server. Specifies how the network interface is configured to interact with other servers on the internal network and on the internet.
 
 {% cut "Description" %}
 

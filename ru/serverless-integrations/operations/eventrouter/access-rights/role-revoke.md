@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Отозвать роли, назначенные на ресурс {{ er-name }}
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}

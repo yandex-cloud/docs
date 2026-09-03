@@ -5,6 +5,46 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ iam-full-name }}
 
+## Август 2026 {#august-2026}
+
+### Изменения в сервисе {{ iam-name }} {#iam-august-2026}
+
+* Роли `compute.editor` и `compute.admin` сервиса {{ compute-name }}, а также `baremetal.editor` и `baremetal.admin` сервиса {{ baremetal-name }} теперь включают разрешения роли [`backup.user`](../backup/security/index.md#backup-user).
+
+### Новые роли {#roles-august-2026}
+
+{% cut "{{ billing-name }}" %}
+
+#### billing.usagerecords.admin {#billing-usagerecords-admin}
+
+{% include [billing.usagerecords.admin](../_roles/billing/usagerecords/admin.md) %}
+
+{% endcut %}
+
+{% cut "{{ mch-full-name }}" %}
+
+#### managed-clickhouse.clusters.connector {#managed-clickhouse-clusters-connector}
+
+{% include [managed-clickhouse.clusters.connector](../_roles/managed-clickhouse/clusters/connector.md) %}
+
+{% endcut %}
+
+{% cut "{{ mgl-full-name }}" %}
+
+#### gitlab.backupAdmin {#gitlab-backupadmin}
+
+{% include [gitlab.backupAdmin](../_roles/gitlab/backupAdmin.md) %}
+
+#### gitlab.backupDownloader {#gitlab-backupdownloader}
+
+{% include [gitlab.backupDownloader](../_roles/gitlab/backupDownloader.md) %}
+
+#### gitlab.backupRestorer {#gitlab-backuprestorer}
+
+{% include [gitlab.backupRestorer](../_roles/gitlab/backupRestorer.md) %}
+
+{% endcut %}
+
 ## Июль 2026 {#july-2026}
 
 ### Изменения в сервисе {{ iam-name }} {#iam-july-2026}
@@ -17,43 +57,57 @@ description: В разделе представлена история изме�
 
 {% cut "{{ cloud-registry-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `cloud-registry.artifacts.scanner` | Позволяет сканировать артефакты в реестрах на наличие уязвимостей, а также скачивать артефакты, просматривать информацию об артефактах и реестрах, о назначенных правах доступа к реестрам, а также о квотах сервиса {{ cloud-registry-name }}.
+#### cloud-registry.artifacts.scanner {#cloud-registry-artifacts-scanner}
 
-{% endcut %}
-
-{% cut "{{ src-full-name }}" %}
-
-   Роль | Описание
-   --- | ---
-   `src.projects.admin` | Включает права на управление проектом и администрирование всех репозиториев проекта. Позволяет удалять проект и назначать его администраторов.
-   `src.projects.maintainer` | Включает права на управление всеми репозиториями проекта. Позволяет создавать и изменять проект, управлять доступом к нему, а также добавлять и удалять репозитории проекта.
-   `src.projects.viewer` | Включает права на просмотр всех репозиториев проекта. Позволяет просматривать проект, его права доступа и входящие в него репозитории.
+{% include [cloud-registry.artifacts.scanner](../_roles/cloud-registry/artifacts/scanner.md) %}
 
 {% endcut %}
 
 {% cut "{{ sd-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `threat-detector.admin` | Позволяет просматривать информацию о правилах контроля безопасности модуля {{ td-full-name }}, создавать исключения из правил контроля безопасности, а также просматривать информацию о назначенных правах доступа к модулю {{ td-full-name }} и изменять их.
-   `threat-detector.auditor` | Позволяет просматривать информацию о правилах контроля безопасности модуля {{ td-full-name }} и назначенных правах доступа к нему.
-   `threat-detector.editor` | Позволяет просматривать информацию о назначенных правах доступа к модулю {{ td-full-name }} и правилах контроля безопасности этого модуля, а также создавать исключения из правил контроля безопасности.
-   `threat-detector.viewer` | Позволяет просматривать информацию о правилах контроля безопасности модуля {{ td-full-name }} и назначенных правах доступа к нему.
-   `threat-detector.worker` | Позволяет просматривать логи, регистрируемые в инфраструктуре клиента, с помощью сервиса {{ at-full-name }}.
-   `vulnerability-manager.admin` | Позволяет просматривать информацию о заданиях сканирования модуля {{ vuln-man-name }}, запускать и изменять такие задания, а также просматривать результаты их выполнения.
-   `vulnerability-manager.auditor` | Позволяет просматривать результаты сканирования модуля {{ vuln-man-name }}.
-   `vulnerability-manager.editor` | Позволяет просматривать информацию о заданиях сканирования модуля {{ vuln-man-name }}, запускать и изменять такие задания, а также просматривать результаты их выполнения.
-   `vulnerability-manager.viewer` | Позволяет просматривать информацию о заданиях сканирования модуля {{ vuln-man-name }} и результаты сканирования в рамках этих заданий.
+#### threat-detector.admin {#threat-detector-admin}
+
+{% include [threat-detector.admin](../_roles/threat-detector/admin.md) %}
+
+#### threat-detector.auditor {#threat-detector-auditor}
+
+{% include [threat-detector.auditor](../_roles/threat-detector/auditor.md) %}
+
+#### threat-detector.editor {#threat-detector-editor}
+
+{% include [threat-detector.editor](../_roles/threat-detector/editor.md) %}
+
+#### threat-detector.viewer {#threat-detector-viewer}
+
+{% include [threat-detector.viewer](../_roles/threat-detector/viewer.md) %}
+
+#### threat-detector.worker {#threat-detector-worker}
+
+{% include [threat-detector.worker](../_roles/threat-detector/worker.md) %}
+
+#### vulnerability-manager.admin {#vulnerability-manager-admin}
+
+{% include [vulnerability-manager.admin](../_roles/vulnerability-manager/admin.md) %}
+
+#### vulnerability-manager.auditor {#vulnerability-manager-auditor}
+
+{% include [vulnerability-manager.auditor](../_roles/vulnerability-manager/auditor.md) %}
+
+#### vulnerability-manager.editor {#vulnerability-manager-editor}
+
+{% include [vulnerability-manager.editor](../_roles/vulnerability-manager/editor.md) %}
+
+#### vulnerability-manager.viewer {#vulnerability-manager-viewer}
+
+{% include [vulnerability-manager.viewer](../_roles/vulnerability-manager/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mmg-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-mongodb.clusters.connector` | Позволяет пользователям {{ yandex-cloud }} подключаться к базам данных в кластерах {{ SD }} с помощью механизмов сервиса {{ iam-full-name }}.
+#### managed-mongodb.clusters.connector {#managed-mongodb-clusters-connector}
+
+{% include [managed-mongodb.clusters.connector](../_roles/managed-mongodb/clusters/connector.md) %}
 
 {% endcut %}
 
@@ -67,27 +121,57 @@ description: В разделе представлена история изме�
 
 {% cut "{{ metastore-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-metastore.maintenanceTask.editor` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ metastore-name }} и изменять такие задания, просматривать информацию о кластерах и назначенных правах доступа к ним, а также о квотах сервисов управляемых баз данных {{ yandex-cloud }}.
-   `managed-metastore.maintenanceTask.viewer` | Позволяет просматривать информацию о кластерах {{ metastore-name }} и назначенных правах доступа к ним, о заданиях на техническое обслуживание таких кластеров, а также о квотах сервисов управляемых баз данных {{ yandex-cloud }}.
+#### managed-metastore.maintenanceTask.editor {#managed-metastore-maintenancetask-editor}
+
+{% include [managed-metastore.maintenanceTask.editor](../_roles/managed-metastore/maintenanceTask/editor.md) %}
+
+#### managed-metastore.maintenanceTask.viewer {#managed-metastore-maintenancetask-viewer}
+
+{% include [managed-metastore.maintenanceTask.viewer](../_roles/managed-metastore/maintenanceTask/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ datalens-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `datalens.collections.creator` | Позволяет просматривать коллекцию и создавать объекты внутри нее без доступа к другим объектам, существующим внутри коллекции.
-   `datalens.collections.entryBindingCreator` | Позволяет переиспользовать общие объекты из этой коллекции как без делегации прав доступа, так и с делегацией.
-   `datalens.collections.limitedEntryBindingCreator` | Позволяет переиспользовать общие объекты из этой коллекции без делегации прав доступа.
-   `datalens.collections.visitor` | Позволяет просматривать информацию о текущей коллекции без доступа ко вложенным в нее объектам.
-   `datalens.sharedEntries.admin` | Позволяет просматривать общий объект и полностью управлять им: редактировать, перемещать, удалять и настраивать права доступа к нему.
-   `datalens.sharedEntries.editor` | Позволяет редактировать общий объект, а также просматривать его и назначенные права доступа к нему.
-   `datalens.sharedEntries.entryBindingCreator` | Позволяет переиспользовать общий объект в воркбуках как без делегации прав доступа, так и с делегацией.
-   `datalens.sharedEntries.limitedEntryBindingCreator` | Позволяет переиспользовать общий объект в воркбуках без делегации прав доступа.
-   `datalens.sharedEntries.limitedViewer` | Позволяет просматривать [чарты](../datalens/concepts/chart/index.md) и [дашборды](../datalens/concepts/dashboard.md), которые используют общий объект, без прямого доступа к самому объекту.
-   `datalens.sharedEntries.viewer` | Позволяет просматривать общий объект, а также назначенные права доступа к нему.
+#### datalens.collections.creator {#datalens-collections-creator}
+
+{% include [datalens.collections.creator](../_roles/datalens/collections/creator.md) %}
+
+#### datalens.collections.entryBindingCreator {#datalens-collections-entrybindingcreator}
+
+{% include [datalens.collections.entryBindingCreator](../_roles/datalens/collections/entryBindingCreator.md) %}
+
+#### datalens.collections.limitedEntryBindingCreator {#datalens-collections-limitedentrybindingcreator}
+
+{% include [datalens.collections.limitedEntryBindingCreator](../_roles/datalens/collections/limitedEntryBindingCreator.md) %}
+
+#### datalens.collections.visitor {#datalens-collections-visitor}
+
+{% include [datalens.collections.visitor](../_roles/datalens/collections/visitor.md) %}
+
+#### datalens.sharedEntries.admin {#datalens-sharedentries-admin}
+
+{% include [datalens.sharedEntries.admin](../_roles/datalens/sharedEntries/admin.md) %}
+
+#### datalens.sharedEntries.editor {#datalens-sharedentries-editor}
+
+{% include [datalens.sharedEntries.editor](../_roles/datalens/sharedEntries/editor.md) %}
+
+#### datalens.sharedEntries.entryBindingCreator {#datalens-sharedentries-entrybindingcreator}
+
+{% include [datalens.sharedEntries.entryBindingCreator](../_roles/datalens/sharedEntries/entryBindingCreator.md) %}
+
+#### datalens.sharedEntries.limitedEntryBindingCreator {#datalens-sharedentries-limitedentrybindingcreator}
+
+{% include [datalens.sharedEntries.limitedEntryBindingCreator](../_roles/datalens/sharedEntries/limitedEntryBindingCreator.md) %}
+
+#### datalens.sharedEntries.limitedViewer {#datalens-sharedentries-limitedviewer}
+
+{% include [datalens.sharedEntries.limitedViewer](../_roles/datalens/sharedEntries/limitedViewer.md) %}
+
+#### datalens.sharedEntries.viewer {#datalens-sharedentries-viewer}
+
+{% include [datalens.sharedEntries.viewer](../_roles/datalens/sharedEntries/viewer.md) %}
 
 {% endcut %}
 
@@ -102,59 +186,89 @@ description: В разделе представлена история изме�
 
 {% cut "{{ cloud-apps-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `cloudapps.admin` | Позволяет просматривать информацию об установленных приложениях {{ cloud-apps-name }}, а также создавать, изменять и удалять такие приложения.
-   `cloudapps.auditor` | Позволяет просматривать метаданные установленных приложений {{ cloud-apps-name }}.
-   `cloudapps.editor` | Позволяет просматривать информацию об установленных приложениях {{ cloud-apps-name }}, а также создавать, изменять и удалять такие приложения.
-   `cloudapps.viewer` | Позволяет просматривать информацию об установленных приложениях {{ cloud-apps-name }}.
+#### cloudapps.admin {#cloudapps-admin}
+
+{% include [cloudapps.admin](../_roles/cloudapps/admin.md) %}
+
+#### cloudapps.auditor {#cloudapps-auditor}
+
+{% include [cloudapps.auditor](../_roles/cloudapps/auditor.md) %}
+
+#### cloudapps.editor {#cloudapps-editor}
+
+{% include [cloudapps.editor](../_roles/cloudapps/editor.md) %}
+
+#### cloudapps.viewer {#cloudapps-viewer}
+
+{% include [cloudapps.viewer](../_roles/cloudapps/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ marketplace-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `marketplace.productInstances.admin` | Позволяет управлять установленными продуктами Marketplace и доступом к ним.
-   `marketplace.productInstances.auditor` | Позволяет просматривать информацию об установленных продуктах Marketplace и назначенных правах доступа к ним, а также просматривать метаданные каталога.
-   `marketplace.productInstances.editor` | Позволяет управлять установленными продуктами Marketplace.
-   `marketplace.productInstances.saasSupervisor` | Позволяет просматривать информацию об установленных SaaS-продуктах Marketplace и активировать такие продукты.
-   `marketplace.productInstances.user` | Позволяет просматривать информацию об установленных продуктах Marketplace, активировать и деактивировать их, а также просматривать информацию о назначенных правах доступа к ним.
-   `marketplace.productInstances.viewer` | Позволяет просматривать информацию об установленных продуктах Marketplace и назначенных правах доступа к ним.
+#### marketplace.productInstances.admin {#marketplace-productinstances-admin}
+
+{% include [marketplace.productInstances.admin](../_roles/marketplace/productInstances/admin.md) %}
+
+#### marketplace.productInstances.auditor {#marketplace-productinstances-auditor}
+
+{% include [marketplace.productInstances.auditor](../_roles/marketplace/productInstances/auditor.md) %}
+
+#### marketplace.productInstances.editor {#marketplace-productinstances-editor}
+
+{% include [marketplace.productInstances.editor](../_roles/marketplace/productInstances/editor.md) %}
+
+#### marketplace.productInstances.saasSupervisor {#marketplace-productinstances-saassupervisor}
+
+{% include [marketplace.productInstances.saasSupervisor](../_roles/marketplace/productInstances/saasSupervisor.md) %}
+
+#### marketplace.productInstances.user {#marketplace-productinstances-user}
+
+{% include [marketplace.productInstances.user](../_roles/marketplace/productInstances/user.md) %}
+
+#### marketplace.productInstances.viewer {#marketplace-productinstances-viewer}
+
+{% include [marketplace.productInstances.viewer](../_roles/marketplace/productInstances/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ postbox-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `postbox.messages.reader` | Позволяет просматривать информацию об отправленных письмах, включая сведения об отправителе, получателях, теме, дате отправки, а также о метриках доставки и вовлеченности, жалобах и отписках.
-   `postbox.statistics.reader` | Позволяет просматривать статистику по отправленным письмам.
+#### postbox.messages.reader {#postbox-messages-reader}
+
+{% include [postbox.messages.reader](../_roles/postbox/messages/reader.md) %}
+
+#### postbox.statistics.reader {#postbox-statistics-reader}
+
+{% include [postbox.statistics.reader](../_roles/postbox/statistics/reader.md) %}
 
 {% endcut %}
 
 {% cut "{{ iam-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `iam.serviceAccounts.ephemeralAccessKeyAdmin` | Позволяет создавать [эфемерные ключи доступа](concepts/authorization/ephemeral-keys.md) сервисных аккаунтов.
+#### iam.serviceAccounts.ephemeralAccessKeyAdmin {#iam-serviceaccounts-ephemeralaccesskeyadmin}
+
+{% include [iam.serviceAccounts.ephemeralAccessKeyAdmin](../_roles/iam/serviceAccounts/ephemeralAccessKeyAdmin.md) %}
 
 {% endcut %}
 
 {% cut "{{ mrd-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-redis.clusters.connector` | Позволяет пользователям {{ yandex-cloud }} подключаться к базам данных в кластерах {{ VLK }} с помощью механизмов сервиса {{ iam-full-name }}.
+#### managed-redis.clusters.connector {#managed-redis-clusters-connector}
+
+{% include [managed-redis.clusters.connector](../_roles/managed-redis/clusters/connector.md) %}
 
 {% endcut %}
 
 {% cut "{{ yandex-siem-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `ycem.executor` | Позволяет управлять запросами, расследованиями, датасетами, а также правилами корреляции.
-   `ycem.inspector` | Позволяет управлять запросами, расследованиями и датасетами.
+#### ycem.executor {#ycem-executor}
+
+{% include [ycem.executor](../_roles/ycem/executor.md) %}
+
+#### ycem.inspector {#ycem-inspector}
+
+{% include [ycem.inspector](../_roles/ycem/inspector.md) %}
 
 {% endcut %}
 
@@ -168,56 +282,77 @@ description: В разделе представлена история изме�
 
 {% cut "{{ cns-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `notifications.admin` | Позволяет управлять всеми каналами уведомлений и топиками, а также отправлять уведомления во все каналы и топики.
-   `notifications.auditor` | Позволяет просматривать метаданные всех каналов уведомлений, метаданные топиков, а также информацию о квотах сервиса.
-   `notifications.editor` | Позволяет управлять всеми каналами уведомлений и топиками, а также отправлять уведомления во все каналы и топики.
-   `notifications.publisher` | Позволяет отправлять уведомления во все каналы и топики.
-   `notifications.viewer` | Позволяет просматривать информацию о топиках и каналах уведомлений, а также о квотах сервиса.
+#### notifications.admin {#notifications-admin}
+
+{% include [notifications.admin](../_roles/notifications/admin.md) %}
+
+#### notifications.auditor {#notifications-auditor}
+
+{% include [notifications.auditor](../_roles/notifications/auditor.md) %}
+
+#### notifications.editor {#notifications-editor}
+
+{% include [notifications.editor](../_roles/notifications/editor.md) %}
+
+#### notifications.publisher {#notifications-publisher}
+
+{% include [notifications.publisher](../_roles/notifications/publisher.md) %}
+
+#### notifications.viewer {#notifications-viewer}
+
+{% include [notifications.viewer](../_roles/notifications/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ datalens-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `datalens.metaReader` | Позволяет выполнять запросы из раздела Audit в [DataLens Public API](../datalens/operations/api-start).
+#### datalens.metaReader {#datalens-metareader}
+
+{% include [datalens.metaReader](../_roles/datalens/metaReader.md) %}
 
 {% endcut %}
 
 {% cut "{{ dns-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `dns.firewallEditor` | Позволяет управлять DNS-фильтрами и использовать облака, каталоги и облачные сети в качестве ресурсов для них.
-   `dns.firewallUser` | Позволяет использовать облака, каталоги и облачные сети в качестве ресурсов для DNS-фильтров, а также просматривать информацию о ресурсах и квотах сервиса.
+#### dns.firewallEditor {#dns-firewalleditor}
+
+{% include [dns.firewallEditor](../_roles/dns/firewallEditor.md) %}
+
+#### dns.firewallUser {#dns-firewalluser}
+
+{% include [dns.firewallUser](../_roles/dns/firewallUser.md) %}
 
 {% endcut %}
 
 {% cut "{{ org-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `organization-manager.groups.viewer` | Позволяет просматривать информацию о группах пользователей и о назначенных правах доступа к ним, а также просматривать список пользователей и сервисных аккаунтов, входящих в группу.
+#### organization-manager.groups.viewer {#organization-manager-groups-viewer}
+
+{% include [organization-manager.groups.viewer](../_roles/organization-manager/groups/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ managed-k8s-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `k8s.cluster-api.admin` | Предоставляет группу `yc:k8s-core-admin` и роль `admin` в Kubernetes RBAC.
+#### k8s.cluster-api.admin {#k8s-cluster-api-admin}
+
+{% include [k8s.cluster-api.admin](../_roles/k8s/cluster-api/admin.md) %}
 
 {% endcut %}
 
 {% cut "Управляемые базы данных" %}
 
-   Роль | Описание
-   --- | ---
-   `mdb.maintenanceTask.editor` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров управляемых баз данных и изменять такие задания, просматривать информацию о кластерах и назначенных правах доступа к ним, о хостах и резервных копиях кластеров, а также о квотах и операциях с ресурсами сервисов.
-   `mdb.maintenanceTask.viewer` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров управляемых баз данных, а также информацию о таких кластерах и назначенных правах доступа к ним, о хостах и резервных копиях кластеров, о квотах и операциях с ресурсами сервисов.
-   `mdb.switcher` | Позволяет переназначать хост-мастер в кластерах управляемых баз данных, просматривать информацию о кластерах, хостах, базах данных и пользователях, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервисов.
+#### mdb.maintenanceTask.editor {#mdb-maintenancetask-editor}
+
+{% include [mdb.maintenanceTask.editor](../_roles/mdb/maintenanceTask/editor.md) %}
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenancetask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.switcher {#mdb-switcher}
+
+{% include [mdb.switcher](../_roles/mdb/switcher.md) %}
 
 {% endcut %}
 
@@ -227,133 +362,217 @@ description: В разделе представлена история изме�
 
 {% cut "{{ ai-studio-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `ai.guardrails.admin` | Позволяет просматривать информацию о правилах модерации ответов моделей, а также создавать, применять, изменять и удалять такие правила.
-   `ai.guardrails.auditor` | Позволяет просматривать метаданные правил модерации ответов моделей.
-   `ai.guardrails.editor` | Позволяет просматривать информацию о правилах модерации ответов моделей, а также создавать, применять, изменять и удалять такие правила.
-   `ai.guardrails.user` | Позволяет применять правила модерации ответов моделей и просматривать метаданные таких правил.
-   `ai.guardrails.viewer` | Позволяет просматривать информацию о правилах модерации ответов моделей.
+#### ai.guardrails.admin {#ai-guardrails-admin}
+
+{% include [ai.guardrails.admin](../_roles/ai/guardrails/admin.md) %}
+
+#### ai.guardrails.auditor {#ai-guardrails-auditor}
+
+{% include [ai.guardrails.auditor](../_roles/ai/guardrails/auditor.md) %}
+
+#### ai.guardrails.editor {#ai-guardrails-editor}
+
+{% include [ai.guardrails.editor](../_roles/ai/guardrails/editor.md) %}
+
+#### ai.guardrails.user {#ai-guardrails-user}
+
+{% include [ai.guardrails.user](../_roles/ai/guardrails/user.md) %}
+
+#### ai.guardrails.viewer {#ai-guardrails-viewer}
+
+{% include [ai.guardrails.viewer](../_roles/ai/guardrails/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mgp-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-greenplum.maintenanceTask.editor` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ GP }} и изменять такие задания, просматривать информацию о кластерах Greenplum® и назначенных правах доступа к ним, о хостах и резервных копиях кластеров, а также о квотах и операциях с ресурсами сервиса.
-   `managed-greenplum.maintenanceTask.viewer` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ GP }}, а также о таких кластерах и назначенных правах доступа к ним, о хостах и резервных копиях кластеров, о квотах и операциях с ресурсами сервиса.
-   `managed-greenplum.user` | Позволяет использовать кластеры {{ GP }}.
+#### managed-greenplum.maintenanceTask.editor {#managed-greenplum-maintenancetask-editor}
+
+{% include [managed-greenplum.maintenanceTask.editor](../_roles/managed-greenplum/maintenanceTask/editor.md) %}
+
+#### managed-greenplum.maintenanceTask.viewer {#managed-greenplum-maintenancetask-viewer}
+
+{% include [managed-greenplum.maintenanceTask.viewer](../_roles/managed-greenplum/maintenanceTask/viewer.md) %}
+
+#### managed-greenplum.user {#managed-greenplum-user}
+
+{% include [managed-greenplum.user](../_roles/managed-greenplum/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ maf-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-airflow.maintenanceTask.editor` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ AF }} и изменять такие задания, просматривать информацию о кластерах {{ AF }} и назначенных правах доступа к ним, а также о квотах сервиса.
-   `managed-airflow.maintenanceTask.viewer` | Позволяет просматривать информацию о кластерах {{ AF }} и назначенных правах доступа к ним, о заданиях на техническое обслуживание таких кластеров, а также о квотах сервиса.
+#### managed-airflow.maintenanceTask.editor {#managed-airflow-maintenancetask-editor}
+
+{% include [managed-airflow.maintenanceTask.editor](../_roles/managed-airflow/maintenanceTask/editor.md) %}
+
+#### managed-airflow.maintenanceTask.viewer {#managed-airflow-maintenancetask-viewer}
+
+{% include [managed-airflow.maintenanceTask.viewer](../_roles/managed-airflow/maintenanceTask/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mkf-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-kafka.maintenanceTask.editor` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ KF }} и изменять такие задания, просматривать информацию о кластерах {{ KF }} и назначенных правах доступа к ним, а также о квотах и операциях с ресурсами сервиса.
-   `managed-kafka.maintenanceTask.viewer` | Позволяет просматривать информацию о кластерах {{ KF }} и назначенных правах доступа к ним, о заданиях на техническое обслуживание таких кластеров, а также о квотах и операциях с ресурсами сервиса.
-   `managed-kafka.user` | Позволяет использовать кластеры {{ KF }}.
+#### managed-kafka.maintenanceTask.editor {#managed-kafka-maintenancetask-editor}
+
+{% include [managed-kafka.maintenanceTask.editor](../_roles/managed-kafka/maintenanceTask/editor.md) %}
+
+#### managed-kafka.maintenanceTask.viewer {#managed-kafka-maintenancetask-viewer}
+
+{% include [managed-kafka.maintenanceTask.viewer](../_roles/managed-kafka/maintenanceTask/viewer.md) %}
+
+#### managed-kafka.user {#managed-kafka-user}
+
+{% include [managed-kafka.user](../_roles/managed-kafka/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ msp-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-spark.maintenanceTask.editor` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ SPRK }} и изменять такие задания, просматривать информацию о кластерах {{ SPRK }} и назначенных правах доступа к ним, а также о квотах сервиса.
-   `managed-spark.maintenanceTask.viewer` | Позволяет просматривать информацию о кластерах {{ SPRK }} и назначенных правах доступа к ним, а также о заданиях на техническое обслуживание таких кластеров и квотах сервиса.
+#### managed-spark.maintenanceTask.editor {#managed-spark-maintenancetask-editor}
+
+{% include [managed-spark.maintenanceTask.editor](../_roles/managed-spark/maintenanceTask/editor.md) %}
+
+#### managed-spark.maintenanceTask.viewer {#managed-spark-maintenancetask-viewer}
+
+{% include [managed-spark.maintenanceTask.viewer](../_roles/managed-spark/maintenanceTask/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mch-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-clickhouse.maintenanceTask.editor` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ CH }} и изменять такие задания, просматривать информацию о кластерах {{ CH }} и назначенных правах доступа к ним, а также о квотах и операциях с ресурсами сервиса.
-   `managed-clickhouse.maintenanceTask.viewer` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ CH }}, о кластерах {{ CH }} и назначенных правах доступа к ним, а также о квотах и операциях с ресурсами сервиса.
-   `managed-clickhouse.user` | Позволяет использовать кластеры {{ CH }}.
+#### managed-clickhouse.maintenanceTask.editor {#managed-clickhouse-maintenancetask-editor}
+
+{% include [managed-clickhouse.maintenanceTask.editor](../_roles/managed-clickhouse/maintenanceTask/editor.md) %}
+
+#### managed-clickhouse.maintenanceTask.viewer {#managed-clickhouse-maintenancetask-viewer}
+
+{% include [managed-clickhouse.maintenanceTask.viewer](../_roles/managed-clickhouse/maintenanceTask/viewer.md) %}
+
+#### managed-clickhouse.user {#managed-clickhouse-user}
+
+{% include [managed-clickhouse.user](../_roles/managed-clickhouse/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ mmy-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-mysql.maintenanceTask.editor` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ MY }} и изменять такие задания, просматривать информацию о кластерах {{ MY }} и назначенных правах доступа к ним, о хостах и резервных копиях кластеров, а также о квотах и операциях с ресурсами сервиса.
-   `managed-mysql.maintenanceTask.viewer` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ MY }}, а также о таких кластерах и назначенных правах доступа к ним, о хостах и резервных копиях кластеров, о квотах и операциях с ресурсами сервиса.
-   `managed-mysql.switcher` | Позволяет переназначать хост-мастер в кластерах {{ MY }}, просматривать информацию о кластерах, хостах, базах данных и пользователях {{ MY }}, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
-   `managed-mysql.user` | Позволяет использовать кластеры {{ MY }}.
+#### managed-mysql.maintenanceTask.editor {#managed-mysql-maintenancetask-editor}
+
+{% include [managed-mysql.maintenanceTask.editor](../_roles/managed-mysql/maintenanceTask/editor.md) %}
+
+#### managed-mysql.maintenanceTask.viewer {#managed-mysql-maintenancetask-viewer}
+
+{% include [managed-mysql.maintenanceTask.viewer](../_roles/managed-mysql/maintenanceTask/viewer.md) %}
+
+#### managed-mysql.switcher {#managed-mysql-switcher}
+
+{% include [managed-mysql.switcher](../_roles/managed-mysql/switcher.md) %}
+
+#### managed-mysql.user {#managed-mysql-user}
+
+{% include [managed-mysql.user](../_roles/managed-mysql/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ mos-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-opensearch.maintenanceTask.editor` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ OS }} и изменять такие задания, просматривать информацию о кластерах {{ OS }} и назначенных правах доступа к ним, а также о квотах и операциях с ресурсами сервиса.
-   `managed-opensearch.maintenanceTask.viewer` | Позволяет просматривать информацию о кластерах {{ OS }} и назначенных правах доступа к ним, о заданиях на техническое обслуживание таких кластеров, а также о квотах и операциях с ресурсами сервиса.
-   `managed-opensearch.user` | Позволяет использовать кластеры {{ OS }}.
+#### managed-opensearch.maintenanceTask.editor {#managed-opensearch-maintenancetask-editor}
+
+{% include [managed-opensearch.maintenanceTask.editor](../_roles/managed-opensearch/maintenanceTask/editor.md) %}
+
+#### managed-opensearch.maintenanceTask.viewer {#managed-opensearch-maintenancetask-viewer}
+
+{% include [managed-opensearch.maintenanceTask.viewer](../_roles/managed-opensearch/maintenanceTask/viewer.md) %}
+
+#### managed-opensearch.user {#managed-opensearch-user}
+
+{% include [managed-opensearch.user](../_roles/managed-opensearch/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ mpg-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-postgresql.maintenanceTask.editor` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ PG }} и изменять такие задания, просматривать информацию о кластерах {{ PG }} и назначенных правах доступа к ним, о хостах и резервных копиях кластеров, а также о квотах и операциях с ресурсами сервиса.
-   `managed-postgresql.maintenanceTask.viewer` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ PG }}, а также о таких кластерах и назначенных правах доступа к ним, о хостах и резервных копиях, о квотах и операциях с ресурсами сервиса.
-   `managed-postgresql.switcher` | Позволяет переназначать хост-мастер в кластерах {{ PG }}, просматривать информацию о кластерах, хостах, базах данных и пользователях {{ PG }}, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
-   `managed-postgresql.user` | Позволяет использовать кластеры {{ PG }}.
+#### managed-postgresql.maintenanceTask.editor {#managed-postgresql-maintenancetask-editor}
+
+{% include [managed-postgresql.maintenanceTask.editor](../_roles/managed-postgresql/maintenanceTask/editor.md) %}
+
+#### managed-postgresql.maintenanceTask.viewer {#managed-postgresql-maintenancetask-viewer}
+
+{% include [managed-postgresql.maintenanceTask.viewer](../_roles/managed-postgresql/maintenanceTask/viewer.md) %}
+
+#### managed-postgresql.switcher {#managed-postgresql-switcher}
+
+{% include [managed-postgresql.switcher](../_roles/managed-postgresql/switcher.md) %}
+
+#### managed-postgresql.user {#managed-postgresql-user}
+
+{% include [managed-postgresql.user](../_roles/managed-postgresql/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ mspqr-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-spqr.maintenanceTask.editor` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ SPQR }} и изменять такие задания, просматривать информацию о кластерах {{ SPQR }} и назначенных правах доступа к ним, а также о хостах кластеров, квотах и операциях с ресурсами сервиса.
-   `managed-spqr.maintenanceTask.viewer` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ SPQR }}, а также о таких кластерах и назначенных правах доступа к ним, о хостах кластеров, квотах и операциях с ресурсами сервиса.
+#### managed-spqr.maintenanceTask.editor {#managed-spqr-maintenancetask-editor}
+
+{% include [managed-spqr.maintenanceTask.editor](../_roles/managed-spqr/maintenanceTask/editor.md) %}
+
+#### managed-spqr.maintenanceTask.viewer {#managed-spqr-maintenancetask-viewer}
+
+{% include [managed-spqr.maintenanceTask.viewer](../_roles/managed-spqr/maintenanceTask/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mtr-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-trino.maintenanceTask.editor` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ TR }} и изменять такие задания, просматривать информацию о кластерах {{ TR }} и назначенных правах доступа к ним, а также о квотах сервиса.
-   `managed-trino.maintenanceTask.viewer` | Позволяет просматривать информацию о кластерах {{ TR }} и назначенных правах доступа к ним, а также о заданиях на техническое обслуживание таких кластеров и квотах сервиса.
+#### managed-trino.maintenanceTask.editor {#managed-trino-maintenancetask-editor}
+
+{% include [managed-trino.maintenanceTask.editor](../_roles/managed-trino/maintenanceTask/editor.md) %}
+
+#### managed-trino.maintenanceTask.viewer {#managed-trino-maintenancetask-viewer}
+
+{% include [managed-trino.maintenanceTask.viewer](../_roles/managed-trino/maintenanceTask/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mrd-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-redis.maintenanceTask.editor` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ VLK }} и изменять такие задания, просматривать информацию о кластерах {{ VLK }} и назначенных правах доступа к ним, о хостах и резервных копиях кластеров, а также о квотах и операциях с ресурсами сервиса.
-   `managed-redis.maintenanceTask.viewer` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ VLK }}, а также о таких кластерах и назначенных правах доступа к ним, о хостах и резервных копиях кластеров, о квотах и операциях с ресурсами сервиса.
-   `managed-redis.switcher` | Позволяет переназначать хост-мастер в кластерах {{ VLK }}, просматривать информацию о хостах и кластерах {{ VLK }}, логи их работы, а также данные о квотах и операциях с ресурсами сервиса.
-   `managed-redis.user` | Позволяет использовать кластеры {{ VLK }}.
+#### managed-redis.maintenanceTask.editor {#managed-redis-maintenancetask-editor}
+
+{% include [managed-redis.maintenanceTask.editor](../_roles/managed-redis/maintenanceTask/editor.md) %}
+
+#### managed-redis.maintenanceTask.viewer {#managed-redis-maintenancetask-viewer}
+
+{% include [managed-redis.maintenanceTask.viewer](../_roles/managed-redis/maintenanceTask/viewer.md) %}
+
+#### managed-redis.switcher {#managed-redis-switcher}
+
+{% include [managed-redis.switcher](../_roles/managed-redis/switcher.md) %}
+
+#### managed-redis.user {#managed-redis-user}
+
+{% include [managed-redis.user](../_roles/managed-redis/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ mmg-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-mongodb.maintenanceTask.editor` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ SD }} и изменять такие задания, просматривать информацию о кластерах {{ SD }} и назначенных правах доступа к ним, о хостах и резервных копиях кластеров, а также о квотах и операциях с ресурсами сервиса.
-   `managed-mongodb.maintenanceTask.viewer` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров {{ SD }}, а также о таких кластерах и назначенных правах доступа к ним, о хостах и резервных копиях кластеров, о квотах и операциях с ресурсами сервиса.
-   `managed-mongodb.switcher` | Позволяет переназначать хост-мастер в кластерах {{ SD }}, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях {{ SD }}, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
-   `managed-mongodb.user` | Позволяет использовать кластеры {{ SD }}.
+#### managed-mongodb.maintenanceTask.editor {#managed-mongodb-maintenancetask-editor}
+
+{% include [managed-mongodb.maintenanceTask.editor](../_roles/managed-mongodb/maintenanceTask/editor.md) %}
+
+#### managed-mongodb.maintenanceTask.viewer {#managed-mongodb-maintenancetask-viewer}
+
+{% include [managed-mongodb.maintenanceTask.viewer](../_roles/managed-mongodb/maintenanceTask/viewer.md) %}
+
+#### managed-mongodb.switcher {#managed-mongodb-switcher}
+
+{% include [managed-mongodb.switcher](../_roles/managed-mongodb/switcher.md) %}
+
+#### managed-mongodb.user {#managed-mongodb-user}
+
+{% include [managed-mongodb.user](../_roles/managed-mongodb/user.md) %}
 
 {% endcut %}
 
@@ -367,9 +586,9 @@ description: В разделе представлена история изме�
 
 {% cut "Yandex Cloud Backup" %}
 
-   Роль | Описание
-   --- | ---
-   `backup.auditor` | Позволяет просматривать информацию о виртуальных машинах и серверах {{ baremetal-name }}, подключенных к сервису {{ backup-short-name }}, о политиках резервного копирования и квотах сервиса, а также об облаке и каталоге.
+#### backup.auditor {#backup-auditor}
+
+{% include [backup.auditor](../_roles/backup/auditor.md) %}
 
 {% endcut %}
 
@@ -384,86 +603,197 @@ description: В разделе представлена история изме�
 
 {% cut "{{ backup-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `backup.user` | Позволяет подключать провайдеров резервного копирования, подключать к сервису виртуальные машины и серверы {{ baremetal-full-name }}, привязывать политики резервного копирования к виртуальным машинам и серверам {{ baremetal-full-name }} и отвязывать их, а также просматривать информацию о ресурсах и квотах сервиса.
+#### backup.user {#backup-user}
+
+{% include [backup.user](../_roles/backup/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ mmy-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-mysql.clusters.connector` | Позволяет пользователям {{ yandex-cloud }} подключаться к базам данных в кластерах {{ mmy-full-name }} с помощью механизмов сервиса {{ iam-full-name }}.
+#### managed-mysql.clusters.connector {#managed-mysql-clusters-connector}
+
+{% include [managed-mysql.clusters.connector](../_roles/managed-mysql/clusters/connector.md) %}
 
 {% endcut %}
 
 {% cut "{{ mpg-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-postgresql.clusters.connector` | Позволяет пользователям {{ yandex-cloud }} подключаться к базам данных в кластерах {{ mpg-full-name }} с помощью механизмов сервиса {{ iam-full-name }}.
+#### managed-postgresql.clusters.connector {#managed-postgresql-clusters-connector}
+
+{% include [managed-postgresql.clusters.connector](../_roles/managed-postgresql/clusters/connector.md) %}
 
 {% endcut %}
 
 {% cut "{{ monium-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `monium.admin` | Позволяет управлять ресурсами {{ monium-name }}, просматривать и записывать все виды телеметрии, а также управлять проектами и доступом к ним.
-   `monium.editor` | Позволяет управлять ресурсами {{ monium-name }}, просматривать и записывать все виды телеметрии.
-   `monium.viewer` | Позволяет просматривать информацию о ресурсах {{ monium-name }} с возможностью чтения всех видов телеметрии.
-   `monium.auditor` | Позволяет просматривать информацию о ресурсах {{ monium-name }}.
-   `monium.alerts.editor` | Позволяет просматривать список алертов, их настройки и историю срабатываний, а также создавать, изменять и удалять алерты.
-   `monium.alerts.viewer` | Позволяет просматривать список алертов, их настройки и историю срабатываний.
-   `monium.channels.editor` | Позволяет просматривать список и информацию о каналах уведомлений для алертов, а также создавать, изменять и удалять каналы уведомлений.
-   `monium.channels.viewer` | Позволяет просматривать список и информацию о каналах уведомлений для алертов.
-   `monium.contextLinks.editor` | Позволяет просматривать настроенные контекстные ссылки на графиках дашбордов, а также создавать, изменять и удалять контекстные ссылки.
-   `monium.contextLinks.viewer` | Позволяет просматривать настроенные контекстные ссылки на графиках дашбордов.
-   `monium.dashboards.editor` | Позволяет просматривать дашборды и их виджеты, а также создавать, изменять и удалять дашборды.
-   `monium.dashboards.viewer` | Позволяет просматривать дашборды и их виджеты.
-   `monium.escalationPolicies.editor` | Позволяет просматривать список и настройки политик эскалации для алертов, а также создавать, изменять и удалять политики эскалации.
-   `monium.escalationPolicies.viewer` | Позволяет просматривать список и настройки политик эскалации для алертов.
-   `monium.escalations.editor` | Позволяет просматривать информацию об уведомлениях и эскалациях для алертов, а также создавать, изменять и удалять эскалации.
-   `monium.escalations.viewer` | Позволяет просматривать информацию об уведомлениях и эскалациях для алертов.
-   `monium.logErrorLabels.editor` | Позволяет просматривать, а также добавлять новые, редактировать и удалять существующие лейблы к ошибкам в логах.
-   `monium.logErrorLabels.viewer` | Позволяет просматривать лейблы, привязанные к ошибкам в логах.
-   `monium.logs.reader` | Позволяет читать логи и просматривать статистику ошибок по логам.
-   `monium.logs.writer` | Позволяет записывать логи.
-   `monium.metrics.reader` | Позволяет читать метрики, их значения и метки.
-   `monium.metrics.writer` | Позволяет записывать метрики.
-   `monium.mutes.editor` | Позволяет просматривать, а также создавать, изменять и удалять мьюты — правила временного отключения уведомлений для алертов.
-   `monium.mutes.viewer` | Позволяет просматривать мьюты — правила временного отключения уведомлений для алертов.
-   `monium.quickLinks.editor` | Позволяет просматривать список настроенных быстрых ссылок и информацию о них в меню проекта, а также создавать, изменять и удалять быстрые ссылки.
-   `monium.quickLinks.viewer` | Позволяет просматривать список настроенных быстрых ссылок и информацию о них в меню проектов.
-   `monium.serviceLevelObjectives.editor` | Позволяет просматривать настроенные SLO (Service Level Objectives), а также создавать, изменять и удалять SLO.
-   `monium.serviceLevelObjectives.viewer` | Позволяет просматривать настроенные SLO (Service Level Objectives).
-   `monium.shards.editor` | Позволяет просматривать информацию о шардах, кластерах, сервисах и их квотах, а также создавать, изменять и удалять шарды.
-   `monium.shards.viewer` | Позволяет просматривать информацию о шардах, кластерах, сервисах и их квотах.
-   `monium.telemetry.reader` | Позволяет читать все виды телеметрии {{ monium-name }}: метрики, логи и распределенные трассировки.
-   `monium.telemetry.writer` | Позволяет записывать все виды телеметрии {{ monium-name }}: метрики, логи и распределенные трассировки.
-   `monium.traces.reader` | Позволяет просматривать данные распределенных трассировок.
-   `monium.traces.writer` | Позволяет записывать данные распределенных трассировок.
+#### monium.admin {#monium-admin}
+
+{% include [monium.admin](../_roles/monium/admin.md) %}
+
+#### monium.editor {#monium-editor}
+
+{% include [monium.editor](../_roles/monium/editor.md) %}
+
+#### monium.viewer {#monium-viewer}
+
+{% include [monium.viewer](../_roles/monium/viewer.md) %}
+
+#### monium.auditor {#monium-auditor}
+
+{% include [monium.auditor](../_roles/monium/auditor.md) %}
+
+#### monium.alerts.editor {#monium-alerts-editor}
+
+{% include [monium.alerts.editor](../_roles/monium/alerts/editor.md) %}
+
+#### monium.alerts.viewer {#monium-alerts-viewer}
+
+{% include [monium.alerts.viewer](../_roles/monium/alerts/viewer.md) %}
+
+#### monium.channels.editor {#monium-channels-editor}
+
+{% include [monium.channels.editor](../_roles/monium/channels/editor.md) %}
+
+#### monium.channels.viewer {#monium-channels-viewer}
+
+{% include [monium.channels.viewer](../_roles/monium/channels/viewer.md) %}
+
+#### monium.contextLinks.editor {#monium-contextlinks-editor}
+
+{% include [monium.contextLinks.editor](../_roles/monium/contextLinks/editor.md) %}
+
+#### monium.contextLinks.viewer {#monium-contextlinks-viewer}
+
+{% include [monium.contextLinks.viewer](../_roles/monium/contextLinks/viewer.md) %}
+
+#### monium.dashboards.editor {#monium-dashboards-editor}
+
+{% include [monium.dashboards.editor](../_roles/monium/dashboards/editor.md) %}
+
+#### monium.dashboards.viewer {#monium-dashboards-viewer}
+
+{% include [monium.dashboards.viewer](../_roles/monium/dashboards/viewer.md) %}
+
+#### monium.escalationPolicies.editor {#monium-escalationpolicies-editor}
+
+{% include [monium.escalationPolicies.editor](../_roles/monium/escalationPolicies/editor.md) %}
+
+#### monium.escalationPolicies.viewer {#monium-escalationpolicies-viewer}
+
+{% include [monium.escalationPolicies.viewer](../_roles/monium/escalationPolicies/viewer.md) %}
+
+#### monium.escalations.editor {#monium-escalations-editor}
+
+{% include [monium.escalations.editor](../_roles/monium/escalations/editor.md) %}
+
+#### monium.escalations.viewer {#monium-escalations-viewer}
+
+{% include [monium.escalations.viewer](../_roles/monium/escalations/viewer.md) %}
+
+#### monium.logErrorLabels.editor {#monium-logerrorlabels-editor}
+
+{% include [monium.logErrorLabels.editor](../_roles/monium/logErrorLabels/editor.md) %}
+
+#### monium.logErrorLabels.viewer {#monium-logerrorlabels-viewer}
+
+{% include [monium.logErrorLabels.viewer](../_roles/monium/logErrorLabels/viewer.md) %}
+
+#### monium.logs.reader {#monium-logs-reader}
+
+{% include [monium.logs.reader](../_roles/monium/logs/reader.md) %}
+
+#### monium.logs.writer {#monium-logs-writer}
+
+{% include [monium.logs.writer](../_roles/monium/logs/writer.md) %}
+
+#### monium.metrics.reader {#monium-metrics-reader}
+
+{% include [monium.metrics.reader](../_roles/monium/metrics/reader.md) %}
+
+#### monium.metrics.writer {#monium-metrics-writer}
+
+{% include [monium.metrics.writer](../_roles/monium/metrics/writer.md) %}
+
+#### monium.mutes.editor {#monium-mutes-editor}
+
+{% include [monium.mutes.editor](../_roles/monium/mutes/editor.md) %}
+
+#### monium.mutes.viewer {#monium-mutes-viewer}
+
+{% include [monium.mutes.viewer](../_roles/monium/mutes/viewer.md) %}
+
+#### monium.quickLinks.editor {#monium-quicklinks-editor}
+
+{% include [monium.quickLinks.editor](../_roles/monium/quickLinks/editor.md) %}
+
+#### monium.quickLinks.viewer {#monium-quicklinks-viewer}
+
+{% include [monium.quickLinks.viewer](../_roles/monium/quickLinks/viewer.md) %}
+
+#### monium.serviceLevelObjectives.editor {#monium-servicelevelobjectives-editor}
+
+{% include [monium.serviceLevelObjectives.editor](../_roles/monium/serviceLevelObjectives/editor.md) %}
+
+#### monium.serviceLevelObjectives.viewer {#monium-servicelevelobjectives-viewer}
+
+{% include [monium.serviceLevelObjectives.viewer](../_roles/monium/serviceLevelObjectives/viewer.md) %}
+
+#### monium.shards.editor {#monium-shards-editor}
+
+{% include [monium.shards.editor](../_roles/monium/shards/editor.md) %}
+
+#### monium.shards.viewer {#monium-shards-viewer}
+
+{% include [monium.shards.viewer](../_roles/monium/shards/viewer.md) %}
+
+#### monium.telemetry.reader {#monium-telemetry-reader}
+
+{% include [monium.telemetry.reader](../_roles/monium/telemetry/reader.md) %}
+
+#### monium.telemetry.writer {#monium-telemetry-writer}
+
+{% include [monium.telemetry.writer](../_roles/monium/telemetry/writer.md) %}
+
+#### monium.traces.reader {#monium-traces-reader}
+
+{% include [monium.traces.reader](../_roles/monium/traces/reader.md) %}
+
+#### monium.traces.writer {#monium-traces-writer}
+
+{% include [monium.traces.writer](../_roles/monium/traces/writer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mgp-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-greenplum.clusters.connector` | Позволяет пользователям {{ yandex-cloud }} подключаться к базам данных в кластерах {{ mgp-full-name }} с помощью механизмов сервиса {{ iam-full-name }}.
+#### managed-greenplum.clusters.connector {#managed-greenplum-clusters-connector}
+
+{% include [managed-greenplum.clusters.connector](../_roles/managed-greenplum/clusters/connector.md) %}
 
 {% endcut %}
 
 {% cut "{{ sd-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `security-deck.alertSinks.admin` | Позволяет управлять приемниками алертов и алертами, а также доступом к ним.
-   `security-deck.alertSinks.editor` | Позволяет управлять приемниками алертов, алертами и комментариями в них.
-   `security-deck.alertSinks.user` | Позволяет просматривать информацию о приемниках алертов и использовать их.
-   `security-deck.alertSinks.viewer` | Позволяет просматривать информацию об алертах и приемниках алертов, а также о назначенных правах доступа к ним.
-   `security-deck.alertSinks.auditor` | Позволяет просматривать информацию о приемниках алертов и назначенных правах доступа к ним.
+#### security-deck.alertSinks.admin {#security-deck-alertsinks-admin}
+
+{% include [security-deck.alertSinks.admin](../_roles/security-deck/alertSinks/admin.md) %}
+
+#### security-deck.alertSinks.editor {#security-deck-alertsinks-editor}
+
+{% include [security-deck.alertSinks.editor](../_roles/security-deck/alertSinks/editor.md) %}
+
+#### security-deck.alertSinks.user {#security-deck-alertsinks-user}
+
+{% include [security-deck.alertSinks.user](../_roles/security-deck/alertSinks/user.md) %}
+
+#### security-deck.alertSinks.viewer {#security-deck-alertsinks-viewer}
+
+{% include [security-deck.alertSinks.viewer](../_roles/security-deck/alertSinks/viewer.md) %}
+
+#### security-deck.alertSinks.auditor {#security-deck-alertsinks-auditor}
+
+{% include [security-deck.alertSinks.auditor](../_roles/security-deck/alertSinks/auditor.md) %}
 
 {% endcut %}
 
@@ -477,27 +807,33 @@ description: В разделе представлена история изме�
 
 {% cut "{{ interconnect-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `cic.admin` | Позволяет управлять ресурсами сервиса {{ interconnect-name }}.
+#### cic.admin {#cic-admin}
+
+{% include [cic.admin](../_roles/cic/admin.md) %}
 
 {% endcut %}
 
 {% cut "{{ cr-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `cloud-router.admin` | Позволяет управлять ресурсами сервиса {{ cr-name }}.
-   `cloud-router.prefixEditor` | Позволяет управлять IP-префиксами облачных подсетей в Routing Instance, а также просматривать информацию о ресурсах сервиса {{ cr-name }}.
+#### cloud-router.admin {#cloud-router-admin}
+
+{% include [cloud-router.admin](../_roles/cloud-router/admin.md) %}
+
+#### cloud-router.prefixEditor {#cloud-router-prefixeditor}
+
+{% include [cloud-router.prefixEditor](../_roles/cloud-router/prefixEditor.md) %}
 
 {% endcut %}
 
 {% cut "{{ org-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `organization-manager.idpInstances.billingAdmin` | Позволяет управлять подпиской на платные возможности сервиса {{ org-full-name }}.
-   `organization-manager.idpInstances.billingViewer` | Позволяет просматривать список пользователей, которые в текущем отчетном периоде используют квоту для аутентификации в {{ org-full-name }}, а также информацию о подписке на платные возможности сервиса {{ org-full-name }} и статистике использования квот по этой подписке.
+#### organization-manager.idpInstances.billingAdmin {#organization-manager-idpinstances-billingadmin}
+
+{% include [organization-manager.idpInstances.billingAdmin](../_roles/organization-manager/idpInstances/billingAdmin.md) %}
+
+#### organization-manager.idpInstances.billingViewer {#organization-manager-idpinstances-billingviewer}
+
+{% include [organization-manager.idpInstances.billingViewer](../_roles/organization-manager/idpInstances/billingViewer.md) %}
 
 {% endcut %}
 
@@ -511,93 +847,99 @@ description: В разделе представлена история изме�
 
 {% cut "Управляемые базы данных" %}
 
-   Роль | Описание
-   --- | ---
-   `mdb.restorer` | Позволяет восстанавливать кластеры управляемых баз данных из резервных копий, а также предоставляет доступ к чтению информации из кластеров и к логам их работы.
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb.restorer](../_roles/mdb/restorer.md) %}
 
 {% endcut %}
 
 {% cut "{{ org-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `organization-manager.groups.externalConverter` | Позволяет добавлять в группы пользователей {{ org-full-name }} атрибут с идентификатором внешней группы при выполнении синхронизации с группами пользователей в каталоге Active Directory или другом внешнем источнике.
-   `organization-manager.groups.externalCreator` | Позволяет создавать группы пользователей {{ org-full-name }} при выполнении синхронизации с группами пользователей в каталоге Active Directory или другом внешнем источнике.
-   `organization-manager.userpools.syncAgent` | Позволяет выполнять синхронизацию пользователей и групп {{ org-full-name }} с пользователями и группами в каталоге Active Directory или другом внешнем источнике.
+#### organization-manager.groups.externalConverter {#organization-manager-groups-externalconverter}
+
+{% include [organization-manager.groups.externalConverter](../_roles/organization-manager/groups/externalConverter.md) %}
+
+#### organization-manager.groups.externalCreator {#organization-manager-groups-externalcreator}
+
+{% include [organization-manager.groups.externalCreator](../_roles/organization-manager/groups/externalCreator.md) %}
+
+#### organization-manager.userpools.syncAgent {#organization-manager-userpools-syncagent}
+
+{% include [organization-manager.userpools.syncAgent](../_roles/organization-manager/userpools/syncAgent.md) %}
 
 {% endcut %}
 
 {% cut "{{ mkf-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-kafka.restorer` | Позволяет восстанавливать кластеры {{ KF }} из резервных копий, просматривать информацию о кластерах и логи их работы, а также данные о квотах и операциях с ресурсами сервиса {{ mkf-name }}.
+#### managed-kafka.restorer {#managed-kafka-restorer}
+
+{% include [managed-kafka.restorer](../_roles/managed-kafka/restorer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mch-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-clickhouse.restorer` | Позволяет восстанавливать кластеры {{ CH }} из резервных копий, просматривать информацию о кластерах {{ CH }} и логи их работы, а также данные о квотах и операциях с ресурсами сервиса {{ mch-name }}.
+#### managed-clickhouse.restorer {#managed-clickhouse-restorer}
+
+{% include [managed-clickhouse.restorer](../_roles/managed-clickhouse/restorer.md) %}
 
 {% endcut %}
 
 
 {% cut "{{ mmy-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-mysql.restorer` | Позволяет восстанавливать кластеры {{ MY }} из резервных копий, просматривать информацию о кластерах, хостах, базах данных и пользователях {{ MY }}, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса {{ mmy-name }}.
+#### managed-mysql.restorer {#managed-mysql-restorer}
+
+{% include [managed-mysql.restorer](../_roles/managed-mysql/restorer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mos-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-opensearch.restorer` | Позволяет восстанавливать кластеры {{ OS }} из резервных копий, просматривать информацию о кластерах {{ OS }}, логи их работы, а также информацию о квотах и операциях с ресурсами сервиса {{ mos-name }}.
+#### managed-opensearch.restorer {#managed-opensearch-restorer}
+
+{% include [managed-opensearch.restorer](../_roles/managed-opensearch/restorer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mpg-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-postgresql.restorer` | Позволяет восстанавливать кластеры {{ PG }} из резервных копий, просматривать информацию о кластерах, хостах, базах данных и пользователях {{ PG }}, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса {{ mpg-name }}.
+#### managed-postgresql.restorer {#managed-postgresql-restorer}
+
+{% include [managed-postgresql.restorer](../_roles/managed-postgresql/restorer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mspqr-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-spqr.restorer` | Позволяет восстанавливать кластеры {{ SPQR }} из резервных копий, а также просматривать информацию о кластерах, хостах, базах данных и пользователях в кластерах {{ SPQR }}, логи работы кластеров, данные о квотах и операциях с ресурсами сервиса {{ mspqr-name }}.
+#### managed-spqr.restorer {#managed-spqr-restorer}
+
+{% include [managed-spqr.restorer](../_roles/managed-spqr/restorer.md) %}
 
 {% endcut %}
 
 
 {% cut "{{ mrd-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-redis.restorer` | Позволяет восстанавливать кластеры {{ VLK }} из резервных копий, а также просматривать информацию о хостах и кластерах {{ VLK }}, логи их работы, данные о квотах и операциях с ресурсами сервиса {{ mrd-name }}.
+#### managed-redis.restorer {#managed-redis-restorer}
+
+{% include [managed-redis.restorer](../_roles/managed-redis/restorer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mgp-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-greenplum.restorer` | Позволяет восстанавливать кластеры {{ mgp-name }} из резервных копий, просматривать информацию о кластерах и хостах, логи их работы, а также данные о квотах и операциях с ресурсами сервиса {{ mgp-name }}.
+#### managed-greenplum.restorer {#managed-greenplum-restorer}
+
+{% include [managed-greenplum.restorer](../_roles/managed-greenplum/restorer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mmg-full-name }}" %}
 
-   Роль | Описание
-   --- | ---
-   `managed-mongodb.restorer` | Позволяет восстанавливать кластеры {{ MG }} из резервных копий, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях {{ MG }}, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса {{ mmg-name }}.
+#### managed-mongodb.restorer {#managed-mongodb-restorer}
+
+{% include [managed-mongodb.restorer](../_roles/managed-mongodb/restorer.md) %}
 
 {% endcut %}
 
@@ -616,13 +958,11 @@ description: В разделе представлена история изме�
 * [Федерации сервисных аккаунтов](./concepts/workload-identity.md) (Workload Identity Federation) стали [доступны](../overview/concepts/launch-stages.md) всем пользователям. {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 * [Добавлено](../iam/concepts/authorization/id-token.md) создание ID-токена для сервисного аккаунта, специального короткоживущего токена для аутентификации в сторонних системах. {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
-
 ## IV квартал 2024 {#q4-2024}
 
 * [Добавлена](../iam/at-ref.md#data-plane-events) отправка события уровня сервисов `CreateIamToken` при создании IAM-токена.
 * Расширена область действия [API-ключей с ограниченным сроком](./concepts/authorization/api-key.md#supported-services) для работы с [{{ ydb-full-name }}](../ydb/) в режиме совместимости с {{ PG }}, [{{ postbox-full-name }}](../postbox/) и [{{ serverless-containers-full-name }}](../serverless-containers/). {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 * Добавлено отображение даты и времени последней аутентификации сервисного аккаунта. Информация доступна в поле `last_authenticated_at` с помощью команды `yc iam user-account get` [{{ yandex-cloud }} CLI](../cli/cli-ref/iam/cli-ref/user-account/get). {{ tag-cli }}
-
 
 ## III квартал 2024 {#q3-2024}
 
@@ -633,11 +973,9 @@ description: В разделе представлена история изме�
 * Появились [системные группы](./concepts/access-control/system-group.md) `All users in organization X` и `All users in federation N`.
 * Добавлен источник данных {{ TF }}, который позволяет получить идентификатор [сервисного агента](./concepts/service-control.md#service-agent). {{ tag-tf }}
 
-
 ## II квартал 2024 {#q2-2024}
 
 * Добавлено отображение даты последнего использования ключей доступа сервисных аккаунтов. Информация доступна на странице сервисного аккаунта в [консоли управления]({{ link-console-main }}), а также в поле `last_used_at` при вызове методов управления ключами доступа через API. {{ tag-con }} {{ tag-api }}
-
 
 ## I квартал 2024 {#q1-2024}
 

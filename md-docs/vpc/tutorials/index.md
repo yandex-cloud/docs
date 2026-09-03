@@ -31,6 +31,7 @@
 
 ## Cloud Interconnect {#sec-interconnect}
 
+* [Организация сетевой связности между несколькими виртуальными сетями с помощью VPC Stitching](vpc-stitching.md)
 * [Организация доступа через Cloud Interconnect к облачным сетям, размещенным за NGFW](cic-with-ngfw.md)
 
 ## Настройка сетевых ресурсов и взаимодействие между ними {#sec-network-resources}

@@ -73,6 +73,12 @@ description: В данном разделе приведены описания 
 
 {% include [org-events-dp](../../_includes/audit-trails/events/org-events-dp.md) %}
 
+## {{ src-full-name }} {#sourcecraft}
+
+Имя сервиса — `sourcecraft`.
+
+{% include [sourcecraft-events-dp](../../_includes/audit-trails/events/sourcecraft-events-dp.md) %}
+
 ## {{ iam-full-name }} {#iam}
 
 Имя сервиса — `iam`.
@@ -232,5 +238,4 @@ description: В данном разделе приведены описания 
 Имя сервиса — `websql`.
 
 {% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}
-
 

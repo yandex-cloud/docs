@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > BareMetal Audit Trails Events > ExternalFlow
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > BareMetal Audit Trails Events > flowlogs.ExternalFlow
 
 # BareMetal Audit Trails Events: ExternalFlow
 

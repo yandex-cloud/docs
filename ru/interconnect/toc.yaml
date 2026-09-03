@@ -47,6 +47,10 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: >-
+          Организация сетевой связности между несколькими виртуальными сетями с
+          помощью VPC Stitching
+        href: tutorials/vpc-stitching.md
       - name: Разрешение облачных DNS-имен в корпоративной сети
         href: tutorials/dns-integration.md
       - name: >-

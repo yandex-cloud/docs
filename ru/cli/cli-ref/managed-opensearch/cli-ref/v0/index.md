@@ -45,6 +45,8 @@ Syntax:
 
   - [yc managed-opensearch v0 cluster list-backups](cluster/list-backups.md) — List available backups for an OpenSearch cluster.
 
+  - [yc managed-opensearch v0 cluster move](cluster/move.md) — Move a managed OpenSearch cluster into a new folder
+
   - [yc managed-opensearch v0 cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified OpenSearch cluster
 
   - [yc managed-opensearch v0 cluster restart-opensearch](cluster/restart-opensearch.md) — Restart OpenSearch on host.

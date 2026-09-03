@@ -27,6 +27,7 @@
 * [Yandex Compute Cloud](events-data-plane.md#compute)
 * [Yandex AI Studio](events-data-plane.md#ai-studio)
 * [Yandex Identity Hub](events-data-plane.md#organization)
+* [SourceCraft](events-data-plane.md#sourcecraft)
 * [Yandex Identity and Access Management](events-data-plane.md#iam)
 * [Yandex Key Management Service](events-data-plane.md#kms)
 * [Yandex Lockbox](events-data-plane.md#lockbox)

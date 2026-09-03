@@ -2,6 +2,12 @@
 
 # Обзор сервиса Serverless Integrations
 
+{% note warning %}
+
+Сервис Yandex Serverless Integrations прекращает работу 8 октября 2026 года. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса Yandex Serverless Integrations](../sunset.md).
+
+{% endnote %}
+
 Yandex Serverless Integrations — это сервис для настройки интеграций и управления ими с помощью serverless-технологий в Yandex Cloud.
 
 Serverless Integrations позволяет:

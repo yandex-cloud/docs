@@ -422,6 +422,8 @@
 
  - [WinSCP](tools/winscp.md)
 
+ - [Obsidian](tools/obsidian.md)
+
 ### SDK
 
  - [Все SDK](tools/sdk/index.md)

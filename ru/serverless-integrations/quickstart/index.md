@@ -12,6 +12,8 @@ keywords:
 
 # Начало работы с {{ si-full-name }}
 
+{% include [sunset-note](../../_includes/serverless-integrations/sunset-note.md) %}
+
 {{ si-full-name }} позволяет настраивать интеграции и управлять ими с помощью serverless-технологий в {{ yandex-cloud }}.
 
 Начните работу с функциональностями {{ si-name }}:

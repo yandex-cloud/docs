@@ -21,6 +21,8 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-greenplum v0 hba-rules batch-update](batch-update.md) — Replace all hba-rules for specified Greenplum cluster
+
 - [yc managed-greenplum v0 hba-rules create](create.md) — Create hba-rule for specified Greenplum cluster
 
 - [yc managed-greenplum v0 hba-rules delete](delete.md) — Delete hba-rule for specified Greenplum cluster

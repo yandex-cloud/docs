@@ -178,6 +178,8 @@ Yandex Virtual Private Cloud служит для управления облач
 
 ### Cloud Interconnect
 
+ - [Организация сетевой связности между несколькими виртуальными сетями с помощью VPC Stitching](tutorials/vpc-stitching.md)
+
  - [Организация доступа через Cloud Interconnect к облачным сетям, размещенным за NGFW](tutorials/cic-with-ngfw.md)
 
 ### Настройка сетевых ресурсов и взаимодействие между ними

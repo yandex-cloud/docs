@@ -2,6 +2,12 @@
 
 # Cron-выражения в Serverless Integrations
 
+{% note warning %}
+
+Сервис Yandex Serverless Integrations прекращает работу 8 октября 2026 года. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса Yandex Serverless Integrations](../sunset.md).
+
+{% endnote %}
+
 Вы можете задавать расписания в Serverless Integrations в формате [cron-выражений](https://ru.wikipedia.org/wiki/Cron). По умолчанию время в cron-выражении указывается по [UTC+0](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
 
 ## Формат cron-выражения {#cron-expression}

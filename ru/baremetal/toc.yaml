@@ -181,8 +181,6 @@ items:
                     href: events-ref/DeleteServer.md
                   - name: DeleteVRF
                     href: events-ref/DeleteVRF.md
-                  - name: ExternalFlow
-                    href: events-ref/ExternalFlow.md
                   - name: PowerOffServer
                     href: events-ref/PowerOffServer.md
                   - name: PowerOnServer
@@ -213,7 +211,7 @@ items:
                     href: events-ref/UpdateVRF.md
                   - name: BareMetal Audit Trails Events
                     items:
-                      - name: ExternalFlow
+                      - name: flowlogs.ExternalFlow
                         href: flowlogs/events-ref/ExternalFlow.md
           - name: Управление доступом
             href: security/index.md

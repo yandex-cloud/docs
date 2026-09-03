@@ -190,8 +190,6 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [DeleteVRF](events-ref/DeleteVRF.md)
 
- - [ExternalFlow](events-ref/ExternalFlow.md)
-
  - [PowerOffServer](events-ref/PowerOffServer.md)
 
  - [PowerOnServer](events-ref/PowerOnServer.md)
@@ -222,7 +220,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
 ###### BareMetal Audit Trails Events
 
- - [ExternalFlow](flowlogs/events-ref/ExternalFlow.md)
+ - [flowlogs.ExternalFlow](flowlogs/events-ref/ExternalFlow.md)
 
  - [Управление доступом](security/index.md)
 
