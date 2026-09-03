@@ -5,7 +5,7 @@ description: Remotely Save — плагин для Obsidian, который си
 
 # Remotely Save
 
-[Remotely Save](https://github.com/remotely-save/remotely-save) — плагин для [Obsidian](https://obsidian.md/), который синхронизирует хранилище заметок с облачными хранилищами, совместимыми с [Amazon S3 API](../../glossary/s3.md), в том числе с {{ objstorage-name }}.
+[Remotely Save](https://github.com/remotely-save/remotely-save) — плагин для [Obsidian](https://obsidian.md/), который синхронизирует хранилище заметок с облачными хранилищами, совместимыми с {% if lang == "ru" %}[Amazon S3 API](../../glossary/s3.md){% else %}Amazon S3 API{% endif %}, в том числе с {{ objstorage-name }}.
 
 ## Подготовка к работе {#before-you-begin}
 
