@@ -2,13 +2,9 @@
 
 {{ cdn-name }} предоставляет логи запросов к CDN-серверам и, если включено [экранирование источников](origins-shielding.md), к экранирующим серверам.
 
-Выгрузка логов [включается](../operations/resources/configure-logs.md#enabling) для конкретного [CDN-ресурса](resource.md). Для выгрузки логов нужен [бакет](../../storage/concepts/bucket.md) в {{ objstorage-full-name }}. 
+Выгрузка логов [включается](../operations/resources/configure-logs.md#enabling) для конкретного [CDN-ресурса](resource.md). Для выгрузки логов нужен [бакет](../../storage/concepts/bucket.md) в {{ objstorage-full-name }}.
 
-{% note info %}
-
-Не настраивайте [политику доступа](../../storage/concepts/policy.md), которая запрещает доступ к бакету. Если политика доступа ограничивает доступ к бакету, запрос на выгрузку логов вернет ошибку `403 Forbidden`. Логи, запись которых выполнить не удалось, не будут выгружены, даже если вы восстановите доступ к бакету.
-
-{% endnote %}
+{% include [logs-bucket-policy](../../_includes/cdn/logs-bucket-policy.md) %}
 
 Выгрузка логов — платная функция, о ее тарификации в разделе [{#T}](../pricing.md).
 

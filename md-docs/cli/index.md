@@ -6264,6 +6264,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [Overview](cli-ref/managed-greenplum/cli-ref/hba-rules/index.md)
 
+ - [batch-update](cli-ref/managed-greenplum/cli-ref/hba-rules/batch-update.md)
+
  - [create](cli-ref/managed-greenplum/cli-ref/hba-rules/create.md)
 
  - [delete](cli-ref/managed-greenplum/cli-ref/hba-rules/delete.md)
@@ -6427,6 +6429,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 ##### hba-rules
 
  - [Overview](cli-ref/managed-greenplum/cli-ref/v0/hba-rules/index.md)
+
+ - [batch-update](cli-ref/managed-greenplum/cli-ref/v0/hba-rules/batch-update.md)
 
  - [create](cli-ref/managed-greenplum/cli-ref/v0/hba-rules/create.md)
 
@@ -7604,6 +7608,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list-backups](cli-ref/managed-opensearch/cli-ref/cluster/list-backups.md)
 
+ - [move](cli-ref/managed-opensearch/cli-ref/cluster/move.md)
+
  - [remove-access-binding](cli-ref/managed-opensearch/cli-ref/cluster/remove-access-binding.md)
 
  - [restart-opensearch](cli-ref/managed-opensearch/cli-ref/cluster/restart-opensearch.md)
@@ -7691,6 +7697,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [list-access-bindings](cli-ref/managed-opensearch/cli-ref/v0/cluster/list-access-bindings.md)
 
  - [list-backups](cli-ref/managed-opensearch/cli-ref/v0/cluster/list-backups.md)
+
+ - [move](cli-ref/managed-opensearch/cli-ref/v0/cluster/move.md)
 
  - [remove-access-binding](cli-ref/managed-opensearch/cli-ref/v0/cluster/remove-access-binding.md)
 

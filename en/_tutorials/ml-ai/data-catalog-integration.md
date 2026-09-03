@@ -1,5 +1,6 @@
 # Integration with {{ data-catalog-full-name }}
 
+
 You can use an AI assistant to search and analyze patterns in [metadata catalogs](../../metadata-hub/concepts/data-catalog.md) deployed in {{ data-catalog-name }}. To do that, you need to connect the {{ data-catalog-name }} MCP server to {{ mcp-hub-name }}. The server allows you to request the list of metadata catalogs, search through metadata, and obtain its lineage graph at the table and column level for use in the context of conversation with agents.
 
 To set up integration with {{ data-catalog-name }} in {{ ai-studio-name }}:

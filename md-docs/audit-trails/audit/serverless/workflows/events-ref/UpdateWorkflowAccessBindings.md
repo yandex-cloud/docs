@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > serverless > UpdateWorkflowAccessBindings
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > serverless > workflows.UpdateWorkflowAccessBindings
 
 # Serverless Workflows Audit Trails Events: UpdateWorkflowAccessBindings
 

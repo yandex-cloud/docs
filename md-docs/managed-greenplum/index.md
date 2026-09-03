@@ -294,6 +294,8 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [Overview](cli-ref/hba-rules/index.md)
 
+ - [batch-update](cli-ref/hba-rules/batch-update.md)
+
  - [create](cli-ref/hba-rules/create.md)
 
  - [delete](cli-ref/hba-rules/delete.md)
@@ -457,6 +459,8 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 #### hba-rules
 
  - [Overview](cli-ref/v0/hba-rules/index.md)
+
+ - [batch-update](cli-ref/v0/hba-rules/batch-update.md)
 
  - [create](cli-ref/v0/hba-rules/create.md)
 

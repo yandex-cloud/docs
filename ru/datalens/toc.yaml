@@ -1359,8 +1359,10 @@ items:
     href: at-ref.md
   - name: История изменений
     items:
-      - name: Июль 2026
+      - name: Август 2026
         href: release-notes/index.md
+      - name: Июль 2026
+        href: release-notes/2607.md
       - name: Июнь 2026
         href: release-notes/2606.md
       - name: Май 2026
@@ -1369,10 +1371,10 @@ items:
         href: release-notes/2604.md
       - name: Март 2026
         href: release-notes/2603.md
-      - name: Февраль 2026
-        href: release-notes/2602.md
       - name: Архив
         items:
+          - name: Февраль 2026
+            href: release-notes/2602.md
           - name: Январь 2026
             href: release-notes/2601.md
           - name: Декабрь 2025

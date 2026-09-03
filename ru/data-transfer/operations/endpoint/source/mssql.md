@@ -40,7 +40,6 @@ description: Следуя данной инструкции, вы сможете
 
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.username.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.password.title }}** — имя и пароль пользователя БД.
   
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.replication_method.title }}** — способ репликации, используемый для извлечения данных из базы данных. Репликация типа `STANDARD` не требует настройки на стороне БД, но не сможет отображать изменения данных. Репликация типа `CDC` позволяет обнаруживать вставки, обновления и удаления.
   
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.ssl_method.title }}** — метод шифрования, который используется при обмене данными с базой данных:
       

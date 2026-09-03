@@ -43,7 +43,7 @@ The hypervisor's job is to distribute resources (time) between physical and virt
 || **VMware Cloud Director** | **{{ yandex-cloud }}** ||
 || VMware vSphere allows very flexible management of overcommitment both within an ESXi cluster and within a single physical core through the use of `MaxVCPUsPerCore` and `MaxVCPUsPerCluster` settings. This is done by the cloud administrator at the vSphere level. Generally, service providers plan for target and acceptable overcommitment. This approach maximizes VM placement density, while the scheduler ensures optimal performance.
 
-It is important to consider workload requirements to the virtualization platform, since there are applications that do not allow vCPU overcommitment. Those that do have certain requirements for the acceptable ratio of allocated cores to physical ones in a virtualized environment.
+It is important to consider workload requirements to the virtualization platform, since there are applications that do not allow vCPU overcommitment. Those that do have certain requirements for the acceptable ratio of allocated cores to physical ones in a virtual environment.
 
 For example, virtually all enterprise-level database management systems require 1 : 1 overcommitment ratio, while terminal solutions, such as VMware Horizon or Microsoft RDS, may allow 1 : 10. 
 | {{ yandex-cloud }} allows you to manage vCPU overcommitment for VM configurations with as many as 4 cores. By default, VM overcommitment for production workloads is at the recommended ratio of 1 : 1.

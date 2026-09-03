@@ -81,6 +81,10 @@ items:
   - name: Практические руководства
     items:
       - name: >-
+          Организация сетевой связности между несколькими виртуальными сетями с
+          помощью VPC Stitching
+        href: tutorials/vpc-stitching.md
+      - name: >-
           Организация сетевой связности между приватной подсетью {{
           baremetal-name }} и сетью {{ vpc-name }}
         href: tutorials/bm-vrf-and-vpc-interconnect.md

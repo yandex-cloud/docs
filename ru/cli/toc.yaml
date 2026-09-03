@@ -6963,6 +6963,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-greenplum/cli-ref/hba-rules/index.md
+              - name: batch-update
+                href: cli-ref/managed-greenplum/cli-ref/hba-rules/batch-update.md
               - name: create
                 href: cli-ref/managed-greenplum/cli-ref/hba-rules/create.md
               - name: delete
@@ -7148,6 +7150,9 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/managed-greenplum/cli-ref/v0/hba-rules/index.md
+                  - name: batch-update
+                    href: >-
+                      cli-ref/managed-greenplum/cli-ref/v0/hba-rules/batch-update.md
                   - name: create
                     href: cli-ref/managed-greenplum/cli-ref/v0/hba-rules/create.md
                   - name: delete
@@ -8459,6 +8464,8 @@ items:
                   cli-ref/managed-opensearch/cli-ref/cluster/list-access-bindings.md
               - name: list-backups
                 href: cli-ref/managed-opensearch/cli-ref/cluster/list-backups.md
+              - name: move
+                href: cli-ref/managed-opensearch/cli-ref/cluster/move.md
               - name: remove-access-binding
                 href: >-
                   cli-ref/managed-opensearch/cli-ref/cluster/remove-access-binding.md
@@ -8555,6 +8562,8 @@ items:
                   - name: list-backups
                     href: >-
                       cli-ref/managed-opensearch/cli-ref/v0/cluster/list-backups.md
+                  - name: move
+                    href: cli-ref/managed-opensearch/cli-ref/v0/cluster/move.md
                   - name: remove-access-binding
                     href: >-
                       cli-ref/managed-opensearch/cli-ref/v0/cluster/remove-access-binding.md

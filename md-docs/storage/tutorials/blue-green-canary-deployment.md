@@ -524,7 +524,6 @@
       | `Исходящий` | `any` | `Весь` | `Любой` | `Диапазон адресов` | `0.0.0.0/0` |
       | `Входящий` | `ext-http` | `80` | `TCP` | `Диапазон адресов` | `0.0.0.0/0` |
       | `Входящий` | `ext-https` | `443` | `TCP` | `Диапазон адресов` | `0.0.0.0/0` |
-      | `Входящий` | `healthchecks` | `30080` | `TCP` | `Проверки состояния балансировщика` | — |
 
      1. Перейдите на вкладку **Исходящий трафик** или **Входящий трафик**.
      1. Нажмите кнопку **Добавить правило**.
@@ -533,7 +532,6 @@
      1. В поле **Назначение** или **Источник** выберите назначение правила:
 
         * `Диапазон адресов` — правило будет применено к диапазону IP-адресов. В поле **IPv4 CIDR** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **Добавить CIDR**.
-        * `Проверки состояния балансировщика` — правило, которое позволяет балансировщику проверять состояние ВМ.
 
      1. Нажмите кнопку **Сохранить**. Таким образом создайте все правила из таблицы.
 
@@ -548,8 +546,7 @@
     --network-name canary-network \
     --rule direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0] \
     --rule direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0] \
-    --rule direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0] \
-    --rule direction=ingress,port=30080,protocol=tcp,predefined=loadbalancer_healthchecks
+    --rule direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0]
   ```
 
   Результат:
@@ -589,14 +586,6 @@
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enpmorcimu65********
-    direction: INGRESS
-    ports:
-      from_port: "30080"
-      to_port: "30080"
-    protocol_name: TCP
-    protocol_number: "6"
-    predefined_target: loadbalancer_healthchecks
   ```
 
   Подробнее о команде `yc vpc security-group create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
@@ -628,11 +617,6 @@
          v4_cidr_blocks = ["0.0.0.0/0"]
        }
 
-       ingress {
-         protocol          = "TCP"
-         port              = 30080
-         predefined_target = "loadbalancer_healthchecks"
-       }
      }
      ```
 
@@ -662,8 +646,6 @@
 - API {#api}
 
   Используйте вызов gRPC API [SecurityGroupService/Create](../../vpc/api-ref/grpc/SecurityGroup/create.md) или метод REST API [create](../../vpc/api-ref/SecurityGroup/create.md).
-
-  Чтобы добавить правило для проверок состояния балансировщика, используйте параметр `loadbalancer_healthchecks` в поле [SecurityGroupRuleSpec.target.predefined_target](../../vpc/api-ref/grpc/SecurityGroup/create.md#yandex.cloud.vpc.v1.SecurityGroupRuleSpec) для gRPC API или в поле [predefinedTarget](../../vpc/api-ref/SecurityGroup/create.md#yandex.cloud.vpc.v1.CreateSecurityGroupRequest) для REST API.
 
 {% endlist %}
 

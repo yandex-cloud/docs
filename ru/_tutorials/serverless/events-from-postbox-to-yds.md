@@ -86,24 +86,24 @@
       ```sql
       CREATE TABLE postbox_events
       (
-          saved_datetime Datetime NOT NULL,
-          eventid String NOT NULL,
-          eventtype String,
-          mail_timestamp Timestamp,
-          mail_messageid String,
-          mail_ch_from String,
-          mail_ch_to String, 
-          mail_ch_messageid String,
-          mail_ch_subject String,
+          saved_datetime Datetime,
+          eventid Utf8 NOT NULL,
+          eventtype Utf8,
+          mail_timestamp Timestamp NOT NULL,
+          mail_messageid Utf8,
+          mail_ch_from Utf8,
+          mail_ch_to Utf8,
+          mail_ch_messageid Utf8,
+          mail_ch_subject Utf8,
           delivery_timestamp Timestamp,
           delivery_time_ms Uint64,
-          delivery_recipients String,
-          bounce_bounceType String,
-          bounce_bounceSubType String,
-          bounce_bouncedRecipients String,
+          delivery_recipients Utf8,
+          bounce_bounceType Utf8,
+          bounce_bounceSubType Utf8,
+          bounce_bouncedRecipients Utf8,
           bounce_timestamp Timestamp,
           -- message Json,
-          PRIMARY KEY (saved_datetime, eventid)
+          PRIMARY KEY (mail_timestamp, eventid)
       )
       ```
 
@@ -136,7 +136,22 @@
 
 ### Пройдите проверку владения доменом {#domain}
 
-{% include [check-domain](../../_includes/postbox/check-domain.md) %}
+Чтобы пройти проверку, создайте TXT-запись в личном кабинете DNS-провайдера, которому делегирован ваш домен:
+
+* Имя записи — часть имени, сгенерированного при создании адреса, без домена в формате `<селектор>._domainkey`. Например `postbox._domainkey`.
+* Значение — содержимое поля **{{ ui-key.yacloud.postbox.label_dns-record-value }}** из блока **{{ ui-key.yacloud.postbox.section_dkim }}** на странице адреса в {{ postbox-name }}.
+
+Если вы делегировали домен {{ dns-full-name }}:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  {% include [check-domain-advanced](../../_includes/postbox/check-domain-advanced.md) %}
+
+{% endlist %}
+
+Ответы DNS-сервера кешируются, поэтому возможны задержки при обновлении ресурсной записи. Если статус проверки не изменится в течение 24 часов, нажмите кнопку **{{ ui-key.yacloud.postbox.button_run-verification }}**.
 
 
 ## Подготовьте ресурсы {{ sf-name }} {#serverless-functions}
@@ -150,7 +165,10 @@
 
 - Архив
 
-  [Скачайте](https://github.com/yandex-cloud-examples/yc-postbox-events/raw/main/build/postbox-events.zip) архив `postbox-events.zip` на свой компьютер. В архиве находятся файлы `index.py` и `requirements.txt`, содержащие код функции.
+  [Скачайте](https://github.com/yandex-cloud-examples/yc-postbox-events/raw/main/build/postbox-events.zip) архив `postbox-events.zip` на свой компьютер. В архиве находятся файлы:
+
+  * `index.py` — код функции;
+  * `requirements.txt` — зависимости.
 
 - Репозиторий
 
@@ -159,10 +177,13 @@
   1. Склонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-postbox-events/tree/main) с кодом функции:
 
       ```bash
-      git clone https://github.com/yandex-cloud-examples/yc-postbox-events/blob/main/build/postbox-events.git
+      git clone https://github.com/yandex-cloud-examples/yc-postbox-events.git
       ```
 
-      Перейдите в директорию с репозиторием. В ней должны появиться файлы `index.py` и `requirements.txt`, содержащие код функции.
+      Перейдите в директорию с репозиторием. В ней должны появиться файлы:
+
+      * `index.py` — код функции;
+      * `requirements.txt` — зависимости.
 
   1. Создайте архив с именем `postbox-events.zip` и добавьте в него файлы `index.py` и `requirements.txt`.
 
@@ -181,11 +202,11 @@
 
       * Эндпоинт БД указан в блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** в первой части значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`):
 
-          >Например, эндпоинт для БД в режиме Serverless — `{{ ydb.ep-serverless }}`.
+          > Например, эндпоинт для БД в режиме Serverless — `{{ ydb.ep-serverless }}`.
 
       * Путь БД указан в блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** во второй части значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`).
 
-          >Пример пути БД: `{{ ydb.path-serverless }}`.
+          > Пример пути БД: `{{ ydb.path-serverless }}`.
 
 {% endlist %}
 
@@ -225,7 +246,7 @@
               Ключ | Описание | Пример значения
               :--- | :--- | :---
               `YDB_DATABASE` | Путь БД     | `/{{ region-id }}/b1go123e9vjq********/etnu15kr22********`
-              `YDB_ENDPOINT` | Эндпоинт БД | `grpcs://ydb.serverless.yandexcloud.net:2135`
+              `YDB_ENDPOINT` | Эндпоинт БД | `{{ ydb.ep-serverless }}`
               `YDB_TABLE`    | Имя таблицы | `postbox_events`
 
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
@@ -275,6 +296,8 @@
           1. Выберите таблицу `postbox_events`.
 
               В таблице должны появиться записи. В некоторых столбцах может быть значение `NULL` — это зависит от [типа уведомления](../../postbox/concepts/notification.md#types), которое было получено от сервиса {{ postbox-name }}.
+
+      * [Посмотрите](../../functions/operations/function/function-logs.md) логи функции.
 
     {% endlist %}
 

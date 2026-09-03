@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Записать логи в журнал выполнения шины
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% include [logging-note](../../../../_includes/functions/logging-note.md) %}
 
 {% list tabs group=instructions %}

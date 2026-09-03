@@ -4,6 +4,47 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.32.0 (03.09.26) {#v-1-32-0}
+
+#### Application Load Balancer {#v-1-32-0-alb-name}
+
+В следующие команды добавлены параметры `--tls-client-certificate-id`, `--tls-sni` и `--tls-trusted-ca-from-file` для использования клиентского сертификата в группах бэкендов:
+* `yc application-load-balancer backend-group add-http-backend`;
+* `yc application-load-balancer backend-group add-grpc-backend`;
+* `yc application-load-balancer backend-group add-stream-backend`;
+* `yc application-load-balancer backend-group update-http-backend`;
+* `yc application-load-balancer backend-group update-grpc-backend`;
+* `yc application-load-balancer backend-group update-stream-backend`.
+
+#### BareMetal {#v-1-32-0-baremetal-name}
+
+В следующих командах убрано ограничение на минимальное количество приватных подсетей при аренде и изменении параметров сервера:
+* `yc baremetal server create`;
+* `yc baremetal server update`.
+
+#### Managed Service for ClickHouse® {#v-1-32-0-mch-name}
+
+Добавлена возможность выбрать каталоги для подключений и секретов Connection Manager:
+* Для следующих команд используется параметр `--connection-manager`:
+  * `yc managed-clickhouse cluster create`;
+  * `yc managed-clickhouse cluster update`;
+  * `yc managed-clickhouse cluster restore`.
+* Для команды `yc managed-clickhouse user create` используются параметры `--connection-folder-id` и `--secret-folder-id`.
+
+#### Yandex MPP Analytics for PostgreSQL {#v-1-32-0-mgp-name}
+
+Добавлена команда `yc managed-greenplum hba-rules batch-update` для полной замены правил HBA из файла в формате YAML или JSON либо очистки списка правил.
+
+#### Managed Service for OpenSearch {#v-1-32-0-mos-name}
+
+Добавлена команда `yc managed-opensearch cluster move` для переноса кластера в другой каталог.
+
+#### Сервисы управляемых баз данных {##v-1-32-0-mdb}
+
+В команде `yc managed-zonalshift config update` добавлена поддержка значений параметра `--cluster-id`, разделенных запятыми.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.31.0 (31.08.26) {#v-1-31-0}
 
 #### Yandex MPP Analytics for PostgreSQL {#v-1-31-0-mgp-name}
@@ -22,8 +63,6 @@
 * Добавлены команды для создания и редактирования триггеров для Яндекс Мессенджера:
   * `yc serverless trigger v2 create yandex-messenger`;
   * `yc serverless trigger v2 update yandex-messenger`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.30.0 (27.08.26) {#v-1-30-0}
 

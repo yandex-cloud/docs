@@ -2,6 +2,12 @@
 
 # Сервисные роли для EventRouter
 
+{% note warning %}
+
+Сервис Yandex Serverless Integrations прекращает работу 8 октября 2026 года. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса Yandex Serverless Integrations](../sunset.md).
+
+{% endnote %}
+
 С помощью сервисных ролей [EventRouter](../concepts/index.md#eventrouter) вы можете управлять доступом пользователей к ресурсам EventRouter — [шинам](../concepts/eventrouter/bus.md), [коннекторам](../concepts/eventrouter/connector.md) и [правилам](../concepts/eventrouter/rule.md).
 
 ```mermaid

@@ -186,6 +186,8 @@
 
  - [list-backups](cli-ref/cluster/list-backups.md)
 
+ - [move](cli-ref/cluster/move.md)
+
  - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
 
  - [restart-opensearch](cli-ref/cluster/restart-opensearch.md)
@@ -273,6 +275,8 @@
  - [list-access-bindings](cli-ref/v0/cluster/list-access-bindings.md)
 
  - [list-backups](cli-ref/v0/cluster/list-backups.md)
+
+ - [move](cli-ref/v0/cluster/move.md)
 
  - [remove-access-binding](cli-ref/v0/cluster/remove-access-binding.md)
 

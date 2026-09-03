@@ -128,12 +128,6 @@ resource "yandex_vpc_security_group" "sg-balancer" {
     port           = 443
   }
 
-  ingress {
-    protocol          = "TCP"
-    description       = "healthchecks"
-    predefined_target = "loadbalancer_healthchecks"
-    port              = 30080
- }
 }
 
 resource "yandex_vpc_security_group" "sg-vms" {

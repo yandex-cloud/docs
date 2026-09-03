@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Посмотреть роли, назначенные на ресурс {{ er-name }}
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% note info %}
 
 Роли, назначенные на каталог, облако или организацию, автоматически [наследуются](../../../../iam/concepts/access-control/index.md#inheritance) ресурсами {{ er-name }}. При этом они не отображаются в списке ролей, назначенных на них. Подробнее о [просмотре ролей](../../../../iam/operations/roles/get-assigned-roles.md).

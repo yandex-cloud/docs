@@ -1442,6 +1442,15 @@ Possible property names:
 - `hour`: Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.
 
 - `day`: Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun' ||
+|| `--connection-manager` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Connection Manager cluster integration settings
+
+Possible property names:
+
+- `connections-folder-id`: ID of the folder where connections for the cluster are created
+
+- `secrets-folder-id`: ID of the folder where connection secrets are created. ||
 |#
 
 #### Global Flags

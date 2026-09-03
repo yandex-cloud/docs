@@ -31,6 +31,8 @@
 `application.linked.UpdateApplicationAssignments` | Изменение списка пользователей связанного приложения
 `idp.AddUserBlock` | Добавление блока пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
+`idp.application.CreateAsset` | Загрузка ресурса приложения
+`idp.application.DeleteAsset` | Удаление ресурса приложения
 `idp.branding.CreateAsset` | Загрузка ресурса для [брендирования](../../../organization/concepts/branding.md)
 `idp.branding.CreateBranding` | Создание брендирования
 `idp.branding.DeleteAsset` | Удаление ресурса для брендирования
@@ -69,9 +71,12 @@
 `policy.CreateAuthenticationPolicyRule` | Создание правила политики аутентификации
 `policy.DeactivateAuthenticationPolicyRule` | Деактивация правила политики аутентификации
 `policy.DeleteAuthenticationPolicyRule` | Удаление правила политики аутентификации
+`policy.DeleteRefreshTokenPolicy` | Удаление политики обновления токена
 `policy.UpdateAuthenticationPolicyRule` | Изменение правила политики аутентификации
+`policy.UpdateRefreshTokenPolicy` | Изменение политики обновления токена
 `RejectInvitation` | Отказ от приглашения
 `ResendInvitation` | Повторная отправка приглашения
+`SetTwoFactorAuthenticationPassportRequired` | Установка требования двухфакторной аутентификации для аккаунтов на Яндексе
 `saml.AddFederatedUserAccounts` | Добавление пользователя в федерацию
 `saml.AddFederationDomain` | Привязка [домена](../../../organization/concepts/domains.md) к федерации
 `saml.CreateApplication` | Создание [SAML](../../../organization/concepts/add-federation.md)-приложения

@@ -5,4 +5,6 @@ description: Чтобы выполнять операции через API в с
 
 # Аутентификация в API {{ sw-name }} (Триггеры)
 
+{% include [sunset-note](../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% include notitle [auth](../../../_includes/authentication.md) %}
