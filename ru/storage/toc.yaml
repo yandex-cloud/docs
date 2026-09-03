@@ -468,6 +468,8 @@ items:
             href: tools/cyberduck.md
           - name: WinSCP
             href: tools/winscp.md
+          - name: Obsidian
+            href: tools/obsidian.md
       - name: SDK
         items:
           - name: Все SDK

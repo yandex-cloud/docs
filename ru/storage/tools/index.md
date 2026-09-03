@@ -17,6 +17,7 @@ description: Перечень поддерживаемых инструмент�
 
 * [Cyberduck](cyberduck.md)
 * [WinSCP](winscp.md)
+* [Obsidian](obsidian.md)
 
 ## SDK {#sdk}
 
@@ -36,7 +37,6 @@ description: Перечень поддерживаемых инструмент�
 * [s3fs](s3fs.md)
 * [goofys](goofys.md)
 * [rclone](rclone.md)
-
 
 ## FTP {#ftp}
 
