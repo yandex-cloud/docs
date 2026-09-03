@@ -44,6 +44,10 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [Удалить политику доступа](operations/registry/remove-access-policy.md)
 
+ - [Политика жизненного цикла](operations/lifecycle-policy/create.md)
+
+ - [Сканирование реестра](operations/registry/scanning.md)
+
 ### Управление артефактами
 
 #### Docker-образ
@@ -115,8 +119,6 @@ Yandex Cloud Registry — сервис для безопасного хране�
  - [Скачать Debian-пакет из реестра](operations/debian/pull.md)
 
  - [Удалить артефакт из реестра](operations/artifacts/delete.md)
-
- - [Создание политики жизненного цикла](operations/lifecycle-policy/create.md)
 
 ## Практические руководства
 

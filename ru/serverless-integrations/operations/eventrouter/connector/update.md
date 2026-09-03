@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменить коннектор
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 Вы можете изменить имя, описание и метки [коннектора](../../../concepts/eventrouter/connector.md), а также включить или выключить защиту от удаления. Тип и параметры источника данных коннектора изменить нельзя.
 
 {% list tabs group=instructions %}

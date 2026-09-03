@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Выключить правило
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 Когда [правило](../../../concepts/eventrouter/rule.md) выключено, оно перестает перенаправлять события в указанные приемники.
 
 {% list tabs group=instructions %}

@@ -5,7 +5,7 @@ You can use an [AI assistant]({{ link-docs-ai }}speechsense/concepts/assistants.
 To retrieve information you need from a chat using an AI assistant:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Set up the infrastructure](#infrastructure-prepare).
+1. [Set up your infrastructure](#infrastructure-prepare).
 1. [Create an AI assistant](#create-assistant).
 1. [Upload data to the project](#load-data).
 1. [Review the AI assistant's output in the {{ speechsense-name }} interface](#result-console).
@@ -90,7 +90,7 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 
     1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
     1. Go to the space of your choice.
-    1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.connections.connections_q5X2U }}** tab.
+    1. Open the **{{ ui-key.yc-ui-talkanalytics.connections.connections_q5X2U }}** tab.
     1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}** → **{{ ui-key.yc-ui-talkanalytics.connections.template_0duY8 }}**.
     1. Specify a connection name, e.g., `chats-default-metadata`.
     1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type_NWiH4 }}** data type.

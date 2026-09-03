@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Удалить правило
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% note info %}
 
 Удалить правило невозможно, если включена защита от удаления. Перед удалением [отключите](update.md) защиту.

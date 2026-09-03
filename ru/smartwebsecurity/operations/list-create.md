@@ -40,20 +40,34 @@ description: Следуя данной инструкции, вы сможете
           1.10
           ```
 
-      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_regexp_eLHPr }}` — [регулярные выражения](../concepts/conditions.md#regular-expressions), например для анализа заголовка `User-Agent`. Примеры:
+      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_regexp_eLHPr }}` — [регулярные выражения](../concepts/conditions.md#regular-expressions), например для анализа заголовка `User-Agent` или для объединения нескольких URL через `|`. Примеры:
 
           ```text
           User-Agent:\s*
           \\[\'\"\.\;]
           a{100,}
           --.*
+          ^/api/v[12]/users$
+          ^/promo/(sale|discount)/?$
+          ^static\.example\.com/assets/.*\.(css|js)$
           ```
 
-      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_string_hGRJK }}` — текстовые строки, например идентификаторы. Примеры:
+          Где:
+
+          - `^/api/v[12]/users$` — пути `/api/v1/users` и `/api/v2/users`.
+          - `^/promo/(sale|discount)/?$` — страницы `/promo/sale` и `/promo/discount` с необязательной завершающей косой чертой.
+          - `^static\.example\.com/assets/.*\.(css|js)$` — CSS- и JS-файлы в каталоге `/assets/` на домене `static.example.com`.
+
+          В регулярном выражении можно объединять несколько вариантов (разные URL, версии API или значения заголовка) с помощью оператора `|`. Специальные символы необходимо экранировать. Например, точка в доменном имени или URL записывается как `\.`.
+
+      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_string_hGRJK }}` — текстовые строки, например идентификаторы или URL. Примеры:
 
           ```text
           fev4ct8l9infabcd1234
           id345678
+          /api/v1/users
+          /promo/sale
+          /assets/logo.svg
           ```
 
   1. Введите имя и описание списка.

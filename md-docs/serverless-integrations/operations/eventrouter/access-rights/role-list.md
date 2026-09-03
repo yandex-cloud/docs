@@ -2,6 +2,12 @@
 
 # Посмотреть роли, назначенные на ресурс EventRouter
 
+{% note warning %}
+
+Сервис Yandex Serverless Integrations прекращает работу 8 октября 2026 года. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса Yandex Serverless Integrations](../../../sunset.md).
+
+{% endnote %}
+
 {% note info %}
 
 Роли, назначенные на каталог, облако или организацию, автоматически [наследуются](../../../../iam/concepts/access-control/index.md#inheritance) ресурсами EventRouter. При этом они не отображаются в списке ролей, назначенных на них. Подробнее о [просмотре ролей](../../../../iam/operations/roles/get-assigned-roles.md).

@@ -19,7 +19,7 @@ Syntax:
 ||Flag | Description ||
 || `--cluster-id` | `value[,value]`
 
-ID of an MDB cluster. This flag can be specified multiple times. ||
+ID of an MDB cluster. This flag can be specified multiple times or with comma-separated values. ||
 || `--drill-type` | `string`
 
 Drill type. The only currently supported value is disable-zone. ||

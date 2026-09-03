@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Отправить события в шину с помощью коннектора
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 ## Таймер {#timer}
 
 Чтобы [отправить](../../../concepts/eventrouter/sending-events.md) события в [шину](../../../concepts/eventrouter/bus.md) через коннектор с типом источника [таймер](../../../concepts/eventrouter/connector.md#timer), укажите необходимые данные в настройках коннектора — они будут отправлены в шину, когда сработает таймер.

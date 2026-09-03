@@ -8,7 +8,6 @@
   1. [Перейдите]({{ link-console-main }}/link/data-streams) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}** и нажмите кнопку **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
   1. В поле **{{ ui-key.yacloud.data-streams.label_database }}** выберите созданную ранее базу данных `postbox-events-ydb`.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя потока данных `postbox-events-stream`.
-  1. В поле **{{ ui-key.yacloud.data-streams.label_meter-mode }}** выберите `{{ ui-key.yacloud.data-streams.label_request-units }}`.
   1. Другие параметры потока данных оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

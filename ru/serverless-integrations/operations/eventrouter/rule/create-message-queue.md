@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать правило с приемником {{ message-queue-full-name }}
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

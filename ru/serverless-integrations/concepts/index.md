@@ -18,6 +18,8 @@ keywords:
 
 # Обзор сервиса {{ si-name }}
 
+{% include [sunset-note](../../_includes/serverless-integrations/sunset-note.md) %}
+
 {{ si-full-name }} — это сервис для настройки интеграций и управления ими с помощью serverless-технологий в {{ yandex-cloud }}.
 
 {{ si-name }} позволяет:

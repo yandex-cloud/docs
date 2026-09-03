@@ -53,6 +53,9 @@ SNI for the backend, --tls-sni=backend.local ||
 || `--tls-trusted-ca-from-file` | `string`
 
 Path to file with trusted CA for the backend ||
+|| `--tls-client-certificate-id` | `string`
+
+Client certificate ID for the backend ||
 || `--http-healthcheck` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 List of HTTP health checks for backend.
@@ -68,6 +71,12 @@ Possible property names:
 - `timeout`: Timeout of the health check.
 
 - `interval`: Interval of the health check.
+
+- `tls-sni`: SNI for the health check TLS transport settings.
+
+- `tls-trusted-ca-from-file`: Path to file with trusted CA for the health check TLS transport settings.
+
+- `tls-client-certificate-id`: Client certificate ID for the health check TLS transport settings.
 
 - `host`: Host header to use for HTTP health check.
 
@@ -92,6 +101,12 @@ Possible property names:
 
 - `interval`: Interval of the health check.
 
+- `tls-sni`: SNI for the health check TLS transport settings.
+
+- `tls-trusted-ca-from-file`: Path to file with trusted CA for the health check TLS transport settings.
+
+- `tls-client-certificate-id`: Client certificate ID for the health check TLS transport settings.
+
 - `service-name`: Service name of the gRPC health check. ||
 || `--stream-healthcheck` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
@@ -108,6 +123,12 @@ Possible property names:
 - `timeout`: Timeout of the health check.
 
 - `interval`: Interval of the health check.
+
+- `tls-sni`: SNI for the health check TLS transport settings.
+
+- `tls-trusted-ca-from-file`: Path to file with trusted CA for the health check TLS transport settings.
+
+- `tls-client-certificate-id`: Client certificate ID for the health check TLS transport settings.
 
 - `send-text`: Text to send for stream (TCP) health check.
 

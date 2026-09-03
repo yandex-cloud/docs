@@ -4,8 +4,8 @@ When working with {{ sk-hybrid-name }}, you can enable the [TLS termination](htt
 
 To enable TLS termination:
 
-1. Copy the TLS certificate and private key to the `envoy` container. Put the certificate file to `/etc/envoy/certs/cert.pem ` and the key to `/etc/envoy/certs/key.pem`.
-1. Send the `USE_TLS="true"` environment variable to the container of the license server (`license_server`).
+1. Copy the TLS certificate and private key to the `envoy` container. Store the certificate file in `/etc/envoy/certs/cert.pem `, and the key, in `/etc/envoy/certs/key.pem`.
+1. Provide the `USE_TLS="true"` environment variable to the `license_server` container.
 
 You can also enable TLS proxying using `docker compose`:
 

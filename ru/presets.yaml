@@ -2363,6 +2363,7 @@ default:
   SR: StarRocks
   src-full-name: SourceCraft
   src-name: SourceCraft
+  src-registry-endpoint: pkg.sourcecraft.tech
   stackland-full-name: Yandex Cloud Stackland
   stackland-name: Stackland
   storage-aws-cli-alias: ycs3
@@ -3835,6 +3836,15 @@ default:
               информацию о них
             title_users-list-visibility_ftTaP: Конфиденциальность
           PolicyResultCard:
+            effect_allow: Разрешить
+            effect_deny: Запретить
+            field_access: Доступ
+            field_factor-type: Тип фактора
+            field_login-requirements: Требования при входе
+            field_require-once: Запросить однократно при первом входе
+            field_ttl: Срок действия
+            login-requirement_skip-mfa: Не запрашивать MFA
+            login-requirement_step-up: Требовать усиленную проверку (Step-up)
             section_title: Результат
           ScopeCardBlock:
             exclude_label_4Mn7B: Исключать
@@ -5233,9 +5243,24 @@ default:
         label_marketplace: Магазин приложений
       cloud-registry:
         action_registry-create: Создать реестр
+        action_scan-artifacts-modal-add: Добавить
+        menu_scanner: Сканер
         registries:
           button_update-ip-permissions-full: Настроить доступ
           registry-kind_docker: Docker
+        scan-history-empty_button: Открыть Security Deck
+        scan-history-placeholder_action_new-scan: Новое сканирование
+        scan-policy-form-card:
+          button_add_artifacts: Добавить артефакты
+          label_artifacts-to-scan_all: Все артефакты
+          label_artifacts-to-scan_selected: Только выбранные
+        scan-policy-settings-form:
+          row_scan-lang-packages: Сканировать языковые пакеты
+          section_on-push-title: Сканирование артефактов при добавлении в реестр
+          section_scheduled-title: Периодическое сканирование артефактов
+        scanner-settings:
+          action_configure-scanner: Настроить сканер
+          label_scanning-language-packages: Сканирование языковых пакетов
         title_ip-permissions: Доступ для IP-адресов
         title_registries: Реестры
         title_registry-artifacts: Артефакты
@@ -6077,8 +6102,6 @@ default:
         label_data-storage-time-limit: Лимит времени
         label_data-stream: Поток данных
         label_database: База данных
-        label_meter-mode: Режим тарификации
-        label_request-units: По фактическому использованию
         label_shards: Сегменты
       data-transfer:
         button_create-endpoint: Создать эндпоинт
@@ -7552,6 +7575,7 @@ default:
         label_private-key: Приватный ключ
         label_restrict-senders: Ограничить список отправителей
         label_selector: Селектор
+        label_signing-type-external: Расширенная
         label_signing-type-internal: Простая
         label_statistics: Статистика
         label_statistics_bounced-event: Не доставлено

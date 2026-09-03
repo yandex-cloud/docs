@@ -45,9 +45,9 @@ CIDR block for the subnet.
 >> - dhcp-options (structure)\
 DHCP options for the subnet.
 >>> - start-ip (string)\
-Start IP address of the DHCP range (inclusive).
+Start IP address of the DHCP range (inclusive). The absence or null value indicates that calculation will be performed based on CIDR.
 >>> - end-ip (string)\
-End IP address of the DHCP range (inclusive).
+End IP address of the DHCP range (inclusive). The absence or null value indicates that calculation will be performed based on CIDR.
 >> - gateway-ip (string)\
 Gateway IP address for the subnet.
 > - annotations (map[string,string])\

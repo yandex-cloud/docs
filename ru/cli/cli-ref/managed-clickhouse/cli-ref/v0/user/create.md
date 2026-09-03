@@ -1324,6 +1324,12 @@ Possible property names:
 - `read-rows`: The total number of source rows read from tables for running the query, on all remote servers. 0 - unlimited.
 
 - `execution-time`: The total query execution time, in milliseconds (wall time). Possible to use time units - "1m30s". 0 - unlimited. ||
+|| `--connection-folder-id` | `string`
+
+ID of the folder where connection for the user is created. ||
+|| `--secret-folder-id` | `string`
+
+ID of the folder where connection secret is created. ||
 |#
 
 #### Global Flags

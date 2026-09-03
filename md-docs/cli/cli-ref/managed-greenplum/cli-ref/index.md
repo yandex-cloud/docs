@@ -82,6 +82,8 @@ Aliases:
 
 - [yc managed-greenplum hba-rules](hba-rules/index.md) — Manage Greenplum hba rules
 
+  - [yc managed-greenplum hba-rules batch-update](hba-rules/batch-update.md) — Replace all hba-rules for specified Greenplum cluster
+
   - [yc managed-greenplum hba-rules create](hba-rules/create.md) — Create hba-rule for specified Greenplum cluster
 
   - [yc managed-greenplum hba-rules delete](hba-rules/delete.md) — Delete hba-rule for specified Greenplum cluster

@@ -28,7 +28,7 @@ Complete list of parameters for the `%create_livy_session` command:
 | `--driverMemory`             | `string` | Driver memory                      |
 | `--driverCores`              | `int`    | Number of driver cores               |
 | `--executorMemory`           | `string` | Worker memory          |
-| `--executorCores`            | `int`    | Number of worker cores      |
+| `--executorCores`            | `int`    | Number of worker cores   |
 | `--numExecutors`             | `int`    | Number of workers          |
 | `--archives`                 | `string` | Archives to use in the session          |
 | `--queue`                    | `string` | YARN queue name                      |

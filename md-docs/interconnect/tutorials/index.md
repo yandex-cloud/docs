@@ -2,6 +2,8 @@
 
 # Руководства по применению Cloud Interconnect
 
+* [Организация сетевой связности между несколькими виртуальными сетями с помощью VPC Stitching](vpc-stitching.md)
+
 
 * [Разрешение облачных DNS-имен в корпоративной сети](dns-integration.md)
 * [Организация доступа через Cloud Interconnect к облачным сетям, размещенным за NGFW](cic-with-ngfw.md)

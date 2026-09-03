@@ -32,6 +32,8 @@ Aliases:
 
 - [yc managed-opensearch cluster list-backups](list-backups.md) — List available backups for an OpenSearch cluster.
 
+- [yc managed-opensearch cluster move](move.md) — Move a managed OpenSearch cluster into a new folder
+
 - [yc managed-opensearch cluster remove-access-binding](remove-access-binding.md) — Remove access binding for the specified OpenSearch cluster
 
 - [yc managed-opensearch cluster restart-opensearch](restart-opensearch.md) — Restart OpenSearch on host.

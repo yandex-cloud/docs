@@ -139,6 +139,12 @@ description: В данном разделе приведены описания 
 
 {% include [cloudregistry-events](../../_includes/audit-trails/events/cloudregistry-events.md) %}
 
+## {{ src-full-name }} {#sourcecraft}
+
+Имя сервиса — `sourcecraft`.
+
+{% include [sourcecraft-events](../../_includes/audit-trails/events/sourcecraft-events.md) %}
+
 ## {{ video-full-name }} {#video}
 
 Имя сервиса — `video`.

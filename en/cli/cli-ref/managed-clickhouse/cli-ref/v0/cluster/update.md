@@ -1401,6 +1401,17 @@ Possible property names:
 - `zookeeper-planned-usage-threshold`: Set planned usage threshold for zookeeper subcluster.
 
 - `zookeeper-emergency-usage-threshold`: Set emergency usage threshold for zookeeper subcluster. ||
+|| `--connection-manager` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Connection Manager cluster integration settings
+
+Possible property names:
+
+- `enabled`: Enable Connection Manager cluster integration. Can only be enabled.
+
+- `connections-folder-id`: ID of the folder where connections for the cluster are created
+
+- `secrets-folder-id`: ID of the folder where connection secrets are created. ||
 |#
 
 #### Global Flags

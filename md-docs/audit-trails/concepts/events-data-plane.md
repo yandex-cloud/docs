@@ -23,6 +23,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 * [Yandex Compute Cloud](events-data-plane.md#compute)
 * [Yandex AI Studio](events-data-plane.md#ai-studio)
 * [Yandex Identity Hub](events-data-plane.md#organization)
+* [SourceCraft](events-data-plane.md#sourcecraft)
 * [Yandex Identity and Access Management](events-data-plane.md#iam)
 * [Yandex Key Management Service](events-data-plane.md#kms)
 * [Yandex Lockbox](events-data-plane.md#lockbox)
@@ -143,6 +144,17 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 Имя события | Описание
 --- | ---
 `idp.AuthenticateByPassword` | Аутентификация по паролю
+
+## SourceCraft {#sourcecraft}
+
+Имя сервиса — `sourcecraft`.
+
+Имя события | Описание
+--- | ---
+`GetSecret` | Получение [секрета](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/secrets)
+`GetSecretPayload` | Получение данных [секрета](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/secrets)
+`ListSecrets` | Получение списка секретов
+`NewAppSecDefect` | Обнаружение нового дефекта в [SourceCraft Security](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/security-dashboard)
 
 ## Yandex Identity and Access Management {#iam}
 

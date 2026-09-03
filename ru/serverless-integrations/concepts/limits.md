@@ -15,6 +15,8 @@ keywords:
 
 # Квоты и лимиты в {{ si-name }}
 
+{% include [sunset-note](../../_includes/serverless-integrations/sunset-note.md) %}
+
 В сервисе {{ si-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}

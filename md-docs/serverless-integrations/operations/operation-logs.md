@@ -2,6 +2,12 @@
 
 # Просмотр операций с ресурсами сервиса Serverless Integrations
 
+{% note warning %}
+
+Сервис Yandex Serverless Integrations прекращает работу 8 октября 2026 года. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса Yandex Serverless Integrations](../sunset.md).
+
+{% endnote %}
+
 Все действия с ресурсами сервиса Serverless Integrations сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
 
 ## Получить список операций {#get-operations}

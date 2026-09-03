@@ -52,6 +52,8 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [Все руководства](tutorials/index.md)
 
+ - [Организация сетевой связности между несколькими виртуальными сетями с помощью VPC Stitching](tutorials/vpc-stitching.md)
+
  - [Разрешение облачных DNS-имен в корпоративной сети](tutorials/dns-integration.md)
 
  - [Организация доступа через Cloud Interconnect к облачным сетям, размещенным за NGFW](tutorials/cic-with-ngfw.md)

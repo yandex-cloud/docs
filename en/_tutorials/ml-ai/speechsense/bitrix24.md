@@ -14,7 +14,7 @@ To set up {{ speechsense-name }} integration with {{ bitrix24-name }}:
 - {{ speechsense-name }} UI {#speechsense}
 
   1. In the {{ speechsense-name }} [UI]({{ link-speechsense-main }}), go to the space of your choice.
-  1. Go to the **{{ ui-key.yc-ui-talkanalytics.connections.connections_q5X2U }}** tab and select a template to create a connection or click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
+  1. Open the **{{ ui-key.yc-ui-talkanalytics.connections.connections_q5X2U }}** tab and select a template to create a connection or click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
 
      {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %}
 
@@ -25,13 +25,13 @@ To set up {{ speechsense-name }} integration with {{ bitrix24-name }}:
       1. Channels with the agent's and customer's voices.
       1. Agent and customer keys from the metadata file. This file contains the call information collected from CRM systems, PBXs, or other sources.
 
-        By default, connections include keys with the name and ID of the agent and the customer. In the **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** field, enter the name the key will have in {{ speechsense-name }}.
+        By default, connections include keys with the name and ID of the agent and the customer. In the **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** field, enter a name the key will have in {{ speechsense-name }}.
 
         To specify additional metadata for the agent and the customer, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
   1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields_QO3t6 }}**, provide the keys from the metadata file that are not related to the agent or the customer.
 
-      By default, connections include keys with the date, direction, and language of the call. In addition, you can specify the keys you want to receive from the external system. In the **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** field, enter the name the key will have in {{ speechsense-name }}.
+      By default, connections include keys with the date, direction, and language of the call. In addition, you can specify the keys you want to receive from the external system. In the **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** field, enter a name the key will have in {{ speechsense-name }}.
 
       {% cut "List of available fields" %}
 
@@ -72,7 +72,7 @@ To set up {{ speechsense-name }} integration with {{ bitrix24-name }}:
 
       {% endcut %}
 
-      To specify additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
+      To provide additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
   1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
   1. Click **ID** ![image](../../../_assets/console-icons/copy-transparent.svg) in the top-left corner of the connection page to copy the connection ID. Save it as you will need it later.

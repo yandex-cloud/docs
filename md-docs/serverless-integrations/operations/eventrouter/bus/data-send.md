@@ -2,6 +2,12 @@
 
 # Отправить события в шину с помощью коннектора
 
+{% note warning %}
+
+Сервис Yandex Serverless Integrations прекращает работу 8 октября 2026 года. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса Yandex Serverless Integrations](../../../sunset.md).
+
+{% endnote %}
+
 ## Таймер {#timer}
 
 Чтобы [отправить](../../../concepts/eventrouter/sending-events.md) события в [шину](../../../concepts/eventrouter/bus.md) через коннектор с типом источника [таймер](../../../concepts/eventrouter/connector.md#timer), укажите необходимые данные в настройках коннектора — они будут отправлены в шину, когда сработает таймер.

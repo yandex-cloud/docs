@@ -5,6 +5,8 @@ description: Различные сценарии использования {{ i
 
 # Руководства по применению {{ interconnect-name }}
 
+* [{#T}](vpc-stitching.md)
+
 
 * [{#T}](dns-integration.md)
 * [{#T}](cic-with-ngfw.md)
