@@ -78,7 +78,7 @@ To create a {{ managed-k8s-name }} node group:
   1. In the [management console]({{ link-console-main }}), select the folder where you created the required {{ managed-k8s-name }} cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the {{ managed-k8s-name }} cluster to create a node group for.
-  1. On the {{ managed-k8s-name }} cluster page, go to the ![nodes-management.svg](../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+  1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
   1. Enter a name and description for the {{ managed-k8s-name }} node group.
   1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select the {{ k8s }} version for the {{ managed-k8s-name }} nodes.

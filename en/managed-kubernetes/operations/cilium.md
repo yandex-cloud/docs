@@ -16,7 +16,7 @@ To use the Cilium network policy controller in a cluster:
 
 - Manually {#manual}
 
-    1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) to it the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles.
+    1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles to it.
 
     1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
@@ -80,7 +80,7 @@ To use the Cilium network policy controller in a cluster:
 
 {% endlist %}
 
-### Get ready to use the cluster {#do-preparations}
+### Get ready to work with the cluster {#do-preparations}
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Install Cilium CLI](https://github.com/cilium/cilium-cli?tab=readme-ov-file#installation) (`cilium`).

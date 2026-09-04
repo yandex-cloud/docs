@@ -262,6 +262,12 @@ items:
                 href: security/single-sign-on/jenkins/saml-jenkins.md
               - name: OpenID Connect
                 href: security/single-sign-on/jenkins/oidc-jenkins.md
+          - name: LibreChat
+            items:
+              - name: SAML
+                href: security/single-sign-on/librechat/saml-librechat.md
+              - name: OpenID Connect
+                href: security/single-sign-on/librechat/oidc-librechat.md
           - name: Loop
             items:
               - name: SAML

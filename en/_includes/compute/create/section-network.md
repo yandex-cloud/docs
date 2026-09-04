@@ -32,7 +32,7 @@ Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
     * To connect to a virtual machine over `RDP`, the security group must allow incoming network traffic over `TCP` and `UDP` on port `3389`.
     
-    If you leave the field empty, the virtual machine will be automatically assigned the [default security group](../../../vpc/concepts/security-groups.md#default-security-group) allowing connections to the VM over `SSH` and `RDP`.
+    If you leave the field empty, the virtual machine will be automatically assigned the [default security group](../../../vpc/concepts/security-groups.md#default-security-group) which allows connections to the VM over `SSH`, `RDP`, `ICMP`, and any outbound traffic. For production VMs, especially those with a public IP address, select a custom security group with the minimum required rules.
 
 * Expand **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** and select a method for assigning internal addresses in the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field:
 

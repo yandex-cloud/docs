@@ -37,7 +37,7 @@ items:
         href: concepts/dns-records.md
       - name: Configurations
         href: concepts/configuration.md
-      - name: Email event notifications
+      - name: Email operation notifications
         href: concepts/notification.md
       - name: Email delivery simulator
         href: concepts/mail-simulator.md
@@ -105,7 +105,7 @@ items:
             href: aws-compatible-api/api-ref/index.md
           - name: Sending emails
             href: aws-compatible-api/api-ref/send-email.md
-          - name: Bulk emailing
+          - name: Bulk email sending
             href: aws-compatible-api/api-ref/send-bulk-email.md
           - name: Addresses
             items:
@@ -156,7 +156,7 @@ items:
         items:
           - name: SMTP responses
             href: api-ref/smtp-errors.md
-  - name: Metrics {{ monitoring-name }}
+  - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md

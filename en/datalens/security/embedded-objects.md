@@ -11,7 +11,7 @@ You can configure the features and appearance of the objects being embedded thro
   * 30 seconds for dashboards
   * 15 seconds for charts
 
-* `_reload_on_session_expire`: Sets automatic page reload after session lifetime expires. To activate the parameter, set it to `1`.
+* `_reload_on_session_expire`: Enables automatic page reload after the session lifetime expires. To activate the parameter, set it to `1`.
 * `_embedded`: Hides the navigation panel. To activate the parameter, set it to `1`.
 * `_no_controls`: For charts, hides ![image](../../_assets/console-icons/ellipsis.svg). To activate the parameter, set it to `1`.
 * `_theme`: Specifies the object's appearance. The possible values are:
@@ -19,6 +19,8 @@ You can configure the features and appearance of the objects being embedded thro
   * `light`: Light theme.
   * `dark`: Dark theme.
 
+* `_bg_color`: Sets the chart and dashboard background in hexadecimal format, only if `_embedded` equals `1`. For example, `_bg_color=D7F7F7&_embedded=1`.
+* `_widgets_bg_color`: Sets the background of widgets on the dashboard in hexadecimal format, only if `_embedded` equals `1`. For example, `_widgets_bg_color=B7F7F7&_embedded=1`.
 * `_no_scroll`: Disables vertical scrolling on dashboards. To activate the parameter, set it to `1`.
 * `_lang`: For charts, sets the language of the menu that opens when you click ![image](../../_assets/console-icons/ellipsis.svg). Possible values: `ru` and `en`. 
 * `_opened_info`: Displays dashboard [description](../dashboard/settings.md#message-settings) (if provided) when you open the dashboard. To activate the parameter, set it to `1`.

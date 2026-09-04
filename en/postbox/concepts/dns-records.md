@@ -17,11 +17,19 @@ You can add the records via your DNS registrar or in [{{ dns-full-name }}](../..
 
 {{ postbox-name }} supports two DKIM configuration methods:
 
-* Simple setup, or Easy DKIM: {{ postbox-name }} automatically generates DKIM keys and manages their rotation. After an [address](glossary.md#adress) is created, the management console will display two CNAME records you need to add to your domain’s DNS zone. These records point to public keys managed by {{ postbox-name }}.
+* Simple setup, or Easy DKIM: {{ postbox-name }} automatically generates DKIM keys and manages their rotation. After an [address](glossary.md#adress) is created, the management console will display two CNAME records you need to add to your domain’s DNS zone. These records point to public keys managed by {{ postbox-name }}. For more information, see [{#T}](#key-rotation).
 
 * Advanced setup: You manually generate a pair of 1024-bit or 2048-bit keys, e.g., via OpenSSL, provide the private key to the service, and add a single TXT record containing the public key and chosen selector to the DNZ zone.
 
 You can select the DKIM setup method when [creating an address](../operations/create-address.md). After adding DKIM records, you need to [verify your domain ownership](../operations/check-domain.md).
+
+#### DKIM key rotation {#key-rotation}
+
+When using Easy DKIM, {{ postbox-name }} regularly replaces DKIM key pairs with new ones. This rotation is automatic, i.e., you cannot schedule or initiate it manually.
+
+For {{ postbox-name }} to be able to rotate keys, the user must add two CNAME records to their DNS provider. Each of these records delegates the permission to publish a public key to {{ postbox-name }}. This allows {{ postbox-name }} to rotate keys on its side without requiring the user to modify the CNAME records in their DNS provider.
+
+Public key TXT records resolve through both CNAME records only during key rotation when the new key is already published, but recipients still needed the old key to verify signatures from previously sent emails. At other times, only a single TXT record is available.
 
 ## Recommended records {#recommended}
 
@@ -35,7 +43,7 @@ To authorize email delivery via {{ postbox-name }}, add the `include:spf.postbox
 
 If your domain does not have an SPF record, create a TXT record at the domain root with the `"v=spf1 include:spf.postbox.yandexcloud.net ~all"` value.
 
-If your domain already has an SPF record, e.g., for another mail service, do not create an additional record; instead, add the `include:spf.postbox.yandexcloud.net` mechanism into your current record before the `all` mechanism. For example:
+If your domain already has an SPF record, e.g., for another mail service, do not create an additional record; instead, add the `include:spf.postbox.yandexcloud.net` mechanism into your current record before the `all` mechanism. Here is an example:
 
 ```text
 "v=spf1 include:_spf.example.com include:spf.postbox.yandexcloud.net ~all"

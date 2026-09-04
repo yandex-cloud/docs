@@ -1,4 +1,10 @@
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" },
+    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
+  }
+}%%
 flowchart BT
     logging.viewer --> logging.editor
     logging.viewer --> logging.reader

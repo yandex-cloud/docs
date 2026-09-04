@@ -1,6 +1,6 @@
-# Email event notifications
+# Email operation notifications
 
-To get email event notifications, [create a configuration](../operations/create-configuration.md) and [associate it with your address](../operations/bind-configuration.md).
+To receive email operation notifications, [create a configuration](../operations/create-configuration.md) and [associate it with your address](../operations/bind-configuration.md).
 
 ## Notification types {#types}
 
@@ -24,6 +24,14 @@ Notification example:
             "messageId":"vgAyRUls8591ybPKeH-Ov",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -67,6 +75,14 @@ Notification example:
             "messageId":"vgAyRUls8591ybPKeH-Ov",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -112,6 +128,14 @@ Notification example:
             "messageId":"vgAyRUls8591ybPKeH-Ov",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -139,7 +163,6 @@ Notification example:
             ]
         }
     },
-    "bounce": null,
     "delivery": {
         "timestamp": "2024-04-25T18:05:14.84107+03:00",
         "processingTimeMillis": 9999,
@@ -153,7 +176,7 @@ Notification example:
 
 ### Email not delivered notification {#bounce}
 
-Comes when the recipient's email client responds to a delivery attempt with an error which, according to {{ postbox-name }}, does not require another delivery attempt, or when the recipient's address is on the stop list.
+Comes when the recipient's mail exchange server responds to a delivery attempt with an error which, according to {{ postbox-name }}, does not require another delivery attempt, or when the recipient's address is on the suppression list.
 
 Notification example:
 
@@ -171,6 +194,14 @@ Notification example:
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -201,8 +232,16 @@ Notification example:
             }
         ],
         "timestamp": "2024-04-25T18:08:04.973666+03:00",
+        "dialAttempts": [
+            {
+                "mxHost": "mx.example.com.",
+                "ip": "192.0.2.1",
+                "reason": "Smtp",
+                "error": "read response error: 554 5.7.1 Message rejected under suspicion of SPAM",
+                "negotiatedTls": "TLSv1.3"
+            }
+        ]
     },
-    "delivery": null,
     "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
 }
 ```
@@ -227,6 +266,14 @@ Notification example:
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -274,6 +321,14 @@ Notification example:
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using {{ postbox-full-name }}"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -312,7 +367,9 @@ Notification example:
 
 ### Delayed email delivery notification {#delayed-delivery}
 
-Once successfully accepted by {{ postbox-name }}, the email is normally sent it right away. However, a slight delay in delivery may sometimes occur. It is in this case that you receive this type of notification.
+Once successfully accepted by {{ postbox-name }}, the email is normally sent right away. However, a slight delay in delivery may sometimes occur. It is in this case that you receive this type of notification.
+
+The system triggers this notification exactly once following the first failed delivery attempt. If the email remains undelivered, you will receive a [delivery failure notification](#bounce).
 
 Notification example:
 
@@ -330,6 +387,14 @@ Notification example:
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -352,9 +417,12 @@ Notification example:
         "delayType": "General",
         "delayedRecipients": [
             {
-                "emailAddress": "recipient@example.com"
+                "emailAddress": "recipient@example.com",
+                "status": "4.4.1",
+                "diagnosticCode": "421 4.4.1 Connection timed out"
             }
         ],
+        "reportingMTA": "mx.example.com",
         "timestamp": "2024-04-25T18:10:04.973666+03:00"
     },
     "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
@@ -381,6 +449,14 @@ Notification example:
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -403,7 +479,8 @@ Notification example:
         "contactList": "my-list",
         "timestamp": "2024-04-25T18:08:04.973666+03:00",
         "source": "UnsubscribeHeader"
-    }
+    },
+    "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
 }
 ```
 
@@ -427,6 +504,14 @@ Notification example:
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -470,6 +555,7 @@ Name | Type | Description
 --- | --- | ---
 `eventType` | String | [Notification type](#types). The possible values are `Bounce`, `Click`, `Complaint`, `Delivery`, `DeliveryDelay`, `Open`, `Rendering Failure`, `Send`, and `Subscription`.
 `mail` | [Mail](#mail-object) object | Object containing general information about the sent email.
+`send` | [Send](#send-object) object | Empty object. Required if the `eventType` is `Send`; otherwise, not present.
 `bounce` | [Bounce](#bounce-object) object | Object containing information that the email has not been delivered. Required if the `eventType` is `Bounce`; otherwise, not present.
 `delivery` | [Delivery](#delivery-object) object | Object containing information about the email being delivered to an individual recipient. Required if the `eventType` is `Delivery`; otherwise, not present.
 `complaint` | [Complaint](#complaint-object) object | Object containing information about the recipient's complaint about an email. Required if the `eventType` is `Complaint`; otherwise, not present.
@@ -488,17 +574,41 @@ Name | Type | Description
 `messageId` | String | Unique ID of the email. One email can have multiple recipients. Sent by {{ postbox-name }} when accepting the email for processing.
 `identityId` | String | ID of the {{ postbox-name }} address used when sending the email.
 `commonHeaders` | [CommonHeaders](#common-headers-object) object | Object containing the main headers of the email.
-`tags` | Object | Object containing tags added to the email.
+`headers` | Array of [Header](#header-object) objects | Full list of email headers as received by {{ postbox-name }} before adding system-generated service headers. This list includes custom headers added by the sender, e.g., `X-Campaign-Id`. This field is omitted if message headers are not retained.
+`headersTruncated` | Boolean | The field is present only if its value is `true`. A value of `true` indicates the `headers` list is incomplete and has been cut off from the end because the total size of headers exceeded the 10 KiB limit.
+`tags` | Object | Object containing tags added to the email. The value of each tag is an array of strings. Custom tags always contain only one item.
+
+{% note info %}
+
+The `headers` array contains message headers exactly as transmitted by the sender, including custom headers, e.g., `X-Campaign-Id`. Headers that {{ postbox-name }} adds or modifies when processing an email, such as `List-Unsubscribe`, `List-Unsubscribe-Post`, or `DKIM-Signature`, are excluded from `headers`. The order of the headers is preserved.
+
+{% endnote %}
+
+{% note info %}
+
+While `headers` contains the original email headers, `commonHeaders` includes the final headers generated after {{ postbox-name }} has processed the email. Thus, `commonHeaders.messageId` indicates the ID issued by {{ postbox-name }}, while `headers` may contain the sender's own `Message-Id` header.
+
+Notifications preserve header values exactly as they appeared within the email  If a header is encoded under [RFC 2047](https://www.ietf.org/rfc/rfc2047.txt), e.g., Cyrillic script is used in the email subject or sender's display name, the notification will display that encoded value. Decoding must be provisioned on the notification recipient side. This applies to all items within `headers`, as well as the `commonHeaders.from`, `commonHeaders.to`, and `commonHeaders.subject` fields.
+
+{% endnote %}
 
 ### CommonHeaders object {#common-headers-object}
 
 Name | Type | Description
 --- | --- | ---
-`from` | Array of strings | Contents of the `From` header, broken down by address.
-`to` | Array of strings | Contents of the `To` header, broken down by address.
-`subject` | String | Contents of the `Subject` header.
-`date` | String | Contents of the `Date` header.
+`from` | Array of strings | Contents of the `From` header, broken down by address. Remains empty if the email has no header. If parsing addresses from the value fails, the array contains a single item, which is the entire original header string.
+`to` | Array of strings | Contents of the `To` header, broken down by address. Remains empty if the email has no header. If parsing addresses from the value fails, the array contains a single item, which is the entire original header string.
+`subject` | String | Contents of the `Subject` header. Remains empty if the email has no header.
+`date` | String | Contents of the `Date` header. Remains empty if the email has no header.
 `messageId` | String | Unique ID of the email. Sent by {{ postbox-name }} when accepting the email.
+`originalMessageId` | String | Contains the value of the `Original-Message-ID` header if provided by the sender. Otherwise, returns an empty string.
+
+### Header object {#header-object}
+
+Name | Type | Description
+--- | --- | ---
+`name` | String | Email header name
+`value` | String | Email header value
 
 ### Send object {#send-object}
 
@@ -508,9 +618,10 @@ Empty object.
 
 Name | Type | Description
 --- | --- | ---
-`bounceType` | String | Error type. The possible values are:<ul><li>`Permenent`: Email not delivered.</li></ul>
-`bounceSubType` | String | Error subtype. The possible values are:<ul><li>`Undetermined`: Unknown error.</li><li>`Suppressed`: Email not delivered because the recipient is on the stop list.</li></ul>
+`bounceType` | String | Error type. The possible values are:<ul><li>`Permanent`: Email not delivered.</li></ul>
+`bounceSubType` | String | Error subtype. The possible values are:<ul><li>`Undetermined`: Error cause not determined.</li><li>`Suppressed`: Email not delivered because the recipient is on the {{ postbox-name }} global suppression list.</li><li>`OnAccountSuppressionList`: Email not delivered because the recipient is on the {{ postbox-name }} user's suppression list.</li><li>`InsufficientTLS`: Failed to establish a secure TLS connection with the recipient's server.</li><li>`StartTlsNotOffered`: Recipient's server does not support the `STARTTLS` command.</li><li>`TlsCertificateUntrusted`: Recipient's server failed to present a trusted certificate.</li><li>`TlsVersionTooLow`: TLS version supported by the recipient's server is below the minimum acceptable value.</li></ul>
 `bouncedRecipients` | Array of [BounceRecipient](#bounce-recipent-object) objects | Array containing information about the email recipient and the related delivery error, if any.
+`dialAttempts` | Array of [DialAttempt](#dial-attempt-object) objects | This is an optional field. A list of connection attempts to the recipient's mail servers and their specific error details. Omitted if no connection was made, e.g., if the address is on a suppression list.
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time the error was received from the recipient's email client.
 
 ### BounceRecipient object {#bounce-recipent-object}
@@ -520,7 +631,17 @@ Name | Type | Description
 `emailAddress` | String | Recipient's email address.
 `action` | String | This is an optional field. Result of sending. The possible value is `failed`.
 `status` | String | Optional field. SMTP response code.
-`diagnosticCode` | String | This is an optional field. Extended error text. May contain error text from the recipient's email client.
+`diagnosticCode` | String | This is an optional field. Extended error text. For errors received from the recipient’s server, contains the response payload returned by that server. Otherwise, takes one of the following values: `Host or MX not found`, `Too many attempts`, `Spam detected`, `Insufficient TLS`, `STARTTLS not offered by recipient MX`, `TLS certificate not trusted`, `TLS version too low`, `Blocked by Global Suppression List`, `Blocked by Account Suppression List`, `Other`, or `Unknown`.
+
+### DialAttempt object {#dial-attempt-object}
+
+Name | Type | Description
+--- | --- | ---
+`mxHost` | String | Name of the recipient's mail exchange server (MX host) targeted by the connection. This value is provided as a fully qualified domain name (FQDN) and may include a trailing dot.
+`ip` | String | Connection's target IP address
+`reason` | String | Code for the error root cause. The possible values are `Smtp`, `HostOrMXNotFound`, `Spam`, `TooManyAttempts`, `InsufficientTLS`, `StartTlsNotOffered`, `TlsCertUntrusted`, `TlsVersionTooLow`, and `Other`.
+`error` | String | Error message for this connection attempt. These messages do not have a unified format and may vary, so use the`reason` property instead for programmatic processing.
+`negotiatedTls` | String | This is an optional field. The TLS version negotiated with the recipient's server, e.g., `TLSv1.2`. Omitted if no TLS connection has been established.
 
 ### Click object {#click-object}
 
@@ -562,6 +683,7 @@ Name | Type | Description
 --- | --- | ---
 `delayType` | String | Delay type. The possible value is `General`.
 `delayedRecipients` | [DelayedRecipient](#delayed-recipient-object) object array | Array containing information about the email recipient and the related delivery delay.
+`reportingMTA` | String | Name of the recipient's mail exchange server that reported the delivery delay. May return an empty string if the server could not be identified.
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Delivery delay timestamp.
 
 ### DelayedRecipient object {#delayed-recipient-object}
@@ -569,6 +691,8 @@ Name | Type | Description
 Name | Type | Description
 --- | --- | ---
 `emailAddress` | String | Recipient's email address.
+`status` | String | SMTP response code from the recipient's server. May return an empty string.
+`diagnosticCode` | String | This is an optional field. Extended error text. May contain the recipient's server response payload.
 
 ### Failure object {#failure-object}
 

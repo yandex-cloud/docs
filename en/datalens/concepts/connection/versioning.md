@@ -19,7 +19,7 @@ All versions fall into the following types:
 
 1. **Actual**: This is the most recently saved version of a connection. It is displayed for all users that open the connection for viewing in the workbook or from the navigation panel. A connection can only have one current version.
 1. **Outdated**: Version that is no longer current.  
-   When you open an outdated version, you see a panel at the top stating the version type, creation date and time, and the version author's login. There are buttons in the right-hand panel:
+   When you open an outdated version, you see a panel at the top stating the version type, creation date and time, and the version author's username. There are buttons in the right-hand panel:
 
    * **Make actual**: Turns an outdated version into the current one. The version actual at the time will become outdated.
    * **Open actual**: Opens the current version.

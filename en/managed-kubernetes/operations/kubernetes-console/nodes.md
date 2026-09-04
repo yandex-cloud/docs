@@ -19,10 +19,9 @@ To prohibit pod allocation to a node:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select ![Nodes](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** in the left-hand panel.
-  1. Select the **{{ ui-key.yacloud.k8s.nodes.label_nodes }}** tab.
-  1. Click the node name.
-  1. In the top-right corner, click ![Cordon](../../../_assets/console-icons/lock.svg) **{{ ui-key.yacloud.k8s.nodes.button_action-cordon }}**.
+  1. Select the {{ managed-k8s-name }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_nodes }}** tab.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the node row and select ![ellipsis](../../../_assets/console-icons/lock.svg) **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Confirm the action.
 
 {% endlist %}
@@ -39,10 +38,9 @@ To allow pod allocation to a node
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select ![Nodes](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** in the left-hand panel.
-  1. Select the **{{ ui-key.yacloud.k8s.nodes.label_nodes }}** tab.
-  1. Click the node name.
-  1. In the top-right corner, click ![Uncordon](../../../_assets/console-icons/lock-open.svg) **{{ ui-key.yacloud.k8s.nodes.button_action-uncordon }}**.
+  1. Select the {{ managed-k8s-name }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_nodes }}** tab.
+  1. Click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) in the node row and select ![Uncordon](../../../_assets/console-icons/lock-open.svg) **{{ ui-key.yacloud.k8s.nodes.button_action-uncordon }}**.
   1. Confirm the action.
 
 {% endlist %}

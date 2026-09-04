@@ -217,7 +217,7 @@ Skip this section if you are using your own tag data.
     * `EventDate`, to **X**.
     * `Browser`, to **Colors**.
     * `Hits`, to **Y**.
-1. Change the chart type from **Column chart** to **Area chart**. 
+1. Change the chart type from **Column chart** to **Area chart**.
 1. Click **Save**. 
 1. In the window that opens, enter `ch_metrica_data_hits_area` as the chart name and click **Save**.
 

@@ -94,6 +94,9 @@ description: Различные сценарии использования по
 * Jenkins
     * [{#T}](./single-sign-on/jenkins/saml-jenkins.md)
     * [{#T}](./single-sign-on/jenkins/oidc-jenkins.md)
+* LibreChat
+    * [SAML](./single-sign-on/librechat/saml-librechat.md)
+    * [OpenID Connect](./single-sign-on/librechat/oidc-librechat.md)
 * Loop
     * [{#T}](./single-sign-on/loop/saml-loop.md)
     * [{#T}](./single-sign-on/loop/oidc-loop.md)

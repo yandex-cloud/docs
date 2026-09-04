@@ -24,6 +24,10 @@ Clustering on a map improves visualization when there is a large number of point
 
 ![point-chart](../../_assets/datalens/visualization-ref/cluster-point-map/cluster-point-map.png =800x)
 
+
+{% include [geointellect-using](../../_includes/datalens/visualization-ref/geointellect-using.md) %}
+
+
 ## Wizard sections {#wizard-sections}
 
 The following limitations apply:
@@ -37,7 +41,7 @@ Points with clusters (Geopoints) | Dimension of the [Geopoint](../dataset/data-t
 Point size | Measure. Sets the point size depending on the measure value.
 Colors | Dimension. Sets cluster chart segmentation.
 Labels | Measure. Displayed as text on a point. When using labels, you cannot manage the point size.
-Tooltips | Dimension or measure. A tooltip that appears when you hover over a point. For `String` type fields, you can configure using the basic [{#T}](../dashboard/markdown.md) syntax: click the icon next to the field name and enable **Markdown**.
+Tooltips | Dimension or measure. A tooltip that appears when you hover over a point. For `String` type fields, you can configure using the basic [Markdown](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
 Layer filters | Dimension or measure. It is used as a filter for the current layer.
 Filters | Dimension or measure. It is used as a filter for the entire chart.
 

@@ -30,14 +30,14 @@ description: "Check out the {{ datalens-full-name }} release notes for July\_202
 
   * You can specify funnel stages using either a dimension or a set of metrics.
   * Percentages in captions and tooltips can be calculated either from the initial stage or the previous stage.
-  * Captions can feature several [measure values](../concepts/chart/measure-values.md) ​​of different formats to show both absolute values ​​and percentages.
+  * Captions can feature several [measure values](../concepts/chart/measure-values.md) of different formats to show both absolute values and percentages.
 
 
 * Added alignment settings for [tables](../visualization-ref/table-chart.md#additional-settings) and [pivot tables](../visualization-ref/pivot-table-chart.md#set-column-align).
 
 ## Fixes and improvements {#fixes}
 
-* Implemented saving the following user settings for the Neuroanalytics chat: width and position on the screen, overlaid or beside the content. Settings are restored after page reload. The minimum chat width has also been increased to 400 px.
+* Implemented saving of user settings for the Neuroanalytics chat: width and position on the screen, overlaid or side-by-side with the content. Settings are restored after page reload. The minimum chat width has also been increased to 400 px.
 * Fixed the display of tooltips in selectors on dashboards when using formulas.
 * Fixed an issue where, on some iOS versions, a selector value would reset immediately after being selected.
 * Fixed [chart cross-filtering](../dashboard/chart-chart-filtration.md) for maps in Firefox and Safari browsers.
@@ -55,7 +55,7 @@ description: "Check out the {{ datalens-full-name }} release notes for July\_202
 
 ### Fixes in datasets {#dataset-fixes}
 
-* Fixed an error in datasets on the **Filtering** tab for the `Date and Time` field type where time was shifted by the user's time zone offset.
+* Fixed an error in datasets on the **Filtering** tab for the `Date and Time` field type, where the time was shifted by the user's time zone offset.
 * Added information about the ability to edit the source in the dataset source update form.
 
 ### Fixes in reports {#report-fixes}
@@ -71,11 +71,11 @@ description: "Check out the {{ datalens-full-name }} release notes for July\_202
 ### Fixes in charts {#chart-fixes}
 
 * Fixed the legend display when coloring charts by measure.
-* Fixed the incorrect display of empty values in the **Filters from dashboard** section in charts opened from a dashboard.
+* Fixed incorrect display of empty values in the **Filters from dashboard** section in charts opened from a dashboard.
 * Fixed a [direct export](../concepts/chart/data-export.md#save-data) issue in `XLSX` format where the progress indicator would display indefinitely if the total row had an invalid date.
 * Fixed an issue with color settings in the **Colors** section when using the default custom palette. Previously, colors would only appear after switching to another palette and back. Now all colors are immediately available for selection.
-* Fixed the display of [column charts](../visualization-ref/column-chart.md) with sorting and grouping by a field from the **Colors** section.
-* For [normalized stacked area charts](../visualization-ref/normalized-area-chart.md), removed the **Display mode** option in the **Y-axis** settings, which was previously shown incorrectly.
-* In [pie charts](../visualization-ref/pie-chart.md), fixed the display of a chart with a small sector size.
+* Fixed the display of a [column chart](../visualization-ref/column-chart.md) with sorting and grouping by a field from the **Colors** section.
+* For a [normalized stacked area chart](../visualization-ref/normalized-area-chart.md), removed the **Display mode** option in the **Y-axis** settings, which was shown incorrectly.
+* In a [pie chart](../visualization-ref/pie-chart.md), fixed the display of the chart with a small sector size.
 * For Editor charts, fixed an issue where manually added parameters were not displayed in selectors linked to datasets.
 

@@ -59,12 +59,12 @@ Variable              | Default         | Required | Description
 ----------------------- | -------------------- | ----------- | ---
 `RUNNER_TOKEN`          | —                    | Yes          | {{ GLR }} token (project/group/instance)
 `CI_SERVER_URL`         | `https://gitlab.com` | No         | {{ GL }} CI address
-`PORT`                  | `8080`               | No         | HTTP port
-`WEBHOOK_PATH`          | `/`                  | No         | Webhook endpoint path
-`GITLAB_SECRET`         | —                    | No         | Secret for checking the `X-Gitlab-Token` header
-`WAIT_TIMEOUT`          | `10`                 | No         | `gitlab-runner --wait-timeout` value, in seconds
-`MAX_BUILDS`            | `1`                  | No         | `gitlab-runner --max-builds` value
-`DOCKERD_READY_TIMEOUT` | `5s`                 | No         | Timeout until `dockerd` is ready (`time.Duration`)
+`PORT`                  | `8080`               | None         | HTTP port
+`WEBHOOK_PATH`          | `/`                  | None         | Webhook endpoint path
+`GITLAB_SECRET`         | —                    | None         | Secret for checking the `X-Gitlab-Token` header
+`WAIT_TIMEOUT`          | `10`                 | None         | `gitlab-runner --wait-timeout` value, in seconds
+`MAX_BUILDS`            | `1`                  | None         | `gitlab-runner --max-builds` value
+`DOCKERD_READY_TIMEOUT` | `5s`                 | None         | Timeout until `dockerd` is ready (`time.Duration`)
 
 **Restrictions**
 
@@ -345,20 +345,18 @@ Specifying a network in the container settings creates a service subnet from the
   1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
 
       1. Under **{{ ui-key.yacloud.serverless-containers.section_resources }}**, specify the required RAM, e.g., `1024 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-      1. Under **{{ ui-key.yacloud.serverless-containers.section_image }}**:
+      1. Under **{{ ui-key.yacloud.serverless-containers.section_image }}**, click **{{ ui-key.yacloud.component.image-field.button_custom-image }}** and specify `{{ registry }}/yc/serverless/gitlab-runner` in the **{{ ui-key.yacloud.serverless-containers.label_image-url }}** field.
+      1. Under **{{ ui-key.yacloud.serverless-containers.label_environment }}**, add the variables:
 
-          1. Click **{{ ui-key.yacloud.component.image-field.button_custom-image }}**, and specify `{{ registry }}/yc/serverless/gitlab-runner` in the **{{ ui-key.yacloud.serverless-containers.label_image-url }}** field.
-          1. In the **{{ ui-key.yacloud.serverless-containers.label_environment }}** field, add the following variables:
+          * `CI_SERVER_URL`: `https://gitlab.com`
+          * `WEBHOOK_PATH`: `/webhook`
 
-              * `CI_SERVER_URL`: `https://gitlab.com`
-              * `WEBHOOK_PATH`: `/webhook`
+      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**, specify the following:
 
-          1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field, specify:
-
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}**: `RUNNER_TOKEN`.
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-id }}**: `gitlab-runner-token`.
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}**: Current version ID.
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-key }}**: `gitlab_runner_token`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}**: `RUNNER_TOKEN`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-id }}**: `gitlab-runner-token`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}**: Current version ID.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-key }}**: `gitlab_runner_token`.
 
         1. Under **{{ ui-key.yacloud.serverless-containers.section_parameters }}**:
 

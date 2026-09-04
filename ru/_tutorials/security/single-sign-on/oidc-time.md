@@ -82,7 +82,7 @@
 
 {% include [oidc-manage-users](../../../_includes/organization/oidc-manage-users.md) %}
 
-Чтобы добавить пользователей в SAML-приложение:
+Чтобы добавить пользователей в OIDC-приложение:
 
 {% list tabs group=instructions %}
 

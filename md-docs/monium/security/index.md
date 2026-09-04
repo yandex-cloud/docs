@@ -23,25 +23,29 @@
 {% cut "Роли алертинга" %}
 
 ```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk', 'padding': 4}} }%%
 flowchart BT
-    monium.editor --> monium.admin
-    monium.alerts.viewer ---> monium.alerts.editor
-    monium.alerts.viewer --> monium.viewer
-    monium.channels.viewer ---> monium.channels.editor
-    monium.channels.viewer --> monium.viewer
-    monium.escalations.viewer --> monium.viewer
-    monium.escalations.viewer ---> monium.escalations.editor
-    monium.auditor --> monium.viewer
-    monium.escalationPolicies.viewer["monium.<br>escalationPolicies.<br>viewer"] --> monium.viewer
-    monium.escalationPolicies.viewer["monium.<br>escalationPolicies.<br>viewer"] ---> monium.escalationPolicies.editor["monium.<br>escalationPolicies.<br>editor"]
-    monium.mutes.viewer --> monium.viewer
-    monium.mutes.viewer ---> monium.mutes.editor
-    monium.channels.editor --> monium.editor
+    monium.alerts.viewer --> monium.alerts.editor
+    monium.alerts.viewer --> monium.auditor
     monium.alerts.editor --> monium.editor
-    monium.viewer --> monium.editor
+
+    monium.channels.viewer["monium.<br>channels.<br>viewer"] --> monium.channels.editor["monium.<br>channels.<br>editor"]
+    monium.channels.viewer --> monium.auditor
+    monium.channels.editor --> monium.editor
+
+    monium.escalations.viewer["monium.<br>escalations.<br>viewer"] --> monium.auditor
+    monium.escalations.viewer --> monium.escalations.editor["monium.<br>escalations.<br>editor"]
     monium.escalations.editor --> monium.editor
+
+    monium.escalationPolicies.viewer["monium.<br>escalationPolicies.<br>viewer"] --> monium.auditor
+    monium.escalationPolicies.viewer["monium.<br>escalationPolicies.<br>viewer"] --> monium.escalationPolicies.editor["monium.<br>escalationPolicies.<br>editor"]
     monium.escalationPolicies.editor["monium.<br>escalationPolicies.<br>editor"] --> monium.editor
+
+    monium.mutes.viewer --> monium.auditor
+    monium.mutes.viewer --> monium.mutes.editor
     monium.mutes.editor --> monium.editor
+
+    monium.auditor --> monium.viewer --> monium.editor --> monium.admin
 ```
 
 {% endcut %}
@@ -49,23 +53,27 @@ flowchart BT
 {% cut "Роли телеметрии" %}
 
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk", "padding": 4 },
+    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
+  }
+}%%
 flowchart BT
-    monium.editor --> monium.admin
-    monium.metrics.writer --> monium.telemetry.writer
-    monium.logs.writer --> monium.telemetry.writer
-    monium.traces.writer --> monium.telemetry.writer
-    monium.metrics.reader --> monium.telemetry.reader
-    monium.logs.reader --> monium.telemetry.reader
-    monium.traces.reader --> monium.telemetry.reader
-    monium.logErrorLabels.viewer["monium.<br>logErrorLabels.<br>viewer"] --> monium.logErrorLabels.editor["monium.<br>logErrorLabels.<br>editor"]
-    monium.logErrorLabels.viewer["monium.<br>logErrorLabels.<br>viewer"] --> monium.viewer
-    monium.auditor --> monium.viewer
+    monium.metrics.reader["monium.<br>metrics.<br>readers"] --> monium.telemetry.reader["monium.<br>telemetry.<br>reader"]
+    monium.logs.reader["monium.<br>logs.<br>reader"] --> monium.telemetry.reader
+    monium.traces.reader["monium.<br>traces.<br>reader"] --> monium.telemetry.reader
+
+    monium.metrics.writer["monium.<br>metrics.<br>writer"] --> monium.telemetry.writer["monium.<br>telemetry.<br>writer"]
+    monium.logs.writer["monium.<br>logs.<br>writer"] --> monium.telemetry.writer
+    monium.traces.writer["monium.<br>traces.<br>writer"] --> monium.telemetry.writer
+
     monium.telemetry.reader --> monium.viewer
     monium.telemetry.writer --> monium.editor
-    monium.logErrorLabels.editor["monium.<br>logErrorLabels.<br>editor"] --> monium.editor
-    monium.viewer --> monium.editor
-    monium.dashboards.editor --> monium.editor
-    monium.shards.editor --> monium.editor
+    monium.logErrorLabels.viewer["monium.<br>logErrorLabels.<br>viewer"] --> monium.logErrorLabels.editor["monium.<br>logErrorLabels.<br>editor"] --> monium.editor
+    monium.logErrorLabels.viewer["monium.<br>logErrorLabels.<br>viewer"] --> monium.auditor
+
+    monium.auditor --> monium.viewer --> monium.editor --> monium.admin
 ```
 
 {% endcut %}
@@ -73,25 +81,27 @@ flowchart BT
 {% cut "Роли конфигурации и визуализации" %}
 
 ```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk', 'padding': 4}} }%%
 flowchart BT
-    monium.editor --> monium.admin
-    monium.quickLinks.viewer --> monium.quickLinks.editor
-    monium.quickLinks.viewer --> monium.viewer
-    monium.contextLinks.viewer --> monium.contextLinks.editor
-    monium.contextLinks.viewer --> monium.viewer
-    monium.auditor --> monium.viewer
-    monium.serviceLevelObjectives.viewer["monium.<br>serviceLevelObjectives.<br>viewer"] --> monium.viewer
+    monium.dashboards.viewer --> monium.auditor
+    monium.dashboards.viewer["monium.<br>dashboards.<br>viewer"] --> monium.dashboards.editor["monium.<br>dashboards.<br>editor"] --> monium.editor
+
+    monium.serviceLevelObjectives.viewer["monium.<br>serviceLevelObjectives.<br>viewer"] --> monium.auditor
     monium.serviceLevelObjectives.viewer["monium.<br>serviceLevelObjectives.<br>viewer"] --> monium.serviceLevelObjectives.editor["monium.<br>serviceLevelObjectives.<br>editor"]
-    monium.dashboards.viewer --> monium.viewer
-    monium.dashboards.viewer --> monium.dashboards.editor
-    monium.shards.viewer --> monium.viewer  
-    monium.shards.viewer --> monium.shards.editor
-    monium.quickLinks.editor --> monium.editor
-    monium.contextLinks.editor --> monium.editor
-    monium.viewer --> monium.editor
     monium.serviceLevelObjectives.editor["monium.<br>serviceLevelObjectives.<br>editor"] --> monium.editor
-    monium.dashboards.editor --> monium.editor
-    monium.shards.editor --> monium.editor
+
+    monium.shards.viewer --> monium.auditor  
+    monium.shards.viewer["monium.<br>shards.<br>viewer"] --> monium.shards.editor["monium.<br>shards.<br>editor"] --> monium.editor
+
+    monium.auditor --> monium.viewer --> monium.editor --> monium.admin
+    
+    monium.contextLinks.editor --> monium.editor
+    monium.contextLinks.viewer["monium.<br>contextLinks.<br>viewer"] --> monium.contextLinks.editor["monium.<br>contextLinks.<br>editor"]
+    monium.contextLinks.viewer --> monium.auditor
+
+    monium.quickLinks.viewer["monium.<br>quickLinks.<br>viewer"] --> monium.quickLinks.editor["monium.<br>quickLinks.<br>viewer"]
+    monium.quickLinks.viewer --> monium.auditor
+    monium.quickLinks.editor --> monium.editor
 ```
 
 {% endcut %}

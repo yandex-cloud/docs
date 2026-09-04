@@ -493,8 +493,8 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `application.linked.UpdateApplicationAssignments` | Изменение списка пользователей связанного приложения
 `idp.AddUserBlock` | Добавление блока пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
-`idp.application.CreateAsset` | Загрузка ресурса приложения
-`idp.application.DeleteAsset` | Удаление ресурса приложения
+`idp.application.CreateAsset` | Загрузка логотипа приложения
+`idp.application.DeleteAsset` | Удаление логотипа приложения
 `idp.branding.CreateAsset` | Загрузка ресурса для [брендирования](../../organization/concepts/branding.md)
 `idp.branding.CreateBranding` | Создание брендирования
 `idp.branding.DeleteAsset` | Удаление ресурса для брендирования
@@ -633,14 +633,14 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `AddPersonalPublicGpgKey` | Добавление личного открытого ключа GPG
 `AddPersonalPublicSshKey` | Добавление личного [открытого SSH-ключа](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/ssh)
 `CreatePersonalAccessToken` | Создание [персонального токена (PAT)](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/pat)
-`CreateRepository` | Создание [репозитория](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/index#repos)
+`CreateRepository` | Создание [репозитория](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/#repos)
 `CreateSecret` | Создание [секрета](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/secrets)
 `CreateServiceConnection` | Создание [сервисного подключения](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/service-connections)
 `DeleteAllSecrets` | Удаление всех секретов
 `DeletePersonalAccessToken` | Удаление персонального токена (PAT)
 `DeleteRepository` | Удаление репозитория
 `DeleteSecret` | Удаление секрета
-`DeleteServiceConnection` | Удаление подключения к сервису
+`DeleteServiceConnection` | Удаление сервисного подключения
 `OffboardCloudRegistry` | Отключение реестра pkg.sourcecraft.tech
 `OffboardOrganization` | Отключение организации
 `OnboardCloudRegistry` | Подключение реестра pkg.sourcecraft.tech
@@ -652,9 +652,9 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateOrganization` | Изменение организации
 `UpdatePersonalAccessToken` | Изменение персонального токена (PAT)
 `UpdateRepository` | Изменение репозитория
-`UpdateRepositoryAccessBindings` | Изменение прав доступа к [репозиторию](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/index#repos)
-`UpdateSecret` | Изменение [секрета](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/secrets)
-`UpdateServiceConnection` | Изменение подключения к сервису
+`UpdateRepositoryAccessBindings` | Изменение прав доступа к репозиторию
+`UpdateSecret` | Изменение секрета
+`UpdateServiceConnection` | Изменение сервисного подключения
 `VerifyPersonalEmail` | Подтверждение личного адреса электронной почты
 
 ## Yandex Cloud Video {#video}

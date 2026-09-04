@@ -32,7 +32,7 @@ The infrastructure support cost includes:
 
     {% include [sg-common-warning](../security-groups/sg-common-warning.md) %}
 
-1. [Create](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster. When creating, specify the security groups prepared earlier.
+1. [Create](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster. When creating, specify the preconfigured security groups.
 
 1. {% include [create-node-group](../../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
@@ -101,7 +101,8 @@ The infrastructure support cost includes:
 
 1. In the [management console]({{ link-console-main }}), select a folder.
 1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the [{{ managed-k8s-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Select the [{{ managed-k8s-name }} cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+1. Click the **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) tab and select **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Gwin](/marketplace/products/yc/gwin) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
     * **Namespace**: Create a new [namespace](../../../managed-kubernetes/concepts/index.md#namespace), e.g., `gwin-space`. If you leave the default namespace, Gwin may work incorrectly.

@@ -35,6 +35,9 @@ description: Различные практические руководства 
 * Jenkins
     * [{#T}](single-sign-on/saml-jenkins.md)
     * [{#T}](single-sign-on/oidc-jenkins.md)
+* LibreChat
+    * [SAML](single-sign-on/saml-librechat.md)
+    * [OpenID Connect](single-sign-on/oidc-librechat.md)
 * Loop
     * [{#T}](single-sign-on/saml-loop.md)
     * [{#T}](single-sign-on/oidc-loop.md)

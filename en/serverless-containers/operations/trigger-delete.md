@@ -13,7 +13,7 @@ description: In this guide, you will learn how to delete a trigger in {{ serverl
     1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
     1. Select the trigger you want to delete.
-    1. In the top-right corner of the page, click **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
+    1. In the top panel, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.serverless-functions.list.popup-confirm_button_delete }}**.
     
 - CLI {#cli}

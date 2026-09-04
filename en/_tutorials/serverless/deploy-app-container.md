@@ -610,14 +610,14 @@ To run your application in {{ yandex-cloud }}, create a [container](../../server
       1. Under **{{ ui-key.yacloud.serverless-containers.section_image }}**:
 
           1. In the **{{ ui-key.yacloud.serverless-containers.label_image-url }}** field, specify the URL of the Docker image you pushed [previously](#push-image).
-          1. In the **{{ ui-key.yacloud.serverless-containers.label_environment }}** field, add the following variables:
+          1. Under **{{ ui-key.yacloud.serverless-containers.label_environment }}**, add the variables:
 
               * `ME_CONFIG_BASICAUTH_USERNAME`: Leave empty.
               * `ME_CONFIG_BASICAUTH_PASSWORD`: Leave empty.
               * `VCAP_APP_PORT`: Set it to `8080`.
               * `ME_CONFIG_MONGODB_SERVER`: Specify the VM public IP address obtained [earlier](#create-vm).
 
-          1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field, specify the secrets as follows:
+          1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field, specify the secrets:
 
               * `ME_CONFIG_MONGODB_AUTH_USERNAME`: Secret with the `login` key.
               * `ME_CONFIG_MONGODB_AUTH_PASSWORD`: Secret with the `password` key.

@@ -21,7 +21,7 @@ To run bash commands, you will need a JSON parser, [jq](https://stedolan.github.
 1. [Create a service account](../../../iam/operations/sa/create.md).
 1. [Create a {{ managed-k8s-name }} cluster](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with any suitable configuration.
 1. [Create a node group](../node-group/node-group-create.md) with any suitable configuration.
-1. [Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [set it up to work with the new cluster](index.md#kubectl-connect). Add the credentials to the `test.kubeconfig` configuration file using the `--kubeconfig=test.kubeconfig` parameter.
+1. [Install kubect]({{ k8s-docs }}/tasks/tools/install-kubectl) and [set it up to work with the new cluster](index.md#kubectl-connect). Add the credentials to the `test.kubeconfig` configuration file using the `--kubeconfig=test.kubeconfig` parameter.
 
 ## Get a unique cluster ID {#k8s-id}
 
@@ -34,9 +34,7 @@ To access a {{ managed-k8s-name }} cluster, use its unique ID. Save it to a vari
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
      1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-     1. Click the name of the {{ managed-k8s-name }} cluster.
-
-     The unique ID of the {{ managed-k8s-name }} cluster will appear in the **{{ ui-key.yacloud.common.id }}** field.
+     1. In the {{ managed-k8s-name }} cluster row, copy its ID into the **{{ ui-key.yacloud.common.id }}** field.
 
    - CLI {#cli}
 

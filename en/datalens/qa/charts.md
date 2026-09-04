@@ -44,7 +44,7 @@ description: This page covers FAQ about charts.
 
 ### Why do I get null output when creating a multi-dataset chart? {#null-in-multidataset-chart}
 
-The possible causes might include the following:
+The possible causes may include the following:
 
 * The `null` value is saved in the database table.
 * When joining tables, you get the `null` values if one of the tables is lacking the entries that match the other table's entries according to the joining condition.
@@ -55,3 +55,15 @@ If values other than `null` must be displayed for each dataset:
 * Make sure there are no filters in place in the chart or dataset that could limit the resulting selection to data from a single dataset. Remove the filters and check how entries are displayed.
 * Check the conditions that are limiting the selection (if an SQL query is used to build the dataset).
 * Check alignment between entries from different datasets. Do it by selecting an entry from one dataset and finding a matching entry in the other dataset according to the joining condition. Make sure that values other than `null` are displayed in each dataset in the fields used to build your [multi-dataset chart](../../datalens/operations/chart/create-multidataset-chart.md).
+
+### How to add regions to a map? {#add-geodata}
+
+
+{% include [geointellect-using](../../_includes/datalens/visualization-ref/geointellect-using.md) %}
+
+
+For an example of working with geodata, see [this guide](../tutorials/data-from-csv-geo-visualization.md).
+
+
+You can purchase pre-calculated geolayers from partners in [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery/all?category=geo).
+

@@ -8,7 +8,7 @@ Once your billing account is set up, you can start using {{ yandex-cloud }} serv
 1. Select `Example organization`.
 1. In the left-hand panel, select `default`.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. Select **{{ ui-key.yacloud.compute.group.switch_instances }}** ![image](../../_assets/console-icons/server.svg).
+1. Select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.group.switch_instances }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}** and set the VM parameters:
 
    1. Under **Operating systems and products**, select **Ubuntu 24.04 LTS**.
@@ -31,20 +31,13 @@ Once your billing account is set up, you can start using {{ yandex-cloud }} serv
 
 A *security group* (SG) is a resource created at the [cloud network](../../vpc/concepts/network.md#network) level. Once created, a security group can be used in {{ yandex-cloud }} services to control network access to an object it applies to.
 
-The VM you created was assigned the default security group. To allow a connection to the VM over SSH, create a rule in this security group that allows incoming traffic via TCP to port 22:
+The VM you created is automatically assigned a [default security group](../../vpc/concepts/security-groups.md#default-security-group). It already allows connections to the VM via `SSH` (`TCP` and `UDP` on port `22`), so no additional rules are required for basic operation.
 
-1. Navigate to the [management console]({{ link-console-main }}).
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** and open the VM you created earlier.
-1. On the VM information page, under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, open the security group assigned to the VM.
-1. In the top-right corner, click **{{ ui-key.yacloud.common.edit }}**.
-1. Open the **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab and click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-1. In the window that opens, set the following parameters:
-   1. **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`.
-   1. **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `TCP`.
-   1. **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-   1. **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
-   1. Click **{{ ui-key.yacloud.common.save }}**. Add other rules, if required.
-1. Click **{{ ui-key.yacloud.common.save }}**.
+{% note warning %}
+
+The default security group allows `SSH` connections to the VM from any IPv4 address. For production VMs, [create](../../vpc/operations/security-group-create.md) a custom security group with stricter rules, such as allowing connections only from your computer's public IPv4 address with a `/32` mask, and [assign](../../compute/operations/vm-control/vm-change-security-groups-set.md) it to the VM's network interface.
+
+{% endnote %}
 
 ## Connecting to a VM {#vm-connect}
 

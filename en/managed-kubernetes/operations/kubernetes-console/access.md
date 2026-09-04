@@ -17,8 +17,9 @@ You can create service accounts in the management console in the same way as whe
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select ![Access](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.k8s.cluster.switch_access }}** in the left-hand panel.
-  1. In the top-right corner, click **{{ ui-key.yacloud.common.create }}** and select **{{ ui-key.yacloud.k8s.access.button_create-sa }}**.
+  1. Select the {{ managed-k8s-name }} cluster.
+  1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_access }}** tab, and then to **{{ ui-key.yacloud.k8s.access.label_service-accounts }}**.
+  3. Click **{{ ui-key.yacloud.k8s.access.button_filter-create-sa }}**.
   1. In the window that opens, enter the service account **{{ ui-key.yacloud.k8s.access.popup-add-sa_field_name }}**.
   1. In the drop-down list, select the **{{ ui-key.yacloud.k8s.access.popup-add-sa_field_namespace }}** to create the service account in.
   1. Click **{{ ui-key.yacloud.common.add }}**.
@@ -37,8 +38,9 @@ To delete a service account:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select ![Access](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.k8s.cluster.switch_access }}** in the left-hand panel.
-  1. In the service account line, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Select the {{ managed-k8s-name }} cluster.
+  1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_access }}** tab, and then to **{{ ui-key.yacloud.k8s.access.label_service-accounts }}**.
+  1. In the service account line, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the action.
 
 {% endlist %}

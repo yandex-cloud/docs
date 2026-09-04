@@ -3430,6 +3430,7 @@ default:
         operations: Операции
         overview: Обзор
         resource-acl:
+          label_groups_mQQ4T: Группы
           label_invitee-accounts: Приглашенные аккаунты
         save: Сохранить
         section-base: Общая информация

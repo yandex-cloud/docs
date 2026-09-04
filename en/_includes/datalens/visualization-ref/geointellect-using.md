@@ -1,0 +1,1 @@
+{{ datalens-short-name }} uses only partner maps and geodata. If your data contains a field with names of cities, regions, or countries, use the [geopoint/geopolygon reference](https://geointellect.com/files/geo_for_datalens.zip) by Geointellect, a Yandex partner.

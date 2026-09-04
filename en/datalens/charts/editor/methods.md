@@ -16,6 +16,8 @@ The supported methods include:
 * [Editor.getParam(name)](#get-param)
 * [Editor.getParams()](#get-params)
 * [Editor.getSortParams()](#get-sort-params)
+* [Editor.getUserId()](#get-user-id)
+* [Editor.getUserLogin()](#get-user-login)
 * [Editor.getWidgetConfig()](#get-widget-config)
 * [Editor.resolveInterval(arg)](#resolve-interval)
 * [Editor.resolveOperation(args)](#resolve-oper)
@@ -1179,6 +1181,90 @@ Example for the table with source based on a dataset.
 
 
 [Example of a chart with pagination and sorting](https://datalens.yandex/nvkfwnekf9xy9#Editor.getSortParams()%2C%20Editor.getCurrentPage())
+
+
+## Editor.getUserId() {#get-user-id}
+
+
+
+Returns the current user's {{ iam-short-name }} subject ID.
+
+
+
+#### Supported chart types
+
+All Editor charts.
+
+#### Arguments
+
+No.
+
+#### Returned result
+
+
+
+String containing the {{ iam-short-name }} subject ID. Returns an empty string for public charts, embeddings with no user authentication, or request where the user cannot be identified.
+
+
+
+#### Example
+
+```js
+const userId = Editor.getUserId();
+
+if (userId) {
+    // User identified.
+}
+```
+
+{% note warning %}
+
+Do not use the ID retrieved by this method to check access permissions. Access validation must be performed on the server side.
+
+{% endnote %}
+
+## Editor.getUserLogin() {#get-user-login}
+
+
+
+Returns the username from the `preferredUsername` attribute of the current {{ iam-short-name }} session.
+
+
+
+#### Supported chart types
+
+All Editor charts.
+
+#### Arguments
+
+No.
+
+#### Returned result
+
+
+
+String containing the username. For a federated user, the value depends on the attributes provided by the IdP. Returns an empty string if the `preferredUsername` attribute is missing, the user could not be identified, or the chart was opened by an unauthenticated user.
+
+
+
+#### Example
+
+
+```js
+const userLogin = Editor.getUserLogin();
+
+if (userLogin) {
+    // Username available.
+}
+```
+
+
+
+{% note warning %}
+
+For stable user identification, use `Editor.getUserId()`. The username may be missing or change. Do not use this method to check access permissions: access validation must be performed on the server side.
+
+{% endnote %}
 
 
 ## Editor.getWidgetConfig() {#get-widget-config}

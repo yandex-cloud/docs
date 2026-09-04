@@ -86,7 +86,7 @@ You can create calculated fields in the dataset or wizard interface.
   ![dataset-calculated-field](../../../_assets/datalens/concepts/dataset-calculated-field.png)
 
 - Wizard
-
+  
   
   {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 

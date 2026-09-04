@@ -79,7 +79,7 @@ You can use any DBMS suitable for analytical tasks as an event storage. In this 
 - Management console {#console}
 
   1. On the **{{ ui-key.yacloud.ydb.databases.label_title }}** page, select the new `postbox-events-ydb` database.
-  1. To open the database root directory, navigate to the ![image](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+  1. To open the database root directory, navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
   1. To query your database, click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** in the top-right corner.
   1. In the **{{ ui-key.yacloud.ydb.sql.label_query }}** box that opens, enter the following:
 
@@ -271,7 +271,7 @@ To create a function, you will need the function code and database connection cr
           1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
           1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
           1. Select the `postbox-events-ydb` database.
-          1. Go to the ![image](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+          1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
           1. Select the `postbox_events` table.
 
               The table should show new entries. Some columns may have the `NULL` value: this depends on the [type of notification](../../postbox/concepts/notification.md#types) received from {{ postbox-name }}.

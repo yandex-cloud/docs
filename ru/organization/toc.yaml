@@ -31,7 +31,7 @@ items:
             href: operations/hide-user-info.md
           - name: Удалить организацию
             href: operations/delete-org.md
-          - name: Подключить управляемую организацию
+          - name: Создать управляемую организацию
             href: operations/add-region.md
           - name: Настроить брендирование
             href: operations/manage-branding.md
@@ -299,6 +299,12 @@ items:
                 href: tutorials/single-sign-on/jenkins/saml-jenkins.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/jenkins/oidc-jenkins.md
+          - name: LibreChat
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/librechat/saml-librechat.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/librechat/oidc-librechat.md
           - name: Loop
             items:
               - name: SAML

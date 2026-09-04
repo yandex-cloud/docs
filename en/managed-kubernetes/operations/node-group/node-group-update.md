@@ -52,10 +52,9 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
   To update a {{ managed-k8s-name }} node group:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name.
-  1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
-  1. Select the node group you need.
-  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+  1. Select the {{ managed-k8s-name }} cluster.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Change the parameters in the window that opens.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -104,7 +103,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
   * `--auto-upgrade`: Manage automatic updates.
   * Managing the maintenance window:
     * `--anytime-maintenance-window`: Update at any time.
-    * `--daily-maintenance-window`: Set the start point and duration of the UTC time interval during which the update will start.
+    * `--daily-maintenance-window`: Set the start point and duration of the time interval in UTC during which the update will start.
     * `--weekly-maintenance-window`: Set the day, start point, and duration of the UTC time interval during which the update will start.
 
       These settings are not related to the update duration or its completion time.
@@ -198,10 +197,9 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update a {{ managed-k8s-name }} cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the name of the {{ managed-k8s-name }} cluster.
-  1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
-  1. Select the node group you need.
-  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+  1. Select the {{ managed-k8s-name }} cluster.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the following settings:
 
       {% include [deploy-policy-parameters-console](../../../_includes/managed-kubernetes/deploy-policy/parameters-console.md) %}
@@ -297,10 +295,9 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name.
-  1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
-  1. Select the node group you need.
-  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+  1. Select the {{ managed-k8s-name }} cluster.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**, in the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select the `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` IP address assignment method. Nodes will get random public IP addresses from the {{ yandex-cloud }} address pool.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -478,10 +475,9 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
     1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-    1. Click the cluster name.
-    1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
-    1. Select the node group you need.
-    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. Select the {{ managed-k8s-name }} cluster.
+    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+    1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
     1. Enter the key and value, and press **Enter**.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -547,10 +543,9 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
     1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-    1. Click the cluster name.
-    1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
-    1. Select the node group you need.
-    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. Select the {{ managed-k8s-name }} cluster.
+    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+    1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label to remove it.
     1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}** and enter a new key and/or value for the label.
     1. Press **Enter** and click **{{ ui-key.yacloud.common.save }}**.
@@ -615,10 +610,9 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
     1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-    1. Click the cluster name.
-    1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
-    1. Select the node group you need.
-    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. Select the {{ managed-k8s-name }} cluster.
+    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+    1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -669,10 +663,9 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
     1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-    1. Click the cluster name.
-    1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
-    1. Select the node group you need.
-    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. Select the {{ managed-k8s-name }} cluster.
+    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+    1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. Change the connection method settings:
 
         1. To enable or disable access to nodes via {{ oslogin }}, use the **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}** option.
@@ -737,10 +730,9 @@ After you update the metadata, the node group status will temporarily change to 
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
     1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-    1. Click the cluster name.
-    1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
-    1. Select the node group you need.
-    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. Select the {{ managed-k8s-name }} cluster.
+    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+    1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. Expand the **{{ ui-key.yacloud.common.metadata }}** section and edit, add, or remove metadata for the nodes.
 
         To add metadata, click **{{ ui-key.yacloud.common.metadata-add-field }}**. Specify the key and value for each metadata element in a separate set of fields.
