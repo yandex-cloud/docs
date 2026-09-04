@@ -6,6 +6,12 @@
 
     With the simple setup, {{ postbox-name }} automatically generates DKIM keys. The two CNAME records you need to add to your DNS provider are displayed under **{{ ui-key.yacloud.postbox.section_dkim }}** on the address page.
 
+    {% note info %}
+
+    Both CNAME records are required for automatic DKIM key rotation. You must add them to the DNS provider and cannot delete these records after completing domain ownership verification. Public key TXT records resolve through both CNAME records only during key rotation. At any other time, a valid public key resolves through only one of them. For more information, see [{#T}](../../postbox/concepts/dns-records.md#key-rotation).
+
+    {% endnote %}
+
     **Example of creating resource records in {{ dns-full-name }}**
 
     {% include [check-domain-simple](../../_includes/postbox/check-domain-simple.md) %}
@@ -31,7 +37,7 @@
         {% endnote %}
 
     1. In the **{{ ui-key.yacloud.common.type }}** field, select `TXT`.
-    1. Paste the contents of the **{{ ui-key.yacloud.postbox.label_dns-record-value }}** field under **{{ ui-key.yacloud.postbox.section_dkim }}** into the **{{ ui-key.yacloud.dns.label_records }}** field. Note that the record value must be enclosed in quotes, such as follows:
+    1. Paste the contents of the **{{ ui-key.yacloud.dns.label_records }}** field under **{{ ui-key.yacloud.postbox.label_dns-record-value }}** into the **{{ ui-key.yacloud.postbox.section_dkim }}** field. Note that the record value must be enclosed in quotes, such as follows:
 
         ```text
         "v=DKIM1;h=sha256;k=rsa;p=M1B...aCA8"

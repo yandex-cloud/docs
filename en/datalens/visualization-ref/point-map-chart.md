@@ -19,6 +19,10 @@ This map type is used to monitor the territorial distribution of points. For exa
 
 ![point-chart](../../_assets/datalens/visualization-ref/point-chart/point-chart.png =800x)
 
+
+{% include [geointellect-using](../../_includes/datalens/visualization-ref/geointellect-using.md) %}
+
+
 ## Wizard sections {#wizard-sections}
 
 Wizard<br/> section| Description

@@ -1,4 +1,4 @@
-{{ prometheus-name }} Operator with {{ monitoring-full-name }} support streamlines the installation of {{ prometheus-name }} Operator, a popular solution for {{ k8s }} cluster monitoring, providing integration with {{ monitoring-full-name }}. You can use it to collect, store, and read metrics from containers, applications, and the infrastructure. The system leverages the {{ prometheus-name }} data model and [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/).
+The {{ prometheus-name }} Operator with {{ monitoring-full-name }} support streamlines installation of the {{ prometheus-name }} Operator, a popular solution for {{ k8s }} cluster monitoring, and provides integration with {{ monitoring-full-name }}. You can use it to collect, store, and read metrics from containers, applications, and the infrastructure. The system leverages the {{ prometheus-name }} data model and [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/).
 
 ## Getting started {#before-you-begin}
 
@@ -56,7 +56,7 @@
 
 {% include [add-graph](../../_includes/managed-kubernetes/prometheus-add-graph.md) %}
 
-## Adding charts to dashboards {#add-to-dashboard}
+## Adding a chart to a dashboard {#add-to-dashboard}
 
 {% include [add-graph-to-dashboard](../../_includes/managed-kubernetes/prometheus-add-graph-to-dashboard.md) %}
 

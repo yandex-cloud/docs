@@ -6,7 +6,9 @@ editable: false
 
 # Trial period restrictions
 
-The trial period is available to businesses only as a means of testing and exploring the cloud infrastructure features. During the trial period, you can use {{ yandex-cloud }} resources with some restrictions.
+{% include [free-trial-invoice-only](../../../_includes/billing/free-trial-invoice-only.md) %}
+
+During the trial period, you can use {{ yandex-cloud }} resources with some restrictions.
 
 
 ## Service Level Agreement (SLA) {#sla}

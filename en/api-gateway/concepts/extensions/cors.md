@@ -84,7 +84,7 @@ components:
 
 ### Example of a specification that overrides a CORS rule
 
-In this example, a general rule defined at the top level for the entire API gateway is overridden at the level of a specific path. The `false` value of the `origin` parameter disables preflight request processing in the API gateway, and the request is sent to an integration function. All CORS headers received in function responses are transmitted as is to a response from the API gateway.
+In this example, a general rule defined at the top level for the entire API gateway is overridden at the level of a specific path. The `false` value of the `origin` parameter disables preflight request processing in the API gateway, and the request is sent to an integration function. All CORS headers received in the function's response are forwarded as-is to the API gateway's response.
 
 ```yaml
 openapi: "3.0.0"

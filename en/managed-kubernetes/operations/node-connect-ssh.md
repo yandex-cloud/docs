@@ -30,7 +30,7 @@ For more information, see [Connecting to a VM over SSH](../../compute/operations
 
 ## Create SSH key pairs {#creating-ssh-keys}
 
-Prepare the keys to use with your {{ managed-k8s-name }} cluster node. Proceed as follows:
+Prepare the keys to use with your {{ managed-k8s-name }} cluster node. Follow these steps:
 
 {% list tabs group=operating_system %}
 
@@ -126,8 +126,7 @@ Here is an example:
 
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Select the {{ managed-k8s-name }} cluster.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+  1. Select the {{ managed-k8s-name }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
   1. Set the node group parameters.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the credentials to access the {{ managed-k8s-name }} node:
@@ -240,9 +239,8 @@ The credentials for connecting over SSH will be completely overwritten. You will
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the {{ managed-k8s-name }} cluster.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-  1. On the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab, select the node group in which you want to update the credentials.
-  1. In the top panel, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. In the row of the node group whose credentials you want to update, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Expand **{{ ui-key.yacloud.common.metadata }}**.
   1. Replace the current value of `ssh-keys` with the contents of the credentials file.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -365,12 +363,13 @@ To connect to a {{ managed-k8s-name }} cluster node, specify its [public IP addr
 
 - Management console {#console}
 
-  1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section in the folder hosting your {{ managed-k8s-name }} cluster.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your {{ managed-k8s-name }} cluster.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
-  1. Click the VM group with the name that matches the {{ managed-k8s-name }} node group ID.
-  1. In the window that opens, go to the **{{ ui-key.yacloud.compute.group.switch_instances }}** tab.
-  1. Click the VM whose public address you want to get.
-  1. You will find the public IP address under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** in **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}**.
+  1. Click the VM group with the name that matches the {{ managed-k8s-name }} node group ID and navigate to the **{{ ui-key.yacloud.compute.group.switch_instances }}** tab.
+  1. Select the VM whose public address you want to get.
+
+      You will find the public IP address under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** in **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}**.
 
 - CLI {#cli}
 

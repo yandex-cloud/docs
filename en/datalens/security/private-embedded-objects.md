@@ -26,6 +26,8 @@ To configure the features and appearance of embedded objects, you can use specia
   * `light`: Light theme.
   * `dark`: Dark theme.
 
+* `_bg_color`: Sets the chart and dashboard background in hexadecimal format, e.g., `_bg_color=D7F7F7`.
+* `_widgets_bg_color`: Sets the background of widgets on the dashboard in hexadecimal format, e.g., `_widgets_bg_color=B7F7F7`.
 * `_lang`: In charts, sets the language of the menu that opens when you click ![image](../../_assets/console-icons/ellipsis.svg). The possible values are `ru` or `en`.
 * `_no_tabs `: Hides dashboard tabs. To activate the parameter, set it to `1`.
 * `_no_table_of_content`: Hides dashboard content. To activate the parameter, set it to `1`.
@@ -467,7 +469,7 @@ Signed parameters ensure more secure data access: users with access to embedded 
 When embedding private objects, follow these guidelines:
 
 * Default values should be provided in the link parameters.
-* Note that any parameter in the link will override any signed parameter of the same name.
+* Note that any signed parameter will override external parameters with the same name (e.g., a parameter in a link).
 * To make it uneditable, add the [signed parameter](#signed-parameters) to a token.
 
 ## Things to consider when embedding dashboards {#dash-embed-specialties}

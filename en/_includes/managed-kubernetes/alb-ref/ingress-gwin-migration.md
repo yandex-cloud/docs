@@ -139,9 +139,8 @@ Test the new load balancer to ensure it functions correctly:
 1. Get the IP address of your new load balancer:
     * Retrieve the `Ingress` resource status using the `kubectl get Ingress` command.
     * In the [management console]({{ link-console-main }}), do the following:
-      * Go to the {{ managed-k8s-name }} cluster page.
-      * In the left-hand panel, select ![image](../../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.k8s.cluster.switch_network }}**.
-      * Navigate to the **{{ ui-key.yacloud.k8s.network.label_ingress }}** tab.
+      * Open the {{ managed-k8s-name }} cluster page.
+      * Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_network }}** tab, then to **{{ ui-key.yacloud.k8s.network.label_ingress }}**.
 1. Make sure routing behaves as expected by testing the availability of your app's HTTP/HTTPS endpoints.
 1. Make sure backend health checks report all backends as healthy.
 1. Check the [logs](../../../application-load-balancer/operations/application-load-balancer-get-logs.md) for errors and review the [load balancer metrics](../../../application-load-balancer/metrics.md) for any signs of performance issues.

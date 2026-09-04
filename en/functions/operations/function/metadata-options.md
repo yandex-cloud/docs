@@ -70,7 +70,7 @@ You can configure metadata service parameters when [creating a function version]
         Where:
 
         * `metadata_options`: Settings for the metadata service parameters, e.g., `metadata_options.0.gce_http_endpoint = "1"`. Specify the following:
-            * `0` if you want to keep the default value.
+            * `0` to keep the default value.
             * `1` to enable the parameter.
             * `2` to disable the parameter.
 

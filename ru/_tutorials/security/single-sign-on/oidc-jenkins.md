@@ -40,9 +40,7 @@
          1. Нажмите **Enter**.
       1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
    1. В открывшемся окне на вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте и сохраните значение параметров `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}` и `{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}`.
-   1. Создайте [секрет приложения](../../../organization/concepts/applications/oidc.md#oidc-secret):
-
-      {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
+   1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
 
 {% endlist %}
 

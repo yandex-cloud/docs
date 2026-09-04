@@ -17,7 +17,7 @@ description: Follow this guide to configure and run an asynchronous invocation f
   1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container whose [revision](../concepts/container.md#revision) you want to create.
   1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
-  1. Under **Asynchronous invocation**:
+  1. Under **{{ ui-key.yacloud.serverless-containers.section_async }}**:
 
       1. Enable asynchronous invocation.
       1. Specify a service account with the `serverless-containers.containerInvoker` [role](../security/index.md#serverless-containers-containerinvoker) for asynchronous invocations.

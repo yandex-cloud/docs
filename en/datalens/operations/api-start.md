@@ -1,9 +1,9 @@
-# Working with the Public API
+# Working with the Public API in {{ datalens-full-name }}
 
 
 {{ datalens-name }} provides a public API, [https://api.datalens.tech](https://api.datalens.tech), to automate operations with dashboards, charts, datasets, and connections.
 
-The {{ datalens-name }} Public API offers methods similar to those used in the {{ datalens-name }} web interface. This API is described using the OpenAPI specification and authenticated via Yandex Cloud IAM tokens.
+The {{ datalens-name }} Public API offers methods similar to those used in the {{ datalens-name }} web interface. This API is described using the OpenAPI specification and authenticated via {{ yandex-cloud }} IAM tokens.
 
 When using the API, please be aware of the [limits](../concepts/limits.md#datalens-api-limits) in place.
 
@@ -128,4 +128,5 @@ To run an MCP server alongside an agent or MCP client, make sure your environmen
 ### Use cases {#example}
 
 * Use cases on [GitHub](https://github.com/datalens-tech/datalens-mcp/blob/HEAD/.env.example)
+
 

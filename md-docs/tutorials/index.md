@@ -238,6 +238,12 @@
 
  - [OpenID Connect](security/single-sign-on/jenkins/oidc-jenkins.md)
 
+#### LibreChat
+
+ - [SAML](security/single-sign-on/librechat/saml-librechat.md)
+
+ - [OpenID Connect](security/single-sign-on/librechat/oidc-librechat.md)
+
 #### Loop
 
  - [SAML](security/single-sign-on/loop/saml-loop.md)

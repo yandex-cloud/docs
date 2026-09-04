@@ -152,7 +152,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 Имя события | Описание
 --- | ---
 `GetSecret` | Получение [секрета](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/secrets)
-`GetSecretPayload` | Получение данных [секрета](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/secrets)
+`GetSecretPayload` | Получение данных секрета
 `ListSecrets` | Получение списка секретов
 `NewAppSecDefect` | Обнаружение нового дефекта в [SourceCraft Security](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/security-dashboard)
 

@@ -107,7 +107,7 @@ For {{ objstorage-short-name }} to work with requests sent over a series of [rev
 
 If you only need to check the client's source IP address without taking any proxies into account, use the `yc:originip` [condition](../../../storage/s3/api-ref/policy/conditions.md#keys).
 
-First a request is checked against the `Deny` access policy rules. If at least one IP address meets the `Deny` rule criteria, the request is denied. No further checks are performed.
+First, a request is checked against the `Deny` access policy rules. If at least one IP address meets the `Deny` rule criteria, the request is denied. No further checks are performed.
 
 Then the request is checked against the `Allow` access policy rules. If at least one IP address meets the `Allow` rule criteria, the request is allowed.
 

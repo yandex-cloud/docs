@@ -7,6 +7,14 @@ description: Follow this guide to create, edit, or delete a color palette and co
 
 In {{ datalens-full-name }}, you can [create](#create-palette), [edit](#edit-palette), or [delete](#delete-palette) a color palette and [configure the default palette](#default-palette).
 
+
+{% note info %}
+
+A palette can be created, edited, or deleted by the {{ datalens-short-name }} instance [administrator](../../security/roles.md#datalens-admin) (the `{{ roles-datalens-admin }}` role).
+
+{% endnote %}
+
+
 ## Creating a color palette {#create-palette}
 
 {% include [create-palette](../../../_includes/datalens/settings/create-palette.md) %}
@@ -20,6 +28,6 @@ In {{ datalens-full-name }}, you can [create](#create-palette), [edit](#edit-pal
 {% include [delete-palette](../../../_includes/datalens/settings/delete-palette.md) %}
 
 
-## Setting the default color palette {#default-palette}
+## Setting up the default color palette {#default-palette}
 
 {% include [default-palette](../../../_includes/datalens/settings/default-palette.md) %}

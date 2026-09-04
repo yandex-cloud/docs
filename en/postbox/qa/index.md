@@ -21,7 +21,11 @@ Yes, you can specify your {{ yandex-360 }} organization's domain in the address 
 
 No, creating an SPF record on your custom domain is not required. Each email sent via {{ postbox-name }} is signed with two DKIM signatures: one from `postbox.yandexcloud.net`, our technical domain (with its SPF record preconfigured), and a second from your custom domain. In most cases, such authentication is sufficient for successful email delivery.
 
-However, if the recipient has strict incoming mail screening policies, you may need to add an SPF record to your custom domain as well. For information about how to do this, see [{#T}](../concepts/dns-records.md#spf).
+However, if the recipient has strict incoming mail screening policies, you may need to add an SPF record to your custom domain as well. Learn how to do this in [{#T}](../concepts/dns-records.md#spf).
+
+#### Why do I need to add two CNAME records when setting up Easy DKIM, but the TXT record resolves only through one of them? {#dkim-two-records}
+
+Two CNAME records are required to enable {{ postbox-name }} to automatically rotate DKIM key pairs. Public key TXT records resolve through both CNAME records only during key rotation. At other times, only a single TXT record is available. For more information, see [{#T}](../concepts/dns-records.md#key-rotation).
 
 #### Why is email delivery delayed? {#delivery-delay}
 

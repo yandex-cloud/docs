@@ -89,6 +89,8 @@ General best practices for improving VM performance:
 
 Public boot disk images for popular distributions of these systems are available and tested in {{ yandex-cloud }}.
 
+{% include [os-license](../../_includes/qa/os-license.md) %}
+
 {% include [cli-period.md](../../_qa/cli-period.md) %}
 
 {% include [fz-152.md](../../_qa/fz-152.md) %}

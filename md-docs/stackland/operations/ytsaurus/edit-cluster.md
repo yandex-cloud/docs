@@ -100,7 +100,7 @@
 
 * `spec.cluster.execNodes[].name` — паттерн `^[a-z][a-z0-9-]*$`. Иммутабельный ключ группы.
 * `spec.cluster.execNodes[].instanceCount` — 1–50.
-* `spec.cluster.execNodes[].storage.size` — размер диска для слотов и кешей. Можно только увеличить.
+* `spec.cluster.execNodes[].storage.size` — размер диска для слотов и кэшей. Можно только увеличить.
 * `spec.cluster.execNodes[].storage.storageClass` — класс хранилища. После создания PVC изменить нельзя.
 * `spec.cluster.execNodes[].resources.cpu`, `spec.cluster.execNodes[].resources.memory`.
 * `spec.cluster.execNodes[].resources.gpu` — количество GPU на под. Требует включенного компонента [Поддержка NVIDIA® GPU](../../concepts/components/gpu.md) и наличия GPU на узлах кластера.

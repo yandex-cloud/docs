@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ websql-name }}
-description: Access management in {{ websql-name }}, a service for working with queries to managed database clusters. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in {{ websql-name }}, a service for working with queries to managed database clusters. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Access management in {{ websql-name }}
@@ -118,7 +118,7 @@ Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an or
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ SD }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ GP }} connections | `{{ roles.mgp.viewer }}` for an organization, cloud, or folder
-Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
+Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections | `managed-trino.viewer` for an organization, cloud, or folder
 Viewing metadata of published queries | `websql.auditor` for an organization, cloud, or folder
 Viewing published queries | `websql.viewer` for an organization, cloud, or folder
 **Viewing and running queries** |
@@ -129,9 +129,9 @@ Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an or
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ SD }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ GP }} connections | `{{ roles.mgp.viewer }}` for an organization, cloud, or folder
-Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
+Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections | `managed-trino.viewer` for an organization, cloud, or folder
 Running queries | `websql.user` for an organization, cloud, or folder
-Running [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) queries (currently at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.user` for an organization, cloud, or folder
+Making [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) queries | `managed-trino.user` for an organization, cloud, or folder
 **Viewing, running, and publishing queries** |
 Using a database connection | `{{ roles-connection-manager-user }}` for an organization, cloud, folder, or connection
 Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder
@@ -140,9 +140,9 @@ Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an or
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ SD }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ GP }} connections | `{{ roles.mgp.viewer }}` for an organization, cloud, or folder
-Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
+Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections | `managed-trino.viewer` for an organization, cloud, or folder
 Running, publishing, and editing queries | `websql.editor` for an organization, cloud, or folder
-Running [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) queries (currently at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.user` for an organization, cloud, or folder
+Making [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) queries | `managed-trino.user` for an organization, cloud, or folder
 **Managing queries** |
 Using a database connection | `{{ roles-connection-manager-user }}` for an organization, cloud, folder, or connection
 Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder
@@ -151,9 +151,18 @@ Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an or
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ SD }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ GP }} connections | `{{ roles.mgp.viewer }}` for an organization, cloud, or folder
-Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
+Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections | `managed-trino.viewer` for an organization, cloud, or folder
 Running, publishing, and editing queries and managing access permissions to them | `websql.admin` for an organization, cloud, or folder
-Running [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) queries (currently at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.user` for an organization, cloud, or folder
+Making [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) queries | `managed-trino.user` for an organization, cloud, or folder
+**Creating connections** |
+Creating a database connection | `{{ roles-connection-manager-editor }}` for an organization, cloud, or folder
+Creating a {{ PG }} connection | `{{ roles.mpg.editor }}` for an organization, cloud, or folder
+Creating a {{ MY }} connection | `{{ roles.mmy.editor }}` for an organization, cloud, or folder
+Creating a {{ CH }} connection | `{{ roles.mch.editor }}` for an organization, cloud, or folder
+Creating a {{ VLK }} connection | `{{ roles.mrd.editor }}` for an organization, cloud, or folder
+Creating a {{ SD }} connection | `{{ roles.mmg.editor }}` for an organization, cloud, or folder
+Creating a {{ GP }} connection | `{{ roles.mgp.editor }}` for an organization, cloud, or folder
+Creating a [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connection | `managed-trino.editor` for an organization, cloud, or folder
 
 ## What's next {#whats-next}
 

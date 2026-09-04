@@ -10,7 +10,7 @@ In this tutorial, you will create a connection to a data source and learn how to
 Parameterization will enable you to:
 
 * Substitute a table in queries.
-* Provide a parameter to the dataset's SQL as part of a query.
+* Provide a parameter to the dataset’s SQL as part of a query.
 
 As our data source, we will use a {{ CH }} demo database with a Moscow retail chain's sales data.
 
@@ -92,8 +92,8 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
 1. Change the settings to define the table name with a parameter:
 
    1. Go to the **Sources** tab.
-   1. In the table list, click ![icon](../../_assets/console-icons/ellipsis.svg) next to **MS_SalesFacts** and select **Change settings**.
-   1. Next to the **Table name** field set to `MS_SalesFacts`, click ![icon](../../_assets/console-icons/plus.svg) and select the `table_name` parameter. The selected parameter will now define the table name.
+   1. In the table list next to **MS_SalesFacts** go ![icon](../../_assets/console-icons/ellipsis.svg) → **Change settings**.
+   1. To the right of the **Table name** field set to `MS_SalesFacts`, click ![icon](../../_assets/console-icons/plus.svg) and select the `table_name` parameter. The selected parameter will now define the table name.
    
       ![image](../../_assets/datalens/dataset-parametrization/dataset-change-table-settings.png)
 

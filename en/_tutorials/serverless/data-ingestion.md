@@ -94,7 +94,7 @@ Wait for the API gateway to start. When the API gateway is ready for use, its st
     1. Enter the name of the stream you created earlier.
     1. Select the service account you created earlier.
     1. Click **Create**.
-1. [Create](../../data-transfer/operations/endpoint/index.md#create) a target endpoint:
+1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
     1. Name the endpoint.
     1. From the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** list, select `ClickHouse`.
     1. Select the MDB cluster you created earlier.

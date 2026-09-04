@@ -8,6 +8,8 @@ This section contains the {{ datalens-name }} Public API release notes. For more
 
 ## Version 2{#version-2}
 
+
+
 ### 28.07.2026 {#28072026}
 
 Non-breaking changes in the Public API version 2.
@@ -60,3 +62,4 @@ Introduced breaking changes to the `getEntries` method for retrieving {{ datalen
 ### 22.01.2026 {#22012026}
 
 January 22, 2026: the {{ datalens-name }} Public API version 1 is out.
+

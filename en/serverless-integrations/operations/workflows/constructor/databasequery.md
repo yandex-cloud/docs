@@ -45,7 +45,7 @@ description: Follow this guide to add execution of SQL queries against databases
 
                   * `Password` to connect to the database using a username and password. Enter the username and select:
 
-                      * `Lockbox` to store the password in a {{ lockbox-full-name }} secret. Under **Secret**, select the secret, its [version](../../../../lockbox/concepts/secret.md#version), and the key used to store the password.
+                      * `Lockbox` to store the password in a {{ lockbox-full-name }} secret. Under **Secret**, select your secret, its [version](../../../../lockbox/concepts/secret.md#version), and the key used to store the password.
 
                           If you do not have a {{ lockbox-name }} secret, click **Create** to create one.
 

@@ -12,7 +12,8 @@
 
 1. In the [management console]({{ link-console-main }}), select a folder.
 1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Select the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
+1. Click the **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) tab and select **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [NodeLocal DNS](/marketplace/products/yc/node-local-dns) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select the `kube-system` [namespace](../../concepts/index.md#namespace).
@@ -20,7 +21,7 @@
       {% include [Namespace warning](../../../_includes/managed-kubernetes/kube-system-namespace-warning.md) %}
 
    * **Application name**: Specify the name for the application to deploy in the {{ managed-k8s-name }} cluster.
-   * **Internal IP address of the kube-dns service**: Address for accessing NodeLocal DNSCache. Queries from application pods to the address in the field are translated to [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) via `iptables` rules.
+   * **kube-dns internal IP address**: Address for accessing NodeLocal DNSCache. Queries from application pods to the address in the field are translated to [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) via `iptables` rules.
 
       The field contains the `ClusterIP` address of `kube-dns` in the `kube-system` namespace. You can get the value of the field using this command:
 
@@ -44,7 +45,7 @@ Once installed, NodeLocal DNS uses the following values:
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. Get an address to access NodeLocal DNS Cache. You will need this address to install the [Helm chart](https://helm.sh/docs/topics/charts/):
+1. Get an address to access NodeLocal DNSCache. You will need this address to install the [Helm chart](https://helm.sh/docs/topics/charts/):
 
    ```bash
    kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}

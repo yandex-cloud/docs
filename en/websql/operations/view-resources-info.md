@@ -27,7 +27,7 @@ This will bring up a panel with connection settings.
 
 A single connection features groups of tables and views (`VIEW`). For more information on how to view info about tables and views, see [this guide](view-db-objects-info.md).
 
-## Viewing information about a database {#view-db-settings}
+## Viewing database info {#view-db-settings}
 
 1. Under ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}), select the database.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the database name and select **Database information**.

@@ -14,6 +14,9 @@
 * Jenkins
     * [SAML](jenkins/saml-jenkins.md)
     * [OpenID Connect](jenkins/oidc-jenkins.md)
+* LibreChat
+    * [SAML](librechat/saml-librechat.md)
+    * [OpenID Connect](librechat/oidc-librechat.md)
 * Loop
     * [SAML](loop/saml-loop.md)
     * [OpenID Connect](loop/oidc-loop.md)
