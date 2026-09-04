@@ -32,12 +32,13 @@ The *default security group* (DSG) is created automatically when you create a [n
 The default security group allows:
 
 * All outgoing (`egress`) network traffic.
-* All incoming (`ingress`) network traffic from objects within the same security group ([self](#self-rule) rule).
-* All incoming network traffic over `ICMP`.
-* Incoming network traffic over `TCP` and `UDP` on port `22` (`SSH`).
-* Incoming network traffic over `TCP` and `UDP` on port `3389` (`RDP`).
+* All incoming (`ingress`) network traffic.
 
-All other traffic in the security group is denied by default.
+{% note warning %}
+
+The default security group allows all incoming traffic from any IPv4 address. For production resources, especially those with public IP addresses, [create](../operations/security-group-create.md) a custom security group and allow only the traffic you need.
+
+{% endnote %}
 
 You cannot manually delete a default security group. It is deleted automatically when you delete the respective network.
 
