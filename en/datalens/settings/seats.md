@@ -15,7 +15,7 @@ An administrator (a user with the `{{ roles-datalens-admin }}` role) will be abl
 
 You can manage seats in the {{ datalens-name }} settings, on the **Seats** tab. To open it:
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
 1. Open the **Seats** tab. 
 
@@ -119,7 +119,7 @@ To open a seat’s settings, click ![image](../../_assets/console-icons/ellipsis
 
 ## Reassigning a seat between users {#reassign}
 
-You can reassign a seat from a user with a seat to someone who does not have one. Proceed as follows:
+You can reassign a seat from a user with a seat to someone who does not have one. Follow these steps:
 
 1. Find the user in the **Seats** list and in the row with their name, click ![image](../../_assets/console-icons/ellipsis.svg) → **Reassign seat**. You will see a list of organization users without a seat in {{ datalens-short-name }}.
 1. Select the user you want to reassign the seat to. For convenience, use the search by name or email.

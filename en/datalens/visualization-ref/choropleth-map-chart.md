@@ -9,7 +9,7 @@ A choropleth map uses different colors and hues for entire areas and regions. Ar
 
 A _geopolygon_ is an element that consists of an area bounded by a closed line and the line itself. The measure value is expressed through color saturation or hue.
 
-​A choropleth map is used to analyze a measure within a territorial unit. For example, you can use a choropleth map to demonstrate the density of population of individual districts.
+A choropleth map is used to analyze a measure within a territorial unit. For example, you can use a choropleth map to demonstrate the density of population of individual districts.
 
 ![choropleth-map](../../_assets/datalens/visualization-ref/choropleth-map/choropleth-map.png =800x)
 
@@ -28,7 +28,7 @@ Wizard<br/> section| Description
 ----- | ----
 Polygons (Geopolygons) | Dimension of the [Geopolygon](../dataset/data-types.md#geopolygon) type.
 Colors | Dimension or measure. Affects the color and intensity of area fill.
-Tooltips | Dimension or measure. A tooltip that appears when you hover over an area. For `String` type fields, you can configure using the basic [Markdown](../dashboard/markdown.md) syntax by clicking the icon before the field name and enabling **Markdown**.
+Tooltips | Dimension or measure. A tooltip that appears when you hover over an area. For `String` type fields, you can configure using the basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
 Layer filters | Dimension or measure. It is used as a filter for the current layer.
 Filters | Dimension or measure. It is used as a filter for the entire chart.
 

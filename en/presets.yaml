@@ -1214,6 +1214,7 @@ default:
   roles-auditor: auditor
   roles-cloud-member: resource-manager.clouds.member
   roles-cloud-owner: resource-manager.clouds.owner
+  roles-connection-manager-editor: connection-manager.editor
   roles-connection-manager-user: connection-manager.user
   roles-connection-manager-viewer: connection-manager.viewer
   roles-cr-images-scanner: container-registry.images.scanner
@@ -6005,7 +6006,8 @@ default:
         label_yds-exports: Export to Data Streams
       k8s:
         access:
-          button_create-sa: Service accounts
+          button_filter-create-sa: Create service account
+          label_service-accounts: ServiceAccounts
           label_title: Access management
           popup-add-sa_field_name: Name
           popup-add-sa_field_namespace: Namespace
@@ -6019,7 +6021,6 @@ default:
           node-groups:
             button_create: Create a node group
             label_type-custom: External
-            popup-confirm_button_delete: Delete
           overview:
             label_health: State
             label_master-title: Master
@@ -6075,7 +6076,9 @@ default:
             value_maintenance-daily: Daily
             value_maintenance-disabled: Disable
             value_maintenance-weekly: Custom
-          popup-confirm_button_delete: Delete
+        configuration:
+          label_config-maps: ConfigMaps
+          label_secrets: Secrets
         custom-resources:
           label_tab-resources: Resources
         IAMService:
@@ -6086,10 +6089,11 @@ default:
         MaintenanceSection:
           maintenance-window-field-with-none-option_tx5Wn: Maintenance frequency / Disable
         namespaces:
-          button_create: Create
+          button_filter-create: Create namespace
           popup-add_field_name: Name
         network:
           label_ingress: Ingresses
+          label_services: Services
         node-group:
           access-method:
             field_os-login-access-method: Access by OS Login
@@ -6144,7 +6148,6 @@ default:
             label_labels: Labels
             label_monitoring: Monitoring
         nodes:
-          button_action-cordon: Cordon
           button_action-uncordon: Uncordon
           label_node-groups: Node group
           label_nodes: Nodes
@@ -6155,12 +6158,19 @@ default:
           button_action-add-default: Use as default
           button_action-remove-default: Don't use as default
           label_pv: PersistentVolumes
+          label_pvc: PersistentVolumeClaims
           label_storage-classes: StorageClasses
         switch_operations: Operations
         workloads:
           label_cron-jobs: CronJobs
+          label_daemon-sets: DaemonSets
+          label_deployments: Deployments
+          label_hpa: HPA
+          label_jobs: Jobs
           label_pods: Pods
+          label_stateful-sets: StatefulSets
           label_tab-logs: Logs
+          label_tab-monitoring: Monitoring
           label_tab-yaml: YAML
         WorkloadsActions:
           pod-exec_jwJ3R: Connect
@@ -6954,6 +6964,7 @@ default:
         section_async: Asynchronous call
         section_general: General information
         section_image: Image settings
+        section_metadata-options: Metadata service parameters
         section_parameters: Settings
         section_resources: Resources
         section-revisions: Revisions

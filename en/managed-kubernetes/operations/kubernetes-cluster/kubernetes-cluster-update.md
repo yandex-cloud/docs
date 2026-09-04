@@ -48,8 +48,7 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
 
   To update a {{ managed-k8s-name }} cluster:
   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
-  1. Click the name of the {{ managed-k8s-name }} cluster.
-  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+  1. In the {{ managed-k8s-name }} cluster row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Change the parameters in the window that opens.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -171,8 +170,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 - Management console {#console}
 
     1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster.
-    1. Click the name of the {{ managed-k8s-name }} cluster.
-    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. In the {{ managed-k8s-name }} cluster row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
     1. Enter the key and value, and press **Enter**.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -209,8 +207,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
   To update a cloud label, you will need to remove and recreate it:
 
     1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster.
-    1. Click the name of the {{ managed-k8s-name }} cluster.
-    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. In the {{ managed-k8s-name }} cluster row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label to remove it.
     1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}** and enter a key and/or value for the new label.
     1. Press **Enter** and click **{{ ui-key.yacloud.common.save }}**.
@@ -247,8 +244,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 - Management console {#console}
 
     1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster.
-    1. Click the name of the {{ managed-k8s-name }} cluster.
-    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. In the {{ managed-k8s-name }} cluster row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -280,9 +276,8 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 - Management console {#console}
 
   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
-  1. Click the name of the {{ managed-k8s-name }} cluster.
-  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
-  1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**, expand the **Computing resources** section and select a [resource configuration](../../concepts/index.md#master-resources) for the master.
+  1. In the {{ managed-k8s-name }} cluster row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**, expand the **{{ ui-key.yacloud.k8s.clusters.create.label_master-computing-resources }}** section and select a [resource configuration](../../concepts/index.md#master-resources) for the master.
 
       {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
 

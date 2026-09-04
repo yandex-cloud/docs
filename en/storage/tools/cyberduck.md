@@ -38,7 +38,7 @@
   1. Configure the connection as follows:
       * **Server**: `{{ s3-storage-host }}`.
 
-        To connect to a particular bucket, specify `<bucket_name>.{{ s3-storage-host }}` in the **Server** field. This method only works with buckets with no dot in their names. For buckets with a dot in their names, follow the [alternative guide](#alternative-connection) below.
+        To connect to a particular bucket, specify `<bucket_name>.{{ s3-storage-host }}` in the **Server** field. This method only works with buckets that have no dot in their names. For buckets with a dot in their names, follow the [alternative guide](#alternative-connection) below.
       * **Port**: `443`.
       * **Access key ID**: Static key ID [you got previously](#before-you-begin).
       * **Secret Access Key**: Static key contents [you got previously](#before-you-begin).

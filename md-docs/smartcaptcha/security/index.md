@@ -31,6 +31,7 @@
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
 ```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
 flowchart BT
     smart-captcha.editor --> smart-captcha.admin
     smart-captcha.viewer --> smart-captcha.editor

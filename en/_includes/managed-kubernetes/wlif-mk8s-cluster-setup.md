@@ -12,12 +12,12 @@
 
       1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
       1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-      1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster and select **{{ ui-key.yacloud.common.edit }}**.
+      1. In the {{ managed-k8s-name }} cluster row, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. Enable the workload identity federation in the **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** field.
       1. Click **{{ ui-key.yacloud.common.save }}**.
-      1. Under **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** on the cluster overview page, copy the **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}** and **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-jwks-uri_x2AJJ }}** values. You will need them to complete the integration.
-      1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
-      1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the node group and select **{{ ui-key.yacloud.common.edit }}**.
+      1. In the **{{ ui-key.yacloud.common.overview }}** cluster tab, under **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}**, copy the **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}** and **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-jwks-uri_x2AJJ }}** values. You will need them to complete the integration.
+      1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab, then to **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+      1. In the node group row, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. Enable the workload identity federation in the **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** field.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 

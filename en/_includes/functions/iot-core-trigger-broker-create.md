@@ -37,9 +37,9 @@ The trigger must be in the same cloud as the broker whose topic it reads message
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**:
       
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_broker }}** field, specify the broker.
-        * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}** field, specify an MQTT topic. If no MQTT topic is set, the trigger fires for all broker topics.
+        * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}** field, specify an MQTT topic. If no MQTT topic is set, the trigger will fire for all broker topics.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify the following:
 
         {% include [batch-settings](batch-settings.md) %}
 

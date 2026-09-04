@@ -22,7 +22,7 @@
 
 Закрытие Yandex Serverless Integrations пройдет в три этапа:
 
-* **3 сентября 2026** — Workflows перестает поддерживаться в интерфейсе Yandex Cloud. Для создания рабочих процессов и управления ими используйте [интерфейс AI Studio](https://aistudio.yandex.ru/platform/link//workflows).
+* **4 сентября 2026** — Workflows перестает поддерживаться в интерфейсе Yandex Cloud. Для создания рабочих процессов и управления ими используйте [интерфейс AI Studio](https://aistudio.yandex.ru/platform/link//workflows).
 
 * **15 сентября 2026** — EventRouter переходит в режим read-only. Создание новых шин, коннекторов и правил станет недоступно.
 

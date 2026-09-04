@@ -16,6 +16,80 @@ With RLS, a query to a dataset passes through the following filter:
 where dimension in (value_1, value_2 ... value_N)
 ```
 
+You can configure access to rows from the interface or set the configuration in JSON format:
+
+{% list tabs group=instructions %}
+
+- Interface {#interface_datalens}
+
+  1. Open the dataset and go to the **Fields** tab.
+  1. For the field you need to configure access to, click ![icon](../../_assets/console-icons/key.svg) or ![icon](../../_assets/console-icons/ellipsis.svg) → **Access permissions**.
+  1. In the window that opens, on the **Table** tab, click **Add rule** and specify:
+
+     * Who gets the access:
+      
+       * `Users and groups`: Grant access to the specified users and groups. You can use search by name, login, or email.
+       * `All users`: Grant access to all users.
+       * `User IDs`: Control access at [data source level](#datasource-rls).
+
+     * Field value. Grant access to all rows with the specified field value.
+
+     {% cut "Configuring RLS" %}
+    
+     ![screenshot](../../_assets/datalens/security/rls-table.png)
+
+     {% endcut %}
+
+  1. To add another rule, repeat the previous step.
+  1. Click **Save**.  
+  1. Save the dataset.
+
+- JSON {#json}
+
+  1. Open the dataset and go to the **Fields** tab.
+  1. For the field you need to configure access to, click ![icon](../../_assets/console-icons/key.svg) or ![icon](../../_assets/console-icons/ellipsis.svg) → **Access permissions**.
+  1. In the window that opens, set the RLS configuration in JSON format on the **JSON** tab:
+
+     ```json
+     [
+       {
+         "allowed_value": "sp-21",
+         "pattern_type": "value",
+         "subject": {
+           "subject_id": "ssxiy********",
+           "subject_name": "user:ssxiy********",
+           "subject_type": "user"
+         }
+       }
+     ]
+     ```
+
+     Where:
+
+     * `allowed_value`: Grant access to all rows with specified field value. You need to specify the value only if `pattern_type` is set to `value`; otherwise, it takes the `null` value.
+     * `pattern_type`: How to grant the access:
+      
+       * `value`: For the specific field value from the `allowed_value` field.
+       * `all`: For any field values. In this case, `allowed_value` must be `null`.
+       * `userid`: Control access at [data source level](#datasource-rls).
+
+     * `subject`: Description of the subject getting the access:
+
+       * `subject_id`: ID of the user or group to grant access to. Specify `*` if `subject_type` is set to `all` or an empty value if it is set to `userid`.
+       * `subject_name`: Name of the user to grant access to. Specify `*` if `subject_type` is set to `all` or the `userid` value if it is set to `userid`.
+       * `subject_type`: Who will get the access:
+
+         * `user`: Grant acces to a specific user. In this case, you need to specify the user ID and username in `subject_id` and `subject_name`, respectively.
+         * `group`: Grant access to a user group. In this case, you need to specify the group ID and group name in `subject_id` and `subject_name`, respectively.
+         * `all`: Grant access to all users. In which case you need to specify `*` in `subject_id` and `subject_name`.
+         * `userid`: Control access at [data source level](#datasource-rls).
+
+     You can set multiple rules by describing each one in an object with the specified fields.
+
+  1. Click **Save**.
+  1. Save the dataset.
+
+{% endlist %}
 
 ## Configuring RLS at the data source level {#datasource-rls}
 

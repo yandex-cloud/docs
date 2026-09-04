@@ -76,9 +76,8 @@ If required, you can edit the node group, e.g., add more IP addresses.
 
 - Management console {#console}
 
-  1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
-  1. Select the {{ managed-k8s-name }} node group.
-  1. In the top-right corner, click **{{ ui-key.yacloud.common.edit }}**.
+  1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab, then **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. In the node group row, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the group as needed and click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -120,9 +119,8 @@ To run an automated installation:
 
     - Management console {#console}
 
-      1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
-      1. Select the new {{ managed-k8s-name }} node group from the list.
-      1. In the top-right corner, click **{{ ui-key.yacloud.common.edit }}**.
+      1. On the {{ managed-k8s-name }} cluster page, navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab; this will also open the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+      1. In the row of the new node group, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. In the **{{ ui-key.yacloud.k8s.node-group.overview.label_secret }}** field, select the new secret from the drop-down list.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -207,11 +205,10 @@ To check the node status:
 - Management console {#console}
 
   1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
-  1. Click the name of the new {{ managed-k8s-name }} node group.
-  1. Navigate to the **{{ ui-key.yacloud.k8s.node-group.overview.label_tab-nodes }}** tab.
-  1. Check that the new {{ managed-k8s-name }} node is now `Ready`.
+  1. Select the new {{ managed-k8s-name }} node group and navigate to the **{{ ui-key.yacloud.k8s.node-group.overview.label_tab-nodes }}** tab.
+  1. Make sure the new {{ managed-k8s-name }} node is now `Ready`.
   1. Open the new node and go to the **{{ ui-key.yacloud.k8s.node.overview.label_events }}** tab.
-  1. Check that all server connection steps have been successful.
+  1. Make certain that all server connection steps were successful.
 
 - CLI {#cli}
 
@@ -238,9 +235,8 @@ To check the node status:
 
 - Management console {#console}
 
-  1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
-  1. Select the new {{ managed-k8s-name }} node group from the list.
-  1. In the top-right corner, click **{{ ui-key.yacloud.common.edit }}**.
+  1. On the {{ managed-k8s-name }} cluster page, navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab; this will also open the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. In the row of the new node group, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Delete the IP addresses of the {{ managed-k8s-name }} nodes you created.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -264,7 +260,7 @@ If there are any issues, review the events in the `yandex-system` namespace firs
 
 - Management console {#console}
 
-  1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_events }}** tab.
+  1. On the {{ managed-k8s-name }} cluster page, click the **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) tab and select **{{ ui-key.yacloud.k8s.cluster.switch_events }}**.
   1. Select the `yandex-system` namespace.
 
 - CLI {#cli}

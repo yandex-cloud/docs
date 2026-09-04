@@ -1,6 +1,6 @@
 ---
 title: Creating or updating {{ alb-full-name }} resources using {{ managed-k8s-full-name }} configuration
-description: In this tutorial, you will learn how to create or update {{ alb-name }} resources using {{ managed-k8s-name }} configuration.
+description: In this tutorial, you will learn how to create or update {{ alb-name }} resources using a {{ managed-k8s-name }} configuration.
 ---
 
 # Creating or updating {{ alb-name }} resources using {{ managed-k8s-name }} configuration

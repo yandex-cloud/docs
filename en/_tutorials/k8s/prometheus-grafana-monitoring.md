@@ -4,7 +4,7 @@
 
 In this article, you will learn how to configure [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) monitoring with the help of {{ prometheus-name }} Operator with {{ monitoring-full-name }} support.
 
-{{ prometheus-name }} Operator with {{ monitoring-name }} support streamlines the installation of {{ prometheus-name }} Operator, a popular solution for {{ k8s }} cluster monitoring, providing integration with {{ monitoring-full-name }}. You can use it to collect, store, and query metrics from your containers, applications, and infrastructure. The system leverages the {{ prometheus-name }} data model and [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/).
+The {{ prometheus-name }} Operator with {{ monitoring-name }} support streamlines installation of the {{ prometheus-name }} Operator, a popular solution for {{ k8s }} cluster monitoring, and provides integration with {{ monitoring-full-name }}. You can use it to collect, store, and read metrics from containers, applications, and the infrastructure. The system leverages the {{ prometheus-name }} data model and [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/).
 
 To set up monitoring for your {{ managed-k8s-name }} cluster:
 

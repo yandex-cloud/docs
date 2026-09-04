@@ -57,7 +57,7 @@ Deal registration is a partner protection tool that rewards the partner for gene
 
 
 
-For more on creating a deal, see [this guide](../operations/deal-registration.md).
+For more on working with deals in the **Partner portal**, see [this guide](../operations/deals/index.md#deal-create).
 
 
 ## Deal registration as part of a scheduled procurement {#tender}
@@ -99,7 +99,7 @@ You can also register a deal if you have entered into a contract or agreement wi
 
 
 
-You can register a deal as part of a scheduled procurement just like a [regular deal](../operations/deal-registration.md). When filling out your application, put `Yes` in the **Deal is part of a procurement under 44-FZ/223-FZ** field under **Application data**.
+For more on working with scheduled procurement deals on the **Partner portal**, see [this guide](../operations/deals/index.md#tender-create).
 
 
 ## Project registration {#project-reg}
@@ -149,8 +149,7 @@ Project registration is used to link a new project in the existing {{ yandex-clo
 
 
 
-For more on how to create a project, see [this guide](../operations/project-registration.md).
-
+For more on working with projects on the **Partner portal**, see [this guide](../operations/deals/index.md#project-create).
 
 ## Presale request {#presale}
 

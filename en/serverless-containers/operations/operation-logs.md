@@ -14,7 +14,7 @@ The system logs all actions with {{ serverless-containers-name }} resources as a
   1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/boxes-3.svg) **{{ ui-key.yacloud.serverless-containers.label_containers }}**.
   1. Select the container.
-  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the container you selected.
+  1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab for the selected container.
 
       You will see a list of operations with the selected container.
 

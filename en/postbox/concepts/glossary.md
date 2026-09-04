@@ -14,9 +14,9 @@ To send emails from subdomains, add them as separate addresses. {{ postbox-name 
 ## Configuration {#configuration}
 
 A configuration is a group of rules you can apply to an outgoing email. A configuration may contain the following rules:
-* Getting email event notifications.
+* Getting email operation notifications.
 * Configuring mandatory TLS encryption.
-* Collecting engagement statistics.
+* Collection of engagement statistics.
 
 For more information, see [{#T}](configuration.md).
 
@@ -26,7 +26,7 @@ A sender is a confirmed domain mailbox used to send emails. You can [limit the l
 
 ## Subscription {#subscription}
 
-A subscription is a destination for [notifications about operations with emails](notification.md).
+A subscription is a destination for [email operation notifications](notification.md).
 
 ## DKIM signature {#dkim}
 

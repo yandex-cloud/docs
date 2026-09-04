@@ -44,4 +44,7 @@ To reset the default parameter value from the dataset:
 1. In the **Edit parameter** window, click **Initial value**. The default parameter value will be reset to its original value from the dataset.
 1. Click **Save**.
 
-You can also create parameters [at the dataset level](../../dataset/create-dataset.md#add-parameters).
+#### Useful links {#see-also}
+
+* Creating parameters [at the dataset level](../../dataset/create-dataset.md#add-parameters)
+* Creating and using parameters in a [QL chart](./create-sql-chart.md#selector-parameters)

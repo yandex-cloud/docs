@@ -10,7 +10,7 @@ A _report_ is a multi-page document in a specified format you can use as an inte
 
 To view an example of the report, deploy [DataLens Demo Dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi) from the Gallery:
 1. Click **Use** → **Deploy**.
-1. Choose where to save the workbook: workbook and collection root, existing collection, or new collection. Navigate to the saving destination and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
+1. Select where to save the workbook: workbook and collection root, existing collection, or new collection. Navigate to the saving destination and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
 1. Click **Create**. You will see the report example in your new workbook.
 
 

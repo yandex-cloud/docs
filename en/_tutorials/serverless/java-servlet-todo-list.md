@@ -136,7 +136,7 @@ Create a [bucket](*bucket) and upload `index.html` to it:
       1. Under **{{ ui-key.yacloud.ydb.overview.section_connection }}**, find the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field and save its value. You will need it later to create functions.
   1. Create a table named `Tasks`:
 
-      1. To open the database root directory, in the left-hand menu, select ![folder](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
+      1. To open the database root directory, navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
       1. To query your database, click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** in the top-right corner. On the **{{ ui-key.yacloud.ydb.sql.label_query }}** page that opens:
 
           1. In the **{{ ui-key.yacloud.ydb.sql.label_query }}** field, enter:
@@ -216,7 +216,7 @@ Create a [bucket](*bucket) and upload `index.html` to it:
       Where:
 
       * `--endpoint`: First part of the `endpoint` field value saved when creating the database (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
-      * `--database`: Second part of the `endpoint` field value (following `/?database=`). Here is an example: `/{{ region-id }}/b1gj9ja2h4ct********/etnjkrvloo7k********`.
+      * `--database`: Second part of the `endpoint` field value (following `/?database=`), e.g., `/{{ region-id }}/b1gj9ja2h4ct********/etnjkrvloo7k********`.
 
 {% endlist %}
 
@@ -408,7 +408,7 @@ To stop paying for the resources you created:
 * [Delete the database](../../ydb/operations/manage-databases.md#delete-db).
 * [Delete](../../storage/operations/objects/delete.md) the `index.html` file, then [delete](../../storage/operations/buckets/delete.md) the bucket.
 
-[*name]: {% include [name-format](../../_includes/_popups/name-format-general.md) %}
+[*name]: {% include [name-format](../../_popups/name-format-general.md) %}
 
 [*bucket_name]: The bucket name must be unique within {{ objstorage-full-name }}. For more information, see [{#T}](../../storage/concepts/bucket.md#naming).
 

@@ -1,6 +1,6 @@
-# Creating a self-managed {{ k8s }} cluster using the {{ yandex-cloud }} provider for the {{ k8s }} Cluster API
+# Creating a self-managed {{ k8s }} cluster using a {{ yandex-cloud }} provider for the {{ k8s }} Cluster API
 
-[Cluster-api-provider-yandex](https://github.com/yandex-cloud/cluster-api-provider-yandex) is a provider for deploying a self-managed {{ k8s }} cluster in {{ yandex-cloud }} infrastructure using the [{{ k8s }} Cluster API](https://cluster-api.sigs.k8s.io/).
+[Cluster-api-provider-yandex](https://github.com/yandex-cloud/cluster-api-provider-yandex) is a provider used to deploy a self-managed {{ k8s }} cluster in {{ yandex-cloud }} infrastructure using the [{{ k8s }} Cluster API](https://cluster-api.sigs.k8s.io/).
 
 The cluster is deployed based on {{ compute-full-name }} [virtual machines](../../compute/concepts/vm.md) and a [{{ alb-full-name }}](../../application-load-balancer/concepts/application-load-balancer.md).
 

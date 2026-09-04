@@ -4,7 +4,8 @@
 
    1. In the [management console]({{ link-console-main }}), select a folder.
    1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-   1. Click the name of the {{ k8s }} cluster you need and select the ![image](../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+   1. Select the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+   1. Click the **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) tab and select **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
    1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [{{ prometheus-name }} Operator with {{ monitoring-name }}](/marketplace/products/yc/prometheus-operator) support and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
    1. Configure the application:
 

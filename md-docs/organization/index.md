@@ -32,7 +32,7 @@
 
  - [Удалить организацию](operations/delete-org.md)
 
- - [Подключить управляемую организацию](operations/add-region.md)
+ - [Создать управляемую организацию](operations/add-region.md)
 
  - [Настроить брендирование](operations/manage-branding.md)
 
@@ -291,6 +291,12 @@
  - [SAML](tutorials/single-sign-on/jenkins/saml-jenkins.md)
 
  - [OpenID Connect](tutorials/single-sign-on/jenkins/oidc-jenkins.md)
+
+#### LibreChat
+
+ - [SAML](tutorials/single-sign-on/librechat/saml-librechat.md)
+
+ - [OpenID Connect](tutorials/single-sign-on/librechat/oidc-librechat.md)
 
 #### Loop
 

@@ -120,6 +120,12 @@
 
  - [Настройка единого входа в Jenkins по стандарту OIDC](tutorials/single-sign-on/oidc-jenkins.md)
 
+#### LibreChat
+
+ - [SAML](tutorials/single-sign-on/saml-librechat.md)
+
+ - [OpenID Connect](tutorials/single-sign-on/oidc-librechat.md)
+
 #### Loop
 
  - [Настройка единого входа в Loop по стандарту SAML](tutorials/single-sign-on/saml-loop.md)

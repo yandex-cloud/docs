@@ -176,7 +176,7 @@ In addition to the common control fields, the following is available:
 
   * `mode`: Determines the parameter update strategy. The possible values are:
     * `replace` (default): Overwrites all existing parameters with new `args`.
-    * `merge`: Merges new `args` with current existing parameters.
+    * `merge`: Merges new `args` with the current existing parameters.
 
   * `args`: Static arguments. Required field, its format depends on action type.
 

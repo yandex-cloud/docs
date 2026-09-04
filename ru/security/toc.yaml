@@ -127,6 +127,12 @@ items:
                 href: tutorials/single-sign-on/saml-jenkins.md
               - name: Настройка единого входа в Jenkins по стандарту OIDC
                 href: tutorials/single-sign-on/oidc-jenkins.md
+          - name: LibreChat
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/saml-librechat.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/oidc-librechat.md
           - name: Loop
             items:
               - name: Настройка единого входа в Loop по стандарту SAML

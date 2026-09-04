@@ -5,9 +5,7 @@ description: Follow this guide to register a deal.
 
 # Registering a deal
 
-
-You can register a deal as part of a scheduled procurement just like a regular deal. When filling out your application, put `Yes` in the **Deal is part of a procurement under 44-FZ/223-FZ** field under **Application data**.
-
+You can register either a [common deal](../program/var-tools.md#deal-reg) or a [scheduled](../program/var-tools.md#tender) one if it meets the submission requirements.
 
 To register a deal:
 
@@ -16,26 +14,16 @@ To register a deal:
 - Partner portal {#partner}
 
   1. Log in to the [partner portal]({{ link-cloud-partners }}).
-  1. In the left-hand panel, select ![icon](../../_assets/console-icons/wrench.svg) **Partner tools**.
-  1. Click the **Partner deal / project application form** link.
-  1. Fill out the form. Under **Application data**, in the **Request type** field, select `New customer`.
-  1. Click **Submit** and wait for the application to be approved; this may take up to 20 business days.
+  1. In the left-hand panel, select ![icon](../../_assets/console-icons/briefcase.svg) **Deals**.
+  1. From the list, select the deal you want to register. The deal type must be **Deal** or **Scheduled deal**. Open the deal info page.
 
-     {% note info %}
+     If the deal registration is available, you will see a banner at the top with available partner tools.
 
-     After your application is approved, you will have 60 days to create a [subaccount](../terms.md#sub-account) and a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) for your customer.
-
-     {% endnote %}
-
-  1. Create a customer record on the partner portal:
-
-     1. Log in to the [partner portal]({{ link-cloud-partners }}).
-     1. In the top-right corner, click **Add customer**.
-     1. Complete the **New customers** form with your customer's information.
-     1. Click **Add**. On the partner portal, a new customer record with the `Acceptance required` status will appear in the list of customers.
-
-        After the [partnership is verified](./pin-client.md#confirm-partnership), a subaccount will be created for the customer. The target consumption amount is calculated from the date of subaccount creation.
-
-  1. Follow [this guide](./pin-cloud.md) to create a new cloud for your customer.
+  1. Click **Use**. The request submission form opens.
+  1. Fill out the form, click **Submit**, and wait for the application to be approved; this may take up to 20 business days. You will receive a notification in the left-hand panel under ![icon](../../_assets/console-icons/bell-dot.svg) **Notifications**.
+  1. Once you get the notification about deal registration, select ![icon](../../_assets/console-icons/briefcase.svg) **Deals** in the left-hand panel.
+  
+  1. Select the registered deal from the list and click it. This will open the deal info page.
+  1. Inside the deal, navigate to ![icon](../../_assets/console-icons/list-timeline.svg) **Activities**; in the relevant request, specify the subaccount to receive an additional premium.
 
 {% endlist %}

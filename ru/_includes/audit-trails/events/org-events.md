@@ -31,8 +31,8 @@
 `application.linked.UpdateApplicationAssignments` | Изменение списка пользователей связанного приложения
 `idp.AddUserBlock` | Добавление блока пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
-`idp.application.CreateAsset` | Загрузка ресурса приложения
-`idp.application.DeleteAsset` | Удаление ресурса приложения
+`idp.application.CreateAsset` | Загрузка логотипа приложения
+`idp.application.DeleteAsset` | Удаление логотипа приложения
 `idp.branding.CreateAsset` | Загрузка ресурса для [брендирования](../../../organization/concepts/branding.md)
 `idp.branding.CreateBranding` | Создание брендирования
 `idp.branding.DeleteAsset` | Удаление ресурса для брендирования

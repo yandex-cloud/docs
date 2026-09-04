@@ -180,10 +180,10 @@ Optimization for a [RIGHT JOIN](https://en.wikipedia.org/wiki/Join_(SQL)#Right_o
 
 {% cut "INNER JOIN of three tables" %}
 
-A dataset is based on three tables:
+A dataset is built from three tables:
 
-* The first table (`Departments`) is joined with the second table (`Employees`) using `INNER JOIN`.
-* The second table (`Employees`) is joined with the third table (`Bonuses`) using `INNER JOIN`.
+* The first table (`Departments`) is joined with the second table (`Employees`) using an `INNER JOIN`.
+* The second table (`Employees`) is joined with the third table (`Bonuses`) using an `INNER JOIN`.
 
 ![image](../../_assets/datalens/concepts/joins/case-3-link.png)
 
@@ -203,10 +203,10 @@ Let's add to the chart only the fields from the first (`Departments`) and third 
 
 {% cut "INNER JOIN of one table with the other two" %}
 
-A dataset is based on three tables:
+A dataset is built from three tables:
 
-* The first table (`Employees`) is joined with the second table (`Departments`) using `INNER JOIN`.
-* The second table (`Employees`) is joined with the third table (`Bonuses`) using `INNER JOIN`.
+* The first table (`Employees`) is joined with the second table (`Departments`) using an `INNER JOIN`.
+* The second table (`Employees`) is joined with the third table (`Bonuses`) using an `INNER JOIN`.
 
 ![image](../../_assets/datalens/concepts/joins/case-4-link.png)
 
@@ -228,9 +228,9 @@ Let's add to the chart only the fields from the first (`Employees`) and third (`
 
 A dataset is based on four tables:
 
-* The first table (`Qualification`) is joined with the second table (`Bonuses`) using `INNER JOIN`.
-* The first table (`Qualification`) is joined with the third table (`Employees`) using `INNER JOIN`.
-* The third table (`Employees`) is joined with the fourth table (`Departments`) using `INNER JOIN`.
+* The first table (`Qualification`) is joined with the second table (`Bonuses`) using an `INNER JOIN`.
+* The first table (`Qualification`) is joined with the third table (`Employees`) using an `INNER JOIN`.
+* The third table (`Employees`) is joined with the fourth table (`Departments`) using an `INNER JOIN`.
 
 ![image](../../_assets/datalens/concepts/joins/case-5-link.png)
 
@@ -247,5 +247,4 @@ If we only use a pair of joined tables (the first and the second one, the first 
 ![image](../../_assets/datalens/concepts/joins/case-5-chart-opt-2.png)
 
 {% endcut %}
-
 

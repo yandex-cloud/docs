@@ -23,7 +23,7 @@ description: Follow this guide to add the step of accessing the Telegram Bot API
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
       1. Under **Token**, specify the [bot token](https://core.telegram.org/bots/features#creating-a-new-bot) or {{ lockbox-name }} [secret](../../../../lockbox/concepts/secret.md) that token is stored in. Select:
 
-          * `Lockbox` to store the bot token in a secret; in the **Secret** section, select the secret, its [version](../../../../lockbox/concepts/secret.md#version), and the key used to store the bot token.
+          * `Lockbox` to store the bot token in a secret. Under **Secret**, select the secret, its [version](../../../../lockbox/concepts/secret.md#version), and the key used to store the bot token.
 
               If you do not have a {{ lockbox-name }} secret, click **Create** to create one.
 

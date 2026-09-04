@@ -14,6 +14,8 @@
 
 * [Which operating systems do {{ yandex-cloud }} VMs support?](#os)
 
+* [Can I use my OS license for VM instances in {{ yandex-cloud }}?](#os-license)
+
 * [How do I contact support?](#support-channels)
 
 * [How do I learn about the cost?](#pricing)

@@ -17,6 +17,10 @@ To build a polyline map, you need the following data:
 * A field or a set of fields to group points into lines (each line's ID).
 * A field to sort the order of points in each line (such as a timestamp or point number).
 
+
+{% include [geointellect-using](../../_includes/datalens/visualization-ref/geointellect-using.md) %}
+
+
 You can color polyline segments in one of the following ways:
 
 * In a gradient by measure (for a example, an average speed in a point).

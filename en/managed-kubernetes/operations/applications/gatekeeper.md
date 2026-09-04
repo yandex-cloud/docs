@@ -14,7 +14,9 @@
 
 1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 
-1. Click the name of your cluster and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Select your [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
+
+1. Click the **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) tab and select **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Gatekeeper](https://yandex.cloud/ru/marketplace/products/yc/gatekeeper) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 
@@ -25,7 +27,7 @@
     * **Constraint violations limit**: Set the maximum number of violations to log for each constraint.
     * **Only matching resource types**: Select this option if you need to audit only those {{ k8s }} resource types for each constraint that are explicitly specified in the constraint. If no resource types are specified or the option is disabled, all resources will be audited.
     * **Create events at audit**: Select this option to create a Kubernetes event for each constraint violation detected during the audit, with detailed information about the violation.
-    * **Events in affected namespace**: Select this option if events with violation details should be created in the namespace where a constraint violation was logged. It only applies if the **Create events at audit** option is enabled.
+    * **Events in affected namespace**: Select this option if events with violation details should be created in the namespace where a constraint violation was logged. It only applies if the **Create events during audit** option is enabled.
     
       If the **Events in affected namespace** option is disabled, events will be created in the namespace where Gatekeeper is installed.
 

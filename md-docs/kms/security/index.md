@@ -43,7 +43,7 @@
 ```mermaid
 %%{
   init: {
-    "flowchart": { "defaultRenderer": "elk" },
+    "flowchart": { "defaultRenderer": "elk", "padding": 4 },
     "elk": { "nodePlacementStrategy": "LINEAR_SEGMENTS" }
   }
 }%%

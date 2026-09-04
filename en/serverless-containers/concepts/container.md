@@ -142,7 +142,7 @@ The `concurrency` parameter cannot be greater than 1 if the `Commands` [operatio
 
 If the user specifies call IDs (`RequestID`) themselves, they must ensure these are unique; otherwise, an error will be returned when the instance attempts to process a call with a duplicate ID.
 
-When a container instance processes multiple calls simultaneously, only the ID of the last one is written to the logs. To ensure that the logs record the IDs of all calls that a container handles, use [structured logs](logs.md#structured-logs).
+When a container instance processes multiple calls simultaneously, only the ID of the last one is written to the logs. To log the IDs of all calls a container handles, use [structured logs](logs.md#structured-logs).
 
 If at least one call reaches a timeout, that call and all the others handled by the same container instance will be aborted. Learn more about timeout in [this section](limits.md#serverless-containers-limits).
 

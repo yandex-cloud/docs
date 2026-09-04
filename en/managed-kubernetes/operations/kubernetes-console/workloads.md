@@ -19,8 +19,17 @@ To create a workload:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
-  1. In the top-right corner, click **{{ ui-key.yacloud.common.create }}** and select the workload type.
+  1. Select the {{ managed-k8s-name }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** tab.
+  1. Navigate to the tab containing the type of the workload you want to create:
+
+      * **{{ ui-key.yacloud.k8s.workloads.label_pods }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_deployments }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_daemon-sets }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_stateful-sets }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_hpa }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_jobs }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_cron-jobs }}**
+  1. Click the relevant workload create button.
   1. In the drop-down list, select the **{{ ui-key.yacloud.k8s.cluster.field_namespace }}** to create the workload in.
   1. Fill out the manifest file according to the Kubernetes guides: [pod](https://kubernetes.io/docs/concepts/workloads/pods/), [Deployment controller](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [DaemonSet controller](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), [StatefulSet controller](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/), [HPA](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/), [job](https://kubernetes.io/docs/concepts/workloads/controllers/job/), and [cron job](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/).
   1. Click **{{ ui-key.yacloud.k8s.cluster.button_create-resource }}**.
@@ -41,10 +50,18 @@ To edit a workload:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
-  1. Select the tab containing the type of the workload you want to edit.
-  1. In the workload row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-  1. Make changes to the manifest file on the right side of the screen. Your changes will be highlighted with color.
+  1. Select the {{ managed-k8s-name }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** tab.
+  1. Navigate to the tab containing the type of the workload you want to edit:
+
+      * **{{ ui-key.yacloud.k8s.workloads.label_pods }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_deployments }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_daemon-sets }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_stateful-sets }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_hpa }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_jobs }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_cron-jobs }}**
+  1. In the workload row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Edit the manifest file on the right side of the screen. Your changes will be highlighted with color.
   1. In the top-right corner, click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
@@ -61,9 +78,9 @@ You can run and stop cron jobs in the management console in the same way when as
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
-  1. Select the **{{ ui-key.yacloud.k8s.workloads.label_cron-jobs }}** tab.
-  1. In the cron job row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.start }}** or **{{ ui-key.yacloud.common.stop }}**.
+  1. Select the {{ managed-k8s-name }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.workloads.label_cron-jobs }}** tab.
+  1. In the cron job row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.start }}** or **{{ ui-key.yacloud.common.stop }}**.
   1. Confirm the action.
 
 {% endlist %}
@@ -80,9 +97,17 @@ To delete a workload:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
-  1. Select the tab containing the type of the workload you want to delete.
-  1. In the workload row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Select the {{ managed-k8s-name }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** tab.
+  1. Navigate to the tab containing the type of the workload you want to delete:
+
+      * **{{ ui-key.yacloud.k8s.workloads.label_pods }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_deployments }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_daemon-sets }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_stateful-sets }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_hpa }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_jobs }}**
+      * **{{ ui-key.yacloud.k8s.workloads.label_cron-jobs }}**
+  1. In the workload row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the action.
 
 {% endlist %}
