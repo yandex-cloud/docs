@@ -964,6 +964,10 @@ items:
         href: reports/versioning.md
       - name: Neuroanalyst in reports
         href: reports/insights.md
+      - name: Mailing lists
+        href: reports/add-report-maillists.md
+  - name: Mailing lists
+    href: concepts/maillists.md
   - name: HTML pages
     items:
       - name: Overview
