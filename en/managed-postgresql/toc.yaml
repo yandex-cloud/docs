@@ -15,10 +15,14 @@ items:
             href: operations/cluster-create.md
           - name: Updating cluster settings
             href: operations/update.md
+          - name: Managing cluster aliases
+            href: operations/cluster-aliases.md
           - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
           - name: Managing PostgreSQL hosts
             href: operations/hosts.md
+          - name: Managing host aliases
+            href: operations/hosts-aliases.md
           - name: Migrating hosts to a different availability zone
             href: operations/host-migration.md
           - name: Managing replication slots
