@@ -14,7 +14,7 @@
 1. Нажмите на имя нужной базы данных и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}**.
 1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monitoring-full-name }}, нажмите кнопку **{{ ui-key.yacloud_monitoring.dashboard.dash.open-in-monitoring }}** на панели сверху.
 
-На открывшейся страницы вы увидите графики состояния базы данных. Если метрики `Requsts per second` и `Request units per second` на графиках мониторинга базы часто достигают значений, близких к лимитам сервиса, [увеличьте пропускную способность](../../../ydb/operations/manage-databases.md#update-db-serverless) в параметрах кластера {{ ydb-name }}.
+На открывшейся странице вы увидите графики состояния базы данных. Если метрики `Requests per second` и `Request units per second` на графиках мониторинга базы часто достигают значений, близких к лимитам сервиса, [увеличьте пропускную способность](../../../ydb/operations/manage-databases.md#update-db-serverless) в параметрах кластера {{ ydb-name }}.
 
 {% note warning %}
 
