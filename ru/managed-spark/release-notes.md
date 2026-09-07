@@ -5,6 +5,23 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ msp-full-name }}
 
+## Август 2026 {#august-2026}
+
+Добавлена возможность использовать [базовые и пользовательские окружения](operations/environment-create.md) с заданными версиями {{ SPRK }} и Python и дополнительными pip- и deb-пакетами.
+
+## Март 2026 {#march-2026}
+
+Добавлены отдельные роли для просмотра и редактирования задач на техническое обслуживание: [managed-spark.maintenanceTask.viewer](security.md#managed-spark-maintenanceTask-viewer), [managed-spark.maintenanceTask.editor](security.md#managed-spark-maintenanceTask-editor).
+
+## Февраль 2026 {#february-2026}
+
+* В консоли управления добавлен раздел [**{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**](operations/cluster-maintenance.md).
+* Добавлена возможность [настроить права доступа к кластеру](operations/cluster-access.md).
+
+## Декабрь 2025 {#december-2025}
+
+* Добавлена возможность [выбирать и обновлять версию {{ SPRK }}](operations/cluster-version-update.md) для кластера.
+
 ## Сентябрь 2025 {#september-2025}
 
 * 22 сентября 2025 {{ msp-full-name }} перешел на стадию [General Availability](../overview/concepts/launch-stages.md), и за его использование начала взиматься плата в соответствии с [правилами тарификации](pricing.md).

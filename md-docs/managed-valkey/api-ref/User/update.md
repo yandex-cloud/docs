@@ -61,7 +61,7 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || passwords[] | **string**
 
-New passwords the Redis user.
+New password of the Redis user, 8-128 characters long.
 
 The maximum number of elements is 1. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**

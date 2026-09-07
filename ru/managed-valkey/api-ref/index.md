@@ -14,6 +14,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 ||Service | Description ||
 || [BackupRetentionPolicy](BackupRetentionPolicy/index.md) | A set of methods for managing Redis Cluster backup retention policies. ||
 || [Backup](Backup/index.md) | A set of methods for managing Redis backups. ||
+|| [ChangeFreeze](ChangeFreeze/index.md) |  ||
 || [Cluster](Cluster/index.md) | A set of methods for managing Redis clusters. ||
 || [Maintenance](Maintenance/index.md) |  ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||

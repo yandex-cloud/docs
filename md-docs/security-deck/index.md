@@ -32,6 +32,8 @@
 
  - [Работа с алертами](operations/alerts/work.md)
 
+ - [Скачать алерты](operations/alerts/download.md)
+
 ### Контроль данных (DSPM)
 
  - [Обзор](operations/dspm/index.md)

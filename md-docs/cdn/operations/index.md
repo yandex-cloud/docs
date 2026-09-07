@@ -18,7 +18,7 @@
 * [Настройка HTTP-ответов](resources/configure-response.md)
 * [Включение сжатия файлов](resources/enable-compression.md)
 * [Включение сегментации файлов](resources/enable-segmentation.md)
-* [Включение экранирования источников](resources/enable-shielding.md)
+* [Включить или отключить экранирование источников](resources/enable-shielding.md)
 * [Настройка перенаправления запросов](resources/setup-http-rewrite.md)
 * [Настройка следования перенаправлениям запросов](resources/setup-follow-redirects.md)
 * [Настройка скрытия заголовков от источника](resources/hiding-headers.md)

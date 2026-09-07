@@ -57,7 +57,7 @@ The maximum string length in characters is 63. Value must match the regular expr
 Required field. Name of the user to be assigned as the owner of the database.
 To get the list of available PostgreSQL users, make a [UserService.List](../User/list.md#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_@.-]* `. ||
 || lc_collate | **string**
 
 POSIX locale for string sorting order.

@@ -180,6 +180,11 @@ apiPlayground:
               **boolean**
               Allow access for YandexQuery.
             type: boolean
+          trino:
+            description: |-
+              **boolean**
+              Allow safety access for trino
+            type: boolean
       GreenplumConfig:
         type: object
         properties:
@@ -1331,7 +1336,8 @@ The maximum string length in characters is 50. ||
       "dataLens": "boolean",
       "webSql": "boolean",
       "dataTransfer": "boolean",
-      "yandexQuery": "boolean"
+      "yandexQuery": "boolean",
+      "trino": "boolean"
     },
     "zoneId": "string",
     "subnetId": "string",
@@ -1670,6 +1676,9 @@ Allows access for DataTransfer. ||
 || yandexQuery | **boolean**
 
 Allow access for YandexQuery. ||
+|| trino | **boolean**
+
+Allow safety access for trino ||
 |#
 
 ## MasterSubclusterConfigSpec {#yandex.cloud.mdb.greenplum.v1.MasterSubclusterConfigSpec}

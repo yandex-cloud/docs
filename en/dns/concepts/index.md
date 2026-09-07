@@ -1,6 +1,6 @@
 # {{ dns-name }} concepts
 
-{{ dns-full-name }} is a service that handles DNS requests and facilitates DNS administration.
+{{ dns-full-name }} is a service that handles DNS requests and facilitates Domain Name System (DNS) administration.
 
 With {{ dns-name }}, you can:
 

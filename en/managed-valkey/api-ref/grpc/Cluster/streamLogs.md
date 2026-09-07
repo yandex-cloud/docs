@@ -31,7 +31,7 @@ Same as ListLogs but using server-side streaming. Also allows for 'tail -f' sema
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the Redis cluster.
+Required field. ID of the Redis cluster.
 
 The maximum string length in characters is 50. ||
 || column_filter[] | **string**
@@ -41,7 +41,8 @@ Columns from logs table to get in the response. ||
 
 Type of the service to request logs about.
 
-- `REDIS`: Logs of Redis activity. ||
+- `REDIS`: Logs of Redis activity.
+- `VALKEY_AUDIT`: Valkey audit logs ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the logs request. ||

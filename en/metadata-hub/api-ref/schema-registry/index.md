@@ -57,4 +57,4 @@ See the following documents for detailed information about working with a Conflu
 
 * [Confluent Schema Registry API reference](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#schemaregistry-api)
 * [Examples of using the Confluent Schema Registry API](https://docs.confluent.io/platform/current/schema-registry/develop/using.html#schemaregistry-using)
-* [Tutorial on using curl to communicate with Schema Registry](https://docs.confluent.io/platform/current/schema-registry/schema_registry_onprem_tutorial.html#tutorial-use-curl-with-schema-registry)
+* [Tutorial on using curl to interface with Schema Registry](https://docs.confluent.io/platform/current/schema-registry/schema_registry_onprem_tutorial.html#tutorial-use-curl-with-schema-registry)

@@ -83,6 +83,7 @@
 * [Информация об имеющихся группах узлов](node-group/node-group-list.md)
 * [Создание группы узлов](node-group/node-group-create.md)
 * [Создание группы с узлами из пула резервов ВМ Yandex Compute Cloud](node-group/node-group-create-in-instance-pool.md)
+* [Техническое обслуживание узлов кластера без потери ресурсов](node-group/node-group-gpu-maintenance.md)
 * [Подключение к узлу по SSH](node-connect-ssh.md)
 * [Подключение к узлу через OS Login](node-connect-oslogin.md)
 * [Настройка автомасштабирования](autoscale.md)

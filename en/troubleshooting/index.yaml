@@ -17,9 +17,6 @@ links:
   - title: '{{ certificate-manager-name }}'
     description: Solutions for {{ certificate-manager-name }}
     href: certificate-manager/
-  - title: '{{ mch-name }}'
-    description: Solutions for {{ mch-name }}
-    href: clickhouse/
   - title: '{{ dns-name }}'
     description: Solutions for {{ dns-name }}
     href: dns/

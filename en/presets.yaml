@@ -69,6 +69,7 @@ default:
   auth-main-host: auth.yandex.cloud
   backup-full-name: Yandex Cloud Backup
   backup-name: Cloud Backup
+  backup-provider-docs-version: '26.07'
   backup-short-name: Cloud Backup
   baremetal-full-name: Yandex BareMetal
   baremetal-name: BareMetal
@@ -4893,7 +4894,6 @@ default:
         internal-v4-address-field:
           button_internal-address-reserve: Reserve
           field_internal-ipv4-address: Internal IPv4 address
-          label_internal-address-title: IP-address
         key-values-input:
           label_key: Key
           label_value: Value
@@ -5045,10 +5045,8 @@ default:
           edit:
             label_title: Changing an instance group
           overview:
-            label_authority: Authority
             label_host: Host
             label_instance-address: Public IP address
-            label_service-name: Service name
             section_instances-state: Virtual machines
           switch_instances: Virtual machines
         groups:
@@ -6297,7 +6295,6 @@ default:
             field_listener-name: Name
             field_listener-port: Port
             field_listener-protocol: Protocol
-            field_listener-subnet-id: Subnet
             field_listener-target-port: Target port
             field_network-load-balancer-type: Type
             label_add-listener: Add listener
@@ -6305,6 +6302,7 @@ default:
             label_address-type: Public address
             label_advanced: Advanced
             label_edit-health-check: Configure
+            label_external: External
             label_internal: Internal
             label_target-group-id: Target group
             section_listeners: Listeners

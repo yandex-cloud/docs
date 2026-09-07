@@ -19,8 +19,7 @@ Before deleting a target group, detach it from the network load balancer. You ca
   1. In the [management console]({{ link-console-main }}), select the folder where you need to delete a target group.
   1. [Navigate]({{ link-console-main }}/link/network-load-balancer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the target group you need to delete.
-  1. In the menu that opens, select **{{ ui-key.yacloud.common.delete }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** in the row of the target group to delete.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}

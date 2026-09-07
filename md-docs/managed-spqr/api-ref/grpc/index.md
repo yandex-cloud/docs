@@ -11,6 +11,7 @@ Actions are performed by making RPC calls. For more information about API archit
 #|
 ||Service | Description ||
 || [Backup](Backup/index.md) | A set of methods for managing SPQR Backup resources. ||
+|| [ChangeFreeze](ChangeFreeze/index.md) |  ||
 || [Cluster](Cluster/index.md) | A set of methods for managing SPQR Cluster resources. ||
 || [Database](Database/index.md) | A set of methods for managing SPQR Database resources. ||
 || [Maintenance](Maintenance/index.md) | A set of methods for managing maintenances in a service. ||

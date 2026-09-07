@@ -66,7 +66,7 @@ Default value: `unspecified` (inherits cluster's deletion_protection) ||
 
 Optional. Name of the user to be assigned as the new owner of the database.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_@.-]* `. ||
 |#
 
 ## Extension {#yandex.cloud.mdb.postgresql.v1.Extension}

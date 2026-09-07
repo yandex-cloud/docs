@@ -176,7 +176,7 @@ The target cluster's setup will vary depending on the [topic management method](
 
     1. In addition to the `ACCESS_ROLE_ADMIN` role, assign the admin user the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for topics whose names begin with the `cdc` prefix.
 
-        The system will automatically create the required topics when the first change occurs in the monitored tables of the source cluster. While this approach can be convenient for tracking changes across multiple tables, it requires reserving free storage space in your cluster. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
+        The system will automatically create the required topics when the first change occurs in the monitored tables of the source cluster. This solution can help you track changes in multiple tables but it requires extra free space in the cluster storage. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
 
 {% endlist %}
 

@@ -20,4 +20,3 @@ Before you can work with the API, you need to get an [IAM token](../../iam/conce
 [{#T}](../../iam/concepts/users/accounts.md)
 
 
-

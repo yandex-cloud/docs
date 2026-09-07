@@ -3,6 +3,7 @@
 # Как начать работать с видеотрансляцией в Yandex Cloud Video
 
 Чтобы провести [трансляцию](concepts/index.md#streams) на [канале](concepts/index.md#channels) сервиса:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте канал](#create-channel).
 1. [Создайте трансляцию](#create-stream).
@@ -70,7 +71,7 @@
 После создания канала вы окажетесь внутри этого канала во вкладке ![image](../_assets/console-icons/circle-play.svg) **Видео**.
 
 * Подробнее о каналах в разделе [Каналы](concepts/index.md#channels).
-* Настройка показа рекламы описана в разделе [Настроить показ рекламы](operations/channels/settings.md#ad-settings).
+* Настройка монетизации описана в разделе [Настроить монетизацию](operations/channels/settings.md#ad-settings).
 
 ## Создайте трансляцию {#create-stream}
 
@@ -93,6 +94,7 @@
 
 1. Нажмите кнопку **Сохранить**.
 1. В открывшемся окне трансляции скопируйте следующие данные:
+    
     * **Адрес сервера**;
     * **Ключ трансляции**.
 
@@ -175,5 +177,5 @@
 
 * [Как начать работать с хостингом видео в Yandex Cloud Video](hosting.md)
 * [Обзор сервиса Yandex Cloud Video](concepts/index.md)
-* [Настроить показ рекламы](operations/channels/settings.md#ad-settings)
+* [Настроить монетизацию](operations/channels/settings.md#ad-settings)
 * [Решение проблем в Cloud Video](troubleshooting/index.md)

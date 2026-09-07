@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. Required. ID of the Redis cluster to return.
+            Required field. ID of the Redis cluster to return.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -36,7 +36,7 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:enable_sha
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the Redis cluster to return.
+Required field. ID of the Redis cluster to return.
 
 The maximum string length in characters is 50. ||
 |#

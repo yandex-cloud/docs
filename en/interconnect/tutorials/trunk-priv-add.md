@@ -1,6 +1,6 @@
 ---
 title: How to create a direct trunk and a private connection in it in {{ interconnect-full-name }}
-description: In this tutorial, we will create a direct trunk and a private connection in it.
+description: In this tutorial, you will create a direct trunk and a private connection in it.
 canonical: '{{ link-docs }}/tutorials/routing/trunk-priv-add'
 ---
 

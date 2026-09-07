@@ -75,6 +75,9 @@ The maximum string length in characters is 63. ||
     "readonly": "string",
     "allowDdl": "boolean",
     "allowIntrospectionFunctions": "boolean",
+    "allowReorderPrewhereConditions": "boolean",
+    "asyncSocketForRemote": "boolean",
+    "asyncQuerySendingForRemote": "boolean",
     "connectTimeout": "string",
     "connectTimeoutWithFailover": "string",
     "connectTimeoutWithFailoverSecure": "string",
@@ -88,6 +91,7 @@ The maximum string length in characters is 63. ||
     "insertQuorumParallel": "boolean",
     "selectSequentialConsistency": "boolean",
     "replicationAlterPartitionsSync": "string",
+    "lightweightDeletesSync": "string",
     "maxReplicaDelayForDistributedQueries": "string",
     "fallbackToStaleReplicasForDistributedQueries": "boolean",
     "distributedProductMode": "string",
@@ -132,6 +136,8 @@ The maximum string length in characters is 63. ||
     "maxNetworkBandwidth": "string",
     "maxNetworkBandwidthForUser": "string",
     "maxNetworkBytes": "string",
+    "maxRemoteReadNetworkBandwidth": "string",
+    "maxRemoteWriteNetworkBandwidth": "string",
     "maxTemporaryDataOnDiskSizeForQuery": "string",
     "maxTemporaryDataOnDiskSizeForUser": "string",
     "maxConcurrentQueriesForUser": "string",
@@ -239,6 +245,7 @@ The maximum string length in characters is 63. ||
     "maxFinalThreads": "string",
     "maxReadBufferSize": "string",
     "insertKeeperMaxRetries": "string",
+    "databaseAtomicWaitForDropAndDetachSynchronously": "boolean",
     "doNotMergeAcrossPartitionsSelectFinal": "boolean",
     "ignoreMaterializedViewsWithDroppedTargetTable": "boolean",
     "enableAnalyzer": "boolean",
@@ -266,7 +273,12 @@ The maximum string length in characters is 63. ||
   "connectionManager": {
     "connectionId": "string"
   },
-  "authMethod": "string"
+  "authMethod": "string",
+  "userConnectionManager": {
+    "connectionId": "string",
+    "connectionFolderId": "string",
+    "secretFolderId": "string"
+  }
 }
 ```
 
@@ -291,13 +303,17 @@ User settings. ||
 Quotas assigned to the user. ||
 || connectionManager | **[ConnectionManager](#yandex.cloud.mdb.clickhouse.v1.ConnectionManager)**
 
-Connection Manager connection configuration. ||
+Connection Manager connection configuration.
+Deprecated in favor of user_connection_manager field. ||
 || authMethod | **enum** (AuthMethod)
 
 User authentication method.
 
 - `AUTH_METHOD_PASSWORD`: Authentication using a password stored in the cluster.
 - `AUTH_METHOD_IAM`: Authentication using an IAM token via the IAM authentication proxy. ||
+|| userConnectionManager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)**
+
+Connection Manager connection and settings associated with the user. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
@@ -340,6 +356,27 @@ Enables or disables introspection functions for query profiling.
 Default value: **false**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#allow_introspection_functions). ||
+|| allowReorderPrewhereConditions | **boolean**
+
+When moving conditions from WHERE to PREWHERE, allow reordering them to optimize filtering
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/allow#allow_reorder_prewhere_conditions). ||
+|| asyncSocketForRemote | **boolean**
+
+Enables asynchronous read from socket while executing remote query.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_socket_for_remote). ||
+|| asyncQuerySendingForRemote | **boolean**
+
+Enables asynchronous connection creation and query sending while executing remote query.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_query_sending_for_remote). ||
 || connectTimeout | **string** (int64)
 
 Connection timeout in milliseconds.
@@ -451,6 +488,16 @@ Wait mode for asynchronous actions in **ALTER** queries on replicated tables.
 Default value: **1**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#alter_sync). ||
+|| lightweightDeletesSync | **string** (int64)
+
+Wait mode for lightweight **DELETE** queries on replicated tables.
+* **0** - do not wait for replicas.
+* **1** - only wait for own execution.
+* **2** - wait for all replicas.
+
+Default value: **2**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#lightweight_deletes_sync). ||
 || maxReplicaDelayForDistributedQueries | **string** (int64)
 
 Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one.
@@ -877,6 +924,20 @@ This setting applies to every individual query.
 Default value: **0**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bytes). ||
+|| maxRemoteReadNetworkBandwidth | **string** (int64)
+
+The maximum speed of data exchange over the network in bytes per second for read.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_read_network_bandwidth). ||
+|| maxRemoteWriteNetworkBandwidth | **string** (int64)
+
+The maximum speed of data exchange over the network in bytes per second for write.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_write_network_bandwidth). ||
 || maxTemporaryDataOnDiskSizeForQuery | **string** (int64)
 
 The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
@@ -1741,6 +1802,13 @@ Only Keeper requests which failed due to network error, Keeper session timeout o
 Default value: **20**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_keeper_max_retries). ||
+|| databaseAtomicWaitForDropAndDetachSynchronously | **boolean**
+
+When executing DROP or DETACH TABLE in Atomic database, wait for table data to be finally dropped or detached.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#database_atomic_wait_for_drop_and_detach_synchronously). ||
 || doNotMergeAcrossPartitionsSelectFinal | **boolean**
 
 Enable or disable independent processing of partitions for **SELECT** queries with **FINAL**.
@@ -1853,10 +1921,34 @@ The total query execution time, in milliseconds (wall time). **0** means unlimit
 ## ConnectionManager {#yandex.cloud.mdb.clickhouse.v1.ConnectionManager}
 
 Connection Manager connection configuration.
+Deprecated in favor of yandex.cloud.priv.mdb.v1.UserConnectionManager message.
 
 #|
 ||Field | Description ||
 || connectionId | **string**
 
 ID of Connection Manager connection. ||
+|#
+
+## UserConnectionManager {#yandex.cloud.mdb.v1.UserConnectionManager}
+
+A message representing Connection Manager integration details and settings for a user in a cluster.
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of the Connection Manager connection corresponding to the user.
+Ignored if specified in update requests. ||
+|| connectionFolderId | **string**
+
+ID of the folder where connection for the user is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.connections_folder_id if not specified,
+or the cluster's folder if ClusterConnectionManager.connections_folder_id is not specified. ||
+|| secretFolderId | **string**
+
+A Connection Manager setting for a user's connection created by MDB integration.
+ID of the folder where secret for the user's connection is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.secrets_folder_id if not specified,
+or the cluster's ClusterConnectionManager.connections_folder_id, or the cluster's folder. ||
 |#

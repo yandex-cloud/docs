@@ -57,7 +57,7 @@ Yandex Cloud CDN позволяет организовать доставку к
 
  - [Включить сегментацию файлов](operations/resources/enable-segmentation.md)
 
- - [Включить экранирование источников](operations/resources/enable-shielding.md)
+ - [Включить или отключить экранирование источников](operations/resources/enable-shielding.md)
 
  - [Настроить перенаправление запросов](operations/resources/setup-http-rewrite.md)
 

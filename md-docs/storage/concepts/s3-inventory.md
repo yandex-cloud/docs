@@ -186,3 +186,4 @@ source-bucket-name,some-file-key-2,647168,2025-05-25 22:05:28.12345+00,COLD,7f94
 * [Управление выгрузкой метаданных объектов (S3 Inventory) в бакете](../operations/buckets/manage-s3-inventory.md)
 * [Скачать объект](../operations/objects/download.md)
 * [Механизм логирования действий с бакетом](server-logs.md)
+* [S3 Inventory в Yandex Cloud: аудит бакетов без миллионов вызовов S3 API](https://yandex.cloud/ru/blog/how-to-s3-inventory)

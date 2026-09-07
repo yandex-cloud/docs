@@ -48,7 +48,7 @@ A MongoDB Backup resource. For more information, see the
 ||Field | Description ||
 || id | **string**
 
-ID of the backup. Required. ||
+Required field. ID of the backup. ||
 || folderId | **string**
 
 ID of the folder that the backup belongs to. ||

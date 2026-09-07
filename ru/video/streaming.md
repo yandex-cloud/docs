@@ -6,6 +6,7 @@ description: Чтобы запустить видеотрансляцию {{ vid
 # Как начать работать с видеотрансляцией в {{ video-full-name }}
 
 Чтобы провести [трансляцию](./concepts/index.md#streams) на [канале](./concepts/index.md#channels) сервиса:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте канал](#create-channel).
 1. [Создайте трансляцию](#create-stream).
@@ -45,6 +46,7 @@ description: Чтобы запустить видеотрансляцию {{ vid
 
 1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 1. В открывшемся окне трансляции скопируйте следующие данные:
+    
     * **{{ ui-key.yacloud_video.stream-lines.label_server-address }}**;
     * **{{ ui-key.yacloud_video.stream-lines.label_stream-key }}**.
 
@@ -127,5 +129,5 @@ description: Чтобы запустить видеотрансляцию {{ vid
 
 * [{#T}](hosting.md)
 * [Обзор сервиса {{ video-full-name }}](./concepts/index.md)
-* [Настроить показ рекламы](operations/channels/settings.md#ad-settings)
+* [Настроить монетизацию](operations/channels/settings.md#ad-settings)
 * [{#T}](troubleshooting/index.md)

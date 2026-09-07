@@ -32,7 +32,7 @@ The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListBackupsResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse)
 that can be used to get the next page of results in subsequent list requests.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
@@ -86,7 +86,7 @@ A MongoDB Backup resource. For more information, see the
 ||Field | Description ||
 || id | **string**
 
-ID of the backup. Required. ||
+Required field. ID of the backup. ||
 || folder_id | **string**
 
 ID of the folder that the backup belongs to. ||

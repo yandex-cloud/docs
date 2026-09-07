@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, REST: Backup.Delete
 
-Returns the list of available backups for the specified Redis cluster.
+Deletes the specified Redis backup.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ DELETE https://mdb.api.cloud.yandex.net/managed-redis/v1/backups/{backupId}
 ||Field | Description ||
 || backupId | **string**
 
-Required field. Required. ID of the backup to delete. ||
+Required field. ID of the backup to delete. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

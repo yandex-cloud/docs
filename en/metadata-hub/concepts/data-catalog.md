@@ -12,21 +12,11 @@ description: '{{ data-catalog-name }} allows you to collect, analyze, and mark u
 
 {% endnote %}
 
-{% include [data-catalog](../../_includes/metadata-hub/data-catalog-definition.md) %}
+{% include [data-catalog-definition](../../_includes/metadata-hub/data-catalog-definition.md) %}
 
-The main entity in {{ data-catalog-name }} is a _metadata catalog_. A catalog serves as:
+The main entity in {{ data-catalog-name }} is a _metadata catalog_. 
 
-* Hub for collecting and storing metadata from various sources.
-* Workspace for marking up metadata. 
-
-You can upload metadata into a catalog using [sources and ingestions](#metadata-upload). The metadata will reside in a dedicated [data storage](#data-store), which brings together the metadata of sources from the same managed database cluster or the same custom database installation.
-
-At the very basic level, you can use [domains and subdomains](#domains-and-subdomains), e.g., to arrange metadata by company departments. For a more complex markup, use these resources:
-
-* [Classifications and tags](#classifications-and-tags)
-* [Glossaries and terms](#glossaries-and-terms)
-
-![data-catalog](../../_assets/metadata-hub/data-catalog.svg)
+{% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-concept.md) %}
 
 ## Uploading metadata {#metadata-upload}
 
@@ -49,52 +39,21 @@ You can run an ingestion manually or configure it to run on a schedule. A schedu
 
 ## Data storage {#data-store}
 
-Creating a data source automatically creates a data storage for its metadata. If a folder has multiple sources created for the same managed database cluster or the same custom database installation, their metadata is consolidated in a single storage.
-
-For each storage, you can get information on ingestions, sources, exported data, and links between database or service objects. Storage metadata supports [metadata markup](#metadata-markup) and search.
+{% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-storage-concept.md) %}
 
 ## Metadata markup {#metadata-markup}
 
 ### Domains and subdomains {#domains-and-subdomains}
 
-A _domain_ represents a group of metadata. You can use domains to arrange metadata to meet your business process needs, e.g., by departments or business units. For each domain, you can create a subdomain for more granular grouping.
-
-You can only assign one domain or subdomain to each metadata set or its individual element. At the same time, you can assign different domains or subdomains to separate elements within a single metadata set.
-
-{{ data-catalog-name }} has quotas for the maximum number of domains in a catalog. The maximum domain nesting depth is 5.
+{% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-domain-concept.md) %}
 
 ### Classifications and tags {#classifications-and-tags}
 
-A _classification_ comprises tags used to mark up metadata.
-
-{{ data-catalog-name }} has quotas for the maximum number of classifications in a catalog.
-
-_Tags_ are labels used to mark up data based on its type, e.g., sensitive data, table specifications, etc. You can assign multiple tags from a single or different classifications to the same set of metadata or its individual element. If **Mutually exclusive** is enabled in a classification, you can only assign one tag from this classification to a metadata set or its element.
-
-In addition to metadata sets and their elements, you can assign tags to:
-
-* Domains and subdomains
-* Glossaries
-* Individual terms in a glossary
-
-{{ data-catalog-name }} has quotas for the maximum number of tags in a classification. 
+{% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-classification-tag-concept.md) %}
 
 ### Glossaries and terms {#glossaries-and-terms}
 
-A _glossary_ is a dictionary of domain-specific terms and their definitions. Glossaries act as a single source of truth for terminology used within a company. Depending on how broadly a glossary is used, it may belong to one of these types:
-
-* Domain-specific: Includes terms relevant to a specific industry or business domain.
-* Project-related: Includes terms relevant to a particular project or multiple related projects.
-* Corporate: Includes terms relevant to all company’s projects and business areas.
-
-{{ data-catalog-name }} has quotas for the maximum number of glossaries in a catalog.
-
-_Terms_ are used to label data based on how a business defines certain concepts, such as revenue, expenses, etc. For each term, you can specify a synonym or create a child term for more granular data markup. You can assign multiple terms to the same metadata set or its individual element. These may include:
-
-* Terms from different glossaries
-* Child terms of different parent terms
-
-{{ data-catalog-name }} has quotas for the maximum number of terms in a glossary. The maximum nesting depth of a term is 5.
+{% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-glossary-term.md) %}
 
 ## Use cases {#examples}
 

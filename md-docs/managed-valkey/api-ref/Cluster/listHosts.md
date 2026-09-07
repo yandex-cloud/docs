@@ -94,31 +94,31 @@ Each subsequent list request will have its own `nextPageToken` to continue pagin
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the Redis host. The host name is assigned by MDB at creation time, and cannot be changed.
+Name of the Redis host. The host name is assigned by MDB at creation time, and cannot be changed.
 1-63 characters long.
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster. The ID is assigned by MDB at creation time. ||
+ID of the Redis cluster. The ID is assigned by MDB at creation time. ||
 || zoneId | **string**
 
-Required field. ID of the availability zone where the Redis host resides. ||
+ID of the availability zone where the Redis host resides. ||
 || subnetId | **string**
 
 ID of the subnet that the host belongs to. ||
 || resources | **[Resources](#yandex.cloud.mdb.redis.v1.Resources)**
 
-Required field. Resources allocated to the Redis host. ||
+Resources allocated to the Redis host. ||
 || role | **enum** (Role)
 
-Required field. Role of the host in the cluster. If the field has default value, it is not returned in the response.
+Role of the host in the cluster. If the field has default value, it is not returned in the response.
 
 - `ROLE_UNKNOWN`: Role of the host in the cluster is unknown. Default value.
 - `MASTER`: Host is the master Redis server in the cluster.
 - `REPLICA`: Host is a replica (standby) Redis server in the cluster. ||
 || health | **enum** (Health)
 
-Required field. Aggregated health of the host. If the field has default value, it is not returned in the response.
+Aggregated health of the host. If the field has default value, it is not returned in the response.
 
 - `HEALTH_UNKNOWN`: Health of the host is unknown. Default value.
 - `ALIVE`: The host is performing all its functions normally.
@@ -146,8 +146,9 @@ Flag showing public IP assignment status to this host. ||
 ||Field | Description ||
 || resourcePresetId | **string**
 
-Required field. ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../concepts/instance-types.md). ||
+ID of the preset for computational resources available to a host (CPU, memory etc.).
+To get the list of available presets, use a [ResourcePresetService.List](../ResourcePreset/list.md#List) request;
+presets are also listed in the [documentation](../../concepts/instance-types.md). ||
 || diskSize | **string** (int64)
 
 Volume of the storage available to a host, in bytes. ||
@@ -172,7 +173,7 @@ Type of the service provided by the host. If the field has default value, it is 
 - `REDIS_CLUSTER`: The host is a Redis Cluster node. ||
 || health | **enum** (Health)
 
-Required field. Aggregated health of the service. If the field has default value, it is not returned in the response.
+Aggregated health of the service. If the field has default value, it is not returned in the response.
 
 - `HEALTH_UNKNOWN`: Health of the server is unknown. Default value.
 - `ALIVE`: The server is working normally.

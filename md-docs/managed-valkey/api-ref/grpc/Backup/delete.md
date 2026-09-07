@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, gRPC: BackupService.Delete
 
-Returns the list of available backups for the specified Redis cluster.
+Deletes the specified Redis backup.
 
 ## gRPC request
 
@@ -20,7 +20,7 @@ Returns the list of available backups for the specified Redis cluster.
 ||Field | Description ||
 || backup_id | **string**
 
-Required field. Required. ID of the backup to delete. ||
+Required field. ID of the backup to delete. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -6,7 +6,7 @@ The [GraphiteMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-
 
 {% note info %}
 
-If thinning, aggregation, or averaging, are not required, you can use any {{ CH }} [table engine]({{ ch.docs }}{{ lang }}/engines/table-engines) for storing Graphite data.
+If thinning, aggregation, or averaging are not required, you can use any {{ CH }} [table engine]({{ ch.docs }}{{ lang }}/engines/table-engines) to store Graphite data.
 
 {% endnote %}
 

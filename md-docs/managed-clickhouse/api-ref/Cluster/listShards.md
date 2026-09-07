@@ -65,6 +65,8 @@ The maximum string length in characters is 100. ||
               "backgroundMessageBrokerSchedulePoolSize": "string",
               "backgroundCommonPoolSize": "string",
               "dictionariesLazyLoad": "boolean",
+              "shutdownWaitUnfinishedQueries": "boolean",
+              "shutdownWaitUnfinished": "string",
               "logLevel": "string",
               "queryLogRetentionSize": "string",
               "queryLogRetentionTime": "string",
@@ -415,6 +417,8 @@ The maximum string length in characters is 100. ||
               "backgroundMessageBrokerSchedulePoolSize": "string",
               "backgroundCommonPoolSize": "string",
               "dictionariesLazyLoad": "boolean",
+              "shutdownWaitUnfinishedQueries": "boolean",
+              "shutdownWaitUnfinished": "string",
               "logLevel": "string",
               "queryLogRetentionSize": "string",
               "queryLogRetentionTime": "string",
@@ -765,6 +769,8 @@ The maximum string length in characters is 100. ||
               "backgroundMessageBrokerSchedulePoolSize": "string",
               "backgroundCommonPoolSize": "string",
               "dictionariesLazyLoad": "boolean",
+              "shutdownWaitUnfinishedQueries": "boolean",
+              "shutdownWaitUnfinished": "string",
               "logLevel": "string",
               "queryLogRetentionSize": "string",
               "queryLogRetentionTime": "string",
@@ -1297,6 +1303,22 @@ Default value: **true** for versions 25.1 and higher, **false** for versions 24.
 Change of the setting is applied with restart.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#dictionaries_lazy_load). ||
+|| shutdownWaitUnfinishedQueries | **boolean**
+
+Enables or disables wait for running queries finish before shutdown.
+
+Default value: **false**.
+
+Change of the setting is applied with restart.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#shutdown_wait_unfinished_queries). ||
+|| shutdownWaitUnfinished | **string** (int64)
+
+Delay in seconds to wait for unfinished queries before shutdown.
+
+Default value: **60** (1 minute).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#shutdown_wait_unfinished). ||
 || logLevel | **enum** (LogLevel)
 
 Logging level.
@@ -1835,7 +1857,7 @@ Change of the settings of **jdbc_bridge** is applied with restart.
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/integrations/jdbc/jdbc-with-clickhouse). ||
 || mysqlProtocol | **boolean**
 
-Enables or disables MySQL interface on ClickHouse server
+Enables or disables MySQL interface on ClickHouse server.
 
 Default value: **false**.
 

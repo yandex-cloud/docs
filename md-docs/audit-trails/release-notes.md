@@ -2,6 +2,128 @@
 
 # История изменений в Yandex Audit Trails
 
+## Август 2026 {#aug-2026}
+
+Добавлены новые события для сервисов:
+
+  {% cut "SourceCraft" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `AddPersonalEmail` | Добавление личного адреса электронной почты
+  `AddPersonalPublicGpgKey` | Добавление личного открытого ключа GPG
+  `AddPersonalPublicSshKey` | Добавление личного открытого ключа SSH
+  `CreatePersonalAccessToken` | Создание персонального токена доступа
+  `CreateRepository` | Создание репозитория
+  `CreateSecret` | Создание секрета
+  `CreateServiceConnection` | Создание подключения к сервису
+  `DeleteAllSecrets` | Удаление всех секретов
+  `DeletePersonalAccessToken` | Удаление персонального токена доступа
+  `DeleteRepository` | Удаление репозитория
+  `DeleteSecret` | Удаление секрета
+  `DeleteServiceConnection` | Удаление подключения к сервису
+  `OffboardCloudRegistry` | Отключение реестра pkg.sourcecraft.tech
+  `OffboardOrganization` | Отключение организации
+  `OnboardCloudRegistry` | Подключение реестра pkg.sourcecraft.tech
+  `OnboardOrganization` | Подключение организации
+  `RemovePersonalEmail` | Удаление личного адреса электронной почты
+  `RemovePersonalPublicGpgKey` | Удаление личного открытого ключа GPG
+  `RemovePersonalPublicSshKey` | Удаление личного открытого ключа SSH
+  `UpdateAppsecSettings` | Изменение настроек AppSec
+  `UpdateOrganization` | Изменение организации
+  `UpdatePersonalAccessToken` | Изменение персонального токена доступа
+  `UpdateRepository` | Изменение репозитория
+  `UpdateRepositoryAccessBindings` | Изменение прав доступа к репозиторию
+  `UpdateSecret` | Изменение секрета
+  `UpdateServiceConnection` | Изменение подключения к сервису
+  `VerifyPersonalEmail` | Подтверждение личного адреса электронной почты
+
+  [События уровня сервисов](concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `GetSecret` | Получение секрета
+  `GetSecretPayload` | Получение данных секрета
+  `ListSecrets` | Получение списка секретов
+  `NewAppSecDefect` | Обнаружение нового дефекта в SourceCraft Security
+
+  {% endcut %}
+
+  {% cut "Cloud Registry" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateScanPolicy` | Создание политики сканирования
+  `DeleteScanPolicy` | Удаление политики сканирования
+  `UpdateScanPolicy` | Изменение политики сканирования
+
+  [События уровня сервисов](concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `ScanArtifact` | Сканирование артефакта
+
+  {% endcut %}
+
+  {% cut "Yandex Managed Service for Kubernetes" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `marketplace.v1.InstallHelmRelease` | Установка приложения из Cloud Marketplace с помощью Helm-чарта
+  `marketplace.v1.UninstallHelmRelease` | Удаление приложения, установленного из Cloud Marketplace с помощью Helm-чарта
+  `marketplace.v1.UpdateHelmRelease` | Обновление приложения, установленного из Cloud Marketplace с помощью Helm-чарта
+
+  {% endcut %}
+
+  {% cut "Yandex Identity Hub" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetTwoFactorAuthenticationPassportRequired` | Установка требования двухфакторной аутентификации для аккаунтов на Яндексе
+  `application.linked.CreateApplication` | Создание связанного приложения
+  `application.linked.DeleteApplication` | Удаление связанного приложения
+  `application.linked.ReactivateApplication` | Активация связанного приложения
+  `application.linked.SetApplicationAccessBindings` | Назначение прав доступа к связанному приложению
+  `application.linked.SuspendApplication` | Деактивация связанного приложения
+  `application.linked.UpdateApplication` | Изменение связанного приложения
+  `application.linked.UpdateApplicationAccessBindings` | Изменение прав доступа к связанному приложению
+  `application.linked.UpdateApplicationAssignments` | Изменение списка пользователей связанного приложения
+  `idp.application.CreateAsset` | Загрузка логотипа приложения
+  `idp.application.DeleteAsset` | Удаление логотипа приложения
+  `policy.DeleteRefreshTokenPolicy` | Удаление политики обновления токена
+  `policy.UpdateRefreshTokenPolicy` | Изменение политики обновления токена
+
+  {% endcut %}
+
+  {% cut "Yandex DataLens" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `platform.CreateAirflowCluster` | Создание кластера Airflow
+  `platform.CreateCloudEnvironment` | Создание облачного окружения
+  `platform.CreateRestCatalog` | Создание REST-каталога
+  `platform.CreateRestCatalogNamespace` | Создание пространства имен REST-каталога
+  `platform.CreateSparkCluster` | Создание кластера Spark
+  `platform.CreateTrinoCluster` | Создание кластера Trino
+  `platform.DeleteAirflowCluster` | Удаление кластера Airflow
+  `platform.DeleteCloudEnvironment` | Удаление облачного окружения
+  `platform.DeleteRestCatalog` | Удаление REST-каталога
+  `platform.DeleteRestCatalogNamespace` | Удаление пространства имен REST-каталога
+  `platform.DeleteSparkCluster` | Удаление кластера Spark
+  `platform.DeleteTrinoCluster` | Удаление кластера Trino
+  `platform.UpdateCloudEnvironment` | Изменение облачного окружения
+
+  {% endcut %}
 
 ## Июль 2026 {#jul-2026}
 

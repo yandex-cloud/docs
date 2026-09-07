@@ -1,0 +1,4 @@
+In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, select an IP address assignment method:
+
+* `{{ ui-key.yacloud.common.label_auto }}`: Assign a random IP address from the Yandex Cloud IP address pool. In this case, you can enable [DDoS protection](../../vpc/ddos-protection/index.md) using the option below.
+* `{{ ui-key.yacloud.common.label_list }}`: To select a public IP address from the list of previously reserved static addresses. For more information, see [Converting a dynamic public IP address to static](../../vpc/operations/set-static-ip.md).

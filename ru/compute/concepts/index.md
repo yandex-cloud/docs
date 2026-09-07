@@ -49,4 +49,5 @@ description: Из статьи вы узнаете, как связаны меж
 
 #### Полезные ссылки {#see-also}
 
+* [Закрываем уязвимость SCTPhantom — повышение привилегий и выход из контейнера в ядре Linux](https://yandex.cloud/ru/blog/vulnerability-sctphantom)
 * [Облачный сервер: архитектура и возможности](https://yandex.cloud/ru/blog/cloud-server)

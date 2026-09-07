@@ -13,21 +13,9 @@ description: Follow this guide to add a listener to a network load balancer.
   
   1. In the [management console]({{ link-console-main }}), select the folder where you need to add a listener to a load balancer.
   1. [Navigate]({{ link-console-main }}/link/network-load-balancer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-  1. Next to the load balancer to add a listener to, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
-  1. In the window that opens, specify these listener settings:
-
-     * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**.
-     * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}` or `{{ ui-key.yacloud.common.label_udp }}`.
-
-        {% note info %}
-
-        By default, the listener uses TCP. To use UDP, [contact technical support]({{ link-console-support }}).
-
-        {% endnote %}
-
-     * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** where the listener will listen for incoming traffic. The possible values range from `1` to `32767`.
-     * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** to which the load balancer will redirect traffic. The possible values range from `1` to `32767`.
-     * Click **{{ ui-key.yacloud.common.add }}**.
+  1. Next to the load balancer to add a listener to, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![antenna-signal](../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_add-listener }}**.
+  1. {% include [listener-params](../../_includes/network-load-balancer/listener-params.md) %}
+  1. Click **{{ ui-key.yacloud.common.add }}**.
   
 - CLI {#cli}
   

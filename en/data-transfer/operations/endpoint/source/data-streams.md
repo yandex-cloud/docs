@@ -6,17 +6,17 @@ description: Follow this guide to configure an {{ yds-full-name }} source endpoi
 # Transferring data from a {{ yds-full-name }} source endpoint
 
 
-{{ data-transfer-full-name }} enables you to migrate data from an {{ yds-name }} queue and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data from an {{ yds-name }} queue and implement various data transfer, processing, and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ yds-name }}](#prepare) database for the transfer.
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
 1. Perform required operations with the database and [control the transfer](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
-## Scenarios for transferring data from {{ yds-name }} {#scenarios}
+## {{ yds-name }} data transfer scenarios {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
@@ -37,7 +37,7 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 ## Configuring the {{ yds-name }} source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can configure:
 
 * Stream [connection settings](#managed-service) in [{{ yds-full-name }}](#managed-service). These are required parameters.
 * [Advanced settings](#additional-settings).
@@ -106,7 +106,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 {% endlist %}
 
 
-## Configuring the data target {#supported-targets}
+## Configuring the target {#supported-targets}
 
 Configure one of the supported data targets:
 
@@ -123,9 +123,9 @@ Configure one of the supported data targets:
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
-## Troubleshooting data transfer issues {#troubleshooting}
+## Data transfer troubleshooting {#troubleshooting}
 
 * [Transfer interrupted with an error message](#overloaded)
 * [{{ sf-short-name }} redirects](#redirects)
@@ -135,4 +135,3 @@ For the full list of recommendations, see [Troubleshooting](../../../troubleshoo
 {% include [overloaded](../../../../_includes/data-transfer/troubles/overloaded.md) %}
 
 {% include [redirects](../../../../_includes/data-transfer/troubles/data-streams/data-streams-redirects.md) %}
-

@@ -5,7 +5,6 @@ editable: false
 # Managed Service for OpenSearch API, gRPC: ClusterService.RestartOpenSearch
 
 
-Required for backward compatibility with old clients. --)
 Restarts OpenSearch on specified host.
 
 ## gRPC request

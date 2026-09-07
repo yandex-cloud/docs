@@ -21,9 +21,6 @@ links:
   - title: '{{ certificate-manager-name }}'
     description: Решения для {{ certificate-manager-name }}
     href: certificate-manager/
-  - title: '{{ mch-name }}'
-    description: Решения для {{ mch-name }}
-    href: clickhouse/
   - title: '{{ dns-name }}'
     description: Решения для {{ dns-name }}
     href: dns/

@@ -16,7 +16,14 @@ Retrieves raw statistics on sessions. Corresponds to the [pg_stat_activity view]
   "from_time": "google.protobuf.Timestamp",
   "to_time": "google.protobuf.Timestamp",
   "page_size": "int64",
-  "page_token": "string"
+  "page_token": "string",
+  "extended_filter": [
+    {
+      "field_name": "SessionField",
+      "value": "string",
+      "operator": "Operator"
+    }
+  ]
 }
 ```
 
@@ -45,6 +52,64 @@ The maximum value is 10000. ||
 Page token. To get the next page of results, set `page_token` to the [ListRawSessionStatesResponse.next_page_token](#yandex.cloud.mdb.postgresql.v1.ListRawSessionStatesResponse) returned by the previous PostgreSQL session list request.
 
 The maximum string length in characters is 100. ||
+|| extended_filter[] | **[ExtendedSessionFilter](#yandex.cloud.mdb.postgresql.v1.ExtendedSessionFilter)**
+
+Filters session states by the specified fields, values, and comparison operators.
+Multiple filters are combined using the logical AND operator. ||
+|#
+
+## ExtendedSessionFilter {#yandex.cloud.mdb.postgresql.v1.ExtendedSessionFilter}
+
+#|
+||Field | Description ||
+|| field_name | enum **SessionField**
+
+Session field to compare.
+
+- `SESSION_TIME`: Time when session statistics were collected.
+- `SESSION_HOST`: Session host.
+- `SESSION_PID`: Server process identifier (PID).
+- `SESSION_DATABASE`: Database name.
+- `SESSION_USER`: Database user name.
+- `SESSION_APPLICATION_NAME`: Client application name.
+- `SESSION_BACKEND_START`: Time when the backend process started.
+- `SESSION_XACT_START`: Time when the current transaction started.
+- `SESSION_QUERY_START`: Time when the current query started.
+- `SESSION_STATE_CHANGE`: Time when the session state last changed.
+- `SESSION_WAIT_EVENT_TYPE`: Type of event for which the backend is waiting.
+- `SESSION_WAIT_EVENT`: Name of the event for which the backend is waiting.
+- `SESSION_STATE`: Current backend state.
+- `SESSION_QUERY`: Text of the current or most recent query.
+- `SESSION_BACKEND_TYPE`: Backend process type.
+- `SESSION_CLIENT_ADDR`: Client IP address.
+- `SESSION_CLIENT_HOSTNAME`: Client host name.
+- `SESSION_CLIENT_PORT`: Client TCP port.
+- `SESSION_BACKEND_XID`: Top-level transaction identifier.
+- `SESSION_BACKEND_XMIN`: Current xmin horizon.
+- `SESSION_QUERY_ID`: Query identifier.
+- `SESSION_BLOCKING_PIDS`: Process identifiers that are blocking the session.
+- `SESSION_ROLE`: Role of the PostgreSQL host.
+- `SESSION_BLOCKED_BY_MODES`: Lock modes held by processes that are blocking the session.
+- `SESSION_WAIT_LOCKTYPE`: Type of lock for which the session is waiting.
+- `SESSION_WAIT_MODE`: Lock mode requested by the session.
+- `SESSION_WAIT_RELATION`: Relation associated with the lock for which the session is waiting.
+- `SESSION_TRANSACTION_AGE`: Age of the current transaction. ||
+|| value | **string**
+
+Value to compare the session field with. For IN and NOT_IN, specify a comma-separated list. ||
+|| operator | enum **Operator**
+
+Comparison operator. If unspecified, equality is used.
+
+- `EQUAL`: The field value is equal to the filter value.
+- `NOT_EQUAL`: The field value is not equal to the filter value.
+- `GREATHER_THEN`: The field value is greater than the filter value.
+- `GREATHER_THEN_OR_EQUAL`: The field value is greater than or equal to the filter value.
+- `LESS_THEN`: The field value is less than the filter value.
+- `LESS_THEN_OR_EQUAL`: The field value is less than or equal to the filter value.
+- `IN`: The field value is contained in the comma-separated list of filter values.
+- `NOT_IN`: The field value is not contained in the comma-separated list of filter values.
+- `LIKE`: The field value matches the SQL LIKE pattern specified by the filter value. ||
 |#
 
 ## ListRawSessionStatesResponse {#yandex.cloud.mdb.postgresql.v1.ListRawSessionStatesResponse}

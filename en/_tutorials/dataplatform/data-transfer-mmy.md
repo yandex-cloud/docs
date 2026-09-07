@@ -98,13 +98,13 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
 - Admin API {#api}
 
-    When managing topics via the Kafka Admin API:
+    If you manage topics using the Kafka Admin API:
 
     1. Create an [admin user](../../managed-kafka/operations/cluster-accounts.md) named `kafka-user`.
 
     1. In addition to `ACCESS_ROLE_ADMIN`, assign this user the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for all topics prefixed with `cdc`.
 
-        Required topics will be created automatically upon the first change to the source cluster tables you are tracking. While this approach can be convenient for tracking changes across multiple tables, it requires reserving free storage space in your cluster. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
+        The system will automatically create the required topics when the first change occurs in the monitored tables of the source cluster. This solution can help you track changes in multiple tables but it requires extra free space in the cluster storage. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
 
 {% endlist %}
 

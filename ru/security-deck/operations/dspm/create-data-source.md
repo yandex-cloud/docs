@@ -34,12 +34,12 @@ description: Следуя данной инструкции, вы узнаете
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}**.
   1. На странице модуля **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** выберите `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_dspm_xm8pa }}` и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_data-sources }}**.
-  1. В правом верхнем углу экрана нажмите **{{ ui-key.yacloud_org.dspm.data-sources.label_create-source }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите ![storage-logo](../../../_assets/storage/storage-logo.svg) **{{ ui-key.yacloud_org.security.dspm.dataSourceTypes.object_storage_meF3x }}** или ![storage-logo](../../../_assets/security-deck/yandex360-logo.svg) **{{ ui-key.yacloud_org.security.dspm.dataSourceTypes.yandex_360_1TUsr }}**. 
+  1. В правом верхнем углу экрана нажмите **{{ ui-key.yacloud_org.dspm.data-sources.label_create-source }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите ![storage-logo](../../../_assets/storage/storage-logo.svg) **{{ ui-key.yacloud_org.security.dspm.dataSourceTypes.object_storage_meF3x }}** или ![storage-logo](../../../_assets/security-deck/yandex360-logo.svg) **{{ ui-key.yacloud_org.security.dspm.dataSourceTypes.yandex_360_1TUsr }}**.
  
       {% list tabs %}
 
       - {{ ui-key.yacloud_org.security.dspm.dataSourceTypes.object_storage_meF3x }}
-          
+
         Добавьте к источнику данных ресурсы, в которых вы хотите выполнять сканирование:
            * Чтобы добавить отдельные бакеты, нажмите ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.dspm.scan-resource-group.button_select_bucket }}** и выберите один или несколько бакетов в одном или нескольких доступных вам каталогах.
 
@@ -54,8 +54,8 @@ description: Следуя данной инструкции, вы узнаете
              * **{{ ui-key.yacloud_org.dspm.scan-resource-group.public_buckets }}**
                К источнику данных будут добавлены бакеты с настроенным [публичным доступом](../../../storage/operations/buckets/bucket-availability.md). Сканироваться на наличие персональных данных будет содержимое только таких бакетов. Если для этих бакетов отключить публичный доступ, они автоматически исключаются из сканирования.
 
-      - {{ ui-key.yacloud_org.security.dspm.dataSourceTypes.yandex_360_1TUsr }}        
-        
+      - {{ ui-key.yacloud_org.security.dspm.dataSourceTypes.yandex_360_1TUsr }}
+
         1. Нажмите **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.action_configure-connection_v6Gjm }}** и задайте параметры для корректной работы с организацией {{ yandex-360 }}:
             1. Укажите идентификатор [Организации 360]({{ link-yandex }}/support/yandex-360/business/admin/{{ lang }}/org-admin).
 
@@ -75,9 +75,13 @@ description: Следуя данной инструкции, вы узнаете
             1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
         1. Добавьте к источнику данных ресурсы, в которых вы хотите выполнять сканирование:
-            * Чтобы добавить общие диски в организации, в разделе **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.section_organization_resources_title_5u8qX }}** нажмите **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.action_add_resources_2qrRH }}**. Выберите или исключите нужные диски в одном или нескольких каталогах.
-            * Чтобы добавить к источнику данных пользовательские диски, в разделе **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.section_user_resources_title_aN75p }}** нажмите **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.action_add_resources_2qrRH }}**. Выберите или исключите нужные пользовательские диски.
+            * Чтобы добавить общие диски в организации, в блоке **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.section_organization_resources_title_5u8qX }}** нажмите **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.action_add_resources_2qrRH }}**. Нажмите ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.button_add_disk_nUBSX }}** и выберите объекты в доступных вам каталогах.
+            * Чтобы добавить к источнику данных пользовательские диски, в блоке **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.section_user_resources_title_aN75p }}** нажмите **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.action_add_resources_2qrRH }}**. Нажмите ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.button_add_disk_nUBSX }}** и выберите объекты в доступных вам каталогах.
             * Чтобы добавить к источнику данных все доступные диски, нажмите **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.label_all_disks_5KEY9 }}** в разделе **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.section_organization_resources_title_5u8qX }}** или **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.section_user_resources_title_aN75p }}**. На сканирование попадут не только те диски, которые существуют в выбранной организации в момент создания источника данных, но и диски, которые появятся в ней позднее (на момент выполнения сканирования).
+        1. В блоке **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.label_public_access }}** выберите одно из значений:
+
+            * `{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.public_access_all_files }}` — сканирование всех файлов, независимо от уровня доступа.
+            * `{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.public_access_public_files }}` — сканирование файлов только с [общим доступом]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/share/personal-and-public-access#vidy-dostupa). Такие файлы доступны всем, у кого есть ссылка, в том числе пользователям за пределами организации. Файлы, доступные только внутри организации или отдельным пользователям, в сканирование не попадут.
 
       {% endlist %}
 

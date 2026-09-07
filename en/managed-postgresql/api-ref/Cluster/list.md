@@ -116,7 +116,7 @@ The maximum string length in characters is 1000. ||
       ],
       "config": {
         "version": "string",
-        // Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`
+        // Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`
         "postgresqlConfig_11": {
           "effectiveConfig": {
             "maxConnections": "string",
@@ -7117,6 +7117,1072 @@ The maximum string length in characters is 1000. ||
             "maxActiveReplicationOrigins": "string"
           }
         },
+        "postgresqlConfig_19": {
+          "effectiveConfig": {
+            "maxConnections": "string",
+            "sharedBuffers": "string",
+            "tempBuffers": "string",
+            "maxPreparedTransactions": "string",
+            "workMem": "string",
+            "maintenanceWorkMem": "string",
+            "autovacuumWorkMem": "string",
+            "tempFileLimit": "string",
+            "vacuumCostDelay": "string",
+            "vacuumCostPageHit": "string",
+            "vacuumCostPageMiss": "string",
+            "vacuumCostPageDirty": "string",
+            "vacuumCostLimit": "string",
+            "bgwriterDelay": "string",
+            "bgwriterLruMaxpages": "string",
+            "bgwriterLruMultiplier": "number",
+            "bgwriterFlushAfter": "string",
+            "backendFlushAfter": "string",
+            "walLevel": "string",
+            "synchronousCommit": "string",
+            "checkpointTimeout": "string",
+            "checkpointCompletionTarget": "number",
+            "checkpointFlushAfter": "string",
+            "maxWalSize": "string",
+            "minWalSize": "string",
+            "maxStandbyStreamingDelay": "string",
+            "defaultStatisticsTarget": "string",
+            "constraintExclusion": "string",
+            "cursorTupleFraction": "number",
+            "fromCollapseLimit": "string",
+            "joinCollapseLimit": "string",
+            "debugParallelQuery": "string",
+            "clientMinMessages": "string",
+            "logMinMessages": "string",
+            "logMinErrorStatement": "string",
+            "logMinDurationStatement": "string",
+            "logCheckpoints": "boolean",
+            "logConnections": "boolean",
+            "logDisconnections": "boolean",
+            "logDuration": "boolean",
+            "logErrorVerbosity": "string",
+            "logLockWaits": "boolean",
+            "logStatement": "string",
+            "logTempFiles": "string",
+            "searchPath": "string",
+            "rowSecurity": "boolean",
+            "defaultTransactionIsolation": "string",
+            "statementTimeout": "string",
+            "lockTimeout": "string",
+            "idleInTransactionSessionTimeout": "string",
+            "byteaOutput": "string",
+            "xmlbinary": "string",
+            "xmloption": "string",
+            "ginPendingListLimit": "string",
+            "deadlockTimeout": "string",
+            "maxLocksPerTransaction": "string",
+            "maxPredLocksPerTransaction": "string",
+            "arrayNulls": "boolean",
+            "backslashQuote": "string",
+            "defaultWithOids": "boolean",
+            "loCompatPrivileges": "boolean",
+            "quoteAllIdentifiers": "boolean",
+            "synchronizeSeqscans": "boolean",
+            "transformNullEquals": "boolean",
+            "exitOnError": "boolean",
+            "seqPageCost": "number",
+            "randomPageCost": "number",
+            "autovacuumMaxWorkers": "string",
+            "autovacuumVacuumCostDelay": "string",
+            "autovacuumVacuumCostLimit": "string",
+            "autovacuumNaptime": "string",
+            "archiveTimeout": "string",
+            "trackActivityQuerySize": "string",
+            "enableBitmapscan": "boolean",
+            "enableHashagg": "boolean",
+            "enableHashjoin": "boolean",
+            "enableIndexscan": "boolean",
+            "enableIndexonlyscan": "boolean",
+            "enableMaterial": "boolean",
+            "enableMergejoin": "boolean",
+            "enableNestloop": "boolean",
+            "enableSeqscan": "boolean",
+            "enableSort": "boolean",
+            "enableTidscan": "boolean",
+            "maxWorkerProcesses": "string",
+            "maxParallelWorkers": "string",
+            "maxParallelWorkersPerGather": "string",
+            "autovacuumVacuumScaleFactor": "number",
+            "autovacuumAnalyzeScaleFactor": "number",
+            "defaultTransactionReadOnly": "boolean",
+            "timezone": "string",
+            "enableParallelAppend": "boolean",
+            "enableParallelHash": "boolean",
+            "enablePartitionPruning": "boolean",
+            "enablePartitionwiseAggregate": "boolean",
+            "enablePartitionwiseJoin": "boolean",
+            "jit": "boolean",
+            "maxParallelMaintenanceWorkers": "string",
+            "parallelLeaderParticipation": "boolean",
+            "logTransactionSampleRate": "number",
+            "planCacheMode": "string",
+            "effectiveIoConcurrency": "string",
+            "effectiveCacheSize": "string",
+            "sharedPreloadLibraries": [
+              "string"
+            ],
+            "autoExplainLogMinDuration": "string",
+            "autoExplainLogAnalyze": "boolean",
+            "autoExplainLogBuffers": "boolean",
+            "autoExplainLogTiming": "boolean",
+            "autoExplainLogTriggers": "boolean",
+            "autoExplainLogVerbose": "boolean",
+            "autoExplainLogNestedStatements": "boolean",
+            "autoExplainSampleRate": "number",
+            "pgHintPlanEnableHint": "boolean",
+            "pgHintPlanEnableHintTable": "boolean",
+            "pgHintPlanDebugPrint": "string",
+            "pgHintPlanMessageLevel": "string",
+            "hashMemMultiplier": "number",
+            "logicalDecodingWorkMem": "string",
+            "maintenanceIoConcurrency": "string",
+            "maxSlotWalKeepSize": "string",
+            "walKeepSize": "string",
+            "enableIncrementalSort": "boolean",
+            "autovacuumVacuumInsertThreshold": "string",
+            "autovacuumVacuumInsertScaleFactor": "number",
+            "logMinDurationSample": "string",
+            "logStatementSampleRate": "number",
+            "logParameterMaxLength": "string",
+            "logParameterMaxLengthOnError": "string",
+            "clientConnectionCheckInterval": "string",
+            "enableAsyncAppend": "boolean",
+            "enableGathermerge": "boolean",
+            "enableMemoize": "boolean",
+            "logRecoveryConflictWaits": "boolean",
+            "vacuumFailsafeAge": "string",
+            "vacuumMultixactFailsafeAge": "string",
+            "pgQualstatsEnabled": "boolean",
+            "pgQualstatsTrackConstants": "boolean",
+            "pgQualstatsMax": "string",
+            "pgQualstatsResolveOids": "boolean",
+            "pgQualstatsSampleRate": "number",
+            "maxStackDepth": "string",
+            "enableGroupByReordering": "boolean",
+            "geqo": "boolean",
+            "geqoThreshold": "string",
+            "geqoEffort": "string",
+            "geqoPoolSize": "string",
+            "geqoGenerations": "string",
+            "geqoSelectionBias": "number",
+            "geqoSeed": "number",
+            "pgTrgmSimilarityThreshold": "number",
+            "pgTrgmWordSimilarityThreshold": "number",
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "string",
+            "sessionDurationTimeout": "string",
+            "logReplicationCommands": "boolean",
+            "logAutovacuumMinDuration": "string",
+            "passwordEncryption": "string",
+            "autoExplainLogFormat": "string",
+            "trackCommitTimestamp": "boolean",
+            "maxLogicalReplicationWorkers": "string",
+            "maxWalSenders": "string",
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "vacuumTruncate": "boolean",
+            "autovacuumVacuumThreshold": "string",
+            "autovacuumAnalyzeThreshold": "string",
+            "maxActiveReplicationOrigins": "string",
+            "autovacuumMaxParallelWorkers": "string",
+            "logAutoanalyzeMinDuration": "string",
+            "maxRepackReplicationSlots": "string",
+            "autoExplainLogIo": "boolean"
+          },
+          "userConfig": {
+            "maxConnections": "string",
+            "sharedBuffers": "string",
+            "tempBuffers": "string",
+            "maxPreparedTransactions": "string",
+            "workMem": "string",
+            "maintenanceWorkMem": "string",
+            "autovacuumWorkMem": "string",
+            "tempFileLimit": "string",
+            "vacuumCostDelay": "string",
+            "vacuumCostPageHit": "string",
+            "vacuumCostPageMiss": "string",
+            "vacuumCostPageDirty": "string",
+            "vacuumCostLimit": "string",
+            "bgwriterDelay": "string",
+            "bgwriterLruMaxpages": "string",
+            "bgwriterLruMultiplier": "number",
+            "bgwriterFlushAfter": "string",
+            "backendFlushAfter": "string",
+            "walLevel": "string",
+            "synchronousCommit": "string",
+            "checkpointTimeout": "string",
+            "checkpointCompletionTarget": "number",
+            "checkpointFlushAfter": "string",
+            "maxWalSize": "string",
+            "minWalSize": "string",
+            "maxStandbyStreamingDelay": "string",
+            "defaultStatisticsTarget": "string",
+            "constraintExclusion": "string",
+            "cursorTupleFraction": "number",
+            "fromCollapseLimit": "string",
+            "joinCollapseLimit": "string",
+            "debugParallelQuery": "string",
+            "clientMinMessages": "string",
+            "logMinMessages": "string",
+            "logMinErrorStatement": "string",
+            "logMinDurationStatement": "string",
+            "logCheckpoints": "boolean",
+            "logConnections": "boolean",
+            "logDisconnections": "boolean",
+            "logDuration": "boolean",
+            "logErrorVerbosity": "string",
+            "logLockWaits": "boolean",
+            "logStatement": "string",
+            "logTempFiles": "string",
+            "searchPath": "string",
+            "rowSecurity": "boolean",
+            "defaultTransactionIsolation": "string",
+            "statementTimeout": "string",
+            "lockTimeout": "string",
+            "idleInTransactionSessionTimeout": "string",
+            "byteaOutput": "string",
+            "xmlbinary": "string",
+            "xmloption": "string",
+            "ginPendingListLimit": "string",
+            "deadlockTimeout": "string",
+            "maxLocksPerTransaction": "string",
+            "maxPredLocksPerTransaction": "string",
+            "arrayNulls": "boolean",
+            "backslashQuote": "string",
+            "defaultWithOids": "boolean",
+            "loCompatPrivileges": "boolean",
+            "quoteAllIdentifiers": "boolean",
+            "synchronizeSeqscans": "boolean",
+            "transformNullEquals": "boolean",
+            "exitOnError": "boolean",
+            "seqPageCost": "number",
+            "randomPageCost": "number",
+            "autovacuumMaxWorkers": "string",
+            "autovacuumVacuumCostDelay": "string",
+            "autovacuumVacuumCostLimit": "string",
+            "autovacuumNaptime": "string",
+            "archiveTimeout": "string",
+            "trackActivityQuerySize": "string",
+            "enableBitmapscan": "boolean",
+            "enableHashagg": "boolean",
+            "enableHashjoin": "boolean",
+            "enableIndexscan": "boolean",
+            "enableIndexonlyscan": "boolean",
+            "enableMaterial": "boolean",
+            "enableMergejoin": "boolean",
+            "enableNestloop": "boolean",
+            "enableSeqscan": "boolean",
+            "enableSort": "boolean",
+            "enableTidscan": "boolean",
+            "maxWorkerProcesses": "string",
+            "maxParallelWorkers": "string",
+            "maxParallelWorkersPerGather": "string",
+            "autovacuumVacuumScaleFactor": "number",
+            "autovacuumAnalyzeScaleFactor": "number",
+            "defaultTransactionReadOnly": "boolean",
+            "timezone": "string",
+            "enableParallelAppend": "boolean",
+            "enableParallelHash": "boolean",
+            "enablePartitionPruning": "boolean",
+            "enablePartitionwiseAggregate": "boolean",
+            "enablePartitionwiseJoin": "boolean",
+            "jit": "boolean",
+            "maxParallelMaintenanceWorkers": "string",
+            "parallelLeaderParticipation": "boolean",
+            "logTransactionSampleRate": "number",
+            "planCacheMode": "string",
+            "effectiveIoConcurrency": "string",
+            "effectiveCacheSize": "string",
+            "sharedPreloadLibraries": [
+              "string"
+            ],
+            "autoExplainLogMinDuration": "string",
+            "autoExplainLogAnalyze": "boolean",
+            "autoExplainLogBuffers": "boolean",
+            "autoExplainLogTiming": "boolean",
+            "autoExplainLogTriggers": "boolean",
+            "autoExplainLogVerbose": "boolean",
+            "autoExplainLogNestedStatements": "boolean",
+            "autoExplainSampleRate": "number",
+            "pgHintPlanEnableHint": "boolean",
+            "pgHintPlanEnableHintTable": "boolean",
+            "pgHintPlanDebugPrint": "string",
+            "pgHintPlanMessageLevel": "string",
+            "hashMemMultiplier": "number",
+            "logicalDecodingWorkMem": "string",
+            "maintenanceIoConcurrency": "string",
+            "maxSlotWalKeepSize": "string",
+            "walKeepSize": "string",
+            "enableIncrementalSort": "boolean",
+            "autovacuumVacuumInsertThreshold": "string",
+            "autovacuumVacuumInsertScaleFactor": "number",
+            "logMinDurationSample": "string",
+            "logStatementSampleRate": "number",
+            "logParameterMaxLength": "string",
+            "logParameterMaxLengthOnError": "string",
+            "clientConnectionCheckInterval": "string",
+            "enableAsyncAppend": "boolean",
+            "enableGathermerge": "boolean",
+            "enableMemoize": "boolean",
+            "logRecoveryConflictWaits": "boolean",
+            "vacuumFailsafeAge": "string",
+            "vacuumMultixactFailsafeAge": "string",
+            "pgQualstatsEnabled": "boolean",
+            "pgQualstatsTrackConstants": "boolean",
+            "pgQualstatsMax": "string",
+            "pgQualstatsResolveOids": "boolean",
+            "pgQualstatsSampleRate": "number",
+            "maxStackDepth": "string",
+            "enableGroupByReordering": "boolean",
+            "geqo": "boolean",
+            "geqoThreshold": "string",
+            "geqoEffort": "string",
+            "geqoPoolSize": "string",
+            "geqoGenerations": "string",
+            "geqoSelectionBias": "number",
+            "geqoSeed": "number",
+            "pgTrgmSimilarityThreshold": "number",
+            "pgTrgmWordSimilarityThreshold": "number",
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "string",
+            "sessionDurationTimeout": "string",
+            "logReplicationCommands": "boolean",
+            "logAutovacuumMinDuration": "string",
+            "passwordEncryption": "string",
+            "autoExplainLogFormat": "string",
+            "trackCommitTimestamp": "boolean",
+            "maxLogicalReplicationWorkers": "string",
+            "maxWalSenders": "string",
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "vacuumTruncate": "boolean",
+            "autovacuumVacuumThreshold": "string",
+            "autovacuumAnalyzeThreshold": "string",
+            "maxActiveReplicationOrigins": "string",
+            "autovacuumMaxParallelWorkers": "string",
+            "logAutoanalyzeMinDuration": "string",
+            "maxRepackReplicationSlots": "string",
+            "autoExplainLogIo": "boolean"
+          },
+          "defaultConfig": {
+            "maxConnections": "string",
+            "sharedBuffers": "string",
+            "tempBuffers": "string",
+            "maxPreparedTransactions": "string",
+            "workMem": "string",
+            "maintenanceWorkMem": "string",
+            "autovacuumWorkMem": "string",
+            "tempFileLimit": "string",
+            "vacuumCostDelay": "string",
+            "vacuumCostPageHit": "string",
+            "vacuumCostPageMiss": "string",
+            "vacuumCostPageDirty": "string",
+            "vacuumCostLimit": "string",
+            "bgwriterDelay": "string",
+            "bgwriterLruMaxpages": "string",
+            "bgwriterLruMultiplier": "number",
+            "bgwriterFlushAfter": "string",
+            "backendFlushAfter": "string",
+            "walLevel": "string",
+            "synchronousCommit": "string",
+            "checkpointTimeout": "string",
+            "checkpointCompletionTarget": "number",
+            "checkpointFlushAfter": "string",
+            "maxWalSize": "string",
+            "minWalSize": "string",
+            "maxStandbyStreamingDelay": "string",
+            "defaultStatisticsTarget": "string",
+            "constraintExclusion": "string",
+            "cursorTupleFraction": "number",
+            "fromCollapseLimit": "string",
+            "joinCollapseLimit": "string",
+            "debugParallelQuery": "string",
+            "clientMinMessages": "string",
+            "logMinMessages": "string",
+            "logMinErrorStatement": "string",
+            "logMinDurationStatement": "string",
+            "logCheckpoints": "boolean",
+            "logConnections": "boolean",
+            "logDisconnections": "boolean",
+            "logDuration": "boolean",
+            "logErrorVerbosity": "string",
+            "logLockWaits": "boolean",
+            "logStatement": "string",
+            "logTempFiles": "string",
+            "searchPath": "string",
+            "rowSecurity": "boolean",
+            "defaultTransactionIsolation": "string",
+            "statementTimeout": "string",
+            "lockTimeout": "string",
+            "idleInTransactionSessionTimeout": "string",
+            "byteaOutput": "string",
+            "xmlbinary": "string",
+            "xmloption": "string",
+            "ginPendingListLimit": "string",
+            "deadlockTimeout": "string",
+            "maxLocksPerTransaction": "string",
+            "maxPredLocksPerTransaction": "string",
+            "arrayNulls": "boolean",
+            "backslashQuote": "string",
+            "defaultWithOids": "boolean",
+            "loCompatPrivileges": "boolean",
+            "quoteAllIdentifiers": "boolean",
+            "synchronizeSeqscans": "boolean",
+            "transformNullEquals": "boolean",
+            "exitOnError": "boolean",
+            "seqPageCost": "number",
+            "randomPageCost": "number",
+            "autovacuumMaxWorkers": "string",
+            "autovacuumVacuumCostDelay": "string",
+            "autovacuumVacuumCostLimit": "string",
+            "autovacuumNaptime": "string",
+            "archiveTimeout": "string",
+            "trackActivityQuerySize": "string",
+            "enableBitmapscan": "boolean",
+            "enableHashagg": "boolean",
+            "enableHashjoin": "boolean",
+            "enableIndexscan": "boolean",
+            "enableIndexonlyscan": "boolean",
+            "enableMaterial": "boolean",
+            "enableMergejoin": "boolean",
+            "enableNestloop": "boolean",
+            "enableSeqscan": "boolean",
+            "enableSort": "boolean",
+            "enableTidscan": "boolean",
+            "maxWorkerProcesses": "string",
+            "maxParallelWorkers": "string",
+            "maxParallelWorkersPerGather": "string",
+            "autovacuumVacuumScaleFactor": "number",
+            "autovacuumAnalyzeScaleFactor": "number",
+            "defaultTransactionReadOnly": "boolean",
+            "timezone": "string",
+            "enableParallelAppend": "boolean",
+            "enableParallelHash": "boolean",
+            "enablePartitionPruning": "boolean",
+            "enablePartitionwiseAggregate": "boolean",
+            "enablePartitionwiseJoin": "boolean",
+            "jit": "boolean",
+            "maxParallelMaintenanceWorkers": "string",
+            "parallelLeaderParticipation": "boolean",
+            "logTransactionSampleRate": "number",
+            "planCacheMode": "string",
+            "effectiveIoConcurrency": "string",
+            "effectiveCacheSize": "string",
+            "sharedPreloadLibraries": [
+              "string"
+            ],
+            "autoExplainLogMinDuration": "string",
+            "autoExplainLogAnalyze": "boolean",
+            "autoExplainLogBuffers": "boolean",
+            "autoExplainLogTiming": "boolean",
+            "autoExplainLogTriggers": "boolean",
+            "autoExplainLogVerbose": "boolean",
+            "autoExplainLogNestedStatements": "boolean",
+            "autoExplainSampleRate": "number",
+            "pgHintPlanEnableHint": "boolean",
+            "pgHintPlanEnableHintTable": "boolean",
+            "pgHintPlanDebugPrint": "string",
+            "pgHintPlanMessageLevel": "string",
+            "hashMemMultiplier": "number",
+            "logicalDecodingWorkMem": "string",
+            "maintenanceIoConcurrency": "string",
+            "maxSlotWalKeepSize": "string",
+            "walKeepSize": "string",
+            "enableIncrementalSort": "boolean",
+            "autovacuumVacuumInsertThreshold": "string",
+            "autovacuumVacuumInsertScaleFactor": "number",
+            "logMinDurationSample": "string",
+            "logStatementSampleRate": "number",
+            "logParameterMaxLength": "string",
+            "logParameterMaxLengthOnError": "string",
+            "clientConnectionCheckInterval": "string",
+            "enableAsyncAppend": "boolean",
+            "enableGathermerge": "boolean",
+            "enableMemoize": "boolean",
+            "logRecoveryConflictWaits": "boolean",
+            "vacuumFailsafeAge": "string",
+            "vacuumMultixactFailsafeAge": "string",
+            "pgQualstatsEnabled": "boolean",
+            "pgQualstatsTrackConstants": "boolean",
+            "pgQualstatsMax": "string",
+            "pgQualstatsResolveOids": "boolean",
+            "pgQualstatsSampleRate": "number",
+            "maxStackDepth": "string",
+            "enableGroupByReordering": "boolean",
+            "geqo": "boolean",
+            "geqoThreshold": "string",
+            "geqoEffort": "string",
+            "geqoPoolSize": "string",
+            "geqoGenerations": "string",
+            "geqoSelectionBias": "number",
+            "geqoSeed": "number",
+            "pgTrgmSimilarityThreshold": "number",
+            "pgTrgmWordSimilarityThreshold": "number",
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "string",
+            "sessionDurationTimeout": "string",
+            "logReplicationCommands": "boolean",
+            "logAutovacuumMinDuration": "string",
+            "passwordEncryption": "string",
+            "autoExplainLogFormat": "string",
+            "trackCommitTimestamp": "boolean",
+            "maxLogicalReplicationWorkers": "string",
+            "maxWalSenders": "string",
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "vacuumTruncate": "boolean",
+            "autovacuumVacuumThreshold": "string",
+            "autovacuumAnalyzeThreshold": "string",
+            "maxActiveReplicationOrigins": "string",
+            "autovacuumMaxParallelWorkers": "string",
+            "logAutoanalyzeMinDuration": "string",
+            "maxRepackReplicationSlots": "string",
+            "autoExplainLogIo": "boolean"
+          }
+        },
+        "postgresqlConfig_19_1c": {
+          "effectiveConfig": {
+            "maxConnections": "string",
+            "sharedBuffers": "string",
+            "tempBuffers": "string",
+            "maxPreparedTransactions": "string",
+            "workMem": "string",
+            "maintenanceWorkMem": "string",
+            "autovacuumWorkMem": "string",
+            "tempFileLimit": "string",
+            "vacuumCostDelay": "string",
+            "vacuumCostPageHit": "string",
+            "vacuumCostPageMiss": "string",
+            "vacuumCostPageDirty": "string",
+            "vacuumCostLimit": "string",
+            "bgwriterDelay": "string",
+            "bgwriterLruMaxpages": "string",
+            "bgwriterLruMultiplier": "number",
+            "bgwriterFlushAfter": "string",
+            "backendFlushAfter": "string",
+            "walLevel": "string",
+            "synchronousCommit": "string",
+            "checkpointTimeout": "string",
+            "checkpointCompletionTarget": "number",
+            "checkpointFlushAfter": "string",
+            "maxWalSize": "string",
+            "minWalSize": "string",
+            "maxStandbyStreamingDelay": "string",
+            "defaultStatisticsTarget": "string",
+            "constraintExclusion": "string",
+            "cursorTupleFraction": "number",
+            "fromCollapseLimit": "string",
+            "joinCollapseLimit": "string",
+            "debugParallelQuery": "string",
+            "clientMinMessages": "string",
+            "logMinMessages": "string",
+            "logMinErrorStatement": "string",
+            "logMinDurationStatement": "string",
+            "logCheckpoints": "boolean",
+            "logConnections": "boolean",
+            "logDisconnections": "boolean",
+            "logDuration": "boolean",
+            "logErrorVerbosity": "string",
+            "logLockWaits": "boolean",
+            "logStatement": "string",
+            "logTempFiles": "string",
+            "searchPath": "string",
+            "rowSecurity": "boolean",
+            "defaultTransactionIsolation": "string",
+            "statementTimeout": "string",
+            "lockTimeout": "string",
+            "idleInTransactionSessionTimeout": "string",
+            "byteaOutput": "string",
+            "xmlbinary": "string",
+            "xmloption": "string",
+            "ginPendingListLimit": "string",
+            "deadlockTimeout": "string",
+            "maxLocksPerTransaction": "string",
+            "maxPredLocksPerTransaction": "string",
+            "arrayNulls": "boolean",
+            "backslashQuote": "string",
+            "defaultWithOids": "boolean",
+            "loCompatPrivileges": "boolean",
+            "quoteAllIdentifiers": "boolean",
+            "synchronizeSeqscans": "boolean",
+            "transformNullEquals": "boolean",
+            "exitOnError": "boolean",
+            "seqPageCost": "number",
+            "randomPageCost": "number",
+            "autovacuumMaxWorkers": "string",
+            "autovacuumVacuumCostDelay": "string",
+            "autovacuumVacuumCostLimit": "string",
+            "autovacuumNaptime": "string",
+            "archiveTimeout": "string",
+            "trackActivityQuerySize": "string",
+            "onlineAnalyzeEnable": "boolean",
+            "enableBitmapscan": "boolean",
+            "enableHashagg": "boolean",
+            "enableHashjoin": "boolean",
+            "enableIndexscan": "boolean",
+            "enableIndexonlyscan": "boolean",
+            "enableMaterial": "boolean",
+            "enableMergejoin": "boolean",
+            "enableNestloop": "boolean",
+            "enableSeqscan": "boolean",
+            "enableSort": "boolean",
+            "enableTidscan": "boolean",
+            "maxWorkerProcesses": "string",
+            "maxParallelWorkers": "string",
+            "maxParallelWorkersPerGather": "string",
+            "autovacuumVacuumScaleFactor": "number",
+            "autovacuumAnalyzeScaleFactor": "number",
+            "defaultTransactionReadOnly": "boolean",
+            "timezone": "string",
+            "enableParallelAppend": "boolean",
+            "enableParallelHash": "boolean",
+            "enablePartitionPruning": "boolean",
+            "enablePartitionwiseAggregate": "boolean",
+            "enablePartitionwiseJoin": "boolean",
+            "jit": "boolean",
+            "maxParallelMaintenanceWorkers": "string",
+            "parallelLeaderParticipation": "boolean",
+            "logTransactionSampleRate": "number",
+            "planCacheMode": "string",
+            "effectiveIoConcurrency": "string",
+            "effectiveCacheSize": "string",
+            "sharedPreloadLibraries": [
+              "string"
+            ],
+            "autoExplainLogMinDuration": "string",
+            "autoExplainLogAnalyze": "boolean",
+            "autoExplainLogBuffers": "boolean",
+            "autoExplainLogTiming": "boolean",
+            "autoExplainLogTriggers": "boolean",
+            "autoExplainLogVerbose": "boolean",
+            "autoExplainLogNestedStatements": "boolean",
+            "autoExplainSampleRate": "number",
+            "pgHintPlanEnableHint": "boolean",
+            "pgHintPlanEnableHintTable": "boolean",
+            "pgHintPlanDebugPrint": "string",
+            "pgHintPlanMessageLevel": "string",
+            "hashMemMultiplier": "number",
+            "logicalDecodingWorkMem": "string",
+            "maintenanceIoConcurrency": "string",
+            "maxSlotWalKeepSize": "string",
+            "walKeepSize": "string",
+            "enableIncrementalSort": "boolean",
+            "autovacuumVacuumInsertThreshold": "string",
+            "autovacuumVacuumInsertScaleFactor": "number",
+            "logMinDurationSample": "string",
+            "logStatementSampleRate": "number",
+            "logParameterMaxLength": "string",
+            "logParameterMaxLengthOnError": "string",
+            "clientConnectionCheckInterval": "string",
+            "enableAsyncAppend": "boolean",
+            "enableGathermerge": "boolean",
+            "enableMemoize": "boolean",
+            "logRecoveryConflictWaits": "boolean",
+            "vacuumFailsafeAge": "string",
+            "vacuumMultixactFailsafeAge": "string",
+            "pgQualstatsEnabled": "boolean",
+            "pgQualstatsTrackConstants": "boolean",
+            "pgQualstatsMax": "string",
+            "pgQualstatsResolveOids": "boolean",
+            "pgQualstatsSampleRate": "number",
+            "plantunerFixEmptyTable": "boolean",
+            "maxStackDepth": "string",
+            "enableGroupByReordering": "boolean",
+            "geqo": "boolean",
+            "geqoThreshold": "string",
+            "geqoEffort": "string",
+            "geqoPoolSize": "string",
+            "geqoGenerations": "string",
+            "geqoSelectionBias": "number",
+            "geqoSeed": "number",
+            "pgTrgmSimilarityThreshold": "number",
+            "pgTrgmWordSimilarityThreshold": "number",
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "string",
+            "sessionDurationTimeout": "string",
+            "logReplicationCommands": "boolean",
+            "logAutovacuumMinDuration": "string",
+            "passwordEncryption": "string",
+            "autoExplainLogFormat": "string",
+            "trackCommitTimestamp": "boolean",
+            "maxLogicalReplicationWorkers": "string",
+            "maxWalSenders": "string",
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "vacuumTruncate": "boolean",
+            "autovacuumVacuumThreshold": "string",
+            "autovacuumAnalyzeThreshold": "string",
+            "maxActiveReplicationOrigins": "string",
+            "autovacuumMaxParallelWorkers": "string",
+            "logAutoanalyzeMinDuration": "string",
+            "maxRepackReplicationSlots": "string",
+            "autoExplainLogIo": "boolean"
+          },
+          "userConfig": {
+            "maxConnections": "string",
+            "sharedBuffers": "string",
+            "tempBuffers": "string",
+            "maxPreparedTransactions": "string",
+            "workMem": "string",
+            "maintenanceWorkMem": "string",
+            "autovacuumWorkMem": "string",
+            "tempFileLimit": "string",
+            "vacuumCostDelay": "string",
+            "vacuumCostPageHit": "string",
+            "vacuumCostPageMiss": "string",
+            "vacuumCostPageDirty": "string",
+            "vacuumCostLimit": "string",
+            "bgwriterDelay": "string",
+            "bgwriterLruMaxpages": "string",
+            "bgwriterLruMultiplier": "number",
+            "bgwriterFlushAfter": "string",
+            "backendFlushAfter": "string",
+            "walLevel": "string",
+            "synchronousCommit": "string",
+            "checkpointTimeout": "string",
+            "checkpointCompletionTarget": "number",
+            "checkpointFlushAfter": "string",
+            "maxWalSize": "string",
+            "minWalSize": "string",
+            "maxStandbyStreamingDelay": "string",
+            "defaultStatisticsTarget": "string",
+            "constraintExclusion": "string",
+            "cursorTupleFraction": "number",
+            "fromCollapseLimit": "string",
+            "joinCollapseLimit": "string",
+            "debugParallelQuery": "string",
+            "clientMinMessages": "string",
+            "logMinMessages": "string",
+            "logMinErrorStatement": "string",
+            "logMinDurationStatement": "string",
+            "logCheckpoints": "boolean",
+            "logConnections": "boolean",
+            "logDisconnections": "boolean",
+            "logDuration": "boolean",
+            "logErrorVerbosity": "string",
+            "logLockWaits": "boolean",
+            "logStatement": "string",
+            "logTempFiles": "string",
+            "searchPath": "string",
+            "rowSecurity": "boolean",
+            "defaultTransactionIsolation": "string",
+            "statementTimeout": "string",
+            "lockTimeout": "string",
+            "idleInTransactionSessionTimeout": "string",
+            "byteaOutput": "string",
+            "xmlbinary": "string",
+            "xmloption": "string",
+            "ginPendingListLimit": "string",
+            "deadlockTimeout": "string",
+            "maxLocksPerTransaction": "string",
+            "maxPredLocksPerTransaction": "string",
+            "arrayNulls": "boolean",
+            "backslashQuote": "string",
+            "defaultWithOids": "boolean",
+            "loCompatPrivileges": "boolean",
+            "quoteAllIdentifiers": "boolean",
+            "synchronizeSeqscans": "boolean",
+            "transformNullEquals": "boolean",
+            "exitOnError": "boolean",
+            "seqPageCost": "number",
+            "randomPageCost": "number",
+            "autovacuumMaxWorkers": "string",
+            "autovacuumVacuumCostDelay": "string",
+            "autovacuumVacuumCostLimit": "string",
+            "autovacuumNaptime": "string",
+            "archiveTimeout": "string",
+            "trackActivityQuerySize": "string",
+            "onlineAnalyzeEnable": "boolean",
+            "enableBitmapscan": "boolean",
+            "enableHashagg": "boolean",
+            "enableHashjoin": "boolean",
+            "enableIndexscan": "boolean",
+            "enableIndexonlyscan": "boolean",
+            "enableMaterial": "boolean",
+            "enableMergejoin": "boolean",
+            "enableNestloop": "boolean",
+            "enableSeqscan": "boolean",
+            "enableSort": "boolean",
+            "enableTidscan": "boolean",
+            "maxWorkerProcesses": "string",
+            "maxParallelWorkers": "string",
+            "maxParallelWorkersPerGather": "string",
+            "autovacuumVacuumScaleFactor": "number",
+            "autovacuumAnalyzeScaleFactor": "number",
+            "defaultTransactionReadOnly": "boolean",
+            "timezone": "string",
+            "enableParallelAppend": "boolean",
+            "enableParallelHash": "boolean",
+            "enablePartitionPruning": "boolean",
+            "enablePartitionwiseAggregate": "boolean",
+            "enablePartitionwiseJoin": "boolean",
+            "jit": "boolean",
+            "maxParallelMaintenanceWorkers": "string",
+            "parallelLeaderParticipation": "boolean",
+            "logTransactionSampleRate": "number",
+            "planCacheMode": "string",
+            "effectiveIoConcurrency": "string",
+            "effectiveCacheSize": "string",
+            "sharedPreloadLibraries": [
+              "string"
+            ],
+            "autoExplainLogMinDuration": "string",
+            "autoExplainLogAnalyze": "boolean",
+            "autoExplainLogBuffers": "boolean",
+            "autoExplainLogTiming": "boolean",
+            "autoExplainLogTriggers": "boolean",
+            "autoExplainLogVerbose": "boolean",
+            "autoExplainLogNestedStatements": "boolean",
+            "autoExplainSampleRate": "number",
+            "pgHintPlanEnableHint": "boolean",
+            "pgHintPlanEnableHintTable": "boolean",
+            "pgHintPlanDebugPrint": "string",
+            "pgHintPlanMessageLevel": "string",
+            "hashMemMultiplier": "number",
+            "logicalDecodingWorkMem": "string",
+            "maintenanceIoConcurrency": "string",
+            "maxSlotWalKeepSize": "string",
+            "walKeepSize": "string",
+            "enableIncrementalSort": "boolean",
+            "autovacuumVacuumInsertThreshold": "string",
+            "autovacuumVacuumInsertScaleFactor": "number",
+            "logMinDurationSample": "string",
+            "logStatementSampleRate": "number",
+            "logParameterMaxLength": "string",
+            "logParameterMaxLengthOnError": "string",
+            "clientConnectionCheckInterval": "string",
+            "enableAsyncAppend": "boolean",
+            "enableGathermerge": "boolean",
+            "enableMemoize": "boolean",
+            "logRecoveryConflictWaits": "boolean",
+            "vacuumFailsafeAge": "string",
+            "vacuumMultixactFailsafeAge": "string",
+            "pgQualstatsEnabled": "boolean",
+            "pgQualstatsTrackConstants": "boolean",
+            "pgQualstatsMax": "string",
+            "pgQualstatsResolveOids": "boolean",
+            "pgQualstatsSampleRate": "number",
+            "plantunerFixEmptyTable": "boolean",
+            "maxStackDepth": "string",
+            "enableGroupByReordering": "boolean",
+            "geqo": "boolean",
+            "geqoThreshold": "string",
+            "geqoEffort": "string",
+            "geqoPoolSize": "string",
+            "geqoGenerations": "string",
+            "geqoSelectionBias": "number",
+            "geqoSeed": "number",
+            "pgTrgmSimilarityThreshold": "number",
+            "pgTrgmWordSimilarityThreshold": "number",
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "string",
+            "sessionDurationTimeout": "string",
+            "logReplicationCommands": "boolean",
+            "logAutovacuumMinDuration": "string",
+            "passwordEncryption": "string",
+            "autoExplainLogFormat": "string",
+            "trackCommitTimestamp": "boolean",
+            "maxLogicalReplicationWorkers": "string",
+            "maxWalSenders": "string",
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "vacuumTruncate": "boolean",
+            "autovacuumVacuumThreshold": "string",
+            "autovacuumAnalyzeThreshold": "string",
+            "maxActiveReplicationOrigins": "string",
+            "autovacuumMaxParallelWorkers": "string",
+            "logAutoanalyzeMinDuration": "string",
+            "maxRepackReplicationSlots": "string",
+            "autoExplainLogIo": "boolean"
+          },
+          "defaultConfig": {
+            "maxConnections": "string",
+            "sharedBuffers": "string",
+            "tempBuffers": "string",
+            "maxPreparedTransactions": "string",
+            "workMem": "string",
+            "maintenanceWorkMem": "string",
+            "autovacuumWorkMem": "string",
+            "tempFileLimit": "string",
+            "vacuumCostDelay": "string",
+            "vacuumCostPageHit": "string",
+            "vacuumCostPageMiss": "string",
+            "vacuumCostPageDirty": "string",
+            "vacuumCostLimit": "string",
+            "bgwriterDelay": "string",
+            "bgwriterLruMaxpages": "string",
+            "bgwriterLruMultiplier": "number",
+            "bgwriterFlushAfter": "string",
+            "backendFlushAfter": "string",
+            "walLevel": "string",
+            "synchronousCommit": "string",
+            "checkpointTimeout": "string",
+            "checkpointCompletionTarget": "number",
+            "checkpointFlushAfter": "string",
+            "maxWalSize": "string",
+            "minWalSize": "string",
+            "maxStandbyStreamingDelay": "string",
+            "defaultStatisticsTarget": "string",
+            "constraintExclusion": "string",
+            "cursorTupleFraction": "number",
+            "fromCollapseLimit": "string",
+            "joinCollapseLimit": "string",
+            "debugParallelQuery": "string",
+            "clientMinMessages": "string",
+            "logMinMessages": "string",
+            "logMinErrorStatement": "string",
+            "logMinDurationStatement": "string",
+            "logCheckpoints": "boolean",
+            "logConnections": "boolean",
+            "logDisconnections": "boolean",
+            "logDuration": "boolean",
+            "logErrorVerbosity": "string",
+            "logLockWaits": "boolean",
+            "logStatement": "string",
+            "logTempFiles": "string",
+            "searchPath": "string",
+            "rowSecurity": "boolean",
+            "defaultTransactionIsolation": "string",
+            "statementTimeout": "string",
+            "lockTimeout": "string",
+            "idleInTransactionSessionTimeout": "string",
+            "byteaOutput": "string",
+            "xmlbinary": "string",
+            "xmloption": "string",
+            "ginPendingListLimit": "string",
+            "deadlockTimeout": "string",
+            "maxLocksPerTransaction": "string",
+            "maxPredLocksPerTransaction": "string",
+            "arrayNulls": "boolean",
+            "backslashQuote": "string",
+            "defaultWithOids": "boolean",
+            "loCompatPrivileges": "boolean",
+            "quoteAllIdentifiers": "boolean",
+            "synchronizeSeqscans": "boolean",
+            "transformNullEquals": "boolean",
+            "exitOnError": "boolean",
+            "seqPageCost": "number",
+            "randomPageCost": "number",
+            "autovacuumMaxWorkers": "string",
+            "autovacuumVacuumCostDelay": "string",
+            "autovacuumVacuumCostLimit": "string",
+            "autovacuumNaptime": "string",
+            "archiveTimeout": "string",
+            "trackActivityQuerySize": "string",
+            "onlineAnalyzeEnable": "boolean",
+            "enableBitmapscan": "boolean",
+            "enableHashagg": "boolean",
+            "enableHashjoin": "boolean",
+            "enableIndexscan": "boolean",
+            "enableIndexonlyscan": "boolean",
+            "enableMaterial": "boolean",
+            "enableMergejoin": "boolean",
+            "enableNestloop": "boolean",
+            "enableSeqscan": "boolean",
+            "enableSort": "boolean",
+            "enableTidscan": "boolean",
+            "maxWorkerProcesses": "string",
+            "maxParallelWorkers": "string",
+            "maxParallelWorkersPerGather": "string",
+            "autovacuumVacuumScaleFactor": "number",
+            "autovacuumAnalyzeScaleFactor": "number",
+            "defaultTransactionReadOnly": "boolean",
+            "timezone": "string",
+            "enableParallelAppend": "boolean",
+            "enableParallelHash": "boolean",
+            "enablePartitionPruning": "boolean",
+            "enablePartitionwiseAggregate": "boolean",
+            "enablePartitionwiseJoin": "boolean",
+            "jit": "boolean",
+            "maxParallelMaintenanceWorkers": "string",
+            "parallelLeaderParticipation": "boolean",
+            "logTransactionSampleRate": "number",
+            "planCacheMode": "string",
+            "effectiveIoConcurrency": "string",
+            "effectiveCacheSize": "string",
+            "sharedPreloadLibraries": [
+              "string"
+            ],
+            "autoExplainLogMinDuration": "string",
+            "autoExplainLogAnalyze": "boolean",
+            "autoExplainLogBuffers": "boolean",
+            "autoExplainLogTiming": "boolean",
+            "autoExplainLogTriggers": "boolean",
+            "autoExplainLogVerbose": "boolean",
+            "autoExplainLogNestedStatements": "boolean",
+            "autoExplainSampleRate": "number",
+            "pgHintPlanEnableHint": "boolean",
+            "pgHintPlanEnableHintTable": "boolean",
+            "pgHintPlanDebugPrint": "string",
+            "pgHintPlanMessageLevel": "string",
+            "hashMemMultiplier": "number",
+            "logicalDecodingWorkMem": "string",
+            "maintenanceIoConcurrency": "string",
+            "maxSlotWalKeepSize": "string",
+            "walKeepSize": "string",
+            "enableIncrementalSort": "boolean",
+            "autovacuumVacuumInsertThreshold": "string",
+            "autovacuumVacuumInsertScaleFactor": "number",
+            "logMinDurationSample": "string",
+            "logStatementSampleRate": "number",
+            "logParameterMaxLength": "string",
+            "logParameterMaxLengthOnError": "string",
+            "clientConnectionCheckInterval": "string",
+            "enableAsyncAppend": "boolean",
+            "enableGathermerge": "boolean",
+            "enableMemoize": "boolean",
+            "logRecoveryConflictWaits": "boolean",
+            "vacuumFailsafeAge": "string",
+            "vacuumMultixactFailsafeAge": "string",
+            "pgQualstatsEnabled": "boolean",
+            "pgQualstatsTrackConstants": "boolean",
+            "pgQualstatsMax": "string",
+            "pgQualstatsResolveOids": "boolean",
+            "pgQualstatsSampleRate": "number",
+            "plantunerFixEmptyTable": "boolean",
+            "maxStackDepth": "string",
+            "enableGroupByReordering": "boolean",
+            "geqo": "boolean",
+            "geqoThreshold": "string",
+            "geqoEffort": "string",
+            "geqoPoolSize": "string",
+            "geqoGenerations": "string",
+            "geqoSelectionBias": "number",
+            "geqoSeed": "number",
+            "pgTrgmSimilarityThreshold": "number",
+            "pgTrgmWordSimilarityThreshold": "number",
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "string",
+            "sessionDurationTimeout": "string",
+            "logReplicationCommands": "boolean",
+            "logAutovacuumMinDuration": "string",
+            "passwordEncryption": "string",
+            "autoExplainLogFormat": "string",
+            "trackCommitTimestamp": "boolean",
+            "maxLogicalReplicationWorkers": "string",
+            "maxWalSenders": "string",
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "vacuumTruncate": "boolean",
+            "autovacuumVacuumThreshold": "string",
+            "autovacuumAnalyzeThreshold": "string",
+            "maxActiveReplicationOrigins": "string",
+            "autovacuumMaxParallelWorkers": "string",
+            "logAutoanalyzeMinDuration": "string",
+            "maxRepackReplicationSlots": "string",
+            "autoExplainLogIo": "boolean"
+          }
+        },
         // end of the list of possible fields
         "poolerConfig": {
           "poolingMode": "string",
@@ -7326,98 +8392,112 @@ Version of PostgreSQL server software. ||
 
 Configuration of a PostgreSQL 11 server.
 
-Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_12 | **[PostgresqlConfigSet12](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet12)**
 
 Configuration of a PostgreSQL 12 server.
 
-Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_13 | **[PostgresqlConfigSet13](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet13)**
 
 Configuration of a PostgreSQL 13 server.
 
-Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_13_1c | **[PostgresqlConfigSet13_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet13_1C)**
 
 Configuration of a PostgreSQL 13 1C server.
 
-Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_14 | **[PostgresqlConfigSet14](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14)**
 
 Configuration of a PostgreSQL 14 server.
 
-Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_14_1c | **[PostgresqlConfigSet14_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14_1C)**
 
 Configuration of a PostgreSQL 14 1C server.
 
-Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_15 | **[PostgresqlConfigSet15](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15)**
 
 Configuration of a PostgreSQL 15 server.
 
-Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_15_1c | **[PostgresqlConfigSet15_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15_1C)**
 
 Configuration of a PostgreSQL 15 1C server.
 
-Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_16 | **[PostgresqlConfigSet16](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16)**
 
 Configuration of a PostgreSQL 16 server.
 
-Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_16_1c | **[PostgresqlConfigSet16_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16_1C)**
 
 Configuration of a PostgreSQL 16 1C server.
 
-Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_17 | **[PostgresqlConfigSet17](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17)**
 
 Configuration of a PostgreSQL 17 server.
 
-Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_17_1c | **[PostgresqlConfigSet17_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17_1C)**
 
 Configuration of a PostgreSQL 17 1C server.
 
-Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_18 | **[PostgresqlConfigSet18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18)**
 
 Configuration of a PostgreSQL 18 server.
 
-Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_18_1c | **[PostgresqlConfigSet18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18_1C)**
 
 Configuration of a PostgreSQL 18 1C server.
 
-Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
+
+Configuration for PostgreSQL servers in the cluster. ||
+|| postgresqlConfig_19 | **[PostgresqlConfigSet19](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet19)**
+
+Configuration of a PostgreSQL 19 server.
+
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
+
+Configuration for PostgreSQL servers in the cluster. ||
+|| postgresqlConfig_19_1c | **[PostgresqlConfigSet19_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet19_1C)**
+
+Configuration of a PostgreSQL 19 1C server.
+
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || poolerConfig | **[ConnectionPoolerConfig](#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig)**
@@ -17981,6 +19061,1626 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 Sets the maximum number of active replication origins.
 
 Acceptable values are 20 to 100, inclusive. ||
+|#
+
+## PostgresqlConfigSet19 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet19}
+
+#|
+||Field | Description ||
+|| effectiveConfig | **[PostgresqlConfig19](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig19)**
+
+Effective settings for a PostgreSQL 19 cluster (a combination of settings defined
+in `userConfig` and `defaultConfig`). ||
+|| userConfig | **[PostgresqlConfig19](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig19)**
+
+User-defined settings for a PostgreSQL 19 cluster. ||
+|| defaultConfig | **[PostgresqlConfig19](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig19)**
+
+Default configuration for a PostgreSQL 19 cluster. ||
+|#
+
+## PostgresqlConfig19 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig19}
+
+Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+parameters which detailed description is available in
+[PostgreSQL documentation](https://www.postgresql.org/docs/19/runtime-config.html).
+
+#|
+||Field | Description ||
+|| maxConnections | **string** (int64)
+
+Sets the maximum number of concurrent connections.
+
+The minimum value is 16. ||
+|| sharedBuffers | **string** (int64)
+
+Sets the number of shared memory buffers used by the server. In bytes. ||
+|| tempBuffers | **string** (int64)
+
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
+|| workMem | **string** (int64)
+
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
+|| maintenanceWorkMem | **string** (int64)
+
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
+|| autovacuumWorkMem | **string** (int64)
+
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
+|| tempFileLimit | **string** (int64)
+
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
+|| vacuumCostDelay | **string** (int64)
+
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
+|| bgwriterDelay | **string** (int64)
+
+Background writer sleep time between rounds. In milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
+|| bgwriterFlushAfter | **string** (int64)
+
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
+|| backendFlushAfter | **string** (int64)
+
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
+|| walLevel | **enum** (WalLevel)
+
+Sets the level of information written to the WAL.
+
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
+|| synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
+
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
+|| checkpointTimeout | **string** (int64)
+
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
+|| checkpointFlushAfter | **string** (int64)
+
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
+|| maxWalSize | **string** (int64)
+
+Sets the WAL size that triggers a checkpoint. In bytes. ||
+|| minWalSize | **string** (int64)
+
+Sets the minimum size to shrink the WAL to. In bytes. ||
+|| maxStandbyStreamingDelay | **string** (int64)
+
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
+|| constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
+
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
+|| fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| debugParallelQuery | **enum** (DebugParallelQuery)
+
+Forces the planner's use parallel query nodes.
+
+- `DEBUG_PARALLEL_QUERY_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `DEBUG_PARALLEL_QUERY_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
+|| clientMinMessages | **enum** (LogLevel)
+
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| logMinMessages | **enum** (LogLevel)
+
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| logMinErrorStatement | **enum** (LogLevel)
+
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| logMinDurationStatement | **string** (int64)
+
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
+|| logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
+
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
+|| logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
+
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
+|| defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
+
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
+|| statementTimeout | **string** (int64)
+
+Sets the maximum allowed duration of any statement. In milliseconds. ||
+|| lockTimeout | **string** (int64)
+
+Sets the maximum allowed duration of any wait for a lock. In milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| idleInTransactionSessionTimeout | **string** (int64)
+
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
+
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
+|| xmlbinary | **enum** (XmlBinary)
+
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
+|| xmloption | **enum** (XmlOption)
+
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
+|| ginPendingListLimit | **string** (int64)
+
+Sets the maximum size of the pending list for GIN index. In bytes. ||
+|| deadlockTimeout | **string** (int64)
+
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
+|| backslashQuote | **enum** (BackslashQuote)
+
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
+Acceptable values are 1 to 32, inclusive. ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
+|| autovacuumNaptime | **string** (int64)
+
+Time to sleep between autovacuum runs. In milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
+|| archiveTimeout | **string** (int64)
+
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
+Acceptable values are 100 to 102400, inclusive. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
+|| maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Sets the maximum number of parallel processes per executor node.
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+Sets the maximum number of parallel processes per maintenance operation.
+
+The minimum value is 0. ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| logTransactionSampleRate | **number** (double)
+
+Sets the fraction of transactions from which to log all statements. Use a
+value between 0.0 (never log) and 1.0 (log all statements for all transactions). ||
+|| planCacheMode | **enum** (PlanCacheMode)
+
+Controls the planner's selection of custom or generic plan. Prepared statements can have custom and generic plans,
+and the planner will attempt to choose which is better. This can be set to override the default behavior.
+
+- `PLAN_CACHE_MODE_AUTO`: Automatic selection.
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
+|| sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
+
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
+|| autoExplainLogMinDuration | **string** (int64)
+
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
+|| pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
+
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
+|| pgHintPlanMessageLevel | **enum** (LogLevel)
+
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| hashMemMultiplier | **number** (double)
+
+Multiple of work_mem to use for hash tables. ||
+|| logicalDecodingWorkMem | **string** (int64)
+
+Sets the maximum memory to be used for logical decoding. This much memory can be
+used by each internal reorder buffer before spilling to disk. In bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+A variant of effective_io_concurrency that is used for maintenance work.
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| maxSlotWalKeepSize | **string** (int64)
+
+Sets the maximum WAL size that can be reserved by replication slots. Replication slots will be marked as failed,
+and segments released for deletion or recycling, if this much space is occupied by WAL on disk. In bytes. ||
+|| walKeepSize | **string** (int64)
+
+Sets the size of WAL files held for standby servers. In bytes. ||
+|| enableIncrementalSort | **boolean**
+
+Enables the planner's use of incremental sort steps. ||
+|| autovacuumVacuumInsertThreshold | **string** (int64)
+
+Minimum number of tuple inserts prior to vacuum, or -1 to disable insert vacuums. ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double)
+
+Number of tuple inserts prior to vacuum as a fraction of reltuples. ||
+|| logMinDurationSample | **string** (int64)
+
+Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined
+by log_statement_sample_rate. Zero logs a sample of all queries. -1 turns this feature off. In milliseconds. ||
+|| logStatementSampleRate | **number** (double)
+
+Fraction of statements exceeding log_min_duration_sample to be logged. Use a value between 0.0 (never log) and 1.0 (always log). ||
+|| logParameterMaxLength | **string** (int64)
+
+When logging statements, limit logged parameter values to first N bytes. -1 to print values in full. ||
+|| logParameterMaxLengthOnError | **string** (int64)
+
+When reporting an error, limit logged parameter values to first N bytes. -1 to print values in full. ||
+|| clientConnectionCheckInterval | **string** (int64)
+
+Sets the time interval between checks for disconnection while running queries. In milliseconds. ||
+|| enableAsyncAppend | **boolean**
+
+Enables the planner's use of async append plans. ||
+|| enableGathermerge | **boolean**
+
+Enables the planner's use of gather merge plans. ||
+|| enableMemoize | **boolean**
+
+Enables the planner's use of memoization. ||
+|| logRecoveryConflictWaits | **boolean**
+
+Logs standby recovery conflict waits. ||
+|| vacuumFailsafeAge | **string** (int64)
+
+Age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
+|| vacuumMultixactFailsafeAge | **string** (int64)
+
+Multixact age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
+|| maxStackDepth | **string** (int64)
+
+Sets the maximum stack depth, in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
+|| enableGroupByReordering | **boolean**
+
+Controls if the query planner will produce a plan which will provide GROUP BY keys sorted in the order of keys of a
+child node of the plan, such as an index scan. When disabled, the query planner will produce a plan with GROUP BY keys
+only sorted to match the ORDER BY clause, if any. When enabled, the planner will try to produce a more efficient plan.
+The default value is on. ||
+|| geqo | **boolean**
+
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
+|| geqoThreshold | **string** (int64)
+
+Sets the threshold of FROM items beyond which GEQO is used, default is 12. ||
+|| geqoEffort | **string** (int64)
+
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
+
+Acceptable values are 1 to 10, inclusive. ||
+|| geqoPoolSize | **string** (int64)
+
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
+|| geqoGenerations | **string** (int64)
+
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
+|| geqoSelectionBias | **number** (double)
+
+GEQO: selective pressure within the population. ||
+|| geqoSeed | **number** (double)
+
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
+|| maxStandbyArchiveDelay | **string** (int64)
+
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
+|| sessionDurationTimeout | **string** (int64)
+
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
+|| logAutovacuumMinDuration | **string** (int64)
+
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
+|| passwordEncryption | **enum** (PasswordEncryption)
+
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
+
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``,
+`` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``.
+The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: Formats logged execution plans as plain text.
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: Formats logged execution plans as XML.
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: Formats logged execution plans as JSON.
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: Formats logged execution plans as YAML. ||
+|| trackCommitTimestamp | **boolean**
+
+Collects transaction commit time. ||
+|| maxLogicalReplicationWorkers | **string** (int64)
+
+Maximum number of logical replication worker processes.
+
+Acceptable values are 4 to 100, inclusive. ||
+|| maxWalSenders | **string** (int64)
+
+Sets the maximum number of simultaneously running WAL sender processes.
+
+Acceptable values are 20 to 100, inclusive. ||
+|| maxReplicationSlots | **string** (int64)
+
+Sets the maximum number of simultaneously defined replication slots.
+
+Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+Sets the interval below which checkpoints triggered by filling WAL segment files cause a warning to be written to the server log.
+A value of 0 disables the warning. In milliseconds.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| vacuumTruncate | **boolean**
+
+Enables vacuum to truncate empty pages at the end of the table. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Minimum number of tuple updates or deletes prior to vacuum.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Minimum number of tuple inserts, updates, or deletes prior to analyze.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| maxActiveReplicationOrigins | **string** (int64)
+
+Sets the maximum number of active replication origins.
+
+Acceptable values are 20 to 100, inclusive. ||
+|| autovacuumMaxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be used by a single autovacuum worker to process indexes.
+Setting this value to 0 disables parallel vacuum during autovacuum. The default is 0.
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| logAutoanalyzeMinDuration | **string** (int64)
+
+Sets the minimum execution time above which autoanalyze actions will be logged.
+Zero prints all actions. -1 turns autoanalyze logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
+|| maxRepackReplicationSlots | **string** (int64)
+
+Sets the maximum number of replication slots for use of the REPACK command. The default is 5.
+
+Acceptable values are 0 to 100, inclusive. ||
+|| autoExplainLogIo | **boolean**
+
+Controls whether I/O usage statistics are printed when an execution plan is logged;
+it's equivalent to the IO option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|#
+
+## PostgresqlConfigSet19_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet19_1C}
+
+#|
+||Field | Description ||
+|| effectiveConfig | **[PostgresqlConfig19_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig19_1C)**
+
+Effective settings for a PostgreSQL 19 1C cluster (a combination of settings defined
+in `userConfig` and `defaultConfig`). ||
+|| userConfig | **[PostgresqlConfig19_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig19_1C)**
+
+User-defined settings for a PostgreSQL 19 1C cluster. ||
+|| defaultConfig | **[PostgresqlConfig19_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig19_1C)**
+
+Default configuration for a PostgreSQL 19 1C cluster. ||
+|#
+
+## PostgresqlConfig19_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig19_1C}
+
+Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+parameters which detailed description is available in
+[PostgreSQL documentation](https://www.postgresql.org/docs/19/runtime-config.html).
+
+#|
+||Field | Description ||
+|| maxConnections | **string** (int64)
+
+Sets the maximum number of concurrent connections.
+
+The minimum value is 16. ||
+|| sharedBuffers | **string** (int64)
+
+Sets the number of shared memory buffers used by the server. In bytes. ||
+|| tempBuffers | **string** (int64)
+
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
+|| workMem | **string** (int64)
+
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
+|| maintenanceWorkMem | **string** (int64)
+
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
+|| autovacuumWorkMem | **string** (int64)
+
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
+|| tempFileLimit | **string** (int64)
+
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
+|| vacuumCostDelay | **string** (int64)
+
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
+|| bgwriterDelay | **string** (int64)
+
+Background writer sleep time between rounds. In milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
+|| bgwriterFlushAfter | **string** (int64)
+
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
+|| backendFlushAfter | **string** (int64)
+
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
+|| walLevel | **enum** (WalLevel)
+
+Sets the level of information written to the WAL.
+
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
+|| synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
+
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
+|| checkpointTimeout | **string** (int64)
+
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
+|| checkpointFlushAfter | **string** (int64)
+
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
+|| maxWalSize | **string** (int64)
+
+Sets the WAL size that triggers a checkpoint. In bytes. ||
+|| minWalSize | **string** (int64)
+
+Sets the minimum size to shrink the WAL to. In bytes. ||
+|| maxStandbyStreamingDelay | **string** (int64)
+
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
+|| constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
+
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
+|| fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| debugParallelQuery | **enum** (DebugParallelQuery)
+
+Forces the planner's use parallel query nodes.
+
+- `DEBUG_PARALLEL_QUERY_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `DEBUG_PARALLEL_QUERY_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
+|| clientMinMessages | **enum** (LogLevel)
+
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| logMinMessages | **enum** (LogLevel)
+
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| logMinErrorStatement | **enum** (LogLevel)
+
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| logMinDurationStatement | **string** (int64)
+
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
+|| logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
+
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
+|| logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
+
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
+|| defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
+
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
+|| statementTimeout | **string** (int64)
+
+Sets the maximum allowed duration of any statement. In milliseconds. ||
+|| lockTimeout | **string** (int64)
+
+Sets the maximum allowed duration of any wait for a lock. In milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| idleInTransactionSessionTimeout | **string** (int64)
+
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
+
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
+|| xmlbinary | **enum** (XmlBinary)
+
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
+|| xmloption | **enum** (XmlOption)
+
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
+|| ginPendingListLimit | **string** (int64)
+
+Sets the maximum size of the pending list for GIN index. In bytes. ||
+|| deadlockTimeout | **string** (int64)
+
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
+|| backslashQuote | **enum** (BackslashQuote)
+
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
+Acceptable values are 1 to 32, inclusive. ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
+|| autovacuumNaptime | **string** (int64)
+
+Time to sleep between autovacuum runs. In milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
+|| archiveTimeout | **string** (int64)
+
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
+Acceptable values are 100 to 102400, inclusive. ||
+|| onlineAnalyzeEnable | **boolean**
+
+Enables automatic table-statistics updates by online_analyze after data-modifying operations. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
+|| maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Sets the maximum number of parallel processes per executor node.
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+Sets the maximum number of parallel processes per maintenance operation.
+
+The minimum value is 0. ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| logTransactionSampleRate | **number** (double)
+
+Sets the fraction of transactions from which to log all statements. Use a
+value between 0.0 (never log) and 1.0 (log all statements for all transactions). ||
+|| planCacheMode | **enum** (PlanCacheMode)
+
+Controls the planner's selection of custom or generic plan. Prepared statements can have custom and generic plans,
+and the planner will attempt to choose which is better. This can be set to override the default behavior.
+
+- `PLAN_CACHE_MODE_AUTO`: Automatic selection.
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
+|| sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
+
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
+|| autoExplainLogMinDuration | **string** (int64)
+
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
+|| pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
+
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
+|| pgHintPlanMessageLevel | **enum** (LogLevel)
+
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| hashMemMultiplier | **number** (double)
+
+Multiple of work_mem to use for hash tables. ||
+|| logicalDecodingWorkMem | **string** (int64)
+
+Sets the maximum memory to be used for logical decoding. This much memory can be
+used by each internal reorder buffer before spilling to disk. In bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+A variant of effective_io_concurrency that is used for maintenance work.
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| maxSlotWalKeepSize | **string** (int64)
+
+Sets the maximum WAL size that can be reserved by replication slots. Replication slots will be marked as failed,
+and segments released for deletion or recycling, if this much space is occupied by WAL on disk. In bytes. ||
+|| walKeepSize | **string** (int64)
+
+Sets the size of WAL files held for standby servers. In bytes. ||
+|| enableIncrementalSort | **boolean**
+
+Enables the planner's use of incremental sort steps. ||
+|| autovacuumVacuumInsertThreshold | **string** (int64)
+
+Minimum number of tuple inserts prior to vacuum, or -1 to disable insert vacuums. ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double)
+
+Number of tuple inserts prior to vacuum as a fraction of reltuples. ||
+|| logMinDurationSample | **string** (int64)
+
+Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined
+by log_statement_sample_rate. Zero logs a sample of all queries. -1 turns this feature off. In milliseconds. ||
+|| logStatementSampleRate | **number** (double)
+
+Fraction of statements exceeding log_min_duration_sample to be logged. Use a value between 0.0 (never log) and 1.0 (always log). ||
+|| logParameterMaxLength | **string** (int64)
+
+When logging statements, limit logged parameter values to first N bytes. -1 to print values in full. ||
+|| logParameterMaxLengthOnError | **string** (int64)
+
+When reporting an error, limit logged parameter values to first N bytes. -1 to print values in full. ||
+|| clientConnectionCheckInterval | **string** (int64)
+
+Sets the time interval between checks for disconnection while running queries. In milliseconds. ||
+|| enableAsyncAppend | **boolean**
+
+Enables the planner's use of async append plans. ||
+|| enableGathermerge | **boolean**
+
+Enables the planner's use of gather merge plans. ||
+|| enableMemoize | **boolean**
+
+Enables the planner's use of memoization. ||
+|| logRecoveryConflictWaits | **boolean**
+
+Logs standby recovery conflict waits. ||
+|| vacuumFailsafeAge | **string** (int64)
+
+Age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
+|| vacuumMultixactFailsafeAge | **string** (int64)
+
+Multixact age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
+|| plantunerFixEmptyTable | **boolean**
+
+Controls whether plantuner sets estimated page and row counts to zero for tables that have no storage blocks. ||
+|| maxStackDepth | **string** (int64)
+
+Sets the maximum stack depth, in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
+|| enableGroupByReordering | **boolean**
+
+Controls if the query planner will produce a plan which will provide GROUP BY keys sorted in the order of keys of a
+child node of the plan, such as an index scan. When disabled, the query planner will produce a plan with GROUP BY keys
+only sorted to match the ORDER BY clause, if any. When enabled, the planner will try to produce a more efficient plan.
+The default value is on. ||
+|| geqo | **boolean**
+
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
+|| geqoThreshold | **string** (int64)
+
+Sets the threshold of FROM items beyond which GEQO is used, default is 12. ||
+|| geqoEffort | **string** (int64)
+
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
+
+Acceptable values are 1 to 10, inclusive. ||
+|| geqoPoolSize | **string** (int64)
+
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
+|| geqoGenerations | **string** (int64)
+
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
+|| geqoSelectionBias | **number** (double)
+
+GEQO: selective pressure within the population. ||
+|| geqoSeed | **number** (double)
+
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
+|| maxStandbyArchiveDelay | **string** (int64)
+
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
+|| sessionDurationTimeout | **string** (int64)
+
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
+|| logAutovacuumMinDuration | **string** (int64)
+
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
+|| passwordEncryption | **enum** (PasswordEncryption)
+
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
+
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``,
+`` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``.
+The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: Formats logged execution plans as plain text.
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: Formats logged execution plans as XML.
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: Formats logged execution plans as JSON.
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: Formats logged execution plans as YAML. ||
+|| trackCommitTimestamp | **boolean**
+
+Collects transaction commit time. ||
+|| maxLogicalReplicationWorkers | **string** (int64)
+
+Maximum number of logical replication worker processes.
+
+Acceptable values are 4 to 100, inclusive. ||
+|| maxWalSenders | **string** (int64)
+
+Sets the maximum number of simultaneously running WAL sender processes.
+
+Acceptable values are 20 to 100, inclusive. ||
+|| maxReplicationSlots | **string** (int64)
+
+Sets the maximum number of simultaneously defined replication slots.
+
+Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+Sets the interval below which checkpoints triggered by filling WAL segment files cause a warning to be written to the server log.
+A value of 0 disables the warning. In milliseconds.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| vacuumTruncate | **boolean**
+
+Enables vacuum to truncate empty pages at the end of the table. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Minimum number of tuple updates or deletes prior to vacuum.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Minimum number of tuple inserts, updates, or deletes prior to analyze.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| maxActiveReplicationOrigins | **string** (int64)
+
+Sets the maximum number of active replication origins.
+
+Acceptable values are 20 to 100, inclusive. ||
+|| autovacuumMaxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be used by a single autovacuum worker to process indexes.
+Setting this value to 0 disables parallel vacuum during autovacuum. The default is 0.
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| logAutoanalyzeMinDuration | **string** (int64)
+
+Sets the minimum execution time above which autoanalyze actions will be logged.
+Zero prints all actions. -1 turns autoanalyze logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
+|| maxRepackReplicationSlots | **string** (int64)
+
+Sets the maximum number of replication slots for use of the REPACK command. The default is 5.
+
+Acceptable values are 0 to 100, inclusive. ||
+|| autoExplainLogIo | **boolean**
+
+Controls whether I/O usage statistics are printed when an execution plan is logged;
+it's equivalent to the IO option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig}

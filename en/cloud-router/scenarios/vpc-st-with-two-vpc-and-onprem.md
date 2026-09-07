@@ -6,7 +6,7 @@ Reserved on-prem connection via two private Cloud Interconnect connections to on
 
 ![ri-topology-7](../../_assets/cloud-router/ri-topology-7.svg)
 
-The scenario uses the following components:
+The scenario features the following components:
 
 * `On-Prem` client with two local subnets: `subnet-c1` and `subnet-c2`.
 
@@ -38,4 +38,3 @@ This topology enables network connectivity between:
 In case of failure of any of the private connections above, all network traffic will be automatically switched over to the remaining private connection.
 
 {% endnote %}
-

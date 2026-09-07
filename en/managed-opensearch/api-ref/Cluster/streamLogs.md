@@ -89,7 +89,6 @@ apiPlayground:
 # Managed Service for OpenSearch API, REST: Cluster.StreamLogs
 
 
-Backend implementation uses GET already. --)
 Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
 
 ## HTTP request

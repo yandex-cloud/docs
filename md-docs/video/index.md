@@ -26,7 +26,7 @@ Yandex Cloud Video — комплексная платформа управле�
 
  - [Удалить канал](operations/channels/delete.md)
 
- - [Настроить канал и рекламу](operations/channels/settings.md)
+ - [Настроить канал и монетизацию](operations/channels/settings.md)
 
 ### Видео
 

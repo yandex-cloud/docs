@@ -62,6 +62,7 @@ Smart Web Security проверяет HTTP-запросы к защищаемо�
 
 #### Полезные ссылки {#see-also}
 
+* [Защита от DDoS на уровнях L3, L4 и L7: гайд с практическими советами](https://yandex.cloud/ru/blog/l3-l4-l7-ddos-protection)
 * [Защита облаков в России: основные тенденции и тренды киберугроз в 2025 году](https://yandex.cloud/ru/blog/posts/2025/04/cloud-protection)
 * [Как настроить защиту веб‑приложения в облаке с помощью Yandex Smart Web Security](https://yandex.cloud/ru/blog/smart-web-security-how-to)
 * [Yandex SWS и CDN: защита и ускорение сайтов для компаний любого масштаба](https://yandex.cloud/ru/blog/sws-cdn-cloudflare-alternative)

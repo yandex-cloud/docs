@@ -34,7 +34,7 @@ links:
     description: Learn about features of the service
     href: concepts/
   - title: Pricing policy
-    description: Service pricing and cost calculation
+    description: Prices and cost calculation rules
     href: pricing
   - title: Step-by-step guides
     description: How to perform routine operations

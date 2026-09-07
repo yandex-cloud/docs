@@ -753,6 +753,8 @@ items:
                 href: api-ref/grpc/Cluster/delete.md
               - name: AddZookeeper
                 href: api-ref/grpc/Cluster/addZookeeper.md
+              - name: MigrateToKeeper
+                href: api-ref/grpc/Cluster/migrateToKeeper.md
               - name: Start
                 href: api-ref/grpc/Cluster/start.md
               - name: Stop
@@ -965,6 +967,8 @@ items:
                 href: api-ref/Cluster/delete.md
               - name: AddZookeeper
                 href: api-ref/Cluster/addZookeeper.md
+              - name: MigrateToKeeper
+                href: api-ref/Cluster/migrateToKeeper.md
               - name: Start
                 href: api-ref/Cluster/start.md
               - name: Stop
