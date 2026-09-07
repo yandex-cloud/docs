@@ -3,6 +3,7 @@
 # Как начать работать с хостингом видео в Yandex Cloud Video
 
 Чтобы загрузить [видео](concepts/videos.md) на [канал](concepts/index.md#channels) сервиса:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте канал](#create-channel).
 1. [Загрузите видео](#upload-video).
@@ -68,7 +69,7 @@
 После создания канала вы окажетесь внутри этого канала во вкладке ![image](../_assets/console-icons/circle-play.svg) **Видео**.
 
 * Подробнее о каналах в разделе [Каналы](concepts/index.md#channels).
-* Настройка показа рекламы описана в разделе [Настроить показ рекламы](operations/channels/settings.md#ad-settings).
+* Настройка монетизации описана в разделе [Настроить монетизацию](operations/channels/settings.md#ad-settings).
 
 ## Загрузите видео {#upload-video}
 
@@ -150,5 +151,5 @@
 * [Обзор сервиса Yandex Cloud Video](concepts/index.md)
 * [Загрузить видео](operations/video/upload.md)
 * [Настроить шаблон плеера](operations/style-presets/update.md)
-* [Настроить показ рекламы](operations/channels/settings.md#ad-settings)
+* [Настроить монетизацию](operations/channels/settings.md#ad-settings)
 * [Решение проблем в Cloud Video](troubleshooting/index.md)

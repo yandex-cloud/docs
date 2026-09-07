@@ -505,7 +505,8 @@ The maximum string length in characters is 1000. ||
       "persistenceMode": "string",
       "announceHostnames": "boolean",
       "authSentinel": "boolean",
-      "diskEncryptionKeyId": "string"
+      "diskEncryptionKeyId": "string",
+      "isHa": "boolean"
     }
   ],
   "nextPageToken": "string"
@@ -534,14 +535,14 @@ the Managed Service for Redis [documentation](../../concepts/index.md).
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the Redis cluster.
+ID of the Redis cluster.
 This ID is assigned by MDB at creation time. ||
 || folderId | **string**
 
-Required field. ID of the folder that the Redis cluster belongs to. ||
+ID of the folder that the Redis cluster belongs to. ||
 || createdAt | **string** (date-time)
 
-Required field. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -551,8 +552,8 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Required field. Name of the Redis cluster.
-The name is unique within the folder. 3-63 characters long. ||
+Name of the Redis cluster.
+The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the Redis cluster. 0-256 characters long. ||
@@ -562,7 +563,7 @@ Custom labels for the Redis cluster as `key:value` pairs.
 Maximum 64 per cluster. ||
 || environment | **enum** (Environment)
 
-Required field. Deployment environment of the Redis cluster.
+Deployment environment of the Redis cluster.
 
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
@@ -573,13 +574,13 @@ are rolled out irrespective of backward compatibility. ||
 Description of monitoring systems relevant to the Redis cluster. ||
 || config | **[ClusterConfig](#yandex.cloud.mdb.redis.v1.ClusterConfig)**
 
-Required field. Configuration of the Redis cluster. ||
+Configuration of the Redis cluster. ||
 || networkId | **string**
 
-Required field. ID of the network that the cluster belongs to. ||
+ID of the network that the cluster belongs to. ||
 || health | **enum** (Health)
 
-Required field. Aggregated cluster health.
+Aggregated cluster health.
 
 - `HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)
 - `ALIVE`: Cluster is alive and well (all hosts are alive)
@@ -587,7 +588,7 @@ Required field. Aggregated cluster health.
 - `DEGRADED`: Cluster is partially alive (it can perform some of its essential functions) ||
 || status | **enum** (Status)
 
-Required field. Cluster status.
+Cluster status.
 
 - `STATUS_UNKNOWN`: Cluster status is unknown
 - `CREATING`: Cluster is being created
@@ -602,7 +603,7 @@ Required field. Cluster status.
 Redis cluster mode on/off. ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
 
-Required field. Maintenance window for the cluster. ||
+Maintenance window for the cluster. ||
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.redis.v1.MaintenanceOperation)**
 
 Planned maintenance operation to be started for the cluster within the nearest `maintenanceWindow`. ||
@@ -619,9 +620,12 @@ Deletion Protection inhibits deletion of the cluster ||
 
 Persistence mode
 
-- `ON`: Cluster persistence mode is on.
-- `OFF`: Cluster persistence mode is off.
-- `ON_REPLICAS`: Cluster persistence is on for replicas only. ||
+- `ON`: Persistence is enabled on every host of the cluster: the append-only file
+(AOF) is written on masters and replicas alike.
+- `OFF`: Persistence is disabled: neither the append-only file (AOF) nor RDB
+snapshots are written, all data is kept in memory only.
+- `ON_REPLICAS`: The append-only file (AOF) is written on replicas only, masters do not
+persist data to disk. ||
 || announceHostnames | **boolean**
 
 Enable FQDN instead of ip ||
@@ -631,21 +635,26 @@ Allows to use ACL users to auth in sentinel ||
 || diskEncryptionKeyId | **string**
 
 ID of the key to encrypt cluster disks. ||
+|| isHa | **boolean**
+
+Indicates whether the cluster topology is highly available ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}
+
+Monitoring system.
 
 #|
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the monitoring system. ||
+Name of the monitoring system. ||
 || description | **string**
 
 Description of the monitoring system. ||
 || link | **string**
 
-Required field. Link to the monitoring system charts for the Redis cluster. ||
+Link to the monitoring system charts for the Redis cluster. ||
 |#
 
 ## ClusterConfig {#yandex.cloud.mdb.redis.v1.ClusterConfig}
@@ -685,16 +694,17 @@ Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConf
 Configuration for Redis servers in the cluster. ||
 || resources | **[Resources](#yandex.cloud.mdb.redis.v1.Resources)**
 
-Required field. Resources allocated to Redis hosts. ||
+Resources allocated to Redis hosts. ||
 || backupWindowStart | **[TimeOfDay](#google.type.TimeOfDay)**
 
-Required field. Time to start the daily backup, in the UTC timezone. ||
+Time to start the daily backup, in the UTC timezone. ||
 || access | **[Access](#yandex.cloud.mdb.redis.v1.Access)**
 
-Required field. Access policy to DB ||
+Access policy to DB ||
 || redis | **[RedisConfigSet](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet)**
 
-Required field. Unified configuration of a Redis cluster. ||
+Unified configuration of a Redis cluster. Use this field for all currently
+available versions. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
@@ -706,10 +716,12 @@ Retain period of automatically created backup in days ||
 Valkey modules settings ||
 || fullVersion | **string**
 
-Full version ||
+Full version of the server software, including the minor version. ||
 || tieredStorageEnabled | **boolean**
 
-Enables tiered storage (disk + NVMe hot tier). Forces edition to 9.1-ts. ||
+Enables tiered storage (disk + NVMe hot tier). Requires the tiered storage
+edition: when the flag is set on creation, the cluster version is switched
+to that edition. ||
 || shardAutoscalingSettings | **[ShardAutoscalingSettings](#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings)**
 
 Shard autoscaling settings. When enabled, the cluster can automatically
@@ -1132,8 +1144,9 @@ The minimum value is 0. ||
 ||Field | Description ||
 || resourcePresetId | **string**
 
-Required field. ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../concepts/instance-types.md). ||
+ID of the preset for computational resources available to a host (CPU, memory etc.).
+To get the list of available presets, use a [ResourcePresetService.List](../ResourcePreset/list.md#List) request;
+presets are also listed in the [documentation](../../concepts/instance-types.md). ||
 || diskSize | **string** (int64)
 
 Volume of the storage available to a host, in bytes. ||
@@ -1224,17 +1237,17 @@ more memory to be used. ||
 || timeout | **string** (int64)
 
 Time that Redis keeps the connection open while the client is idle.
-If no new command is sent during that time, the connection is closed.
-
-The minimum value is 0. ||
+If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_%-]{0,128} `. ||
 || databases | **string** (int64)
 
 Number of database buckets on a single redis-server process.
 
-Acceptable values are 1 to 1024, inclusive. ||
+Value must be greater than 0. ||
 || slowlogLogSlowerThan | **string** (int64)
 
 Threshold for logging slow requests to server in microseconds (log only slower than it).
@@ -1247,7 +1260,9 @@ Max slow requests number to log.
 The minimum value is 0. ||
 || notifyKeyspaceEvents | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtmdn]{0,15} `. ||
 || clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -1256,7 +1271,7 @@ Redis connection output buffers limits for pubsub operations. ||
 Redis connection output buffers limits for clients. ||
 || maxmemoryPercent | **string** (int64)
 
-Redis maxmemory percent
+Share of the host RAM used as the Redis maxmemory limit, in percent.
 
 Acceptable values are 1 to 75, inclusive. ||
 || luaTimeLimit | **string** (int64)
@@ -1266,21 +1281,21 @@ Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism
 Acceptable values are 0 to 5000, inclusive. ||
 || replBacklogSizePercent | **string** (int64)
 
-Replication backlog size as a percentage of flavor maxmemory
+Replication backlog size as a percentage of the host RAM.
 
 Acceptable values are 1 to 75, inclusive. ||
 || clusterRequireFullCoverage | **boolean**
 
-Controls whether all hash slots must be covered by nodes ||
+Controls whether all hash slots must be covered by nodes. ||
 || clusterAllowReadsWhenDown | **boolean**
 
-Allows read operations when cluster is down ||
+Allows read operations when cluster is down. ||
 || clusterAllowPubsubshardWhenDown | **boolean**
 
-Permits Pub/Sub shard operations when cluster is down ||
+Permits Pub/Sub shard operations when cluster is down. ||
 || lfuDecayTime | **string** (int64)
 
-The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10)
+The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10).
 
 Acceptable values are 0 to 100000, inclusive. ||
 || lfuLogFactor | **string** (int64)
@@ -1299,15 +1314,16 @@ Allows some data to be lost in favor of faster switchover/restart ||
 Use JIT for lua scripts and functions ||
 || ioThreadsAllowed | **boolean**
 
-Allow redis to use io-threads ||
+Allow redis to use io-threads. When enabled, the number of threads is
+derived from the host class; when disabled, a single thread is used. ||
 || zsetMaxListpackEntries | **string** (int64)
 
-Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist
+Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist.
 
 Acceptable values are 32 to 2048, inclusive. ||
 || aofMaxSizePercent | **string** (int64)
 
-AOF maximum size as a percentage of disk available
+AOF maximum size as a percentage of the host disk size.
 
 Acceptable values are 1 to 99, inclusive. ||
 || activedefrag | **boolean**
@@ -1363,17 +1379,20 @@ Limit on how large the storage for database instances can automatically grow, in
 
 ## ValkeyModules {#yandex.cloud.mdb.redis.v1.ValkeyModules}
 
+Settings of the modules that extend the server with additional data types
+and commands.
+
 #|
 ||Field | Description ||
 || valkeySearch | **[ValkeySearch](#yandex.cloud.mdb.redis.v1.ValkeySearch)**
 
-valkey-search module settings ||
+valkey-search module settings: vector and full-text search. ||
 || valkeyJson | **[ValkeyJson](#yandex.cloud.mdb.redis.v1.ValkeyJson)**
 
-valkey-json module settings ||
+valkey-json module settings: the JSON data type and commands. ||
 || valkeyBloom | **[ValkeyBloom](#yandex.cloud.mdb.redis.v1.ValkeyBloom)**
 
-valkey-bloom module settings ||
+valkey-bloom module settings: probabilistic data structures. ||
 |#
 
 ## ValkeySearch {#yandex.cloud.mdb.redis.v1.ValkeySearch}
@@ -1385,12 +1404,12 @@ valkey-bloom module settings ||
 Enable valkey-search module ||
 || readerThreads | **string** (int64)
 
-Controls the amount of threads executing queries
+Controls the amount of threads executing queries.
 
 The minimum value is 0. ||
 || writerThreads | **string** (int64)
 
-Controls the amount of threads processing index mutations
+Controls the amount of threads processing index mutations.
 
 The minimum value is 0. ||
 || version | **string**
@@ -1428,7 +1447,9 @@ Module version ||
 ||Field | Description ||
 || enabled | **boolean**
 
-Whether shard autoscaling is enabled for the cluster. ||
+Whether shard autoscaling is enabled for the cluster.
+When enabled, at least one of the thresholds must have a non-zero
+[ShardAutoscalingThreshold.upThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold). ||
 || minShards | **string** (int64)
 
 Minimum number of shards the cluster can scale down to.
@@ -1437,6 +1458,8 @@ The minimum value is 1. ||
 || maxShards | **string** (int64)
 
 Maximum number of shards the cluster can scale up to.
+Must be greater than or equal to `minShards` and must not exceed
+the maximum number of shards allowed for the cluster.
 
 The minimum value is 1. ||
 || cpuThreshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
@@ -1452,11 +1475,13 @@ Network utilization threshold. ||
 
 ## ShardAutoscalingThreshold {#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold}
 
+Utilization thresholds of a single metric used by shard autoscaling.
+
 #|
 ||Field | Description ||
 || downThreshold | **string** (int64)
 
-Threshold for downscaling
+Threshold for downscaling, in percent. Must be lower than `upThreshold`.
 
 Acceptable values are 0 to 100, inclusive. ||
 || upThreshold | **string** (int64)

@@ -21,6 +21,14 @@ _Политика_ — это набор правил, который описы
 
 Подробнее о политиках в [документации OpenSearch](https://opensearch.org/docs/latest/im-plugin/ism/policies/).
 
+
+{% note warning %}
+
+В кластерах, где действует [расширенная защита](high-availability.md#advanced-protection), в политике нельзя использовать действие `replica_count` с нулевым числом реплик: такая политика оставила бы индекс без реплик и нарушила бы [требования к высокой доступности](high-availability.md#replication-settings). Запрос на создание или изменение такой политики завершится ошибкой.
+
+{% endnote %}
+
+
 ## Примеры использования {#examples}
 
 * [Настройка политики индексов в Managed Service for OpenSearch](../tutorials/opensearch-index-policy.md)

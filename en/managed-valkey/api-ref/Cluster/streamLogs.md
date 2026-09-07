@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. Required. ID of the Redis cluster.
+            Required field. ID of the Redis cluster.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -30,10 +30,12 @@ apiPlayground:
             **enum** (ServiceType)
             Type of the service to request logs about.
             - `REDIS`: Logs of Redis activity.
+            - `VALKEY_AUDIT`: Valkey audit logs
           type: string
           enum:
             - SERVICE_TYPE_UNSPECIFIED
             - REDIS
+            - VALKEY_AUDIT
         fromTime:
           description: |-
             **string** (date-time)
@@ -98,7 +100,7 @@ GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:stream_logs
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the Redis cluster.
+Required field. ID of the Redis cluster.
 
 The maximum string length in characters is 50. ||
 |#
@@ -114,7 +116,8 @@ Columns from logs table to get in the response. ||
 
 Type of the service to request logs about.
 
-- `REDIS`: Logs of Redis activity. ||
+- `REDIS`: Logs of Redis activity.
+- `VALKEY_AUDIT`: Valkey audit logs ||
 || fromTime | **string** (date-time)
 
 Start timestamp for the logs request.

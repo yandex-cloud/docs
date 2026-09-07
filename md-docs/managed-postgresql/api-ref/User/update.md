@@ -116,7 +116,7 @@ A set of roles and privileges that are granted to the user.
 
 For more information, see [the documentation](../../operations/grant.md).
 
-The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_@.-]* `. ||
 || deletionProtection | **boolean**
 
 Deletion Protection inhibits deletion of the user
@@ -522,7 +522,7 @@ A set of roles and privileges that are granted to the user.
 
 For more information, see [the documentation](../../operations/grant.md).
 
-The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_@.-]* `. ||
 || deletionProtection | **boolean**
 
 Determines whether the user deletion protection is enabled.

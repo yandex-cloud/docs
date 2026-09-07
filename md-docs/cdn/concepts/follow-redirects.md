@@ -22,4 +22,4 @@
 #### Полезные ссылки {#see-also}
 
 * [Настройка следования перенаправлениям запросов](../operations/resources/setup-follow-redirects.md)
-* [Включение экранирования источников](../operations/resources/enable-shielding.md)
+* [Включить или отключить экранирование источников](../operations/resources/enable-shielding.md)

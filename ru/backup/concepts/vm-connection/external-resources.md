@@ -28,7 +28,7 @@ description: Из этой статьи вы узнаете, как подклю
 
 {% include [baremetal-os-list](../../../_includes/backup/baremetal-os-list.md) %}
 
-С полным списком поддерживаемых ОС можно ознакомиться в [документации провайдера резервного копирования](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html).
+С полным списком поддерживаемых ОС можно ознакомиться в [документации провайдера резервного копирования](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/{{ backup-provider-docs-version }}/user/supported-operating-systems-and-environments.html).
 
 ## Обновление ядра операционной системы {#os-kernel-update}
 
@@ -56,9 +56,10 @@ description: Из этой статьи вы узнаете, как подклю
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../operations/external/connect.md)
 * [{#T}](../../operations/backup-baremetal/restore-agent.md)
 * [{#T}](./compute.md)
 * [{#T}](./baremetal.md)
+* [{{ backup-full-name }} теперь защищает внешние виртуальные машины и серверы](https://yandex.cloud/ru/blog/cloud-backup-update-august-2026)

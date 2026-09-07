@@ -36,6 +36,8 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore
         "backgroundMessageBrokerSchedulePoolSize": "string",
         "backgroundCommonPoolSize": "string",
         "dictionariesLazyLoad": "boolean",
+        "shutdownWaitUnfinishedQueries": "boolean",
+        "shutdownWaitUnfinished": "string",
         "logLevel": "string",
         "queryLogRetentionSize": "string",
         "queryLogRetentionTime": "string",
@@ -379,6 +381,9 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore
         "readonly": "string",
         "allowDdl": "boolean",
         "allowIntrospectionFunctions": "boolean",
+        "allowReorderPrewhereConditions": "boolean",
+        "asyncSocketForRemote": "boolean",
+        "asyncQuerySendingForRemote": "boolean",
         "connectTimeout": "string",
         "connectTimeoutWithFailover": "string",
         "connectTimeoutWithFailoverSecure": "string",
@@ -392,6 +397,7 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore
         "insertQuorumParallel": "boolean",
         "selectSequentialConsistency": "boolean",
         "replicationAlterPartitionsSync": "string",
+        "lightweightDeletesSync": "string",
         "maxReplicaDelayForDistributedQueries": "string",
         "fallbackToStaleReplicasForDistributedQueries": "boolean",
         "distributedProductMode": "string",
@@ -436,6 +442,8 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore
         "maxNetworkBandwidth": "string",
         "maxNetworkBandwidthForUser": "string",
         "maxNetworkBytes": "string",
+        "maxRemoteReadNetworkBandwidth": "string",
+        "maxRemoteWriteNetworkBandwidth": "string",
         "maxTemporaryDataOnDiskSizeForQuery": "string",
         "maxTemporaryDataOnDiskSizeForUser": "string",
         "maxConcurrentQueriesForUser": "string",
@@ -543,6 +551,7 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore
         "maxFinalThreads": "string",
         "maxReadBufferSize": "string",
         "insertKeeperMaxRetries": "string",
+        "databaseAtomicWaitForDropAndDetachSynchronously": "boolean",
         "doNotMergeAcrossPartitionsSelectFinal": "boolean",
         "ignoreMaterializedViewsWithDroppedTargetTable": "boolean",
         "enableAnalyzer": "boolean",
@@ -609,6 +618,11 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore
     "performanceDiagnostics": {
       "enabled": "boolean",
       "processesRefreshInterval": "string"
+    },
+    "connectionManager": {
+      "enabled": "boolean",
+      "connectionsFolderId": "string",
+      "secretsFolderId": "string"
     }
   },
   "hostSpecs": [
@@ -652,6 +666,8 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore
             "backgroundMessageBrokerSchedulePoolSize": "string",
             "backgroundCommonPoolSize": "string",
             "dictionariesLazyLoad": "boolean",
+            "shutdownWaitUnfinishedQueries": "boolean",
+            "shutdownWaitUnfinished": "string",
             "logLevel": "string",
             "queryLogRetentionSize": "string",
             "queryLogRetentionTime": "string",
@@ -1138,6 +1154,9 @@ Retain period of automatically created backup in days ||
 || performanceDiagnostics | **[PerformanceDiagnostics](#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics)**
 
 Configuration performance diagnostics ||
+|| connectionManager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)**
+
+Cluster-wide Connection Manager integration configuration ||
 |#
 
 ## Clickhouse {#yandex.cloud.mdb.clickhouse.v1.ConfigSpec.Clickhouse}
@@ -1259,6 +1278,22 @@ Default value: **true** for versions 25.1 and higher, **false** for versions 24.
 Change of the setting is applied with restart.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#dictionaries_lazy_load). ||
+|| shutdownWaitUnfinishedQueries | **boolean**
+
+Enables or disables wait for running queries finish before shutdown.
+
+Default value: **false**.
+
+Change of the setting is applied with restart.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#shutdown_wait_unfinished_queries). ||
+|| shutdownWaitUnfinished | **string** (int64)
+
+Delay in seconds to wait for unfinished queries before shutdown.
+
+Default value: **60** (1 minute).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#shutdown_wait_unfinished). ||
 || logLevel | **enum** (LogLevel)
 
 Logging level.
@@ -1797,7 +1832,7 @@ Change of the settings of **jdbc_bridge** is applied with restart.
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/integrations/jdbc/jdbc-with-clickhouse). ||
 || mysqlProtocol | **boolean**
 
-Enables or disables MySQL interface on ClickHouse server
+Enables or disables MySQL interface on ClickHouse server.
 
 Default value: **false**.
 
@@ -2973,6 +3008,27 @@ Enables or disables introspection functions for query profiling.
 Default value: **false**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#allow_introspection_functions). ||
+|| allowReorderPrewhereConditions | **boolean**
+
+When moving conditions from WHERE to PREWHERE, allow reordering them to optimize filtering
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/allow#allow_reorder_prewhere_conditions). ||
+|| asyncSocketForRemote | **boolean**
+
+Enables asynchronous read from socket while executing remote query.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_socket_for_remote). ||
+|| asyncQuerySendingForRemote | **boolean**
+
+Enables asynchronous connection creation and query sending while executing remote query.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_query_sending_for_remote). ||
 || connectTimeout | **string** (int64)
 
 Connection timeout in milliseconds.
@@ -3084,6 +3140,16 @@ Wait mode for asynchronous actions in **ALTER** queries on replicated tables.
 Default value: **1**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#alter_sync). ||
+|| lightweightDeletesSync | **string** (int64)
+
+Wait mode for lightweight **DELETE** queries on replicated tables.
+* **0** - do not wait for replicas.
+* **1** - only wait for own execution.
+* **2** - wait for all replicas.
+
+Default value: **2**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#lightweight_deletes_sync). ||
 || maxReplicaDelayForDistributedQueries | **string** (int64)
 
 Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one.
@@ -3510,6 +3576,20 @@ This setting applies to every individual query.
 Default value: **0**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bytes). ||
+|| maxRemoteReadNetworkBandwidth | **string** (int64)
+
+The maximum speed of data exchange over the network in bytes per second for read.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_read_network_bandwidth). ||
+|| maxRemoteWriteNetworkBandwidth | **string** (int64)
+
+The maximum speed of data exchange over the network in bytes per second for write.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_write_network_bandwidth). ||
 || maxTemporaryDataOnDiskSizeForQuery | **string** (int64)
 
 The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
@@ -4374,6 +4454,13 @@ Only Keeper requests which failed due to network error, Keeper session timeout o
 Default value: **20**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_keeper_max_retries). ||
+|| databaseAtomicWaitForDropAndDetachSynchronously | **boolean**
+
+When executing DROP or DETACH TABLE in Atomic database, wait for table data to be finally dropped or detached.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#database_atomic_wait_for_drop_and_detach_synchronously). ||
 || doNotMergeAcrossPartitionsSelectFinal | **boolean**
 
 Enable or disable independent processing of partitions for **SELECT** queries with **FINAL**.
@@ -4595,6 +4682,28 @@ Whether to use Performance Diagnostics service in cluster. ||
 || processesRefreshInterval | **string** (duration)
 
 Time interval to collect data from system.processes table. ||
+|#
+
+## ClusterConnectionManager {#yandex.cloud.mdb.v1.ClusterConnectionManager}
+
+A message representing the Connection Manager integration status and settings for a cluster.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+True if the integration for the cluster is enabled.
+Set to true to enable the integration.
+Disabling the integration is not supported. ||
+|| connectionsFolderId | **string**
+
+ID of the folder where connections for the cluster are created.
+Optional. Defaults to the cluster's folder if not specified. ||
+|| secretsFolderId | **string**
+
+A Connection Manager setting for connections created by MDB integration.
+ID of the folder where connection secrets are created.
+Optional. Defaults to the cluster's folder if not specified. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.clickhouse.v1.HostSpec}

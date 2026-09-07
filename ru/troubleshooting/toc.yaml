@@ -153,16 +153,6 @@ items:
       - name: Примеры конфигураций и сценариев {{ certificate-manager-name }}
         href: certificate-manager/how-to/index.md
         hidden: true
-  - name: '{{ mch-name }}'
-    items:
-      - name: Все решения для {{ mch-name }}
-        href: clickhouse/index.md
-      - name: Решения для известных проблем {{ mch-name }}
-        href: clickhouse/known-issues/index.md
-        hidden: true
-      - name: Примеры конфигураций и сценариев {{ mch-name }}
-        href: clickhouse/how-to/index.md
-        hidden: true
   - name: '{{ cdn-name }}'
     items:
       - name: Все решения для {{ cdn-name }}

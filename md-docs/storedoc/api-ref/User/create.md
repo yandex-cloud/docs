@@ -47,7 +47,7 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || userSpec | **[UserSpec](#yandex.cloud.mdb.mongodb.v1.UserSpec)**
 
-Properties of the user to be created. ||
+Required field. Properties of the user to be created. ||
 |#
 
 ## UserSpec {#yandex.cloud.mdb.mongodb.v1.UserSpec}
@@ -62,6 +62,7 @@ The maximum string length in characters is 63. Value must match the regular expr
 || password | **string**
 
 Password of the MongoDB user.
+Must not be set for users with the [AuthType.AUTH_TYPE_IAM](../Cluster/create.md#yandex.cloud.mdb.mongodb.v1.AuthType) authentication type.
 
 The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**

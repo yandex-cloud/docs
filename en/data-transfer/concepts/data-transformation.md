@@ -23,7 +23,13 @@ You can set rules for renaming tables by specifying the current names of the tab
 You can set up a list of table columns to transfer:
 
 1. List the tables to filter using lists of included and excluded tables.
-1. List the columns to transfer to the target tables using lists of included and excluded columns.
+1. Use lists of included and excluded columns to list columns you want transferred to the target tables.
+
+{% note info %}
+
+Column filtering is done at the final stage of data processing, after the row has been completely read from the source and has gone through initial transformations, e.g., type mapping or value changes.
+
+{% endnote %}
 
 ### Data masking {#data-mask}
 

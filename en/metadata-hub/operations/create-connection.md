@@ -310,7 +310,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.clickhouse`: Parameters for connecting to the {{ mch-name }} cluster:
 
@@ -468,7 +468,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.mysql`: Parameters for connecting to the {{ mmy-name }} cluster:
 
@@ -628,7 +628,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.valkey`: Parameters for connecting to the {{ mrd-name }} cluster:
 
@@ -776,7 +776,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.opensearch`: Parameters for connecting to the {{ mos-name }} cluster:
 
@@ -932,7 +932,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.mongodb`: Parameters for connecting to the {{ mmg-name }} cluster:
 
@@ -1104,7 +1104,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.kafka`: Parameters for connecting to the {{ mkf-name }} cluster:
 
@@ -1272,7 +1272,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.greenplum`: Parameters for connecting to the {{ mgp-name }} cluster:
 
@@ -1448,7 +1448,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.postgresql`: Parameters for connecting to the custom {{ PG }} installation:
         
@@ -1649,7 +1649,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.clickhouse`: Parameters for connecting to the custom {{ CH }} installation:
         
@@ -1827,7 +1827,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.mysql`: Parameters for connecting to the custom {{ MY }} installation:
         
@@ -2021,7 +2021,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.redis`: Parameters for connecting to the custom {{ RD }} installation:
         
@@ -2199,7 +2199,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.valkey`: Parameters for connecting to the custom {{ VLK }} installation:
         
@@ -2366,7 +2366,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.trino`: Parameters for connecting to the custom {{ TR }} installation:
         
@@ -2544,7 +2544,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.opensearch`: Parameters for connecting to the custom {{ OS }} installation:
         
@@ -2716,7 +2716,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.mongodb`: Parameters for connecting to the custom {{ MG }} installation:
         
@@ -2923,7 +2923,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.kafka`: Parameters for connecting to the custom {{ KF }} installation:
         
@@ -3111,7 +3111,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.greenplum`: Parameters for connecting to the custom {{ GP }} installation:
         

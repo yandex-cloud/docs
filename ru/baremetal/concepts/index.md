@@ -58,6 +58,8 @@
 * [{#T}](./network.md)
 * [{#T}](./dhcp.md)
 * [{#T}](./network-restrictions.md)
+* [Свое или чужое: сколько на самом деле стоит серверная и где скрыта выгода bare metal](https://yandex.cloud/ru/blog/baremetal-vs-on-premises)
+* [Гибридная инфраструктура: гайд по выбору и оптимизации затрат](https://yandex.cloud/ru/blog/hybrid-infrastructure)
 * [Bare metal: полный контроль и высокая производительность](https://yandex.cloud/ru/blog/bare-metal-guide)
 * [{{ baremetal-full-name }} получил сертификат высшего уровня защиты персональных данных](https://yandex.cloud/ru/blog/yandex-baremetal-certificate)
 * [Как не нужно работать с выделенными серверами](https://yandex.cloud/ru/blog/how-to-bare-metal)

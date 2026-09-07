@@ -46,6 +46,7 @@ redis-cli -h c-c9qash3nb1v9********.rw.{{ dns-zone }} \
 
 {% include [special-fqdns-warning](../../../_includes/mdb/special-fqdns-warning.md) %}
 
+Для определения мастера можно использовать [Sentinel](clients.md#redis-sentinel).
 
 ## Стабильные FQDN {#stable-fqdns}
 

@@ -23,6 +23,7 @@ description: Следуя данной инструкции, вы сможете
      
      * **{{ ui-key.yacloud_video.streams.option_segment-duration-standart }}** (15-20 секунд) — обеспечивает высокое качество картинки и устойчивость к нестабильному соединению. Подходит для трансляций, где нет активного взаимодействия со зрителями в реальном времени.
      * **{{ ui-key.yacloud_video.streams.option_segment-duration-low }}** (4-5 секунд) — подходит для сценариев с активным взаимодействием со зрителями, но более чувствительна к качеству сети.
+  
   1. Для автоматической публикации эпизодов при подаче входящего сигнала активируйте опцию **{{ ui-key.yacloud_video.streams.label_auto-publish-streams }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 
@@ -41,8 +42,8 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud_video.streams.title_stream-episodes }}** напротив нужного эпизода нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_edit }}**.
   1. В поле **{{ ui-key.yacloud_video.streams.label_episode-type }}** выберите режим:
 
-     * `{{ ui-key.yacloud_video.streams.label_episode-type-live }}` — показ в реальном времени с перемоткой назад.
-     * `{{ ui-key.yacloud_video.streams.label_episode-type-broadcast }}` — показ в определенное время с записью.
+     * `{{ ui-key.yacloud_video.streams.label_episode-type-live }}` — непрерывный эфир без заданного времени окончания. Запись не сохраняется: доступна только перемотка назад в пределах [буфера перемотки](*rewind-buffer).
+     * `Эфир с записью` — эфир с заданными временем начала и окончания. Запись сохраняется и остается доступной после эфира.
 
   1. Измените имя и описание эпизода.
   1. В списке **Доступ** измените тип доступа к эпизоду:
@@ -52,8 +53,8 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [video-temporary-links](../../../_includes/video/video-temporary-links.md) %}
 
-  1. При выборе типа эпизода `{{ ui-key.yacloud_video.streams.label_episode-type-live }}` в поле **{{ ui-key.yacloud_video.streams.label_rewind-buffer }}** укажите время в секундах, на которое плеер заранее загружает видео вокруг текущей позиции, чтобы перемотка происходила без пауз.
-  1. При выборе типа эпизода **{{ ui-key.yacloud_video.streams.label_episode-type-broadcast }}** в полях **{{ ui-key.yacloud_video.streams.label_stream-episode-start }}** и **{{ ui-key.yacloud_video.streams.label_stream-episode-end }}** укажите даты и время периода трансляции.
+  1. При выборе типа эпизода `{{ ui-key.yacloud_video.streams.label_episode-type-live }}` в поле **{{ ui-key.yacloud_video.streams.label_rewind-buffer }}** укажите время в секундах, на которое зритель может перематывать эфир назад.
+  1. При выборе типа эпизода **Эфир с записью** в полях **{{ ui-key.yacloud_video.streams.label_stream-episode-start }}** и **{{ ui-key.yacloud_video.streams.label_stream-episode-end }}** укажите даты и время периода трансляции.
   
       {% note tip %}
 
@@ -61,7 +62,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% endnote %}
 
-  1. Включите или выключите рекламу. Для включения заранее [настройте](../../operations/channels/settings.md#ad-settings) показ рекламы.
+  1. Включите или выключите монетизацию. Для включения заранее [настройте](../../operations/channels/settings.md#ad-settings) ее.
   1. Чтобы изменить [шаблон плеера](../../concepts/player.md#player-presets), в списке **{{ ui-key.yacloud_video.streams.label_player-template }}** выберите нужный из доступных в канале или создайте новый.
   1. Чтобы изменить обложку, нажмите ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите новое изображение для обложки.
 
@@ -76,3 +77,5 @@ description: Следуя данной инструкции, вы сможете
   Воспользуйтесь методом REST API [update](../../api-ref/Episode/update.md) для ресурса [Episode](../../api-ref/Episode/index.md) или вызовом gRPC API [EpisodeService/Update](../../api-ref/grpc/Episode/update.md).
 
 {% endlist %}
+
+[*rewind-buffer]: {% include notitle [rewind-buffer](../../../_popups/video/streams.md#rewind-buffer) %}

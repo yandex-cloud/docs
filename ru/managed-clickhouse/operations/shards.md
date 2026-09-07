@@ -27,8 +27,12 @@
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.Cluster.Shards.action_add-shards_iULX7 }}**.
   1. Нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нового шарда, чтобы изменить его параметры:
+
       * имя и вес;
       * конфигурацию хостов шарда.
+
+      {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
   1. (Опционально) Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.add_shard-btn }}**, чтобы добавить дополнительные шарды, и укажите их параметры.
   1. (Опционально) Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**, чтобы добавить дополнительные хосты, и укажите их параметры.
   1. Чтобы скопировать схему со случайной реплики одного из шардов на хосты новых шардов, выберите опцию **{{ ui-key.yacloud.mdb.forms.field_copy_schema }}**.
@@ -82,6 +86,8 @@
 
           * `weight` — вес шарда.
 
+            {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
       * `--host` — параметры хоста, который будет добавлен в шард:
 
           
@@ -126,6 +132,8 @@
      }
      ```
 
+     {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
   1. (Опционально) Чтобы скопировать схему со случайной реплики одного из шардов на хосты новых шардов, добавьте к описанию кластера поле `copy_schema_on_new_hosts` со значением `true`.
 
      {% include [warning-schema-copy](../../_includes/managed-clickhouse/warning-schema-copy.md) %}
@@ -138,7 +146,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_v2).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -196,11 +204,7 @@
 
         * `configSpec.clickhouse.weight` — вес шарда.
 
-          По умолчанию каждому шарду назначается вес `1`. Если какому-либо шарду назначить вес больше, данные будут распределены между шардами в соответствии с весами.
-
-          При расчете приоритета шарда при распределении данных складываются веса всех шардов, далее вес каждого шарда делится на полученную сумму. Например, если у одного шарда вес `1`, а у другого — `3`, то у первого шарда приоритет `1/4`, а у второго — `3/4`. Чем выше приоритет, тем больше данных окажется на шарде.
-
-          Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
+          {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
 
         * `hostSpecs` — настройки хостов, которые будут добавлены в шард. Настройки представлены в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
@@ -285,11 +289,7 @@
 
           * `config_spec.clickhouse.weight` — вес шарда.
 
-            По умолчанию каждому шарду назначается вес `1`. Если какому-либо шарду назначить вес больше, данные будут распределены между шардами в соответствии с весами.
-
-            При расчете приоритета шарда при распределении данных складываются веса всех шардов, далее вес каждого шарда делится на полученную сумму. Например, если у одного шарда вес `1`, а у другого — `3`, то у первого шарда приоритет `1/4`, а у второго — `3/4`. Чем выше приоритет, тем больше данных окажется на шарде.
-
-            Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
+            {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
 
         * `host_specs` — настройки хостов, которые будут добавлены в шард. Настройки представлены в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
@@ -463,6 +463,9 @@
 
      * `--cluster-name` — имя кластера. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
      * `--weight` — вес шарда. Минимальное значение — `0`.
+
+       {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
      * `--clickhouse-resource-preset` — [класс хостов](../concepts/instance-types.md).
      * `--clickhouse-disk-size` — размер хранилища в гигабайтах.
      * `--clickhouse-disk-type` — [тип диска](../concepts/storage.md).
@@ -520,11 +523,7 @@
 
        * `weight` — вес шарда.
 
-         По умолчанию каждому шарду назначается вес `1`. Если какому-либо шарду назначить вес больше, данные будут распределены между шардами в соответствии с весами.
-
-         При расчете приоритета шарда при распределении данных складываются веса всех шардов, далее вес каждого шарда делится на полученную сумму. Например, если у одного шарда вес `1`, а у другого — `3`, то у первого шарда приоритет `1/4`, а у второго — `3/4`. Чем выше приоритет, тем больше данных окажется на шарде.
-
-         Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
+         {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
 
      * `allowHostRecreation` — разрешить кластеру пересоздать хосты (параметр обязателен при изменении типа диска).
 
@@ -595,11 +594,7 @@
 
        * `weight` — вес шарда.
 
-         По умолчанию каждому шарду назначается вес `1`. Если какому-либо шарду назначить вес больше, данные будут распределены между шардами в соответствии с весами.
-
-         При расчете приоритета шарда при распределении данных складываются веса всех шардов, далее вес каждого шарда делится на полученную сумму. Например, если у одного шарда вес `1`, а у другого — `3`, то у первого шарда приоритет `1/4`, а у второго — `3/4`. Чем выше приоритет, тем больше данных окажется на шарде.
-
-         Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
+         {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
 
      * `allow_host_recreation` — разрешить кластеру пересоздать хосты (параметр обязателен при изменении типа диска).
 
@@ -663,7 +658,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_v2).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 

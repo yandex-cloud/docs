@@ -93,7 +93,8 @@ The maximum string length in characters is 100. ||
       "size": "string",
       "type": "string",
       "method": "string",
-      "journalSize": "string"
+      "journalSize": "string",
+      "sharedSize": "string"
     }
   ],
   "nextPageToken": "string"
@@ -163,4 +164,8 @@ Method of backup creation.
 || journalSize | **string** (int64)
 
 Size of the journal associated with backup, in bytes. ||
+|| sharedSize | **string** (int64)
+
+Size of data added by this backup to storage shared between backups, in bytes.
+This value may change when backups are deleted and shared data is attributed to another backup. ||
 |#

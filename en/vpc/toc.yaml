@@ -997,7 +997,7 @@ items:
                     href: privatelink/api-ref/grpc/PrivateEndpoint/delete.md
                   - name: ListOperations
                     href: privatelink/api-ref/grpc/PrivateEndpoint/listOperations.md
-  - name: Metrics {{ monitoring-name }}
+  - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md

@@ -32,7 +32,8 @@ POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters
       "dataLens": "boolean",
       "webSql": "boolean",
       "dataTransfer": "boolean",
-      "yandexQuery": "boolean"
+      "yandexQuery": "boolean",
+      "trino": "boolean"
     },
     "zoneId": "string",
     "subnetId": "string",
@@ -226,7 +227,8 @@ POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters
     "commandCenterEnabled": "boolean",
     "greenplumEnabled": "boolean",
     "poolerEnabled": "boolean"
-  }
+  },
+  "diskEncryptionKeyId": "string"
 }
 ```
 
@@ -322,6 +324,9 @@ ID of the service account used for access Yandex Cloud resources. ||
 || logging | **[LoggingConfig](#yandex.cloud.mdb.greenplum.v1.LoggingConfig)**
 
 Cloud logging configuration ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## GreenplumConfig {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig}
@@ -406,6 +411,9 @@ Allows access for DataTransfer. ||
 || yandexQuery | **boolean**
 
 Allow access for YandexQuery. ||
+|| trino | **boolean**
+
+Allow safety access for trino ||
 |#
 
 ## MasterSubclusterConfigSpec {#yandex.cloud.mdb.greenplum.v1.MasterSubclusterConfigSpec}

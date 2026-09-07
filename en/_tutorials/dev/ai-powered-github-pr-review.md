@@ -106,7 +106,7 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md) to s
 
 ### Create service accounts {#create-sa}
 
-Create two [service accounts](../../iam/concepts/users/service-accounts.md):
+Create these two [service accounts](../../iam/concepts/users/service-accounts.md):
 * `workflow-sa`: This one will be used to run the {{ sw-name }} [workflow](../../serverless-integrations/concepts/workflows/workflow.md).
 * `github-worker`: This one will be used to execute the workflow on a request from the GitHub Actions script.
 

@@ -37,7 +37,8 @@ Required field. ID of the backup to return. ||
   "size": "int64",
   "type": "BackupCreationType",
   "method": "BackupMethod",
-  "journal_size": "int64"
+  "journal_size": "int64",
+  "shared_size": "int64"
 }
 ```
 
@@ -76,4 +77,8 @@ Method of backup creation.
 || journal_size | **int64**
 
 Size of the journal associated with backup, in bytes. ||
+|| shared_size | **int64**
+
+Size of data added by this backup to storage shared between backups, in bytes.
+This value may change when backups are deleted and shared data is attributed to another backup. ||
 |#

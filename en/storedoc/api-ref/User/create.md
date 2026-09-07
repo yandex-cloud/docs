@@ -23,8 +23,10 @@ apiPlayground:
         userSpec:
           description: |-
             **[UserSpec](#yandex.cloud.mdb.mongodb.v1.UserSpec)**
-            Properties of the user to be created.
+            Required field. Properties of the user to be created.
           $ref: '#/definitions/UserSpec'
+      required:
+        - userSpec
       additionalProperties: false
     definitions:
       Permission:
@@ -56,6 +58,7 @@ apiPlayground:
             description: |-
               **string**
               Password of the MongoDB user.
+              Must not be set for users with the [AuthType.AUTH_TYPE_IAM](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.AuthType) authentication type.
               The maximum string length in characters is 128.
             type: string
           permissions:
@@ -132,7 +135,7 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || userSpec | **[UserSpec](#yandex.cloud.mdb.mongodb.v1.UserSpec)**
 
-Properties of the user to be created. ||
+Required field. Properties of the user to be created. ||
 |#
 
 ## UserSpec {#yandex.cloud.mdb.mongodb.v1.UserSpec}
@@ -147,6 +150,7 @@ The maximum string length in characters is 63. Value must match the regular expr
 || password | **string**
 
 Password of the MongoDB user.
+Must not be set for users with the [AuthType.AUTH_TYPE_IAM](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.AuthType) authentication type.
 
 The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**

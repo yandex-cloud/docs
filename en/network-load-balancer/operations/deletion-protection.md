@@ -22,7 +22,7 @@ Even with balancer deletion protection enabled, one can still delete its listene
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-    1. To the right of your load balancer name, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+    1. To the right of your load balancer name, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. Enable the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_deletion-protection }}** setting.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -92,7 +92,7 @@ Even with balancer deletion protection enabled, one can still delete its listene
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-    1. To the right of your load balancer name, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+    1. To the right of your load balancer name, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. Disable the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_deletion-protection }}** setting.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 

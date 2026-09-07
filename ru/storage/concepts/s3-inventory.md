@@ -181,3 +181,4 @@ source-bucket-name,some-file-key-2,647168,2025-05-25 22:05:28.12345+00,COLD,7f94
 * [{#T}](../operations/buckets/manage-s3-inventory.md)
 * [{#T}](../operations/objects/download.md)
 * [{#T}](./server-logs.md)
+* [S3 Inventory в {{ yandex-cloud }}: аудит бакетов без миллионов вызовов S3 API](https://yandex.cloud/ru/blog/how-to-s3-inventory)

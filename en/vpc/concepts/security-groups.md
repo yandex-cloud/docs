@@ -40,6 +40,12 @@ The default security group allows all incoming traffic from any IPv4 address. Fo
 
 {% endnote %}
 
+{% note warning %}
+
+The default security group allows incoming traffic over `SSH` and `RDP` from any IPv4 address. For production resources, especially those with public IP addresses, [create](../operations/security-group-create.md) a custom security group that only allows required traffic.
+
+{% endnote %}
+
 You cannot manually delete a default security group. It is deleted automatically when you delete the respective network.
 
 ## Scope of use for security groups {#security-groups-apply}

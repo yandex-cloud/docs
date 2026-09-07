@@ -59,8 +59,8 @@ apiPlayground:
               **string**
               Required field. Name of the user to be assigned as the owner of the database.
               To get the list of available PostgreSQL users, make a [UserService.List](/docs/managed-postgresql/api-ref/User/list#List) request.
-              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-            pattern: '[a-zA-Z0-9_-]*'
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_@.-]* `.
+            pattern: '[a-zA-Z0-9_@.-]*'
             type: string
           lcCollate:
             description: |-
@@ -168,7 +168,7 @@ The maximum string length in characters is 63. Value must match the regular expr
 Required field. Name of the user to be assigned as the owner of the database.
 To get the list of available PostgreSQL users, make a [UserService.List](/docs/managed-postgresql/api-ref/User/list#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_@.-]* `. ||
 || lcCollate | **string**
 
 POSIX locale for string sorting order.

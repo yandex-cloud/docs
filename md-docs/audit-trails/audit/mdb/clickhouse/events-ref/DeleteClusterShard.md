@@ -105,6 +105,8 @@
               "backgroundMessageBrokerSchedulePoolSize": "string",
               "backgroundCommonPoolSize": "string",
               "dictionariesLazyLoad": "boolean",
+              "shutdownWaitUnfinishedQueries": "boolean",
+              "shutdownWaitUnfinished": "string",
               "logLevel": "string",
               "queryLogRetentionSize": "string",
               "queryLogRetentionTime": "string",
@@ -455,6 +457,8 @@
               "backgroundMessageBrokerSchedulePoolSize": "string",
               "backgroundCommonPoolSize": "string",
               "dictionariesLazyLoad": "boolean",
+              "shutdownWaitUnfinishedQueries": "boolean",
+              "shutdownWaitUnfinished": "string",
               "logLevel": "string",
               "queryLogRetentionSize": "string",
               "queryLogRetentionTime": "string",
@@ -805,6 +809,8 @@
               "backgroundMessageBrokerSchedulePoolSize": "string",
               "backgroundCommonPoolSize": "string",
               "dictionariesLazyLoad": "boolean",
+              "shutdownWaitUnfinishedQueries": "boolean",
+              "shutdownWaitUnfinished": "string",
               "logLevel": "string",
               "queryLogRetentionSize": "string",
               "queryLogRetentionTime": "string",
@@ -1385,6 +1391,8 @@ A list of messages that carry the error details. ||
 || backgroundMessageBrokerSchedulePoolSize | **string** (int64) ||
 || backgroundCommonPoolSize | **string** (int64) ||
 || dictionariesLazyLoad | **boolean** ||
+|| shutdownWaitUnfinishedQueries | **boolean** ||
+|| shutdownWaitUnfinished | **string** (int64) ||
 || logLevel | **enum** (LogLevel)
 
 - `TRACE`

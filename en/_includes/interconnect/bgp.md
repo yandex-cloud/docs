@@ -1,65 +1,62 @@
 ## BGP connectivity {#bgp-peering}
 
-BGP connectivity is configured within each private or public connection between the client equipment and {{ yandex-cloud }} equipment at the [point of presence](../../interconnect/concepts/pops.md) for exchanging subnet (prefix) data. After exchanging this routing data, the sides can distribute IPv4 traffic across the subnets they communicated to each other.
+BGP connectivity is required to exchange routing information, e.g., subnet prefixes, and is configured within each private or public connection between the customer’s and {{ yandex-cloud }} [point of presence](../../interconnect/concepts/pops.md) equipment. Once the sides exchange information about their subnets, they can route IPv4 traffic between them.
 
 {% note warning %}
 
-On the {{ yandex-cloud }} equipment side, there is a [limit](../../interconnect/concepts/limits.md#interconnect-limits) on the number of prefixes received from the client router over BGP.
-Once this limit is exceeded, the BGP session will be terminated for 30 minutes.
+{{ yandex-cloud }} equipment has a [limit](../../interconnect/concepts/limits.md#interconnect-limits) on the number of prefixes it can receive from the customer edge router over BGP.
+Once this limit has been exceeded, the BGP session will be terminated and restarted in 30 minutes.
 
-To maintain continuous BGP connectivity, we recommend setting up policies for routing information aggregation on the client router that will keep the number of prefixes announced over BGP towards the {{ yandex-cloud }} equipment at a reasonable and required level.
+For uninterrupted BGP connectivity, we recommend configuring your router to aggregate routing information, which will allow you to minimize the number of prefixes announced over BGP to the {{ yandex-cloud }} equipment.
 
 {% endnote %}
 
 ### BGP ASN {#bgp-asn}
 
-To set up BGP connectivity, each side must specify the BGP autonomous system number (ASN) in ASPlain format. The BGP ASN value for {{ yandex-cloud }} is fixed at **{{ cic-bgp-asn }}**.
+To set up BGP connectivity, each side must specify the BGP autonomous system number (ASN) in ASPlain format. The {{ yandex-cloud }} BGP ASN is **{{ cic-bgp-asn }}**.
 
-On client equipment, you are **allowed** to use the public BGP ASN (if available). On client equipment, you are **allowed** to use any value from the following [RFC 6996](https://datatracker.ietf.org/doc/rfc6996) ranges of private BGP ASNs:
-* `64512 - 65534`: For two-byte BGP ASNs.
-* `4200000000 - 4294967294`: For four-byte BGP ASNs.
+You are **allowed** to use a public BGP ASN (if you have one) on the customer edge equipment. You are **allowed** to use any value from the following ([RFC 6996](https://datatracker.ietf.org/doc/rfc6996)) private BGP ASN ranges on the customer edge equipment:
+* `64512 - 65534`: For 2-byte BGP ASNs.
+* `4200000000 - 4294967294`: For 4-byte BGP ASNs.
 
-On client equipment, you are **not allowed** to use the following [RFC 5398](https://datatracker.ietf.org/doc/rfc5398) ranges of BGP ASNs:
-* `64496 – 64511`: For two-byte BGP ASNs.
-* `65536 – 65551`: For four-byte BGP ASNs.
+You are **not allowed** to use the following ([RFC 5398](https://datatracker.ietf.org/doc/rfc5398)) BGP ASN ranges on the customer edge equipment:
+* `64496 – 64511`: For 2-byte BGP ASNs.
+* `65536 – 65551`: For 4-byte BGP ASNs.
 
-On client equipment, you are **not allowed** to include any BGP ASN from the above ranges in the BGP `AS_Path` attribute.
+You are **not allowed** to include any BGP ASN from the above ranges in the BGP `AS_Path` attribute on the customer edge equipment.
 
 {% note warning %}
 
-On the {{ yandex-cloud }} side, a 4-byte BGP ASN value, **{{ cic-bgp-asn }}**, is used. When using network equipment from different vendors, 2-byte BGP ASNs are often preferred as the most common option.
+{{ yandex-cloud }} has a 4-byte BGP ASN of **{{ cic-bgp-asn }}**. Many network equipment vendors prefer more common 2-byte ASN format. 
 
-When setting up BGP connectivity on the client router side, make sure to explicitly allow 4-byte BGP ASNs in its configuration.
+When configuring BGP on your customer edge router, make sure to explicitly allow it to use 4-byte ASNs.
 
-When setting up BGP interaction on the client router, for public connections on public IPv4 addresses owned by the client, make sure to specify the client's public BGP ASN.
+When configuring BGP on your customer edge router, make sure to specify your public BGP ASN for public connections using your public IPv4 addresses.
 
 {% endnote %}
 
-
-
 ### BGP authentication (optional) {#bgp-auth}
 
-To increase security of a BGP connection, you can use BGP authentication based on `BGP MD5 password`. If you enable this feature, use a string of more than 20 characters as a password, which may include Latin letters, numbers, and special characters.
+For better BGP connection security, you can use BGP authentication based on `BGP MD5 password`. We recommend using passwords at least 20 characters long, including letters, numbers, and special characters.
 
 ### BFD protocol {#bfd}
 
-If a client cannot connect their router directly to the {{ yandex-cloud }} equipment, they can use intermediate network devices (switches). For fast fault detection on the intermediate network devices, use the [BFD protocol](https://en.wikipedia.org/wiki/Bidirectional_Forwarding_Detection).
+If you cannot connect your router to the {{ yandex-cloud }} equipment directly, you can use intermediate network devices, e.g., switches. The [BFD protocol](https://en.wikipedia.org/wiki/Bidirectional_Forwarding_Detection) is used to quickly detect faults on the intermediate network devices.
 
-The BFD protocol is always enabled on the {{ yandex-cloud }} equipment side and has the following parameter values:
+The BFD protocol is always enabled on the {{ yandex-cloud }} equipment with the following settings:
 * `timer`: 300ms
 * `multiplier`: 3
 
 These values are fixed and cannot be changed manually.
 
-The client can configure the `timer` value on their equipment as needed. When establishing a BFD session, these parameters will be aligned over BFD between the client and {{ yandex-cloud }} equipment.
+You can configure the `timer` setting on your equipment as needed. When establishing a BFD session, these parameters will be aligned between the customer’s and {{ yandex-cloud }} equipment.
 
 We do not recommend setting `multiplier` to anything other than 3, as this may cause BFD performance issues.
 
 ### BGP timers {#timers}
 
-Below you can see the values (in seconds) of timers configured on the {{ yandex-cloud }} equipment by default:
+Below you can see the {{ yandex-cloud }} default timer values in seconds:
 
 * `minimum-hold-time` = `90`
 
-Using values below the specified ones on the client equipment side will cause issues with establishing a BGP adjacency.
-
+Using values less than the specified ones on the customer edge equipment will cause issues with establishing a BGP adjacency.

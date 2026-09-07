@@ -13,9 +13,8 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListResourcePresetsResponse)
             that can be used to get the next page of results in subsequent list requests.
-            Acceptable values are 0 to 1000, inclusive. Default value: 100.
-            The maximum value is 1000.
-          default: '100'
+            Acceptable values are 0 to 1000, inclusive.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -49,9 +48,9 @@ GET https://{{ api-host-mdb }}/managed-mongodb/v1/resourcePresets
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListResourcePresetsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100.
+Acceptable values are 0 to 1000, inclusive.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the

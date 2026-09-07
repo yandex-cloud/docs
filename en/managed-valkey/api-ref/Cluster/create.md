@@ -32,11 +32,11 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster.
             For example, "project": "mvp" or "source": "dictionary".
-            The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. Each value must match the regular expression ` [-_./\@0-9a-z]* `. No more than 64 per resource.
+            The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
-            pattern: '[-_./\@0-9a-z]*'
+            pattern: '[-_0-9a-z]*'
             maxLength: 63
           propertyNames:
             type: string
@@ -72,7 +72,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the network to create the cluster in.
-            The maximum string length in characters is 150.
+            The maximum string length in characters is 50.
           type: string
         sharded:
           description: |-
@@ -100,9 +100,12 @@ apiPlayground:
           description: |-
             **enum** (PersistenceMode)
             Persistence mode
-            - `ON`: Cluster persistence mode is on.
-            - `OFF`: Cluster persistence mode is off.
-            - `ON_REPLICAS`: Cluster persistence is on for replicas only.
+            - `ON`: Persistence is enabled on every host of the cluster: the append-only file
+            (AOF) is written on masters and replicas alike.
+            - `OFF`: Persistence is disabled: neither the append-only file (AOF) nor RDB
+            snapshots are written, all data is kept in memory only.
+            - `ON_REPLICAS`: The append-only file (AOF) is written on replicas only, masters do not
+            persist data to disk.
           type: string
           enum:
             - 'ON'
@@ -523,8 +526,9 @@ apiPlayground:
           resourcePresetId:
             description: |-
               **string**
-              Required field. ID of the preset for computational resources available to a host (CPU, memory etc.).
-              All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types).
+              ID of the preset for computational resources available to a host (CPU, memory etc.).
+              To get the list of available presets, use a [ResourcePresetService.List](/docs/managed-redis/api-ref/ResourcePreset/list#List) request;
+              presets are also listed in the [documentation](/docs/managed-redis/concepts/instance-types).
             type: string
           diskSize:
             description: |-
@@ -540,8 +544,6 @@ apiPlayground:
               * network-ssd - network SSD drive,
               * local-ssd - local SSD storage.
             type: string
-        required:
-          - resourcePresetId
       TimeOfDay:
         type: object
         properties:
@@ -620,19 +622,20 @@ apiPlayground:
               **string** (int64)
               Time that Redis keeps the connection open while the client is idle.
               If no new command is sent during that time, the connection is closed.
-              The minimum value is 0.
             type: string
             format: int64
           password:
             description: |-
               **string**
               Authentication password.
+              Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_%-]{0,128} `.
+            pattern: '[a-zA-Z0-9@=+?*.,!&#$^<>_%-]{0,128}'
             type: string
           databases:
             description: |-
               **string** (int64)
               Number of database buckets on a single redis-server process.
-              Acceptable values are 1 to 1024, inclusive.
+              Value must be greater than 0.
             type: string
             format: int64
           slowlogLogSlowerThan:
@@ -653,6 +656,8 @@ apiPlayground:
             description: |-
               **string**
               String setting for pub\sub functionality.
+              Value must match the regular expression ` [KEg$lshzxeAtmdn]{0,15} `.
+            pattern: '[KEg$lshzxeAtmdn]{0,15}'
             type: string
           clientOutputBufferLimitPubsub:
             description: |-
@@ -667,7 +672,7 @@ apiPlayground:
           maxmemoryPercent:
             description: |-
               **string** (int64)
-              Redis maxmemory percent
+              Share of the host RAM used as the Redis maxmemory limit, in percent.
               Acceptable values are 1 to 75, inclusive.
             type: string
             format: int64
@@ -681,29 +686,29 @@ apiPlayground:
           replBacklogSizePercent:
             description: |-
               **string** (int64)
-              Replication backlog size as a percentage of flavor maxmemory
+              Replication backlog size as a percentage of the host RAM.
               Acceptable values are 1 to 75, inclusive.
             type: string
             format: int64
           clusterRequireFullCoverage:
             description: |-
               **boolean**
-              Controls whether all hash slots must be covered by nodes
+              Controls whether all hash slots must be covered by nodes.
             type: boolean
           clusterAllowReadsWhenDown:
             description: |-
               **boolean**
-              Allows read operations when cluster is down
+              Allows read operations when cluster is down.
             type: boolean
           clusterAllowPubsubshardWhenDown:
             description: |-
               **boolean**
-              Permits Pub/Sub shard operations when cluster is down
+              Permits Pub/Sub shard operations when cluster is down.
             type: boolean
           lfuDecayTime:
             description: |-
               **string** (int64)
-              The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10)
+              The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10).
               Acceptable values are 0 to 100000, inclusive.
             type: string
             format: int64
@@ -732,19 +737,20 @@ apiPlayground:
           ioThreadsAllowed:
             description: |-
               **boolean**
-              Allow redis to use io-threads
+              Allow redis to use io-threads. When enabled, the number of threads is
+              derived from the host class; when disabled, a single thread is used.
             type: boolean
           zsetMaxListpackEntries:
             description: |-
               **string** (int64)
-              Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist
+              Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist.
               Acceptable values are 32 to 2048, inclusive.
             type: string
             format: int64
           aofMaxSizePercent:
             description: |-
               **string** (int64)
-              AOF maximum size as a percentage of disk available
+              AOF maximum size as a percentage of the host disk size.
               Acceptable values are 1 to 99, inclusive.
             type: string
             format: int64
@@ -797,14 +803,14 @@ apiPlayground:
           readerThreads:
             description: |-
               **string** (int64)
-              Controls the amount of threads executing queries
+              Controls the amount of threads executing queries.
               The minimum value is 0.
             type: string
             format: int64
           writerThreads:
             description: |-
               **string** (int64)
-              Controls the amount of threads processing index mutations
+              Controls the amount of threads processing index mutations.
               The minimum value is 0.
             type: string
             format: int64
@@ -845,17 +851,17 @@ apiPlayground:
           valkeySearch:
             description: |-
               **[ValkeySearch](#yandex.cloud.mdb.redis.v1.ValkeySearch)**
-              valkey-search module settings
+              valkey-search module settings: vector and full-text search.
             $ref: '#/definitions/ValkeySearch'
           valkeyJson:
             description: |-
               **[ValkeyJson](#yandex.cloud.mdb.redis.v1.ValkeyJson)**
-              valkey-json module settings
+              valkey-json module settings: the JSON data type and commands.
             $ref: '#/definitions/ValkeyJson'
           valkeyBloom:
             description: |-
               **[ValkeyBloom](#yandex.cloud.mdb.redis.v1.ValkeyBloom)**
-              valkey-bloom module settings
+              valkey-bloom module settings: probabilistic data structures.
             $ref: '#/definitions/ValkeyBloom'
       ShardAutoscalingThreshold:
         type: object
@@ -863,7 +869,7 @@ apiPlayground:
           downThreshold:
             description: |-
               **string** (int64)
-              Threshold for downscaling
+              Threshold for downscaling, in percent. Must be lower than [upThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold).
               Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
@@ -881,6 +887,8 @@ apiPlayground:
             description: |-
               **boolean**
               Whether shard autoscaling is enabled for the cluster.
+              When enabled, at least one of the thresholds must have a non-zero
+              [ShardAutoscalingThreshold.upThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold).
             type: boolean
           minShards:
             description: |-
@@ -893,6 +901,8 @@ apiPlayground:
             description: |-
               **string** (int64)
               Maximum number of shards the cluster can scale up to.
+              Must be greater than or equal to [minShards](#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings) and must not exceed
+              the maximum number of shards allowed for the cluster.
               The minimum value is 1.
             type: string
             format: int64
@@ -925,6 +935,7 @@ apiPlayground:
               Configuration of a Redis 5.0 server.
               Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
               Configuration of a Redis cluster.
+            deprecated: true
             $ref: '#/definitions/RedisConfig5_0'
           redisConfig_6_0:
             description: |-
@@ -932,6 +943,7 @@ apiPlayground:
               Configuration of a Redis 6.0 server.
               Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
               Configuration of a Redis cluster.
+            deprecated: true
             $ref: '#/definitions/RedisConfig6_0'
           redisConfig_6_2:
             description: |-
@@ -939,6 +951,7 @@ apiPlayground:
               Configuration of a Redis 6.2 server.
               Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
               Configuration of a Redis cluster.
+            deprecated: true
             $ref: '#/definitions/RedisConfig6_2'
           redisConfig_7_0:
             description: |-
@@ -946,6 +959,7 @@ apiPlayground:
               Configuration of a Redis 7.0 server.
               Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
               Configuration of a Redis cluster.
+            deprecated: true
             $ref: '#/definitions/RedisConfig7_0'
           resources:
             description: |-
@@ -965,7 +979,8 @@ apiPlayground:
           redis:
             description: |-
               **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig)**
-              Unified configuration of a Redis cluster
+              Unified configuration of a Redis cluster. Use this field for all currently
+              available versions.
             $ref: '#/definitions/RedisConfig'
           diskSizeAutoscaling:
             description: |-
@@ -987,7 +1002,9 @@ apiPlayground:
           tieredStorageEnabled:
             description: |-
               **boolean**
-              Enables tiered storage (disk + NVMe hot tier). Forces edition to 9.1-ts.
+              Enables tiered storage (disk + NVMe hot tier). Requires the tiered storage
+              edition: when the flag is set on creation, the cluster version is switched
+              to that edition.
             type: boolean
           shardAutoscalingSettings:
             description: |-
@@ -1011,7 +1028,6 @@ apiPlayground:
               **string**
               ID of the availability zone where the host resides.
               To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
-              The maximum string length in characters is 50.
             type: string
           subnetId:
             description: |-
@@ -1019,7 +1035,6 @@ apiPlayground:
               ID of the subnet that the host should belong to. This subnet should be a part
               of the network that the cluster belongs to.
               The ID of the network is set in the field [Cluster.networkId](/docs/managed-redis/api-ref/Cluster/get#yandex.cloud.mdb.redis.v1.Cluster).
-              The maximum string length in characters is 50.
             type: string
           shardName:
             description: |-
@@ -1148,7 +1163,8 @@ apiPlayground:
             description: |-
               **string**
               Password of the Redis user.
-              The maximum number of elements is 1.
+              Each value must match the regular expression ` ^[a-zA-Z0-9@=+?*.,!&#$^<>_-]*$ `. The maximum number of elements is 1.
+            pattern: ^[a-zA-Z0-9@=+?*.,!&#$^<>_-]*$
             uniqueItems: true
             type: array
             items:
@@ -1431,7 +1447,7 @@ The maximum string length in characters is 256. ||
 Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster.
 For example, "project": "mvp" or "source": "dictionary".
 
-The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. Each value must match the regular expression ` [-_./\@0-9a-z]* `. No more than 64 per resource. ||
+The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || environment | **enum** (Environment)
 
 Required field. Deployment environment of the Redis cluster.
@@ -1452,7 +1468,7 @@ The number of elements must be greater than 0. ||
 
 ID of the network to create the cluster in.
 
-The maximum string length in characters is 150. ||
+The maximum string length in characters is 50. ||
 || sharded | **boolean**
 
 Redis cluster mode on/off. ||
@@ -1469,9 +1485,12 @@ Deletion Protection inhibits deletion of the cluster ||
 
 Persistence mode
 
-- `ON`: Cluster persistence mode is on.
-- `OFF`: Cluster persistence mode is off.
-- `ON_REPLICAS`: Cluster persistence is on for replicas only. ||
+- `ON`: Persistence is enabled on every host of the cluster: the append-only file
+(AOF) is written on masters and replicas alike.
+- `OFF`: Persistence is disabled: neither the append-only file (AOF) nor RDB
+snapshots are written, all data is kept in memory only.
+- `ON_REPLICAS`: The append-only file (AOF) is written on replicas only, masters do not
+persist data to disk. ||
 || announceHostnames | **boolean**
 
 Enable FQDN instead of ip ||
@@ -1537,7 +1556,8 @@ Time to start the daily backup, in the UTC timezone. ||
 Access policy to DB ||
 || redis | **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig)**
 
-Unified configuration of a Redis cluster ||
+Unified configuration of a Redis cluster. Use this field for all currently
+available versions. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
@@ -1551,7 +1571,9 @@ Acceptable values are 7 to 60, inclusive. ||
 Valkey modules settings ||
 || tieredStorageEnabled | **boolean**
 
-Enables tiered storage (disk + NVMe hot tier). Forces edition to 9.1-ts. ||
+Enables tiered storage (disk + NVMe hot tier). Requires the tiered storage
+edition: when the flag is set on creation, the cluster version is switched
+to that edition. ||
 || shardAutoscalingSettings | **[ShardAutoscalingSettings](#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings)**
 
 Shard autoscaling settings for the cluster. ||
@@ -1909,8 +1931,9 @@ The minimum value is 0. ||
 ||Field | Description ||
 || resourcePresetId | **string**
 
-Required field. ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). ||
+ID of the preset for computational resources available to a host (CPU, memory etc.).
+To get the list of available presets, use a [ResourcePresetService.List](/docs/managed-redis/api-ref/ResourcePreset/list#List) request;
+presets are also listed in the [documentation](/docs/managed-redis/concepts/instance-types). ||
 || diskSize | **string** (int64)
 
 Volume of the storage available to a host, in bytes. ||
@@ -1985,17 +2008,17 @@ more memory to be used. ||
 || timeout | **string** (int64)
 
 Time that Redis keeps the connection open while the client is idle.
-If no new command is sent during that time, the connection is closed.
-
-The minimum value is 0. ||
+If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_%-]{0,128} `. ||
 || databases | **string** (int64)
 
 Number of database buckets on a single redis-server process.
 
-Acceptable values are 1 to 1024, inclusive. ||
+Value must be greater than 0. ||
 || slowlogLogSlowerThan | **string** (int64)
 
 Threshold for logging slow requests to server in microseconds (log only slower than it).
@@ -2008,7 +2031,9 @@ Max slow requests number to log.
 The minimum value is 0. ||
 || notifyKeyspaceEvents | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtmdn]{0,15} `. ||
 || clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -2017,7 +2042,7 @@ Redis connection output buffers limits for pubsub operations. ||
 Redis connection output buffers limits for clients. ||
 || maxmemoryPercent | **string** (int64)
 
-Redis maxmemory percent
+Share of the host RAM used as the Redis maxmemory limit, in percent.
 
 Acceptable values are 1 to 75, inclusive. ||
 || luaTimeLimit | **string** (int64)
@@ -2027,21 +2052,21 @@ Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism
 Acceptable values are 0 to 5000, inclusive. ||
 || replBacklogSizePercent | **string** (int64)
 
-Replication backlog size as a percentage of flavor maxmemory
+Replication backlog size as a percentage of the host RAM.
 
 Acceptable values are 1 to 75, inclusive. ||
 || clusterRequireFullCoverage | **boolean**
 
-Controls whether all hash slots must be covered by nodes ||
+Controls whether all hash slots must be covered by nodes. ||
 || clusterAllowReadsWhenDown | **boolean**
 
-Allows read operations when cluster is down ||
+Allows read operations when cluster is down. ||
 || clusterAllowPubsubshardWhenDown | **boolean**
 
-Permits Pub/Sub shard operations when cluster is down ||
+Permits Pub/Sub shard operations when cluster is down. ||
 || lfuDecayTime | **string** (int64)
 
-The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10)
+The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10).
 
 Acceptable values are 0 to 100000, inclusive. ||
 || lfuLogFactor | **string** (int64)
@@ -2060,15 +2085,16 @@ Allows some data to be lost in favor of faster switchover/restart ||
 Use JIT for lua scripts and functions ||
 || ioThreadsAllowed | **boolean**
 
-Allow redis to use io-threads ||
+Allow redis to use io-threads. When enabled, the number of threads is
+derived from the host class; when disabled, a single thread is used. ||
 || zsetMaxListpackEntries | **string** (int64)
 
-Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist
+Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist.
 
 Acceptable values are 32 to 2048, inclusive. ||
 || aofMaxSizePercent | **string** (int64)
 
-AOF maximum size as a percentage of disk available
+AOF maximum size as a percentage of the host disk size.
 
 Acceptable values are 1 to 99, inclusive. ||
 || activedefrag | **boolean**
@@ -2124,17 +2150,20 @@ Limit on how large the storage for database instances can automatically grow, in
 
 ## ValkeyModules {#yandex.cloud.mdb.redis.v1.ValkeyModules}
 
+Settings of the modules that extend the server with additional data types
+and commands.
+
 #|
 ||Field | Description ||
 || valkeySearch | **[ValkeySearch](#yandex.cloud.mdb.redis.v1.ValkeySearch)**
 
-valkey-search module settings ||
+valkey-search module settings: vector and full-text search. ||
 || valkeyJson | **[ValkeyJson](#yandex.cloud.mdb.redis.v1.ValkeyJson)**
 
-valkey-json module settings ||
+valkey-json module settings: the JSON data type and commands. ||
 || valkeyBloom | **[ValkeyBloom](#yandex.cloud.mdb.redis.v1.ValkeyBloom)**
 
-valkey-bloom module settings ||
+valkey-bloom module settings: probabilistic data structures. ||
 |#
 
 ## ValkeySearch {#yandex.cloud.mdb.redis.v1.ValkeySearch}
@@ -2146,12 +2175,12 @@ valkey-bloom module settings ||
 Enable valkey-search module ||
 || readerThreads | **string** (int64)
 
-Controls the amount of threads executing queries
+Controls the amount of threads executing queries.
 
 The minimum value is 0. ||
 || writerThreads | **string** (int64)
 
-Controls the amount of threads processing index mutations
+Controls the amount of threads processing index mutations.
 
 The minimum value is 0. ||
 || version | **string**
@@ -2189,7 +2218,9 @@ Module version ||
 ||Field | Description ||
 || enabled | **boolean**
 
-Whether shard autoscaling is enabled for the cluster. ||
+Whether shard autoscaling is enabled for the cluster.
+When enabled, at least one of the thresholds must have a non-zero
+[ShardAutoscalingThreshold.upThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold). ||
 || minShards | **string** (int64)
 
 Minimum number of shards the cluster can scale down to.
@@ -2198,6 +2229,8 @@ The minimum value is 1. ||
 || maxShards | **string** (int64)
 
 Maximum number of shards the cluster can scale up to.
+Must be greater than or equal to `minShards` and must not exceed
+the maximum number of shards allowed for the cluster.
 
 The minimum value is 1. ||
 || cpuThreshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
@@ -2213,11 +2246,13 @@ Network utilization threshold. ||
 
 ## ShardAutoscalingThreshold {#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold}
 
+Utilization thresholds of a single metric used by shard autoscaling.
+
 #|
 ||Field | Description ||
 || downThreshold | **string** (int64)
 
-Threshold for downscaling
+Threshold for downscaling, in percent. Must be lower than `upThreshold`.
 
 Acceptable values are 0 to 100, inclusive. ||
 || upThreshold | **string** (int64)
@@ -2234,16 +2269,12 @@ Acceptable values are 0 to 100, inclusive. ||
 || zoneId | **string**
 
 ID of the availability zone where the host resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
-
-The maximum string length in characters is 50. ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request. ||
 || subnetId | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The ID of the network is set in the field [Cluster.networkId](/docs/managed-redis/api-ref/Cluster/get#yandex.cloud.mdb.redis.v1.Cluster).
-
-The maximum string length in characters is 50. ||
+The ID of the network is set in the field [Cluster.networkId](/docs/managed-redis/api-ref/Cluster/get#yandex.cloud.mdb.redis.v1.Cluster). ||
 || shardName | **string**
 
 ID of the Redis shard the host belongs to.
@@ -2322,7 +2353,7 @@ The maximum string length in characters is 32. Value must match the regular expr
 
 Password of the Redis user.
 
-The maximum number of elements is 1. ||
+Each value must match the regular expression ` ^[a-zA-Z0-9@=+?*.,!&#$^<>_-]*$ `. The maximum number of elements is 1. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
 
 Set of permissions to grant to the user. ||

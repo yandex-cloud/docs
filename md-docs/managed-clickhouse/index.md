@@ -744,6 +744,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [AddZookeeper](api-ref/grpc/Cluster/addZookeeper.md)
 
+ - [MigrateToKeeper](api-ref/grpc/Cluster/migrateToKeeper.md)
+
  - [Start](api-ref/grpc/Cluster/start.md)
 
  - [Stop](api-ref/grpc/Cluster/stop.md)
@@ -955,6 +957,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [Delete](api-ref/Cluster/delete.md)
 
  - [AddZookeeper](api-ref/Cluster/addZookeeper.md)
+
+ - [MigrateToKeeper](api-ref/Cluster/migrateToKeeper.md)
 
  - [Start](api-ref/Cluster/start.md)
 

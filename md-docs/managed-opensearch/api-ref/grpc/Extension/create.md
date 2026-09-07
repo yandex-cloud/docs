@@ -42,14 +42,16 @@ Required field. ||
 
 Required field. Name of the extension.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]+ `. ||
 || uri | **string**
 
 Required field. URI of the extension file
 Currently only supports links that are stored in Yandex Object Storage.
 
-The maximum string length in characters is 50. ||
-|| disabled | **bool** ||
+The maximum string length in characters is 128. ||
+|| disabled | **bool**
+
+Flag indicating whether the extension is disabled. ||
 || type | enum **ExtensionType**
 
 Required field. Extension type

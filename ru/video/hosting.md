@@ -6,6 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Как начать работать с хостингом видео в {{ video-full-name }}
 
 Чтобы загрузить [видео](./concepts/videos.md) на [канал](./concepts/index.md#channels) сервиса:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте канал](#create-channel).
 1. [Загрузите видео](#upload-video).
@@ -80,5 +81,5 @@ description: Следуя данной инструкции, вы сможете
 * [Обзор сервиса {{ video-full-name }}](./concepts/index.md)
 * [Загрузить видео](operations/video/upload.md)
 * [Настроить шаблон плеера](operations/style-presets/update.md)
-* [Настроить показ рекламы](operations/channels/settings.md#ad-settings)
+* [Настроить монетизацию](operations/channels/settings.md#ad-settings)
 * [{#T}](troubleshooting/index.md)

@@ -411,8 +411,8 @@
             * `type` — тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`. Если кластер нешардированный, укажите `MONGOD`.
             * `shardName` — имя шарда в шардированном кластере.
             * `hidden` — будет ли хост виден (`false`) или скрыт (`true`).
-            * `secondaryDelaySecs` — время отставания хоста от первичной реплики.
-            * `priority` — приоритет назначения хоста [первичной репликой](../concepts/replication.md#master-failover).
+            * `secondaryDelaySecs` — время отставания хоста от мастера.
+            * `priority` — приоритет назначения хоста [мастером](../concepts/replication.md#master-failover).
             * `tags` — метки хоста.
         
         * `maintenanceWindow` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
@@ -586,8 +586,8 @@
             * `type` — тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`. Если кластер нешардированный, укажите `MONGOD`.
             * `shard_name` — имя шарда в шардированном кластере.
             * `hidden` — будет ли хост виден (`false`) или скрыт (`true`).
-            * `secondary_delay_secs` — время отставания хоста от первичной реплики.
-            * `priority` — приоритет назначения хоста [первичной репликой](../concepts/replication.md#master-failover).
+            * `secondary_delay_secs` — время отставания хоста от мастера.
+            * `priority` — приоритет назначения хоста [мастером](../concepts/replication.md#master-failover).
             * `tags` — метки хоста.
         
         * `maintenance_window` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
@@ -1016,8 +1016,8 @@
             * `type` — тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`. Если кластер нешардированный, укажите `MONGOD`.
             * `shardName` — имя шарда в шардированном кластере.
             * `hidden` — будет ли хост виден (`false`) или скрыт (`true`).
-            * `secondaryDelaySecs` — время отставания хоста от первичной реплики.
-            * `priority` — приоритет назначения хоста [первичной репликой](../concepts/replication.md#master-failover).
+            * `secondaryDelaySecs` — время отставания хоста от мастера.
+            * `priority` — приоритет назначения хоста [мастером](../concepts/replication.md#master-failover).
             * `tags` — метки хоста.
         
         * `maintenanceWindow` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
@@ -1197,8 +1197,8 @@
             * `type` — тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`. Если кластер нешардированный, укажите `MONGOD`.
             * `shard_name` — имя шарда в шардированном кластере.
             * `hidden` — будет ли хост виден (`false`) или скрыт (`true`).
-            * `secondary_delay_secs` — время отставания хоста от первичной реплики.
-            * `priority` — приоритет назначения хоста [первичной репликой](../concepts/replication.md#master-failover).
+            * `secondary_delay_secs` — время отставания хоста от мастера.
+            * `priority` — приоритет назначения хоста [мастером](../concepts/replication.md#master-failover).
             * `tags` — метки хоста.
         
         * `maintenance_window` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:

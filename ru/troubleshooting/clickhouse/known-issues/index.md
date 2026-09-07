@@ -1,2 +1,0 @@
-## Решения для известных проблем {{ mch-name }} {#known-issues-resolving}
-

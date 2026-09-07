@@ -188,9 +188,8 @@ blocks:
 
 
 
+### Тарификация гибридного хранилища {#prices-hybrid-storage}
 
-
-### Тарификация гибридного хранилища для региона Россия
 
 {% list tabs %}
 
@@ -207,6 +206,7 @@ blocks:
   {% include [usd-yezzey](../../_pricing/managed-greenplum/usd-yezzey.md) %}
 
 {% endlist %}
+
 
 
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}

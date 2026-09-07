@@ -31,7 +31,7 @@ The maximum string length in characters is 50. ||
 Required field. Name of the user to revoke a permission from.
 To get the name of the user, use a [UserService.List](list.md#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 || database_name | **string**
 
 Required field. Name of the database that the user should lose access to.

@@ -67,7 +67,8 @@ The maximum string length in characters is 1000. ||
           "data_lens": "bool",
           "web_sql": "bool",
           "data_transfer": "bool",
-          "yandex_query": "bool"
+          "yandex_query": "bool",
+          "trino": "bool"
         },
         "zone_id": "string",
         "subnet_id": "string",
@@ -654,6 +655,9 @@ Allows access for DataTransfer. ||
 || yandex_query | **bool**
 
 Allow access for YandexQuery. ||
+|| trino | **bool**
+
+Allow safety access for trino ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.greenplum.v1.Monitoring}

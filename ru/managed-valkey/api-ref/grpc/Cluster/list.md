@@ -507,7 +507,8 @@ The maximum string length in characters is 1000. ||
       "persistence_mode": "PersistenceMode",
       "announce_hostnames": "bool",
       "auth_sentinel": "bool",
-      "disk_encryption_key_id": "google.protobuf.StringValue"
+      "disk_encryption_key_id": "google.protobuf.StringValue",
+      "is_ha": "bool"
     }
   ],
   "next_page_token": "string"
@@ -536,18 +537,18 @@ the Managed Service for Redis [documentation](/docs/managed-redis/concepts/).
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the Redis cluster.
+ID of the Redis cluster.
 This ID is assigned by MDB at creation time. ||
 || folder_id | **string**
 
-Required field. ID of the folder that the Redis cluster belongs to. ||
+ID of the folder that the Redis cluster belongs to. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Required field. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
 
-Required field. Name of the Redis cluster.
-The name is unique within the folder. 3-63 characters long. ||
+Name of the Redis cluster.
+The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the Redis cluster. 0-256 characters long. ||
@@ -557,7 +558,7 @@ Custom labels for the Redis cluster as `key:value` pairs.
 Maximum 64 per cluster. ||
 || environment | enum **Environment**
 
-Required field. Deployment environment of the Redis cluster.
+Deployment environment of the Redis cluster.
 
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
@@ -568,13 +569,13 @@ are rolled out irrespective of backward compatibility. ||
 Description of monitoring systems relevant to the Redis cluster. ||
 || config | **[ClusterConfig](#yandex.cloud.mdb.redis.v1.ClusterConfig)**
 
-Required field. Configuration of the Redis cluster. ||
+Configuration of the Redis cluster. ||
 || network_id | **string**
 
-Required field. ID of the network that the cluster belongs to. ||
+ID of the network that the cluster belongs to. ||
 || health | enum **Health**
 
-Required field. Aggregated cluster health.
+Aggregated cluster health.
 
 - `HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)
 - `ALIVE`: Cluster is alive and well (all hosts are alive)
@@ -582,7 +583,7 @@ Required field. Aggregated cluster health.
 - `DEGRADED`: Cluster is partially alive (it can perform some of its essential functions) ||
 || status | enum **Status**
 
-Required field. Cluster status.
+Cluster status.
 
 - `STATUS_UNKNOWN`: Cluster status is unknown
 - `CREATING`: Cluster is being created
@@ -597,7 +598,7 @@ Required field. Cluster status.
 Redis cluster mode on/off. ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
 
-Required field. Maintenance window for the cluster. ||
+Maintenance window for the cluster. ||
 || planned_operation | **[MaintenanceOperation](#yandex.cloud.mdb.redis.v1.MaintenanceOperation)**
 
 Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. ||
@@ -614,9 +615,12 @@ Deletion Protection inhibits deletion of the cluster ||
 
 Persistence mode
 
-- `ON`: Cluster persistence mode is on.
-- `OFF`: Cluster persistence mode is off.
-- `ON_REPLICAS`: Cluster persistence is on for replicas only. ||
+- `ON`: Persistence is enabled on every host of the cluster: the append-only file
+(AOF) is written on masters and replicas alike.
+- `OFF`: Persistence is disabled: neither the append-only file (AOF) nor RDB
+snapshots are written, all data is kept in memory only.
+- `ON_REPLICAS`: The append-only file (AOF) is written on replicas only, masters do not
+persist data to disk. ||
 || announce_hostnames | **bool**
 
 Enable FQDN instead of ip ||
@@ -626,21 +630,26 @@ Allows to use ACL users to auth in sentinel ||
 || disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 ID of the key to encrypt cluster disks. ||
+|| is_ha | **bool**
+
+Indicates whether the cluster topology is highly available ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}
+
+Monitoring system.
 
 #|
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the monitoring system. ||
+Name of the monitoring system. ||
 || description | **string**
 
 Description of the monitoring system. ||
 || link | **string**
 
-Required field. Link to the monitoring system charts for the Redis cluster. ||
+Link to the monitoring system charts for the Redis cluster. ||
 |#
 
 ## ClusterConfig {#yandex.cloud.mdb.redis.v1.ClusterConfig}
@@ -680,16 +689,17 @@ Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_c
 Configuration for Redis servers in the cluster. ||
 || resources | **[Resources](#yandex.cloud.mdb.redis.v1.Resources)**
 
-Required field. Resources allocated to Redis hosts. ||
+Resources allocated to Redis hosts. ||
 || backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
-Required field. Time to start the daily backup, in the UTC timezone. ||
+Time to start the daily backup, in the UTC timezone. ||
 || access | **[Access](#yandex.cloud.mdb.redis.v1.Access)**
 
-Required field. Access policy to DB ||
+Access policy to DB ||
 || redis | **[RedisConfigSet](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet)**
 
-Required field. Unified configuration of a Redis cluster. ||
+Unified configuration of a Redis cluster. Use this field for all currently
+available versions. ||
 || disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
@@ -701,10 +711,12 @@ Retain period of automatically created backup in days ||
 Valkey modules settings ||
 || full_version | **string**
 
-Full version ||
+Full version of the server software, including the minor version. ||
 || tiered_storage_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Enables tiered storage (disk + NVMe hot tier). Forces edition to 9.1-ts. ||
+Enables tiered storage (disk + NVMe hot tier). Requires the tiered storage
+edition: when the flag is set on creation, the cluster version is switched
+to that edition. ||
 || shard_autoscaling_settings | **[ShardAutoscalingSettings](#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings)**
 
 Shard autoscaling settings. When enabled, the cluster can automatically
@@ -1127,8 +1139,9 @@ The minimum value is 0. ||
 ||Field | Description ||
 || resource_preset_id | **string**
 
-Required field. ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). ||
+ID of the preset for computational resources available to a host (CPU, memory etc.).
+To get the list of available presets, use a [ResourcePresetService.List](/docs/managed-redis/api-ref/grpc/ResourcePreset/list#List) request;
+presets are also listed in the [documentation](/docs/managed-redis/concepts/instance-types). ||
 || disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||
@@ -1195,17 +1208,17 @@ more memory to be used. ||
 || timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time that Redis keeps the connection open while the client is idle.
-If no new command is sent during that time, the connection is closed.
-
-The minimum value is 0. ||
+If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_%-]{0,128} `. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process.
 
-Acceptable values are 1 to 1024, inclusive. ||
+Value must be greater than 0. ||
 || slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Threshold for logging slow requests to server in microseconds (log only slower than it).
@@ -1218,7 +1231,9 @@ Max slow requests number to log.
 The minimum value is 0. ||
 || notify_keyspace_events | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtmdn]{0,15} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -1227,7 +1242,7 @@ Redis connection output buffers limits for pubsub operations. ||
 Redis connection output buffers limits for clients. ||
 || maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Redis maxmemory percent
+Share of the host RAM used as the Redis maxmemory limit, in percent.
 
 Acceptable values are 1 to 75, inclusive. ||
 || lua_time_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
@@ -1237,21 +1252,21 @@ Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism
 Acceptable values are 0 to 5000, inclusive. ||
 || repl_backlog_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Replication backlog size as a percentage of flavor maxmemory
+Replication backlog size as a percentage of the host RAM.
 
 Acceptable values are 1 to 75, inclusive. ||
 || cluster_require_full_coverage | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Controls whether all hash slots must be covered by nodes ||
+Controls whether all hash slots must be covered by nodes. ||
 || cluster_allow_reads_when_down | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Allows read operations when cluster is down ||
+Allows read operations when cluster is down. ||
 || cluster_allow_pubsubshard_when_down | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Permits Pub/Sub shard operations when cluster is down ||
+Permits Pub/Sub shard operations when cluster is down. ||
 || lfu_decay_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10)
+The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10).
 
 Acceptable values are 0 to 100000, inclusive. ||
 || lfu_log_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
@@ -1270,15 +1285,16 @@ Allows some data to be lost in favor of faster switchover/restart ||
 Use JIT for lua scripts and functions ||
 || io_threads_allowed | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Allow redis to use io-threads ||
+Allow redis to use io-threads. When enabled, the number of threads is
+derived from the host class; when disabled, a single thread is used. ||
 || zset_max_listpack_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist
+Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist.
 
 Acceptable values are 32 to 2048, inclusive. ||
 || aof_max_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-AOF maximum size as a percentage of disk available
+AOF maximum size as a percentage of the host disk size.
 
 Acceptable values are 1 to 99, inclusive. ||
 || activedefrag | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
@@ -1334,17 +1350,20 @@ Limit on how large the storage for database instances can automatically grow, in
 
 ## ValkeyModules {#yandex.cloud.mdb.redis.v1.ValkeyModules}
 
+Settings of the modules that extend the server with additional data types
+and commands.
+
 #|
 ||Field | Description ||
 || valkey_search | **[ValkeySearch](#yandex.cloud.mdb.redis.v1.ValkeySearch)**
 
-valkey-search module settings ||
+valkey-search module settings: vector and full-text search. ||
 || valkey_json | **[ValkeyJson](#yandex.cloud.mdb.redis.v1.ValkeyJson)**
 
-valkey-json module settings ||
+valkey-json module settings: the JSON data type and commands. ||
 || valkey_bloom | **[ValkeyBloom](#yandex.cloud.mdb.redis.v1.ValkeyBloom)**
 
-valkey-bloom module settings ||
+valkey-bloom module settings: probabilistic data structures. ||
 |#
 
 ## ValkeySearch {#yandex.cloud.mdb.redis.v1.ValkeySearch}
@@ -1356,12 +1375,12 @@ valkey-bloom module settings ||
 Enable valkey-search module ||
 || reader_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Controls the amount of threads executing queries
+Controls the amount of threads executing queries.
 
 The minimum value is 0. ||
 || writer_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Controls the amount of threads processing index mutations
+Controls the amount of threads processing index mutations.
 
 The minimum value is 0. ||
 || version | **string**
@@ -1399,7 +1418,9 @@ Module version ||
 ||Field | Description ||
 || enabled | **bool**
 
-Whether shard autoscaling is enabled for the cluster. ||
+Whether shard autoscaling is enabled for the cluster.
+When enabled, at least one of the thresholds must have a non-zero
+[ShardAutoscalingThreshold.up_threshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold). ||
 || min_shards | **int64**
 
 Minimum number of shards the cluster can scale down to.
@@ -1408,6 +1429,8 @@ The minimum value is 1. ||
 || max_shards | **int64**
 
 Maximum number of shards the cluster can scale up to.
+Must be greater than or equal to `min_shards` and must not exceed
+the maximum number of shards allowed for the cluster.
 
 The minimum value is 1. ||
 || cpu_threshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
@@ -1423,11 +1446,13 @@ Network utilization threshold. ||
 
 ## ShardAutoscalingThreshold {#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold}
 
+Utilization thresholds of a single metric used by shard autoscaling.
+
 #|
 ||Field | Description ||
 || down_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Threshold for downscaling
+Threshold for downscaling, in percent. Must be lower than `up_threshold`.
 
 Acceptable values are 0 to 100, inclusive. ||
 || up_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**

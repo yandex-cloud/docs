@@ -41,18 +41,21 @@ description: Следуя данной инструкции, вы сможете
 
   1. В блоке **{{ ui-key.yacloud_video.streams.title_stream-episodes }}** нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.streams.action_add-stream-episode }}**.
   1. В поле **{{ ui-key.yacloud_video.streams.label_episode-type }}** выберите режим:
-     * **{{ ui-key.yacloud_video.streams.label_episode-type-live }}** — показ в реальном времени с перемоткой назад.
-     * **{{ ui-key.yacloud_video.streams.label_episode-type-broadcast }}** — показ в определенное время с записью.
+     
+     * **{{ ui-key.yacloud_video.streams.label_episode-type-live }}** — непрерывный эфир без заданного времени окончания. Запись не сохраняется: доступна только перемотка назад в пределах [буфера перемотки](*rewind-buffer).
+     * **Эфир с записью** — эфир с заданными временем начала и окончания. Запись сохраняется и остается доступной после эфира.
+  
   1. Введите имя и описание эпизода.
   1. В списке **Доступ** выберите тип доступа к эпизоду:
+     
      * `Для всех пользователей` — эпизод будет доступен неограниченное время всем, у кого есть ссылка.
   
      * `По временной ссылке` — эпизод будет доступен по специальной ссылке.
   
       {% include [video-temporary-links](../../../_includes/video/video-temporary-links.md) %}
 
-  1. При выборе типа эпизода **{{ ui-key.yacloud_video.streams.label_episode-type-live }}** в поле **{{ ui-key.yacloud_video.streams.label_rewind-buffer }}** укажите время в секундах, на которое плеер заранее загружает видео вокруг текущей позиции, чтобы перемотка происходила без пауз.
-  1. При выборе типа эпизода **{{ ui-key.yacloud_video.streams.label_episode-type-broadcast }}** в полях **{{ ui-key.yacloud_video.streams.label_stream-episode-start }}** и **{{ ui-key.yacloud_video.streams.label_stream-episode-end }}** укажите даты и время периода трансляции.
+  1. При выборе типа эпизода **{{ ui-key.yacloud_video.streams.label_episode-type-live }}** в поле **{{ ui-key.yacloud_video.streams.label_rewind-buffer }}** укажите время в секундах, на которое зритель может перематывать эфир назад.
+  1. При выборе типа эпизода **Эфир с записью** в полях **{{ ui-key.yacloud_video.streams.label_stream-episode-start }}** и **{{ ui-key.yacloud_video.streams.label_stream-episode-end }}** укажите даты и время периода трансляции.
   
       {% note tip %}
 
@@ -60,7 +63,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% endnote %}
 
-  1. Включите или выключите рекламу. Для включения заранее [настройте](../channels/settings.md#ad-settings) показ рекламы.
+  1. Включите или выключите монетизацию. Для включения заранее [настройте](../channels/settings.md#ad-settings) ее.
   1. Чтобы изменить [шаблон плеера](../../concepts/player.md#player-presets), в списке **{{ ui-key.yacloud_video.streams.label_player-template }}** выберите нужный из доступных в канале или создайте новый.
   1. В поле **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** нажмите кнопку ![upload](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите изображение для обложки.
   
@@ -75,3 +78,5 @@ description: Следуя данной инструкции, вы сможете
   Для создания эпизодов воспользуйтесь методом REST API [create](../../api-ref/Episode/create.md) для ресурса [Episode](../../api-ref/Episode/index.md) или вызовом gRPC API [Episode/Create](../../api-ref/grpc/Episode/create.md).
 
 {% endlist %}
+
+[*rewind-buffer]: {% include notitle [rewind-buffer](../../../_popups/video/streams.md#rewind-buffer) %}

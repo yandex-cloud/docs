@@ -8,7 +8,7 @@
 `vpc.subnets.count` | 12 ||
 || Number of all public IP addresses per cloud
 `vpc.externalAddresses.count` | 8 ||
-|| Number of static public IP addresses per cloud
+|| Number of static public IP addresses per cloud^1^
 `vpc.externalStaticAddresses.count` | 2 ||
 || Number of routing tables per cloud
 `vpc.routeTables.count` | 8 ||
@@ -20,6 +20,8 @@
 || Maximum number of service connections per cloud 
 `vpc.privateEndpoints.count` | 2 ||
 |#
+
+^1^ The `vpc.externalAddresses.count` quota limits the number of external IP addresses, including the reserved ones. The `vpc.externalStaticAddresses.count` quota value cannot exceed `vpc.externalAddresses.count`.
 
 #### Limits {#vpc-limits}
 Type of limit | Value

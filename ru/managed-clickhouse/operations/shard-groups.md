@@ -33,7 +33,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.ListShardGroups](../api-ref/Cluster/listShardGroups.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.ListShardGroups](../api-ref/Cluster/listShardGroups.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -53,7 +53,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.ListShardGroups](../api-ref/grpc/Cluster/listShardGroups.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.ListShardGroups](../api-ref/grpc/Cluster/listShardGroups.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -108,7 +108,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.GetShardGroup](../api-ref/Cluster/getShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.GetShardGroup](../api-ref/Cluster/getShardGroup.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -128,7 +128,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.GetShardGroup](../api-ref/grpc/Cluster/getShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.GetShardGroup](../api-ref/grpc/Cluster/getShardGroup.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -217,7 +217,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_v2).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -228,7 +228,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.CreateShardGroup](../api-ref/Cluster/createShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.CreateShardGroup](../api-ref/Cluster/createShardGroup.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -241,6 +241,36 @@
                  "description": "<описание_группы_шардов>",
                  "shardNames": [
                    "<шард_1>", "<шард_2>", ... "<шард_N>"
+                 ],
+                 "externalShards" [
+                   {
+                     "name": "<внешний_шард_1>",
+                     "weight": <вес_шарда_при_записи_данных>,
+                     "replicas": [
+                       {
+                         "host": "<FQDN_хоста>",
+                         "port": "<порт>",
+                         "secure": <использовать_SSL_соединение>,
+                         "user": "<имя_пользователя>",
+                         "password": "<пароль>",
+                         "priority": <приоритет_хоста>
+                       },
+                       {
+                         <параметры_хоста_2>
+                       },
+                       ...
+                       {
+                         <параметры_хоста_N>
+                       }
+                     ]
+                   },
+                   {
+                     <параметры_внешнего_шарда_2>
+                   },
+                   ...
+                   {
+                     <параметры_внешнего_шарда_N>
+                   }
                  ]
                }'
      ```
@@ -250,6 +280,20 @@
      * `shardGroupName` — название группы шардов.
      * `description` — описание группы шардов.
      * `shardNames` — список шардов, которые нужно включить в создаваемую группу.
+     * `externalShards` — список внешних шардов, которые нужно включить в создаваемую группу. Внешний шард — это шард в другом кластере {{ mch-name }} или пользовательской инсталляции {{ CH }}. Каждый элемент соответствует отдельному шарду и имеет следующую структуру:
+
+        * `name` — имя шарда.
+        * `weight` — вес шарда в группе.
+
+          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
+
+        * `replicas` — настройки хостов шарда:
+
+          * `host` — FQDN или IP-адрес хоста.
+          * `port` — порт для подключения к {{ CH }}.
+          * `secure` — использование шифрованного SSL/TLS-соединения при подключении к хосту: `true` или `false`.
+          * `user`, `password` — имя пользователя и пароль для доступа к БД {{ CH }}.
+          * `priority` — приоритет хоста для балансировки подключений к шарду. Значение по умолчанию — `0`. Чем меньше значение, тем выше приоритет при выборе хоста для подключения к шарду.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -262,7 +306,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.CreateShardGroup](../api-ref/grpc/Cluster/createShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.CreateShardGroup](../api-ref/grpc/Cluster/createShardGroup.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -277,6 +321,36 @@
                "description": "<описание_группы_шардов>",
                "shard_names": [
                  "<шард_1>", "<шард_2>", ... "<шард_N>"
+               ],
+               "external_shards" [
+                 {
+                   "name": "<внешний_шард_1>",
+                   "weight": <вес_шарда_при_записи_данных>,
+                   "replicas": [
+                     {
+                       "host": "<FQDN_хоста>",
+                       "port": <порт>,
+                       "secure": <использовать_SSL_соединение>,
+                       "user": "<имя_пользователя>",
+                       "password": "<пароль>",
+                       "priority": <приоритет_хоста>
+                     },
+                     {
+                       <параметры_хоста_2>
+                     },
+                     ...
+                     {
+                       <параметры_хоста_N>
+                     }
+                   ]
+                 },
+                 {
+                   <параметры_внешнего_шарда_2>
+                 },
+                 ...
+                 {
+                   <параметры_внешнего_шарда_N>
+                 }
                ]
              }' \
          {{ api-host-mdb }}:{{ port-https }} \
@@ -288,6 +362,20 @@
      * `shard_group_name` — название группы шардов.
      * `description` — описание группы шардов.
      * `shard_names` — список шардов, которые нужно включить в создаваемую группу.
+     * `external_shards` — список внешних шардов, которые нужно включить в создаваемую группу. Внешний шард — это шард в другом кластере {{ mch-name }} или пользовательской инсталляции {{ CH }}. Каждый элемент соответствует отдельному шарду и имеет следующую структуру:
+
+        * `name` — имя шарда.
+        * `weight` — вес шарда в группе.
+
+          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
+
+        * `replicas` — настройки хостов шарда:
+
+          * `host` — FQDN или IP-адрес хоста.
+          * `port` — порт для подключения к {{ CH }}.
+          * `secure` — использование шифрованного SSL/TLS-соединения при подключении к хосту: `true` или `false`.
+          * `user`, `password` — имя пользователя и пароль для доступа к БД {{ CH }}.
+          * `priority` — приоритет хоста для балансировки подключений к шарду. Значение по умолчанию — `0`. Чем ниже значение, тем выше приоритет при выборе хоста для подключения к шарду.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -364,7 +452,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_v2).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -375,7 +463,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.updateShardGroup](../api-ref/Cluster/updateShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.updateShardGroup](../api-ref/Cluster/updateShardGroup.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -386,10 +474,40 @@
        --header "Content-Type: application/json" \
        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shardGroups/<имя_группы_шардов>' \
        --data '{
-                 "updateMask": "description,shardNames",
+                 "updateMask": "description,shardNames,externalShards",
                  "description": "<описание_группы_шардов>",
                  "shardNames": [
                    "<шард_1>", "<шард_2>", ... "<шард_N>"
+                 ],
+                 "externalShards" [
+                   {
+                     "name": "<внешний_шард_1>",
+                     "weight": <вес_шарда_при_записи_данных>,
+                     "replicas": [
+                       {
+                         "host": "<FQDN_хоста>",
+                         "port": "<порт>",
+                         "secure": <использовать_SSL_соединение>,
+                         "user": "<имя_пользователя>",
+                         "password": "<пароль>",
+                         "priority": <приоритет_хоста>
+                       },
+                       {
+                         <параметры_хоста_2>
+                       },
+                       ...
+                       {
+                         <параметры_хоста_N>
+                       }
+                     ]
+                   },
+                   {
+                     <параметры_внешнего_шарда_2>
+                   },
+                   ...
+                   {
+                     <параметры_внешнего_шарда_N>
+                   }
                  ]
                }'
      ```
@@ -398,7 +516,21 @@
 
      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
      * `description` — новое описание группы шардов.
-     * `shardNames` — новый список шардов, которые нужно включить в группу. Чтобы узнать имена шардов, [получите их список](shards.md#list-shards) в кластере. Этот список заменит собой текущий: убедитесь, что вы включили в новый список все необходимые шарды.
+     * `shardNames` — новый список шардов кластера, которые нужно включить в группу. Чтобы узнать имена шардов, [получите их список](shards.md#list-shards) в кластере. Этот список заменит собой текущий: убедитесь, что вы включили в новый список все необходимые шарды.
+     * `externalShards` — список внешних шардов с измененными параметрами, которые нужно включить в группу. Внешний шард — это шард в другом кластере {{ mch-name }} или пользовательской инсталляции {{ CH }}. Каждый элемент соответствует отдельному шарду и имеет следующую структуру:
+
+        * `name` — имя шарда.
+        * `weight` — вес шарда в группе.
+
+          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
+
+        * `replicas` — настройки хостов шарда:
+
+          * `host` — FQDN или IP-адрес хоста.
+          * `port` — порт для подключения к {{ CH }}.
+          * `secure` — использование шифрованного SSL/TLS-соединения при подключении к хосту: `true` или `false`.
+          * `user`, `password` — имя пользователя и пароль для доступа к БД {{ CH }}.
+          * `priority` — приоритет хоста для балансировки подключений к шарду. Значение по умолчанию — `0`. Чем ниже значение, тем выше приоритет при выборе хоста для подключения к шарду.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя группы шардов — со [списком групп в кластере](#list-shard-groups).
 
@@ -411,7 +543,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.UpdateShardGroup](../api-ref/grpc/Cluster/updateShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.UpdateShardGroup](../api-ref/grpc/Cluster/updateShardGroup.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -427,12 +559,42 @@
              "shard_group_name": "<имя_группы_шардов>",
              "update_mask": {
                "paths": [
-                 "description", "shard_names"
+                 "description", "shard_names", "external_shards"
                ]
              },
              "description": "<описание_группы_шардов>",
              "shard_names": [
                "<шард_1>", "<шард_2>", ... "<шард_N>"
+             ],
+             "external_shards" [
+               {
+                 "name": "<внешний_шард_1>",
+                 "weight": <вес_шарда_при_записи_данных>,
+                 "replicas": [
+                   {
+                     "host": "<FQDN_хоста>",
+                     "port": <порт>,
+                     "secure": <использовать_SSL_соединение>,
+                     "user": "<имя_пользователя>",
+                     "password": "<пароль>",
+                     "priority": <приоритет_хоста>
+                   },
+                   {
+                     <параметры_хоста_2>
+                   },
+                   ...
+                   {
+                     <параметры_хоста_N>
+                   }
+                 ]
+               },
+               {
+                 <параметры_внешнего_шарда_2>
+               },
+               ...
+               {
+                 <параметры_внешнего_шарда_N>
+               }
              ]
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
@@ -443,7 +605,21 @@
 
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
      * `description` — новое описание группы шардов.
-     * `shard_names` — новый список шардов, которые нужно включить в группу. Чтобы узнать имена шардов, [получите их список](shards.md#list-shards) в кластере. Этот список заменит собой текущий: убедитесь, что вы включили в новый список все необходимые шарды.
+     * `shard_names` — новый список шардов кластера, которые нужно включить в группу. Чтобы узнать имена шардов, [получите их список](shards.md#list-shards) в кластере. Этот список заменит собой текущий: убедитесь, что вы включили в новый список все необходимые шарды.
+     * `external_shards` — список внешних шардов с измененными параметрами, которые нужно включить в группу. Внешний шард — это шард в другом кластере {{ mch-name }} или пользовательской инсталляции {{ CH }}. Каждый элемент соответствует отдельному шарду и имеет следующую структуру:
+
+        * `name` — имя шарда.
+        * `weight` — вес шарда в группе.
+
+          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
+
+        * `replicas` — настройки хостов шарда:
+
+          * `host` — FQDN или IP-адрес хоста.
+          * `port` — порт для подключения к {{ CH }}.
+          * `secure` — использование шифрованного SSL/TLS-соединения при подключении к хосту: `true` или `false`.
+          * `user`, `password` — имя пользователя и пароль для доступа к БД {{ CH }}.
+          * `priority` — приоритет хоста для балансировки подключений к шарду. Значение по умолчанию — `0`. Чем ниже значение, тем выше приоритет при выборе хоста для подключения к шарду.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя группы шардов — со [списком групп в кластере](#list-shard-groups).
 
@@ -499,7 +675,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_v2).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -510,7 +686,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.DeleteShardGroup](../api-ref/Cluster/deleteShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.DeleteShardGroup](../api-ref/Cluster/deleteShardGroup.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -530,7 +706,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.DeleteShardGroup](../api-ref/grpc/Cluster/deleteShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.DeleteShardGroup](../api-ref/grpc/Cluster/deleteShardGroup.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \

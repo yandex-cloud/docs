@@ -5,14 +5,14 @@ description: Follow this guide to set up a data transfer from a Microsoft SQL Se
 
 # Transferring data from a Microsoft SQL Server source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data from a Microsoft SQL Server database to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data from a Microsoft SQL Server database to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Prepare the Microsoft SQL Server database](#prepare) for the transfer.
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. In case of any issues, [use ready-made solutions](../../../../data-transfer/troubleshooting/index.md) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. If you run into any problems, [check the available solutions](../../../../data-transfer/troubleshooting/index.md) for troubleshooting.
 
 ## Scenarios for transferring data from Microsoft SQL Server {#scenarios}
 
@@ -72,7 +72,7 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 {% include [Internet access](../../../../_includes/data-transfer/notes/internet-access.md) %}
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
 {% include [airbyte-trademark](../../../../_includes/data-transfer/airbyte-trademark.md) %}
 

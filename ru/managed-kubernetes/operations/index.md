@@ -86,6 +86,7 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](node-group/node-group-list.md)
 * [{#T}](node-group/node-group-create.md)
 * [{#T}](node-group/node-group-create-in-instance-pool.md)
+* [{#T}](node-group/node-group-gpu-maintenance.md)
 * [{#T}](node-connect-ssh.md)
 * [{#T}](node-connect-oslogin.md)
 * [{#T}](autoscale.md)

@@ -3,7 +3,6 @@
 # Managed Service for OpenSearch API, gRPC: ClusterService.AddOpenSearchNodeGroup
 
 
-Required for backward compatibility with old clients. --)
 Creates an OpenSearch type host group.
 
 ## gRPC request

@@ -57,16 +57,12 @@ The number of elements must be greater than 0. ||
 || zone_id | **string**
 
 ID of the availability zone where the host resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](../../../../compute/api-ref/grpc/Zone/list.md#List) request.
-
-The maximum string length in characters is 50. ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](../../../../compute/api-ref/grpc/Zone/list.md#List) request. ||
 || subnet_id | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The ID of the network is set in the field [Cluster.network_id](get.md#yandex.cloud.mdb.redis.v1.Cluster).
-
-The maximum string length in characters is 50. ||
+The ID of the network is set in the field [Cluster.network_id](get.md#yandex.cloud.mdb.redis.v1.Cluster). ||
 || shard_name | **string**
 
 ID of the Redis shard the host belongs to.

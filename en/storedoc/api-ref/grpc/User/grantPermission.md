@@ -38,7 +38,7 @@ The maximum string length in characters is 50. ||
 Required field. Name of the user to grant the permission to.
 To get the name of the user, use a [UserService.List](/docs/managed-mongodb/api-ref/grpc/User/list#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 || permission | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 Required field. Permission that should be granted to the specified user. ||

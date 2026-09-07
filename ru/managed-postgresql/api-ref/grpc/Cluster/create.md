@@ -21,7 +21,7 @@ Creates a PostgreSQL cluster in the specified folder.
   "environment": "Environment",
   "config_spec": {
     "version": "string",
-    // Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`
+    // Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`
     "postgresql_config_11": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11",
     "postgresql_config_12": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12",
     "postgresql_config_13": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig13",
@@ -36,6 +36,8 @@ Creates a PostgreSQL cluster in the specified folder.
     "postgresql_config_17_1c": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17_1C",
     "postgresql_config_18": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18",
     "postgresql_config_18_1c": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18_1C",
+    "postgresql_config_19": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig19",
+    "postgresql_config_19_1c": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig19_1C",
     // end of the list of possible fields
     "pooler_config": {
       "pooling_mode": "PoolingMode",
@@ -145,7 +147,7 @@ Creates a PostgreSQL cluster in the specified folder.
       "replication_source": "string",
       "priority": "google.protobuf.Int64Value",
       "config_spec": {
-        // Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`
+        // Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`
         "postgresql_config_11": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11",
         "postgresql_config_12": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12",
         "postgresql_config_13": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13",
@@ -159,7 +161,9 @@ Creates a PostgreSQL cluster in the specified folder.
         "postgresql_config_17": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17",
         "postgresql_config_17_1c": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17_1C",
         "postgresql_config_18": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18",
-        "postgresql_config_18_1c": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18_1C"
+        "postgresql_config_18_1c": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18_1C",
+        "postgresql_config_19": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig19",
+        "postgresql_config_19_1c": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig19_1C"
         // end of the list of possible fields
       }
     }
@@ -185,6 +189,8 @@ Creates a PostgreSQL cluster in the specified folder.
     {
       "policy_name": "string",
       "cron": {
+        "minute": "string",
+        "hour": "string",
         "day_of_month": "string",
         "month": "string",
         "day_of_week": "string"
@@ -272,103 +278,117 @@ ID of the key to encrypt cluster disks. ||
 || version | **string**
 
 Version of PostgreSQL used in the cluster.
-Possible values: `11`, `12`, `13`, `13_1c`, `14`, `14_1c`, `15`, `15_1c`, `16`, `16_1c`, `17`, `17_1c`, `18`, `18_1c` ||
+Possible values: `11`, `12`, `13`, `13_1c`, `14`, `14_1c`, `15`, `15_1c`, `16`, `16_1c`, `17`, `17_1c`, `18`, `18_1c`, `19`, `19_1c` ||
 || postgresql_config_11 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**
 
 Configuration for a PostgreSQL 11 cluster.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresql_config_12 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**
 
 Configuration for a PostgreSQL 12 cluster.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresql_config_13 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**
 
 Configuration for a PostgreSQL 13 cluster.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresql_config_13_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**
 
 Configuration for a PostgreSQL 13 1C cluster.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresql_config_14 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**
 
 Configuration for a PostgreSQL 14 cluster.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresql_config_14_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**
 
 Configuration for a PostgreSQL 14 1C cluster.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresql_config_15 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**
 
 Configuration for a PostgreSQL 15 cluster.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresql_config_15_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15_1c.proto)**
 
 Configuration for a PostgreSQL 15 1C cluster.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresql_config_16 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql16.proto)**
 
 Configuration for a PostgreSQL 16 cluster.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresql_config_16_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql16_1c.proto)**
 
 Configuration for a PostgreSQL 16 1C cluster.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresql_config_17 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql17.proto)**
 
 Configuration for a PostgreSQL 17 cluster.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresql_config_17_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql17_1c.proto)**
 
 Configuration for a PostgreSQL 17 1C cluster.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresql_config_18 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql18.proto)**
 
 Configuration for a PostgreSQL 18 cluster.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresql_config_18_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql18_1c.proto)**
 
 Configuration for a PostgreSQL 18 1C cluster.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
+
+Configuration of a PostgreSQL cluster. ||
+|| postgresql_config_19 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig19](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql19.proto)**
+
+Configuration for a PostgreSQL 19 cluster.
+
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
+
+Configuration of a PostgreSQL cluster. ||
+|| postgresql_config_19_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig19_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql19_1c.proto)**
+
+Configuration for a PostgreSQL 19 1C cluster.
+
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || pooler_config | **[ConnectionPoolerConfig](#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig)**
@@ -553,7 +573,7 @@ The maximum string length in characters is 63. Value must match the regular expr
 Required field. Name of the user to be assigned as the owner of the database.
 To get the list of available PostgreSQL users, make a [UserService.List](/docs/managed-postgresql/api-ref/grpc/User/list#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_@.-]* `. ||
 || lc_collate | **string**
 
 POSIX locale for string sorting order.
@@ -636,7 +656,7 @@ A set of roles and privileges that are granted to the user.
 
 For more information, see [the documentation](/docs/managed-postgresql/operations/grant).
 
-The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_@.-]* `. ||
 || deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Deletion Protection inhibits deletion of the user
@@ -910,72 +930,82 @@ Configuration of a PostgreSQL server for the host. ||
 
 Configuration for a host with PostgreSQL 11 server deployed.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`. ||
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
 || postgresql_config_12 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**
 
 Configuration for a host with PostgreSQL 12 server deployed.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`. ||
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
 || postgresql_config_13 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host13.proto)**
 
 Configuration for a host with PostgreSQL 13 server deployed.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`. ||
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
 || postgresql_config_13_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host13_1c.proto)**
 
 Configuration for a host with PostgreSQL 13 1C server deployed.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`. ||
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
 || postgresql_config_14 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host14.proto)**
 
 Configuration for a host with PostgreSQL 14 server deployed.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`. ||
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
 || postgresql_config_14_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host14_1c.proto)**
 
 Configuration for a host with PostgreSQL 14 1C server deployed.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`. ||
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
 || postgresql_config_15 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host15.proto)**
 
 Configuration for a host with PostgreSQL 15 server deployed.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`. ||
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
 || postgresql_config_15_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host15_1c.proto)**
 
 Configuration for a host with PostgreSQL 15 1C server deployed.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`. ||
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
 || postgresql_config_16 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host16.proto)**
 
 Configuration for a host with PostgreSQL 16 server deployed.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`. ||
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
 || postgresql_config_16_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host16_1c.proto)**
 
 Configuration for a host with PostgreSQL 16 1C server deployed.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`. ||
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
 || postgresql_config_17 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host17.proto)**
 
-Configuration for a host with PostgreSQL 17 1C server deployed.
+Configuration for a host with PostgreSQL 17 server deployed.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`. ||
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
 || postgresql_config_17_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host17_1c.proto)**
 
 Configuration for a host with PostgreSQL 17 1C server deployed.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`. ||
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
 || postgresql_config_18 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host18.proto)**
 
-Configuration for a host with PostgreSQL 18 1C server deployed.
+Configuration for a host with PostgreSQL 18 server deployed.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`. ||
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
 || postgresql_config_18_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host18_1c.proto)**
 
 Configuration for a host with PostgreSQL 18 1C server deployed.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`. ||
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
+|| postgresql_config_19 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig19](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host19.proto)**
+
+Configuration for a host with PostgreSQL 19 server deployed.
+
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
+|| postgresql_config_19_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig19_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host19_1c.proto)**
+
+Configuration for a host with PostgreSQL 19 1C server deployed.
+
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow}
@@ -1057,6 +1087,14 @@ Message to describe a crontab schedule.
 
 #|
 ||Field | Description ||
+|| minute | **string**
+
+Minute in cron format. Valid values: 0-59, *, ranges (0-30), steps (*/5), lists (0,15,30,45).
+Defaults to "". Support depends on the database engine. ||
+|| hour | **string**
+
+Hour in cron format. Valid values: 0-23, *, ranges (8-18), steps (*/2), lists (0,12).
+Defaults to "". Support depends on the database engine. ||
 || day_of_month | **string**
 
 Day of month in cron format. Valid values: 1-31, *, ranges (1-15), steps (*/2, 1-15/3), lists (1,15,28).
@@ -1119,7 +1157,7 @@ Defaults to "*". ||
     ],
     "config": {
       "version": "string",
-      // Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`
+      // Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`
       "postgresql_config_11": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet11",
       "postgresql_config_12": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet12",
       "postgresql_config_13": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet13",
@@ -1134,6 +1172,8 @@ Defaults to "*". ||
       "postgresql_config_17_1c": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17_1C",
       "postgresql_config_18": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18",
       "postgresql_config_18_1c": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18_1C",
+      "postgresql_config_19": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet19",
+      "postgresql_config_19_1c": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet19_1C",
       // end of the list of possible fields
       "pooler_config": {
         "pooling_mode": "PoolingMode",
@@ -1410,98 +1450,112 @@ Version of PostgreSQL server software. ||
 
 Configuration of a PostgreSQL 11 server.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresql_config_12 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**
 
 Configuration of a PostgreSQL 12 server.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresql_config_13 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**
 
 Configuration of a PostgreSQL 13 server.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresql_config_13_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**
 
 Configuration of a PostgreSQL 13 1C server.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresql_config_14 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**
 
 Configuration of a PostgreSQL 14 server.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresql_config_14_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**
 
 Configuration of a PostgreSQL 14 1C server.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresql_config_15 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**
 
 Configuration of a PostgreSQL 15 server.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresql_config_15_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15_1c.proto)**
 
 Configuration of a PostgreSQL 15 1C server.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresql_config_16 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql16.proto)**
 
 Configuration of a PostgreSQL 16 server.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresql_config_16_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql16_1c.proto)**
 
 Configuration of a PostgreSQL 16 1C server.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresql_config_17 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql17.proto)**
 
 Configuration of a PostgreSQL 17 server.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresql_config_17_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql17_1c.proto)**
 
 Configuration of a PostgreSQL 17 1C server.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresql_config_18 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql18.proto)**
 
 Configuration of a PostgreSQL 18 server.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresql_config_18_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql18_1c.proto)**
 
 Configuration of a PostgreSQL 18 1C server.
 
-Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`.
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
+
+Configuration for PostgreSQL servers in the cluster. ||
+|| postgresql_config_19 | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet19](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql19.proto)**
+
+Configuration of a PostgreSQL 19 server.
+
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
+
+Configuration for PostgreSQL servers in the cluster. ||
+|| postgresql_config_19_1c | **[yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet19_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql19_1c.proto)**
+
+Configuration of a PostgreSQL 19 1C server.
+
+Includes only one of the fields `postgresql_config_11`, `postgresql_config_12`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c`, `postgresql_config_15`, `postgresql_config_15_1c`, `postgresql_config_16`, `postgresql_config_16_1c`, `postgresql_config_17`, `postgresql_config_17_1c`, `postgresql_config_18`, `postgresql_config_18_1c`, `postgresql_config_19`, `postgresql_config_19_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || pooler_config | **[ConnectionPoolerConfig](#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig2)**

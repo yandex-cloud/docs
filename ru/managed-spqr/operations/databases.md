@@ -16,6 +16,21 @@ description: Из статьи вы узнаете, как добавлять, �
   1. [Перейдите]({{ link-console-main }}/link/managed-spqr) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.spqr.cluster.switch_databases }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить список баз данных в кластере, выполните команду:
+
+  ```bash
+  yc managed-sharded-postgresql database list \
+     --cluster-id <идентификатор_кластера>
+  ```
+
+  {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -68,6 +83,21 @@ description: Из статьи вы узнаете, как добавлять, �
 
 {% list tabs group=instructions %}
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить информацию о базе данных, выполните команду:
+
+  ```bash
+  yc managed-sharded-postgresql database get <имя_БД> \
+     --cluster-id <идентификатор_кластера>
+  ```
+
+  Имя базы данных можно получить со [списком баз данных](#list-db) в кластере, а идентификатор кластера — со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+  
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -140,6 +170,70 @@ description: Из статьи вы узнаете, как добавлять, �
           - **{{ ui-key.yacloud.mdb.dialogs.action_deletion-protection-disabled }}**
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы создать базу данных в кластере:
+
+  1. Посмотрите описание команды CLI для создания базы данных:
+
+      ```bash
+      yc managed-sharded-postgresql database create --help
+      ```
+  
+  1. Создайте базу данных, выполнив команду:
+
+      ```bash
+      yc managed-sharded-postgresql database create <имя_БД> \
+         --cluster-id <идентификатор_кластера>
+      ```
+
+      Где: 
+
+      * `<имя_БД>` — имя новой базы данных.
+
+        {% include [db-name-limits](../../_includes/mdb/mspqr/console/db-name-limits.md) %}
+      
+      * `--cluster-id` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, в разделе [{#T}](cluster-create.md).
+
+  1. Добавьте ресурс `yandex_mdb_sharded_postgresql_database`:
+
+      ```hcl
+      resource "yandex_mdb_sharded_postgresql_database" "<локальное_имя_БД>" {
+        cluster_id = <идентификатор_кластера>
+        name       = "<имя_БД>"
+      }
+      ```
+
+      Где:
+      
+      * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+
+      * `name` — имя базы данных.
+        
+        {% include [db-name-limits](../../_includes/mdb/mspqr/console/db-name-limits.md) %}
+      
+      Подробнее о ресурсе `yandex_mdb_sharded_postgresql_database` в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_database).
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 
@@ -227,6 +321,39 @@ description: Из статьи вы узнаете, как добавлять, �
   1. [Перейдите]({{ link-console-main }}/link/managed-spqr) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.spqr.cluster.switch_databases }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД, выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}** и подтвердите удаление.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы удалить базу данных, выполните команду:
+
+  ```bash
+  yc managed-sharded-postgresql database delete <имя_БД> \
+     --cluster-id <идентификатор_кластера>
+  ```
+
+  Имя базы данных можно получить со [списком баз данных](#list-db) в кластере, а идентификатор кластера — со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, в разделе [{#T}](cluster-create.md).
+
+  1. Удалите ресурс `yandex_mdb_sharded_postgresql_database` с описанием базы данных, которую вы хотите удалить.
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 

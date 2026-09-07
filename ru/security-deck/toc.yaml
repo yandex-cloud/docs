@@ -32,6 +32,8 @@ items:
             href: operations/alerts/view.md
           - name: Работа с алертами
             href: operations/alerts/work.md
+          - name: Скачать алерты
+            href: operations/alerts/download.md
       - name: Контроль данных ({{ dspm-name }})
         items:
           - name: Обзор

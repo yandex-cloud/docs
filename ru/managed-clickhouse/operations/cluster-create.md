@@ -100,6 +100,8 @@ description: Следуя данной инструкции, вы сможете
 
           * **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}** и его **{{ ui-key.yacloud.mdb.forms.base_field_shard-weight }}**.
 
+            {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
           * **{{ ui-key.yacloud.clickhouse.cluster.field_shard-resources-type }}** хостов шарда:
 
               * **{{ ui-key.yacloud.clickhouse.cluster.value_shard-resources-type-default }}** — конфигурация хостов будет унаследована от конфигурации кластера.
@@ -255,7 +257,9 @@ description: Следуя данной инструкции, вы сможете
       * `--environment` — окружение кластера: `prestable` или `production`.
       * `--shard` — параметры [шарда](../concepts/sharding.md): его имя и вес.
 
-        Чтобы создать кластер сразу с несколькими шардами, передайте этот флаг нужное количество раз. Если не указать флаг `--shard`, будет создан кластер с одним шардом `shard1`.
+        {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
+        Чтобы создать кластер сразу с несколькими шардами, передайте флаг `--shard` нужное количество раз. Если не указать этот флаг, будет создан кластер с одним шардом `shard1`.
 
       * `--host` — параметры хоста:
         * `type` — тип хоста: `clickhouse`.
@@ -579,6 +583,8 @@ description: Следуя данной инструкции, вы сможете
 
        * `shards` — [шарды](../concepts/sharding.md) кластера в виде ассоциативного массива элементов. Ключ задает имя шарда, а значение включает параметр `weight` — вес шарда.
 
+          {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
        * `hosts` — хосты кластера в виде ассоциативного массива элементов. Ключ задает имя хоста, а значение — параметры хоста. Каждый элемент имеет следующую структуру:
 
           * `type` — тип хоста: `CLICKHOUSE`.
@@ -883,6 +889,9 @@ description: Следуя данной инструкции, вы сможете
 
                 * `name` — имя шарда.
                 * `weight` — вес шарда.
+
+                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
                 * `configSpec.clickhouse` — конфигурация хостов шарда: класс хоста, настройки хранилища и настройки СУБД. Если не указывать конфигурацию хостов шарда, она будет унаследована от конфигурации кластера.
 
             * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
@@ -1131,6 +1140,9 @@ description: Следуя данной инструкции, вы сможете
 
                 * `name` — имя шарда.
                 * `weight` — вес шарда.
+
+                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
                 * `config_spec.clickhouse` — конфигурация хостов шарда: класс хоста, настройки хранилища и настройки СУБД. Если не указывать конфигурацию хостов шарда, она будет унаследована от конфигурации кластера.
 
             * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
@@ -1215,6 +1227,8 @@ description: Следуя данной инструкции, вы сможете
         * Укажите параметры шардов, создаваемых вместе с кластером. Чтобы изменить настройки шарда, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
 
             * **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}** и его **{{ ui-key.yacloud.mdb.forms.base_field_shard-weight }}**.
+
+               {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
 
             * **{{ ui-key.yacloud.clickhouse.cluster.field_shard-resources-type }}** хостов шарда:
 
@@ -1368,7 +1382,9 @@ description: Следуя данной инструкции, вы сможете
       * `--environment` — окружение кластера: `prestable` или `production`.
       * `--shard` — параметры [шарда](../concepts/sharding.md): его имя и вес.
 
-        Чтобы создать кластер сразу с несколькими шардами, передайте этот флаг нужное количество раз. Если не указать флаг `--shard`, будет создан кластер с одним шардом `shard1`.
+        {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
+        Чтобы создать кластер сразу с несколькими шардами, передайте флаг `--shard` нужное количество раз. Если не указать этот флаг, будет создан кластер с одним шардом `shard1`.
 
       * `--host` — параметры хоста:
         * `type` — тип хоста: `clickhouse` или `zookeeper`.
@@ -1680,6 +1696,8 @@ description: Следуя данной инструкции, вы сможете
        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
        * `shards` — [шарды](../concepts/sharding.md) кластера в виде ассоциативного массива элементов. Ключ задает имя шарда, а значение включает параметр `weight` — вес шарда.
+
+          {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
 
        * `hosts` — хосты кластера в виде ассоциативного массива элементов. Ключ задает имя хоста, а значение — параметры хоста. Каждый элемент имеет следующую структуру:
 
@@ -1999,6 +2017,9 @@ description: Следуя данной инструкции, вы сможете
 
                 * `name` — имя шарда.
                 * `weight` — вес шарда.
+
+                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
                 * `configSpec.clickhouse` — конфигурация хостов шарда: класс хоста, настройки хранилища и настройки СУБД. Если не указывать конфигурацию хостов шарда, она будет унаследована от конфигурации кластера.
 
             * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
@@ -2260,6 +2281,9 @@ description: Следуя данной инструкции, вы сможете
 
                 * `name` — имя шарда.
                 * `weight` — вес шарда.
+
+                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
                 * `config_spec.clickhouse` — конфигурация хостов шарда: класс хоста, настройки хранилища и настройки СУБД. Если не указывать конфигурацию хостов шарда, она будет унаследована от конфигурации кластера.
 
             * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.

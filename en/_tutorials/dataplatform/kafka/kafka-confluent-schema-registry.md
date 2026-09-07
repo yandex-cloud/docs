@@ -210,7 +210,7 @@ The support cost for this solution includes:
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
             "sasl.password": "<user_password>",
-            "schema.registry.url": "http://<Confluent_Schema_Registry_server_FQDN_or_IP_address>:8081",
+            "schema.registry.url": "http://<FQDN_or_IP_address_of_Confluent_Schema_Registry_server>:8081",
         }
     )
 

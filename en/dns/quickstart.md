@@ -1,12 +1,12 @@
 ---
-title: How to get started with {{ dns-full-name }}
+title: Getting started with {{ dns-full-name }}
 description: Follow this guide to create private and public DNS zones.
 ---
 
-# How to get started with {{ dns-name }}
+# Getting started with {{ dns-name }}
 
 
-Create [DNS zones](concepts/dns-zone.md), add `A` records for your test [VMs](../compute/concepts/vm.md), and test domain name resolution.
+Create [DNS zones](concepts/dns-zone.md) (Domain Name System), add `A` records for your test [VMs](../compute/concepts/vm.md), and test domain name resolution.
 
 ## Getting started {#before-begin}
 
@@ -123,7 +123,7 @@ Create a new public domain zone:
 
   1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** section in the folder where you need to create a DNS zone.
   1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
-  1. Configure the DNS zone as follows:
+  1. Specify zone settings:
      1. **{{ ui-key.yacloud.dns.label_zone }}**: `example.com.`.
      1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
      1. **{{ ui-key.yacloud.common.name }}**: `test-public-zone`.
@@ -149,7 +149,7 @@ Create a new public domain zone:
 
   1. Open the list of zones and select `test-public-zone`.
   1. Select **{{ ui-key.yacloud.dns.label_zone-record-sets }}** in the left-hand menu.
-  1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**. Configure the record as follows:
+  1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**. Specify the record settings:
      1. **{{ ui-key.yacloud.common.name }}**: `www`.
      1. **{{ ui-key.yacloud.common.type }}**: `A`.
      1. **{{ ui-key.yacloud.dns.label_form-ttl }}**: `600`.
