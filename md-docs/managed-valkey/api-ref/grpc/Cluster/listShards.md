@@ -32,7 +32,6 @@ The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListClusterShardsResponse.next_page_token](#yandex.cloud.mdb.redis.v1.ListClusterShardsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100.
 
 The maximum value is 1000. ||
 || page_token | **string**
@@ -78,9 +77,9 @@ in the next list request. Each subsequent list request will have its own
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the Redis shard. The shard name is assigned by user at creation time, and cannot be changed.
+Name of the Redis shard. The shard name is assigned by user at creation time, and cannot be changed.
 1-63 characters long. ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster the shard belongs to. The ID is assigned by MDB at creation time. ||
+ID of the Redis cluster the shard belongs to. The ID is assigned by MDB at creation time. ||
 |#

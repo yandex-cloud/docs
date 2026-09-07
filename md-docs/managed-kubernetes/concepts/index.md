@@ -430,4 +430,5 @@ Managed Service for Kubernetes автоматически отправляет �
 
 #### Полезные ссылки {#see-also}
 
+* [Закрываем уязвимость SCTPhantom — повышение привилегий и выход из контейнера в ядре Linux](https://yandex.cloud/ru/blog/vulnerability-sctphantom)
 * [Kubernetes: для чего он нужен, как работает и почему стал стандартом в контейнеризации](https://yandex.cloud/ru/blog/posts/2025/03/kubernetes-guide)

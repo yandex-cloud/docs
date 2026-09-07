@@ -5,10 +5,10 @@ description: Follow this guide to create a new partner trunk and a private conne
 
 # Creating a partner trunk and a private connection in it
 
-The process of enabling the {{ interconnect-full-name }} service can be logically divided into the following stages:
+{{ interconnect-full-name }} activation follows these logical steps:
 
 1. [Setting up a partner trunk](#trunk-create).
-1. [Setting up a private connection in the created trunk](#priv-create).
+1. [Creating a private connection in the new trunk](#priv-create).
 
 {% include [cic-partner-trunk-add](../../_tutorials/routing/partner-trunk-add.md) %}
 

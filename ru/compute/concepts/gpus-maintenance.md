@@ -52,3 +52,4 @@ description: Из этой статьи вы узнаете об особенн�
 #### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/vm-control/gpus-maintenance.md)
+* [Обслуживание узлов {{ managed-k8s-name }} без потери ресурсов](../../managed-kubernetes/operations/node-group/node-group-gpu-maintenance.md)

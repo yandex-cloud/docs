@@ -1210,7 +1210,7 @@ Create a page where the user can add a new post with a title.
     nano templates/base.html
     ```
 
-1. Prepend the `<li>` tag to the `About` link inside `<nav>`:
+1. Inside the `<nav>` tag, prepend the `About` link with `<li>`:
 
     ```html
     ...

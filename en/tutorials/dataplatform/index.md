@@ -64,6 +64,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](bigquery-to-clickhouse.md)
 * [{#T}](jdbc-ch-to-sql-server-integration.md)
 * [{#T}](jdbc-ch-to-oracle-integration.md)
+* [{#T}](mpg-pg-clickhouse-extension.md)
 
 ## {{ GP }} {#greenplum}
 
@@ -126,7 +127,7 @@ description: This page provides a list of tutorials for building a data platform
 
 * [Creating a {{ PG }} cluster for 1C:Enterprise](1c-postgresql.md)
 * [{#T}](mpg-performance-problems.md)
-* [{{ mpg-name }} performance analysis and tuning](mpg-profiling.md)
+* [{{ mpg-name }} performance analysis and optimization](mpg-profiling.md)
 * [{#T}](mpg-replication-overview.md)
 * [Migrating a database from a third-party {{ PG }} cluster to {{ mpg-name }}](postgresql-data-migration.md)
 * [Migrating a database from {{ mpg-name }}](outbound-replication.md)
@@ -146,6 +147,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](postgresql-glibc-collation-issues.md)
 * [{#T}](job-pyspark-secret-access.md)
 * [{#T}](conn-man-secret-access.md)
+* [{#T}](mpg-pg-clickhouse-extension.md)
 
 ## {{ VLK }} {#valkey}
 
@@ -220,6 +222,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](managed-postgresql.md)
 * [{#T}](postgresql-versions.md)
 * [{#T}](schema-registry-cdc-debezium-kafka.md)
+* [{#T}](mpg-pg-clickhouse-extension.md)
 
 ## {{ msp-full-name }} {#spark}
 

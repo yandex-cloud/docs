@@ -30,7 +30,7 @@
 ## Шардирование и репликация {#shards-and-replication}
 
 * [Управление шардами](shards.md)
-* [Переключение первичной реплики](stepdown.md)
+* [Переключение мастера](stepdown.md)
 
 ## Логи и мониторинг {#monitoring-and-logs}
 

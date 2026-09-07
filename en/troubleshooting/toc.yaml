@@ -151,16 +151,6 @@ items:
       - name: Sample {{ certificate-manager-name }} configurations and use cases
         href: certificate-manager/how-to/index.md
         hidden: true
-  - name: '{{ mch-name }}'
-    items:
-      - name: All solutions for {{ mch-name }}
-        href: clickhouse/index.md
-      - name: Solutions for known {{ mch-name }} issues
-        href: clickhouse/known-issues/index.md
-        hidden: true
-      - name: Sample {{ mch-name }} configurations and use cases
-        href: clickhouse/how-to/index.md
-        hidden: true
   - name: '{{ cdn-name }}'
     items:
       - name: All solutions for {{ cdn-name }}

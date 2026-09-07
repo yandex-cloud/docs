@@ -43,7 +43,7 @@ items:
             href: operations/resources/enable-compression.md
           - name: Включить сегментацию файлов
             href: operations/resources/enable-segmentation.md
-          - name: Включить экранирование источников
+          - name: Включить или отключить экранирование источников
             href: operations/resources/enable-shielding.md
           - name: Настроить перенаправление запросов
             href: operations/resources/setup-http-rewrite.md

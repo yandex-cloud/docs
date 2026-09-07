@@ -6,9 +6,9 @@ Error message:
 
 ```text
 Can't connect to server: Can't ping server:
-dial tcp <address_of_an_endpoint's_host>:<port>: connect: connection timed out
+dial tcp <host_address_of_endpoint>:<port>: connect: connection timed out
 ```
 
-A transfer would fail if it has one `on_premise` endpoint and another endpoint with the subnet that has no egress NAT gateway.
+A transfer will fail if it has one `on_premise` endpoint and another endpoint with the subnet that has no egress NAT gateway.
 
 **Solution:** Disable the endpoint setting that points to the subnet and [reactivate](../../../../data-transfer/operations/transfer.md#activate) the transfer.

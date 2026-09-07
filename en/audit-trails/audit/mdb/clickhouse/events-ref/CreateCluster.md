@@ -120,6 +120,8 @@ editable: false
               "backgroundMessageBrokerSchedulePoolSize": "string",
               "backgroundCommonPoolSize": "string",
               "dictionariesLazyLoad": "boolean",
+              "shutdownWaitUnfinishedQueries": "boolean",
+              "shutdownWaitUnfinished": "string",
               "logLevel": "string",
               "queryLogRetentionSize": "string",
               "queryLogRetentionTime": "string",
@@ -470,6 +472,8 @@ editable: false
               "backgroundMessageBrokerSchedulePoolSize": "string",
               "backgroundCommonPoolSize": "string",
               "dictionariesLazyLoad": "boolean",
+              "shutdownWaitUnfinishedQueries": "boolean",
+              "shutdownWaitUnfinished": "string",
               "logLevel": "string",
               "queryLogRetentionSize": "string",
               "queryLogRetentionTime": "string",
@@ -820,6 +824,8 @@ editable: false
               "backgroundMessageBrokerSchedulePoolSize": "string",
               "backgroundCommonPoolSize": "string",
               "dictionariesLazyLoad": "boolean",
+              "shutdownWaitUnfinishedQueries": "boolean",
+              "shutdownWaitUnfinished": "string",
               "logLevel": "string",
               "queryLogRetentionSize": "string",
               "queryLogRetentionTime": "string",
@@ -1969,6 +1975,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || backgroundMessageBrokerSchedulePoolSize | **string** (int64) ||
 || backgroundCommonPoolSize | **string** (int64) ||
 || dictionariesLazyLoad | **boolean** ||
+|| shutdownWaitUnfinishedQueries | **boolean** ||
+|| shutdownWaitUnfinished | **string** (int64) ||
 || logLevel | **enum** (LogLevel)
 
 - `TRACE`

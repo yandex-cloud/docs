@@ -17,8 +17,7 @@ description: Следуя данной инструкции, вы сможете
       1. Задайте необходимые параметры воспроизведения видео:
 
           1. `{{ ui-key.yacloud_video.streams.label_episode-mute }}`;
-          1. `{{ ui-key.yacloud_video.streams.label_episode-autoplay }}`;
-          1. `Показывать элементы управления в плеере`.
+          1. `{{ ui-key.yacloud_video.streams.label_episode-autoplay }}`.
 
           {% include [iframe-settings](../../../_includes/video/iframe-settings.md) %}
 

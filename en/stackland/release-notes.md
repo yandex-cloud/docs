@@ -208,19 +208,19 @@ Updated the cluster upgrade form interface in the management console.
 * Restored the ability to delete a cluster without the superuser secret.
 * Fixed Kyverno checks for {{ CH }} and Keeper installation.
 * Removed an excessive port of the `accesscontroller` sidecar.
-* Resolved cleanup errors when deleting a cluster, with excessive Jobs now removed properly.
+* Resolved the cleanup errors when deleting a cluster: excessive Jobs are now properly removed.
 * Consolidated {{ CH }} dashboards; fixed the backup dashboard.
 
 ### {{ mpg-name }}
 
 * Raised the WAL-G operator limits that were previously too low.
-* Fixed a {{ PG }} version labeling issue in images where those with tags 15 and 16 actually contained PostgreSQL 17. The actual database version remains unchanged. If your manifests specify version 15 or 16, update it to 17. For more information, see [{#T}](concepts/components/postgresql.md#pg-image-version).
+* Fixed {{ PG }} version labeling in images: images with tags 15 and 16 actually contained PostgreSQL 17. The actual database version remains unchanged. If your manifests specify version 15 or 16, update it to 17. For more information, see [{#T}](concepts/components/postgresql.md#pg-image-version).
 
 ### {{ datalens-name }}
 
-* You now see a correctly displayed error when an access key's service accounts do not match.
+* Now you see a clear error when service accounts of an access key does not match.
 * Removed deprecated `api-key-*` secret keys.
-* The default configuration is one {{ PG }} instance for GA.
+* Default configuration is one {{ PG }} instance for GA.
 
 ### {{ speechsense-name }}
 
@@ -230,9 +230,9 @@ Updated the cluster upgrade form interface in the management console.
 ### Monitoring and logging
 
 * Reduced `kube-state-metrics` memory usage, eliminating OOM crashes.
-* Fixed the `retentionSize` configuration for Prometheus.
-* Restored the HWM disabling feature.
-* Updated default system metric alerts to working condition.
+* Fixed `retentionSize` configuration for Prometheus.
+* Restored HWM disabling functionality.
+* Default system metric alerts updated to functional state.
 * {{ grafana-name }} now uses the correct Loki application version.
 * Loki is sourced locally, with no external application download required.
 
@@ -242,22 +242,22 @@ Updated the cluster upgrade form interface in the management console.
 * Fixed WebSocket idle timeout in pod terminal.
 * Expanded RBAC permissions for launching pod shell terminals to cover the required scope.
 * `OwnerReference` on {{ CH }} user secrets is now set correctly.
-* Restored shard override flags in the {{ CH }} cluster edit form.
-* The {{ PG }} cluster creation form now correctly provides the `fromBackup` parameter.
-* The backup creation button is now hidden for clusters without backup configuration.
+* Restored shard override flags in {{ CH }} cluster edit form.
+* {{ PG }} cluster creation form now correctly provides the `fromBackup` parameter.
+* Backup creation button is now hidden for clusters without backup configuration.
 * Restored the `withHeader` parameter in the S3 object table.
 * Improved object sorting in buckets and refined S3 bucket tips and UX elements.
-* The redirect after bucket editing now leads to the detail page, not the bucket list.
-* The issuer URL validator error now displays a clear message.
+* After bucket editing, redirect now goes to the detail page, not the bucket list.
+* Issuer URL validator error now displays a clear message.
 * Revised the {{ rest-catalog-name }} catalog form validation for improved consistency.
 * Fixed validation and saving issues in {{ rest-catalog-name }} and {{ mtr-name }} forms.
-* Fixed handling of an unbounded `sinceSeconds` value in the pod log filter.
+* Fixed handling of unbounded `sinceSeconds` value in the pod log filter.
 * In namespace forms, fixed texts and validation.
 * The `scheduledBackupEnabled` toggle now works correctly for {{ PG }} clusters.
-* The cluster creation form no longer leaves an orphaned superuser secret on failure.
+* Cluster creation form no longer leaves an orphaned superuser-secret on failure.
 * Improved Auth-UI error handling and localized messages.
-* Updated the Kubeconfig page and refined texts in project and namespace forms.
-* Unified breadcrumbs, `namespace-not-found` redirects, the favorites provider, and the project path/name display logic.
+* Updated Kubeconfig page and refined texts in project and namespace forms.
+* Unified breadcrumbs, `namespace-not-found` redirects, favorites provider, and project path/name display logic.
 
 # What's new in {{ stackland-name }} 26.1.5
 

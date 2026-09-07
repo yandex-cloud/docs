@@ -26,7 +26,16 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
       {% include [name-format](../../_includes/name-format.md) %}
 
+  1. Optionally, enter a load balancer description and add labels.
+  1. Select the load balancer **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}**:
+
+      * `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`
+      * `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_external }}`
+
+          * {% include [select-external-ip](../../_includes/network-load-balancer/select-external-ip.md) %}
+
   1. Optionally, in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_advanced }}** field:
+
       * Enable DDoS protection.
       * Enable load balancer deletion protection.
 
@@ -36,42 +45,8 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
         {% endnote %}
 
-  1. Assign a public IP address to the load balancer. You can have the IP address assigned automatically or select it from the list of reserved addresses.
-  1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, add a [listener](../concepts/listener.md):
-      1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
-      1. In the window that opens, specify these listener settings:
-
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}` or `{{ ui-key.yacloud.common.label_udp }}`.
-
-            {% note info %}
-
-            By default, the listener uses TCP. To use UDP, [contact technical support]({{ link-console-support }}).
-
-            {% endnote %}
-
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** where the listener will listen for incoming traffic. The possible values range from `1` to `32767`.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** to which the load balancer will redirect traffic. The possible values range from `1` to `32767`.
-
-      1. Click **{{ ui-key.yacloud.common.add }}**.
-
-  1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, add a [target group](../concepts/target-resources.md):
-      1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
-      1. Select a target group or [create a new one](target-group-create.md):
-          * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, select ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
-          * In the window that opens, enter a target group name.
-          * Add VMs to the target group.
-          * Click **{{ ui-key.yacloud.common.create }}**.
-      1. Optionally, under **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. In the window that opens, specify the [resource health check](../concepts/health-check.md) settings:
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}` or `{{ ui-key.yacloud.common.label_tcp }}`. For HTTP health checks, specify the URL in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** field.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** for health checks. The possible values range from `1` to `32767`.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}**: Response timeout in seconds. The possible values range from `1` to `60`. The interval must be at least 1 second longer than the response timeout.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}**: Health check interval in seconds. The possible values range from `1` to `60`.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful checks required to consider a VM instance ready to receive traffic.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}**: Number of failed checks before traffic is no longer routed to the VM.
-
-      1. Click **{{ ui-key.yacloud.common.apply }}**.
+  1. {% include [add-listener](../../_includes/network-load-balancer/add-listener.md) %}
+  1. {% include [add-target-group](../../_includes/network-load-balancer/add-target-group.md) %}
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}

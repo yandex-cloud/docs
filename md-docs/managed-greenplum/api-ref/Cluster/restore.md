@@ -32,7 +32,8 @@ POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters:restore
       "dataLens": "boolean",
       "webSql": "boolean",
       "dataTransfer": "boolean",
-      "yandexQuery": "boolean"
+      "yandexQuery": "boolean",
+      "trino": "boolean"
     },
     "zoneId": "string",
     "subnetId": "string",
@@ -255,6 +256,9 @@ Allows access for DataTransfer. ||
 || yandexQuery | **boolean**
 
 Allow access for YandexQuery. ||
+|| trino | **boolean**
+
+Allow safety access for trino ||
 |#
 
 ## Resources {#yandex.cloud.mdb.greenplum.v1.Resources}

@@ -27,7 +27,8 @@ Creates a Greenplum® cluster in the specified folder.
       "data_lens": "bool",
       "web_sql": "bool",
       "data_transfer": "bool",
-      "yandex_query": "bool"
+      "yandex_query": "bool",
+      "trino": "bool"
     },
     "zone_id": "string",
     "subnet_id": "string",
@@ -221,7 +222,8 @@ Creates a Greenplum® cluster in the specified folder.
     "command_center_enabled": "bool",
     "greenplum_enabled": "bool",
     "pooler_enabled": "bool"
-  }
+  },
+  "disk_encryption_key_id": "google.protobuf.StringValue"
 }
 ```
 
@@ -317,6 +319,9 @@ ID of the service account used for access Yandex Cloud resources. ||
 || logging | **[LoggingConfig](#yandex.cloud.mdb.greenplum.v1.LoggingConfig)**
 
 Cloud logging configuration ||
+|| disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## GreenplumConfig {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig}
@@ -377,6 +382,9 @@ Allows access for DataTransfer. ||
 || yandex_query | **bool**
 
 Allow access for YandexQuery. ||
+|| trino | **bool**
+
+Allow safety access for trino ||
 |#
 
 ## MasterSubclusterConfigSpec {#yandex.cloud.mdb.greenplum.v1.MasterSubclusterConfigSpec}

@@ -38,7 +38,7 @@ apiPlayground:
             Page token. Set `pageToken`
             to the [ListAccessBindingsResponse.nextPageToken](#yandex.cloud.access.ListAccessBindingsResponse)
             returned by a previous list request to get the next page of results.
-            The maximum string length in characters is 100.
+            The maximum string length in characters is 2000.
           type: string
       additionalProperties: false
     body: null
@@ -87,7 +87,7 @@ Page token. Set `pageToken`
 to the [ListAccessBindingsResponse.nextPageToken](#yandex.cloud.access.ListAccessBindingsResponse)
 returned by a previous list request to get the next page of results.
 
-The maximum string length in characters is 100. ||
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.access.ListAccessBindingsResponse}

@@ -9,7 +9,7 @@ apiPlayground:
         backupId:
           description: |-
             **string**
-            Required field. Required. ID of the backup to delete.
+            Required field. ID of the backup to delete.
           type: string
       required:
         - backupId
@@ -21,7 +21,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: Backup.Delete
 
-Returns the list of available backups for the specified MongoDB cluster.
+Deletes the specified MongoDB backup.
 
 ## HTTP request
 
@@ -35,7 +35,7 @@ DELETE https://{{ api-host-mdb }}/managed-mongodb/v1/backups/{backupId}
 ||Field | Description ||
 || backupId | **string**
 
-Required field. Required. ID of the backup to delete. ||
+Required field. ID of the backup to delete. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

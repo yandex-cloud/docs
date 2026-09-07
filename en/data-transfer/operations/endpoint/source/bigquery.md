@@ -1,19 +1,19 @@
-# Transferring data from a BigQuery source endpoint
+# Transferring data from a BigQuery endpoint
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, configure access to BigQuery.
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, make sure to configure BigQuery access.
 
-{{ data-transfer-full-name }} enables you to upload data from BigQuery storage to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to export data from BigQuery to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review the available data transfer scenarios](#scenarios).
 1. [Prepare the BigQuery database](#prepare) for the transfer.
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. In case of any issues, [use ready-made solutions](../../../../data-transfer/troubleshooting/index.md) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. If you run into any problems, [check the available solutions](../../../../data-transfer/troubleshooting/index.md) for troubleshooting.
 
-## Scenarios for transferring data from BigQuery {#scenarios}
+## BigQuery transfer scenarios {#scenarios}
 
-You can upload data from BigQuery cloud storage to managed databases for further storage in the cloud, processing and loading into data marts for further visualization.
+You can export data from BigQuery to managed databases for cloud storage, processing, and further loading into data marts for visualization.
 
 For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -27,9 +27,9 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 - Management console {#console}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.bigquery_source.endpoint.airbyte.bigquery_source.BigQuerySource.project_id.title }}**: Specify the ID of the [Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects) that contains the BigQuery target's dataset.
-    * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.bigquery_source.endpoint.airbyte.bigquery_source.BigQuerySource.dataset_id.title }}**: Dataset ID used for searching for tables and forms to view. If the field value is set, data is only transferred from the specified [schema](https://cloud.google.com/bigquery/docs/datasets-intro). This may speed up schema detection.
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.bigquery_source.endpoint.airbyte.bigquery_source.BigQuerySource.credentials_json.title }}**: Specify the contents of the [account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) JSON file.
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.bigquery_source.endpoint.airbyte.bigquery_source.BigQuerySource.project_id.title }}**: Specify the ID of the [Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects) that contains the target BigQuery dataset.
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.bigquery_source.endpoint.airbyte.bigquery_source.BigQuerySource.dataset_id.title }}**: Optionally, specify the ID of the dataset for discovering tables and views. Setting the value in this field restricts the transfer to the specified [schema](https://cloud.google.com/bigquery/docs/datasets-intro), leading to faster schema detection.
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.bigquery_source.endpoint.airbyte.bigquery_source.BigQuerySource.credentials_json.title }}**: Paste the contents of the JSON file with the [service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
 
 {% endlist %}
 
@@ -46,8 +46,8 @@ Configure one of the supported data targets:
 * [{{ DS }}](../target/data-streams.md)
 * [{{ PG }}](../target/postgresql.md)
 
-For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 {% include [Internet access](../../../../_includes/data-transfer/notes/internet-access.md) %}
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).

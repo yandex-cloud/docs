@@ -69,6 +69,7 @@ default:
   auth-main-host: auth.yandex.cloud
   backup-full-name: Yandex Cloud Backup
   backup-name: Cloud Backup
+  backup-provider-docs-version: '26.07'
   backup-short-name: Cloud Backup
   baremetal-extend-managed-k8s-name: 'Extend: Managed Service for Kubernetes®'
   baremetal-extend-stackland-name: 'Extend: Yandex Cloud Stackland'
@@ -580,7 +581,7 @@ default:
   ml-sdk-full-name: Yandex AI Studio SDK
   ml-sdk-name: AI SDK
   mmg-backup-retention: 7
-  mmg-backup-retention-max: 35
+  mmg-backup-retention-max: 60
   mmg-backup-retention-min: 7
   mmg-full-name: Yandex StoreDoc
   mmg-name: Yandex StoreDoc
@@ -4126,9 +4127,13 @@ default:
           Yandex360DataSourceForm:
             action_add_resources_2qrRH: Добавить ресурсы
             action_configure-connection_v6Gjm: Настроить подключение
+            button_add_disk_nUBSX: Добавить диск
             field_client_id_iVUvK: ClientID
             field_client_secret_pcFGg: Client secret
             label_all_disks_5KEY9: Все диски
+            label_public_access: Сканировать
+            public_access_all_files: Все файлы
+            public_access_public_files: Публичные файлы
             section_organization_resources_title_5u8qX: Общие ресурсы организации
             section_user_resources_title_aN75p: Пользовательские ресурсы
         kspm:
@@ -4193,6 +4198,13 @@ default:
           template_type_global_qSrVE: Общие
           template_type_local_77J2t: Инстанс
           title_ap766: Сохранить запрос как шаблон
+        vm:
+          WorkspaceVulnerabilityForm:
+            add_image_trigger_title: Поиск уязвимостей при добавлении образов в реестры
+            scan_only_latest_title: Сканировать только образы с тегом latest или последние добавленные
+            schedular_search_title: Периодический поиск уязвимостей в реестрах
+            scope_control_option_all: Все реестры в окружении
+            scope_control_option_selected: Только реестры в выбранном расположении
         workspaces:
           ConnectorAddField:
             addNewConnector: Создать коннектор
@@ -4225,6 +4237,7 @@ default:
             tabGeneralParams_xc2v2: Основные параметры
             tabResources_vJuSN: Ресурсы
             tabStandards_wSeaW: Модули контроля
+            tabVulnerabilities_wSeaW: Управление уязвимостями
           WorkspaceGeneralParamsForm:
             alert_sink_title_pvDBG: Приёмник алертов
             billing_account_title_sU1Tj: Оплата ресурсов
@@ -4454,8 +4467,6 @@ default:
       channels:
         action_add-domain: Добавить домен
         action_create-channel: Создать канал
-        label_advertisement: Реклама
-        label_allowed-domains: Разрешённые домены
         label_category: Категория
         label_description: Описание
         label_domains-status: Статус проверки
@@ -4520,7 +4531,6 @@ default:
         label_episode-hidden: Скрывать элементы управления в плеере
         label_episode-mute: По умолчанию воспроизводить без звука
         label_episode-type: Тип эпизода
-        label_episode-type-broadcast: Трансляция
         label_episode-type-live: Прямой эфир
         label_player-template: Шаблон плеера
         label_rewind-buffer: Буфер перемотки (сек.)
@@ -4551,7 +4561,6 @@ default:
         label_accessRights: Доступ
         label_allow-access: Разрешить доступ
         label_description: Описание
-        label_enable-ad: Включить рекламу
         label_neuro-translation: Нейроперевод
         label_subtitles: Субтитры
         label_title: Название
@@ -4991,6 +5000,7 @@ default:
       cdn:
         button_activate-shielding: Включить
         button_add-domain: Добавить доменное имя
+        button_deactivate-shielding: Выключить
         button_origins-group-create: Создать группу источников
         button_resource-activate-raw-logs: Включить
         button_resource-content-prefetch-cache: Предзагрузить контент

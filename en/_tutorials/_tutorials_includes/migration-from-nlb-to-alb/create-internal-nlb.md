@@ -10,7 +10,7 @@
             controller:
               service:
                 external:
-                  enabled: true
+                  enabled: false
                 internal:
                   enabled: true
                   annotations:
@@ -45,11 +45,11 @@
               loadBalancerIP: <IP_address_of_internal_network_load_balancer_listener>
               ports:
               - port: <80_or_another_port_number_for_HTTP>
-                targetPort: <80_or_another_port_number_for_NGINX_Ingress_controller_pod_for_HTTP>
+                targetPort: <80_or_another_port_number_for_NGINX_ingress_controller_pod_for_HTTP>
                 protocol: TCP
                 name: http
               - port: <443_or_another_port_number_for_HTTPS>
-                targetPort: <443_or_another_port_number_for_NGINX_Ingress_controller_pod_for_HTTPS>
+                targetPort: <443_or_another_port_number_for_NGINX_ingress_controller_pod_for_HTTPS>
                 protocol: TCP
                 name: https
               selector:

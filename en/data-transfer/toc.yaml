@@ -238,6 +238,10 @@ items:
             href: tutorials/rdbms-to-clickhouse.md
           - name: '{{ GP }}/{{ CB }} in {{ PG }}'
             href: tutorials/greenplum-to-postgresql.md
+          - name: >-
+              Executing analytical queries in {{ mpg-name }} using {{ mch-name
+              }} and {{ data-transfer-name }}
+            href: tutorials/mpg-pg-clickhouse-extension.md
           - name: '{{ objstorage-name }} in {{ MY }}'
             href: tutorials/objs-mmy-migration.md
           - name: '{{ objstorage-name }} to {{ PG }}'

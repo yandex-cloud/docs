@@ -1,6 +1,6 @@
 ---
 title: How to create a new partner trunk and a private connection in it in {{ interconnect-full-name }}
-description: In this tutorial, we will create a new partner trunk and a private connection in it.
+description: In this tutorial, you will create a new partner trunk and a private connection in it.
 canonical: '{{ link-docs }}/tutorials/routing/partner-trunk-priv-add'
 ---
 
@@ -16,3 +16,4 @@ canonical: '{{ link-docs }}/tutorials/routing/partner-trunk-priv-add'
 {% include [cic-partner-trunk-add](../../_tutorials/routing/partner-trunk-add.md) %}
 
 {% include [cic-priv-add](../../_tutorials/routing/priv-add.md) %}
+

@@ -288,6 +288,6 @@ To stop paying for the resources:
 * [Delete the subnet](../../vpc/operations/subnet-delete.md).
 * [Delete the cloud network](../../vpc/operations/network-delete.md).
 
-[*name]: {% include [name-format](../../_includes/_popups/name-format-general.md) %}
+[*name]: {% include [name-format](../../_popups/name-format-general.md) %}
 
 [*dns_forwarder]: A DNS forwarder is a special DNS server which forwards DNS requests differently depending on the domain name specified in the request.

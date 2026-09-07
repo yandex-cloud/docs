@@ -50,7 +50,7 @@ The maximum string length in characters is 32. Value must match the regular expr
 Field mask that specifies which fields of the Redis User resource should be updated. ||
 || passwords[] | **string**
 
-New passwords the Redis user.
+New password of the Redis user, 8-128 characters long.
 
 The maximum number of elements is 1. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**

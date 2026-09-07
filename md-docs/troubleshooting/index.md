@@ -126,14 +126,6 @@
 
  - [Примеры конфигураций и сценариев Certificate Manager](certificate-manager/how-to/index.md)
 
-## Managed Service for ClickHouse®
-
- - [Все решения для Managed Service for ClickHouse®](clickhouse/index.md)
-
- - [Решения для известных проблем Managed Service for ClickHouse®](clickhouse/known-issues/index.md)
-
- - [Примеры конфигураций и сценариев Managed Service for ClickHouse®](clickhouse/how-to/index.md)
-
 ## Cloud CDN
 
  - [Все решения для Cloud CDN](cdn/index.md)

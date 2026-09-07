@@ -3,7 +3,6 @@
 # Managed Service for OpenSearch API, gRPC: ClusterService.StreamLogs
 
 
-Backend implementation uses GET already. --)
 Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
 
 ## gRPC request

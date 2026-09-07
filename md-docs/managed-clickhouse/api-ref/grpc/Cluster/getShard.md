@@ -54,6 +54,8 @@ The maximum string length in characters is 63. ||
           "background_message_broker_schedule_pool_size": "google.protobuf.Int64Value",
           "background_common_pool_size": "google.protobuf.Int64Value",
           "dictionaries_lazy_load": "google.protobuf.BoolValue",
+          "shutdown_wait_unfinished_queries": "google.protobuf.BoolValue",
+          "shutdown_wait_unfinished": "google.protobuf.Int64Value",
           "log_level": "LogLevel",
           "query_log_retention_size": "google.protobuf.Int64Value",
           "query_log_retention_time": "google.protobuf.Int64Value",
@@ -404,6 +406,8 @@ The maximum string length in characters is 63. ||
           "background_message_broker_schedule_pool_size": "google.protobuf.Int64Value",
           "background_common_pool_size": "google.protobuf.Int64Value",
           "dictionaries_lazy_load": "google.protobuf.BoolValue",
+          "shutdown_wait_unfinished_queries": "google.protobuf.BoolValue",
+          "shutdown_wait_unfinished": "google.protobuf.Int64Value",
           "log_level": "LogLevel",
           "query_log_retention_size": "google.protobuf.Int64Value",
           "query_log_retention_time": "google.protobuf.Int64Value",
@@ -754,6 +758,8 @@ The maximum string length in characters is 63. ||
           "background_message_broker_schedule_pool_size": "google.protobuf.Int64Value",
           "background_common_pool_size": "google.protobuf.Int64Value",
           "dictionaries_lazy_load": "google.protobuf.BoolValue",
+          "shutdown_wait_unfinished_queries": "google.protobuf.BoolValue",
+          "shutdown_wait_unfinished": "google.protobuf.Int64Value",
           "log_level": "LogLevel",
           "query_log_retention_size": "google.protobuf.Int64Value",
           "query_log_retention_time": "google.protobuf.Int64Value",
@@ -1268,6 +1274,22 @@ Default value: **true** for versions 25.1 and higher, **false** for versions 24.
 Change of the setting is applied with restart.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#dictionaries_lazy_load). ||
+|| shutdown_wait_unfinished_queries | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables wait for running queries finish before shutdown.
+
+Default value: **false**.
+
+Change of the setting is applied with restart.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#shutdown_wait_unfinished_queries). ||
+|| shutdown_wait_unfinished | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Delay in seconds to wait for unfinished queries before shutdown.
+
+Default value: **60** (1 minute).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#shutdown_wait_unfinished). ||
 || log_level | enum **LogLevel**
 
 Logging level.
@@ -1806,7 +1828,7 @@ Change of the settings of **jdbc_bridge** is applied with restart.
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/integrations/jdbc/jdbc-with-clickhouse). ||
 || mysql_protocol | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Enables or disables MySQL interface on ClickHouse server
+Enables or disables MySQL interface on ClickHouse server.
 
 Default value: **false**.
 

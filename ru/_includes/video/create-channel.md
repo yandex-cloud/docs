@@ -8,4 +8,4 @@
 После создания канала вы окажетесь внутри этого канала во вкладке ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}**.
 
 * Подробнее о каналах в разделе [{#T}](../../video/concepts/index.md#channels).
-* Настройка показа рекламы описана в разделе [{#T}](../../video/operations/channels/settings.md#ad-settings).
+* Настройка монетизации описана в разделе [{#T}](../../video/operations/channels/settings.md#ad-settings).

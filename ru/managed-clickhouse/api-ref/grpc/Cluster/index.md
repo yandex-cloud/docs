@@ -16,6 +16,7 @@ A set of methods for managing ClickHouse clusters.
 || [Update](update.md) | Updates the specified ClickHouse cluster. ||
 || [Delete](delete.md) | Deletes the specified ClickHouse cluster. ||
 || [AddZookeeper](addZookeeper.md) | Adds a ZooKeeper subcluster to the specified ClickHouse cluster. ||
+|| [MigrateToKeeper](migrateToKeeper.md) | Change the coordinator service in the cluster from ZooKeeper to ClickHouse Keeper. ||
 || [Start](start.md) | Starts the specified ClickHouse cluster. ||
 || [Stop](stop.md) | Stops the specified ClickHouse cluster. ||
 || [Move](move.md) | Moves a ClickHouse cluster to the specified folder. ||

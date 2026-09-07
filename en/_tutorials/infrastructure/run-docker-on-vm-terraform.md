@@ -45,12 +45,12 @@ To create an infrastructure using {{ TF }}:
           git clone https://github.com/yandex-cloud-examples/yc-run-docker-on-vm.git
           ```
 
-      1. Navigate to the repository directory. Make sure it contains the `run-docker-on-vm-config.tf` file with the new infrastructure configuration.
+      1. Navigate to the repository directory. Make sure it now contains the `run-docker-on-vm-config.tf` file with the new infrastructure configuration.
 
     - Manually {#manual}
 
       1. Create a folder for the infrastructure description file.
-      1. Create a configuration file named `run-docker-on-vm.tf` in the folder:
+      1. Create a configuration file named `run-docker-on-vm.tf` in the directory:
 
           {% cut "Contents of the run-docker-on-vm.tf file" %}
 
@@ -73,7 +73,7 @@ To create an infrastructure using {{ TF }}:
 1. Under `locals`, set the following parameters for the new resources:
     * `zone`: [Availability zone](../../overview/concepts/geo-scope.md) the VM will reside in.
     * `username`: VM user name.
-    * `ssh_key_path`: Path to the public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path`: Path to the public SSH key file to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `target_folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to host the VM.
     * `registry_name`: Name of the registry in {{ container-registry-name }}.
     * `sa_name`: Service account name.

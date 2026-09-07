@@ -12,9 +12,11 @@
 
 Информация о настройке `internal_replication` недоступна ни в интерфейсах {{ yandex-cloud }}, ни в системных таблицах {{ CH }}. Значение настройки по умолчанию — `true`.
 
-#### Как повысить максимальный объем оперативной памяти для выполнения запроса? {#max-memory-usage}
+#### Почему возникает ошибка `MEMORY_LIMIT_EXCEEDED`? {#max-memory-usage}
 
-Если для выполнения запроса не хватает объема оперативной памяти пользователя, возникает ошибка:
+Настройка [Max memory usage](../../managed-clickhouse/concepts/settings-list.md) ограничивает объем оперативной памяти, который может использовать один запрос на одном сервере. По умолчанию ее значение равно `0`, то есть ограничение не задано.
+
+Увеличивайте значение **Max memory usage** только если для него задано ненулевое значение и запрос превышает это ограничение. В таком случае возникает ошибка:
 
 ```text
 DB::Exception: Memory limit (total) exceeded:
@@ -22,17 +24,31 @@ would use 14.10 GiB (attempt to allocate chunk of 4219924 bytes), maximum: 14.10
 (MEMORY_LIMIT_EXCEEDED), Stack trace (when copying this message, always include the lines below)
 ```
 
-Для [увеличения](../../managed-clickhouse/operations/cluster-users.md#update-settings) максимального объема оперативной памяти используйте параметр [Max memory usage](../../managed-clickhouse/concepts/settings-list.md#setting-max-memory-usage).
+Максимальное значение **Max memory usage** ограничено настройкой **Max server memory usage**. Если **Max memory usage** равно `0`, причиной ошибки `MEMORY_LIMIT_EXCEEDED` может быть достижение общего лимита памяти сервера. Увеличение **Max memory usage** в этом случае не поможет. [Оптимизируйте запрос]({{ ch.docs }}resources/support-center/knowledge-base/performance-optimization/memory-limit-exceeded-for-query), чтобы сократить потребление памяти, или [измените класс хостов](../../managed-clickhouse/operations/update.md#change-resource-preset). Подробнее в разделе [{#T}](../../managed-clickhouse/concepts/memory-management.md).
 
-Если в кластере включено [управление пользователями через SQL](../../managed-clickhouse/concepts/user-access-rights.md#sql-user-management), параметр `Max memory usage` можно задать:
+[Увеличить](../../managed-clickhouse/operations/cluster-users.md#update-settings) значение **Max memory usage** можно в настройках пользователя или с помощью SQL-запросов:
 
-* Для сессии текущего пользователя с помощью запроса:
+* Для текущей сессии:
 
     ```sql
     SET max_memory_usage = <значение_в_байтах>;
     ```
 
-* Для всех пользователей по умолчанию с помощью создания [профиля настроек]({{ ch.docs }}{{ lang }}/operations/access-rights#settings-profiles-management).
+* Для отдельного запроса:
+
+    ```sql
+    SELECT <выражение>
+    FROM <имя_таблицы>
+    SETTINGS max_memory_usage = <значение_в_байтах>;
+    ```
+
+Если в кластере включено [управление пользователями через SQL](../../managed-clickhouse/concepts/user-access-rights.md#sql-user-management), значение **Max memory usage** можно задать для выбранных пользователей с помощью [профиля настроек]({{ ch.docs }}{{ lang }}/operations/access-rights#settings-profiles-management). Например, чтобы задать значение для одного пользователя:
+
+```sql
+CREATE SETTINGS PROFILE max_memory_usage_profile
+SETTINGS max_memory_usage = <значение_в_байтах>
+TO <имя_пользователя>;
+```
 
 #### Почему в высокодоступном кластере {{ mch-name }} должно быть три или пять хостов {{ ZK }}? {#zookeeper-hosts-number}
 

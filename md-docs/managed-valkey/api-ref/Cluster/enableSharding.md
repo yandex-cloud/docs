@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:enab
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the Redis cluster to return.
+Required field. ID of the Redis cluster to return.
 
 The maximum string length in characters is 50. ||
 |#

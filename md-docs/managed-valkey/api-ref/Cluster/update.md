@@ -248,7 +248,7 @@ For example, "project": "mvp" or "source": "dictionary".
 The new set of labels will completely replace the old ones. To add a label, request the current
 set with the [ClusterService.Get](get.md#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
 
-The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. Each value must match the regular expression ` [-_./\@0-9a-z]* `. No more than 64 per resource. ||
+The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || configSpec | **[ConfigSpec](#yandex.cloud.mdb.redis.v1.ConfigSpec)**
 
 New configuration and resources for hosts in the cluster. ||
@@ -270,14 +270,17 @@ Deletion Protection inhibits deletion of the cluster ||
 
 Persistence mode
 
-- `ON`: Cluster persistence mode is on.
-- `OFF`: Cluster persistence mode is off.
-- `ON_REPLICAS`: Cluster persistence is on for replicas only. ||
+- `ON`: Persistence is enabled on every host of the cluster: the append-only file
+(AOF) is written on masters and replicas alike.
+- `OFF`: Persistence is disabled: neither the append-only file (AOF) nor RDB
+snapshots are written, all data is kept in memory only.
+- `ON_REPLICAS`: The append-only file (AOF) is written on replicas only, masters do not
+persist data to disk. ||
 || networkId | **string**
 
 ID of the network to move the cluster to.
 
-The maximum string length in characters is 150. ||
+The maximum string length in characters is 50. ||
 || announceHostnames | **boolean**
 
 Enable FQDN instead of ip ||
@@ -332,7 +335,8 @@ Time to start the daily backup, in the UTC timezone. ||
 Access policy to DB ||
 || redis | **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig)**
 
-Unified configuration of a Redis cluster ||
+Unified configuration of a Redis cluster. Use this field for all currently
+available versions. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
@@ -346,7 +350,9 @@ Acceptable values are 7 to 60, inclusive. ||
 Valkey modules settings ||
 || tieredStorageEnabled | **boolean**
 
-Enables tiered storage (disk + NVMe hot tier). Forces edition to 9.1-ts. ||
+Enables tiered storage (disk + NVMe hot tier). Requires the tiered storage
+edition: when the flag is set on creation, the cluster version is switched
+to that edition. ||
 || shardAutoscalingSettings | **[ShardAutoscalingSettings](#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings)**
 
 Shard autoscaling settings for the cluster. ||
@@ -704,8 +710,9 @@ The minimum value is 0. ||
 ||Field | Description ||
 || resourcePresetId | **string**
 
-Required field. ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../concepts/instance-types.md). ||
+ID of the preset for computational resources available to a host (CPU, memory etc.).
+To get the list of available presets, use a [ResourcePresetService.List](../ResourcePreset/list.md#List) request;
+presets are also listed in the [documentation](../../concepts/instance-types.md). ||
 || diskSize | **string** (int64)
 
 Volume of the storage available to a host, in bytes. ||
@@ -780,17 +787,17 @@ more memory to be used. ||
 || timeout | **string** (int64)
 
 Time that Redis keeps the connection open while the client is idle.
-If no new command is sent during that time, the connection is closed.
-
-The minimum value is 0. ||
+If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_%-]{0,128} `. ||
 || databases | **string** (int64)
 
 Number of database buckets on a single redis-server process.
 
-Acceptable values are 1 to 1024, inclusive. ||
+Value must be greater than 0. ||
 || slowlogLogSlowerThan | **string** (int64)
 
 Threshold for logging slow requests to server in microseconds (log only slower than it).
@@ -803,7 +810,9 @@ Max slow requests number to log.
 The minimum value is 0. ||
 || notifyKeyspaceEvents | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtmdn]{0,15} `. ||
 || clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -812,7 +821,7 @@ Redis connection output buffers limits for pubsub operations. ||
 Redis connection output buffers limits for clients. ||
 || maxmemoryPercent | **string** (int64)
 
-Redis maxmemory percent
+Share of the host RAM used as the Redis maxmemory limit, in percent.
 
 Acceptable values are 1 to 75, inclusive. ||
 || luaTimeLimit | **string** (int64)
@@ -822,21 +831,21 @@ Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism
 Acceptable values are 0 to 5000, inclusive. ||
 || replBacklogSizePercent | **string** (int64)
 
-Replication backlog size as a percentage of flavor maxmemory
+Replication backlog size as a percentage of the host RAM.
 
 Acceptable values are 1 to 75, inclusive. ||
 || clusterRequireFullCoverage | **boolean**
 
-Controls whether all hash slots must be covered by nodes ||
+Controls whether all hash slots must be covered by nodes. ||
 || clusterAllowReadsWhenDown | **boolean**
 
-Allows read operations when cluster is down ||
+Allows read operations when cluster is down. ||
 || clusterAllowPubsubshardWhenDown | **boolean**
 
-Permits Pub/Sub shard operations when cluster is down ||
+Permits Pub/Sub shard operations when cluster is down. ||
 || lfuDecayTime | **string** (int64)
 
-The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10)
+The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10).
 
 Acceptable values are 0 to 100000, inclusive. ||
 || lfuLogFactor | **string** (int64)
@@ -855,15 +864,16 @@ Allows some data to be lost in favor of faster switchover/restart ||
 Use JIT for lua scripts and functions ||
 || ioThreadsAllowed | **boolean**
 
-Allow redis to use io-threads ||
+Allow redis to use io-threads. When enabled, the number of threads is
+derived from the host class; when disabled, a single thread is used. ||
 || zsetMaxListpackEntries | **string** (int64)
 
-Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist
+Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist.
 
 Acceptable values are 32 to 2048, inclusive. ||
 || aofMaxSizePercent | **string** (int64)
 
-AOF maximum size as a percentage of disk available
+AOF maximum size as a percentage of the host disk size.
 
 Acceptable values are 1 to 99, inclusive. ||
 || activedefrag | **boolean**
@@ -919,17 +929,20 @@ Limit on how large the storage for database instances can automatically grow, in
 
 ## ValkeyModules {#yandex.cloud.mdb.redis.v1.ValkeyModules}
 
+Settings of the modules that extend the server with additional data types
+and commands.
+
 #|
 ||Field | Description ||
 || valkeySearch | **[ValkeySearch](#yandex.cloud.mdb.redis.v1.ValkeySearch)**
 
-valkey-search module settings ||
+valkey-search module settings: vector and full-text search. ||
 || valkeyJson | **[ValkeyJson](#yandex.cloud.mdb.redis.v1.ValkeyJson)**
 
-valkey-json module settings ||
+valkey-json module settings: the JSON data type and commands. ||
 || valkeyBloom | **[ValkeyBloom](#yandex.cloud.mdb.redis.v1.ValkeyBloom)**
 
-valkey-bloom module settings ||
+valkey-bloom module settings: probabilistic data structures. ||
 |#
 
 ## ValkeySearch {#yandex.cloud.mdb.redis.v1.ValkeySearch}
@@ -941,12 +954,12 @@ valkey-bloom module settings ||
 Enable valkey-search module ||
 || readerThreads | **string** (int64)
 
-Controls the amount of threads executing queries
+Controls the amount of threads executing queries.
 
 The minimum value is 0. ||
 || writerThreads | **string** (int64)
 
-Controls the amount of threads processing index mutations
+Controls the amount of threads processing index mutations.
 
 The minimum value is 0. ||
 || version | **string**
@@ -984,7 +997,9 @@ Module version ||
 ||Field | Description ||
 || enabled | **boolean**
 
-Whether shard autoscaling is enabled for the cluster. ||
+Whether shard autoscaling is enabled for the cluster.
+When enabled, at least one of the thresholds must have a non-zero
+[ShardAutoscalingThreshold.upThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold). ||
 || minShards | **string** (int64)
 
 Minimum number of shards the cluster can scale down to.
@@ -993,6 +1008,8 @@ The minimum value is 1. ||
 || maxShards | **string** (int64)
 
 Maximum number of shards the cluster can scale up to.
+Must be greater than or equal to `minShards` and must not exceed
+the maximum number of shards allowed for the cluster.
 
 The minimum value is 1. ||
 || cpuThreshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
@@ -1008,11 +1025,13 @@ Network utilization threshold. ||
 
 ## ShardAutoscalingThreshold {#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold}
 
+Utilization thresholds of a single metric used by shard autoscaling.
+
 #|
 ||Field | Description ||
 || downThreshold | **string** (int64)
 
-Threshold for downscaling
+Threshold for downscaling, in percent. Must be lower than `upThreshold`.
 
 Acceptable values are 0 to 100, inclusive. ||
 || upThreshold | **string** (int64)

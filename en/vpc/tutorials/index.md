@@ -1,6 +1,6 @@
 ---
 title: '{{ vpc-full-name }} use cases'
-description: Various {{ vpc-name }} use cases in {{ yandex-cloud }}.
+description: Various use cases for {{ vpc-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ vpc-name }} tutorials

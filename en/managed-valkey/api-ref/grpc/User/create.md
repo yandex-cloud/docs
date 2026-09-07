@@ -59,7 +59,7 @@ The maximum string length in characters is 32. Value must match the regular expr
 
 Password of the Redis user.
 
-The maximum number of elements is 1. ||
+Each value must match the regular expression ` ^[a-zA-Z0-9@=+?*.,!&#$^<>_-]*$ `. The maximum number of elements is 1. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
 
 Set of permissions to grant to the user. ||

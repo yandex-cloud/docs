@@ -33,6 +33,17 @@ You can have public IP addresses assigned to cloud resources automatically or se
 
 You can convert a public IP address to [static](../operations/set-static-ip.md) using the {{ vpc-short-name }} **{{ ui-key.yacloud.vpc.switch_addresses }}** tab in the [management console]({{ link-console-main }}).
 
+#### Why did my VM or database IP address change? {#dynamic-ip-changed}
+
+More often than not, the problem is due to the fact that your IP address was a dynamic one.
+
+An IP address can be either static or dynamic. A dynamic IP address is assigned to a resource by default and may change in some cases. For example, if you restart a resource, recreate a network interface, or the resource itself. Sometimes a virtual machine or database host stops due to arrears, in which case the dynamic IP address also may change. 
+
+Dynamic IP addresses are typically used for test and temporary environments, as well as for services that do not accept incoming connections.
+
+If a dynamic IP address does not suit you, make it [static](../operations/set-static-ip.md). 
+
+
 #### Can I protect a public IP address against accidental deletion? {#deletion-protection}
 
 Yes, you can [protect a public IP address against accidental deletion](../operations/deletion-protection.md).

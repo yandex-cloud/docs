@@ -542,7 +542,8 @@ editable: false
       "persistenceMode": "string",
       "announceHostnames": "boolean",
       "authSentinel": "boolean",
-      "diskEncryptionKeyId": "string"
+      "diskEncryptionKeyId": "string",
+      "isHa": "boolean"
     },
     "hosts": [
       {
@@ -818,6 +819,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || announceHostnames | **boolean** ||
 || authSentinel | **boolean** ||
 || diskEncryptionKeyId | **string** ||
+|| isHa | **boolean** ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}
@@ -1154,20 +1156,22 @@ The minimum value is 0. ||
 - `ALLKEYS_RANDOM`
 - `VOLATILE_TTL`
 - `NOEVICTION` ||
-|| timeout | **string** (int64)
+|| timeout | **string** (int64) ||
+|| password | **string**
 
-The minimum value is 0. ||
-|| password | **string** ||
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_%-]{0,128} `. ||
 || databases | **string** (int64)
 
-Acceptable values are 1 to 1024, inclusive. ||
+Value must be greater than 0. ||
 || slowlogLogSlowerThan | **string** (int64)
 
 The minimum value is 10. ||
 || slowlogMaxLen | **string** (int64)
 
 The minimum value is 0. ||
-|| notifyKeyspaceEvents | **string** ||
+|| notifyKeyspaceEvents | **string**
+
+Value must match the regular expression ` [KEg$lshzxeAtmdn]{0,15} `. ||
 || clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)** ||
 || clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)** ||
 || maxmemoryPercent | **string** (int64)

@@ -242,31 +242,31 @@ Yandex Application Load Balancer служит для распределения 
 
 #### Конфигурация ресурсов (англ.)
 
- - [DirectResponse](gwin-ref/directresponse.md)
-
  - [BackendTLSPolicy](gwin-ref/backendtlspolicy.md)
-
- - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
 
  - [Gateway](gwin-ref/gateway.md)
 
- - [IngressPolicy](gwin-ref/ingresspolicy.md)
-
- - [IngressBackendGroup](gwin-ref/ingressbackendgroup.md)
+ - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
 
  - [GRPCRoute](gwin-ref/grpcroute.md)
 
  - [HTTPRoute](gwin-ref/httproute.md)
 
- - [ListenerSet](gwin-ref/listenerset.md)
-
- - [ListenerSetPolicy](gwin-ref/listenersetpolicy.md)
+ - [DirectResponse](gwin-ref/directresponse.md)
 
  - [Ingress](gwin-ref/ingress.md)
 
- - [RoutePolicy](gwin-ref/routepolicy.md)
+ - [IngressBackendGroup](gwin-ref/ingressbackendgroup.md)
+
+ - [IngressPolicy](gwin-ref/ingresspolicy.md)
+
+ - [ListenerSetPolicy](gwin-ref/listenersetpolicy.md)
+
+ - [ListenerSet](gwin-ref/listenerset.md)
 
  - [Service](gwin-ref/service.md)
+
+ - [RoutePolicy](gwin-ref/routepolicy.md)
 
  - [ServicePolicy](gwin-ref/servicepolicy.md)
 

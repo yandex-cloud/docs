@@ -1539,6 +1539,22 @@ apiPlayground:
               Change of the setting is applied with restart.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#dictionaries_lazy_load).
             type: boolean
+          shutdownWaitUnfinishedQueries:
+            description: |-
+              **boolean**
+              Enables or disables wait for running queries finish before shutdown.
+              Default value: **false**.
+              Change of the setting is applied with restart.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#shutdown_wait_unfinished_queries).
+            type: boolean
+          shutdownWaitUnfinished:
+            description: |-
+              **string** (int64)
+              Delay in seconds to wait for unfinished queries before shutdown.
+              Default value: **60** (1 minute).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#shutdown_wait_unfinished).
+            type: string
+            format: int64
           logLevel:
             description: |-
               **enum** (LogLevel)
@@ -2193,7 +2209,7 @@ apiPlayground:
           mysqlProtocol:
             description: |-
               **boolean**
-              Enables or disables MySQL interface on ClickHouse server
+              Enables or disables MySQL interface on ClickHouse server.
               Default value: **false**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/interfaces/mysql).
             type: boolean
@@ -2246,6 +2262,27 @@ apiPlayground:
               Enables or disables introspection functions for query profiling.
               Default value: **false**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#allow_introspection_functions).
+            type: boolean
+          allowReorderPrewhereConditions:
+            description: |-
+              **boolean**
+              When moving conditions from WHERE to PREWHERE, allow reordering them to optimize filtering
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/allow#allow_reorder_prewhere_conditions).
+            type: boolean
+          asyncSocketForRemote:
+            description: |-
+              **boolean**
+              Enables asynchronous read from socket while executing remote query.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_socket_for_remote).
+            type: boolean
+          asyncQuerySendingForRemote:
+            description: |-
+              **boolean**
+              Enables asynchronous connection creation and query sending while executing remote query.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_query_sending_for_remote).
             type: boolean
           connectTimeout:
             description: |-
@@ -2362,6 +2399,17 @@ apiPlayground:
               * **2** - wait for all replicas.
               Default value: **1**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#alter_sync).
+            type: string
+            format: int64
+          lightweightDeletesSync:
+            description: |-
+              **string** (int64)
+              Wait mode for lightweight **DELETE** queries on replicated tables.
+              * **0** - do not wait for replicas.
+              * **1** - only wait for own execution.
+              * **2** - wait for all replicas.
+              Default value: **2**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#lightweight_deletes_sync).
             type: string
             format: int64
           maxReplicaDelayForDistributedQueries:
@@ -2824,6 +2872,22 @@ apiPlayground:
               This setting applies to every individual query.
               Default value: **0**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bytes).
+            type: string
+            format: int64
+          maxRemoteReadNetworkBandwidth:
+            description: |-
+              **string** (int64)
+              The maximum speed of data exchange over the network in bytes per second for read.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_read_network_bandwidth).
+            type: string
+            format: int64
+          maxRemoteWriteNetworkBandwidth:
+            description: |-
+              **string** (int64)
+              The maximum speed of data exchange over the network in bytes per second for write.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_write_network_bandwidth).
             type: string
             format: int64
           maxTemporaryDataOnDiskSizeForQuery:
@@ -3796,6 +3860,13 @@ apiPlayground:
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_keeper_max_retries).
             type: string
             format: int64
+          databaseAtomicWaitForDropAndDetachSynchronously:
+            description: |-
+              **boolean**
+              When executing DROP or DETACH TABLE in Atomic database, wait for table data to be finally dropped or detached.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#database_atomic_wait_for_drop_and_detach_synchronously).
+            type: boolean
           doNotMergeAcrossPartitionsSelectFinal:
             description: |-
               **boolean**
@@ -4062,6 +4133,8 @@ The maximum string length in characters is 50. ||
         "backgroundMessageBrokerSchedulePoolSize": "string",
         "backgroundCommonPoolSize": "string",
         "dictionariesLazyLoad": "boolean",
+        "shutdownWaitUnfinishedQueries": "boolean",
+        "shutdownWaitUnfinished": "string",
         "logLevel": "string",
         "queryLogRetentionSize": "string",
         "queryLogRetentionTime": "string",
@@ -4575,6 +4648,22 @@ Default value: **true** for versions 25.1 and higher, **false** for versions 24.
 Change of the setting is applied with restart.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#dictionaries_lazy_load). ||
+|| shutdownWaitUnfinishedQueries | **boolean**
+
+Enables or disables wait for running queries finish before shutdown.
+
+Default value: **false**.
+
+Change of the setting is applied with restart.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#shutdown_wait_unfinished_queries). ||
+|| shutdownWaitUnfinished | **string** (int64)
+
+Delay in seconds to wait for unfinished queries before shutdown.
+
+Default value: **60** (1 minute).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#shutdown_wait_unfinished). ||
 || logLevel | **enum** (LogLevel)
 
 Logging level.
@@ -5113,7 +5202,7 @@ Change of the settings of **jdbc_bridge** is applied with restart.
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/integrations/jdbc/jdbc-with-clickhouse). ||
 || mysqlProtocol | **boolean**
 
-Enables or disables MySQL interface on ClickHouse server
+Enables or disables MySQL interface on ClickHouse server.
 
 Default value: **false**.
 

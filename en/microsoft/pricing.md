@@ -8,7 +8,7 @@ description: This article provides the pricing policy for Microsoft products.
 ## Service plans {#plans}
 
 * _Pay As You Go (PAYG)_: You are only charged for actual usage. {{ price-per-hour-count-per-second }}
-* _Bring Your Own License (BYOL)_: This pricing model available for some products allows you to run software on the {{ yandex-cloud }} infrastructure using the licenses purchased from third-party providers. You are only charged for using {{ yandex-cloud }} resources, which means you can buy your own licenses and manage them. For more information about license mobility in {{ yandex-cloud }}, see [Microsoft licenses](licensing.md#mobility).
+* _Bring Your Own License (BYOL)_: Available for some products, this pricing model allows you to run software on the {{ yandex-cloud }} infrastructure using licenses purchased from third-party vendors. You are only charged for using {{ yandex-cloud }} resources, which means you can buy your own licenses and manage them. For more information about license mobility in {{ yandex-cloud }}, see [Microsoft licenses](licensing.md#mobility).
 
 ## Computing resources {#compute}
 

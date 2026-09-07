@@ -1,14 +1,14 @@
 ---
-title: Как включить экранирование источников в {{ cdn-full-name }}
-description: Следуя данной инструкции, вы сможете включить экранирование источников.
+title: Как включить или отключить экранирование источников в {{ cdn-full-name }}
+description: Следуя данной инструкции, вы сможете включить или отключить экранирование источников.
 ---
 
-# Включение экранирования источников
+# Включить или отключить экранирование источников
 
 
-{% include [provider-location-id](../../../_includes/cdn/provider-location-id.md) %}
+{% include [cdn-shielding-intro](../../../_includes/cdn/cdn-shielding-intro.md) %}
 
-Чтобы включить [экранирование источников](../../concepts/origins-shielding.md) для [ресурса](../../concepts/resource.md):
+Чтобы включить или отключить экранирование источников:
 
 {% list tabs group=instructions %}
 
@@ -19,3 +19,7 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
 
 {% include [after-changes-tip](../../../_includes/cdn/after-changes-tip.md) %}
+
+#### Полезные ссылки {#see-also}
+
+[{#T}](../../concepts/origins-shielding.md)

@@ -30,4 +30,3 @@ Support response example:
 The cf3qxpv5pgf692****** public connection was successfully deleted
 from the euus5dfgchu23b****** trunk.
 ```
-

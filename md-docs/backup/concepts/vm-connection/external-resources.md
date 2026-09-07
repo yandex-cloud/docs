@@ -31,7 +31,7 @@
 * Ubuntu 22.04 LTS;
 * Ubuntu 24.04 LTS.
 
-С полным списком поддерживаемых ОС можно ознакомиться в [документации провайдера резервного копирования](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html).
+С полным списком поддерживаемых ОС можно ознакомиться в [документации провайдера резервного копирования](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/26.07/user/supported-operating-systems-and-environments.html).
 
 ## Обновление ядра операционной системы {#os-kernel-update}
 
@@ -74,9 +74,10 @@
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Подключить к Cloud Backup виртуальную машину или сервер, расположенные за пределами Yandex Cloud](../../operations/external/connect.md)
 * [Восстановить работоспособность агента Cloud Backup после обновления ядра Linux](../../operations/backup-baremetal/restore-agent.md)
 * [Подключение виртуальных машин Yandex Compute Cloud к Cloud Backup](compute.md)
 * [Подключение серверов Yandex BareMetal к Cloud Backup](baremetal.md)
+* [Yandex Cloud Backup теперь защищает внешние виртуальные машины и серверы](https://yandex.cloud/ru/blog/cloud-backup-update-august-2026)

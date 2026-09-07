@@ -3,7 +3,6 @@
 # Managed Service for OpenSearch API, gRPC: ClusterService.AddDashboardsNodeGroup
 
 
-Required for backward compatibility with old clients. --)
 Creates a Dashboards type host group.
 
 ## gRPC request

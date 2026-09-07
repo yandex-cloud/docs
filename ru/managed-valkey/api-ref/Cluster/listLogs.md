@@ -32,10 +32,12 @@ apiPlayground:
             **enum** (ServiceType)
             Type of the service to request logs about.
             - `REDIS`: Logs of Redis activity.
+            - `VALKEY_AUDIT`: Valkey audit logs
           type: string
           enum:
             - SERVICE_TYPE_UNSPECIFIED
             - REDIS
+            - VALKEY_AUDIT
         fromTime:
           description: |-
             **string** (date-time)
@@ -136,7 +138,8 @@ If no columns are specified, entire log records are returned. ||
 
 Type of the service to request logs about.
 
-- `REDIS`: Logs of Redis activity. ||
+- `REDIS`: Logs of Redis activity.
+- `VALKEY_AUDIT`: Valkey audit logs ||
 || fromTime | **string** (date-time)
 
 Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
