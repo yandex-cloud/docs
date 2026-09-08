@@ -19,8 +19,17 @@ description: В данном разделе вы узнаете, как в {{ sd
 
   1. (Опционально) [Настройте](#configure) отображение алертов.
 
+- API {#api}
+
+  Чтобы получить список [алертов](../../concepts/alerts.md), воспользуйтесь методом REST API [Alert.List](../../api-ref/Alert/list.md) для ресурса [Alert](../../api-ref/Alert/index.md) или вызовом gRPC API [AlertService/List](../../api-ref/grpc/Alert/list.md).
 
 {% endlist %}
+
+{% note tip %}
+
+Вы можете [скачать](./download.md) необходимые алерты в виде файла в формате JSON.
+
+{% endnote %}
 
 ## Найти алерты {#search}
 
@@ -97,5 +106,9 @@ description: В данном разделе вы узнаете, как в {{ sd
       На странице алертов от модулей {{ cspm-name }} и {{ kspm-name }} вы можете [создать исключение](./work.md#create-exception).
 
       {% endnote %}
+
+- API {#api}
+
+  Чтобы посмотреть подробную информацию об алерте, воспользуйтесь методом REST API [Alert.Get](../../api-ref/Alert/get.md) для ресурса [Alert](../../api-ref/Alert/index.md) или вызовом gRPC API [AlertService/Get](../../api-ref/grpc/Alert/get.md).
 
 {% endlist %}

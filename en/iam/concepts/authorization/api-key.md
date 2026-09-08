@@ -59,7 +59,7 @@ Available scopes are listed below:
 * `yc.serverless.containers.invoke`: To invoke containers via the [{{ serverless-containers-short-name }} API](../../../serverless-containers/containers/api-ref/index.md).
 * `yc.serverless.functions.invoke`: To invoke functions via the [{{ sf-short-name }} API](../../../functions/functions/api-ref/index.md).
 * `yc.serverless.mcpGateways.invoke`: To invoke MCP servers via the [{{ ai-studio-full-name }} {{ mcp-hub-name }}]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/index).
-* `yc.serverless.workflows.execute`: To execute [workflows](../../../serverless-integrations/concepts/workflows/execution.md) via the [{{ sw-name }} API](../../../serverless-integrations/concepts/index.md#workflows).
+* `yc.serverless.workflows.execute`: To execute [workflows]({{ link-docs-ai }}ai-studio/concepts/workflows/execution) and get execution information via the [{{ sw-name }} API](../../../serverless-integrations/concepts/index.md#workflows).
 * `yc.speech-sense.use`: To work with {{ speechsense-name }} [resources]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy) via the [{{ speechsense-full-name }} API]({{ link-docs-ai }}speechsense/api-ref/authentication).
 * `yc.ydb.tables.manage`: For accessing {{ ydb-short-name }} in {{ PG }}-compatible mode.
 * `yc.ydb.topics.manage`: For accessing the [Kafka API](../../../data-streams/kafkaapi/auth.md) in {{ yds-full-name }}.
@@ -95,7 +95,7 @@ The following services support authentication based on API keys:
 * [{{ postbox-full-name }}](../../../postbox/api-ref/authentication.md)
 * [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/api-ref/authentication)
 * [{{ serverless-containers-full-name }}](../../../serverless-containers/)
-* [{{ si-full-name }}](../../../serverless-integrations): Within [{{ sw-full-name }}](../../../serverless-integrations/concepts/workflows/workflow.md).
+* [{{ si-full-name }}](../../../serverless-integrations): Within [{{ sw-full-name }}]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow).
 * [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/concepts/auth)
 * [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/api-ref/authentication)
 * [{{ translate-full-name }}]({{ link-docs-ai }}translate/api-ref/authentication)

@@ -101,6 +101,9 @@ A list of host groups for Greenplum segment subcluster. ||
 || `--service-account` | `string`
 
 ID of the service account used for access Yandex Cloud resources. ||
+|| `--disk-encryption-key-id` | `string`
+
+ID of the KMS key for cluster disk encryption. Empty input will remove the use of encryption. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

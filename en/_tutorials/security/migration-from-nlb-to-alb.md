@@ -1,5 +1,6 @@
 # Migrating services from NLB to L7 ALB for enabling {{ sws-full-name }} protection
 
+
 You can deploy services in {{ yandex-cloud }} using a [{{ network-load-balancer-full-name }}](../../network-load-balancer/) which distributes traffic across cloud resources. With [{{ sws-full-name }}](../../smartwebsecurity/), you can protect them from DDoS attacks at the application level. To do this, migrate from your {{ network-load-balancer-name }} to an L7 [{{ alb-full-name }}](../../application-load-balancer/).
 
 Service migration depends on what targets your {{ network-load-balancer-name }} is using or what it actually does in your infrastructure:

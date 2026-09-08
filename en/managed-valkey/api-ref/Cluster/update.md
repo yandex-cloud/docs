@@ -606,7 +606,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Number of database buckets on a single redis-server process.
-              Value must be greater than 0.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           slowlogLogSlowerThan:
@@ -1846,7 +1846,7 @@ Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_%-]{0,128} `.
 
 Number of database buckets on a single redis-server process.
 
-Value must be greater than 0. ||
+Acceptable values are 1 to 2147483647, inclusive. ||
 || slowlogLogSlowerThan | **string** (int64)
 
 Threshold for logging slow requests to server in microseconds (log only slower than it).

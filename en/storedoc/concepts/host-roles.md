@@ -5,7 +5,7 @@ description: '{{ mmg-name }} cluster hosts come in four types. Each host type ha
 
 # Host types in {{ mmg-name }}
 
-{{ mmg-name }} has these four host types: `MONGOD`, `MONGOINFRA`, `MONGOCFG`, and `MONGOS`. Each host type has a [role and functions](#features) of its own in the cluster. The [type and number](#configuration) of hosts in a {{ mmg-name }} cluster depend on what sharding type you select.
+{{ mmg-name }} has these four host types: `MONGOD`, `MONGOINFRA`, `MONGOCFG`, and `MONGOS`. Each host type has a [role and functions](#features) of its own in the cluster. The [type and number of hosts](#configuration) in a {{ mmg-name }} cluster depend on the sharding type you select.
 
 ## Roles and functions of different host types {#features}
 

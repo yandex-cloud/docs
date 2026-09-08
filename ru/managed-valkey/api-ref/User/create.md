@@ -53,7 +53,8 @@ apiPlayground:
           sanitizePayload:
             description: |-
               **string**
-              SanitizePayload parameter.
+              Deprecated. This parameter is ignored.
+            deprecated: true
             type: string
           databases:
             description: |-
@@ -185,7 +186,7 @@ Command categories user has permissions to. ||
 Commands user can execute. ||
 || sanitizePayload | **string**
 
-SanitizePayload parameter. ||
+Deprecated. This parameter is ignored. ||
 || databases | **string**
 
 Databases parameter. ||

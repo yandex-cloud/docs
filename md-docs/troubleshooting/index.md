@@ -440,18 +440,6 @@
 
  - [Как выяснить размер эфемерного хранилища узла Managed Service for Kubernetes](managed-kubernetes/how-to/finding-out-ephemeral-storage-size.md)
 
-## Managed Service for Apache Kafka®
-
- - [Все решения для Managed Service for Apache Kafka®](managed-kafka/index.md)
-
- - [Примеры конфигураций и сценариев Managed Service for Apache Kafka®](managed-kafka/how-to/index.md)
-
- - [Как отслеживать процесс чтения топиков](managed-kafka/how-to/process-read-topic.md)
-
- - [Решения для известных проблем Managed Service for Apache Kafka®](managed-kafka/known-issues/index.md)
-
- - [Устранение ошибки `Failed authentication with /`](managed-kafka/known-issues/error-failed-authentification.md)
-
 ## Managed Service for GitLab
 
  - [Все решения для Managed Service for GitLab](managed-gitlab/index.md)
@@ -467,20 +455,6 @@
  - [Как обновить ПО на инстансе Managed Service for GitLab](managed-gitlab/how-to/update-gitlab-software-version.md)
 
  - [Как настроить миграцию проектов](managed-gitlab/how-to/migrate-projects.md)
-
-## Managed Service for YDB
-
- - [Все решения для Managed Service for YDB](managed-ydb/index.md)
-
- - [Решения для известных проблем Managed Service for YDB](managed-ydb/known-issues/index.md)
-
- - [Устранение ошибки `RESOURCE_EXHAUSTED`](managed-ydb/known-issues/resource-exhausted.md)
-
- - [Устранение ошибки `Unauthenticated`](managed-ydb/known-issues/sdk-unauthenticated.md)
-
- - [Устранение ошибки 503 `Service Unavailable`](managed-ydb/known-issues/error-503.md)
-
- - [Примеры конфигураций и сценариев Managed Service for YDB](managed-ydb/how-to/index.md)
 
 ## Network Load Balancer
 

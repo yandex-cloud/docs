@@ -13,6 +13,7 @@ Actions are performed by making RPC calls. For more information about API archit
 #|
 ||Service | Description ||
 || [Backup](Backup/index.md) | A set of methods for managing backups. ||
+|| [ChangeFreeze](ChangeFreeze/index.md) |  ||
 || [Cluster](Cluster/index.md) | A set of methods for managing Greenplum® clusters. ||
 || [HBARule](HBARule/index.md) | A set of methods for managing Greenplum clusters. ||
 || [Maintenance](Maintenance/index.md) |  ||

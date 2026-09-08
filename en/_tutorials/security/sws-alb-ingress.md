@@ -20,14 +20,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* DNS zone and DNS query fee (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
-* Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for the number of requests to {{ sws-name }} (see [{{ sws-name }} pricing](../../smartwebsecurity/pricing.md)).
+* Public DNS requests and DNS zones (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Each active L7 load balancer: Use of computing resources (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
+* Public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ sws-name }}: Number of requests to the service (see [{{ sws-name }} pricing](../../smartwebsecurity/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -370,11 +368,11 @@ Create an application and an associated service for ingress to expose:
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a profile.
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
 
       The profile will contain a number of preconfigured security rules:
 
-      * [Smart protection rule](../../smartwebsecurity/concepts/rules.md#smart-protection-rules) providing full protection for all traffic. This rule takes priority over the default basic rule.
+      * [Smart Protection rule](../../smartwebsecurity/concepts/rules.md#smart-protection-rules) with API protection for all traffic. This rule takes priority over the default basic rule.
       * Default [basic rule](../../smartwebsecurity/concepts/rules.md#base-rules) denying all traffic that does not satisfy higher-priority rules.
 
           {% include [smart-protection-tip](../../_includes/smartwebsecurity/smart-protection-tip.md) %}
@@ -405,7 +403,7 @@ Create an application and an associated service for ingress to expose:
       1. Under **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**, configure the conditions to only allow traffic from a specific IP address:
 
           1. Select the traffic scope for the rule: `On condition`.
-          1. Select the `IP` condition.
+          1. Select the `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}` condition.
           1. For IP, select the condition: `Matches or falls within the range`.
           1. Specify a public IP address, e.g., `203.0.113.200`.
 

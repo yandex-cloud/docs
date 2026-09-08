@@ -283,47 +283,47 @@ To set up log transfer:
 
 - Management console {#console}
 
-    1. Check the status of services:
+  1. Check the status of services:
 
-    ```bash
-    sudo systemctl status logtest
-    sudo systemctl status fluent-bit
-    ```
+      ```bash
+      sudo systemctl status logtest
+      sudo systemctl status fluent-bit
+      ```
 
-    Result:
+      Result:
 
-    ```
-    ● fluent-bit.service - Fluent Bit
-         Loaded: loaded (/lib/systemd/system/fluent-bit.service; disabled; vendor preset: enabled)
-         Active: active (running) since Thu 2024-05-30 12:34:56 UTC; 5s ago
-           Docs: https://docs.fluentbit.io/manual/
-       Main PID: 12347 (fluent-bit)
-          Tasks: 4 (limit: 2311)
-         Memory: 18.8M
-            CPU: 156ms
-         CGroup: /system.slice/fluent-bit.service
-                 └─12347 /opt/fluent-bit/bin/fluent-bit -c /etc/fluent-bit/fluent-bit.conf
-    ```
+      ```
+      ● fluent-bit.service - Fluent Bit
+          Loaded: loaded (/lib/systemd/system/fluent-bit.service; disabled; vendor preset: enabled)
+          Active: active (running) since Thu 2024-05-30 12:34:56 UTC; 5s ago
+            Docs: https://docs.fluentbit.io/manual/
+        Main PID: 12347 (fluent-bit)
+            Tasks: 4 (limit: 2311)
+          Memory: 18.8M
+              CPU: 156ms
+          CGroup: /system.slice/fluent-bit.service
+                  └─12347 /opt/fluent-bit/bin/fluent-bit -c /etc/fluent-bit/fluent-bit.conf
+      ```
 
-    1. View the logs:
+  1. View the logs:
 
-        ```bash
-        # Test service logs
-        sudo journalctl -u logtest -n 10 | cat
+      ```bash
+      # Test service logs
+      sudo journalctl -u logtest -n 10 | cat
 
-        # Fluent Bit logs
-        sudo journalctl -u fluent-bit -n 20 | cat
-        ```
+      # Fluent Bit logs
+      sudo journalctl -u fluent-bit -n 20 | cat
+      ```
 
-        If everything works correctly:
+      If everything works correctly:
 
-        1. The status of both services must be `active (running)`.
-        1. Test service logs should display these messages:
-           - `Path: /admin?query=90` for successful requests.
-           - `Error: /docs?bar=44` for failed requests.
-        1. Make sure the Fluent Bit logs are error-free.
+      1. The status of both services must be `active (running)`.
+      1. Test service logs should display these messages:
+          - `Path: /admin?query=90` for successful requests.
+          - `Error: /docs?bar=44` for failed requests.
+      1. Make sure the Fluent Bit logs are error-free.
 
-    1. Check the logs in the management console:
+  1. Check the logs in the management console:
 
        1. In the [management console]({{ link-console-main }}), select the folder specified in `folder_id`.
        1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.

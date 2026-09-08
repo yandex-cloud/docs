@@ -15,10 +15,14 @@ items:
             href: operations/cluster-create.md
           - name: Updating cluster settings
             href: operations/update.md
-          - name: Stopping and starting a cluster
+          - name: Managing cluster aliases
+            href: operations/cluster-aliases.md
+          - name: Stopping and restarting a cluster
             href: operations/cluster-stop.md
           - name: Managing PostgreSQL hosts
             href: operations/hosts.md
+          - name: Managing host aliases
+            href: operations/hosts-aliases.md
           - name: Migrating hosts to a different availability zone
             href: operations/host-migration.md
           - name: Managing replication slots
@@ -83,7 +87,7 @@ items:
             href: operations/cluster-logs.md
           - name: Performance diagnostics
             href: operations/performance-diagnostics.md
-          - name: Cluster and host status monitoring
+          - name: Cluster and host state monitoring
             href: operations/monitoring.md
           - name: Connecting to DataLens
             href: operations/datalens-connect.md
@@ -159,6 +163,10 @@ items:
           Configuring permissions for access to a secret created by {{
           connection-manager-name }} for a {{ mpg-name }} user
         href: tutorials/conn-man-secret-access.md
+      - name: >-
+          Executing analytical queries in {{ mpg-name }} with processing in {{
+          mch-name }}
+        href: tutorials/mpg-pg-clickhouse-extension.md
       - name: Replication and migration
         items:
           - name: Logical replication in {{ PG }}
@@ -249,6 +257,8 @@ items:
         href: concepts/update-policy.md
   - name: Access management
     href: security/index.md
+  - name: Inspections and recommendations
+    href: advisor.md
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
@@ -579,6 +589,20 @@ items:
                 href: api-ref/grpc/Backup/list.md
               - name: Delete
                 href: api-ref/grpc/Backup/delete.md
+          - name: ChangeFreeze
+            items:
+              - name: Overview
+                href: api-ref/grpc/ChangeFreeze/index.md
+              - name: Create
+                href: api-ref/grpc/ChangeFreeze/create.md
+              - name: Get
+                href: api-ref/grpc/ChangeFreeze/get.md
+              - name: List
+                href: api-ref/grpc/ChangeFreeze/list.md
+              - name: Terminate
+                href: api-ref/grpc/ChangeFreeze/terminate.md
+              - name: GetLimits
+                href: api-ref/grpc/ChangeFreeze/getLimits.md
           - name: Cluster
             items:
               - name: Overview
@@ -737,6 +761,20 @@ items:
                 href: api-ref/Backup/list.md
               - name: Delete
                 href: api-ref/Backup/delete.md
+          - name: ChangeFreeze
+            items:
+              - name: Overview
+                href: api-ref/ChangeFreeze/index.md
+              - name: Create
+                href: api-ref/ChangeFreeze/create.md
+              - name: Get
+                href: api-ref/ChangeFreeze/get.md
+              - name: List
+                href: api-ref/ChangeFreeze/list.md
+              - name: Terminate
+                href: api-ref/ChangeFreeze/terminate.md
+              - name: GetLimits
+                href: api-ref/ChangeFreeze/getLimits.md
           - name: Cluster
             items:
               - name: Overview

@@ -1309,7 +1309,7 @@ default:
   search-api-request-ch: 400 символов
   search-api-request-w: 40 слов
   security-group: enp6saqnq4ie********
-  security-standard-current-version: 1.4.2
+  security-standard-current-version: 1.4.3
   serial-ssh-host: serialssh.cloud.yandex.net
   serverless-containers-full-name: Yandex Serverless Containers
   serverless-containers-host: containers.yandexcloud.net
@@ -4761,7 +4761,6 @@ default:
         label_dataStream: Data Streams
         label_destination: Назначение
         label_event-filter-section: Сбор событий с уровня сервисов
-        label_eventRouter: EventRouter
         label_log-group: Лог-группа
         label_log-receiver: Приёмник логов
         label_object-prefix: Префикс объекта
@@ -7455,6 +7454,8 @@ default:
           DiskAutoscalingFieldGroup:
             field_autoscaling_fsAon: Увеличивать размер
             field_disk-size-limit_bK9Ng: Максимальный размер хранилища
+          DiskEncryptionFieldWithFieldWrap:
+            label_disk-encryption_bkdrg: Зашифрованный диск
         shard-groups:
           button_add-group: Создать группу шардов
       metadata-hub:

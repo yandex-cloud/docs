@@ -330,6 +330,12 @@ items:
             href: tutorials/marketplace/istio.md
           - name: Использование HashiCorp Vault для хранения секретов
             href: tutorials/marketplace/hashicorp-vault.md
+      - name: Миграция в {{ managed-k8s-name }}
+        items:
+          - name: Обзор
+            href: tutorials/migration/index.md
+          - name: Миграция из облачного провайдера
+            href: tutorials/migration/migration-from-cloud.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

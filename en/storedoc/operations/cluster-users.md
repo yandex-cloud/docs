@@ -194,6 +194,14 @@ You can add and remove users, manage individual user settings, and change databa
         For this authorization method, select the account in the **{{ ui-key.yacloud.common.user }}** field.
 
 
+  1. Select the deletion protection option for the user. The possible values are:
+
+     * **Same as cluster**
+     * **Enabled**
+     * **Disabled**
+
+     {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
   1. Configure the user’s [roles](../concepts/users-and-roles.md):
 
      1. Click **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** and select the database for role assignment.
@@ -247,7 +255,9 @@ You can add and remove users, manage individual user settings, and change databa
       
        Specify a separate `--permission` property for each database you want the user to access.
      
-     * `--deletion-protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
+     * `--deletion-protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user uses the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
+
+       {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
 
 - {{ TF }} {#tf}
 
@@ -278,7 +288,9 @@ You can add and remove users, manage individual user settings, and change databa
           {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
         * `deletion_protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
-        
+
+          {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
         * `permission`: User’s database access permissions:
           
           * `database_name`: Name of the database the user can access.
@@ -347,6 +359,8 @@ You can add and remove users, manage individual user settings, and change databa
      
      * `userSpec.deletionProtection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
 
+       {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
   1. Check the [server response](../api-ref/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
@@ -404,6 +418,8 @@ You can add and remove users, manage individual user settings, and change databa
 
      * `user_spec.deletion_protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
 
+       {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
   1. Check the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
@@ -435,6 +451,11 @@ You cannot change the username.
 
      To view passwords, you need the `lockbox.payloadViewer` role.
 
+
+  1. To configure user deletion protection:
+
+     1. Locate the user you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+     1. Select your preferred option in the **{{ ui-key.yacloud.mdb.dialogs.field_deletion_protection }}** field.
 
   1. To change the user's [roles](../concepts/users-and-roles.md):
 
@@ -491,7 +512,7 @@ You cannot change the username.
       
        Specify a separate `--permission` property for each database you want the user to access.
      
-     * `--deletion-protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
+     * `--deletion-protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user uses the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
 
   To grant a user access to a database with a specific set of roles:
 

@@ -39,9 +39,9 @@ _x-dl-api-version_{.json-schema-reset .json-schema-property .json-schema-require
 
 API version header.
 
-_Const:_{.json-schema-reset .json-schema-value} `2`
+_Const:_{.json-schema-reset .json-schema-value} `3`
 
-_Example:_{.json-schema-reset .json-schema-example} `2`
+_Example:_{.json-schema-reset .json-schema-example} `3`
 {.table-cell}
 ||
 ||
@@ -187,7 +187,7 @@ _field_{.json-schema-reset .json-schema-property .json-schema-required}
 
 Field to order workbook entries by.
 
-_Enum:_{.json-schema-reset .json-schema-value} `name`, `createdAt`
+_Enum:_{.json-schema-reset .json-schema-value} `name`, `createdAt`, `updatedAt`
 {.table-cell}
 ||
 |#{.json-schema-properties}

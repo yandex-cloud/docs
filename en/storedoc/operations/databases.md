@@ -170,6 +170,14 @@ You can add and remove databases, as well as view their details.
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
+  1. Set up database protection against accidental deletion. The possible values are:
+
+      * **Same as cluster**
+      * **Enabled**
+      * **Disabled**
+
+      {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
+
   1. To grant access to the new database, [assign the relevant roles](cluster-users.md#updateuser) to the required cluster users.
 
 - CLI {#cli}
@@ -194,7 +202,9 @@ You can add and remove databases, as well as view their details.
 
   * `--cluster-name`: Cluster name you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  * `--deletion-protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
+  * `--deletion-protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database uses the one from the corresponding cluster setting. If the protection is on (`true`), you cannot delete the database.
+
+    {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
 
 - {{ TF }} {#tf}
 
@@ -219,7 +229,9 @@ You can add and remove databases, as well as view their details.
           
           {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
-        * `--deletion-protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
+        * `--deletion-protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database uses the one from the corresponding cluster setting. If the protection is on (`true`), you cannot delete the database.
+
+          {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
 
     1. Make sure the settings are correct.
 
@@ -260,7 +272,9 @@ You can add and remove databases, as well as view their details.
        
        {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
      
-     * `databaseSpec.deletionProtection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
+     * `databaseSpec.deletionProtection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is on (`true`), you cannot delete the database.
+
+       {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
 
   1. Check the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -298,7 +312,9 @@ You can add and remove databases, as well as view their details.
        
        {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
      
-     * `database_spec.deletion_protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
+     * `database_spec.deletion_protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is on (`true`), you cannot delete the database.
+
+       {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
 
   1. Check the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -328,7 +344,7 @@ After you create a database, [assign access permissions](cluster-users.md#update
 
   * `<DB_name>`: Database name you can request with the [list of databases in the cluster](#list-db).
   * `--cluster-name`: Cluster name you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
-  * `--deletion-protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
+  * `--deletion-protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database uses the one from the corresponding cluster setting. If the protection is on (`true`), you cannot delete the database.
 
 - {{ TF }} {#tf}
 
@@ -347,7 +363,7 @@ After you create a database, [assign access permissions](cluster-users.md#update
       }
       ```
 
-      Where `deletion_protection` is database protection from accidental deletion: `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
+      Where `deletion_protection` is database protection from accidental deletion: `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is on (`true`), you cannot delete the database.
 
   1. Make sure the settings are correct.
   
@@ -386,7 +402,7 @@ After you create a database, [assign access permissions](cluster-users.md#update
       * `<cluster_ID>`: Cluster name you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
       * `<DB_name>`: Database name you can request with the [list of databases in the cluster](#list-db).
       * `updateMask`: Comma-separated string of settings to update.
-      * `deletionProtection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
+      * `deletionProtection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is on (`true`), you cannot delete the database.
 
   1. Check the [server response](../api-ref/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -427,7 +443,7 @@ After you create a database, [assign access permissions](cluster-users.md#update
      * `cluster_id`: Cluster ID you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
      * `database_name`: Database name you can request with the [list of databases in the cluster](#list-db).
      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
-     * `deletion_protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
+     * `deletion_protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is on (`true`), you cannot delete the database.
      
   1. Check the [server response](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -448,7 +464,7 @@ Before you delete a database, [disable its deletion protection](#update-db).
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
-  1. Find the database you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the relevant database row and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI {#cli}
 

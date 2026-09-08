@@ -10,14 +10,7 @@ description: Следуя данной инструкции, вы сможете
 
 * бакет [{{ objstorage-full-name }}](../../storage/index.yaml);
 * лог-группу [{{ cloud-logging-full-name }}](../../logging/index.yaml);
-* поток данных [{{ yds-full-name }}](../../data-streams/index.yaml);
-* шину [{{ er-full-name }}](../../serverless-integrations/index.yaml).
-
-{% note info %}
-
-В настоящий момент создать трейл с объектом назначения **{{ ui-key.yacloud.audit-trails.label_eventRouter }}** можно только с помощью {{ yandex-cloud }} [CLI](../../cli/index.yaml) и [API](../../api-design-guide/index.yaml).
-
-{% endnote %}
+* поток данных [{{ yds-full-name }}](../../data-streams/index.yaml).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -71,25 +64,6 @@ description: Следуя данной инструкции, вы сможете
   1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
 
       * [yds.writer](../../data-streams/security/index.md#yds-writer) на [поток данных](../../data-streams/concepts/glossary.md#stream-concepts).
-
-      {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
-
-  1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
-
-- Шина {{ er-name }} {#eventrouter}
-
-  1. [Создайте](../../serverless-integrations/operations/eventrouter/bus/create.md) шину {{ er-full-name }}.
-
-      {% note info %}
-
-      В настоящий момент создать [коннектор](../../serverless-integrations/concepts/eventrouter/connector.md) шины {{ er-name }} с типом источника `{{ at-name }}` можно только в [консоли управления]({{ link-console-main }}) при создании или изменении трейла, а также с помощью [API {{ er-name }}](../../serverless-integrations/eventrouter/api-ref/Connector/create.md).
-
-      {% endnote %}
-
-  1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) для трейла.
-  1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
-
-      * [serverless.eventrouter.supplier](../../serverless-integrations/security/eventrouter.md#serverless-eventrouter-supplier) на каталог, в котором находится нужная [шина](../../serverless-integrations/concepts/eventrouter/bus.md) {{ er-name }}.
 
       {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
 
@@ -187,10 +161,6 @@ description: Следуя данной инструкции, вы сможете
               * `database_id` — идентификатор базы данных {{ ydb-short-name }}, которая используется потоком данных {{ yds-name }}. Идентификатор можно запросить со [списком баз данных {{ ydb-short-name }} в каталоге](../../ydb/operations/manage-databases.md#list-db).
               * `codec` — метод сжатия событий при записи в поток данных {{ yds-name }}. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
           
-          * `eventrouter` — загружать логи в [шину](../../serverless-integrations/concepts/eventrouter/bus.md) {{ er-full-name }}:
-
-              * `eventrouter_connector_id` — идентификатор [коннектора](../../serverless-integrations/concepts/eventrouter/connector.md) шины {{ er-name }} с типом источника `{{ at-name }}`.
-      
       * `service_account_id` — [идентификатор](../../iam/operations/sa/get-id.md) созданного [ранее](#before-you-begin) сервисного аккаунта.
 
       {% include [trail-create-cli-yaml-desc-filtering](../../_includes/audit-trails/trail-create-cli-yaml-desc-filtering.md) %}
@@ -227,7 +197,6 @@ description: Следуя данной инструкции, вы сможете
     --destination-yds-stream <имя_потока_данных_YDS> \
     --destination-yds-database-id <идентификатор_базы_данных_YDS> \
     --destination-yds-codec <метод_сжатия_событий> \
-    --destination-eventrouter-connector-id <идентификатор_коннектора_шины> \
     --filter-all-folder-id <идентификатор_каталога> \
     --filter-all-cloud-id <идентификатор_облака> \
     --filter-all-organisation-id <идентификатор_организации> \

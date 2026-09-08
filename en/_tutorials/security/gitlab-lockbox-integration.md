@@ -1,5 +1,6 @@
 # Secure storage of {{ GL }} CI passwords as {{ lockbox-full-name }} secrets
 
+
 You can securely store passwords as [{{ lockbox-full-name }} secrets](../../lockbox/concepts/secret.md) and use them in your CI pipelines in {{ mgl-full-name }}. Thus you can protect and hide passwords in CI script from {{ GL }} users, including administrators.
 
 Below is how the integration with {{ lockbox-name }} works. First, you need to create a {{ lockbox-name }} secret and a {{ GL }} environment variable that points to this secret. You also need to install {{ GLR }} on a VM and assign a service account to it. Then, create the CI script provided below. It contains a special command that requests the service account's IAM token. The script uses the IAM token and the environment variable to retrieve the password from the secret. This way, the password is used in the CI script but kept in an external storage.

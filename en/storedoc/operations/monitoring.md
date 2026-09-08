@@ -286,7 +286,7 @@ To view detailed information on the health state of {{ mmg-name }} shards:
         * **{{ mmg-name }}** to set up cluster alerts.
         * **{{ mmg-name }} — Host Overview** to set up host alerts.
 
-    1. Click ![options](../../_assets/console-icons/ellipsis.svg) on the chart of interest and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+    1. On the chart of interest, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
     1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Learn more about the query language in [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
     1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` alert thresholds.
     1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
@@ -323,7 +323,7 @@ To track storage fill levels on the cluster hosts and receive notifications when
     `service=managed-mongodb` → `name=disk.free_bytes` → `host=*` → `resource_id=*` → `resource_type=cluster`.
 
 1. Configure alert notification thresholds:
-
+   
    * **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}**: Set the `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` condition for free disk space that will trigger the alert.
 
        Recommended thresholds relative to storage size are as follows:

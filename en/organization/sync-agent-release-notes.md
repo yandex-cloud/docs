@@ -34,7 +34,7 @@ description: This page presents sync agent releases and their updates.
 
 #### Changes to {{ org-sync-agent-name }} {#changes-version0.47.0}
 
-* Added support for getting a replication token in `dry-run` mode with `use_session_api: true`.
+* Added support for getting a replication token in `dry-run` mode with `use_session_api: true` enabled.
 * Added user account validity period synchronization.
 
 {% cut "Checksums" %}

@@ -5,14 +5,16 @@
 С помощью сервисных ролей модуля [Контроль конфигурации (CSPM)](../concepts/cspm.md) вы можете управлять доступом пользователей к ресурсам модуля CSPM и их настройкам, а также к данным, содержащимся в результатах проверок конфигурации на соответствие [стандартам безопасности](../concepts/cspm.md#standards).
 
 ```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
 flowchart BT
     cspm.admin --> security-deck.admin
-    cspm.editor --> security-deck.editor
     cspm.editor --> cspm.admin
-    cspm.viewer --> security-deck.viewer
     cspm.viewer --> cspm.editor
-    cspm.auditor --> security-deck.auditor
     cspm.auditor --> cspm.viewer
+
+    cspm.editor --> security-deck.editor
+    cspm.viewer --> security-deck.viewer
+    cspm.auditor --> security-deck.auditor
     cspm.worker --> security-deck.worker
 
     security-deck.auditor --> security-deck.viewer

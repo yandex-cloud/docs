@@ -1,0 +1,1 @@
+If you are going to use [Kerberos](https://en.wikipedia.org/wiki/Kerberos_(protocol)) for [authentication](../../organization/concepts/ad-sync/sync-agent.md#agent-ad-auth) on the {{ microsoft-idp.ad-short }} side, you should manually install the required components and create the encryption keys file named `keytab`.

@@ -17,12 +17,12 @@ The new major version (`New`) becomes available shortly after its release by the
 
 In {{ mpg-name }}, each major {{ PG }} version has the following **5-year** lifecycle:
 
-| Version stage | Description and key [actions](#actions-available) | Period^1^                     |
-|:------|:-------------|:----------------------------|
-| `New` | Latest version with long-term support (`LTS`). **Recommended for all new projects**.   | First year                  |
-| Supported (`Supported`)  | Previous LTS version. Fully supported; allows creating new clusters. **Recommended for all projects**.  | Years two through four |
-| Deprecated (`Deprecated`) | Version nearing the end of its support period. The existing clusters operate normally. **Six months before the end of support, an active notification effort starts about the need to update. From this point on, you cannot create new clusters.** | Fifth year                   |
-| End of life (EOL) | Discontinued version. **Clusters still running this version get auto-updated to the latest supported version or stopped.** | At the end of five years. |
+| Version stage | Description and key [actions](#actions-available) | Period^1^ | Current value                                |
+|:------|:-------------|:----------------------------|:------------------------------------------------|
+| `New` | Latest version with long-term support (`LTS`). **Recommended for all new projects**.   | First year  | {{ mdb-versions.postgresql-version.new }}       |
+| `Supported`  | Previous LTS version. Fully supported; allows creating new clusters. **Recommended for all projects**.  | Years two through four | {{ mdb-versions.postgresql-version.supported }} |
+| `Deprecated` | Version nearing the end of its support period. The existing clusters operate normally. **Six months before the end of support, an active notification effort starts about the need to update. From this point on, you cannot create new clusters.** | Year 5                   | {{ mdb-versions.postgresql-version.deprecated }} |
+| End of life (EOL) | Discontinued version. **Clusters still running this version get auto-updated to the latest supported version or stopped.** | At the end of five years. | N/A |
 
 ^1^ The periods are relative to the major version release date. The exact status change dates are officially announced by the service.
 
@@ -30,7 +30,7 @@ In {{ mpg-name }}, each major {{ PG }} version has the following **5-year** life
 
 Depending on {{ PG }} version status, the following operations are available for clusters:
 
-| Action | `New` | Supported (`Supported`) | Deprecated (`Deprecated`) | End of life (`EOL`) |
+| Action | `New` | `Supported` | `Deprecated` | End of life (`EOL`) |
 | :--- | :---: | :---: | :---: | :---: |
 | Creating new clusters | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) |
 | Recovery from a backup | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |

@@ -76,7 +76,7 @@
 
   Specifies how to compute logical timestamps, allowing replicas to identify transactions that can run concurrently. It is used to generate dependency information, which is written to the binary log when multi-threaded replication ([Slave parallel workers](#setting-slave-parallel-workers)) is enabled with the [Slave parallel type](#setting-slave-parallel-type) set to `LOGICAL_CLOCK`.
 
-  Valid values:
+  Available values:
 
   - `COMMIT_ORDER` (default): Two transactions are considered independent if their commit time windows overlap.
   - `WRITESET`: This approach is based on `COMMIT_ORDER`. In addition to the above condition, two transactions are considered conflicting if they share a hash value in their write sets.
@@ -753,9 +753,9 @@
 
     This SQL mode is deprecated.
 
-  - [NO_ZERO_IN_DATE]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_no_zero_in_date): Affects the use of dates in which the month or day is zero:
-    - If [strict SQL mode](#setting-strict-mode) is disabled, dates with a zero month or day are inserted as `0000-00-00` with a warning returned.
-    - If strict SQL mode is enabled, dates with a zero month or day are not allowed. If you try to insert them, you will get an error.
+  - [NO_ZERO_IN_DATE]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_no_zero_in_date): Affects the use of dates where the month or day value is zero:
+    - If [strict SQL mode](#setting-strict-mode) is disabled, zero-month or zero-day dates are inserted as `0000-00-00` with a system warning.
+    - If strict SQL mode is enabled, zero-month or zero-day dates are not allowed. Attempts to insert them return an error.
 
     This SQL mode is deprecated.
 
@@ -845,7 +845,7 @@
 
   Sets the number of threads that are cached to process new connections. When establishing a new connection, threads from the cache are reused first and only then new threads are created. Increase this value to improve performance if you have a lot of new connections.
 
-  The valid values range from `10` to `10000`. The default value [depends on the selected host class](#settings-instance-dependent) and is calculated as follows:
+  The minimum value is `10`; the maximum value is `10000`. The default value [depends on the selected host class](#settings-instance-dependent) and is calculated as follows:
 
   ```text
   max_connections / 10

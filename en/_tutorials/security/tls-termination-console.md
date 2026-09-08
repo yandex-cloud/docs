@@ -7,6 +7,7 @@
 1. [Create a backend group](#create-backend-group).
 1. [Create and configure an HTTP router](#create-http-router).
 1. [Create an L7 load balancer](#create-l7-balancer).
+1. Optionally, [configure client certificate verification](#client-certificate).
 1. [Configure the website DNS](#configure-dns).
 1. [Test the hosting](#test).
 
@@ -53,7 +54,8 @@ To reserve an IP address:
 
   1. Open the [management console]({{ link-console-main }}).
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Open the ![map-pin](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}** tab. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+  1. In the left-hand panel, select ![map-pin](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+  1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. In the window that opens, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md). Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 {% endlist %}
@@ -70,12 +72,11 @@ To create security groups:
 
   1. Open the [management console]({{ link-console-main }}).
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Open the ![shield](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}** tab.
-  1. Create a security group for the load balancer:
-      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+  1. In the left-hand panel, select ![shield](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
+  1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**. In the window that opens:
       1. Specify the security group **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}**: `mysite-sg-balancer`.
       1. Select **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** `mysite-network`.
-      1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, create the following rules using the instructions below the table:
+      1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}** and create the following rules using the instructions below the table:
   
          Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
          --- | --- | --- | --- | --- | ---
@@ -83,17 +84,21 @@ To create security groups:
          `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
          `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
          `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | —
-  
-      1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
-      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports open for inbound or outbound traffic.
-      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
-      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the rule purpose:
-         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDRs and masks of [subnets](../../vpc/concepts/network.md#subnet) traffic will move to/from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
-         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the current or selected security group VMs.
-         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health-check VMs.
-      1. Click **{{ ui-key.yacloud.common.save }}**. Repeat these steps to create all rules from the table.
-      1. Click **{{ ui-key.yacloud.common.create }}**.
+
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-direction }}** field, select **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field, specify a single port or a range of ports open for inbound or outbound traffic.
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** field, select the rule purpose:
+
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the current or selected security group VMs.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health-check VMs.
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDRs and masks of [subnets](../../vpc/concepts/network.md#subnet) traffic will move to/from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+         1. Optionally, add a rule description.
+         1. Click **{{ ui-key.yacloud.common.save }}**.
+
+     1. Click **{{ ui-key.yacloud.common.create }}**.
+
   1. In the same way, create a security group named `mysite-sg-vms` for the VMs. Place it in `mysite-network` and set the following rules:
 
       Traffic<br>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br>target | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
@@ -120,7 +125,7 @@ To import an existing certificate for `my-site.com`:
   1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** and select **{{ ui-key.yacloud.certificate-manager.action_import }}**.
   1. Specify the certificate **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}**: `mysite-cert`.
   1. In the **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**. Upload the **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** with your certificate or enter its **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** and click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
-  1. If your certificate is issued by a third-party certificate authority, click **{{ ui-key.yacloud.certificate-manager.import.button_add-chain }}** in the **{{ ui-key.yacloud.certificate-manager.import.field_chain }}** field. Upload the **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** with the certificate chain or enter its **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** and click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  1. Optionally, if your certificate is issued by a third-party certificate authority, click **{{ ui-key.yacloud.certificate-manager.import.button_add-chain }}** in the **{{ ui-key.yacloud.certificate-manager.import.field_chain }}** field. Upload the **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** with the certificate chain or enter its **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** and click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
   1. In the **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**. Upload the **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** with the key or enter its **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** and click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -140,7 +145,7 @@ To create an [instance group](../../compute/concepts/instance-groups/index.md) f
   1. Specify the VM group **{{ ui-key.yacloud.compute.groups.create.field_name }}**: `mysite-ig`.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select multiple availability zones to ensure the fault tolerance of your hosting.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, type `LEMP` in the search field and select [LEMP](/marketplace/products/yc/lemp).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a VM [platform](../../compute/concepts/vm-platforms.md).
       * Specify the required number of vCPUs and the amount of RAM.
@@ -259,6 +264,87 @@ To create an HTTP router:
 
 {% endlist %}
 
+### Configure client certificate verification {#client-certificate}
+
+If the website requires [mutual TLS authentication](../../application-load-balancer/concepts/application-load-balancer.md#mtls) (mTLS), configure client certificate verification and certificate forwarding to the backend. To verify client certificates, you will need a [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) file with the root certificate of the CA which has issued the client certificates.
+
+{% note info %}
+
+Client certificate management is currently supported via the API and CLI.
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    1. Enable client certificate verification for the listener named `listener-https`:
+
+        ```bash
+        yc alb load-balancer update-listener mysite-alb \
+          --listener-name listener-https \
+          --enable-tls \
+          --certificate-name mysite-cert \
+          --require-client-certificate \
+          --client-certificates-trusted-ca-file <path_to_root_certificate_PEM_file> \
+          --http-router-name mysite-router
+        ```
+
+        Where:
+
+        * `--listener-name`: Name of the L7 load balancer's listener [created earlier](#create-l7-balancer).
+        * `--certificate-name`: Name of the website TLS certificate [imported earlier](#import-certificate).
+        * `--require-client-certificate`: Parameter activating client certificate verification.
+        * `--client-certificates-trusted-ca-file`: Path to the root certificate PEM file for client certificate verification.
+        * `--http-router-name`: Name of the HTTP router [created earlier](#create-http-router).
+
+        For more information about the `yc alb load-balancer update-listener` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/update-listener.md).
+
+    1. Optionally, configure the forwarding of the client certificates to the backend for the route named `mysite-route`:
+
+        ```bash
+        yc alb virtual-host update-http-route mysite-route \
+          --http-router-name mysite-router \
+          --virtual-host-name mysite-host \
+          --ccf-header X-Client-Cert \
+          --ccf-issuer X-Client-Cert-Issuer \
+          --ccf-subject X-Client-Cert-Subject
+        ```
+
+        Where:
+
+        * `--ccf-header`: Name of the HTTP header which forwards the client certificate to the backend.
+        * `--ccf-issuer`: Name of the HTTP header which forwards the client certificate issuer to the backend.
+        * `--ccf-subject`: Name of the HTTP header which forwards the client certificate subject to the backend.
+
+        For more information about the `yc alb virtual-host update-http-route` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update-http-route.md).
+
+- API {#api}
+
+    1. Enable client certificate verification for the listener named `listener-https`. Do it by specifying the client certificate verification parameters in `clientCertificatesVerification`.
+
+        To update the listener, use the [updateListener](../../application-load-balancer/api-ref/LoadBalancer/updateListener.md) REST API method for the [LoadBalancer](../../application-load-balancer/api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/UpdateListener](../../application-load-balancer/api-ref/grpc/LoadBalancer/updateListener.md) gRPC API call.
+
+    1. Optionally, configure the forwarding of the client certificate to the backend. Do it by specifying `clientCertificateForward` in the virtual route of the `mysite-router` HTTP router.
+
+        ```json
+        {
+          "clientCertificateForward": {
+            "clientCert": "X-Client-Cert",
+            "clientCertIssuer": "X-Client-Cert-Issuer",
+            "clientCertSubject": "X-Client-Cert-Subject"
+          }
+        }
+        ```
+
+        To update an HTTP router, use the [update](../../application-load-balancer/api-ref/HttpRouter/update.md) REST API method for the [HttpRouter](../../application-load-balancer/api-ref/HttpRouter/index.md) resource or the [HttpRouterService/Update](../../application-load-balancer/api-ref/grpc/HttpRouter/update.md) gRPC API call.
+
+{% endlist %}
+
 ### Configure the website DNS {#configure-dns}
 
 The `my-site.com` domain name must be mapped to the L7 load balancer’s IP address using [DNS records](../../dns/concepts/resource-record.md). To do this:
@@ -283,7 +369,7 @@ The `my-site.com` domain name must be mapped to the L7 load balancer’s IP addr
 
       To get access to public zone domain names, you need to delegate the domain. Specify `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` server addresses in your registrar's account settings.
 
-      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. In the [management console]({{ link-console-main }}), select the folder.
       1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. If you do not have a public [DNS zone](../../dns/concepts/dns-zone.md), create one:
           1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.

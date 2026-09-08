@@ -14,7 +14,6 @@ To configure secure access to content in {{ cdn-name }}:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-
 ## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
@@ -423,7 +422,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
       1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify your domain name, e.g., `example.com`.
 
           In a new line within the same field, specify the name of the subdomain to serve the CDN resource, e.g., `cdn.example.com`.
-      1. Select [domain ownership verification type](../../certificate-manager/concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}`.
+      1. Select the [domain ownership verification type](../../certificate-manager/concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}`.
       1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
     - {{ yandex-cloud }} CLI {#cli}

@@ -11,6 +11,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 #|
 ||Service | Description ||
 || [Backup](Backup/index.md) | A set of methods for managing ClickHouse Backup resources. ||
+|| [ChangeFreeze](ChangeFreeze/index.md) |  ||
 || [ClusterExtension](ClusterExtension/index.md) |  ||
 || [Cluster](Cluster/index.md) | A set of methods for managing ClickHouse clusters. ||
 || [Database](Database/index.md) | A set of methods for managing ClickHouse Database resources.

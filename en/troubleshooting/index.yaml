@@ -62,9 +62,6 @@ links:
   - title: '{{ mkf-name }}'
     description: Solutions for {{ mkf-name }}
     href: managed-kafka/
-  - title: '{{ ydb-name }}'
-    description: Solutions for {{ ydb-name }}
-    href: managed-ydb/
   - title: '{{ monitoring-name }}'
     description: Solutions for {{ monitoring-name }}
     href: monitoring/

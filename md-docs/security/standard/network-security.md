@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Безопасность в Yandex Cloud](../index.md) > [Стандарт по защите облачной инфраструктуры, версия 1.4.2](index.md) > Сетевая безопасность
+[Документация Yandex Cloud](../../index.md) > [Безопасность в Yandex Cloud](../index.md) > [Стандарт по защите облачной инфраструктуры, версия 1.4.3](index.md) > Сетевая безопасность
 
 # Требования к сетевой безопасности
 
@@ -43,6 +43,12 @@
 | --- | --- |
 | NET1 | Высокая |
 
+{% note info %}
+
+Автоматизированная проверка гарантирует безопасность только при наличии явно назначенной группы безопасности на сетевом интерфейсе объекта. Использование BYOI (собственных образов дисков с NGFW) невозможно объективно проверить платформенными инструментами, поэтому ответственность за их маршрутизацию лежит на администраторе.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Проверка в консоли управления {#console}
@@ -53,48 +59,28 @@
   1. В настройках объектов найдите параметр **Группа безопасности** и убедитесь, что назначена хотя бы одна группа безопасности.
   1. Если в параметрах каждого объекта, который поддерживает группы безопасности указана хотя бы одна группа, рекомендация выполняется. Если нет, перейдите к пункту «Инструкции и решения по выполнению».
 
-  Проверка наличия NGFW вместо групп безопасности:
-  1. Откройте консоль управления Yandex Cloud в вашем браузере.
-  1. Перейдите в каждое облако и в каждый каталог и последовательно откройте все [диски](../../compute/concepts/vm.md) ВМ.
-  1. В настройках дисков найдите параметр **Продукт Marketplace**.
-  1. Если в параметрах **Продукт Marketplace** в диске указано одно из названий продуктов NGFW: Check Point CloudGuard IaaS — Firewall & Threat Prevention PAYG, UserGate NGFW, рекомендация выполняется. Если нет, перейдите к пункту «Инструкции и решения по выполнению».
-
 - Проверка через CLI {#cli}
 
-  1. Посмотрите доступные вам организации и зафиксируйте необходимый `ID`:
+  1. Посмотрите доступные вам организации и скопируйте необходимый `ID`:
 
      ```bash
      yc organization-manager organization list
      ```
 
-  1. Выполните команду для поиска объектов облака без группы безопасности:
-
-     ```bash
-     export ORG_ID=<ID организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-     do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute instance get --id=$VM_ID --format=json | jq -r '. | select(.network_interfaces[].security_group_ids | not)' | jq -r '.id'
-     done;
-     done;
-     done
-     ```
-
-  1. Если выдается пустая строка, рекомендация выполняется. Если выдается результат с `ID` облачного ресурса, перейдите к пункту «Инструкции и решения по выполнению».
-
-  Проверка наличия NGFW вместо группы безопасности:
-  1. Выполните команду для поиска NGFW в облаке. По умолчанию команда ищет Checkpoint или Usergate. Если используете свой образ, укажите его.
+  1. Выполните команду для поиска всех ВМ без привязанных групп безопасности:
 
      ```bash
      export ORG_ID=<ID организации>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do for DISK_ID in $(yc compute disk list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute disk get --id=$DISK_ID --format=json | jq -r '. | select(.product_ids[0]=="f2ecl4ak62mjbl13qj5f" or .product_ids[0]=="f2eqc5sac8o5oic7m99k")' | jq -r '.id'
-     done;
+     do echo "VMs without SG in FOLDER_ID " $FOLDER_ID ":" && yc compute instance list --folder-id=$FOLDER_ID --format=json |
+     jq -r '.[] | select( (.network_interfaces[].security_group_ids | length) == 0 ) | .id' \
+     && echo "-----"
      done;
      done
      ```
 
-  1. Если выдается `ID` ВМ с NGFW, рекомендация выполняется. Если выдается пустая строка, перейдите к пункту «Инструкции и решения по выполнению».
+  1. Если результат пустой или не содержит идентификаторов виртуальных машин, проверка считается пройденной. Если найдены ВМ без привязанных групп безопасности, перейдите к пункту «Инструкции и решения по выполнению».
 
 {% endlist %}
 
@@ -104,6 +90,12 @@
 * Для использования NGFW [установите](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM) на ВМ межсетевой экран (NGFW): Check Point.
 * [Инструкция](https://docs.google.com/document/d/1yYwHorzkwXwIUGeG3n_K6Zo-07BVYowZJL7q2bAgVR8/edit?usp=sharing) по использованию UserGate NGFW в облаке.
 * NGFW в режиме [active-passive](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/network-sec/checkpoint-2VM_active-active/README.md).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 2.2 В Virtual Private Cloud создана группа безопасности и не используется группа безопасности по умолчанию {#vpc-sg}
 
@@ -152,21 +144,34 @@
   1. Выполните команду для поиска каталогов без группы безопасности:
 
      ```bash
-     export ORG_ID=<ID организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-     do echo "SG_ID: " && yc vpc security-group list --folder-id=$FOLDER_ID --format=json | jq -r '.[] | select(.id)' | jq -r '.id' && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
-     done;
+     export ORG_ID=<ID_организации>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+       for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+         echo "Checking FOLDER_ID " $FOLDER_ID ":"
+         for NET_ID in $(yc vpc network list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do
+           USER_SGS=$(yc vpc security-group list --folder-id=$FOLDER_ID --format=json | jq -r "[.[] | select(.network_id == \"$NET_ID\" and .default_for_network != true)] | length")
+           if [ "$USER_SGS" -eq "0" ]; then
+             echo "Network $NET_ID has NO custom security groups!"
+           fi
+         done
+         echo "-----"
+       done
      done
      ```
 
-  1. Если у каждого сочетания `SG_ID` напротив `FOLDER_ID`, в которой она находится, указаны `ID`, рекомендация выполняется. Если нет, перейдите к пункту «Инструкции и решения по выполнению».
+  1. Если скрипт не вывел сетей с отсутствующими группами безопасности, контроль считается пройденным. Если нет, перейдите к пункту «Инструкции и решения по выполнению».
 
 {% endlist %}
 
 **Инструкции и решения по выполнению:**
 
 Создайте группу безопасности в каждой Virtual Private Cloud с ограниченными правилами доступа, чтобы ее можно было назначать на облачные объекты.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 2.3 В группах безопасности отсутствует слишком широкое правило доступа {#access-rule}
 
@@ -208,23 +213,39 @@
   1. Найдите группы безопасности с опасным правилом доступа:
 
      ```bash
-     export ORG_ID=<ID организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-     do echo "SG_ID: " && yc vpc security-group list --folder-id=$FOLDER_ID \
-     --format=json | jq -r '.[] | select(.rules[].direction=="INGRESS" and .rules[].ports.to_port=="65535" and .rules[].cidr_blocks.v4_cidr_blocks[]=="0.0.0.0/0")' | jq -r '.id' \
-     && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
-     done;
+     export ORG_ID=<ID_организации>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+       for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+         echo "Checking SG in FOLDER_ID " $FOLDER_ID ":" && yc vpc security-group list --folder-id=$FOLDER_ID --format=json | \
+         jq -r 'map(select(
+           .rules != null and (
+             .rules[] | select(
+               .direction == "INGRESS" and
+               (.ports == null or .ports.to_port == "65535" or .ports.to_port == null) and
+               .cidr_blocks != null and
+               .cidr_blocks.v4_cidr_blocks != null and
+               (.cidr_blocks.v4_cidr_blocks | index("0.0.0.0/0") != null)
+             )
+           )
+         )) | .[].id' \
+         && echo "-----"
+       done
      done
      ```
 
-  1. Если `SG_ID` напротив `FOLDER_ID` указано пустое значение, рекомендация выполняется. Если вы видите не пустое `SG_ID`, перейдите к пункту «Инструкции и решения по выполнению».
+  1. Если результатом является пустая строка, рекомендация выполняется. Если видите список ID групп безопасности, перейдите к пункту «Инструкции и решения по выполнению».
 
 {% endlist %}
 
 **Инструкции и решения по выполнению:**
 
 Удалите опасное правило в каждой группе безопасности или отредактируйте, указав доверенные IP-адреса.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 2.4 Доступ по управляющим портам открыт только для доверенных IP-адресов {#trusted-ip}
 
@@ -258,17 +279,17 @@
   1. Выполните команду для поиска групп безопасности с опасным правилом доступа:
 
      ```bash
-     export ORG_ID=<ID организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-     do echo "SG_ID: " && yc vpc security-group list --folder-id=$FOLDER_ID \
-     --format=json | jq -r '.[] | select(.rules[].direction=="INGRESS" and (.rules[].ports.to_port=="22" or .rules[].ports.to_port=="3389" or .rules[].ports.to_port=="21") and .rules[].cidr_blocks.v4_cidr_blocks[]=="0.0.0.0/0")' | jq -r '.id' \
-     && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
-     done;
+     export ORG_ID=<ID_организации>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+       for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+         echo "SG_ID: " && yc vpc security-group list --folder-id=$FOLDER_ID \
+         --format=json | jq -r '.[] | select(.rules[].direction=="INGRESS" and (.rules[].ports.to_port=="22" or .rules[].ports.to_port=="3389" or .rules[].ports.to_port=="21") and .rules[].cidr_blocks.v4_cidr_blocks[]=="0.0.0.0/0")' | jq -r '.id' \
+         && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
+       done
      done
      ```
 
-  1. Если `SG_ID` напротив `FOLDER_ID` указано пустое значение, рекомендация выполняется. Если `SG_ID` не пустое, перейдите к пункту «Инструкции и решения по выполнению».
+  1. Если `SG_ID` напротив `FOLDER_ID` принимает пустое значение, рекомендация выполняется. Если `SG_ID` не пустое, перейдите к пункту «Инструкции и решения по выполнению».
 
 {% endlist %}
 
@@ -276,95 +297,118 @@
 
 [Удалите](../../cli/cli-ref/vpc/cli-ref/security-group/index.md) опасное правило в каждой группе безопасности или укажите доверенные IP-адреса.
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 2.5 Включена защита от DDoS-атак {#ddos-protection}
 
-В Yandex Cloud существует базовая и расширенная защита от DDoS-атак, а также защита на прикладном уровне с помощью сервиса Yandex Smart Web Security. Необходимо убедиться, что у вас используется как минимум базовая защита.
+Защита от DDoS-атак в Yandex Cloud может быть реализована на двух уровнях:
 
-* [Yandex Smart Web Security](../../smartwebsecurity/quickstart.md) — сервис для защиты от [DDoS-атак](../../glossary/ddos.md) и ботов на прикладном уровне L7 [сетевой модели OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI). Smart Web Security [подключается](../../smartwebsecurity/quickstart.md) к Yandex Application Load Balancer. Функциональность сервиса сводится к проверке HTTP-запросов к защищаемому ресурсу на соответствие [правилам](../../smartwebsecurity/concepts/rules.md), заданным в [профиле безопасности](../../smartwebsecurity/concepts/profiles.md). В зависимости от результатов проверки запросы пропускаются на защищаемый ресурс, блокируются или отправляются в сервис [Yandex SmartCaptcha](../../smartcaptcha/index.md) для дополнительной верификации.
-* [Yandex DDoS Protection](../../vpc/ddos-protection/index.md) — это компонент сервиса Virtual Private Cloud для защиты облачных ресурсов от DDoS-атак. DDoS Protection предоставляется в партнерстве с Curator. Вы можете включать ее самостоятельно на внешний [IP-адрес](../../vpc/concepts/address.md) через инструменты управления облаком. Работает до L4 уровня модели OSI.
-* [Расширенная](https://yandex.cloud/ru/services/ddos-protection) защита от DDoS-атак — работает на 3, 4 и 7 уровнях модели OSI. Вы также можете отслеживать показатели нагрузки, параметры атак и подключить Solidwall WAF в личном кабинете Curator. Чтобы включить расширенную защиту, обратитесь к вашему менеджеру или в техническую поддержку.
+1. **Базовая защита от DDoS-атак (уровни L3/L4)**
+   Для защиты публичных IP-адресов от атак на сетевом и транспортном уровнях используйте встроенный [механизм защиты от DDoS-атак](../../vpc/ddos-protection/index.md), работающий совместно с [Qrator Labs](https://qrator.net/ru/). Эту защиту можно включить для внешних IP-адресов ВМ и сетевых балансировщиков.
+1. **Защита на прикладном уровне (L7)**
+   Для защиты веб-приложений (WAF) и фильтрации трафика на уровне L7 используйте сервис Yandex Smart Web Security. В Smart Web Security создайте профиль безопасности, подключите его к балансировщику (Application Load Balancer) и настройте необходимые правила. Инструкцию по настройке читайте в разделе [Подключить профиль безопасности к ресурсу](../../smartwebsecurity/operations/host-connect.md).
 
 | ID требования | Критичность |
 | --- | --- |
-| NET5 | Высокая |
+| NET5 | Информационная |
+
+{% note info  %}
+
+Включение защиты от Qrator на публичных IP-адресах может изменять маршрутизацию трафика (вызывать асимметричный роутинг). Отсутствие защиты L3/L4 не всегда является нарушением в сложных сетевых топологиях. Данный контроль собирает информацию о незащищенных IP-адресах и профилях SWS для принятия взвешенного решения администратором.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Проверка в консоли управления {#console}
 
-  * Чтобы убедиться, что у вас используется защита от DDoS-атак на прикладном уровне:
+  * Проверка базовой защиты (L3/L4) на IP-адресах:
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите проверить статус Smart Web Security.
-      1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
-      1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
-      1. Убедитесь, что у вас есть созданные профили безопасности.
-      1. Если профили безопасности есть, рекомендация выполняется. Если нет, перейдите к пункту «Инструкции и решения по выполнению».
+    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+    1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
+    1. На панели слева выберите **Публичные IP-адреса**.
+    1. Проверьте статус в столбце **Защита от DDoS-атак**. Оцените критичность адресов, где она выключена.
 
-  * Чтобы убедиться, что у вас используется базовая защита от DDoS-атак:
+  * Проверка наличия защиты L7 (Smart Web Security):
 
-      1. В [консоли управления](https://console.yandex.cloud) откройте все созданные сети.
-      1. Перейдите в раздел **IP-адреса**.
-      1. Если у всех публичных адресов в столбце **Защита от DDoS-атак** установлено значение **Включена**, рекомендация выполняется. Если нет, перейдите к пункту «Инструкции и решения по выполнению».
-
-- Ручная проверка {#manual}
-
-  Чтобы убедиться, что у вас подключена расширенная защита от DDoS-атак, обратитесь к вашему персональному менеджеру. 
+    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите проверить статус Smart Web Security.
+    1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
+    1. Убедитесь, что у вас созданы профили безопасности и они подключены к соответствующим веб-ресурсам.
 
 - Проверка через CLI {#cli}
 
-  * Чтобы убедиться, что у вас используется защита от DDoS-атак на прикладном уровне, выполните команду:
+  1. Посмотрите доступные вам организации и зафиксируйте необходимый `ID`:
 
       ```bash
-      yc smartwebsecurity security-profile list
+      yc organization-manager organization list
       ```
 
-      Если команда вернет информацию об имеющихся профилях безопасности, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
+  1. Найдите внешние публичные IP-адреса без базовой защиты (Qrator):
 
-  * Чтобы убедиться, что у вас используется базовая защита от DDoS-атак:
+     ```bash
+     export ORG_ID=<ID_организации>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+     for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+     yc vpc address list --folder-id=$FOLDER_ID --format=json | jq -r 'map(select(
+     .external_ipv4_address != null and
+     (.external_ipv4_address.requirements == null or .external_ipv4_address.requirements.ddos_protection_provider != "qrator")
+     )) | .[].address'
+     done
+     done
+     ```
 
-      1. Посмотрите доступные вам организации и зафиксируйте необходимый `ID`:
+  1. Найдите профили SWS (L7):
 
-           ```bash
-           yc organization-manager organization list
-           ```
-
-      1. Выполните команду для поиска IP-адресов без защиты от DDoS:
-
-           ```bash
-           export ORG_ID=<ID организации>
-           for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-           do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-           do echo "Address_ID: " && yc vpc address list --folder-id=$FOLDER_ID \
-           --format=json | jq -r '.[] | select(.external_ipv4_address.requirements.ddos_protection_provider=="qrator" | not)' | jq -r '.id' \
-           && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
-           done;
-           done
-           ```
-
-      1. Если `Address_ID` напротив `FOLDER_ID` указано пустое значение, рекомендация выполняется. В противном случае перейдите к пункту «Инструкции и решения по выполнению».
+     ```bash
+     export ORG_ID=<ID организации>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+     for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+     yc smartwebsecurity security-profile list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'
+     done
+     done
+     ```
 
 {% endlist %}
 
 **Инструкции и решения по выполнению:**
 
-* [Инструкция по созданию профиля безопасности Smart Web Security](../../smartwebsecurity/operations/profile-create.md).
-* Вебинар [Защита от DDoS в Yandex Cloud](https://youtu.be/KWGbLQTth5U).
-* Все [материалы](../../vpc/ddos-protection/index.md) по защите от DDoS в Yandex Cloud.
+* Учитывая влияние защиты Qrator на асимметричный роутинг, проанализируйте, требуется ли включение DDoS-защиты на публичных IP-адресах в вашем проекте. При необходимости измените настройки в Virtual Private Cloud.
+* Для подключения защиты на L7 используйте Smart Web Security.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 2.6 Используется защищенный удаленный доступ {#secure-access}
 
-Чтобы обеспечить удаленное подключение администраторов к облачным ресурсам, используйте одно из следующих решений:
-* Site-to-site VPN между удаленной площадкой (например, вашим офисом) и облаком. В качестве шлюза для удаленного доступа используйте ВМ с функцией site-to-site VPN на основе [образа](https://yandex.cloud/ru/marketplace?categories=network) из Cloud Marketplace.
+Чтобы обеспечить безопасное удаленное подключение к облачным ресурсам, используйте современные механизмы управления доступом и защищенные каналы связи:
 
-  **Варианты настройки**:
+* **Доступ на уровне операционной системы (OS Login)**
+
+  Для доступа по SSH к виртуальным машинам и узлам Kubernetes откажитесь от использования статических SSH-ключей. Используйте механизм [OS Login](../../organization/concepts/os-login.md), который связывает учетные записи Linux с пользователями организации в Yandex Cloud. Это позволяет использовать кратковременные SSH-сертификаты, централизованно управлять доступом через IAM-роли и автоматически отзывать доступ при блокировке пользователя.
+
+* **Защищенные сетевые каналы (VPN и Interconnect)**
+
+* **Site-to-site VPN** между удаленной площадкой (например, вашим офисом) и облаком. В качестве шлюза для удаленного доступа используйте ВМ с функцией site-to-site VPN на основе [образа](https://yandex.cloud/ru/marketplace?categories=network) из Cloud Marketplace.
+
+  Варианты настройки:
+
   * [Создание туннеля IPSec VPN с использованием демона strongSwan](../../tutorials/routing/ipsec/index.md).
   * [Создание site-to-site VPN-соединения с Yandex Cloud с помощью Terraform](https://github.com/yandex-cloud-examples/yc-site-to-site-vpn-with-ipsec-strongswan).
-  * Client VPN между удаленными устройствами и Yandex Cloud. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе [образа](https://yandex.cloud/ru/marketplace?categories=network) из Cloud Marketplace.
+
+* **Client VPN** между удаленными устройствами и Yandex Cloud. В качестве шлюза для удаленного доступа используйте ВМ с функцией Client VPN на основе [образа](https://yandex.cloud/ru/marketplace?categories=network) из Cloud Marketplace.
 
   Смотрите инструкцию в разделе [Создание VPN-соединения с помощью OpenVPN](../../tutorials/routing/openvpn.md). Возможно также использование сертифицированных СКЗИ.
-* Приватное выделенное соединение между удаленной площадкой и Yandex Cloud c помощью сервиса Cloud Interconnect.
 
-Для доступа в инфраструктуру по управляющим протоколам (например, SSH, RDP) рекомендуется создать бастионную ВМ. Для этого можно использовать бесплатное решение [Teleport](https://goteleport.com/). Доступ к бастионной ВМ или VPN-шлюзу из интернета должен быть ограничен.
+* **Приватное выделенное соединение** между удаленной площадкой и Yandex Cloud с помощью сервиса [Cloud Interconnect](../../interconnect/index.md).
+
+Для доступа в инфраструктуру по управляющим протоколам (например, SSH, RDP) рекомендуется создать бастионную ВМ. Для этого можно использовать бесплатное решение [Teleport](https://yandex.cloud/ru/marketplace/products/yc/teleport). Доступ к бастионной ВМ или VPN-шлюзу из интернета должен быть ограничен.
 
 Для дополнительного контроля действий администраторов рекомендуется использовать решения PAM (Privileged Access Management) с записью сессии администратора (например, Teleport). Для доступа по SSH и VPN рекомендуется отказаться от паролей и вместо этого использовать открытые ключи, X.509-сертификаты и SSH-сертификаты. При настройке SSH для ВМ рекомендуется использовать SSH-сертификаты, в том числе и для хостовой части SSH.
 
@@ -378,15 +422,47 @@
 
 - Проверка в консоли управления {#console}
 
-  1. Откройте консоль Yandex Cloud в вашем браузере.
-  1. Откройте все созданные сети.
-  1. Перейдите в раздел **Таблицы маршрутизации**.
+  **Проверка включения OS Login:**
+
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shield](../../_assets/console-icons/shield.svg) **Настройки безопасности**.
+  1. Убедитесь, что включена опция **Доступ по OS Login при помощи SSH-сертификатов (рекомендуется)**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute/instances) в настройки ВМ в сервисе Compute Cloud и убедитесь, что включена опция **Доступ по OS Login**.
+
+  **Проверка сетевого доступа (VPN/Шлюзы):**
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите **Таблицы маршрутизации**.
   1. Если найдены маршруты в приватные сети удаленных площадок, которые направлены через ВМ с VPN шлюзом, рекомендация выполняется.
   1. Проверьте ВМ в каждом облаке на наличие VPN-шлюзов. Также проверьте у назначенных им групп безопасности открытые порты для VPN.
+
+- Проверка через CLI {#cli}
+
+  1. Посмотрите список доступных организаций и скопируйте идентификатор нужной:
+
+      ```bash
+      yc organization-manager organization list
+      ```
+
+  1. Выполните команду для проверки включения OS Login на уровне организации:
+
+      ```bash
+      yc organization-manager oslogin get-settings --organization-id <ID_организации> --format json | jq -r '.ssh_certificate_settings.enabled'
+      ```
+
+      Если команда вернула `true`, функциональность OS Login включена глобально. Если `false` или `null`, перейдите к инструкциям по выполнению.
 
 - Ручная проверка {#manual}
 
   Обратитесь к вашему персональному менеджеру и уточните, подключен ли у вас сервис Cloud Interconnect. Если подключен, проверьте, выполняется ли удаленный доступ.
+
+{% endlist %}
+
+**Инструкции и решения по выполнению:**
+
+* [Включите доступ через OS Login](../../organization/operations/os-login-access.md) на уровне организации.
+* [Настройте доступ по OS Login](../../compute/operations/vm-connect/os-login.md) на существующих ВМ (может потребоваться установка агента).
 
 {% endlist %}
 
@@ -465,6 +541,12 @@ Yandex Cloud Desktop — сервис для управления виртуал
 
 - Проверка через CLI {#cli}
 
+  {% note info %}
+  
+  Данный контроль носит характер инвентаризации. Он выводит список публичных ВМ (one_to_one_nat) и NAT-шлюзов (Egress NAT) для вашего информирования. Контроль считается успешно пройденным (PASS), если администратор проанализировал вывод скрипта и подтвердил, что все публичные точки выхода легитимны и обоснованы.
+  
+  {% endnote %}
+
   1. Посмотрите доступные вам организации и зафиксируйте необходимый `ID`:
 
      ```bash
@@ -477,38 +559,27 @@ Yandex Cloud Desktop — сервис для управления виртуал
      export ORG_ID=<ID организации>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do echo "VM_ID: " && yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[] | select(.network_interfaces[].primary_v4_address.one_to_one_nat.address)' | jq -r '.id' \
-     && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
+     do echo "VM_ID in FOLDER_ID " $FOLDER_ID ":" && yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[]
+     | select(.network_interfaces[].primary_v4_address.one_to_one_nat.address)' | jq -r '.id' \
+     && echo "-----"
      done;
      done
      ```
 
-  1. Если `VM_ID` напротив `FOLDER_ID` указано пустое значение, рекомендация выполняется. В противном случае перейдите к пункту «Инструкции и решения по выполнению».
+  1. Если `VM_ID` напротив `FOLDER_ID` принимает пустое значение, рекомендация выполняется. В противном случае перейдите к пункту «Инструкции и решения по выполнению».
   1. Выполните команду для поиска наличия Egress NAT (NAT-шлюз):
 
      ```bash
      export ORG_ID=<ID организации>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-     do echo "NAT_GW: " && yc vpc gateway list --folder-id=$FOLDER_ID --format=json | jq -r '.[] | select(.id)' | jq -r '.id' && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
+     do echo "NAT_GW in FOLDER_ID " $FOLDER_ID ":" && yc vpc gateway list --folder-id=$FOLDER_ID --format=json | jq -r '.[] |
+     select(.id)' | jq -r '.id' && echo "-----"
      done;
      done
      ```
 
   1. Если `NAT_GW` напротив `FOLDER_ID` указано пустое значение, рекомендация выполняется. В противном случае перейдите к пункту «Инструкции и решения по выполнению».
-  1. Выполните команду для поиска наличия NAT-инстанса:
-
-     ```bash
-     export ORG_ID=<ID организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do for DISK_ID in $(yc compute disk list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute disk get --id=$DISK_ID --format=json | jq -r '. | select(.product_ids[0]=="fd8v7ru46kt3s4o5f0uo")' | jq -r '.id'
-     done;
-     done;
-     done
-     ```
-
-  1. Если результатом является пустая строка, рекомендация выполняется. Если видите `ID` NAT-инстанса, перейдите к пункту «Инструкции и решения по выполнению».
 
 {% endlist %}
 

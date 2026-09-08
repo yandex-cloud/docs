@@ -231,8 +231,10 @@ items:
             href: operations/view-subject-access-bindings.md
           - name: Revoking a user's role
             href: operations/revoke-role.md
-      - name: Syncing users and groups with {{ microsoft-idp.ad-short }}
-        href: operations/sync-ad.md
+      - name: Syncing users and groups with external directory services
+        items:
+          - name: '{{ microsoft-idp.ad-short }}'
+            href: operations/sync-ad.md
       - name: Billing management in {{ org-full-name }}
         href: operations/manage-billing.md
   - name: Tutorials
@@ -381,8 +383,12 @@ items:
         href: concepts/logs.md
       - name: Sessions
         href: concepts/sessions.md
-      - name: Syncing with {{ microsoft-idp.ad-short }}
-        href: concepts/ad-sync.md
+      - name: Syncing with external directory services
+        items:
+          - name: Overview
+            href: concepts/ad-sync/index.md
+          - name: '{{ ad-sync-agent }}'
+            href: concepts/ad-sync/sync-agent.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Error diagnostics

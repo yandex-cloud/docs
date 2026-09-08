@@ -37,9 +37,9 @@ _x-dl-api-version_{.json-schema-reset .json-schema-property .json-schema-require
 
 API version header.
 
-_Const:_{.json-schema-reset .json-schema-value} `2`
+_Const:_{.json-schema-reset .json-schema-value} `3`
 
-_Example:_{.json-schema-reset .json-schema-example} `2`
+_Example:_{.json-schema-reset .json-schema-example} `3`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -159,7 +159,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _expiresAt_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
-**Type**: string
+**Type**: string &#124; null
 
 Date and time when the license expires.
 
@@ -194,9 +194,7 @@ _licenseType_{.json-schema-reset .json-schema-property .json-schema-required}
 
 Type of the license.
 
-_Const:_{.json-schema-reset .json-schema-value} `creator`
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Enum:_{.json-schema-reset .json-schema-value} `creator`, `viewer`
 {.table-cell}
 ||
 ||

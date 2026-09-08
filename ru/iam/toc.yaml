@@ -370,6 +370,16 @@ items:
             href: cli-ref/service-control/get.md
           - name: list
             href: cli-ref/service-control/list.md
+      - name: subject-details
+        items:
+          - name: Overview
+            href: cli-ref/subject-details/index.md
+          - name: batch-get
+            href: cli-ref/subject-details/batch-get.md
+          - name: get
+            href: cli-ref/subject-details/get.md
+          - name: list
+            href: cli-ref/subject-details/list.md
       - name: user-account
         items:
           - name: Overview
@@ -528,6 +538,16 @@ items:
                 href: cli-ref/v0/service-control/get.md
               - name: list
                 href: cli-ref/v0/service-control/list.md
+          - name: subject-details
+            items:
+              - name: Overview
+                href: cli-ref/v0/subject-details/index.md
+              - name: batch-get
+                href: cli-ref/v0/subject-details/batch-get.md
+              - name: get
+                href: cli-ref/v0/subject-details/get.md
+              - name: list
+                href: cli-ref/v0/subject-details/list.md
           - name: user-account
             items:
               - name: Overview

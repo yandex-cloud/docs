@@ -77,7 +77,7 @@ Command categories user has permissions to. ||
 Commands user can execute. ||
 || sanitize_payload | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
-SanitizePayload parameter. ||
+Deprecated. This parameter is ignored. ||
 || databases | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 Databases parameter. ||

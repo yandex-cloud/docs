@@ -86,6 +86,7 @@ blocks:
 * [Yandex Cloud Backup](../backup/pricing.md)
 * [Yandex Cloud CDN](../cdn/pricing.md)
 * <code><b><small>Preview</small></b></code> [Yandex Cloud Desktop](../cloud-desktop/pricing.md)
+* [Yandex Cloud Detection and Response](../ycdr/pricing.md)
 * [Yandex Cloud DNS](../dns/pricing.md)
 * [Yandex Cloud Functions](../functions/pricing.md)
 * [Yandex Cloud Interconnect](../interconnect/pricing.md)
@@ -135,7 +136,7 @@ blocks:
 * [Yandex Query](../query/pricing.md)
 * [Yandex Security Deck](../security-deck/pricing.md)
 * [Yandex Serverless Containers](../serverless-containers/pricing.md)
-* [Yandex SIEM](../siem/pricing.md)
+* <code><b><small>Preview</small></b></code> [Yandex SIEM](../siem/pricing.md)
 * [Yandex SmartCaptcha](../smartcaptcha/pricing.md)
 * [Yandex Smart Web Security](../smartwebsecurity/pricing.md)
 * [Yandex SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/pricing)
@@ -155,7 +156,7 @@ blocks:
 * [Yandex Identity and Access Management](../iam/pricing.md)
 * [Yandex Resource Manager](../resource-manager/pricing.md)
 * <code><b><small>Preview</small></b></code> [Yandex Serverless Integrations](../serverless-integrations/pricing.md)
-* <code><b><small>Preview</small></b></code> [Vibecraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/pricing.md)
+* <code><b><small>Preview</small></b></code> [Vibecraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/pricing)
 * [Yandex WebSQL](../websql/pricing.md)
 
  Тегом <code><b><small>Preview</small></b></code> отмечены сервисы на стадии [Preview](../overview/concepts/launch-stages.md).
