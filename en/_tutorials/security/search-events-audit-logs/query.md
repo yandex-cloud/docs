@@ -149,19 +149,20 @@ Assign the `storage.viewer` role for `example-folder` to the `bucket-yq-sa` serv
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
-  1. In the **{{ ui-key.yacloud.common.name }}** field, specify `logsyq`.
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket you [created earlier](#create-backet).
+      1. **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+      1. **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket you [created earlier](#create-backet).
+
+  1. Under **{{ ui-key.yacloud.audit-trails.label_control-plane-collection-new }}**:
+
+      1. Enable log collection.
+      1. **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
+      1. **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: Automatically populated field containing the name of the current organization.
+      1. **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}**: Keep the default value, `{{ ui-key.yacloud.common.all }}`.
+
+  1. Under **{{ ui-key.yacloud.audit-trails.label_data-plane-collection-new }}**, disable log collection.
   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select `trail-sa`.
-  1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
-
-      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: Automatically populated field containing the name of the current organization.
-      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}**: Keep the default value, `{{ ui-key.yacloud.common.all }}`.
-
-  1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** field.
+  1. In the **{{ ui-key.yacloud.common.name }}** field, specify `logsyq`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -178,7 +179,7 @@ You need to create a connection only when connecting the trail to {{ yq-short-na
     1. In the [management console]({{ link-console-main }}), select `example-folder`.
     1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
     1. Select the `logsyq` trail.
-    1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
+    1. Click ![cube](../../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
     1. Create a connection:
         * Select the `bucket-yq-sa` **{{ ui-key.yacloud.common.resource-acl.label_service-account }}**.
         * Leave the other settings at their defaults.

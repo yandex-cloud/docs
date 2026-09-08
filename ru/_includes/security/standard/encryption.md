@@ -151,7 +151,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 #### 4.2 В {{ objstorage-full-name }} включено шифрование данных at rest с ключом {{ kms-short-name }} {#storage-kms}
 
-Для защиты критичных данных в {{ objstorage-full-name }} рекомендуется использовать шифрование бакета на стороне сервера с помощью ключей {{ kms-full-name }} (server-side encryption). Такое шифрование защищает от случайной или намеренной публикации содержимого бакета в интернете. Подробнее о шифровании читайте в разделе [Шифрование](../../../storage/concepts/encryption.md) документации {{ objstorage-name }}.
+По умолчанию данные в {{ objstorage-full-name }} зашифрованы системными ключами, но для повышенной безопасности рекомендуется использовать шифрование бакета на стороне сервера с помощью ключей {{ kms-full-name }} (server-side encryption). Такое шифрование защищает от случайной или намеренной публикации содержимого бакета в интернете. Подробнее о шифровании читайте в разделе [Шифрование](../../../storage/concepts/encryption.md) документации {{ objstorage-name }}.
 
 | ID требования | Критичность |
 | --- | --- |
@@ -170,14 +170,19 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 - Проверка через CLI {#cli}
 
-  1. [Настройте](../../../storage/tools/aws-cli.md) AWS CLI на работу с облаком.
-  1. Выполните команду, чтобы проверить, что шифрование включено:
+  1. Выполните команду для проверки настроек шифрования бакета:
 
-     ```bash
-     aws --endpoint-url=https://{{ s3-storage-host }}/ \
-     s3api get-bucket-encryption \
-     --bucket <имя бакета>
-     ```
+      **Bash:**
+
+      ```bash
+      yc storage bucket get <имя бакета> --full --format=json | jq -r '.encryption'
+      ```
+
+      **PowerShell:**
+
+      ```powershell
+      (yc storage bucket get <имя бакета> --full --format=json | ConvertFrom-Json).encryption
+      ```
 
   1. Если шифрование включено, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
 
@@ -186,6 +191,8 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 **Инструкции и решения по выполнению:**
 
 Настройте шифрование бакета согласно [инструкции](../../../storage/operations/buckets/encrypt.md).
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 ### Шифрование в состоянии передачи (in transit) {#in-transit}
 
@@ -206,6 +213,30 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 * {{ alb-name }};
 * {{ api-gw-name }};
 * {{ cdn-name }}.
+
+### 4.2.1 В Managed Services for Databases используется шифрование данных at rest с ключом {{ kms-short-name }} {#mdb-encryption}
+
+В управляемых базах данных {{ yandex-cloud }} (Managed Services for Databases) данные в состоянии покоя (at rest) по умолчанию шифруются системными ключами. Все резервные копии баз данных также автоматически шифруются.
+
+Для дополнительного контроля безопасности рекомендуется шифровать диски кластеров баз данных с помощью пользовательских симметричных ключей [{{ kms-full-name }}](../../../kms/). При создании кластера с типами дисков `network-hdd`, `network-ssd` или `network-ssd-nonreplicated` доступна опция **{{ ui-key.yacloud.mdb.resources.DiskEncryptionFieldWithFieldWrap.label_disk-encryption_bkdrg }}**.
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT18 | Средняя |
+
+{% list tabs group=instructions %}
+
+- Ручная проверка {#manual}
+
+  1. В консоли управления перейдите в сервис управляемой базы данных (например, {{ mpg-name }}).
+  1. Проверьте настройки диска кластера.
+  1. Убедитесь, что кластер был создан с включенной опцией шифрования дисков и привязан к пользовательскому ключу {{ kms-short-name }}.
+
+{% endlist %}
+
+**Инструкции и решения по выполнению:**
+
+Функция шифрования дисков баз данных доступна при создании кластера (выбор опции **{{ ui-key.yacloud.mdb.resources.DiskEncryptionFieldWithFieldWrap.label_disk-encryption_bkdrg }}** с указанием ключа {{ kms-short-name }}). Включить ее для уже существующего диска невозможно.
 
 #### 4.3 В {{ objstorage-full-name }} включено HTTPS для хостинга статического сайта {#storage-https}
 
@@ -244,6 +275,8 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 **Инструкции и решения по выполнению:**
 
 [Включите](../../../storage/operations/hosting/certificate.md) доступ по HTTPS, если бакет используется для хостинга статического сайта.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 4.4 В {{ alb-full-name }} используется HTTPS {#alb-https}
 
@@ -320,6 +353,8 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 Включите HTTPS обработчик согласно [инструкции](../../../application-load-balancer/tutorials/tls-termination/index.md).
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 4.5 В {{ api-gw-full-name }} используется HTTPS и собственный домен {#api-gateway-https}
 
 [{{ api-gw-name }}](../../../api-gateway/) обеспечивает безопасное подключение по протоколу HTTPS. Вы можете привязать собственный домен и загрузить собственный сертификат безопасности для доступа к вашему [API-шлюзу](../../../api-gateway/concepts/index.md) по протоколу HTTPS.
@@ -367,6 +402,8 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 1. В консоли управления выберите облако или каталог, в которых необходимо подключить домены и сертификаты.
 1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ api-gw-name }} → Настройки шлюза → Домены**.
 1. Подключите домены и сертификаты.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 4.6 В {{ cdn-full-name }} используется HTTPS и собственный SSL-сертификат {#cdn-https}
 
@@ -416,6 +453,8 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 [Подключите](../../../cdn/operations/resources/configure-basics.md) сертификат и HTTPS согласно инструкции.
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 ### Самостоятельное шифрование {#self-encryption}
 
 **При использовании сервисов, которые не имеют встроенных функций шифрования, шифрование критичных данных является ответственностью клиента.**
@@ -459,7 +498,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 * Сетевой SSD-диск (`network-ssd`).
 * Сетевой HDD-диск (`network-hdd`).
 * Нереплицируемый SSD-диск (`network-ssd-nonreplicated`).
-* Сверхбыстрое сетевое хранилище с тремя репликами (SSD) (`network-ssd-io-m3`).
+* Высокопроизводительный сетевой SSD-диск (`network-ssd-io-m3`).
 
 | ID требования | Критичность |
 | --- | --- |
@@ -476,6 +515,8 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 **Инструкции и решения по выполнению:**
 
 [Зашифруйте](../../../compute/operations/disk-control/disk-encrypt.md) диск виртуальной машины {{ compute-full-name }}.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 ### Управление ключами {#keys}
 
@@ -531,6 +572,8 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 **Инструкции и решения по выполнению:**
 
 [Установите](../../../kms/operations/symmetric-encryption.md) алгоритм шифрования для ключей {{ kms-short-name }} «AES-256 HSM».
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 4.10 Права на управление ключами в {{ kms-short-name }} выданы контролируемым пользователям {#keys-controlled-users}
 
@@ -678,7 +721,9 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 **Инструкции и решения по выполнению:**
 
-Установите период ротации для ключей.
+Установите период ротации для ключей, следуя [инструкции по вращению ключей](../../../kms/operations/key.md#rotate) в документации {{ kms-short-name }}.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 4.12 Для ключей {{ kms-short-name }} включена защита от удаления {#keys-deletion-protection}
 
@@ -706,7 +751,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
      yc organization-manager organization list
      ```
 
-  1. Выполните команду для вывода списка всех ключей KMS без защиты от удаления:
+  1. Выполните команду для вывода списка всех ключей {{ kms-short-name }} без защиты от удаления:
 
      ```bash
      export ORG_ID=<ID организации>
@@ -724,6 +769,8 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 **Инструкции и решения по выполнению:**
 
 Установите защиту от удаления.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 ### Управление секретами {#secrets}
 
@@ -783,6 +830,8 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 Храните секреты в {{ lockbox-short-name }}.
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 4.14 Для {{ serverless-containers-name }} и {{ sf-name }} используются секреты {{ lockbox-short-name }} {#secrets-serverless-functions}
 
 При работе с {{ serverless-containers-name }} или {{ sf-name }} часто возникает необходимость использовать секрет (токен, пароль и т.д.).
@@ -831,6 +880,8 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 Удалите секретные данные из env и воспользуйтесь функционалом интеграции с {{ lockbox-short-name }}:
 * [{#T}](../../../serverless-containers/operations/lockbox-secret-transmit.md).
 * [{#T}](../../../functions/operations/function/lockbox-secret-transmit.md).
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 4.15 При работе {{ coi }} используется шифрование секретов {#secrets-coi}
 

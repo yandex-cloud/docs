@@ -1,6 +1,5 @@
 # Server-side encryption for an {{ objstorage-name }} bucket
 
-
 In this tutorial, you will enable bucket encryption. As a symmetric encryption key, you will use a [{{ kms-full-name }} key](../../kms/concepts/key.md). This key will subject all new bucket objects to [envelope encryption](../../kms/concepts/envelope.md).
 
 

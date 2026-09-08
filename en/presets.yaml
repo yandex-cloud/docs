@@ -392,6 +392,18 @@ default:
   mch-short-name: Managed Service for ClickHouse®
   mcp-hub-name: MCP Hub
   mdb-lb: DB Proxy
+  mdb-versions:
+    mysql-version:
+      actual: '8.4'
+      supported: 5.7, 8.0
+    postgresql-version:
+      deprecated: 14, 14-1c
+      new: 18, 18-1c
+      supported: 15, 15-1c, 16, 16-1c, 17, 17-1c
+    storedoc-version:
+      supported: '7.0'
+    valkey-version:
+      supported: 7.2-valkey, 8.0-valkey, 8.1-valkey, 9.0-valkey
   mes-full-name: Yandex Managed Service for Elasticsearch
   mes-name: Managed Service for Elasticsearch
   mes-short-name: Managed Service for Elasticsearch
@@ -2253,10 +2265,8 @@ default:
         label_service: Yandex Cloud Billing
         title_accounts: Billing accounts
       common:
-        add: Add
         button_cron-1min: Every minute
         monitoring: Monitoring
-        name: Name
         resource-acl:
           button_assign-binding: Edit roles
         units:
@@ -3166,11 +3176,14 @@ default:
           AttributeTransformationsSection:
             action_add_transformation_bc8Cd: Add transformation
             field_if_empty_value_1K7py: Value
+            field_replace_pattern_hM0Yc: Find
+            field_replace_replacement_pFtQ8: Replace with
             field_substring_siBpY: Substring
             type_constant_tvJWi: Constant
             type_extract_after_q4x8n: ExtractAfter
             type_extract_before_ju2PE: ExtractBefore
             type_if_empty_e5unh: IfEmpty
+            type_replace_kQ2vN: Replace
             type_to_lowercase_vRG6c: ToLowercase
             type_trim_3SF6q: Trim
           field_group_all_uY9US: All groups
@@ -4170,6 +4183,8 @@ default:
         label_bucket: Bucket
         label_cloudLogging: Cloud Logging
         label_collecting-logs: Collecting events
+        label_control-plane-collection-new: Control plane log collection
+        label_data-plane-collection-new: Data plane log collection
         label_dataStream: Data Streams
         label_destination: Destination
         label_event-filter-section: Collecting data events
@@ -5903,6 +5918,7 @@ default:
             label_storage: Object Storage
             label_vdi: Cloud Desktop
             label_vpc: Virtual Private Cloud
+            label_websql: WebSQL
             label_ydb: Managed Service for&nbsp;YDB
             label_ymq: Message Queue
             label_yq_ru: Yandex Query
@@ -6505,7 +6521,10 @@ default:
           field_thresholds: Increase size
           hosts:
             action_add-host: Create host
+            action_create-alias: Create alias
+            action_delete-alias: Delete alias
             action_delete-host: Delete
+            action_move-cluster-alias: Move alias
             action_restart-host: Restart
             button_add-clickhouse-keeper: Create ClickHouse Keeper host
             button_add-zookeeper: Create ZooKeeper host
@@ -6513,12 +6532,14 @@ default:
             button_manual-failover: Switch master
             button_rebalance-cluster: Rebalance cluster
             button_rebalance-cluster-short: Rebalance
+            field_host_alias: Host alias
             host_column_name: Host FQDN
             host_column_public-ip: Public access
             host_column_role: Role
             host_column_zone: Availability zone
             label_title: Hosts
             popup-confirm_button: Confirm
+            section_cname-alias: CNAME alias
             switch_monitoring: Monitoring
             switch_overview: Overview
           label_mdb: Cluster
@@ -6566,6 +6587,7 @@ default:
           switch_jobs: Jobs
           switch_monitoring: Monitoring
           switch_network: Network
+          switch_recommendations: Recommendations
           switch_shards: Shards
           switch_subclusters: Subclusters
           switch_users: Users
@@ -6712,6 +6734,7 @@ default:
           section_dependencies: Dependencies
           section_disk: Storage size
           section_host: Hosts
+          section_host-resources: Host compute resources
           section_network: Network settings
           section_network-settings: Network settings
           section_pooler: Connection pooler
@@ -6793,6 +6816,7 @@ default:
             section_mongod-resources_ncXUZ: Mongod Resources
             section_mongoinfra-resources_13TPT: Mongoinfra Resources
             section_mongos-resources_wBGnr: Mongos Resources
+            section_resources_5RLrK: Resources
           sections:
             option_sharding-type-disabled_3ErMk: Disabled
             option_sharding-type-extended_9NHmb: Advanced
@@ -6823,6 +6847,9 @@ default:
           switch_users: Users
         field_backup_priority: Backup priority
         field_priority: Master priority
+        hosts:
+          dialog:
+            button_choose: Save
         switch_list: Clusters
         switch_operations: Operations
       opensearch:
@@ -6914,6 +6941,9 @@ default:
           switch_shards: Shards
         field_announce-hostnames: Use FQDN instead of IP addresses
         field_tls-support: TLS support
+        hosts:
+          dialog:
+            button_choose: Save
         local:
           valkey_modules_aQacT: Modules
           valkey_search_vfqdy: Search
@@ -7368,6 +7398,7 @@ default:
           value_exclude-all-yes: All rules
         WafProfileExclusionRuleForm:
           RulesSection:
+            field_exclude-all_gKv9U: WAF rules
             title_exclusion-rule-rules-section_cdWEW: Excluded checks
       smartcaptcha:
         button_captcha-settings-create: Create captcha
@@ -7752,6 +7783,7 @@ default:
               field_sg-rule-cidr-blocks: IPv4 CIDR
               field_sg-rule-description: Description
               field_sg-rule-destination: Destination name
+              field_sg-rule-direction: Traffic direction
               field_sg-rule-port-range: Port range
               field_sg-rule-protocol: Protocol
               field_sg-rule-sg-type: Security group

@@ -1,4 +1,5 @@
 ```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
 flowchart BT
     security-deck.alertSinks.admin["security-deck.<br>alertSinks.admin"] --> security-deck.admin
     security-deck.alertSinks.editor["security-deck.<br>alertSinks.editor"] --> security-deck.alertSinks.admin["security-deck.<br>alertSinks.admin"]
@@ -12,6 +13,4 @@ flowchart BT
     security-deck.auditor --> security-deck.viewer
     security-deck.viewer --> security-deck.editor
     security-deck.editor --> security-deck.admin
-
-    security-deck.auditor ~~~ security-deck.admin
 ```

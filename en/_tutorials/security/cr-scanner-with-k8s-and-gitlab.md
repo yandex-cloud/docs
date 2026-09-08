@@ -20,12 +20,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The infrastructure support cost includes:
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* {{ GL }} instance. The cost depends on the instance creation method:
 
-* Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for storing the created Docker images and vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
-* Fee for using a [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+   * {{ mgl-full-name }}: You pay for the VM's computing resources, the amount of stored data and backups, and the amount of outgoing traffic (see [{{ mgl-name }} pricing](../../managed-gitlab/pricing.md)).
+   * VM with a {{ GL }} image: You pay for the VM computing resources and the {{ GL }} image ([{{ compute-name }} pricing](../../compute/pricing.md)).
+
+* {{ container-registry-name }}: Storing created Docker images and leveraging the vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes and for the {{ GL }} image VM with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 ## Getting started {#before-begin}
 

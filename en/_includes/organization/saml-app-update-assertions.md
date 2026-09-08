@@ -29,6 +29,7 @@
          * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_trim_3SF6q }}`: Deletes spaces in the beginning and end of the attribute value.
          * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_if_empty_e5unh }}`: Replaces the current attribute value if it is empty. You can select a replacement value from the list of attribute values or provide your own one. For example, you can use `email` if `username` is empty.
          * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_constant_tvJWi }}`: Replaces the current value with a specified constant. Provide the constant in the **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_if_empty_value_1K7py }}** field. For example, `<attribute_value>` → `User`.
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_replace_kQ2vN }}`: Replaces the specified substring in the attribute value with another string. Specify the substring in the **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_replace_pattern_hM0Yc }}** field; the replacement string in the **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_replace_replacement_pFtQ8 }}** field. For example, `user@example.com` + `example.com` + `company.com` → `user@company.com`.
 
       1. Click **{{ ui-key.yacloud.common.add }}**.
   1. To modify an existing attribute, click its row and do the following in the window that opens:
@@ -175,4 +176,4 @@
 
 Make sure the attributes you added are also added to the SAML app's integration settings and can be processed correctly on the service provider's side.
 
-[*transform]: Transformations change the attribute value before sending it in a SAML response, e.g., convert text to lowercase, delete spaces, or extract a part of the string. Transformations apply one by one, from top to bottom.
+[*transform]: Transformations change the attribute value before sending it in a SAML response, e.g., convert text to lowercase, delete spaces, or extract a portion of the string. Transformations apply one by one, from top to bottom.

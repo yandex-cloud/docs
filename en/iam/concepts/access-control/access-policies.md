@@ -213,7 +213,7 @@ Customizable parameters (applied using the `OR` logic):
 
 #### serverless.workflows.restrictNetworkAccess {#serverless-workflows-restrictNetworkAccess}
 
-The policy prohibits executing {{ si-full-name }} [workflows](../../../serverless-integrations/concepts/workflows/workflow.md) from any addresses except explicitly specified IP addresses or {{ vpc-full-name }} [cloud networks](../../../vpc/concepts/network.md#network).
+The policy prohibits executing {{ si-full-name }} [workflows]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) from any addresses except explicitly specified IP addresses or {{ vpc-full-name }} [cloud networks](../../../vpc/concepts/network.md#network).
 
 Customizable parameters (applied using the `OR` logic):
 
@@ -222,7 +222,7 @@ Customizable parameters (applied using the `OR` logic):
 
 #### serverless.workflows.restrictResourceVPCNetwork {#serverless-workflows-restrictResourceVPCNetwork}
 
-This policy restricts which [cloud networks](../../../vpc/concepts/network.md#network) can be bound to {{ si-full-name }} [workflows](../../../serverless-integrations/concepts/workflows/workflow.md), prohibiting all networks except those explicitly specified.
+This policy restricts which [cloud networks](../../../vpc/concepts/network.md#network) can be bound to {{ si-full-name }} [workflows]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow), prohibiting all networks except those explicitly specified.
 
 Customizable parameter:
 

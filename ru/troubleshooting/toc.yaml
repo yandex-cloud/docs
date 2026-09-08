@@ -596,20 +596,6 @@ items:
         href: managed-kubernetes/how-to/setting-timezone-on-mk8s-worker-nodes.md
       - name: Как выяснить размер эфемерного хранилища узла {{ managed-k8s-name }}
         href: managed-kubernetes/how-to/finding-out-ephemeral-storage-size.md
-  - name: '{{ mkf-name }}'
-    items:
-      - name: Все решения для {{ mkf-name }}
-        href: managed-kafka/index.md
-      - name: Примеры конфигураций и сценариев {{ mkf-name }}
-        href: managed-kafka/how-to/index.md
-        hidden: true
-      - name: Как отслеживать процесс чтения топиков
-        href: managed-kafka/how-to/process-read-topic.md
-      - name: Решения для известных проблем {{ mkf-name }}
-        href: managed-kafka/known-issues/index.md
-        hidden: true
-      - name: Устранение ошибки `Failed authentication with /`
-        href: managed-kafka/known-issues/error-failed-authentification.md
   - name: '{{ mgl-name }}'
     items:
       - name: Все решения для {{ mgl-name }}
@@ -628,22 +614,6 @@ items:
         href: managed-gitlab/how-to/update-gitlab-software-version.md
       - name: Как настроить миграцию проектов
         href: managed-gitlab/how-to/migrate-projects.md
-  - name: '{{ ydb-name }}'
-    items:
-      - name: Все решения для {{ ydb-name }}
-        href: managed-ydb/index.md
-      - name: Решения для известных проблем {{ ydb-name }}
-        href: managed-ydb/known-issues/index.md
-        hidden: true
-      - name: Устранение ошибки `RESOURCE_EXHAUSTED`
-        href: managed-ydb/known-issues/resource-exhausted.md
-      - name: Устранение ошибки `Unauthenticated`
-        href: managed-ydb/known-issues/sdk-unauthenticated.md
-      - name: Устранение ошибки 503 `Service Unavailable`
-        href: managed-ydb/known-issues/error-503.md
-      - name: Примеры конфигураций и сценариев {{ ydb-name }}
-        href: managed-ydb/how-to/index.md
-        hidden: true
   - name: '{{ network-load-balancer-name }}'
     items:
       - name: Все решения для {{ network-load-balancer-name }}

@@ -13,6 +13,7 @@ To add a new `user2` account with read-only access for the `db1` database to an 
   1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Enter `user2` for username and enter a password (from 8 to 128 characters).
+  1. Enable user deletion protection.
   1. Select the `db1` database from the **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** drop-down list.
   1. Select the `read` role from the drop-down list next to the `db1` database.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
@@ -73,7 +74,7 @@ To grant read-only access to the `db2` database to an existing `cluster1` user n
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click `cluster1` and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with `user1` and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the `user1` row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Click **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** and select `db2` as your database.
   1. Click ![image](../../_assets/console-icons/plus.svg) and select the `read` role from the drop-down list next to the `db2` database.
   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.

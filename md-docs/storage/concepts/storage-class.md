@@ -67,7 +67,7 @@ Object Storage позволяет хранить объекты в хранил�
 * Объекты уровня `INFREQUENT`, к которым обращаются менее 100 раз в день на протяжении 90 дней, автоматически перемещаются на уровень доступа `ARCHIVE`.
 * Если количество обращений возрастает до 100 и более раз в день, объект автоматически возвращается на уровень доступа `FREQUENT`.
 
-Обращением считаются операции, связанные с копированием или скачиванием объекта — [CopyObject](../s3/api-ref/object/copy.md), [GetObject](../s3/api-ref/object/get.md), RestoreObject, [UploadPartCopy](../s3/api-ref/multipart/copypart.md). При этом интерфейс выполнения операции не имеет значения. Например, будет считаться обращением и [скачивание объекта](../operations/objects/download.md) через консоль управления, и [копирование](../operations/objects/copy.md) с помощью Yandex Cloud CLI.
+Обращением считаются операции, связанные с копированием или скачиванием объекта — [CopyObject](../s3/api-ref/object/copy.md), [GetObject](../s3/api-ref/object/get.md), [RestoreObject](../s3/api-ref/object/restore-object.md), [UploadPartCopy](../s3/api-ref/multipart/copypart.md). При этом интерфейс выполнения операции не имеет значения. Например, будет считаться обращением и [скачивание объекта](../operations/objects/download.md) через консоль управления, и [копирование](../operations/objects/copy.md) с помощью Yandex Cloud CLI.
 
 Также операции загрузки новых версий объекта или частичного изменения — [PutObject](../s3/api-ref/object/upload.md), [PatchObject](../s3/api-ref/object/patch.md) — сработают как загрузка нового объекта на уровень `FREQUENT`. Другие операции не влияют на перемещение объекта по уровням доступа.
 

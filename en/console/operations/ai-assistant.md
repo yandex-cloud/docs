@@ -9,6 +9,8 @@ description: This guide describes how to use an AI assistant to manage {{ yandex
 
 You can use an AI assistant integrated into the management console to create and delete {{ yandex-cloud }} resources as well as manage their settings. With the AI assistant, you can run operations on cloud resources by sending text messages to a chat with a generative model.
 
+When performing operations with resources, the AI assistant acts on behalf of the user requesting the operation via the chat. Thus, the scope of available actions depends on the [roles](../../iam/concepts/access-control/roles.md) [assigned to this user account](../../iam/operations/roles/grant.md).
+
 ## Creating and deleting resources {#create-and-delete}
 
 
@@ -20,7 +22,8 @@ To use an AI assistant for resource management:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to run operations on {{ yandex-cloud }} resources, then select ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **{{ ui-key.yacloud.ai-assistant.label_ai-assistant-open }}** in the left-hand panel.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to run operations on {{ yandex-cloud }} resources.
+  1. Click ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **{{ ui-key.yacloud.ai-assistant.label_ai-assistant-open }}**.
   1. In the AI assistant window, use the message input field to describe what you want to do with {{ yandex-cloud }} resources:
 
       {% note info %}
@@ -84,7 +87,7 @@ To use an AI assistant for resource management:
           Security group is active and ready to connect to your VMs.
           ```
 
-          When using the AI assistant, you do not have to create resources one by one: you can specify several resources in a single request.
+          When using the AI assistant, you can specify multiple resources in a single request, rather than creating them one by one.
 
           {% cut "For example:" %}
 
@@ -138,7 +141,7 @@ To use an AI assistant for resource management:
       1. Delete all resoures you created by specifying their names or IDs:
 
           ```text
-          Delete subnet-{{ region-id }}-a and web-security-group, then delete my-new-network.
+          Delete subnet-{{ region-id }}-a and web-security-group, then delete _my-new-network_.
           ```
 
           The AI assistant will delete all the specified resources.
@@ -153,7 +156,8 @@ To manage multiple segments of a cloud infrastructure at the same time, you can 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **{{ ui-key.yacloud.ai-assistant.label_ai-assistant-open }}** in the left-hand panel.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are going to manage your resources.
+  1. Click ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **{{ ui-key.yacloud.ai-assistant.label_ai-assistant-open }}**.
   1. To start a new chat:
      * Select a suggested prompt or enter your own query in the input field.
      * In an active chat, click ![plus](../../_assets/console-icons/plus.svg) in the top-right corner.

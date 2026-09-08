@@ -139,7 +139,7 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./revoke-role.md)
 * [{#T}](./view-subject-access-bindings.md)
 
-## Syncing users and groups with external sources {#sync-external}
+## Syncing users and groups with external directory services {#sync-external}
 
 * [{#T}](./sync-ad.md)
 

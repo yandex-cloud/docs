@@ -69,6 +69,8 @@
 
 Выберите режим автоматического обновления кластера Managed Service for Kubernetes и задайте нужный график обновления:
 
+
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

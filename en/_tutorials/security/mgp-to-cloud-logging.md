@@ -36,11 +36,11 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
       1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
-         * Select the service account with the `logging.writer` role.
+         * Select **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** with the `logging.writer` role.
          * Enable **{{ ui-key.yacloud.logging.field_logging }}**.
-         * To write logs to the default log group, select **{{ ui-key.yacloud.common.folder }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
-         * Select the folder whose log group you want to use.
-         * Enable the **{{ ui-key.yacloud.greenplum.LoggingSection.greenplum_pN6jU }}** and **{{ ui-key.yacloud.greenplum.LoggingSection.commandCenter_e9fKV }}** options. Use [Log min messages](../../managed-greenplum/concepts/settings-list.md#setting-log-min-messages) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** to specify the logging level.
+         * To log to the default log group, select **{{ ui-key.yacloud.common.folder }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
+         * Select the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** whose log group you want to use.
+         * Enable the **{{ ui-key.yacloud.greenplum.LoggingSection.greenplum_pN6jU }}** and **{{ ui-key.yacloud.greenplum.LoggingSection.commandCenter_e9fKV }}options. Use [Log min messages](../../managed-greenplum/concepts/settings-list.md#setting-log-min-messages) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** to specify the logging level.
 
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -299,9 +299,9 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
       1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
-         * Select the service account with the `logging.writer` role.
+         * Select **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** with the `logging.writer` role.
          * Enable **{{ ui-key.yacloud.logging.field_logging }}**.
-         * To write logs to a custom log group, select **{{ ui-key.yacloud.logging.label_loggroup }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
+         * To log to a custom log group, select **{{ ui-key.yacloud.logging.label_loggroup }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
          * Select the `my-log-group` log group.
          * Enable the **{{ ui-key.yacloud.greenplum.LoggingSection.greenplum_pN6jU }}** and **{{ ui-key.yacloud.greenplum.LoggingSection.commandCenter_e9fKV }}** options. Use [Log min messages](../../managed-greenplum/concepts/settings-list.md#setting-log-min-messages) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** to specify the logging level.
 

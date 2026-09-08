@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../index.md) > [Безопасность в Yandex Cloud](../index.md) > [Стандарт по защите облачной инфраструктуры, версия 1.4.2](index.md) > Все разделы на одной странице
+[Документация Yandex Cloud](../../index.md) > [Безопасность в Yandex Cloud](../index.md) > [Стандарт по защите облачной инфраструктуры, версия 1.4.3](index.md) > Все разделы на одной странице
 
-# Стандарт по защите облачной инфраструктуры Yandex Cloud, версия 1.4.2
+# Стандарт по защите облачной инфраструктуры Yandex Cloud, версия 1.4.3
 
 ## Введение {#intro}
 
@@ -187,6 +187,131 @@
 | --- | --- |
 | IAM2 | Средняя |
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
+#### 1.1.2 Доступ пользователей к ресурсам назначается через группы, а не напрямую {#access-via-groups}
+
+Для управления доступом к ресурсам рекомендуется назначать роли преимущественно группам пользователей, а не отдельным учетным записям. Такой подход упрощает аудит, снижает вероятность ошибок при выдаче и отзыве прав и делает модель доступа более управляемой при росте числа пользователей.
+
+Прямые назначения ролей отдельным пользователям следует оставлять только для обоснованных исключений, например, для аварийных учетных записей, технических сценариев или временного доступа с документированным обоснованием.
+
+| ID требования | Критичность |
+| --- | --- |
+| IAM28 | Средняя |
+
+{% list tabs group=instructions %}
+
+- Проверка в консоли управления {#console}
+
+  1. Откройте консоль Yandex Cloud в вашем браузере.
+  1. Перейдите во вкладку **Все сервисы** → **Yandex Identity Hub** → **Пользователи**.
+  1. Проверьте, что пользователям не назначены прямые права доступа без необходимости.
+  1. Далее перейдите в нужные облака и каталоги на вкладку **Права доступа**.
+  1. Убедитесь, что роли для пользовательских учетных записей назначаются в основном группам, а не индивидуально пользователям.
+  1. Если прямые назначения выданы только для согласованных исключений, рекомендация выполняется. Если нет, перейдите к п. «Инструкции и решения по выполнению».
+
+- Проверка через CLI {#cli}
+
+  1. Посмотрите доступные вам организации и скопируйте необходимый `ID`:
+
+      ```bash
+      yc organization-manager organization list
+      ```
+
+  1. Выполните команду для поиска прямых назначений прав учетным записям на уровне организации:
+
+      ```bash
+      export ORG_ID=<ID_организации>
+      GROUP_IDS=$(yc organization-manager group list --organization-id=${ORG_ID} --format=json | jq -r '.[].id')
+      yc organization-manager organization list-access-bindings \
+        --id=${ORG_ID} \
+        --format=json | jq -c '.[]' | while read -r BINDING; do
+        SUBJECT_ID=$(echo "$BINDING" | jq -r '.subject.id')
+        SUBJECT_TYPE=$(echo "$BINDING" | jq -r '.subject.type')
+        if [[ "$SUBJECT_TYPE" != "serviceAccount" ]] && \
+          [[ "$SUBJECT_ID" != "allUsers" ]] && \
+          [[ "$SUBJECT_ID" != "allAuthenticatedUsers" ]] && \
+          ! grep -qx "$SUBJECT_ID" <<< "$GROUP_IDS"; then
+          echo "$BINDING"
+        fi
+      done
+      ```
+
+  1. Выполните команду для поиска прямых назначений прав учетным записям на уровне облаков:
+
+      ```bash
+      export ORG_ID=<ID_организации>
+      GROUP_IDS=$(yc organization-manager group list --organization-id=${ORG_ID} --format=json | jq -r '.[].id')
+      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+        yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -c '.[]' | while read -r BINDING; do
+          SUBJECT_ID=$(echo "$BINDING" | jq -r '.subject.id')
+          SUBJECT_TYPE=$(echo "$BINDING" | jq -r '.subject.type')
+          if [[ "$SUBJECT_TYPE" != "serviceAccount" ]] && \
+            [[ "$SUBJECT_ID" != "allUsers" ]] && \
+            [[ "$SUBJECT_ID" != "allAuthenticatedUsers" ]] && \
+            ! grep -qx "$SUBJECT_ID" <<< "$GROUP_IDS"; then
+            echo "$BINDING"
+            echo "CLOUD_ID: $CLOUD_ID"
+          fi
+        done
+      done
+      ```
+
+  1. Выполните команду для поиска прямых назначений прав учетным записям на уровне каталогов:
+
+      ```bash
+      export ORG_ID=<ID_организации>
+      GROUP_IDS=$(yc organization-manager group list --organization-id=${ORG_ID} --format=json | jq -r '.[].id')
+      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+        for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+          yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -c '.[]' | while read -r BINDING; do
+            SUBJECT_ID=$(echo "$BINDING" | jq -r '.subject.id')
+            SUBJECT_TYPE=$(echo "$BINDING" | jq -r '.subject.type')
+            if [[ "$SUBJECT_TYPE" != "serviceAccount" ]] && \
+              [[ "$SUBJECT_ID" != "allUsers" ]] && \
+              [[ "$SUBJECT_ID" != "allAuthenticatedUsers" ]] && \
+              ! grep -qx "$SUBJECT_ID" <<< "$GROUP_IDS"; then
+              echo "$BINDING"
+              echo "FOLDER_ID: $FOLDER_ID"
+            fi
+          done
+        done
+      done
+      ```
+
+  1. Если в выводе отсутствуют прямые назначения пользовательским учетным записям или остаются только согласованные исключения, рекомендация выполняется. Если нет, перейдите к п. «Инструкции и решения по выполнению».
+
+{% endlist %}
+
+**Инструкции и решения по выполнению:**
+
+1. Создайте группы пользователей в соответствии с вашей ролевой моделью доступа.
+1. Назначьте необходимые роли группам вместо отдельных пользователей.
+1. Удалите прямые назначения ролей пользователям, оставив только документированные исключения.
+1. Регулярно пересматривайте состав групп и контролируйте права на управление их членством.
+
+#### 1.1.3 Пользователям запрещено самостоятельно изменять логин {#allow-edit-self-login}
+
+Логин пользователя используется как уникальный идентификатор при аутентификации, в том числе при входе в приложения, интегрированные с организацией по протоколам SAML и OIDC. Настройка `allow_edit_self_login` в пуле пользователей Yandex Identity Hub позволяет пользователям самостоятельно изменять собственный логин.
+
+Если данная настройка включена, пользователь может изменить свой логин на логин другого (в том числе привилегированного) пользователя, если тот, например, был удален, переименован или еще не создан. В результате при следующем входе в интегрированные по SAML/OIDC приложения такой пользователь может быть аутентифицирован как другой пользователь и получить доступ к его данным и правам в этих приложениях.
+
+{% note warning %}
+
+Использование этой настройки создает риск компрометации учетных записей (account takeover) в приложениях, доверяющих логину как уникальному идентификатору пользователя.
+
+{% endnote %}
+
+Необходимо отключать возможность самостоятельного изменения логина (`allow_edit_self_login: false`) для всех пулов пользователей, если это явно не требуется бизнес-логикой, и управлять логинами централизованно через администратора или источник данных (IdP/каталог сотрудников).
+
+| ID требования | Критичность |
+| --- | --- |
+| IAM2.1 | Средняя |
+
 #### 1.2 Учетные записи Яндекс ID используются только в исключительных случаях {#yandex-id-accounts}
 
 Наиболее правильный с точки зрения безопасности подход к управлению учетными записями — это использование федерации удостоверений (подробнее в рекомендации № 1.1). В связи с этим необходимо стремиться к тому, чтобы в списке пользователей вашей организации находились только федеративные пользователи (пользователи c атрибутом <q>FEDERATION ID</q>) и минимум учетных записей с Яндекс ID. Список допустимых исключений:
@@ -273,6 +398,12 @@
 
 Задайте значение параметра **Время жизни cookie** равным 6 часам (21600 секундам) или меньше.
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 ### Особенности управления доступом {#access-control}
 
 #### 1.4 Только необходимые администраторы управляют членством в IAM-группах {#iam-admins}
@@ -302,6 +433,12 @@
 **Инструкции и решения по выполнению:**
 
 Удалите права на доступ к группе у учетных записей, которым это не требуется.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 1.5 Используются сервисные роли вместо примитивных: admin, editor, viewer, auditor {#min-privileges}
 
@@ -463,6 +600,12 @@
 Проанализируйте найденные учетные записи с назначенными примитивными ролями `admin`, `editor` и `viewer` и замените их на [сервисные гранулярные роли](../../iam/roles-reference.md) в соответствии с вашей матрицей ролей.
 
 Чтобы просмотреть полный список доступов субъекта, воспользуйтесь [инструкцией](../../security-deck/operations/ciem/view-permissions.md).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 1.6 Используется роль auditor для исключения доступа к данным пользователей {#roles-auditor}
 
@@ -691,6 +834,12 @@
 * [Отзовите](../../security-deck/operations/ciem/revoke-permissions.md) избыточные доступы у сервисного аккаунта с помощью сервиса Security Deck.
 * [Удалите](../../iam/operations/roles/revoke.md) избыточные права у сервисного аккаунта с помощью сервиса IAM.
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 1.9 Только доверенные администраторы имеют доступ к сервисным аккаунтам {#sa-admins}
 
 Существует возможность назначать права на использование сервисного аккаунта от имени другого пользователя или сервисного аккаунта.
@@ -744,6 +893,12 @@
 **Инструкции и решения по выполнению:**
 
 [Удалите](../../iam/operations/roles/revoke.md) избыточные права сервисного аккаунта с помощью сервиса IAM.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 1.10 Выполняется периодическая ротация ключей сервисных аккаунтов {#sa-key-rotation}
 
@@ -906,6 +1061,12 @@
 
 Для ротации ключей в зависимости от их типа воспользуйтесь [инструкцией](../../iam/operations/compromised-credentials.md#key-reissue).
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 1.11 Для API-ключей сервисных аккаунтов заданы минимально необходимые области действия {#api-key-scopes}
 
 Область действия — совокупность разрешенных сервисному аккаунту действий с ресурсами сервиса. В сервисе может быть больше одной области действия. API-ключ с заданными областями действия нельзя использовать в других сервисах или областях действия.
@@ -941,6 +1102,12 @@
 **Инструкции и решения по выполнению:**
 
 [Создайте](../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ с заданной областью действия.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 1.12 Токен для облачных функций и ВМ выдается через сервисный аккаунт {#func-token}
 
@@ -1397,6 +1564,12 @@ yc compute instance update <ID_виртуальной_машины> \
   --metadata-options aws-v1-http-token=DISABLED
 ```
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 ### Привилегированные аккаунты {#privileged-accounts}
 
 #### 1.16 Настроена двухфакторная аутентификация для привилегированных аккаунтов {#twofa}
@@ -1660,6 +1833,12 @@ yc compute instance update <ID_виртуальной_машины> \
 **Инструкции и решения по выполнению:**
 
 Если обнаружены роли, которые назначены недоверенным администраторам, необходимо провести расследование и удалить лишние права.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 ### Локальные пользователи управляемых БД {#mdb-users} 
 
@@ -2001,6 +2180,12 @@ yc compute instance update <ID_виртуальной_машины> \
 
 Если обнаружено наличие прав доступа у `All users`, `All authenticated users`, необходимо удалить данные права.
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 1.22 Контактные данные ответственного за организацию актуальны {#org-contacts}
 
 В Yandex Cloud при регистрации облака клиент указывает контактные данные. Например, электронная почта используется для оповещений, связанных с инцидентами, плановыми работами и т.д.
@@ -2059,6 +2244,12 @@ yc compute instance update <ID_виртуальной_машины> \
 **Инструкции и решения по выполнению:**
 
 [Инструкция по управлению метками](../../resource-manager/operations/manage-labels.md).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 ### Уведомления и аудит {#notifications-and-audit}
 
@@ -2181,6 +2372,58 @@ yc compute instance update <ID_виртуальной_машины> \
 [Просмотреть список доступов субъекта](../../security-deck/operations/ciem/view-permissions.md).
 [Отозвать доступ у субъекта](../../security-deck/operations/ciem/revoke-permissions.md).
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
+### 1.27 Настроена парольная политика для локальных учетных записей и административного доступа {#password-policy}
+
+Для виртуальных машин и других компонентов виртуальной среды, где используются локальные учетные записи, должна быть определена и применяться парольная политика в соответствии с требованиями информационной безопасности организации и применимых стандартов.
+
+Парольная политика должна определять как минимум:
+
+* минимальную длину пароля;
+* требования к сложности пароля;
+* запрет использования типовых, слабых и скомпрометированных паролей;
+* периодичность смены паролей — если это предусмотрено внутренними требованиями и стандартами;
+* ограничения на повторное использование паролей;
+* блокировку учетной записи или иные защитные меры при многократных неуспешных попытках входа;
+* применение отдельных, более строгих требований для привилегированных учетных записей.
+
+Особое внимание следует уделять локальным учетным записям, используемым для:
+
+* входа в операционную систему виртуальных машин;
+* доступа через серийную консоль;
+* аварийного и административного доступа;
+* встроенных учетных записей приложений и middleware, если их аутентификация выполняется по локальному паролю.
+
+Если в инфраструктуре используются централизованные средства управления доступом, например доменные политики, LDAP или иные средства централизованной аутентификации, необходимо убедиться, что требования парольной политики распространяются и на них.
+
+| ID требования | Критичность |
+| --- | --- |
+| IAM29 | Средняя |
+
+{% list tabs group=instructions %}
+
+- Ручная проверка {#manual}
+
+  1. Определите перечень виртуальных машин и систем, где используются локальные учетные записи или парольная аутентификация.
+  1. Проверьте наличие утвержденной парольной политики в внутренних нормативных документах или в централизованных настройках управления доступом.
+  1. Убедитесь, что на виртуальных машинах применяются настройки сложности, длины, срока действия, истории паролей и блокировки после неуспешных попыток входа.
+  1. Проверьте, что для привилегированных и аварийных учетных записей применяются отдельные усиленные требования.
+  1. Если парольная политика определена и применяется ко всем релевантным системам, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
+
+{% endlist %}
+
+**Инструкции и решения по выполнению:**
+
+1. Утвердите единую парольную политику для локальных и административных учетных записей.
+1. Настройте применение этой политики средствами операционной системы, доменной инфраструктуры или иных централизованных механизмов управления.
+1. Отключите или ограничьте использование локальных учетных записей там, где возможно использовать централизованную аутентификацию.
+1. Проверьте, что аварийные и привилегированные учетные записи соответствуют усиленным требованиям безопасности.
+
 # Требования к сетевой безопасности
 
 ## 2. Сетевая безопасность {#network-security}
@@ -2224,6 +2467,12 @@ yc compute instance update <ID_виртуальной_машины> \
 | --- | --- |
 | NET1 | Высокая |
 
+{% note info %}
+
+Автоматизированная проверка гарантирует безопасность только при наличии явно назначенной группы безопасности на сетевом интерфейсе объекта. Использование BYOI (собственных образов дисков с NGFW) невозможно объективно проверить платформенными инструментами, поэтому ответственность за их маршрутизацию лежит на администраторе.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Проверка в консоли управления {#console}
@@ -2234,48 +2483,28 @@ yc compute instance update <ID_виртуальной_машины> \
   1. В настройках объектов найдите параметр **Группа безопасности** и убедитесь, что назначена хотя бы одна группа безопасности.
   1. Если в параметрах каждого объекта, который поддерживает группы безопасности указана хотя бы одна группа, рекомендация выполняется. Если нет, перейдите к пункту «Инструкции и решения по выполнению».
 
-  Проверка наличия NGFW вместо групп безопасности:
-  1. Откройте консоль управления Yandex Cloud в вашем браузере.
-  1. Перейдите в каждое облако и в каждый каталог и последовательно откройте все [диски](../../compute/concepts/vm.md) ВМ.
-  1. В настройках дисков найдите параметр **Продукт Marketplace**.
-  1. Если в параметрах **Продукт Marketplace** в диске указано одно из названий продуктов NGFW: Check Point CloudGuard IaaS — Firewall & Threat Prevention PAYG, UserGate NGFW, рекомендация выполняется. Если нет, перейдите к пункту «Инструкции и решения по выполнению».
-
 - Проверка через CLI {#cli}
 
-  1. Посмотрите доступные вам организации и зафиксируйте необходимый `ID`:
+  1. Посмотрите доступные вам организации и скопируйте необходимый `ID`:
 
      ```bash
      yc organization-manager organization list
      ```
 
-  1. Выполните команду для поиска объектов облака без группы безопасности:
-
-     ```bash
-     export ORG_ID=<ID организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-     do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute instance get --id=$VM_ID --format=json | jq -r '. | select(.network_interfaces[].security_group_ids | not)' | jq -r '.id'
-     done;
-     done;
-     done
-     ```
-
-  1. Если выдается пустая строка, рекомендация выполняется. Если выдается результат с `ID` облачного ресурса, перейдите к пункту «Инструкции и решения по выполнению».
-
-  Проверка наличия NGFW вместо группы безопасности:
-  1. Выполните команду для поиска NGFW в облаке. По умолчанию команда ищет Checkpoint или Usergate. Если используете свой образ, укажите его.
+  1. Выполните команду для поиска всех ВМ без привязанных групп безопасности:
 
      ```bash
      export ORG_ID=<ID организации>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do for DISK_ID in $(yc compute disk list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute disk get --id=$DISK_ID --format=json | jq -r '. | select(.product_ids[0]=="f2ecl4ak62mjbl13qj5f" or .product_ids[0]=="f2eqc5sac8o5oic7m99k")' | jq -r '.id'
-     done;
+     do echo "VMs without SG in FOLDER_ID " $FOLDER_ID ":" && yc compute instance list --folder-id=$FOLDER_ID --format=json |
+     jq -r '.[] | select( (.network_interfaces[].security_group_ids | length) == 0 ) | .id' \
+     && echo "-----"
      done;
      done
      ```
 
-  1. Если выдается `ID` ВМ с NGFW, рекомендация выполняется. Если выдается пустая строка, перейдите к пункту «Инструкции и решения по выполнению».
+  1. Если результат пустой или не содержит идентификаторов виртуальных машин, проверка считается пройденной. Если найдены ВМ без привязанных групп безопасности, перейдите к пункту «Инструкции и решения по выполнению».
 
 {% endlist %}
 
@@ -2285,6 +2514,12 @@ yc compute instance update <ID_виртуальной_машины> \
 * Для использования NGFW [установите](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM) на ВМ межсетевой экран (NGFW): Check Point.
 * [Инструкция](https://docs.google.com/document/d/1yYwHorzkwXwIUGeG3n_K6Zo-07BVYowZJL7q2bAgVR8/edit?usp=sharing) по использованию UserGate NGFW в облаке.
 * NGFW в режиме [active-passive](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/network-sec/checkpoint-2VM_active-active/README.md).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 2.2 В Virtual Private Cloud создана группа безопасности и не используется группа безопасности по умолчанию {#vpc-sg}
 
@@ -2333,21 +2568,34 @@ yc compute instance update <ID_виртуальной_машины> \
   1. Выполните команду для поиска каталогов без группы безопасности:
 
      ```bash
-     export ORG_ID=<ID организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-     do echo "SG_ID: " && yc vpc security-group list --folder-id=$FOLDER_ID --format=json | jq -r '.[] | select(.id)' | jq -r '.id' && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
-     done;
+     export ORG_ID=<ID_организации>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+       for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+         echo "Checking FOLDER_ID " $FOLDER_ID ":"
+         for NET_ID in $(yc vpc network list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do
+           USER_SGS=$(yc vpc security-group list --folder-id=$FOLDER_ID --format=json | jq -r "[.[] | select(.network_id == \"$NET_ID\" and .default_for_network != true)] | length")
+           if [ "$USER_SGS" -eq "0" ]; then
+             echo "Network $NET_ID has NO custom security groups!"
+           fi
+         done
+         echo "-----"
+       done
      done
      ```
 
-  1. Если у каждого сочетания `SG_ID` напротив `FOLDER_ID`, в которой она находится, указаны `ID`, рекомендация выполняется. Если нет, перейдите к пункту «Инструкции и решения по выполнению».
+  1. Если скрипт не вывел сетей с отсутствующими группами безопасности, контроль считается пройденным. Если нет, перейдите к пункту «Инструкции и решения по выполнению».
 
 {% endlist %}
 
 **Инструкции и решения по выполнению:**
 
 Создайте группу безопасности в каждой Virtual Private Cloud с ограниченными правилами доступа, чтобы ее можно было назначать на облачные объекты.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 2.3 В группах безопасности отсутствует слишком широкое правило доступа {#access-rule}
 
@@ -2389,23 +2637,39 @@ yc compute instance update <ID_виртуальной_машины> \
   1. Найдите группы безопасности с опасным правилом доступа:
 
      ```bash
-     export ORG_ID=<ID организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-     do echo "SG_ID: " && yc vpc security-group list --folder-id=$FOLDER_ID \
-     --format=json | jq -r '.[] | select(.rules[].direction=="INGRESS" and .rules[].ports.to_port=="65535" and .rules[].cidr_blocks.v4_cidr_blocks[]=="0.0.0.0/0")' | jq -r '.id' \
-     && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
-     done;
+     export ORG_ID=<ID_организации>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+       for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+         echo "Checking SG in FOLDER_ID " $FOLDER_ID ":" && yc vpc security-group list --folder-id=$FOLDER_ID --format=json | \
+         jq -r 'map(select(
+           .rules != null and (
+             .rules[] | select(
+               .direction == "INGRESS" and
+               (.ports == null or .ports.to_port == "65535" or .ports.to_port == null) and
+               .cidr_blocks != null and
+               .cidr_blocks.v4_cidr_blocks != null and
+               (.cidr_blocks.v4_cidr_blocks | index("0.0.0.0/0") != null)
+             )
+           )
+         )) | .[].id' \
+         && echo "-----"
+       done
      done
      ```
 
-  1. Если `SG_ID` напротив `FOLDER_ID` указано пустое значение, рекомендация выполняется. Если вы видите не пустое `SG_ID`, перейдите к пункту «Инструкции и решения по выполнению».
+  1. Если результатом является пустая строка, рекомендация выполняется. Если видите список ID групп безопасности, перейдите к пункту «Инструкции и решения по выполнению».
 
 {% endlist %}
 
 **Инструкции и решения по выполнению:**
 
 Удалите опасное правило в каждой группе безопасности или отредактируйте, указав доверенные IP-адреса.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 2.4 Доступ по управляющим портам открыт только для доверенных IP-адресов {#trusted-ip}
 
@@ -2439,17 +2703,17 @@ yc compute instance update <ID_виртуальной_машины> \
   1. Выполните команду для поиска групп безопасности с опасным правилом доступа:
 
      ```bash
-     export ORG_ID=<ID организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-     do echo "SG_ID: " && yc vpc security-group list --folder-id=$FOLDER_ID \
-     --format=json | jq -r '.[] | select(.rules[].direction=="INGRESS" and (.rules[].ports.to_port=="22" or .rules[].ports.to_port=="3389" or .rules[].ports.to_port=="21") and .rules[].cidr_blocks.v4_cidr_blocks[]=="0.0.0.0/0")' | jq -r '.id' \
-     && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
-     done;
+     export ORG_ID=<ID_организации>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+       for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+         echo "SG_ID: " && yc vpc security-group list --folder-id=$FOLDER_ID \
+         --format=json | jq -r '.[] | select(.rules[].direction=="INGRESS" and (.rules[].ports.to_port=="22" or .rules[].ports.to_port=="3389" or .rules[].ports.to_port=="21") and .rules[].cidr_blocks.v4_cidr_blocks[]=="0.0.0.0/0")' | jq -r '.id' \
+         && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
+       done
      done
      ```
 
-  1. Если `SG_ID` напротив `FOLDER_ID` указано пустое значение, рекомендация выполняется. Если `SG_ID` не пустое, перейдите к пункту «Инструкции и решения по выполнению».
+  1. Если `SG_ID` напротив `FOLDER_ID` принимает пустое значение, рекомендация выполняется. Если `SG_ID` не пустое, перейдите к пункту «Инструкции и решения по выполнению».
 
 {% endlist %}
 
@@ -2457,95 +2721,118 @@ yc compute instance update <ID_виртуальной_машины> \
 
 [Удалите](../../cli/cli-ref/vpc/cli-ref/security-group/index.md) опасное правило в каждой группе безопасности или укажите доверенные IP-адреса.
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 2.5 Включена защита от DDoS-атак {#ddos-protection}
 
-В Yandex Cloud существует базовая и расширенная защита от DDoS-атак, а также защита на прикладном уровне с помощью сервиса Yandex Smart Web Security. Необходимо убедиться, что у вас используется как минимум базовая защита.
+Защита от DDoS-атак в Yandex Cloud может быть реализована на двух уровнях:
 
-* [Yandex Smart Web Security](../../smartwebsecurity/quickstart.md) — сервис для защиты от [DDoS-атак](../../glossary/ddos.md) и ботов на прикладном уровне L7 [сетевой модели OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI). Smart Web Security [подключается](../../smartwebsecurity/quickstart.md) к Yandex Application Load Balancer. Функциональность сервиса сводится к проверке HTTP-запросов к защищаемому ресурсу на соответствие [правилам](../../smartwebsecurity/concepts/rules.md), заданным в [профиле безопасности](../../smartwebsecurity/concepts/profiles.md). В зависимости от результатов проверки запросы пропускаются на защищаемый ресурс, блокируются или отправляются в сервис [Yandex SmartCaptcha](../../smartcaptcha/index.md) для дополнительной верификации.
-* [Yandex DDoS Protection](../../vpc/ddos-protection/index.md) — это компонент сервиса Virtual Private Cloud для защиты облачных ресурсов от DDoS-атак. DDoS Protection предоставляется в партнерстве с Curator. Вы можете включать ее самостоятельно на внешний [IP-адрес](../../vpc/concepts/address.md) через инструменты управления облаком. Работает до L4 уровня модели OSI.
-* [Расширенная](https://yandex.cloud/ru/services/ddos-protection) защита от DDoS-атак — работает на 3, 4 и 7 уровнях модели OSI. Вы также можете отслеживать показатели нагрузки, параметры атак и подключить Solidwall WAF в личном кабинете Curator. Чтобы включить расширенную защиту, обратитесь к вашему менеджеру или в техническую поддержку.
+1. **Базовая защита от DDoS-атак (уровни L3/L4)**
+   Для защиты публичных IP-адресов от атак на сетевом и транспортном уровнях используйте встроенный [механизм защиты от DDoS-атак](../../vpc/ddos-protection/index.md), работающий совместно с [Qrator Labs](https://qrator.net/ru/). Эту защиту можно включить для внешних IP-адресов ВМ и сетевых балансировщиков.
+1. **Защита на прикладном уровне (L7)**
+   Для защиты веб-приложений (WAF) и фильтрации трафика на уровне L7 используйте сервис Yandex Smart Web Security. В Smart Web Security создайте профиль безопасности, подключите его к балансировщику (Application Load Balancer) и настройте необходимые правила. Инструкцию по настройке читайте в разделе [Подключить профиль безопасности к ресурсу](../../smartwebsecurity/operations/host-connect.md).
 
 | ID требования | Критичность |
 | --- | --- |
-| NET5 | Высокая |
+| NET5 | Информационная |
+
+{% note info  %}
+
+Включение защиты от Qrator на публичных IP-адресах может изменять маршрутизацию трафика (вызывать асимметричный роутинг). Отсутствие защиты L3/L4 не всегда является нарушением в сложных сетевых топологиях. Данный контроль собирает информацию о незащищенных IP-адресах и профилях SWS для принятия взвешенного решения администратором.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Проверка в консоли управления {#console}
 
-  * Чтобы убедиться, что у вас используется защита от DDoS-атак на прикладном уровне:
+  * Проверка базовой защиты (L3/L4) на IP-адресах:
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите проверить статус Smart Web Security.
-      1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
-      1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
-      1. Убедитесь, что у вас есть созданные профили безопасности.
-      1. Если профили безопасности есть, рекомендация выполняется. Если нет, перейдите к пункту «Инструкции и решения по выполнению».
+    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+    1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
+    1. На панели слева выберите **Публичные IP-адреса**.
+    1. Проверьте статус в столбце **Защита от DDoS-атак**. Оцените критичность адресов, где она выключена.
 
-  * Чтобы убедиться, что у вас используется базовая защита от DDoS-атак:
+  * Проверка наличия защиты L7 (Smart Web Security):
 
-      1. В [консоли управления](https://console.yandex.cloud) откройте все созданные сети.
-      1. Перейдите в раздел **IP-адреса**.
-      1. Если у всех публичных адресов в столбце **Защита от DDoS-атак** установлено значение **Включена**, рекомендация выполняется. Если нет, перейдите к пункту «Инструкции и решения по выполнению».
-
-- Ручная проверка {#manual}
-
-  Чтобы убедиться, что у вас подключена расширенная защита от DDoS-атак, обратитесь к вашему персональному менеджеру. 
+    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите проверить статус Smart Web Security.
+    1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
+    1. Убедитесь, что у вас созданы профили безопасности и они подключены к соответствующим веб-ресурсам.
 
 - Проверка через CLI {#cli}
 
-  * Чтобы убедиться, что у вас используется защита от DDoS-атак на прикладном уровне, выполните команду:
+  1. Посмотрите доступные вам организации и зафиксируйте необходимый `ID`:
 
       ```bash
-      yc smartwebsecurity security-profile list
+      yc organization-manager organization list
       ```
 
-      Если команда вернет информацию об имеющихся профилях безопасности, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
+  1. Найдите внешние публичные IP-адреса без базовой защиты (Qrator):
 
-  * Чтобы убедиться, что у вас используется базовая защита от DDoS-атак:
+     ```bash
+     export ORG_ID=<ID_организации>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+     for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+     yc vpc address list --folder-id=$FOLDER_ID --format=json | jq -r 'map(select(
+     .external_ipv4_address != null and
+     (.external_ipv4_address.requirements == null or .external_ipv4_address.requirements.ddos_protection_provider != "qrator")
+     )) | .[].address'
+     done
+     done
+     ```
 
-      1. Посмотрите доступные вам организации и зафиксируйте необходимый `ID`:
+  1. Найдите профили SWS (L7):
 
-           ```bash
-           yc organization-manager organization list
-           ```
-
-      1. Выполните команду для поиска IP-адресов без защиты от DDoS:
-
-           ```bash
-           export ORG_ID=<ID организации>
-           for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-           do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-           do echo "Address_ID: " && yc vpc address list --folder-id=$FOLDER_ID \
-           --format=json | jq -r '.[] | select(.external_ipv4_address.requirements.ddos_protection_provider=="qrator" | not)' | jq -r '.id' \
-           && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
-           done;
-           done
-           ```
-
-      1. Если `Address_ID` напротив `FOLDER_ID` указано пустое значение, рекомендация выполняется. В противном случае перейдите к пункту «Инструкции и решения по выполнению».
+     ```bash
+     export ORG_ID=<ID организации>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+     for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+     yc smartwebsecurity security-profile list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'
+     done
+     done
+     ```
 
 {% endlist %}
 
 **Инструкции и решения по выполнению:**
 
-* [Инструкция по созданию профиля безопасности Smart Web Security](../../smartwebsecurity/operations/profile-create.md).
-* Вебинар [Защита от DDoS в Yandex Cloud](https://youtu.be/KWGbLQTth5U).
-* Все [материалы](../../vpc/ddos-protection/index.md) по защите от DDoS в Yandex Cloud.
+* Учитывая влияние защиты Qrator на асимметричный роутинг, проанализируйте, требуется ли включение DDoS-защиты на публичных IP-адресах в вашем проекте. При необходимости измените настройки в Virtual Private Cloud.
+* Для подключения защиты на L7 используйте Smart Web Security.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 2.6 Используется защищенный удаленный доступ {#secure-access}
 
-Чтобы обеспечить удаленное подключение администраторов к облачным ресурсам, используйте одно из следующих решений:
-* Site-to-site VPN между удаленной площадкой (например, вашим офисом) и облаком. В качестве шлюза для удаленного доступа используйте ВМ с функцией site-to-site VPN на основе [образа](https://yandex.cloud/ru/marketplace?categories=network) из Cloud Marketplace.
+Чтобы обеспечить безопасное удаленное подключение к облачным ресурсам, используйте современные механизмы управления доступом и защищенные каналы связи:
 
-  **Варианты настройки**:
+* **Доступ на уровне операционной системы (OS Login)**
+
+  Для доступа по SSH к виртуальным машинам и узлам Kubernetes откажитесь от использования статических SSH-ключей. Используйте механизм [OS Login](../../organization/concepts/os-login.md), который связывает учетные записи Linux с пользователями организации в Yandex Cloud. Это позволяет использовать кратковременные SSH-сертификаты, централизованно управлять доступом через IAM-роли и автоматически отзывать доступ при блокировке пользователя.
+
+* **Защищенные сетевые каналы (VPN и Interconnect)**
+
+* **Site-to-site VPN** между удаленной площадкой (например, вашим офисом) и облаком. В качестве шлюза для удаленного доступа используйте ВМ с функцией site-to-site VPN на основе [образа](https://yandex.cloud/ru/marketplace?categories=network) из Cloud Marketplace.
+
+  Варианты настройки:
+
   * [Создание туннеля IPSec VPN с использованием демона strongSwan](../../tutorials/routing/ipsec/index.md).
   * [Создание site-to-site VPN-соединения с Yandex Cloud с помощью Terraform](https://github.com/yandex-cloud-examples/yc-site-to-site-vpn-with-ipsec-strongswan).
-  * Client VPN между удаленными устройствами и Yandex Cloud. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе [образа](https://yandex.cloud/ru/marketplace?categories=network) из Cloud Marketplace.
+
+* **Client VPN** между удаленными устройствами и Yandex Cloud. В качестве шлюза для удаленного доступа используйте ВМ с функцией Client VPN на основе [образа](https://yandex.cloud/ru/marketplace?categories=network) из Cloud Marketplace.
 
   Смотрите инструкцию в разделе [Создание VPN-соединения с помощью OpenVPN](../../tutorials/routing/openvpn.md). Возможно также использование сертифицированных СКЗИ.
-* Приватное выделенное соединение между удаленной площадкой и Yandex Cloud c помощью сервиса Cloud Interconnect.
 
-Для доступа в инфраструктуру по управляющим протоколам (например, SSH, RDP) рекомендуется создать бастионную ВМ. Для этого можно использовать бесплатное решение [Teleport](https://goteleport.com/). Доступ к бастионной ВМ или VPN-шлюзу из интернета должен быть ограничен.
+* **Приватное выделенное соединение** между удаленной площадкой и Yandex Cloud с помощью сервиса [Cloud Interconnect](../../interconnect/index.md).
+
+Для доступа в инфраструктуру по управляющим протоколам (например, SSH, RDP) рекомендуется создать бастионную ВМ. Для этого можно использовать бесплатное решение [Teleport](https://yandex.cloud/ru/marketplace/products/yc/teleport). Доступ к бастионной ВМ или VPN-шлюзу из интернета должен быть ограничен.
 
 Для дополнительного контроля действий администраторов рекомендуется использовать решения PAM (Privileged Access Management) с записью сессии администратора (например, Teleport). Для доступа по SSH и VPN рекомендуется отказаться от паролей и вместо этого использовать открытые ключи, X.509-сертификаты и SSH-сертификаты. При настройке SSH для ВМ рекомендуется использовать SSH-сертификаты, в том числе и для хостовой части SSH.
 
@@ -2559,15 +2846,47 @@ yc compute instance update <ID_виртуальной_машины> \
 
 - Проверка в консоли управления {#console}
 
-  1. Откройте консоль Yandex Cloud в вашем браузере.
-  1. Откройте все созданные сети.
-  1. Перейдите в раздел **Таблицы маршрутизации**.
+  **Проверка включения OS Login:**
+
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shield](../../_assets/console-icons/shield.svg) **Настройки безопасности**.
+  1. Убедитесь, что включена опция **Доступ по OS Login при помощи SSH-сертификатов (рекомендуется)**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute/instances) в настройки ВМ в сервисе Compute Cloud и убедитесь, что включена опция **Доступ по OS Login**.
+
+  **Проверка сетевого доступа (VPN/Шлюзы):**
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите **Таблицы маршрутизации**.
   1. Если найдены маршруты в приватные сети удаленных площадок, которые направлены через ВМ с VPN шлюзом, рекомендация выполняется.
   1. Проверьте ВМ в каждом облаке на наличие VPN-шлюзов. Также проверьте у назначенных им групп безопасности открытые порты для VPN.
+
+- Проверка через CLI {#cli}
+
+  1. Посмотрите список доступных организаций и скопируйте идентификатор нужной:
+
+      ```bash
+      yc organization-manager organization list
+      ```
+
+  1. Выполните команду для проверки включения OS Login на уровне организации:
+
+      ```bash
+      yc organization-manager oslogin get-settings --organization-id <ID_организации> --format json | jq -r '.ssh_certificate_settings.enabled'
+      ```
+
+      Если команда вернула `true`, функциональность OS Login включена глобально. Если `false` или `null`, перейдите к инструкциям по выполнению.
 
 - Ручная проверка {#manual}
 
   Обратитесь к вашему персональному менеджеру и уточните, подключен ли у вас сервис Cloud Interconnect. Если подключен, проверьте, выполняется ли удаленный доступ.
+
+{% endlist %}
+
+**Инструкции и решения по выполнению:**
+
+* [Включите доступ через OS Login](../../organization/operations/os-login-access.md) на уровне организации.
+* [Настройте доступ по OS Login](../../compute/operations/vm-connect/os-login.md) на существующих ВМ (может потребоваться установка агента).
 
 {% endlist %}
 
@@ -2646,6 +2965,12 @@ Yandex Cloud Desktop — сервис для управления виртуал
 
 - Проверка через CLI {#cli}
 
+  {% note info %}
+  
+  Данный контроль носит характер инвентаризации. Он выводит список публичных ВМ (one_to_one_nat) и NAT-шлюзов (Egress NAT) для вашего информирования. Контроль считается успешно пройденным (PASS), если администратор проанализировал вывод скрипта и подтвердил, что все публичные точки выхода легитимны и обоснованы.
+  
+  {% endnote %}
+
   1. Посмотрите доступные вам организации и зафиксируйте необходимый `ID`:
 
      ```bash
@@ -2658,38 +2983,27 @@ Yandex Cloud Desktop — сервис для управления виртуал
      export ORG_ID=<ID организации>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do echo "VM_ID: " && yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[] | select(.network_interfaces[].primary_v4_address.one_to_one_nat.address)' | jq -r '.id' \
-     && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
+     do echo "VM_ID in FOLDER_ID " $FOLDER_ID ":" && yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[]
+     | select(.network_interfaces[].primary_v4_address.one_to_one_nat.address)' | jq -r '.id' \
+     && echo "-----"
      done;
      done
      ```
 
-  1. Если `VM_ID` напротив `FOLDER_ID` указано пустое значение, рекомендация выполняется. В противном случае перейдите к пункту «Инструкции и решения по выполнению».
+  1. Если `VM_ID` напротив `FOLDER_ID` принимает пустое значение, рекомендация выполняется. В противном случае перейдите к пункту «Инструкции и решения по выполнению».
   1. Выполните команду для поиска наличия Egress NAT (NAT-шлюз):
 
      ```bash
      export ORG_ID=<ID организации>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-     do echo "NAT_GW: " && yc vpc gateway list --folder-id=$FOLDER_ID --format=json | jq -r '.[] | select(.id)' | jq -r '.id' && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
+     do echo "NAT_GW in FOLDER_ID " $FOLDER_ID ":" && yc vpc gateway list --folder-id=$FOLDER_ID --format=json | jq -r '.[] |
+     select(.id)' | jq -r '.id' && echo "-----"
      done;
      done
      ```
 
   1. Если `NAT_GW` напротив `FOLDER_ID` указано пустое значение, рекомендация выполняется. В противном случае перейдите к пункту «Инструкции и решения по выполнению».
-  1. Выполните команду для поиска наличия NAT-инстанса:
-
-     ```bash
-     export ORG_ID=<ID организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do for DISK_ID in $(yc compute disk list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute disk get --id=$DISK_ID --format=json | jq -r '. | select(.product_ids[0]=="fd8v7ru46kt3s4o5f0uo")' | jq -r '.id'
-     done;
-     done;
-     done
-     ```
-
-  1. Если результатом является пустая строка, рекомендация выполняется. Если видите `ID` NAT-инстанса, перейдите к пункту «Инструкции и решения по выполнению».
 
 {% endlist %}
 
@@ -2795,6 +3109,12 @@ Yandex Cloud Desktop — сервис для управления виртуал
 **Инструкции и решения по выполнению**:
 
 Если серийная консоль не должна быть использована на ВМ, отключите ее.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 3.3 Используется эталонный образ для развертывания ВМ {#standard-image}
 
@@ -3007,11 +3327,18 @@ ACL позволяет предоставить доступ к объекту �
 
 - Проверка через CLI {#cli}
 
-  1. [Настройте](../../storage/tools/aws-cli.md) awscli на работу с облаком.
   1. Выполните команду для ACL бакета на наличие `allUsers`, `allAuthenticatedUsers`:
 
+     **Bash:**
+
      ```bash
-     aws --endpoint-url=https://storage.yandexcloud.net s3api get-bucket-acl  <имя вашего бакета>
+     yc storage bucket get <имя_бакета> --full --format=json
+     ```
+
+     **Powershell:**
+
+     ```powershell
+     yc storage bucket get <имя_бакета> --full --format=json | ConvertFrom-Json | Select-Object -ExpandProperty acl
      ```
 
 {% endlist %}
@@ -3019,6 +3346,12 @@ ACL позволяет предоставить доступ к объекту �
 **Инструкции и решения по выполнению**:
 
 Если публичный доступ включен, [удалите](../../iam/operations/roles/revoke.md) его либо контролируйте (осознанно выдавайте для публичных данных).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 3.9 В Object Storage используются политики доступа (Bucket Policy) {#bucket-policy}
 
@@ -3048,11 +3381,18 @@ ACL позволяет предоставить доступ к объекту �
 
 - Проверка через CLI {#cli}
 
-  1. [Настройте](../../storage/tools/aws-cli.md) awscli на работу с облаком.
-  1. Выполните команду для ACL бакета на проверку наличия `allUsers`, `allAuthenticatedUsers`:
+  1. Выполните команду для вывода назначенной политики доступа бакета (Policy):
+
+     **Bash:**
 
      ```bash
-     aws --endpoint-url=https://storage.yandexcloud.net s3api get-bucket-policy --bucket <имя вашего бакета>
+     yc storage bucket get <имя_бакета> --full --format=json | jq -r '.policy'
+     ```
+
+     **Powershell:**
+
+     ```powershell
+     (yc storage bucket get <имя_бакета> --full --format=json | ConvertFrom-Json).policy
      ```
 
 {% endlist %}
@@ -3061,19 +3401,15 @@ ACL позволяет предоставить доступ к объекту �
 
 [Включите](../../storage/concepts/policy.md#config-examples) необходимую политику.
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 3.10 В Object Storage включена функция «Блокировка версии объекта» (objectlock) {#object-lock}
 
-При обработке в бакетах критичных данных необходимо обеспечить их защиту от удаления и резервирование версий. Это возможно сделать с помощью механизмов версионирования и управления жизненным циклом и блокировки версии объекта.
-
-Версионирование бакета — это возможность хранить историю версий объекта. Каждая версия является полной копией объекта и занимает соответствующий объем в Object Storage. С помощью управления версиями вы можете защитить ваши данные как от непреднамеренных действий пользователя, так и от сбоев приложений.
-
-В случае удаления или модификации объекта с включенным версионированием на самом деле создается новая версия объекта с новым id. В случае удаления объект становится недоступен для чтения, но его версия хранится и подлежит восстановлению.
-
-Настройка версионирования описана в статье [Версионирование бакета](../../storage/concepts/versioning.md) документации Object Storage.
-
-Настройка жизненного цикла описана в статьях [Жизненные циклы объектов в бакете](../../storage/concepts/lifecycles.md) и [Конфигурация жизненных циклов объектов в бакете](../../storage/s3/api-ref/lifecycles/xml-config.md) документации Object Storage.
-
-Также для защиты версий объекта от удаления необходимо использовать [objectlock](../../storage/concepts/object-lock.md). Подробнее про типы блокировок и как их включить читайте в документации.
+При использовании сервиса [Object Storage](../../storage/index.md) для хранения критичных данных необходимо включать [версионирование бакета](../../storage/concepts/versioning.md). Версионирование защищает данные от случайных действий пользователя. Также для защиты версий объекта от удаления необходимо использовать [Object Lock](../../storage/concepts/object-lock.md).
 
 Срок хранения критичных данных в бакете определяется требованиями ИБ компании клиента и требованиями стандартов ИБ. Например, стандарт PCI DSS устанавливает, что аудитные логи должны храниться не менее одного года, и как минимум три месяца должны быть доступны онлайн.
 
@@ -3092,28 +3428,34 @@ ACL позволяет предоставить доступ к объекту �
 
 - Проверка через CLI {#cli}
 
-  1. [Настройте](../../storage/tools/aws-cli.md) awscli на работу с облаком.
-  1. Выполните команду, чтобы проверить, что версионирование включено:
+  Успешным прохождением контроля считается только одновременное выполнение двух условий (логическое И): версионирование находится в статусе `Enabled` и Object Lock настроен.
 
-     ```bash
-     aws --endpoint https://storage.yandexcloud.net \
-     s3api get-bucket-versioning \
-     --bucket <имя вашего бакета>
-     ```
+  1. Выполните команду для проверки статуса версионирования и функции Object Lock:
 
-  1. Выполните команду, чтобы проверить, что версионирование включено:
+      **Bash:**
 
-     ```bash
-     aws --endpoint-url=https://storage.yandexcloud.net/ \
-     s3api get-object-lock-configuration \
-     --bucket <имя вашего бакета>
-     ```
+      ```bash
+      yc storage bucket get <имя_бакета> --full --format=json | jq -r '{versioning: .versioning, object_lock: .object_lock}'
+      ```
+
+      **PowerShell:**
+
+      ```powershell
+      yc storage bucket get <имя_бакета> --full --format=json | ConvertFrom-Json | Select-Object versioning, object_lock
+      ```
 
 {% endlist %}
 
 **Инструкции и решения по выполнению**:
 
-Если публичный доступ включен, удалите или контролируйте его (включая только по необходимости и согласованию).
+* [Настройте версионирование](../../storage/operations/buckets/versioning.md).
+* [Настройте Object Lock](../../storage/operations/buckets/configure-object-lock.md).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 3.11 В Object Storage включен механизм логирования действий с бакетом {#bucket-logs}
 
@@ -3199,6 +3541,12 @@ ACL позволяет предоставить доступ к объекту �
 
 [Составьте](../../storage/concepts/pre-signed-urls.md#creating-presigned-url) и передайте нужному пользователю подписанный URL.
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 ### Managed Services for Databases {#managed-databases}
 
 #### 3.15 На управляемых базах данных назначена Группа безопасности {#db-security-group}
@@ -3256,6 +3604,12 @@ ACL позволяет предоставить доступ к объекту �
 
 Если найдены базы данных без групп безопасности, назначьте их либо включите [функционал](../../vpc/concepts/security-groups.md#default-security-group) **Группа безопасности по умолчанию**.
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 3.16 На управляемых базах данных не назначен публичный IP-адрес {#db-ip}
 
 Назначение публичного IP-адреса на управляемую базу данных повышает риски ИБ. Рекомендуется не назначать внешний IP-адрес без крайней необходимости.
@@ -3300,6 +3654,12 @@ ACL позволяет предоставить доступ к объекту �
 **Инструкции и решения по выполнению**:
 
 Удалите публичный доступ, если он не требуется.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 3.17 Включена настройка защиты от удаления (deletion protection) {#deletion-protection}
 
@@ -3349,6 +3709,12 @@ ACL позволяет предоставить доступ к объекту �
 1. В настройках объектов перейдите во вкладку **Дополнительные настройки**.
 1. В параметрах объекта включите опцию **Защита от удаления**.
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 3.18 Выключена настройка доступа из DataLens без необходимости {#db-datalens-access}
 
 Не следует без необходимости включать доступ к базам данных c критичными данными из консоли управления, [DataLens](../../datalens/index.md) и других сервисов. Доступ из DataLens может потребоваться для анализа и визуализации данных. Эти доступы осуществляются через служебную сеть Yandex Cloud, с аутентификацией и использованием шифрования TLS. Включить и отключить доступы из DataLens или других сервисов можно в настройках кластера или при его создании, в блоке дополнительных настроек.
@@ -3396,6 +3762,12 @@ ACL позволяет предоставить доступ к объекту �
 1. В списке сервисов выберите сервис(ы), где находятся управляемые базы данных.
 1. В настройках объектов перейдите во вкладку **Дополнительные настройки**.
 1. В параметрах объекта отключите опцию **Доступ из DataLens**.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 3.19 На управляемых БД выключен доступ из консоли управления {#db-console-access}
 
@@ -3557,32 +3929,49 @@ ACL позволяет предоставить доступ к объекту �
 
 - Проверка через CLI {#cli}
 
-  1. Выполните команду для поиска всех облачных функций, для которых не заданы настройки сети в VPC:
+  Проверка считается успешной, если все обнаруженные функции привязаны к конкретной сети VPC (статус `SUCCESS`). Провалом считается наличие хотя бы одной функции без привязки к сети (статус `FAILURE`).
 
-     ```bash
-     export ORG_ID=<ID организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-     do for VER in $(yc serverless function version list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-     do yc serverless function version get $VER --format=json | jq -r '. | select(.connectivity.network_id | not)' | jq -r '.id' 
-     done;
-     done;
-     done
-     ```
+  1. Выполните скрипт для поиска всех облачных функций, для которых не заданы настройки сети в VPC:
 
-  1. Если выдается пустая строка, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
+      ```bash
+      export ORG_ID="<ID_организации>"
+      VIOLATORS=()
+      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+        for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+          for VER in $(yc serverless function version list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do
+            if yc serverless function version get $VER --format=json | jq -e '.connectivity.network_id | not or . == null' > /dev/null; then
+              VIOLATORS+=($VER)
+            fi
+          done
+        done
+      done
+      if [ ${#VIOLATORS[@]} -gt 0 ]; then
+        echo "FAILURE: Обнаружены функции без привязки к сети VPC:"
+        for v in "${VIOLATORS[@]}"; do
+          echo "- $v"
+        done
+      else
+        echo "SUCCESS: Все функции привязаны к сети VPC."
+      fi
+      ```
 
 {% endlist %}
 
 **Инструкции и решения по выполнению**:
 
 1. Выберите облако или каталог, в которых хотите проверить функции, в консоли управления.
-1. Выберите **Cloud Functions** в списке сервисов.
+1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
 1. Откройте функцию.
 1. Перейдите во вкладку **Редактирование версии функции** в настройках объектов.
 1. Установите значение опции **Сеть — VPC**.
 
 Дополнительную информацию об отслеживании версий функций читайте в разделе [Резервное копирование в Cloud Functions](../../functions/concepts/backup.md).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 3.21 Для функций настроены разграничение прав доступа, управление секретами и переменными окружения, а также подключение к СУБД {#function-access-and-env}
 
@@ -3675,7 +4064,12 @@ ACL позволяет предоставить доступ к объекту �
 
 #### 3.26 Публичный доступ отсутствует для YDB {#ydb-public}
 
-При работе с базой данных в режиме Dedicated рекомендуется использовать ее внутри VPC и не открывать к ней доступ из интернета. В режиме Serverless база данных является доступной из интернета, что необходимо учитывать, в частности, при моделировании угроз при построении инфраструктуры. Подробнее о режимах работы читайте в разделе [Режимы работы Serverless и Dedicated](../../ydb/concepts/serverless-and-dedicated.md) документации Managed Service for YDB.
+При работе с базой данных в режиме Dedicated рекомендуется использовать ее внутри VPC и не открывать к ней доступ из интернета. Для обеспечения сетевой изоляции необходимо назначать **Группы безопасности (Security Groups)** на кластеры Dedicated YDB.
+
+**Особое внимание следует уделить порту 8765 (HTTP-интерфейс и YDB Embedded UI):**
+Данный порт используется для веб-интерфейса встроенного мониторинга и диагностики YDB. При ошибочной публикации этого порта наружу (доступ от `0.0.0.0/0`) существует риск раскрытия диагностической информации о кластере, системных метрик, а также индексации интерфейса мониторинга поисковыми системами. В настройках группы безопасности доступ к порту 8765 должен быть разрешен строго из доверенных внутренних подсетей, через VPN или бастионные хосты.
+
+В режиме Serverless база данных доступна из интернета по защищенному каналу, что необходимо учитывать при моделировании угроз и разграничении доступа (IAM). Подробнее о режимах работы читайте в разделе [Режимы работы Serverless и Dedicated](../../ydb/concepts/serverless-and-dedicated.md) документации Managed Service for YDB.
 
 При настройке доступа к БД следует использовать принцип минимальных привилегий.
 
@@ -3691,7 +4085,9 @@ ACL позволяет предоставить доступ к объекту �
   1. [Перейдите](https://console.yandex.cloud/link/ydb) в сервис **Managed Service for&nbsp;YDB**.
   1. Откройте все базы данных.
   1. В настройках базы данных перейдите во вкладку **Сеть**.
-  1. Если в параметрах каждого объекта отключена опция **Публичные IP-адреса**, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
+  1. Убедитесь, что для Dedicated-кластеров назначены группы безопасности.
+  1. В настройках назначенных групп безопасности убедитесь, что отсутствуют правила, разрешающие входящий трафик от `0.0.0.0/0` (особенно на порты `2135` и `8765`).
+  1. Убедитесь, что отключена опция **Публичные IP-адреса**, если база не должна быть доступна извне.
 
 - Проверка через CLI {#cli}
 
@@ -3701,25 +4097,35 @@ ACL позволяет предоставить доступ к объекту �
      yc organization-manager organization list
      ```
 
-  1. Выполните команду для поиска кластеров управляемых БД с публичным адресом:
+  1. Выполните команду для поиска кластеров YDB Dedicated с включенным публичным адресом или без групп безопасности:
 
      ```bash
      export ORG_ID=<ID организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-     do for DB_ID in $(yc managed-mysql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-mysql hosts list --cluster-id=$DB_ID --format=json | jq -r '.[] | select(.assign_public_ip)' | jq -r '.cluster_id' 
-     done;
-     done;
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+     for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+     for DB_ID in $(yc ydb database dedicated list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do
+     yc ydb database dedicated get --id=$DB_ID --format=json | jq -r 'select(.network_interfaces[]?.public_ip == true
+     or (.network_interfaces[]?.security_group_ids | length == 0)) | .id'
+     done
+     done
      done
      ```
 
-  1. Если выдается пустая строка, то рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
+  1. Если скрипт ничего не вывел, рекомендация выполняется. В противном случае обратите внимание на выведенные идентификаторы баз данных и перейдите к п. «Инструкции и решения по выполнению».
 
 {% endlist %}
 
 **Инструкции и решения по выполнению**:
 
-Удалите публичный доступ, если он не требуется.
+1. Отключите **Публичный доступ** для Dedicated-кластеров, если он не требуется для работы.
+1. Назначьте **Группы безопасности (Security Groups)** на сетевые интерфейсы кластера.
+1. В настройках назначенных групп безопасности убедитесь, что запрещен входящий трафик от `0.0.0.0/0` на порты `2135` (клиентские подключения) и `8765` (мониторинг YDB Embedded UI). Разрешите доступ к ним только из доверенных внутренних подсетей, VPN или бастионных серверов.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 3.27 Учтены рекомендации по резервному копированию YDB {#ydb-backup}
 
@@ -3813,6 +4219,12 @@ ACL позволяет предоставить доступ к объекту �
 **Инструкции и решения по выполнению**:
 
 Задайте конкретные адреса для доступа к реестрам.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 3.29 Выполнены требования к защите приложений в Yandex Container Registry {#app-container-registry}
 
@@ -4002,6 +4414,12 @@ ACL позволяет предоставить доступ к объекту �
 
 Обновите сертификат либо настройте автоматическое обновление.
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 ### Yandex Managed Service for GitLab {#git-lab-service}
 
 #### 3.32 Выполняются рекомендации по настройке безопасности инстанса GitLab {#git-lab-secure}
@@ -4075,9 +4493,11 @@ ACL позволяет предоставить доступ к объекту �
 
 #### 3.35 Для подключения к виртуальной машине или узлу Kubernetes используется OS Login {#os-login-onto-hosts}
 
-[OS Login](../../organization/concepts/os-login.md) — это удобный способ управления подключениями к [виртуальным машинам](../../compute/concepts/vm.md) и узлам [кластеров](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) Yandex Managed Service for Kubernetes по SSH через [CLI](../../cli/quickstart.md) или через стандартный SSH-клиент c SSH-сертификатом или SSH-ключом, предварительно добавленным в профиль OS Login пользователя организации или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) в Yandex Identity Hub.
+[OS Login](../../organization/concepts/os-login.md) — это удобный способ управления подключениями к виртуальным машинам и узлам кластеров Yandex Managed Service for Kubernetes по SSH через CLI или через стандартный SSH-клиент с SSH-сертификатом или SSH-ключом, предварительно добавленным в профиль OS Login пользователя организации или сервисного аккаунта в Yandex Identity Hub.
 
-OS Login связывает учетную запись пользователя виртуальной машины или узла Kubernetes с учетной записью пользователя организации или сервисного аккаунта. Чтобы управлять доступом к виртуальным машинам и узлам Kubernetes, на уровне организации [включите](../../organization/operations/os-login-access.md) опцию, разрешающую доступ по OS Login, а затем [активируйте](../../compute/operations/vm-connect/enable-os-login.md) доступ по OS Login отдельно на каждой виртуальной машине или узле Kubernetes.
+OS Login связывает учетную запись пользователя виртуальной машины или узла Kubernetes с учетной записью пользователя организации или сервисного аккаунта. Чтобы управлять доступом к виртуальным машинам и узлам Kubernetes, на уровне организации включите опцию, разрешающую доступ по OS Login, а затем активируйте доступ по OS Login отдельно на каждой виртуальной машине или узле Kubernetes.
+
+**Логика проверки (CLI):** Скрипт проверки сначала проверяет глобальную активацию OS Login на уровне организации (`yc organization-manager oslogin get-settings`). Если функция глобально отключена — проверка сразу считается непройденной. Если включена, скрипт анализирует настройки всех ВМ и K8s-нод на наличие явных SSH-ключей в обход OS Login. Для K8s проверяются группы узлов на наличие переданных явным образом SSH-ключей в метаданных шаблона узла.
 
 Так можно легко управлять доступом к виртуальным машинам и узлам Kubernetes, назначая пользователю или сервисному аккаунту необходимые роли. Если у пользователя или сервисного аккаунта отозвать роли, он потеряет доступ ко всем виртуальным машинам и узлам Kubernetes, для которых включен доступ по OS Login.
 
@@ -4150,8 +4570,9 @@ Yandex Cloud публикует [бюллетени безопасности](..
 #### 3.39 Используется Cloud Backup или механизм snapshot по расписанию {#snapshot}
 
 Убедитесь, что в вашей организации все виртуальные машины резервируются с помощью:
-* снимков по расписанию;
-* сервиса Cloud Backup.
+
+* [снимков по расписанию](../../compute/operations/snapshot-control/create-schedule.md) (snapshot-schedule);
+* сервиса [Cloud Backup](../../backup/index.md).
 
 | ID требования | Критичность |
 | --- | --- |
@@ -4161,11 +4582,38 @@ Yandex Cloud публикует [бюллетени безопасности](..
 
 - Проверка в консоли управления {#console}
 
-  1. В консоли управления выберите облако или каталог, в которых необходимо проверить ВМ.
+  1. В [консоли управления](https://console.yandex.cloud) выберите облако или каталог, в которых необходимо проверить ВМ.
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Убедитесь, что на ВМ настроена политика снимков по расписанию.
   1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
   1. Убедитесь, что он включен.
+
+- Проверка через CLI {#cli}
+
+  Сущностью проверки выступает виртуальная машина (точнее, ее подключенные диски).
+
+  **Критерии проверки:**
+
+  * **Успех:** У ВМ есть диски, и все они привязаны хотя бы к одному расписанию снимков со статусом `ACTIVE`. ИЛИ ВМ успешно зарегистрирована в Cloud Backup с привязанной политикой (состояние `initStatus` — `"REGISTERED"`) и назначена политика резервного копирования.
+  * **Провал:** Расписание снимков находится в статусе `INACTIVE`, либо существуют диски/ВМ без привязанного `ACTIVE` расписания или без привязанной Cloud Backup политики.
+
+  1. Выполните команду для получения списка расписаний снимков и проверки их статуса:
+
+      ```bash
+      yc compute snapshot-schedule list --format json | jq '.[] | select(.status == "ACTIVE")'
+      ```
+
+  1. Проверьте привязку к дискам целевой ВМ:
+
+      ```bash
+      yc compute snapshot-schedule list-disks <id_расписания>
+      ```
+
+  1. (Альтернатива) Выполните команду для проверки регистрации ВМ в Cloud Backup:
+
+      ```bash
+      yc backup vm list --format json | jq '.[] | select(.initStatus == "REGISTERED")'
+      ```
 
 {% endlist %}
 
@@ -4551,7 +4999,7 @@ Yandex Cloud предоставляет функции шифрования в �
 
 #### 4.2 В Yandex Object Storage включено шифрование данных at rest с ключом KMS {#storage-kms}
 
-Для защиты критичных данных в Yandex Object Storage рекомендуется использовать шифрование бакета на стороне сервера с помощью ключей Yandex Key Management Service (server-side encryption). Такое шифрование защищает от случайной или намеренной публикации содержимого бакета в интернете. Подробнее о шифровании читайте в разделе [Шифрование](../../storage/concepts/encryption.md) документации Object Storage.
+По умолчанию данные в Yandex Object Storage зашифрованы системными ключами, но для повышенной безопасности рекомендуется использовать шифрование бакета на стороне сервера с помощью ключей Yandex Key Management Service (server-side encryption). Такое шифрование защищает от случайной или намеренной публикации содержимого бакета в интернете. Подробнее о шифровании читайте в разделе [Шифрование](../../storage/concepts/encryption.md) документации Object Storage.
 
 | ID требования | Критичность |
 | --- | --- |
@@ -4570,14 +5018,19 @@ Yandex Cloud предоставляет функции шифрования в �
 
 - Проверка через CLI {#cli}
 
-  1. [Настройте](../../storage/tools/aws-cli.md) AWS CLI на работу с облаком.
-  1. Выполните команду, чтобы проверить, что шифрование включено:
+  1. Выполните команду для проверки настроек шифрования бакета:
 
-     ```bash
-     aws --endpoint-url=https://storage.yandexcloud.net/ \
-     s3api get-bucket-encryption \
-     --bucket <имя бакета>
-     ```
+      **Bash:**
+
+      ```bash
+      yc storage bucket get <имя бакета> --full --format=json | jq -r '.encryption'
+      ```
+
+      **PowerShell:**
+
+      ```powershell
+      (yc storage bucket get <имя бакета> --full --format=json | ConvertFrom-Json).encryption
+      ```
 
   1. Если шифрование включено, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
 
@@ -4586,6 +5039,12 @@ Yandex Cloud предоставляет функции шифрования в �
 **Инструкции и решения по выполнению:**
 
 Настройте шифрование бакета согласно [инструкции](../../storage/operations/buckets/encrypt.md).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 ### Шифрование в состоянии передачи (in transit) {#in-transit}
 
@@ -4606,6 +5065,30 @@ Yandex Cloud предоставляет возможность использо�
 * Application Load Balancer;
 * API Gateway;
 * Cloud CDN.
+
+### 4.2.1 В Managed Services for Databases используется шифрование данных at rest с ключом KMS {#mdb-encryption}
+
+В управляемых базах данных Yandex Cloud (Managed Services for Databases) данные в состоянии покоя (at rest) по умолчанию шифруются системными ключами. Все резервные копии баз данных также автоматически шифруются.
+
+Для дополнительного контроля безопасности рекомендуется шифровать диски кластеров баз данных с помощью пользовательских симметричных ключей [Yandex Key Management Service](../../kms/index.md). При создании кластера с типами дисков `network-hdd`, `network-ssd` или `network-ssd-nonreplicated` доступна опция **Зашифрованный диск**.
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT18 | Средняя |
+
+{% list tabs group=instructions %}
+
+- Ручная проверка {#manual}
+
+  1. В консоли управления перейдите в сервис управляемой базы данных (например, Managed Service for PostgreSQL).
+  1. Проверьте настройки диска кластера.
+  1. Убедитесь, что кластер был создан с включенной опцией шифрования дисков и привязан к пользовательскому ключу KMS.
+
+{% endlist %}
+
+**Инструкции и решения по выполнению:**
+
+Функция шифрования дисков баз данных доступна при создании кластера (выбор опции **Зашифрованный диск** с указанием ключа KMS). Включить ее для уже существующего диска невозможно.
 
 #### 4.3 В Yandex Object Storage включено HTTPS для хостинга статического сайта {#storage-https}
 
@@ -4644,6 +5127,12 @@ Yandex Cloud предоставляет возможность использо�
 **Инструкции и решения по выполнению:**
 
 [Включите](../../storage/operations/hosting/certificate.md) доступ по HTTPS, если бакет используется для хостинга статического сайта.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 4.4 В Yandex Application Load Balancer используется HTTPS {#alb-https}
 
@@ -4720,6 +5209,12 @@ Yandex Cloud предоставляет возможность использо�
 
 Включите HTTPS обработчик согласно [инструкции](../../application-load-balancer/tutorials/tls-termination/index.md).
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 4.5 В Yandex API Gateway используется HTTPS и собственный домен {#api-gateway-https}
 
 [API Gateway](../../api-gateway/index.md) обеспечивает безопасное подключение по протоколу HTTPS. Вы можете привязать собственный домен и загрузить собственный сертификат безопасности для доступа к вашему [API-шлюзу](../../api-gateway/concepts/index.md) по протоколу HTTPS.
@@ -4767,6 +5262,12 @@ Yandex Cloud предоставляет возможность использо�
 1. В консоли управления выберите облако или каталог, в которых необходимо подключить домены и сертификаты.
 1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway → Настройки шлюза → Домены**.
 1. Подключите домены и сертификаты.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 4.6 В Yandex Cloud CDN используется HTTPS и собственный SSL-сертификат {#cdn-https}
 
@@ -4816,6 +5317,12 @@ Yandex Cloud предоставляет возможность использо�
 
 [Подключите](../../cdn/operations/resources/configure-basics.md) сертификат и HTTPS согласно инструкции.
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 ### Самостоятельное шифрование {#self-encryption}
 
 **При использовании сервисов, которые не имеют встроенных функций шифрования, шифрование критичных данных является ответственностью клиента.**
@@ -4859,7 +5366,7 @@ Yandex Cloud предоставляет возможность использо�
 * Сетевой SSD-диск (`network-ssd`).
 * Сетевой HDD-диск (`network-hdd`).
 * Нереплицируемый SSD-диск (`network-ssd-nonreplicated`).
-* Сверхбыстрое сетевое хранилище с тремя репликами (SSD) (`network-ssd-io-m3`).
+* Высокопроизводительный сетевой SSD-диск (`network-ssd-io-m3`).
 
 | ID требования | Критичность |
 | --- | --- |
@@ -4876,6 +5383,12 @@ Yandex Cloud предоставляет возможность использо�
 **Инструкции и решения по выполнению:**
 
 [Зашифруйте](../../compute/operations/disk-control/disk-encrypt.md) диск виртуальной машины Yandex Compute Cloud.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 ### Управление ключами {#keys}
 
@@ -4931,6 +5444,12 @@ KMS использует схему шифрования AES-GCM. Вы може�
 **Инструкции и решения по выполнению:**
 
 [Установите](../../kms/operations/symmetric-encryption.md) алгоритм шифрования для ключей KMS «AES-256 HSM».
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 4.10 Права на управление ключами в KMS выданы контролируемым пользователям {#keys-controlled-users}
 
@@ -5078,7 +5597,13 @@ KMS использует схему шифрования AES-GCM. Вы може�
 
 **Инструкции и решения по выполнению:**
 
-Установите период ротации для ключей.
+Установите период ротации для ключей, следуя [инструкции по вращению ключей](../../kms/operations/key.md#rotate) в документации KMS.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 4.12 Для ключей KMS включена защита от удаления {#keys-deletion-protection}
 
@@ -5124,6 +5649,12 @@ KMS использует схему шифрования AES-GCM. Вы може�
 **Инструкции и решения по выполнению:**
 
 Установите защиту от удаления.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 ### Управление секретами {#secrets}
 
@@ -5183,6 +5714,12 @@ KMS использует схему шифрования AES-GCM. Вы може�
 
 Храните секреты в Lockbox.
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 4.14 Для Serverless Containers и Cloud Functions используются секреты Lockbox {#secrets-serverless-functions}
 
 При работе с Serverless Containers или Cloud Functions часто возникает необходимость использовать секрет (токен, пароль и т.д.).
@@ -5231,6 +5768,12 @@ KMS использует схему шифрования AES-GCM. Вы може�
 Удалите секретные данные из env и воспользуйтесь функционалом интеграции с Lockbox:
 * [Передать секреты Yandex Lockbox в контейнер](../../serverless-containers/operations/lockbox-secret-transmit.md).
 * [Передать секреты Yandex Lockbox в функцию](../../functions/operations/function/lockbox-secret-transmit.md).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 4.15 При работе Container Optimized Image используется шифрование секретов {#secrets-coi}
 
@@ -5533,6 +6076,12 @@ C помощью Yandex Cloud Functions можно настроить опове
 
 {% endlist %}
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 5.9 Включен модуль Security Deck Access Transparency для проверки действий, произведенных сотрудниками Yandex Cloud с инфраструктурой {#access-transparency-enabled}
 
 Все действия сотрудников Yandex Cloud фиксируются и контролируются с помощью [бастионных хостов](../../tutorials/routing/bastion.md), на которых записываются операции с ресурсами, обрабатывающими пользовательские данные.
@@ -5585,6 +6134,12 @@ C помощью Yandex Cloud Functions можно настроить опове
 **Инструкции и решения по выполнению:**
 
 [Инструкция по созданию капчи в Yandex SmartCaptcha](../../smartcaptcha/operations/create-captcha.md).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 ### Построение безопасного пайплайна {#pipeline-recommendations}
 
@@ -5658,6 +6213,12 @@ Yandex Cloud позволяет клиентам выстроить соотве
 
 [Инструкция по сканированию Docker-образа при загрузке](../../container-registry/operations/scanning-docker-image.md#automatically).
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 6.4 Выполняется периодическое сканирование Docker-образов, хранящихся в Container Registry {#periodic-scan}
 
 Сканирование Docker-образов по расписанию представляет собой автоматизированный процесс проверки контейнерных образов на наличие уязвимостей и соответствие стандартам безопасности. Такое сканирование выполняется регулярно и автоматически, что обеспечивает консистентность проверки образов на наличие уязвимостей. Это позволяет поддерживать высокий уровень безопасности в долгосрочной перспективе. После завершения сканирования отчеты содержат краткое описание обнаруженных уязвимостей и проблем, помогая определять приоритеты и устранять риски безопасности в контейнерных приложениях.
@@ -5683,6 +6244,12 @@ Yandex Cloud позволяет клиентам выстроить соотве
 **Инструкции и решения по выполнению:**
 
 [Инструкция по сканированию Docker-образа по расписанию](../../container-registry/operations/scanning-docker-image.md#scheduled).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 6.5 Контейнерные образы, используемые в продакшн-среде, имеют последнюю дату сканирования не позднее недели {#last-scan-date}
 
@@ -5713,6 +6280,12 @@ Yandex Cloud позволяет клиентам выстроить соотве
   ```
 
 {% endlist %}
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 6.6 При сборке артефактов применяются аттестации {#provenance-attestation}
 
@@ -5828,6 +6401,12 @@ Yandex Cloud позволяет клиентам выстроить соотве
 
 [Создание профиля безопасности и подключение его к виртуальному хосту L7-балансировщика](../../smartwebsecurity/quickstart.md).
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 6.11 Используется Web Application Firewall {#use-waf}
 
 Для снижения рисков, связанных с веб-атаками, рекомендуем использовать Yandex Smart Web Security [Web Application Firewall (WAF)](../../glossary/waf.md). Web Application Firewall анализирует входящие HTTP-запросы к веб-приложению по предварительно настроенным правилам. На основе результатов анализа к HTTP-запросам применяются определенные [действия](../../smartwebsecurity/concepts/rules.md#rule-action).
@@ -5852,6 +6431,12 @@ Yandex Cloud позволяет клиентам выстроить соотве
 
 [Создание профиля WAF и подключение его к профилю безопасности Smart Web Security](../../smartwebsecurity/quickstart.md#waf).
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 6.12 Используется Advanced Rate Limiter {#use-arl}
 
 [Advanced Rate Limiter (ARL)](../../smartwebsecurity/concepts/arl.md) — модуль Yandex Smart Web Security для контроля и ограничения нагрузки на веб-приложения. Модуль позволяет установить лимит на количество HTTP-запросов за определенный промежуток времени. Все запросы сверх лимита будут блокироваться. Можно установить как единый лимит на весь трафик, так и настраивать отдельные лимиты для сегментирования запросов по определенным параметрам. Запросы для лимитов можно считать по одному или объединять в группы по заданному признаку.
@@ -5875,6 +6460,12 @@ Yandex Cloud позволяет клиентам выстроить соотве
 **Инструкции и решения по выполнению:**
 
 [Создание профиля ARL и подключение его к профилю безопасности Smart Web Security](../../smartwebsecurity/quickstart.md#arl).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 6.13 Настроены правила ревью кода {#setup-code-review}
 
@@ -6064,10 +6655,30 @@ Yandex Cloud позволяет клиентам выстроить соотве
 
 - Ручная проверка {#manual}
 
-  * С помощью инструмента [kube-bench](https://github.com/aquasecurity/kube-bench) проверьте конфигурацию группы узлов по стандарту CIS Kubernetes Benchmark. Инструмент официально поддерживает группы узлов Yandex Cloud.
-  * [Starboard Operator](https://blog.aquasec.com/automate-kubernetes-compliance) — это бесплатный инструмент, который позволяет автоматизировать сканирование образов на уязвимости и проверку конфигурации на соответствие CIS Kubernetes Benchmark. Starboard Operator поддерживает интеграцию с kube-bench и используется для его автоматического запуска.
+  {% note info %}
+
+  Проверка конфигурации и запуск инструмента сканирования применяется только при наличии хотя бы одной группы узлов Kubernetes в проверяемом каталоге. Если в каталоге нет запущенных кластеров Kubernetes, то рекомендация автоматически считается выполненной (статус `SUCCESS` или `Not Applicable`), так как поверхность атаки отсутствует.
+
+  {% endnote %}
+
+  1. Убедитесь, что в каталоге есть узлы Kubernetes, выполнив команду:
+
+      ```bash
+      yc managed-kubernetes node-group list
+      ```
+
+      Если список пуст, дальнейшие действия не требуются.
+
+  1. При наличии узлов с помощью инструмента [kube-bench](https://github.com/aquasecurity/kube-bench) проверьте конфигурацию группы узлов по стандарту CIS Kubernetes Benchmark. Инструмент официально поддерживает группы узлов Yandex Cloud.
+  1. [Starboard Operator](https://github.com/aquasecurity/starboard) — это бесплатный инструмент, который позволяет автоматизировать сканирование образов на уязвимости и проверку конфигурации на соответствие CIS Kubernetes Benchmark. Starboard Operator поддерживает интеграцию с kube-bench и используется для его автоматического запуска.
 
 {% endlist %}
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 7.6 Шифрование данных и управление секретами Managed Service for Kubernetes выполняются в формате ESO as a Service {#data-encryption}
 
@@ -6243,6 +6854,12 @@ Yandex Cloud позволяет клиентам выстроить соотве
   * The gator CLI
 
 * Инструмент [Kubesec](https://kubesec.io/).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 7.12 Настроен сбор аудитных логов для расследований инцидентов {#audit-logs}
 

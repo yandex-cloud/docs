@@ -82,7 +82,7 @@ Optional CIDR to preselect in subnet.
 > - version (string)\
 Version of Stackland to be used.
 > - license (string)\
-License to activate Stackland.
+License to activate Stackland. Supports raw json and encoded base64 formats.
 > - cluster-domain (string)\
 Base cluster DNS domain.
 > - bastion-spec (structure)\
@@ -277,6 +277,9 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

@@ -39,16 +39,16 @@ This guide uses a ready-made security profile template.
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the protected resources.
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+  1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
 
       {% include [pre-configured-profile](../../_includes/smartwebsecurity/pre-configured-profile.md) %}
-   
+
   1. Enter a name for the profile, e.g., `sources-manage`.
 
   1. Enable test mode for the `sp-rule-1` Smart Protection rule:
      1. For **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}**, select `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
-     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to `sp-rule-1` and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
+     1. Next to `sp-rule-1`, click ![image](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
      1. Enable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
      1. Click **{{ ui-key.yacloud.common.save-changes }}**.
 

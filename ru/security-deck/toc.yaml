@@ -50,6 +50,8 @@ items:
         items:
           - name: Обзор
             href: operations/kspm/index.md
+          - name: Системные и технические требования
+            href: operations/kspm/requirements.md
           - name: Активировать модуль {{ kspm-name }}
             href: operations/kspm/enable-kspm.md
           - name: Работать с дашбордом

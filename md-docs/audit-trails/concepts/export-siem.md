@@ -17,5 +17,6 @@
 * [ArcSight](../tutorials/export-logs-to-arcsight.md).
 * [Splunk](../tutorials/export-logs-to-splunk.md).
 * [MaxPatrol SIEM](../tutorials/maxpatrol/index.md).
+* [KUMA](../tutorials/audit-trails-events-to-kuma/index.md).
 
 Все решения обеспечивают непрерывную доставку файлов аудитных логов из бакетов в SIEM, а также содержат правила корреляции, дашборды и запросы для поиска важных событий безопасности. Команда Yandex Cloud поддерживает и регулярно обновляет все решения.

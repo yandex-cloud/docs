@@ -96,6 +96,11 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
 
 
+### {{ cloud-registry-full-name }} {#cloud-registry}
+
+{% include [cloud-registry-limits](../../_includes/cloud-registry/cloud-registry-limits.md) %}
+
+
 ### {{ cloud-router-full-name }} {#cloud-router}
 
 {% include [cloud-router-limits.md](../../_includes/cloud-router-limits.md) %}
@@ -389,19 +394,9 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [speechsense-limits.md](../../_includes/speechsense-limits.md) %}
 
 
-### {{ translate-full-name }} {#translate}
-
-{% include [translate-limits](../../_includes/translate-limits.md) %}
-
-
 ### {{ vpc-full-name }} {#vpc}
 
 {% include [vpc-limits.md](../../_includes/vpc-limits.md) %}
-
-
-### {{ vision-full-name }} {#vision}
-
-{% include [vision-limits](../../_includes/vision-limits.md) %}
 
 
 ### {{ websql-full-name }} {#websql}

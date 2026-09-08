@@ -802,6 +802,8 @@ items:
                     href: s3/api-ref/object/options.md
                   - name: SelectObjectContent
                     href: s3/api-ref/object/select.md
+                  - name: RestoreObject
+                    href: s3/api-ref/object/restore-object.md
                   - name: PutObjectRetention
                     href: s3/api-ref/object/putobjectretention.md
                   - name: PutObjectLegalHold

@@ -1,4 +1,5 @@
 ```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
 flowchart BT
     dspm.admin --> security-deck.admin
     dspm.editor --> dspm.admin

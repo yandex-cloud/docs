@@ -11,13 +11,13 @@ This document describes the lifecycle of major {{ MY }} versions in {{ mmy-full-
 
 In {{ mmy-name }}, each major {{ MY }} version has a lifecycle of 8–10 years comprising the following stages (statuses):
 
-| Version stage | Description and key [actions](#actions-available) | Approximate lifetime^1^                     |
-|:------|:-------------|:----------------------------|
-| Current (`Actual`) | The latest [LTS](https://en.wikipedia.org/wiki/Long-term_support) version with active support. **Recommended for all new projects**. | Years 1 through 5 |
-| Supported (`Supported`)  | Previous LTS version with Percona `Extended Support`. Fully supported; allows creating new clusters. | Years 6 through 8 |
-| Deprecated (`Deprecated`) | Version approaching the end of Percona `Extended Support`. Creating new clusters is blocked. The existing clusters operate normally. | Year 9 |
-| Legacy extra paid (`Legacy Extra Paid`)^2^ | Version that has no official support. Clusters operate normally, but are billed at an increased rate. Technical support is limited. | Year 10 |
-| End of life (`EOL`)^2^ | Discontinued version. No technical support is provided. Clusters operate normally, but are billed at an increased rate. | Year 11 onward |
+| Version stage | Description and key [actions](#actions-available) | Approximate lifetime^1^   | Current value                           |
+|:------|:-------------|:----------------------------|:-------------------------------------------|
+| Current (`Actual`) | The latest [LTS](https://en.wikipedia.org/wiki/Long-term_support) version with active support. **Recommended for all new projects**. | Years 1 through 5 | {{ mdb-versions.mysql-version.actual }}    |
+| `Supported`  | Previous LTS version with Percona `Extended Support`. Fully supported; allows creating new clusters. | Years 6 through 8 | {{ mdb-versions.mysql-version.supported }} |
+| `Deprecated` | Version approaching the end of Percona `Extended Support`. Creating new clusters is blocked. The existing clusters operate normally. | Year 9 | N/A    |
+| `Legacy Extra Paid`^2^ | Version that has no official support. Clusters operate normally, but are billed at an increased rate. Technical support is limited. | Year 10 | N/A   |
+| End of Life (`EOL`)^2^ | Discontinued version. No technical support is provided. Clusters operate normally, but are billed at an increased rate. | Year 11 onward | N/A   |
 
 ^1^ The periods are relative to the major version release date. The exact status change dates are officially announced by the service.
 ^2^ Yandex will [notify](#notifications) you in advance of the changes and the upcoming billing rate increase as per the Agreement.
@@ -26,7 +26,7 @@ In {{ mmy-name }}, each major {{ MY }} version has a lifecycle of 8–10 years c
 
 Depending on {{ MY }} version status, the following operations are available for clusters:
 
-| Action | Current (`Actual`) | Supported (`Supported`) | Deprecated (`Deprecated`) | Legacy (`Legacy`) | `EOL` |
+| Action | Current (`Actual`) | `Supported` | `Deprecated` | Legacy (`Legacy`) | `EOL` |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | Creating new clusters | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) |
 | Recovery from a backup | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) |
@@ -100,7 +100,7 @@ Before making a new version available to users, we check its compatibility with 
 
 The relevant status of major {{ MY }} versions by Percona is based on the [official Oracle {{ MY }} support schedule](https://www.mysql.com/support/eol-notice.html) and the [Percona Extended Support](https://www.percona.com/release-lifecycle-overview/#lifecycle) schedule.
 
-| Version^5^ | Current (`Actual`) | Supported (`Supported`) | Deprecated (`Deprecated`) | Legacy (`Legacy`) | `EOL` |
+| Version^5^ | Current (`Actual`) | `Supported` | `Deprecated` | Legacy (`Legacy`) | `EOL` |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **{{ MY }}&nbsp;8.4&nbsp;LTS** | 2024–2029 | 2029–2032 | 2033 | 2034 | 2035 |
 | **{{ MY }}&nbsp;8.0&nbsp;LTS** | 2018–2023 | 2023–2028 | 2029 | 2029 | 2030 |

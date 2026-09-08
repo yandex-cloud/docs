@@ -13,7 +13,7 @@ description: С помощью {{ cloud-shell-name }} вы можете поль
 
 1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-1. В [консоли управления]({{ link-console-main }}) на панели слева выберите ![Cloud Shell](../../_assets/console-icons/cloud-shell.svg) **{{ ui-key.yacloud.cloud-shell.label_service }}**.
+1. В [консоли управления]({{ link-console-main }}) на панели слева выберите ![{{ cloud-shell-name }}](../../_assets/console-icons/cloud-shell.svg) **{{ ui-key.yacloud.cloud-shell.label_service }}**.
 
     Откроется окно терминала — дождитесь, когда сессия запустится и будет создана среда разработки.
 
@@ -45,6 +45,24 @@ description: С помощью {{ cloud-shell-name }} вы можете поль
 
     {% endnote %}
 
+
+## Решение проблем {#troubleshooting}
+
+### Что делать, если при запуске терминала сессия не создается и загрузка не завершается? {#session-not-starting}
+
+Создайте новую сессию — для этого нажмите на кнопку ![plus-sign](../../_assets/console-icons/plus.svg). Если проблема повторяется, откройте консоль управления в режиме Инкогнито и запустите {{ cloud-shell-name }}.
+
+Если сессия по-прежнему не создается, запишите [HAR-файл](../../support/create-har.md) при воспроизведении проблемы. Начните запись до запуска терминала. Если в ответе сервера есть ошибка `No active billing accounts found`, проверьте [наличие активного платежного аккаунта и права доступа к нему](#no-active-billing-accounts). В остальных случаях создайте обращение и отправьте HAR-файл в [техническую поддержку]({{ link-console-support }}).
+
+### Что делать, если возникает ошибка `No active billing accounts found`? {#no-active-billing-accounts}
+
+Ошибка с кодом `403` может возникать, если нет активного платежного аккаунта или у пользователя нет прав на его просмотр.
+
+На странице [{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }}) проверьте наличие платежного аккаунта и его [статус](../../billing/concepts/billing-account-statuses.md). Для работы с {{ cloud-shell-name }} нужен аккаунт в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако, затем повторите попытку создания сессии.
+
+Если платежный аккаунт есть и активен, попросите его администратора [назначить](../../billing/security/index.md#set-role) вам роль `billing.accounts.viewer` непосредственно на платежный аккаунт и повторите попытку создания сессии.
+
+Не удаляйте автоматически назначенную роль `billing.accounts.member`: она нужна, чтобы платежный аккаунт отображался в списке доступных вам аккаунтов.
 
 ## Полезные ссылки {#see-also}
 

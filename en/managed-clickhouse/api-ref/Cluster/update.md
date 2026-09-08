@@ -604,15 +604,52 @@ apiPlayground:
               **enum** (Type)
               Required field. Layout type.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#ways-to-store-dictionaries-in-memory).
-              - `CLICKHOUSE`: ClickHouse host.
-              - `ZOOKEEPER`: ZooKeeper host.
-              - `KEEPER`: ClickHouse Keeper host.
+              - `FLAT`: The dictionary is completely stored in memory in the form of flat arrays.
+              Applicable only for dictionaries with numeric keys of the UInt64 type.
+              - `HASHED`: The dictionary is completely stored in memory in the form of a hash table.
+              Applicable only for dictionaries with numeric keys of the UInt64 type.
+              - `COMPLEX_KEY_HASHED`: The dictionary is completely stored in memory in the form of a hash table.
+              Applicable for dictionaries with composite keys of arbitrary type.
+              - `RANGE_HASHED`: The dictionary is stored in memory in the form of a hash table with an ordered array of ranges and their corresponding values.
+              Applicable only for dictionaries with numeric keys of the UInt64 type.
+              - `CACHE`: The dictionary is stored in a cache that has a fixed number of cells. These cells contain frequently used elements.
+              Applicable only for dictionaries with numeric keys of the UInt64 type.
+              - `COMPLEX_KEY_CACHE`: The dictionary is stored in a cache that has a fixed number of cells. These cells contain frequently used elements.
+              Applicable for dictionaries with composite keys of arbitrary type.
+              - `SPARSE_HASHED`: The dictionary is completely stored in memory in the form of a hash table.
+              It's similar to HASHED layout type but uses less memory in favor of more CPU usage.
+              Applicable only for dictionaries with numeric keys of the UInt64 type.
+              - `COMPLEX_KEY_SPARSE_HASHED`: The dictionary is completely stored in memory in the form of a hash table.
+              It's similar to COMPLEX_KEY_HASHED layout type but uses less memory in favor of more CPU usage.
+              Applicable for dictionaries with composite keys of arbitrary type.
+              - `COMPLEX_KEY_RANGE_HASHED`: The dictionary is stored in memory in the form of a hash table with an ordered array of ranges and their corresponding values.
+              Applicable for dictionaries with composite keys of arbitrary type.
+              - `DIRECT`: The dictionary is not stored in memory and directly goes to the source during the processing of a request.
+              Applicable only for dictionaries with numeric keys of the UInt64 type.
+              - `COMPLEX_KEY_DIRECT`: The dictionary is not stored in memory and directly goes to the source during the processing of a request.
+              Applicable for dictionaries with composite keys of arbitrary type.
+              - `IP_TRIE`: The specialized layout type for mapping network prefixes (IP addresses) to metadata such as ASN.
+              - `SSD_CACHE`: Similar to cache, but stores data on SSD and index in RAM.
+              Applicable only for dictionaries with numeric keys of the UInt64 type.
+              - `COMPLEX_KEY_SSD_CACHE`: Similar to complex_key_cache, but stores data on SSD and index in RAM.
+              Applicable for dictionaries with composite keys of arbitrary type.
             type: string
             enum:
               - TYPE_UNSPECIFIED
-              - CLICKHOUSE
-              - ZOOKEEPER
-              - KEEPER
+              - FLAT
+              - HASHED
+              - COMPLEX_KEY_HASHED
+              - RANGE_HASHED
+              - CACHE
+              - COMPLEX_KEY_CACHE
+              - SPARSE_HASHED
+              - COMPLEX_KEY_SPARSE_HASHED
+              - COMPLEX_KEY_RANGE_HASHED
+              - DIRECT
+              - COMPLEX_KEY_DIRECT
+              - IP_TRIE
+              - SSD_CACHE
+              - COMPLEX_KEY_SSD_CACHE
           sizeInCells:
             description: |-
               **string** (int64)
@@ -790,36 +827,37 @@ apiPlayground:
           host:
             description: |-
               **string**
-              Name (FQDN) or IP address of the external replica host.
-            type: string
-          port:
-            description: |-
-              **string** (int64)
-              Port to connect to the external replica. If not specified, the default ClickHouse port is used.
-            type: string
-            format: int64
-          secure:
-            description: |-
-              **boolean**
-              Whether to use a secure (SSL/TLS) connection when connecting to the external replica.
-            type: boolean
-          user:
-            description: |-
-              **string**
-              Name of the user to authenticate with on the external replica.
-            type: string
-          password:
-            description: |-
-              **string**
-              Password of the user to authenticate with on the external replica.
+              Required field. MySQL host of the replica.
+              The maximum string length in characters is 253.
             type: string
           priority:
             description: |-
               **string** (int64)
-              Priority of the external replica for load balancing.
-              The replica with the lowest priority value is preferred when establishing a connection.
+              The priority of the replica that ClickHouse takes into account when connecting.
+              Replica with the highest priority should have this field set to the lowest number.
             type: string
             format: int64
+          port:
+            description: |-
+              **string** (int64)
+              Port to use when connecting to the replica.
+              If a port is not specified for a replica, ClickHouse uses the port specified for the source.
+            type: string
+            format: int64
+          user:
+            description: |-
+              **string**
+              Name of the MySQL database user.
+              If a user is not specified for a replica, ClickHouse uses the user specified for the source.
+            type: string
+          password:
+            description: |-
+              **string**
+              Password of the MySQL database user.
+              If a password is not specified for a replica, ClickHouse uses the password specified for the source.
+            type: string
+        required:
+          - host
       MysqlSource:
         type: object
         properties:
@@ -851,7 +889,7 @@ apiPlayground:
             type: string
           replicas:
             description: |-
-              **[Replica](/docs/managed-clickhouse/api-ref/Cluster/getShardGroup#yandex.cloud.mdb.clickhouse.v1.ExternalShard.Replica)**
+              **[Replica](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource.Replica)**
               List of MySQL replicas of the database used as dictionary source.
             type: array
             items:

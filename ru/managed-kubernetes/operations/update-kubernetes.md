@@ -61,6 +61,8 @@
 
 Выберите режим автоматического обновления кластера {{ managed-k8s-name }} и задайте нужный график обновления:
 
+{% include [kz-auto-upgrade-warning](../../_includes/managed-kubernetes/kz-auto-upgrade-warning.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

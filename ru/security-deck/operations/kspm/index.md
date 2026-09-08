@@ -5,6 +5,7 @@ description: В этом разделе собраны пошаговые инс
 
 # Контроль {{ k8s }}® ({{ kspm-name }})
 
+* [{#T}](requirements.md).
 * [{#T}](enable-kspm.md).
 * [{#T}](use-kspm.md).
 * [{#T}](view-rules.md).

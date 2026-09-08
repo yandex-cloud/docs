@@ -18,12 +18,12 @@ This document describes the lifecycle of major {{ SD }} versions.
 
 In {{ SD }}, each major version has a lifecycle of **about five years** comprising the following stages (statuses):
 
-| Version stage | Description and key [actions](#actions-available) | Approximate lifetime^1^                     |
-|:------|:-------------|:----------------------------|
-| `Supported`  | Version with active support. **Recommended for all new projects**. | Years 1 through 4 |
-| `Deprecated` | Version approaching its end-of-life. Creating new clusters is blocked. The existing clusters operate normally. | Year 5 |
-| `Legacy Extra Paid`^2^ | Version that has no official support. Clusters operate normally, but are billed at an increased rate. Technical support is limited. The service creates a forced cluster upgrade task. The customer can cancel it by [contacting]({{ link-console-support }}) support. | Year 6 |
-| End of Life (`EOL`)^2^ | Discontinued version. No technical support is provided. Backup recovery is not guaranteed. Clusters operate normally, but are billed at an increased rate. | Year 7 onward |
+| Version stage | Description and key [actions](#actions-available) | Approximate lifetime^1^                     | Current version                                |
+|:------|:-------------|:----------------------------|:----------------------------------------------|
+| `Supported`  | Version with active support. **Recommended for all new projects. | Years 1 through 4 | {{ mdb-versions.storedoc-version.supported }} |
+| `Deprecated` | Version approaching its end-of-life. Creating new clusters is blocked. The existing clusters operate normally. | Year 5 | N/A|
+| `Legacy Extra Paid`^2^ | Version that has no official support. Clusters operate normally, but are billed at an increased rate. Technical support is limited. The service creates a forced cluster upgrade task. The customer can cancel it by [contacting]({{ link-console-support }}) support. | Year 6 | N/A|
+| End of Life (`EOL`)^2^ | Discontinued version. No technical support is provided. Backup recovery is not guaranteed. Clusters operate normally, but are billed at an increased rate. | Year 7 onward |N/A|
 
 ^1^ The periods are relative to the major version release date. The exact status change dates are officially announced by the service.
 ^2^ Yandex will [notify](#notifications) you in advance of the changes and the upcoming billing rate increase as per the Agreement.
@@ -33,7 +33,7 @@ In {{ SD }}, each major version has a lifecycle of **about five years** comprisi
 
 Depending on {{ SD }} version status, the following operations are available for clusters:
 
-| Action | `Supported` | `Deprecated` | Legacy extra paid (`Legacy Extra Paid`) | End of Life (`EOL`) |
+| Action | `Supported` | `Deprecated` | `Legacy Extra Paid` | End of Life (`EOL`) |
 | :--- | :---: | :---: | :---: | :---: |
 | Creating new clusters | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) |
 | Recovery from a backup | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)</br>(Not guaranteed) |
@@ -120,7 +120,7 @@ Security updates (low severity) | 28 days | 120 days
 
 ## Versioning schedule {#version-schedule}
 
-Version^5^ | `Supported` | `Deprecated` | Legacy extra paid (`Legacy Extra Paid`) | End of Life (`EOL`)
+Version^5^ | `Supported` | `Deprecated` | `Legacy Extra Paid` | End of Life (`EOL`)
 --- | --- | --- | --- | ---
 `8.0` | 2024–2028 | 2029 | 2030 | 2031+
 `7.0` | 2023–2027 | 2028 | 2029 | 2030+

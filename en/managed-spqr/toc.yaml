@@ -11,16 +11,16 @@ items:
         href: operations/cluster-list.md
       - name: Creating a cluster
         href: operations/cluster-create.md
-      - name: Connecting to a database
-        href: operations/connect.md
-      - name: Managing cluster access
-        href: operations/cluster-access.md
       - name: Updating a cluster
         href: operations/cluster-update.md
       - name: Managing cluster hosts
         href: operations/cluster-hosts.md
       - name: Managing shards
         href: operations/shards.md
+      - name: Connecting to a database
+        href: operations/connect.md
+      - name: Managing cluster access
+        href: operations/cluster-access.md
       - name: Managing backups
         href: operations/cluster-backups.md
       - name: Maintenance
@@ -29,12 +29,12 @@ items:
         href: operations/cluster-logs.md
       - name: Cluster and host state monitoring
         href: operations/monitoring.md
-      - name: Deleting a cluster
-        href: operations/cluster-delete.md
-      - name: Managing users
+      - name: User management
         href: operations/cluster-users.md
       - name: Managing databases
         href: operations/databases.md
+      - name: Deleting a cluster
+        href: operations/cluster-delete.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -59,6 +59,8 @@ items:
         href: concepts/update-policy.md
   - name: Access management
     href: security.md
+  - name: Inspections and recommendations
+    href: advisor.md
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
@@ -523,7 +525,7 @@ items:
                 href: api-ref/User/update.md
               - name: Delete
                 href: api-ref/User/delete.md
-  - name: Metrics {{ monitoring-name }}
+  - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md

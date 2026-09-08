@@ -16,7 +16,7 @@ To migrate a service from a network load balancer to an L7 load balancer:
 
 ## Create the infrastructure {#before-you-begin}
 
-1. [Create subnets](../../vpc/operations/subnet-create.md) in three availability zones for the L7 load balancer.
+1. [Create subnets](../../vpc/operations/subnet-create.md) in three [availability zones](../../overview/concepts/geo-scope.md) for the L7 load balancer.
 
 1. Create [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) that allow the L7 load balancer to receive inbound traffic and send it to the targets and allow the targets to receive inbound traffic from the load balancer.
 
@@ -75,7 +75,7 @@ To migrate a service from a network load balancer to an L7 load balancer:
 
             * **{{ ui-key.yacloud.alb.label_port }}**: TCP port on which your service's VMs accept inbound traffic.
             * **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_address-list }}`. Select a public IP address from the list. If you plan to enable DDoS protection at levels L3-L4, select a static public IP address with DDoS protection installed.
-        1. Under **{{ ui-key.yacloud.alb.section_common-address-specs }}**, specify:
+        1. Under **{{ ui-key.yacloud.alb.section_common-address-specs }}**, specify the following:
 
             * **{{ ui-key.yacloud.alb.label_listener-type }}**: `{{ ui-key.yacloud.alb.label_listener-type-http }}`.
             * **{{ ui-key.yacloud.alb.label_protocol-type }}**: Select `{{ ui-key.yacloud.alb.label_proto-http-plain }}` or `{{ ui-key.yacloud.alb.label_proto-http-tls }}` depending on the protocol your service uses.
@@ -86,7 +86,7 @@ To migrate a service from a network load balancer to an L7 load balancer:
 
 1. Wait until the L7 load balancer goes `Active`.
 
-1. Navigate to the new L7 load balancer and select **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left. Make sure you get `HEALTHY` for all checks.
+1. Navigate to the new L7 load balancer and open the **{{ ui-key.yacloud.alb.label_healthchecks }}** tab. Make sure you get `HEALTHY` for all checks.
 
 1. {% include [test](../_tutorials_includes/migration-from-nlb-to-alb/test.md) %}
 

@@ -7,6 +7,48 @@ description: Версионирование Public API в {{ datalens-full-name 
 В этом разделе собрана история изменений {{ datalens-name }} Public API. Подробнее про версионирование в [документации](../operations/api-versioning.md).
 
 
+## Версия 3 {#version-3}
+
+
+### 08.09.2026 — переход на версию 3 {#08092026}
+
+
+1. Изменили схему аргументов/ответа методов для работы с чартами в визарде:
+
+   * [getWizardChart]({{ api-host-datalens }}/#/HtmlPages/post_rpc_getWizardChart)
+   * [createWizardChart]({{ api-host-datalens }}/#/HtmlPages/post_rpc_createWizardChart)
+   * [updateWizardChart]({{ api-host-datalens }}/#/HtmlPages/post_rpc_updateWizardChart)
+   
+1. Изменили методы для работы с дашбордами и отчетами:
+
+   * Добавили v2-версии методов получения, создания и обновления дашбордов и отчетов:
+     
+     * [getDashboardV2]({{ api-host-datalens }}/#/HtmlPages/post_rpc_getDashboardV2)
+     * [createDashboardV2]({{ api-host-datalens }}/#/HtmlPages/post_rpc_createDashboardV2)
+     * [updateDashboardV2]({{ api-host-datalens }}/#/HtmlPages/post_rpc_updateDashboardV2)
+     * [getPresentationV2]({{ api-host-datalens }}/#/HtmlPages/post_rpc_getPresentationV2)
+     * [createPresentationV2]({{ api-host-datalens }}/#/HtmlPages/post_rpc_createPresentationV2)
+     * [updatePresentationV2]({{ api-host-datalens }}/#/HtmlPages/post_rpc_updatePresentationV2)
+     
+   * Из схем удалили поля:
+     
+     * `schemeVersion` — служебное поле версии у дашбордов;
+     * `data.version` — служебное поле версии у отчетов;
+     * `data.description` — вместо этого поля теперь используется `annotation.description`;
+     * `background` — устаревшее поле оформления;
+     * `textColor` — устаревшее поле оформления;
+     * `widgetTabId` — устаревшее поле инсайта на дашборде.
+
+   * Для dataset-селекторов `fieldType` теперь принимает только значения из перечисления типов данных датасета, например `string`, `integer`, `date` и `genericdatetime`. Для manual-селекторов поле `fieldType` сохраняется только у селекторов даты.
+   * Добавили условие, при котором у дашбордов обязателен хотя бы один таб в `data.tabs`.
+
+1. Миграции (при получении через метод [getDashboardV2]({{ api-host-datalens }}/#/HtmlPages/post_rpc_getDashboardV2) или при сохранении в интерфейсе сущности v1):
+
+   * Описание дашборда переносится из `data.description` в `annotation.description`.
+   * Цвета фона всех виджетов переносятся из устаревшего `background` в `backgroundSettings.color: {light, dark}`, а цвет текста заголовка — из `textColor` в `textSettings.color: {light, dark}`. Конечный формат цвета — `HEX`.
+   *  При отсутствии существующего актуального `widgetTabIds` при миграции `widgetTabId` перенесется в формате массива с одним элементом `widgetTabIds`.
+
+
 ## Версия 2 {#version-2}
 
 

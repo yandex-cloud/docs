@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Безопасность в Yandex Cloud](../index.md) > [Стандарт по защите облачной инфраструктуры, версия 1.4.2](index.md) > Защита приложений
+[Документация Yandex Cloud](../../index.md) > [Безопасность в Yandex Cloud](../index.md) > [Стандарт по защите облачной инфраструктуры, версия 1.4.3](index.md) > Защита приложений
 
 # Требования к защите приложений
 
@@ -27,6 +27,12 @@
 **Инструкции и решения по выполнению:**
 
 [Инструкция по созданию капчи в Yandex SmartCaptcha](../../smartcaptcha/operations/create-captcha.md).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 ### Построение безопасного пайплайна {#pipeline-recommendations}
 
@@ -100,6 +106,12 @@ Yandex Cloud позволяет клиентам выстроить соотве
 
 [Инструкция по сканированию Docker-образа при загрузке](../../container-registry/operations/scanning-docker-image.md#automatically).
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 6.4 Выполняется периодическое сканирование Docker-образов, хранящихся в Container Registry {#periodic-scan}
 
 Сканирование Docker-образов по расписанию представляет собой автоматизированный процесс проверки контейнерных образов на наличие уязвимостей и соответствие стандартам безопасности. Такое сканирование выполняется регулярно и автоматически, что обеспечивает консистентность проверки образов на наличие уязвимостей. Это позволяет поддерживать высокий уровень безопасности в долгосрочной перспективе. После завершения сканирования отчеты содержат краткое описание обнаруженных уязвимостей и проблем, помогая определять приоритеты и устранять риски безопасности в контейнерных приложениях.
@@ -125,6 +137,12 @@ Yandex Cloud позволяет клиентам выстроить соотве
 **Инструкции и решения по выполнению:**
 
 [Инструкция по сканированию Docker-образа по расписанию](../../container-registry/operations/scanning-docker-image.md#scheduled).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 6.5 Контейнерные образы, используемые в продакшн-среде, имеют последнюю дату сканирования не позднее недели {#last-scan-date}
 
@@ -155,6 +173,12 @@ Yandex Cloud позволяет клиентам выстроить соотве
   ```
 
 {% endlist %}
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 6.6 При сборке артефактов применяются аттестации {#provenance-attestation}
 
@@ -270,6 +294,12 @@ Yandex Cloud позволяет клиентам выстроить соотве
 
 [Создание профиля безопасности и подключение его к виртуальному хосту L7-балансировщика](../../smartwebsecurity/quickstart.md).
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 6.11 Используется Web Application Firewall {#use-waf}
 
 Для снижения рисков, связанных с веб-атаками, рекомендуем использовать Yandex Smart Web Security [Web Application Firewall (WAF)](../../glossary/waf.md). Web Application Firewall анализирует входящие HTTP-запросы к веб-приложению по предварительно настроенным правилам. На основе результатов анализа к HTTP-запросам применяются определенные [действия](../../smartwebsecurity/concepts/rules.md#rule-action).
@@ -294,6 +324,12 @@ Yandex Cloud позволяет клиентам выстроить соотве
 
 [Создание профиля WAF и подключение его к профилю безопасности Smart Web Security](../../smartwebsecurity/quickstart.md#waf).
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 6.12 Используется Advanced Rate Limiter {#use-arl}
 
 [Advanced Rate Limiter (ARL)](../../smartwebsecurity/concepts/arl.md) — модуль Yandex Smart Web Security для контроля и ограничения нагрузки на веб-приложения. Модуль позволяет установить лимит на количество HTTP-запросов за определенный промежуток времени. Все запросы сверх лимита будут блокироваться. Можно установить как единый лимит на весь трафик, так и настраивать отдельные лимиты для сегментирования запросов по определенным параметрам. Запросы для лимитов можно считать по одному или объединять в группы по заданному признаку.
@@ -317,6 +353,12 @@ Yandex Cloud позволяет клиентам выстроить соотве
 **Инструкции и решения по выполнению:**
 
 [Создание профиля ARL и подключение его к профилю безопасности Smart Web Security](../../smartwebsecurity/quickstart.md#arl).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 6.13 Настроены правила ревью кода {#setup-code-review}
 

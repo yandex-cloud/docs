@@ -14,6 +14,12 @@
 
       {% include [group-name-format](group-name-format.md) %}
 
+  1. Update the [labels](../../resource-manager/concepts/labels.md):
+
+     1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+     1. Add a label in `key: value` format.
+     1. Press **Enter**.
+
   1. Click **{{ ui-key.yacloud_org.actions.save-changes }}**.
 
 - CLI {#cli}
@@ -35,7 +41,8 @@
         --name <group_name> \
         --new-name <new_group_name> \
         --organization-id <organization_ID> \
-        --description <group_description>
+        --description <group_description> \
+        --labels <key>=<value>
       ```
 
       Where:
@@ -45,8 +52,9 @@
         {% include [group-name-format](group-name-format.md) %}
 
       * `--new-name`: New name for the user group.
-      * `--organization-id`: [Organization ID](../../organization/operations/organization-get-id.md). This is an optional setting.
-      * `--description`: Text description of the user group. This is an optional setting.
+      * `--organization-id`: [Organization ID](../../organization/operations/organization-get-id.md).
+      * `--description`: Text description of the user group.
+      * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) in `<key>=<value>` format. You can specify one or multiple labels separated by commas.
 
 - {{ TF }} {#tf}
 

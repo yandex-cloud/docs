@@ -64,7 +64,7 @@
 
 ## Инструменты DevOps {#dev-tools}
 
-* [SourceCraft](https://sourcecraft.dev/portal/docs/ru/release-notes)
+* [SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/release-notes)
 * [SourceCraft Code Assistant](https://sourcecraft.dev/portal/docs/ru/code-assistant/release-notes)
 * [Yandex Cloud Logging](../logging/release-notes.md)
 * [Yandex Managed Service for GitLab](../managed-gitlab/release-notes.md)

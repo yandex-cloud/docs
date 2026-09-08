@@ -1158,6 +1158,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list-stackland-cluster-operations](cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list-stackland-cluster-operations.md)
 
+ - [list-stackland-versions](cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list-stackland-versions.md)
+
  - [update](cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/update.md)
 
 ##### hardware-pool
@@ -1844,6 +1846,12 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [start-folder](cli-ref/cloud-registry/cli-ref/migration/start-folder.md)
 
+ - [toggle-cloud-redirects](cli-ref/cloud-registry/cli-ref/migration/toggle-cloud-redirects.md)
+
+ - [toggle-folder-redirects](cli-ref/cloud-registry/cli-ref/migration/toggle-folder-redirects.md)
+
+ - [toggle-registry-redirects](cli-ref/cloud-registry/cli-ref/migration/toggle-registry-redirects.md)
+
 #### registry
 
  - [Overview](cli-ref/cloud-registry/cli-ref/registry/index.md)
@@ -2097,6 +2105,12 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [start-cloud](cli-ref/cloud-registry/cli-ref/v1/migration/start-cloud.md)
 
  - [start-folder](cli-ref/cloud-registry/cli-ref/v1/migration/start-folder.md)
+
+ - [toggle-cloud-redirects](cli-ref/cloud-registry/cli-ref/v1/migration/toggle-cloud-redirects.md)
+
+ - [toggle-folder-redirects](cli-ref/cloud-registry/cli-ref/v1/migration/toggle-folder-redirects.md)
+
+ - [toggle-registry-redirects](cli-ref/cloud-registry/cli-ref/v1/migration/toggle-registry-redirects.md)
 
 ##### registry
 
@@ -4514,6 +4528,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/iam/cli-ref/service-control/list.md)
 
+#### subject-details
+
+ - [Overview](cli-ref/iam/cli-ref/subject-details/index.md)
+
+ - [batch-get](cli-ref/iam/cli-ref/subject-details/batch-get.md)
+
+ - [get](cli-ref/iam/cli-ref/subject-details/get.md)
+
+ - [list](cli-ref/iam/cli-ref/subject-details/list.md)
+
 #### user-account
 
  - [Overview](cli-ref/iam/cli-ref/user-account/index.md)
@@ -4671,6 +4695,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [get](cli-ref/iam/cli-ref/v0/service-control/get.md)
 
  - [list](cli-ref/iam/cli-ref/v0/service-control/list.md)
+
+##### subject-details
+
+ - [Overview](cli-ref/iam/cli-ref/v0/subject-details/index.md)
+
+ - [batch-get](cli-ref/iam/cli-ref/v0/subject-details/batch-get.md)
+
+ - [get](cli-ref/iam/cli-ref/v0/subject-details/get.md)
+
+ - [list](cli-ref/iam/cli-ref/v0/subject-details/list.md)
 
 ##### user-account
 

@@ -756,6 +756,8 @@
 
  - [SelectObjectContent](s3/api-ref/object/select.md)
 
+ - [RestoreObject](s3/api-ref/object/restore-object.md)
+
  - [PutObjectRetention](s3/api-ref/object/putobjectretention.md)
 
  - [PutObjectLegalHold](s3/api-ref/object/putobjectlegalhold.md)

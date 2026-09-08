@@ -1116,7 +1116,7 @@ The minimum value is 0. ||
 Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_%-]{0,128} `. ||
 || databases | **string** (int64)
 
-Value must be greater than 0. ||
+Acceptable values are 1 to 2147483647, inclusive. ||
 || slowlogLogSlowerThan | **string** (int64)
 
 The minimum value is 10. ||

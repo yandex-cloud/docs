@@ -9,6 +9,7 @@
 || [DeleteObjects](../../../storage/s3/api-ref/object/deletemultipleobjects.md) | Удаляет объекты по списку. ||
 || [options](../../../storage/s3/api-ref/object/options.md) | Проверяет возможность [CORS-запроса](../../../storage/concepts/cors.md) к объекту. ||
 || [SelectObjectContent](../../../storage/s3/api-ref/object/select.md) | Фильтрует и возвращает содержимое объекта на основе SQL-запроса. ||
+|| [RestoreObject](../../../storage/s3/api-ref/object/restore-object.md) | Регистрирует обращение к объекту в умном хранилище. ||
 || [PutObjectTagging](../../../storage/s3/api-ref/object/putobjecttagging.md) | Добавляет [метки](../../../storage/concepts/tags.md) объекту. ||
 || [GetObjectTagging](../../../storage/s3/api-ref/object/getobjecttagging.md) | Возвращает метки объекта. ||
 || [DeleteObjectTagging](../../../storage/s3/api-ref/object/deleteobjecttagging.md) | Удаляет метки объекта. ||
