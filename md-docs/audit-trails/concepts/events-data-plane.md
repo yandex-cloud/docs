@@ -12,6 +12,12 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 Подробная JSON-структура записи события приведена в справочнике аудитных логов. События в нем отсортированы по алфавиту без разделения на уровни и содержат все возможные поля. В реальных логах набор полей зависит от параметров события и конкретного объекта.
 
+{% note info %}
+
+В справочнике перечислены события, которые поддерживает Audit Trails. За их отправку отвечает сервис-источник. Недавно добавленные в Audit Trails события могут не поступать, если сервис-источник еще не поддерживает их отправку или необходимые ресурсы пока не созданы.
+
+{% endnote %}
+
 Ниже описаны события для сервисов:
 
 * [Yandex Application Load Balancer](events-data-plane.md#alb)
@@ -43,7 +49,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 * [Yandex Smart Web Security](events-data-plane.md#sws)
 * [Yandex Translate](events-data-plane.md#translate)
 * [Yandex Virtual Private Cloud](events-data-plane.md#vpc)
-* [Yandex Vision OCR](events-data-plane.md#vision)
 * [Яндекс Вики](events-data-plane.md#wiki)
 * [Yandex WebSQL](events-data-plane.md#websql)
 * [Yandex Workflows](events-data-plane.md#workflows)
@@ -509,14 +514,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteIpfix` | Удаление записи о сетевой трансляции адреса (NAT)
 `ExternalFlow` | Поток трафика во внешние сети по отношению к VPC
 
-## Yandex Vision OCR {#vision}
-
-Имя сервиса — `ai.ocr`.
-
-Имя события | Описание
---- | ---
-`RecognizeText` | Запрос на распознавание текста
-`GetRecognition` | Запрос на получение распознанного результата
 
 ## Яндекс Вики {#wiki}
 

@@ -1,12 +1,14 @@
 ```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
 flowchart BT
     cspm.admin --> security-deck.admin
-    cspm.editor --> security-deck.editor
     cspm.editor --> cspm.admin
-    cspm.viewer --> security-deck.viewer
     cspm.viewer --> cspm.editor
-    cspm.auditor --> security-deck.auditor
     cspm.auditor --> cspm.viewer
+
+    cspm.editor --> security-deck.editor
+    cspm.viewer --> security-deck.viewer
+    cspm.auditor --> security-deck.auditor
     cspm.worker --> security-deck.worker
 
     security-deck.auditor --> security-deck.viewer

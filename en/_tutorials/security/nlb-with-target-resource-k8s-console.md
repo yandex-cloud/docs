@@ -16,7 +16,7 @@ To migrate a service from a network load balancer to an L7 load balancer:
 
 ## Create the infrastructure {#before-you-begin}
 
-1. [Create subnets](../../vpc/operations/subnet-create.md) in three availability zones for the L7 load balancer.
+1. [Create subnets](../../vpc/operations/subnet-create.md) in three [availability zones](../../overview/concepts/geo-scope.md) for the L7 load balancer.
 
 1. Create [security groups](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) that allow the L7 load balancer to receive inbound traffic and send it to the targets and allow the targets to receive inbound traffic from the load balancer.
 

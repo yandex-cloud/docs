@@ -840,7 +840,7 @@ Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_%-]{0,128} `.
 
 Number of database buckets on a single redis-server process.
 
-Value must be greater than 0. ||
+Acceptable values are 1 to 2147483647, inclusive. ||
 || slowlogLogSlowerThan | **string** (int64)
 
 Threshold for logging slow requests to server in microseconds (log only slower than it).
@@ -1202,7 +1202,7 @@ Command categories user has permissions to. ||
 Commands user can execute. ||
 || sanitizePayload | **string**
 
-SanitizePayload parameter. ||
+Deprecated. This parameter is ignored. ||
 || databases | **string**
 
 Databases parameter. ||

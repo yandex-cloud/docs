@@ -50,6 +50,8 @@
 
  - [Обзор](operations/kspm/index.md)
 
+ - [Системные и технические требования](operations/kspm/requirements.md)
+
  - [Активировать модуль KSPM](operations/kspm/enable-kspm.md)
 
  - [Работать с дашбордом](operations/kspm/use-kspm.md)

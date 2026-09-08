@@ -37,9 +37,9 @@ _x-dl-api-version_{.json-schema-reset .json-schema-property .json-schema-require
 
 API version header.
 
-_Const:_{.json-schema-reset .json-schema-value} `2`
+_Const:_{.json-schema-reset .json-schema-value} `3`
 
-_Example:_{.json-schema-reset .json-schema-example} `2`
+_Example:_{.json-schema-reset .json-schema-example} `3`
 {.table-cell}
 ||
 ||
@@ -920,7 +920,12 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
     "entryId": "example",
     "entity": "entry",
     "displayKey": "example",
+    "createdBy": "example",
+    "createdAt": "example",
     "title": "example",
+    "meta": {
+      "mode": "example"
+    },
     "permissions": {
       "listAccessBindings": true,
       "updateAccessBindings": true,
@@ -1026,6 +1031,28 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
+_createdAt_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+Creation timestamp.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_createdBy_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+ID of the user who created the entry.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
 _displayKey_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
@@ -1123,6 +1150,25 @@ _workbookId_{.json-schema-reset .json-schema-property .json-schema-required}
 ID of the workbook the entry belongs to.
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_meta_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: object &#124; null
+
+Entry metadata.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{
+  "mode": "example"
+}
+```
+
+{% endcut %}
 {.table-cell}
 ||
 ||
@@ -1263,7 +1309,12 @@ Permissions for the entry.
   "entryId": "example",
   "entity": "entry",
   "displayKey": "example",
+  "createdBy": "example",
+  "createdAt": "example",
   "title": "example",
+  "meta": {
+    "mode": "example"
+  },
   "permissions": {
     "listAccessBindings": true,
     "updateAccessBindings": true,

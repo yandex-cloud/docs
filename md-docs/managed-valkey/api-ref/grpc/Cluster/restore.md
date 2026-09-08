@@ -809,7 +809,7 @@ Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_%-]{0,128} `.
 
 Number of database buckets on a single redis-server process.
 
-Value must be greater than 0. ||
+Acceptable values are 1 to 2147483647, inclusive. ||
 || slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Threshold for logging slow requests to server in microseconds (log only slower than it).
@@ -1178,7 +1178,7 @@ Command categories user has permissions to. ||
 Commands user can execute. ||
 || sanitize_payload | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
-SanitizePayload parameter. ||
+Deprecated. This parameter is ignored. ||
 || databases | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 Databases parameter. ||

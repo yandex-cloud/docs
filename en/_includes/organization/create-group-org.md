@@ -16,6 +16,12 @@ To create a [group](../../organization/concepts/groups.md), you need _at least_ 
 
       {% include [group-name-format](group-name-format.md) %}
 
+  1. Optionally, add [labels](../../resource-manager/concepts/labels.md):
+
+     1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+     1. Add a label in `key: value` format.
+     1. Press **Enter**.
+
   1. Click **{{ ui-key.yacloud_org.groups.action_create-group }}**.
 
 - CLI {#cli}
@@ -36,7 +42,8 @@ To create a [group](../../organization/concepts/groups.md), you need _at least_ 
       yc organization-manager group create \
         --name <group_name> \
         --organization-id <organization_ID> \
-        --description <group_description>
+        --description <group_description> \
+        --labels <key>=<value>
       ```
 
       Where:
@@ -47,6 +54,7 @@ To create a [group](../../organization/concepts/groups.md), you need _at least_ 
 
       * `--organization-id`: [Organization ID](../../organization/operations/organization-get-id.md). This is an optional setting.
       * `--description`: Text description of the user group. This is an optional setting.
+      * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) in `<key>=<value>` format. You can specify one or multiple labels separated by commas. This is an optional setting.
 
 - {{ TF }} {#tf}
 

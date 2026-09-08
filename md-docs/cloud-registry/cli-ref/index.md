@@ -52,6 +52,12 @@ Aliases:
 
   - [yc cloud-registry migration start-folder](migration/start-folder.md) — Starts migration for all registries in the specified folder.
 
+  - [yc cloud-registry migration toggle-cloud-redirects](migration/toggle-cloud-redirects.md) — Toggles whether redirects are allowed for all registries in the specified cloud.
+
+  - [yc cloud-registry migration toggle-folder-redirects](migration/toggle-folder-redirects.md) — Toggles whether redirects are allowed for all registries in the specified folder.
+
+  - [yc cloud-registry migration toggle-registry-redirects](migration/toggle-registry-redirects.md) — Toggles whether redirects are allowed for the specified registry.
+
 - [yc cloud-registry registry](registry/index.md) — A set of methods for managing Registry resources.
 
   - [yc cloud-registry registry add-access-binding](registry/add-access-binding.md) — Add access binding for the specified registry.
@@ -106,6 +112,15 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

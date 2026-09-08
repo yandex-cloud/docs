@@ -72,6 +72,7 @@
 * [Yandex Managed Service for GitLab](../managed-gitlab/qa/index.md)
 * [Yandex Managed Service for Kubernetes®](../managed-kubernetes/qa/all.md)
 * [Yandex Monitoring](../monitoring/qa/all.md)
+* [Yandex Monium](../monium/qa/general.md)
 
 
 ### Бессерверные вычисления {#serverless}

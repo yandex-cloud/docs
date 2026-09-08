@@ -766,6 +766,9 @@ items:
                           - name: list-stackland-cluster-operations
                             href: >-
                               cli-ref/v2/extend/stackland-cluster/list-stackland-cluster-operations.md
+                          - name: list-stackland-versions
+                            href: >-
+                              cli-ref/v2/extend/stackland-cluster/list-stackland-versions.md
                           - name: update
                             href: cli-ref/v2/extend/stackland-cluster/update.md
                   - name: hardware-pool

@@ -75,6 +75,7 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ mgl-full-name }}](../managed-gitlab/qa/index.md)
 * [{{ managed-k8s-full-name }}®](../managed-kubernetes/qa/all.md)
 * [{{ monitoring-full-name }}](../monitoring/qa/all.md)
+* [{{ monium-full-name }}](../monium/qa/general.md)
 
 
 ### Бессерверные вычисления {#serverless}

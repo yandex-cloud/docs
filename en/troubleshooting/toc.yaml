@@ -607,22 +607,6 @@ items:
         href: managed-gitlab/how-to/update-gitlab-software-version.md
       - name: How to set up project migration
         href: managed-gitlab/how-to/migrate-projects.md
-  - name: '{{ ydb-name }}'
-    items:
-      - name: All solutions for {{ ydb-name }}
-        href: managed-ydb/index.md
-      - name: Solutions for known {{ ydb-name }} issues
-        href: managed-ydb/known-issues/index.md
-        hidden: true
-      - name: Resolving the `RESOURCE_EXHAUSTED` error
-        href: managed-ydb/known-issues/resource-exhausted.md
-      - name: Resolving the `Unauthenticated` error
-        href: managed-ydb/known-issues/sdk-unauthenticated.md
-      - name: Fixing error 503 `Service Unavailable`
-        href: managed-ydb/known-issues/error-503.md
-      - name: Sample {{ ydb-name }} configurations and use cases
-        href: managed-ydb/how-to/index.md
-        hidden: true
   - name: '{{ network-load-balancer-name }}'
     items:
       - name: All solutions for {{ network-load-balancer-name }}

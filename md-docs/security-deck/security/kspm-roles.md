@@ -5,6 +5,7 @@
 С помощью сервисных ролей [модуля Контроль Kubernetes®](../concepts/kspm.md) (KSPM) вы можете управлять доступом пользователей к ресурсам модуля и их настройкам, а также к данным, содержащимся в результатах контроля и алертам.
 
 ```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
 flowchart BT
     kspm.admin --> security-deck.admin
     kspm.editor --> kspm.admin

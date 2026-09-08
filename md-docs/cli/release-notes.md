@@ -4,6 +4,31 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.33.0 (07.09.26) {#v-1-33-0}
+
+#### BareMetal {#v-1-33-0-baremetal-name}
+
+* Добавлена команда получения списка доступных версий Yandex Cloud Stackland:
+  * `yc baremetal v2 extend stackland-cluster list-stackland-versions`.
+
+#### Cloud Registry {#v-1-33-0-cloud-registry-name}
+
+* Разрешено отключать редиректы при миграции:
+  * `yc cloud-registry migration toggle-registry-redirects`;
+  * `yc cloud-registry migration toggle-folder-redirects`;
+  * `yc cloud-registry migration toggle-cloud-redirects`.
+
+#### Yandex MPP Analytics for PostgreSQL {#v-1-33-0-mgp-name}
+
+* Добавлен параметр `--disk-encryption-key-id` для настройки шифрования дисков кластера:
+  * `yc managed-greenplum cluster create`;
+  * `yc managed-greenplum cluster restore`.
+* Добавлены параметры `--pool-mode`, `--pool-size`, `--pool-client-idle-timeout`, `--pool-idle-in-transaction-timeout` для установки настроек пользователя:
+  * `yc managed-greenplum user create`;
+  * `yc managed-greenplum user update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.32.0 (03.09.26) {#v-1-32-0}
 
 #### Application Load Balancer {#v-1-32-0-alb-name}
@@ -42,8 +67,6 @@
 #### Сервисы управляемых баз данных {##v-1-32-0-mdb}
 
 В команде `yc managed-zonalshift config update` добавлена поддержка значений параметра `--cluster-id`, разделенных запятыми.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.31.0 (31.08.26) {#v-1-31-0}
 

@@ -104,7 +104,7 @@ To migrate a service from a network load balancer to an L7 load balancer using {
 
 ## Test the L7 load balancer {#test}
 
-1. In the [management console]({{ link-console-main }}), navigate to the new L7 load balancer and select **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left. Make sure you get `HEALTHY` for all the L7 load balancer's health checks.
+1. In the [management console]({{ link-console-main }}), navigate to the created L7 load balancer and open the **{{ ui-key.yacloud.alb.label_healthchecks }}** tab. Make sure you get `HEALTHY` for all the L7 load balancer's health checks.
 
 1. {% include [test](../_tutorials_includes/migration-from-nlb-to-alb/test.md) %}
 

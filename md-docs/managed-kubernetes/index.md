@@ -308,6 +308,12 @@
 
  - [Использование HashiCorp Vault для хранения секретов](tutorials/marketplace/hashicorp-vault.md)
 
+### Миграция в Managed Service for Kubernetes
+
+ - [Обзор](tutorials/migration/index.md)
+
+ - [Миграция из облачного провайдера](tutorials/migration/migration-from-cloud.md)
+
 ## Концепции
 
  - [Взаимосвязь ресурсов сервиса](concepts/index.md)

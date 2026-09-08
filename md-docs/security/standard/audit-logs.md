@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Безопасность в Yandex Cloud](../index.md) > [Стандарт по защите облачной инфраструктуры, версия 1.4.2](index.md) > Сбор, мониторинг и анализ аудитных логов
+[Документация Yandex Cloud](../../index.md) > [Безопасность в Yandex Cloud](../index.md) > [Стандарт по защите облачной инфраструктуры, версия 1.4.3](index.md) > Сбор, мониторинг и анализ аудитных логов
 
 # Требования к сбору, мониторингу и анализу аудитных логов
 
@@ -240,6 +240,12 @@ C помощью Yandex Cloud Functions можно настроить опове
       Список поддерживаемых сервисов приведен в [Справочнике событий уровня сервисов Yandex Audit Trails](../../audit-trails/concepts/events-data-plane.md).
 
 {% endlist %}
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 5.9 Включен модуль Security Deck Access Transparency для проверки действий, произведенных сотрудниками Yandex Cloud с инфраструктурой {#access-transparency-enabled}
 

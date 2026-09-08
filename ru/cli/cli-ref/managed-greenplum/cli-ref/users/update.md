@@ -30,6 +30,18 @@ User's password ||
 || `--resource-group` | `string`
 
 User's resource group ||
+|| `--pool-mode` | `string`
+
+Odyssey server pool mode. To reset the setting, specify an empty value. Values: 'session', 'transaction' ||
+|| `--pool-size` | `int`
+
+Number of server connections in the Odyssey pool. To reset the setting, specify an empty value. ||
+|| `--pool-client-idle-timeout` | `int`
+
+Odyssey client pool idle timeout in seconds. To reset the setting, specify an empty value. ||
+|| `--pool-idle-in-transaction-timeout` | `int`
+
+Odyssey client pool idle in transaction timeout in seconds. To reset the setting, specify an empty value. ||
 |#
 
 #### Global Flags

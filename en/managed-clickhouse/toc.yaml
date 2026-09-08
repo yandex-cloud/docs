@@ -197,6 +197,10 @@ items:
         href: tutorials/jdbc-ch-to-sql-server-integration.md
       - name: Integration with an external Oracle database via {{ CH }} JDBC Bridge
         href: tutorials/jdbc-ch-to-oracle-integration.md
+      - name: >-
+          Executing analytical queries in {{ mpg-name }} with processing in {{
+          mch-name }}
+        href: tutorials/mpg-pg-clickhouse-extension.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -246,6 +250,8 @@ items:
         href: concepts/settings-list.md
   - name: Access management
     href: security.md
+  - name: Inspections and recommendations
+    href: advisor.md
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
@@ -716,6 +722,20 @@ items:
                 href: api-ref/grpc/Backup/list.md
               - name: Delete
                 href: api-ref/grpc/Backup/delete.md
+          - name: ChangeFreeze
+            items:
+              - name: Overview
+                href: api-ref/grpc/ChangeFreeze/index.md
+              - name: Create
+                href: api-ref/grpc/ChangeFreeze/create.md
+              - name: Get
+                href: api-ref/grpc/ChangeFreeze/get.md
+              - name: List
+                href: api-ref/grpc/ChangeFreeze/list.md
+              - name: Terminate
+                href: api-ref/grpc/ChangeFreeze/terminate.md
+              - name: GetLimits
+                href: api-ref/grpc/ChangeFreeze/getLimits.md
           - name: ClusterExtension
             items:
               - name: Overview
@@ -930,6 +950,20 @@ items:
                 href: api-ref/Backup/list.md
               - name: Delete
                 href: api-ref/Backup/delete.md
+          - name: ChangeFreeze
+            items:
+              - name: Overview
+                href: api-ref/ChangeFreeze/index.md
+              - name: Create
+                href: api-ref/ChangeFreeze/create.md
+              - name: Get
+                href: api-ref/ChangeFreeze/get.md
+              - name: List
+                href: api-ref/ChangeFreeze/list.md
+              - name: Terminate
+                href: api-ref/ChangeFreeze/terminate.md
+              - name: GetLimits
+                href: api-ref/ChangeFreeze/getLimits.md
           - name: ClusterExtension
             items:
               - name: Overview

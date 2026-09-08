@@ -26,6 +26,8 @@
 
 [Инструкция по созданию капчи в {{ captcha-full-name }}](../../../smartcaptcha/operations/create-captcha.md).
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 ### Построение безопасного пайплайна {#pipeline-recommendations}
 
 {{ yandex-cloud }} позволяет клиентам выстроить соответствие разрабатываемого ПО по всем уровням [Supply-chain Levels for Software Artifacts (SLSA)](https://slsa.dev/), при соблюдении инструкций в данном разделе. При использовании [{{ mgl-full-name }}](../../../managed-gitlab/), клиент автоматически достигает [соответствия до 2 уровня SLSA включительно](https://about.gitlab.com/blog/2022/11/30/achieve-slsa-level-2-compliance-with-gitlab/).
@@ -82,6 +84,8 @@
 
 {% include [scan-docker-upload](scan-docker-upload-test.md) %}
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 6.4 Выполняется периодическое сканирование Docker-образов, хранящихся в {{ container-registry-name }} {#periodic-scan}
 
 {% include [scan-docker-periodic](scan-docker-periodic-description.md) %}
@@ -91,6 +95,8 @@
 | APPSEC3 | Высокая |
 
 {% include [scan-docker-periodic](scan-docker-periodic-test.md) %}
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 6.5 Контейнерные образы, используемые в продакшн-среде, имеют последнюю дату сканирования не позднее недели {#last-scan-date}
 
@@ -121,6 +127,8 @@
   ```
 
 {% endlist %}
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 6.6 При сборке артефактов применяются аттестации {#provenance-attestation}
 
@@ -222,6 +230,8 @@
 
 [Создание профиля безопасности и подключение его к виртуальному хосту L7-балансировщика](../../../smartwebsecurity/quickstart.md).
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 6.11 Используется Web Application Firewall {#use-waf}
 
 Для снижения рисков, связанных с веб-атаками, рекомендуем использовать {{ sws-full-name }} [Web Application Firewall (WAF)](../../../glossary/waf.md). Web Application Firewall анализирует входящие HTTP-запросы к веб-приложению по предварительно настроенным правилам. На основе результатов анализа к HTTP-запросам применяются определенные [действия](../../../smartwebsecurity/concepts/rules.md#rule-action).
@@ -246,6 +256,8 @@
 
 [Создание профиля WAF и подключение его к профилю безопасности {{ sws-name }}](../../../smartwebsecurity/quickstart.md#waf).
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 6.12 Используется Advanced Rate Limiter {#use-arl}
 
 [Advanced Rate Limiter (ARL)](../../../smartwebsecurity/concepts/arl.md) — модуль {{ sws-full-name }} для контроля и ограничения нагрузки на веб-приложения. Модуль позволяет установить лимит на количество HTTP-запросов за определенный промежуток времени. Все запросы сверх лимита будут блокироваться. Можно установить как единый лимит на весь трафик, так и настраивать отдельные лимиты для сегментирования запросов по определенным параметрам. Запросы для лимитов можно считать по одному или объединять в группы по заданному признаку.
@@ -269,6 +281,8 @@
 **Инструкции и решения по выполнению:**
 
 [Создание профиля ARL и подключение его к профилю безопасности {{ sws-name }}](../../../smartwebsecurity/quickstart.md#arl).
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 6.13 Настроены правила ревью кода {#setup-code-review}
 

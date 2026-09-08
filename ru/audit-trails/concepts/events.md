@@ -15,6 +15,8 @@ description: В данном разделе приведены описания 
 
 {% include [about-events-ref](../../_includes/audit-trails/about-events-ref.md) %}
 
+{% include [note-events-delivery](../../_includes/audit-trails/note-events-delivery.md) %}
+
 Ниже описаны события для сервисов:
 
 {% include [cp-events-service-list](../../_includes/audit-trails/cp-events-service-list.md) %}

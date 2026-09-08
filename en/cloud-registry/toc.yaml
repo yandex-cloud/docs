@@ -205,6 +205,12 @@ items:
             href: cli-ref/migration/start-cloud.md
           - name: start-folder
             href: cli-ref/migration/start-folder.md
+          - name: toggle-cloud-redirects
+            href: cli-ref/migration/toggle-cloud-redirects.md
+          - name: toggle-folder-redirects
+            href: cli-ref/migration/toggle-folder-redirects.md
+          - name: toggle-registry-redirects
+            href: cli-ref/migration/toggle-registry-redirects.md
       - name: registry
         items:
           - name: Overview
@@ -459,6 +465,12 @@ items:
                 href: cli-ref/v1/migration/start-cloud.md
               - name: start-folder
                 href: cli-ref/v1/migration/start-folder.md
+              - name: toggle-cloud-redirects
+                href: cli-ref/v1/migration/toggle-cloud-redirects.md
+              - name: toggle-folder-redirects
+                href: cli-ref/v1/migration/toggle-folder-redirects.md
+              - name: toggle-registry-redirects
+                href: cli-ref/v1/migration/toggle-registry-redirects.md
           - name: registry
             items:
               - name: Overview

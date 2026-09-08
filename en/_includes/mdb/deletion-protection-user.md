@@ -1,0 +1,1 @@
+Deletion protection only applies to individual users. Deleting a cluster will permanently remove all its users, including those with deletion protection.

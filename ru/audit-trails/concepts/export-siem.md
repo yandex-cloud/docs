@@ -20,5 +20,6 @@ description: Из статьи вы узнаете об экспорте ауд�
 * [ArcSight](../tutorials/export-logs-to-arcsight.md).
 * [Splunk](../tutorials/export-logs-to-splunk.md).
 * [MaxPatrol SIEM](../tutorials/maxpatrol/index.md).
+* [KUMA](../tutorials/audit-trails-events-to-kuma/index.md).
 
 Все решения обеспечивают непрерывную доставку файлов аудитных логов из бакетов в SIEM, а также содержат правила корреляции, дашборды и запросы для поиска важных событий безопасности. Команда {{ yandex-cloud }} поддерживает и регулярно обновляет все решения.

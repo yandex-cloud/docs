@@ -76,7 +76,7 @@ After you create a SAML application, you can [add, modify, and delete](../../ope
 
 {% include [saml-app-nameid-assertion](../../../_includes/organization/saml-app-nameid-assertion.md) %}
 
-For attributes, you can specify transformations that change the attribute value before providing it in a SAML response, e.g., convert text to lowercase, delete spaces, or extract a part of the string. Transformations apply one by one, from top to bottom.
+For attributes, you can specify transformations that change the attribute value before providing it in a SAML response, e.g., convert text to lowercase, delete spaces, or extract a portion of the string. Transformations apply one by one, top to bottom.
 
 The following transformation types are available:
 
@@ -87,6 +87,7 @@ The following transformation types are available:
 * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_trim_3SF6q }}`: Deletes spaces in the beginning and end of the attribute value.
 * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_if_empty_e5unh }}`: Replaces the current attribute value if it is empty. You can select a replacement value from the list of attribute values or provide your own one. For example, you can use `email` if `username` is empty.
 * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_constant_tvJWi }}`: Replaces the current value with a specified constant. For example, returns `User` instead of any initial attribute value.
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_replace_kQ2vN }}`: Replaces the specified substring in the attribute value with another string. For example, when specifying the `example.com` substring and the `company.com` replacement string, it returns `user@company.com` instead of `user@example.com`.
 
 In addition to the user attributes mentioned above, the SAML response may contain the group attribute whose value is the list of [groups](../groups.md) the user is a member of. You can specify any name and one of the following values for this attribute:
 

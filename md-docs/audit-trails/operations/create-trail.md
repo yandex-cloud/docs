@@ -7,14 +7,7 @@
 
 * бакет [Yandex Object Storage](../../storage/index.md);
 * лог-группу [Yandex Cloud Logging](../../logging/index.md);
-* поток данных [Yandex Data Streams](../../data-streams/index.md);
-* шину [Yandex EventRouter](../../serverless-integrations/index.md).
-
-{% note info %}
-
-В настоящий момент создать трейл с объектом назначения **EventRouter** можно только с помощью Yandex Cloud [CLI](../../cli/index.md) и [API](../../api-design-guide/index.md).
-
-{% endnote %}
+* поток данных [Yandex Data Streams](../../data-streams/index.md).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -86,34 +79,6 @@
   1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
 
       * [yds.writer](../../data-streams/security/index.md#yds-writer) на [поток данных](../../data-streams/concepts/glossary.md#stream-concepts).
-
-      * [audit-trails.viewer](../security/index.md#at-viewer) на один из ресурсов, который определяет [нужную область сбора](../concepts/trail.md#collecting-area) логов:
-      
-          * [Организация](../../organization/operations/add-role.md) — чтобы собирать логи в выбранных облаках организации.
-          * [Облако](../../resource-manager/operations/cloud/set-access-bindings.md#access-to-sa) — чтобы собирать логи в выбранных каталогах облака.
-          * [Каталог](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa) — чтобы собирать логи в этом каталоге.
-      
-          Права доступа наследуются от родительского ресурса к дочерним. Например, если сервисному аккаунту [назначить роль на облако](../../resource-manager/operations/cloud/set-access-bindings.md), то трейл, использующий этот аккаунт, сможет собирать логи ресурсов во всех каталогах этого облака. Однако трейл не сможет собирать логи в других облаках, принадлежащих организации, — для этого потребуется [назначить роль на организацию](../../organization/operations/add-role.md).
-
-  1. [Убедитесь](../../iam/operations/roles/get-assigned-roles.md), что у [аккаунта](../../iam/concepts/users/accounts.md), от имени которого вы собираетесь создавать трейл, есть необходимые роли:
-     
-     * [audit-trails.editor](../security/index.md#at-editor) на каталог, в котором будет находиться трейл.
-     * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) на сервисный аккаунт для трейла.
-
-- Шина EventRouter {#eventrouter}
-
-  1. [Создайте](../../serverless-integrations/operations/eventrouter/bus/create.md) шину Yandex EventRouter.
-
-      {% note info %}
-
-      В настоящий момент создать [коннектор](../../serverless-integrations/concepts/eventrouter/connector.md) шины EventRouter с типом источника `Audit Trails` можно только в [консоли управления](https://console.yandex.cloud) при создании или изменении трейла, а также с помощью [API EventRouter](../../serverless-integrations/eventrouter/api-ref/Connector/create.md).
-
-      {% endnote %}
-
-  1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) для трейла.
-  1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
-
-      * [serverless.eventrouter.supplier](../../serverless-integrations/security/eventrouter.md#serverless-eventrouter-supplier) на каталог, в котором находится нужная [шина](../../serverless-integrations/concepts/eventrouter/bus.md) EventRouter.
 
       * [audit-trails.viewer](../security/index.md#at-viewer) на один из ресурсов, который определяет [нужную область сбора](../concepts/trail.md#collecting-area) логов:
       
@@ -233,7 +198,7 @@
       folder_id: <идентификатор_каталога>
       destination:
         # Должно быть указано только одно место назначения:
-        # object_storage, cloud_logging, data_stream или eventrouter
+        # object_storage, cloud_logging или data_stream
         # Настройки для всех мест назначения приведены для иллюстрации
         object_storage:
           bucket_id: <имя_бакета>
@@ -244,8 +209,6 @@
           stream_name: <имя_потока_данных_YDS>
           database_id: <идентификатор_базы_данных_YDS>
           codec: <метод_сжатия_событий>
-        eventrouter:
-          eventrouter_connector_id: <идентификатор_коннектора_шины>
       service_account_id: <идентификатор_сервисного_аккаунта>
       filtering_policy:
         management_events_filter:
@@ -308,10 +271,6 @@
               * `database_id` — идентификатор базы данных YDB, которая используется потоком данных Data Streams. Идентификатор можно запросить со [списком баз данных YDB в каталоге](../../ydb/operations/manage-databases.md#list-db).
               * `codec` — метод сжатия событий при записи в поток данных Data Streams. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
           
-          * `eventrouter` — загружать логи в [шину](../../serverless-integrations/concepts/eventrouter/bus.md) Yandex EventRouter:
-
-              * `eventrouter_connector_id` — идентификатор [коннектора](../../serverless-integrations/concepts/eventrouter/connector.md) шины EventRouter с типом источника `Audit Trails`.
-      
       * `service_account_id` — [идентификатор](../../iam/operations/sa/get-id.md) созданного [ранее](#before-you-begin) сервисного аккаунта.
 
       * `filtering_policy` — настройки политики фильтрации, которая определяет, какие события будут собираться и попадут в аудитные логи. Политика состоит из набора фильтров, которые относятся к разным уровням событий.
@@ -407,7 +366,6 @@
     --destination-yds-stream <имя_потока_данных_YDS> \
     --destination-yds-database-id <идентификатор_базы_данных_YDS> \
     --destination-yds-codec <метод_сжатия_событий> \
-    --destination-eventrouter-connector-id <идентификатор_коннектора_шины> \
     --filter-all-folder-id <идентификатор_каталога> \
     --filter-all-cloud-id <идентификатор_облака> \
     --filter-all-organisation-id <идентификатор_организации> \
@@ -426,7 +384,7 @@
     * `--service-account-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта.
     * `--destination-bucket` — [имя](../../storage/concepts/bucket.md#naming) бакета Yandex Object Storage, в который будут загружаться аудитные логи.
     
-        С этим параметром нельзя использовать параметры `--destination-log-group-id`, `--destination-yds-stream` и `--destination-eventrouter-connector-id`.
+        С этим параметром нельзя использовать параметры `--destination-log-group-id` и `--destination-yds-stream`.
     * `--destination-bucket-object-prefix` — [префикс](../../storage/concepts/object.md#folder), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../concepts/format.md#log-file-name) файла аудитного лога.
     
         {% note info %}
@@ -437,15 +395,12 @@
     
     * `--destination-log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md) Yandex Cloud Logging, в которую будут загружаться аудитные логи.
     
-        С этим параметром нельзя использовать параметры `--destination-bucket`, `--destination-yds-stream` и `--destination-eventrouter-connector-id`.
+        С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-yds-stream`.
     * `--destination-yds-stream` — имя [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams, в который будут загружаться аудитные логи.
     
-        С этим параметром нельзя использовать параметры `--destination-bucket`, `--destination-log-group-id` и `--destination-eventrouter-connector-id`.
+        С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-log-group-id`.
     * `--destination-yds-database-id` — идентификатор базы данных YDB, которая используется потоком данных Data Streams.
     * `--destination-yds-codec` — метод сжатия событий при записи в поток данных Data Streams. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
-    * `--destination-eventrouter-connector-id` — идентификатор [коннектора](../../serverless-integrations/concepts/eventrouter/connector.md) шины EventRouter с типом источника `Audit Trails`, в которую будут загружаться аудитные логи.
-    
-        С этим параметром нельзя использовать параметры `--destination-bucket`, `--destination-log-group-id` и `--destination-yds-stream`.
     * `--filter-all-folder-id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, для всех ресурсов которого будут регистрироваться события уровня конфигурации.
     * `--filter-all-cloud-id` — [идентификатор](../../resource-manager/operations/cloud/get-id.md) облака, для всех ресурсов которого будут регистрироваться события уровня конфигурации.
     * `--filter-all-organisation-id` — [идентификатор](../../organization/operations/organization-get-id.md) организации, для всех ресурсов которой будут регистрироваться события уровня конфигурации.

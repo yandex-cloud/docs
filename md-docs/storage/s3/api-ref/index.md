@@ -65,6 +65,7 @@ Object Storage HTTP API предоставляет следующие серви
 || [DeleteObjects](object/deletemultipleobjects.md) | Удаляет объекты по списку. ||
 || [options](object/options.md) | Проверяет возможность [CORS-запроса](../../concepts/cors.md) к объекту. ||
 || [SelectObjectContent](object/select.md) | Фильтрует и возвращает содержимое объекта на основе SQL-запроса. ||
+|| [RestoreObject](object/restore-object.md) | Регистрирует обращение к объекту в умном хранилище. ||
 || [PutObjectTagging](object/putobjecttagging.md) | Добавляет [метки](../../concepts/tags.md) объекту. ||
 || [GetObjectTagging](object/getobjecttagging.md) | Возвращает метки объекта. ||
 || [DeleteObjectTagging](object/deleteobjecttagging.md) | Удаляет метки объекта. ||

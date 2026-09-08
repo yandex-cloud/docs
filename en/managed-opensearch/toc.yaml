@@ -130,6 +130,8 @@ items:
         href: concepts/maintenance.md
   - name: Access management
     href: security/index.md
+  - name: Inspections and recommendations
+    href: advisor.md
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference

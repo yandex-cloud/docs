@@ -12,7 +12,7 @@ You can add one or multiple format schemas to your {{ mch-name }} cluster and us
 
 {% note warning %}
 
-To use the format schemas you added, insert the data into {{ mch-name }} via the [HTTP interface]({{ ch.docs }}{{ lang }}/interfaces/http). In this case, data serialization and deserialization is performed on the server side based on the schemas you added.
+To use the format schemas thus added, insert the data into {{ mch-name }} via the [HTTP interface]({{ ch.docs }}{{ lang }}/interfaces/http). In which case data serialization and deserialization will be performed on the server side using the schemas you added.
 
 {% endnote %}
 

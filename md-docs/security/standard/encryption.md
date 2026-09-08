@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Безопасность в Yandex Cloud](../index.md) > [Стандарт по защите облачной инфраструктуры, версия 1.4.2](index.md) > Шифрование данных и управление ключами
+[Документация Yandex Cloud](../../index.md) > [Безопасность в Yandex Cloud](../index.md) > [Стандарт по защите облачной инфраструктуры, версия 1.4.3](index.md) > Шифрование данных и управление ключами
 
 # Требования к шифрованию данных и управлению ключами и секретами
 
@@ -153,7 +153,7 @@ Yandex Cloud предоставляет функции шифрования в �
 
 #### 4.2 В Yandex Object Storage включено шифрование данных at rest с ключом KMS {#storage-kms}
 
-Для защиты критичных данных в Yandex Object Storage рекомендуется использовать шифрование бакета на стороне сервера с помощью ключей Yandex Key Management Service (server-side encryption). Такое шифрование защищает от случайной или намеренной публикации содержимого бакета в интернете. Подробнее о шифровании читайте в разделе [Шифрование](../../storage/concepts/encryption.md) документации Object Storage.
+По умолчанию данные в Yandex Object Storage зашифрованы системными ключами, но для повышенной безопасности рекомендуется использовать шифрование бакета на стороне сервера с помощью ключей Yandex Key Management Service (server-side encryption). Такое шифрование защищает от случайной или намеренной публикации содержимого бакета в интернете. Подробнее о шифровании читайте в разделе [Шифрование](../../storage/concepts/encryption.md) документации Object Storage.
 
 | ID требования | Критичность |
 | --- | --- |
@@ -172,14 +172,19 @@ Yandex Cloud предоставляет функции шифрования в �
 
 - Проверка через CLI {#cli}
 
-  1. [Настройте](../../storage/tools/aws-cli.md) AWS CLI на работу с облаком.
-  1. Выполните команду, чтобы проверить, что шифрование включено:
+  1. Выполните команду для проверки настроек шифрования бакета:
 
-     ```bash
-     aws --endpoint-url=https://storage.yandexcloud.net/ \
-     s3api get-bucket-encryption \
-     --bucket <имя бакета>
-     ```
+      **Bash:**
+
+      ```bash
+      yc storage bucket get <имя бакета> --full --format=json | jq -r '.encryption'
+      ```
+
+      **PowerShell:**
+
+      ```powershell
+      (yc storage bucket get <имя бакета> --full --format=json | ConvertFrom-Json).encryption
+      ```
 
   1. Если шифрование включено, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
 
@@ -188,6 +193,12 @@ Yandex Cloud предоставляет функции шифрования в �
 **Инструкции и решения по выполнению:**
 
 Настройте шифрование бакета согласно [инструкции](../../storage/operations/buckets/encrypt.md).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 ### Шифрование в состоянии передачи (in transit) {#in-transit}
 
@@ -208,6 +219,30 @@ Yandex Cloud предоставляет возможность использо�
 * Application Load Balancer;
 * API Gateway;
 * Cloud CDN.
+
+### 4.2.1 В Managed Services for Databases используется шифрование данных at rest с ключом KMS {#mdb-encryption}
+
+В управляемых базах данных Yandex Cloud (Managed Services for Databases) данные в состоянии покоя (at rest) по умолчанию шифруются системными ключами. Все резервные копии баз данных также автоматически шифруются.
+
+Для дополнительного контроля безопасности рекомендуется шифровать диски кластеров баз данных с помощью пользовательских симметричных ключей [Yandex Key Management Service](../../kms/index.md). При создании кластера с типами дисков `network-hdd`, `network-ssd` или `network-ssd-nonreplicated` доступна опция **Зашифрованный диск**.
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT18 | Средняя |
+
+{% list tabs group=instructions %}
+
+- Ручная проверка {#manual}
+
+  1. В консоли управления перейдите в сервис управляемой базы данных (например, Managed Service for PostgreSQL).
+  1. Проверьте настройки диска кластера.
+  1. Убедитесь, что кластер был создан с включенной опцией шифрования дисков и привязан к пользовательскому ключу KMS.
+
+{% endlist %}
+
+**Инструкции и решения по выполнению:**
+
+Функция шифрования дисков баз данных доступна при создании кластера (выбор опции **Зашифрованный диск** с указанием ключа KMS). Включить ее для уже существующего диска невозможно.
 
 #### 4.3 В Yandex Object Storage включено HTTPS для хостинга статического сайта {#storage-https}
 
@@ -246,6 +281,12 @@ Yandex Cloud предоставляет возможность использо�
 **Инструкции и решения по выполнению:**
 
 [Включите](../../storage/operations/hosting/certificate.md) доступ по HTTPS, если бакет используется для хостинга статического сайта.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 4.4 В Yandex Application Load Balancer используется HTTPS {#alb-https}
 
@@ -322,6 +363,12 @@ Yandex Cloud предоставляет возможность использо�
 
 Включите HTTPS обработчик согласно [инструкции](../../application-load-balancer/tutorials/tls-termination/index.md).
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 4.5 В Yandex API Gateway используется HTTPS и собственный домен {#api-gateway-https}
 
 [API Gateway](../../api-gateway/index.md) обеспечивает безопасное подключение по протоколу HTTPS. Вы можете привязать собственный домен и загрузить собственный сертификат безопасности для доступа к вашему [API-шлюзу](../../api-gateway/concepts/index.md) по протоколу HTTPS.
@@ -369,6 +416,12 @@ Yandex Cloud предоставляет возможность использо�
 1. В консоли управления выберите облако или каталог, в которых необходимо подключить домены и сертификаты.
 1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway → Настройки шлюза → Домены**.
 1. Подключите домены и сертификаты.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 4.6 В Yandex Cloud CDN используется HTTPS и собственный SSL-сертификат {#cdn-https}
 
@@ -418,6 +471,12 @@ Yandex Cloud предоставляет возможность использо�
 
 [Подключите](../../cdn/operations/resources/configure-basics.md) сертификат и HTTPS согласно инструкции.
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 ### Самостоятельное шифрование {#self-encryption}
 
 **При использовании сервисов, которые не имеют встроенных функций шифрования, шифрование критичных данных является ответственностью клиента.**
@@ -461,7 +520,7 @@ Yandex Cloud предоставляет возможность использо�
 * Сетевой SSD-диск (`network-ssd`).
 * Сетевой HDD-диск (`network-hdd`).
 * Нереплицируемый SSD-диск (`network-ssd-nonreplicated`).
-* Сверхбыстрое сетевое хранилище с тремя репликами (SSD) (`network-ssd-io-m3`).
+* Высокопроизводительный сетевой SSD-диск (`network-ssd-io-m3`).
 
 | ID требования | Критичность |
 | --- | --- |
@@ -478,6 +537,12 @@ Yandex Cloud предоставляет возможность использо�
 **Инструкции и решения по выполнению:**
 
 [Зашифруйте](../../compute/operations/disk-control/disk-encrypt.md) диск виртуальной машины Yandex Compute Cloud.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 ### Управление ключами {#keys}
 
@@ -533,6 +598,12 @@ KMS использует схему шифрования AES-GCM. Вы може�
 **Инструкции и решения по выполнению:**
 
 [Установите](../../kms/operations/symmetric-encryption.md) алгоритм шифрования для ключей KMS «AES-256 HSM».
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 4.10 Права на управление ключами в KMS выданы контролируемым пользователям {#keys-controlled-users}
 
@@ -680,7 +751,13 @@ KMS использует схему шифрования AES-GCM. Вы може�
 
 **Инструкции и решения по выполнению:**
 
-Установите период ротации для ключей.
+Установите период ротации для ключей, следуя [инструкции по вращению ключей](../../kms/operations/key.md#rotate) в документации KMS.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 4.12 Для ключей KMS включена защита от удаления {#keys-deletion-protection}
 
@@ -726,6 +803,12 @@ KMS использует схему шифрования AES-GCM. Вы може�
 **Инструкции и решения по выполнению:**
 
 Установите защиту от удаления.
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 ### Управление секретами {#secrets}
 
@@ -785,6 +868,12 @@ KMS использует схему шифрования AES-GCM. Вы може�
 
 Храните секреты в Lockbox.
 
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
+
 #### 4.14 Для Serverless Containers и Cloud Functions используются секреты Lockbox {#secrets-serverless-functions}
 
 При работе с Serverless Containers или Cloud Functions часто возникает необходимость использовать секрет (токен, пароль и т.д.).
@@ -833,6 +922,12 @@ KMS использует схему шифрования AES-GCM. Вы може�
 Удалите секретные данные из env и воспользуйтесь функционалом интеграции с Lockbox:
 * [Передать секреты Yandex Lockbox в контейнер](../../serverless-containers/operations/lockbox-secret-transmit.md).
 * [Передать секреты Yandex Lockbox в функцию](../../functions/operations/function/lockbox-secret-transmit.md).
+
+{% note warning %}
+
+Соответствие требованию безопасности рекомендуется [проверить в Yandex Security Deck](../../security-deck/operations/cspm/check-compliance.md).
+
+{% endnote %}
 
 #### 4.15 При работе Container Optimized Image используется шифрование секретов {#secrets-coi}
 

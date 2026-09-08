@@ -28,13 +28,13 @@ Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in
 
 * Added IAM authentication support for the CLI and API.
 * Added support for self-signed certificates.
-* Improved backup recovery logic. Recovery progress now saves more frequently, at shorter intervals rather than after each processed table. This considerably reduces cluster recovery time.
-* Added support for [replicated](https://clickhouse.com/docs/reference/engines/database-engines/replicated) databases.
-* Added the ability to schedule replica synchronization via the management console.
-* Enabled data schema copying by default when provisioning new replicas. This ensures table structure consistency across replicas.
-* Enabled creating a cluster from a backup in {{ TF }}.
-* Added one-click Terraform code export within the management console when creating or updating cluster settings. This option is also supported for existing service resources.
-* Added a public API [method to list available DBMS versions](api-ref/Versions/list.md).
+* Improved logic for recovery from a backup. Now the recovery progress is saved more frequently: not after processing each table entirely, but at smaller intervals. This allows to significantly reduce cluster recovery time.
+* Added support for [Replicated](https://clickhouse.com/docs/reference/engines/database-engines/replicated) databases.
+* Added the ability to schedule replica synchronization to the management console.
+* When adding new replicas, schema copying is now enabled by default. This ensures consistency of table structures between replicas.
+* Added the ability to create a cluster from a backup in {{ TF }}.
+* Added the option to export Terraform code in a single click when creating or editing cluster settings in the management console. This option also works for existing resources of the service.
+* Added a [method for available DBMS version listing](api-ref/Versions/list.md) to the public API.
 * Released a new {{ CH }} version: [26.5](https://clickhouse.com/blog/clickhouse-release-26-05).
 
 ## May 2026 {#may-2026}

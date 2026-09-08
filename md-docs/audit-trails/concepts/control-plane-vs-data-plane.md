@@ -47,7 +47,6 @@
 * [Yandex Smart Web Security](events-data-plane.md#sws)
 * [Yandex Translate](events-data-plane.md#translate)
 * [Yandex Virtual Private Cloud](events-data-plane.md#vpc)
-* [Yandex Vision OCR](events-data-plane.md#vision)
 * [Яндекс Вики](events-data-plane.md#wiki)
 * [Yandex WebSQL](events-data-plane.md#websql)
 * [Yandex Workflows](events-data-plane.md#workflows)

@@ -1,8 +1,8 @@
 # {{ sts-name }}
 
-_{{ sts-name }}_: {{ iam-name }} component used to get _temporary access keys_ compatible with [AWS S3 API](../../storage/s3/index.md).
+_{{ sts-name }}_ is an {{ iam-name }} component to get _temporary access keys_ compatible with the [AWS S3 API](../../storage/s3/index.md).
 
-Temporary access keys as an authentication method are only supported in [{{ objstorage-full-name }}](../../storage/).
+Authentication with temporary access keys is only supported in [{{ objstorage-full-name }}](../../storage/).
 
 {% include [access-control-sa-stskey-notice](../../_includes/iam/access-control-sa-stskey-notice.md) %}
 
@@ -12,7 +12,7 @@ A temporary access key is created based on a [static key](../../iam/concepts/aut
 
 The maximum key lifetime is 12 hours.
 
-To set up access permissions for the key, you need an [access policy](../../storage/security/policy.md) in JSON format based on [this schema](../../storage/s3/api-ref/policy/scheme.md).
+To set up access permissions for a key, use an [access policy](../../storage/security/policy.md) in JSON format based on [this schema](../../storage/s3/api-ref/policy/scheme.md).
 
 {% include [sts-for-one-bucket.md](sts-for-one-bucket.md) %}
 
@@ -22,14 +22,14 @@ To set up access permissions for the key, you need an [access policy](../../stor
 
 {% include [sts-object-acl-note](sts-object-acl-note.md) %}
 
-This means you can, for instance, provide different users with temporary permissions to read and write objects to different [prefixes (folders)](../../storage/concepts/object.md#folder) of the same bucket. To solve this task using static keys, you would need to create a dedicated service account for each user, while the number of service accounts in the cloud is [limited](../../iam/concepts/limits.md#iam-quotas).
+This way, e.g., you can grant different users temporary read and write access to objects in different [prefixes (folders)](../../storage/concepts/object.md#folder) within the same bucket. To solve this task using static keys, you would need to create a separate service account for each user, while the number of service accounts in the cloud is [limited](../../iam/concepts/limits.md#iam-quotas).
 
 A temporary key consists of the following parts:
 * Key ID (same as the static key ID)
 * Secret key
 * Session token
 
-To get a temporary access key using {{ sts-name }}, use the [AWS Command Line Interface (AWS CLI)](../../storage/tools/aws-cli.md) or an HTTP API compatible with the [AWS STS API](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html).
+To get a temporary access key with {{ sts-name }}, use the [AWS Command Line Interface (AWS CLI)](../../storage/tools/aws-cli.md) or an HTTP API compatible with the [AWS STS API](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html).
 
 There is a separate [API endpoint](../../api-design-guide/concepts/endpoints.md) for {{ sts-name }}: `https://{{ sts-host }}`.
 
@@ -37,7 +37,7 @@ Learn more in [{#T}](../../iam/operations/sa/create-sts-key.md).
 
 {% note warning %}
 
-You cannot revoke a temporary key. However, you can [delete](../../iam/operations/authentication/manage-access-keys.md#delete-access-key) a static key used to issue a temporary one.
+You cannot revoke a temporary key. However, you can [delete](../../iam/operations/authentication/manage-access-keys.md#delete-access-key) the static key used to issue the temporary one.
 
 This will revoke permissions for all temporary access keys created based on the deleted static key.
 

@@ -1,6 +1,6 @@
 ---
 title: Public materials about {{ mos-full-name }}
-description: Videos of conferences and webinars on {{ mos-full-name }}.
+description: Video recordings of conferences and webinars on {{ mos-full-name }}.
 ---
 
 # Public materials about {{ mos-full-name }}
@@ -16,7 +16,7 @@ description: Videos of conferences and webinars on {{ mos-full-name }}.
 
 ### 2021: Yandex Scale {#yandex-scale-2021}
 
-* Data platform updates and future plans.
+* Data platform news and roadmap.
 
   * Click [here](https://www.youtube.com/watch?v=34azYnDBiYY) to watch the video.
 

@@ -216,6 +216,12 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [start-folder](cli-ref/migration/start-folder.md)
 
+ - [toggle-cloud-redirects](cli-ref/migration/toggle-cloud-redirects.md)
+
+ - [toggle-folder-redirects](cli-ref/migration/toggle-folder-redirects.md)
+
+ - [toggle-registry-redirects](cli-ref/migration/toggle-registry-redirects.md)
+
 ### registry
 
  - [Overview](cli-ref/registry/index.md)
@@ -469,6 +475,12 @@ Yandex Cloud Registry — сервис для безопасного хране�
  - [start-cloud](cli-ref/v1/migration/start-cloud.md)
 
  - [start-folder](cli-ref/v1/migration/start-folder.md)
+
+ - [toggle-cloud-redirects](cli-ref/v1/migration/toggle-cloud-redirects.md)
+
+ - [toggle-folder-redirects](cli-ref/v1/migration/toggle-folder-redirects.md)
+
+ - [toggle-registry-redirects](cli-ref/v1/migration/toggle-registry-redirects.md)
 
 #### registry
 

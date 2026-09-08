@@ -75,14 +75,14 @@ The infrastructure support cost includes:
 
   1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-  1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key attributes:
+  1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the following key attributes:
 
-     * Any name and optional description.
+     * Custom name and optional description.
      * Encryption algorithm, e.g., AES-256.
      * [Rotation](../../kms/concepts/index.md#rotation) period (how often to change key versions).
      * Click **{{ ui-key.yacloud.common.create }}**.
 
-  When creating a key, you create its first version; to open a page with its attributes, click the key in the list.
+  When you create a key, its first version is created automatically. Click the key in the list to open the page with its attributes.
 
 {% endlist %}
 
@@ -188,31 +188,26 @@ To create the trail, make sure you have the following roles:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trail.
   1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
-
-     * **{{ ui-key.yacloud.common.name }}**: Name of the new trail.
-     * **{{ ui-key.yacloud.common.description }}**: Trail description (optional).
-
+  1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
 
-     * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
-     * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Name of the [bucket](../../storage/operations/buckets/create.md) to which you want to upload audit logs.
-     * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
-  
+     1. **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+     1. **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Name of the [bucket](../../storage/operations/buckets/create.md) to which you want to upload audit logs.
+     1. **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
+
      {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
-      * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: Specify the encryption key the bucket is [encrypted](../../storage/concepts/encryption.md) with.
-  
+      1. **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: Specify the encryption key the bucket is [encrypted](../../storage/concepts/encryption.md) with.
+
+  1. Under **{{ ui-key.yacloud.audit-trails.label_control-plane-collection-new }}**:
+
+     1. Enable log collection.
+     1. **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+     1. **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field containing the name of the current folder.
+
+  1. Under **{{ ui-key.yacloud.audit-trails.label_data-plane-collection-new }}**, disable log collection.
   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the bucket.
-
-  1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
-
-     * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
-     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-     * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field containing the name of the current folder.
-
-  1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** field.
-
+  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the trail.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
   {% note warning %}

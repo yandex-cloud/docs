@@ -120,7 +120,7 @@ Command categories user has permissions to. ||
 Commands user can execute. ||
 || sanitizePayload | **string**
 
-SanitizePayload parameter. ||
+Deprecated. This parameter is ignored. ||
 || databases | **string**
 
 Databases parameter. ||

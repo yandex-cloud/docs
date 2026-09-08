@@ -2,6 +2,7 @@
 
 # Контроль Kubernetes® (KSPM)
 
+* [Системные и технические требования](requirements.md).
 * [Активировать модуль KSPM](enable-kspm.md).
 * [Работать с дашбордом модуля KSPM](use-kspm.md).
 * [Посмотреть правила контроля Kubernetes](view-rules.md).

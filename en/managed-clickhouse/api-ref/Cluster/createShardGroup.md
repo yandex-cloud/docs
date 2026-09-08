@@ -58,36 +58,37 @@ apiPlayground:
           host:
             description: |-
               **string**
-              Name (FQDN) or IP address of the external replica host.
-            type: string
-          port:
-            description: |-
-              **string** (int64)
-              Port to connect to the external replica. If not specified, the default ClickHouse port is used.
-            type: string
-            format: int64
-          secure:
-            description: |-
-              **boolean**
-              Whether to use a secure (SSL/TLS) connection when connecting to the external replica.
-            type: boolean
-          user:
-            description: |-
-              **string**
-              Name of the user to authenticate with on the external replica.
-            type: string
-          password:
-            description: |-
-              **string**
-              Password of the user to authenticate with on the external replica.
+              Required field. MySQL host of the replica.
+              The maximum string length in characters is 253.
             type: string
           priority:
             description: |-
               **string** (int64)
-              Priority of the external replica for load balancing.
-              The replica with the lowest priority value is preferred when establishing a connection.
+              The priority of the replica that ClickHouse takes into account when connecting.
+              Replica with the highest priority should have this field set to the lowest number.
             type: string
             format: int64
+          port:
+            description: |-
+              **string** (int64)
+              Port to use when connecting to the replica.
+              If a port is not specified for a replica, ClickHouse uses the port specified for the source.
+            type: string
+            format: int64
+          user:
+            description: |-
+              **string**
+              Name of the MySQL database user.
+              If a user is not specified for a replica, ClickHouse uses the user specified for the source.
+            type: string
+          password:
+            description: |-
+              **string**
+              Password of the MySQL database user.
+              If a password is not specified for a replica, ClickHouse uses the password specified for the source.
+            type: string
+        required:
+          - host
       ExternalShard:
         type: object
         properties:
@@ -105,7 +106,7 @@ apiPlayground:
             format: int64
           replicas:
             description: |-
-              **[Replica](#yandex.cloud.mdb.clickhouse.v1.ExternalShard.Replica)**
+              **`Replica`**
               List of replicas contained in the external shard.
             type: array
             items:

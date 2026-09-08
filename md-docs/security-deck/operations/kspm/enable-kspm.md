@@ -6,14 +6,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Перед началом работы с модулем KSPM убедитесь, что кластеры, которые вы планируете включить в область действия модуля, соответствуют техническим требованиям:
-
-* Kubernetes версии 1.30 и выше.
-* В кластере Kubernetes отсутствует [Admission Control](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) на базе [Kyverno](https://yandex.cloud/ru/marketplace/products/yc/kyverno). Если Kyverno был развернут ранее, его необходимо удалить вместе со всеми созданными им ресурсами [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
-* Между узлами кластера Kubernetes и [сервисом Yandex Container Registry](../../../managed-kubernetes/tutorials/container-registry.md) настроено сетевое взаимодействие.
-* Открыт сетевой доступ от пода, в котором запущен сенсор контроля безопасности среды выполнения, до подов кластера через порт `54321`.
-* Открыт доступ от кластера к API KSPM (`kspm.api.cloud.yandex.net`) через порт `443` по протоколу TCP.
-* С помощью [групп безопасности](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes) настроен доступ от мастера кластера к компонентам KSPM, запущенным на узлах кластера.
+Перед началом работы с модулем KSPM убедитесь, что кластеры, которые вы планируете включить в область действия модуля, соответствуют [системным и техническим требованиям](requirements.md).
 
 ## Активировать модуль {#kspm-activate}
 
@@ -71,3 +64,7 @@
 Чтобы удалить кластеры из области контроля и прекратить отслеживать их безопасность, [удалите](../workspaces/delete.md) окружение Security Deck или отключите стандарты безопасности, относящиеся к Kubernetes.
 
 {% endnote %}
+
+### Полезные ссылки {#see-also}
+
+[Контроль Kubernetes® (KSPM)](../../concepts/kspm.md)

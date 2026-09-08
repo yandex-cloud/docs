@@ -1341,6 +1341,9 @@ items:
                       - name: list-stackland-cluster-operations
                         href: >-
                           cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list-stackland-cluster-operations.md
+                      - name: list-stackland-versions
+                        href: >-
+                          cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list-stackland-versions.md
                       - name: update
                         href: >-
                           cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/update.md
@@ -2074,6 +2077,15 @@ items:
                 href: cli-ref/cloud-registry/cli-ref/migration/start-cloud.md
               - name: start-folder
                 href: cli-ref/cloud-registry/cli-ref/migration/start-folder.md
+              - name: toggle-cloud-redirects
+                href: >-
+                  cli-ref/cloud-registry/cli-ref/migration/toggle-cloud-redirects.md
+              - name: toggle-folder-redirects
+                href: >-
+                  cli-ref/cloud-registry/cli-ref/migration/toggle-folder-redirects.md
+              - name: toggle-registry-redirects
+                href: >-
+                  cli-ref/cloud-registry/cli-ref/migration/toggle-registry-redirects.md
           - name: registry
             items:
               - name: Overview
@@ -2396,6 +2408,15 @@ items:
                   - name: start-folder
                     href: >-
                       cli-ref/cloud-registry/cli-ref/v1/migration/start-folder.md
+                  - name: toggle-cloud-redirects
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/migration/toggle-cloud-redirects.md
+                  - name: toggle-folder-redirects
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/migration/toggle-folder-redirects.md
+                  - name: toggle-registry-redirects
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/migration/toggle-registry-redirects.md
               - name: registry
                 items:
                   - name: Overview
@@ -5036,6 +5057,16 @@ items:
                 href: cli-ref/iam/cli-ref/service-control/get.md
               - name: list
                 href: cli-ref/iam/cli-ref/service-control/list.md
+          - name: subject-details
+            items:
+              - name: Overview
+                href: cli-ref/iam/cli-ref/subject-details/index.md
+              - name: batch-get
+                href: cli-ref/iam/cli-ref/subject-details/batch-get.md
+              - name: get
+                href: cli-ref/iam/cli-ref/subject-details/get.md
+              - name: list
+                href: cli-ref/iam/cli-ref/subject-details/list.md
           - name: user-account
             items:
               - name: Overview
@@ -5199,6 +5230,16 @@ items:
                     href: cli-ref/iam/cli-ref/v0/service-control/get.md
                   - name: list
                     href: cli-ref/iam/cli-ref/v0/service-control/list.md
+              - name: subject-details
+                items:
+                  - name: Overview
+                    href: cli-ref/iam/cli-ref/v0/subject-details/index.md
+                  - name: batch-get
+                    href: cli-ref/iam/cli-ref/v0/subject-details/batch-get.md
+                  - name: get
+                    href: cli-ref/iam/cli-ref/v0/subject-details/get.md
+                  - name: list
+                    href: cli-ref/iam/cli-ref/v0/subject-details/list.md
               - name: user-account
                 items:
                   - name: Overview

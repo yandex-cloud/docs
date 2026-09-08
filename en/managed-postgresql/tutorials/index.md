@@ -28,6 +28,7 @@ description: Various use cases for {{ mpg-full-name }} in {{ yandex-cloud }}.
 * [{#T}](data-recording.md)
 * [{#T}](conn-man-secret-access.md)
 * [{#T}](job-pyspark-secret-access.md)
+* [{#T}](mpg-pg-clickhouse-extension.md)
 
 ## Replication and migration {#replication-and-migration}
 

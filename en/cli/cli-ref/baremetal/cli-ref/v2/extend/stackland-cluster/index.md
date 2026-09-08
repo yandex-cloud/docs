@@ -27,6 +27,8 @@ Syntax:
 
 - [yc baremetal v2 extend stackland-cluster list-stackland-cluster-operations](list-stackland-cluster-operations.md) — Lists operations for the specified Stackland cluster.
 
+- [yc baremetal v2 extend stackland-cluster list-stackland-versions](list-stackland-versions.md) — Lists of available stackland versions.
+
 - [yc baremetal v2 extend stackland-cluster update](update.md) — Updates the specified Stackland cluster.
 
 #### Global Flags
@@ -39,6 +41,15 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||
