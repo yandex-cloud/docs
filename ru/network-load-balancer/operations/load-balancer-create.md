@@ -34,16 +34,14 @@ description: Следуя данной инструкции, вы сможете
 
           * {% include [select-external-ip](../../_includes/network-load-balancer/select-external-ip.md) %}
 
-  1. (Опционально) В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_advanced }}**:
+  1. (Опционально) В поле **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** включите защиту от DDoS-атак.
+  1. (Опционально) В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_deletion-protection }}** включите защиту балансировщика от удаления.
 
-      * Включите защиту от DDoS-атак.
-      * Включите защиту балансировщика от удаления.
+      {% note warning %}
 
-        {% note warning %}
+      Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика.
 
-        Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика.
-
-        {% endnote %}
+      {% endnote %}
 
   1. {% include [add-listener](../../_includes/network-load-balancer/add-listener.md) %}
   1. {% include [add-target-group](../../_includes/network-load-balancer/add-target-group.md) %}
@@ -207,7 +205,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом API [create](../api-ref/NetworkLoadBalancer/create.md) и передайте в теле запроса:
+  Воспользуйтесь методом REST API [create](../api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Create](../api-ref/grpc/NetworkLoadBalancer/create.md) и передайте в теле запроса:
 
   ```api
   {
@@ -216,6 +214,8 @@ description: Следуя данной инструкции, вы сможете
     "type": "EXTERNAL"
   }
   ```
+
+  В gRPC API имена полей записываются в [snake_case](https://{{ lang }}.wikipedia.org/wiki/Snake_case): `folder_id`.
 
 {% endlist %}
 
@@ -309,7 +309,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом API [create](../api-ref/NetworkLoadBalancer/create.md) и передайте в теле запроса:
+  Воспользуйтесь методом REST API [create](../api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Create](../api-ref/grpc/NetworkLoadBalancer/create.md) и передайте в теле запроса:
 
   ```api
   {
@@ -347,5 +347,7 @@ description: Следуя данной инструкции, вы сможете
     ]
   }
   ```
+
+  В gRPC API имена полей записываются в [snake_case](https://{{ lang }}.wikipedia.org/wiki/Snake_case): `folder_id`, `listener_specs`, `target_port`, `external_address_spec`, `ip_version`, `attached_target_groups`, `target_group_id`, `health_checks`, `unhealthy_threshold`, `healthy_threshold`, `http_options`.
 
 {% endlist %}

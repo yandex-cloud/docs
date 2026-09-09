@@ -2728,7 +2728,6 @@ default:
             field_bucket: Бакет
             field_detail-type: Детализация
             field_locale: Язык
-            field_prefix: Папка
             label_include-resources: Поресурсная
             label_not-include-resources: Общая
             locale_value_en-lang: English
@@ -3376,6 +3375,7 @@ default:
             column_service_account: Сервисный аккаунт
             field_date: Загрузить отчёты начиная с
             field_period: Экспорт данных за предыдущий период
+            field_prefix: Путь внутри бакета
             locale_value_en-lang: English
             locale_value_ru-lang: Русский
           force-reexport:
@@ -3521,9 +3521,9 @@ default:
             cookieMaxAge: Время жизни cookie
             encryptedAssertions: Подписывать запросы аутентификации
             forceAuthn: Принудительная повторная аутентификация (ForceAuthn) в IdP
-            issuer: IdP Issuer
-            ssoBinding: Single Sign-On метод
-            ssoUrl: Ссылка на страницу для входа в IdP
+            issuer: Issuer / IdP EntityID
+            ssoBinding: Метод SSO
+            ssoUrl: Login URL
         group:
           action_add-member: Добавить участника
           action_create: Создать группу
@@ -3565,9 +3565,6 @@ default:
         federation:
           action:
             create: Создать федерацию
-          create:
-            action:
-              create: Создать федерацию
           note:
             tab-domains: Домены
         group-mapping:
@@ -4035,7 +4032,7 @@ default:
             controlRule_kr2Bv: Правило контроля
             module_63uuk: Модуль контроля
             standards_iv6a5: Наборы требований
-            verificationMethod_dS9B2: Тип правила
+            verificationMethod_dS9B2: Тип проверки
             violations_q7AcU: Нарушения
           RuleExceptions:
             placeholder_action_t5zxy: Создать исключение
@@ -4467,7 +4464,7 @@ default:
       channels:
         action_add-domain: Добавить домен
         action_create-channel: Создать канал
-        label_category: Категория
+        label_category: Категория контента
         label_description: Описание
         label_domains-status: Статус проверки
         label_page-id: PageID
@@ -5537,9 +5534,11 @@ default:
           label_value: Значение
         label-set:
           button_add-label: Добавить метку
+          button_add-label_6byGW: Добавить метку
           label_enter-keyboard-key: Enter
           label_labels: Метки
           label_labels_1qrKA: Метки
+          label_labels_kbb4Z: Метки
         maintenance-alert:
           button_reschedule: Перенести
           value_next-available-window: На следующее окно
@@ -5983,7 +5982,6 @@ default:
           section_overview: Обзор Docker-образа
         overview:
           button_create: Создать реестр
-          popup-confirm_button_delete: Удалить
           popup-create_button_create: Создать реестр
           popup-create_field_auto_scan: Автоматическое сканирование
           popup-create_field_name: Имя
@@ -6060,7 +6058,7 @@ default:
         label_add-terms: Изменить термины
         label_ai-label: AI
         label_asset-lineage-depth: Глубина
-        label_asset-lineage-weak: Отображать дополнительные связи
+        label_asset-lineage-weak: Дополнительные связи
         label_connected-terms: Связанные термины
         label_create-catalog: Создание каталога
         label_create-classification-action: Создать классификацию
@@ -6975,7 +6973,6 @@ default:
             label_add-listener: Добавить обработчик
             label_add-target-group: Добавить целевую группу
             label_address-type: Публичный адрес
-            label_advanced: Дополнительно
             label_edit-health-check: Настроить
             label_external: Внешний
             label_internal: Внутренний
@@ -7559,7 +7556,6 @@ default:
             title_virtual-node-group: Группа виртуальных хостов
       page:
         welcome:
-          button_create: Создать
           field_cloud-name: Название облака
           field_organization: Организация
       postbox:
@@ -8247,8 +8243,6 @@ default:
             field_access-read: Чтение объектов
             field_class: Класс хранилища
             field_name: Имя
-            field_size-limit: Макс. размер
-            label_size-limit-disabled: Без ограничения
           switch_cors: CORS
           switch_encryption: Шифрование
           switch_file-versions: Показать версии
@@ -8307,7 +8301,12 @@ default:
           label_lifetime: Время жизни
           value_object-lock-mode-compliance: Временная строгая (compliance)
           value_object-lock-mode-governance: Временная управляемая (governance)
+        form-components:
+          SizeLimitField:
+            field_size-limit-enabled_hPy7f: Установить максимальный размер бакета
         form:
+          AccessSection:
+            section_label-access_2cHmW: Доступ
           BucketObjectLockFormContent:
             field_default-rules-enabled_qtmC8: Блокировки по умолчанию для новых версий
             field_mode_61kxf: Тип блокировки по умолчанию

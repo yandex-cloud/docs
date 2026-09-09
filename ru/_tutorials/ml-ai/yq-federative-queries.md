@@ -106,7 +106,7 @@
 Чтобы получить авторизованный ключ из ноутбука, создайте [секрет](../../datasphere/concepts/secrets.md) с содержимым файла авторизованного ключа.
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. В поле **{{ ui-key.yc-ui-datasphere.secret.name }}** задайте имя секрета — `yq_access_key`.
 1. В поле **{{ ui-key.yc-ui-datasphere.secret.content }}** вставьте полное содержимое скачанного файла с авторизированным ключом.
@@ -139,7 +139,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
   1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
@@ -151,7 +151,7 @@
      2024-05-15 13:13:00|2|1
      ```
 
-  1. Перейдите в созданный бакет и нажмите **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. Перейдите в созданный бакет и на панели сверху нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. В появившемся окне выберите файл `visits.csv` и нажмите кнопку **Открыть**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
 
@@ -165,7 +165,7 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
   1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Введите имя соединения, например `storage-connection`.
   1. Выберите тип соединения **{{ ui-key.yql.yq-connection.action_object-storage }}** и укажите **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**.
@@ -191,7 +191,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
   1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+  1. Перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
   1. В блоке **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
 
@@ -293,7 +293,7 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
   1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Введите имя соединения, например `clickhouse`.
   1. Выберите тип соединения **{{ ui-key.yql.yq-connection.action_clickhouse }}**.
@@ -372,7 +372,7 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
   1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Введите имя соединения, например `postgresql`.
   1. Выберите тип соединения **{{ ui-key.yql.yq-connection.action_postgersql }}**.

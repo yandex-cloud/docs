@@ -109,7 +109,7 @@
 
       1. {% include [forceauthn-option-enable](../../_includes/organization/forceauthn-option-enable.md) %}
 
-      1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 
 {% endlist %}
 

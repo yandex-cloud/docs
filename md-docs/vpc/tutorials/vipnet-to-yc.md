@@ -446,7 +446,8 @@ VPN-туннель работает между двумя решениями ViP
     * `Get IP-address automatically on boot (via DHCP)`.
 1. Настройте сетевые интерфейсы `eth2` и `eth3`: `Don't activate interface on boot`.
 1. Настройте следующие параметры:
-    * В поле `Enable/Disable NTP server mode` выберите `Disable starting the DNS server on boot`.
+    * В поле `Enable/Disable DNS server mode` выберите `Disable starting the DNS server on boot`.
+    * В поле `Enable/Disable NTP server mode` выберите `Disable starting the NTP server on boot`.
     * В поле `Enter hostname` укажите `yc-vipnet-1`.
     * На вопрос `Do you want to specify custom virtual IP address range?` выберите ответ `Leave the default setting`.
     * На вопрос `Do you want to probe VPN-connection with some host in order to verify the configuration you've just made?` выберите ответ `No`.

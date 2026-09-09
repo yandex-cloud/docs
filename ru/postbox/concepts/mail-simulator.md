@@ -17,7 +17,14 @@ description: Симулятор доставки писем в {{ postbox-full-n
 || `bounce@simulator.pstbx.ru` | Ошибка доставки | Почтовый сервер симулятора возвращает SMTP-ответ `452 4.2.2 The recipient's inbox is out of storage space`. ||
 || `delay@simulator.pstbx.ru` | Задержка доставки | {{ postbox-name }} не может доставить письмо из-за временной ошибки, отправляет [уведомление о задержке доставки](notification.md#delayed-delivery) и повторяет попытку доставки. ||
 || `suppressed@simulator.pstbx.ru` | Получатель в стоп-листе | {{ postbox-name }} не пытается доставить письмо и отправляет [уведомление об ошибке доставки](notification.md#bounce) с подтипом `Suppressed`, как если бы адрес получателя находился в [глобальном стоп-листе](suppression-list.md#global). ||
+|| `spam@simulator.pstbx.ru` | Письмо распознано как спам | Почтовый сервер симулятора возвращает постоянную ошибку SMTP `554 5.7.1 Message rejected under suspicion of SPAM`. {{ postbox-name }} не повторяет попытку доставки и отправляет [уведомление об ошибке доставки](notification.md#bounce). ||
 |#
+
+{% note info %}
+
+Если для одного сценария нужно несколько адресов (например, чтобы различать письма в статистике или уведомлениях), добавьте к локальной части адреса метку через `+`: `success+test1@simulator.pstbx.ru`, `success+test2@simulator.pstbx.ru` и т. д. Сценарий определяется по части адреса до знака `+`, поэтому все такие адреса ведут себя одинаково.
+
+{% endnote %}
 
 ## Как использовать {#usage}
 

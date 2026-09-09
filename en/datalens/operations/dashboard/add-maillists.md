@@ -1,17 +1,19 @@
 ---
-title: Adding a mailing list
-description: Follow this guide to add a mailing list for a dashboard.
+title: Adding a mailing list for a dashboard in {{ datalens-full-name }}
+description: Follow this guide to add a mailing list for a dashboard in {{ datalens-name }}.
 ---
 
-# Mailing lists
+# Mailing lists for dashboards
 
 
-You can set up a mailing list for your dashboard. Recipients will be getting emails with links to the dashboard and chart states specified in the mailing list settings. You can set up the dashboard selector states, schedule, chart sizes, and other parameters. Mailing lists are available for the current dashboard [version](../../dashboard/versioning.md) only.
+You can set up a mailing list for a dashboard. Recipients will be getting emails with links to the dashboard and chart states specified in the mailing list settings. You can set up the dashboard selector states, schedule, chart sizes, and other parameters. Mailing lists are available for the current dashboard [version](../../dashboard/versioning.md) only.
 
 {% note info %}
 
-* Mailing lists are only available for dashboards stored in [workbooks](../../../datalens/workbooks-collections/index.md).
-* A user with the `{{ roles-datalens-admin }}` role can add or update a mailing list.
+* To add or update a mailing list, you need the `Editor` [role](../../security/roles.md#datalens-workbooks-editor) or higher for the workbook.
+* Mailing lists are only available for dashboards located in [workbooks](../../workbooks-collections/index.md).
+* Mailing lists do not support [RLS](../../security/row-level-security.md).
+* Mailing lists only support [shared objects](../../security/workbooks-access-advanced.md) that are configured to allow delegated access permissions.
 
 {% endnote %}
 
@@ -111,10 +113,13 @@ To add a mailing list for your dashboard:
 
      * To receive the emails, a user must have an active seat.
      * If there are no recipients with an active seat, no emails will be sent.
+     * You can receive the newsletter only if you have a role for the workbook in which this newsletter is configured.
 
      {% endnote %}
 
 
+     {% include [datdatalens-maillist-add-recipients](../../../_includes/datalens/datalens-maillist-add-recipients.md) %}
+     
      After saving the mailing list, you can edit the recipients in the **Recipients** tab.
 
      {% cut "Mailing list recipients" %}
@@ -177,8 +182,8 @@ You can rename or delete a mailing list, change its settings, pause or resume de
 
    * Subscribe or unsubscribe:
      
-     * To subscribe to a mailing list, click ![image](../../../_assets/console-icons/bell.svg) **Subscribe** at the top below the mailing list name, or click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/bell.svg) **Subscribe**.
-     * To unsubscribe from a mailing list, click ![image](../../../_assets/console-icons/bell.svg) **Subscribed** at the top below the mailing list name, or click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/bell-slash.svg) **Unsubscribe**.
+     * If you have minimal access to the workbook where the newsletter is stored, you can subscribe to it. To subscribe to a mailing list, click ![image](../../../_assets/console-icons/bell.svg) **Subscribe** at the top below the mailing list name, or click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/bell.svg) **Subscribe**.
+     * To unsubscribe from a mailing list, click ![image](../../../_assets/console-icons/bell.svg) **Subscribed** at the top below the mailing list name, or click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/bell-slash.svg) **Unsubscribe**. You can also unsubscribe from the newsletter by clicking the appropriate link in it.
 
    * Pause or resume deliveries:
      

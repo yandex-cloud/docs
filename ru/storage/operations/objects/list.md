@@ -11,8 +11,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Выберите нужный бакет из списка.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**. Отобразится список объектов и папок.
+  1. Выберите нужный бакет из списка и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  
+      Отобразится список объектов и папок.
 
       Чтобы посмотреть список объектов в папке, нажмите на нее. В [версионируемых](../../concepts/versioning.md) бакетах, чтобы посмотреть историю изменений всех объектов в списке, включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
 

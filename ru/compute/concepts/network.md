@@ -16,6 +16,12 @@ IP-адреса, FQDN и другую информацию можно узнат
 
 Если добавленные сетевые интерфейсы неактивны или у вас пропала возможность [подключаться](../operations/vm-connect/ssh.md) к ВМ, смотрите раздел [Решение проблем](../qa/troubleshooting.md).
 
+{% note info %}
+
+Создание ВМ с несколькими сетевыми интерфейсами, а также привязка к сетевым интерфейсам публичных IP-адресов могут быть запрещены на уровне [каталога](*folders), [облака](*clouds) или [организации](*organizations) с помощью политик авторизации `compute.denySerialPortEnabling` и `compute.denyPublicIpAssigning`. Подробнее читайте в разделе [{#T}](../security/index.md#access-policies).
+
+{% endnote %}
+
 ### Рекомендации {#best-practices}
 
 Для стабильной работы сети на ВМ следуйте следующим рекомендациям:
@@ -92,3 +98,9 @@ IP-адреса, FQDN и другую информацию можно узнат
 * [{#T}](../tutorials/backup-and-archive-to-sftp.md)
 * [{#T}](../tutorials/bind-domain-vm/index.md)
 * [{#T}](../tutorials/rds-gw.md)
+
+[*folders]: {% include [folder-definition](../../_popups/resource-manager/folder-definition.md) %}
+
+[*clouds]: {% include [cloud-definition](../../_popups/resource-manager/cloud-definition.md) %}
+
+[*organizations]: {% include [organization-definition](../../_popups/identity-hub/organization-definition.md) %}

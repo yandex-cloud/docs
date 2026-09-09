@@ -3002,9 +3002,9 @@ default:
             cookieMaxAge: Cookie lifetime
             encryptedAssertions: Sign authentication requests
             forceAuthn: Mandatory re-authentication (ForceAuthn) in IdP
-            issuer: IdP Issuer
-            ssoBinding: Single Sign-On method
-            ssoUrl: Link to the IdP login page
+            issuer: Issuer / IdP EntityID
+            ssoBinding: SSO method
+            ssoUrl: Login URL
         group:
           action_add-member: Add member
           action_create: Create group
@@ -3046,9 +3046,6 @@ default:
         federation:
           action:
             create: Create federation
-          create:
-            action:
-              create: Create federation
           note:
             tab-domains: Domains
         group-mapping:
@@ -3509,8 +3506,7 @@ default:
             controlRule_kr2Bv: Control rule
             module_63uuk: Module of control
             standards_iv6a5: Rule sets
-            verificationMethod_dS9B2: |
-              Rule type
+            verificationMethod_dS9B2: Check type
             violations_q7AcU: Violations
           RuleExceptions:
             placeholder_action_t5zxy: Create exception
@@ -3902,9 +3898,9 @@ default:
       channels:
         action_add-domain: Add domain
         action_create-channel: Create a channel
-        label_advertisement: Advertisement
+        label_advertisement: Monetization
         label_allowed-domains: Permitted domains
-        label_category: Category
+        label_category: Content category
         label_description: Description
         label_domains-status: Check status
         label_page-id: PageID
@@ -3967,7 +3963,7 @@ default:
         label_episode-hidden: Hide controls in player
         label_episode-mute: Play video without sound by default
         label_episode-type: Episode type
-        label_episode-type-broadcast: Broadcast
+        label_episode-type-broadcast: Recorded broadcast
         label_episode-type-live: Live
         label_player-template: Player template
         label_rewind-buffer: Rewind buffer (sec)
@@ -3997,7 +3993,7 @@ default:
         label_accessRights: Access
         label_allow-access: Grant access
         label_description: Description
-        label_enable-ad: Enable ads
+        label_enable-ad: Monetization
         label_neuro-translation: Neural translation
         label_subtitles: Subtitles
         label_title: Name
@@ -4019,6 +4015,7 @@ default:
         cluster:
           overview:
             title_resource-webserver: Web server
+        field_connector-bucket-name: Bucket
         field_lockbox: Use Lockbox Secret Backend
         section_accesses: Access settings
         section_airflow-configuration: Airflow configuration
@@ -4914,6 +4911,7 @@ default:
           label_value: Value
         label-set:
           button_add-label: Add label
+          label_enter-keyboard-key: Enter
           label_labels: Labels
         maintenance-alert:
           button_reschedule: Reschedule
@@ -5355,7 +5353,6 @@ default:
           section_overview: Overview of Docker image
         overview:
           button_create: Create registry
-          popup-confirm_button_delete: Delete
           popup-create_button_create: Create registry
           popup-create_field_auto_scan: Automatic scanning
           popup-create_field_name: Name
@@ -5432,7 +5429,7 @@ default:
         label_add-terms: Edit terms
         label_ai-label: AI
         label_asset-lineage-depth: Depth
-        label_asset-lineage-weak: Display additional connections
+        label_asset-lineage-weak: Additional connections
         label_connected-terms: Linked terms
         label_create-catalog: Creating a catalog
         label_create-classification-action: Create classification
@@ -5519,6 +5516,7 @@ default:
           field_main-jar: Main jar
           field_main-python-file: Main python file
           field_mapreduce-job-type: Mapreduce
+          field_packages: Packages
           field_properties: Properties
           field_pyspark-job-type: PySpark
           field_query-file-uri: Query file uri
@@ -6316,7 +6314,6 @@ default:
             label_add-listener: Add listener
             label_add-target-group: Add target group
             label_address-type: Public address
-            label_advanced: Advanced
             label_edit-health-check: Configure
             label_external: External
             label_internal: Internal
@@ -6392,6 +6389,7 @@ default:
         field_logging: Write logs
         label_destination: Destination
         label_export: Export logs
+        label_filter-levels: Level
         label_filter-query: Query
         label_group: Group
         label_groups: Groups
@@ -6720,6 +6718,7 @@ default:
           label_master-subcluster: Master
           label_max-size-units: GB
           label_network: Network
+          label_subnetwork: Subnet
           maintenance-window-type: Maintenance
           network_field_form-type: Network ID format
           network_field_subnetwork: Subnet
@@ -6780,6 +6779,7 @@ default:
           AssetProfiling:
             ProfileHeader:
               title_profile-parameters_26kSu: Profiling settings
+        label_manage-metadata: Manage metadata
       metastore:
         action_export: Export
         action_import: Import
@@ -6875,7 +6875,6 @@ default:
             title_virtual-node-group: Virtual node group
       page:
         welcome:
-          button_create: Create
           field_cloud-name: Cloud name
           field_organization: Organization
       postbox:
@@ -7428,14 +7427,38 @@ default:
         value_pre-check-checkbox: Checkbox
         value_pre-check-slider: Slider
       spark:
+        ClusterForm:
+          DependenciesSection:
+            title_dependencies-type_wJq6n: Software configuration method
+            title_software-configuration-type-environment_wJq6n: Environment
+            title_software-configuration-type-packages_wJq6n: Packages manually
+        EnvironmentActions:
+          button_action-copy_dFws4: Create a copy of the environment
+          button_action-delete_kqb63: Delete
+          popup-action_label_delete-msg_4d5Cr: Delete
+        EnvironmentForm:
+          EnvironmentFormContent:
+            field_deb-packages_htNFj: Deb packages
+            field_pip-packages_rnW6Y: Pip packages
+            section_base-environment_tkR1g: Base environment
+            section_general_fDK9S: General information
+            section_packages_oct8m: Packages
+        EnvironmentSelect:
+          base_environments_fq7iF: Base environments
+          field_environment_cluster_sP4vs: As in the cluster
+          user_environments_fwNXU: User environments
         jobs:
           create_action: Create job
           popup-action_label_cancel-msg: Cancel job
         label_connect-url: Connection URL
         label_history-server: History Server
         label_metastore: Metastore
+        label_title-environments: Environments
         section_driver: Driver configuration
         section_executor: Executor configuration
+        Spark:
+          EnvironmentsList:
+            button_create_sqDYH: Create environment
       spqr:
         cluster:
           switch_databases: Databases

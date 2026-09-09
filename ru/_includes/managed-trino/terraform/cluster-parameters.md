@@ -41,6 +41,9 @@ resource "yandex_vpc_subnet" "<имя_подсети>" {
 * `subnet_ids` — список идентификаторов подсетей.
 * `security_group_ids` — список идентификаторов групп безопасности.
 * `private_access` — приватный доступ к кластеру: `true` или `false`. Включите этот параметр, чтобы кластер был доступен только через [сервисное подключение](../../../managed-trino/concepts/network.md#private-endpoint).
+
+    {% include [unchangeable-private-access](../unchangeable-private-access.md) %}
+
 * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
     Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.

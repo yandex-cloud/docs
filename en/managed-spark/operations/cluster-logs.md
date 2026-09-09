@@ -10,10 +10,10 @@
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
-    1. Specify the logging **Level** and time period for which you want to display the log.
+    1. Click the cluster name and navigate to **{{ ui-key.yacloud.common.logs }}**.
+    1. Specify the logging **{{ ui-key.yacloud.logging.label_filter-levels }}** and the log time window.
 
 - CLI {#cli}
 
@@ -23,12 +23,12 @@
 
     1. {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. To view records in the log group, run this command:
+    1. To view the log group entries, run this command:
 
         ```
         yc logging read --group-name <log_group_name> --follow
         ```
 
-        You can view the log group name on the **{{ ui-key.yacloud.common.overview }}** tab of the {{ SPRK }} cluster.
+        You can look up the log group name in the **{{ ui-key.yacloud.common.overview }}** section of your {{ SPRK }} cluster.
 
 {% endlist %}

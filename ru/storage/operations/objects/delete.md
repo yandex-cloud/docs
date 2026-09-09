@@ -27,10 +27,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Выберите бакет, где хранится удаляемый объект.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете, включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
-  1. Чтобы удалить один объект, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.delete }}**.
+  1. Выберите бакет, в котором хранится удаляемый объект, и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
+  1. Чтобы удалить один объект, в строке с этим объектом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
 
      Чтобы выполнить это же действие с несколькими объектами, отметьте их в списке и нажмите кнопку **{{ ui-key.yacloud.common.delete }}** в нижней части экрана.
 

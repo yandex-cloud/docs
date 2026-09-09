@@ -1,9 +1,11 @@
 
 
-A {{ mch-name }} cluster can ingest data from {{ KF }} topics in real time. This data will be automatically inserted into {{ CH }} [`Kafka`]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka)-engine tables.
+A {{ mch-full-name }} cluster can ingest data from {{ KF }} topics in real time. This data will be automatically inserted into {{ CH }} [`Kafka`]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka)-engine tables.
 
-To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
+To set up data delivery from {{ mkf-full-name }} to {{ mch-name }}:
 
+1. [Set up your infrastructure](#deploy-infrastructure).
+1. [Configure additional settings](#additional-settings).
 1. [Set up {{ KF }} integration for your {{ mch-name }} cluster](#configure-mch-for-kf).
 1. [Create Kafka-engine tables in your {{ mch-name }} cluster](#create-kf-table).
 1. [Send test data to your {{ mkf-name }} topics](#send-sample-data-to-kf).
@@ -18,24 +20,26 @@ This tutorial uses a single-host {{ CH }} cluster. If your cluster has more than
 {% endnote %}
 
 
-## Required paid resources {#paid-resources}
-
-The support cost for this solution includes:
-
-* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* {{ mch-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-
-
 ## Getting started {#before-you-begin}
 
-### Set up your infrastructure {#deploy-infrastructure}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
+
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+
+## Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
+    
     {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
 
     1. [Create the required number of {{ mkf-name }} clusters](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md). To be able to connect to the clusters not only from within the {{ yandex-cloud }} network but also from a local machine, enable public access when creating them.
 
@@ -107,7 +111,7 @@ The support cost for this solution includes:
 
 {% endlist %}
 
-### Configure additional settings {#additional-settings}
+## Configure additional settings {#additional-settings}
 
 1. Install the following tools:
 

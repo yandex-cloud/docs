@@ -95,9 +95,9 @@ When such a URL comes on top of the default parameters, you get the following ob
 
 ```js
 {
-  period: 40,
-  metric: ['2012', '2014'],
-  id: ['1215', '1217', '979', '483']
+    period: 40,
+    metric: ['2012', '2014'],
+    id: ['1215', '1217', '979', '483']
 }
 ```
 
@@ -285,9 +285,9 @@ Example of getting only a list of fields from a dataset:
 
   ```js
   module.exports = {
-    fields: {
-        datasetId: Editor.getId('mySource'),
-        path: 'fields'
+      fields: {
+          datasetId: Editor.getId('mySource'),
+          path: 'fields'
     }
   };
   ```
@@ -479,7 +479,7 @@ Available for the following visualization types: [Selector](./widgets/controls.m
   Where:
   
   * `params`: Object with parameters from the dashboard controls.
-  * `apiConnectionId`: ID of the connection described in the [Meta](#meta) tab and obtained using the [Editor.getId(arg)](./methods.md#get-id) method. Available data sources include queries to datasets, standard connections, and [API Connector](../../operations/connection/create-api-connector.md) connections. 
+  * `apiConnectionId`: ID of the connection described on the [Meta](#meta) tab and obtained using the [Editor.getId(arg)](./methods.md#get-id) method. Queries to datasets, standard connections, and [API Connector](../../operations/connection/create-api-connector.md) connections are available as data sources. 
   * `mySourceKeyName`: Alias name for the data source described on the **Meta** tab.
   * `path`: API path after host.
   * `method`: Request method.
@@ -522,7 +522,7 @@ Available for the following visualization types: [Selector](./widgets/controls.m
     ```js
     {
         action: 'toast',
-        title: 'Title',
+        title: 'Header',
         content: 'Notification text' 
     }
     ```
@@ -555,7 +555,7 @@ Available for the following visualization types: [Selector](./widgets/controls.m
     ```js
     {
         action: 'popup',
-        title: 'Title',
+        title: 'Header',
         content: 'Window content' 
     }
     ```
@@ -592,6 +592,101 @@ Available for the following visualization types: [Selector](./widgets/controls.m
   {% endlist %}
 
 
+* `dialog`: Modal form overlaying the chart:
+
+  {% list tabs %}
+
+  - Format
+
+    ```json
+    {
+        action: "dialog",
+        title: "<string>",
+        fields: ActivityFormField[],
+        onSubmit: ActivityFormSubmitAction,
+    }
+    ```
+
+    Where:
+
+    * `action`: Type of action to invoke after sending the request. The `dialog` value shows a modal form overlaying the chart. Once filled and submitted, the form either updates chart parameters or runs the next action.
+    * `title`: Dialog title (optional).
+    * `fields`: List of form fields.
+    * `onSubmit`: Action to perform on submitting the form.
+
+    The form fields (`fields`) are represented by the `ActivityFormField` list items. Form field (`ActivityFormField`):
+
+    ```js
+    {
+        type: "text-input"|"number-input"|"date-input"|"select"|"checkbox"|"radio"|"radio-tabs",
+        name: "<string>",
+        label: "<string>",
+        hint: "<string>",
+        required: boolean,
+        defaultValue: <depends on type>,
+        options: {label: "<string>", value: "<string>"}[],
+        placeholder: "<string>",
+        filterable: boolean,
+        filterPlaceholder: "<string>",
+        min: number,
+        max: number,
+        step: number,
+    }
+    ```
+
+    Where:
+
+    * `type`: Field control type:
+
+      * `text-input`: One-line text field.
+      * `number-input`: Numeric field (the additional properties are `placeholder`, `min`, `max`, `step`).
+      * `date-input`: Date selection field.
+      * `select`: Drop-down list (the additional property is `options`).
+      * `checkbox`: Checkbox.
+      * `radio`: Group of radio buttons (the additional property is `options`).
+      * `radio-tabs`: Tab switch (the additional property is `options`).
+
+    * `name`: Key under which the field value will get to `params` once the form is submitted.
+    * `label`: Label above the control (optional).
+    * `hint`: Text hint under the control (optional).
+    * `required`: Flag for required control (optional). The possible values are `true` or `false`.
+    
+    * `defaultValue`: Initial field value (optional). The value type depends on `type`.
+    * `options`: List of possible values in `{label, value}` format for `select`, `radio`, and `radio-tabs`.
+    * `placeholder`: Empty field hint for `text-input` and `number-input`.
+    * `filterable`: Property for whether or not data is filterable by this field. The possible values are `true` or `false`. Available for `select`. 
+    * `filterPlaceholder`: Empty field hint for `select`.
+    * `min`, `max`, `step`: Limits for `number-input`.
+
+    Actions on submitting the form (`onSubmit`):
+
+    * Update chart parameters:
+
+      ```js
+      {
+          type: "setParams",
+      }
+      ```
+
+    The form field values become the chart's new parameters, and the chart gets redrawn with the new values.
+
+    * Run the next `activity`:
+
+      ```js
+      {
+          type: "runActivity",
+          extraParams: object,
+      }
+      ```
+    
+      Where:
+
+      * `type`: The `runActivity` value calls the next `activity` by providing to it the form field values as `params`.
+      * `extraParams`: Additional parameters combined on top of the form values (e.g., `_action` and `id` to differentiate between creating and editing and to provide the entry ID).
+
+  {% endlist %}
+
+
 ### Performing actions {#run-activities}
 
 To perform actions of the **Activities** tab, configure interface element events:
@@ -610,5 +705,7 @@ To perform actions of the **Activities** tab, configure interface element events
 * [Tutorial with an example of using the Activities tab in Editor](../../tutorials/create-editor-activities.md)
 
 * [Example of using the Activities tab in Editor](https://datalens.yandex/nvkfwnekf9xy9?tab=vZX)
+
+* [Write-back implementation example via Activities in Editor and API Connector](https://datalens.yandex/2aztx9jtm06ko?tab=mv#Пример%20Таблицы%20с%20формой%20ввода)
 
 

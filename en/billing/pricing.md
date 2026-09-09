@@ -116,8 +116,9 @@ The cost of billable services is calculated based on the amount of consumed reso
 * [{{ mgp-full-name }}](../managed-greenplum/pricing/index.md)
 * [{{ objstorage-full-name }}](../storage/pricing.md)
 * [{{ yq-full-name }}](../query/pricing.md)
-* {{ preview-stage }} [{{ sd-full-name }}](../security-deck/pricing.md)
+* [{{ sd-full-name }}](../security-deck/pricing.md)
 * [{{ serverless-containers-full-name }}](../serverless-containers/pricing.md)
+* {{ preview-stage }} [{{ yandex-siem-full-name }}](../siem/pricing.md)
 * [{{ captcha-full-name }}](../smartcaptcha/pricing.md)
 * [{{ sws-full-name }}](../smartwebsecurity/pricing.md)
 * [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/pricing)
@@ -137,6 +138,7 @@ The following services are always free of charge:
 * [{{ iam-full-name }}](../iam/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
 * {{ preview-stage }} [{{ si-full-name }}](../serverless-integrations/pricing.md)
+* {{ preview-stage }} [Vibecraft]({{ link-src-docs }}/vibecraft/pricing.md)
 * [{{ websql-full-name }}](../websql/pricing.md)
 
  Services at the [Preview](../overview/concepts/launch-stages.md) stage are labeled as {{ preview-stage }}.

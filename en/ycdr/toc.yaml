@@ -39,4 +39,6 @@ items:
     href: kql-reference.md
   - name: Access management
     href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
 path: en/ycdr/toc.yaml

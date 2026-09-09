@@ -26,7 +26,7 @@
       * первый символ — буква, последний — не дефис.
 
   1. В поле **Тип** выберите `Внутренний`.
-  1. (Опционально) В поле **Дополнительно** включите защиту балансировщика от удаления.
+  1. (Опционально) В поле **Защита от удаления** включите защиту балансировщика от удаления.
 
       {% note warning %}
 
@@ -344,7 +344,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом API [create](../api-ref/NetworkLoadBalancer/create.md) и передайте в теле запроса:
+  Воспользуйтесь методом REST API [create](../api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Create](../api-ref/grpc/NetworkLoadBalancer/create.md) и передайте в теле запроса:
 
   ```api
   {
@@ -353,6 +353,8 @@
     "type": "INTERNAL"
   }
   ```
+
+  В gRPC API имена полей записываются в [snake_case](https://ru.wikipedia.org/wiki/Snake_case): `folder_id`.
 
 {% endlist %}
 
@@ -477,7 +479,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом API [create](../api-ref/NetworkLoadBalancer/create.md) и передайте в теле запроса:
+  Воспользуйтесь методом REST API [create](../api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Create](../api-ref/grpc/NetworkLoadBalancer/create.md) и передайте в теле запроса:
 
   ```api
   {
@@ -517,5 +519,7 @@
     ]
   }
   ```
+
+  В gRPC API имена полей записываются в [snake_case](https://ru.wikipedia.org/wiki/Snake_case): `folder_id`, `listener_specs`, `target_port`, `internal_address_spec`, `subnet_id`, `ip_version`, `attached_target_groups`, `target_group_id`, `health_checks`, `unhealthy_threshold`, `healthy_threshold`, `http_options`.
 
 {% endlist %}

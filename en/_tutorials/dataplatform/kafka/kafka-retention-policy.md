@@ -12,6 +12,7 @@ In this tutorial, you will:
 
 To simulate and monitor message loss in an {{ KF }} topic:
 
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Set up topic connection tools](#test-cluster-prepare).
 1. [Prepare message send and receive commands](#prepare-commands).
 1. [Run the message receive command](#start-receive).
@@ -23,14 +24,16 @@ To simulate and monitor message loss in an {{ KF }} topic:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Required paid resources {#paid-resources}
-
-The support cost for this solution includes:
-
-* {{ KF }} cluster fee: use of computing resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
-* Fee for the use of public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-
 ## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
+
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+
+## Set up your infrastructure {#prepare-infrastructure}
 
 1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md) of any suitable configuration. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** when creating your cluster.
 

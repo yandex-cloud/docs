@@ -34,16 +34,14 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
           * {% include [select-external-ip](../../_includes/network-load-balancer/select-external-ip.md) %}
 
-  1. Optionally, in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_advanced }}** field:
+  1. Optionally, in the **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** field enable DDoS protection.
+  1. Optionally, in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_deletion-protection }}** field enable load balancer deletion protection.
 
-      * Enable DDoS protection.
-      * Enable load balancer deletion protection.
+      {% note warning %}
 
-        {% note warning %}
+      This does not apply to its listeners or target groups.
 
-        This does not apply to its listeners or target groups.
-
-        {% endnote %}
+      {% endnote %}
 
   1. {% include [add-listener](../../_includes/network-load-balancer/add-listener.md) %}
   1. {% include [add-target-group](../../_includes/network-load-balancer/add-target-group.md) %}

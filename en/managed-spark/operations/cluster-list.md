@@ -13,7 +13,7 @@ You can get detailed information about each {{ SPRK }} cluster you created.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 
 - CLI {#cli}
@@ -60,7 +60,7 @@ You can get detailed information about each {{ SPRK }} cluster you created.
               }' \
            {{ api-host-spark }}:{{ port-https }} \
            yandex.cloud.spark.v1.ClusterService.List
-           ```
+       ```
        
        You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
        
@@ -74,7 +74,7 @@ You can get detailed information about each {{ SPRK }} cluster you created.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Click the cluster name.
 
@@ -124,7 +124,7 @@ You can get detailed information about each {{ SPRK }} cluster you created.
 
 ## Viewing operations with clusters {#list-operations}
 
-All actions with {{ SPRK }} clusters are logged as a list of operations. Each operation gets an ID.
+All actions with {{ SPRK }} clusters are logged as a list of operations. Each operation gets a unique ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -137,10 +137,9 @@ All actions with {{ SPRK }} clusters are logged as a list of operations. Each op
     1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
     1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
-    1. Select the cluster.
-    1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
+    1. Click the cluster name and navigate to **{{ ui-key.yacloud.common.operations-key-value }}**.
 
-        This will open the list of operations with the cluster.
+    This will open the list of operations with the cluster.
 
 - CLI {#cli}
 

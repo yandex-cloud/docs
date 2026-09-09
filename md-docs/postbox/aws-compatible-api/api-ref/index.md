@@ -44,6 +44,19 @@
 || [DeleteSuppressedDestination](delete-suppressed-destination.md) | Удаляет адрес из стоп-листа. ||
 |#
 
+## Выделенные IP-адреса {#dedicated-ips}
+
+#|
+|| **Метод** | **Описание** ||
+|| [ListDedicatedIpPools](list-dedicated-ip-pools.md) | Возвращает список [пулов выделенных IP-адресов](../../concepts/glossary.md#dedicated-ip-pool). ||
+|| [GetDedicatedIpPool](get-dedicated-ip-pool.md) | Возвращает информацию о пуле. ||
+|| [CreateDedicatedIpPool](create-dedicated-ip-pool.md) | Создает пул. ||
+|| [DeleteDedicatedIpPool](delete-dedicated-ip-pool.md) | Удаляет пул. ||
+|| [GetDedicatedIps](get-dedicated-ips.md) | Возвращает список [выделенных IP-адресов](../../concepts/glossary.md#dedicated-ip). ||
+|| [GetDedicatedIp](get-dedicated-ip.md) | Возвращает информацию о выделенном IP-адресе. ||
+|| [PutDedicatedIpInPool](put-dedicated-ip-in-pool.md) | Перемещает выделенный IP-адрес в пул. ||
+|#
+
 ## Подписки {#event-destinations}
 
 #|

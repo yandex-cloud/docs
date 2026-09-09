@@ -87,7 +87,7 @@
 
           1. Убедитесь, что в поле **{{ ui-key.yacloud.page.welcome.field_organization }}** выбрана организация `Example organization`.
           1. В поле **{{ ui-key.yacloud.page.welcome.field_cloud-name }}** укажите `testing`.
-          1. Нажмите **{{ ui-key.yacloud.page.welcome.button_create }}**.
+          1. Нажмите **Создать**.
 
           В результате в организации `Example organization` будет создано первое облако `testing`, а браузер откроет каталог по умолчанию `default`, созданный внутри этого нового облака.
       1. В левой части экрана в строке с именем организации `Example organization` нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.cloud.label_create_cloud }}**. В открывшемся окне:

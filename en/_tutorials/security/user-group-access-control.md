@@ -87,7 +87,7 @@ In your new organization, create two [clouds](../../resource-manager/concepts/re
 
           1. Make sure you selected `Example organization` in the **{{ ui-key.yacloud.page.welcome.field_organization }}** field.
           1. In the **{{ ui-key.yacloud.page.welcome.field_cloud-name }}** field, specify `testing`.
-          1. Click **{{ ui-key.yacloud.page.welcome.button_create }}**.
+          1. Click **Create**.
 
           As a result, `Example organization` will have its first cloud named `testing`, and the browser will open the `default` folder created in this new cloud.
       1. On the left side of the screen, in the line with `Example organization`, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.cloud.label_create_cloud }}**. In the window that opens:

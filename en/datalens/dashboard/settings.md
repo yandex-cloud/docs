@@ -139,7 +139,7 @@ When pinning widgets, consider the following:
 
 ## Mailing lists {#maillists}
 
-You can [set up a mailing list](../operations/dashboard/add-maillists.md) for your dashboard. Recipients will be getting emails with links to the dashboard and chart states specified in the mailing list settings. You can set up the dashboard selector states, schedule, chart sizes, and other parameters. Mailing lists are available for the current dashboard [version](./versioning.md) only.
+You can set up a [mailing list for a dashboard](../operations/dashboard/add-maillists.md). Recipients will be getting emails with links to the dashboard and chart states specified in the mailing list settings. You can set up the dashboard selector states, schedule, chart sizes, and other parameters. Mailing lists are available for the current dashboard [version](./versioning.md) only.
 
 
 ## Undoing and redoing changes to dashboards {#undo-redo}

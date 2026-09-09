@@ -25,11 +25,11 @@ When receiving messages from a FIFO queue, only one message will be accepted fro
 Parameter | Type | Required<br>parameter | Description
 ----- | ----- | ----- | -----
 `MaxNumberOfMessages` | **string** | No | Maximum number of messages that will be fetched. A smaller number of messages than specified in this parameter can be fetched, but never a higher number. Valid values: from 1 to 10. The default value is 1.
-`MessageAttributeName.N` | **array** | No | Array of message attribute names to return in response to the request. A name may contain letters, numbers, hyphens, underscores, and periods. Attribute names are case-sensitive and unique within a single message. An attribute name cannot start or end with a period. Attribute names cannot contain several consecutive periods. The maximum length of an attribute name is 256 characters. You can get all attributes in one go by putting `All` or `.*` in your request. You can also use prefixes to get the necessary attributes.
+`MessageAttributeName.N` | **array** | None | Array of message attribute names to return in response to the request. A name may contain letters, numbers, hyphens, underscores, and periods. Attribute names are case-sensitive and unique within a single message. An attribute name cannot start or end with a period. Attribute names cannot contain several consecutive periods. The maximum length of an attribute name is 256 characters. You can get all attributes in one go by putting `All` or `.*` in your request. You can also use prefixes to get the necessary attributes.
 `QueueUrl` | **string** | Yes | URL of the queue where the message is placed.
-`ReceiveRequestAttemptId` | **string** | No | ID for a repeated attempt to receive messages from a FIFO queue. Learn more in [Deduplication](../../concepts/deduplication.md#request-attempts).
-`VisibilityTimeout` | **string** | No | [Visibility timeout](../../concepts/visibility-timeout.md) of a message received.
-`WaitTimeSeconds` | **string** | No | Waiting time in seconds for a message to be delivered to the queue. If messages arrive to the queue, the call will be made earlier than specified in`WaitTimeSeconds`. If no messages arrive within `WaitTimeSeconds`, an empty list will be returned.
+`ReceiveRequestAttemptId` | **string** | None | ID for a repeated attempt to receive messages from a FIFO queue. Learn more in [Deduplication](../../concepts/deduplication.md#request-attempts).
+`VisibilityTimeout` | **string** | None | [Visibility timeout](../../concepts/visibility-timeout.md) of a message received.
+`WaitTimeSeconds` | **string** | None | Waiting time in seconds for a message to be delivered to the queue. If messages arrive to the queue, the call will be made earlier than specified in`WaitTimeSeconds`. If no messages arrive within `WaitTimeSeconds`, an empty list will be returned.
 
 #### Attributes {#attributes}
 

@@ -27,6 +27,7 @@ You can use any other {{ KFC }} connector to work with {{ mkf-name }} clusters.
 
 To configure {{ KFC }} to work with a {{ mkf-name }} cluster:
 
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Configure the VM](#prepare-vm).
 1. [Prepare your test data](#prepare-test-data).
 1. [Configure {{ KFC }}](#configure-kafka-connect).
@@ -35,16 +36,18 @@ To configure {{ KFC }} to work with a {{ mkf-name }} cluster:
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Required paid resources {#paid-resources}
-
-The support cost for this solution includes:
-
-* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* VM fee: use of computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-
-
 ## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
+
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+
+## Set up your infrastructure {#prepare-infrastructure}
 
 {% list tabs group=instructions %}
 

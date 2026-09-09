@@ -27,7 +27,7 @@ To create an internal network load balancer:
       {% include [name-format](../../_includes/name-format.md) %}
 
   1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}** field, select `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`.
-  1. Optionally, in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_advanced }}** field, enable load balancer protection from deletion.
+  1. Optionally, in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_deletion-protection }}** field, enable load balancer protection from deletion.
 
       {% note warning %}
 

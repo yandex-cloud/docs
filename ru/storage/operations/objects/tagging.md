@@ -17,15 +17,14 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Выберите нужный бакет из списка.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Выберите нужный бакет из списка и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Нажмите на имя нужного объекта.
-  1. Нажмите на кнопку **Добавить метку**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label_6byGW }}**.
   1. Через двоеточие введите ключ и значение метки (ключ:значение).
 
   Если вы хотите изменить метку:
   
-  1. Нажмите на кнопку **Добавить метку**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label_6byGW }}**.
   1. Введите ключ метки, которую вы хотите изменить, и новое значение.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -151,8 +150,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Выберите нужный бакет из списка.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Выберите нужный бакет из списка и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Нажмите на имя нужного объекта.
 
 
@@ -258,10 +256,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Выберите нужный бакет из списка.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Выберите нужный бакет из списка и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Нажмите на имя нужного объекта.
-  1. Нажмите на крестик рядом с меткой, которую вы хотите удалить.
+  1. В поле **{{ ui-key.yacloud.component.label-set.label_labels_kbb4Z }}** нажмите крестик рядом с меткой, которую вы хотите удалить.
 
 - {{ yandex-cloud }} CLI {#cli}
 

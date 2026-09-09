@@ -76,9 +76,9 @@ To fix this error, do one of the following:
 
 For more information about subnet sizes, see [this {{ vpc-full-name }} guide](../../vpc/concepts/network.md#subnet).
 
-#### Why is my cluster's status `Unknown`? {#unknown}
+#### Why is my cluster in an `UNKNOWN` state or `STATUS_UNKNOWN`? {#unknown}
 
-If your cluster's status changed from `Alive` to `Unknown`:
+##### The cluster state switched from `ALIVE` to `UNKNOWN` {#unknown-after-alive}
 
 1. Make sure you have [set up a network for {{ dataproc-name }}](../../data-proc/tutorials/configure-network.md). For a cluster to run, you need to create and configure the following network resources:
 
@@ -105,6 +105,19 @@ If your cluster's status changed from `Alive` to `Unknown`:
 
    For more information, see [{#T}](../../data-proc/operations/logging.md).
 
+##### The cluster status switched to `STATUS_UNKNOWN` immediately after creation {#unknown-after-creating}
+
+A cluster may be in the `STATUS_UNKNOWN` state if you are creating its VMs without public IP addresses. They are not accessible from the internet by default.
+
+To grant online access to these instances, use a NAT gateway:
+
+1. [Create a NAT gateway](../../vpc/operations/create-nat-gateway.md).
+1. [Add a route table](../../vpc/operations/static-route-create.md), with the gateway you created as the `next hop`.
+1. Link the routing table to the subnet with the cluster's VMs.
+1. [Set up security groups](../../data-proc/operations/cluster-create.md#change-security-groups) if required. If you do not use security groups, skip this step.
+
+After this, the cluster status should switch to `RUNNING` within a few minutes.
+
 #### What is the minimum compute capacity required for a subcluster with a master host? {#master-computing-power}
 
 It depends on the driver deploy mode:
@@ -127,7 +140,7 @@ You can do this in several ways:
 
 #### What limits apply to security groups? {#security-groups}
 
-You can create no more than five security groups per network. Each group may have a maximum of 50 rules. Learn more about [limits in {{ vpc-full-name }}](../../vpc/concepts/limits.md#vpc-limits).
+You can create no more than five security groups per network. Each group can contain up to 50 rules. Learn more about [limits in {{ vpc-full-name }}](../../vpc/concepts/limits.md#vpc-limits).
 
 #### Can I get superuser privileges on hosts? {#connect-root}
 
@@ -142,3 +155,82 @@ However, you do not have to switch to the superuser: just use `sudo`.
 #### How can I fix the no permission error when attaching a service account to a cluster? {#attach-service-account}
 
 {% include notitle [attach-sa-create-update](../attach-sa-create-update.md) %}
+
+#### Why are there no logs in the YARN Resource Manager web UI after you run jobs {#yarn-logs}
+
+When trying to view logs, you get this message:
+
+{% cut "Error message" %}
+
+```text
+Failed redirect for container_....
+
+Failed while trying to construct the redirect url to the log server. Log Server url may not be configured
+Local Logs:
+java.lang.Exception: Unknown container. Container either has not started or has already completed or doesn't belong to this node at all.
+```
+
+{% endcut %}
+
+Log aggregation is enabled on clusters by default. After a container completes its jobs, its logs are transferred to HDFS. The YARN Resource Manager web UI only displays logs if they are located directly in the node's file system.
+
+You can get the logs in the following ways:
+
+{% list tabs %}
+
+- HDFS
+
+  1. View the list of log files:
+
+     ```bash
+     sudo -u hdfs hadoop fs -ls /var/log/spark/apps/
+     ```
+
+     Result example:
+
+     ```text
+     -rw-rw----   1 dataproc-agent spark     327130 2026-08-24 13:30 /var/log/spark/apps/application_1787577688417_0002_1
+     ```
+
+  1. Read the contents of a file:
+
+     ```bash
+     sudo -u hdfs hadoop fs -cat /var/log/spark/apps/application_1787577688417_0002_1
+     ```
+
+- YARN
+
+  1. Get a list of jobs:
+
+     ```bash
+     yarn app -list
+     ```
+
+  1. Read the logs of a job:
+
+     ```bash
+     sudo -u yarn yarn logs -applicationId <app_ID>
+     ```
+
+{% endlist %}
+
+To configure log dumping to a bucket, run this command:
+
+```bash
+yc dataproc cluster update <cluster_ID> \
+  --property "yarn:yarn.nodemanager.remote-app-log-dir=s3a://<bucket_name>/yarn-logs/" \
+  --property "yarn:yarn.log-aggregation.retain-seconds=-1"
+```
+
+{% note warning %}
+
+The `--property` parameter will reset all component properties that you do not explicitly provide to their default values. To save previously modified properties, provide them in the same request.
+
+{% endnote %}
+
+To view logs for a completed application in the YARN Resource Manager web UI, disable log aggregation:
+
+```bash
+yc dataproc cluster update <cluster_ID> \
+  --property "yarn:yarn.log-aggregation-enable=false"
+```

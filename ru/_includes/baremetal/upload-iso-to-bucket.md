@@ -18,7 +18,7 @@
       1. На странице создания бакета:
 
           1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-          1. При необходимости задайте ограничение на максимальный размер бакета или включите опцию **{{ ui-key.yacloud.storage.bucket.settings.label_size-limit-disabled }}**.
+          1. Включите опцию **{{ ui-key.yacloud.storage.form-components.SizeLimitField.field_size-limit-enabled_hPy7f }}**, чтобы задать максимальный размер бакета.
           1. Значения остальных параметров оставьте без изменения и нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
     - {{ yandex-cloud }} CLI {#cli}

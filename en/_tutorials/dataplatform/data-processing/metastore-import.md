@@ -184,7 +184,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 In the `dataproc-source` cluster, create a test table named `countries`:
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Open the `dataproc-source` cluster page.
 1. Click the **Zeppelin Web UI** link under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
@@ -265,7 +265,7 @@ To transfer data from one {{ dataproc-name }} cluster to another, back up the da
 
 1. [Add](../../../data-proc/operations/cluster-update.md) to the `dataproc-target` cluster settings the `spark:spark.hive.metastore.uris` property with the following value: `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}`.
 
-    To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the management console and then select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster in question.
+    To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the management console and then select **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** under **{{ ui-key.yacloud.metastore.label_metastore }}**. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster in question.
 
 ## Import data {#import-data}
 

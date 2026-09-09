@@ -13,6 +13,8 @@ _Серийная консоль_ позволяет получить досту
 
 {% include [serial-console-roles](../../_includes/compute/serial-console-roles.md) %}
 
+Управление доступом к серийной консоли виртуальных машин может быть запрещено на уровне [каталога](*folders), [облака](*clouds) или [организации](*organizations) с помощью политики авторизации `compute.denySerialPortEnabling`. Подробнее читайте в разделе [{#T}](../security/index.md#access-policies).
+
 К серийной консоли виртуальных машин под управлением операционной системы Linux можно подключиться с помощью консоли управления, а также с использованием стандартного SSH-клиента или {{ yandex-cloud }} CLI. Подробнее читайте в разделе [{#T}](../operations/serial-console/connect-ssh.md).
 
 К серийной консоли виртуальных машин под управлением операционной системы Windows можно подключиться с помощью консоли управления или {{ yandex-cloud }} CLI. Подробнее читайте в разделе [{#T}](../operations/serial-console/windows-sac.md).
@@ -74,3 +76,9 @@ _Серийная консоль_ позволяет получить досту
 * [{#T}](../operations/serial-console/index.md)
 * [{#T}](../operations/serial-console/connect-ssh.md)
 * [{#T}](../operations/serial-console/windows-sac.md)
+
+[*folders]: {% include [folder-definition](../../_popups/resource-manager/folder-definition.md) %}
+
+[*clouds]: {% include [cloud-definition](../../_popups/resource-manager/cloud-definition.md) %}
+
+[*organizations]: {% include [organization-definition](../../_popups/identity-hub/organization-definition.md) %}

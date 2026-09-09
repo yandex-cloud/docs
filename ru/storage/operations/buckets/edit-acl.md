@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. В строке с нужным бакетом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
 
-      Также можно нажать на имя бакета, на открывшейся странице справа сверху нажать ![image](../../../_assets/console-icons/ellipsis.svg) и выбрать **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
+      Также можно нажать на имя бакета, на открывшейся странице на панели сверху нажать ![image](../../../_assets/console-icons/ellipsis.svg) и выбрать **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
 
       {% include [acl-edit-console](../../../_includes/storage/acl-edit-console.md) %}
 

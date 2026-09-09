@@ -16,8 +16,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя бакета, к которому вы хотите выдать доступ.
-  1. В меню слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}**.

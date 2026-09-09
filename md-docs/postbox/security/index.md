@@ -8,6 +8,8 @@
 
 Подробнее о наследовании ролей читайте в разделе [Наследование прав доступа](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса Resource Manager.
 
+С помощью [политики авторизации](../../iam/concepts/access-control/access-policies.md#postbox-identities-restrictNetworkAccess) `postbox.identities.restrictNetworkAccess` вы можете разрешить [отправку писем](../operations/send-email.md) только с определенных, заданных явно IP-адресов. Политика авторизации создается на уровне [каталога](*folders), [облака](*clouds) или [организации](*organizations) и запрещает отправку писем с любых IP-адресов, не входящих в заданный список. Подробнее читайте в разделе [Политики авторизации](../../iam/concepts/access-control/access-policies.md).
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 Для управления правами доступа в Yandex Cloud Postbox можно использовать как сервисные, так и примитивные роли.
@@ -131,3 +133,9 @@ flowchart BT
 ## Полезные ссылки {#see-also}
 
 [Структура ресурсов Yandex Cloud](../../resource-manager/concepts/resources-hierarchy.md)
+
+[*folders]: Каталог — это логическое пространство, в котором создаются и группируются ресурсы Yandex Cloud. Как и каталоги в файловой системе, каталоги в Yandex Cloud упрощают управление ресурсами. Подробнее читайте в разделе [Каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+[*clouds]: Облако — это изолированное логическое пространство, в котором создаются каталоги и другие ресурсы Yandex Cloud. Переносить ресурсы между облаками нельзя. Подробнее читайте в разделе [Облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+
+[*organizations]: Организация — это высший ресурс в иерархии ресурсной модели Yandex Cloud, который объединяет ресурсы всех остальных сервисов, а также используется для управления пользователями и параметрами их аутентификации и авторизации. Подробнее читайте в разделе [Организация](../../organization/concepts/organization.md).

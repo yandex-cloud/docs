@@ -16,10 +16,10 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите нужный бакет из списка.
-  1. На панели слева выберите нужный раздел с информацией о бакете:
-     * ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** — список объектов, хранящихся в бакете.
-     * ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** — основные параметры бакета, информация о хостинге сайта в бакете, версионировании, логировании, жизненном цикле объектов в бакете.
-     * ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** — описание прав и политики доступа в бакете, сведения о конфигурации HTTPS и CORS, блокировке и шифровании объектов в бакете.
+  1. На панели сверху выберите нужную вкладку с информацией о бакете:
+     * **{{ ui-key.yacloud.storage.bucket.switch_files }}** — список объектов, хранящихся в бакете.
+     * **{{ ui-key.yacloud.storage.bucket.switch_settings }}** — основные параметры бакета, информация о хостинге сайта в бакете, версионировании, логировании, жизненном цикле объектов в бакете.
+     * **{{ ui-key.yacloud.storage.bucket.switch_security }}** — описание прав и политики доступа в бакете, сведения о конфигурации HTTPS и CORS, блокировке и шифровании объектов в бакете.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -79,7 +79,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите нужный бакет из списка.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
   1. На открывшейся странице вы можете посмотреть статистику бакета за определенный период времени:
      
      {% include [storage-monitoring-dashboards](../../_includes_service/storage-monitoring-dashboards.md) %}

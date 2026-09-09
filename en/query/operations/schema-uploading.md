@@ -68,7 +68,7 @@ Where:
 
 ### {{ data-transfer-name }}-compatible JSON format {#json_schema_data_transfer}
 
-This format allows you to describe schemas in a way that ensures compatibility across different systems. A schema in this format is a set of properties defining field names and data types. All fields are considered optional.
+This format allows you to describe schemas in a way that ensures compatibility across different systems. A JSON schema consists of properties that declare field names and their types. All fields are considered optional.
 
 Schema example:
 

@@ -96,8 +96,8 @@
   
   Чтобы удалить обработчик сетевого балансировщика, воспользуйтесь методом REST API [removeListener](../api-ref/NetworkLoadBalancer/removeListener.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/RemoveListener](../api-ref/grpc/NetworkLoadBalancer/removeListener.md) и передайте в запросе:
 
-  * Идентификатор балансировщика в параметре `networkLoadBalancerId`.
-  * Имя обработчика в параметре `listenerName`.
+  * Идентификатор балансировщика в параметре `networkLoadBalancerId` (REST API) или `network_load_balancer_id` (gRPC API).
+  * Имя обработчика в параметре `listenerName` (REST API) или `listener_name` (gRPC API).
 
   Идентификатор балансировщика можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list), имя обработчика — с [детальной информацией о сетевом балансировщике](load-balancer-list.md#get).
 

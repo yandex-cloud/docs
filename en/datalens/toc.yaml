@@ -868,8 +868,6 @@ items:
         href: dashboard/chart-chart-filtration.md
       - name: Dashboard settings
         href: dashboard/settings.md
-      - name: Mailing lists
-        href: operations/dashboard/add-maillists.md
       - name: Versioning
         href: dashboard/versioning.md
       - name: Parameters
@@ -964,6 +962,14 @@ items:
         href: reports/versioning.md
       - name: Neuroanalyst in reports
         href: reports/insights.md
+  - name: Mailing lists
+    items:
+      - name: Overview
+        href: concepts/maillists.md
+      - name: Mailing lists for dashboards
+        href: operations/dashboard/add-maillists.md
+      - name: Mailing lists for reports
+        href: reports/add-report-maillists.md
   - name: HTML pages
     items:
       - name: Overview
@@ -1030,7 +1036,9 @@ items:
         href: settings/restrictions.md
       - name: Navigation
         href: settings/navigation.md
-  - name: Gallery in DataLens
+      - name: Deleted objects
+        href: settings/deleted-objects.md
+  - name: DataLens Gallery
     href: concepts/gallery.md
   - name: Pricing policy
     items:

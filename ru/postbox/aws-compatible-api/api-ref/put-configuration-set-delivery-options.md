@@ -25,7 +25,8 @@ PUT /v2/email/configuration-sets/{ConfigurationSetName}/delivery-options HTTP/2
 
 ```json
 {
-   "TlsPolicy": "REQUIRE|OPTIONAL"
+   "TlsPolicy": "REQUIRE|OPTIONAL",
+   "SendingPoolName": "<имя_пула>"
 }
 ```
 
@@ -35,9 +36,25 @@ PUT /v2/email/configuration-sets/{ConfigurationSetName}/delivery-options HTTP/2
 
 Политика безопасности исходящего соединения.
 
-Указывает, требуется ли для сообщений, использующих данную конфигурацию, использовать протокол TLS. Если значение равно `REQUIRE`, сообщения доставляются только при возможности установления TLS-подключения. Если значение равно `OPTIONAL`, сообщения могут доставляться в виде обычного текста, если TLS-подключение установить не удается.||
+Указывает, требуется ли использовать протокол TLS для писем, к которым применена конфигурация. Если значение — `REQUIRE`, письма доставляются только при возможности установления TLS-подключения. Если значение — `OPTIONAL`, письма могут доставляться в виде обычного текста, если TLS-подключение установить не удается.||
+|| `SendingPoolName` | **Тип**: string.
 
+Имя [пула](../../concepts/dedicated-ip.md), с IP-адресов которого будут отправляться письма с конфигурацией.
+
+Необязательный параметр. ||
 |#
+
+{% note warning %}
+
+Метод полностью обновляет настройки доставки конфигурации. Если при вызове не указать `SendingPoolName`, пул отвяжется от конфигурации, и письма станут отправляться с общих IP-адресов сервиса.
+
+{% endnote %}
+
+{% note info %}
+
+{% include [no-ip-address-in-pool-note.md](../../../_includes/postbox/no-ip-address-in-pool-note.md) %}
+
+{% endnote %}
 
 ## Ответы {#responses}
 
@@ -53,7 +70,7 @@ PUT /v2/email/configuration-sets/{ConfigurationSetName}/delivery-options HTTP/2
 
 #|
 || **Код ошибки** | **Описание** ||
-|| `400 BadRequestException` | В запросе неправильно указаны заголовки или параметры. ||
+|| `400 BadRequestException` | В запросе неправильно указаны заголовки или параметры, либо пула, указанного в `SendingPoolName`, не существует. ||
 || `404 NotFoundException` | Запрошенный ресурс не найден. ||
 || `429 TooManyRequestsException ` | При вызове запроса превышена [квота](../../concepts/limits.md#postbox-quotas). ||
 |#

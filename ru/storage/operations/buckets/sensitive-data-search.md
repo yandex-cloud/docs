@@ -34,7 +34,7 @@ description: Следуя данной инструкции, вы узнаете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите имя бакета, для которого вы хотите создать сканирование.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
   1. Нажмите **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_run_scan_af4cy }}**.
 
       {% note info %}
@@ -69,7 +69,7 @@ description: Следуя данной инструкции, вы узнаете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя нужного бакета.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
   1. На вкладке **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.sub_tab_results }}** отобразятся чувствительные данные, если они были найдены при сканировании. Информация о каждом найденном объекте представлена в следующих столбцах:
 
       * `{{ ui-key.yacloud_org.dspm.scan.label_data-type }}` — категория поиска, к которой принадлежат данные. Например, `FULL-NAME-RU-ML` — полное имя.
@@ -90,8 +90,8 @@ description: Следуя данной инструкции, вы узнаете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя нужного бакета.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
-  1. Нажмите ![image](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageActions.button_more_sGEBS }}** → **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_download_hR9sN }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.shared.layout.PageActions.button_more_sGEBS }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите ![arrow-down-to-line](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_download_hR9sN }}**.
   1. В открывшемся окне укажите, как отображать имена, контактные данные и другую личную информацию, и нажмите **{{ ui-key.yacloud_components.security.dspm.action_button_apply }}**.
 
 {% endlist %}
@@ -108,8 +108,8 @@ description: Следуя данной инструкции, вы узнаете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя нужного бакета.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
-  1. Нажмите ![image](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageActions.button_more_sGEBS }}** → **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_export_gQ8rM }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.shared.layout.PageActions.button_more_sGEBS }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите ![folder-arrow-up-in](../../../_assets/console-icons/folder-arrow-up-in.svg) **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_export_gQ8rM }}**.
   1. В открывшемся окне задайте настройки экспорта:
 
       * В поле **{{ ui-key.yacloud_org.security.dspm.label_field-bucket_3mM6u }}** выберите бакет, в котором будут сохранены результаты.
@@ -131,7 +131,7 @@ description: Следуя данной инструкции, вы узнаете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя нужного бакета.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}** → **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.sub_tab_issues }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**, затем — **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.sub_tab_issues }}**.
 
 {% endlist %}
 

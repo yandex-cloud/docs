@@ -15,7 +15,7 @@ To assess the performance of Spark applications in a {{ msp-full-name }} cluster
 
 ## Checking application details {#info}
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 1. Click the cluster name.
 1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}**, select **Spark History Server** and click the link.
@@ -39,7 +39,7 @@ To assess the performance of Spark applications in a {{ msp-full-name }} cluster
 
 ## Checking stage details {#stages}
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 1. Click the cluster name.
 1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}**, select **Spark History Server** and click the link. This will open the **Spark History Server** window.
@@ -64,7 +64,7 @@ To assess the performance of Spark applications in a {{ msp-full-name }} cluster
 
 ## Checking resources allocated to the application {#resources}
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 1. Click the cluster name.
 1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}**, select **Spark History Server** and click the link. This will open the **Spark History Server** window.
@@ -91,26 +91,26 @@ To assess the performance of Spark applications in a {{ msp-full-name }} cluster
 
 ## Checking persisted RDDs {#tables}
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 1. Click the cluster name.
 1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}**, select **Spark History Server** and click the link. This will open the **Spark History Server** window.
 1. In the top menu, navigate to **Storage**.
 
-   The UI displays the list of persisted resilient distributed datasets ([RDDs](https://spark.apache.org/docs/latest/rdd-programming-guide.html#resilient-distributed-datasets-rdds)). For each RDD, it shows memory consumption, disk usage, and caching progress.
+The UI displays the list of persisted resilient distributed datasets ([RDDs](https://spark.apache.org/docs/latest/rdd-programming-guide.html#resilient-distributed-datasets-rdds)). For each RDD, it shows memory consumption, disk usage, and caching progress.
 
-   To view details, click the RDD name.
+To view details, click the RDD name.
 
 ## Checking the list of SQL queries and their plans {#sql}
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 1. Click the cluster name.
 1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}**, select **Spark History Server** and click the link. This will open the **Spark History Server** window.
 1. In the top menu, navigate to **SQL/DataFrame**.
 
-   The table lists executed SQL queries, including their start time and duration.
+The table lists executed SQL queries, including their start time and duration.
 
-   To see the query plan, click the query text in the **Description** column. The query plan is displayed as a flowchart. To view it as text, click **Details** at the bottom of the figure.
+To see the query plan, click the query text in the **Description** column. The query plan is displayed as a flowchart. To view it as text, click **Details** at the bottom of the figure.
 
-   The query plan contains stats for each operator along with the number of completed tasks and their duration. If the query is still running, the current stats will be shown.
+The query plan contains stats for each operator along with the number of completed tasks and their duration. If the query is still running, the current stats will be shown.

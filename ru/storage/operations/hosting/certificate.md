@@ -42,8 +42,7 @@ description: Следуя данной инструкции, вы сможете
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите нужный бакет из списка.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-    1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
     1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
     1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** выберите сертификат в появившемся списке. 
@@ -150,8 +149,7 @@ cat domain.pem intermediate.pem rootca.pem > bundle.pem
    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
    1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Выберите нужный бакет из списка.
-   1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
    1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите **{{ ui-key.yacloud.storage.bucket.https.value_method-custom }}**.
    1. Добавьте **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** и **{{ ui-key.yacloud.storage.bucket.https.field_private-key }}**.

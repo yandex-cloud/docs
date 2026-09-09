@@ -1,16 +1,12 @@
-{% note info %}
-
-You cannot cancel jobs with the `ERROR`, `DONE`, or `CANCELLED` status. To find out the job status, get the [list of jobs](#list) in the cluster.
-
-{% endnote %}
+{% include [note-job-cancel](../../_includes/managed-spark/note-job-cancel.md) %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-  1. Select the cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
+  1. Select the cluster and go to **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
   1. Click the job name.
   1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.cancel }}**.
   1. In the window that opens, select **{{ ui-key.yacloud.mdb.dialogs.popup_button_cancel }}**.

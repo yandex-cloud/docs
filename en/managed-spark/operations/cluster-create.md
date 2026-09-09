@@ -41,47 +41,59 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         1. Optionally, create [labels](../../resource-manager/concepts/labels.md):
 
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-            1. Enter a label in `key: value` format.
-            1. Press **Enter**.
+            1. Add a label in `key: value` format.
+            1. Click **{{ ui-key.yacloud.component.label-set.label_enter-keyboard-key }}**.
 
         1. Select an existing [service account](../../iam/concepts/users/service-accounts.md) or [create a new one](../../iam/operations/sa/create.md).
 
             Make sure to assign the `managed-spark.integrationProvider` role to this service account:
 
-        1. Select the {{ SPRK }} version.
-
-           {% include [change-version-note](../../_includes/managed-spark/change-version-note.md) %}
-
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [network](../../vpc/operations/network-create.md), [subnet](../../vpc/operations/subnet-create.md), and [security group](../../vpc/concepts/security-groups.md) for the cluster.
 
     1. Specify the computing resources to run Spark applications on:
 
-       * Driver configuration: Number of driver hosts and [their class](../concepts/instance-types.md). It can be either fixed or autoscalable.
-       * Executor configuration: Number of executor hosts and [their class](../concepts/instance-types.md). It can be either fixed or autoscalable.
+       * **{{ ui-key.yacloud.spark.section_driver }}**: Number of driver hosts and [their class](../concepts/instance-types.md). It can be either fixed or autoscalable.
+       * **{{ ui-key.yacloud.spark.section_executor }}**: Number of executor hosts and [their class](../concepts/instance-types.md). It can be either fixed or autoscalable.
 
     1. If needed, configure the advanced cluster settings:
-        
-        1. **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** and **{{ ui-key.yacloud.mdb.forms.title_deb-packages }}**: Pip and deb package names for installing additional libraries and applications.
+
+       1. Select **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_dependencies-type_wJq6n }}**:
+
+          * **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_software-configuration-type-environment_wJq6n }}**: You can use base and custom environments. If you need a custom environment, you have to [create one yourself](environment-create.md).
+          * **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_software-configuration-type-packages_wJq6n }}**:
+
+             * **Version**: {{ SPRK }} version.
+             * **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** and **{{ ui-key.yacloud.mdb.forms.title_deb-packages }}**: Pip and deb package names, space-separated, for installing additional libraries and applications.
+
+                You can set version restrictions for the installed packages, e.g.:
+
+                ```text
+                py4j>=0.10.9.7 pandas>=1.05 grpcio>=1.48,<1.57 grpcio-status>=1.48,<1.57 googleapis-common-protos==1.56.4
+                ```
+                
+                The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
+
+             {% note warning %}
+
+             Specifying the version and adding packages without creating an environment is deprecated and will soon be unavailable. Use a base environment or [create a custom one](environment-create.md) containing the packages you need.
            
-           To specify multiples packages, click **{{ ui-key.yacloud.common.add }}**.
-
-           The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
+             {% endnote %}
         
-        1. **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance](../concepts/maintenance.md) window settings:
+       1. **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance](../concepts/maintenance.md) window settings:
 
-           {% include [Maintenance window](../../_includes/managed-spark/maintenance-window-console.md) %}
+          {% include [Maintenance window](../../_includes/managed-spark/maintenance-window-console.md) %}
 
-        1. **{{ ui-key.yacloud.spark.label_metastore }}**: [Metastore server](../../metadata-hub/concepts/metastore.md) connected to your cluster.
+       1. **{{ ui-key.yacloud.spark.label_metastore }}**: [Metastore server](../../metadata-hub/concepts/metastore.md) connected to your cluster.
 
-        1.  **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Manages cluster protection against accidental deletion.
-        1. Enable the **{{ ui-key.yacloud.spark.label_history-server }}** setting to allow using the service to monitor [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html) applications. After creating a cluster, the service will be available via a link.
-        1. Configure logging:
+       1.  **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Manages cluster protection against accidental deletion.
+       1. Enable the **{{ ui-key.yacloud.spark.label_history-server }}** setting to allow using the service to monitor [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html) applications. After creating a cluster, the service will be available via a link.
+       1. Configure logging:
 
-            1. Enable the **{{ ui-key.yacloud.logging.field_logging }}** setting.
-            1. Select the log destination:
-                * **{{ ui-key.yacloud.common.folder }}**: Select a folder from the list.
-                * **{{ ui-key.yacloud.logging.label_group }}**: Select a [log group](../../logging/concepts/log-group.md) from the list or create a new one.
-            1. Select **{{ ui-key.yacloud.logging.label_minlevel }}** from the list.
+          1. Enable the **{{ ui-key.yacloud.logging.field_logging }}** setting.
+          1. Select the log destination:
+             * **{{ ui-key.yacloud.common.folder }}**: Select a folder from the list.
+             * **{{ ui-key.yacloud.logging.label_group }}**: Select a [log group](../../logging/concepts/log-group.md) from the list or create a new one.
+           1. Select **{{ ui-key.yacloud.logging.label_minlevel }}** from the list.
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -131,7 +143,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         Where:
 
         * `--name`: Cluster name. It must be unique within the folder.
-        * `--version`: {{ SPRK }} version.
+        * `--spark-version`: {{ SPRK }} version.
 
            {% include [change-version-note](../../_includes/managed-spark/change-version-note.md) %}
 
@@ -229,7 +241,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
 
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-msp }}).
 
@@ -267,19 +279,15 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                    "max_size": "<maximum_number_of_instances>"
                  }
                }
-             },
-             "spark_version": "<Apache_Spark_version>"
+             }
            },
            "history_server": {
              "enabled": <use_of_Apache_Spark_History_Server>
            },
-           "dependencies": {
-             "pip_packages": [ <list_of_pip_packages> ],
-             "deb_packages": [ <list_of_deb_packages> ]
-           },
            "metastore": {
              "cluster_id": "<cluster_ID>"
-           }
+           },
+           "environment_id": "<environment_ID>"
          },
          "network": {
            "subnet_ids": [ <list_of_subnet_IDs> ],
@@ -341,18 +349,39 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            * `history_server`: History server parameters.
               * `enabled`: Flag to enable history server. It allows using the service to monitor Spark History Server applications.
 
-           * `dependencies`: Lists of packages enabling you to install additional libraries and applications on the cluster.
-              * `pip_packages`: List of pip packages.
-              * `deb_packages`: List of deb packages.
-
-              The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
-
            * `metastore`: Metastore parameters.
               * `cluster_id`: [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md) cluster ID.
 
+           * `dependencies`: Lists of packages to install in the cluster:
+
+              * `pip_packages`: List of pip packages.
+              * `deb_packages`: List of deb packages.
+
+              You can set version restrictions for the installed packages, e.g.:
+
+              ```json
+              "dependencies": {
+                "pip_packages": [
+                  "pandas==2.1.1",
+                  "scikit-learn>=1.0.0",
+                  "clickhouse-driver~=0.2.0"
+                ]
+              }
+              ```
+
+              The package name format and version are defined by the install commands: `pip install` for pip packages and `apt install` for deb packages.
+          
            * `spark_version`: {{ SPRK }} version.
 
-              {% include [change-version-note](../../_includes/managed-spark/change-version-note.md) %}
+           * `environment_id`: Base or custom environment ID. Call the [EnvironmentService/List](../environment/api-ref/grpc/Environment/listBase.md) method to get the custom environment ID or [EnvironmentService/ListBase](../environment/api-ref/grpc/Environment/list.md) to get the base environment ID. 
+           
+              If you need a custom environment, you have to [create one yourself](environment-create.md).
+
+              {% note warning %}
+
+              Specify either `environment_id` or `spark_version` and `dependencies` in the request. Specifying the version and adding packages without creating an environment is deprecated and will soon be unavailable. Use a base environment or [create a custom one](environment-create.md) containing the packages you need.
+
+              {% endnote %}
 
        * `network`: Network settings:
           * `subnet_ids`: List of subnet IDs.

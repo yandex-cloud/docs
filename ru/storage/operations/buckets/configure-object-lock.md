@@ -24,8 +24,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, для которого хотите настроить блокировку.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}**.
   1. Чтобы включить возможность работать с блокировками, включите опцию **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_temp-object-lock-enabled_v3heA }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
@@ -112,8 +111,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, для которого хотите настроить блокировку по умолчанию.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}**.
   1. Чтобы включить или выключить возможность работать с блокировками, используйте опцию **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_temp-object-lock-enabled_v3heA }}**.
   1. Включите опцию **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_default-rules-enabled_qtmC8 }}**.
   1. Выберите **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_mode_61kxf }}**:
@@ -242,8 +240,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, для которого хотите настроить блокировку.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}**.
   1. Чтобы выключить возможность работать с блокировками, выключите опцию **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_temp-object-lock-enabled_v3heA }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 

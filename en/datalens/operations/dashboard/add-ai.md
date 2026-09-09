@@ -17,21 +17,32 @@ To add a Neuroanalyst insight widget to the dashboard, follow these steps:
 
    ![image](../../../_assets/datalens/operations/widget-select-ai.png =687x90)
 
-1. Specify the widget settings:
+1. Specify the main widget settings:
 
-   * **Chart for analysis**. Click ![image](../../../_assets/console-icons/chart-column.svg) **Select chart** and select a chart from the list on the current dashboard tab.
-   * **Header**. It sets the widget name; by default, it is the name of the selected chart. The name is displayed at the top of the widget if the **Header** option is enabled under **Appearance** (which it is by default).
+   * **Charts for analysis**. Click ![image](../../../_assets/console-icons/plus.svg) **Add** and select a chart from the list on the current dashboard tab. You can specify up to five charts from the current dashboard tab in one insight. With Neuroanalyst, you can discover data relationships not visible in individual charts.
+   * **Title**. It sets the widget name; by default, it is the name of the selected chart. The name is displayed at the top of the widget if the **Header** option is enabled under **Appearance** (which it is by default).
    * **Prompt**. Enter a question for the Neuroanalyst to answer.
 
-   
+
+   Specify widget appearance settings:
+
+   * **Title**. Option to display the insight header.
+   * **Actions with insight**. Option to display an action bar at the bottom of the insight:
+
+     * ![image](../../../_assets/console-icons/copy.svg) **Copy**. Copies the contents of the insight to the clipboard.
+     * ![image](../../../_assets/console-icons/arrow-rotate-left.svg) **Once more**. Updates the insight response.
+     * ![image](../../../_assets/console-icons/thumbs-up.svg) **This answer is good**. Evaluates the insight response positively.
+     * ![image](../../../_assets/console-icons/thumbs-down.svg) **This answer is bad**. Evaluates the insight response negatively.
+
    * **Background**. It sets the widget background color and opacity for the light and dark theme individually.
    * **Rounding**. It sets the widget corner rounding.
 
-
    {% cut "Example of insight widget settings" %}
 
-   ![image](../../../_assets/datalens/dashboard/ai-settings.png =562x435)
+      
+   ![image](../../../_assets/datalens/dashboard/ai-settings.png =452x432)
    
+
    {% endcut %}
 
 1. Click **Add**. The widget will appear on the dashboard.
@@ -40,5 +51,5 @@ To add a Neuroanalyst insight widget to the dashboard, follow these steps:
    {% cut "Example of insight widget contents" %}
 
    ![image](../../../_assets/datalens/dashboard/ai-result.png)
-   
+
    {% endcut %}

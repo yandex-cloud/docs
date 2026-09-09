@@ -15,6 +15,7 @@ In this section, you will learn how to use a workbook:
 * [Adding or removing embedding keys](#embedded-keys)
 * [Setting up access to a workbook](#security)
 * [Deleting a workbook](#delete-workbook)
+* [Restoring workbook objects](#restore-objects)
 
 You can perform most actions either from a collection or from the workbook page.
 
@@ -150,3 +151,28 @@ To delete a workbook:
 1. At the top of the workbook page, click ![image](../../_assets/console-icons/ellipsis.svg) → ![icon](../../_assets/console-icons/trash-bin.svg) **Delete**.
 
 1. Confirm the deletion of the workbook.
+
+
+You can [restore](./collections-operations.md#restore-objects-workbooks) a deleted workbook.
+
+
+
+## Restoring workbook objects {#restore-objects}
+
+A user with the [Editor](../security/workbooks-access-basic.md#workbooks-editor) role for a workbook can restore its deleted objects, such as connections, datasets, charts, dashboards, reports, or HTML pages.
+
+To restore a workbook object:
+
+1. At the top of the workbook page, click ![image](../../_assets/console-icons/ellipsis.svg) → ![icon](../../_assets/console-icons/arrow-rotate-left.svg) **Deleted objects**.
+1. You will see a window with info on all objects deleted from the workbook, including the object name, deletion date, and the name of the user who deleted it.
+
+   You can sort the list by name or deletion date.
+
+   You can also search by object name or switch between tabs with object types: `Charts`, `Dashboards`, `Reports`, `More` → `Datasets` / `Connections` / `HTML pages`.
+
+   ![image](../../_assets/datalens/workbooks-collections/deleted-objects-in-workbook.png)
+   
+   Click ![icon](../../_assets/console-icons/arrow-rotate-left.svg) next to the object to restore.
+   
+1. Confirm restoring the object.
+

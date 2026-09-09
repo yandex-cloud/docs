@@ -28,8 +28,8 @@ HOP(time_extractor, hop, interval, delay)
 |Name|Description|
 |--------|--------|
 |`time_extractor`|Expression used to get a timestamp for grouping|
-|`hop`|Grouping window step by time|
-|`interval`|Grouping window duration by time|
+|`hop`|Hopping window step|
+|`interval`|Hopping window interval|
 |`delay`|Waiting time for delayed data|
 
 For the `hop`, `interval`, and `delay` fields, specify the respective values in [ISO_8601](https://ru.wikipedia.org/wiki/ISO_8601) format. For example, "PT10M" is a 10-minute interval, while "PT30S" is a 30-second interval.

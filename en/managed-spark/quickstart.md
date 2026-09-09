@@ -78,7 +78,7 @@ The cost of infrastructure support includes a fee for using a {{ objstorage-full
      1. Select **{{ ui-key.yacloud.logging.label_minlevel }}**: **INFO**.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Wait until the cluster is ready: its status on the {{ msp-full-name }} dashboard will change to **Running** and its state, to **Alive**. This may take a while.
+  1. Wait until the cluster is ready: its status on the {{ msp-full-name }} dashboard will change to **Running**, and its state to **Alive**. This may take a while.
 
 {% endlist %}
 
@@ -93,15 +93,15 @@ The cost of infrastructure support includes a fee for using a {{ objstorage-full
 1. In the [management console]({{ link-console-main }}), open the cluster you created earlier.
 1. Navigate to **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
 1. Click **{{ ui-key.yacloud.spark.jobs.create_action }}**.
-1. Select the **Job type**: **{{ ui-key.yacloud.dataproc.jobs.field_pyspark-job-type }}**.
-1. In the **Main python file** field, specify the path to `pi.py` in the following format: `s3a://<Object_Storage_bucket_name>/<file_name>`.
-1. Click **Submit job**.
+1. Select **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** for `{{ ui-key.yacloud.dataproc.jobs.field_pyspark-job-type }}`.
+1. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field, specify the path to `pi.py` in the following format: `s3a://<Object_Storage_bucket_name>/<file_name>`.
+1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
 ## Check the job completion {#check_task}
 
-1. Wait for the job to become **Running**.
-1. Navigate to the **{{ ui-key.yacloud.common.logs }}** tab.
-1. In the logs, look for a line with the job results, such as the following:
+1. Wait for the job to get the **Running** status.
+1. Navigate to **{{ ui-key.yacloud.common.logs }}**.
+1. In the logs, find the line with the job result, for example:
 
    ```
    Pi is roughly 3.144720
