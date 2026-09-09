@@ -200,7 +200,7 @@ df = pandas.DataFrame(lst,
 
 Jinja templates make it easy to build SQL queries, allowing you to automatically insert search conditions and other data. This way, you don’t need to write each query from scratch. It can help you streamline your workflow, avoid mistakes, and create more readable code.
 
-You can also use Jinja templates to automate building queries with repetitive parts. For example, you can use template loops to write multiple queries that check different values from a list. This adds even more flexibility, speeding up the process of writing complex queries when you need to handle large amounts of data.
+With Jinja templates, you can also automate generating queries that contain repeated elements. For example, you can use loops in your template to add a list of values to check in a query. This adds even more flexibility, speeding up the process of writing complex queries when you need to handle large amounts of data.
 
 The steps below explain how to filter {{ yq-full-name }} data using a Python variable.
 

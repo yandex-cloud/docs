@@ -1,27 +1,31 @@
 # Delivering data from an {{ KF }} queue to {{ CH }} using {{ data-transfer-full-name }}
 
 
-A {{ mch-name }} cluster can ingest data from {{ KF }} topics in real time. This data will be automatically inserted into {{ CH }} [`Kafka`]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka)-engine tables.
+A {{ mch-full-name }} cluster can ingest data from {{ KF }} topics in real time. This data will be automatically inserted into {{ CH }} [`Kafka`]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka)-engine tables.
 
-To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
+To set up data delivery from {{ mkf-full-name }} to {{ mch-name }}:
 
+1. [Set up your infrastructure](#deploy-infrastructure).
+1. [Configure additional settings](#additional-settings).
 1. [Send test data to the {{ mkf-name }} topic](#send-sample-data-to-kf).
 1. [Prepare and activate your transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
 ## Getting started {#before-you-begin}
 
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 ### Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* {{ mch-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
-### Set up your infrastructure {#deploy-infrastructure}
+## Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -31,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
 
-    1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) source cluster of any suitable [configuration](../../managed-kafka/concepts/instance-types.md). For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
+    1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md). For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
 
     1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) in the {{ mkf-name }} cluster.
 
@@ -102,7 +106,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% endlist %}
 
-### Configure additional settings {#additional-settings}
+## Configure additional settings {#additional-settings}
 
 1. Install the following tools:
 

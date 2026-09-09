@@ -27,6 +27,14 @@ items:
             href: operations/cluster-access.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
+      - name: Environments
+        items:
+          - name: Creating a workspace
+            href: operations/environment-create.md
+          - name: Updating a workspace
+            href: operations/environment-update.md
+          - name: Delete the environments.
+            href: operations/environment-delete.md
       - name: Jobs
         items:
           - name: Spark jobs
@@ -89,7 +97,7 @@ items:
     href: security.md
   - name: Pricing policy
     href: pricing.md
-  - name: Metrics {{ monitoring-full-name }}
+  - name: '{{ monitoring-full-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md

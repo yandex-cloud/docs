@@ -11,10 +11,10 @@ To delete a message queue:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the queue belongs to.
+  1. In the [management console]({{ link-console-main }}), select the folder the message queue belongs to.
   1. [Navigate]({{ link-console-main }}/link/message-queue) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
-  1. In the row of the queue, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
+  1. In the row of the queue, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. In the window that opens, confirm the deletion.
   
 - AWS CLI {#cli}
   

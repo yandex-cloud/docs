@@ -48,11 +48,11 @@
      {% endcut %}
 
   1. Нажмите на имя созданного бакета.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
+  1. На панели сверху нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. Укажите подготовленный ранее файл `index.html`.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
-  1. На панели слева выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-  1. Выберите опцию **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. Выберите режим `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
   1. Укажите главную страницу сайта — `index.html`.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 

@@ -62,16 +62,16 @@ To run the example:
        print("Task scheduled, now run 'celery worker -A mq_example' to execute it")
    ```
 
-1. Run the task handler with the command:
-
+1. Run the task handler with the command: 
+   
    ```
    celery worker -A mq_example
    ```
 
 1. Enqueue a task with the command:
-
+   
    ```
    python mq_example.py
    ```
 
-By default, Celery creates a {{ message-queue-name }} queue named `celery` in the folder that the service account belongs to.
+By default, Celery creates a {{ message-queue-name }} named `celery` in the folder the service account belongs to.

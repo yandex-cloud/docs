@@ -145,7 +145,7 @@ To set up a connection to {{ SPRK }} clusters:
 
 ## Create a {{ msp-name }} cluster and a Spark connector {#create-spark}
 
-1. [Create a {{ msp-name }} cluster](../../../managed-spark/operations/cluster-create.md) with your preferred configuration and the following properties:
+1. [Create a {{ msp-name }} cluster](../../../managed-spark/operations/cluster-create.md) of any suitable configuration with the following settings:
 
     * **Service account**: `sa-for-spark`.
     * **Network**: `data-network`.

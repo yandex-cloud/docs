@@ -861,7 +861,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится основной бакет.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя основного бакета.
-  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. На панели сверху нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. В появившемся окне выберите необходимые файлы и нажмите кнопку **Открыть**.
   1. Консоль управления отобразит все объекты, выбранные для загрузки. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
   1. Обновите страницу.

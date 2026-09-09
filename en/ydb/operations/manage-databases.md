@@ -111,7 +111,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
      * `enable_throttling_rcu_limit`: Enable throughput capacity limit, `true` or `false`. This is an optional setting. The default value is `false`.
      * `provisioned_rcu_limit`: Limit on request units consumed per second. This is an optional setting. The default value is `0`.
      * `storage_size_limit`: Data size limit in bytes. This is an optional setting. The default value is `50` GB.
-     * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the pricing plan. If set to 0, hourly billing is off. This is an optional setting. The default value is `0`.
+     * `throttling_rcu_limit`: Request units per second charged on an hourly basis according to the pricing plan. If set to 0, hourly billing is off. This is an optional setting. The default value is `0`.
 
   1. Apply the changes:
 
@@ -224,7 +224,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
      * `enable_throttling_rcu_limit`: Enable throughput capacity limit, `true` or `false`. This is an optional setting. The default value is `false`.
      * `provisioned_rcu_limit`: Limit on request units consumed per second. This is an optional setting. The default value is `0`.
      * `storage_size_limit`: Amount of data, in GB. This is an optional setting. The default value is `50`.
-     * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the pricing plan. If set to 0, hourly billing is off. This is an optional setting. The default value is `0`.
+     * `throttling_rcu_limit`: Request units per second charged on an hourly basis according to the pricing plan. If set to 0, hourly billing is off. This is an optional setting. The default value is `0`.
 
   1. Apply the changes:
 
@@ -600,7 +600,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
   1. In the [management console]({{ link-console-main }}), select the folder the database resides in.
   1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click the name of the database.
-  1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+  1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. Select the group, user, or service account you need to grant access to the database.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -684,7 +684,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
   1. In the [management console]({{ link-console-main }}), select the folder the database resides in.
   1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click the name of the database.
-  1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+  1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. Select the group, user, or service account you need to grant access to the database.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.

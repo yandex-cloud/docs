@@ -184,7 +184,7 @@ Skip this section if you are using your own tag data.
 ### 3.1. Connect to {{ datalens-short-name }} {#datalens-connection}
 
 1. In the [management console]({{ link-console-main }}), open the page of the new {{ CH }} cluster.
-1. On the left side of the window, select ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
+1. Navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
 1. Click **Create connection**.
 
 ### 3.2. Create a connection to {{ CH }} in {{ datalens-short-name }} {#creation-datalens-connection-to-ch}

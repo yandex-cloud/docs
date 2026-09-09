@@ -70,7 +70,7 @@
       1. Выберите [класс хранилища](*storage_class) по умолчанию.
       1. Нажмите кнопку **Создать бакет**.
   1. Выберите созданный бакет.
-  1. В правом верхнем углу страницы нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **Загрузить** и в папке с проектом выберите файл `src/main/resources/index.html`.
+  1. На панели сверху нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **Загрузить** и в папке с проектом выберите файл `src/main/resources/index.html`.
   1. Выберите класс хранилища для файла и нажмите кнопку **Загрузить**.
 
 - CLI {#cli}

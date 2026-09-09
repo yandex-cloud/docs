@@ -104,6 +104,7 @@ SELECT *
 FROM `transfer_recipe/target_table`;
 ```
 
+
 ## See also
 
 * [Transfer]({{ ydb.docs }}/concepts/transfer)

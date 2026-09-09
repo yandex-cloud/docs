@@ -237,7 +237,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Выберите бакет с файлами.
-  1. Нажмите кнопку **Загрузить**.
+  1. На панели сверху нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **Загрузить**.
   1. В появившемся окне выберите файл с патчем `ycgame-update-v1.1.exe` и нажмите кнопку **Открыть**.
   1. Нажмите кнопку **Загрузить**.
 
@@ -310,7 +310,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
-  1. Нажмите кнопку **Создать ресурс**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **CDN-ресурсы** и нажмите кнопку **Создать ресурс**.
   1. Задайте основные настройки CDN-ресурса:
       * В блоке **Контент**:
         * Включите **Доступ к контенту**.
@@ -655,8 +655,7 @@
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
      1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
      1. Выберите бакет с логами.
-     1. Нажмите на имя объекта, соответствующего времени скачивания файла `ycgame-update-v1.1.exe`.
-     1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) →  **Скачать**.
+     1. В строке с объектом, соответствующим времени скачивания файла `ycgame-update-v1.1.exe`, нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![arrow-down-to-line](../../_assets/console-icons/arrow-down-to-line.svg) **Скачать**.
 
    - AWS CLI {#cli}
 

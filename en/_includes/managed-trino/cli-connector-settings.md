@@ -1,7 +1,7 @@
 * `--cluster-id`: ID of the cluster where you are creating your {{ TR }} catalog. You can get the cluster ID with the [list of clusters](../../managed-trino/operations/cluster-list.md#list-clusters).
 * `--metastore-hive-uri`: URI for connection to the {{ metastore-name }} cluster in `thrift://<cluster_IP_address>:9083` format.
 
-  To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the [management console]({{ link-console-main }}) and then select ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** in the left-hand panel.
+  To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the [management console]({{ link-console-main }}) and then select **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** under **{{ ui-key.yacloud.metastore.label_metastore }}**.
 
   {% include [metastore version](metastore-version-catalog-create.md) %}
 

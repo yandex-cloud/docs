@@ -16,9 +16,8 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, максимальный размер которого вы хотите ограничить.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
-  1. Задайте значение поля **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
+  1. Чтобы установить ограничение, включите опцию **{{ ui-key.yacloud.storage.form-components.SizeLimitField.field_size-limit-enabled_hPy7f }}** и в появившихся полях задайте нужный размер.
 
       {% include [storage-no-max-limit](../../_includes_service/storage-no-max-limit.md) %}
       

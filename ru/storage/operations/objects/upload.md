@@ -27,11 +27,10 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Выберите бакет, в который нужно загрузить объект.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Выберите бакет, в который нужно загрузить объект, и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Если вы хотите загрузить объект в бакет впервые, нажмите **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
-  1. Если вы хотите загрузить объект в конкретную папку, перейдите в нее, нажав на имя. Если вам нужно создать новую папку, нажмите **{{ ui-key.yacloud.storage.bucket.button_create }}**.
-  1. Оказавшись в нужной папке, на верхней панели нажмите ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. Если вы хотите загрузить объект в конкретную папку, перейдите в нее, нажав на имя. Если вам нужно создать новую папку, на панели сверху нажмите **{{ ui-key.yacloud.storage.bucket.button_create }}**.
+  1. Оказавшись в нужной папке, на панели сверху нажмите ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. В появившемся окне выберите необходимые файлы и нажмите **Открыть**.
   1. Консоль управления отобразит все объекты, выбранные для загрузки и предложит для каждого из них выбрать [класс хранилища](../../concepts/storage-class.md). Класс хранилища по умолчанию определяется [настройкой бакета](../../concepts/bucket.md#bucket-settings).
   1. Нажмите **{{ ui-key.yacloud.storage.button_upload }}**.
@@ -162,11 +161,10 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Выберите бакет, в который нужно загрузить объект.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Выберите бакет, в который нужно загрузить объект, и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Если вы хотите загрузить объект в бакет впервые, нажмите **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
-  1. Если вы хотите загрузить объект в конкретную папку, перейдите в нее, нажав на имя. Если хотите создать новую папку, создайте ее, нажав на панели сверху **{{ ui-key.yacloud.storage.bucket.button_create }}**.
-  1. Оказавшись в нужной папке, нажмите на верхней панели ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. Если вы хотите загрузить объект в конкретную папку, перейдите в нее, нажав на имя. Если вам нужно создать новую папку, на панели сверху нажмите **{{ ui-key.yacloud.storage.bucket.button_create }}**.
+  1. Оказавшись в нужной папке, на панели сверху нажмите ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. В появившемся окне выберите необходимые файлы и нажмите **Открыть**.
   1. Консоль управления отобразит все объекты, выбранные для загрузки и предложит для каждого из них выбрать [класс хранилища](../../concepts/storage-class.md) (стандартное, холодное, ледяное или умное). Класс хранилища по умолчанию определяется [настройкой бакета](../../concepts/bucket.md#bucket-settings).
   1. Чтобы настроить блокировку загружаемых объектов, в выпадающем списке **{{ ui-key.yacloud.storage.title_object-lock }}** выберите вид блокировки:

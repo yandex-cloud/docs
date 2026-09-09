@@ -12,6 +12,8 @@ In this section, you will learn how to use a collection:
 * [Moving a collection](#move-collections)
 * [Setting up access to a collection](#security)
 * [Deleting a collection](#delete-collections)
+* [Restoring deleted objects and workbooks](#restore-objects-workbooks)
+
 
 ## Creating a collection {#create-collections}
    
@@ -86,3 +88,36 @@ To delete a collection:
   
 1. At the top of the collection page, click ![image](../../_assets/console-icons/ellipsis.svg) → ![icon](../../_assets/console-icons/trash-bin.svg) **Delete**.
 1. Confirm the deletion.
+
+
+## Restoring deleted objects and workbooks {#restore-objects-workbooks}
+
+An administrator, i.e., a user holding the `{{ roles-datalens-admin }}` role, can use [settings](../settings/deleted-objects.md) to view and restore deleted workbooks or objects, including connections, datasets, charts, dashboards, reports, and HTML pages.
+
+To restore an object or a workbook:
+
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
+1. Select the **Deleted objects** tab.
+1. This tab displays information about all deleted objects and workbooks:
+
+   * **Name**: Object or workbook name.
+   * **Parent object**: Name of the collection or workbook the object or workbook was deleted from. If the parent object has been deleted, the column shows the ![sliders](../../_assets/console-icons/circle-exclamation.svg) icon. If the workbook was deleted from the root collection, a dash symbol (`-`) is displayed.
+   * **Deletion at**: Date and time when the object or workbook was deleted.
+   * **Deleted by**: Name of the user who deleted the object or workbook.
+
+   You can sort the list by name or deletion date.
+
+   You can also search by object name or switch between tabs with object types: `Workbooks`, `Charts`, `Dashboards`, `Reports`, `More` → `Datasets` / `Connections` / `HTML pages`.
+
+   ![image](../../_assets/datalens/settings/deleted-objects-in-settings.png)
+
+   Click ![icon](../../_assets/console-icons/arrow-rotate-left.svg) next to the object or workbook to restore.
+   
+1. Confirm restoring the object or workbook. Also note:
+
+   * In standard scenarios, the object or workbook is restored to the same location it was deleted from.
+   * If the parent collection is deleted, the system will prompt you to select or create a collection that will house the object or workbook.
+   * If an object or workbook with the same name and location already exists, you will be prompted to rename the object or workbook being restored.
+   * If the object’s parent workbook is also deleted, the system will bring back the workbook with all its contents first, and then restore your selected object.
+

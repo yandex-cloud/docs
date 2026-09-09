@@ -13,19 +13,18 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы настроили сервисное подключение {{ vpc-short-name }}.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет в списке.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Выберите раздел **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
-  1. Введите идентификатор политики доступа, например `private-endpoint-policy`.
+  1. Задайте идентификатор политики доступа, например `private-endpoint-policy`.
   1. Настройте правило:
 
-     1. Введите идентификатор правила, например `private-endpoint-rule`.
-     1. Настройте параметры правила:
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_effect }}** — разрешить.
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_principal-type }}** — включить пользователей.
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}** — все пользователи.
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}** — выберите опцию **{{ ui-key.yacloud.storage.bucket.policy.label_all-actions }}**.
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}** — `<имя_бакета>/*`.
+      1. Задайте идентификатор правила, например `private-endpoint-rule`.
+      1. Настройте параметры правила:
+          * **{{ ui-key.yacloud.storage.bucket.policy.field_effect }}** — разрешить.
+          * **{{ ui-key.yacloud.storage.bucket.policy.field_principal-type }}** — включить пользователей.
+          * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}** — все пользователи.
+          * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}** — выберите опцию **{{ ui-key.yacloud.storage.bucket.policy.label_all-actions }}**.
+          * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}** — `<имя_бакета>/*`.
 
           Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}** и введите `<имя_бакета>`.
 

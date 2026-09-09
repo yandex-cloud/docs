@@ -11,8 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Выберите нужный бакет из списка.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Выберите нужный бакет из списка и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Нажмите на имя нужного объекта.
 
 - {{ yandex-cloud }} CLI {#cli}

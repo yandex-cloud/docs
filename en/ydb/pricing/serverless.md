@@ -7,16 +7,7 @@ editable: false
 # Pricing policy for Serverless mode in {{ ydb-name }}
 
 
-{% note tip %}
-
-
-
-
-For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=02fcbc53c755#calculator) on our website or check out the pricing below.
-
-
-
-{% endnote %}
+{% include [without-use-calculator](../../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../../_includes/pricing/link-to-price-list.md) %}
 

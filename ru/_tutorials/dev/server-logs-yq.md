@@ -42,7 +42,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета `object-bucket`.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
@@ -63,13 +63,12 @@
   1. Выберите бакет `object-bucket`.
   1. [Включите механизм логирования](../../storage/operations/buckets/enable-logging.md#enable):
 
-      1. На панели слева выберите ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
       1. Включите опцию **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
       1. В поле **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}** выберите бакет `logs-bucket`.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-  1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** и [загрузите](../../storage/operations/objects/upload.md) объекты. Например, пару простых текстовых файлов.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}** и [загрузите](../../storage/operations/objects/upload.md) объекты. Например, пару простых текстовых файлов.
 
 {% endlist %}
 
@@ -82,7 +81,7 @@
 - Интерфейс {{ yq-full-name }} {#console}
 
   1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Введите имя соединения, например `bucket-logs-connection`.
   1. Выберите тип соединения **{{ ui-key.yql.yq-connection.action_object-storage }}** и укажите **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**.
@@ -111,7 +110,7 @@
 - Интерфейс {{ yq-full-name }} {#console}
 
   1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Выберите соединение `bucket-logs-connection`.
   1. В редакторе справа введите запрос:
 

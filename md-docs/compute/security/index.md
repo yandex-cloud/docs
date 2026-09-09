@@ -9,6 +9,7 @@
 * [на какие ресурсы можно назначить роль](#resources);
 * [какие роли действуют в сервисе](#roles-list);
 * [какие роли нужны для выполнения определенных действий](#choosing-roles).
+* [какие политики авторизации действуют в сервисе](#access-policies).
 
 ## Об управлении доступом {#about-access-control}
 
@@ -32,6 +33,8 @@
 Для создания ВМ с [публичным IP-адресом](../../vpc/concepts/address.md#public-addresses) дополнительно потребуется [роль](../../vpc/security/index.md#vpc-public-admin) `vpc.publicAdmin`.
 
 {% endnote %}
+
+В дополнение к ролям в Yandex Identity and Access Management предусмотрен еще один механизм контроля доступа — [политики авторизации](#access-policies), которые позволяют запрещать определенные действия с ресурсами Yandex Cloud даже тогда, когда такие действия явно разрешены имеющимися у пользователей ролями.
 
 ## На какие ресурсы можно назначать роли {#resources}
 
@@ -544,9 +547,47 @@ flowchart BT
 **Управление доступом к ресурсам** |
 [Назначение](../../iam/operations/roles/grant.md) и [отзыв](../../iam/operations/roles/revoke.md) прав доступа к любому ресурсу | `compute.admin` на этот ресурс
 
+## Политики авторизации {#access-policies}
+
+[Политики авторизации](*access_policies) дополняют систему ролей и позволяют сделать управление доступом в Yandex Cloud более гибким.
+
+Сервис Compute Cloud позволяет назначать следующие политики авторизации:
+
+#### compute.denyMultipleNic {#compute-denyMultipleNic}
+
+Политика запрещает создавать виртуальные машины Yandex Compute Cloud с несколькими [сетевыми интерфейсами](../concepts/network.md), а также добавлять дополнительные сетевые интерфейсы на существующие ВМ.
+
+#### compute.denyPublicIpAssigning {#compute-denyPublicIpAssigning}
+
+Политика запрещает создавать виртуальные машины с [публичными IP-адресами](../../vpc/concepts/address.md#public-addresses) или привязывать публичные IP-адреса к [сетевым интерфейсам](../concepts/network.md) существующих виртуальных машин Yandex Compute Cloud.
+
+#### compute.denySerialPortEnabling {#compute-denySerialPortEnabling}
+
+Политика запрещает включать доступ к [серийной консоли](../concepts/serial-console.md) виртуальных машин Yandex Compute Cloud.
+
+#### compute.restrictImage {#compute-restrictImage}
+
+Политика позволяет задать список [образов](../concepts/image.md) Yandex Compute Cloud, разрешенных для использования при создании виртуальных машин, и запрещает создавать виртуальные машины из любых образов, не входящих в этот список.
+
+Настраиваемый параметр:
+
+* `allowed_image_ids` — список идентификаторов образов, из которых разрешено создавать виртуальные машины.
+
+Политики авторизации могут быть назначены на уровне [каталога](*folders), [облака](*clouds) или [организации](*organizations) и позволяют запрещать соответствующие действия в этом каталоге, облаке или организации. Такой запрет действует даже в том случае, если пользователю явным образом назначены [роли](#choosing-roles), разрешающие выполнение указанных операций.
+
+Подробнее о том, как создать для ресурса политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](../../iam/operations/access-policies/assign.md).
+
 #### Что дальше {#what-is-next}
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).
 * [Как отозвать роль](../../iam/operations/roles/revoke.md).
 * [Подробнее об управлении доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
 * [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+
+[*access_policies]: _Политики авторизации_ — это механизм контроля доступа Yandex Identity and Access Management, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами Yandex Cloud](../../overview/roles-and-resources.md). Политики дополняют систему [ролей](../../iam/concepts/access-control/roles.md) и позволяют сделать [управление доступом](../../iam/concepts/access-control/index.md) более гибким. Подробнее читайте в разделе [Политики авторизации](../../iam/concepts/access-control/access-policies.md).
+
+[*folders]: Каталог — это логическое пространство, в котором создаются и группируются ресурсы Yandex Cloud. Как и каталоги в файловой системе, каталоги в Yandex Cloud упрощают управление ресурсами. Подробнее читайте в разделе [Каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+[*clouds]: Облако — это изолированное логическое пространство, в котором создаются каталоги и другие ресурсы Yandex Cloud. Переносить ресурсы между облаками нельзя. Подробнее читайте в разделе [Облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+
+[*organizations]: Организация — это высший ресурс в иерархии ресурсной модели Yandex Cloud, который объединяет ресурсы всех остальных сервисов, а также используется для управления пользователями и параметрами их аутентификации и авторизации. Подробнее читайте в разделе [Организация](../../organization/concepts/organization.md).

@@ -1,7 +1,7 @@
 # Working with {{ KF }} topics using PySpark jobs in {{ dataproc-full-name }}
 
 
-{{ dataproc-name }} clusters support integration with {{ mkf-name }} clusters. You can write and read messages to and from {{ KF }} topics using [PySpark jobs](../../../data-proc/operations/jobs-pyspark.md). Reading supports both batch processing and stream processing.
+{{ dataproc-full-name }} clusters support integration with {{ mkf-full-name }} clusters. You can write and read messages to and from {{ KF }} topics using [PySpark jobs](../../../data-proc/operations/jobs-pyspark.md). Reading supports both batch processing and stream processing.
 
 To configure integration between {{ mkf-name }} and {{ dataproc-name }} clusters:
 
@@ -15,14 +15,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
 * {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, volume of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
-* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
-
 
 ## Set up your infrastructure {#infra}
 

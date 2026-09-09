@@ -6,19 +6,52 @@ editable: false
 
 # Pricing policy for Dedicated mode in {{ ydb-name }}
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      sm: 4
+    children: []
+:::
 
-{% note tip %}
+
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 6
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        icon: ../../_assets/console-icons/calculator.svg
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=02fcbc53c755#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        icon: ../../_assets/console-icons/circle-ruble.svg
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list?services=dn2ydbtgqogjqcrlbehu%2Cdn2kcipi3i3av4ej1fsv
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
 
 
-
-For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=02fcbc53c755#calculator) on our website or check out the pricing below.
-
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../../_includes/pricing/currency-choice.md) %}
 

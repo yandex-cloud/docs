@@ -25,6 +25,8 @@ items:
         href: operations/bind-configuration.md
       - name: Управление пользовательским стоп-листом
         href: operations/manage-suppression-list.md
+      - name: Управление выделенными IP-адресами
+        href: operations/manage-dedicated-ip.md
       - name: Ограничение списка отправителей
         href: operations/restrict-senders.md
       - name: Запись логов
@@ -41,6 +43,8 @@ items:
         href: concepts/configuration.md
       - name: Стоп-листы
         href: concepts/suppression-list.md
+      - name: Выделенные IP-адреса
+        href: concepts/dedicated-ip.md
       - name: Уведомления об операциях с письмами
         href: concepts/notification.md
       - name: Симулятор доставки писем
@@ -153,6 +157,22 @@ items:
                 href: aws-compatible-api/api-ref/put-suppressed-destination.md
               - name: Метод DeleteSuppressedDestination
                 href: aws-compatible-api/api-ref/delete-suppressed-destination.md
+          - name: Выделенные IP-адреса
+            items:
+              - name: Метод ListDedicatedIpPools
+                href: aws-compatible-api/api-ref/list-dedicated-ip-pools.md
+              - name: Метод GetDedicatedIpPool
+                href: aws-compatible-api/api-ref/get-dedicated-ip-pool.md
+              - name: Метод CreateDedicatedIpPool
+                href: aws-compatible-api/api-ref/create-dedicated-ip-pool.md
+              - name: Метод DeleteDedicatedIpPool
+                href: aws-compatible-api/api-ref/delete-dedicated-ip-pool.md
+              - name: Метод GetDedicatedIps
+                href: aws-compatible-api/api-ref/get-dedicated-ips.md
+              - name: Метод GetDedicatedIp
+                href: aws-compatible-api/api-ref/get-dedicated-ip.md
+              - name: Метод PutDedicatedIpInPool
+                href: aws-compatible-api/api-ref/put-dedicated-ip-in-pool.md
           - name: Подписки
             items:
               - name: Метод GetConfigurationSetEventDestinations

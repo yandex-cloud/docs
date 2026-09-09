@@ -63,7 +63,7 @@ For IdP-specific examples, see our tutorials:
         * **{{ ui-key.yacloud_org.entity.federation.field.caseInsensitiveNameIds }}**: If enabled, federated user name IDs will be case-insensitive.
         * **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}**: Once the {{ yandex-cloud }} session expires, your IdP will prompt the user to re-authenticate.
 
-  1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+  1. Click **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 
 - CLI {#cli}
 

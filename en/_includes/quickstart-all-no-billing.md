@@ -39,8 +39,8 @@
   * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
   * [Copy and replicate the data between databases using {{ data-transfer-name }}](../data-transfer/quickstart.md).
 * AI:
-  * [Convert text to speech and vice versa using {{ speechkit-name }}]({{ link-docs-ai }}/speechkit/quickstart/index).
-  * [Translate text in {{ translate-name }}]({{ link-docs-ai }}/translate/quickstart).
-  * [Analyze an image using computer vision in {{ vision-name }}]({{ link-docs-ai }}/vision/quickstart).
+  * [Convert text to speech and vice versa using {{ speechkit-name }}]({{ link-docs-ai }}speechkit/quickstart/index).
+  * [Translate text in {{ translate-name }}]({{ link-docs-ai }}translate/quickstart).
+  * [Analyze an image using computer vision in {{ vision-name }}]({{ link-docs-ai }}vision/quickstart).
   * [Train and launch your machine learning models in {{ ml-platform-name }}](../datasphere/quickstart.md).
   * [Create an AI agent for your business]({{ link-docs-ai }})

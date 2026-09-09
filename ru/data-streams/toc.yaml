@@ -185,6 +185,12 @@ items:
         href: kafkaapi/index.md
       - name: Аутентификация и соединение с БД
         href: kafkaapi/auth.md
+  - name: HTTP API, совместимый с Amazon SQS
+    items:
+      - name: Обзор
+        href: sqsapi/index.md
+      - name: Аутентификация и соединение с БД
+        href: sqsapi/auth.md
   - name: Вопросы и ответы
     href: qa/index.md
 path: ru/data-streams/toc.yaml

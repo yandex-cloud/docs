@@ -39,7 +39,7 @@
 
 - API {#api}
 
-    Воспользуйтесь методом API [list](../api-ref/NetworkLoadBalancer/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
+    Воспользуйтесь методом REST API [list](../api-ref/NetworkLoadBalancer/list.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/List](../api-ref/grpc/NetworkLoadBalancer/list.md) и передайте в запросе идентификатор каталога в параметре `folderId` (REST API) или `folder_id` (gRPC API).
 
 {% endlist %}
 
@@ -156,7 +156,7 @@
 
 - API {#api}
 
-    Воспользуйтесь методом API [get](../api-ref/NetworkLoadBalancer/get.md) и передайте идентификатор сетевого балансировщика в параметре `networkLoadBalancerId` запроса.
+    Воспользуйтесь методом REST API [get](../api-ref/NetworkLoadBalancer/get.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Get](../api-ref/grpc/NetworkLoadBalancer/get.md) и передайте идентификатор сетевого балансировщика в параметре `networkLoadBalancerId` (REST API) или `network_load_balancer_id` (gRPC API) запроса.
 
     Идентификатор сетевого балансировщика можно получить со [списком сетевых балансировщиков в каталоге](#list).
 

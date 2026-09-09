@@ -128,11 +128,11 @@ The example below illustrates two scenarios. Select the one you find most releva
 
   1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
-     * **Service account**: `metastore-agent`
-     * **Version**: `{{ metastore.integration-version }}`
-     * **Network**: `datalake-network`
-     * **Subnet**: `datalake-network-{{ region-id }}-a`
-     * **Security group**: `metastore-sg`
+     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `metastore-agent`.
+     * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: `{{ metastore.integration-version }}`.
+     * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `datalake-network`.
+     * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}**: `datalake-network-{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `metastore-sg`.
 
      {% note info %}
 
@@ -142,12 +142,12 @@ The example below illustrates two scenarios. Select the one you find most releva
 
   1. [Create a {{ maf-name }} cluster](../../../managed-airflow/operations/cluster-create.md) with the following parameters:
 
-     * **Service account**: `airflow-agent`
-     * **Availability zone**: `{{ region-id }}-a`
-     * **Network**: `datalake-network`
-     * **Subnet**: `datalake-network-{{ region-id }}-a`
-     * **Security group**: `airflow-sg`
-     * **Bucket name**: `<bucket_for_Airflow_DAG_source_code>`
+     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `airflow-agent`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_zone }}**: `{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `datalake-network`.
+     * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}**: `datalake-network-{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `airflow-sg`.
+     * **{{ ui-key.yacloud.airflow.field_connector-bucket-name }}**: `<bucket_for_Airflow_DAG_source_code>`.
 
 - Simplified setup
 
@@ -174,10 +174,10 @@ The example below illustrates two scenarios. Select the one you find most releva
 
   1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
-     * **Service account**: `integration-agent`
-     * **Network**: `datalake-network`
-     * **Subnet**: `datalake-network-{{ region-id }}-a`
-     * **Security group**: Default group in `datalake-network`
+     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `integration-agent`.
+     * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `datalake-network`.
+     * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}**: `datalake-network-{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Default group in `datalake-network`.
 
      {% note info %}
    
@@ -187,12 +187,12 @@ The example below illustrates two scenarios. Select the one you find most releva
 
   1. [Create a {{ maf-name }} cluster](../../../managed-airflow/operations/cluster-create.md) with the following parameters:
 
-     * **Service account**: `integration-agent`
-     * **Availability zone**: `{{ region-id }}-a`
-     * **Network**: `datalake-network`
-     * **Subnet**: `datalake-network-{{ region-id }}-a`
-     * **Security group**: Default group in `datalake-network`
-     * **Bucket name**: `<bucket_for_jobs_and_data>`
+     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `integration-agent`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_zone }}**: `{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `datalake-network`.
+     * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}**: `datalake-network-{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Default group in `datalake-network`.
+     * **{{ ui-key.yacloud.airflow.field_connector-bucket-name }}**: `<bucket_for_jobs_and_data>`.
 
 {% endlist %}
 

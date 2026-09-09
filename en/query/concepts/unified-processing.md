@@ -3,7 +3,7 @@ title: Unified analysis of streaming and analytical data using the example of de
 description: In this article, you will learn about using stream processing to detect fraudulent transactions.
 ---
 
-# Unified analysis of streaming and analytical data
+# Unified streaming and batch data analysis
 
 Let's say we need to develop an anti-fraud system to detect fraudulent transactions. They need to be detected in real time, so it's convenient to use [streaming data processing](./stream-processing.md) for our purposes.
 

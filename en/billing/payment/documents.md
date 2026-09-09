@@ -1,6 +1,6 @@
 # Reporting documents for businesses and individual entrepreneurs
 
-If, during the reporting period, you have used your funds to pay for {{ yandex-cloud }} services, then, depending on your tax residence, the reporting documents will be sent to you within seven business days after the end of the reporting period.
+If, during the reporting period, you have used your funds to pay for {{ yandex-cloud }} services, then, depending on your tax residence, the reporting documents will be sent to you within seven business days after the end of the reporting period. They will indicate the total amount due.
 Soft and hard copies of a document are identical. To prepare your financial reports on time, you can use the number, amount, and date of the report from the email received.
 
 {% list tabs group=residents %}

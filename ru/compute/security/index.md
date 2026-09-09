@@ -12,6 +12,7 @@ description: Управление доступом в сервисе предо�
 * [на какие ресурсы можно назначить роль](#resources);
 * [какие роли действуют в сервисе](#roles-list);
 * [какие роли нужны для выполнения определенных действий](#choosing-roles).
+* [какие политики авторизации действуют в сервисе](#access-policies).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -20,6 +21,8 @@ description: Управление доступом в сервисе предо�
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
 {% include [role-note](../../_includes/compute/role-note.md) %}
+
+В дополнение к ролям в {{ iam-full-name }} предусмотрен еще один механизм контроля доступа — [политики авторизации](#access-policies), которые позволяют запрещать определенные действия с ресурсами {{ yandex-cloud }} даже тогда, когда такие действия явно разрешены имеющимися у пользователей ролями.
 
 ## На какие ресурсы можно назначать роли {#resources}
 
@@ -204,9 +207,31 @@ description: Управление доступом в сервисе предо�
 **Управление доступом к ресурсам** |
 [Назначение](../../iam/operations/roles/grant.md) и [отзыв](../../iam/operations/roles/revoke.md) прав доступа к любому ресурсу | `compute.admin` на этот ресурс
 
+## Политики авторизации {#access-policies}
+
+[Политики авторизации](*access_policies) дополняют систему ролей и позволяют сделать управление доступом в {{ yandex-cloud }} более гибким.
+
+Сервис {{ compute-name }} позволяет назначать следующие политики авторизации:
+
+{% include [compute-access-no-param-policies](../../_includes/compute/compute-access-no-param-policies.md) %}
+
+{% include [compute-access-parametrized-policies](../../_includes/compute/compute-access-parametrized-policies.md) %}
+
+Политики авторизации могут быть назначены на уровне [каталога](*folders), [облака](*clouds) или [организации](*organizations) и позволяют запрещать соответствующие действия в этом каталоге, облаке или организации. Такой запрет действует даже в том случае, если пользователю явным образом назначены [роли](#choosing-roles), разрешающие выполнение указанных операций.
+
+Подробнее о том, как создать для ресурса политику авторизации, читайте в разделе [{#T}](../../iam/operations/access-policies/assign.md).
+
 #### Что дальше {#what-is-next}
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).
 * [Как отозвать роль](../../iam/operations/roles/revoke.md).
 * [Подробнее об управлении доступом в {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+
+[*access_policies]: {% include [access-policy-definition](../../_popups/iam/access-policy-definition.md) %}
+
+[*folders]: {% include [folder-definition](../../_popups/resource-manager/folder-definition.md) %}
+
+[*clouds]: {% include [cloud-definition](../../_popups/resource-manager/cloud-definition.md) %}
+
+[*organizations]: {% include [organization-definition](../../_popups/identity-hub/organization-definition.md) %}

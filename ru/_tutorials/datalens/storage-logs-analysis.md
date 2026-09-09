@@ -107,8 +107,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите бакет, логи которого хотите записывать.
-  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.  
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.  
   1. Включите опцию **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
   1. Выберите **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}**.
   1. В поле **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_prefix_4JTZG }}** укажите префикс `s3-logs/`.

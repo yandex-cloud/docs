@@ -1,18 +1,14 @@
-{% note info %}
-
-You cannot cancel jobs with the `ERROR`, `DONE`, or `CANCELLED` status. To find out the job status, get the [list of jobs](#list) in the cluster.
-
-{% endnote %}
+{% include [note-job-cancel](../../_includes/managed-spark/note-job-cancel.md) %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
+    1. Click the cluster name and go to **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
     1. Click the job name.
-    1. Click **{{ ui-key.yacloud.common.cancel }}** in the top-right corner of the page.
+    1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.cancel }}**.
     1. In the window that opens, select **{{ ui-key.yacloud.spark.jobs.popup-action_label_cancel-msg }}**.
 
 - CLI {#cli}

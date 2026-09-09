@@ -180,4 +180,10 @@ Yandex Data Streams — масштабируемый сервис для упр�
 
  - [Аутентификация и соединение с БД](kafkaapi/auth.md)
 
+## HTTP API, совместимый с Amazon SQS
+
+ - [Обзор](sqsapi/index.md)
+
+ - [Аутентификация и соединение с БД](sqsapi/auth.md)
+
  - [Вопросы и ответы](qa/index.md)

@@ -25,10 +25,10 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Выберите нужный бакет из списка.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** и найдите в списке нужный объект.
-  1. Выберите объект, версию которого вы хотите восстановить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.bucket.menu_version-history }}**.
-  1. В списке версий в строке с нужной версией нажмите ![image](../../../_assets/console-icons/arrow-rotate-left.svg) **{{ ui-key.yacloud.storage.file.action_file-restore }}**. Выбранная версия будет восстановлена и отображена как текущая.
+  1. Выберите нужный бакет из списка и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Выберите объект, версию которого вы хотите восстановить.
+  1. На панели сверху нажмите ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![clock](../../../_assets/console-icons/clock.svg) **{{ ui-key.yacloud.storage.bucket.menu_version-history }}**.
+  1. В списке версий в строке с нужной версией нажмите ![clock-arrow-rotate-left](../../../_assets/console-icons/clock-arrow-rotate-left.svg) **{{ ui-key.yacloud.storage.file.action_file-restore }}**. Выбранная версия будет восстановлена и отображена как текущая.
 
   Чтобы посмотреть историю изменений всех объектов в списке, включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
 

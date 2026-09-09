@@ -39,6 +39,11 @@ links:
   - title: Kafka API
     description: Работа с потоками данных по протоколу Apache Kafka
     href: kafkaapi/
+  - title: HTTP API, совместимый с Amazon SQS
+    description: >-
+      Работа с потоками данных по протоколу, совместимому с Amazon SQS (SQS over
+      Topics)
+    href: sqsapi/
   - title: Концепции
     description: Узнайте о концепциях и возможностях сервиса
     href: concepts/

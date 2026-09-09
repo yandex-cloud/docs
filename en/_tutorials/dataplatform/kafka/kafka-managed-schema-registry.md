@@ -1,5 +1,6 @@
 To use [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md#msr) with {{ mkf-name }}:
 
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Create producer and consumer scripts on your local machine](#create-scripts).
 1. [Check that {{ mkf-msr }} runs correctly](#check-schema-registry).
 1. [Delete the resources you created](#clear-out).
@@ -7,20 +8,24 @@ To use [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.m
 This tutorial describes how to register a single data schema. For more information on how to register multiple data schemas, see [this Confluent Schema Registry guide](https://docs.confluent.io/platform/current/control-center/topics/schema.html).
 
 
-## Required paid resources {#paid-resources}
-
-The infrastructure support cost includes:
-
-* Fee for computing resources of the {{ mkf-name }} cluster and storage space (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
-* Fee for VM computing resources and disks (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
-* Fee for using a [public IP address](../../../vpc/concepts/ips.md) (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
-
-
 ## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
+
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+
+
+## Set up your infrastructure {#prepare-infrastructure}
 
 1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md) of any suitable configuration. When creating a cluster, enable **{{ ui-key.yacloud.kafka.field_schema-registry }}** and **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
+    
     {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
 
     1. [Create a topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) named `messages` for exchanging messages between the producer and the consumer.
     1. [Create a user](../../../managed-kafka/operations/cluster-accounts.md#create-account) named `user` and [grant them permissions](../../../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:

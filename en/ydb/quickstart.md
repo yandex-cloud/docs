@@ -134,7 +134,7 @@ For the Amazon DynamoDB compatibility mode, use a serverless database configurat
         1. Set the subnet address in [**{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
         1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
-     You cannot change the settings of the **{{ ui-key.yacloud.ydb.forms.label_section-network }}** section after the database is created.
+     You cannot change the settings in **{{ ui-key.yacloud.ydb.forms.label_section-network }}** after the database is created.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
      Wait for the database to start. While being created, your database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.

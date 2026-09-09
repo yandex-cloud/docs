@@ -31,7 +31,7 @@
 
 Next-Generation Firewall используется для защиты и сегментации облачной сети с выделением DMZ зоны для размещения публичных приложений. В [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}?categories=security) доступно несколько вариантов NGFW.
 
-В данном сценарии развернуто решение [Check Point CloudGuard IaaS]({{ link-cloud-marketplace }}/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m), которое предоставляет следующие возможности:
+В данном сценарии развернуто решение [Check Point CloudGuard IaaS]({{ link-cloud-marketplace }}/products/checkpoint/cloudguard-iaas-firewall-tp-byol-m), которое предоставляет следующие возможности:
 
 * межсетевое экранирование;
 * NAT;
@@ -56,8 +56,7 @@ Next-Generation Firewall используется для защиты и сег�
 * плата за использование {{ alb-name }} ([тарифы {{ alb-full-name }}](../../application-load-balancer/pricing.md));
 * плата за использование {{ network-load-balancer-name }} ([тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
 * плата за использование публичных IP-адресов и исходящий трафик ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за использование функций ([тарифы {{ sf-full-name }}](../../functions/pricing.md));
-* плата за использование [CheckPoint NGFW]({{ link-cloud-marketplace }}/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m).
+* плата за использование функций ([тарифы {{ sf-full-name }}](../../functions/pricing.md)).
 
 ### Необходимые квоты {#required-quotes}
 

@@ -154,9 +154,9 @@ Prepare a script file:
 
 1. In the source code bucket, create a folder named `scripts` and [upload](../../../storage/operations/objects/upload.md#simple) the `ice_min_demo.py` file to this folder.
 1. [Create a job](../../../managed-spark/operations/jobs-pyspark.md) with the following settings:
-    * **Job type**: **PySpark**.
-    * **Main python file**: `s3a://<source_code_bucket>/scripts/ice_min_demo.py`.
-    * **Arguments**: `spark.sql.warehouse.dir` – `s3a://<output_data_bucket>/warehouse/`.
+    * **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}**: `PySpark`.
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}**: `s3a://<source_code_bucket>/scripts/ice_min_demo.py`.
+    * **{{ ui-key.yacloud.dataproc.jobs.field_properties }}**: `spark.sql.warehouse.dir` — `s3a://<output_data_bucket>/warehouse/`.
 
 ## Check the result {#check-out}
 

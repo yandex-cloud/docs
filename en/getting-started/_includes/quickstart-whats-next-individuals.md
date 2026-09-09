@@ -70,10 +70,6 @@ Get started with {{ yandex-cloud }}:
 
   Configure an API Gateway and set up an integration to call a function.
 
-* [{{ sw-full-name }}](../../serverless-integrations/quickstart/workflows.md).
-
-  Create a workflow and execute it.
-
 * [{{ serverless-containers-full-name }}](../../serverless-containers/quickstart/index.md).
 
   Create a container and a trigger for it.

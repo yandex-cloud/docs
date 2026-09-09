@@ -33,6 +33,10 @@ GET /v2/email/configuration-sets/{ConfigurationSetName} HTTP/2
   "SuppressionOptions": {
     "SuppressedReasons": ["BOUNCE", "COMPLAINT"]
   },
+  "DeliveryOptions": {
+    "TlsPolicy": "REQUIRE|OPTIONAL",
+    "SendingPoolName": "<имя_пула>"
+  },
   "Tags": [
     {
       "Key": "ключ_1",
@@ -52,6 +56,7 @@ GET /v2/email/configuration-sets/{ConfigurationSetName} HTTP/2
 || `ConfigurationSetName` | **Тип**: string.
 
 Название конфигурации. ||
+
 || `SuppressionOptions` | **Тип**: object.
 
 Текущие настройки [стоп-листа](../../concepts/suppression-list.md) для конфигурации. Содержит массив `SuppressedReasons`. ||
@@ -60,6 +65,16 @@ GET /v2/email/configuration-sets/{ConfigurationSetName} HTTP/2
 [Причины](../../concepts/suppression-list.md#reasons), по которым адрес из стоп-листа блокирует отправку письма. Возможные значения элементов массива: `BOUNCE` и `COMPLAINT`.
 
 Если массив содержит значение `COMPLAINT`, адреса автоматически добавляются в стоп-лист по жалобам получателей. ||
+
+|| `DeliveryOptions` | **Тип**: object.
+
+Настройки доставки писем, отправленных с конфигурацией. ||
+|| `TlsPolicy` | **Тип**: string.
+
+Политика безопасности исходящего соединения — `REQUIRE` или `OPTIONAL`. ||
+|| `SendingPoolName` | **Тип**: string.
+
+Имя [пула](../../concepts/dedicated-ip.md), с IP-адресов которого отправляются письма с конфигурацией. ||
 || `Tags` | **Тип**: array.
 
 Массив меток для конфигурации. ||

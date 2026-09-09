@@ -39,6 +39,8 @@ _Образ_ — это полная копия структуры файлов�
 
 Образ занимает место в хранилище, время его хранения не ограничено. Хранение образов оплачивается дополнительно. Чтобы избежать лишних затрат, удаляйте неиспользуемые образы. Подробнее читайте в разделе [{#T}](../pricing.md).
 
+Использование определенных образов для создания виртуальных машин может быть запрещено на уровне [каталога](*folders), [облака](*clouds) или [организации](*organizations) с помощью политики авторизации `compute.restrictImage`. Подробнее читайте в разделе [{#T}](../security/index.md#access-policies).
+
 ## Семейство образов {#family}
 
 Если вы регулярно обновляете образы, вы можете группировать их в семейства. По названию семейства вы сможете найти образ, который был создан последним в этом семействе.
@@ -105,3 +107,9 @@ _Возможность находится на стадии [Preview](../../ove
 * [{#T}](../operations/image-control/import.md).
 * [{#T}](../operations/image-control/access.md).
 * [{#T}](../qa/disks.md).
+
+[*folders]: {% include [folder-definition](../../_popups/resource-manager/folder-definition.md) %}
+
+[*clouds]: {% include [cloud-definition](../../_popups/resource-manager/cloud-definition.md) %}
+
+[*organizations]: {% include [organization-definition](../../_popups/identity-hub/organization-definition.md) %}

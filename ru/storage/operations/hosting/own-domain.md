@@ -35,12 +35,12 @@ description: Следуя данной инструкции, вы сможете
       1. В [консоли управления]({{ link-console-main }}) выберите каталог.
       1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Выберите бакет, для которого хотите использовать собственный домен.
-      1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-      1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** в блоке **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** нажмите кнопку **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+      1. Выберите режим `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` и в блоке **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** нажмите кнопку **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
 
           {% note info %}
 
-          В блоке **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** раздела **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** отображаются только те домены, которые были созданы непосредственно в этом интерфейсе. Если запись была создана в сервисе [{{ dns-name }}](../../../dns/quickstart.md), то в этом блоке она отображаться не будет.
+          В блоке **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** настроек режима `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` отображаются только те домены, которые были созданы непосредственно в этом интерфейсе. Если запись была создана в сервисе [{{ dns-name }}](../../../dns/quickstart.md), то в этом блоке она отображаться не будет.
 
           {% endnote %}
 

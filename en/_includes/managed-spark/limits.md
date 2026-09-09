@@ -4,6 +4,8 @@
 || Type of limit | Value ||
 || Number of clusters per cloud
 `managed-spark.clusters.count` | 2 ||
+|| Number of custom environments per cloud
+`managed-spark.environments.count` | 50 ||
 || Total number of processor cores for all hosts for drivers and executors per cloud 
 `managed-spark.cpu.count` | 128 ||
 || Total virtual memory for all hosts for drivers and executors per cloud

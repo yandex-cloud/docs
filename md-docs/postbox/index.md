@@ -32,6 +32,8 @@ Cloud Postbox позволяет не тратить бюджет и время 
 
  - [Управление пользовательским стоп-листом](operations/manage-suppression-list.md)
 
+ - [Управление выделенными IP-адресами](operations/manage-dedicated-ip.md)
+
  - [Ограничение списка отправителей](operations/restrict-senders.md)
 
  - [Запись логов](operations/logs-write.md)
@@ -47,6 +49,8 @@ Cloud Postbox позволяет не тратить бюджет и время 
  - [Конфигурации](concepts/configuration.md)
 
  - [Стоп-листы](concepts/suppression-list.md)
+
+ - [Выделенные IP-адреса](concepts/dedicated-ip.md)
 
  - [Уведомления об операциях с письмами](concepts/notification.md)
 
@@ -151,6 +155,22 @@ Cloud Postbox позволяет не тратить бюджет и время 
  - [Метод PutSuppressedDestination](aws-compatible-api/api-ref/put-suppressed-destination.md)
 
  - [Метод DeleteSuppressedDestination](aws-compatible-api/api-ref/delete-suppressed-destination.md)
+
+#### Выделенные IP-адреса
+
+ - [Метод ListDedicatedIpPools](aws-compatible-api/api-ref/list-dedicated-ip-pools.md)
+
+ - [Метод GetDedicatedIpPool](aws-compatible-api/api-ref/get-dedicated-ip-pool.md)
+
+ - [Метод CreateDedicatedIpPool](aws-compatible-api/api-ref/create-dedicated-ip-pool.md)
+
+ - [Метод DeleteDedicatedIpPool](aws-compatible-api/api-ref/delete-dedicated-ip-pool.md)
+
+ - [Метод GetDedicatedIps](aws-compatible-api/api-ref/get-dedicated-ips.md)
+
+ - [Метод GetDedicatedIp](aws-compatible-api/api-ref/get-dedicated-ip.md)
+
+ - [Метод PutDedicatedIpInPool](aws-compatible-api/api-ref/put-dedicated-ip-in-pool.md)
 
 #### Подписки
 
