@@ -85,7 +85,7 @@
   1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. В открывшемся списке выберите сервисный аккаунт `yq-sa`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
+  1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
   1. Выберите алгоритм шифрования и нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
 
@@ -96,7 +96,7 @@
 Чтобы получить авторизованный ключ из ноутбука, создайте [секрет](../../datasphere/concepts/secrets.md) с содержимым файла авторизованного ключа.
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. В поле **{{ ui-key.yc-ui-datasphere.secret.name }}** задайте имя секрета — `yq_access_key`.
 1. В поле **{{ ui-key.yc-ui-datasphere.secret.content }}** вставьте полное содержимое скачанного файла с авторизированным ключом.
@@ -131,7 +131,7 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
   1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Введите имя соединения, например `storage-connection`.
   1. Выберите тип соединения **{{ ui-key.yql.yq-connection.action_object-storage }}** и укажите **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
@@ -155,7 +155,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
   1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+  1. Перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
   1. В блоке **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
 
@@ -214,7 +214,7 @@
    
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
      1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-     1. На панели слева нажмите **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+     1. Перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
      1. В строке с привязкой `yq_binding` нажмите кнопку ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yql.yq-binding-actions.clone-binding.menu-item-text }}**.
      1. Укажите имя привязки — `yq_tutorial_hive_partitioned`.
      1. В блоке **{{ ui-key.yql.yq-schema.schema-partitioning.section-header }}**:
@@ -249,7 +249,7 @@
    
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
      1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-     1. На панели слева нажмите **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+     1. Перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
      1. В строке с привязкой `yq_binding` нажмите кнопку ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yql.yq-binding-actions.clone-binding.menu-item-text }}**.
      1. Укажите имя привязки — `yq_tutorial_partition_projection`.
      1. В блоке **{{ ui-key.yql.yq-schema.schema-partitioning.section-header }}**:

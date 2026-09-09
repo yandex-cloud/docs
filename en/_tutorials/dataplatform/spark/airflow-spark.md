@@ -71,12 +71,12 @@ Set up your infrastructure:
 
 1. [Create a {{ maf-name }} cluster](../../../managed-airflow/operations/cluster-create.md) with the following parameters:
 
-   * **Service account**: `integration-agent`.
-   * **Availability zone**: `{{ region-id }}-a`.
-   * **Network**: `datalake-network`.
-   * **Subnet**: `datalake-network-{{ region-id }}-a`.
-   * **Security group**: Default group in `datalake-network`.
-   * **Bucket name**: The name of the previously created bucket.
+   * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `integration-agent`.
+   * **{{ ui-key.yacloud.compute.groups.create.field_zone }}**: `{{ region-id }}-a`.
+   * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `datalake-network`.
+   * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}**: `datalake-network-{{ region-id }}-a`.
+   * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Default group in `datalake-network`.
+   * **{{ ui-key.yacloud.airflow.field_connector-bucket-name }}**: Name of the bucket.
 
 ## Prepare a PySpark job {#prepare-a-job}
 

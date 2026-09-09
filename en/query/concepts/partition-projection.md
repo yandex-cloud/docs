@@ -144,8 +144,8 @@ Used for columns whose values can be represented as integers in the range from -
 |`projection.<field_name>.type`|Yes|Field data type|integer|
 |`projection.<field_name>.min`|Yes|Defines the minimum allowed value. Set as an integer|-100<br>004|
 |`projection.<field_name>.max`|Yes|Defines the maximum allowed value. Set as an integer|-10<br>5000|
-|`projection.<field_name>.interval`|No, defaults to `1`|Sets the step between the elements inside a value range. For example, step 3 will produce the following values for the range 2, 10: 2, 5, 8|2<br>11|
-|`projection.<field_name>.digits`|No, defaults to `0`|Sets the number of digits in a number. If the amount of non-zero digits is less than the specified value, zeros are added in front until the specified amount of digits is reached. For example, if the set value is .digits=3 while 2 is transmitted, it is converted to 002.|2<br>4|
+|`projection.<field_name>.interval`|None, defaults to `1`|Sets the step between the elements inside a value range. For example, step 3 will produce the following values for the range 2, 10: 2, 5, 8|2<br>11|
+|`projection.<field_name>.digits`|None, defaults to `0`|Sets the number of digits in a number. If the amount of non-zero digits is less than the specified value, zeros are added in front until the specified amount of digits is reached. For example, if the set value is .digits=3 while 2 is transmitted, it is converted to 002.|2<br>4|
 
 ### Field of the enum type {#enum_type}
 
@@ -164,14 +164,14 @@ Used for columns whose values can be represented as a date.
 |----|----|----|----|
 |`projection.<field_name>.type`|Yes|Field data type|date|
 |`projection.<field_name>.min`|Yes|Defines the minimum allowed date. Values in `YYYY-MM-DD` format or as an expression with the special NOW macro substitution are allowed. Using the NOW macro substitution, you can perform arithmetic operations:  <br>NOW-3DAYS, <br> NOW+1MONTH, <br>NOW-6YEARS, <br>NOW+4HOURS, <br>NOW-5MINUTES, <br> NOW+6SECONDS. |2020-01-01<br/>NOW-5DAYS<br/>NOW+3HOURS|
-|`projection.<field_name>.max`|Yes|Defines the maximum allowed date. Values in `YYYY-MM-DD` format or as an expression with the special NOW macro substitution are allowed. Using the NOW macro substitution, you can perform arithmetic operations:  <br>NOW-3DAYS, <br> NOW+1MONTH, <br>NOW-6YEARS, <br>NOW+4HOURS, <br>NOW-5MINUTES, <br> NOW+6SECONDS. |2020-01-01<br/>NOW-5DAYS<br/>NOW+3HOURS|
+|`projection.<field_name>.max`|Yes|Defines the maximum allowed date. Values in `YYYY-MM-DD` format or as an expression with the special NOW macro substitution are allowed. Using the NOW macro substitution, you can perform arithmetic operations: <br>NOW-3DAYS, <br> NOW+1MONTH, <br>NOW-6YEARS, <br>NOW+4HOURS, <br>NOW-5MINUTES, <br> NOW+6SECONDS. |2020-01-01<br/>NOW-5DAYS<br/>NOW+3HOURS|
 |`projection.<field_name>.format`|Yes|Date formatting string based on [strptime](https://cplusplus.com/reference/ctime/strftime/)|%Y-%m-%d<br/>%D|
-|`projection.<field_name>.unit`|No|Time interval units. Valid values: DAYS|DAYS|
-|`projection.<field_name>.interval`|No, defaults to `1`|Sets the step between the elements inside a value range for the unit set in `projection.<field_name>.unit`. For example, step 15 will produce the following values for the range 2021-02-02, 2021-03-05 with DAYS for unit: 2021-02-17, 2021-03-04|2<br/>6|
+|`projection.<field_name>.unit`|None|Time interval units. Valid values: DAYS|DAYS|
+|`projection.<field_name>.interval`|None, defaults to `1`|Sets the step between the elements inside a value range for the unit set in `projection.<field_name>.unit`. For example, step 15 will produce the following values for the range 2021-02-02, 2021-03-05 with DAYS for unit: 2021-02-17, 2021-03-04|2<br/>6|
 
 ## Path templates {#storage_location_template}
 
-{{ objstorage-full-name }} bucket data can be stored in folders with any name. Using the `storage.location.template` setting, you can specify the rules for naming folders with data.
+{{ objstorage-full-name }} bucket data can be stored in folders with custom names. Using the `storage.location.template` setting, you can specify the rules for naming folders with data.
 
 |Field name|Field description|Sample value|
 |----|----|----|

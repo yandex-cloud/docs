@@ -67,10 +67,10 @@ description: Управление доступом в сервисе, предо
 
 Подробнее о том, как создать для ресурса политику авторизации, читайте в разделе [{#T}](../../iam/operations/access-policies/assign.md).
 
-[*access_policies]: _Политики авторизации_ — это механизм контроля доступа {{ iam-full-name }}, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами {{ yandex-cloud }}](../../overview/roles-and-resources.md). Политики дополняют систему [ролей](../../iam/concepts/access-control/roles.md) и позволяют сделать [управление доступом](../../iam/concepts/access-control/index.md) более гибким. [Подробнее](../../iam/concepts/access-control/access-policies.md) о политиках авторизации в {{ yandex-cloud }}.
+[*access_policies]: {% include [access-policy-definition](../../_popups/iam/access-policy-definition.md) %}
 
-[*folders]: [Подробнее](../../resource-manager/concepts/resources-hierarchy.md#folder) о каталогах.
+[*folders]: {% include [folder-definition](../../_popups/resource-manager/folder-definition.md) %}
 
-[*clouds]: [Подробнее](../../resource-manager/concepts/resources-hierarchy.md#cloud) об облаках.
+[*clouds]: {% include [cloud-definition](../../_popups/resource-manager/cloud-definition.md) %}
 
-[*organizations]: [Подробнее](../../organization/concepts/organization.md) об организациях.
+[*organizations]: {% include [organization-definition](../../_popups/identity-hub/organization-definition.md) %}

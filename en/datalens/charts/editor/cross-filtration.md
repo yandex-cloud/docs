@@ -1,11 +1,11 @@
 ---
 title: Cross-filtering
-description: In this tutorial, you will learn how to configure chart cross-filtering.
+description: In this article, you will learn how to configure chart cross-filtering.
 ---
 
 # Cross-filtering
 
-Filtering parameters are used to filter charts by charts. In this case, some chart acts as a selector for other charts.
+Filtering parameters are used for chart cross-filtering. In this case, a chart acts as a selector for other charts.
 
 When you open a filtering chart from a dashboard for edits or in a new tab, the filter parameters are highlighted.
 

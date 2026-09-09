@@ -62,12 +62,10 @@
 
       1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен бакет.
       1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и в открывшемся окне выберите созданный ранее бакет.
-      1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**. В открывшемся окне выберите созданные файлы и подтвердите загрузку.
-      1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-      1. На вкладке **{{ ui-key.yacloud.storage.bucket.switch_website }}**:
+      1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}** и на панели сверху нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**. В открывшемся окне выберите созданные файлы и подтвердите загрузку.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**. В открывшемся окне:
 
-          1. Перейдите на вкладку `{{ ui-key.yacloud.storage.bucket.switch_website }}` и выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` .
+          1. Выберите режим `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
           1. В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите `index.html`.
           1. В поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите `error.html`.
           1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.

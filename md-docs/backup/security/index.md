@@ -198,10 +198,10 @@ flowchart BT
 
 Подробнее о том, как создать для ресурса политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](../../iam/operations/access-policies/assign.md).
 
-[*access_policies]: _Политики авторизации_ — это механизм контроля доступа Yandex Identity and Access Management, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами Yandex Cloud](../../overview/roles-and-resources.md). Политики дополняют систему [ролей](../../iam/concepts/access-control/roles.md) и позволяют сделать [управление доступом](../../iam/concepts/access-control/index.md) более гибким. [Подробнее](../../iam/concepts/access-control/access-policies.md) о политиках авторизации в Yandex Cloud.
+[*access_policies]: _Политики авторизации_ — это механизм контроля доступа Yandex Identity and Access Management, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами Yandex Cloud](../../overview/roles-and-resources.md). Политики дополняют систему [ролей](../../iam/concepts/access-control/roles.md) и позволяют сделать [управление доступом](../../iam/concepts/access-control/index.md) более гибким. Подробнее читайте в разделе [Политики авторизации](../../iam/concepts/access-control/access-policies.md).
 
-[*folders]: [Подробнее](../../resource-manager/concepts/resources-hierarchy.md#folder) о каталогах.
+[*folders]: Каталог — это логическое пространство, в котором создаются и группируются ресурсы Yandex Cloud. Как и каталоги в файловой системе, каталоги в Yandex Cloud упрощают управление ресурсами. Подробнее читайте в разделе [Каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-[*clouds]: [Подробнее](../../resource-manager/concepts/resources-hierarchy.md#cloud) об облаках.
+[*clouds]: Облако — это изолированное логическое пространство, в котором создаются каталоги и другие ресурсы Yandex Cloud. Переносить ресурсы между облаками нельзя. Подробнее читайте в разделе [Облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 
-[*organizations]: [Подробнее](../../organization/concepts/organization.md) об организациях.
+[*organizations]: Организация — это высший ресурс в иерархии ресурсной модели Yandex Cloud, который объединяет ресурсы всех остальных сервисов, а также используется для управления пользователями и параметрами их аутентификации и авторизации. Подробнее читайте в разделе [Организация](../../organization/concepts/organization.md).

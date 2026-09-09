@@ -6,11 +6,45 @@ editable: false
 
 # Правила тарификации для {{ cloud-desktop-full-name }}
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
+        gravityIcon: Calculator
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices?state=3042f36704c0#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        gravityIcon: CircleRuble
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list?services=dn25bk2bcun5eb7kkdq0
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
 
-{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
 {% include [vat](../_includes/vat.md) %}
@@ -20,8 +54,10 @@ editable: false
 Расчет стоимости использования {{ cloud-desktop-name }} учитывает:
 
 * Вычислительные ресурсы:
+  
   * количество ядер (vCPU);
   * объем памяти (RAM).
+
 * Тип и объем диска.
 * Объем исходящего трафика.
 

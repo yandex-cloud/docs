@@ -399,7 +399,7 @@ Firebase:
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который нужно загрузить объекты.
      1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Нажмите на бакет `bucket-for-tutorial`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите [сгенерированные ранее](#project-prepare) объекты в папке `build`.
+     1. На панели сверху нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите [сгенерированные ранее](#project-prepare) объекты в папке `build`.
      1. Консоль управления отобразит все объекты, выбранные для загрузки, и предложит для каждого из них выбрать [класс хранилища](../../storage/concepts/storage-class.md). Класс хранилища по умолчанию определяется [настройкой бакета](../../storage/concepts/bucket.md#bucket-settings).
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
      1. Обновите страницу.
@@ -415,9 +415,8 @@ Firebase:
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) перейдите в бакет `bucket-for-tutorial`.
-     1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-     1. На вкладке **{{ ui-key.yacloud.storage.bucket.switch_website }}**:
-        * Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**. На открывшейся странице:
+        * Выберите режим `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
         * В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу главной страницы сайта — `index.html`.
         * В поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу, который будет отображаться при ошибках 4хх — `error.html`.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.

@@ -87,12 +87,12 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Воспользуйтесь методом API [update](../api-ref/NetworkLoadBalancer/update.md) и передайте в запросе:
+    Воспользуйтесь методом REST API [update](../api-ref/NetworkLoadBalancer/update.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Update](../api-ref/grpc/NetworkLoadBalancer/update.md) и передайте в запросе:
 
-    * Идентификатор балансировщика в параметре `networkLoadBalancerId`. Чтобы узнать идентификатор, [получите список сетевых балансировщиков в каталоге](load-balancer-list.md#list).
+    * Идентификатор балансировщика в параметре `networkLoadBalancerId` (REST API) или `network_load_balancer_id` (gRPC API). Чтобы узнать идентификатор, [получите список сетевых балансировщиков в каталоге](load-balancer-list.md#list).
     * Новое имя в параметре `name`.
     * Новое описание в параметре `description`.
-    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (в данном случае — `name`, `description`).
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (REST API) или `update_mask` (gRPC API) (в данном случае — `name`, `description`).
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -169,11 +169,11 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Воспользуйтесь методом API [update](../api-ref/NetworkLoadBalancer/update.md) и передайте в запросе:
+    Воспользуйтесь методом REST API [update](../api-ref/NetworkLoadBalancer/update.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Update](../api-ref/grpc/NetworkLoadBalancer/update.md) и передайте в запросе:
 
-    * Идентификатор балансировщика в параметре `networkLoadBalancerId`. Чтобы узнать идентификатор, [получите список сетевых балансировщиков в каталоге](load-balancer-list.md#list).
+    * Идентификатор балансировщика в параметре `networkLoadBalancerId` (REST API) или `network_load_balancer_id` (gRPC API). Чтобы узнать идентификатор, [получите список сетевых балансировщиков в каталоге](load-balancer-list.md#list).
     * Новые значения меток в параметре `labels`.
-    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (в данном случае — `labels`).
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (REST API) или `update_mask` (gRPC API) (в данном случае — `labels`).
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -277,7 +277,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Воспользуйтесь методом API [update](../api-ref/NetworkLoadBalancer/update.md) и передайте в запросе:
+    Воспользуйтесь методом REST API [update](../api-ref/NetworkLoadBalancer/update.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Update](../api-ref/grpc/NetworkLoadBalancer/update.md) и передайте в запросе:
 
     * Идентификатор балансировщика в параметре `networkLoadBalancerId`. Чтобы узнать идентификатор, [получите список сетевых балансировщиков в каталоге](load-balancer-list.md#list).
     * Идентификатор целевой группы и настройки проверки ее состояния в параметре `attachedTargetGroups`.
@@ -285,6 +285,8 @@ description: Следуя данной инструкции, вы сможете
       {% include [get-target-group-id](../../_includes/network-load-balancer/get-target-group-id.md) %}
 
     * Список изменяемых полей конфигурации кластера в параметре `updateMask` (в данном случае — `attachedTargetGroups`).
+
+    В gRPC API имена полей записываются в [snake_case](https://{{ lang }}.wikipedia.org/wiki/Snake_case): `network_load_balancer_id`, `attached_target_groups`, `update_mask`.
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

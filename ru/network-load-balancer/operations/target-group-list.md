@@ -37,7 +37,7 @@
 
 - API {#api}
 
-    Воспользуйтесь методом API [list](../api-ref/TargetGroup/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
+    Воспользуйтесь методом REST API [list](../api-ref/TargetGroup/list.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/List](../api-ref/grpc/TargetGroup/list.md) и передайте в запросе идентификатор каталога в параметре запроса `folderId` (REST API) или `folder_id` (gRPC API).
 
 {% endlist %}
 
@@ -120,7 +120,7 @@
 
 - API {#api}
 
-    Воспользуйтесь методом API [get](../api-ref/TargetGroup/get.md) и передайте идентификатор целевой группы в параметре `targetGroupId` запроса.
+    Воспользуйтесь методом REST API [get](../api-ref/TargetGroup/get.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Get](../api-ref/grpc/TargetGroup/get.md) и передайте идентификатор целевой группы в параметре запроса `targetGroupId` (REST API) или `target_group_id` (gRPC API).
 
     Идентификатор целевой группы можно получить со [списком целевых групп в каталоге](#list).
 

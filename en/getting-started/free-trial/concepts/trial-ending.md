@@ -12,6 +12,7 @@ The trial period terminates automatically once your initial [grant](../../usage-
 Unless you upgraded to the paid version, access to your resources will be suspended for 60 days after the trial period ends:
 * Your VM instances and DB clusters will be stopped.
 * You will not be able to read or download any saved data.
+* The {{ baremetal-name }} servers will be [quarantined](../../../baremetal/concepts/servers.md#quarantine) and deleted in two days' time.
 
 You can restore access to your resources if you upgrade to the paid version within 60 days after the trial period ends. Otherwise, all resources in your cloud will be permanently deleted.
 

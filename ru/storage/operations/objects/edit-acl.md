@@ -22,10 +22,10 @@ description: Следуя данной инструкции, вы сможете
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите нужный бакет из списка.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** и найдите в списке нужный объект.
-    1. Чтобы отредактировать ACL, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужным объектом и выберите **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}** и найдите в списке нужный объект.
+    1. Чтобы отредактировать ACL, в строке с нужным объектом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![persons](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
 
-        Также можно нажать на имя объекта, на открывшейся странице справа сверху нажать ![image](../../../_assets/console-icons/ellipsis.svg) и выбрать **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
+        Также можно нажать на имя объекта, на панели сверху нажать значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выбрать ![persons](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
 
         {% include [acl-edit-console](../../../_includes/storage/acl-edit-console.md) %}
 

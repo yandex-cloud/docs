@@ -106,7 +106,7 @@ The **Demand-to-supply ratio per city** measure shows the demand for products an
 
 1. Calculating the demand to supply ratio for the entire `city`.
 1. Calculating the demand to supply ratio for the `polygon`. If the supply value is zero, the demand value is multiplied by 2.
-1. Calculating `polygon` to `city` ratio.
+1. Calculating the `polygon` to `city` ratio.
 
 {% note info %}
 

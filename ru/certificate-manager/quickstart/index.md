@@ -44,7 +44,7 @@ description: Следуя этой инструкции, вы добавите �
         1. На вкладке ![box](../../_assets/console-icons/box.svg) **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
         1. На панели слева выберите ![wrench](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
         1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-        1. Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` и укажите главную страницу сайта.
+        1. Выберите режим `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` и укажите главную страницу сайта.
         1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}** для завершения операции.
 
     1. [Настройте](../../storage/operations/hosting/own-domain.md) алиас для бакета у своего провайдера [DNS](../../glossary/dns.md) или на собственном DNS-сервере.

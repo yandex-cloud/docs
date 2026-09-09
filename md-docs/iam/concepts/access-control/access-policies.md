@@ -48,6 +48,9 @@ _Политики авторизации_ (политики) — это меха
 
 * [backup.denyActivation](#backup-denyActivation)
 * [backup.denyRemoveProtection](#backup-denyRemoveProtection)
+* [compute.denyMultipleNic](#compute-denyMultipleNic)
+* [compute.denyPublicIpAssigning](#compute-denyPublicIpAssigning)
+* [compute.denySerialPortEnabling](#compute-denySerialPortEnabling)
 * [iam.denyServiceAccountAccessKeysCreation](#iam-denyServiceAccountAccessKeysCreation)
 * [iam.denyServiceAccountApiKeysCreation](#iam-denyServiceAccountApiKeysCreation)
 * [iam.denyServiceAccountAuthorizedKeysCreation](#iam-denyServiceAccountAuthorizedKeysCreation)
@@ -67,6 +70,18 @@ _Политики авторизации_ (политики) — это меха
 #### backup.denyRemoveProtection {#backup-denyRemoveProtection}
 
 Политика запрещает изменять и удалять [политики резервного копирования](../../../backup/concepts/policy.md) Yandex Cloud Backup, отвязывать [защищаемые ресурсы](../../../backup/concepts/index.md) от таких политик, а также удалять [резервные копии](../../../backup/concepts/backup.md) защищаемых ресурсов.
+
+#### compute.denyMultipleNic {#compute-denyMultipleNic}
+
+Политика запрещает создавать виртуальные машины Yandex Compute Cloud с несколькими [сетевыми интерфейсами](../../../compute/concepts/network.md), а также добавлять дополнительные сетевые интерфейсы на существующие ВМ.
+
+#### compute.denyPublicIpAssigning {#compute-denyPublicIpAssigning}
+
+Политика запрещает создавать виртуальные машины с [публичными IP-адресами](../../../vpc/concepts/address.md#public-addresses) или привязывать публичные IP-адреса к [сетевым интерфейсам](../../../compute/concepts/network.md) существующих виртуальных машин Yandex Compute Cloud.
+
+#### compute.denySerialPortEnabling {#compute-denySerialPortEnabling}
+
+Политика запрещает включать доступ к [серийной консоли](../../../compute/concepts/serial-console.md) виртуальных машин Yandex Compute Cloud.
 
 #### iam.denyServiceAccountAccessKeysCreation {#iam-denyServiceAccountAccessKeysCreation}
 
@@ -142,6 +157,8 @@ _Политики авторизации_ (политики) — это меха
 {% endnote %}
 
 * [aistudio.responses.restrictNetworkAccess](#aistudio-responses-restrictNetworkAccess)
+* [compute.restrictImage](#compute-restrictImage)
+* [postbox.identities.restrictNetworkAccess](#postbox-identities-restrictNetworkAccess)
 * [serverless.containers.restrictNetworkAccess](#serverless-containers-restrictNetworkAccess)
 * [serverless.containers.restrictResourceVPCNetwork](#serverless-containers-restrictResourceVPCNetwork)
 * [serverless.functions.restrictNetworkAccess](#serverless-functions-restrictNetworkAccess)
@@ -160,6 +177,22 @@ _Политики авторизации_ (политики) — это меха
 
 * `allowed_src_ips` — список IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), с которых разрешен вызов функций и управление ими.
 * `allowed_vpc_network_ids` — список идентификаторов облачных сетей, в которых разрешен вызов функций и управление ими через настроенное [сервисное подключение](../../../vpc/concepts/private-endpoint.md).
+
+#### compute.restrictImage {#compute-restrictImage}
+
+Политика позволяет задать список [образов](../../../compute/concepts/image.md) Yandex Compute Cloud, разрешенных для использования при создании виртуальных машин, и запрещает создавать виртуальные машины из любых образов, не входящих в этот список.
+
+Настраиваемый параметр:
+
+* `allowed_image_ids` — список идентификаторов образов, из которых разрешено создавать виртуальные машины.
+
+#### postbox.identities.restrictNetworkAccess {#postbox-identities-restrictNetworkAccess}
+
+Политика позволяет задать список IP-адресов и диапазонов IP-адресов, с которых разрешено [отправлять письма](../../../postbox/operations/send-email.md) через Yandex Cloud Postbox, и запрещает отправлять письма с любых IP-адресов, не входящих в этот список.
+
+Настраиваемый параметр:
+
+* `allowed_src_ips` — список IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), с которых разрешена отправка писем.
 
 #### serverless.containers.restrictNetworkAccess {#serverless-containers-restrictNetworkAccess}
 

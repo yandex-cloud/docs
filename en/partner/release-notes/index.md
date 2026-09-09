@@ -5,6 +5,21 @@ description: This section contains the {{ yandex-cloud }} partner portal release
 
 # Partner portal release notes
 
+## Q2 2026 {#q2-2026}
+
+1. Implemented tools for managing [deals](../operations/deals/index.md) and [activities](../operations/activity-info.md). The workflows for forecasting and registration of partner deals, regulated purchases, and projects are gradually migrating to the **Partner portal**.
+
+1. Added support for on-premises products. Sales of Yandex B2B Tech On-premises products are processed by creating an order from a deal.
+
+1. Added the [co-marketing program](../program/var-tools.md#co-marketing). You can now use the portal to access your rebate balance, co-marketing accrual history, and the request form.
+
+1. Fixes and improvements:
+    * Added the ability to export the usage details table in Excel format (.xlsx).
+    * Added a personal disk size indicator for Yandex 360 add-ons.
+    * Added a direct helpdesk path to report portal issues (**Support Center** → **Create a request**).
+    * Updated the cloud creation form (**Subaccount** → **Quotas and instances** → **Clouds** → **Create cloud**) so you can search for an organization by its name and ID.
+    * Added a feedback form to rate your interaction with the portal. Your ratings will help us make the **Partner portal** better.
+
 ## Q1 2026 {#q1-2026}
 
 1. Updated the {{ yandex-360 }} organization page. Added a new table displaying the add-ons linked to the service plan.

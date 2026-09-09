@@ -53,7 +53,7 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
      1. Select the `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}` type. Do not change other settings.
      1. Click **{{ ui-key.yacloud.common.create }}**.
      1. Open the queue you created.
-     1. In the **{{ ui-key.yacloud.common.overview }}** tab, under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, copy the queue URL as you will need it later.
+     1. On the **{{ ui-key.yacloud.common.overview }}** tab under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, copy the **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** field value: you will need it later.
 
 
    {% endlist %}
@@ -143,7 +143,7 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
      ```bash
      aws sqs delete-message \
        --endpoint <endpoint> \
-       --queue-url <queue_URL>
+       --queue-url <queue_URL> \
        --receipt-handle <receipt_ID>
      ```
      Where:
@@ -176,6 +176,6 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
      1. In the [management console]({{ link-console-main }}), select the folder the queue belongs to.
      1. [Navigate]({{ link-console-main }}/link/message-queue) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Click ![image](../_assets/console-icons/ellipsis.svg) next to the appropriate queue and select **{{ ui-key.yacloud.common.delete }}**.
-     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
+     1. In the window that opens, click ![image](../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
 
    {% endlist %}

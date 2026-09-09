@@ -88,7 +88,7 @@ The following limitations apply to the background export:
 * The maximum export file size is 1 GB.
 * File is available for download for 24 hours after the export is complete.
 
-### Exporting data in background {#how-to-background-export}
+### Exporting data in the background {#how-to-background-export}
 
 To initiate a background export, follow these steps:
 

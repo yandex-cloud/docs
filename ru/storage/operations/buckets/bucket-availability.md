@@ -22,9 +22,8 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) откройте каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, для которого вы хотите настроить публичный доступ.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
-  1. Включите публичный доступ для нужных типов операций.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
+  1. В блоке **{{ ui-key.yacloud.storage.form.AccessSection.section_label-access_2cHmW }}** для нужных типов операций выберите вариант `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
   1. Нажмите **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -162,9 +161,8 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, для которого вы хотите закрыть публичный доступ.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
-  1. Включите ограниченный доступ для нужных типов операций.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
+  1. В блоке **{{ ui-key.yacloud.storage.form.AccessSection.section_label-access_2cHmW }}** для нужных типов операций выберите вариант `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
   1. Нажмите **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}

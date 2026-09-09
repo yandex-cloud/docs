@@ -451,3 +451,5 @@
  - [Аудитные логи Audit Trails](at-ref.md)
 
  - [История изменений](release-notes.md)
+
+ - [Вопросы и ответы](qa/general.md)

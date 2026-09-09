@@ -18,6 +18,7 @@ In this section, you will learn how to work with a report:
 * [Configuring scaling](#scaling-settings)
 * [Enabling preview](#report-preview)
 * [Exporting a report](#report-export)
+* [Setting up a mailing list](#report-maillist)
 * [Banning the use of Neuroanalyst](#report-neuroanalyst-off)
 
 ## Creating a report {#create-report}
@@ -40,7 +41,7 @@ There is a number of ways to create a report:
 
 - Navigation panel
 
-  1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
+  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
   1. In the left-hand panel, select ![image](../../_assets/console-icons/display-pulse.svg) **Reports** and click **Create report**.
   1. [Add pages](#report-pages) to your report.
   1. [Add](#add-widget) the required [widgets](../dashboard/widget.md) to the pages.
@@ -169,17 +170,42 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
    
    - Insight {#ai}
 
+     Specify the main widget settings:
+     
      * **Chart for analysis**. Click ![image](../../_assets/console-icons/chart-column.svg) **Select chart** and select the chart the Neuroanalyst will prepare an insight for.
      * **Header**. It sets the widget name; by default, it is the name of the selected chart. The name is displayed at the top of the widget if the **Header** option is enabled under **Appearance** (which it is by default).
      * **Prompt**. Enter a question for the Neuroanalyst to answer.
 
+
+     Specify widget appearance settings:
+
+     * **Header**. Option to display the insight header.
+     * **Actions with insight**. Option to display an action bar at the bottom of the insight:
+
+       * ![image](../../_assets/console-icons/copy.svg) **Copy**. Copies the contents of the insight to the clipboard.
+       * ![image](../../_assets/console-icons/arrow-rotate-left.svg) **Once more**. Updates the insight response.
+       * ![image](../../_assets/console-icons/thumbs-up.svg) **This answer is good**. Evaluates the insight response positively.
+       * ![image](../../_assets/console-icons/thumbs-down.svg) **This answer is bad**. Evaluates the insight response negatively.
+
+       Actions are available in [preview](#report-preview) mode.
+
+     * **Background**. It sets the widget background color and opacity for the light and dark theme individually.
+     * **Rounding**. It sets the widget corner rounding.
+
      {% cut "Example of insight widget settings" %}
 
-     ![image](../../_assets/datalens/report/ai-report-settings.png =517x434)
-      
+          
+     ![image](../../_assets/datalens/report/ai-report-settings.png =398x357)
+
+
      {% endcut %}
 
      After you save the setting, Neuroanalyst will analyze the specified chart and generate conclusions based on the data and the custom prompt. The result in **Insight** will be updated every time you open the report. If the data in the chart linked to the **Insight** widget changes, an ![image](../../_assets/console-icons/arrow-rotate-left.svg) **Update** button will appear at the top of the widget.
+
+     You can also copy the content of the insight or update its response via the menu in the top-right corner of the widget. Do it by hovering over the widget, clicking ![image](../../_assets/console-icons/ellipsis.svg), and selecting the following:
+
+     * ![image](../../_assets/console-icons/copy.svg) **Copy insight**: To copy the contents of the insight to the clipboard.
+     * ![image](../../_assets/console-icons/arrow-rotate-left.svg) **Regenerate**: To update the insight response.
 
      {% cut "Example of insight widget contents" %}
 
@@ -415,6 +441,13 @@ To exit the preview mode, click **Close** at the top of the screen or press **Es
 To export a report, click **Export**. The report will be exported to a `.pdf` file.
 
 All links created in [text](#text) widgets on report pages will be active in the exported file.
+
+
+
+## Setting up a mailing list {#report-maillist}
+
+You can set up a [mailing list for a report](./add-report-maillists.md). The email will deliver a `.pdf` or `.pptx` file containing the report pages you specify in the mailing list settings. You can set up the schedule and your mailing list recipients.
+
 
 
 ## Banning the use of Neuroanalyst {#report-neuroanalyst-off}

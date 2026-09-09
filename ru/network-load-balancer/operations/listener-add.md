@@ -147,7 +147,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом API [addListener](../api-ref/NetworkLoadBalancer/addListener.md) и передайте в теле запроса:
+  Воспользуйтесь методом REST API [addListener](../api-ref/NetworkLoadBalancer/addListener.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/AddListener](../api-ref/grpc/NetworkLoadBalancer/addListener.md) и передайте в теле запроса:
 
   ```api
   {
@@ -162,5 +162,7 @@ description: Следуя данной инструкции, вы сможете
     }
   }
   ```
+
+  В gRPC API имена полей записываются в [snake_case](https://{{ lang }}.wikipedia.org/wiki/Snake_case): `listener_spec`, `target_port`, `external_address_spec`, `ip_version`.
 
 {% endlist %}

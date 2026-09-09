@@ -29,7 +29,7 @@ You can create a new dataset using one of the following methods:
 
 - Home page
 
-  1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
+  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 
   
   1. In the left-hand panel, click ![image](../../_assets/console-icons/circles-intersection.svg) **Datasets**.
@@ -95,7 +95,7 @@ You can use SQL queries for database sources only.
 
         ![screenshot](../../_assets/datalens/dataset/dataset-add-table.png)
 
-     1. Enter a **Source name** and enter the SQL code in the **Subquery** field.
+     1. Enter a **Source name** and SQL query text in the **Subquery** field.
      1. Click **Create**.
 
         {% cut "Example of an SQL query" %}
@@ -118,7 +118,7 @@ To replace a connection in a dataset:
 
 1. Select another connection.
 1. Drag to the workspace the tables that will serve as sources of data for the dataset.
-1. Edit or delete the [calculated fields](../concepts/calculations/index.md) which use fields not present in the new table.
+1. Edit or delete the [calculated fields](../concepts/calculations/index.md) that use fields not present in the new table.
 1. In the top-right corner, click **Save**.
 
 {% note info %}
@@ -142,7 +142,7 @@ You can join data from source tables.
 
    ![screenshot](../../_assets/datalens/dataset/dataset-table-join-type.png)
 
-1. Select the fields to join the tables on. Hovering over a field displays a tooltip with the field full name. You can search fields by name.
+1. Select the fields to link the tables on. Hovering over a field displays a tooltip with the field full name. You can search fields by name.
    You can only link fields with the same [data type](./data-types.md). {{ datalens-short-name }} gets information about the field's data type directly from the connection. If you need to join tables by fields with different data types, use one of these options:
    
    * Convert all the fields to the same data type at the source level.
@@ -152,11 +152,11 @@ You can join data from source tables.
      SELECT * FROM lead INNER JOIN user ON lead.assigned_by_id = CONVERT(user.external_id, CHAR)
      ```
 
-1. If required, link other fields in the tables. To do this, click **Add link**.
+1. If required, link the tables by other fields by clicking **Add link**.
 1. Optionally, you can disable the **Optimize link** option to make the link required. In this case, the `JOIN` operation will be performed even if you select fields from a single table.
 1. Click **Apply**.
 
-By default, when you add a new table from a data source to the workspace, it is automatically linked to the first table listed there. If required, you can link a new table to a specific table. To do this, hover the new table over a previously added one and release when you see a gray border around the latter. A new link to the specified table is created.
+By default, when you add a new table from a data source to the workspace, it is automatically linked to the first table listed there. If required, you can link a new table to a specific table. To do this, hover the new table over a previously added one and release when you see a gray border around the latter. A new link to the specified table will be added.
 
 ![screenshot](../../_assets/datalens/dataset/dataset-links-new-table.png)
 
@@ -215,7 +215,7 @@ You can add fields to a dataset from data source tables or create [calculated fi
 
 ### Duplicating fields {#dublicate-fields}
 
-You can duplicate any dataset field, including the calculated field you previously created. Proceed as follows:
+You can duplicate any dataset field, including the calculated field you previously created. Follow these steps:
 
 1. On the right side of the field row, click ![image](../../_assets/console-icons/ellipsis.svg) (the icon appears when you hover over the row) and select **Duplicate**. In the list on the left, you will see a new field with the same type and settings as the original one.
 1. Optionally, rename the duplicated field, change its type or formula.
@@ -226,8 +226,8 @@ You can perform the following operations on dataset fields:
 
 1. Rename a field: To rename a field, click its current name and enter a new one.
 1. Change the source: If the table schema in the source has changed, you can select a new field from the source to match the dataset field.
-1. Change the field data type: [Data type](./data-types.md) determines how to process data and which [functions](../function-ref/all.md) can apply to the field. To change the data type, click the current type and select a new one from the list of available types.
-1. Select an aggregation type: Aggregation type determines the [aggregation function](./data-model.md#aggregation) to apply to the field. To change the aggregation type, click the current type and select a new one from the list of available aggregation types.
+1. Change the field data type: [Data type](./data-types.md) determines how to process data and which [functions](../function-ref/all.md) you can apply to the field. To change the data type, click the current type and select a new one from the list of available types.
+1. Select an aggregation type: The aggregation type determines the [aggregation function](./data-model.md#aggregation) to apply to the field. To change the aggregation type, click the current type and select a new one from the list of available types.
 
 
 1. Setting up field display. For dimensions, you can select a color and set a display format for numeric types; for measures, you can only set a display format for numbers. These settings apply when you use these fields in charts built from this dataset.
@@ -270,7 +270,7 @@ To update fields in a dataset:
 
 ### Replacing fields {#replace-field}
 
-If a field has been removed from a data source, it will not be updated when a dataset is updated. Charts featuring this field will show the [`ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN`](../troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_SOURCE_COLUMN.md) error. You can delete this field from the chart or replace its source in the dataset.
+If you delete a field from a data source, it will not be updated when the dataset is updated. Charts featuring this field will show the [`ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN`](../troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_SOURCE_COLUMN.md) error. You can delete this field from the chart or replace its source in the dataset.
 
 To replace the field source in the dataset:
 
@@ -278,7 +278,7 @@ To replace the field source in the dataset:
 1. In the top-left corner, select the **Fields** tab.
 1. In the dataset, select the field you want to replace.
 1. Go to the **Field source** column.
-1. In the field settings, select the field you wish to replace the deleted field with from the **Field from source** list.
+1. In the field settings, select the field you want to replace the deleted field with from the **Field from source** list.
 
    ![screenshot](../../_assets/datalens/dataset/dataset-field-source.png)
 
@@ -302,7 +302,7 @@ You can select multiple dataset fields at once to delete, hide, or display them,
 ![screenshot](../../_assets/datalens/dataset/dataset-fields-bulk-changes-2.png)
 
 
-To select the field range, hold the **Shift** key and set the beginning and end of the range with your mouse. You can select multiple ranges. To select each of the field ranges, hold **Ctrl** and click the first field in the range, then hold **Shift** and click the last field in the range.
+To select the field range, hold the **Shift** key and set the first and the last fields of the range with your mouse. You can select multiple ranges. To select each of the field ranges, hold **Ctrl** and click the first field in the range, then hold **Shift** and click the last field in the range.
 
 ## Adding parameters {#add-parameters}
 
@@ -325,11 +325,11 @@ Parameters added at the dataset level are available in all charts created based 
 
    * **Name**: Sets the parameter name.
    * **Type**: Parameter [data type](./data-types.md).
-   * **Default value**. This is a required value. It is used when no parameter value is set on the dashboard, chart URL, or chart settings.
+   * **Default**: This is a required value. It is used when no parameter value is set on the dashboard, chart URL, or chart settings.
 
    
-   * **Allow use in source settings**. Enable the option if you plan to use the parameter to access the [dataset source](./parametrization.md).
-   * **Value validation**. This setting will be available if you enable **Allow use in source settings**. The default value validation is as follows: `[a-zA-Z0-9]*`. You can customize your validation with a Python regular expression by setting the **Value validation** field to `Regular expression` and entering you regular expression in the field below.
+   * **Allow use in source settings**: Enable this option if you plan to use the parameter when accessing the [dataset source](./parametrization.md).
+   * **Value validation**: This setting will be available if you enable the **Allow use in source settings** option. The default value validation is as follows: `[a-zA-Z0-9]*`. You can customize your validation with a Python regular expression by setting the **Value validation** field to `Regular expression` and entering you regular expression in the field below.
 
      {% note warning %}
 
@@ -365,11 +365,11 @@ Default filters are not applied to data in the dataset preview area.
 
 ## Disabling data export {#data-export-disable}
 
-To disable data export from charts based on a specific dataset, click ![image](../../_assets/console-icons/gear.svg) in the upper right corner of the dataset and uncheck **Allow data export**.
+To disable data export from charts based on a specific dataset, click ![image](../../_assets/console-icons/gear.svg) in the top-right corner of the dataset and uncheck **Allow data export**.
 
-Charts based on this dataset will no longer display the data export option in their ![icon](../../_assets/console-icons/ellipsis.svg) menu, and users will be unable to export data from those charts. However, users will still be able to copy data from the charts and take screenshots.
+Charts based on this dataset will no longer display the data export option in their ![icon](../../_assets/console-icons/ellipsis.svg) menu, and users will not be able to export data from those charts. However, users will still be able to copy data from the charts and take screenshots.
 
-To re-enable data export, click ![image](../../_assets/console-icons/gear.svg) in the upper right corner of the dataset and check **Allow data export**.
+To re-enable data export, click ![image](../../_assets/console-icons/gear.svg) in the top-right corner of the dataset and check **Allow data export**.
 
 
 
@@ -384,7 +384,7 @@ Before assigning access permissions to a user, [add](../security/add-new-user.md
 
 - Workbook
 
-  A dataset inherits all access permissions from a workbook. [Assign the user permissions](../workbooks-collections/workbooks-operations.md#wb-coll-grant) for the appropriate workbook and they will apply to your dataset.
+  A dataset inherits all access permissions from a workbook. [Grant the user permissions](../workbooks-collections/workbooks-operations.md#wb-coll-grant) for the appropriate workbook and they will apply to your dataset.
 
 - Directory
 
@@ -408,12 +408,16 @@ For more information on object access, see [{#T}](../security/index.md).
 
 ## Deleting a dataset {#delete}
 
-Before deleting a dataset, check which objects are using it. To do this, at the top of the dataset, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/code-trunk.svg) **Linked objects**. If an error appears when opening the linked object window, try clicking the **Retry** button.
+Before deleting a dataset, check which objects are using it. To do this, at the top of the dataset, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/code-trunk.svg) **Linked objects**. If you get an error when opening the linked object window, click **Retry**.
 
 To delete a dataset:
 
 1. At the top of the dataset, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/trash-bin.svg) **Delete**.
 1. Click **Delete**.
+
+
+You can [restore](../workbooks-collections/workbooks-operations.md#restore-objects) a dataset deleted from a workbook.
+
 
 #### Useful links {#see-also}
 

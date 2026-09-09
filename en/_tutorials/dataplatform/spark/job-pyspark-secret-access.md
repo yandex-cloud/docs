@@ -53,18 +53,18 @@ There is no charge for using {{ lockbox-name }} secrets created with {{ connecti
 
 1. [Create a {{ msp-full-name }} cluster](../../../managed-spark/operations/cluster-create.md) with the following settings:
 
-    * **Service account**: `spark-agent`
-    * **Network**: `spark-network`
-    * **Security group**: `spark-sg`
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `spark-agent`.
+    * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `spark-network`.
+    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `spark-sg`.
 
 1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the subnet where the {{ msp-full-name }} cluster was created. The NAT gateway is required to download the {{ PG }} JDBC driver from the Maven repository.
 
 1. [Create a {{ mpg-name }}](../../../managed-postgresql/operations/cluster-create.md) cluster with the following settings:
 
-    * **Network**: `spark-network`
-    * **Security group**: `pg-sg`
+    * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `spark-network`.
+    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `pg-sg`.
 
-## Configure access permissions for the {{ mpg-name }} user secret {#set-up-roles}
+## Configure permissions for access to a {{ mpg-name }} user's secret {#set-up-roles}
 
 {% list tabs group=instructions %}
 
@@ -72,7 +72,7 @@ There is no charge for using {{ lockbox-name }} secrets created with {{ connecti
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the required infrastructure.
   1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and select ![chevron-down](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
   1. Click the connection ID next to the user you need.
     
       This will take you to the {{ connection-manager-name }} connection page for the selected user.
@@ -81,7 +81,7 @@ There is no charge for using {{ lockbox-name }} secrets created with {{ connecti
 
       This will open the page of the {{ lockbox-name }} secret storing the {{ PG }} user password.
 
-  1. On the left-hand panel, select ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+  1. Navigate to **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. Select the `spark-agent` service account you want to grant secret access to.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select `lockbox.payloadViewer`.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -141,9 +141,9 @@ There is no charge for using {{ lockbox-name }} secrets created with {{ connecti
   1. [Upload](../../../storage/operations/objects/upload.md#simple) the `job-mpg-connection-with-secret.py` file to the bucket.
   1. In the {{ msp-full-name }} cluster, [create a job](../../../managed-spark/operations/jobs-pyspark.md) with the following settings:
       
-      * **Job type**: **PySpark**
-      * **Main python file**: `s3a://<bucket_name>/job-mpg-connection-with-secret.py`
-      * **Packages**: `org.postgresql:postgresql:42.7.3`
+      * **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}**: `PySpark`.
+      * **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}**: `s3a://<bucket_name>/job-mpg-connection-with-secret.py`.
+      * **{{ ui-key.yacloud.dataproc.jobs.field_packages }}**: `org.postgresql:postgresql:42.7.3`.
 
   1. Wait for the PySpark job you created to change its status to **Done**.
   1. [Get job execution logs](../../../managed-spark/operations/jobs-pyspark.md#get-logs).

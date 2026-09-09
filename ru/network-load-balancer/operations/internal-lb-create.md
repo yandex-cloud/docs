@@ -27,7 +27,7 @@ description: Следуя данной инструкции, вы сможете
       {% include [name-format](../../_includes/name-format.md) %}
 
   1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}** выберите `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`.
-  1. (Опционально) В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_advanced }}** включите защиту балансировщика от удаления.
+  1. (Опционально) В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_deletion-protection }}** включите защиту балансировщика от удаления.
 
       {% note warning %}
 
@@ -224,7 +224,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом API [create](../api-ref/NetworkLoadBalancer/create.md) и передайте в теле запроса:
+  Воспользуйтесь методом REST API [create](../api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Create](../api-ref/grpc/NetworkLoadBalancer/create.md) и передайте в теле запроса:
 
   ```api
   {
@@ -233,6 +233,8 @@ description: Следуя данной инструкции, вы сможете
     "type": "INTERNAL"
   }
   ```
+
+  В gRPC API имена полей записываются в [snake_case](https://{{ lang }}.wikipedia.org/wiki/Snake_case): `folder_id`.
 
 {% endlist %}
 
@@ -334,7 +336,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом API [create](../api-ref/NetworkLoadBalancer/create.md) и передайте в теле запроса:
+  Воспользуйтесь методом REST API [create](../api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Create](../api-ref/grpc/NetworkLoadBalancer/create.md) и передайте в теле запроса:
 
   ```api
   {
@@ -374,5 +376,7 @@ description: Следуя данной инструкции, вы сможете
     ]
   }
   ```
+
+  В gRPC API имена полей записываются в [snake_case](https://{{ lang }}.wikipedia.org/wiki/Snake_case): `folder_id`, `listener_specs`, `target_port`, `internal_address_spec`, `subnet_id`, `ip_version`, `attached_target_groups`, `target_group_id`, `health_checks`, `unhealthy_threshold`, `healthy_threshold`, `http_options`.
 
 {% endlist %}

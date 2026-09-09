@@ -107,8 +107,8 @@
 
     Чтобы включить защиту от удаления, воспользуйтесь методом REST API [update](../api-ref/NetworkLoadBalancer/update.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Update](../api-ref/grpc/NetworkLoadBalancer/update.md) и передайте в запросе:
 
-    * Имя параметра `deletionProtection` в параметре `updateMask`.
-    * Значение `true` в параметре `deletionProtection`.
+    * Имя параметра `deletionProtection` в параметре `updateMask` (REST API) или `update_mask` (gRPC API).
+    * Значение `true` в параметре `deletionProtection` (REST API) или `deletion_protection` (gRPC API).
 
     {% note warning %}
     
@@ -213,8 +213,8 @@
 
     Чтобы включить защиту от удаления, воспользуйтесь методом REST API [update](../api-ref/NetworkLoadBalancer/update.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Update](../api-ref/grpc/NetworkLoadBalancer/update.md) и передайте в запросе:
 
-    * Имя параметра `deletionProtection` в параметре `updateMask`.
-    * Значение `false` в параметре `deletionProtection`.
+    * Имя параметра `deletionProtection` в параметре `updateMask` (REST API) или `update_mask` (gRPC API).
+    * Значение `false` в параметре `deletionProtection` (REST API) или `deletion_protection` (gRPC API).
 
     {% note warning %}
     

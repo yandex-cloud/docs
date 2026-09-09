@@ -634,13 +634,13 @@
       1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Справа сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета, например `cdn-source-bucket`.
-      1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** укажите `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      1. Включите опцию **{{ ui-key.yacloud.storage.form-components.SizeLimitField.field_size-limit-enabled_hPy7f }}** и в появившихся полях задайте размер `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
       1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
       1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
       1. На странице со списком бакетов выберите созданный бакет.
       1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
       1. На вкладке **{{ ui-key.yacloud.storage.bucket.switch_website }}**:
-         * Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
+         * Выберите режим `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
          * В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите `index.html`.
       1. Нажмите **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 

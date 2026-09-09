@@ -61,7 +61,7 @@
 
 #### Любые действия с виртуальной машиной {#any-actions-vm}
 
-{% list tabs group=at_logs_tools %}
+{% list tabs group=tools %}
 
 - {{ yq-full-name }} {#yandex-query}
 
@@ -307,7 +307,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }}
+- {{ yq-full-name }}  {#yandex-query}
 
     Выполните запрос:
 
@@ -318,7 +318,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.organizationmanager.saml.CreateFederation'
     ```
 
-- {{ cloud-logging-full-name }}
+- {{ cloud-logging-full-name }} {#cloud-logging}
 
     Используйте фильтр:
 
@@ -332,7 +332,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }}
+- {{ yq-full-name }}  {#yandex-query}
 
     Выполните запрос:
 
@@ -343,7 +343,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.organizationmanager.saml.UpdateFederation'
     ```
 
-- {{ cloud-logging-full-name }}
+- {{ cloud-logging-full-name }} {#cloud-logging}
 
     Используйте фильтр:
 

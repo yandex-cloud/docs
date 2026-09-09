@@ -11,6 +11,7 @@
 * [Создание конфигурации](create-configuration.md)
 * [Привязка конфигурации к адресу](bind-configuration.md)
 * [Управление пользовательским стоп-листом](manage-suppression-list.md)
+* [Управление выделенными IP-адресами](manage-dedicated-ip.md)
 * [Ограничение списка отправителей в Yandex Cloud Postbox](restrict-senders.md)
 * [Запись логов в журнал выполнения в Yandex Cloud Postbox](logs-write.md)
 * [Просмотр информации об отправленных письмах](messages.md)

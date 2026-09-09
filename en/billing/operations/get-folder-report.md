@@ -17,6 +17,9 @@ You can get a CSV file with your general or per-resource spending details. You c
      * Time period you want the details for.
      * Display language for product names: `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` or `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
      * Detailed view type: `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` or `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
+
+     {% include [detalization-availability](../../_includes/billing/detalization-availability.md) %}
+
   1. Click **{{ ui-key.yacloud_org.billing.account.detail.popup-export_button_download }}**.
 
 {% endlist %}
@@ -108,11 +111,9 @@ You can get a CSV file with your general or per-resource spending details. You c
      * Display language for product names: `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` or `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
      * Detailed view type: `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` or `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
 
-         {% note tip %}
+        If you select `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}` for a regular export of details, the [`resource_id`](#format) field will allow you to view the {{ datalens-full-name }}, {{ tracker-full-name }}, and {{ ml-platform-name }} resources (e.g., [{{ ml-platform-name }} community IDs](../../datasphere/concepts/community.md)).
 
-         If you select `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}` for a regular export of details, the [`resource_id`](#format) field will allow you to view the {{ datalens-full-name }}, {{ tracker-full-name }}, and {{ ml-platform-name }} resources (e.g., [{{ ml-platform-name }} community IDs](../../datasphere/concepts/community.md)).
-
-         {% endnote %}
+        {% include [detalization-availability](../../_includes/billing/detalization-availability.md) %}
 
   1. Optionally, to add data for a previous period, enable **{{ ui-key.yacloud_org.billing.account.exports.field_period }}**. In the **{{ ui-key.yacloud_org.billing.account.exports.field_date }}** field that appears, select the desired detailed report start date. You can get data starting from the billing account creation date.
 
@@ -215,7 +216,7 @@ The table contains the following columns:
 * `sku_id`: Consumed product ID.
 * `sku_name`: Product name.
 * `date`: Consumption charge date. A date is set as an interval from 0:00 to 23:59 (UTC+3).
-* `currency`: Billing account currency. Possible values: `RUB`, `USD`, and `KZT`.
+* `currency`: Billing account currency. The possible values are `RUB`, `USD`, and `KZT`.
 * `pricing_quantity`: Number of product units consumed. The decimal separator is a period.
 * `pricing_unit`: Product consumption unit.
 * `cost`: Total cost of consumption. The decimal separator is a period.
@@ -239,6 +240,6 @@ The table contains the following columns:
 
 #### Useful links {#see-also}
 
-* [View usage details for the cloud](./check-charges.md)
+[View usage details for the cloud](./check-charges.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

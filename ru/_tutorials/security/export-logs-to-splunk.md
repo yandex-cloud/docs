@@ -93,8 +93,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить шифрование.
-  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ или создайте новый:
 
      {% include [storage-create-kms](../../storage/_includes_service/storage-create-kms.md) %}
@@ -232,7 +231,7 @@
       1. В [консоли управления]({{ link-console-main }}) выберите каталог с подсетью для промежуточной ВМ.
       1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. На панели слева выберите **{{ ui-key.yacloud.vpc.switch_gateways }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.gateways.button_create-gateway }}**.
       1. Задайте имя шлюза. Требования к имени:
 
           {% include [name-format](../../_includes/name-format.md) %}
@@ -241,7 +240,7 @@
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   1. Создайте таблицу маршрутизации:
       1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы [создать](../../vpc/operations/static-route-create.md) новую таблицу или выберите одну из существующих.
+      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.overview.button_create_route-table }}**, чтобы [создать](../../vpc/operations/static-route-create.md) новую таблицу, или выберите одну из существующих.
       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
       1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** выберите `{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}`.
       1. В поле **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** выберите созданный NAT-шлюз. Префикс назначения заполнится автоматически.

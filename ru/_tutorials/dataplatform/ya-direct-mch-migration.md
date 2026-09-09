@@ -213,7 +213,7 @@
 
     {% endlist %}
 
-1. Откройте созданную функцию в консоли управления и выберите **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** на панели слева.
+1. В консоли управления откройте созданную функцию и перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
 1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** и дождитесь выполнения функции.
 
 В бакете появится файл в формате Parquet.

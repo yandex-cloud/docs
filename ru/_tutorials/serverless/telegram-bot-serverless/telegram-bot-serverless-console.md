@@ -50,7 +50,7 @@
       1. Введите имя бакета. Сохраните имя бакета, оно потребуется в дальнейшем.
       1. Укажите настройки бакета:
 
-          * **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** — `1 {{ ui-key.yacloud_portal.common.units.label_gigabyte }}`;
+          * включите опцию **{{ ui-key.yacloud.storage.form-components.SizeLimitField.field_size-limit-enabled_hPy7f }}** и в появившихся полях задайте размер `1 {{ ui-key.yacloud_portal.common.units.label_gigabyte }}`;
           * **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** — `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`;
           * **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** — `{{ ui-key.yacloud.storage.value_standard }}`.
 
@@ -68,7 +68,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ранее созданный бакет.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите ранее созданный бакет.
-  1. Нажмите **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. На панели сверху нажмите кнопку ![arrow-up-from-line](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. В появившемся окне выберите файл `sayhello.png` из сохраненного архива. Консоль управления отобразит файл, выбранный для загрузки.
   1. Нажмите **{{ ui-key.yacloud.storage.button_upload }}**.
 
@@ -85,7 +85,7 @@
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите ранее созданный бакет.
   1. Выберите файл `sayhello.png`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.file.button_generate }}**.
+  1. На панели сверху нажмите кнопку ![link](../../../_assets/console-icons/link.svg) **{{ ui-key.yacloud.storage.file.button_generate }}**, задайте срок действия ссылки и скопируйте полученную ссылку.
   1. Проверьте доступность изображения по ссылке в браузере.
 
 {% endlist %}

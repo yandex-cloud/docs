@@ -35,13 +35,11 @@
 * Централизованное управление с помощью решения Check Point Security Management;
 * Решение Check Point в данном примере настроено с базовыми политиками доступа (Access Control) и NAT.
 
-Решение Check Point CloudGuard IaaS доступно в Yandex Cloud Marketplace в вариантах Pay as you go и BYOL. В этом примере используется BYOL вариант с Trial периодом 15 дней:
-* ВМ NGFW Check Point CloudGuard IaaS: Firewall & Threat Prevention BYOL;
-* ВМ сервера управления Check Point CloudGuard IaaS: Security Management BYOL для задач управления NGFW.
+Решение Check Point CloudGuard IaaS доступно в Yandex Cloud Marketplace в варианте BYOL с Trial периодом 15 дней:
+* ВМ NGFW [Check Point CloudGuard IaaS - Firewall & Threat Prevention BYOL](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-byol-m);
+* ВМ сервера управления [Check Point CloudGuard IaaS - Security Management BYOL](/marketplace/products/checkpoint/cloudguard-iaas-security-management-byol-m) для задач управления NGFW.
 
-Для использования в продуктивной среде рекомендуется рассматривать варианты:
-* NGFW [Check Point CloudGuard IaaS - Firewall & Threat Prevention PAYG](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m);
-* Для сервера управления Check Point CloudGuard IaaS - Security Management необходимо приобрести отдельную лицензию либо использовать свою on-prem инсталляцию сервера управления.
+Для использования в продуктивной среде необходимо приобрести лицензии на решение Check Point CloudGuard IaaS. Если используется собственная инсталляция сервера управления Check Point, то развертывать ВМ сервера управления в облаке не требуется.
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
@@ -683,8 +681,8 @@ Destination NAT трансляции направляют запросы пол�
 * Если планируете использовать Jump ВМ для подключения к сегменту управления с помощью VPN WireGuard, то измените ключи для WireGuard на Jump ВМ и рабочей станции администратора;
 * Настройте Access Control политики и NAT в Check Point NGFW для вашей инсталляции;
 * Настройте правила в группах безопасности в сегментах, необходимые для работы развернутых приложений;
-* Не назначайте публичные IP адреса на ВМ в сегментах, где используются таблицы маршрутизации через Check Point NGFW. Исключением является mgmt сегмент управления, где в таблицах маршрутизации не используется default route `0.0.0.0/0`; 
-* Выберите подходящую лицензию и образ для Check Point CloudGuard IaaS (смотрите раздел [Next-Generation Firewall](#next-generation-firewall)).
+* Не назначайте публичные IP адреса на ВМ в сегментах, где используются таблицы маршрутизации через Check Point NGFW. Исключением является mgmt сегмент управления, где в таблицах маршрутизации не используется default route `0.0.0.0/0`;
+* Для использования в продуктивной среде необходимо приобрести лицензии на решение Check Point CloudGuard IaaS.
 
 ## Как удалить созданные ресурсы {#clear-out}
 

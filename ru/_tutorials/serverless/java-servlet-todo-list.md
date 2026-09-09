@@ -60,7 +60,7 @@
       1. Выберите [класс хранилища](*storage_class) по умолчанию.
       1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
   1. Выберите созданный бакет.
-  1. В правом верхнем углу страницы нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** и в папке с проектом выберите файл `src/main/resources/index.html`.
+  1. На панели сверху нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** и в папке с проектом выберите файл `src/main/resources/index.html`.
   1. Выберите класс хранилища для файла и нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
 
 - CLI {#cli}

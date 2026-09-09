@@ -322,7 +322,10 @@
 
       {% include [bucket-name-note](../_tutorials_includes/audit-trails-events-to-kuma/bucket-name-note.md) %}
 
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** задайте размер создаваемого бакета или включите опцию **{{ ui-key.yacloud.storage.bucket.settings.label_size-limit-disabled }}**.
+  1. Чтобы установить ограничение, включите опцию **{{ ui-key.yacloud.storage.form-components.SizeLimitField.field_size-limit-enabled_hPy7f }}** и в появившихся полях задайте нужный размер.
+
+      {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
+
   1. Значения остальных параметров оставьте без изменения и нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
   1. На открывшейся странице со списком бакетов выберите созданный бакет.
   1. В меню слева выберите ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.

@@ -63,7 +63,7 @@
         * **{{ ui-key.yacloud_org.entity.federation.field.caseInsensitiveNameIds }}** — идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
         * **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}** — по истечении сессии в {{ yandex-cloud }} поставщик удостоверений запросит у пользователя повторную аутентификацию.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 
 - CLI {#cli}
 

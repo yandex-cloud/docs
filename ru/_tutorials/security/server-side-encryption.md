@@ -313,8 +313,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, созданный ранее.
-  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ `bucket-key`.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
@@ -461,8 +460,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, созданный ранее.
-  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите `{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 

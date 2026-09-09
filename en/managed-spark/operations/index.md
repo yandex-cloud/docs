@@ -17,6 +17,12 @@ description: In this article, you will learn how to work with {{ msp-full-name }
 * [Maintenance](cluster-maintenance.md)
 * [Deleting a cluster](cluster-delete.md)
 
+## Workspaces {#environments} 
+
+* [Creating a workspace](environment-create.md)
+* [Updating a workspace](environment-update.md)
+* [Deleting a workspace](environment-delete.md)
+
 ## Jobs {#jobs}
 
 * [Spark jobs](jobs-spark.md)
