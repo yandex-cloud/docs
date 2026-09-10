@@ -31,6 +31,7 @@
 * [Создание интернет-магазина на «1С-Битрикс: Управление сайтом»](../internet-store/bitrix-shop/index.md)
 * [Создание кластера Linux-серверов «1С:Предприятия» с кластером Yandex Managed Service for PostgreSQL](../infrastructure-management/1c-postgresql-linux.md)
 * [Сбор метрик кластера «1С:Предприятие» на базе Linux](../infrastructure-management/collect-metrics-1c-cluster.md)
+* [Распределенные блокировки для 1С:Предприятия в кластере Yandex Managed Service for Valkey™](../infrastructure-management/1c-valkey-locks.md)
 
 ## Интернет вещей (IOT) {#iot}
 

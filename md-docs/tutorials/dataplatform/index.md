@@ -151,6 +151,7 @@
 
 * [Миграция базы данных из стороннего кластера Valkey™ в Yandex Managed Service for Valkey™](valkey-data-migration.md)
 * [Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища сессий PHP](valkey-as-php-sessions-storage.md)
+* [Распределенные блокировки для 1С:Предприятия в кластере Yandex Managed Service for Valkey™](1c-valkey-locks.md)
 
 ## YDB {#ydb}
 

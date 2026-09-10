@@ -7,5 +7,6 @@ description: Различные сценарии использования {{ m
 
 * [{#T}](./valkey-as-php-sessions-storage.md)
 * [{#T}](./data-migration.md)
-
+* [{#T}](./1c-valkey-locks.md)
+ 
 О миграции хостов кластера {{ mrd-name }} в другую зону доступности читайте в [инструкции](../operations/host-migration.md).

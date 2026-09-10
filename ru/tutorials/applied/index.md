@@ -34,6 +34,7 @@ description: На странице представлен список прак�
 * [Создание интернет-магазина на «1С-Битрикс: Управление сайтом»](../internet-store/bitrix-shop/index.md)
 * [Создание кластера Linux-серверов «1С:Предприятия» с кластером {{ mpg-full-name }}](../infrastructure-management/1c-postgresql-linux.md)
 * [{#T}](../infrastructure-management/collect-metrics-1c-cluster.md)
+* [{#T}](../infrastructure-management/1c-valkey-locks.md)
 
 ## Интернет вещей (IOT) {#iot}
 

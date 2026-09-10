@@ -1,6 +1,6 @@
 # Управление базами данных в {{ mpg-name }}
 
-Вы можете добавлять, переименовывать и удалять базы данных, а также просматривать информацию о них.
+Вы можете добавлять, переименовывать и удалять базы данных, просматривать информацию о них, а также изменять владельца базы данных.
 
 {% include [db-sql](../../_includes/mdb/mdb-db-sql-limits.md) %}
 
@@ -33,7 +33,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Database.List](../api-ref/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.List](../api-ref/Database/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -53,7 +53,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [DatabaseService.List](../api-ref/grpc/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.List](../api-ref/grpc/Database/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -150,7 +150,8 @@
 
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-     {{ mpg-short-name }} запустит операцию создания базы данных.
+     {{ mpg-name }} запустит операцию создания базы данных.
+
 
 - {{ TF }} {#tf}
 
@@ -170,13 +171,13 @@
           lc_collate  = "<локаль_сортировки>"
           lc_type     = "<локаль_набора_символов>"
           template_db = "<имя_БД-шаблона>"
-          deletion_protection = <защита_от_удаления>
+          deletion_protection = <защита_от_удаления>          
         }
         ```
 
         Где:
           * `owner` — имя пользователя-владельца, который должен быть задан в ресурсе `yandex_mdb_postgresql_user`.
-          * `deletion_protection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
+          * `deletion_protection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.          
 
         {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
@@ -188,11 +189,6 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  {% note warning %}
-
-  После создания БД не меняйте ее владельца в параметре `owner` — это приведет к пересозданию БД и потере данных.
-
-  {% endnote %}
 
 - REST API {#api}
 
@@ -200,7 +196,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Database.Create](../api-ref/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Create](../api-ref/Database/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -252,7 +248,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [DatabaseService.Create](../api-ref/grpc/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Create](../api-ref/grpc/Database/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -307,6 +303,7 @@
 
 {% list tabs group=instructions %}
 
+
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -336,13 +333,14 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -379,7 +377,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -420,6 +418,168 @@
 
 {% endlist %}
 
+## Изменить владельца базы данных {#change-db-owner}
+
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Выберите нового владельца базы данных из списка пользователей кластера в поле **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_field_owner }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.postgresql.databases.dialog.button_submit }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для изменения параметров БД:
+
+     ```bash
+     {{ yc-mdb-pg }} database update --help
+     ```
+
+  1. Запросите список пользователей кластера, чтобы выбрать нового владельца базы данных:
+
+     ```bash
+     {{ yc-mdb-pg }} user list --cluster-name=<имя_кластера>
+     ```
+
+     Если нужного пользователя в списке нет, [создайте его](cluster-users.md#adduser).
+
+  1. Измените владельца БД:
+
+     ```bash
+     {{ yc-mdb-pg }} database update <имя_БД> \
+         --cluster-name=<имя_кластера> \
+         --owner=<имя_нового_владельца_БД>
+     ```
+
+     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
+
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+  1. Найдите ресурс `yandex_mdb_postgresql_database` нужной БД.
+
+  1. Укажите в параметре `owner` нового владельца базы данных, который должен быть задан в ресурсе `yandex_mdb_postgresql_user`:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_database" "<имя_базы_данных>" {
+        ...
+        owner = "<имя_нового_владельца_БД>"
+        ...        
+      }
+      ```
+
+  1. Если для БД указана зависимость от владельца, в блоке `depends_on` укажите имя нового владельца БД:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_database" "<имя_базы_данных>" {
+        ...
+        owner = "<имя_нового_владельца_БД>"
+        ...
+        depends_on = [
+          yandex_mdb_postgresql_user.<имя_нового_владельца_БД>
+        ]
+      }
+      ```
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>' \
+       --data '{
+                 "updateMask": "owner",
+                 "owner": <имя_пользователя>
+               }'
+     ```
+
+     Где:
+
+     * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+       В данном случае передается только один параметр.
+
+     * `owner` — имя нового владельца БД. Новым владельцем можно назначить только существующего в этом кластере пользователя. Подробнее о [получении списка пользователей в кластере](cluster-users.md#list-users).
+
+     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/database_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "database_name": "<имя_БД>",
+             "update_mask": {
+               "paths": [
+                 "owner"
+               ]
+             },
+             "owner": <имя_пользователя>
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.DatabaseService.Update
+     ```
+
+     Где:
+
+     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+       В данном случае передается только один параметр.
+
+     * `owner` — имя нового владельца БД. Новым владельцем можно назначить только существующего в этом кластере пользователя. Подробнее о [получении списка пользователей в кластере](cluster-users.md#list-users).
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
 ## Настроить защиту от удаления {#update-db-deletion-protection}
 
 {% list tabs group=instructions %}
@@ -431,6 +591,7 @@
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Выберите нужное значение в поле **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
+
 
 - {{ TF }} {#tf}
 
@@ -456,13 +617,14 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -497,7 +659,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -570,6 +732,7 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
+
 - {{ TF }} {#tf}
 
   Чтобы удалить базу данных:
@@ -589,13 +752,14 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Database.Delete](../api-ref/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Delete](../api-ref/Database/delete.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -615,7 +779,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \

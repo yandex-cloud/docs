@@ -2,7 +2,7 @@
 
 # Управление базами данных в Managed Service for PostgreSQL
 
-Вы можете добавлять, переименовывать и удалять базы данных, а также просматривать информацию о них.
+Вы можете добавлять, переименовывать и удалять базы данных, просматривать информацию о них, а также изменять владельца базы данных.
 
 {% note warning %}
 
@@ -43,7 +43,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Database.List](../api-ref/Database/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Database.List](../api-ref/Database/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
@@ -71,7 +71,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService.List](../api-ref/grpc/Database/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [DatabaseService.List](../api-ref/grpc/Database/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -187,6 +187,7 @@
 
      Managed Service for PostgreSQL запустит операцию создания базы данных.
 
+
 - Terraform {#tf}
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
@@ -205,13 +206,13 @@
           lc_collate  = "<локаль_сортировки>"
           lc_type     = "<локаль_набора_символов>"
           template_db = "<имя_БД-шаблона>"
-          deletion_protection = <защита_от_удаления>
+          deletion_protection = <защита_от_удаления>          
         }
         ```
 
         Где:
           * `owner` — имя пользователя-владельца, который должен быть задан в ресурсе `yandex_mdb_postgresql_user`.
-          * `deletion_protection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
+          * `deletion_protection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.          
 
         Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд Managed Service for PostgreSQL. Создавать базы с этими именами нельзя.
 
@@ -246,11 +247,6 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-  {% note warning %}
-
-  После создания БД не меняйте ее владельца в параметре `owner` — это приведет к пересозданию БД и потере данных.
-
-  {% endnote %}
 
 - REST API {#api}
 
@@ -260,7 +256,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Database.Create](../api-ref/Database/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Database.Create](../api-ref/Database/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
@@ -320,7 +316,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService.Create](../api-ref/grpc/Database/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [DatabaseService.Create](../api-ref/grpc/Database/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -375,6 +371,7 @@
 
 {% list tabs group=instructions %}
 
+
 - Terraform {#tf}
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
@@ -427,6 +424,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -435,7 +433,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      {% note warning %}
      
@@ -484,7 +482,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      {% note warning %}
      
@@ -544,6 +542,226 @@
 
 {% endlist %}
 
+## Изменить владельца базы данных {#change-db-owner}
+
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **Настроить**.
+  1. Выберите нового владельца базы данных из списка пользователей кластера в поле **Владелец**.
+  1. Нажмите кнопку **Изменить**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Посмотрите описание команды CLI для изменения параметров БД:
+
+     ```bash
+     yc managed-postgresql database update --help
+     ```
+
+  1. Запросите список пользователей кластера, чтобы выбрать нового владельца базы данных:
+
+     ```bash
+     yc managed-postgresql user list --cluster-name=<имя_кластера>
+     ```
+
+     Если нужного пользователя в списке нет, [создайте его](cluster-users.md#adduser).
+
+  1. Измените владельца БД:
+
+     ```bash
+     yc managed-postgresql database update <имя_БД> \
+         --cluster-name=<имя_кластера> \
+         --owner=<имя_нового_владельца_БД>
+     ```
+
+     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
+
+
+- Terraform {#tf}
+
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+
+  1. Найдите ресурс `yandex_mdb_postgresql_database` нужной БД.
+
+  1. Укажите в параметре `owner` нового владельца базы данных, который должен быть задан в ресурсе `yandex_mdb_postgresql_user`:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_database" "<имя_базы_данных>" {
+        ...
+        owner = "<имя_нового_владельца_БД>"
+        ...        
+      }
+      ```
+
+  1. Если для БД указана зависимость от владельца, в блоке `depends_on` укажите имя нового владельца БД:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_database" "<имя_базы_данных>" {
+        ...
+        owner = "<имя_нового_владельца_БД>"
+        ...
+        depends_on = [
+          yandex_mdb_postgresql_user.<имя_нового_владельца_БД>
+        ]
+      }
+      ```
+
+  1. Проверьте корректность настроек.
+
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+      1. Выполните команду:
+      
+         ```bash
+         terraform validate
+         ```
+      
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Подтвердите изменение ресурсов.
+
+      1. Выполните команду для просмотра планируемых изменений:
+      
+         ```bash
+         terraform plan
+         ```
+      
+         Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+      
+      1. Если вас устраивают планируемые изменения, внесите их:
+         1. Выполните команду:
+      
+            ```bash
+            terraform apply
+            ```
+      
+         1. Подтвердите изменение ресурсов.
+         1. Дождитесь завершения операции.
+
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     ```bash
+     export IAM_TOKEN="<IAM-токен>"
+     ```
+
+  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+     {% note warning %}
+     
+     Метод API переопределит все параметры изменяемого объекта, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `updateMask` (одной строкой через запятую).
+     
+     {% endnote %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>' \
+       --data '{
+                 "updateMask": "owner",
+                 "owner": <имя_пользователя>
+               }'
+     ```
+
+     Где:
+
+     * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+       В данном случае передается только один параметр.
+
+     * `owner` — имя нового владельца БД. Новым владельцем можно назначить только существующего в этом кластере пользователя. Подробнее о [получении списка пользователей в кластере](cluster-users.md#list-users).
+
+     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     ```bash
+     export IAM_TOKEN="<IAM-токен>"
+     ```
+
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+     {% note warning %}
+     
+     Метод API переопределит все параметры изменяемого объекта, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `update_mask` (в виде массива строк `paths[]`).
+     
+     {% cut "Формат перечисления настроек" %}
+     
+     ```yaml
+     "update_mask": {
+         "paths": [
+             "<настройка_1>",
+             "<настройка_2>",
+             ...
+             "<настройка_N>"
+         ]
+     }
+     ```
+     
+     {% endcut %}
+     
+     {% endnote %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/database_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "database_name": "<имя_БД>",
+             "update_mask": {
+               "paths": [
+                 "owner"
+               ]
+             },
+             "owner": <имя_пользователя>
+           }' \
+       mdb.api.cloud.yandex.net:443 \
+       yandex.cloud.mdb.postgresql.v1.DatabaseService.Update
+     ```
+
+     Где:
+
+     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+       В данном случае передается только один параметр.
+
+     * `owner` — имя нового владельца БД. Новым владельцем можно назначить только существующего в этом кластере пользователя. Подробнее о [получении списка пользователей в кластере](cluster-users.md#list-users).
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
 ## Настроить защиту от удаления {#update-db-deletion-protection}
 
 {% list tabs group=instructions %}
@@ -555,6 +773,7 @@
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **Настроить**.
   1. Выберите нужное значение в поле **Защита от удаления**.
   1. Нажмите кнопку **Сохранить**.
+
 
 - Terraform {#tf}
 
@@ -603,6 +822,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -611,7 +831,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      {% note warning %}
      
@@ -658,7 +878,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      {% note warning %}
      
@@ -752,6 +972,7 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
+
 - Terraform {#tf}
 
   Чтобы удалить базу данных:
@@ -794,6 +1015,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -802,7 +1024,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Database.Delete](../api-ref/Database/delete.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Database.Delete](../api-ref/Database/delete.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
@@ -830,7 +1052,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \

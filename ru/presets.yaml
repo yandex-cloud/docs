@@ -1644,6 +1644,17 @@ default:
         text:
           v1|number: 2342.4
           v1|string: "2\_342,4\_₸"
+    vm:
+      registry:
+        asset:
+          v1|number: 610
+          v1|string: "610\_₸"
+        scan:
+          v1:
+            rescan|number: 40
+            rescan|string: "40\_₸"
+            scan|number: 75
+            scan|string: "75\_₸"
   sku|KZT|serverless:
     containers:
       compute:
@@ -2165,6 +2176,17 @@ default:
         text:
           v1|number: 468.48
           v1|string: "468,48\_₽"
+    vm:
+      registry:
+        asset:
+          v1|number: 122
+          v1|string: "122\_₽"
+        scan:
+          v1:
+            rescan|number: 8
+            rescan|string: "8\_₽"
+            scan|number: 15
+            scan|string: "15\_₽"
   sku|RUB|serverless:
     containers:
       compute:
@@ -7311,6 +7333,7 @@ default:
           popup_field_permissions: База данных
           popup_field_roles: Роли
           popup-add-db_button_add: Создать
+          popup-add-db_field_owner: Владелец
           popup-confirm-delete-cluster_button: Удалить
           popup-confirm-remove-subcluster_button: Удалить
           popup-confirm-switch-master_auto: Выбрать хост-мастер автоматически

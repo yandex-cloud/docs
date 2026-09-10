@@ -105,6 +105,8 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Миграция базы данных в Yandex Managed Service for Valkey™](tutorials/data-migration.md)
 
+ - [Распределенные блокировки для «1С:Предприятия» в кластере Yandex Managed Service for Valkey™](tutorials/1c-valkey-locks.md)
+
 ## Концепции
 
  - [Взаимосвязь ресурсов сервиса](concepts/index.md)

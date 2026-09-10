@@ -60,7 +60,14 @@ You can estimate the resource consumption for your organization based on the [us
 || Data Security Posture Management ({{ dspm-name }}) | <ul><li>[Data analysis](./concepts/dspm.md#discovery-mode): Once the limit is exceeded, you pay per 1,000,000 objects.</li><li>[Scanning](./concepts/dspm.md#scanning): Data read operations and the amount of data scanned.</li></ul> | <ul><li>[Data analysis](./concepts/dspm.md#discovery-mode): Once the free limit of 100,000 objects is exceeded, you pay per 1,000,000 objects based on the pricing ladder.</li><li>Continuous monitoring ([scanning](./concepts/dspm.md#scanning)): You pay for requests as per the {{ objstorage-name }} [pricing policy](../storage/pricing.md).</li></ul> ||
 || {{ k8s }} Security Posture Management ({{ kspm-name }}) | Worker nodes in [{{ managed-k8s-full-name }}](../managed-kubernetes/) clusters covered by scanning | The cost is calculated on a monthly basis. ||
 || Cloud Security Posture Management ({{ cspm-name }}) | Number of the environment's resources checked for compliance with enabled standards:<ul><li>{{ compute-full-name }} virtual machine</li><li>{{ objstorage-full-name }} bucket.</li><li>database clusters ^1^</li><li>{{ k8s }} cluster.</li><li>{{ vpc-full-name }} cloud network</li></ul> | The cost is calculated on a monthly basis.</br>All standards are billable except for the [{{ yandex-cloud }} basic security rules](concepts/standard-compliance/yc-security-baseline.md).</br>Each environment is billed separately, even if their resources overlap.</br>Inactive resources are also billable.</br>The price does not depend on the number of days in the calendar month. ||
-|| Vulnerability Management ({{ vuln-man-short-name }}) | Images stored in the {{ sd-name }} environment. | The cost is calculated on a monthly basis.</br>Each environment is billed separately, even if their images overlap.</br>If an image is stored for less than a calendar month, the cost is calculated on a daily basis, as `Price_per_image_per_month / 30`. ||
+|| Vulnerability Management ({{ vuln-man-short-name }}) |
+* Storing images in the {{ sd-name }} environment.
+* Scanning operations. |
+* If an image is stored in {{ sd-name }}, you are billed for the time for which it is stored in the environment and for which it is being scanned. The first 10 scans are free of charge. Charges apply only to each subsequent scan, which is billed as a rescan.
+* If an image is stored in [{{ cloud-registry-name }}](../cloud-registry/), only scans are billable.
+
+Each environment is billed separately, even if their images overlap.
+If an image is stored for less than a calendar month, the cost is calculated on a daily basis, as `Price_per_image_per_month / 30`. ||
 |#
 
 ^1^ The check includes database clusters of the following services:
@@ -99,4 +106,41 @@ Let’s assume you set up scanning a bucket with 50 text files, their overall si
 
 {% include [usd-scan-by-amount](../_pricing_examples/security-deck/usd-scan-by-amount.md) %}
 
+
+### Vulnerability Management ({{ vuln-man-short-name }}){#vuln-example}
+
+#### Scanning in {{ sd-name }} {#vuln-sd-only}
+
+Let’s assume you ran 12 scans during a month. The total cost is:
+
+
+
+{% include [usd-vuln-sd-only](../_pricing_examples/security-deck/usd-vuln-sd-only.md) %}
+
+
+#### Scanning in {{ cloud-registry-name }} {#vuln-cr-only}
+
+Let’s assume you ran 3 scans during a month. The total cost is:
+
+
+
+{% include [usd-vuln-cr-only](../_pricing_examples/security-deck/usd-vuln-cr-only.md) %}
+
+
+#### Separate usage {#vuln-combined}
+
+Let’s assume you use {{ sd-name }} for centralized daily monitoring (11 scans), and also runs a scan in {{ cloud-registry-name }} once a week for local registry needs (4 scans per month). The total cost is:
+
+
+
+{% include [usd-vuln-combined](../_pricing_examples/security-deck/usd-vuln-combined.md) %}
+
+
+{% note info %}
+
+Scan results are not duplicated between the services.
+
+{% endnote %}
+
+If your infrastructure requires continuous container image monitoring, it is more cost-effective to use {{ sd-name }}. Conversely, for one-off or infrequent local registry checks (up to three times per month per image), using {{ cloud-registry-name }} is a better option.
 
