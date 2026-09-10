@@ -83,6 +83,10 @@ items:
         href: tutorials/valkey-as-php-sessions-storage.md
       - name: Миграция базы данных в {{ mrd-name }}
         href: tutorials/data-migration.md
+      - name: >-
+          Распределенные блокировки для «1С:Предприятия» в кластере {{ mrd-name
+          }}
+        href: tutorials/1c-valkey-locks.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

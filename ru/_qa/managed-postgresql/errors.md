@@ -290,3 +290,4 @@ ALTER DATABASE <название_БД> REFRESH COLLATION VERSION;
 ```bash
 REINDEX DATABASE <название_БД>;
 ```
+

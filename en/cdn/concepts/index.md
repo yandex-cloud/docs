@@ -1,10 +1,5 @@
 # {{ cdn-full-name }} overview
 
-
-
-{% include [pricing-change-short-warning](../../_includes/cdn/pricing-change-short-warning.md) %}
-
-
 {% include [cdn-overview-intro](../../_includes/cdn/cdn-overview-intro.md) %}
 
 ### How CDN works

@@ -782,6 +782,8 @@
 
  - [Мониторинг кластера «1С:Предприятие» на базе Linux](infrastructure-management/collect-metrics-1c-cluster.md)
 
+ - [Распределенные блокировки для «1С:Предприятия» в кластере Yandex Managed Service for Valkey™](infrastructure-management/1c-valkey-locks.md)
+
 ### Интернет вещей (IoT)
 
 #### Работа с помощью Mosquitto
@@ -1113,6 +1115,8 @@
  - [Миграция БД из стороннего кластера Valkey™ в Yandex Managed Service for Valkey™](dataplatform/valkey-data-migration.md)
 
  - [Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища сессий PHP](dataplatform/valkey-as-php-sessions-storage.md)
+
+ - [Распределенные блокировки для «1С:Предприятия» в кластере Yandex Managed Service for Valkey™](dataplatform/1c-valkey-locks.md)
 
  - [Поставка данных из Managed Service for YDB в Managed Service for Apache Kafka® с помощью Data Transfer](dataplatform/ydb-mkf-replication.md)
 
