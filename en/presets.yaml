@@ -1655,6 +1655,17 @@ default:
         text:
           v1|number: 3.8399993856
           v1|string: $3.8399993856
+    vm:
+      registry:
+        asset:
+          v1|number: 0.99999984
+          v1|string: $0.99999984
+        scan:
+          v1:
+            rescan|number: 0.06557376
+            rescan|string: $0.06557376
+            scan|number: 0.1229508
+            scan|string: $0.1229508
   sku|USD|serverless:
     containers:
       compute:

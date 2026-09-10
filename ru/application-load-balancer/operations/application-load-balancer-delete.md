@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Удалить L7-балансировщик
 
+{% include [auto-address-note](../../_includes/application-load-balancer/auto-address-note.md) %}
+
 Чтобы удалить L7-балансировщик:
 
 {% list tabs group=instructions %}

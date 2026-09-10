@@ -1,0 +1,1 @@
+{{ sku|RUB|security_deck.vm.registry.asset.v1|string }} + (2 × {{ sku|RUB|security_deck.vm.registry.scan.v1.rescan|string }}) = {% calc [currency=RUB] {{ sku|RUB|security_deck.vm.registry.asset.v1|number }} + (2 × {{ sku|RUB|security_deck.vm.registry.scan.v1.rescan|number }}) %}

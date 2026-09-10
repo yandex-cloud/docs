@@ -6,15 +6,6 @@ editable: false
 
 # {{ cdn-full-name }} pricing policy
 
-{% note warning %}
-
-
-Starting July 1, 2026, a new {{ cdn-name }} pricing model has come into effect.
-
-
-
-{% endnote %}
-
 ::: page-constructor
 blocks:
   - type: card-layout-block
@@ -64,14 +55,21 @@ blocks:
 {% include [vat](../_includes/vat.md) %}
 
 The cost of using {{ cdn-name }} is based on:
-* Total [CDN resources](./concepts/resource.md).
-* Outgoing traffic over the 150 GB free monthly quota per resource, charged per 1 GB. 
 
-    Deleting a resource forfeits any remaining free traffic. You cannot transfer traffic from one resource to another.
+* Monthly prepayment for a usage package for each [CDN resource](./concepts/resource.md):
+    * 150 GB of outgoing traffic;
+    * 100,000,000 requests to the CDN resource.
+
+* Outgoing traffic exceeding the 150 GB included in the prepaid package per CDN resource per month. You are charged for each 1 GB in excess of the package allowance.
+
+    Deleting a resource forfeits any unused prepaid traffic allowance. You cannot transfer it to another CDN resource.
 
     You pay for outgoing traffic from CDN servers, including traffic requested from user resources of {{ yandex-cloud }} services, e.g., {{ compute-full-name }} [VM instances](../compute/concepts/vm.md). Inbound traffic to the CDN servers from {{ yandex-cloud }} services and resources or from the internet is free of charge.
 
-* Number of requests to CDN resources in excess of the 100,000,000 free monthly threshold, charged per 100,000 requests.
+* Requests to CDN resources exceeding the 100,000,000 requests included in the prepaid package per CDN resource per month. You are charged per 100,000 requests in excess of the package allowance.
+
+    Deleting a resource forfeits any unused prepaid request allowance. You cannot transfer it to another CDN resource.
+
 * Paid features enabled for your resources, such as [origin shielding](concepts/origins-shielding.md), [log export](./concepts/logs.md), and [dedicated IP addressing](./concepts/dedicated-ip-addressing.md).
 
 ## Traffic between the origin and CDN servers {#origin-cdn-traffic}
