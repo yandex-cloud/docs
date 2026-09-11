@@ -1703,6 +1703,8 @@ items:
             href: serverless/domain-identity-creating.md
           - name: Настройка Postfix для отправки через {{ postbox-full-name }}
             href: serverless/postfix-integration.md
+          - name: Веб-приложение на {{ src-name }} Sites и {{ sf-full-name }}
+            href: serverless/sourcecraft-sites-web-app.md
       - name: Боты на Serverless
         items:
           - name: Разработка Telegram-бота
