@@ -216,7 +216,7 @@ keywords:
             <dependency>
                 <groupId>io.trino</groupId>
                 <artifactId>trino-jdbc</artifactId>
-                <version>469</version>
+                <version>483</version>
             </dependency>
         </dependencies>
         <build>

@@ -149,7 +149,7 @@ Syntax:
 
   - [yc baremetal storage get-default](storage/get-default.md) — Returns the default storage for the specified configuration.
 
-- [yc baremetal v0](v0/index.md) — (legacy command tree) Manage Baremetal resources
+- [yc baremetal v0](v0/index.md) — Manage Baremetal resources
 
 
 

@@ -88,7 +88,7 @@ description: Следуя данной инструкции, вы сможете
    
      {% endcut %}
 
-   * На шаге **Кому** укажите получателей рассылки.
+   * На шаге **Кому** укажите получателей рассылки и выберите, кто может подписаться на нее: только редактор и администратор (по умолчанию) или любой пользователь.
 
      
      {% note info %}
@@ -106,7 +106,9 @@ description: Следуя данной инструкции, вы сможете
 
      {% cut "Получатели рассылки" %}
 
-     ![report-maillist-recipients](../../_assets/datalens/report/report-maillist-recipients.png =687x436)
+     
+     ![report-maillist-recipients-yc](../../_assets/datalens/report/report-maillist-recipients-yc.png =687x436)
+
 
      {% endcut %}
 

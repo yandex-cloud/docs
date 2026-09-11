@@ -179,6 +179,8 @@ resource "yandex_mdb_kafka_cluster" "my_cluster" {
       - `bootstrap_servers` (**Required**)(String). List of bootstrap servers to connect to cluster.
       - `sasl_mechanism` (String). Type of SASL authentification mechanism to use.
       - `sasl_password` (String). Password to use in SASL authentification mechanism
+      - `sasl_password_wo` (String). Password to use in SASL authentification mechanism. This attribute is write-only and is not stored in state. Requires `sasl_password_wo_version` to trigger updates. Write-only arguments are only supported in Terraform v1.11 or higher.
+      - `sasl_password_wo_version` (Number). A version number for the write-only SASL password. Increment this to trigger a password update.
       - `sasl_username` (String). Username to use in SASL authentification mechanism.
       - `security_protocol` (String). Security protocol to use.
     - `this_cluster` [Block]. Using this section in the cluster definition (source or target) means it's this cluster.
@@ -188,6 +190,8 @@ resource "yandex_mdb_kafka_cluster" "my_cluster" {
       - `bootstrap_servers` (**Required**)(String). List of bootstrap servers to connect to cluster.
       - `sasl_mechanism` (String). Type of SASL authentification mechanism to use.
       - `sasl_password` (String). Password to use in SASL authentification mechanism
+      - `sasl_password_wo` (String). Password to use in SASL authentification mechanism. This attribute is write-only and is not stored in state. Requires `sasl_password_wo_version` to trigger updates. Write-only arguments are only supported in Terraform v1.11 or higher.
+      - `sasl_password_wo_version` (Number). A version number for the write-only SASL password. Increment this to trigger a password update.
       - `sasl_username` (String). Username to use in SASL authentification mechanism.
       - `security_protocol` (String). Security protocol to use.
     - `this_cluster` [Block]. Using this section in the cluster definition (source or target) means it's this cluster.

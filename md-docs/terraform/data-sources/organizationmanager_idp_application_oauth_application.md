@@ -37,6 +37,7 @@ output "my_app.client_id" {
 - `created_at` (*Read-Only*) (String). Creation timestamp.
 - `description` (String). Description of the application. 0-256 characters long.
 - `group_claims_settings` [Block]. Settings of the group claims
+  - `group_claim_value` (String). Source of the group value provided to the application.
   - `group_distribution_type` (String). Represents current distribution type of the groups. I.e. which groups are visible for the application users.
 - `id` (String). ID of the OAuth application to return.
  To get the OAuth application ID, make a [ApplicationService.List] request.

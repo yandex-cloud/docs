@@ -7,8 +7,6 @@ description: Следуя данной инструкции, вы сможете
 
 
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 ## Настроить графическое оформление страницы входа {#appearance}
 
 Чтобы настроить [графическое оформление](../concepts/branding.md#appearance) страницы входа:

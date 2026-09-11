@@ -1180,7 +1180,7 @@ Duration of the temporary ban, in seconds.
     name = string,
     priority = integer,
     rule-specifier = dynamic-quota={
-      action = DENY,
+      action = DENY|CAPTCHA,
       ban-period = integer,
       characteristics = [
         {
@@ -1489,7 +1489,7 @@ Duration of the temporary ban, in seconds.
       limit = integer,
       period = integer
     } | static-quota={
-      action = DENY,
+      action = DENY|CAPTCHA,
       condition = {
         authority = {
           authorities = [
@@ -1803,7 +1803,7 @@ Duration of the temporary ban, in seconds.
     "priority": "integer",
     "rule-specifier": {
       "dynamic-quota": {
-        "action": "DENY",
+        "action": "DENY|CAPTCHA",
         "ban-period": "integer",
         "characteristics": [
           {
@@ -2353,7 +2353,7 @@ Duration of the temporary ban, in seconds.
         "period": "integer"
       },
       "static-quota": {
-        "action": "DENY",
+        "action": "DENY|CAPTCHA",
         "condition": {
           "authority": {
             "authorities": [

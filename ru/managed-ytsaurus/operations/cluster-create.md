@@ -1,6 +1,6 @@
 ---
 title: Создание кластера {{ ytsaurus-name }}
-description: Каждый кластер {{ mtr-name }} состоит из набора компонентов {{ ytsaurus-name }}, каждый из которых может быть представлен в нескольких экземплярах. Экземпляры могут находиться в разных зонах доступности.
+description: Каждый кластер {{ myt-name }} состоит из набора компонентов {{ ytsaurus-name }}, каждый из которых может быть представлен в нескольких экземплярах. Экземпляры могут находиться в разных зонах доступности.
 keywords:
   - создание кластера {{ ytsaurus-name }}
   - кластер {{ ytsaurus-name }}
@@ -12,11 +12,13 @@ keywords:
 Каждый [кластер](../../glossary/cluster.md) {{ myt-name }} состоит из набора компонентов {{ ytsaurus-name }}.
 
 Компоненты, доступные для настройки:
+
 * exec- и tablet-ноды;
 * хранилища;
 * HTTP- и RPC-прокси.
 
 Служебные компоненты, недоступные для настройки:
+
 * master-ноды;
 * storage-ноды;
 * system-ноды.
@@ -35,11 +37,11 @@ keywords:
 
 {% note info %}
 
-Создание кластера {{ ytsaurus-name }} занимает длительное время. В зависимости от выбранной конфигурации время создания может занимать от одного часа.
+Создание кластера {{ ytsaurus-name }} занимает от одного часа в зависимости от выбранной конфигурации.
 
 {% endnote %}
 
-В {{ myt-name }} можно создать [{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_demo_title_4B7zu }}](#demo-cluster) с минимальной рабочей конфигурацией для ознакомления с сервисом или [{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_production_title_dVEmq }}](#production-cluster) с ручной настройкой конфигурации кластера. 
+В {{ myt-name }} можно создать [{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_demo_title_4B7zu }}](#demo-cluster) с минимальной рабочей конфигурацией для ознакомления с сервисом или [{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_production_title_dVEmq }}](#production-cluster) с ручной настройкой конфигурации кластера.
 
 ### Demo-кластер {#demo-cluster}
 
@@ -75,6 +77,10 @@ keywords:
           zone_id            = yandex_vpc_subnet.<имя_подсети>.zone
           subnet_id          = yandex_vpc_subnet.<имя_подсети>.id
           security_group_ids = [<список_идентификаторов_групп_безопасности>]
+
+          cidr_blocks_whitelist = {
+            v4_cidr_blocks = ["<разрешенный_диапазон>"]
+          }
 
           spec = {
             storage = {
@@ -139,9 +145,13 @@ keywords:
 
             {% note warning %}
 
-            Сетевые настройки нельзя изменить после создания кластера.
+            Зону доступности, подсеть и группы безопасности нельзя изменить после создания кластера.
 
             {% endnote %}
+
+        * `cidr_blocks_whitelist.v4_cidr_blocks` — список разрешенных диапазонов IPv4-адресов в формате CIDR для доступа к кластеру из интернета, например `203.0.113.0/24`. Необязательный параметр.
+
+            {% include [cidr-blocks-whitelist](../../_includes/managed-ytsaurus/cidr-blocks-whitelist.md) %}
 
         * `spec` — конфигурация компонентов кластера {{ ytsaurus-name }}:
 
@@ -167,7 +177,7 @@ keywords:
             * `compute` — конфигурация exec-нод:
 
                 * `preset` — [конфигурация вычислительных ресурсов](../concepts/component-types.md#exec-node).
-                * `disks` — параметры хранилища, которое будет использоваться для выполнения заданий.
+                * `disks` — параметры хранилища, которое будет использоваться для выполнения заданий:
 
                     * `size_gb` — размер диска в ГБ.
                     * `type` — тип диска.
@@ -206,7 +216,7 @@ keywords:
 
 - REST API {#api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -220,6 +230,9 @@ keywords:
           "zoneId": "<зона_доступности>",
           "subnetId": "<идентификатор_подсети>",
           "securityGroupIds": [ <список_идентификаторов_групп_безопасности> ],
+          "cidrBlocksWhitelist": {
+            "v4CidrBlocks": ["<разрешенный_диапазон>"]
+          },
           "spec": {
             "storage": {
               "hdd": {
@@ -275,9 +288,13 @@ keywords:
 
             {% note warning %}
 
-            Сетевые настройки нельзя изменить после создания кластера.
+            Зону доступности, подсеть и группы безопасности нельзя изменить после создания кластера.
 
             {% endnote %}
+
+        * `cidrBlocksWhitelist.v4CidrBlocks` — список разрешенных диапазонов IPv4-адресов в формате CIDR для доступа к кластеру из интернета, например `203.0.113.0/24`. Необязательный параметр.
+
+            {% include [cidr-blocks-whitelist](../../_includes/managed-ytsaurus/cidr-blocks-whitelist.md) %}
 
         * `spec` — конфигурация компонентов кластера {{ ytsaurus-name }}:
 
@@ -303,7 +320,7 @@ keywords:
             * `compute` — конфигурация exec-нод:
 
                 * `preset` — [конфигурация вычислительных ресурсов](../concepts/component-types.md#exec-node).
-                * `disks` — параметры хранилища, которое будет использоваться для выполнения заданий.
+                * `disks` — параметры хранилища, которое будет использоваться для выполнения заданий:
 
                     * `type` — тип диска.
                     * `sizeGb` — размер диска в ГБ.
@@ -328,13 +345,13 @@ keywords:
                 * `http.count` — количество HTTP-прокси.
                 * `rpc.count` — количество RPC-прокси.
 
-    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-ytsaurus }}/ytsaurus/v1/clusters'
+            --url 'https://{{ api-host-ytsaurus }}/ytsaurus/v1/clusters' \
             --data '@body.json'
         ```
 
@@ -342,7 +359,7 @@ keywords:
 
 - gRPC API {#grpc-api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -358,6 +375,9 @@ keywords:
           "zone_id": "<зона_доступности>",
           "subnet_id": "<идентификатор_подсети>",
           "security_group_ids": [ <список_идентификаторов_групп_безопасности> ],
+          "cidr_blocks_whitelist": {
+            "v4_cidr_blocks": ["<разрешенный_диапазон>"]
+          },
           "spec": {
             "storage": {
               "hdd": {
@@ -413,9 +433,13 @@ keywords:
 
             {% note warning %}
 
-            Сетевые настройки нельзя изменить после создания кластера.
+            Зону доступности, подсеть и группы безопасности нельзя изменить после создания кластера.
 
             {% endnote %}
+
+        * `cidr_blocks_whitelist.v4_cidr_blocks` — список разрешенных диапазонов IPv4-адресов в формате CIDR для доступа к кластеру из интернета, например `203.0.113.0/24`. Необязательный параметр.
+
+            {% include [cidr-blocks-whitelist](../../_includes/managed-ytsaurus/cidr-blocks-whitelist.md) %}
 
         * `spec` — конфигурация компонентов кластера {{ ytsaurus-name }}:
 
@@ -441,7 +465,7 @@ keywords:
             * `compute` — конфигурация exec-нод:
 
                 * `preset` — [конфигурация вычислительных ресурсов](../concepts/component-types.md#exec-node).
-                * `disks` — параметры хранилища, которое будет использоваться для выполнения заданий.
+                * `disks` — параметры хранилища, которое будет использоваться для выполнения заданий:
 
                     * `type` — тип диска.
                     * `size_gb` — размер диска в ГБ.
@@ -466,7 +490,7 @@ keywords:
                 * `http.count` — количество HTTP-прокси.
                 * `rpc.count` — количество RPC-прокси.
 
-    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -496,61 +520,71 @@ keywords:
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Выберите **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_production_title_dVEmq }}** для создания кластера с ручной настройкой конфигурации.
     1. В блоке **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.base-params-section_title_nfKo2 }}**:
+
         1. Задайте имя кластера. Имя должно быть уникальным в рамках каталога.
         1. (Опционально) Введите описание кластера.
         1. (Опционально) Создайте [метки](../../resource-manager/concepts/labels.md):
+
             1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
             1. Введите метку в формате `ключ: значение`.
             1. Нажмите **Enter**.
 
     1. В блоке **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.net-settings-section_title_wo42X }}** выберите:
+
        * [Зону доступности](../../overview/concepts/geo-scope.md) для размещения кластера.
        * [Подсеть](../../vpc/operations/subnet-create.md).
        * (Опционально) [Группу безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера.
 
-       {% note warning %}
-       
-       Сетевые настройки нельзя изменить после создания кластера.
-       
-       {% endnote %}
+            {% note warning %}
+
+            Зону доступности, подсеть и группы безопасности нельзя изменить после создания кластера.
+
+            {% endnote %}
+
+       * (Опционально) В поле **{{ ui-key.yacloud.managed-ytsaurus.clusters.NetworkSettingsForm.field_cidr-blocks-whitelist_label_hL9Hc }}** укажите разрешенные диапазоны IPv4-адресов в формате CIDR для доступа к кластеру из интернета, например `203.0.113.0/24`.
+
+           {% include [cidr-blocks-whitelist](../../_includes/managed-ytsaurus/cidr-blocks-whitelist.md) %}
 
     1. В блоке **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.filestore-section_title_tYMR7 }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}** и выберите тип, размер, количество дисков.
 
        От выбранного типа зависит, с каким шагом можно будет изменить размер диска:
+
           * Сетевые HDD- и SSD-диски — с шагом 1 ГБ.
           * Нереплицируемые SSD-диски — с шагом 93 ГБ.
 
        Хранилище с типом `HDD` является обязательным и добавлено по умолчанию. При необходимости отредактируйте количество и размер дисков.
 
        {% note warning %}
-       
+
        Тип и размер диска для кластера {{ ytsaurus-name }} нельзя изменить после создания.
-       
+
        {% endnote %}
-    
+
     1. В блоке **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.exec-node-configuration-section_title_mfa54 }}** задайте:
+
        * количество нод;
        * [конфигурацию вычислительных ресурсов](../concepts/component-types.md#exec-node);
        * тип и размер хранилища, которое будет использоваться для выполнения заданий.
 
     1. В блоке **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.tablet-node-configuration-section_title_fHZeX }}** задайте:
+
        * количество нод;
        * [конфигурацию вычислительных ресурсов](../concepts/component-types.md#tablet-node).
 
        Для использования tablet-нод необходимо добавить хранилище с типом `SSD` или `Нереплицируемый SSD`.
 
        {% note warning %}
-       
+
        Количество tablet-нод нельзя изменить после создания кластера.
-       
+
        {% endnote %}
-    
+
     1. В блоках **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.http-config-section_title_kMdci }}** и **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.rpc-config-section_title_tGACF }}** задайте количество прокси.
 
        {% note warning %}
-       
+
        Количество proxy-нод нельзя изменить после создания кластера.
-       
+
        {% endnote %}
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -582,6 +616,10 @@ keywords:
           zone_id            = yandex_vpc_subnet.<имя_подсети>.zone
           subnet_id          = yandex_vpc_subnet.<имя_подсети>.id
           security_group_ids = [<список_идентификаторов_групп_безопасности>]
+
+          cidr_blocks_whitelist = {
+            v4_cidr_blocks = ["<разрешенный_диапазон>"]
+          }
 
           labels = {
             <список_меток>
@@ -654,11 +692,15 @@ keywords:
 
             {% note warning %}
 
-            Сетевые настройки нельзя изменить после создания кластера.
+            Зону доступности, подсеть и группы безопасности нельзя изменить после создания кластера.
 
             {% endnote %}
 
         * `labels` — список меток. Метки задаются в формате `<ключ> = "<значение>"`.
+        * `cidr_blocks_whitelist.v4_cidr_blocks` — список разрешенных диапазонов IPv4-адресов в формате CIDR для доступа к кластеру из интернета, например `203.0.113.0/24`. Необязательный параметр.
+
+            {% include [cidr-blocks-whitelist](../../_includes/managed-ytsaurus/cidr-blocks-whitelist.md) %}
+
         * `spec` — конфигурация компонентов кластера {{ ytsaurus-name }}:
 
             * `storage` — параметры хранилища:
@@ -690,7 +732,7 @@ keywords:
             * `compute` — конфигурация exec-нод:
 
                 * `preset` — [конфигурация вычислительных ресурсов](../concepts/component-types.md#exec-node).
-                * `disks` — параметры хранилища, которое будет использоваться для выполнения заданий.
+                * `disks` — параметры хранилища, которое будет использоваться для выполнения заданий:
 
                     * `size_gb` — размер диска в ГБ.
                     * `type` — тип диска: `network-hdd`, `network-ssd` или `network-ssd-nonreplicated`.
@@ -721,7 +763,7 @@ keywords:
                 * `http.count` — количество HTTP-прокси.
                 * `rpc.count` — количество RPC-прокси.
 
-            * `odin.checks_ttl` — частота проверок внутреннего мониторинга Odin. Указывается с единицами измерения: `h` — часы, `m` — минуты, `s` — секунды. Например: `336h0m0s` (2 недели).
+            * `odin.checks_ttl` — частота проверок внутреннего мониторинга Odin. Указывается с единицами измерения: `h` — часы, `m` — минуты, `s` — секунды. Например: `336h0m0s` (две недели).
 
         Подробная информация о ресурсах, которые вы можете создать с помощью {{ TF }}, в [документации провайдера]({{ tf-provider-ytsaurus }}).
 
@@ -737,7 +779,7 @@ keywords:
 
 - REST API {#api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -752,6 +794,9 @@ keywords:
           "zoneId": "<зона_доступности>",
           "subnetId": "<идентификатор_подсети>",
           "securityGroupIds": [ <список_идентификаторов_групп_безопасности> ],
+          "cidrBlocksWhitelist": {
+            "v4CidrBlocks": ["<разрешенный_диапазон>"]
+          },
           "spec": {
             "storage": {
               "hdd": {
@@ -812,9 +857,13 @@ keywords:
 
             {% note warning %}
 
-            Сетевые настройки нельзя изменить после создания кластера.
+            Зону доступности, подсеть и группы безопасности нельзя изменить после создания кластера.
 
             {% endnote %}
+
+        * `cidrBlocksWhitelist.v4CidrBlocks` — список разрешенных диапазонов IPv4-адресов в формате CIDR для доступа к кластеру из интернета, например `203.0.113.0/24`. Необязательный параметр.
+
+            {% include [cidr-blocks-whitelist](../../_includes/managed-ytsaurus/cidr-blocks-whitelist.md) %}
 
         * `spec` — конфигурация компонентов кластера {{ ytsaurus-name }}:
 
@@ -847,7 +896,7 @@ keywords:
             * `compute` — конфигурация exec-нод:
 
                 * `preset` — [конфигурация вычислительных ресурсов](../concepts/component-types.md#exec-node).
-                * `disks` — параметры хранилища, которое будет использоваться для выполнения заданий.
+                * `disks` — параметры хранилища, которое будет использоваться для выполнения заданий:
 
                     * `type` — тип диска: `network-hdd`, `network-ssd` или `network-ssd-nonreplicated`.
                     * `sizeGb` — размер диска в ГБ.
@@ -878,9 +927,9 @@ keywords:
                 * `http.count` — количество HTTP-прокси.
                 * `rpc.count` — количество RPC-прокси.
 
-            * `odin.checksTtl` — частота проверок внутреннего мониторинга Odin. Указывается в секундах (`s`). Например: `1209600s` (2 недели).
+            * `odin.checksTtl` — частота проверок внутреннего мониторинга Odin. Указывается в секундах (`s`). Например: `1209600s` (две недели).
 
-    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -894,7 +943,7 @@ keywords:
 
 - gRPC API {#grpc-api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -911,6 +960,9 @@ keywords:
           "zone_id": "<зона_доступности>",
           "subnet_id": "<идентификатор_подсети>",
           "security_group_ids": [ <список_идентификаторов_групп_безопасности> ],
+          "cidr_blocks_whitelist": {
+            "v4_cidr_blocks": ["<разрешенный_диапазон>"]
+          },
           "spec": {
             "storage": {
               "hdd": {
@@ -961,7 +1013,7 @@ keywords:
 
         Где:
 
-        * `folderId` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+        * `folder_id` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
         * `name` — имя кластера.
         * `description` — описание кластера.
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
@@ -971,9 +1023,13 @@ keywords:
 
             {% note warning %}
 
-            Сетевые настройки нельзя изменить после создания кластера.
+            Зону доступности, подсеть и группы безопасности нельзя изменить после создания кластера.
 
             {% endnote %}
+
+        * `cidr_blocks_whitelist.v4_cidr_blocks` — список разрешенных диапазонов IPv4-адресов в формате CIDR для доступа к кластеру из интернета, например `203.0.113.0/24`. Необязательный параметр.
+
+            {% include [cidr-blocks-whitelist](../../_includes/managed-ytsaurus/cidr-blocks-whitelist.md) %}
 
         * `spec` — конфигурация компонентов кластера {{ ytsaurus-name }}:
 
@@ -1006,7 +1062,7 @@ keywords:
             * `compute` — конфигурация exec-нод:
 
                 * `preset` — [конфигурация вычислительных ресурсов](../concepts/component-types.md#exec-node).
-                * `disks` — параметры хранилища, которое будет использоваться для выполнения заданий.
+                * `disks` — параметры хранилища, которое будет использоваться для выполнения заданий:
 
                     * `type` — тип диска: `network-hdd`, `network-ssd` или `network-ssd-nonreplicated`.
                     * `size_gb` — размер диска в ГБ.
@@ -1037,9 +1093,9 @@ keywords:
                 * `http.count` — количество HTTP-прокси.
                 * `rpc.count` — количество RPC-прокси.
 
-            * `odin.checks_ttl` — частота проверок внутреннего мониторинга Odin. Указывается в секундах (`s`). Например: `1209600s` (2 недели).
+            * `odin.checks_ttl` — частота проверок внутреннего мониторинга Odin. Указывается в секундах (`s`). Например: `1209600s` (две недели).
 
-    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

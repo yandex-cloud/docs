@@ -958,6 +958,8 @@
 
  - [Обзор](concepts/maillists.md)
 
+ - [Список рассылок](concepts/maillists-list.md)
+
  - [Рассылки для дашборда](operations/dashboard/add-maillists.md)
 
  - [Рассылки для отчета](reports/add-report-maillists.md)

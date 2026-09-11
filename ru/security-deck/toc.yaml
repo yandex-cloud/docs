@@ -34,6 +34,8 @@ items:
             href: operations/alerts/work.md
           - name: Скачать алерты
             href: operations/alerts/download.md
+          - name: Управлять тегами алертов
+            href: operations/alerts/tags.md
       - name: Контроль данных ({{ dspm-name }})
         items:
           - name: Обзор
@@ -134,6 +136,8 @@ items:
             href: concepts/standard-compliance/yc-pci-dss.md
           - name: Требования стандарта ГОСТ Р 57580
             href: concepts/standard-compliance/yc-gost-57580.md
+          - name: Аудит процессов и приложений
+            href: concepts/standard-compliance/inventory-k8s-rules.md
       - name: Контроль данных ({{ dspm-name }})
         href: concepts/dspm.md
       - name: Контроль {{ k8s }}® ({{ kspm-name }})

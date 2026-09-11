@@ -5,28 +5,25 @@ description: В {{ cns-name }} вы можете отправлять уведо
 
 # Как начать работать с топиками в {{ cns-full-name }}
 
-
-{% include [ask-for-turning-on](../_includes/notifications/ask-for-turning-on.md) %}
-
 {% include [about-service](../_includes/notifications/about-service.md) %}
 
 Чтобы отправлять сообщения в разные эндпоинты одновременно, используйте топики. _Топик_ позволяет отправлять уведомления сразу всем подписанным на него эндпоинтам.
 
 Чтобы начать работать с топиками:
 
-1. [Подготовьте облако к работе](#before-you-begin)
-1. Создайте каналы для уведомлений и эндпоинты: 
-   
-   * [Мобильные push-уведомления](quickstart-push.md)
-   * [Push-уведомления в браузере](quickstart-browser.md)
-   * [SMS](quickstart-sms.md) 
-      Для SMS можно не добавлять телефонные номера в канале, а добавить их сразу в топике.
+1. [Подготовьте облако к работе](#before-you-begin).
+1. Создайте каналы для уведомлений и эндпоинты:
+   * [Мобильные push-уведомления](quickstart-push.md).
+   * [Push-уведомления в браузере](quickstart-browser.md).
+   * [SMS](quickstart-sms.md).
 
-1. [Создайте топик](#create-topic)
-1. [Подпишите эндпоинты на топик](#subscribe-endpoints)
-1. [Отправьте уведомление в топик](#send-message)
+     Для SMS можно не добавлять телефонные номера в канале, а добавить их сразу в топике.
 
-# Подготовьте облако к работе {#before-you-begin}
+1. [Создайте топик](#create-topic).
+1. [Подпишите эндпоинты на топик](#subscribe-endpoints).
+1. [Отправьте уведомление в топик](#send-message).
+
+## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 

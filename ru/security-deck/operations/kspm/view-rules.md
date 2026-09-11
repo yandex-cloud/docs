@@ -43,6 +43,7 @@ description: В данном разделе вы узнаете, как можн
               {% include [kspm-admission-modes](../../../_includes/security-deck/kspm-admission-modes.md) %}
 
           * `HostSecurity` — тип правил из [стандарта CIS Benchmark™](../../concepts/standard-compliance/cis-kubernetes-benchmark.md), применяемый к компонентам на рабочих узлах {{ k8s }}.
+          * `Inventory` — тип правил, применяемый к рабочим узлам {{ k8s }}. Используется для сбора информации о компонентах, параметрах, процессах и аудита запусков процессов. Для анализа результатов проверок настройте сбор [событий для Security Deck](../../../security-deck/at-ref.md) в {{ at-full-name }} с последующим экспортом в системы SIEM/SOC.
 
       * **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.resources_field_id }}** — идентификатор правила в {{ yandex-cloud }}.
       * **{{ ui-key.yacloud_org.security.controls.rule-result.violations_q7AcU }}** — количество выявленных нарушений правила.

@@ -1,0 +1,29 @@
+[Документация Yandex Cloud](../../index.md) > [On-premises Yandex Object Storage](../index.md) > Версия 26.3 > Справочник CLI (англ.) > buckets > get > settings
+
+# cli buckets get settings
+
+Get bucket settings
+
+```
+cli buckets get settings <bucket_name> [flags]
+```
+
+## Options
+
+```
+  -h, --help            help for settings
+  -t, --tenant string   Tenant ID
+```
+
+## Options inherited from parent commands
+
+```
+  -c, --config-dir string   path to configuration directory
+      --debug               enable debug mode
+      --insecure            use if console has self-signed certificate
+  -p, --profile string      configuration profile
+```
+
+## See also
+
+* [cli buckets get](cli_buckets_get.md)	 — Get bucket settings

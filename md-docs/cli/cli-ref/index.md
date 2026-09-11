@@ -18,6 +18,8 @@ Syntax:
 
 - [yc baremetal](baremetal/cli-ref/index.md) — Manage Baremetal resources
 
+- [yc billing](billing/cli-ref/index.md) — Manage Billing resources
+
 - [yc cdn](cdn/cli-ref/index.md) — Manage CDN resources
 
 - [yc certificate-manager](certificate-manager/cli-ref/index.md) — Manage Certificate Manager resources

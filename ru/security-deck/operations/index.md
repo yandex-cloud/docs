@@ -19,6 +19,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./alerts/view.md)
 * [{#T}](./alerts/work.md)
 * [{#T}](./alerts/download.md)
+* [{#T}](./alerts/tags.md)
 
 ## Модуль контроля данных ({{ dspm-name }}) {#dspm}
 

@@ -140,7 +140,13 @@ Possible property names:
 
 - `ssh-key`: SSH private key.
 
-- `ssh-key-path`: Path to SSH private key. ||
+- `ssh-key-path`: Path to SSH private key.
+
+- `username`: Username for repository authentication. For access token in GitLab use oauth2; for GitHub use the user name. See git repository docs.
+
+- `password`: Password or access token for repository authentication.
+
+- `password-path`: Path to file with password or access token. Use it if the password contains ',', '{', '}', '[' or ']'. ||
 || `--dags-bucket` | `string`
 
 A name of the s3 bucket to store dags. ||

@@ -2,6 +2,10 @@
 
 # История изменений в Yandex Managed Service for Trino
 
+## Сентябрь 2026 {#september-2026}
+
+Доступна новая версия Trino [483](https://trino.io/docs/current/release/release-483.html).
+
 ## Июль 2026 {#july-2026}
 
 * Добавлена возможность использовать [пользовательский бакет Object Storage](concepts/retry-policy.md#exchange-manager-storage) в качестве хранилища Exchange Manager.

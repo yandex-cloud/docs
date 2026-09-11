@@ -1,9 +1,6 @@
 [Документация Yandex Cloud](../index.md) > [Yandex Cloud Notification Service](index.md) > Начало работы > Начало работы с Push-уведомлениями в браузере
 
-# Как начать работать с push-уведомлениями в браузере Yandex Cloud Notification Service
-
-
-Чтобы включить Cloud Notification Service, запросите доступ к сервису у вашего аккаунт-менеджера или в [технической поддержке](https://center.yandex.cloud/support).
+# Как начать работать с push-уведомлениями в браузере в Yandex Cloud Notification Service
 
 Cloud Notification Service (CNS) — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
 

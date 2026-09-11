@@ -5,9 +5,6 @@ description: В {{ cns-name }} вы можете отправлять SMS с п�
 
 # Как начать работать с SMS в {{ cns-full-name }}
 
-
-{% include [ask-for-turning-on](../_includes/notifications/ask-for-turning-on.md) %}
-
 {% include [about-service](../_includes/notifications/about-service.md) %}
 
 {% include [sms-short-description](../_includes/notifications/sms-short-description.md) %}
@@ -112,7 +109,7 @@ description: В {{ cns-name }} вы можете отправлять SMS с п�
 
 #### Полезные ссылки {#see-also}
 
-* [Как начать работать с push-уведомлениями](quickstart-sms.md)
+* [Как начать работать с push-уведомлениями](quickstart-push.md)
 * [Как начать работать с сервисом с помощью AWS CLI](./tools/aws-cli.md)
 * [Обзор сервиса](./concepts/index.md)
 * [Канал уведомлений SMS](./concepts/sms.md)

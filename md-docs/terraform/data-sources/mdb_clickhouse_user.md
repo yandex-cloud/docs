@@ -22,11 +22,15 @@ output "permissions" {
 
 - `auth_method` (String). Authentication method for the user. Possible values are `password`, `iam`. Default is `password`.
 - `cluster_id` (**Required**)(String). ID of the ClickHouse cluster. Provided by the client when the user is created.
-- `connection_manager` [Block]. Connection Manager connection configuration. Filled in by the server automatically.
+- `connection_manager` [Block]. **Deprecated**. Please use `user_connection_manager` instead. Connection Manager connection configuration. Filled in by the server automatically.
   - `connection_id` (*Read-Only*) (String). ID of Connection Manager connection. Filled in by the server automatically. String.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `name` (**Required**)(String). Name of the ClickHouse user. Provided by the client when the user is created.
 - `password` (String). Password of the ClickHouse user. Provided by the client when the user is created.
+- `user_connection_manager` [Block]. Connection Manager settings for the user.
+  - `connection_folder_id` (String). ID of the folder where the connection is created. Defaults to the cluster's folder if not specified. Cannot be changed after user creation.
+  - `connection_id` (*Read-Only*) (String). ID of the Connection Manager connection for this user. Computed by the server.
+  - `secret_folder_id` (String). ID of the folder where the secret is created. Defaults to the cluster's folder if not specified. Cannot be changed after user creation.
 - `permission` [Block]. Block represents databases that are permitted to user.
   - `database_name` (**Required**)(String). Name of the database that the permission grants access to.
 - `quota` [Block]. ClickHouse quota representation. Each quota associated with an user and limits it resource usage for an interval. For more information, see [the official documentation](https://clickhouse.com/docs/en/operations/quotas)
