@@ -362,9 +362,10 @@ Regenerate hosts after changing the assign_public_ip parameter.
   - `disk_size` (**Required**)(Number). Volume of the storage available to a MySQL host, in gigabytes.
   - `disk_type_id` (**Required**)(String). Type of the storage of MySQL hosts.
   - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MySQL host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-mysql/concepts/instance-types).
-- `restore` [Block]. The cluster will be created from the specified backup.
-  - `backup_id` (**Required**)(String). Backup ID. The cluster will be created from the specified backup. [How to get a list of MySQL backups](https://yandex.cloud/docs/managed-mysql/operations/cluster-backups).
-  - `time` (String). Timestamp of the moment to which the MySQL cluster should be restored. (Format: `2006-01-02T15:04:05` - UTC). When not set, current time is used.
+- `restore` [Block]. The cluster will be created from the specified backup or source cluster.
+  - `backup_id` (String). Backup ID. The cluster will be created from the specified backup. [How to get a list of MySQL backups](https://yandex.cloud/docs/managed-mysql/operations/cluster-backups). Should not be used together with `source_cluster_id`.
+  - `source_cluster_id` (String). ID of the source cluster to restore from. The latest backup suitable for `time` will be used for the restore. `time` is required. Should not be used together with `backup_id`.
+  - `time` (String). Timestamp of the moment to which the MySQL cluster should be restored. (Format: `2006-01-02T15:04:05` - UTC). Required when `source_cluster_id` is used.
 - `timeouts` [Block]. 
   - `create` (String). 
   - `delete` (String). 

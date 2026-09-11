@@ -31,6 +31,18 @@ Syntax:
 
   - [yc managed-redis v0 backup-retention-policy list](backup-retention-policy/list.md) — List available backup retention policies
 
+- [yc managed-redis v0 change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-redis v0 change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-redis v0 change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-redis v0 change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-redis v0 change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-redis v0 change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
+
 - [yc managed-redis v0 cluster](cluster/index.md) — Manage Redis clusters
 
   - [yc managed-redis v0 cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Redis cluster

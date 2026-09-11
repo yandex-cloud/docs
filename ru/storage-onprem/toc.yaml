@@ -1,0 +1,355 @@
+title: '{{ objstorage-onprem-name }}'
+href: index.yaml
+items:
+  - name: Версия 26.3
+    expanded: true
+    items:
+      - name: Концепции
+        items:
+          - name: О продукте
+            href: v-26-3/index.md
+          - name: Термины и сокращения
+            href: v-26-3/concepts/glossary.md
+          - name: Архитектура продукта
+            items:
+              - name: Обзор
+                href: v-26-3/concepts/architecture/index.md
+              - name: Схема решения
+                href: v-26-3/concepts/architecture/solution-scheme.md
+              - name: Elliptics
+                href: v-26-3/concepts/architecture/elliptics.md
+              - name: Mastermind
+                href: v-26-3/concepts/architecture/mastermind.md
+              - name: Goose
+                href: v-26-3/concepts/architecture/goose.md
+              - name: Работа Goose с {{ PG }}
+                href: v-26-3/concepts/architecture/goose-postgresql.md
+              - name: Топология Goose и Elliptics
+                href: v-26-3/concepts/architecture/goose-elliptics.md
+              - name: Кластеры {{ PG }}
+                href: v-26-3/concepts/architecture/postgresql.md
+              - name: Observability
+                href: v-26-3/concepts/architecture/observability.md
+              - name: Сводка характеристик системы
+                href: v-26-3/concepts/architecture/system-characteristics.md
+              - name: Требования к системе
+                href: v-26-3/concepts/architecture/system-requirements.md
+              - name: Требования к кластеру {{ k8s }}
+                href: v-26-3/concepts/architecture/kubernetes.md
+              - name: Схемы подключения
+                href: v-26-3/concepts/architecture/connection-schemes.md
+              - name: Описание доменов отказа
+                href: v-26-3/concepts/architecture/desc-failure-domains.md
+              - name: Примеры балансировки
+                items:
+                  - name: Сравнение BGP и L2 балансировки
+                    href: v-26-3/concepts/architecture/bgp-vs-l2-comparison.md
+                  - name: Размещение в датацентрах с L2-балансировщиком
+                    href: v-26-3/concepts/architecture/data-center-placement-l2.md
+                  - name: Размещение в датацентрах с BGP-балансировкой
+                    href: v-26-3/concepts/architecture/data-center-placement-bgp.md
+          - name: Избыточность данных
+            href: v-26-3/concepts/data-redundancy.md
+          - name: Ограничения и лимиты
+            href: v-26-3/concepts/limits.md
+      - name: Установка и настройка
+        items:
+          - name: Общее описание процесса установки
+            href: v-26-3/install/index.md
+          - name: Подготовка окружения
+            href: v-26-3/install/environment-preparation.md
+          - name: Настройка параметров инсталляции
+            href: v-26-3/install/setup-install-params.md
+          - name: Шаги установки
+            href: v-26-3/install/installation-steps.md
+          - name: После установки
+            href: v-26-3/install/getting-started.md
+      - name: Управление продуктом
+        href: v-26-3/quickstart.md
+      - name: Сценарии обслуживания
+        items:
+          - name: Обзор
+            href: v-26-3/operations/index.md
+          - name: Установка обновлений
+            href: v-26-3/operations/installing-updates.md
+          - name: Расширение хранилища
+            href: v-26-3/operations/storage-expansion.md
+          - name: Замена дисков
+            href: v-26-3/operations/replacing-disks.md
+          - name: Перенос базы данных
+            href: v-26-3/operations/database-migration.md
+          - name: Пересоздание базы данных
+            href: v-26-3/operations/database-recreation.md
+          - name: Управление квотами rate-лимитера
+            href: v-26-3/operations/manage-quotas-rate-limiter.md
+          - name: Обновление сертификатов
+            href: v-26-3/operations/update-certificates.md
+      - name: Поиск и устранение неисправностей
+        items:
+          - name: Устранение неисправностей при установке
+            href: v-26-3/troubleshooting/installation-errors.md
+          - name: Алгоритмы решения проблем
+            href: v-26-3/troubleshooting/problem-solving-algorithms.md
+          - name: Типовые проблемы и их устранение
+            href: v-26-3/troubleshooting/known-issues.md
+          - name: Коды ошибок
+            href: v-26-3/troubleshooting/error-codes.md
+      - name: Мониторинг
+        href: v-26-3/monitoring/index.md
+      - name: Справочник CLI (англ.)
+        items:
+          - name: Overview
+            href: cli-ref/cli.md
+          - name: access-keys
+            items:
+              - name: Overview
+                href: cli-ref/cli_access-keys.md
+              - name: create
+                href: cli-ref/cli_access-keys_create.md
+              - name: delete
+                href: cli-ref/cli_access-keys_delete.md
+              - name: list
+                href: cli-ref/cli_access-keys_list.md
+          - name: buckets
+            items:
+              - name: Overview
+                href: cli-ref/cli_buckets.md
+              - name: create
+                href: cli-ref/cli_buckets_create.md
+              - name: delete
+                href: cli-ref/cli_buckets_delete.md
+              - name: get
+                items:
+                  - name: Overview
+                    href: cli-ref/cli_buckets_get.md
+                  - name: acl
+                    href: cli-ref/cli_buckets_get_acl.md
+                  - name: cors
+                    href: cli-ref/cli_buckets_get_cors.md
+                  - name: lifecycle
+                    href: cli-ref/cli_buckets_get_lifecycle.md
+                  - name: max_size
+                    href: cli-ref/cli_buckets_get_max_size.md
+                  - name: object_lock
+                    href: cli-ref/cli_buckets_get_object_lock.md
+                  - name: policy
+                    href: cli-ref/cli_buckets_get_policy.md
+                  - name: settings
+                    href: cli-ref/cli_buckets_get_settings.md
+                  - name: storage_class
+                    href: cli-ref/cli_buckets_get_storage_class.md
+                  - name: tags
+                    href: cli-ref/cli_buckets_get_tags.md
+                  - name: versioning
+                    href: cli-ref/cli_buckets_get_versioning.md
+              - name: list
+                href: cli-ref/cli_buckets_list.md
+              - name: update
+                items:
+                  - name: Overview
+                    href: cli-ref/cli_buckets_update.md
+                  - name: acl
+                    href: cli-ref/cli_buckets_update_acl.md
+                  - name: cors
+                    href: cli-ref/cli_buckets_update_cors.md
+                  - name: lifecycle
+                    href: cli-ref/cli_buckets_update_lifecycle.md
+                  - name: max_size
+                    href: cli-ref/cli_buckets_update_max_size.md
+                  - name: object_lock
+                    href: cli-ref/cli_buckets_update_object_lock.md
+                  - name: policy
+                    href: cli-ref/cli_buckets_update_policy.md
+                  - name: storage_class
+                    href: cli-ref/cli_buckets_update_storage_class.md
+                  - name: tags
+                    href: cli-ref/cli_buckets_update_tags.md
+                  - name: versioning
+                    href: cli-ref/cli_buckets_update_versioning.md
+          - name: completion
+            items:
+              - name: Overview
+                href: cli-ref/cli_completion.md
+              - name: bash
+                href: cli-ref/cli_completion_bash.md
+              - name: fish
+                href: cli-ref/cli_completion_fish.md
+              - name: powershell
+                href: cli-ref/cli_completion_powershell.md
+              - name: zsh
+                href: cli-ref/cli_completion_zsh.md
+          - name: config
+            items:
+              - name: Overview
+                href: cli-ref/cli_config.md
+              - name: init
+                href: cli-ref/cli_config_init.md
+              - name: profile
+                href: cli-ref/cli_config_profile.md
+              - name: show
+                href: cli-ref/cli_config_show.md
+          - name: help
+            href: cli-ref/cli_help.md
+          - name: login
+            items:
+              - name: Overview
+                href: cli-ref/cli_login.md
+              - name: renew
+                href: cli-ref/cli_login_renew.md
+          - name: ops
+            items:
+              - name: Overview
+                href: cli-ref/cli_ops.md
+              - name: certs
+                items:
+                  - name: Overview
+                    href: cli-ref/cli_ops_certs.md
+                  - name: generate-csr-console
+                    href: cli-ref/cli_ops_certs_generate-csr-console.md
+                  - name: generate-csr-s3
+                    href: cli-ref/cli_ops_certs_generate-csr-s3.md
+                  - name: get-csr
+                    href: cli-ref/cli_ops_certs_get-csr.md
+                  - name: install-cert-console
+                    href: cli-ref/cli_ops_certs_install-cert-console.md
+                  - name: install-cert-s3
+                    href: cli-ref/cli_ops_certs_install-cert-s3.md
+                  - name: list-csr
+                    href: cli-ref/cli_ops_certs_list-csr.md
+                  - name: upload-console
+                    href: cli-ref/cli_ops_certs_upload-console.md
+                  - name: upload-s3
+                    href: cli-ref/cli_ops_certs_upload-s3.md
+              - name: tasks
+                items:
+                  - name: Overview
+                    href: cli-ref/cli_ops_tasks.md
+                  - name: get
+                    href: cli-ref/cli_ops_tasks_get.md
+                  - name: list
+                    href: cli-ref/cli_ops_tasks_list.md
+                  - name: wait
+                    href: cli-ref/cli_ops_tasks_wait.md
+              - name: updates
+                items:
+                  - name: Overview
+                    href: cli-ref/cli_ops_updates.md
+                  - name: available
+                    href: cli-ref/cli_ops_updates_available.md
+                  - name: install
+                    href: cli-ref/cli_ops_updates_install.md
+                  - name: upload
+                    href: cli-ref/cli_ops_updates_upload.md
+          - name: service-accounts
+            items:
+              - name: Overview
+                href: cli-ref/cli_service-accounts.md
+              - name: activate
+                href: cli-ref/cli_service-accounts_activate.md
+              - name: create
+                href: cli-ref/cli_service-accounts_create.md
+              - name: delete
+                href: cli-ref/cli_service-accounts_delete.md
+              - name: get
+                href: cli-ref/cli_service-accounts_get.md
+              - name: list
+                href: cli-ref/cli_service-accounts_list.md
+              - name: suspend
+                href: cli-ref/cli_service-accounts_suspend.md
+              - name: update
+                href: cli-ref/cli_service-accounts_update.md
+              - name: update-role
+                href: cli-ref/cli_service-accounts_update-role.md
+          - name: settings
+            items:
+              - name: Overview
+                href: cli-ref/cli_settings.md
+              - name: login
+                href: cli-ref/cli_settings_login.md
+          - name: tenants
+            items:
+              - name: Overview
+                href: cli-ref/cli_tenants.md
+              - name: activate
+                href: cli-ref/cli_tenants_activate.md
+              - name: create
+                href: cli-ref/cli_tenants_create.md
+              - name: delete
+                href: cli-ref/cli_tenants_delete.md
+              - name: get
+                href: cli-ref/cli_tenants_get.md
+              - name: list
+                href: cli-ref/cli_tenants_list.md
+              - name: members
+                items:
+                  - name: Overview
+                    href: cli-ref/cli_tenants_members.md
+                  - name: change
+                    href: cli-ref/cli_tenants_members_change.md
+                  - name: list
+                    href: cli-ref/cli_tenants_members_list.md
+              - name: reactivate
+                href: cli-ref/cli_tenants_reactivate.md
+              - name: suspend
+                href: cli-ref/cli_tenants_suspend.md
+              - name: update
+                href: cli-ref/cli_tenants_update.md
+          - name: update
+            href: cli-ref/cli_update.md
+          - name: users
+            items:
+              - name: Overview
+                href: cli-ref/cli_users.md
+              - name: add
+                href: cli-ref/cli_users_add.md
+              - name: get
+                href: cli-ref/cli_users_get.md
+              - name: list
+                href: cli-ref/cli_users_list.md
+              - name: lock
+                href: cli-ref/cli_users_lock.md
+              - name: unlock
+                href: cli-ref/cli_users_unlock.md
+              - name: whoami
+                href: cli-ref/cli_users_whoami.md
+          - name: version
+            href: cli-ref/cli_version.md
+          - name: yarl
+            items:
+              - name: Overview
+                href: cli-ref/cli_yarl.md
+              - name: delete
+                items:
+                  - name: Overview
+                    href: cli-ref/cli_yarl_delete.md
+                  - name: common
+                    href: cli-ref/cli_yarl_delete_common.md
+                  - name: couple
+                    href: cli-ref/cli_yarl_delete_couple.md
+                  - name: handler
+                    href: cli-ref/cli_yarl_delete_handler.md
+                  - name: shard
+                    href: cli-ref/cli_yarl_delete_shard.md
+              - name: get
+                href: cli-ref/cli_yarl_get.md
+              - name: list
+                href: cli-ref/cli_yarl_list.md
+              - name: set
+                items:
+                  - name: Overview
+                    href: cli-ref/cli_yarl_set.md
+                  - name: common
+                    href: cli-ref/cli_yarl_set_common.md
+                  - name: couple
+                    href: cli-ref/cli_yarl_set_couple.md
+                  - name: handler
+                    href: cli-ref/cli_yarl_set_handler.md
+                  - name: shard
+                    href: cli-ref/cli_yarl_set_shard.md
+      - name: Справочник API
+        items:
+          - name: Руководство по использованию gRPC API
+            href: v-26-3/api-ref/index.md
+          - name: gRPC (англ.)
+            href: v-26-3/api-ref/grpc-api-ref.md
+path: ru/storage-onprem/toc.yaml

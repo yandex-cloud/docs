@@ -48,7 +48,7 @@ keywords:
 
             Сервисному аккаунту должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`.
 
-        1. Выберите версию {{ TR }}.
+        1. Выберите [версию {{ TR }}](../concepts/versions.md#available-versions).
 
             {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
 

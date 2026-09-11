@@ -35,6 +35,9 @@ A list of label KEY=VALUE pairs to add. For example, to add two labels named 'fo
 || `--group-distribution-type` | `string`
 
 Specifies the group distribution type for the OAuth application. Values: 'none', 'assigned-groups', 'all-groups' ||
+|| `--group-claim-value` | `string`
+
+Source of the group value provided to the application. Values: 'name', 'id', 'external-id' ||
 || `--client-id` | `string`
 
 OAuth client ID. ||

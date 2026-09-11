@@ -127,7 +127,7 @@
    export TRINO_PASSWORD=$(yc iam create-token)
    ```
 
-   IAM-токен, хранящийся в переменной `TRINO_PASSWORD`, служит паролем для подключения к кластеру Managed Service for Trino. Чтобы использовать его, укажите при подключении флаг `--password`.
+   IAM-токен, хранящийся в переменной `TRINO_PASSWORD`, служит паролем для подключения к кластеру Managed Service for Trino. Чтобы использовать его, укажите при подключении параметр `--password`.
 
 1. Подключитесь к кластеру Managed Service for Trino:
 
@@ -302,7 +302,7 @@
             <dependency>
                 <groupId>io.trino</groupId>
                 <artifactId>trino-jdbc</artifactId>
-                <version>469</version>
+                <version>483</version>
             </dependency>
         </dependencies>
         <build>

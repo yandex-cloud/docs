@@ -4,12 +4,6 @@
 
 
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 ## Настроить графическое оформление страницы входа {#appearance}
 
 Чтобы настроить [графическое оформление](../concepts/branding.md#appearance) страницы входа:

@@ -32,6 +32,9 @@ A list of label KEY=VALUE pairs to add. For example, to add two labels named 'fo
 || `--group-distribution-type` | `string`
 
 Specifies the group distribution type for the SAML application. Values: 'none', 'assigned-groups', 'all-groups' ||
+|| `--group-attribute-value` | `string`
+
+Source of the group value provided to the application. Values: 'name', 'id', 'external-id' ||
 || `--group-attribute-name` | `string`
 
 Name of the SAML attribute that contains group information. ||

@@ -22,14 +22,6 @@
 
  - [Взаимодействие пользователей и ресурсов](roles-and-resources.md)
 
- - [Разграничение зон контроля в MDB](concepts/mdb-responsibilities.md)
-
- - [Разграничение зон контроля в Managed Service for Kubernetes](concepts/kubernetes-responsibilities.md)
-
- - [Разграничение зон контроля в Yandex Data Processing](concepts/data-processing-responsibilities.md)
-
- - [Разграничение зон контроля в Managed Service for Apache Airflow™](concepts/maf-responsibilities.md)
-
  - [Удаление данных пользователей](concepts/data-deletion.md)
 
  - [Получение сведений для запроса на включение ресурса в белый список Минцифры](concepts/info-for-federal-ip-whitelist.md)
@@ -39,6 +31,16 @@
  - [Список сервисов](concepts/services.md)
 
  - [Стадии готовности сервисов](concepts/launch-stages.md)
+
+### Разграничение зон контроля
+
+ - [Разграничение зон контроля в AI Studio](concepts/ai-studio-responsibilities.md)
+
+ - [Разграничение зон контроля в Yandex Data Processing](concepts/data-processing-responsibilities.md)
+
+ - [Разграничение зон контроля в MDB](concepts/mdb-responsibilities.md)
+
+ - [Разграничение зон контроля в Managed Service for Kubernetes](concepts/kubernetes-responsibilities.md)
 
  - [Observability-инструменты мониторинга и логирования](concepts/monitoring-logging-tools.md)
 

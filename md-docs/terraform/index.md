@@ -768,6 +768,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [mdb_opensearch_cluster](data-sources/mdb_opensearch_cluster.md)
 
+ - [mdb_opensearch_user](data-sources/mdb_opensearch_user.md)
+
 ##### Resources
 
  - [mdb_opensearch_cluster](resources/mdb_opensearch_cluster.md)

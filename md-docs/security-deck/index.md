@@ -34,6 +34,8 @@
 
  - [Скачать алерты](operations/alerts/download.md)
 
+ - [Управлять тегами алертов](operations/alerts/tags.md)
+
 ### Контроль данных (DSPM)
 
  - [Обзор](operations/dspm/index.md)
@@ -129,6 +131,8 @@
  - [Стандарт PCI DSS в Yandex Cloud](concepts/standard-compliance/yc-pci-dss.md)
 
  - [Требования стандарта ГОСТ Р 57580](concepts/standard-compliance/yc-gost-57580.md)
+
+ - [Аудит процессов и приложений](concepts/standard-compliance/inventory-k8s-rules.md)
 
  - [Контроль данных (DSPM)](concepts/dspm.md)
 

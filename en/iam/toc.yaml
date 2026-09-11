@@ -374,8 +374,6 @@ items:
         items:
           - name: Overview
             href: cli-ref/subject-details/index.md
-          - name: batch-get
-            href: cli-ref/subject-details/batch-get.md
           - name: get
             href: cli-ref/subject-details/get.md
           - name: list
@@ -542,8 +540,6 @@ items:
             items:
               - name: Overview
                 href: cli-ref/v0/subject-details/index.md
-              - name: batch-get
-                href: cli-ref/v0/subject-details/batch-get.md
               - name: get
                 href: cli-ref/v0/subject-details/get.md
               - name: list

@@ -5,9 +5,6 @@ description: Перечень поддерживаемых инструмент�
 
 # Поддерживаемые инструменты
 
-
-{% include [ask-for-turning-on](../../_includes/notifications/ask-for-turning-on.md) %}
-
 {% include [about-service](../../_includes/notifications/about-service.md) %}
 
 {% include [channels-push-preview](../../_includes/notifications/channels-push-preview.md) %}

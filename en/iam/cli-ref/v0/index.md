@@ -145,9 +145,7 @@ Syntax:
 
 - [yc iam v0 subject-details](subject-details/index.md) — Show subject details
 
-  - [yc iam v0 subject-details batch-get](subject-details/batch-get.md) — Show details of multiple specified subjects
-
-  - [yc iam v0 subject-details get](subject-details/get.md) — Show details of the specified subject
+  - [yc iam v0 subject-details get](subject-details/get.md) — Show details of the specified subjects
 
   - [yc iam v0 subject-details list](subject-details/list.md) — List members of the specified organization
 

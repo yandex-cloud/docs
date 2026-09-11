@@ -6,8 +6,6 @@ description: Follow this guide to customize the appearance of authentication pag
 # Configuring branding
 
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 ## Configuring the login page appearance {#appearance}
 
 To configure the login page [appearance](../concepts/branding.md#appearance):
