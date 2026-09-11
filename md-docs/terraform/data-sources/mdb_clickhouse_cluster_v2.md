@@ -392,6 +392,10 @@ If the parameter is set to 0 (default), no hops is allowed.
   - `move_factor` (Number). Sets the minimum free space ratio in the cluster storage. If the free space is lower than this value, the data is transferred to Yandex Object Storage. Acceptable values are 0 to 1, inclusive.
   - `prefer_not_to_merge` (Bool). Disables merging of data parts in `Yandex Object Storage`.
 - `cluster_id` (*Read-Only*) (String). ID of the ClickHouse cluster. This ID is assigned by MDB at creation time.
+- `connection_manager` [Block]. Connection Manager integration settings. If the block is omitted, the API enables the integration by default for newly created clusters. Disabling the integration after the cluster is created is not supported.
+  - `connections_folder_id` (String). ID of the folder where connections for the cluster are created. Defaults to the cluster's folder if not specified.
+  - `enabled` (Bool). Indicates whether Connection Manager integration is enabled. Set to `true` to enable the integration. If omitted, the API enables the integration by default for newly created clusters. Disabling the integration after the cluster is created is not supported.
+  - `secrets_folder_id` (String). ID of the folder where connection secrets are created. Defaults to the cluster's folder if not specified.
 - `copy_schema_on_new_hosts` (Bool). Whether to copy schema on new ClickHouse hosts.
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.

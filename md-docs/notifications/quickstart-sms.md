@@ -2,9 +2,6 @@
 
 # Как начать работать с SMS в Yandex Cloud Notification Service
 
-
-Чтобы включить Cloud Notification Service, запросите доступ к сервису у вашего аккаунт-менеджера или в [технической поддержке](https://center.yandex.cloud/support).
-
 Cloud Notification Service (CNS) — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
 
 В Cloud Notification Service вы можете отправлять [SMS](https://ru.wikipedia.org/wiki/SMS) с помощью _каналов SMS-уведомлений_. Поддерживается отправка SMS на российские телефонные номера в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`. SMS подписываются текстовыми именами отправителя. Максимальная длина одного SMS — 160 символов латиницей или 70 символов кириллицей. Текст большей длины отправляется в нескольких SMS.
@@ -197,7 +194,7 @@ _Песочница_ — это тестовая среда, в которой �
 
 #### Полезные ссылки {#see-also}
 
-* [Как начать работать с push-уведомлениями](quickstart-sms.md)
+* [Как начать работать с push-уведомлениями](quickstart-push.md)
 * [Как начать работать с сервисом с помощью AWS CLI](tools/aws-cli.md)
 * [Обзор сервиса](concepts/index.md)
 * [Канал уведомлений SMS](concepts/sms.md)

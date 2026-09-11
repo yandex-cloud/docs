@@ -16,6 +16,18 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-metastore change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-metastore change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-metastore change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-metastore change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-metastore change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-metastore change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
+
 - [yc managed-metastore cluster](cluster/index.md) — Manage Metastore clusters
 
   - [yc managed-metastore cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Metastore cluster

@@ -25,6 +25,18 @@ Syntax:
 
   - [yc managed-greenplum v0 backup list](backup/list.md) — List available backups
 
+- [yc managed-greenplum v0 change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-greenplum v0 change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-greenplum v0 change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-greenplum v0 change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-greenplum v0 change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-greenplum v0 change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
+
 - [yc managed-greenplum v0 cluster](cluster/index.md) — Manage Greenplum and Cloudberry clusters
 
   - [yc managed-greenplum v0 cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Greenplum cluster

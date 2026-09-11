@@ -1,5 +1,45 @@
 [Документация Yandex Cloud](../index.md) > [Terraform в Yandex Cloud](index.md) > Справочник Terraform > История изменений (англ.)
 
+## 0.227.0 (September 10, 2026)
+
+##### FEATURES:
+* postgresql: add pg 19 support
+* airflow: gitsync configuration support username+password authentication for airflow dags source
+
+##### ENHANCEMENTS:
+* mongodb: add write-only password attributes to `yandex_mdb_mongodb_user`
+
+
+
+## 0.226.0 (September 7, 2026)
+
+##### FEATURES:
+* mongodb: add `operation_profiling` block with `slow_op_threshold` and `slow_op_sample_rate` attributes to `mongos` section of `yandex_mdb_mongodb_cluster`
+* opensearch: add yandex_mdb_opensearch_user data source with Connection Manager connection ID
+* mysql: add optional `restore.source_cluster_id` parameter
+
+##### BUG FIXES:
+* mysql: `restore.time` no longer defaults to the current time.
+* mysql: add runtime validation that `restore.backup_id` is not empty.
+* postgresql: yandex_mdb_postgresql_cluster_v2 subnet_id optional + computed, blank string validator
+* cdn: allow reading resources when shielding API is unavailable
+
+##### ENHANCEMENTS:
+* organizationmanager: add `group_claims_settings.group_attribute_value` to `yandex_organizationmanager_idp_application_saml_application` data source
+* organizationmanager: add `group_claims_settings.group_claim_value` to `yandex_organizationmanager_idp_application_oauth_application` resource
+* organizationmanager: add `group_claims_settings.group_attribute_value` to `yandex_organizationmanager_idp_application_saml_application` resource
+* organizationmanager: add `group_claims_settings.group_claim_value` to `yandex_organizationmanager_idp_application_oauth_application` data source
+* smartwebsecurity: add `solid_waf_settings.web_app_id` to `yandex_sws_domain` data source
+* smartwebsecurity: add `solid_waf_settings.web_app_id` to `yandex_sws_domain` resource
+* kafka: add write-only password attributes to `yandex_mdb_kafka_user` and MirrorMaker SASL password settings in `yandex_mdb_kafka_connector`.
+
+##### WARNING:
+* smartwebsecurity: change `load_balancer_id` in `yandex_sws_domain` data source from optional+computed to required
+* smartwebsecurity: change `name` in `yandex_sws_domain` data source from optional+computed to required
+* mdb_postgresql: `connection_manager.enabled = false` is now rejected when creating a `yandex_mdb_postgresql_cluster_v2` resource, as it already was when updating one: creating a cluster without the Connection Manager integration is not supported through Terraform
+
+
+
 ## 0.225.0 (August 31, 2026)
 
 ##### ENHANCEMENTS:

@@ -24,6 +24,18 @@ Syntax:
 
   - [yc managed-opensearch v0 backup list](backup/list.md) — List available OpenSearch backups in a folder.
 
+- [yc managed-opensearch v0 change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-opensearch v0 change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-opensearch v0 change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-opensearch v0 change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-opensearch v0 change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-opensearch v0 change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
+
 - [yc managed-opensearch v0 cluster](cluster/index.md) — Managed OpenSearch clusters.
 
   - [yc managed-opensearch v0 cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified OpenSearch cluster

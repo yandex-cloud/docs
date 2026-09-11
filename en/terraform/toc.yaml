@@ -1137,6 +1137,9 @@ items:
                   - name: mdb_opensearch_cluster
                     href: data-sources/mdb_opensearch_cluster.md
                     title: ''
+                  - name: mdb_opensearch_user
+                    href: data-sources/mdb_opensearch_user.md
+                    title: ''
                 title: ''
               - name: Resources
                 items:

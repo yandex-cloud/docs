@@ -1,13 +1,9 @@
 ---
 title: Как начать работать с push-уведомлениями в браузере в {{ cns-full-name }}
-description: С помощью {{ cns-name }} вы можете отправлять push-уведомления в браузеры пользователей
+description: С помощью {{ cns-name }} вы можете отправлять push-уведомления в браузеры пользователей.
 ---
 
-
-# Как начать работать с push-уведомлениями в браузере {{ cns-full-name }}
-
-
-{% include [ask-for-turning-on](../_includes/notifications/ask-for-turning-on.md) %}
+# Как начать работать с push-уведомлениями в браузере в {{ cns-full-name }}
 
 {% include [about-service](../_includes/notifications/about-service.md) %}
 

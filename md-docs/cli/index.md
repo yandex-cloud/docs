@@ -1318,6 +1318,82 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/baremetal/cli-ref/zone/list.md)
 
+### billing
+
+ - [Overview](cli-ref/billing/cli-ref/index.md)
+
+#### consumption-core
+
+ - [Overview](cli-ref/billing/cli-ref/consumption-core/index.md)
+
+ - [get-billing-account-usage-report](cli-ref/billing/cli-ref/consumption-core/get-billing-account-usage-report.md)
+
+ - [get-cloud-usage-report](cli-ref/billing/cli-ref/consumption-core/get-cloud-usage-report.md)
+
+ - [get-folder-usage-report](cli-ref/billing/cli-ref/consumption-core/get-folder-usage-report.md)
+
+ - [get-label-key-usage-report](cli-ref/billing/cli-ref/consumption-core/get-label-key-usage-report.md)
+
+ - [get-resource-usage-report](cli-ref/billing/cli-ref/consumption-core/get-resource-usage-report.md)
+
+ - [get-service-instance-usage-report](cli-ref/billing/cli-ref/consumption-core/get-service-instance-usage-report.md)
+
+ - [get-service-usage-report](cli-ref/billing/cli-ref/consumption-core/get-service-usage-report.md)
+
+ - [get-sku-usage-report](cli-ref/billing/cli-ref/consumption-core/get-sku-usage-report.md)
+
+#### metadata
+
+ - [Overview](cli-ref/billing/cli-ref/metadata/index.md)
+
+ - [get-cloud](cli-ref/billing/cli-ref/metadata/get-cloud.md)
+
+ - [get-label](cli-ref/billing/cli-ref/metadata/get-label.md)
+
+ - [get-resources](cli-ref/billing/cli-ref/metadata/get-resources.md)
+
+ - [get-service-instance](cli-ref/billing/cli-ref/metadata/get-service-instance.md)
+
+ - [get-usage](cli-ref/billing/cli-ref/metadata/get-usage.md)
+
+#### v1
+
+ - [Overview](cli-ref/billing/cli-ref/v1/index.md)
+
+##### consumption-core
+
+ - [Overview](cli-ref/billing/cli-ref/v1/consumption-core/index.md)
+
+ - [get-billing-account-usage-report](cli-ref/billing/cli-ref/v1/consumption-core/get-billing-account-usage-report.md)
+
+ - [get-cloud-usage-report](cli-ref/billing/cli-ref/v1/consumption-core/get-cloud-usage-report.md)
+
+ - [get-folder-usage-report](cli-ref/billing/cli-ref/v1/consumption-core/get-folder-usage-report.md)
+
+ - [get-label-key-usage-report](cli-ref/billing/cli-ref/v1/consumption-core/get-label-key-usage-report.md)
+
+ - [get-resource-usage-report](cli-ref/billing/cli-ref/v1/consumption-core/get-resource-usage-report.md)
+
+ - [get-service-instance-usage-report](cli-ref/billing/cli-ref/v1/consumption-core/get-service-instance-usage-report.md)
+
+ - [get-service-usage-report](cli-ref/billing/cli-ref/v1/consumption-core/get-service-usage-report.md)
+
+ - [get-sku-usage-report](cli-ref/billing/cli-ref/v1/consumption-core/get-sku-usage-report.md)
+
+##### metadata
+
+ - [Overview](cli-ref/billing/cli-ref/v1/metadata/index.md)
+
+ - [get-cloud](cli-ref/billing/cli-ref/v1/metadata/get-cloud.md)
+
+ - [get-label](cli-ref/billing/cli-ref/v1/metadata/get-label.md)
+
+ - [get-resources](cli-ref/billing/cli-ref/v1/metadata/get-resources.md)
+
+ - [get-service-instance](cli-ref/billing/cli-ref/v1/metadata/get-service-instance.md)
+
+ - [get-usage](cli-ref/billing/cli-ref/v1/metadata/get-usage.md)
+
 ### cdn
 
  - [Overview](cli-ref/cdn/cli-ref/index.md)
@@ -3694,6 +3770,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [Overview](cli-ref/dataproc/cli-ref/index.md)
 
+#### change-freeze
+
+ - [Overview](cli-ref/dataproc/cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/dataproc/cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/dataproc/cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/dataproc/cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/dataproc/cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/dataproc/cli-ref/change-freeze/terminate.md)
+
 #### cluster
 
  - [Overview](cli-ref/dataproc/cli-ref/cluster/index.md)
@@ -3775,6 +3865,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 #### v0
 
  - [Overview](cli-ref/dataproc/cli-ref/v0/index.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/dataproc/cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/dataproc/cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/dataproc/cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/dataproc/cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/dataproc/cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/dataproc/cli-ref/v0/change-freeze/terminate.md)
 
 ##### cluster
 
@@ -4532,8 +4636,6 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [Overview](cli-ref/iam/cli-ref/subject-details/index.md)
 
- - [batch-get](cli-ref/iam/cli-ref/subject-details/batch-get.md)
-
  - [get](cli-ref/iam/cli-ref/subject-details/get.md)
 
  - [list](cli-ref/iam/cli-ref/subject-details/list.md)
@@ -4699,8 +4801,6 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 ##### subject-details
 
  - [Overview](cli-ref/iam/cli-ref/v0/subject-details/index.md)
-
- - [batch-get](cli-ref/iam/cli-ref/v0/subject-details/batch-get.md)
 
  - [get](cli-ref/iam/cli-ref/v0/subject-details/get.md)
 
@@ -5678,6 +5778,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [Overview](cli-ref/managed-airflow/cli-ref/index.md)
 
+#### change-freeze
+
+ - [Overview](cli-ref/managed-airflow/cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/managed-airflow/cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/managed-airflow/cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-airflow/cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-airflow/cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-airflow/cli-ref/change-freeze/terminate.md)
+
 #### cluster
 
  - [Overview](cli-ref/managed-airflow/cli-ref/cluster/index.md)
@@ -5709,6 +5823,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 #### v0
 
  - [Overview](cli-ref/managed-airflow/cli-ref/v0/index.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/managed-airflow/cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/managed-airflow/cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/managed-airflow/cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-airflow/cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-airflow/cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-airflow/cli-ref/v0/change-freeze/terminate.md)
 
 ##### cluster
 
@@ -5751,6 +5879,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [get](cli-ref/managed-clickhouse/cli-ref/backup/get.md)
 
  - [list](cli-ref/managed-clickhouse/cli-ref/backup/list.md)
+
+#### change-freeze
+
+ - [Overview](cli-ref/managed-clickhouse/cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/managed-clickhouse/cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/managed-clickhouse/cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-clickhouse/cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-clickhouse/cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-clickhouse/cli-ref/change-freeze/terminate.md)
 
 #### cluster
 
@@ -5969,6 +6111,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [get](cli-ref/managed-clickhouse/cli-ref/v0/backup/get.md)
 
  - [list](cli-ref/managed-clickhouse/cli-ref/v0/backup/list.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/terminate.md)
 
 ##### cluster
 
@@ -6244,6 +6400,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/managed-greenplum/cli-ref/backup/list.md)
 
+#### change-freeze
+
+ - [Overview](cli-ref/managed-greenplum/cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/managed-greenplum/cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/managed-greenplum/cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-greenplum/cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-greenplum/cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-greenplum/cli-ref/change-freeze/terminate.md)
+
 #### cluster
 
  - [Overview](cli-ref/managed-greenplum/cli-ref/cluster/index.md)
@@ -6410,6 +6580,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/managed-greenplum/cli-ref/v0/backup/list.md)
 
+##### change-freeze
+
+ - [Overview](cli-ref/managed-greenplum/cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/managed-greenplum/cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/managed-greenplum/cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-greenplum/cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-greenplum/cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-greenplum/cli-ref/v0/change-freeze/terminate.md)
+
 ##### cluster
 
  - [Overview](cli-ref/managed-greenplum/cli-ref/v0/cluster/index.md)
@@ -6566,6 +6750,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [Overview](cli-ref/managed-kafka/cli-ref/index.md)
 
+#### change-freeze
+
+ - [Overview](cli-ref/managed-kafka/cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/managed-kafka/cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/managed-kafka/cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-kafka/cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-kafka/cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-kafka/cli-ref/change-freeze/terminate.md)
+
 #### cluster
 
  - [Overview](cli-ref/managed-kafka/cli-ref/cluster/index.md)
@@ -6675,6 +6873,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 #### v0
 
  - [Overview](cli-ref/managed-kafka/cli-ref/v0/index.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/managed-kafka/cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/managed-kafka/cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/managed-kafka/cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-kafka/cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-kafka/cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-kafka/cli-ref/v0/change-freeze/terminate.md)
 
 ##### cluster
 
@@ -6994,6 +7206,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [Overview](cli-ref/managed-metastore/cli-ref/index.md)
 
+#### change-freeze
+
+ - [Overview](cli-ref/managed-metastore/cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/managed-metastore/cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/managed-metastore/cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-metastore/cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-metastore/cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-metastore/cli-ref/change-freeze/terminate.md)
+
 #### cluster
 
  - [Overview](cli-ref/managed-metastore/cli-ref/cluster/index.md)
@@ -7029,6 +7255,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 #### v0
 
  - [Overview](cli-ref/managed-metastore/cli-ref/v0/index.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/managed-metastore/cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/managed-metastore/cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/managed-metastore/cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-metastore/cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-metastore/cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-metastore/cli-ref/v0/change-freeze/terminate.md)
 
 ##### cluster
 
@@ -7085,6 +7325,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [delete](cli-ref/managed-mongodb/cli-ref/backup-retention-policy/delete.md)
 
  - [list](cli-ref/managed-mongodb/cli-ref/backup-retention-policy/list.md)
+
+#### change-freeze
+
+ - [Overview](cli-ref/managed-mongodb/cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/managed-mongodb/cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/managed-mongodb/cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-mongodb/cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-mongodb/cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-mongodb/cli-ref/change-freeze/terminate.md)
 
 #### cluster
 
@@ -7228,6 +7482,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/managed-mongodb/cli-ref/v0/backup-retention-policy/list.md)
 
+##### change-freeze
+
+ - [Overview](cli-ref/managed-mongodb/cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/managed-mongodb/cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/managed-mongodb/cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-mongodb/cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-mongodb/cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-mongodb/cli-ref/v0/change-freeze/terminate.md)
+
 ##### cluster
 
  - [Overview](cli-ref/managed-mongodb/cli-ref/v0/cluster/index.md)
@@ -7370,6 +7638,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list-by-folder](cli-ref/managed-mysql/cli-ref/backup-retention-policy/list-by-folder.md)
 
+#### change-freeze
+
+ - [Overview](cli-ref/managed-mysql/cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/managed-mysql/cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/managed-mysql/cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-mysql/cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-mysql/cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-mysql/cli-ref/change-freeze/terminate.md)
+
 #### cluster
 
  - [Overview](cli-ref/managed-mysql/cli-ref/cluster/index.md)
@@ -7498,6 +7780,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list-by-folder](cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/list-by-folder.md)
 
+##### change-freeze
+
+ - [Overview](cli-ref/managed-mysql/cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/managed-mysql/cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/managed-mysql/cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-mysql/cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-mysql/cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-mysql/cli-ref/v0/change-freeze/terminate.md)
+
 ##### cluster
 
  - [Overview](cli-ref/managed-mysql/cli-ref/v0/cluster/index.md)
@@ -7622,6 +7918,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/managed-opensearch/cli-ref/backup/list.md)
 
+#### change-freeze
+
+ - [Overview](cli-ref/managed-opensearch/cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/managed-opensearch/cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/managed-opensearch/cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-opensearch/cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-opensearch/cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-opensearch/cli-ref/change-freeze/terminate.md)
+
 #### cluster
 
  - [Overview](cli-ref/managed-opensearch/cli-ref/cluster/index.md)
@@ -7711,6 +8021,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [get](cli-ref/managed-opensearch/cli-ref/v0/backup/get.md)
 
  - [list](cli-ref/managed-opensearch/cli-ref/v0/backup/list.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/managed-opensearch/cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/managed-opensearch/cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/managed-opensearch/cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-opensearch/cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-opensearch/cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-opensearch/cli-ref/v0/change-freeze/terminate.md)
 
 ##### cluster
 
@@ -7805,6 +8129,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [delete](cli-ref/managed-postgresql/cli-ref/backup-retention-policy/delete.md)
 
  - [list](cli-ref/managed-postgresql/cli-ref/backup-retention-policy/list.md)
+
+#### change-freeze
+
+ - [Overview](cli-ref/managed-postgresql/cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/managed-postgresql/cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/managed-postgresql/cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-postgresql/cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-postgresql/cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-postgresql/cli-ref/change-freeze/terminate.md)
 
 #### cluster
 
@@ -7954,6 +8292,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/managed-postgresql/cli-ref/v0/backup-retention-policy/list.md)
 
+##### change-freeze
+
+ - [Overview](cli-ref/managed-postgresql/cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/managed-postgresql/cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/managed-postgresql/cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-postgresql/cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-postgresql/cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-postgresql/cli-ref/v0/change-freeze/terminate.md)
+
 ##### cluster
 
  - [Overview](cli-ref/managed-postgresql/cli-ref/v0/cluster/index.md)
@@ -8102,6 +8454,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/managed-redis/cli-ref/backup-retention-policy/list.md)
 
+#### change-freeze
+
+ - [Overview](cli-ref/managed-redis/cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/managed-redis/cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/managed-redis/cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-redis/cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-redis/cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-redis/cli-ref/change-freeze/terminate.md)
+
 #### cluster
 
  - [Overview](cli-ref/managed-redis/cli-ref/cluster/index.md)
@@ -8224,6 +8590,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/managed-redis/cli-ref/v0/backup-retention-policy/list.md)
 
+##### change-freeze
+
+ - [Overview](cli-ref/managed-redis/cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/managed-redis/cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/managed-redis/cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-redis/cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-redis/cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-redis/cli-ref/v0/change-freeze/terminate.md)
+
 ##### cluster
 
  - [Overview](cli-ref/managed-redis/cli-ref/v0/cluster/index.md)
@@ -8336,6 +8716,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/managed-sharded-postgresql/cli-ref/backup/list.md)
 
+#### change-freeze
+
+ - [Overview](cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/terminate.md)
+
 #### cluster
 
  - [Overview](cli-ref/managed-sharded-postgresql/cli-ref/cluster/index.md)
@@ -8424,6 +8818,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/managed-sharded-postgresql/cli-ref/v0/backup/list.md)
 
+##### change-freeze
+
+ - [Overview](cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/terminate.md)
+
 ##### cluster
 
  - [Overview](cli-ref/managed-sharded-postgresql/cli-ref/v0/cluster/index.md)
@@ -8502,6 +8910,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [Overview](cli-ref/managed-spark/cli-ref/index.md)
 
+#### change-freeze
+
+ - [Overview](cli-ref/managed-spark/cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/managed-spark/cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/managed-spark/cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-spark/cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-spark/cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-spark/cli-ref/change-freeze/terminate.md)
+
 #### cluster
 
  - [Overview](cli-ref/managed-spark/cli-ref/cluster/index.md)
@@ -8551,6 +8973,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 #### v0
 
  - [Overview](cli-ref/managed-spark/cli-ref/v0/index.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/managed-spark/cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/managed-spark/cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/managed-spark/cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-spark/cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-spark/cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-spark/cli-ref/v0/change-freeze/terminate.md)
 
 ##### cluster
 
@@ -8668,6 +9104,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [tpch](cli-ref/managed-trino/cli-ref/catalog/update/tpch.md)
 
+#### change-freeze
+
+ - [Overview](cli-ref/managed-trino/cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/managed-trino/cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/managed-trino/cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-trino/cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-trino/cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-trino/cli-ref/change-freeze/terminate.md)
+
 #### cluster
 
  - [Overview](cli-ref/managed-trino/cli-ref/cluster/index.md)
@@ -8777,6 +9227,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [tpcds](cli-ref/managed-trino/cli-ref/v0/catalog/update/tpcds.md)
 
  - [tpch](cli-ref/managed-trino/cli-ref/v0/catalog/update/tpch.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/managed-trino/cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/managed-trino/cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/managed-trino/cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-trino/cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-trino/cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-trino/cli-ref/v0/change-freeze/terminate.md)
 
 ##### cluster
 

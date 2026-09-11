@@ -43,6 +43,7 @@ output "my_saml_app.status" {
 - `description` (String). Description of the SAML application.
 - `group_claims_settings` [Block]. Group claims settings for the SAML application.
   - `group_attribute_name` (String). Name of the SAML attribute that contains group information.
+  - `group_attribute_value` (String). Source of the group value provided to the application.
   - `group_distribution_type` (String). Distribution type for group claims.
 - `id` (String). ID of the SAML application to return.
 - `identity_provider_metadata` [Block]. Identity provider metadata for the SAML application.

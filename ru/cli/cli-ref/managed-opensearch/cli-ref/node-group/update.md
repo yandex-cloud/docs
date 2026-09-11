@@ -41,7 +41,7 @@ Storage disk type. ||
 Number of hosts to be present within the node group. ||
 || `--roles` | `string`
 
-Roles to be given to the hosts in a OpenSearch node group. Supported values: 'manager', 'data', 'data+manager' (or 'manager+data') ||
+Roles to be given to the hosts in the node group. Supported values: 'manager', 'data', 'warm', 'ingest', 'data+manager' or 'manager+data', etc. If no node groups have 'ingest' role explicitly set, then all 'data' nodes in cluster will implicitly have 'ingest' role. ||
 |#
 
 #### Global Flags

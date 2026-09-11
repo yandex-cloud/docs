@@ -32,6 +32,18 @@ Aliases:
 
   - [yc managed-redis backup-retention-policy list](backup-retention-policy/list.md) — List available backup retention policies
 
+- [yc managed-redis change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-redis change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-redis change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-redis change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-redis change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-redis change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
+
 - [yc managed-redis cluster](cluster/index.md) — Manage Redis clusters
 
   - [yc managed-redis cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Redis cluster

@@ -31,6 +31,18 @@ Aliases:
 
   - [yc managed-opensearch backup list](backup/list.md) — List available OpenSearch backups in a folder.
 
+- [yc managed-opensearch change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-opensearch change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-opensearch change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-opensearch change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-opensearch change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-opensearch change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
+
 - [yc managed-opensearch cluster](cluster/index.md) — Managed OpenSearch clusters.
 
   - [yc managed-opensearch cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified OpenSearch cluster

@@ -3,11 +3,7 @@ title: Как начать работать с push-уведомлениями �
 description: 'С помощью {{ cns-name }} вы можете отправлять push-уведомления в приложения, зарегистрированные в следующих сервисах: Apple Push Notification service (APNs), Firebase Cloud Messaging (FCM), Huawei Mobile Services (HMS).'
 ---
 
-
 # Как начать работать с push-уведомлениями в {{ cns-full-name }}
-
-
-{% include [ask-for-turning-on](../_includes/notifications/ask-for-turning-on.md) %}
 
 {% include [about-service](../_includes/notifications/about-service.md) %}
 

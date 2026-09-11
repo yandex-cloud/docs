@@ -16,9 +16,7 @@ Aliases:
 
 #### Command Tree
 
-- [yc iam v0 subject-details batch-get](batch-get.md) — Show details of multiple specified subjects
-
-- [yc iam v0 subject-details get](get.md) — Show details of the specified subject
+- [yc iam v0 subject-details get](get.md) — Show details of the specified subjects
 
 - [yc iam v0 subject-details list](list.md) — List members of the specified organization
 

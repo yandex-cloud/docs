@@ -76,6 +76,8 @@
 
  - [Сеть в Managed Service for Trino](concepts/network.md)
 
+ - [Версионирование в Managed Service for Trino](concepts/versions.md)
+
  - [Имперсонация](concepts/impersonation.md)
 
  - [Отказоустойчивое выполнение запросов](concepts/retry-policy.md)
@@ -159,6 +161,20 @@
  - [tpcds](cli-ref/catalog/update/tpcds.md)
 
  - [tpch](cli-ref/catalog/update/tpch.md)
+
+### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
 
 ### cluster
 
@@ -269,6 +285,20 @@
  - [tpcds](cli-ref/v0/catalog/update/tpcds.md)
 
  - [tpch](cli-ref/v0/catalog/update/tpch.md)
+
+#### change-freeze
+
+ - [Overview](cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/v0/change-freeze/terminate.md)
 
 #### cluster
 

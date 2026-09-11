@@ -6,8 +6,6 @@ description: '{{ org-full-name }} allows you to customize the appearance of auth
 # Branding
 
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 In {{ org-full-name }}, you can customize the appearance of authentication pages and login forms to align them with your corporate style and preferences. In addition, branding allows you to customize the sign-in methods available to your users.
 
 Authentication pages can be branded if signing in via SSO either to external [applications](./applications/index.md) and {{ yandex-cloud }} services. When signing in to {{ yandex-cloud }} services, branding works as follows:

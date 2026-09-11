@@ -368,8 +368,6 @@
 
  - [Overview](cli-ref/subject-details/index.md)
 
- - [batch-get](cli-ref/subject-details/batch-get.md)
-
  - [get](cli-ref/subject-details/get.md)
 
  - [list](cli-ref/subject-details/list.md)
@@ -535,8 +533,6 @@
 #### subject-details
 
  - [Overview](cli-ref/v0/subject-details/index.md)
-
- - [batch-get](cli-ref/v0/subject-details/batch-get.md)
 
  - [get](cli-ref/v0/subject-details/get.md)
 

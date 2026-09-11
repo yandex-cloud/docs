@@ -3971,6 +3971,7 @@ default:
       security-center:
         alert:
           action_alert_analysis: Анализ алерта
+          overview_tags: Теги
         alerts:
           sink:
             action_create: Создать приёмник
@@ -4003,8 +4004,13 @@ default:
         alerts-base:
           action_create-exception_kyUtB: Создать исключение
         alerts:
+          AlertTagsControl:
+            action_add-tag_bu4cy: Добавить тег
           comment_form:
             send: Отправить
+          i18n:
+            ts:
+              action-add-tags_kUsL6: Добавить теги
         comp:
           SetsTable:
             action_disable_5hgkz: Выключить проверку
@@ -7081,6 +7087,8 @@ default:
         label_title: Логирование
       managed-ytsaurus:
         clusters:
+          NetworkSettingsForm:
+            field_cidr-blocks-whitelist_label_hL9Hc: Ограничения входящего трафика
           YTSaurusClusterCreatePage:
             base-params-section_title_nfKo2: Базовые параметры
             cluster-config-section_title_fPkN8: Конфигурация кластера

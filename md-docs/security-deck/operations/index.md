@@ -16,6 +16,7 @@
 * [Посмотреть алерты](alerts/view.md)
 * [Работа с алертами](alerts/work.md)
 * [Скачать алерты](alerts/download.md)
+* [Управлять тегами алертов](alerts/tags.md)
 
 ## Модуль контроля данных (DSPM) {#dspm}
 
