@@ -267,7 +267,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  2. Воспользуйтесь методом [Cluster.ListOperations](../api-ref/Cluster/listOperations.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.ListOperations](../api-ref/Cluster/listOperations.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
@@ -278,7 +278,7 @@
 
       Идентификатор кластера можно получить со [списком кластеров в каталоге](#list-clusters).
 
-  3. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.clickhouse.v1.ListClusterOperationsResponse).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.clickhouse.v1.ListClusterOperationsResponse).
 
 - gRPC API {#grpc-api}
 
