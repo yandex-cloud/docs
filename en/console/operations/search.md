@@ -97,14 +97,14 @@ Object type | Fields
 Object type | Fields
 --- | ---
 [Log group](../../logging/concepts/log-group.md) | ID, name, labels
-[Log target](../../logging/operations/create-sink.md) | ID, name, labels
+[Log sinks](../../logging/operations/create-sink.md) | ID, name, labels
 
 
 ### {{ postbox-full-name }} {#postbox}
 
 Object type | Fields
 --- | ---
-[Address](../../postbox/concepts/glossary.md#adress) | ID, address, labels, description
+[Address](../../postbox/concepts/glossary.md#address) | ID, address, labels, description
 
 
 ### {{ cloud-registry-full-name }} {#cloud-registry}
@@ -118,7 +118,7 @@ Object type | Fields
 
 Object type | Fields
 --- | ---
-[VM instance](../../compute/concepts/vm.md) | ID, name, labels, description, FQDN, host name, subnet ID, private ipv4 address, private ipv6 address, public ipv4 address, public ipv6 address
+[VM](../../compute/concepts/vm.md) | ID, name, labels, description, FQDN, host name, subnet ID, private ipv4 address, private ipv6 address, public ipv4 address, public ipv6 address
 [Dedicated host](../../compute/concepts/dedicated-host.md) | ID, name, labels, description
 [Instance group](../../compute/concepts/instance-groups/index.md) | ID, name, labels, description
 [VM placement group](../../compute/concepts/placement-groups.md) | ID, name, labels, description

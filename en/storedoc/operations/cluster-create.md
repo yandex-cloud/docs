@@ -426,7 +426,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-     Configuration file structure example:
+     Here is an example of the configuration file structure:
 
      {% cut "For a non-sharded cluster" %}
 

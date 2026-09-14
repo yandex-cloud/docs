@@ -27,7 +27,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
       1. In the [management console]({{ link-console-main }}), select the relevant folder.
       1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-      1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+      1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.metastore.label_metastore }}**.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Specify `metastore-cluster` as the cluster name.
       1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select `metastore-logging-sa`.
@@ -35,7 +35,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
       1. Under **{{ ui-key.yacloud.logging.label_title }}**:
 
          1. Enable **{{ ui-key.yacloud.logging.field_logging }}**.
-         1. To write logs to the default log group, select **{{ ui-key.yacloud.common.folder }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
+         1. To log to the default log group, select **{{ ui-key.yacloud.common.folder }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
          1. Specify the folder whose log group you want to use.
          1. Select the minimum logging level.
 
@@ -259,7 +259,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
       1. In the [management console]({{ link-console-main }}), select the relevant folder.
       1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-      1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+      1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.metastore.label_metastore }}**.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Specify `metastore-cluster` as the cluster name.
       1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select `metastore-logging-sa`.
@@ -267,7 +267,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
       1. Under **{{ ui-key.yacloud.logging.label_title }}**:
 
          1. Enable **{{ ui-key.yacloud.logging.field_logging }}**.
-         1. To write logs to a custom log group, select **{{ ui-key.yacloud.logging.label_loggroup }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
+         1. To log to a custom log group, select **{{ ui-key.yacloud.logging.label_loggroup }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
          1. Specify the `metastore-log-group` log group.
          1. Select the minimum logging level.
 
@@ -431,7 +431,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
       1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `metastore-log-group` log group.
 
-      The page that opens will show the records.
+      The page that opens will show the log group entries.
 
    - CLI {#cli}
 

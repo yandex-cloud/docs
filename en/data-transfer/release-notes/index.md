@@ -57,6 +57,14 @@ Use a new combination of endpoints to transfer data from {{ ydb-name }} to {{ PG
 
 ## 2026 {#2026}
 
+### August {#august2026}
+
+* Supported data cleanup policy in the [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md) target.
+* Added settings for manually connecting {{ ydb-name }} and {{ yds-name }} endpoints.
+* Now you can configure [{{ IBRG }}](../operations/endpoint/target/iceberg.md) as a target for [capturing data changes](../concepts/cdc.md).
+* Fixed errors related to the {{ CH }} data target behavior.
+* Revised the [Getting started with {{ data-transfer-name }}](../quickstart.md) section.
+
 ### July {#july2026}
 
 

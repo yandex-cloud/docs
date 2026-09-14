@@ -1,5 +1,6 @@
 ---
 title: How to get information about a resource in {{ cdn-full-name }}
+description: Follow this guide to get information about a resource.
 ---
 
 # Getting resource info
@@ -88,7 +89,7 @@ title: How to get information about a resource in {{ cdn-full-name }}
       * `output "resource_active"`: Output variable that shows whether the CDN resource is active:
          * `value`: Return value.
 
-     You can replace `active` with another variable to get the information you need. For more on the properties of the `yandex_cdn_resource` data source, see [this provider guide]({{ tf-provider-datasources-link }}/cdn_resource).
+     You can replace `active` with any other attribute to get the information you need. For more information about the properties of the `yandex_cdn_resource` data source, see [this provider guide]({{ tf-provider-datasources-link }}/cdn_resource).
 
   1. Create the resources:
 
@@ -146,11 +147,11 @@ title: How to get information about a resource in {{ cdn-full-name }}
       Where:
 
       * `data "yandex_cdn_resource"`: Description of the CDN resource as a data source:
-         * `resource_id`: Resource ID.
+         * `resource_id`: Resource identifier.
       * `output "provider_cname"`: Output variable that contains information about the domain name:
          * `value`: Return value.
 
-     You can replace `provider_cname` with another variable to get the information you need. For more on the properties of the `yandex_cdn_resource` data source, see [this provider guide]({{ tf-provider-datasources-link }}/cdn_resource).
+     You can replace `provider_cname` with any other attribute to get the information you need. For more information about the properties of the `yandex_cdn_resource` data source, see [this provider guide]({{ tf-provider-datasources-link }}/cdn_resource).
 
   1. Get information about resources:
 

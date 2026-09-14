@@ -384,7 +384,27 @@ You can create multiple shards in a cluster in one go.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/listShards.md#yandex.cloud.mdb.clickhouse.v1.ListClusterShardsResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/listShards.md#yandex.cloud.mdb.clickhouse.v1.ListClusterShardsResponse) to make sure your request was successful.
+
+{% endlist %}
+
+## Getting shard numbers {#shard-update}
+
+{% list tabs group=instructions %}
+
+- SQL {#sql}
+
+  Shard numbers in {{ CH }} (`shard_num`) follow the lexicographical order of shard names in {{ mch-name }}, e.g., `A-shard`, `B-shard`, `shard10`, `shard100`.
+
+  To get the number and name of each shard, run the following query:
+
+  ```sql
+  SELECT DISTINCT
+      shard_num,
+      shard_name
+  FROM system.clusters
+  WHERE cluster = getMacro('cluster')
+  ```
 
 {% endlist %}
 

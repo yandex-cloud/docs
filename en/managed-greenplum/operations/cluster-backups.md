@@ -11,12 +11,12 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
     To get a list of cluster backups:
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
+    1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
     To get a list of all backups in your folder:
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
+    1. In the left-hand panel, select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
 - CLI {#cli}
 
@@ -147,12 +147,12 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
     To get backup details for an existing cluster:
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
+    1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
     To get backup details for a previously deleted cluster:
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
+    1. In the left-hand panel, select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
 - REST API {#api}
 
@@ -211,7 +211,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the name of your cluster and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
+    1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
     {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -288,7 +288,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) your {{ yandex-c
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
+    1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for your backup and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
     1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
     1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the time point to which you want to revert the cluster's state. You can enter a value manually or select one from the drop-down calendar. The system will select the restore point closest to that time.
@@ -538,7 +538,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) your {{ yandex-c
             * `commandCenterEnabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
             * `greenplumEnabled`: Transferring DBMS logs, `true` or `false`.
             * `poolerEnabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
-            * `folderId`: Specify the ID of the folder whose log group you want to use.
+            * `folderId`: ID of the folder whose log group you want to use.
             * `logGroupId`: ID of the log group to write logs to.
 
                 Specify either `folderId` or `logGroupId`.
@@ -656,7 +656,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) your {{ yandex-c
             * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
             * `greenplum_enabled`: Transferring DBMS logs, `true` or `false`.
             * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
-            * `folder_id`: Specify the ID of the folder whose log group you want to use.
+            * `folder_id`: ID of the folder whose log group you want to use.
             * `log_group_id`: ID of the log group to write logs to.
 
                 Specify either `folder_id` or `log_group_id`.

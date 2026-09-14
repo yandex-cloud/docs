@@ -38,7 +38,7 @@ You can create connections of the following types:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
   1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -197,7 +197,7 @@ You can create connections of the following types:
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
     1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
     1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -356,7 +356,7 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
    1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -514,7 +514,7 @@ You can create connections of the following types:
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
     1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
     1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -674,7 +674,7 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
    1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -820,7 +820,7 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
    1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -978,7 +978,7 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
    1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -1036,7 +1036,7 @@ You can create connections of the following types:
 
       * `--description`: Connection description.
 
-      * `--supported-mechanisms`: List of authentication mechanisms. The possible values are:
+      * `--supported-mechanisms`: List of authentication mechanisms. The possible values are as follows:
         
         * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
         * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
@@ -1118,7 +1118,7 @@ You can create connections of the following types:
             
             * `user`: Username to connect to the cluster.
             * `password.raw`: Password.
-            * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
+            * `supported_mechanisms`: List of authentication mechanisms. The possible values are as follows:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
               * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
@@ -1159,7 +1159,7 @@ You can create connections of the following types:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
   1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -1320,7 +1320,7 @@ You can create connections of the following types:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
   1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -1497,7 +1497,7 @@ You can create connections of the following types:
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
     1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
     1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -1698,7 +1698,7 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
    1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -1876,7 +1876,7 @@ You can create connections of the following types:
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
     1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
     1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -2070,7 +2070,7 @@ You can create connections of the following types:
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
     1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
     1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -2248,7 +2248,7 @@ You can create connections of the following types:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
   1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -2413,7 +2413,7 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
    1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -2591,7 +2591,7 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
    1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -2765,7 +2765,7 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
    1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
@@ -2831,7 +2831,7 @@ You can create connections of the following types:
 
       * `--description`: Connection description.
 
-      * `--supported-mechanisms`: List of authentication mechanisms. The possible values are:
+      * `--supported-mechanisms`: List of authentication mechanisms. The possible values are as follows:
         
         * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
         * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
@@ -2940,7 +2940,7 @@ You can create connections of the following types:
             
             * `user`: Username to connect to the cluster.
             * `password.raw`: Password.
-            * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
+            * `supported_mechanisms`: List of authentication mechanisms. The possible values are as follows:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
               * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
@@ -2981,7 +2981,7 @@ You can create connections of the following types:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
   1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).

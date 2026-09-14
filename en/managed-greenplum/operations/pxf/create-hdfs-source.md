@@ -11,7 +11,7 @@ In {{ mgp-name }}, you can use HDFS as part of [{{ dataproc-full-name }}](../../
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Open the page of the {{ mgp-name }} cluster in question.
-    1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
+    1. Navigate to the **{{ ui-key.yacloud.greenplum.label_pxf }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
     1. Select the `{{ ui-key.yacloud.greenplum.cluster.pxf.value_hdfs }}` connection type.
     1. Enter a source name.

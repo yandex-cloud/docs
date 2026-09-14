@@ -1,6 +1,6 @@
 ---
 title: Resource relationships in {{ mmg-full-name }}
-description: The main entity {{ mmg-name }} operates is a database cluster. Each cluster consists of one or multiple database hosts, which are virtual machines with DBMS servers deployed. Cluster hosts may reside in different availability zones. A multi-host cluster is natively fault tolerant because one of its replica hosts will take on the master role should the current master host fail.
+description: The main entity {{ mmg-name }} operates is a database cluster. Each cluster consists of one or multiple database hosts, which are virtual machines with DBMS servers deployed. Cluster hosts may reside in different availability zones. In a cluster with two or more active hosts, one is automatically selected as the primary replica to process write requests. If the primary replica fails, {{ SD }} selects a new primary from among the available hosts.
 ---
 
 # Resource relationships in {{ mmg-name }}
@@ -10,7 +10,7 @@ The main entity {{ mmg-name }} operates is a _database cluster_.
 
 Each cluster consists of one or multiple _database hosts_, which are virtual machines with deployed DBMS servers. Cluster hosts may reside in different availability zones and even different availability regions. You can learn more about {{ yandex-cloud }} geography in the [Platform overview](../../overview/concepts/geo-scope.md) section.
 
-In a cluster with two or more active hosts, one is automatically selected as the [primary replica](./replication.md) (master) to process write requests. If the master host fails, {{ SD }} selects a new master from among the available hosts.
+In a cluster with two or more active hosts, one is automatically selected as the [primary replica](./replication.md) to process write requests. If the primary replica fails, {{ SD }} selects a new primary from among the available hosts.
 
 A cluster with two or more hosts located in different availability zones is [tolerant of a single zone failure](./high-availability.md).
 

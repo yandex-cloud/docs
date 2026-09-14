@@ -41,7 +41,7 @@ The primary diagnostic tool is the **Cluster** dashboard, which serves as a sing
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the name of your cluster and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** tab.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.common.monitoring }}** tab.
       
         This opens a page displaying a dashboard with your {{ mgp-name }} cluster charts and signals.
 
@@ -145,7 +145,7 @@ To view detailed information on the state of individual {{ mgp-name }} hosts, re
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
+    1. Click the name of your cluster and select **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
     1. Select the host you need.
 
         The page that opens will display state charts for the cluster host.
@@ -212,7 +212,7 @@ To view detailed information about the [PXF](external-tables.md) state:
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}** tab.
+    1. Click the name of your cluster and select **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}**.
 
         The page that opens will display PXF state charts.
 
@@ -288,7 +288,7 @@ To view information on {{ mgp-name }} resource groups:
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and select ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Resource groups**.
+    1. Click the cluster name and select **{{ ui-key.yacloud.common.monitoring }}** → **Resource groups**.
       
         The page that opens will display performance charts for resource groups.
 
@@ -314,7 +314,7 @@ You can also view information on resource groups for each {{ mgp-name }} cluster
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and select ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Resource groups per host**.
+    1. Click the cluster name and select **{{ ui-key.yacloud.common.monitoring }}** → **Resource groups per host**.
       
         The page that opens will display performance charts for resource groups by host.
 

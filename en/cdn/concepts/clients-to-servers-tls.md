@@ -15,7 +15,7 @@ The certificate is configured when creating a resource. You can change it afterw
 
 {% include [tls-profiles-list](../../_includes/cdn/tls-profiles-list.md) %}
 
-You can customize this setting via the API when [creating](../operations/resources/create-resource.md) or [updating](../operations/resources/configure-basics.md) a CDN resource. For more information, see [{#T}](../operations/resources/configure-tls-profile.md).
+You can perform the setup via the management console and API when [creating](../operations/resources/create-resource.md) or [updating](../operations/resources/configure-tls-profile.md) a CDN resource.
 
 
 ## Domain ownership verification {#domain-name-challenge}

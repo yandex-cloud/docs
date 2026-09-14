@@ -105,9 +105,9 @@ To remove retention:
     * `<metastore-host>`: {{ metastore-name }} private IP address.
 
        To learn the IP address:
-       1. In the [management console]({{ link-console-main }}), select a folder.
+       1. In the [management console]({{ link-console-main }}), select the folder.
        1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-       1. In the left-hand panel, select ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+       1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.metastore.label_metastore }}**.
 
     * `<db-name>`: Database name.
     * `<table-name>`: Table name.

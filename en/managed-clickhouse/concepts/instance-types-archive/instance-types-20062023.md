@@ -17,7 +17,7 @@ The host class determines the available [disk types](.././storage.md):
 For storage size limitations, see [Quotas and limits](../limits.md).
 
 
-The host class affects the **Max server memory usage** DBMS setting that limits the amount of RAM {{ CH }} can use. For more information, see [Memory management](../memory-management.md).
+The host class affects the **Max server memory usage** DBMS setting that limits the amount of RAM {{ CH }} can use. To learn more, see [Memory management](../memory-management.md).
 
 ## Available host classes {#available-flavors}
 
@@ -26,7 +26,12 @@ Hosts in {{ mch-name }} clusters are deployed on {{ compute-full-name }} VMs. Yo
 
 The full list of possible host configurations on each platform is provided below.
 
-{% include [instance-types-code](../../../_includes/mdb/instance-types-code-c3-b3.md) %}
+Configuration types:
+
+* **s1**, **s2**, **s3**: Standard configurations with 4:1 RAM GB to vCPU ratio.
+* **m1**, **m2**, **m3**: Configurations with an increased RAM GB to vCPU ratio (8:1). These configurations are well suited for clusters with high cache requirements.
+* **c3**: Configurations with a reduced RAM GB to vCPU ratio (2:1). These configurations may be useful for clusters with higher processor performance requirements.
+* **b1**, **b2**, **b3**: Configurations with a guaranteed vCPU share under 100%. This host class is intended for test workloads. The minimum recommended host configuration for production solutions is two vCPUs with a guaranteed share of 50%.
 
 | Host class name | Number of vCPUs | Guaranteed vCPU share | RAM, GB | Disk <br>size, GB |
 |-------------------|-----------------|---------------------------|---------|----------------------|

@@ -1546,6 +1546,7 @@ default:
       local-nvme:
         greenplum|month|number: 0.1168524403
         greenplum|month|string: $0.1168524403
+        opensearch|month|string: $0.1168524403
       mongodb:
         v3:
           cpu:
@@ -1569,6 +1570,7 @@ default:
         kafka|month|string: $0.0306885197
         mysql|month|number: 0.0306885197
         mysql|month|string: $0.0306885197
+        opensearch|month|string: $0.0306885197
         pg|month|number: 0.0306885197
         pg|month|string: $0.0306885197
       network-nvme:
@@ -1576,14 +1578,50 @@ default:
         ch|month|string: $0.1286557171
         kafka|month|number: 0.1286557171
         kafka|month|string: $0.1286557171
+        opensearch|month|string: $0.1286557171
         redis|month|number: 0.1286557171
         redis|month|string: $0.1286557171
+      network-ssd-io-m3:
+        opensearch|month|string: $0.2154098016
+      network-ssd-nonreplicated:
+        opensearch|month|string: $0.0867540845
       opensearch:
+        backup|month|string: $0.0181180299
+        highfreq-v3:
+          cpu:
+            c100|month|string: $18.29507904
+            c100|string: $0.025409832
+          ram|month|string: $5.488523712
+          ram|string: $0.0076229496
+        highfreq-v4a:
+          cpu:
+            c100|month|string: $22.190160384
+            c100|string: $0.0308196672
+          ram|month|string: $6.668851392
+          ram|string: $0.0092622936
+        v2:
+          cpu:
+            c100|month|string: $11.390162112
+            c100|string: $0.0158196696
+            c50|month|string: $6.635802217
+            c50|string: $0.009216392
+          ram|month|string: $4.7626221888
+          ram|string: $0.006614753
         v3:
           cpu:
+            c100|month|string: $11.390162112
             c100|number: 0.0158196696
             c100|string: $0.0158196696
+            c50|month|string: $6.635802217
+            c50|string: $0.009216392
+          ram|month|string: $4.7626221888
           ram|number: 0.006614753
+          ram|string: $0.006614753
+        v4a:
+          cpu:
+            c100|month|string: $11.390162112
+            c100|string: $0.0158196696
+          ram|month|string: $4.7626221888
           ram|string: $0.006614753
       pg:
         v3:
@@ -1778,6 +1816,37 @@ default:
         vcpu:
           v1|number: 0.0169672104
           v1|string: $0.0169672104
+  sku|USD|v1:
+    commitment:
+      selfcheckout:
+        m6:
+          mdb:
+            opensearch:
+              cpu:
+                c100:
+                  v3|month|string: $9.678686976
+                  v3|string: $0.0134426208
+                  v4a|month|string: $9.678686976
+                  v4a|string: $0.0134426208
+              ram:
+                v3|month|string: $4.0479337786
+                v3|string: $0.0056221302
+                v4a|month|string: $4.0479337786
+                v4a|string: $0.0056221302
+        y1:
+          mdb:
+            opensearch:
+              cpu:
+                c100:
+                  v3|month|string: $8.911473984
+                  v3|string: $0.0123770472
+                  v4a|month|string: $8.911473984
+                  v4a|string: $0.0123770472
+              ram:
+                v3|month|string: $3.714491209
+                v3|string: $0.0051590156
+                v4a|month|string: $3.7150813728
+                v4a|string: $0.0051598352
   sku|USD|video:
     cdn:
       traffic:
@@ -2334,7 +2403,7 @@ default:
         amount: Number
         assemblyDiscountLabel: Cheaper with assembly
         cpuTitle: CPU
-        CustomConfiguration: Custom configuration
+        CustomConfiguration: Configure your own
         disks: Disks
         goToAssembly: "Go\_to\_assembly"
         networkLabel: Network
@@ -2342,7 +2411,7 @@ default:
         prefillWithTemplate: Prefill with template
         ramLabel: RAM
         size: Size
-        StockConfigurations: Stock configurations
+        StockConfigurations: Choose from stock
         type: Type
         withReserve: Enable
       cloud:
@@ -4217,6 +4286,7 @@ default:
         action_add-to-recovery-list: Add to list of files to be recovered
         action_bms-recovery: Recover BareMetal server
         action_detach-baremetal-instance: Detach server from policy
+        action_detach-external-resource: Detach resource
         action_detach-vm-instance: Detach VM from policy
         action_recovery: Restore VM
         action_recovery-start: Restore
@@ -4225,15 +4295,15 @@ default:
         button_attach-instance: Attach a VM
         button_connect-external-resource: Connect external resource
         button_create-policy: Create policy
-        column_baremetal-instance-status: Server status
+        column_operation-status: Operation status
         context_current-bms: current
         context_current-vm: current
         dialog_connect-external-resource_title: Connect external resource
+        field_add-resource_resource-type: Resource type
         field_connect-external-resource_policies: Backup policies
         field_connect-external-resource_resource-type: Resource type
         field_delete-old-vm: Delete the outdated VM
         field_recover-to-resource: Target resource
-        field_vm-instances: Cloud Backup
         files-recovery:
           value_location-custom: Custom
           value_location-original: Original
@@ -4504,6 +4574,7 @@ default:
         label_source-type: Origin type
         label_status-active: Active
         label_status-backup: Backup
+        label_tls-profile: TLS security profile
         label_use-bucket-site: Use bucket site
         md_value_certificate-le: Let's Encrypt^®^
         resources:
@@ -4542,6 +4613,10 @@ default:
         value_source-type-url: Server
         value_stepper-additional: Additional
         value_stepper-main-settings: Main settings
+        value_tls-profile-compatible: Compatible (TLSv1.2+)
+        value_tls-profile-legacy: Legacy (TLSv1.0+)
+        value_tls-profile-secure: Secure (TLSv1.2+ with PFS and AEAD support)
+        value_tls-profile-strict: Strict (TLSv1.3)
       certificate-manager:
         action_import: User certificate
         action_request: Let's Encrypt certificate
@@ -4708,8 +4783,6 @@ default:
         field_vapid: Public VAPID key
         field_web-push-endpoint_params: Endpoint parameters in JSON
         label_channels: Notification channels
-        label_editor-json: JSON
-        label_editor-text: Text
         label_endpoints: Endpoints
         label_phone-numbers: Test numbers
         local:
@@ -4801,6 +4874,7 @@ default:
         move: Move
         name: Name
         not-selected: Not selected
+        objects: Objects
         open: Open
         operations-key-value: Operations
         operations:
@@ -5173,6 +5247,8 @@ default:
             button_update: Save changes
           overview:
             backup-overview:
+              cloud-backup-card:
+                label_connection-status: Connection status
               title_backup-section: Backup
             button_action-edit: Edit VM
             button_action-ssh: Connect in Cloud Shell
@@ -5450,7 +5526,6 @@ default:
         label_create-source-button: Create data source
         label_create-tag-action: Create tag
         label_create-term-action: Create term
-        label_data-store: Data store
         label_domains: Domains
         label_empty-ingestion-count-short: No ingestion
         label_ingestion-count: Number of ingestions
@@ -5465,6 +5540,7 @@ default:
         label_search-placeholder: Data search
         label_source-data-tab: Uploaded data
         label_source-database-type: Data source type
+        label_source-queries-tab: Queries
         label_sources: Data sources
         label_subterms: Child terms
         label_tag-mutual-exclusion: Mutually exclusive
@@ -5472,6 +5548,11 @@ default:
         label_term-synonyms: Synonyms
         label_term-synonyms-add: Add
         label_terms-and-glossaries: Terms and glossaries
+        layout:
+          label:
+            search-new-layout_Y7pK2: Search
+            sources-new-layout_N6vT1: Sources
+            storage-new-layout_L4xQ8: Storage
         title_search-data: Metadata search
       data-streams:
         button_connect: Connect
@@ -5566,6 +5647,10 @@ default:
         label_service-account-select: Service account
       gitlab:
         action_create-backup: Create backup
+        action_create-instance-from-backup: Create instance from backup
+        action_delete-backup: Delete backup
+        action_get-backup-link: Get link
+        action_restore-backup: Restore instance
         button_configure-data-types: Configure data storage in Object Storage
         button_create-instance: Create instance
         button_finish-migration: Complete migration
@@ -5573,11 +5658,19 @@ default:
         button_runners_empty-create: Create Runner
         button_setup-omniauth: Configure
         button_start-migration: Move instance
+        components:
+          DownloadBackupModal:
+            button_generate: Get link
+            label_backup-link: Backup
+            label_lifetime: Lifetime
+            label_secrets-link: GitLab Secrets
         field_admin-email: Email
         field_admin-login: Login
         field_approval-rules: Approval rules
         field_approval-rules-token: Gitlab token
         field_capacity-per-instance: Number of parallel tasks per worker
+        field_copy-object-storage: Transfer data from Object Storage
+        field_copy-omniauth-config: Transfer OmniAuth settings
         field_delete-untagged: Delete untagged images during maintenance
         field_domain: Domain
         field_idle-time-minutes: Maximum worker downtime, in minutes
@@ -5589,6 +5682,7 @@ default:
         label_autoscale-section: Autoscale settings
         label_configuration-section: Configuration
         label_instances-title: Instances list
+        label_restore-section: Restore settings
         runners_popup-confirm_button_delete: Delete
         switch_instances: Instances
         title_backups: Backups
@@ -6950,10 +7044,13 @@ default:
           switch_monitoring: Monitoring
           switch_shards: Shards
         field_announce-hostnames: Use FQDN instead of IP addresses
+        field_audit-log: Log audit events
         field_tls-support: TLS support
         hosts:
           dialog:
             button_choose: Save
+        label_log-type-valkey: Valkey logs
+        label_log-type-valkey-audit: Authorization and connections
         local:
           valkey_modules_aQacT: Modules
           valkey_search_vfqdy: Search
@@ -7262,6 +7359,8 @@ default:
         layout:
           PageActions:
             button_more_sGEBS: More
+          PageContentActions:
+            button_more_axqoH: More
           PageTabs:
             button_other_hnYwF: Other
       smart-web-security:
@@ -7786,7 +7885,7 @@ default:
           popup-confirm_button_static: Change
           popup-create_button_create: ' Reserve'
           popup-create_field_advanced: Advanced
-          popup-create_field_deletion-protection: Deletion protection
+          popup-create_field_deletion-protection_jVSCP: Deletion protection
           popup-create_field_internal-v4-address: Internal IPv4 address
           popup-create_field_zone: Availability zone
         gateways:
@@ -8987,6 +9086,12 @@ default:
                     YdbConnectionSettings:
                       database:
                         title: Database
+                      instance:
+                        title: YDB endpoint
+                      managed_connection:
+                        title: Managed Service for YDB database
+                      on_premise_connection:
+                        title: Manual Configuration
                       security_groups:
                         title: Security groups
                       service_account_id:
@@ -8996,6 +9101,11 @@ default:
                         title: Name of pre-created consumer
                       changefeed_custom_name:
                         title: Name of pre-created changefeed
+                    YdbOnPremiseConnectionSettings:
+                      ca_certificate:
+                        title: CA certificate
+                      subnet_id:
+                        title: Subnet ID
                     YdbPartitionPolicy:
                       keep_part_count:
                         title: Number of tables
@@ -9046,8 +9156,6 @@ default:
                     YDSConnection:
                       database:
                         title: Database
-                      security_groups:
-                        title: Security groups
                       service_account_id:
                         title: Service account
                       stream:

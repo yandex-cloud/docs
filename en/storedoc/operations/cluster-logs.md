@@ -16,8 +16,8 @@
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
     1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-    1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}** tab.
-    1. Specify a time period for the log entries you want to view: enter it manually or select in the calendar using the date input field.
+    1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}**.
+    1. Specify a time period for the log entries you want to view by entering it manually or selecting it in the calendar using the date input field.
     1. If needed, specify the hosts and logging level in the row containing the date field.
 
     You will see a list of log entries for the chosen time period. To see details of a specific event, click its entry in the list.

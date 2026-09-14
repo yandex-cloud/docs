@@ -105,9 +105,9 @@ Cluster performance degradation can be caused by locks that occur when multiple 
 
 To detect locks using the [performance diagnostics tool](../../managed-postgresql/operations/performance-diagnostics.md), do the following:
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** tab.
+1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}**.
 1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** field of the **Slice** tab, select **WAIT_EVENT_TYPE**.
 
     * Review the **Lock** chart showing the number of queries locked during the selected time frame.
@@ -149,9 +149,9 @@ If the number of open connections reaches the limit, the system logs the followi
 
 To review available connection usage details via [monitoring](../../managed-postgresql/operations/monitoring.md) tools:
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}** tab.
+1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}**.
 1. Review the **Total pooler connections** chart.
 
     {{ mpg-name }} does not allow direct DBMS connections. All connections are made via the connection pooler.
@@ -181,9 +181,9 @@ Poor cluster performance accompanied by the `ERROR: cannot execute INSERT in a r
 
 To check available cluster storage space:
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}** tab.
+1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}**.
 1. Review the **Disk capacity in primary, [bytes]** chart.
 
     Pay attention to the **Used** metric showing the cluster storage usage.

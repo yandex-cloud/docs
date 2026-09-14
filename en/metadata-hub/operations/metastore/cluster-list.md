@@ -13,7 +13,7 @@ description: Follow this guide to request detailed information about existing {{
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.metastore.label_metastore }}**.
 
 
 - CLI {#cli}
@@ -97,7 +97,7 @@ description: Follow this guide to request detailed information about existing {{
 
   1. In the [management console]({{ link-console-main }}), go to the folder with the cluster.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.metastore.label_metastore }}**.
   1. Click the cluster name.
 
 - CLI {#cli}
@@ -165,7 +165,7 @@ description: Follow this guide to request detailed information about existing {{
 
 ## Viewing operations with clusters {#list-operations}
 
-All actions with {{ metastore-name }} clusters are logged as a list of operations. Each operation gets an ID.
+All actions with {{ metastore-name }} clusters are logged as a list of operations. Each operation gets a unique ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -175,9 +175,9 @@ All actions with {{ metastore-name }} clusters are logged as a list of operation
 
   1. In the [management console]({{ link-console-main }}), go to the folder with the cluster.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.metastore.label_metastore }}**.
   1. Click the cluster name.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+  1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 - CLI {#cli}
 

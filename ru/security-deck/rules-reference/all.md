@@ -12,6 +12,16 @@ editable: false
 
 Правила для проверки конфигурации облачных ресурсов.
 
+{% include [access.password-policy.pci-dss](../../_security-deck-rules/rules/cspm/access.password-policy.pci-dss.md) %}
+
+{% include [crypto.leaked-secrets-detection](../../_security-deck-rules/rules/cspm/crypto.leaked-secrets-detection.md) %}
+
+{% include [k8s.cis](../../_security-deck-rules/rules/cspm/k8s.cis.md) %}
+
+{% include [network.check-outgoing-internet-connection](../../_security-deck-rules/rules/cspm/network.check-outgoing-internet-connection.md) %}
+
+{% include [o11y.audit-trails-reactions](../../_security-deck-rules/rules/cspm/o11y.audit-trails-reactions.md) %}
+
 {% include [access.userpool-mfa](../../_security-deck-rules/rules/cspm/access.userpool-mfa.md) %}
 
 {% include [iam.sa-key-rotation](../../_security-deck-rules/rules/cspm/iam.sa-key-rotation.md) %}

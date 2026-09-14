@@ -1319,6 +1319,10 @@ gt4.1 ^1^ | 0
 `iam.accessBindings.count` | 1 000 ||
 || Суммарное количество [привязок](../../iam/concepts/access-control/index.md#access-bindings) прав доступа в организации^1^
 `iam.accessBindings.count` | 2 000 ||
+|| Количество назначенных [политик авторизации](../../iam/concepts/access-control/access-policies.md) в облаке
+`iam.accessPolicyBindings.count` | 100 ||
+|| Количество назначенных [политик авторизации](../../iam/concepts/access-control/access-policies.md) в организации
+`iam.accessPolicyBindings.count` | 200 ||
 || Количество федераций сервисных аккаунтов
 `iam.oidcWLIFederations.count` | 50 ||
 || Количество сервисных аккаунтов, привязанных к федерациям

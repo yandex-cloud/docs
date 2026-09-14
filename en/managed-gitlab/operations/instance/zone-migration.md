@@ -32,7 +32,7 @@ VMs with {{ mgl-name }} instances reside in {{ yandex-cloud }} [availability zon
 
             The instance will start upgrading. Wait for the instance to change its status back to `Running`. This will take a few minutes for a small instance or at least 30 minutes for instances with a disk size of 200 GB or larger. After a few more minutes, the {{ GL }} instance will start. 
 
-        1. To test the instance performance, select the ![image](../../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}** tab and click the link in the **{{ ui-key.yacloud.gitlab.field_domain }}** field.
+        1. To test the instance performance, select the **{{ ui-key.yacloud.common.overview }}** tab and click the link in the **{{ ui-key.yacloud.gitlab.field_domain }}** field.
         1. In the **{{ ui-key.yacloud.gitlab.title_migration }}** tab:
 
             * If the instance works properly, click **{{ ui-key.yacloud.gitlab.button_finish-migration }}**.

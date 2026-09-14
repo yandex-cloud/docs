@@ -9,16 +9,20 @@ description: The host class determines the computing power allocated for each ho
 The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change accordingly.
 
 
+
 The host class determines the available [disk types](./storage.md):
 
 * **s1**, **s2**, **s3**, **m2**, **m3**, **c3**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
+* **s4a**, **m4a**, **c4a**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
+* **s4af**, **m4af**, **c4af**: `network-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
 * **b1**, **b2**: `network-ssd`, `network-hdd`.
+
 
 The available storage size does not depend on the host class. For storage limitations, see [Quotas and limits](limits.md).
 
 
-## Available host classes {#available-flavors}
 
+## Available host classes {#available-flavors}
 
 
 Hosts in {{ mpg-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any platforms {{ compute-name }} supports. To learn more about the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
@@ -30,6 +34,9 @@ The full list of possible host configurations on each platform is provided below
 For example, `{{ region-id }}-d` does not support Intel Broadwell and local SSD storage if Intel Cascade Lake is used.
 
 {% include [instance-types-code](../../_includes/mdb/instance-types-code-c3.md) %}
+
+
+{% include [note-burstable-deprecated](../../_includes/mdb/note-burstable-deprecated.md) %}
 
 | Host class name | Number of vCPUs | CPU performance | RAM, GB | Disk <br>size, GB |
 |-------------------|----------------|------------------------|---------|----------------------|
@@ -113,6 +120,7 @@ For example, `{{ region-id }}-d` does not support Intel Broadwell and local SSD 
 | s4a-c128-m512     | 128            | 100%                   | 512     | 10 – 16,368           |
 | s4a-c224-m896     | 224            | 100%                   | 896     | 10 – 16,368           |
 | s4a-c256-m1024    | 256            | 100%                   | 1,024    | 10 – 16,368          |
+| s4a-c288-m1152    | 288            | 100%                   | 1,152    | 10 – 16,368          |
 | c4a-c2-m4         | 2              | 100%                   | 4       | 10 – 16,368           |
 | c4a-c4-m8         | 4              | 100%                   | 8       | 10 – 16,368           |
 | c4a-c8-m16        | 8              | 100%                   | 16      | 10 – 16,368           |
@@ -122,6 +130,7 @@ For example, `{{ region-id }}-d` does not support Intel Broadwell and local SSD 
 | c4a-c96-m192      | 96             | 100%                   | 192     | 10 – 16,368           |
 | c4a-c224-m448     | 224            | 100%                   | 448     | 10 – 16,368           |
 | c4a-c256-m512     | 256            | 100%                   | 512     | 10 – 16,368           |
+| c4a-c288-m576     | 288            | 100%                   | 576     | 10 – 16,368           |
 | m4a-c2-m16        | 2              | 100%                   | 16      | 10 – 16,368           |
 | m4a-c4-m32        | 4              | 100%                   | 32      | 10 – 16,368           |
 | m4a-c8-m64        | 8              | 100%                   | 64      | 10 – 16,368           |
@@ -153,6 +162,8 @@ For example, `{{ region-id }}-d` does not support Intel Broadwell and local SSD 
 | m4af-c32-m256     | 32             | 100%                   | 256     | 10 – 16,368           |
 | m4af-c48-m384     | 48             | 100%                   | 384     | 10 – 16,368           |
 | m4af-c80-m640     | 80             | 100%                   | 640     | 10 – 16,368           |
+
+
 
 
 #### Useful links {#see-also}

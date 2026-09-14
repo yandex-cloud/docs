@@ -5,15 +5,22 @@ description: Follow this guide to hide HTTP headers received from the content or
 
 # Setting up hiding of origin headers
 
-You can set up [hiding of origin headers](../../concepts/hiding-headers.md) using the API when [creating](create-resource.md) or [updating](configure-basics.md) a CDN resource.
+You can set up [hiding of origin headers](../../concepts/hiding-headers.md) when [creating](create-resource.md) a CDN resource or updating its settings using the management console or API.
 
-{% note warning %}
-
-Hiding important headers may disrupt the operation of the web application.
-
-{% endnote %}
+{% include [hiding-headers-warning](../../../_includes/cdn/hiding-headers-warning.md) %}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
+  1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Click the resource name.
+  1. Navigate to the ![image](../../../_assets/console-icons/arrow-up-to-line.svg) **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab.
+  1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Under **{{ ui-key.yacloud.cdn.label_resource-http-headers-response-headers }}**, in the **Hiding of origin headers** field, select `Hide all except listed`.
+  1. In the **Headers to keep** field, specify the headers you want to provide to clients, e.g., `Content-Type`.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - REST API {#rest-api}
 
@@ -23,7 +30,7 @@ Hiding important headers may disrupt the operation of the web application.
   "headerFilter": {
     "enabled": "<true_or_false>",
     "headers": [
-      "<list_of_headers>"
+      "<header_list>"
     ]
   }
   ```
@@ -44,7 +51,7 @@ Hiding important headers may disrupt the operation of the web application.
   "header_filter": {
     "enabled": "<true_or_false>",
     "headers": [
-      "<list_of_headers>"
+      "<header_list>"
     ]
   }
   ```
@@ -58,6 +65,8 @@ Hiding important headers may disrupt the operation of the web application.
   * `headers`: A list of HTTP headers to be passed to the client. All other origin headers will be hidden.
 
 {% endlist %}
+
+{% include [after-changes-tip](../../../_includes/cdn/after-changes-tip.md) %}
 
 
 ## Example {#example}
@@ -194,4 +203,3 @@ In this example, a CDN resource is created for a corporate portal that should hi
       ```
 
     {% endlist %}
-    

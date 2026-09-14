@@ -10,10 +10,6 @@
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_round_robin.title }}**: Data will be randomly distributed between shards. Each shard will contain approximately the same amount of data.
 
-  {% note warning %}
+  For transfers from {{ CH }} to {{ CH }}, sharding is not supported. The possible workaround is to create a distributed table in the target cluster and perform a transfer to this table by selecting the `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}` or `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}` cleanup policy.
 
-  For transfers from {{ CH }} to {{ CH }}, sharding is not supported.
-
-  The possible workaround is to create a distributed table in the target cluster and perform a transfer to this table by selecting the `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}` or `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}` cleanup policy.
-
-  {% endnote %}
+  Sharding settings, including **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_round_robin.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShardingSettingsOneof.sharding_by_column.title }}**, are ignored during replication from {{ PG }}. This is due to the architectural limitations: to ensure data integrity during the `UPDATE` and `DELETE` operations, the replication stream is directed strictly into a single shard.

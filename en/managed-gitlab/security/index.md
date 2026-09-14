@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mgl-full-name }}
-description: Access management in {{ mgl-full-name }}, a web-based open-source DevOps lifecycle tool. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in {{ mgl-full-name }}, a web-based open-source DevOps lifecycle tool. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Access management in {{ mgl-name }}
@@ -11,7 +11,7 @@ In this section, you will learn about:
 * [Roles required](#required-roles) for specific actions.
 
 
-To use {{ mgl-name }}, log in to the management console with your [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local account](../../iam/concepts/users/accounts.md#local).
+To use the service, log in to the management console with your [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local account](../../iam/concepts/users/accounts.md#local).
 
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
@@ -45,6 +45,18 @@ You can assign a role for an organization, [cloud](../../resource-manager/concep
 #### gitlab.admin {#gitlab-admin}
 
 {% include [gitlab.admin](../../_roles/gitlab/admin.md) %}
+
+#### gitlab.backupAdmin {#gitlab-backup-admin}
+
+{% include [gitlab.backupAdmin](../../_roles/gitlab/backupAdmin.md) %}
+
+#### gitlab.backupRestorer {#gitlab-backup-restorer}
+
+{% include [gitlab.backupRestorer](../../_roles/gitlab/backupRestorer.md) %}
+
+#### gitlab.backupDownloader {#gitlab-backup-downloader}
+
+{% include [gitlab.backupDownloader](../../_roles/gitlab/backupDownloader.md) %}
 
 ### Primitive roles {#primitive-roles}
 

@@ -1,6 +1,6 @@
 
 
-You can set up data transfer from a {{ mkf-full-name }} topic to {{ GP }}/{{ CB }} in {{ mgp-name }} using {{ data-transfer-full-name }}. Proceed as follows:
+You can set up data transfer from a {{ mkf-full-name }} topic to {{ GP }}/{{ CB }} in {{ mgp-full-name }} using {{ data-transfer-full-name }}. Follow these steps:
 
 1. [Prepare your test data](#prepare-data).
 1. [Prepare and activate the transfer](#prepare-transfer).
@@ -11,7 +11,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
 * {{ mgp-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 
@@ -24,7 +24,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
+        
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
 
         1. [Create a {{ mkf-full-name }} source cluster](../../../managed-kafka/operations/cluster-create.md#create-cluster) of any suitable configuration with publicly accessible hosts.
 

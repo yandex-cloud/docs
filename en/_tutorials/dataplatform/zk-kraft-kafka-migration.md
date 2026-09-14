@@ -12,21 +12,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including {{ kraft-short-name }} hosts) and disk space (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* Fee for the use of public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Upgrade the cluster version {#update-version}
 
-Upgrade your {{ KF }} cluster with {{ ZK }} to version `3.9` step by step, without skipping any versions in the following order: 3.5 → 3.6 → 3.7 → 3.8 → 3.9. If your cluster’s version is lower than `3.5`, first, [upgrade the cluster](../../managed-kafka/operations/cluster-version-update.md) to this version.
+Upgrade your {{ KF }} cluster with {{ ZK }} to version `3.9` step by step, without skipping any versions. The upgrade follows this sequence: `3.5` → `3.6` → `3.7` → `3.8` → `3.9`. If your cluster’s version is lower than `3.5`, first, [upgrade the cluster](../../managed-kafka/operations/cluster-version-update.md) to this version.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select `3.6`.
@@ -160,7 +158,7 @@ To migrate a {{ mkf-name }} cluster with {{ ZK }} hosts to the {{ kraft-short-na
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Click the cluster name.
     1. At the top of the screen, click **Migrate**.

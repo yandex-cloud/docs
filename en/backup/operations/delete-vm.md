@@ -26,7 +26,8 @@ To delete a VM from {{ backup-name }}:
 
   1. In the [management console]({{ link-console-main }}), select the folder to delete the VM from.
   1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Next to the VM you want to delete, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Delete**.
+  1. In the left-hand panel, select ![server](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_connected-resources }}** and go to the **{{ ui-key.yacloud_billing.backup.label_instances }}** tab.
+  1. Next to the VM you want to delete, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
 - CLI {#cli}

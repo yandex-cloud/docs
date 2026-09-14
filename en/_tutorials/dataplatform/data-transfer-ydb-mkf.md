@@ -1,7 +1,7 @@
 # Delivering data from {{ ydb-full-name }} to {{ mkf-full-name }}
 
 
-You can track data changes in a {{ ydb-name }} _source_ and send them to a {{ mkf-name }} _target cluster_ using [change data capture](../../data-transfer/concepts/cdc.md) (CDC). The system will automatically insert this data into {{ mkf-short-name }} topics with {{ ydb-name }} table names.
+You can track data changes in a {{ ydb-full-name }} _source_ and send them to a {{ mkf-full-name }} _target cluster_ using [change data capture](../../data-transfer/concepts/cdc.md) (CDC). The system will automatically insert this data into {{ mkf-short-name }} topics with {{ ydb-name }} table names.
 
 {% include [CDC-YDB](../../_includes/data-transfer/note-ydb-cdc.md) %}
 
@@ -21,9 +21,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
   	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
-* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -45,10 +44,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
        1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly accessible hosts.
 
+          
           {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
+
        
-        1. If using security groups, [configure them to allow internet access to your cluster](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
+       1. If using security groups, [configure them to allow internet access to your cluster](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
        1. Configure {{ KF }} topics in the target cluster. The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. The format for data topic names is as follows: `<topic_prefix>.<{{ ydb-short-name }}_table_name>`. In this tutorial, we will use the `cdc` prefix as an example.
@@ -104,7 +105,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            * `source_db_name`: {{ ydb-name }} database name.
            * `target_kf_version`: {{ KF }} version in the target cluster.
            * `target_user_name`: Username for connection to the {{ KF }} topic.
-           * `target_user_password`: Password.
+           * `target_user_password`: User password.
 
        1. Validate your {{ TF }} configuration files using this command:
 

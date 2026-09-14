@@ -2,7 +2,9 @@
 
 `ksqlDB` is a database designed for stream processing of messages coming from {{ KF }} topics. Working with message streams in ksqlDB is similar to working with tables in a regular database. A `ksqlDB` table is automatically populated with data from an {{ KF }} topic, and any data you insert into the `ksqlDB` table is written back to the topic. Learn more in [this ksqlDB article](https://docs.ksqldb.io/en/latest).
 
-To set up data delivery from {{ mkf-name }} to `ksqlDB`:
+To set up data delivery from {{ mkf-full-name }} to `ksqlDB`:
+
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Set up {{ KF }} integration for the ksqlDB database](#configure-ksqldb-for-kf).
 1. [Review the format of the data coming from {{ mkf-name }}](#explore-kf-data-format).
 1. [Create a ksqlDB table to write a data stream from the {{ KF }} topic](#create-kf-table).
@@ -13,20 +15,23 @@ To set up data delivery from {{ mkf-name }} to `ksqlDB`:
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Required paid resources {#paid-resources}
-
-The support cost for this solution includes:
-
-* Fee for a {{ mkf-name }} cluster: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-
-
 ## Getting started {#before-you-begin}
 
-1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration.
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-    * If the ksqlDB server is hosted on the internet, create a publicly accessible {{ mkf-name }} cluster.
+### Required paid resources {#paid-resources}
+
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+
+## Set up your infrastructure {#prepare-infrastructure}
+
+1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration.
+
     
+    * If the ksqlDB server is hosted on the internet, create a publicly accessible {{ mkf-name }} cluster.
+
     * If the ksqlDB server is hosted in {{ yandex-cloud }}, create a {{ mkf-name }} cluster on the same [cloud network](../../vpc/concepts/network.md) as ksqlDB.
 
 

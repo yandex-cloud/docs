@@ -26,7 +26,8 @@ Updates the specified Redis user.
     "sanitize_payload": "google.protobuf.StringValue",
     "databases": "google.protobuf.StringValue"
   },
-  "enabled": "bool"
+  "enabled": "bool",
+  "generate_password": "google.protobuf.BoolValue"
 }
 ```
 
@@ -57,6 +58,9 @@ New set of permissions to grant to the user. ||
 || enabled | **bool**
 
 Is Redis user enabled ||
+|| generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Generate password using Connection Manager ||
 |#
 
 ## Permissions {#yandex.cloud.mdb.redis.v1.Permissions}

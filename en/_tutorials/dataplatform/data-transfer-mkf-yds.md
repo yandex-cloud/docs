@@ -1,7 +1,7 @@
 # Delivering data from an {{ KF }} queue to {{ DS }}
 
 
-A stream in {{ yds-name }} can receive data from {{ KF }} topics in real time.
+A stream in {{ yds-full-name }} can receive data from {{ KF }} topics in real time.
 
 To start data delivery:
 
@@ -14,16 +14,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
+* {{ mkf-full-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* {{ ydb-full-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
 
-	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
-  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
+	* In [serverless mode](../../ydb/pricing/serverless.md), you pay for data operations as well as the amount of stored data and backups.
+    * In [dedicated instance mode](../../ydb/pricing/dedicated.md), you pay for the use of computing resources allocated to the database, storage and backup size.
 
 * {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
 
-    * [Based on allocated resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
+    * [Based on reserved resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
     * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
 
 
@@ -37,7 +37,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 
         1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration.
-        1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of any suitable configuration.
+        1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of your preferred configuration.
         1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
         1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
@@ -67,7 +67,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `source_user_name`: Username for connection to the {{ KF }} topic.
             * `source_user_password`: User password.
             * `target_db_name`: {{ ydb-name }} database name.
-            * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
+            * `transfer_enabled`: Set to `0` not to create a transfer until [endpoints are created manually](#prepare-transfer).
 
         1. Validate your {{ TF }} configuration files using this command:
 

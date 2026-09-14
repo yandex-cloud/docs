@@ -176,8 +176,8 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.postgresql.switch_list_9AfbP }}**.
-  1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations_9JzwJ }}** tab.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.postgresql.switch_list_9AfbP }}**.
+  1. Select the cluster and open the **{{ ui-key.yacloud.postgresql.switch_operations_9JzwJ }}** tab.
 
      This will open the list of operations with the cluster.
 

@@ -19,3 +19,5 @@
 * [Can I use JSON data for tables in {{ CH }}?](#how-to-use-json)
 
 * [Why is my cluster slow even though the computing resources are not fully utilized?](#throttling)
+
+* [How do I learn shard numbers?](#shard-num)

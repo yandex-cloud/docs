@@ -91,7 +91,7 @@ For information on how to upgrade the Linux kernel header version, see [{#T}](..
 
 {% endnote %}
 
-A [service account](../../../iam/concepts/users/service-accounts.md) is a special account the {{ backup-name }} agent uses to get registered with the Cyberprotect [provider](../index.md#providers).
+[Service account](../../../iam/concepts/users/service-accounts.md) is a special account the {{ backup-name }} agent uses to get registered with the Cyberprotect [provider](../index.md#providers).
 
 When creating a {{ compute-name }} VM you want to configure backups for in {{ backup-name }}, you need to link to it a service account with the `backup.user` [role](../../security/index.md#backup-user) or higher.
 

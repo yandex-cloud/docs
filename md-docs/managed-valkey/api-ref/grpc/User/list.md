@@ -58,7 +58,11 @@ The maximum string length in characters is 400. ||
         "databases": "google.protobuf.StringValue"
       },
       "enabled": "bool",
-      "acl_options": "string"
+      "acl_options": "string",
+      "connection_manager": {
+        "connection_id": "string"
+      },
+      "auth_type": "AuthType"
     }
   ],
   "next_page_token": "string"
@@ -100,6 +104,15 @@ Is redis user enabled ||
 || acl_options | **string**
 
 Raw ACL string inside of Redis ||
+|| connection_manager | **[ConnectionManager](#yandex.cloud.mdb.redis.v1.ConnectionManager)**
+
+Connection Manager connection configuration. ||
+|| auth_type | enum **AuthType**
+
+Authentication type for the user
+
+- `AUTH_TYPE_PASSWORD`: Password-based authentication
+- `AUTH_TYPE_IAM`: IAM-based authentication ||
 |#
 
 ## Permissions {#yandex.cloud.mdb.redis.v1.Permissions}
@@ -124,4 +137,15 @@ Deprecated. This parameter is ignored. ||
 || databases | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 Databases parameter. ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.redis.v1.ConnectionManager}
+
+Connection Manager connection configuration.
+
+#|
+||Field | Description ||
+|| connection_id | **string**
+
+ID of Connection Manager connection. ||
 |#

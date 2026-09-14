@@ -39,11 +39,11 @@ To get started:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), go to your working resource catalog.
+  1. In the [management console]({{ link-console-main }}), select your working resource folder.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
-  1. Select the metadata catalog you need.
-  1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab to view the metadata available in the catalog.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
+  1. Select the [metadata catalog](*catalog) you need.
+  1. Navigate to the **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}** tab to view the metadata available in the catalog.
 
 {% endlist %}
 
@@ -53,8 +53,8 @@ To get started:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), go to your working metadata catalog.
-  1. Go to the ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab and select the dataset of interest.
+  1. In the [management console]({{ link-console-main }}), select your working metadata catalog.
+  1. Navigate to the **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}** tab and select the dataset of interest.
   1. To view general dataset information, navigate to the **{{ ui-key.yacloud.common.overview }}** tab and expand the list with the parameters you are looking for.
   1. To view the object schema, navigate to the **Schema** tab and select the schema version from the drop-down list.
   1. To view links with other objects go to the **Lineage** tab.
@@ -63,7 +63,7 @@ To get started:
 
      {{ data-catalog-name }} displays links not just between objects but also between individual columns within objects. To view links between columns, expand the list of columns in the object of interest.
 
-  1. Go to the **Queries** tab to view data queries.
+  1. Go to the **{{ ui-key.yacloud.data-catalog.label_source-queries-tab }}** tab to view data queries.
 
 {% endlist %}
 
@@ -73,8 +73,8 @@ To get started:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), go to your working metadata catalog.
-  1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab.
+  1. In the [management console]({{ link-console-main }}), select your working metadata catalog.
+  1. Navigate to the **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}** tab.
   1. By default, you search across all data types. If you need only specific data types, select them in the drop-down list to the left of the search bar.
   1. In the **{{ ui-key.yacloud.data-catalog.label_search-placeholder }}** field, enter the search query.
   1. To increase the relevance of search results, refine your search query and [configure metadata filters](#create-filters).
@@ -93,10 +93,10 @@ To get started:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), go to your working metadata catalog.
-  1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab.
+  1. In the [management console]({{ link-console-main }}), select your working metadata catalog.
+  1. Navigate to the **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}** tab.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.data-catalog.label_search-button-add-filter }}**.
-  1. Filter metadata by one or more tags created in the catalog.
+  1. Filter metadata by one or more [tags](*tag) created in the catalog.
 
      You can also add other filters. The number of filters you can use depends on the data types selected in the list to the left of the search bar. If you are working with several data types at the same time, only filters valid for all selected data types will be available.
 
@@ -112,10 +112,10 @@ To get started:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), go to your working metadata catalog.
-  1. Navigate to the ![image](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.data-catalog.label_domains }}** tab.
-  1. Select the domain or subdomain from the list.
-  1. Navigate to the **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab. It will present the list of datasets marked up by the current domain or containing fields marked up by the current domain.
+  1. In the [management console]({{ link-console-main }}), select your working metadata catalog.
+  1. Navigate to the **{{ ui-key.yacloud.data-catalog.label_domains }}** tab.
+  1. Select the [domain](*domain) or [subdomain](*subdomain) from the list.
+  1. Navigate to the **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}** tab. It will present the list of datasets marked up by the current domain or containing fields marked up by the current domain.
   1. To find specific data, enter your query in the search bar above the data list.
   1. To go to the dataset, click its name in the list.
 
@@ -127,11 +127,11 @@ To get started:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), go to your working metadata catalog.
-  1. Navigate to the ![image](../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}** tab.
-  1. Select the glossary containing the term you are looking for.
-  1. Select the term from the list.
-  1. Navigate to the **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab. It will present the list of datasets marked up by the current term or containing fields marked up by the current term.
+  1. In the [management console]({{ link-console-main }}), select your working metadata catalog.
+  1. Navigate to the **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}** tab.
+  1. Select the [glossary](*glossary) containing the term you are looking for.
+  1. Select the [term](*term) from the list.
+  1. Navigate to the **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}** tab. It will present the list of datasets marked up by the current term or containing fields marked up by the current term.
   1. To find specific data, enter your query in the search bar above the data list.
   1. To go to the dataset, click its name in the list.
 
@@ -143,10 +143,10 @@ To get started:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), go to your working metadata catalog.
-  1. Navigate to the ![image](../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}** tab.
-  1. Select the classification containing the tag you are looking for.
-  1. Select the tag from the list. The tag page will present the list of datasets marked up by the current tag or containing fields marked up by the current tag.
+  1. In the [management console]({{ link-console-main }}), select your working metadata catalog.
+  1. Navigate to the **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}** tab.
+  1. Select the [classification](*classification) containing the tag you are looking for.
+  1. Select the [tag](*tag) from the list. The tag page will present the list of datasets marked up by the current tag or containing fields marked up by the current tag.
   1. To find specific data, enter your query in the search bar above the data list.
   1. To go to the dataset, click its name in the list.
 
@@ -161,3 +161,25 @@ To get started:
 * [Create a tag](../operations/data-catalog/create-tag.md) in a classification.
 * [Update a classification](../operations/data-catalog/update-classification.md).
 * [Edit a tag](../operations/data-catalog/update-tag.md) in a classification.
+
+#### Useful links {#see-also}
+
+[{#T}](./data-steward-quickstart.md)
+
+[*glossary]: {% include notitle [glossary](../../_popups/metadata-hub/data-catalog.md#glossary) %}
+
+[*domain]: {% include notitle [domain](../../_popups/metadata-hub/data-catalog.md#domain) %}
+
+[*ingestion]: {% include notitle [ingestion](../../_popups/metadata-hub/data-catalog.md#ingestion) %}
+
+[*catalog]: {% include notitle [catalog](../../_popups/metadata-hub/data-catalog.md#catalog) %}
+
+[*classification]: {% include notitle [classification](../../_popups/metadata-hub/data-catalog.md#classification) %}
+
+[*subdomain]: {% include notitle [subdomain](../../_popups/metadata-hub/data-catalog.md#subdomain) %}
+
+[*tag]: {% include notitle [tag](../../_popups/metadata-hub/data-catalog.md#tag) %}
+
+[*term]: {% include notitle [term](../../_popups/metadata-hub/data-catalog.md#term) %}
+
+[*storage]: {% include notitle [data-store](../../_popups/metadata-hub/data-catalog.md#data-store) %}

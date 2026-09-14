@@ -30,3 +30,5 @@ Changing the IP address exclusion list will completely overwrite the existing ex
 
 * [{#T}](../operations/resources/create-resource.md)
 * [{#T}](../operations/resources/configure-basics.md)
+* [{#T}](./geo-acl.md)
+* [{#T}](../operations/resources/configure-geo-acl.md)

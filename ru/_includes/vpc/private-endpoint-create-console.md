@@ -26,7 +26,7 @@
          * Укажите имя и описание IP-адреса.
          * Выберите [подсеть](../../vpc/concepts/network.md#subnet).
          * Назначьте внутренний IPv4-адрес, например `172.16.0.3`.
-         * Активируйте опцию **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**, чтобы адрес нельзя было удалить, пока вы не выключите защиту.
+         * Активируйте опцию **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection_jVSCP }}**, чтобы адрес нельзя было удалить, пока вы не выключите защиту.
          * Добавьте метки.
          * Нажмите **{{ ui-key.yacloud.common.create }}**.
          * Повторите шаги для резервирования дополнительных IP-адресов.

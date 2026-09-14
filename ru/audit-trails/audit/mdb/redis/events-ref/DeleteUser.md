@@ -103,7 +103,11 @@ editable: false
         "databases": "string"
       },
       "enabled": "boolean",
-      "aclOptions": "string"
+      "aclOptions": "string",
+      "connectionManager": {
+        "connectionId": "string"
+      },
+      "authType": "string"
     }
   },
   "requestParameters": "object",
@@ -290,6 +294,11 @@ A list of messages that carry the error details. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)** ||
 || enabled | **boolean** ||
 || aclOptions | **string** ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.redis.v1.ConnectionManager)** ||
+|| authType | **enum** (AuthType)
+
+- `AUTH_TYPE_PASSWORD`
+- `AUTH_TYPE_IAM` ||
 |#
 
 ## Permissions {#yandex.cloud.mdb.redis.v1.Permissions}
@@ -302,4 +311,11 @@ A list of messages that carry the error details. ||
 || commands | **string** ||
 || sanitizePayload | **string** ||
 || databases | **string** ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.redis.v1.ConnectionManager}
+
+#|
+||Field | Description ||
+|| connectionId | **string** ||
 |#

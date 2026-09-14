@@ -53,6 +53,8 @@ items:
             href: operations/resources/hiding-headers.md
           - name: Setting up access via a secure token
             href: operations/resources/enable-secure-token.md
+          - name: Configuring a country-based access policy
+            href: operations/resources/configure-geo-acl.md
           - name: Setting up location rules
             href: operations/resources/location-rules.md
           - name: Setting up a server name for SNI
@@ -164,6 +166,8 @@ items:
         href: concepts/secure-tokens.md
       - name: IP-based access policy
         href: concepts/ip-address-acl.md
+      - name: Country-based access policy
+        href: concepts/geo-acl.md
       - name: Dedicated IP addressing
         href: concepts/dedicated-ip-addressing.md
       - name: Location rules
@@ -526,7 +530,7 @@ items:
                 href: api-ref/Resource/delete.md
               - name: GetProviderCName
                 href: api-ref/Resource/getProviderCName.md
-  - name: Metrics {{ monitoring-name }}
+  - name: '{{ monitoring-name }} metrics'
     href: metrics-yc.md
   - name: Request logs
     href: logs-ref.md

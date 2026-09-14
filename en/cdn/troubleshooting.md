@@ -12,6 +12,7 @@ The section below covers the frequently asked questions related to {{ cdn-name }
 * [CDN responds to file requests with 5xx codes (server error)](#responses-5xx)
 * [Why are the origin workload and its operation costs increasing?](#origin-load-growth)
 * [Requests with the POST, PUT, PATCH, and DELETE methods are not available to users](#post-responses)
+* [Browser blocks CORS requests to a CDN resource](#cors-requests)
 * [Updated settings failed to apply to the resource](#changes-not-applied)
 * [CDN resource has the `Not active` status, preventing content delivery to users](#resource-not-active)
 * [What happens to a CDN resource if the billing account is suspended due to non-payment?](#billing-account-blocked)
@@ -61,6 +62,17 @@ Also, check the {{ cdn-name }} status [here](https://status.yandex.cloud/en/dash
 ## Requests with the POST, PUT, PATCH, and DELETE methods are not available to users {#post-responses}
 
 {% include [post-method](../_includes/cdn/http-post-method.md) %}
+
+## Browser blocks CORS requests to a CDN resource {#cors-requests}
+
+If your browser reports there is no `Access-Control-Allow-Origin` header in the response or the pre-request has failed access verification, make sure that:
+
+* Your [CORS settings](operations/resources/configure-cors.md) have enabled adding the `Access-Control-Allow-Origin` header and allow the domain from the `Origin` request header.
+* Your CDN resource settings [allow the `OPTIONS` method](operations/resources/configure-http.md).
+* The origin can correctly process the `OPTIONS` requests and returns the required CORS headers, e.g., `Access-Control-Allow-Methods` and `Access-Control-Allow-Headers`.
+* If an {{ objstorage-name }} bucket serves as the origin, [CORS has been configured](../storage/operations/buckets/cors.md) for it.
+
+Setting up CORS for a CDN resource only adds the `Access-Control-Allow-Origin` header to the CDN server's response and does not replace setting up the origin. For more on distribution of settings between the CDN server and the origin, see [{#T}](concepts/cors.md).
 
 ## Updated settings failed to apply to the resource {#changes-not-applied}
 

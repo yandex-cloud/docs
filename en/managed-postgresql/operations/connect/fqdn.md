@@ -15,11 +15,13 @@ To connect to a host, you need its fully qualified domain name ([FQDN](../../con
    1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
    1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-Cluster hosts also use [special FQDNs](#special-fqdns).
+In addition to regular FQDNs, you can use [special FQDNs](#special-fqdns) and [aliases](#aliases) to connect to a cluster.
 
 ## Special FQDNs {#special-fqdns}
 
-Alongside [regular FQDNs](#), {{ mpg-name }} offers special FQDNs that can be also used for cluster connections.
+{{ mpg-name }} provides the following special FQDNs:
+* [Current master FQDN](#fqdn-master).
+* [Most recent replica FQDN](#fqdn-replica).
 
 {% include [special-fqdns-info](../../../_includes/mdb/special-fqdns-info.md) %}
 
@@ -41,9 +43,51 @@ An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to the [replica](../
 * If there are no active replicas in the cluster, this FQDN will point to the current master host.
 * Replicas with a [manually configured replication source](../../concepts/replication.md#replication-manual) cannot be selected as most up-to-date replicas when using this FQDN.
 
+## Aliases {#aliases}
+
+With aliases, you can access the master, most recent replica, or each particular host of your {{ mpg-name }} cluster using a stable, human-readable name no matter what their internal FQDNs are. Aliases are user-defined and can be used alongside regular and [special FQDNs](#special-fqdns).
+
+### Cluster alias {#cluster-alias}
+
+A cluster alias always points to the current master host in the {{ mpg-name }} cluster. It has the following format:
+
+```
+c-<short_name>-pg-<folder_ID>.rw.{{ dns-zone }}
+```
+
+Where `<short_name>` is a name set by the user when creating the alias.
+
+A cluster alias must be unique within the folder. You can assign only one alias per cluster.
+
+With cluster aliases, you can switch workloads from one cluster to another, e.g., after restoring from a backup. To do this, simply reassign the alias to the new cluster, no application-side updates required.
+
+{% note warning %}
+
+After a [master failover](../../concepts/replication.md#replication), DNS records may take up to 10 minutes to update. During this time, the cluster alias may continue pointing to the old host, which has already become a replica. Use cluster aliases only for processes that allow up to 10 minutes of database write downtime.
+
+{% endnote %}
+
+
+### Host aliases {#hosts-aliases}
+
+An alias pointing to a specific cluster host has the following format:
+
+```
+h-<host_short_name>-pg-<folder_ID>.{{ dns-zone }}
+```
+
+Where `<host_short_name>` is a name set by the user when creating the host alias.
+
+Each host alias must be unique within the folder. You can assign only one alias per host.
+
 ## Selecting an FQDN and cluster connection method {#automatic-master-host-selection}
 
-You can connect to a cluster using its [host FQDNs](#) or [special FQDNs](#special-fqdns): If the cluster [consists of several hosts](../../concepts/planning-cluster-topology.md), keep in mind that the current master can become a replica at any moment, and vice versa.
+To connect to a cluster, you can use the following:
+* [Host FQDNs](#).
+* [Special FQDNs](#special-fqdns).
+* [Aliases](#aliases).
+
+If the cluster [consists of several hosts](../../concepts/planning-cluster-topology.md), keep in mind that the current master can become a replica at any moment, and vice versa.
 
 {% note warning %}
 

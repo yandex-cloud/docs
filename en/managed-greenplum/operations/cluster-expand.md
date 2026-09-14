@@ -12,7 +12,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Select a cluster and open the ![hosts-edit](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+    1. Select a cluster and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.action_expand-open }}** in the top-right corner.
     1. Specify the cluster expansion settings:
 
@@ -291,7 +291,7 @@ To edit the ranks of redistributed tables:
     WHERE fq_name IN (<list_of_full_table_names>);
     ```
 
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution).
+    For more details, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution).
 
 ### Running data redistribution manually {#start-redistribute}
 

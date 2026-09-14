@@ -188,16 +188,27 @@ description: In this tutorial, you will learn how to update a backup policy in {
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Select the backup policy in which you want to edit the list of [resources to back up](../../concepts/index.md#protected-resources).
   1. Edit the list of linked resources:
-     * To link a new VM or server, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** and in the window that opens:
+     * To link a new resource, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** and in the window that opens:
 
-        * Depending on the resource you want to link to the backup policy, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab and select the VM or server from the list.
+        * Depending on the resource you want to link to the backup policy, select one of these values in the **{{ ui-key.yacloud.backup.field_add-resource_resource-type }}** field:
 
-           If the VM or server you want to link to the backup policy is not listed, make sure it is connected to {{ backup-name }}.
+            * `{{ ui-key.yacloud.backup.value_vm-recourses }}`: For {{ compute-name }} VMs.
+            * `{{ ui-key.yacloud.backup.value_bms-recourses }}`: For {{ baremetal-name }} servers.
+            * `{{ ui-key.yacloud.backup.label_external-vm-instances }}`: For external VMs.
+            * `{{ ui-key.yacloud.backup.label_external-server-instances }}`: For external servers.
+        * In the field below, select the resource of the previously selected type.
+
+            If the resource you want to link to the backup policy is not listed, make sure it is connected to {{ backup-name }}.
         * Click **{{ ui-key.yacloud_billing.backup.button_attach-instance-submit }}**.
-     * To unlink a VM or server from a policy:
+     * To unlink a resource from a policy:
 
-        * Depending on the resource you want to unlink from the backup policy, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
-        * In the row with the VM or server you want to unlink from the backup policy, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_detach-vm-instance }}** or **{{ ui-key.yacloud.backup.action_detach-baremetal-instance }}**, respectively.
+        * Depending on which resource you want to unlink from the backup policy, go to one of these tabs:
+
+            * **{{ ui-key.yacloud.backup.label_instances }}**: For {{ compute-name }} VMs.
+            * **{{ ui-key.yacloud.backup.label_baremetal-instances }}**: For {{ baremetal-name }} servers.
+            * **{{ ui-key.yacloud.backup.label_external-vm-instances }}**: For external VMs.
+            * **{{ ui-key.yacloud.backup.label_external-server-instances }}**: For external servers.
+        * In the row with the resource you want to unlink from the backup policy, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_detach-vm-instance }}**, **{{ ui-key.yacloud.backup.action_detach-baremetal-instance }}**, or **{{ ui-key.yacloud.backup.action_detach-external-resource }}**, respectively.
         * In the window that opens, confirm this action.
 
 - CLI {#cli}

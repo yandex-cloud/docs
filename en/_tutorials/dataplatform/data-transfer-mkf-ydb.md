@@ -1,7 +1,7 @@
-# Delivering data from an {{ KF }} queue to {{ ydb-short-name }}
+# Delivering data from an {{ KF }} queue to {{ ydb-full-name }}
 
 
-A {{ ydb-name }} cluster can ingest data from {{ KF }} topics in real time. This data is automatically added to {{ ydb-short-name }} tables with topic names.
+A {{ ydb-full-name }} cluster can ingest data from {{ KF }} topics in real time. This data is automatically added to {{ ydb-short-name }} tables with topic names.
 
 To start data delivery:
 
@@ -13,14 +13,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mkf-full-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
 
-    * In serverless mode, you pay for data operations as well as the amount of stored data and backups.
-    * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
+    * In [serverless mode](../../ydb/pricing/serverless.md), you pay for data operations as well as the amount of stored data and backups.
+    * In [dedicated instance mode](../../ydb/pricing/dedicated.md), you pay for the use of computing resources allocated to the database, storage and backup size.
 
-* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -33,7 +33,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 
        1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration.
-       1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of any suitable configuration.
+       1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of your preferred configuration.
        1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
        1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 

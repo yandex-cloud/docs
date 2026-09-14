@@ -1,0 +1,2 @@
+**{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbOnPremiseConnectionSettings.subnet_id.title }}**: Specify the subnet ID (or create a new subnet) for the Dedicated mode of the {{ ydb-name }} database. In this mode, the database is deployed on its own compute nodes, which require network resources provided by
+{{ yandex-cloud }}.

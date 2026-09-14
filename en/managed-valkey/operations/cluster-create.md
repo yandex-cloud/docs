@@ -481,7 +481,8 @@ There are no restrictions for non-sharded clusters.
               "webSql": <access_from_{{ websql-name }}>
             },
             "redis": {
-              "password": "<user_password>"
+              "password": "<user_password>",
+              "auditLog": <enable_audit_event_logging>
             },
             "modules": {
               "valkeySearch": {
@@ -554,6 +555,9 @@ There are no restrictions for non-sharded clusters.
 
 
             * `redis.password`: Password.
+            * `redis.auditLog`: Enable logging of connection and authorization audit events, `true` or `false`. Audit event logging may impact your cluster performance.
+
+                This setting will not affect standard {{ VLK }} logs.
 
             * `modules`: [{{ VLK }} module](../concepts/modules.md) parameters:
 
@@ -666,7 +670,8 @@ There are no restrictions for non-sharded clusters.
               "web_sql": <access_from_{{ websql-name }}>
             },
             "redis": {
-              "password": "<user_password>"
+              "password": "<user_password>",
+              "audit_log": <enable_audit_event_logging>
             },
             "modules": {
               "valkey_search": {
@@ -739,6 +744,9 @@ There are no restrictions for non-sharded clusters.
 
 
             * `redis.password`: Password.
+            * `redis.audit_log`: Enable logging of connection and authorization audit events, `true` or `false`. Audit event logging may impact your cluster performance.
+
+                This setting will not affect standard {{ VLK }} logs.
 
             * `modules`: [{{ VLK }} module](../concepts/modules.md) parameters:
 

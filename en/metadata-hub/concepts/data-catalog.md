@@ -14,7 +14,7 @@ description: '{{ data-catalog-name }} allows you to collect, analyze, and mark u
 
 {% include [data-catalog-definition](../../_includes/metadata-hub/data-catalog-definition.md) %}
 
-The main entity in {{ data-catalog-name }} is a _metadata catalog_. 
+The main entity in {{ data-catalog-name }} is a _metadata catalog_.
 
 {% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-concept.md) %}
 
