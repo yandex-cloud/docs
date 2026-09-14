@@ -34,6 +34,13 @@ To create a token:
     The default value is one month from the token creation date, and the maximum is one year. The token expires at 00:00 UTC on the specified date.
 
 1. Under **Select scopes**, select **api**.
+
+    {% note info %}
+
+    If Admin Mode is enabled on your {{ GL }} instance, also select **admin_mode**. The account this token is created for has the **Administrator** access level (see [creating a service account](create-user.md#create)), and without the `admin_mode` scope, a token for such an account cannot perform API actions that require administrator privileges: the requests will fail with a 403 error.
+
+    {% endnote %}
+
 1. Click **Create personal access token**.
 
     This will generate a new token.
