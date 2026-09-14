@@ -18,36 +18,36 @@ To use this diagnostic tool, enable statistics collection during cluster [creati
 
 For read, write, and other database queries, such as `aggregate` operations, you can view the data collected by the [{{ SD }} profiler](tools.md#explore-profiler):
 
-- Chart with metrics for the selected data slice. You can toggle individual categories in the chart by clicking the category name in the chart legend.
-- Table with statistics broken down by query type.
+* Chart with metrics for the selected data slice. You can toggle individual categories in the chart by clicking the category name in the chart legend.
+* Table with statistics broken down by query type.
 
 To get this data:
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-1. Click the name of your cluster and select **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_profiling }}**.
+1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_profiling }}**.
 1. Specify a time range and adjust filters as needed.
 1. Select:
 
    * Data segment:
-
+       
        * `FORM`: By query type
        * `HOSTNAME`: By shard’s [primary host](../concepts/replication.md)
        * `NAMESPACE`: By collection name
        * `SHARD`: By [shard](../concepts/sharding.md)
        * `USER`: By user
-
+   
    * Data grouping:
-
+       
        * `COUNT`: Number of queries.
        * `DOCUMENTS_EXAMINED`: Number of collection documents scanned per query.
        * `DOCUMENTS_RETURNED`: Number of returned documents.
        * `DURATION`: Query execution duration.
        * `KEYS_EXAMINED`: Number of index keys scanned per query.
        * `RESPONSE_LENGTH`: Size of the document returned by the query.
-
+   
    * Aggregation function for the selected metric:
-
+       
        * `AVG`: Average
        * `SUM`: Sum
    
@@ -56,9 +56,9 @@ To get this data:
 
 The system provides collection access statistics and indexing recommendations for specific fields to improve query speed.
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-1. Click the name of your cluster and select **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_indexes }}**.
+1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_indexes }}**.
 1. Specify a time range and adjust filters as needed.
 
 The table shows recommended index fields and collection access counts.

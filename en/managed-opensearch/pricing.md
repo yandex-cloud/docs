@@ -6,20 +6,45 @@ editable: false
 
 # {{ mos-name }} pricing policy
 
-In this section, you can find the {{ mos-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      lg: 6
+      sm: 6
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        gravityIcon: Calculator
+        iconPosition: left
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=6045f728368e#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        gravityIcon: CircleRuble
+        iconPosition: left
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list?services=dn2hjd8fhbb14l7vkp2c
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
-{% note tip %}
 
-
-
-
-For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=6045f728368e#calculator) on our website or check out the pricing below.
-
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+This section describes the {{ mos-name }} pricing [policy](#rules) and [current prices](#prices) for its resources.
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -132,6 +157,10 @@ A CVoS discount is only available for certain resource types. For unsupported re
   />
 </MDX>
 
+
+
+
+{% include [usd-hosts-and-storage.md](../_pricing/managed-opensearch/usd-hosts-and-storage.md) %}
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

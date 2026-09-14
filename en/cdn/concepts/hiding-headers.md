@@ -15,6 +15,9 @@ You may want to hide headers in the following situations:
 * Enforcement of requirements prohibiting disclosure of specific headers to clients.
 * Downsizing the response.
 
+You can set up hiding of origin headers using the management console or API when [creating](../operations/resources/create-resource.md) or [updating](../operations/resources/hiding-headers.md) a CDN resource.
+
+{% include [hiding-headers-warning](../../_includes/cdn/hiding-headers-warning.md) %}
 
 ## Recommendations {#recommendations}
 
@@ -39,3 +42,5 @@ We recommend to hide the following headers for increased security:
 #### Useful links {#see-also}
 
 * [{#T}](../operations/resources/hiding-headers.md)
+* [{#T}](../operations/resources/configure-headers.md)
+* [{#T}](../operations/resources/create-resource.md)

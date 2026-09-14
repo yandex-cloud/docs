@@ -17,7 +17,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
    1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
+   1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
 
 - CLI {#cli}
 
@@ -176,7 +176,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
     1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
+    1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
     1. Click **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.button-action_add-format-schema }}**.
     1. In the **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.title_add }}** dialog box, fill out the form by specifying the schema file link generated earlier in the **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.field_format-schema-uri }}** field.
     1. Click **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.label_add }}**.
@@ -330,7 +330,7 @@ To update the contents of a schema that is already added to the cluster:
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
     1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
+    1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
     1. Find the schema you need, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
 
 - CLI {#cli}
@@ -477,7 +477,7 @@ After removing a format schema, the related object remains in the {{ objstorage-
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
    1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
+   1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
    1. Find the schema you need, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}

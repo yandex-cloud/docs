@@ -1,6 +1,6 @@
 ---
 title: Getting a list of data storages in {{ data-catalog-name }}
-description: How to get a list of data storages in {{ data-catalog-full-name }}.
+description: How to get a list of data storages in {{ data-catalog-full-name }}
 ---
 
 # Getting a list of data storages
@@ -19,9 +19,9 @@ description: How to get a list of data storages in {{ data-catalog-full-name }}.
 
   1. In the [management console]({{ link-console-main }}), select the [resource folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you created the metadata catalog in.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog with the data storages you need.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_data-store }}**.
+  1. Navigate to the **{{ ui-key.yacloud.data-catalog.layout.label.storage-new-layout_L4xQ8 }}** tab.
 
 {% endlist %}
 

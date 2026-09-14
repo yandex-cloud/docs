@@ -227,7 +227,9 @@ Creates a Redis cluster in the specified folder.
         "sanitize_payload": "google.protobuf.StringValue",
         "databases": "google.protobuf.StringValue"
       },
-      "enabled": "google.protobuf.BoolValue"
+      "enabled": "google.protobuf.BoolValue",
+      "generate_password": "google.protobuf.BoolValue",
+      "auth_type": "AuthType"
     }
   ],
   "auth_sentinel": "bool",
@@ -1153,6 +1155,15 @@ Set of permissions to grant to the user. ||
 || enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Is Redis user enabled ||
+|| generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Generate password using Connection Manager ||
+|| auth_type | enum **AuthType**
+
+Authentication type for the user
+
+- `AUTH_TYPE_PASSWORD`: Password-based authentication
+- `AUTH_TYPE_IAM`: IAM-based authentication ||
 |#
 
 ## Permissions {#yandex.cloud.mdb.redis.v1.Permissions}

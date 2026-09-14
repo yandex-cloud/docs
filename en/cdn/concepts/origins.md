@@ -8,10 +8,12 @@ When creating a resource, an origin or an [origin group](#groups) is specified f
 
 As origins, you can use:
 
-* [Bucket](../../storage/concepts/bucket.md) from {{ objstorage-full-name }}, for example, configured as a [static site hosting](../../storage/concepts/hosting.md).
+* [Bucket](../../storage/concepts/bucket.md) in {{ objstorage-full-name }}.
+
+  {% include [bucket-website-hosting-tip](../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
 * [L7 network load balancer](../../application-load-balancer/concepts/application-load-balancer.md) from {{ alb-full-name }}. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
 * Your own server or another resource available by domain name. For example, if the origin is a server with the `files.example.com` domain name, to get the `/static/common.css` file, CDN servers will try access the server at this address: `files.example.com/static/common.css`.
-
 
 ### Use cases {#examples-types}
 

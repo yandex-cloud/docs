@@ -1,19 +1,14 @@
 # Table sharding in {{ CH }}
 
 
-Sharding provides [a number of benefits](../../managed-clickhouse/concepts/sharding.md#advantages) when dealing with high query rates and massive datasets. It works by creating a distributed table that routes queries to underlying tables. You can access data in sharded tables both directly or through the distributed table.
+In a [sharded {{ CH }} cluster](../../managed-clickhouse/concepts/sharding.md#uses), you can distribute table data across all cluster shards or only some of them, i.e., a [shard group](../../managed-clickhouse/operations/shard-groups.md).
 
-There are three primary sharding strategies:
+You can select one of the following three topologies to implement distributed storage of table data on cluster shards:
+* [All shards](#shard-example): the local and distributed tables are created across all shards within a cluster.
+* [Single shard group](#shard-groups-example): the local and distributed tables are created on all shards within a group.
+* [Two shard groups](#shard-groups-advanced-example): the local table is created on the shards of one group, while the distributed table is deployed on shards of the second group.
 
-* Classic approach, where the distributed table uses all shards in the cluster.
-* Group-based approach, where some shards are grouped together.
-* Advanced group-based approach, where shards are divided into two groups: one for the distributed table and the other for the underlying tables.
-
-Below are configuration examples for all three sharding methods.
-
-For more information, see [{#T}](../../managed-clickhouse/concepts/sharding.md).
-
-To set up sharding:
+To split table data into shards:
 
 1. [Create tables with data](#create-tables).
 1. [Test the tables](#sharding-test).
@@ -23,10 +18,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ mch-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mch-name }} cluster: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -112,22 +105,20 @@ The support cost for this solution includes:
 
 ## Create tables with data {#create-tables}
 
-Let’s assume you need to enable sharding for the `hits_v1` [table]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/metrica). The create table statement text will depend on your chosen sharding strategy.
+Let's assume we need to distribute the `hits_v1` [table]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/metrica) data across shards.
 
-Replace the `<table_structure>` placeholder with column descriptions from [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/star-schema#create-tables).
+Replace the `<table_structure>` placeholder with column descriptions from [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/metrica#create-the-database-and-table).
 
-Once you enable sharding (by any method), you will be able to send `SELECT` and `INSERT` queries to the distributed table. These queries will be processed according to the specified configuration.
+In the following examples, we use the `rand()` expression as a sharding key to randomly distribute data across shards.
 
-In the following examples, we use a random number, `rand()`, as a sharding key.
+### All shards {#shard-example}
 
-### Classic sharding {#shard-example}
+In this example, the distributed and local tables are created on all cluster shards: `shard1`, `shard2`, and `shard3`.
 
-In this example, the distributed table built from `hits_v1` uses every shard in the `chcluster` cluster: `shard1`, `shard2`, and `shard3`.
-
-Before operating the distributed table:
+Before creating a distributed table:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
-1. Create the `hits_v1` table on every host in the cluster using the [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) engine:
+1. Create the `hits_v1` [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) table on all cluster hosts:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER '{cluster}' ( <table_structure> )
@@ -158,17 +149,14 @@ To create a distributed table named `hits_v1_distributed` in the cluster:
 
    {% endnote %}
 
-### Group-based sharding {#shard-groups-example}
+### Single shard group {#shard-groups-example}
 
-In this example:
+In this example, the distributed and local tables are created within a single shard group, `sgroup`.
 
-- We use a single shard group named `sgroup`.
-- The distributed table and its underlying table, `hits_v1`, are in the same `sgroup` shard group within the cluster.
-
-Before using the distributed table:
+Before creating a distributed table:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
-1. Create the `hits_v1` table on every host in the `sgroup` shard group, using the [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) engine:
+1. Create the `hits_v1` [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) table on all hosts within the `sgroup` shard group:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup ( <table_structure> )
@@ -191,18 +179,16 @@ To create a distributed table named `tutorial.hits_v1_distributed` in the cluste
 
    Here, you can use the `AS tutorial.hits_v1` expression instead of explicitly stating the table structure since both tables, `hits_v1_distributed` and `hits_v1`, reside on the same cluster hosts within a single shard.
 
-### Advanced group-based sharding {#shard-groups-advanced-example}
+### Two shard groups {#shard-groups-advanced-example}
 
 In this example:
+* The distributed table is created within the `sgroup` shard group.
+* The local table is created within the `sgroup_data` shard group.
 
-1. We use the `sgroup` and `sgroup_data` shard groups.
-1. The distributed table resides in the `sgroup` shard group.
-1. The `hits_v1` underlying table resides in the `sgroup_data` shard group.
-
-Before operating the distributed table:
+Before creating a distributed table:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
-1. Create the `hits_v1` table on every host of the `sgroup_data` shard group, using the [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication) engine:
+1. Create the `hits_v1` [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication) local table on all hosts within the `sgroup_data` shard group:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup_data ( <table_structure> )
@@ -218,7 +204,7 @@ Before operating the distributed table:
 To create a distributed table named `tutorial.hits_v1_distributed` in the cluster:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
-1. Create a [Distributed]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed) table:
+1. Create the [Distributed]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed) table on all hosts within the `sgroup` shard group:
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup ( <table_structure> )

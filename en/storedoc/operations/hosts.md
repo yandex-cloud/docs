@@ -8,7 +8,7 @@ You can add or remove [cluster hosts](../concepts/index.md), restart host synchr
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of the {{ mmg-name }} cluster.
   1. Select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
@@ -104,7 +104,7 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
 
   To add a host to your {{ mmg-name }} cluster:
   
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Locate the {{ mmg-name }} cluster you need in the list, click its name, and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
@@ -204,12 +204,12 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
 
      To learn how to create this file, see [Creating a cluster](cluster-create.md).
   1. Add the following to the {{ mmg-name }} cluster description:
-
+     
      * Required resources, based on sharding type, if you are adding a host to a sharded cluster:
-
+       
        * `resources_mongoinfra` for standard sharding.
        * `resources_mongos` and `resources_mongocfg` for advanced sharding.
-
+     
      * `host` block.
 
      ```hcl
@@ -259,7 +259,7 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
      Where:
 
      * `host`: Host settings:
-
+       
        * `role`: Replica type, `PRIMARY` or `SECONDARY`.
        * `zone_id`: Availability zone.
        * `subnet_id`: ID of the subnet in the selected availability zone.
@@ -267,7 +267,6 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
        * `shard_name`: Shard name in a sharded cluster.
        * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
        * `host_parameters`: Additional host settings:
-
            * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
            * `secondary_delay_secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
            * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
@@ -330,8 +329,6 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
       * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
       * `shardName`: Shard name in a sharded cluster.
       * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
-      * `secondaryDelaySecs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
-      * `priority`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
       * `secondaryDelaySecs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
       * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
       * `tags`: Host tags.
@@ -453,7 +450,7 @@ If you cannot [connect](connect/index.md) to the new host, check the {{ mmg-name
 
     * `--cluster-name`: Cluster name. You can get it from the [list of clusters in your folder](cluster-list.md#list-clusters).
     * `--host`: Host settings:
-
+        
         * `hostname`: Target host name. You can get it from the [list of your cluster hosts](#list).
 
         
@@ -495,7 +492,6 @@ If you cannot [connect](connect/index.md) to the new host, check the {{ mmg-name
 
     * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
     * `host_parameters`: Additional host settings:
-
         * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
         * `secondary_delay_secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
         * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
@@ -645,8 +641,8 @@ In a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you can r
 - Management console {#console}
 
   To remove a host from a {{ mmg-name }} cluster:
-
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Locate the {{ mmg-name }} cluster you need in the list, click its name, and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
   1. Find the host you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.common.delete }}**.
@@ -670,11 +666,11 @@ In a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you can r
 - {{ TF }} {#tf}
 
   To remove a host from a {{ mmg-name }} cluster:
-
+  
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
      To learn how to create this file, see [Creating a cluster](cluster-create.md).
-
+  
   1. Delete the relevant `host` section from the {{ mmg-name }} cluster description.
   1. Make sure the settings are correct.
 
@@ -772,8 +768,8 @@ During this operation:
 - Management console {#console}
 
   To force a host resync:
-
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Locate the {{ mmg-name }} cluster you need in the list, click its name, and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
   1. Find the host you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-resetup }}**.
@@ -876,8 +872,8 @@ You can only restart one host at a time.
 - Management console {#console}
 
   To restart a host:
-
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Locate the {{ mmg-name }} cluster you need in the list, click its name, and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
   1. Find the host you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.

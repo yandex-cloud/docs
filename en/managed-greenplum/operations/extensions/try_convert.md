@@ -5,8 +5,6 @@ description: How to use try_convert in {{ mgp-full-name }}.
 
 # Using try_convert in {{ mgp-name }}
 
-{% include [not-supported-in-cb](../../../_includes/mdb/mgp/not-supported-in-cb.md) %}
-
 `try_convert` is a {{ yandex-cloud }} extension which works in the same way as the [TRY_CONVERT](https://learn.microsoft.com/ru-ru/sql/t-sql/functions/try-convert-transact-sql?view=sql-server-ver17) function and converts data from one type to another. This extension enables type conversions when there are errors in the input data. Without `try_convert`, such conversions are performed in pl/pgsql, resulting in increased CPU consumption.
 
 The extension only supports the standard {{ GP }} data types. To use other data types, add them using the `add_type_for_try_convert` function.
@@ -41,5 +39,3 @@ To install the extension, contact [support]({{ link-console-support }}).
     The returned result is `1234`.
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}
-
-{% include [cloudberry-trademark](../../../_includes/mdb/mgp/trademark-cloudberry.md) %}

@@ -8,7 +8,7 @@ You can delete a {{ metastore-name }} cluster along with all its stored data. Be
 
     1. In the [management console]({{ link-console-main }}), go to the folder with the cluster.
     1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+    1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.metastore.label_metastore }}**.
     1. Click ![image](../../../_assets/console-icons/ellipsis.svg) for the cluster and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
     1. Confirm cluster deletion.
 

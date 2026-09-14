@@ -30,20 +30,9 @@ apiPlayground:
           type: string
           enum:
             - TYPE_UNSPECIFIED
-            - FLAT
-            - HASHED
-            - COMPLEX_KEY_HASHED
-            - RANGE_HASHED
-            - CACHE
-            - COMPLEX_KEY_CACHE
-            - SPARSE_HASHED
-            - COMPLEX_KEY_SPARSE_HASHED
-            - COMPLEX_KEY_RANGE_HASHED
-            - DIRECT
-            - COMPLEX_KEY_DIRECT
-            - IP_TRIE
-            - SSD_CACHE
-            - COMPLEX_KEY_SSD_CACHE
+            - CLICKHOUSE
+            - ZOOKEEPER
+            - KEEPER
         scheduledAt:
           description: |-
             **string** (date-time)

@@ -99,6 +99,7 @@ resource "yandex_vpc_security_group" "test-sg-x" {
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
 - `description` (String). The resource description.
+- `disk_encryption_key_id` (String). ID of the KMS key used for cluster disk encryption. This parameter only works when both master and segment hosts use `local-ssd` disks. Changing this value requires recreating the cluster. If omitted when restoring, the restored cluster is created without encryption. The key is preserved in Terraform state but cannot currently be read from the API, including during import.
 - `environment` (**Required**)(String). Deployment environment of the Greenplum cluster. (PRODUCTION, PRESTABLE)
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `greenplum_config` (Map Of String). Greenplum cluster config. Detail info in `Greenplum cluster settings` block.

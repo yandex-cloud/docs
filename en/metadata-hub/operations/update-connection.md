@@ -14,7 +14,7 @@ To change connection settings:
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** to the right of the connection you want to update.
   1. Change the required connection parameters, such as description, labels, database server settings, or user authentication information.
   1. Click **{{ ui-key.yacloud.common.apply }}** to save the changes.
@@ -272,7 +272,7 @@ To change connection settings:
             
             * `user`: Username to connect to the cluster.
             * `password.raw`: Password.
-            * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
+            * `supported_mechanisms`: List of authentication mechanisms. The possible values are as follows:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
               * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
@@ -469,7 +469,7 @@ To change connection settings:
             
             * `user`: Username to connect to the cluster.
             * `password.raw`: Password.
-            * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
+            * `supported_mechanisms`: List of authentication mechanisms. The possible values are as follows:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
               * `SCRAM_SHA256`: Authentication with SHA-256 hashing.

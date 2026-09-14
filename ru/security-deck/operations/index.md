@@ -57,3 +57,11 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](./vulnerability-management/enable-vulnerability-management.md)
 * [{#T}](./vulnerability-management/use-vulnerability-management.md)
+
+## Пользовательские наборы правил {#custom-rules-sets}
+
+* [{#T}](./custom-rules-sets/view-set.md)
+* [{#T}](./custom-rules-sets/create-set.md)
+* [{#T}](./custom-rules-sets/update-set.md)
+* [{#T}](./custom-rules-sets/enable-disable-set.md)
+* [{#T}](./custom-rules-sets/delete-set.md)

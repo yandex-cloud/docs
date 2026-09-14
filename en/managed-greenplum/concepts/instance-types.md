@@ -9,20 +9,26 @@ description: In this article, you will learn about host classes in {{ mgp-name }
 The host class determines the computing power allocated for each host in a cluster. In a {{ mgp-name }} cluster, the classes of master hosts and segment hosts may differ. For information on how to select host classes, see [Calculating the cluster configuration](../concepts/calculate-specs.md).
 
 
+
 For master hosts, the host class determines the available [disk types](./storage.md):
 
 * **s2**, **i2**: `local-ssd`, `network-ssd-nonreplicated`.
-* **s3**, **i3**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
+* **s3**, **i3**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`.
+* **s4a**, **m4a**, **c4a**: `network-ssd`, `local-ssd`.
+* **s4af**, **m4af**, **c4af**: `network-ssd`. 
 
 For segment hosts, the following disk types are available:
 
 * `local-ssd`
+* `network-ssd`
 * `network-ssd-nonreplicated`
-* `network-ssd-io-m3`
+
+
 
 The `network-ssd-nonreplicated` type is available for clusters with up to four segment hosts.
 
 The available storage size does not depend on the host class. For storage limitations, see [Quotas and limits](limits.md).
+
 
 ## Available host classes {#available-flavors}
 
@@ -31,11 +37,12 @@ The available storage size does not depend on the host class. For storage limita
 
 {% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
 
-For example, `{{ region-id }}-d` does not support Intel Broadwell and local SSD storage if Intel Cascade Lake is used.
+For example, `{{ region-id }}-d` does not support Intel Broadwell or local SSD storage if using Intel Cascade Lake.
 
 Configuration types:
 
 {% include [instance-types-code](../../_includes/mdb/mgp-instance-types-code.md) %}
+
 
 | Host class name | Number of vCPUs | vCPU performance | RAM, GB | Disk <br>size, GB |
 |-------------------|----------------:|:-----------------------:|--------:|----------------------|
@@ -48,9 +55,16 @@ Configuration types:
 | **Intel Ice Lake**                                                                             |
 | s3-c8-m32         |               8 | 100%                    |      32 | 10 — 8,192           |
 | s3-c12-m48        |              12 | 100%                    |      48 | 10 — 8,192           |
+| s3-c16-m64        |              16 | 100%                    |      64 | 10 — 8,192           |
 | i3-c16-m128       |              16 | 100%                    |     128 | 10 — 8,192           |
+| i3-c24-m192       |              24 | 100%                    |     192 | 10 — 8,192           |
 | i3-c32-m256       |              32 | 100%                    |     256 | 10 — 8,192           |
+| i3-c36-m252       |              36 | 100%                    |     252 | 10 — 8,192           |
 | i3-c40-m320       |              40 | 100%                    |     320 | 10 — 8,192           |
+| i3-c48-m384       |              48 | 100%                    |     384 | 10 — 8,192           |
+| i3-c56-m448       |              56 | 100%                    |     448 | 10 — 8,192           |
+| i3-c64-m256       |              64 | 100%                    |     256 | 10 — 8,192           |
+| i3-c64-m512       |              64 | 100%                    |     512 | 10 — 8,192           |
 | **AMD Zen 4**                                                                                  |
 | c4a-c16-m32       |              16 | 100%                    |      32 | 10 — 8,192           |
 | c4a-c32-m64       |              32 | 100%                    |      64 | 10 — 8,192           |
@@ -59,6 +73,7 @@ Configuration types:
 | c4a-c128-m256     |             128 | 100%                    |     256 | 10 — 8,192           |
 | c4a-c224-m448     |             224 | 100%                    |     448 | 10 — 8,192           |
 | c4a-c256-m512     |             256 | 100%                    |     512 | 10 — 8,192           |
+| c4a-c288-m576     |             288 | 100%                    |     576 | 10 — 8,192           |
 | s4a-c16-m64       |              16 | 100%                    |      64 | 10 — 8,192           |
 | s4a-c32-m128      |              32 | 100%                    |     128 | 10 — 8,192           |
 | s4a-c64-m256      |              64 | 100%                    |     256 | 10 — 8,192           |
@@ -66,6 +81,7 @@ Configuration types:
 | s4a-c128-m512     |             128 | 100%                    |     512 | 10 — 8,192           |
 | s4a-c224-m896     |             224 | 100%                    |     896 | 10 — 8,192           |
 | s4a-c256-m1024    |             256 | 100%                    |    1 024 | 10 — 8,192          |
+| s4a-c288-m1152    |             288 | 100%                    |    1 152 | 10 — 8,192          |
 | m4a-c16-m128      |              16 | 100%                    |     128 | 10 — 8,192           |
 | m4a-c32-m256      |              32 | 100%                    |     256 | 10 — 8,192           |
 | m4a-c64-m512      |              64 | 100%                    |     512 | 10 — 8,192           |
@@ -88,6 +104,10 @@ Configuration types:
 
 
 
+
+
+
+
 ## Using dedicated hosts {#dedicated-hosts}
 
 You can use [dedicated hosts](../../compute/concepts/dedicated-host.md) for your master hosts, segment hosts, or all your cluster's hosts at the same time. In which case the cluster's hosts will reside on dedicated hosts from the group you select.
@@ -98,4 +118,5 @@ A cluster on dedicated hosts will have the following available to it:
 * The whole [local disk](../../compute/concepts/dedicated-host.md#host-types-list) (`local-ssd`) volume of the dedicated host. The maximum storage size per host is greater than if standard VMs are used. 
 
 Network drives are also available on dedicated hosts.
+
 

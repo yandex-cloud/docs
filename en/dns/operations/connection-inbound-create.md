@@ -33,7 +33,7 @@ To create an [inbound DNS connection](../concepts/dns-connection.md#dns-inbound)
           1. In the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_internal-v4-address }}** field, specify the IP address to reserve.
 
               This IP address must belong to the IP address range of the subnet you selected. You cannot specify IP addresses already used by {{ yandex-cloud }} resources.
-          1. Optionally, enable **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}** to protect the address from accidental deletion.
+          1. Optionally, enable **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection_jVSCP }}** to protect the address from accidental deletion.
           1. Click **{{ ui-key.yacloud.common.create }}** to reserve the address.
       1. Click **{{ ui-key.yacloud.common.create }}** to create an inbound DNS connection.
 

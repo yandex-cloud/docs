@@ -5,7 +5,7 @@ description: High availability is the ability of a system to continue to operate
 
 # High availability of a {{ mmg-name }} cluster
 
-The [high availability of a {{ mmg-name }} cluster](../../architecture/fault-tolerance.md#mdb-ha) depends on the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/)-related parameters and some other settings.
+[The high availability of a {{ mmg-name }} cluster](../../architecture/fault-tolerance.md#mdb-ha) depends on the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/)-related parameters and some other settings.
 
 ## Number and placement of cluster hosts {#host-configuration}
 
@@ -79,9 +79,9 @@ To ensure data integrity and acceptable cluster recovery time:
 
 To keep your cluster's hosts writable, regularly [check its _Disk space usage per host_ chart](../operations/monitoring.md#cluster) or [create an alert with the `disk.free_bytes` metric](../operations/monitoring.md#monitoring-integration).
 
-## Virtual machine type {#vm-type}
+## Host configuration type {#host-type}
 
-Cluster availability depends on the type of VMs you use to deploy your hosts. A highly available cluster should use a VM type with a 100% vCPU guarantee. The **burstable** VM type with a 50% vCPU guarantee does not ensure high availability and should only be used for test environments.
+Host configuration directly impacts cluster availability. A highly available cluster should use a configuration with a 100% vCPU guarantee. The **b1**, **b2**, and **b3** configuration types with a 50% vCPU guarantee do not ensure high availability and should only be used for test environments.
 
 ## Maintaining a cluster and modifying its parameters {#maintenance}
 

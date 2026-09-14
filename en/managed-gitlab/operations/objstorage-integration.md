@@ -26,7 +26,7 @@ You can learn more about integration with {{ objstorage-name }} [here](../concep
 - Management console {#console}
 
   1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
-  1. Click the instance name and select ![image](../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.gitlab.title_object-storage }}**.
+  1. Click the instance name and select the **{{ ui-key.yacloud.gitlab.title_object-storage }}** tab.
 
 {% endlist %}
 
@@ -39,7 +39,7 @@ You can learn more about integration with {{ objstorage-name }} [here](../concep
 - Management console {#console}
 
   1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
-  1. Click the instance name and select ![image](../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.gitlab.title_object-storage }}**.
+  1. Click the instance name and select the **{{ ui-key.yacloud.gitlab.title_object-storage }}** tab.
   1. Click **{{ ui-key.yacloud.gitlab.button_configure-data-types }}**.
   1. Select the data types you want to store in {{ objstorage-name }}.
     

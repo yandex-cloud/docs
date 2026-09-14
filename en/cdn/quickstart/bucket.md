@@ -30,7 +30,9 @@ Set up content distribution over a CDN with an {{ objstorage-name }} [bucket](..
    1. [Create a bucket](../../storage/operations/buckets/create.md).
    1. [Enable public access](../../storage/operations/buckets/bucket-availability.md) to the objects in the bucket and the object list.
    1. [Upload your content](../../storage/operations/objects/upload.md) to the bucket.
-      
+
+   {% include [bucket-website-hosting-tip](../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
 ## Create a CDN resource {#create-cdn-resource}
 
 1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.

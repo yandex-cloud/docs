@@ -1,11 +1,11 @@
 # Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}
 
 
-You can track data changes in a {{ mpg-name }} _source cluster_ and send them to a {{ mkf-name }} _target cluster_ using change data capture (CDC).
+You can track data changes in a {{ mpg-full-name }} _source cluster_ and send them to a {{ mkf-full-name }} _target cluster_ using change data capture (CDC).
 
-To set up CDC using {{ data-transfer-name }}:
+To set up CDC using {{ data-transfer-full-name }}:
 
-1. [Set up your infrastructure](#infra).
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Prepare the source cluster](#prepare-source).
 1. [Set up the target cluster](#prepare-target).
 1. [Prepare and activate your transfer](#prepare-transfer).
@@ -18,16 +18,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mpg-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
-## Set up your infrastructure {#infra}
+
+## Set up your infrastructure {#prepare-infrastructure}
 
 
 {% include [public-access](../../_includes/mdb/note-public-access.md) %}
@@ -37,7 +37,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually {#manual}
 
-  1. [Create a {{ mpg-name }} source cluster](../../managed-postgresql/operations/cluster-create.md) with any suitable configuration, using the following settings:
+  1. [Create a {{ mpg-name }} source cluster](../../managed-postgresql/operations/cluster-create.md) of any suitable configuration with the following settings:
 
       * Database: `db1`.
     
@@ -47,7 +47,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 
   
-  1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly accessible hosts.
+  1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration with publicly accessible hosts.
 
   1. If using security groups, configure them to allow internet access to your clusters:
 

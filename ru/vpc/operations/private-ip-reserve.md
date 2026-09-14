@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
    1. В открывшемся окне:
        * Введите имя и описание внутреннего адреса.
        * В поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** введите адрес, который необходимо зарезервировать.
-       * (Опционально) Включите опцию **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
+       * (Опционально) Включите опцию **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection_jVSCP }}**.
        * (Опционально) Укажите [метки](../../resource-manager/concepts/labels.md).
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

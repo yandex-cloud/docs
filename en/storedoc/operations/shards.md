@@ -2,7 +2,7 @@
 
 You can [create a sharded cluster](cluster-create.md#creating-a-sharded-cluster) or you can [enable sharding](#enable) later. Next, you can [add and configure shards](#add-shard).
 
-To ensure high availability, each shard must consist of at least three `MONGOD` hosts. We do not recommend sharding small collections, as a standard replica set will process queries faster.
+To ensure high availability, each shard must consist of at least three `MONGOD` hosts. We do not recommend sharding small collections, as a non-sharded cluster will process queries faster.
 
 {% note alert %}
 
@@ -34,12 +34,12 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_sharding-enable }}**.
   1. Select sharding type:
-
+     
      * **{{ ui-key.yacloud.mongodb.EnableShardingForm.option_sharding-type-standard_ezqnu }}**: Based on `MONGOINFRA` hosts.
      * **{{ ui-key.yacloud.mongodb.EnableShardingForm.option_sharding-type-extended_8Vip4 }}**: Based on `MONGOS` and `MONGOCFG` hosts.
 
@@ -82,16 +82,16 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
     ```
 
     Where:
-
+    
     * `--cluster-name`: Cluster name. You can get it from the [list of clusters in your folder](cluster-list.md#list).
     * `--host`: Host settings:
-
+      
       * `type`: Type (`MONGOINFRA`).
       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet).
-
+    
     * `--mongoinfra`: `MONGOINFRA` host settings:
-
+      
       * `resource-preset`: [Host class](../concepts/instance-types.md).
       * `disk-size`: Storage size, in GB.
       * `disk-type`: [Disk type](../concepts/storage.md).
@@ -125,22 +125,22 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
     ```
 
     Where:
-
+    
     * `--cluster-name`: Cluster name. You can get it from the [list of clusters in your folder](cluster-list.md#list).
     * `--host`: Host settings:
-
+      
       * `type`: Type, `MONGOS` or `MONGOCFG`.
       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet).
-
+    
     * `--mongos`: `MONGOS` host settings:
-
+      
       * `resource-preset`: [Host class](../concepts/instance-types.md).
       * `disk-size`: Storage size, in GB.
       * `disk-type`: [Disk type](../concepts/storage.md).
-
+    
     * `--mongocfg`: `MONGOCFG` host settings:
-
+      
       * `resource-preset`: [Host class](../concepts/instance-types.md).
       * `disk-size`: Storage size, in GB.
       * `disk-type`: [Disk type](../concepts/storage.md).
@@ -361,7 +361,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
         * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
         * `type`: Host type, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
         * `shard_name`: Shard name.
-        * `hidden`: The host will either be visible (`false`) or hidden (`true`).
+        * `hidden`: Determines whether the host is hidden, `true` or `false`.
         * `secondary_delay_secs`: Host’s replication lag behind the master.
         * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
         * `tags`: Host tags.
@@ -378,7 +378,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
 
@@ -464,7 +464,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
@@ -487,10 +487,10 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
   ```
 
   Where:
-
+  
   * `--cluster-name`: Cluster name. You can get it from the [list of clusters in your folder](cluster-list.md#list-clusters).
   * `--host`: Host settings:
-
+    
     * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
     * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet).
 
@@ -632,7 +632,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
           * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
           * `type`: Host type. Specify `MONGOD`.
           * `shard_name`: Shard name.
-          * `hidden`: The host will either be visible (`false`) or hidden (`true`).
+          * `hidden`: Determines whether the host is hidden, `true` or `false`.
           * `secondary_delay_secs`: Host’s replication lag behind the master.
           * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
           * `tags`: Host tags.
@@ -657,7 +657,7 @@ The system will invoke the `removeShard` operation for the shard slated for remo
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Find the shard you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.

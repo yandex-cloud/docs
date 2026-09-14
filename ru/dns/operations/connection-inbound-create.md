@@ -34,7 +34,7 @@ description: Следуя данной инструкции, вы сможете
           1. В поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_internal-v4-address }}** укажите IP-адрес, который будет зарезервирован.
 
               IP-адрес должен относиться к диапазону IP-адресов выбранной подсети. Указывать IP-адреса, уже используемые ресурсами {{ yandex-cloud }}, нельзя.
-          1. (Опционально) Включите опцию **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**, чтобы защитить адрес от случайного удаления.
+          1. (Опционально) Включите опцию **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection_jVSCP }}**, чтобы защитить адрес от случайного удаления.
           1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы зарезервировать адрес.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы создать входящее DNS-подключение.
 

@@ -6,7 +6,7 @@ description: In this tutorial, you will learn how to create a backup policy in {
 # Creating a backup policy
 
 
-Creating a [policy](../../concepts/policy.md) becomes available after you [activate](../../concepts/index.md#providers) {{ backup-name }}.
+Creating a [policy](../../concepts/policy.md) becomes available after you [activate](../../concepts/index.md#providers) {{ backup-full-name }}.
 
 You can create or [update](update.md) a policy using the {{ yandex-cloud }} management console, {{ TF }}, or a [JSON](https://en.wikipedia.org/wiki/JSON) [specification](../../concepts/policy.md#specification) via the {{ yandex-cloud }} [CLI](../../../cli/quickstart.md) or API.
 
@@ -63,7 +63,7 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 
           {% include [policy-options-extra](../../../_includes/backup/policy-options-extra.md) %}
 
-  1. Click **{{ ui-key.yacloud.common.save }}**.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 

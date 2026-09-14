@@ -1,22 +1,22 @@
 ---
 title: How to set up a {{ ydb-full-name }} source endpoint in {{ data-transfer-full-name }}
-description: In this tutorial, you will learn how to configure a {{ ydb-full-name }} source endpoint when creating or modifying it in {{ data-transfer-full-name }}.
+description: In this tutorial, you will learn how to create and configure a {{ ydb-full-name }} source endpoint in {{ data-transfer-full-name }}.
 ---
 
 # Transferring data from a {{ ydb-name }} source endpoint
 
 
-{{ data-transfer-full-name }} enables you to migrate data from a {{ ydb-name }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data from a {{ ydb-name }} database and implement various transfer, processing, and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ ydb-name }}](#prepare) database for the transfer.
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
 1. Perform required operations with the database and [control the transfer](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
-## Scenarios for transferring data from {{ ydb-name }} {#scenarios}
+## {{ ydb-name }} data transfer scenarios {#scenarios}
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
 
@@ -39,8 +39,8 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 ## Configuring the {{ ydb-name }} source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
-* {{ ydb-full-name }} DB connection settings. These are required parameters.
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can configure:
+* {{ ydb-full-name }} DB connection settings. These settings are required.
 * Transfer path list (for tables and directories).
 
 
@@ -55,17 +55,37 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
 
 - Management console {#console}
 
-  * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/database-name.md) %}
+  * Select the **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.on_premise_connection.title }}** or **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.managed_connection.title }}** connection type.
+  
+    To set up your connection manually, specify the following:
+
+      * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/database-name-onprem.md) %}
+
+      * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/ydb-endpoint-settings.md) %}
+
+      
+      * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/service-account.md) %}
+
+      * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/ca-sertificate.md) %}
+    
+      * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/subnet-id.md) %}
+  
+      * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/security-groups.md) %}
 
   
-  * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/service-account.md) %}
+    To set up a connection to {{ ydb-full-name }}:
 
-  * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/security-groups.md) %}
+      * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/database-name.md) %}
+
+      
+      * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/service-account.md) %}
+
+      * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/security-groups.md) %}
 
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}**: Add paths to the {{ ydb-name }} tables and directories to transfer.
 
-      Table and directory names must meet the ID naming rules in {{ ydb-short-name }}. Escaping double quotes is not required. The `/` character is used as a path delimiter. For more information, see [this {{ ydb-short-name }} guide]({{ ydb.docs }}/concepts/connect#database).
+      Table and directory names must meet the ID naming rules in {{ ydb-short-name }}. Double quote escaping is not required. The `/` character is used as a path delimiter. For more information, see [this {{ ydb-short-name }} guide]({{ ydb.docs }}/concepts/connect#database).
 
       Adding new paths when editing an endpoint used in {{ dt-type-copy-repl }} transfers in the {{ dt-status-repl }} status will not result in uploading the data history of these tables. To add a table with its historical data, use the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** field in the [transfer settings](../../transfer.md#update).
 
@@ -76,7 +96,6 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_name.title }}**: Specify the name of the update stream if already created. Otherwise, leave the field blank.
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_consumer_name.title }}**: Specify the data consumer you created for the update stream. The default consumer is `__data_transfer_consumer`.
-
 
       
       {% note info %}
@@ -145,7 +164,7 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
 {% endlist %}
 
 
-## Configuring the data target {#supported-targets}
+## Configuring the target {#supported-targets}
 
 Configure one of the supported data targets:
 
@@ -159,9 +178,9 @@ Configure one of the supported data targets:
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
-## Troubleshooting data transfer issues {#troubleshooting}
+## Data transfer troubleshooting {#troubleshooting}
 
 Known issues when using a {{ ydb-name }} endpoint:
 

@@ -5,6 +5,7 @@ description: This page provides a reference for {{ backup-name }} events tracked
 
 # {{ at-full-name }} event reference
 
+
 {{ at-name }} supports tracking control plane events for {{ backup-full-name }}. For more information, see [{#T}](../audit-trails/concepts/format.md).
 
 The general format of the `event_type` field value is as follows:

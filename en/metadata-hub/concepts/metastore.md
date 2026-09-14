@@ -21,8 +21,8 @@ In relational databases (Oracle, {{ PG }}), the data dictionary is built into th
 
 #|
 || **{{ metastore-name }} version** | **Features** ||
-|| 3.1 | Connection over Thrift on port 9083 ||
-|| 4.0 | Connection over Thrift on port 9083 ||
+|| 3.1 | Connection via Thrift on port 9083 ||
+|| 4.0 | Connection via Thrift on port 9083 ||
 || 4.2 | Supports two connection protocols: Thrift and REST. ||
 |#
 
@@ -32,8 +32,8 @@ In relational databases (Oracle, {{ PG }}), the data dictionary is built into th
 
 Starting with version 4.2.0, {{ metastore-name }} supports two connection protocols:
 
-* **Thrift**: Operates on port 9083. Available in all {{ metastore-name }} versions.
-* **REST**: Operates on port 9001. Available in versions 4.2.0 and higher. This is an HTTP API optimized for Iceberg tables.
+* **Thrift**: Protocol on port 9083. Available in all {{ metastore-name }} versions.
+* **REST**: Protocol on port 9001. Available in versions 4.2.0 and higher. This is an HTTP API optimized for Iceberg tables.
 
 ## {{ metastore-name }} cluster configuration {#presets}
 

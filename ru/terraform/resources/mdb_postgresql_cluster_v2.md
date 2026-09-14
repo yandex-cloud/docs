@@ -116,7 +116,7 @@ resource "yandex_vpc_subnet" "foo" {
     - `advanced_mode` (Bool). Switch performance diagnostics from standard to advanced mode
     - `enabled` (Bool). Enable performance diagnostics
     - `sessions_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_activity sampling. Acceptable values are 1 to 86400, inclusive.
-    - `statements_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_statements sampling. Acceptable values are 60 to 86400, inclusive.
+    - `statements_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_statements sampling. Acceptable values are 1 to 86400, inclusive.
   - `pooler_config` [Block]. Configuration of the connection pooler.
     - `pool_discard` (Bool). Setting pool_discard parameter in Odyssey.
     - `pooling_mode` (String). Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for Odyssey](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool-string.)

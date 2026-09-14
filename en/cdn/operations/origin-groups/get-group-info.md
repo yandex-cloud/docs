@@ -1,5 +1,6 @@
 ---
 title: How to get information about an origin in {{ cdn-full-name }}
+description: Follow this guide to get information about an individual origin or origin group.
 ---
 
 # Getting information about origins
@@ -138,7 +139,7 @@ To get the name, list of origins, and other details of an origin group:
       * `output "my_group_origin"`: Output variable that contains information about the origin group:
         * `value`: Return value.
 
-      You can replace `origin` with another variable to get the information you need. For more on the properties of the `yandex_cdn_origin_group` data source, see [this provider guide]({{ tf-provider-datasources-link }}/cdn_origin_group).
+      You can replace `origin` with any other attribute to get the information you need. For more information about the properties of the `yandex_cdn_origin_group` data source, see [this provider guide]({{ tf-provider-datasources-link }}/cdn_origin_group).
 
   1. Create the resources:
 

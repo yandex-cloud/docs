@@ -3007,7 +3007,12 @@ The maximum string length in characters is 50. ||
               "max_size_percent": "google.protobuf.Int64Value",
               "min_retention_hours": "google.protobuf.DoubleValue"
             },
-            "chaining_allowed": "google.protobuf.BoolValue"
+            "chaining_allowed": "google.protobuf.BoolValue",
+            "change_stream_options": {
+              "pre_and_post_images": {
+                "expire_after_seconds": "google.protobuf.Int64Value"
+              }
+            }
           },
           "user_config": {
             "storage": {
@@ -3076,7 +3081,12 @@ The maximum string length in characters is 50. ||
               "max_size_percent": "google.protobuf.Int64Value",
               "min_retention_hours": "google.protobuf.DoubleValue"
             },
-            "chaining_allowed": "google.protobuf.BoolValue"
+            "chaining_allowed": "google.protobuf.BoolValue",
+            "change_stream_options": {
+              "pre_and_post_images": {
+                "expire_after_seconds": "google.protobuf.Int64Value"
+              }
+            }
           },
           "default_config": {
             "storage": {
@@ -3145,7 +3155,12 @@ The maximum string length in characters is 50. ||
               "max_size_percent": "google.protobuf.Int64Value",
               "min_retention_hours": "google.protobuf.DoubleValue"
             },
-            "chaining_allowed": "google.protobuf.BoolValue"
+            "chaining_allowed": "google.protobuf.BoolValue",
+            "change_stream_options": {
+              "pre_and_post_images": {
+                "expire_after_seconds": "google.protobuf.Int64Value"
+              }
+            }
           }
         },
         "resources": {
@@ -7702,6 +7717,9 @@ options described in [MongoDB documentation](https://www.mongodb.com/docs/manual
 || chaining_allowed | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Chained replication setting ||
+|| change_stream_options | **[ChangeStreamOptions](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions)**
+
+Change stream settings. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage}
@@ -7973,6 +7991,26 @@ Oplog maxsize in percents. ||
 || min_retention_hours | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
+|#
+
+## ChangeStreamOptions {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions}
+
+#|
+||Field | Description ||
+|| pre_and_post_images | **[PreAndPostImages](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions.PreAndPostImages)**
+
+Retention settings for pre- and post-images. ||
+|#
+
+## PreAndPostImages {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions.PreAndPostImages}
+
+#|
+||Field | Description ||
+|| expire_after_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of seconds after which pre- and post-images expire.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoCfg}

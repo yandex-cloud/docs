@@ -3084,7 +3084,12 @@ The maximum string length in characters is 1000. ||
                   "maxSizePercent": "string",
                   "minRetentionHours": "number"
                 },
-                "chainingAllowed": "boolean"
+                "chainingAllowed": "boolean",
+                "changeStreamOptions": {
+                  "preAndPostImages": {
+                    "expireAfterSeconds": "string"
+                  }
+                }
               },
               "userConfig": {
                 "storage": {
@@ -3153,7 +3158,12 @@ The maximum string length in characters is 1000. ||
                   "maxSizePercent": "string",
                   "minRetentionHours": "number"
                 },
-                "chainingAllowed": "boolean"
+                "chainingAllowed": "boolean",
+                "changeStreamOptions": {
+                  "preAndPostImages": {
+                    "expireAfterSeconds": "string"
+                  }
+                }
               },
               "defaultConfig": {
                 "storage": {
@@ -3222,7 +3232,12 @@ The maximum string length in characters is 1000. ||
                   "maxSizePercent": "string",
                   "minRetentionHours": "number"
                 },
-                "chainingAllowed": "boolean"
+                "chainingAllowed": "boolean",
+                "changeStreamOptions": {
+                  "preAndPostImages": {
+                    "expireAfterSeconds": "string"
+                  }
+                }
               }
             },
             "resources": {
@@ -7828,6 +7843,9 @@ options described in [MongoDB documentation](https://www.mongodb.com/docs/manual
 || chainingAllowed | **boolean**
 
 Chained replication setting ||
+|| changeStreamOptions | **[ChangeStreamOptions](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions)**
+
+Change stream settings. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage}
@@ -8099,6 +8117,26 @@ Oplog maxsize in percents. ||
 || minRetentionHours | **number** (double)
 
 The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
+|#
+
+## ChangeStreamOptions {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions}
+
+#|
+||Field | Description ||
+|| preAndPostImages | **[PreAndPostImages](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions.PreAndPostImages)**
+
+Retention settings for pre- and post-images. ||
+|#
+
+## PreAndPostImages {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions.PreAndPostImages}
+
+#|
+||Field | Description ||
+|| expireAfterSeconds | **string** (int64)
+
+The number of seconds after which pre- and post-images expire.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoCfg}

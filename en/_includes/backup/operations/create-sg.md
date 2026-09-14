@@ -27,7 +27,7 @@
       yc vpc security-group create --help
       ```
 
-  1. Create a security group with [rules](../../../vpc/concepts/network.md#security-groups-rules) by running this command:
+  1. Create a security group with [rules](../../../vpc/concepts/security-groups.md#security-groups-rules) by running this command:
 
       ```bash
       yc vpc security-group create \
@@ -171,7 +171,7 @@
 
       * `name`: [Security group](../../../vpc/concepts/security-groups.md) name.
       * `network_id`: ID of the [network](../../../vpc/concepts/network.md) the VM resides in.
-      * `egress`: Description of the outgoing traffic [rule](../../../vpc/concepts/network.md#security-groups-rules):
+      * `egress`: Description of the outgoing traffic [rule](../../../vpc/concepts/security-groups.md#security-groups-rules):
 
           * `protocol`: Data transfer protocol.
           * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets the traffic will come to.

@@ -34,7 +34,7 @@ To view information about sessions and queries:
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and navigate to the ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** tab.
+    1. Click the cluster name and navigate to the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** tab.
     1. Select what you want to view and navigate to relevant tab:
 
         * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** for the current sessions and queries.
@@ -63,7 +63,7 @@ To view the resource consumption history for completed queries:
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_consumption-history }}**.
+    1. Click the cluster name and navigate to **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_consumption-history }}**.
     1. Select the consumption metric you need:
 
         * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-running-time-seconds }}**: Time it took the CPU resources to process the queries, in seconds.
@@ -118,7 +118,7 @@ To free up resources for sessions, you can abort a session with the `{{ ui-key.y
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and navigate to the ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**tab.
+    1. Click the cluster name and navigate to the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** tab.
     1. In **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}**, click ![image](../../_assets/console-icons/ellipsis.svg) in the relevant line and select **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-session }}**.
 
         If you see **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-query }}**, select it and stop the query.
@@ -129,7 +129,7 @@ To free up resources for sessions, you can abort a session with the `{{ ui-key.y
 
 ## Terminating the current query {#terminate-query}
 
-To free up resources for queries, you can terminate a query with the `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-idle }}` status within an idle session. Proceed as follows:
+To free up resources for queries, you can terminate a query with the `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-idle }}` status within an idle session. Follow these steps:
 
 {% list tabs group=instructions %}
 
@@ -137,7 +137,7 @@ To free up resources for queries, you can terminate a query with the `{{ ui-key.
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and navigate to the ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**tab.
+    1. Click the cluster name and navigate to the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** tab.
     1. In **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}**, click ![image](../../_assets/console-icons/ellipsis.svg) in the relevant line and select **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-query }}**.
     1. Confirm terminating the query.
 
@@ -158,7 +158,7 @@ The {{ mgp-name }} command center supports the following types of cluster curren
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
+    1. Click the cluster name and navigate to **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
     1. Sort sessions by one of the following columns: **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-cpu-time }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-peak-memory }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-spill-total-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-write-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-read-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-recv-total-bytes }}**, or **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-sent-total-bytes }}**. 
     1. Find the sessions that consume the selected resource the most.
     1. For each selected session:
@@ -185,7 +185,7 @@ You can identify queries that are inefficient due to their SQL statement logic o
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
+    1. Click the cluster name and navigate to **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
     1. Navigate to the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}** tab.
     1. Enable displaying only active sessions by turning off all status buttons except **{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-active }}**.
     1. Filter the sessions by **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-backend-start }}**.
@@ -229,7 +229,7 @@ Let's assume the user is done working with the database but has left the session
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
+    1. Click the cluster name and navigate to **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
     1. Filter the sessions by **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-backend-start }}**.
     1. Find the longest-lasting session with the `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-idle }}` status. Click its number to open its info page.
     1. Look up the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_section_session-info }}** field under **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-query-started }}** to see when the last query was submitted.
@@ -247,7 +247,7 @@ In some cases, the session acquires table rows or metadata for a long time. This
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
+    1. Click the cluster name and navigate to **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
     1. Navigate to the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}** tab.
     1. To display the blocking tree, click ![image](../../_assets/console-icons/branches-down.svg).
     1. Explore the blocking tree and identify the main blocking sessions. 
@@ -293,7 +293,7 @@ Let's assume that during a certain period a higher than usual CPU consumption is
 
         1. Open the [folder dashboard]({{ link-console-main }}).
         1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-        1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
+        1. Click the cluster name and navigate to **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
         1. Set the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-cpu-usage }}** filter.
         1. Use the chart to find out when CPU consumption became abnormally high.
 
@@ -335,7 +335,7 @@ Let's assume that during a certain period a higher than usual CPU consumption is
 
         1. Open the [folder dashboard]({{ link-console-main }}).
         1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-        1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
+        1. Click the cluster name and navigate to **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
         1. Set the time range during which errors were observed.
         1. In the drop-down list above the chart, select **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-connections }}** and then **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-net-usage }}**. Compare the charts.
         1. If there are unusually high **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-net-usage }}** values, most likely, the errors are caused by abnormal network activity. 
@@ -384,7 +384,7 @@ To find which queries were canceled or caused execution errors, proceed as follo
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
+    1. Click the cluster name and navigate to **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
     1. Navigate to the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}** tab.
     1. Select a time point when issues were reported by the monitoring data. Use the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-at-time }}** section and the **<** **>** arrows to set the exact time point.
     1. Filter the queries by the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-query-status }}** column.

@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mch-full-name }}
-description: Access management in {{ CH }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in {{ CH }}, a database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Access management in {{ mch-name }}
@@ -26,13 +26,17 @@ To assign a role for a resource, you need the `mdb.admin` role, `managed-clickho
 
 You can also assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../cli), or [API](./api-ref/authentication.md).
 
-## Roles available in the service {#roles-list}
+## Roles this service has {#roles-list}
 
 The diagram below shows available service roles and their permission inheritance hierarchy. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find role descriptions below the diagram.
 
 {% include [roles-managed-clickhouse](../_mermaid/roles/managed-clickhouse.md) %}
 
 ### Service roles {#service-roles}
+
+#### managed-clickhouse.clusters.connector {#managed-clickhouse-clusters-connector}
+
+{% include [managed-clickhouse.clusters.connector](../_roles/managed-clickhouse/clusters/connector.md) %}
 
 #### managed-clickhouse.auditor {#managed-clickhouse-auditor}
 

@@ -18,6 +18,9 @@ To create an [origin group](../../concepts/origins.md):
   1. Enter a name for the origin group.
   1. Configure **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
      * Specify the **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. For more on types, see [{#T}](../../concepts/origins.md).
+
+       {% include [bucket-website-hosting-tip](../../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
      * Specify an origin.
      * Select the **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.value_active }}` or `{{ ui-key.yacloud.cdn.value_backup }}`. For more on priorities, see [{#T}](../../concepts/origins.md#groups).
      * Add other origins if needed.
@@ -70,6 +73,8 @@ To create an [origin group](../../concepts/origins.md):
 
      For more information about the `yc cdn origin-group create` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
 
+     {% include [bucket-website-hosting-tip](../../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -79,6 +84,8 @@ To create an [origin group](../../concepts/origins.md):
   1. Define the parameters of the `yandex_cdn_origin_group` resource in the configuration file.
 
      {% include [create-origin-group-tf](../../../_includes/cdn/create-origin-group-tf.md) %}
+
+     {% include [bucket-website-hosting-tip](../../../_includes/cdn/bucket-website-hosting-tip.md) %}
 
   1. Create the resources:
 

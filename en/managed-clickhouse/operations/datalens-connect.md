@@ -32,7 +32,7 @@ To allow {{ datalens-name }} to connect to your cluster and work with its data, 
 
   1. Make sure **{{ datalens-name }}** is [activated](#activate-datalens) in the relevant folder and has [permission](#allow-access) to access the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+  1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
 
      {% cut "I have no **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** button" %}
@@ -66,7 +66,7 @@ Try [visualizing data from {{ CH }}](../../tutorials/datalens/data-from-ch-visua
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+  1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
 
      {% cut "My connection is not on the list" %}
 
@@ -84,7 +84,7 @@ Try [visualizing data from {{ CH }}](../../tutorials/datalens/data-from-ch-visua
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+  1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
   1. Select the connection from the list.
 
      {% cut "My connection is not on the list" %}
@@ -107,7 +107,7 @@ Try [visualizing data from {{ CH }}](../../tutorials/datalens/data-from-ch-visua
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+  1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
   1. Select the connection from the list.
 
      {% cut "My connection is not on the list" %}

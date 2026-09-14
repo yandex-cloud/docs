@@ -1,6 +1,6 @@
 ---
 title: Step-by-step guides for {{ cdn-full-name }}
-description: This page provides a list of step-by-step guides for {{ cdn-name }}.
+description: This page features step-by-step guides for {{ cdn-name }}.
 ---
 
 # Step-by-step guides for {{ cdn-name }}
@@ -26,6 +26,7 @@ description: This page provides a list of step-by-step guides for {{ cdn-name }}
 * [{#T}](resources/setup-follow-redirects.md)
 * [{#T}](resources/hiding-headers.md)
 * [{#T}](resources/enable-secure-token.md)
+* [{#T}](resources/configure-geo-acl.md)
 * [{#T}](resources/location-rules.md)
 * [{#T}](resources/configure-server-name.md)
 * [{#T}](resources/disable-resource.md)

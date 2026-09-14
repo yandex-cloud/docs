@@ -19,9 +19,9 @@ description: Follow this guide to create a metadata source in {{ data-catalog-fu
 
     1. In the [management console]({{ link-console-main }}), select the [resource folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you created the metadata catalog in.
     1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
+    1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. In the list that opens, select the metadata catalog you want to create a [source](../../concepts/data-catalog-sources.md) in.
-    1. In the left-hand panel, select ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}**.
+    1. Navigate to the **{{ ui-key.yacloud.data-catalog.layout.label.sources-new-layout_N6vT1 }}** tab.
     1. Click **{{ ui-key.yacloud.data-catalog.label_create-source-button }}**.
     1. Enter a unique name for the source. Once you create the source, you cannot rename it.
     1. Optionally, describe the source.

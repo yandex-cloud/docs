@@ -211,7 +211,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
        Where:
        
-       * `type`: Transfer type. The possible values are:
+       * `type`: Transfer type. The possible values are as follows:
          
          * `SNAPSHOT_ONLY`: Copying.
          * `INCREMENT_ONLY`: Replication.
@@ -312,6 +312,8 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
          * `runtime`: Runtime environment settings for a copyng transfer.
          * `replication_runtime`: Runtime environment settings for a replication transfer.
 
+       * Optionally, specify objects to transfer under `data_objects`. The list of included tables is provided via `include_objects`. In contrast to [endpoint settings](endpoint/index.md), you cannot exclude tables in this section; however, you can use this setting together with endpoint settings. This is convenient in scenarios where one source endpoint is involved in multiple transfers and you need to set up the table list transfer by transfer.
+
     1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -331,7 +333,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
     * Transfer name in the `name` parameter.
     * Source endpoint ID in the `sourceId` parameter.
     * Target endpoint ID in the `targetId` parameter.
-    * Transfer type in the `type` parameter. The possible values are:
+    * Transfer type in the `type` parameter. The possible values are as follows:
       
       * `SNAPSHOT_ONLY`: Copying.
       * `INCREMENT_ONLY`: Replication.
@@ -354,7 +356,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
     * Transfer name in the `name` parameter.
     * Source endpoint ID in the `source_id` parameter.
     * Target endpoint ID in the `target_id` parameter.
-    * Transfer type in the `type` parameter. The possible values are:
+    * Transfer type in the `type` parameter. The possible values are as follows:
       
       * `SNAPSHOT_ONLY`: Copying.
       * `INCREMENT_ONLY`: Replication.

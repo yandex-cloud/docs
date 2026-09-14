@@ -43,7 +43,8 @@ The maximum string length in characters is 32. Value must match the regular expr
     "sanitizePayload": "string",
     "databases": "string"
   },
-  "enabled": "boolean"
+  "enabled": "boolean",
+  "generatePassword": "boolean"
 }
 ```
 
@@ -70,6 +71,9 @@ New set of permissions to grant to the user. ||
 || enabled | **boolean**
 
 Is Redis user enabled ||
+|| generatePassword | **boolean**
+
+Generate password using Connection Manager ||
 |#
 
 ## Permissions {#yandex.cloud.mdb.redis.v1.Permissions}

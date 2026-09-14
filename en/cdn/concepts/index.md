@@ -39,6 +39,7 @@
 || [Content caching](./caching.md) | Creating copies of files and storing them temporarily on CDN servers and/or on the client side. ||
 || [Secure tokens](./secure-tokens.md) | Setting up access to files on CDN servers based on time and IP using secure tokens. ||
 || [IP-based access policy](./ip-address-acl.md) | Configuring access to CDN resources using an allow or block policy. ||
+|| [Country-based access policy](./geo-acl.md) | Configuring access to CDN resources for users from specified countries. ||
 || [Dedicated IP addressing of CDN resources](./dedicated-ip-addressing.md) | Service that provides a dedicated IP address for CDN resources. ||
 || [Location rules](./location-rules.md) | It is a mechanism used to selectively redefine CDN resource settings for requests whose paths match specific templates. ||
 || [Log export](./logs.md) | Exporting CDN and shielding server request logs to object storage. ||
@@ -51,4 +52,4 @@ See also the {{ yandex-cloud }} [general resource hierarchy](../../resource-mana
 #### Useful links {#see-also}
 
 * [Yandex SWS and CDN: Website protection and acceleration for businesses of any size](https://yandex.cloud/ru/blog/sws-cdn-cloudflare-alternative)
-* [Webinar: How to use Cloud CDN to offload a high-traffic infrastructure](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)
+* [Webinar: How to take load off a high-load infrastructure using Cloud CDN](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

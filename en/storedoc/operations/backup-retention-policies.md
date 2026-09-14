@@ -10,7 +10,7 @@
 - Management console {#console}
 
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+    1. Click the name of the cluster and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
     1. On the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** page, select the **{{ ui-key.yacloud.mdb.BackupPolicy.label_backup-policies_s4xXC }}** tab.
     1. Click **{{ ui-key.yacloud.mdb.BackupPolicy.button_create-policy_3Mpxn }}**.
     1. Specify the parameters of the new policy:
@@ -184,7 +184,7 @@
 - Management console {#console}
 
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+    1. Click the name of the cluster and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
     1. On the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** page, select the **{{ ui-key.yacloud.mdb.BackupPolicy.label_backup-policies_s4xXC }}** tab.
 
 - CLI {#cli}
@@ -276,7 +276,7 @@
 - Management console {#console}
 
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+    1. Click the name of the cluster and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
     1. On the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** page, select the **{{ ui-key.yacloud.mdb.BackupPolicy.label_backup-policies_s4xXC }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the policy you want to delete.
     1. Select **{{ ui-key.yacloud.common.delete }}**.

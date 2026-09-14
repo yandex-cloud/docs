@@ -6,22 +6,45 @@ editable: false
 
 # {{ mgp-name }} pricing policy
 
-In this section, you can find the {{ mgp-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      lg: 6
+      sm: 6
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        urlTitle: Price calculator
+        gravityIcon: Calculator
+        iconPosition: left
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        gravityIcon: CircleRuble
+        iconPosition: left
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list?services=dn2l7rvq9j43kk6ips5i
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
 
-{% note tip %}
+This section describes the {{ mgp-name }} pricing [policy](#rules) and [current prices](#prices) for its resources.
 
-
-
-
-For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=a98dc01f27e8#calculator) on our website or check out the pricing below.
-
-
-{% endnote %}
-
-
-
-{% include [link-to-price-list](../../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../../_includes/pricing/currency-choice.md) %}
 
@@ -154,8 +177,24 @@ For dedicated hosts, there are two cost components: the [{{ compute-full-name }}
 
 
 
-### Hybrid storage pricing
 
-{% include [usd-yezzey](../../_pricing/managed-greenplum/usd-yezzey.md) %}
+### Hybrid storage pricing for the Russia region
+
+{% list tabs %}
+
+- Prices in RUB {#prices-rub}
+
+  {% include [rub-yezzey](../../_pricing/managed-greenplum/rub-yezzey.md) %}
+
+- Prices in KZT {#prices-kzt}
+
+  {% include [kzt-yezzey](../../_pricing/managed-greenplum/kzt-yezzey.md) %}
+
+- Prices in USD {#prices-usd}
+
+  {% include [usd-yezzey](../../_pricing/managed-greenplum/usd-yezzey.md) %}
+
+{% endlist %}
+
 
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}

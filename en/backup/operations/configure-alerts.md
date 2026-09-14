@@ -9,9 +9,9 @@ description: Follow this guide to configure {{ monium-name }} alerts for {{ back
 
 You can [configure](../../monium/operations/alert/create-alert.md) an alert for any of the [{{ backup-full-name }}](../../backup/) metrics. We recommend creating alerts for the following events:
 
-* A new [{{ backup-name }} agent](../concepts/agent.md) version is out.
-* {{ backup-name }} agent unavailable.
-* Backup operation failed.
+* New [{{ backup-name }} agent](../concepts/agent.md) version is available.
+* {{ backup-name }} agent is unavailable.
+* Backup operation failure.
 
 {% note info %}
 
@@ -28,8 +28,9 @@ To create an alert to get notified about available agent versions:
 
 - Management console {#console}
 
-  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}** on the left.
-  1. At the top right, click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}**.
+  1. Go to [{{ monium-name }}]({{ link-monium }}).
+  1. In the left-hand panel, select ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Alerts and SLOs**, then ![megaphone](../../_assets/console-icons/megaphone.svg) **Alerts**.
+  1. At the top right, click **{{ ui-key.yacloud.common.create }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) and select `{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}`.
   1. In the **{{ ui-key.yacloud_monitoring.alert.title_name }}** field, specify `agent_available_new_version`.
   1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}**:
       1. Click ![image](../../_assets/console-icons/code.svg) to enable code mode.
@@ -48,27 +49,28 @@ To create an alert to get notified about available agent versions:
           * `name`: Metric name.
           * `resource_name`: VM name. To select all VMs, specify `"*"` instead of the VM name.
 
-  1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-conditions }}**, specify:
+  1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-conditions }}**, specify the following:
       * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**: `{{ ui-key.yacloud_monitoring.alert.title_comparison-ne }}`.
       * **{{ ui-key.yacloud_monitoring.alert.status_warn }}**: Delete the value.
       * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}**: `0`.
 
   1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}**, add the notification channels of interest.
-  1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
 
 ### Agent unavailable {#agent-offline}
 
-To create an alert get notified if the agent is unavailable:
+To create an alert to get notified about the agent's unavailability:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}** on the left.
-  1. At the top right, click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}**.
+  1. Go to [{{ monium-name }}]({{ link-monium }}).
+  1. In the left-hand panel, select ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Alerts and SLOs**, then ![megaphone](../../_assets/console-icons/megaphone.svg) **Alerts**.
+  1. At the top right, click **{{ ui-key.yacloud.common.create }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) and select `{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}`.
   1. In the **{{ ui-key.yacloud_monitoring.alert.title_name }}** field, specify `agent_status_offline`.
   1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}**:
       1. Click ![image](../../_assets/console-icons/code.svg) to enable code mode.
@@ -87,27 +89,28 @@ To create an alert get notified if the agent is unavailable:
           * `name`: Metric name.
           * `resource_name`: VM name. To select all VMs, specify `"*"` instead of the VM name.
 
-  1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-conditions }}**, specify:
+  1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-conditions }}**, specify the following:
       * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**: `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`.
       * **{{ ui-key.yacloud_monitoring.alert.status_warn }}**: Delete the value.
       * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}**: `0`.
 
   1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}**, add the notification channels of interest.
-  1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
 
-### Backup operation failed {#operation-failure}
+### Backup operation failure {#operation-failure}
 
-To create an alert get notified about failed backup operations:
+To create an alert to get notified about failed backup operations:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}** on the left.
-  1. At the top right, click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}**.
+  1. Go to [{{ monium-name }}]({{ link-monium }}).
+  1. In the left-hand panel, select ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Alerts and SLOs**, then ![megaphone](../../_assets/console-icons/megaphone.svg) **Alerts**.
+  1. At the top right, click **{{ ui-key.yacloud.common.create }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) and select `{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}`.
   1. In the **{{ ui-key.yacloud_monitoring.alert.title_name }}** field, specify `agent_operation_failure`.
   1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}**:
       1. Click ![image](../../_assets/console-icons/code.svg) to enable code mode.
@@ -127,13 +130,13 @@ To create an alert get notified about failed backup operations:
           * `action`: Action type.
           * `resource_name`: VM name. To select all VMs, specify `"*"` instead of the VM name.
 
-  1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-conditions }}**, specify:
+  1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-conditions }}**, specify the following:
       * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**: `{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}`.
       * **{{ ui-key.yacloud_monitoring.alert.status_warn }}**: Delete the value.
       * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}**: `0`.
 
   1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}**, add the notification channels of interest.
-  1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

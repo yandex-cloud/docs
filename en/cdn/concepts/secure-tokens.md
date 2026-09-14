@@ -14,7 +14,7 @@ If you enable access to a CDN resource via a secure token, content is only avail
 ## Signed links {#protected-link}
 
 A _signed link_ is [generated](#link-generation-code) outside a CDN resource, e.g., on a lightweight website, and contains the following query parameters:
-* `md5`: [Base64](https://en.wikipedia.org/wiki/Base64)-encoded secure token represented by an [MD5](https://en.wikipedia.org/wiki/MD5) hash of a string containing the following elements:
+* `md5`: [Base64](https://en.wikipedia.org/wiki/Base64)-encoded secure token which is an [MD5](https://en.wikipedia.org/wiki/MD5) hash of a string consisting of the following elements:
   * Secret key: Arbitrary string of 6 to 32 characters.
   * Link validity: Time point, in [Unix format](https://en.wikipedia.org/wiki/Unix_time), after which access to the file will be denied. Users can start downloading the file before the link validity expires and complete downloading it after that.
   * Path to the file on the origin.

@@ -24,7 +24,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
    1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
    1. In the window that opens:
        * In the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** field, select the availability zone where you want to reserve the address.
-       * Optionally, under **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}**, enable **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** and **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
+       * Optionally, under **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}**, enable **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** and **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection_jVSCP }}**.
        * Optionally, specify labels.
        * Optionally, to add a DNS record, expand the **{{ ui-key.yacloud.vpc.addresses.label_dns-spec-title }}** list and click **{{ ui-key.yacloud.dns.button_add-record }}**. In the section that opens, do the following:
            * Select a DNS zone.
