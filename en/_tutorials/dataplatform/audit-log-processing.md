@@ -32,7 +32,7 @@ In this use case, you will create [trails](../../audit-trails/concepts/trail.md)
 To set up integration:
 
 1. Open the list of trails in the {{ yandex-cloud }} console.
-1. Select the trail you previously created for uploading cloud audit logs to the bucket and click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
+1. Select the trail you previously created for uploading cloud audit logs to the bucket and click ![cube](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
 1. When switching from {{ at-name }} to {{ yq-name }} for the first time, set up integration:
    1. In the {{ yq-name }} interface, select the service account you want to use to read data from {{ objstorage-name }} in the connection creation dialog and click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
    1. In the {{ yq-name }} interface, check the preset parameters by clicking **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}** in the binding creation dialog. Next, click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}** to complete the integration.

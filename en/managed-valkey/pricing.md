@@ -6,20 +6,45 @@ editable: false
 
 # {{ mrd-name }} pricing policy
 
-In this section, you can find the {{ mrd-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      lg: 6
+      sm: 6
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        gravityIcon: Calculator
+        iconPosition: left
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=0ebb5de70e7d#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        gravityIcon: CircleRuble
+        iconPosition: left
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list?services=dn2hb3vlkb6qfih0pgv6
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
-{% note tip %}
 
-
-
-
-For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=c46046673ba9#calculator) on our website or check out the pricing below.
-
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+This section describes the {{ mrd-name }} pricing [policy](#rules) and [current prices](#prices) for its resources.
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 

@@ -1,29 +1,38 @@
 # Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }} using Debezium
 
-You can track data changes in {{ mmy-name }} and send them to {{ mkf-name }} using change data capture (CDC).
+You can track data changes in {{ mmy-full-name }} and send them to {{ mkf-full-name }} using change data capture (CDC).
 
 In this tutorial, you will learn how to create a virtual machine in {{ yandex-cloud }} and set up [Debezium](https://debezium.io/documentation/reference/index.html), an open-source software framework for CDC.
 
 
-## Required paid resources {#paid-resources}
-
-* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* {{ mmy-name }} cluster: computing resources allocated to hosts along with storage and backup capacity (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-
-
 ## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
+
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mmy-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+
+
+## Set up your infrastructure {#prepare-infrastructure}
+
 
 {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
+
 1. [Create a _source cluster_](../../managed-mysql/operations/cluster-create.md) with the following settings:
 
+    
     * Hosts: Publicly available
+
+
     * Database: `db1`
     * User: `user1`
 
-1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly accessible hosts.
+1. [Create a {{ mkf-name }} _target cluster_](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly accessible hosts.
 
 1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) running [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) with a public IP address.
 
@@ -336,7 +345,9 @@ Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
 
+    
     If you reserved a public static IP address for the virtual machine, release and [delete it](../../vpc/operations/address-delete.md).
+
 
 1. Delete the clusters:
 

@@ -16,12 +16,6 @@ The deletion process is asynchronous, so wait until it is over. Before stopping 
 
 To delete a backup:
 
-{% note info %}
-
-Currently, you can delete a backup of an [external resource](../../concepts/vm-connection/external-resources.md) using the [{{ yandex-cloud }} CLI](../../../cli/cli-ref/backup/cli-ref/backup/delete.md) and [API](../../backup/api-ref/Backup/delete.md).
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -29,9 +23,14 @@ Currently, you can delete a backup of an [external resource](../../concepts/vm-c
   1. In the [management console]({{ link-console-main }}), select the folder containing the backup.
   1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
-  1. Depending on the resource you want to delete the backup for, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the backup you need to delete and select ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
-  1. Confirm the deletion.
+  1. Depending on which resource you want to delete the backup for, go to one of these tabs:
+
+      * **{{ ui-key.yacloud.backup.value_vm-recourses }}**: For {{ compute-name }} VMs.
+      * **{{ ui-key.yacloud.backup.value_bms-recourses }}**: For {{ baremetal-name }} servers.
+      * **{{ ui-key.yacloud.backup.label_external-vm-instances }}**: For external VMs.
+      * **{{ ui-key.yacloud.backup.label_external-server-instances }}**: For external servers.
+  1. Click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) in the row with the backup you need to delete and select ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. In the window that opens, confirm the deletion.
 
 - CLI {#cli}
 

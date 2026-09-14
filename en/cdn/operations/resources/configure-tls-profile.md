@@ -11,6 +11,22 @@ For more information, see [{#T}](../../concepts/clients-to-servers-tls.md#tls-pr
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
+  1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Click the resource name.
+  1. Navigate to the ![image](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.cdn.label_resource-security }}** tab.
+  1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. In the **{{ ui-key.yacloud.cdn.label_tls-profile }}** field, select the profile:
+
+      * `{{ ui-key.yacloud.cdn.value_tls-profile-compatible }}`.
+      * `{{ ui-key.yacloud.cdn.value_tls-profile-legacy }}`.
+      * `{{ ui-key.yacloud.cdn.value_tls-profile-secure }}`.
+      * `{{ ui-key.yacloud.cdn.value_tls-profile-strict }}`.
+
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
 - REST API {#rest-api}
 
   To enable the option, add the `tls` section to the CDN resource specification in the request body when using the [create](../../api-ref/Resource/create.md) or [update](../../api-ref/Resource/update.md) method for a [Resource](../../api-ref/Resource/index.md):
@@ -131,7 +147,10 @@ For more information, see [{#T}](../../concepts/clients-to-servers-tls.md#tls-pr
 
 {% endlist %}
 
+{% include [after-changes-tip](../../../_includes/cdn/after-changes-tip.md) %}
+
 #### Useful links {#see-also}
 
 * [{#T}](../../concepts/clients-to-servers-tls.md#tls-profiles)
+* [{#T}](create-resource.md)
 * [{#T}](../../api-ref/authentication.md)

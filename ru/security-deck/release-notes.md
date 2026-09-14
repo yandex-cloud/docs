@@ -5,13 +5,22 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ sd-full-name }}
 
+## Август 2026 {#august-2026}
+
+* В модуле [{{ cspm-name }}](./concepts/cspm.md):
+  * Появился собственный интерфейс, в котором можно [отслеживать](./operations/cspm/use-cspm.md) алерты, правила с нарушениями, ошибки модуля, [запустить](./operations/cspm/check-environment.md) проверку окружения и [посмотреть](./operations/cspm/work-with-results.md#view) и [скачать](./operations/cspm/work-with-results.md#download) историю таких проверок.
+  * Обновился список правил проверки инфраструктуры на соответствие стандартам безопасности. Новые правила регламентируют [информирование](./rules-reference/cspm.md#leaked-secrets-detection.md) администратора о компрометации секретов облака, наличие [политик безопасности](./rules-reference/cspm.md#cis.md) кластеров Kubernetes, [реагирование](./rules-reference/cspm.md#audit-trails-reactions.md) на события безопасности.
+* В модуле [{{ kspm-name }}](./concepts/kspm.md) реализованы [правила инвентаризации](./concepts/standard-compliance/inventory-k8s-rules.md), с помощью которых можно собрать информацию и выполнить аудит операционной системы рабочих узлов Kubernetes.
+* В модуле [{{ vuln-man-name }}](./concepts/vulnerability-management.md) реализована настройка, позволяющая сканировать только [актуальные версии образов](./operations/vulnerability-management/enable-vulnerability-management.md).
+* Модуль [{{ dspm-name }}](./concepts/dspm.md) интегрировался с сервисом {{ objstorage-full-name }}. Бакеты теперь можно [сканировать](../storage/operations/buckets/sensitive-data-search.md) в интерфейсе {{ objstorage-name }}, [просматривать](../storage/operations/buckets/sensitive-data-search.md#view) результаты сканирований и [скачивать](../storage/operations/buckets/sensitive-data-search.md#download) их.
+
 ## Июль 2026 {#july-2026}
 
 * В модулях [{{ cspm-name }}](./concepts/cspm.md), [{{ kspm-name }}](./concepts/kspm.md) и [{{ td-full-name }}](./concepts/threat-detector.md) теперь можно [настраивать отображение и сортировку правил](./operations/cspm/view-rules.md#general-info) контроля безопасности.
 * Появилась [возможность](./operations/alerts/view.md) фильтровать алерты по расширенному набору атрибутов.
 * Использование модуля [{{ vuln-man-name }}](./concepts/vulnerability-management.md) перешло в платное потребление. Подробнее в [правилах тарификации](pricing.md#modules-rules).
 * В модуле [{{ kspm-name }}](./concepts/kspm.md) реализован [блокирующий режим](./operations/kspm/manage-rule-modes.md) для правил типа `admission`, который позволяет запрещать развертывание нагрузок, нарушающих политики безопасности.
-* В модуле [{{ cspm-name }}](./concepts/cspm.md) появился новый [набор правил](./concepts/standard-compliance/ransomware-prevention.md) для снижения рисков атак программ-шифровальщиков (ransomware) и пополнился список правил проверки инфраструктуры на соответствие стандартам безопасности. Новые правила регламентируют парольную политику и контроль исходящего доступа в интернет.
+* В модуле [{{ cspm-name }}](./concepts/cspm.md) появился новый [набор правил](./concepts/standard-compliance/ransomware-prevention.md) для снижения рисков атак программ-шифровальщиков (ransomware) и пополнился список правил проверки инфраструктуры на соответствие стандартам безопасности. Новые правила регламентируют [парольную политику](./rules-reference/cspm.md#password-policy.pci-dss.md) и контроль [исходящего доступа в интернет](./rules-reference/cspm.md#check-outgoing-internet-connection.md).
 * В модуле [{{ dspm-name }}](./concepts/dspm.md):
   * теперь можно подключать [пользовательские словари](./concepts/dspm.md#custom-dictionaries) для поиска специфичных чувствительных данных;
   * появились [подписки](pricing.md#starter-rules) с фиксированной стоимостью, которую можно оформить вместо оплаты фактического потребления ресурсов;

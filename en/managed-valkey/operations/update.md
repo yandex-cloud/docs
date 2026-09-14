@@ -1320,14 +1320,17 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
             --header "Content-Type: application/json" \
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>' \
             --data '{
-                      "updateMask": "configSpec.backupWindowStart,maintenanceWindow,deletionProtection",
+                      "updateMask": "configSpec.backupWindowStart,configSpec.redis.auditLog,maintenanceWindow,deletionProtection",
                       "configSpec": {
                         "backupWindowStart": {
                           "hours": "<hours>",
                           "minutes": "<minutes>",
                           "seconds": "<seconds>",
                           "nanos": "<nanoseconds>"
-                        }
+                        },
+                        "redis": {
+                          "auditLog": <enable_audit_event_logging>
+                        },
                       },
                       "maintenanceWindow": {
                         "weeklyMaintenanceWindow": {
@@ -1352,7 +1355,11 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
             * `seconds`: Between `0` and `59` seconds.
             * `nanos`: Between `0` and `999999999` nanoseconds.
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. Provide one of these two parameters:
+        * `configSpec.redis.auditLog`: Enable logging of connection and authorization audit events, `true` or `false`. Audit event logging may impact your cluster performance.
+
+            This setting will not affect standard {{ VLK }} logs.
+
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:
 
             * `anytime`: Maintenance takes place at any time.
             * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
@@ -1360,7 +1367,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
                 * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: UTC hour interval, from `1` to `24`.
 
-                > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+                    > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         * `deletionProtection`: Cluster deletion protection, `true` or `false`.
 
@@ -1394,8 +1401,9 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
                   "update_mask": {
                     "paths": [ 
                       "config_spec.backup_window_start",
-                       "maintenance_window",
-                       "deletion_protection"
+                      "config_spec.redis.audit_log",
+                      "maintenance_window",
+                      "deletion_protection"
                     ]
                   },
                   "config_spec": {
@@ -1404,7 +1412,10 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
                       "minutes": "<minutes>",
                       "seconds": "<seconds>",
                       "nanos": "<nanoseconds>"
-                    }
+                    },
+                    "redis": {
+                      "audit_log": <enable_audit_event_logging>
+                    },
                   },
                   "maintenance_window": {
                     "weekly_maintenance_window": {
@@ -1431,7 +1442,11 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
             * `seconds`: Between `0` and `59` seconds.
             * `nanos`: Between `0` and `999999999` nanoseconds.
 
-        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. Provide one of these two parameters:
+        * `config_spec.redis.audit_log`: Enable logging of connection and authorization audit events, `true` or `false`. Audit event logging may impact your cluster performance.
+
+            This setting will not affect standard {{ VLK }} logs.
+
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two properties:
 
             * `anytime`: Maintenance takes place at any time.
             * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
@@ -1439,7 +1454,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
                 * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: UTC hour interval, from `1` to `24`.
 
-                > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+                    > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 

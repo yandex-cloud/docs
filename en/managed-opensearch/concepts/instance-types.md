@@ -25,9 +25,13 @@ For example, `{{ region-id }}-d` does not support Intel Broadwell and local SSD 
 Configuration types:
 
 
-* **s2**, **s3**: Standard configurations with a 4:1 RAM-to-vCPU ratio.
-* **m2**, **m3**: Configurations with an increased RAM-to-vCPU ratio (8:1). These configurations are well suited for clusters with high cache requirements.
+
+* **s2**, **s3**, **s4a**, **s4af**: Standard configurations with a 4:1 RAM GB to vCPU ratio.
+* **m2**, **m3**, **m4a**, **m4af**: Configurations with an increased RAM GB to vCPU ratio (8:1). These configurations are well suited for clusters with high cache requirements.
 * **b3**: Configuration with a guaranteed vCPU share under 100%. This host class is intended for test workloads. The minimum recommended host configuration for production solutions is two vCPUs with a guaranteed share of 50%.
+* **c3**, **c4a**, **c4af**: Configurations with a reduced RAM GB to vCPU ratio (2:1). These configurations may be useful for clusters with higher processor performance requirements.
+
+{% include [note-burstable-deprecated](../../_includes/mdb/note-burstable-deprecated.md) %}
 
 | Host class name | Number of vCPUs | Guaranteed<br>vCPU share | RAM, GB | Disk<br>size, GB |
 |-------------------|-----------------|---------------------------|---------|----------------------|
@@ -81,7 +85,19 @@ Configuration types:
 | m3-c56-m448       | 56              | 100%                      | 448     | 10 - 8,184            |
 | m3-c64-m512       | 64              | 100%                      | 512     | 10 - 8,184            |
 | m3-c80-m640       | 80              | 100%                      | 640     | 10 - 8,184            |
-| **AMD Zen 4**                                                                                    |
+| c3-c2-m4	         | 2               | 100%                      | 4       | 10 – 8,184            |
+| c3-c4-m8          | 4               | 100%                      | 8       | 10 - 8,184            |
+| c3-c8-m16         | 8               | 100%                      | 16      | 10 - 8,184            |
+| c3-c12-m24        | 12              | 100%                      | 24      | 10 - 8,184            |
+| c3-c16-m32        | 16              | 100%                      | 32      | 10 - 8,184            |
+| c3-c24-m48        | 24              | 100%                      | 48      | 10 - 8,184            |
+| c3-c32-m64        | 32              | 100%                      | 64      | 10 - 8,184            |
+| c3-c40-m80        | 40              | 100%                      | 80      | 10 - 8,184            |
+| c3-c48-m96        | 48              | 100%                      | 96      | 10 - 8,184            |
+| c3-c64-m128       | 64              | 100%                      | 128     | 10 - 8,184            |
+| c3-c80-m160       | 80              | 100%                      | 160     | 10 - 8,184            |
+| c3-c96-m192       | 96              | 100%                      | 192     | 10 - 8,184            |
+| **AMD Zen 4**                                                                                      |
 | s4a-c2-m8         | 2               | 100%                      | 8       | 10 - 8,184            |
 | s4a-c4-m16        | 4               | 100%                      | 16      | 10 - 8,184            |
 | s4a-c8-m32        | 8               | 100%                      | 32      | 10 - 8,184            |
@@ -92,6 +108,7 @@ Configuration types:
 | s4a-c128-m512     | 128             | 100%                      | 512     | 10 - 8,184            |
 | s4a-c224-m896     | 224             | 100%                      | 896     | 10 - 8,184            |
 | s4a-c256-m1024    | 256             | 100%                      | 1,024    | 10 - 8,184           |
+| s4a-c288-m1152    | 288             | 100%                      | 1,152    | 10 - 8,184           |
 | m4a-c2-m16        | 2               | 100%                      | 16      | 10 - 8,184            |
 | m4a-c4-m32        | 4               | 100%                      | 32      | 10 - 8,184            |
 | m4a-c8-m64        | 8               | 100%                      | 64      | 10 - 8,184            |
@@ -101,6 +118,16 @@ Configuration types:
 | m4a-c96-m768      | 96              | 100%                      | 768     | 10 - 8,184            |
 | m4a-c128-m1024    | 128             | 100%                      | 1,024    | 10 - 8,184           |
 | m4a-c224-m1792    | 224             | 100%                      | 1,792    | 10 - 8,184           |
+| c4a-c4-m8         | 4               | 100%                      | 8       | 10 — 16,368           |
+| c4a-c8-m16        | 8               | 100%                      | 16      | 10 — 16,368           |
+| c4a-c16-m32       | 16              | 100%                      | 32      | 10 — 16,368           |
+| c4a-c32-m64       | 32              | 100%                      | 64      | 10 — 16,368           |
+| c4a-c64-m128      | 64              | 100%                      | 128     | 10 — 16,368           |
+| c4a-c96-m192      | 96              | 100%                      | 192     | 10 — 16,368           |
+| c4a-c128-m256     | 128             | 100%                      | 256     | 10 — 16,368           |
+| c4a-c224-m448     | 224             | 100%                      | 448     | 10 — 16,368           |
+| c4a-c256-m512     | 256             | 100%                      | 512     | 10 — 16,368           |
+| c4a-c288-m576     | 288             | 100%                      | 576     | 10 — 16,368           |
 | **AMD Zen 4 HighFreq**                                                                           |
 | s4af-c2-m8        | 2               | 100%                      | 8       | 10 - 8,184            |
 | s4af-c4-m16       | 4               | 100%                      | 16      | 10 - 8,184            |
@@ -116,3 +143,12 @@ Configuration types:
 | m4af-c32-m256     | 32              | 100%                      | 256     | 10 - 8,184            |
 | m4af-c48-m384     | 48              | 100%                      | 384     | 10 - 8,184            |
 | m4af-c80-m640     | 80              | 100%                      | 640     | 10 - 8,184            |
+| c4af-c4-m8        | 4               | 100%                      | 8       | 10 — 16,368           |
+| c4af-c8-m16       | 8               | 100%                      | 16      | 10 — 16,368           |
+| c4af-c16-m32      | 16              | 100%                      | 32      | 10 — 16,368           |
+| c4af-c32-m64      | 32              | 100%                      | 64      | 10 — 16,368           |
+| c4af-c48-m96      | 48              | 100%                      | 96      | 10 — 16,368           |
+| c4af-c80-m160     | 80              | 100%                      | 160     | 10 — 16,368           |
+
+
+

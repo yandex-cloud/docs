@@ -27,7 +27,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} guide]({{ ch
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
     1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab.
 
 - CLI {#cli}
 
@@ -99,7 +99,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} guide]({{ ch
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
     1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab.
 
 - CLI {#cli}
 
@@ -181,7 +181,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
         1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
         1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-        1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
+        1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab.
         1. Click **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button-action_add-ml-model }}**.
 
     1. Configure the model:
@@ -353,7 +353,7 @@ To update the contents of a model that is already added to the cluster:
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
     1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab.
     1. Find your model, click ![image](../../_assets/console-icons/ellipsis-vertical.svg), and select **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button_action-edit-ml-model }}**.
 
 - CLI {#cli}
@@ -500,7 +500,7 @@ After removing a model, the related object remains in the {{ objstorage-full-nam
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
     1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab.
     1. Find your model, click ![image](../../_assets/console-icons/ellipsis-vertical.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}

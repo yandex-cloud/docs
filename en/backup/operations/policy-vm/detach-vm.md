@@ -3,14 +3,14 @@ title: How to unlink a VM or server from a backup policy
 description: In this article, you will learn how to unlink a VM or server from a backup policy.
 ---
 
-# Detach a backed up resource from a backup policy
+# Unlinking a resource from a backup policy
 
 
-To detach a [backed up](../../concepts/index.md#protected-resources) resource from a backup policy:
+To unlink a [resource](../../concepts/index.md#protected-resources) from a backup policy:
 
 {% note info %}
 
-Currently, you can detach an [external](../../concepts/vm-connection/external-resources.md) protected resource from a backup policy using the [{{ yandex-cloud }} CLI](../../../cli/cli-ref/backup/cli-ref/policy/revoke.md), [API](../../backup/api-ref/Policy/revoke.md), or [{{ TF }}]({{ tf-provider-resources-link }}/backup_policy_bindings).
+Currently, you can unlink an [external](../../concepts/vm-connection/external-resources.md) resource from a backup policy using the [{{ yandex-cloud }} CLI](../../../cli/cli-ref/backup/cli-ref/policy/revoke.md), [API](../../backup/api-ref/Policy/revoke.md), or [{{ TF }}]({{ tf-provider-resources-link }}/backup_policy_bindings).
 
 {% endnote %}
 
@@ -18,12 +18,17 @@ Currently, you can detach an [external](../../concepts/vm-connection/external-re
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder where you want to unlink a backed up resource from a backup policy.
+  1. In the [management console]({{ link-console-main }}), select a folder where you want to unlink a resource from a backup policy.
   1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}** tab.
+  1. In the left-hand panel, select ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
   1. Select the policy to unlink the resource from.
-  1. Depending on the resource you want to unlink from the backup policy, under **{{ ui-key.yacloud.backup.title_linked-recourses }}**, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
-  1. In the row with the VM or server you want to unlink from the backup policy, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_detach-vm-instance }}** or **{{ ui-key.yacloud.backup.action_detach-baremetal-instance }}**, respectively.
+  1. Depending on which resource you want to unlink from the backup policy, go to one of these tabs under **{{ ui-key.yacloud.backup.title_linked-recourses }}**:
+
+      * **{{ ui-key.yacloud.backup.label_instances }}**: For {{ compute-name }} VMs.
+      * **{{ ui-key.yacloud.backup.label_baremetal-instances }}**: For {{ baremetal-name }} servers.
+      * **{{ ui-key.yacloud.backup.label_external-vm-instances }}**: For external VMs.
+      * **{{ ui-key.yacloud.backup.label_external-server-instances }}**: For external servers.
+  1. In the row with the resource you want to unlink from the backup policy, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_detach-vm-instance }}**, **{{ ui-key.yacloud.backup.action_detach-baremetal-instance }}**, or **{{ ui-key.yacloud.backup.action_detach-external-resource }}**, respectively.
   1. In the window that opens, confirm this action.
 
 - CLI {#cli}
@@ -46,7 +51,7 @@ Currently, you can detach an [external](../../concepts/vm-connection/external-re
 
       {% include [get-resource-ids](../../../_includes/backup/operations/get-resource-ids.md) %}
 
-  1. Unlink the resource by specifying its policy ID:
+  1. Unlink the resource by specifying the policy ID:
 
       ```bash
       yc backup policy revoke <policy_ID> \
@@ -63,9 +68,9 @@ Currently, you can detach an [external](../../concepts/vm-connection/external-re
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To detach a [backed up](../../concepts/index.md#protected-resources) resource from a backup policy:
+  To unlink a [resource](../../concepts/index.md#protected-resources) from a backup policy:
 
-  1. Delete the section describing the binding of the protected resource to the policy you want to delete from the {{ TF }} configuration file:
+  1. Remove the section describing the binding you want to delete from the {{ TF }} configuration file:
 
       ```hcl
       resource "yandex_backup_policy_bindings" "test_backup_binding" {
@@ -76,8 +81,8 @@ Currently, you can detach an [external](../../concepts/vm-connection/external-re
 
       Where:
 
-      * `instance_id`: ID of the protected resource that you want to detach from the policy.
-      * `policy_id`: [ID](./get-info.md) of the backup policy from which you want to detach the protected resource.
+      * `instance_id`: ID of the resource you want to unlink from the policy.
+      * `policy_id`: [ID](./get-info.md) of the backup policy to unlink the resource from.
 
      For more information about `yandex_backup_policy_bindings` properties, see [this provider guide]({{ tf-provider-resources-link }}/backup_policy_bindings).
   1. Create the resources:

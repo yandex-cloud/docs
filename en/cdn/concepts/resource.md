@@ -16,7 +16,7 @@ After creating a resource, you can also configure for it:
 * [Compression](compression.md) and [segmentation](slicing.md) of content.
 * [Non-standard HTTP responses](../operations/resources/configure-response.md).
 
-You can restrict access to the resource with [secure tokens](./secure-tokens.md) and an [IP-based access policy](./ip-address-acl.md).
+You can restrict access to the resource with [secure tokens](./secure-tokens.md), an [IP-based access policy](./ip-address-acl.md), and a [country-based access policy](./geo-acl.md).
 
 You can configure [redirection of requests](./http-rewrite.md) from a CDN resource to an origin by changing the request [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier) using the `Rewrite` [rule](./http-rewrite.md#rewrite-rule).
 

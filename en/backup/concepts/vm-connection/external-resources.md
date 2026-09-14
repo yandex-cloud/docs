@@ -34,7 +34,7 @@ For a complete list of supported operating systems, see the [backup provider doc
 
 {% include [update-kernel-headers-description](../../../_includes/backup/operations/update-kernel-headers-description.md) %}
 
-For information on how to upgrade the Linux kernel header version, see [{#T}](../../operations/backup-baremetal/restore-agent.md).
+To upgrade the Linux kernel header version, see [{#T}](../../operations/backup-baremetal/restore-agent.md).
 
 ## Network access permissions {#vm-network-access}
 

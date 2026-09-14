@@ -20,7 +20,7 @@ You can reserve an [internal IP address](../concepts/address.md#internal-address
    1. In the window that opens:
        * Enter a name and description for the internal address.
        * In the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field, enter the address you would like to reserve.
-       * Optionally, enable **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
+       * Optionally, enable **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection_jVSCP }}**.
        * Optionally, specify [labels](../../resource-manager/concepts/labels.md).
    1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 

@@ -24,7 +24,7 @@ To view detailed information on the health state of a {{ mch-name }} cluster:
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab. 
+  1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}**.
 
       The page that opens will display the performance charts for your {{ CH }} cluster and its hosts.
 
@@ -199,7 +199,7 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab.
+  1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}**.
 
   1. Navigate to the **Hosts** tab and select the host.
     

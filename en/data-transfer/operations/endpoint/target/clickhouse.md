@@ -5,15 +5,15 @@ description: In this tutorial, you will learn how to set up a {{ CH }} target en
 
 # Transferring data to a {{ CH }} target endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data to a {{ CH }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data to a {{ CH }} database and implement various data transfer, processing, and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
 1. [Prepare the {{ CH }}](#prepare) database for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
 1. Perform required operations with the database and [control the transfer](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
 ## Scenarios for transferring data to {{ CH }} {#scenarios}
 
@@ -68,10 +68,10 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 ## Configuring the {{ CH }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can configure:
 
-* [{{ mch-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
-* [Additional parameters](#additional-settings).
+* Connection settings for a [{{ mch-full-name }} cluster](#managed-service) or a [custom deployment](#on-premise), including those running on {{ compute-full-name }} VMs. These settings are required.
+* [Optional settings](#additional-settings).
 
 See also the [endpoint setup recommendations](#recommended-settings-queue) if [{{ CH }} gets data from queues](#scenarios).
 
@@ -80,7 +80,7 @@ See also the [endpoint setup recommendations](#recommended-settings-queue) if [{
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mch.viewer }}`](../../../../managed-clickhouse/security.md#managed-clickhouse-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mch.viewer }}`](../../../../managed-clickhouse/security.md#managed-clickhouse-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 
@@ -181,7 +181,7 @@ Connection to the database with explicitly specified network addresses and ports
                 native_port = "<port_for_native_interface_connection>"
                 shards {
                   name  = "<shard_name>"
-                  hosts = [ "list of IP addresses and FQDNs of shard hosts" ]
+                  hosts = [ "list of shard host IP addresses or FQDNs" ]
                 }
                 tls_mode {
                   enabled {
@@ -273,7 +273,7 @@ Connection to the database with explicitly specified network addresses and ports
 
 {% endlist %}
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
 ## Endpoint setup recommendations {#recommended-settings-queue}
 
@@ -283,19 +283,19 @@ To accelerate the delivery of large volumes of data to {{ CH }} from queues asso
 
 - Management console {#console}
 
-    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into an [ underlying](../../../../managed-clickhouse/tutorials/sharding.md) table based on the `ReplicatedMergeTree` engine, not a distributed table (`Distributed` engine). In the target, select the migrated data from the distributed table. To redefine the write table, specify it in the target settings: **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.AltName.to_name.title }}**.
+    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into [local tables](../../../../managed-clickhouse/tutorials/sharding.md#uses), not a distributed one. In the target, select the migrated data from the distributed table. To redefine the write table, specify it in the target settings: **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.AltName.to_name.title }}**.
     * If in the source you selected JSON in **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**, then you should specify `UTF-8` instead of `STRING` for string types in the data schema.
     * If you select **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.add_rest_column.title }}**, your data transfers may slow down.
     * If you need to migrate multiple topics, in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}** target setting, specify the same {{ CH }} table name for all topic names of the source.
 
 - CLI {#cli}
 
-    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into an [underlying](../../../../managed-clickhouse/tutorials/sharding.md) table based on the `ReplicatedMergeTree` engine, not a distributed table (`Distributed` engine). In the target, select the migrated data from the distributed table. To redefine the write table, specify it in the `--alt-name` setting for the target.
+    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into [local tables](../../../../managed-clickhouse/tutorials/sharding.md#uses), not a distributed one. In the target, select the migrated data from the distributed table. To redefine the write table, specify it in the `--alt-name` setting for the target.
     * If you need to migrate multiple topics, in the `--alt-name` attribute of the target endpoint, specify the same target {{ CH }} table name for all topics of the source.
 
 - {{ TF }} {#tf}
 
-    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into an [ underlying](../../../../managed-clickhouse/tutorials/sharding.md) table based on the `ReplicatedMergeTree` engine, not a distributed table (`Distributed` engine). In the target, select the migrated data from the distributed table. To redefine the write table, specify it in the `alt_names.to_name` setting for the target.
+    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into [local tables](../../../../managed-clickhouse/tutorials/sharding.md#uses), not a distributed one. In the target, select the migrated data from the distributed table. To redefine the write table, specify it in the `alt_names.to_name` setting for the target.
     * If in the source you selected JSON in `parser.json_parser`:
       * You should specify `UTF-8` instead of `STRING` for string types in the `parser.json_parser.data_schema` data schema.
       * The `parser.json_parser.add_rest_column=true` attribute may slow down your transfer.
@@ -311,11 +311,11 @@ To accelerate the delivery of large volumes of data to {{ CH }} from queues asso
 
 {% endlist %}
 
-## Troubleshooting data transfer issues {#troubleshooting}
+## Data transfer troubleshooting {#troubleshooting}
 
-* [New tables cannot be added](#no-new-tables).
+* [New tables are not added](#no-new-tables).
 * [Data is not transferred](#no-transfer).
-* [Unsupported date range](#date-range).
+* [Date range is not supported](#date-range).
 * [Lack of resources or increasing data latency](#pod-restarted).
 * [Data blocks limit exceeded](#partition-blocks).
 

@@ -5,8 +5,8 @@ description: In this tutorial, you will learn about backups in {{ backup-name }}
 
 # Backups
 
-{% include [vm-running](../../_includes/backup/vm-running.md) %}
 
+{% include [vm-running](../../_includes/backup/vm-running.md) %}
 
 ## Backup types {#types}
 

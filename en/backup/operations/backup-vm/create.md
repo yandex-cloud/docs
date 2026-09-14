@@ -19,7 +19,7 @@ To create an out-of-schedule backup:
   1. In the [management console]({{ link-console-main }}), select the folder containing your backup policy.
   1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![resources](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_connected-resources }}**.
-  1. Depending on the type of resource you want to back up, open the following tab:
+  1. Depending on the type of resource you want to back up, go to one of these tabs:
 
       * **{{ ui-key.yacloud.backup.label_instances }}**: For {{ compute-name }} VMs.
       * **{{ ui-key.yacloud.backup.label_baremetal-instances }}**: For {{ baremetal-name }} servers.
@@ -29,7 +29,7 @@ To create an out-of-schedule backup:
   1. In the row with the resource, click ![options](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.backup.action_start_backup }}**.
   1. In the window that opens, select the backup policy for creating the backup and click **{{ ui-key.yacloud.common.create }}**.
 
-  This will start the backup creation process. You can see the progress in the **{{ ui-key.yacloud.backup.column_baremetal-instance-status }}** field of the resource row.
+  This will start the backup creation process. You can see the progress in the **{{ ui-key.yacloud.backup.column_operation-status }}** field of the resource row.
 
 - CLI {#cli}
 

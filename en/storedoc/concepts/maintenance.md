@@ -40,7 +40,7 @@ The {{ mmg-name }} cluster maintenance workflow depends on the number of hosts a
 The maintenance procedure is as follows:
 
 1. [Secondary replicas](replication.md) undergo maintenance one by one. Such hosts are queued randomly. A secondary replica becomes unavailable while being restarted during maintenance.
-1. After that, the primary replica (master) undergoes maintenance. If it is restarted and becomes unavailable, one of the secondary replicas will take its role. A single-host cluster will be unavailable during its maintenance.
+1. Then, the primary replica undergoes maintenance. If it is restarted and becomes unavailable, one of the secondary replicas will take its role. A single-host cluster will be unavailable during its maintenance.
 
 ### Sharded cluster
 

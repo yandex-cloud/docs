@@ -1,4 +1,4 @@
-* [Why cannot I add a VM or {{ baremetal-full-name }} server to {{ backup-name }}?](#cannot-add-vm)
+* [Why cannot I add a VM or {{ baremetal-name }} server to {{ backup-name }}?](#cannot-add-vm)
 
 * [How do I reconnect a VM or {{ baremetal-name }} server deleted from {{ backup-name }}?](#reconnect-deleted-vm)
 
@@ -16,10 +16,24 @@
 
 * [Why are backups disabled after the OS update?](#kernel-update-consequences)
 
-* [Creating incremental backups takes longer than usual](#av-interaction)
+* [Why does it take so long to create a backup?](#long-creation)
+
+* [Creating incremental backups of a VM or {{ baremetal-name }} server is taking longer than usual](#av-interaction)
 
 * [Out-Of-Memory Killer (OOM Killer) kills the {{ backup-name }} agent process in Linux](#oom-solution)
 
 * [How do I restore a VM or {{ baremetal-name }} server with LVM from a backup?](#restore-lvm)
 
+* [Issues installing the {{ backup-name }} agent on a VM with low computing resources](#low-resources-installation)
+
+* [Why does the console give {{ backup-name }} backup sizes not matching the actual backup sizes?](#backup-size)
+
 * [If I delete a VM, will its backups remain?](#backup-after-delete-vm)
+
+* [Code 400 error when installing the agent](#agent-installation-error)
+
+* [How do I view {{ backup-name }} activity logs?](#get-logs)
+
+* [Unable to install agent error during installation](#unable-to-install-agent)
+
+* [{{ backup-name }} VM stuck in the Registering status for a long time](#vm-long-register)

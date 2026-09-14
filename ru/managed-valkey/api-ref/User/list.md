@@ -100,7 +100,11 @@ The maximum string length in characters is 400. ||
         "databases": "string"
       },
       "enabled": "boolean",
-      "aclOptions": "string"
+      "aclOptions": "string",
+      "connectionManager": {
+        "connectionId": "string"
+      },
+      "authType": "string"
     }
   ],
   "nextPageToken": "string"
@@ -142,6 +146,15 @@ Is redis user enabled ||
 || aclOptions | **string**
 
 Raw ACL string inside of Redis ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.redis.v1.ConnectionManager)**
+
+Connection Manager connection configuration. ||
+|| authType | **enum** (AuthType)
+
+Authentication type for the user
+
+- `AUTH_TYPE_PASSWORD`: Password-based authentication
+- `AUTH_TYPE_IAM`: IAM-based authentication ||
 |#
 
 ## Permissions {#yandex.cloud.mdb.redis.v1.Permissions}
@@ -166,4 +179,15 @@ Deprecated. This parameter is ignored. ||
 || databases | **string**
 
 Databases parameter. ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.redis.v1.ConnectionManager}
+
+Connection Manager connection configuration.
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of Connection Manager connection. ||
 |#

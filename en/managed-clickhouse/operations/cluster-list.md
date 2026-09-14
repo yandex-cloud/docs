@@ -171,14 +171,14 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
 
 - Management console {#console}
 
-  To view operations with all {{ mch-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.clickhouse.switch_operations }}** in the left-hand panel. In the list that opens, you will also see operations for the deleted resources.
+  To view operations with all {{ mch-name }} clusters, select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.switch_operations }}** in the left-hand panel. This will open the list of all operations, including those on currently deleted resources.
 
   You can get a list of cluster operations as follows:
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.clickhouse.switch_list }}**.
-  1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.clickhouse.switch_operations }}** tab.
+  1. Select the cluster and go to ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.switch_operations }}**.
 
      This will open the list of operations with the cluster.
 

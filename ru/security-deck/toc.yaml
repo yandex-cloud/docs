@@ -108,6 +108,20 @@ items:
           - name: Работать с дашбордом
             href: >-
               operations/vulnerability-management/use-vulnerability-management.md
+      - name: Пользовательские наборы правил
+        items:
+          - name: Обзор
+            href: operations/custom-rules-sets/index.md
+          - name: Посмотреть список пользовательских наборов правил
+            href: operations/custom-rules-sets/view-set.md
+          - name: Создать пользовательский набор правил
+            href: operations/custom-rules-sets/create-set.md
+          - name: Изменить пользовательский набор правил
+            href: operations/custom-rules-sets/update-set.md
+          - name: Включить или выключить проверку по пользовательскому набору правил
+            href: operations/custom-rules-sets/enable-disable-set.md
+          - name: Удалить пользовательский набор правил
+            href: operations/custom-rules-sets/delete-set.md
   - name: Концепции
     items:
       - name: Обзор

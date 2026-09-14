@@ -7,6 +7,66 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.30.0 (27/08/26) {#v-1-30-0}
+
+#### {{ mgp-name }} {#v-1-30-0-mgp-name}
+
+* Fixed abnormal CLI termination on invoking HBA rule management commands without specifying a rule priority:
+  * `yc managed-greenplum hba-rules create`
+  * `yc managed-greenplum hba-rules delete`
+  * `yc managed-greenplum hba-rules get`
+  * `yc managed-greenplum hba-rules update`
+
+#### {{ sws-name }} {#v-1-30-0-sws-name}
+
+* Fixed the documentation display for `yc smartwebsecurity` commands by hiding a duplicate `v1` subtree and adding group descriptions.
+
+## Previous releases {#previous-release}
+
+### Version 1.29.0 (24/08/26) {#v-1-29-0}
+
+#### {{ sf-name }} {#v-1-29-0-sf-name}
+
+* Added the `yc serverless trigger v2` command group for managing version 2 triggers:
+
+#### {{ cloud-registry-name }} {#v-1-29-0-cloud-registry-name}
+
+* Added the following commands to initiate folder migration and view migration status:
+  * `yc cloud-registry migration start-folder`
+  * `yc cloud-registry migration get-cloud-migration-status-dashboard`
+
+#### {{ container-registry-name }} {#v-1-29-0-container-registry-name}
+
+* Added the `yc container registry force-delete` command.
+
+#### {{ mch-name }} {#v-1-29-0-mch-name}
+
+* Added the `--external-shard` parameter for external shard management within a shard group:
+  * `yc managed-clickhouse shard-groups create`
+  * `yc managed-clickhouse shard-group update`
+
+#### {{ mpg-name }} {#v-1-29-0-mpg-name}
+
+* Added the `--extended-filter` parameter to the `yc managed-postgresql performance-diagnostics list-raw-sessions` command for session filtering.
+
+### Version 1.28.0 (20/08/26) {#v-1-28-0}
+
+#### {{ baremetal-name }} {#v-1-28-0-baremetal-name}
+
+* Now you can order a Stackland cluster with public network access. You can also assemble a cluster from existing servers.
+
+### Version 1.27.0 (17/08/26) {#v-1-27-0}
+
+#### {{ mgp-name }} {#v-1-27-0-mgp-name}
+
+* Fixed the `yc managed-greenplum users update` command behavior: now it only modifies fields explicitly provided as parameters.
+
+#### {{ mrd-name }} {#v-1-27-0-mrd-name}
+
+* Added the `--shard-autoscaling` parameter for setting up Valkey shard autoscaling to the following commands:
+  * `yc managed-redis cluster create`
+  * `yc managed-redis cluster update`
+
 ### Version 1.25.0 (10/08/26) {#v-1-25-0}
 
 #### {{ mch-name }} {#v-1-25-0-mch-name}
@@ -29,8 +89,6 @@ description: This page presents CLI releases and their updates.
 * Added command groups to manage Smart Web Security load balancers and their domains in v2:
   * `yc smartwebsecurity load-balancer load-balancer`
   * `yc smartwebsecurity load-balancer domain`
-
-## Previous releases {#previous-release}
 
 ### Version 1.24.0 (06/08/26) {#v-1-24-0}
 

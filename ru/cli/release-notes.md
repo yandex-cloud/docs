@@ -7,6 +7,184 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.34.0 (10.09.26) {#v-1-34-0}
+
+#### {{ billing-name }} {#v-1-34-0-billing-name}
+
+* Добавлены группы команд `yc billing consumption-core` и `yc billing metadata` для получения детализированных отчетов о потреблении и расходах по платежным аккаунтам, облакам, каталогам, сервисам, SKU, ресурсам, меткам и экземплярам сервисов, а также метаданных для построения отчетов:
+  * `yc billing consumption-core get-billing-account-usage-report`;
+  * `yc billing consumption-core get-cloud-usage-report`;
+  * `yc billing consumption-core get-folder-usage-report`;
+  * `yc billing consumption-core get-service-usage-report`;
+  * `yc billing consumption-core get-sku-usage-report`;
+  * `yc billing consumption-core get-resource-usage-report`;
+  * `yc billing consumption-core get-label-key-usage-report`;
+  * `yc billing consumption-core get-service-instance-usage-report`;
+  * `yc billing metadata get-usage`;
+  * `yc billing metadata get-service-instance`;
+  * `yc billing metadata get-label`;
+  * `yc billing metadata get-cloud`;
+  * `yc billing metadata get-resources`.
+
+#### {{ dataproc-name }} {#v-1-34-0-dataproc-name}
+
+* Добавлена группа команд `yc dataproc change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc dataproc change-freeze create`;
+  * `yc dataproc change-freeze get`;
+  * `yc dataproc change-freeze list`;
+  * `yc dataproc change-freeze terminate`;
+  * `yc dataproc change-freeze get-limits`.
+
+#### {{ iam-name }} {#v-1-34-0-iam-name}
+
+* Команда `yc iam subject-details get` поддерживает несколько идентификаторов в позиционных аргументах и параметр `--filter`, заменяя команду `yc iam subject-details batch-get`.
+
+#### {{ maf-name }} {#v-1-34-0-maf-name}
+
+* Добавлена группа команд `yc managed-airflow change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-airflow change-freeze create`;
+  * `yc managed-airflow change-freeze get`;
+  * `yc managed-airflow change-freeze list`;
+  * `yc managed-airflow change-freeze terminate`;
+  * `yc managed-airflow change-freeze get-limits`.
+* Добавлены ключи `username`, `password` и `password-path` для параметра `--gitsync`:
+  * `yc managed-airflow cluster create`;
+  * `yc managed-airflow cluster update`.
+
+#### {{ mch-name }} {#v-1-34-0-mch-name}
+
+* Добавлена группа команд `yc managed-clickhouse change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-clickhouse change-freeze create`;
+  * `yc managed-clickhouse change-freeze get`;
+  * `yc managed-clickhouse change-freeze list`;
+  * `yc managed-clickhouse change-freeze terminate`;
+  * `yc managed-clickhouse change-freeze get-limits`.
+
+#### {{ metastore-name }} {#v-1-34-0-metastore-name}
+
+* Добавлена группа команд `yc managed-metastore change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-metastore change-freeze create`;
+  * `yc managed-metastore change-freeze get`;
+  * `yc managed-metastore change-freeze list`;
+  * `yc managed-metastore change-freeze terminate`;
+  * `yc managed-metastore change-freeze get-limits`.
+
+#### {{ mgp-name }} {#v-1-34-0-mgp-name}
+
+* Добавлена группа команд `yc managed-greenplum change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-greenplum change-freeze create`;
+  * `yc managed-greenplum change-freeze get`;
+  * `yc managed-greenplum change-freeze list`;
+  * `yc managed-greenplum change-freeze terminate`;
+  * `yc managed-greenplum change-freeze get-limits`.
+
+#### {{ mkf-name }} {#v-1-34-0-mkf-name}
+
+* Добавлена группа команд `yc managed-kafka change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-kafka change-freeze create`;
+  * `yc managed-kafka change-freeze get`;
+  * `yc managed-kafka change-freeze list`;
+  * `yc managed-kafka change-freeze terminate`;
+  * `yc managed-kafka change-freeze get-limits`.
+
+#### {{ mmg-name }} {#v-1-34-0-mmg-name}
+
+* Добавлена группа команд `yc managed-mongodb change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-mongodb change-freeze create`;
+  * `yc managed-mongodb change-freeze get`;
+  * `yc managed-mongodb change-freeze list`;
+  * `yc managed-mongodb change-freeze terminate`;
+  * `yc managed-mongodb change-freeze get-limits`.
+
+#### {{ mmy-name }} {#v-1-34-0-mmy-name}
+
+* Добавлена группа команд `yc managed-mysql change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-mysql change-freeze create`;
+  * `yc managed-mysql change-freeze get`;
+  * `yc managed-mysql change-freeze list`;
+  * `yc managed-mysql change-freeze terminate`;
+  * `yc managed-mysql change-freeze get-limits`.
+* Исправлено подключение к кластеру от имени сервисного аккаунта через `yc managed-mysql cluster connect`.
+
+#### {{ mos-name }} {#v-1-34-0-mos-name}
+
+* Добавлена группа команд `yc managed-opensearch change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-opensearch change-freeze create`;
+  * `yc managed-opensearch change-freeze get`;
+  * `yc managed-opensearch change-freeze list`;
+  * `yc managed-opensearch change-freeze terminate`;
+  * `yc managed-opensearch change-freeze get-limits`.
+* Улучшено описание параметра `roles` для групп хостов:
+  * `yc managed-opensearch node-group add`;
+  * `yc managed-opensearch node-group update`.
+
+#### {{ mpg-name }} {#v-1-34-0-mpg-name}
+
+* Добавлена группа команд `yc managed-postgresql change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-postgresql change-freeze create`;
+  * `yc managed-postgresql change-freeze get`;
+  * `yc managed-postgresql change-freeze list`;
+  * `yc managed-postgresql change-freeze terminate`;
+  * `yc managed-postgresql change-freeze get-limits`.
+* Исправлено подключение к кластеру от имени сервисного аккаунта через `yc managed-postgresql cluster connect`.
+* Добавлена поддержка PostgreSQL 19:
+  * `yc managed-postgresql cluster create`;
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql cluster restore`.
+
+#### {{ mrd-name }} {#v-1-34-0-mrd-name}
+
+* Добавлена группа команд `yc managed-redis change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-redis change-freeze create`;
+  * `yc managed-redis change-freeze get`;
+  * `yc managed-redis change-freeze list`;
+  * `yc managed-redis change-freeze terminate`;
+  * `yc managed-redis change-freeze get-limits`.
+
+#### {{ msp-name }} {#v-1-34-0-msp-name}
+
+* Добавлена группа команд `yc managed-spark change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-spark change-freeze create`;
+  * `yc managed-spark change-freeze get`;
+  * `yc managed-spark change-freeze list`;
+  * `yc managed-spark change-freeze terminate`;
+  * `yc managed-spark change-freeze get-limits`.
+
+#### {{ mspqr-name }} {#v-1-34-0-mspqr-name}
+
+* Добавлена группа команд `yc managed-sharded-postgresql change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-sharded-postgresql change-freeze create`;
+  * `yc managed-sharded-postgresql change-freeze get`;
+  * `yc managed-sharded-postgresql change-freeze list`;
+  * `yc managed-sharded-postgresql change-freeze terminate`;
+  * `yc managed-sharded-postgresql change-freeze get-limits`.
+
+#### {{ mtr-name }} {#v-1-34-0-mtr-name}
+
+* Добавлена группа команд `yc managed-trino change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-trino change-freeze create`;
+  * `yc managed-trino change-freeze get`;
+  * `yc managed-trino change-freeze list`;
+  * `yc managed-trino change-freeze terminate`;
+  * `yc managed-trino change-freeze get-limits`.
+
+#### {{ org-full-name }} {#v-1-34-0-org-name}
+
+* Добавлен параметр `--group-attribute-value` в команды для выбора имени, ID или external ID группы, передаваемых приложению:
+  * `yc organization-manager idp application saml application create`;
+  * `yc organization-manager idp application saml application update`.
+* Добавлен параметр `--group-claim-value` в команды для выбора имени, ID или external ID группы, передаваемых приложению:
+  * `yc organization-manager idp application oauth application create`;
+  * `yc organization-manager idp application oauth application update`.
+
+#### {{ sws-name }} {#v-1-34-0-sws-name}
+
+* Добавлена поддержка действия CAPTCHA в статических и динамических квотах Advanced Rate Limiter:
+  * `yc smartwebsecurity advanced-rate-limiter profile create`;
+  * `yc smartwebsecurity advanced-rate-limiter profile update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.33.0 (07.09.26) {#v-1-33-0}
 
 #### {{ baremetal-name }} {#v-1-33-0-baremetal-name}
@@ -29,8 +207,6 @@ description: На странице представлены релизы CLI, а
 * Добавлены параметры `--pool-mode`, `--pool-size`, `--pool-client-idle-timeout`, `--pool-idle-in-transaction-timeout` для установки настроек пользователя:
   * `yc managed-greenplum user create`;
   * `yc managed-greenplum user update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.32.0 (03.09.26) {#v-1-32-0}
 

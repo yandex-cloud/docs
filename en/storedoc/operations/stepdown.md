@@ -1,6 +1,6 @@
 # Primary replica failover
 
-In a cluster with [multiple replicas](../concepts/replication.md), you can switch the primary replica if needed.
+In a cluster with [multiple replicas](../concepts/replication.md), you can switch the primary replica if required.
 
 The switchover typically takes less than a minute. During the switchover, the cluster may be unwriteable for a few seconds.
 
@@ -9,7 +9,7 @@ The switchover typically takes less than a minute. During the switchover, the cl
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** tab.
     1. Locate the `PRIMARY` host in the list, click ![options](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mongodb.hosts.action_stepdown-host }}**.

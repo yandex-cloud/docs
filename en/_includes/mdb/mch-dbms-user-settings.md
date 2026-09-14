@@ -1,4 +1,4 @@
-* **Add HTTP CORS header**{#setting-add-http-cors-header} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Add HTTP CORS header**{#setting-add-http-cors-header} {{ tag-all }}
 
   Adds a CORS header to HTTP responses.
 
@@ -14,7 +14,7 @@
 
   Related to the [Readonly](#setting-readonly) setting.
 
-* **Allow introspection functions**{#setting-allow-introspection-functions} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Allow introspection functions**{#setting-allow-introspection-functions} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Enables [introspection functions]({{ ch.docs }}{{ lang }}/sql-reference/functions/introspection) for query profiling.
 
@@ -27,7 +27,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-allow_introspection_functions).
 
-* **Allow suspicious low cardinality types**{#setting-allow-suspicious-low-cardinality-types} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Allow suspicious low cardinality types**{#setting-allow-suspicious-low-cardinality-types} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Allows using the [LowCardinality]({{ ch.docs }}{{ lang }}/sql-reference/data-types/lowcardinality) data type with fixed-size data types of up to 8 bytes.
 
@@ -40,7 +40,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#allow_suspicious_low_cardinality_types).
 
-* **Any join distinct right table keys**{#setting-any-join-distinct-right-table-keys} {{ tag-con }} {{ tag-sql }}
+* **Any join distinct right table keys**{#setting-any-join-distinct-right-table-keys} {{ tag-con }} {{ tag-tf }} {{ tag-sql }}
 
   Enables the deprecated behavior of the {{ CH }} server for `ANY INNER|LEFT JOIN`.
 
@@ -48,7 +48,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#any_join_distinct_right_table_keys).
 
-* **Async insert**{#setting-async-insert} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Async insert**{#setting-async-insert} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Enables/disables asynchronous inserts. It only works for inserts over HTTP, without deduplication.
 
@@ -63,7 +63,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#async-insert).
 
-* **Async insert busy timeout**{#setting-async-insert-busy-timeout} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Async insert busy timeout**{#setting-async-insert-busy-timeout} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Maximum data insert timeout, in milliseconds, after the first `INSERT` query.
 
@@ -71,7 +71,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#async-insert-busy-timeout-ms).
 
-* **Async insert max data size**{#setting-async-insert-max-data-size} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Async insert max data size**{#setting-async-insert-max-data-size} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Maximum size of raw data, in bytes, collected per query before inserting it.
 
@@ -79,7 +79,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#async-insert-max-data-size).
 
-* **Async insert stale timeout**{#setting-async-insert-stale-timeout} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Async insert stale timeout**{#setting-async-insert-stale-timeout} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Maximum data insert timeout, in milliseconds, after the last `INSERT` query. For non-zero values, [**Async insert busy timeout**](#setting-async-insert-busy-timeout) will increase with each `INSERT` query until the [**Async insert max data size**](#setting-async-insert-max-data-size) value is exceeded.
 
@@ -87,7 +87,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#async-insert-stale-timeout-ms).
 
-* **Async insert threads**{#setting-async-insert-threads} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Async insert threads**{#setting-async-insert-threads} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Maximum number of threads for data background processing and inserts.
 
@@ -95,7 +95,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#async-insert-threads).
 
-* **Async insert use adaptive busy timeout**{#setting-async-insert-use-adaptive-busy-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Async insert use adaptive busy timeout**{#setting-async-insert-use-adaptive-busy-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Sets whether to use an adaptive asynchronous insert, where {{ CH }} limits the number of inserts depending on the server load.
 
@@ -103,7 +103,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#async_insert_use_adaptive_busy_timeout).
 
-* **Cancel HTTP readonly queries on client close**{#setting-cancel-http-readonly-queries-on-client-close} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Cancel HTTP readonly queries on client close**{#setting-cancel-http-readonly-queries-on-client-close} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   If enabled, the service cancels HTTP readonly queries, e.g., SELECT, when the client aborts a connection before receiving a response.
 
@@ -111,7 +111,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#cancel-http-readonly-queries-on-client-close).
 
-* **Compile expressions**{#setting-compile-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Compile expressions**{#setting-compile-expressions} {{ tag-all }}
 
   Sets whether to compile expressions when running queries. With compilation enabled, queries that use identical expressions may run faster by using compiled expressions.
 
@@ -119,13 +119,25 @@
 
   Expression compilation is disabled by default.
 
-* **Connect timeout**{#setting-connect-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Compatibility**{#setting-compatibility} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+
+  Enables using the default settings from the specified older {{ CH }} version. This setting accepts a version number as its value.
+
+  By default, no value is specified, i.e., the setting is disabled.
+
+  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#compatibility).
+
+* **Compile**{#setting-compile} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+
+  The setting is deprecated and has no impact on {{ CH }} operation.
+
+* **Connect timeout**{#setting-connect-timeout} {{ tag-all }}
 
   Connection timeout, in milliseconds.
 
   The minimum value is `1`, the default value is `10000` (ten seconds).
 
-* **Connect timeout with failover**{#setting-connect-timeout-with-failover} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Connect timeout with failover**{#setting-connect-timeout-with-failover} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Remote server connection timeout, in milliseconds, for the `Distributed` table engine if a cluster uses sharding and replication.
 
@@ -135,7 +147,24 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#connect-timeout-with-failover-ms).
 
-* **Count distinct implementation**{#setting-count-distinct-implementation} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Connect timeout with failover secure**{#setting-connect-timeout-with-failover-secure} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
+
+  Remote server secure connection timeout, in milliseconds, for the `Distributed` table engine if a cluster uses sharding and replication.
+
+  If unable to connect to the server, the system will retry connecting to its replicas.
+
+  The default value is `50`.
+
+  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#connect_timeout_with_failover_secure_ms).
+
+* **Connect timeout with failover max tries**{#setting-connect-timeout-with-failover-max-tries} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Maximum number of connection attempts to each replica for the distributed table engine.
+
+  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#connections_with_failover_max_tries).
+
+
+* **Count distinct implementation**{#setting-count-distinct-implementation} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
   Sets which `uniq*` function runs `COUNT(DISTINCT …)`:
   * [uniq]({{ ch.docs }}{{ lang }}/sql-reference/aggregate-functions/reference/uniq#agg_function-uniq)
@@ -148,7 +177,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#count_distinct_implementation).
 
-* **Data type default nullable**{#setting-data-type-default-nullable} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Data type default nullable**{#setting-data-type-default-nullable} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Sets whether to use the `Nullable` data type by default in column definition without explicit `NULL` or `NOT NULL` modifiers.
 
@@ -156,7 +185,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#data_type_default_nullable).
 
-* **Date time input format**{#setting-date-time-input-format} {{ tag-con }} {{ tag-sql }}
+* **Date time input format**{#setting-date-time-input-format} {{ tag-con }} {{ tag-tf }} {{ tag-sql }}
 
   Sets which parser to use for a text representation of date and time when processing the input format:
   * `best_effort`: Extended parser.
@@ -166,7 +195,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-date_time_input_format).
 
-* **Date time output format**{#setting-date-time-output-format} {{ tag-con }} {{ tag-sql }}
+* **Date time output format**{#setting-date-time-output-format} {{ tag-con }} {{ tag-tf }} {{ tag-sql }}
 
   Sets the output format for a text representation of date and time:
   * `simple`: Simple format.
@@ -177,7 +206,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-date_time_output_format).
 
-* **Deduplicate blocks in dependent materialized views**{#setting-deduplicate-blocks-in-dependent-materialized-views} {{ tag-con }} {{ tag-sql }}
+* **Deduplicate blocks in dependent materialized views**{#setting-deduplicate-blocks-in-dependent-materialized-views} {{ tag-con }} {{ tag-tf }} {{ tag-sql }}
 
   Enables checks for deduplication in materialized views that get data from replicated tables.
 
@@ -185,7 +214,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-deduplicate-blocks-in-dependent-materialized-views).
 
-* **Distinct overflow mode**{#setting-distinct-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Distinct overflow mode**{#setting-distinct-overflow-mode} {{ tag-all }}
 
   Sets the {{ CH }} behavior if the amount of data when running a `SELECT DISTINCT` query [exceeds the limits]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#restrictions-on-query-complexity):
   * `throw`: Abort the query and return an error.
@@ -193,7 +222,7 @@
 
   By default, no value is set (equivalent to `throw`).
 
-* **Distributed aggregation memory efficient**{#setting-distributed-aggregation-memory-efficient} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Distributed aggregation memory efficient**{#setting-distributed-aggregation-memory-efficient} {{ tag-all }}
 
   Sets whether to enable memory saving mode for distributed aggregation.
 
@@ -212,7 +241,7 @@
 
   The default value is `180`.
 
-* **Distributed product mode**{#setting-distributed-product-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Distributed product mode**{#setting-distributed-product-mode} {{ tag-all }}
 
   Changes the behavior of distributed subqueries when a query contains the product of distributed tables:
   * `deny`: Blocks the use of such subqueries.
@@ -224,7 +253,19 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#distributed-product-mode).
 
-* **Do not merge across partitions select final** {#setting-do-not-merge-across-partitions-select-final} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Distributed DDL Output Mode**{#distributed-ddl-output-mode} {{ tag-all }}
+
+  Controls the response format for a distributed DDL query. The possible values are:
+
+  * `throw`: Returns a result set showing the query status for all hosts on which the query has completed. If the query fails on some hosts, the first exception is re-thrown. If the query has not yet completed on some hosts and the **distributed_ddl_task_timeout** value is exceeded, a **TIMEOUT_EXCEEDED** exception is thrown.
+  * `none`: Matches the **DISTRIBUTED_DDL_OUTPUT_MODE_THROW** behavior, but without the result set.
+  * `null_status_on_timeout`: Returns **NULL** as the execution status in some rows of the result set instead of throwing **TIMEOUT_EXCEEDED** if the query has not yet completed on the relevant hosts.
+  * `never_throw`: Does not throw **TIMEOUT_EXCEEDED** and does not re-throw exceptions if the query fails on some hosts.
+  * `none_only_active`: Matches the **DISTRIBUTED_DDL_OUTPUT_MODE_NONE** behavior but without inactive replicas of the **Replicated** database.
+  * `null_status_on_timeout_only_active`: Matches the **DISTRIBUTED_DDL_OUTPUT_MODE_NULL_STATUS_ON_TIMEOUT** behavior, but without inactive replicas of the **Replicated** database.
+  * `throw_only_active`: Matches the **DISTRIBUTED_DDL_OUTPUT_MODE_THROW** behavior, but without inactive replicas of the **Replicated** database.
+
+* **Do not merge across partitions select final**{#setting-do-not-merge-across-partitions-select-final} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Sets whether to process table sections independently for `SELECT` queries with the `FINAL` operator.
 
@@ -232,13 +273,19 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree).
 
-* **Empty result for aggregation by empty set**{#setting-empty-result-for-aggregation-by-empty-set} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Empty result for aggregation by empty set**{#setting-empty-result-for-aggregation-by-empty-set} {{ tag-all }}
 
   Sets the result format when aggregating data without keys (without `GROUP BY`) for an empty set (e.g., `SELECT count(*) FROM table WHERE 0`):
   * Disabled (default): {{ CH }} returns a single-line result with `NULL` values for aggregation functions, in accordance with the SQL standard.
   * Enabled: {{ CH }} returns an empty result.
 
-* **Enable HTTP compression**{#setting-enable-http-compression} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Enable analyzer**{#setting-enable-analyzer} {{ tag-all }}
+
+  Enables or disables the query analyzer.
+
+  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/guides/developer/understanding-query-execution-with-the-analyzer#analyzer).
+
+* **Enable HTTP compression**{#setting-enable-http-compression} {{ tag-all }}
 
   Sets whether to compress data in an HTTP response.
 
@@ -251,7 +298,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/interfaces/http).
 
-* **Enable reads from query cache**{#setting-enable-reads-from-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Enable reads from query cache**{#setting-enable-reads-from-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Sets whether to extract the results of `SELECT` queries from the query cache.
 
@@ -261,7 +308,7 @@
 
   Related to the [Use query cache](#setting-use-query-cache) setting.
 
-* **Enable writes to query cache**{#setting-enable-writes-to-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Enable writes to query cache**{#setting-enable-writes-to-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Sets whether to save the results of `SELECT` queries to the query cache.
 
@@ -271,7 +318,7 @@
 
   Related to the [Use query cache](#setting-use-query-cache) setting.
 
-* **Fallback to stale replicas for distributed queries**{#setting-fallback-to-stale-replicas-for-distributed-queries} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Fallback to stale replicas for distributed queries**{#setting-fallback-to-stale-replicas-for-distributed-queries} {{ tag-all }}
 
   Forces a query to a stale replica if up-to-date data is unavailable.
 
@@ -283,7 +330,15 @@
 
   Related to the [Max replica delay for distributed queries](#setting-max-replica-delay-for-distributed-queries) setting.
 
-* **Flatten nested**{#setting-flatten-nested} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Final**{#setting-final} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+
+  If this setting is enabled, the `FINAL` modifier is automatically applied to all possible tables within a query, including joined tables, subqueries, and distributed tables.
+
+  This setting is disabled by default.
+
+  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#final).
+
+* **Flatten nested**{#setting-flatten-nested} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Sets the data format for [nested columns]({{ ch.docs }}{{ lang }}/sql-reference/data-types/nested-data-structures/nested).
 
@@ -296,7 +351,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#flatten-nested).
 
-* **Force index by date**{#setting-force-index-by-date} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Force index by date**{#setting-force-index-by-date} {{ tag-all }}
 
   Blocks queries if you cannot use an index by date. This setting applies to tables of the [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) family.
 
@@ -304,7 +359,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-force_index_by_date).
 
-* **Force primary key**{#setting-force-primary-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Force primary key**{#setting-force-primary-key} {{ tag-all }}
 
   Blocks queries if you cannot use an index by primary key. This setting applies to tables of the [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) family.
 
@@ -312,17 +367,17 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-force_primary_key).
 
-* **Format avro schema registry url**{#setting-format-avro-schema-registry-url} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Format avro schema registry url**{#setting-format-avro-schema-registry-url} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   URL of the Confluent schema registry for AvroConfluent format.
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/formats#format_avro_schema_registry_url).
 
-* **Format regexp**{#setting-format-regexp} {{ tag-con }} {{ tag-sql }}
+* **Format regexp**{#setting-format-regexp} {{ tag-con }} {{ tag-tf }} {{ tag-sql }}
 
   Sets a regular expression in [re2 format](https://github.com/google/re2/wiki/Syntax) to apply to each row of imported data. The number of subtemplates (parenthetical groups) in the expression must be equal to the number of columns in the table the data is imported to. Use the `\n` or `\r\n` line break characters as delimiters; line breaks cannot be escaped. If a row does not match the regular expression, it is skipped.
 
-  No value is set by default.
+  By default, the value is not set.
 
 * **Format regexp escaping rule**{#setting-format-regexp_escaping_rule} {{ tag-con }} {{ tag-sql }}
 
@@ -336,13 +391,13 @@
 
   The default value is `Raw`, i.e., no escaping is used.
 
-* **Format regexp skip unmatched**{#setting-format-regexp-skip-unmatched} {{ tag-con }} {{ tag-sql }}
+* **Format regexp skip unmatched**{#setting-format-regexp-skip-unmatched} {{ tag-con }} {{ tag-tf }} {{ tag-sql }}
 
   Outputs an error message if a row in imported data cannot be split by the template specified in the [Format regexp](#setting-format-regexp) setting.
 
   By default, no message is output (`0`).
 
-* **Group by overflow mode**{#setting-group-by-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Group by overflow mode**{#setting-group-by-overflow-mode} {{ tag-all }}
 
   Sets the {{ CH }} behavior if, during aggregation, the number of unique keys [exceeds the limit]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#restrictions-on-query-complexity):
   * `throw`: Abort the query and return an error.
@@ -351,19 +406,19 @@
 
   By default, no value is set (equivalent to `throw`).
 
-* **Group by two level threshold**{#setting-group-by-two-level-threshold} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Group by two level threshold**{#setting-group-by-two-level-threshold} {{ tag-all }}
 
   Sets the number of keys, reaching which triggers two-level aggregation.
 
   The minimum value is `0`, i.e., the number is not set. The default value is `100000`.
 
-* **Group by two level threshold bytes**{#setting-group-by-two-level-threshold-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Group by two level threshold bytes**{#setting-group-by-two-level-threshold-bytes} {{ tag-all }}
 
   Sets the number of bytes in the aggregated output, reaching which triggers two-level aggregation.
 
   The minimum value is `0`, i.e., the number is not set. The default value is `50000000`.
 
-* **Hedged connection timeout ms**{#setting-hedged-connection-timeout-ms} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
+* **Hedged connection timeout ms**{#setting-hedged-connection-timeout-ms} {{ tag-all }}
 
   Timeout, in milliseconds, for connecting to the replica to work with hedged requests. Use this setting in combination with [Use hedged requests](#setting-use-hedged-requests).
 
@@ -371,19 +426,19 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#hedged_connection_timeout_ms).
 
-* **HTTP connection timeout**{#setting-http-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **HTTP connection timeout**{#setting-http-connection-timeout} {{ tag-all }}
 
   Sets the HTTP connection timeout, in milliseconds.
 
   The minimum value is `1`. The default value is `1000` (one second).
 
-* **HTTP headers progress interval**{#setting-http-headers-progress-interval} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **HTTP headers progress interval**{#setting-http-headers-progress-interval} {{ tag-all }}
 
   Sets the minimum interval, in milliseconds, between progress notifications with the `X-ClickHouse-Progress` HTTP header.
 
   The minimum value is `1` and the default is `100`.
 
-* **HTTP max field name size**{#setting-http-max-field-name-size} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **HTTP max field name size**{#setting-http-max-field-name-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Maximum field name length in an HTTP header.
 
@@ -391,7 +446,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#http_max_field_name_size).
 
-* **HTTP max field value size**{#setting-http-max-field-value-size} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **HTTP max field value size**{#setting-http-max-field-value-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Maximum field value length in an HTTP header.
 
@@ -399,19 +454,19 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#http_max_field_value_size).
 
-* **HTTP receive timeout**{#setting-http-receive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **HTTP receive timeout**{#setting-http-receive-timeout} {{ tag-all }}
 
   Sets the timeout for receiving data over HTTP, in milliseconds.
 
   The minimum value is `1`; the default value is `1800000` (30 minutes).
 
-* **HTTP send timeout**{#setting-http-send-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **HTTP send timeout**{#setting-http-send-timeout} {{ tag-all }}
 
   Sets the timeout for sending data over HTTP, in milliseconds.
 
   The minimum value is `1`; the default value is `1800000` (30 minutes).
 
-* **Idle connection timeout**{#setting-idle-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
+* **Idle connection timeout**{#setting-idle-connection-timeout} {{ tag-all }}
 
   Timeout for closing idle TCP connections, in milliseconds.
 
@@ -421,7 +476,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#idle_connection_timeout).
 
-* **Ignore materialized views with dropped target table**{#setting-ignore-materialized-views-with-dropped-target-table} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Ignore materialized views with dropped target table**{#setting-ignore-materialized-views-with-dropped-target-table} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Sets whether to ignore materialized views with a deleted target table when switching to views.
 
@@ -429,7 +484,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#ignore_materialized_views_with_dropped_target_table).
 
-* **Input format defaults for omitted fields**{#setting-input-format-defaults-for-omitted-fields} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Input format defaults for omitted fields**{#setting-input-format-defaults-for-omitted-fields} {{ tag-all }}
 
   Sets whether to write default values into omitted fields based on a column data type when inserting data with `INSERT`.
 
@@ -437,7 +492,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#session_settings-input_format_defaults_for_omitted_fields).
 
-* **Input format import nested json**{#setting-input-format-import-nested-json} {{ tag-con }}
+* **Input format import nested json**{#setting-input-format-import-nested-json} {{ tag-con }} {{ tag-tf }}
 
   Sets whether to insert JSON data with nested objects.
 
@@ -445,7 +500,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-input_format_import_nested_json).
 
-* **Input format null as default**{#setting-input-format-null-as-default} {{ tag-con }} {{ tag-sql }}
+* **Input format null as default**{#setting-input-format-null-as-default} {{ tag-con }} {{ tag-tf }} {{ tag-sql }}
 
   Sets whether to write default values in `NULL` cells if the column data type does not allow storing the `NULL` value.
 
@@ -453,7 +508,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-input-format-null-as-default).
 
-* **Input format parallel parsing**{#setting-input-format-parallel-parsing} {{ tag-con }}
+* **Input format parallel parsing**{#setting-input-format-parallel-parsing} {{ tag-con }} {{ tag-tf }}
 
   Sets whether to split incoming data into parts and parse each of them concurrently while preserving the original sequence. This setting is only supported for [TSV]({{ ch.docs }}{{ lang }}/interfaces/formats#tabseparated), [TKSV]({{ ch.docs }}{{ lang }}/interfaces/formats#tskv), [CSV]({{ ch.docs }}{{ lang }}/interfaces/formats#csv), and [JSONEachRow]({{ ch.docs }}{{ lang }}/interfaces/formats#jsoneachrow) formats.
 
@@ -461,7 +516,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#input-format-parallel-parsing).
 
-* **Input format values interpret expressions**{#setting-input-format-values-interpret-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Input format values interpret expressions**{#setting-input-format-values-interpret-expressions} {{ tag-all }}
 
   Enables the SQL parser if the stream parser is unable to parse the data. Use this setting when inserting values containing SQL expressions into the table.
 
@@ -473,7 +528,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-input_format_values_interpret_expressions).
 
-* **Input format with names use header**{#setting-input-format-with-names-use-header} {{ tag-con }} {{ tag-sql }}
+* **Input format with names use header**{#setting-input-format-with-names-use-header} {{ tag-con }} {{ tag-tf }} {{ tag-sql }}
 
   Sets whether to check the order of columns when inserting data.
 
@@ -481,7 +536,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-input-format-with-names-use-header).
 
-* **Insert keeper max retries**{#setting-insert-keeper-max-retries} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Insert keeper max retries**{#setting-insert-keeper-max-retries} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
   The maximum number of retries for {{ CK }} (or {{ ZK }}) requests during inserts to replicated [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables.
 
@@ -489,7 +544,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#insert_keeper_max_retries).
 
-* **Insert null as default**{#setting-insert-null-as-default} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Insert null as default**{#setting-insert-null-as-default} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Enables inserting [default values]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/table#create-default-values) instead of [NULL]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/table#null-modifiers) into columns that do not allow storing `NULL` values.
 
@@ -502,7 +557,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#insert_null_as_default).
 
-* **Insert quorum**{#setting-insert-quorum} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Insert quorum**{#setting-insert-quorum} {{ tag-all }}
 
   Manages a quorum write in a {{ CH }} cluster:
   * If the value is less than 2, quorum writes are disabled.
@@ -516,19 +571,19 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-insert_quorum).
 
-* **Insert quorum parallel**{#setting-insert-quorum-parallel} {{ tag-con }} {{ tag-sql }}
+* **Insert quorum parallel**{#setting-insert-quorum-parallel} {{ tag-con }} {{ tag-tf }} {{ tag-sql }}
 
   If this setting is enabled, you can run multiple concurrent `INSERT` queries with quorum writes. If disabled, a single `INSERT` query with a quorum write will be made to the same table.
 
   This setting is enabled by default.
 
-* **Insert quorum timeout**{#setting-insert-quorum-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Insert quorum timeout**{#setting-insert-quorum-timeout} {{ tag-all }}
 
   Sets the [quorum write](#setting-insert-quorum) timeout, in milliseconds. If the timeout ends without a write, {{ CH }} will abort the `INSERT` query and return an error.
 
   The minimum value is `1000` (one second). The default value is `60000` (one minute).
 
-* **Join algorithm**{#setting-join-algorithm} {{ tag-con }} {{ tag-sql }}
+* **Join algorithm**{#setting-join-algorithm} {{ tag-con }} {{ tag-tf }} {{ tag-sql }}
 
   Sets the `JOIN` algorithm:
   * `auto`: Hash join. However, if the server is running out of memory, {{ CH }} will attempt a merge join.
@@ -557,7 +612,7 @@
 
   The default action is `throw`.
 
-* **Join use nulls**{#setting-join-use-nulls} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Join use nulls**{#setting-join-use-nulls} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Controls the behavior of `JOIN` clauses. If the setting is enabled, empty cells resulting from a join will get `NULL` values. Otherwise, the cells will get the default values based on the specific field type.
 
@@ -565,7 +620,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#join_use_nulls).
 
-* **Joined subquery requires alias**{#setting-joined-subquery-requires-alias} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Joined subquery requires alias**{#setting-joined-subquery-requires-alias} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Requires aliases for subqueries when running the `JOIN` clause.
 
@@ -583,7 +638,16 @@
 
   This setting is enabled by default.
 
-* **Load balancing**{#setting-load-balancing} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
+* **Lightweight deletes sync**{#Lightweight-deletes-sync} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+
+  Sets the wait mode for asynchronous actions on replicas for lightweight `DELETE` queries:
+  * `0`: Do not wait.
+  * `1`: Only wait for own execution. This is a default value.
+  * `2`: Wait for everyone.
+
+  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#lightweight_deletes_sync).
+
+* **Load balancing**{#setting-load-balancing} {{ tag-all }}
 
   Sets the replica selection algorithm used to send and process distributed queries. {{ CH }} counts the number of errors per replica and selects the one with the lowest value. If multiple replicas have the same number of errors, the **Load balancing** setting determines the order to sort the replicas in and which replica to select.
 
@@ -598,6 +662,10 @@
      With this approach, distributed queries will be more likely sent to the same replicas located in proximity to each other. It eliminates the disadvantage of the `random` value.
 
   * `hostname_levenshtein_distance`: To select a replica, the same principle applies as for `nearest_hostname`. However, the appropriate replica host name is determined by the [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance).
+  
+  * `hostname_longest_common_prefix`: Similar to `nearest_hostname`, but the preferred replica is the one whose hostname has the longest common prefix with the local hostname; the longer the common prefix, the higher the priority. Available for versions `26.6` and higher.
+
+  * `hostname_longest_common_suffix`: Similar to `hostname_longest_common_prefix`, but instead of a prefix, the longest common suffix is compared. Available for versions `26.6` and higher.
 
   * `in_order`: Sends the query to the replica in the order set in the {{ CH }} configuration file. In a {{ mch-name }} cluster, the replica located in the same availability zone as the host initiating distributed subqueries is the first one in the order.
 
@@ -609,7 +677,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-load_balancing).
 
-* **Local filesystem read method**{#setting-local-filesystem-read-method} {{ tag-con }}
+* **Local filesystem read method**{#setting-local-filesystem-read-method} {{ tag-con }} {{ tag-tf }}
 
   Sets how to read data from the local file system.
 
@@ -622,7 +690,7 @@
 
   The default value is `pread`.
 
-* **Log processors profiles**{#setting-log-processors-profiles} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Log processors profiles**{#setting-log-processors-profiles} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Sets whether to log information about processor-level profiling. Such logs will be saved to the `system.processors_profile_log` table.
 
@@ -630,7 +698,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#log_processors_profiles).
 
-* **Log queries probability**{#setting-log-queries-probability} {{ tag-cli }} {{ tag-sql }}
+* **Log queries probability**{#setting-log-queries-probability} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Sets whether to write only randomly selected queries with a specified probability to the `system.query_log`, `system.query_thread_log`, and `system.query_views_log` tables. Random selection reduces the load in case of large number of queries per second.
 
@@ -638,7 +706,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#log_queries_probability).
 
-* **Log query threads**{#setting-log-query-threads} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
+* **Log query threads**{#setting-log-query-threads} {{ tag-all }}
 
   Enables logging of threads which run queries. Such logs will be saved to the [system.query_thread_log]({{ ch.docs }}{{ lang }}/operations/system-tables/query_thread_log) table.
 
@@ -648,7 +716,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-log-query-threads).
 
-* **Log query views**{#setting-log-query-views} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Log query views**{#setting-log-query-views} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Sets whether to log information about dependent views in queries. Such logs will be saved to the `system.query_views_log` table.
 
@@ -656,7 +724,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#log_query_views).
 
-* **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} {{ tag-all }}
 
   Sets whether to use [LowCardinality type]({{ ch.docs }}{{ lang }}/sql-reference/data-types/lowcardinality) in native format:
   * If this setting is enabled (by default), use native format.
@@ -672,7 +740,15 @@
 
   This setting is enabled by default.
 
-* **Max ast depth**{#setting-max-ast-depth} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Materialize TTL after modify**{#setting-materialize-ttl-after-modify} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+
+  Determines whether to apply TTL to historical data after running an `ALTER MODIFY TTL` query.
+
+  This setting is enabled by default.
+
+  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#materialize_ttl_after_modify).
+
+* **Max ast depth**{#setting-max-ast-depth} {{ tag-all }}
 
   Maximum nesting depth of a syntax tree.
 
@@ -682,7 +758,7 @@
 
   The default value is `1000`. If you set the value too small, {{ CH }} may not be able to run most queries.
 
-* **Max ast elements**{#setting-max-ast-elements} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max ast elements**{#setting-max-ast-elements} {{ tag-all }}
 
   Maximum size of the query syntax tree, i.e., the number of tree nodes.
 
@@ -690,13 +766,13 @@
 
   The default value is `50000`. If you set the value too small, {{ CH }} may not be able to run most queries.
 
-* **Max block size**{#setting-max-block-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max block size**{#setting-max-block-size} {{ tag-all }}
 
   Data in {{ CH }} is processed by blocks, i.e., sets of column parts. This setting specifies the recommended block size (number of rows) that will be loaded when processing tables. You are charged for processing each block, so setting a small value can slow down processing.
 
   The minimum value is `1` and the default is `65536`.
 
-* **Max bytes before external group by**{#setting-max-bytes-before-external-group-by} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max bytes before external group by**{#setting-max-bytes-before-external-group-by} {{ tag-all }}
 
   Data accumulated during the `GROUP BY` aggregation is stored in RAM for a certain period of time. This parameter sets a threshold, in bytes, exceeding which will trigger data flush to disk to save RAM.
 
@@ -710,15 +786,15 @@
 
   Related to the [Distributed aggregation memory efficient](#setting-distributed-aggregation-memory-efficient) setting.
 
-* **Max bytes before external sort**{#setting-max-bytes-before-external-sort} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max bytes before external sort**{#setting-max-bytes-before-external-sort} {{ tag-all }}
 
   The amount of RAM you can use for `ORDER BY`. When this value is exceeded, external sorting is used.
 
   The minimum value is `0`, unlimited. The default value is `0`.
 
-  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#max_bytes_before_external_sort).
+  For more details, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#max_bytes_before_external_sort).
 
-* **Max bytes in distinct**{#setting-max-bytes-in-distinct} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max bytes in distinct**{#setting-max-bytes-in-distinct} {{ tag-all }}
 
   Maximum amount of uncompressed data, in bytes, occupied by a hash table when using `DISTINCT`.
 
@@ -747,7 +823,7 @@
   * For versions below `25.1`: `0`.
   * For versions `25.1` and higher: `0,5`.
 
-  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#max_bytes_ratio_before_external_group_by).
+  For more details, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#max_bytes_ratio_before_external_group_by).
 
 * **Max bytes ratio before external sort**{#setting-max-bytes-ratio-before-external-sort} {{ tag-con }} {{ tag-sql }}
   
@@ -762,33 +838,33 @@
   * For versions below `25.1`: `0`.
   * For versions `25.1` and higher: `0,5`.
 
-  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#max_bytes_ratio_before_external_sort).
+  For more details, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#max_bytes_ratio_before_external_sort).
 
-* **Max bytes to read**{#setting-max-bytes-to-read} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max bytes to read**{#setting-max-bytes-to-read} {{ tag-all }}
 
   Maximum amount of uncompressed data, in bytes, that can be read from a table when running a query.
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max bytes to sort**{#setting-max-bytes-to-sort} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max bytes to sort**{#setting-max-bytes-to-sort} {{ tag-all }}
 
   Maximum amount of uncompressed data, in bytes, that can be read from a table before sorting. This setting helps limit RAM usage for sorting.
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max bytes to transfer**{#setting-max-bytes-to-transfer} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max bytes to transfer**{#setting-max-bytes-to-transfer} {{ tag-all }}
 
   Maximum amount of uncompressed data, in bytes, that can be sent to a remote server or saved to a temporary table when using `GLOBAL IN`.
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max columns to read**{#setting-max-columns-to-read} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max columns to read**{#setting-max-columns-to-read} {{ tag-all }}
 
   Maximum number of columns that can be read from a table in a single query. Queries that require reading more columns will terminate with an error.
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max concurrent queries for user**{#setting-max-concurrent-queries-for-user} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Max concurrent queries for user**{#setting-max-concurrent-queries-for-user} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Maximum number of concurrently processed user queries to a [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) table.
 
@@ -796,7 +872,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#max-concurrent-queries-for-user).
 
-* **Max execution time**{#setting-max-execution-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max execution time**{#setting-max-execution-time} {{ tag-all }}
 
   Maximum query run time, in milliseconds.
 
@@ -804,7 +880,7 @@
 
   The minimum value is `0`, i.e., there is no limit. The default value is `600000`.
 
-* **Max expanded ast elements**{#setting-max-expanded-ast-elements} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max expanded ast elements**{#setting-max-expanded-ast-elements} {{ tag-all }}
 
   Maximum query syntax tree size (number of tree nodes) after expansion of aliases and the asterisk.
 
@@ -812,7 +888,7 @@
 
   The default value is `500000`. If you set the value too small, {{ CH }} may not be able to run most queries.
 
-* **Max final threads**{#setting-max-final-threads} {{ tag-con }}
+* **Max final threads**{#setting-max-final-threads} {{ tag-con }} {{ tag-tf }}
 
   Maximum number of parallel threads for a `SELECT` query with the [FINAL]({{ ch.docs }}{{ lang }}/sql-reference/statements/select/from#select-from-final) modifier.
 
@@ -820,7 +896,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#max-final-threads).
 
-* **Max HTTP get redirects**{#setting-max-http-get-redirects} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Max HTTP get redirects**{#setting-max-http-get-redirects} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Sets the maximum number of redirect hops in [URL engine]({{ ch.docs }}{{ lang }}/engines/table-engines/special/url) tables for HTTP GET requests.
 
@@ -830,7 +906,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#setting-max_http_get_redirects).
 
-* **Max insert block size**{#setting-max-insert-block-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max insert block size**{#setting-max-insert-block-size} {{ tag-all }}
 
   Sets the size, in bytes, for blocks when inserting data into a table. This setting will only apply if a server creates such blocks.
 
@@ -838,7 +914,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-max_insert_block_size).
 
-* **Max insert threads**{#setting-max-insert-threads} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
+* **Max insert threads**{#setting-max-insert-threads} {{ tag-all }}
 
   Maximum number of threads for the `INSERT SELECT` query.
 
@@ -850,7 +926,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-max-insert-threads).
 
-* **Max memory usage**{#setting-max-memory-usage} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max memory usage**{#setting-max-memory-usage} {{ tag-all }}
 
   Maximum amount of RAM, in bytes, to run a query on a single server. This setting does not account for the amount of free memory or the total amount of a machine's memory. It applies to a single query on a single server.
 
@@ -860,7 +936,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#settings_max_memory_usage).
 
-* **Max memory usage for user**{#setting-max-memory-usage-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max memory usage for user**{#setting-max-memory-usage-for-user} {{ tag-all }}
 
   Maximum amount of RAM, in bytes, to run user queries on a single server. This setting does not account for the amount of free memory or the total amount of a machine's memory.
 
@@ -868,19 +944,29 @@
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max network bandwidth**{#setting-max-network-bandwidth} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max network bandwidth**{#setting-max-network-bandwidth} {{ tag-all }}
 
   Maximum network data transmission rate for a single query, in bytes per second.
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max network bandwidth for user**{#setting-max-network-bandwidth-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#max_network_bandwidth).
+
+* **Max network bandwidth for user**{#setting-max-network-bandwidth-for-user} {{ tag-all }}
 
   Maximum network data transmission rate, in bytes per second. This setting applies to all concurrent user queries, as opposed to [Max network bandwidth](#setting-max-network-bandwidth).
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max parser depth**{#setting-max-parser-depth} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#max_network_bandwidth_for_user).
+
+* **Max network bytes**{#setting-max-network-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+
+  Limits the amount of data, in bytes, that is received or transmitted over the network during query execution. This setting applies to each individual query.
+
+  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#max_network_bytes).
+
+* **Max parser depth**{#setting-max-parser-depth} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
   Maximum recursion depth in the recursive descent parser. It allows you to control the stack size.
 
@@ -888,7 +974,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#max_parser_depth).
 
-* **Max partitions per insert block**{#setting-partitions-per-insert-block} {{ tag-con }} {{ tag-sql }}
+* **Max partitions per insert block**{#setting-partitions-per-insert-block} {{ tag-con }} {{ tag-tf }} {{ tag-sql }}
 
   Limits the maximum number of partitions per insert block.
 
@@ -896,19 +982,19 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#max-partitions-per-insert-block).
 
-* **Max query size**{#setting-max-query-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max query size**{#setting-max-query-size} {{ tag-all }}
 
   Limits the size of the largest part of a query, in bytes, that can be transferred to RAM for parsing using the SQL parser.
 
   The minimum value is `1` and the default is `262144`.
 
-* **Max read buffer size**{#setting-max-read-buffer-size} {{ tag-con }}
+* **Max read buffer size**{#setting-max-read-buffer-size} {{ tag-con }} {{ tag-tf }}
 
   Maximum buffer size, in bytes, to read data from the file system.
 
   The default value is `1048576` (1 MB).
 
-* **Max replica delay for distributed queries**{#setting-max-replica-delay-for-distributed-queries} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max replica delay for distributed queries**{#setting-max-replica-delay-for-distributed-queries} {{ tag-all }}
 
   Maximum replica delay, in milliseconds. If a replica delay is greater than this value, the replica is no longer used.
 
@@ -916,19 +1002,19 @@
 
   Related to the [Fallback to stale replicas for distributed queries](#setting-fallback-to-stale-replicas-for-distributed-queries) setting.
 
-* **Max result bytes**{#setting-max-result-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max result bytes**{#setting-max-result-bytes} {{ tag-all }}
 
   Maximum size of an uncompressed data query output, in bytes. It also applies to subqueries and to parts of distributed queries that run on remote servers.
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max result rows**{#setting-max-result-rows} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max result rows**{#setting-max-result-rows} {{ tag-all }}
 
   Maximum number of output rows. It also applies to subqueries and to parts of distributed queries that run on remote servers.
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max rows in distinct**{#setting-max-rows-in-distinct} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max rows in distinct**{#setting-max-rows-in-distinct} {{ tag-all }}
 
   Limits the maximum number of distinct rows when using `DISTINCT`.
 
@@ -948,37 +1034,37 @@
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max rows to group by**{#setting-max-rows-to-group-by} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max rows to group by**{#setting-max-rows-to-group-by} {{ tag-all }}
 
   Limits the maximum number of unique keys received from the aggregation function. Use this setting to limit RAM usage during aggregation.
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max rows to read**{#setting-max-rows-to-read} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max rows to read**{#setting-max-rows-to-read} {{ tag-all }}
 
   Maximum number of rows that can be read from a table when running a query.
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max rows to sort**{#setting-max-rows-to-sort} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max rows to sort**{#setting-max-rows-to-sort} {{ tag-all }}
 
   Maximum number of rows to sort. Use this setting to limit RAM usage during sorting.
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max rows to transfer**{#setting-max-rows-to-transfer} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max rows to transfer**{#setting-max-rows-to-transfer} {{ tag-all }}
 
   Maximum number of rows that can be sent to a remote server or saved in a temporary table when using `GLOBAL IN`.
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max temporary columns**{#setting-max-temporary-columns} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max temporary columns**{#setting-max-temporary-columns} {{ tag-all }}
 
   Maximum number of temporary columns concurrently kept in RAM when running a query, including constant columns.
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max temporary data on disk size for query**{#setting-max-temporary-data-on-disk-size-for-query} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Max temporary data on disk size for query**{#setting-max-temporary-data-on-disk-size-for-query} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
   Maximum amount of data, in bytes, consumed by temporary files on the disk for all concurrently running queries.
 
@@ -986,7 +1072,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_query).
 
-* **Max temporary data on disk size for user**{#setting-max-temporary-data-on-disk-size-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Max temporary data on disk size for user**{#setting-max-temporary-data-on-disk-size-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
   Maximum amount of data, in bytes, consumed by temporary files on the disk for all concurrently running user queries.
 
@@ -994,13 +1080,13 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_user).
 
-* **Max temporary non const columns**{#setting-max-temporary-non-const-columns} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max temporary non const columns**{#setting-max-temporary-non-const-columns} {{ tag-all }}
 
   Maximum number of temporary columns concurrently kept in RAM when running a query, excluding constant columns.
 
   The minimum and default value is `0`, i.e., there is no limit.
 
-* **Max threads**{#setting-max-threads} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max threads**{#setting-max-threads} {{ tag-all }}
 
   Maximum number of query processing threads, excluding threads for reading data from remote servers. This setting applies to threads that perform the same stages of the query processing pipeline in parallel.
 
@@ -1008,7 +1094,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-max_threads).
 
-* **Memory overcommit ratio denominator**{#setting-memory-overcommit-ratio-denominator} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Memory overcommit ratio denominator**{#setting-memory-overcommit-ratio-denominator} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
   [Memory overcommit]({{ ch.docs }}{{ lang }}/operations/settings/memory-overcommit) limit, in GB, when the strict memory usage limit is reached at the user level.
 
@@ -1016,7 +1102,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#memory_overcommit_ratio_denominator).
 
-* **Memory overcommit ratio denominator for user**{#setting-memory-overcommit-ratio-denominator-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Memory overcommit ratio denominator for user**{#setting-memory-overcommit-ratio-denominator-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
   [Memory overcommit]({{ ch.docs }}{{ lang }}/operations/settings/memory-overcommit) limit, in GB, when the strict memory usage limit is reached globally.
 
@@ -1024,19 +1110,19 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#memory_overcommit_ratio_denominator_for_user).
 
-* **Memory profiler sample probability**{#setting-memory-profiler-sample-probability} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Memory profiler sample probability**{#setting-memory-profiler-sample-probability} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   The system will log information about specific memory allocation and deallocation to the `system.trace_log` file of the `MemorySample` tracing type with the specified probability. The logging probability does not depend on the size of the allocated/deallocated memory.
 
   You can specify values between `0` and `1`. The default value is `0`.
 
-* **Memory profiler step**{#setting-memory-profiler-step} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Memory profiler step**{#setting-memory-profiler-step} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Memory profiler step, in bytes. Whenever query memory usage increases every next step greater than the number of bytes specified in this setting, the memory profiler will save the allocated stack trace. A value less than several MB slows down query processing.
 
   The default value is `4194304` (4 MB). If `0`, the memory profiler is disabled.
 
-* **Memory usage overcommit max wait microseconds**{#setting-memory-usage-overcommit-max-wait-microseconds} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Memory usage overcommit max wait microseconds**{#setting-memory-usage-overcommit-max-wait-microseconds} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
   Timeout, in microseconds, for releasing memory in the event of user-level [memory overcommit]({{ ch.docs }}{{ lang }}/operations/settings/memory-overcommit).
 
@@ -1044,7 +1130,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds).
 
-* **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} {{ tag-all }}
 
   Maximum size of a query, in bytes, that uses the uncompressed data cache. Queries larger than the specified value do not use cache.
 
@@ -1052,7 +1138,7 @@
 
   The default value is `192x10x1024x1024`.
 
-* **Merge tree max rows to use cache**{#setting-merge-tree-max-rows-to-use-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Merge tree max rows to use cache**{#setting-merge-tree-max-rows-to-use-cache} {{ tag-all }}
 
   Maximum size of a query, in rows, that uses the uncompressed data cache. Queries larger than the specified value do not use cache.
 
@@ -1060,19 +1146,19 @@
 
   The default value is `128x8192`.
 
-* **Merge tree min bytes for concurrent read**{#setting-merge-tree-min-bytes-for-concurrent-read} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Merge tree min bytes for concurrent read**{#setting-merge-tree-min-bytes-for-concurrent-read} {{ tag-all }}
 
   If the number of bytes read from a file exceeds this value, {{ CH }} will try to use multiple threads for concurrent data reads from this file.
 
   The minimum value is `1` and the default is `24x10x1024x1024`.
 
-* **Merge tree min rows for concurrent read**{#setting-merge-tree-min-rows-for-concurrent-read} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Merge tree min rows for concurrent read**{#setting-merge-tree-min-rows-for-concurrent-read} {{ tag-all }}
 
   If the number of rows read from a file exceeds this value, {{ CH }} will try to use multiple threads for concurrent data reads from this file.
 
   The minimum value is `1` and the default is `20x8192`.
 
-* **Min bytes to use direct io**{#setting-merge-tree-min-bytes-to-use-direct-io} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Min bytes to use direct io**{#setting-merge-tree-min-bytes-to-use-direct-io} {{ tag-all }}
 
   Amount of data, in bytes, required for direct reading (direct I/O) from disk.
 
@@ -1094,7 +1180,7 @@
 
   The minimum value is `0` and the default is `3`.
 
-* **Min count to compile expression**{#setting-min-count-to-compile-expression} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Min count to compile expression**{#setting-min-count-to-compile-expression} {{ tag-all }}
 
   Sets the minimum number of identical expressions that triggers [expression compilation](#setting-compile-expressions).
 
@@ -1124,31 +1210,31 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#min-execution-speed-bytes).
 
-* **Min insert block size bytes**{#setting-min-insert-block-size-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Min insert block size bytes**{#setting-min-insert-block-size-bytes} {{ tag-all }}
 
   Minimum block size, in bytes, that can be inserted into a table using `INSERT`. Smaller blocks are [squashed into bigger ones]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#mergetree-data-storage).
 
   The minimum value is `0`, i.e., block squashing is disabled. The default value is `268435456` (256 MB).
 
-* **Min insert block size rows**{#setting-min-insert-block-size-rows} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Min insert block size rows**{#setting-min-insert-block-size-rows} {{ tag-all }}
 
   Minimum block size, in rows, that can be inserted into a table using `INSERT`. Smaller blocks are [squashed into bigger ones]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#mergetree-data-storage).
 
   The minimum value is `0`, i.e., block squashing is disabled. The default value is `1048576`.
 
-* **Output format json quote denormals**{#setting-output-format-json-quote-denormals} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Output format json quote denormals**{#setting-output-format-json-quote-denormals} {{ tag-all }}
 
   Sets whether to output special values for floating-point numbers (`+nan`, `-nan`, `+inf`, and `-inf`) when using JSON format.
 
   The default value is `false`, i.e., special values are not output.
 
-* **Output format json quote_64bit integers**{#setting-output-format-json-quote-64bit-integers} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Output format json quote_64bit integers**{#setting-output-format-json-quote-64bit-integers} {{ tag-all }}
 
   Sets the format of numbers in the JSON output. If this setting is enabled, 64-bit integers (`UInt64` and `Int64`) are enclosed in quotes in a JSON output to maintain compatibility with most JavaScript engines; otherwise, no quotes are used. 
 
   By default, enclosing 64-bit integers in quotes is disabled.
 
-* **Prefer localhost replica**{#setting-prefer-localhost-replica} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
+* **Prefer localhost replica**{#setting-prefer-localhost-replica} {{ tag-all }}
 
   Enables sending distributed queries to the `localhost` replica.
 
@@ -1164,7 +1250,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-prefer-localhost-replica).
 
-* **Priority**{#setting-priority} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Priority**{#setting-priority} {{ tag-all }}
 
   Sets the query priority:
   * `0`: No priority.
@@ -1177,7 +1263,7 @@
 
   The minimum and default value is `0`.
 
-* **Query cache max entries**{#setting-query-cache-max-entries} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Query cache max entries**{#setting-query-cache-max-entries} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Maximum number of query results the current user can save in the query cache.
 
@@ -1187,7 +1273,7 @@
 
   Related to the [Use query cache](#setting-use-query-cache) setting.
 
-* **Query cache max size in bytes**{#setting-query-cache-max-size-in-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Query cache max size in bytes**{#setting-query-cache-max-size-in-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Maximum cache size, in bytes, for the user.
 
@@ -1197,7 +1283,7 @@
 
   Related to the [Use query cache](#setting-use-query-cache) setting.
 
-* **Query cache min query duration**{#setting-query-cache-min-query-duration} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Query cache min query duration**{#setting-query-cache-min-query-duration} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Minimum `SELECT` query duration, in milliseconds, for saving the results to the query cache.
 
@@ -1207,7 +1293,7 @@
 
   Related to the [Use query cache](#setting-use-query-cache) setting.
 
-* **Query cache min query runs**{#setting-query-cache-min-query-runs} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Query cache min query runs**{#setting-query-cache-min-query-runs} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Minimum number of completed `SELECT` queries required for saving the results to the query cache.
 
@@ -1217,7 +1303,7 @@
 
   Related to the [Use query cache](#setting-use-query-cache) setting.
 
-* **Query cache nondeterministic function handling**{#setting-query-cache-nondeterministic-function-handling} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Query cache nondeterministic function handling**{#setting-query-cache-nondeterministic-function-handling} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Sets how the query cache will process `SELECT` queries with non-determined functions, such as `rand()` or `now()`.
 
@@ -1233,7 +1319,7 @@
 
   Related to the [Use query cache](#setting-use-query-cache) setting.
 
-* **Query cache share between users**{#setting-query-cache-share-between-users} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Query cache share between users**{#setting-query-cache-share-between-users} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Sets whether other users can read the results of the `SELECT` queries saved in the query cache. We do not recommend enabling this parameter for security reasons.
 
@@ -1243,7 +1329,23 @@
 
   Related to the [Use query cache](#setting-use-query-cache) setting.
 
-* **Query cache tag**{#setting-query-cache-tag} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Query cache system table handling**{#setting-query-cache-system-table-handling} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
+
+  Sets how the query cache will process `SELECT` queries to system tables.
+
+  The possible values are:
+
+  * `throw`: To throw an exception without caching the query result.
+  * `save`: To cache the query result.
+  * `ignore`: Not to throw an exception and not to cache the query result.
+
+  By default, no value is set (equivalent to `throw`).
+
+  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_system_table_handling).
+
+  Related to the [Use query cache](#setting-use-query-cache) setting.
+
+* **Query cache tag**{#setting-query-cache-tag} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   String that serves as a tag for query cache entries. This setting allows you to cache multiple results of the same query. Queries with different tags are considered different.
 
@@ -1251,7 +1353,7 @@
 
   Related to the [Use query cache](#setting-use-query-cache) setting.
 
-* **Query cache ttl**{#setting-query-cache-ttl} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Query cache ttl**{#setting-query-cache-ttl} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Time, in seconds, after which entries in the query cache become stale.
 
@@ -1261,7 +1363,7 @@
 
   Related to the [Use query cache](#setting-use-query-cache) setting.
 
-* **Quota mode**{#setting-quota-mode} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Quota mode**{#setting-quota-mode} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Mode used to track resources utilized when [quotas]({{ link-console-quotas }}) are enabled:
   * `default`: Keys are not used.
@@ -1272,7 +1374,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/quotas).
 
-* **Read overflow mode**{#setting-read-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Read overflow mode**{#setting-read-overflow-mode} {{ tag-all }}
 
   Sets the {{ CH }} behavior if the amount of read data [exceeds one of the limits]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#restrictions-on-query-complexity):
   * `throw`: Abort the query and return an error.
@@ -1280,7 +1382,7 @@
 
   By default, no value is set (equivalent to `throw`).
 
-* **Readonly**{#setting-readonly} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Readonly**{#setting-readonly} {{ tag-all }}
 
   Permissions for configuration, read, and write queries:
   * `0` (default): Allows queries of all types.
@@ -1289,15 +1391,15 @@
 
   This setting does not apply to DDL queries. To enable or disable DDL queries, use the [Allow DDL](#setting-allow-ddl) setting. 
 
-  See the [example of creating a user with read-only access permissions](../../managed-clickhouse/operations/cluster-users.md#example-create-readonly-user).
+  Example of [creating a user with read-only access permissions](../../managed-clickhouse/operations/cluster-users.md#example-create-readonly-user).
 
-* **Receive timeout**{#setting-receive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Receive timeout**{#setting-receive-timeout} {{ tag-all }}
 
   Timeout for receiving data, in milliseconds.
 
   The default value is `300000` (five minutes).
 
-* **Remote filesystem read method**{#setting-remote-filesystem-read-method} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Remote filesystem read method**{#setting-remote-filesystem-read-method} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
   Sets how to read data from a remote file system.
 
@@ -1308,7 +1410,7 @@
 
   The default value is `threadpool`.
 
-* **Replication alter partitions sync**{#setting-replication-alter-partitions-sync} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Replication alter partitions sync**{#setting-replication-alter-partitions-sync} {{ tag-all }}
 
   Sets the wait mode for asynchronous actions on replicas for `ALTER ... ATTACH DETACH DROP` queries:
   * `0`: Do not wait.
@@ -1317,7 +1419,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter#synchronicity-of-alter-queries).
 
-* **Result overflow mode**{#setting-result-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Result overflow mode**{#setting-result-overflow-mode} {{ tag-all }}
 
   Sets the {{ CH }} behavior if the size of the result [exceeds one of the limits]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#restrictions-on-query-complexity):
   * `throw`: Abort the query and return an error.
@@ -1325,7 +1427,20 @@
 
   By default, no value is set (equivalent to `throw`).
 
-* **Select sequential consistency**{#setting-select-sequential-consistency} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **S3 use adaptive timeouts**{#setting-s3-use-adaptive-timeouts} {{ tag-all }}
+
+  Controls whether to use adaptive timeouts for S3 requests.
+
+  The possible values are:
+
+  * `true`: For every three requests to S3, the first two attempts use short send and receive timeouts.
+  * `false`: All attempts use the same timeouts.
+
+  This setting is enabled by default.
+
+  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#s3_use_adaptive_timeouts).
+
+* **Select sequential consistency**{#setting-select-sequential-consistency} {{ tag-all }}
 
   Sets whether to enable sequential consistency for `SELECT` queries.
 
@@ -1333,13 +1448,13 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-select_sequential_consistency).
 
-* **Send progress in HTTP headers**{#setting-send-progress-in-http-headers} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Send progress in HTTP headers**{#setting-send-progress-in-http-headers} {{ tag-all }}
 
   Enables sending notifications regarding query execution status using `X-ClickHouse-Progress` headers.
 
   By default, notifications are disabled.
 
-* **Send timeout**{#setting-send-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Send timeout**{#setting-send-timeout} {{ tag-all }}
 
   Timeout for sending data, in milliseconds.
 
@@ -1362,15 +1477,15 @@
   * For versions below `25.10`: `true`.
   * For versions `25.10` and higher: `false`.
 
-  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#show_data_lake_catalogs_in_system_tables).
+  For more details, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#show_data_lake_catalogs_in_system_tables).
 
-* **Skip unavailable shards**{#setting-skip-unavailable-shards} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Skip unavailable shards**{#setting-skip-unavailable-shards} {{ tag-all }}
 
   Enables silent skipping of unavailable shards. A shard is considered unavailable if none of its replicas are available.
 
   By default, silent skipping is disabled.
 
-* **Sort overflow mode**{#setting-sort-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Sort overflow mode**{#setting-sort-overflow-mode} {{ tag-all }}
 
   Sets the {{ CH }} behavior if the number of rows received before sorting [exceeds one of the limits]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#restrictions-on-query-complexity):
   * `throw`: Abort the query and return an error.
@@ -1378,7 +1493,7 @@
 
   By default, no value is set (equivalent to `throw`).
 
-* **Timeout before checking execution speed**{#setting-timeout-before-checking-execution-speed} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Timeout before checking execution speed**{#setting-timeout-before-checking-execution-speed} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Timeout, in milliseconds, for a query execution speed check. {{ CH }} checks that the execution speed is not lower than [**Min execution speed**](#setting-min-execution-speed).
 
@@ -1386,7 +1501,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#timeout-before-checking-execution-speed).
 
-* **Timeout overflow mode**{#setting-timeout-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Timeout overflow mode**{#setting-timeout-overflow-mode} {{ tag-all }}
 
   Sets the {{ CH }} behavior if a query takes longer than [max_execution_time](#setting-max-execution-time):
   * `throw`: Abort the query and return an error.
@@ -1394,7 +1509,7 @@
 
   By default, no value is set (equivalent to `throw`).
 
-* **Transfer overflow mode**{#setting-transfer-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Transfer overflow mode**{#setting-transfer-overflow-mode} {{ tag-all }}
 
   Sets the {{ CH }} behavior if the amount of data to transfer to another server [exceeds one of the limits]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#restrictions-on-query-complexity):
   * `throw`: Abort the query and return an error.
@@ -1402,7 +1517,7 @@
 
   By default, no value is set (equivalent to `throw`).
 
-* **Transform null in**{#setting-transform-null-in} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Transform null in**{#setting-transform-null-in} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   If this setting is enabled, `NULL = NULL` returns `true` in the `IN` operator.
 
@@ -1410,7 +1525,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#transform_null_in).
 
-* **Use hedged requests**{#setting-use-hedged-requests} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
+* **Use hedged requests**{#setting-use-hedged-requests} {{ tag-all }}
 
   Enables hedged requests.
 
@@ -1431,9 +1546,9 @@
   * For versions below `25.1`: `false`.
   * For versions `25.1` and higher: `true`.
 
-  For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#use_hive_partitioning).
+  For more details, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#use_hive_partitioning).
 
-* **Use query cache**{#setting-use-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+* **Use query cache**{#setting-use-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-sql }}
 
   Sets whether `SELECT` queries can use the query cache.
 
@@ -1445,7 +1560,7 @@
   * [Enable reads from query cache](#setting-enable-reads-from-query-cache).
   * [Enable writes to query cache](#setting-enable-writes-to-query-cache).
 
-* **Use uncompressed cache**{#setting-use-uncompressed-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Use uncompressed cache**{#setting-use-uncompressed-cache} {{ tag-all }}
 
   Sets whether to use a cache of uncompressed blocks. Using this type of cache can help significantly reduce latency and improve throughput for a large number of short queries (only for the [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) family of tables). Enable this setting for users who frequently initiate small queries.
 
@@ -1457,7 +1572,7 @@
   * [Merge tree max bytes to use cache](#setting-merge-tree-max-bytes-to-use-cache).
   * [Merge tree max rows to use cache](#setting-merge-tree-max-rows-to-use-cache).
 
-* **Wait for async insert**{#setting-wait-for-async-insert} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Wait for async insert**{#setting-wait-for-async-insert} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Enables waiting for [asynchronous insert](#setting-async-insert) processing.
 
@@ -1470,7 +1585,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#wait-for-async-insert).
 
-* **Wait for async insert timeout**{#setting-wait-for-async-insert-timeout} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Wait for async insert timeout**{#setting-wait-for-async-insert-timeout} {{ tag-con }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Timeout for asynchronous insert processing, in seconds.
 

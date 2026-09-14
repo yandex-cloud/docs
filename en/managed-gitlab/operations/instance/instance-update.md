@@ -16,34 +16,33 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
   1. In the [management console]({{ link-console-main }}), select the folder with your [{{ GL }} instance](../../concepts/index.md#instance).
   1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
-  1. Select the instance and click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** at the top of the page.
-  1. At the top of the page:
+  1. Select the instance and click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
 
-      * Specify a new instance name and description.
-      * Add [labels](../../../resource-manager/concepts/labels.md) to break instances into logical groups.
-      * Enable or disable instance protection against accidental deletion by users.
+      1. At the top of the page:
 
-  1. Under **{{ ui-key.yacloud.gitlab.label_configuration-section }}**:
+          * Specify a new instance name and description.
+          * Add [labels](../../../resource-manager/concepts/labels.md) to break instances into logical groups.
+          * Enable or disable instance protection against accidental deletion by users.
+      1. Under **{{ ui-key.yacloud.gitlab.label_configuration-section }}**:
 
-      * Change the instance type. From the current instance type, you can only upgrade to a higher-performance type, e.g., from `s2.micro` to `s2.small`. You cannot downgrade to a lower-performance instance type.
-      * Select another [security group](../../../vpc/concepts/security-groups.md) or create a new one:
+          * Change the instance type. From the current instance type, you can only upgrade to a higher-performance type, e.g., from `s2.micro` to `s2.small`. You cannot downgrade to a lower-performance instance type.
+          * Select another [security group](../../../vpc/concepts/security-groups.md) or create a new one:
 
-        * Click **{{ ui-key.yacloud.component.network-subnet-select.button_create-security-group }}**.
-        * Enter a name and description for the security group. You can add rules for the security group later in {{ vpc-name }}.
-        * Click **{{ ui-key.yacloud.common.create }}**.
+              * Click **{{ ui-key.yacloud.component.network-subnet-select.button_create-security-group }}**.
+              * Enter a name and description for the security group. You can add rules for the security group later in {{ vpc-name }}.
+              * Click **{{ ui-key.yacloud.common.create }}**.
 
-        {% include [sg-notes](../../../_includes/managed-gitlab/sg-notes.md) %}
+              {% include [sg-notes](../../../_includes/managed-gitlab/sg-notes.md) %}
 
-      * Specify the disk size. You can increase the disk size or leave it as is. Reducing the disk size is not supported.
-      * Change the automatic backup retention period, in days.
-      * Select the appropriate [configuration](../../concepts/approval-rules.md#packages) for approval rules.
+          * Specify the disk size. You can increase the disk size or leave it as is. Reducing the disk size is not supported.
+          * Change the automatic backup retention period, in days.
+          * Select the appropriate [configuration](../../concepts/approval-rules.md#packages) for approval rules.
 
-          {% include [note-approval-rules-pricing](../../../_includes/managed-gitlab/note-approval-rules-pricing.md) %}
+              {% include [note-approval-rules-pricing](../../../_includes/managed-gitlab/note-approval-rules-pricing.md) %}
 
-      * To activate the approval rules, provide the [{{ GL }} token](../approval-rules.md#gitlab-token).
-
-  1. Under **{{ ui-key.yacloud.gitlab.label_additional-section }}**, enable or disable deletion of untagged images. This setting affects the amount of free disk space on the instance.
-  1. Click **{{ ui-key.yacloud.common.save }}**.
+          * To activate the approval rules, provide the [{{ GL }} token](../approval-rules.md#gitlab-token).
+      1. Under **{{ ui-key.yacloud.gitlab.label_additional-section }}**, enable or disable deletion of untagged images. This setting affects the amount of free disk space on the instance.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -74,7 +73,7 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `--resource-preset-id`: Host class. It determines the configuration of the VM to host the {{ GL }} instance. The possible values are:
+      * `--resource-preset-id`: Host class. It determines the configuration of the VM to host the {{ GL }} instance. The possible values are as follows:
 
           * `s2.micro`: 2 vCPUs, 8 GB RAM
           * `s2.small`: 4 vCPUs, 16 GB RAM
@@ -90,7 +89,7 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
           {% endnote %}
 
-      * `--approval-rules`: [Approval rule](../../concepts/approval-rules.md) configuration. The possible values are:
+      * `--approval-rules`: [Approval rule](../../concepts/approval-rules.md) configuration. The possible values are as follows:
 
           * `BASIC`
           * `STANDARD`
@@ -143,14 +142,14 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
       Where:
 
-      * `resource_preset_id`: Host class. It determines the configuration of the VM to host the {{ GL }} instance. The possible values are:
+      * `resource_preset_id`: Host class. It determines the configuration of the VM to host the {{ GL }} instance. The possible values are as follows:
           * `s2.micro`: 2 vCPUs, 8 GB RAM
           * `s2.small`: 4 vCPUs, 16 GB RAM
           * `s2.medium`: 8 vCPUs, 32 GB RAM
           * `s2.large`: 16 vCPUs, 64 GB RAM
 
       * `disk_size`: Disk size, in GB.
-      * `approval_rules_id`: [Approval rule](../../concepts/approval-rules.md) configuration. The possible values are:
+      * `approval_rules_id`: [Approval rule](../../concepts/approval-rules.md) configuration. The possible values are as follows:
 
           * `BASIC`
           * `STANDARD`

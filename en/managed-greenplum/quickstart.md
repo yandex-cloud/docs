@@ -92,7 +92,7 @@ Get the cluster ID required to [connect](#connect) to the cluster:
 
 1. In the [management console]({{ link-console-main }}), navigate to the folder page.
 1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-1. Click the name of your cluster and select the ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}** tab.
+1. Click the name of your cluster and select the **{{ ui-key.yacloud.common.overview }}** tab.
 1. Copy the cluster ID specified under **{{ ui-key.yacloud.common.section-base }}**.
 
 ## Connect to the cluster {#connect}

@@ -1,5 +1,15 @@
 [Документация Yandex Cloud](../index.md) > [Terraform в Yandex Cloud](index.md) > Справочник Terraform > История изменений (англ.)
 
+## 0.228.0 (September 14, 2026)
+
+##### FEATURES:
+* mdb_clickhouse: support Connection Manager folders — `connection_manager` in `yandex_mdb_clickhouse_cluster_v2` and `user_connection_manager` in `yandex_mdb_clickhouse_user`
+
+##### BUG FIXES:
+* postgresql: allow statements_sampling_interval values from 1 to 86400 seconds in yandex_mdb_postgresql_cluster_v2, matching the API and yandex_mdb_postgresql_cluster resource
+
+
+
 ## 0.227.0 (September 10, 2026)
 
 ##### FEATURES:

@@ -1,7 +1,7 @@
 # Delivering data from a {{ KF }} queue to {{ SD }} using {{ data-transfer-full-name }}
 
 
-A {{ mmg-name }} cluster can ingest data from {{ KF }} topics in real time.
+A {{ mmg-full-name }} cluster can ingest data from {{ KF }} topics in real time.
 
 To start data delivery:
 
@@ -14,9 +14,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* {{ mmg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mkf-full-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mmg-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -31,13 +31,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
         {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
 
-        1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) with your preferred configuration. For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
+        1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration. For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
 
         1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
         1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
-        1. [Create a {{ mmg-name }} target cluster](../../storedoc/operations/cluster-create.md) with the following settings:
+        1. [Create a {{ mmg-name }} target cluster](../../storedoc/operations/cluster-create.md) of any suitable configuration with the following settings:
 
             * Database name: `db1`.
             * Username: `mmg-user`.

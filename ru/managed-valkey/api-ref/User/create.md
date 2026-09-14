@@ -91,6 +91,22 @@ apiPlayground:
               **boolean**
               Is Redis user enabled
             type: boolean
+          generatePassword:
+            description: |-
+              **boolean**
+              Generate password using Connection Manager
+            type: boolean
+          authType:
+            description: |-
+              **enum** (AuthType)
+              Authentication type for the user
+              - `AUTH_TYPE_PASSWORD`: Password-based authentication
+              - `AUTH_TYPE_IAM`: IAM-based authentication
+            type: string
+            enum:
+              - AUTH_TYPE_UNSPECIFIED
+              - AUTH_TYPE_PASSWORD
+              - AUTH_TYPE_IAM
         required:
           - name
 ---
@@ -134,7 +150,9 @@ The maximum string length in characters is 50. ||
       "sanitizePayload": "string",
       "databases": "string"
     },
-    "enabled": "boolean"
+    "enabled": "boolean",
+    "generatePassword": "boolean",
+    "authType": "string"
   }
 }
 ```
@@ -166,6 +184,15 @@ Set of permissions to grant to the user. ||
 || enabled | **boolean**
 
 Is Redis user enabled ||
+|| generatePassword | **boolean**
+
+Generate password using Connection Manager ||
+|| authType | **enum** (AuthType)
+
+Authentication type for the user
+
+- `AUTH_TYPE_PASSWORD`: Password-based authentication
+- `AUTH_TYPE_IAM`: IAM-based authentication ||
 |#
 
 ## Permissions {#yandex.cloud.mdb.redis.v1.Permissions}

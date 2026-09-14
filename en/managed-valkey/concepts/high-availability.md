@@ -28,7 +28,7 @@ High availability is achieved through [replication and master failover](replicat
 * [rdsync](https://github.com/yandex/rdsync), a host status management agent by Yandex, was integrated into the {{ mrd-name }} architecture; this agent automatically selects a new master and switches over to it in the event of a master failure. To ensure the optimal performance of `rdsync`, the number of hosts in the cluster must be even.
 * You can influence new master selection in a {{ mrd-name }} cluster by [configuring priorities](replication.md#master-failover) for cluster hosts.
 * You can [manually](../operations/failover.md) select a new master and switch over to it.
-* If you use public access for the host, you must also enable it for the replicas, otherwise the cluster will become unavailable following master failover.
+* If you use public access for the master host, you must also enable it for the replicas; otherwise, the cluster will become unavailable on master failover.
 * {{ mrd-name }} clusters use [asynchronous replication](replication.md#replication), i.e., the result of a write request is committed to the master host, which then forwards the data to the cluster replicas.
 
 ## Connecting to a database {#connect}
@@ -50,9 +50,9 @@ To increase fault tolerance:
 * Enable persistence on replicas.
 * Use the `WAIT` command with `N/2` available replicas, where `N` is the number of cluster hosts.
 
-## Virtual machine type {#vm-type}
+## Host configuration type {#host-type}
 
-Cluster availability depends on the type of VMs you use to deploy your hosts. A highly available cluster should use a VM type with a 100% vCPU guarantee. The **burstable** VM type with a 50% vCPU guarantee does not ensure high availability and should only be used for test environments.
+Host configuration affects cluster availability. A highly available cluster should use a configuration with a 100% vCPU guarantee. The **burstable** configuration type with a 50% vCPU guarantee does not ensure high availability and should only be used for test environments.
 
 ## Other settings {#other-settings}
 

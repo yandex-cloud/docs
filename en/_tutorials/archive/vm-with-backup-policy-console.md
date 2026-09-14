@@ -101,7 +101,7 @@ Create a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cloud network.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. In the top panel, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `cloud-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -267,7 +267,7 @@ You can create a new policy or use one of those automatically created upon servi
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a backup policy.
   1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Open the ![policies](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
+  1. In the left-hand panel, select ![policies](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Click **{{ ui-key.yacloud.backup.button_create-policy }}**.
   1. Specify the following policy properties:
 
@@ -279,7 +279,7 @@ You can create a new policy or use one of those automatically created upon servi
       * **{{ ui-key.yacloud.backup.policy-form.field_start-time }}**: `03:00`.
       * **{{ ui-key.yacloud.backup.policy-form.field_retention }}**: `{{ ui-key.yacloud.backup.policy-form.value_retention-variant-save-all }}`.
 
-  1. Click **{{ ui-key.yacloud.common.save }}**.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 

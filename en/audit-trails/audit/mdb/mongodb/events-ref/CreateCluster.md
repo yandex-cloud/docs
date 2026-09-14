@@ -3071,7 +3071,12 @@ editable: false
                   "maxSizePercent": "string",
                   "minRetentionHours": "number"
                 },
-                "chainingAllowed": "boolean"
+                "chainingAllowed": "boolean",
+                "changeStreamOptions": {
+                  "preAndPostImages": {
+                    "expireAfterSeconds": "string"
+                  }
+                }
               },
               "userConfig": {
                 "storage": {
@@ -3140,7 +3145,12 @@ editable: false
                   "maxSizePercent": "string",
                   "minRetentionHours": "number"
                 },
-                "chainingAllowed": "boolean"
+                "chainingAllowed": "boolean",
+                "changeStreamOptions": {
+                  "preAndPostImages": {
+                    "expireAfterSeconds": "string"
+                  }
+                }
               },
               "defaultConfig": {
                 "storage": {
@@ -3209,7 +3219,12 @@ editable: false
                   "maxSizePercent": "string",
                   "minRetentionHours": "number"
                 },
-                "chainingAllowed": "boolean"
+                "chainingAllowed": "boolean",
+                "changeStreamOptions": {
+                  "preAndPostImages": {
+                    "expireAfterSeconds": "string"
+                  }
+                }
               }
             },
             "resources": {
@@ -6514,6 +6529,7 @@ The number of elements must be in the range 1-3.
 || setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter)** ||
 || oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog)** ||
 || chainingAllowed | **boolean** ||
+|| changeStreamOptions | **[ChangeStreamOptions](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions)** ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage}
@@ -6684,6 +6700,22 @@ The minimum value is 0. ||
 ||Field | Description ||
 || maxSizePercent | **string** (int64) ||
 || minRetentionHours | **number** (double) ||
+|#
+
+## ChangeStreamOptions {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions}
+
+#|
+||Field | Description ||
+|| preAndPostImages | **[PreAndPostImages](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions.PreAndPostImages)** ||
+|#
+
+## PreAndPostImages {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions.PreAndPostImages}
+
+#|
+||Field | Description ||
+|| expireAfterSeconds | **string** (int64)
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoCfg}

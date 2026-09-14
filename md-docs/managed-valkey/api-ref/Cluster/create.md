@@ -234,7 +234,9 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters
         "sanitizePayload": "string",
         "databases": "string"
       },
-      "enabled": "boolean"
+      "enabled": "boolean",
+      "generatePassword": "boolean",
+      "authType": "string"
     }
   ],
   "authSentinel": "boolean",
@@ -1177,6 +1179,15 @@ Set of permissions to grant to the user. ||
 || enabled | **boolean**
 
 Is Redis user enabled ||
+|| generatePassword | **boolean**
+
+Generate password using Connection Manager ||
+|| authType | **enum** (AuthType)
+
+Authentication type for the user
+
+- `AUTH_TYPE_PASSWORD`: Password-based authentication
+- `AUTH_TYPE_IAM`: IAM-based authentication ||
 |#
 
 ## Permissions {#yandex.cloud.mdb.redis.v1.Permissions}

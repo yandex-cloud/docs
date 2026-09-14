@@ -14,9 +14,9 @@ This will allow you to [optimize the cluster performance](../../managed-postgres
 
 ## Check the cluster’s health using {{ monitoring-full-name }} {#monitoring}
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}** tab.
+1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}**.
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 1. On the **Average CPU usage** chart, identify the period where the line shows a steady increase followed by a plateau.
 
@@ -57,7 +57,7 @@ This will allow you to [optimize the cluster performance](../../managed-postgres
 Once you have identified the time period of high CPU usage, locate the specific queries that caused it. Use the {{ mpg-name }} cluster’s [performance diagnostics](../../managed-postgresql/operations/performance-diagnostics.md) tool and complete the following steps:
 
 1. Make sure the **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** option is [enabled](../../managed-postgresql/operations/update.md#change-additional-settings).
-1. On the cluster page, select ![image](../../_assets/console-icons/heart-pulse.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** in the left-hand panel.
+1. Select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** on the cluster page.
 1. On the tab that opens, locate the segment where the chart shows a steady increase followed by a plateau. Its timeframe should align with the segments you identified in the [{{ monitoring-full-name }}](#monitoring) charts.
 
    To find the plateau, adjust the time window of the chart.
@@ -78,7 +78,7 @@ Suppose you see spikes in the **Log errors** chart in {{ monitoring-full-name }}
 
 To view the logs:
 
-1. On the cluster page, select ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_logs }}** in the left-hand panel.
+1. Select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_logs }}** on the {{ mpg-name }} cluster page.
 1. Set the time range to match the period of elevated CPU consumption.
 1. In the **{{ ui-key.yacloud.mdb.cluster.logs.label_severity }}** checkbox, check **ERROR**, **PANIC**, and **FATAL**.
 1. Examine the list of errors that appears. These errors reveal system events that coincided with the CPU usage spike.

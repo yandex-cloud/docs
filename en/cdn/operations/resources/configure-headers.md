@@ -23,7 +23,7 @@ To configure HTTP request and response headers for a resource:
 
   1. Click the resource name.
 
-  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/arrow-up-to-line.svg) **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab.
 
   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
@@ -36,6 +36,9 @@ To configure HTTP request and response headers for a resource:
 
       * In the **{{ ui-key.yacloud.cdn.label_headers }}** field, click **{{ ui-key.yacloud.common.add }}**.
       * Enter names and values of the headers you need.
+      * Optionally, to [hide origin headers](../../concepts/hiding-headers.md), in the **Hiding of origin headers** field, select `Hide all except listed`, and in the **Headers to keep** field, specify those you want to provide to clients, e.g., `Content-Type`.
+
+      {% include [hiding-headers-warning](../../../_includes/cdn/hiding-headers-warning.md) %}
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -164,7 +167,7 @@ To configure HTTP request and response headers for a resource:
      terraform plan
      ```
 
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
 
   1. Apply the configuration changes:
      ```bash
@@ -191,3 +194,4 @@ To configure HTTP request and response headers for a resource:
 
 * [{#T}](../../concepts/clients-to-servers.md)
 * [{#T}](../../concepts/servers-to-origins.md)
+* [{#T}](hiding-headers.md)

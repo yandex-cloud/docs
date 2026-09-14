@@ -147,7 +147,7 @@ To configure the allowed HTTP client requests methods for a resource:
      terraform plan
      ```
 
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
 
   1. Apply the configuration changes:
      ```
@@ -172,33 +172,68 @@ To configure the allowed HTTP client requests methods for a resource:
 
 ## Examples {#examples}
 
+Allow the `GET`, `HEAD`, and `OPTIONS` HTTP methods for the CDN resource:
+
 {% list tabs group=instructions %}
 
-- CLI {#cli}
+- CLI {#example-cli}
 
-  Add the allowed GET method to the resource:
-
-    ```bash
-    yc cdn resource update s0me1dkfjq******** --allowed-http-methods GET
-    ```
+  ```bash
+  yc cdn resource update <resource_ID> \
+    --allowed-http-methods GET,HEAD,OPTIONS
+  ```
   
   Result:
 
-    ```text
-    id: s0me1dkfjq********
+  ```text
+  id: s0me1dkfjq********
 
-    ...
+  ...
 
-    cname: testexample.com
-    active: true
+  cname: testexample.com
+  active: true
 
-    ...
+  ...
 
-    allowed_http_methods:
+  allowed_http_methods:
     enabled: true
     value:
-    - GET
-    ```
+      - GET
+      - HEAD
+      - OPTIONS
+  ```
+
+- cURL {#example-api}
+
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and write it into a variable:
+
+      ```bash
+      export IAM_TOKEN=`yc iam create-token`
+      ```
+
+  1. Update the CDN resource using the REST API:
+
+      ```bash
+      curl \
+        --request PATCH \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://cdn.{{ api-host }}/cdn/v1/resources/<resource_ID>' \
+        --data '{
+          "options": {
+            "allowedHttpMethods": {
+              "enabled": true,
+              "value": [
+                "GET",
+                "HEAD",
+                "OPTIONS"
+              ]
+            }
+          }
+        }'
+      ```
+
+      The REST API [update](../../api-ref/Resource/update.md) method only updates the CDN resource settings provided in the request body. The `updateMask` parameter is not used for this method.
 
 {% endlist %}
 

@@ -5,7 +5,7 @@ description: You can stop and restart an {{ MY }} cluster as needed. While your 
 
 # Stopping and starting a {{ MY }} cluster
 
-If necessary, you can stop and restart your {{ MY }} cluster. While your cluster is idle, you only pay for the size of your storage and backups as per the [pricing policy](../pricing.md#prices-storage).
+If necessary, you can stop and restart your {{ MY }} cluster. While your cluster is idle, you only pay for the size of your storage and backups as per the [pricing policy](../pricing.md#rules-storage).
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
 

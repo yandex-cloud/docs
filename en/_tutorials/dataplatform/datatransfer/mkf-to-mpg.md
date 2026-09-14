@@ -1,8 +1,9 @@
 # Delivering data from an {{ KF }} queue to {{ PG }} using {{ data-transfer-full-name }}
 
 
-You can set up data transfer from a {{ mkf-name }} topic to {{ mpg-name }} using {{ data-transfer-full-name }}. Proceed as follows:
+You can set up data transfer from a {{ mkf-full-name }} topic to {{ mpg-full-name }} using {{ data-transfer-full-name }}. Follow these steps:
 
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Prepare your test data](#prepare-data).
 1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
@@ -10,74 +11,78 @@ You can set up data transfer from a {{ mkf-name }} topic to {{ mpg-name }} using
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Required paid resources {#paid-resources}
-
-* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, as well as the storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
-* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-
-
 ## Getting started {#before-you-begin}
 
-1. Set up your infrastructure:
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
 
-    {% list tabs group=instructions %}
+## Required paid resources {#paid-resources}
 
-    - Manually {#manual}
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mpg-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 
-        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-        1. [Create a {{ mkf-name }} source cluster](../../../managed-kafka/operations/cluster-create.md#create-cluster) in any [availability zone](../../../overview/concepts/geo-scope.md) with any suitable configuration and public access.
+## Set up your infrastructure {#prepare-infrastructure}
 
-        1. [In the source cluster, create a topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
+{% list tabs group=instructions %}
 
-        1. [In the source cluster, create a user](../../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions for the new topic.
+- Manually {#manual}
+  
+  
+  {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-        1. In the same availability zone, [create a {{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md#create-cluster) of any suitable configuration with `pg-user` as admin and publicly accessible hosts.
 
-        1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
-            * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
+  1. [Create a {{ mkf-name }} source cluster](../../../managed-kafka/operations/cluster-create.md#create-cluster) in any [availability zone](../../../overview/concepts/geo-scope.md) of any suitable configuration and public access.
 
-    - {{ TF }} {#tf}
+  1. [In the source cluster, create a topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
-        1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
-        1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
-        1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
-        1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
+  1. [In the source cluster, create a user](../../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions for the new topic.
 
-        1. Download the [kafka-postgresql.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-postgresql/blob/main/kafka-postgresql.tf) configuration file to the same working directory.
+  1. In the same availability zone, [create a {{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md#create-cluster) of any suitable configuration with `pg-user` for admin name and publicly accessible hosts.
 
-            This file describes:
+  1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
+      * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
+      * [{{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
-            * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) that will host your clusters.
-            * [Security groups](../../../vpc/concepts/security-groups.md) for cluster access.
-            * {{ mkf-name }} source cluster.
-            * {{ mpg-name }} target cluster.
-            * Source endpoint.
-            * Target endpoint.
-            * Transfer.
+- {{ TF }} {#tf}
 
-        1. In `kafka-postgresql.tf`, specify the following:
+  1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
+  1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
+  1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
+  1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-            * {{ KF }} and {{ PG }} versions.
-            * {{ KF }} and {{ PG }} user passwords.
+  1. Download the [kafka-postgresql.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-postgresql/blob/main/kafka-postgresql.tf) configuration file to the same working directory.
 
-        1. Validate your {{ TF }} configuration files using this command:
+      This file describes:
 
-            ```bash
-            terraform validate
-            ```
+      * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) that will host your clusters.
+      * [Security groups](../../../vpc/concepts/security-groups.md) for cluster access.
+      * {{ mkf-name }} source cluster.
+      * {{ mpg-name }} target cluster.
+      * Source endpoint.
+      * Target endpoint.
+      * Transfer.
 
-            {{ TF }} will display any configuration errors detected in your files.
+  1. In `kafka-postgresql.tf`, specify the following:
 
-        1. Create the required infrastructure:
+      * {{ KF }} and {{ PG }} versions.
+      * {{ KF }} and {{ PG }} user passwords.
 
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+  1. Validate your {{ TF }} configuration files using this command:
 
-            {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+      ```bash
+      terraform validate
+      ```
 
-    {% endlist %}
+      {{ TF }} will display any configuration errors detected in your files.
+
+  1. Create the required infrastructure:
+
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
 
 1. Install the following tools:
 
@@ -93,6 +98,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
+        ```
 
 ## Prepare your test data {#prepare-data}
 

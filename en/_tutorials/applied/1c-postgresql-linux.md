@@ -348,7 +348,7 @@ Similarly, configure the Samba server on the `licensing-server-1c` VM.
     sudo ./<file_name> --mode unattended --enable-components server,ws,server_admin
     ```
 
-    Where `<file_name>` is the name of the binary distribution file. Here is an example: `setup-full-8.3.25.1257-x86_64.run`.
+    Where `<file_name>` is the name of the binary distribution file, e.g., `setup-full-8.3.25.1257-x86_64.run`.
 
 1. After installation is complete, delete the distribution file by specifying the name of the binary distribution file:
 
@@ -459,7 +459,7 @@ Before getting started with 1C:Enterprise, configure the server roles and add th
           * In the [management console]({{ link-console-main }}), select the folder where you created the `1c-pg` cluster.
           * [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
           * In the window that opens, select the `1c-pg` cluster you created earlier.
-          * Select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab in the left-hand menu.
+          * Navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
           * In the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** field, hover over the host name (format: `rc1b-cfazv1db********`) and copy the database FQDN by clicking ![copy](../../_assets/copy.svg). The FQDN will be added to the host name, so the **Database server** field should contain a name in `rc1c-cfazv1db********.{{ dns-zone }} port=6432` format.
 
         {% endlist %}

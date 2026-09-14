@@ -54,3 +54,11 @@
 
 * [Активировать модуль Управление уязвимостями (VM)](vulnerability-management/enable-vulnerability-management.md)
 * [Работать с дашбордом модуля Управление уязвимостями (VM)](vulnerability-management/use-vulnerability-management.md)
+
+## Пользовательские наборы правил {#custom-rules-sets}
+
+* [Посмотреть список пользовательских наборов правил](custom-rules-sets/view-set.md)
+* [Создать пользовательский набор правил](custom-rules-sets/create-set.md)
+* [Изменить пользовательский набор правил](custom-rules-sets/update-set.md)
+* [Включить или выключить проверку по пользовательскому набору правил](custom-rules-sets/enable-disable-set.md)
+* [Удалить пользовательский набор правил](custom-rules-sets/delete-set.md)

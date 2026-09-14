@@ -5,7 +5,6 @@ description: This page provides reference information on the {{ TF }} provider r
 
 # {{ TF }} reference for {{ backup-full-name }}
 
-
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
 ## Resources {#resources}

@@ -27,10 +27,10 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
   To restore an existing cluster from a backup:
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Click the name of your cluster and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the backup row and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
@@ -50,12 +50,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
   To restore a previously deleted cluster from a backup:
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
-  1. Find the backup you need using its creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
+  1. Find your backup using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
 
       If you want to restore a sharded cluster, find its [sharded backup](../concepts/backup.md#size). Such backups are larger in size.
 
@@ -391,10 +391,10 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
   To restore databases and collections of an existing cluster:
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Click the name of your cluster and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the backup row and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
@@ -419,12 +419,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
   To restore databases and collections of a previously deleted cluster:
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
-  1. Find the backup you need using its creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
+  1. Find your backup using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
 
       If you want to restore a sharded cluster, find its [sharded backup](../concepts/backup.md#size). Such backups are larger in size.
 
@@ -777,9 +777,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Click the name of your cluster and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -865,15 +865,15 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
   To get a list of cluster backups:
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Click the name of your cluster and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
   To get a list of all backups in your folder:
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
   These lists contain the following information:
 
@@ -1019,15 +1019,15 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
   To get backup details for an existing cluster:
   
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Click the name of your cluster and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
   To get backup details for a previously deleted cluster:
   
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
 - CLI {#cli}
 

@@ -24,7 +24,7 @@
 
             Формат реестра | Адреса публичных источников
             --- | ---
-            Maven | `Maven Central`<br/>`Gradle Plugin Portal`<br/>`Gradle Distributions`<br/>`Confluent`<br/>`Axiom`
+            Maven | `Maven Central`<br/>`Gradle Plugin Portal`<br/>`Confluent`<br/>`Axiom`
             Npm | `Npm`
             Docker | `Docker Hub`<br/>`Amazon ECR Public`<br/>`Kubernetes Registry`<br/>`GitHub Container Registry`<br/>`GitLab Container Registry`<br/>`Kyverno Registry`<br/>`Microsoft Container Registry`<br/>`NVIDIA NGC Registry`<br/>`Red Hat Quay`
             Debian | `Debian`<br/>`Ubuntu`
@@ -120,7 +120,7 @@
 
             Формат реестра | Адреса публичных источников
             --- | ---
-            `maven` | `@maven-central`<br/>`@gradle-plugin-portal`<br/>`@gradle-distributions`<br/>`@confluent`<br/>`@axiom`
+            `maven` | `@maven-central`<br/>`@gradle-plugin-portal`<br/>`@confluent`<br/>`@axiom`
             `npm` | `@npmjs`
             `docker` | `@docker-hub`<br/>`@ecr-public`<br/>`@k8s`<br/>`@ghcr`<br/>`@gitlab`<br/>`@kyverno`<br/>`@mcr`<br/>`@nvcr`<br/>`@quay`
             `debian` | `@debian`<br/>`@ubuntu`

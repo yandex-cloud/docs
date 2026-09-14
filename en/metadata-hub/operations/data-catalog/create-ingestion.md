@@ -24,9 +24,9 @@ If the metadata origin's {{ yandex-cloud }} subnet security group has traffic re
 
   1. In the [management console]({{ link-console-main }}), select the [resource folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you created the metadata catalog in.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog where you want to create an ingestion.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud.data-catalog.label_ingestions }}**.
+  1. Navigate to the **{{ ui-key.yacloud.data-catalog.label_ingestions }}** tab.
   1. Click **{{ ui-key.yacloud.data-catalog.label_create-ingestion-action }}**.
   1. Specify the ingestion settings:
 

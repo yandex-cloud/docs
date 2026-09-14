@@ -5,7 +5,9 @@ description: This tutorial describes what Host headers are used for in CDN serve
 
 # Host header in CDN server requests to origins
 
-To make sure that CDN servers send correct requests to [origins](origins.md), configure the `Host` HTTP header value for these requests:
+The `Host` header tells the [origin](origins.md) which domain name the content is requested for. This is particularly important if a single server or load balancer serves multiple websites or applications: the origin uses the `Host` value to route the request to the correct virtual host. If this value does not match the origin settings, it may return a `400` or `404` error, or fetch content from another virtual host.
+
+To make sure CDN servers send correct requests to origins, configure the `Host` HTTP header value for such requests:
 
 * **{{ ui-key.yacloud.cdn.value_host-header-default }}**: First [domain name for content distribution](resource.md#hostnames) specified in the CDN resource settings.
 * **{{ ui-key.yacloud.cdn.value_host-header-custom }}**: Arbitrary domain name.

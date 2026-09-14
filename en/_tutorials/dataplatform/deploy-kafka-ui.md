@@ -1,16 +1,13 @@
 # Unassisted deployment of the {{ KF }} web interface
 
 
-
 {% note info %}
 
 {{ mkf-name }} has [native support for {{ kafka-ui }}](../../managed-kafka/concepts/kafka-ui.md). If this option does not suit you, proceed with this tutorial.
 
 {% endnote %}
 
-
 You can install the [UI for {{ KF }}]({{ kafka-ui-kafbat }}) for your {{ mkf-name }} cluster. With a web interface, you can track data streams, troubleshoot, manage [brokers](../../managed-kafka/concepts/brokers.md), cluster, [producers, and consumers](../../managed-kafka/concepts/producers-consumers.md).
-
 
 You can deploy the UI for {{ KF }} in two ways:
 
@@ -22,6 +19,7 @@ You can deploy the UI for {{ KF }} in two ways:
 
 To deploy the UI for {{ KF }} in a Docker container:
 
+1. [Set up your infrastructure](#prepare-infrastructure-for-docker).
 1. [Install additional dependencies](#infra-for-docker).
 1. [Create a TrustStore](#truststore-for-docker).
 1. [Set up the UI for {{ KF }}](#prepare-ui-via-docker).
@@ -29,30 +27,27 @@ To deploy the UI for {{ KF }} in a Docker container:
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-### Required paid resources {#paid-resources}
-
-The support cost for this solution includes:
-
-* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* VM fee: use of computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for public IP addresses for VMs and cluster hosts if public access is enabled for them (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-
-
 ### Getting started {#before-you-begin-to-work-with-docker}
 
-Set up your infrastructure:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+#### Required paid resources {#paid-resources}
+
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+
+
+### Set up your infrastructure {#prepare-infrastructure-for-docker}
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-   
    1. [Configure a security group](../../managed-kafka/operations/connect/index.md#configuring-security-groups) for your {{ mkf-name }} cluster and VM so that you can connect to topics from a cloud-based VM.
-
-
    1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md). When creating it, specify the configured security group.
    1. [Create an {{ KF }} user](../../managed-kafka/operations/cluster-accounts.md#create-account).
-   1. In the network hosting the {{ mkf-name }} cluster, [create a VM](../../compute/operations/vm-create/create-linux-vm.md) running Ubuntu 22.04 with a public IP address, and the configured security group.
+   1. In the network hosting the {{ mkf-name }} cluster, [create a VM](../../compute/operations/vm-create/create-linux-vm.md) running Ubuntu 22.04 with a public IP address and the configured security group.
 
 - {{ TF }} {#tf}
 
@@ -67,11 +62,7 @@ Set up your infrastructure:
       * Network.
       * Subnet.
       * VM running Ubuntu 22.04.
-
-      
       * Default security group and inbound internet rules for your cluster and VM.
-
-
       * {{ mkf-name }} cluster.
       * {{ KF }} user.
 
@@ -94,7 +85,7 @@ Set up your infrastructure:
 
 ### Install additional dependencies {#infra-for-docker}
 
-1. [Connect to the VM via SSH](../../compute/operations/vm-connect/ssh.md#vm-connect):
+1. [Connect to the VM over SSH](../../compute/operations/vm-connect/ssh.md#vm-connect):
 
    ```bash
    ssh <username>@<VM_public_IP_address>
@@ -178,6 +169,8 @@ When deploying {{ KF }} in a Docker container, TrustStore commands run on a VM.
 
 To deploy the UI for {{ KF }} in a {{ managed-k8s-name }} cluster:
 
+
+1. [Set up your infrastructure](#prepare-infrastructure-for-kubernetes).
 1. [Install additional dependencies](#infra-for-kubernetes).
 1. [Create a TrustStore](#truststore-for-kubernetes).
 1. [Deploy your application with the UI for {{ KF }} in the {{ k8s }} pod](#application-in-pod).
@@ -186,19 +179,19 @@ To deploy the UI for {{ KF }} in a {{ managed-k8s-name }} cluster:
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-### Required paid resources {#paid-resources}
-
-The support cost for this solution includes:
-
-* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in {{ managed-k8s-name }} cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for public IP addresses for {{ mkf-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes with public access enabled (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-
-
 ### Getting started {#before-you-begin-to-work-with-kubernetes}
 
-Set up your infrastructure:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+#### Required paid resources {#paid-resources}
+
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses for the {{ mkf-name }} cluster's hosts and {{ managed-k8s-name }} cluster's nodes with public access enabled (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
+### Set up your infrastructure {#prepare-infrastructure-for-kubernetes}
 
 {% list tabs group=instructions %}
 
@@ -408,12 +401,10 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    Delete:
 
-   
    1. {{ mkf-name }} [cluster](../../managed-kafka/operations/cluster-delete.md)
    1. [Virtual machine](../../compute/operations/vm-control/vm-delete.md)
    1. {{ managed-k8s-name }} [node group](../../managed-kubernetes/operations/node-group/node-group-delete.md)
    1. {{ managed-k8s-name }} [cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md)
-
 
 - {{ TF }} {#tf}
 

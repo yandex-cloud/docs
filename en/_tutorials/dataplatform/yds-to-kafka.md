@@ -1,10 +1,11 @@
-# Delivering data from a {{ yds-name }} queue to {{ mkf-name }} using {{ data-transfer-name }}
+# Delivering data from a {{ yds-full-name }} queue to {{ mkf-full-name }} using {{ data-transfer-full-name }}
 
 
-With {{ data-transfer-name }}, you can deliver data from a stream in {{ yds-name }} to a {{ mkf-name }} cluster.
+With {{ data-transfer-full-name }}, you can deliver data from a stream in {{ yds-full-name }} to a {{ mkf-full-name }} cluster.
 
 To transfer data:
 
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Set up a data stream in {{ yds-name }}](#prepare-source).
 1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
@@ -12,24 +13,28 @@ To transfer data:
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Required paid resources {#paid-resources}
+## Getting started {#before-you-begin}
 
-* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
-  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
+### Required paid resources {#paid-resources}
+
+* {{ ydb-full-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
+
+	* In [serverless mode](../../ydb/pricing/serverless.md), you pay for data operations as well as the amount of stored data and backups.
+    * In [dedicated instance mode](../../ydb/pricing/dedicated.md), you pay for the use of computing resources allocated to the database, storage and backup size.
 
 * {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
 
-    * [Based on allocated resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
+    * [Based on reserved resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
     * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
 
-* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
-## Getting started {#before-you-begin}
+## Set up your infrastructure {#prepare-infrastructure}
 
 Set up your data delivery infrastructure:
 
@@ -45,7 +50,9 @@ Set up your data delivery infrastructure:
 
     1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration with publicly accessible hosts.
 
+        
         {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
 
     1. [In the {{ mkf-name }} cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 

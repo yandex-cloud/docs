@@ -1,4 +1,4 @@
-1. In the left-hand panel, select ![image](../../_assets/console-icons/branches-down.svg) **{{ ui-key.yacloud.schema-registry.label_schemas }}**.
+1. Navigate to the **{{ ui-key.yacloud.schema-registry.label_schemas }}** tab.
 1. Click **{{ ui-key.yacloud.schema-registry.label_upload-schema-action }}**.
 1. Select the method for schema uploading into the new subject and specify the following parameters:
     * **Name**: Unique subject name.

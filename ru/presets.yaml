@@ -2861,7 +2861,7 @@ default:
         amount: Количество
         assemblyDiscountLabel: "Дешевле со\_сборкой"
         cpuTitle: Процессор
-        CustomConfiguration: Своя конфигурация
+        CustomConfiguration: Сконфигурировать свою
         disks: Диски
         goToAssembly: "Перейти к\_сборке"
         networkLabel: Сеть
@@ -2869,7 +2869,7 @@ default:
         prefillWithTemplate: Предзаполнить шаблоном
         ramLabel: Оперативная память
         size: Размер
-        StockConfigurations: Готовые конфигурации
+        StockConfigurations: Выбрать из готовых
         type: Тип
         withReserve: Есть
       cloud:
@@ -4012,6 +4012,14 @@ default:
             ts:
               action-add-tags_kUsL6: Добавить теги
         comp:
+          CompSetPage:
+            urn_off_checking_button: Выключить проверку
+          CompSetPageLayout:
+            turn_on_checking_button_bWBXb: Включить проверку
+          CompSetsPage:
+            create_set_button: Создать набор
+          RulesFormSection:
+            title_uUdpa: Правила контроля безопасности
           SetsTable:
             action_disable_5hgkz: Выключить проверку
             action_enable_9LUFt: Включить проверку
@@ -4415,6 +4423,10 @@ default:
               прав доступа
           accessKeys:
             count: Количество статических ключей
+          accessPolicyBindings:
+            count: >-
+              Количество назначенных [политик
+              авторизации](https://yandex.cloud/ru/docs/iam/concepts/access-control/access-policies)
           apiKeys:
             count: Количество API-ключей
           authorizedKeys:
@@ -5279,7 +5291,7 @@ default:
       cloud-registry:
         action_registry-create: Создать реестр
         action_scan-artifacts-modal-add: Добавить
-        menu_scanner: Сканер
+        menu_scanner: Сканер уязвимостей
         registries:
           button_update-ip-permissions-full: Настроить доступ
           registry-kind_docker: Docker
@@ -5344,8 +5356,6 @@ default:
         field_vapid: Публичный VAPID-ключ
         field_web-push-endpoint_params: Параметры эндпоинта в JSON
         label_channels: Каналы уведомлений
-        label_editor-json: JSON
-        label_editor-text: Текст
         label_endpoints: Эндпоинты
         label_phone-numbers: Тестовые номера
         local:
@@ -8491,7 +8501,7 @@ default:
           popup-confirm_button_static: Изменить
           popup-create_button_create: Зарезервировать
           popup-create_field_advanced: Дополнительно
-          popup-create_field_deletion-protection: Защита от удаления
+          popup-create_field_deletion-protection_jVSCP: Защита от удаления
           popup-create_field_internal-v4-address: Внутренний IPv4 адрес
           popup-create_field_zone: Зона доступности
         gateways:
