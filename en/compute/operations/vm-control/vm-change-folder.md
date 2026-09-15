@@ -196,9 +196,8 @@ After moving a VM, its network interfaces remain connected to the [subnets](../.
 
   1. In the [management console]({{ link-console-main }}), select the folder you moved the VM to.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Click the VM name.
-  1. Click **{{ ui-key.yacloud.common.stop }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
+  1. Select the VM from the list.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg), select **{{ ui-key.yacloud.common.stop }}** and confirm stopping the VM in the window that opens.
   1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner of the relevant network interface section and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
   1. In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a new subnet and click **{{ ui-key.yacloud.common.save }}**.
       If a VM has multiple [network interfaces](../../concepts/network.md), update the subnet for each one.
@@ -357,7 +356,7 @@ After moving a VM, its network interfaces remain connected to the [subnets](../.
       * `subnet_id`: [Subnet](../../../vpc/concepts/network.md#subnet) ID.
       * `allow_stopping_for_update`: Parameter to allow the VM to stop for updates.
 
-      For more information about `yandex_compute_instance` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
+      For more information about the properties of the `yandex_compute_instance` resource, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
 
   1. Apply the new configuration:
 

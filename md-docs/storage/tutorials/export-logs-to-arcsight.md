@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Загрузка аудитных логов в SIEM ArcSight
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Сбор и анализ логов > Загрузка аудитных логов в SIEM ArcSight
 
 # Загрузка аудитных логов в SIEM ArcSight
 

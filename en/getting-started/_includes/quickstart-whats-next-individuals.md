@@ -74,10 +74,6 @@ Get started with {{ yandex-cloud }}:
 
   Create a container and a trigger for it.
 
-* [{{ sf-full-name }}](../../functions/quickstart/index.md).
-
-  Create a function in one of the supported programming languages and execute it.
-
 ### AI {#ai}
 
 * [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index):

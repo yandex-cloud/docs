@@ -13,6 +13,8 @@ When using TLS in your application, we recommend that you limit the list of your
 
 When using certificate pinning, keep in mind that Let's Encrypt certificates are [valid for 90 days](https://letsencrypt.org/docs/faq/#what-is-the-lifetime-for-let-s-encrypt-certificates-for-how-long-are-they-valid).
 
+**Risks if the rule is not followed:** An expired TLS certificate causes browsers and clients to display security warnings or refuse connections entirely, resulting in service unavailability. Expired certificates also indicate a lapse in security hygiene that may signal broader certificate management failures, potentially leaving services exposed to man-in-the-middle attacks.
+
 #### Instructions and solutions
 
 Update the certificate or setup auto updates.

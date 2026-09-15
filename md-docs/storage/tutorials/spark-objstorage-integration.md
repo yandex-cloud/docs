@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Использование Object Storage в Yandex Managed Service for Apache Spark™
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Обработка и анализ данных > Использование Object Storage в Yandex Managed Service for Apache Spark™
 
 # Использование Object Storage в сервисе Yandex Managed Service for Apache Spark™
 

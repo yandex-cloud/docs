@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Хостинг статического сайта на фреймворке Gatsby в Object Storage
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Хостинг сайтов и веб-приложений > Хостинг статического сайта на фреймворке Gatsby в Object Storage
 
 # Хостинг статического сайта на фреймворке Gatsby в Yandex Object Storage
 

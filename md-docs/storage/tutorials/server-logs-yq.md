@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Получение статистики запросов к объектам с использованием Yandex Query
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Сбор и анализ логов > Получение статистики запросов к объектам с использованием Yandex Query
 
 # Получение статистики запросов к объектам Object Storage с использованием Yandex Query
 

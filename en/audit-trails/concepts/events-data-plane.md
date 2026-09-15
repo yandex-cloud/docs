@@ -57,7 +57,7 @@ Service name: `compute`.
 
 ## {{ ai-studio-full-name }} {#ai-studio}
 
-Service name: `ai`.
+Service name: `ai` for all events except {{ sw-full-name }} events. For {{ sw-full-name }} events, the service name is `serverless.workflows`.
 
 {% include [ai-studio-events-dp](../../_includes/audit-trails/events/ai-studio-events-dp.md) %}
 
@@ -227,8 +227,4 @@ Service name: `websql`.
 
 {% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}
 
-## {{ sw-full-name }} {#workflows}
 
-Service name: `serverless.workflows`.
-
-{% include [workflows-events-dp](../../_includes/audit-trails/events/workflows-events-dp.md) %}

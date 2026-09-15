@@ -62,7 +62,8 @@ The maximum string length in characters is 1000. ||
       "department": "string",
       "jobTitle": "string",
       "employeeId": "string",
-      "expiresAt": "string"
+      "expiresAt": "string",
+      "passwordCreatedAt": "string"
     }
   ],
   "nextPageToken": "string"
@@ -170,6 +171,17 @@ User's employee ID ||
 || expiresAt | **string** (date-time)
 
 Timestamp when the user account expires.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| passwordCreatedAt | **string** (date-time)
+
+Timestamp when the user's current password was created.
+For synchronized passwords, this is the time when the password was last set in the source directory.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

@@ -44,7 +44,7 @@ Page token. Set `page_token`
 to the [ListAccessBindingsResponse.next_page_token](#yandex.cloud.access.ListAccessBindingsResponse)
 returned by a previous list request to get the next page of results.
 
-The maximum string length in characters is 100. ||
+The maximum string length in characters is 2000. ||
 |#
 
 ## access.ListAccessBindingsResponse {#yandex.cloud.access.ListAccessBindingsResponse}

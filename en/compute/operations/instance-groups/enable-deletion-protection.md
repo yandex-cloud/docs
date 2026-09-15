@@ -15,7 +15,7 @@ Deletion protection prevents accidental deletion of an [instance group](../../co
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select a group to enable deletion protection for.
-  1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
+  1. Click [pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Enable **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -149,7 +149,7 @@ To disable instance group deletion protection:
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the group to disable deletion protection for.
-  1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
+  1. Click [pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Disable **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

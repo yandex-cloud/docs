@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ si-full-name }}
-description: Access management in {{ si-full-name }}. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in {{ si-full-name }}. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Access management in {{ si-name }}
@@ -11,10 +11,7 @@ Roles for a resource can be assigned by users who have one of the following role
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-Also, consider the following:
-
-* Only a user with the `serverless.eventrouter.admin` role for an {{ er-name }} [bus](../concepts/eventrouter/bus.md), [connector](../concepts/eventrouter/connector.md), or [rule](../concepts/eventrouter/rule.md) can assign roles for these resources.
-* Only a user with the `serverless.workflows.admin` role for a {{ sw-name }} [workflow](../concepts/workflows/workflow.md) can assign roles for this resource.
+In addition, roles for an {{ er-name }} [bus](../concepts/eventrouter/bus.md), [connector](../concepts/eventrouter/connector.md), or [rule](../concepts/eventrouter/rule.md) can be assigned by a user with the `serverless.eventrouter.admin` role for these resources.
 
 ## Resources you can assign a role for {#resources}
 
@@ -24,7 +21,6 @@ You can use the {{ yandex-cloud }} [CLI](../../cli/index.yaml) or [API](../../ap
 * [Bus](../concepts/eventrouter/bus.md)
 * [Connector](../concepts/eventrouter/connector.md)
 * [Rule](../concepts/eventrouter/rule.md)
-* [Workflow](../concepts/workflows/workflow.md)
 
 ## Roles existing in {{ si-name }} {#roles-list}
 
@@ -35,7 +31,6 @@ You can use {{ si-name }} roles (_service roles_) and {{ yandex-cloud }} roles (
 {{ yandex-cloud }} supports a separate list of roles for each {{ si-name }} component. For more information, see:
 
 * [Roles to work with {{ er-full-name }}](./eventrouter.md).
-* [Roles to work with {{ sw-full-name }}](./workflows.md).
 
 ### Primitive roles {#primitive-roles}
 
@@ -46,4 +41,4 @@ You can use {{ si-name }} roles (_service roles_) and {{ yandex-cloud }} roles (
 ## What's next {what-is-next}
 
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md)
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance)
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance)

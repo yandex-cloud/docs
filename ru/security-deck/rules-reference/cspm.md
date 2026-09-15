@@ -14,6 +14,8 @@ editable: false
 
 {% include [k8s.cis](../../_security-deck-rules/rules/cspm/k8s.cis.md) %}
 
+{% include [k8s.disallow-k8s-not-regional](../../_security-deck-rules/rules/cspm/k8s.disallow-k8s-not-regional.md) %}
+
 {% include [network.check-outgoing-internet-connection](../../_security-deck-rules/rules/cspm/network.check-outgoing-internet-connection.md) %}
 
 {% include [o11y.audit-trails-reactions](../../_security-deck-rules/rules/cspm/o11y.audit-trails-reactions.md) %}

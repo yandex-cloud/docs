@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Установка WordPress High Availability с помощью Cloud Apps
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Хостинг сайтов и веб-приложений > Установка WordPress High Availability с помощью Cloud Apps
 
 # Установка WordPress High Availability с помощью Cloud Apps
 

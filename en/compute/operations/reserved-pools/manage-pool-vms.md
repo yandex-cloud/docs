@@ -25,7 +25,7 @@ To view the list of VMs attached to a reserved instance pool:
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
   1. Select the pool.
-  1. In the left-hand panel, navigate to ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Navigate to the **{{ ui-key.yacloud.compute.instances_jsoza }}** tab.
 
 - CLI {#cli}
 

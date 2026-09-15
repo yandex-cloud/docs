@@ -11,7 +11,10 @@
 
 **Risks when not complying with the rule:**
 
-* Compromising the password entails granting full access to the cloud. * Risks of leaks and data loss: confidential data theft, data encryption with the aim of extortion, etc. * Risks for the infrastructure: irreversible deletion of VM instances and disks, changes in DNS records to reroute traffic, etc. * Identity and Access Management risks and service account risks: creating new users with admin privileges, stealing API keys and service accounts, getting long-term backdoor access.
+* Compromising the password entails granting full access to the cloud.
+* Risks of leaks and data loss: confidential data theft, data encryption with the aim of extortion, etc.
+* Risks for the infrastructure: irreversible deletion of VM instances and disks, changes in DNS records to reroute traffic, etc.
+* Identity and Access Management risks and service account risks: creating new users with admin privileges, stealing API keys and service accounts, getting long-term backdoor access.
 
 #### Instructions and solutions
 
@@ -21,4 +24,5 @@ Two-factor authentication boosts protection for user accounts by employing not o
 
 Multi-factor authentication requirements enforced on users are specified in _MFA policies_:
 
-* [Create](https://yandex.cloud/en/docs/organization/operations/mfa/create-policy) an MFA policy in the [Yandex Identity Hub](https://center.yandex.cloud/organization) UI in Cloud Center. * [Add](https://yandex.cloud/en/docs/organization/operations/mfa/add-users) all users of the pool to the target groups of this policy.
+* [Create](https://yandex.cloud/en/docs/organization/operations/mfa/create-policy) an MFA policy in the [Yandex Identity Hub](https://center.yandex.cloud/organization) UI in Cloud Center.
+* [Add](https://yandex.cloud/en/docs/organization/operations/mfa/add-users) all users of the pool to the target groups of this policy.

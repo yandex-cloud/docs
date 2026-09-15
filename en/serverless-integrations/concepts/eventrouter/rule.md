@@ -29,7 +29,7 @@ _Target_ is the consumer of an event. Supported targets:
 * {{ yds-name }} [streams](../../../data-streams/concepts/glossary.md#stream-concepts).
 * {{ message-queue-name }} [queues](../../../message-queue/concepts/queue.md).
 * {{ serverless-containers-name }} [containers](../../../serverless-containers/concepts/container.md).
-* {{ sw-name }} [workflows](../../concepts/workflows/workflow.md).
+* {{ sw-name }} [workflows]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow).
 
 {{ er-name }} supports the `At least once` delivery guarantee. If unable either to deliver an event or get a delivery confirmation, {{ er-name }} will be retrying to send the event before the event lifetime expires. The number of retries and the maximum event lifetime are set in the target settings. An event that could not be processed is moved to the dead-letter queue specified by the client.
 

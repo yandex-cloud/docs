@@ -67,7 +67,8 @@ The maximum string length in characters is 1000. ||
       "department": "string",
       "job_title": "string",
       "employee_id": "string",
-      "expires_at": "google.protobuf.Timestamp"
+      "expires_at": "google.protobuf.Timestamp",
+      "password_created_at": "google.protobuf.Timestamp"
     }
   ],
   "next_page_token": "string"
@@ -161,4 +162,8 @@ User's employee ID ||
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp when the user account expires. ||
+|| password_created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp when the user's current password was created.
+For synchronized passwords, this is the time when the password was last set in the source directory. ||
 |#

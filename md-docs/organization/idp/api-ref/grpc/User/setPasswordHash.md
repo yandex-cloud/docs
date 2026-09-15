@@ -15,7 +15,8 @@ Sets a password hash for the specified user.
   "user_id": "string",
   "hash": {
     "password_hash": "string",
-    "password_hash_type": "PasswordHashType"
+    "password_hash_type": "PasswordHashType",
+    "created_at": "google.protobuf.Timestamp"
   },
   "need_change": "bool"
 }
@@ -59,6 +60,13 @@ Supported by 389 DS, FreeIPA, ALD Pro.
 - `LDAP_PBKDF2_SHA256_OPENLDAP`: OpenLDAP-compatible format `{PBKDF2-SHA256}` (hyphen). Supported by 389 DS, FreeIPA, ALD Pro.
 - `LDAP_PBKDF2_SHA512`: Supported by 389 DS, FreeIPA, ALD Pro.
 - `LDAP_PKCS5S2`: Supported by Apache Directory Server. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp when the password was created.
+For synchronized passwords, use the time when the password was last set in the source directory.
+If omitted, the current time is used.
+Used by [CreateUserRequest](create.md#yandex.cloud.organizationmanager.v1.idp.CreateUserRequest) and [SetPasswordHashRequest](#yandex.cloud.organizationmanager.v1.idp.SetPasswordHashRequest).
+This value is ignored if [CreateUserRequest.password_change_required](create.md#yandex.cloud.organizationmanager.v1.idp.CreateUserRequest) or [SetPasswordHashRequest.need_change](#yandex.cloud.organizationmanager.v1.idp.SetPasswordHashRequest) is true. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

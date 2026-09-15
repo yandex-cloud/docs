@@ -1102,7 +1102,7 @@
 
  - [Миграция БД из Greenplum® в PostgreSQL](dataplatform/greenplum-to-postgresql.md)
 
- - [Выгрузка данных Greenplum® в холодное хранилище Object Storage](dataplatform/greenplum-yezzey.md)
+ - [Выгрузка данных Greenplum® в гибридное хранилище Object Storage](dataplatform/greenplum-yezzey.md)
 
  - [Загрузка данных из Object Storage в Yandex MPP Analytics for PostgreSQL с помощью Data Transfer](dataplatform/object-storage-to-greenplum.md)
 

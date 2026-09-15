@@ -1,1 +1,0 @@
-For detailed information about possible errors, see [this section](../../../serverless-integrations/concepts/workflows/execution.md#errors).

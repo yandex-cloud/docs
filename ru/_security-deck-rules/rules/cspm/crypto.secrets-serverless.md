@@ -15,8 +15,11 @@
 
 Рекомендуется убедиться, что секреты используются именно таким образом.
 
+**Риски при невыполнении правила:** Секреты, хранящиеся в переменных окружения, видны любому пользователю облака с правами на просмотр конфигурации функции или контейнера. Они также могут появляться в журналах аудита, пайплайнах развёртывания или репозиториях инфраструктуры как кода. Использование Lockbox гарантирует, что секреты хранятся в зашифрованном виде, с контролем доступа и возможностью аудита отдельно от конфигурации функции.
+
 #### Инструкции и решения по выполнению
 
 Удалите секретные данные из `env` и воспользуйтесь функционалом интеграции с Lockbox:
 
-* [Передать секреты Yandex Lockbox в контейнер](https://yandex.cloud/ru/docs/serverless-containers/operations/lockbox-secret-transmit). * [Передать секреты Yandex Lockbox в функцию](https://yandex.cloud/ru/docs/functions/operations/function/lockbox-secret-transmit).
+* [Передать секреты Yandex Lockbox в контейнер](https://yandex.cloud/ru/docs/serverless-containers/operations/lockbox-secret-transmit).
+* [Передать секреты Yandex Lockbox в функцию](https://yandex.cloud/ru/docs/functions/operations/function/lockbox-secret-transmit).

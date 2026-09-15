@@ -1,6 +1,6 @@
 # Model fine-tuning in {{ ml-platform-name }} Notebooks
 
-You can [fine-tune]({{ link-docs-ai }}ai-studio/concepts/tuning/index) {{ ai-studio-full-name }} language models for them to understand your tasks better via the API or {{ ml-sdk-name }}. It is convenient to run fine-tuning on [{{ ml-platform-full-name }}](../../datasphere/) notebooks.
+You can [fine-tune]({{ link-docs-ai }}ai-studio/concepts/tuning/index) {{ ai-studio-full-name }} language models for them to understand your tasks better via the API or {{ ml-sdk-name }}. It is convenient to run fine-tuning on [{{ ml-platform-full-name }}]({{ link-docs }}/datasphere/) notebooks.
 
 In this tutorial, you will fine-tune a model in {{ ml-platform-name }} using the SDK. You can also clone the [repository](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) and run the notebook locally by changing the [authentication settings]({{ link-docs-ai }}ai-studio/sdk/index).
 
@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost for fine-tuning a model includes:
 
-* Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
+* Fee for using [{{ ml-platform-name }} computing resources]({{ link-docs }}/datasphere/pricing).
 * Fee for [text generation]({{ link-docs-ai }}ai-studio/pricing) by the model.
 
 ## Set up your infrastructure {#infra}
@@ -51,8 +51,8 @@ The infrastructure support cost for fine-tuning a model includes:
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `gpt-user`.
-  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` role to the service account.
+  1. Name the [service account]({{ link-docs }}/iam/concepts/users/service-accounts), e.g., `gpt-user`.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` role to this service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -73,7 +73,7 @@ To enable the service account to access the model from the notebook, add it to t
 
 ## Create an API key for the service account {#create-key}
 
-To enable the service account to access the model, create an [API key](../../iam/concepts/authorization/api-key.md).
+To enable the service account to access the model, create an [API key]({{ link-docs }}/iam/concepts/authorization/api-key).
 
 {% list tabs group=instructions %}
 
@@ -85,18 +85,18 @@ To enable the service account to access the model, create an [API key](../../iam
   1. In the list that opens, select the `gpt-user` service account.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and the secret key.
+  1. Save the ID and secret key.
 
 {% endlist %}
 
 ## Create secrets {#create-secrets}
 
-To get the API key and folder ID from the notebook, create [secrets](../../datasphere/concepts/secrets.md) with the key and folder IDs.
+To get the API key and folder ID from the notebook, create [secrets]({{ link-docs }}/datasphere/concepts/secrets) with the key and folder IDs.
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter the name for the secret: `API_KEY`.
+1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter a name for the secret: `API_KEY`.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, paste the key ID.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. Create another secret named `FOLDER_ID` and containing the folder ID.
@@ -235,4 +235,4 @@ You will run the fine-tuning code from the {{ ml-platform-name }} notebook. The 
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created, [delete the project](../../datasphere/operations/projects/delete.md).
+To stop paying for the resources you created, [delete the project]({{ link-docs }}/datasphere/operations/projects/delete).

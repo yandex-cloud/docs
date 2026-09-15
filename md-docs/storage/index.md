@@ -56,7 +56,7 @@
 
  - [Доступ в бакет с помощью сервисного подключения из VPC](operations/buckets/access-via-vpc.md)
 
- - [Поиск чувствительных данных в бакете](operations/buckets/sensitive-data-search.md)
+ - [Искать чувствительные данные в бакете](operations/buckets/sensitive-data-search.md)
 
  - [Управление версионированием бакета](operations/buckets/versioning.md)
 
@@ -130,133 +130,9 @@
 
  - [Все руководства](tutorials/index.md)
 
-### Резервное копирование
+### Хостинг сайтов и веб-приложений
 
- - [Обзор](tutorials/storage-backup-overview.md)
-
- - [Резервное копирование в Object Storage с помощью aws s3 sync](tutorials/storage-backup-aws-s3-sync.md)
-
- - [Резервное копирование в Object Storage с помощью rclone](tutorials/storage-backup-rclone.md)
-
- - [Резервное копирование в Object Storage с помощью GeeseFS](tutorials/storage-backup-geesefs.md)
-
- - [Резервное копирование в Object Storage с помощью CloudBerry Desktop Backup](tutorials/object-storage-cloudberry.md)
-
- - [Резервное копирование в Object Storage с помощью Duplicati](tutorials/object-storage-duplicati.md)
-
- - [Резервное копирование в Object Storage с помощью Bacula](tutorials/backup-with-bacula.md)
-
- - [Резервное копирование в Object Storage с помощью Veritas Backup Exec](tutorials/object-storage-veritas.md)
-
- - [Резервное копирование в Object Storage с помощью Veeam Backup](tutorials/backup-with-veeam.md)
-
- - [Резервное копирование ВМ с помощью Хайстекс Акура](tutorials/hystax-backup.md)
-
- - [Резервное копирование кластера Managed Service for Kubernetes в Object Storage](tutorials/kubernetes-backup.md)
-
- - [Получение статистики запросов к объекту с использованием S3 Select](tutorials/server-logs.md)
-
- - [Получение статистики посещения сайта с использованием S3 Select](tutorials/user-agent-statistics.md)
-
- - [Получение статистики запросов к объектам с использованием Yandex Query](tutorials/server-logs-yq.md)
-
- - [Анализ поресурсной детализации расходов](tutorials/billing-resource-detailing.md)
-
- - [Шифрование на стороне сервера](tutorials/server-side-encryption.md)
-
-### Интеграция L7-балансировщика с CDN и Object Storage
-
- - [Обзор](tutorials/cdn-storage-integration/index.md)
-
- - [Консоль управления, CLI и API](tutorials/cdn-storage-integration/console.md)
-
- - [Terraform](tutorials/cdn-storage-integration/terraform.md)
-
- - [Сине-зеленое и канареечное развертывание версий сервиса](tutorials/blue-green-canary-deployment.md)
-
- - [Анализ логов с использованием DataLens](tutorials/storage-logs-analysis.md)
-
-### Поиск событий в аудитных логах
-
- - [Обзор](tutorials/search-events-audit-logs/index.md)
-
- - [Инструменты для работы с аудитными логами](tutorials/search-events-audit-logs/tools.md)
-
- - [Примеры запросов для поиска событий](tutorials/search-events-audit-logs/examples.md)
-
- - [Настройка работы с Yandex Query](tutorials/search-events-audit-logs/query.md)
-
- - [Монтирование бакетов к файловой системе хостов Yandex Data Processing](tutorials/data-processing-init-actions-geesefs.md)
-
- - [Использование Object Storage в Yandex Data Processing](tutorials/copy-files-from-object-storage.md)
-
- - [Импорт данных из Object Storage, обработка и экспорт в Managed Service for ClickHouse®](tutorials/s3-data-processing-ch.md)
-
- - [Подключение бакета как диска в Windows](tutorials/s3-disk-connect.md)
-
- - [Миграция данных из Yandex Data Streams с помощью Yandex Data Transfer](tutorials/yds-obj-migration.md)
-
- - [Использование гибридного хранилища в Yandex Managed Service for ClickHouse®](tutorials/clickhouse-hybrid-storage.md)
-
- - [Загрузка данных из Yandex Managed Service for OpenSearch в Yandex Object Storage с помощью Yandex Data Transfer](tutorials/opensearch-to-object-storage.md)
-
- - [Автоматическое копирование объектов из бакета в бакет](tutorials/bucket-to-bucket.md)
-
- - [Регулярное асинхронное распознавание аудиофайлов в бакете](tutorials/batch-recognition-stt.md)
-
- - [Обучение модели в Yandex DataSphere на данных из Object Storage](tutorials/s3-to-datasphere.md)
-
- - [Подключение к Object Storage из VPC](tutorials/storage-vpc-access.md)
-
- - [Перенос данных в Yandex Managed Service for PostgreSQL с использованием Yandex Data Transfer](tutorials/object-storage-to-postgresql.md)
-
- - [Загрузка данных в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer](tutorials/object-storage-to-greenplum.md)
-
- - [Загрузка данных в Yandex Managed Service for ClickHouse® с помощью Yandex Data Transfer](tutorials/object-storage-to-clickhouse.md)
-
- - [Загрузка данных в Yandex Managed Service for YDB с помощью Yandex Data Transfer](tutorials/object-storage-to-ydb.md)
-
- - [Обмен данными между Yandex Managed Service for ClickHouse® и Yandex Data Processing](tutorials/dp-mch-data-exchange.md)
-
- - [Загрузка данных из Yandex Managed Service for YDB с помощью Yandex Data Transfer](tutorials/ydb-to-object-storage.md)
-
- - [Хостинг статического сайта на фреймворке Gatsby в Object Storage](tutorials/gatsby-static-website.md)
-
- - [Установка WordPress High Availability с помощью Cloud Apps](tutorials/wordpress-ha-cloudapp.md)
-
- - [Установка WordPress с помощью Cloud Apps](tutorials/wordpress-cloudapp.md)
-
- - [Установка Ghost CMS High Availability с помощью Cloud Apps](tutorials/ghost-cms-cloudapp.md)
-
-### Хранение статического ключа доступа в секрете Yandex Lockbox
-
- - [Обзор](tutorials/static-key-in-lockbox/index.md)
-
- - [CLI](tutorials/static-key-in-lockbox/console.md)
-
- - [Terraform](tutorials/static-key-in-lockbox/terraform.md)
-
- - [Миграция базы данных из Managed Service for PostgreSQL в Object Storage](tutorials/mpg-to-objstorage.md)
-
- - [Обмен данными между Yandex Managed Service for ClickHouse® и Yandex Data Processing](tutorials/dp-mch-data-exchange.md)
-
- - [Импорт данных из Yandex Managed Service for PostgreSQL в Yandex Data Processing с помощью Sqoop](tutorials/sqoop-mpg.md)
-
- - [Импорт данных из Yandex Managed Service for MySQL® в Yandex Data Processing с помощью Sqoop](tutorials/sqoop-mmy.md)
-
- - [Миграция данных из Yandex Object Storage в Yandex Managed Service for MySQL® с помощью Yandex Data Transfer](tutorials/objs-mmy-migration.md)
-
- - [Миграция базы данных из Yandex Managed Service for MySQL® в Yandex Object Storage](tutorials/mmy-objs-migration.md)
-
- - [Выгрузка данных Greenplum® в холодное хранилище Yandex Object Storage](tutorials/greenplum-yezzey.md)
-
- - [Загрузка данных из Яндекс Директ в витрину Yandex Managed Service for ClickHouse® с использованием Yandex Cloud Functions, Yandex Object Storage и Yandex Data Transfer](tutorials/data-transfer-direct-to-mch.md)
-
- - [Загрузка состояний Terraform в Object Storage](tutorials/terraform-state-storage.md)
-
- - [Блокировка состояний Terraform с помощью Managed Service for YDB](tutorials/terraform-state-lock.md)
-
-### Статический сайт в Yandex Object Storage
+#### Статический сайт в Yandex Object Storage
 
  - [Обзор](tutorials/static/index.md)
 
@@ -264,77 +140,25 @@
 
  - [Terraform](tutorials/static/terraform.md)
 
- - [Визуализация данных Yandex Query](tutorials/data-from-yandex-query-visualization.md)
+ - [Хостинг статического сайта на фреймворке Gatsby в Object Storage](tutorials/gatsby-static-website.md)
 
- - [Публикация обновлений для игр](tutorials/prefetch.md)
+#### Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN
 
- - [Разработка пользовательской интеграции в API Gateway](tutorials/api-gw-integration.md)
+ - [Обзор](tutorials/cdn-hosting/index.md)
 
-### Сокращатель ссылок
+ - [Консоль управления, CLI, API](tutorials/cdn-hosting/console.md)
 
- - [Обзор](tutorials/serverless-url-shortener/index.md)
+ - [Terraform](tutorials/cdn-hosting/terraform.md)
 
- - [Консоль управления](tutorials/serverless-url-shortener/console.md)
+#### Интеграция L7-балансировщика с CDN и Object Storage
 
- - [Terraform](tutorials/serverless-url-shortener/terraform.md)
+ - [Обзор](tutorials/cdn-storage-integration/index.md)
 
- - [Хранение журналов работы приложения](tutorials/log-ingestion.md)
+ - [Консоль управления, CLI и API](tutorials/cdn-storage-integration/console.md)
 
- - [Разработка навыка Алисы и сайта с авторизацией](tutorials/alice-shareable-todolist.md)
+ - [Terraform](tutorials/cdn-storage-integration/terraform.md)
 
- - [Создание интерактивного serverless-приложения с использованием WebSocket](tutorials/websocket-app.md)
-
- - [Развертывание веб-приложения с использованием Java Servlet API](tutorials/java-servlet-todo-list.md)
-
-### Разработка Telegram-бота
-
- - [Обзор](tutorials/telegram-bot-serverless/index.md)
-
- - [Консоль управления](tutorials/telegram-bot-serverless/console.md)
-
- - [Terraform](tutorials/telegram-bot-serverless/terraform.md)
-
- - [Репликация логов в Object Storage с помощью Fluent Bit](tutorials/replicate-logs-to-storage.md)
-
- - [Репликация логов в Object Storage с помощью Data Streams](tutorials/replicate-logs-to-storage-via-data-streams.md)
-
- - [Загрузка аудитных логов в SIEM ArcSight](tutorials/export-logs-to-arcsight.md)
-
- - [Загрузка аудитных логов в SIEM Splunk](tutorials/export-logs-to-splunk.md)
-
- - [Создание сервера MLFlow для логирования экспериментов и артефактов](tutorials/mlflow-datasphere.md)
-
- - [Работа с данными с помощью Yandex Query](tutorials/yq-storage.md)
-
- - [Федеративные запросы к данным с помощью Query](tutorials/yq-federative-queries.md)
-
- - [Распознавание архива изображений в Vision OCR](tutorials/archive-from-vision-to-object-storage.md)
-
- - [Регулярное распознавание изображений и PDF-документов из бакета Object Storage](tutorials/vision-ocrrecognizer-storage.md)
-
-### Конвертация видео в GIF на Python
-
- - [Обзор](tutorials/video-converting-queue/index.md)
-
- - [Консоль управления](tutorials/video-converting-queue/console.md)
-
- - [Terraform](tutorials/video-converting-queue/terraform.md)
-
- - [Автоматизация задач с помощью Managed Service for Apache Airflow™](tutorials/airflow-auto-tasks.md)
-
- - [Обработка файлов детализации в сервисе Yandex Cloud Billing](tutorials/billing.md)
-
- - [Развертывание веб-приложения с JWT-авторизацией в API Gateway и аутентификацией в Firebase](tutorials/jwt-authorizer-firebase.md)
-
- - [Поиск событий Yandex Cloud в Yandex Query](tutorials/search-events-query.md)
-
- - [Поиск событий Yandex Cloud в Object Storage](tutorials/search-events-bucket.md)
-
- - [Создание внешней таблицы на базе таблицы из бакета с помощью конфигурационного файла](tutorials/mgp-config-server-for-s3.md)
-
- - [Миграция базы данных из Google BigQuery в Managed Service for ClickHouse®](tutorials/bigquery-to-clickhouse.md)
-
-### Развертывание Nextcloud в интеграции с Object Storage
+#### Развертывание Nextcloud в интеграции с Object Storage
 
  - [Обзор](tutorials/integrate-nextcloud/index.md)
 
@@ -344,15 +168,207 @@
 
  - [Развертывание Nextcloud на ВМ или в группе ВМ с помощью Terraform](tutorials/integrate-nextcloud/terraform.md)
 
-### Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN
+ - [Установка Ghost CMS High Availability с помощью Cloud Apps](tutorials/ghost-cms-cloudapp.md)
 
- - [Обзор](tutorials/cdn-hosting/index.md)
+ - [Установка WordPress с помощью Cloud Apps](tutorials/wordpress-cloudapp.md)
 
- - [Консоль управления, CLI, API](tutorials/cdn-hosting/console.md)
+ - [Установка WordPress High Availability с помощью Cloud Apps](tutorials/wordpress-ha-cloudapp.md)
 
- - [Terraform](tutorials/cdn-hosting/terraform.md)
+### Резервное копирование
+
+ - [Обзор](tutorials/storage-backup-overview.md)
+
+ - [Резервное копирование в Object Storage с помощью aws s3 sync](tutorials/storage-backup-aws-s3-sync.md)
+
+ - [Резервное копирование в Object Storage с помощью rclone](tutorials/storage-backup-rclone.md)
+
+ - [Резервное копирование в Object Storage с помощью Veeam Backup](tutorials/backup-with-veeam.md)
+
+ - [Резервное копирование в Object Storage с помощью GeeseFS](tutorials/storage-backup-geesefs.md)
+
+ - [Резервное копирование ВМ с помощью Хайстекс Акура](tutorials/hystax-backup.md)
+
+ - [Резервное копирование в Object Storage с помощью Duplicati](tutorials/object-storage-duplicati.md)
+
+ - [Резервное копирование кластера Managed Service for Kubernetes в Object Storage](tutorials/kubernetes-backup.md)
+
+ - [Резервное копирование в Object Storage с помощью CloudBerry Desktop Backup](tutorials/object-storage-cloudberry.md)
+
+ - [Резервное копирование в Object Storage с помощью Bacula](tutorials/backup-with-bacula.md)
+
+ - [Резервное копирование в Object Storage с помощью Veritas Backup Exec](tutorials/object-storage-veritas.md)
+
+### Сбор и анализ логов
+
+ - [Получение статистики запросов к объекту с использованием S3 Select](tutorials/server-logs.md)
+
+ - [Получение статистики посещения сайта с использованием S3 Select](tutorials/user-agent-statistics.md)
+
+#### Поиск событий в аудитных логах
+
+ - [Обзор](tutorials/search-events-audit-logs/index.md)
+
+ - [Инструменты для работы с аудитными логами](tutorials/search-events-audit-logs/tools.md)
+
+ - [Примеры запросов для поиска событий](tutorials/search-events-audit-logs/examples.md)
+
+ - [Настройка работы с Yandex Query](tutorials/search-events-audit-logs/query.md)
+
+ - [Анализ логов с использованием DataLens](tutorials/storage-logs-analysis.md)
+
+ - [Получение статистики запросов к объектам с использованием Yandex Query](tutorials/server-logs-yq.md)
+
+ - [Хранение журналов работы приложения](tutorials/log-ingestion.md)
+
+ - [Поиск событий Yandex Cloud в Object Storage](tutorials/search-events-bucket.md)
+
+ - [Загрузка аудитных логов в SIEM ArcSight](tutorials/export-logs-to-arcsight.md)
+
+ - [Репликация логов в Object Storage с помощью Fluent Bit](tutorials/replicate-logs-to-storage.md)
+
+ - [Репликация логов в Object Storage с помощью Data Streams](tutorials/replicate-logs-to-storage-via-data-streams.md)
+
+ - [Загрузка аудитных логов в SIEM Splunk](tutorials/export-logs-to-splunk.md)
+
+ - [Поиск событий Yandex Cloud в Yandex Query](tutorials/search-events-query.md)
+
+### Разработка и развертывание приложений
+
+#### Разработка Telegram-бота
+
+ - [Обзор](tutorials/telegram-bot-serverless/index.md)
+
+ - [Консоль управления](tutorials/telegram-bot-serverless/console.md)
+
+ - [Terraform](tutorials/telegram-bot-serverless/terraform.md)
+
+#### Сокращатель ссылок
+
+ - [Обзор](tutorials/serverless-url-shortener/index.md)
+
+ - [Консоль управления](tutorials/serverless-url-shortener/console.md)
+
+ - [Terraform](tutorials/serverless-url-shortener/terraform.md)
+
+ - [Сине-зеленое и канареечное развертывание версий сервиса](tutorials/blue-green-canary-deployment.md)
+
+#### Конвертация видео в GIF на Python
+
+ - [Обзор](tutorials/video-converting-queue/index.md)
+
+ - [Консоль управления](tutorials/video-converting-queue/console.md)
+
+ - [Terraform](tutorials/video-converting-queue/terraform.md)
+
+ - [Разработка навыка Алисы и сайта с авторизацией](tutorials/alice-shareable-todolist.md)
+
+ - [Публикация обновлений для игр](tutorials/prefetch.md)
+
+ - [Разработка пользовательской интеграции в API Gateway](tutorials/api-gw-integration.md)
+
+ - [Развертывание веб-приложения с использованием Java Servlet API](tutorials/java-servlet-todo-list.md)
+
+ - [Создание интерактивного serverless-приложения с использованием WebSocket](tutorials/websocket-app.md)
+
+ - [Развертывание веб-приложения с JWT-авторизацией в API Gateway и аутентификацией в Firebase](tutorials/jwt-authorizer-firebase.md)
+
+### Безопасность и управление доступом
+
+ - [Шифрование на стороне сервера](tutorials/server-side-encryption.md)
+
+ - [Подключение к Object Storage из VPC](tutorials/storage-vpc-access.md)
+
+#### Хранение статического ключа доступа в секрете Yandex Lockbox
+
+ - [Обзор](tutorials/static-key-in-lockbox/index.md)
+
+ - [CLI](tutorials/static-key-in-lockbox/console.md)
+
+ - [Terraform](tutorials/static-key-in-lockbox/terraform.md)
+
+### Работа с файловыми системами
+
+ - [Подключение бакета как диска в Windows](tutorials/s3-disk-connect.md)
+
+ - [Монтирование бакетов к файловой системе хостов Yandex Data Processing](tutorials/data-processing-init-actions-geesefs.md)
+
+### Перенос данных и интеграция с базами данных
+
+ - [Автоматическое копирование объектов из бакета в бакет](tutorials/bucket-to-bucket.md)
+
+ - [Использование гибридного хранилища в Yandex Managed Service for ClickHouse®](tutorials/clickhouse-hybrid-storage.md)
+
+ - [Миграция базы данных из Managed Service for PostgreSQL в Object Storage](tutorials/mpg-to-objstorage.md)
+
+ - [Выгрузка данных Greenplum® в гибридное хранилище Yandex Object Storage](tutorials/greenplum-yezzey.md)
+
+ - [Загрузка данных из Яндекс Директ в витрину Yandex Managed Service for ClickHouse® с использованием Yandex Cloud Functions, Yandex Object Storage и Yandex Data Transfer](tutorials/data-transfer-direct-to-mch.md)
+
+ - [Миграция данных из Yandex Data Streams с помощью Yandex Data Transfer](tutorials/yds-obj-migration.md)
+
+ - [Перенос данных в Yandex Managed Service for PostgreSQL с использованием Yandex Data Transfer](tutorials/object-storage-to-postgresql.md)
+
+ - [Миграция базы данных из Yandex Managed Service for MySQL® в Yandex Object Storage](tutorials/mmy-objs-migration.md)
+
+ - [Загрузка данных из Yandex Managed Service for OpenSearch в Yandex Object Storage с помощью Yandex Data Transfer](tutorials/opensearch-to-object-storage.md)
+
+ - [Загрузка данных из Yandex Managed Service for YDB с помощью Yandex Data Transfer](tutorials/ydb-to-object-storage.md)
+
+ - [Загрузка данных в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer](tutorials/object-storage-to-greenplum.md)
+
+ - [Загрузка данных в Yandex Managed Service for ClickHouse® с помощью Yandex Data Transfer](tutorials/object-storage-to-clickhouse.md)
+
+ - [Миграция данных из Yandex Object Storage в Yandex Managed Service for MySQL® с помощью Yandex Data Transfer](tutorials/objs-mmy-migration.md)
+
+ - [Миграция базы данных из Google BigQuery в Managed Service for ClickHouse®](tutorials/bigquery-to-clickhouse.md)
+
+ - [Загрузка данных в Yandex Managed Service for YDB с помощью Yandex Data Transfer](tutorials/object-storage-to-ydb.md)
+
+### Обработка и анализ данных
+
+ - [Анализ поресурсной детализации расходов](tutorials/billing-resource-detailing.md)
+
+ - [Использование Object Storage в Yandex Data Processing](tutorials/copy-files-from-object-storage.md)
+
+ - [Импорт данных из Object Storage, обработка и экспорт в Managed Service for ClickHouse®](tutorials/s3-data-processing-ch.md)
+
+ - [Работа с данными с помощью Yandex Query](tutorials/yq-storage.md)
+
+ - [Создание внешней таблицы на базе таблицы из бакета с помощью конфигурационного файла](tutorials/mgp-config-server-for-s3.md)
+
+ - [Автоматизация задач с помощью Managed Service for Apache Airflow™](tutorials/airflow-auto-tasks.md)
+
+ - [Обмен данными между Yandex Managed Service for ClickHouse® и Yandex Data Processing](tutorials/dp-mch-data-exchange.md)
+
+ - [Обработка файлов детализации в сервисе Yandex Cloud Billing](tutorials/billing.md)
 
  - [Использование Object Storage в Yandex Managed Service for Apache Spark™](tutorials/spark-objstorage-integration.md)
+
+ - [Импорт данных из Yandex Managed Service for MySQL® в Yandex Data Processing с помощью Sqoop](tutorials/sqoop-mmy.md)
+
+ - [Импорт данных из Yandex Managed Service for PostgreSQL в Yandex Data Processing с помощью Sqoop](tutorials/sqoop-mpg.md)
+
+ - [Федеративные запросы к данным с помощью Query](tutorials/yq-federative-queries.md)
+
+ - [Визуализация данных Yandex Query](tutorials/data-from-yandex-query-visualization.md)
+
+### Машинное обучение и искусственный интеллект
+
+ - [Обучение модели в Yandex DataSphere на данных из Object Storage](tutorials/s3-to-datasphere.md)
+
+ - [Регулярное асинхронное распознавание аудиофайлов в бакете](tutorials/batch-recognition-stt.md)
+
+ - [Регулярное распознавание изображений и PDF-документов из бакета Object Storage](tutorials/vision-ocrrecognizer-storage.md)
+
+ - [Распознавание архива изображений в Vision OCR](tutorials/archive-from-vision-to-object-storage.md)
+
+ - [Создание сервера MLFlow для логирования экспериментов и артефактов](tutorials/mlflow-datasphere.md)
+
+### Управление инфраструктурой с Terraform
+
+ - [Загрузка состояний Terraform в Object Storage](tutorials/terraform-state-storage.md)
+
+ - [Блокировка состояний Terraform с помощью Managed Service for YDB](tutorials/terraform-state-lock.md)
 
 ## Концепции
 

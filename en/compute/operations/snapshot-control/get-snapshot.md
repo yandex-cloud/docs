@@ -12,7 +12,7 @@ title: How to get information about a disk snapshot in {{ compute-full-name }}
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Select the disk snapshot.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will show the disk snapshot details.
+  1. The **{{ ui-key.yacloud.common.overview }}** tab will display detailed information about the disk snapshot.
 
 - CLI {#cli}
 
@@ -69,7 +69,7 @@ title: How to get information about a disk snapshot in {{ compute-full-name }}
      * `output "snapshot"`: Output variable that contains information about the disk snapshot size:
        * `value`: Return value.
 
-     You can replace `storage_size` with another variable to get the information you need. For more information about the `yandex_compute_snapshot` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_snapshot).
+     You can replace `storage_size` with any other attribute to get the information you need. For more information about the `yandex_compute_snapshot` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_snapshot).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

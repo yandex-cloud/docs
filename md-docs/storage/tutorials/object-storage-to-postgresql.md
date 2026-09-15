@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Перенос данных в Yandex Managed Service for PostgreSQL с использованием Yandex Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Перенос данных и интеграция с базами данных > Перенос данных в Yandex Managed Service for PostgreSQL с использованием Yandex Data Transfer
 
 # Перенос данных в Yandex Managed Service for PostgreSQL с использованием Yandex Data Transfer
 

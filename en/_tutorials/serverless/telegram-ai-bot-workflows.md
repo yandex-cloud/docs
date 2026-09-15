@@ -3,7 +3,7 @@
 
 With serverless technologies, you can create a Telegram bot with [text generation model]({{ link-docs-ai }}ai-studio/concepts/generation/models) support based on [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index).
 
-In this tutorial, you will create a bot which provides movie recommendations based on user preferences. You will do this by creating an AI agent, arranging for data storage in [{{ objstorage-full-name }}](../../storage/) and [{{ lockbox-full-name }}](../../lockbox/), setting up bot logic in [{{ sw-full-name }}](../../serverless-integrations/), and a webhook to start using a link.
+In this tutorial, you will create a bot which provides movie recommendations based on user preferences. You will do this by creating an AI agent, arranging for data storage in [{{ objstorage-full-name }}]({{ link-docs }}/storage/) and [{{ lockbox-full-name }}]({{ link-docs }}/lockbox/), setting up bot logic in [{{ sw-full-name }}]({{ link-docs }}/serverless-integrations/), and a webhook to start using a link.
 
 To create a bot:
 
@@ -31,9 +31,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of Telegram bot support includes:
 
 * Fee for text generation (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
-* Fee for storing the secret and requests to the secret (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
-* Fee for storage space occupied by data, number of data operations, and outgoing traffic (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* Fee for retrieval and storage of logs (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
+* Fee for storing the secret and requests to the secret (see [{{ lockbox-full-name }} pricing]({{ link-docs }}/lockbox/pricing)).
+* Fee for storage space occupied by data, number of data operations, and outgoing traffic (see [{{ objstorage-full-name }} pricing]({{ link-docs }}/storage/pricing)).
+* Fee for retrieval and storage of logs (see [{{ cloud-logging-full-name }} pricing]({{ link-docs }}/logging/pricing)).
 
 
 ## Create a Telegram bot {#create-bot}
@@ -54,13 +54,13 @@ Create a bot in Telegram and get a token.
 
 ## Create a secret {#create-secret}
 
-Create a [secret](../../lockbox/concepts/secret.md) to store the Telegram API access token.
+Create a [secret]({{ link-docs }}/lockbox/concepts/secret) to store the Telegram API access token.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
+  1. In the [management console]({{ link-console-main }}), select the [folder]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder) where you are going to create your infrastructure.
   1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret.
@@ -116,14 +116,14 @@ Create a [secret](../../lockbox/concepts/secret.md) to store the Telegram API ac
 
 - API {#api}
 
-  To create a secret, use the [Create](../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md) gRPC API call.
+  To create a secret, use the [Create]({{ link-docs }}/lockbox/api-ref/Secret/create) REST API method for the [Secret]({{ link-docs }}/lockbox/api-ref/Secret/index) resource or the [SecretService/Create]({{ link-docs }}/lockbox/api-ref/grpc/Secret/create) gRPC API call.
 
 {% endlist %}
 
 
 ## Create a bucket {#create-bucket}
 
-Create a [bucket](../../storage/concepts/bucket.md) to store your chat history with the bot.
+Create a [bucket]({{ link-docs }}/storage/concepts/bucket) to store your chat history with the bot.
 
 {% list tabs group=instructions %}
 
@@ -132,7 +132,7 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
   1. Open the [management console]({{ link-console-main }}).
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. Specify a bucket name that meets [these naming conventions](../../storage/concepts/bucket.md#naming).
+  1. Specify a bucket name that meets [these naming conventions]({{ link-docs }}/storage/concepts/bucket#naming).
   1. Specify the maximum bucket size: `5 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
@@ -144,7 +144,7 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
       yc storage bucket create --help
       ```
 
-  1. Create a bucket in the default [folder](../../resource-manager/concepts/resources-hierarchy.md#folder):
+  1. Create a bucket in the default [folder]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder):
 
       ```bash
       yc storage bucket create \
@@ -155,8 +155,8 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
 
       Where:
 
-      * `--name`: Bucket name that meets the [naming conventions](../../storage/concepts/bucket.md#naming).
-      * `--default-storage-class`: [Storage class](../../storage/concepts/storage-class.md).
+      * `--name`: Bucket name that meets the [naming conventions]({{ link-docs }}/storage/concepts/bucket#naming).
+      * `--default-storage-class`: [Storage class]({{ link-docs }}/storage/concepts/storage-class).
       * `--max-size`: Maximum bucket size, in bytes.
 
       Result:
@@ -176,7 +176,7 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
 
   {% include [aws-cli-install](../../_includes/aws-cli-install.md) %}
 
-  To create a bucket, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` [role](../../storage/security/index.md#storage-editor) to the service account used by the AWS CLI.
+  To create a bucket, [assign]({{ link-docs }}/iam/operations/sa/assign-role-for-sa) the `storage.editor` [role]({{ link-docs }}/storage/security/index#storage-editor) to the service account used by the AWS CLI.
 
   In the terminal, run this command:
 
@@ -189,18 +189,18 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
   Where:
 
   * `--endpoint-url`: {{ objstorage-name }} endpoint.
-  * `--bucket`: Bucket name that meets the [naming conventions](../../storage/concepts/bucket.md#naming).
+  * `--bucket`: Bucket name that meets the [naming conventions]({{ link-docs }}/storage/concepts/bucket#naming).
 
 - API {#api}
 
-  To create a bucket, use the [Create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Create](../../storage/api-ref/grpc/Bucket/create.md) gRPC API call, or the [create](../../storage/s3/api-ref/bucket/create.md) S3 API method.
+  To create a bucket, use the [Create]({{ link-docs }}/storage/api-ref/Bucket/create) REST API method for the [Bucket]({{ link-docs }}/storage/api-ref/Bucket/index) resource, the [BucketService/Create]({{ link-docs }}/storage/api-ref/grpc/Bucket/create) gRPC API call, or the [create]({{ link-docs }}/storage/s3/api-ref/bucket/create) S3 API method.
 
 {% endlist %}
 
 
 ## Create a service account {#create-sa}
 
-Create a [service account](../../iam/concepts/users/service-accounts.md) named `sa-workflows`, which you will use to execute the workflow steps.
+Create a [service account]({{ link-docs }}/iam/concepts/users/service-accounts) named `sa-workflows`, which you will use to execute the workflow steps.
 
 {% list tabs group=instructions %}
 
@@ -210,7 +210,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) named `
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the service account: `sa-workflows`.
-  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign these [roles](../../iam/roles-reference.md):
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign these [roles]({{ link-docs }}/iam/roles-reference):
 
       * `storage.uploader`
       * `storage.viewer`
@@ -254,7 +254,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) named `
       FOLDER_ID=$(yc config get folder-id)
       ```
 
-  1. See the description of the CLI command for assigning a [role](../../iam/roles-reference.md) for the folder:
+  1. See the description of the CLI command for assigning a [role]({{ link-docs }}/iam/roles-reference) for the folder:
 
       ```bash
       yc resource-manager folder add-access-binding --help
@@ -317,9 +317,9 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) named `
   * `{{ roles-yagpt-user }}`
   * `ai.assistants.editor`
 
-  To create a service account, use the [Create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
+  To create a service account, use the [Create]({{ link-docs }}/iam/api-ref/ServiceAccount/create) REST API method for the [ServiceAccount]({{ link-docs }}/iam/api-ref/ServiceAccount/index) resource or the [ServiceAccountService/Create]({{ link-docs }}/iam/api-ref/grpc/ServiceAccount/create) gRPC API call.
 
-  To assign a role to a service account, use the [updateAccessBindings](../../iam/api-ref/ServiceAccount/updateAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/UpdateAccessBindings](../../iam/api-ref/grpc/ServiceAccount/updateAccessBindings.md) gRPC API call.
+  To assign a role to a service account, use the [updateAccessBindings]({{ link-docs }}/iam/api-ref/ServiceAccount/updateAccessBindings) REST API method for the [ServiceAccount]({{ link-docs }}/iam/api-ref/ServiceAccount/index) resource or the [ServiceAccountService/UpdateAccessBindings]({{ link-docs }}/iam/api-ref/grpc/ServiceAccount/updateAccessBindings) gRPC API call.
 
 {% endlist %}
 
@@ -370,7 +370,7 @@ Set up a workflow to read and store chat history, call the AI agent, and send re
 
 ### Prepare a YaWL specification {#prepare-spec-wf}
 
-Save the workflow [YaWL specification](../../serverless-integrations/concepts/workflows/yawl/index.md) to a YAML file, e.g., `yawl-spec.yaml`.
+Save the workflow [YaWL specification]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/index) to a YAML file, e.g., `yawl-spec.yaml`.
 
 ```yaml
 yawl: '0.1'
@@ -526,7 +526,7 @@ Where:
 
 - API {#api}
 
-  To create a workflow, use the [Create](../../serverless-integrations/workflows/api-ref/Workflow/create.md) REST API method for the [Workflows](../../serverless-integrations/workflows/api-ref/Workflow/index.md) resource or the [Workflow/Create](../../serverless-integrations/workflows/api-ref/grpc/Workflow/create.md) gRPC API call.
+  To create a workflow, use the [Create]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/create) REST API method for the [Workflows]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/index) resource or the [Workflow/Create]({{ link-docs-ai }}ai-studio/workflows/api-ref/grpc/Workflow/create) gRPC API call.
 
 {% endlist %}
 
@@ -539,7 +539,7 @@ Make the workflow public so it can be executed via a link without authentication
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your [workflow](../../serverless-integrations/concepts/workflows/workflow.md).
+  1. In the [management console]({{ link-console-main }}), select the folder containing your [workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow).
   1. [Navigate]({{ link-console-main }}/link/serverless-integrations) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Select the workflow.
@@ -548,7 +548,7 @@ Make the workflow public so it can be executed via a link without authentication
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  1. View the description of the CLI command for updating a [workflow](../../serverless-integrations/concepts/workflows/workflow.md):
+  1. View the description of the CLI command for updating a [workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow):
 
       ```bash
       yc serverless workflow update --help
@@ -573,7 +573,7 @@ Make the workflow public so it can be executed via a link without authentication
 
 - API {#api}
 
-  To make a [workflow](../../serverless-integrations/concepts/workflows/workflow.md) public, use the [Update](../../serverless-integrations/workflows/api-ref/Workflow/update.md) REST API method for the [Workflows](../../serverless-integrations/workflows/api-ref/Workflow/index.md) resource or the [workflow/Update](../../serverless-integrations/workflows/api-ref/grpc/Workflow/update.md) gRPC API call with `isPublic: true`.
+  To make a [workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) public, use the [Update]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/update) REST API method for the [Workflows]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/index) resource or the [workflow/Update]({{ link-docs-ai }}ai-studio/workflows/api-ref/grpc/Workflow/update) gRPC API call with `isPublic: true`.
 
 {% endlist %}
 
@@ -621,7 +621,7 @@ Set up a webhook for your bot for it to send workflow execution requests via a l
 
 - API {#api}
 
-  To get a workflow execution link, use the [get](../../serverless-integrations/workflows/api-ref/Workflow/get.md) REST API method for the [Workflow](../../serverless-integrations/workflows/api-ref/Workflow/index.md) resource or the [WorkflowsService/Get](../../serverless-integrations/workflows/api-ref/grpc/Workflow/get.md) gRPC API call. The execution link will appear in the `execution_url` field.
+  To get a workflow execution link, use the [get]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/get) REST API method for the [Workflow]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/index) resource or the [WorkflowsService/Get]({{ link-docs-ai }}ai-studio/workflows/api-ref/grpc/Workflow/get) gRPC API call. The execution link will appear in the `execution_url` field.
 
 {% endlist %}
 
@@ -714,8 +714,8 @@ Also, you can:
 
 Delete the resources you no longer need to avoid [paying](#paid-resources) for them:
 
-1. [Delete](../../serverless-integrations/operations/workflows/workflow/delete.md) the workflow.
-1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
-1. [Delete](../../lockbox/operations/secret-delete.md) the secret.
+1. [Delete]({{ link-docs-ai }}ai-studio/operations/workflows/workflow/delete) the workflow.
+1. [Delete]({{ link-docs }}/storage/operations/buckets/delete) the bucket.
+1. [Delete]({{ link-docs }}/lockbox/operations/secret-delete) the secret.
 1. Delete the AI agent in {{ ai-studio-name }}.
-1. If the workflow logging feature was left on, [delete](../../logging/operations/delete-group.md) the log group.
+1. If the workflow logging feature was left on, [delete]({{ link-docs }}/logging/operations/delete-group) the log group.

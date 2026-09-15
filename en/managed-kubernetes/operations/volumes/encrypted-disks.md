@@ -93,7 +93,7 @@ You can use encrypted disks for both [static](#static-provisioning) and [dynamic
     kubectl apply -f pod-with-encrypted-pvc.yaml
     ```
 
-    After you create the pod, a new encrypted disk with `k8s-csi` prefixed to its name will appear under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in **{{ ui-key.yacloud.compute.disks_ddfdb }}** in the [management console]({{ link-console-main }}).
+    After you create the pod, a new encrypted disk with `k8s-csi` prefixed to its name will appear under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in **{{ ui-key.yacloud.compute.storage_uisyT }}** in the [management console]({{ link-console-main }}).
 
 #### Useful links {#see-also}
 

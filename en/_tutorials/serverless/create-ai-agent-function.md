@@ -1,6 +1,6 @@
 
 
-Learn how to use a [function](../../functions/concepts/function.md) from {{ sf-name }} with the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to create an [AI agent](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf), i.e., a personalized assistant integrated with {{ ai-studio-full-name }} [text generation models]({{ link-docs-ai }}ai-studio/concepts/generation/models) to provide generative responses.
+Learn how to use a [function]({{ link-docs }}/functions/concepts/function) from {{ sf-name }} with the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to create an [AI agent](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf), i.e., a personalized assistant integrated with {{ ai-studio-full-name }} [text generation models]({{ link-docs-ai }}ai-studio/concepts/generation/models) to provide generative responses.
 
 In this tutorial, you will create a simple AI agent that uses a function from {{ sf-name }} to get weather information, interact with the {{ ai-studio-full-name }} [language model]({{ link-docs-ai }}ai-studio/concepts/generation/models), and, to add a touch of fun, respond to the user in [haiku](https://en.wikipedia.org/wiki/Haiku) form.
 
@@ -12,13 +12,13 @@ On the diagram:
 1. The {{ sf-name }} handler creates and runs the AI agent.
 1. The AI agent requests additional weather data for a given city using the custom `get_weather()` function.
 1. The AI agent sends the user request together with the extra context to the {{ foundation-models-name }} text generation model.
-1. A [service account](../../iam/concepts/users/service-accounts.md) authorizes the AI agent to access the {{ foundation-models-name }} [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index) using an [API key](../../iam/concepts/authorization/api-key.md).
-1. The service account grants access to the [{{ lockbox-name }}]({{ link-docs }}/lockbox/index) secret with the service account API key to the function in {{ sf-name }}.
+1. A [service account]({{ link-docs }}/iam/concepts/users/service-accounts) authorizes the AI agent to access the {{ foundation-models-name }} [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index) using an [API key]({{ link-docs }}/iam/concepts/authorization/api-key).
+1. The service account grants access to the [{{ lockbox-name }}]({{ link-docs }}/lockbox/index.yaml) secret with the service account API key to the function in {{ sf-name }}.
 1. The function in {{ sf-name }} retrieves the service account API key from the {{ lockbox-name }} secret.
 1. The {{ foundation-models-name }} model sends the generated response to the AI agent.
 1. The AI agent returns the response to the user.
 
-The AI agent you create in this tutorial will be deployed in {{ yandex-cloud }} using {{ sf-full-name }}. You will also create resources to arrange access to the {{ foundation-models-name }} model: a [service account](../../iam/concepts/users/service-accounts.md), a service account [API key](../../iam/concepts/authorization/api-key.md), a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md), and a [function](../../functions/concepts/function.md) in {{ sf-name }}.
+The AI agent you create in this tutorial will be deployed in {{ yandex-cloud }} using {{ sf-full-name }}. You will also create resources to arrange access to the {{ foundation-models-name }} model: a [service account]({{ link-docs }}/iam/concepts/users/service-accounts), a service account [API key]({{ link-docs }}/iam/concepts/authorization/api-key), a {{ lockbox-full-name }} [secret]({{ link-docs }}/lockbox/concepts/secret), and a [function]({{ link-docs }}/functions/concepts/function) in {{ sf-name }}.
 
 You can create these resources [automatically](#automatic-setup) or [manually](#manual-setup).
 
@@ -32,10 +32,10 @@ You can create these resources [automatically](#automatic-setup) or [manually](#
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost for this tutorial includes:
-* Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* Fee for using the function (see [{{ sf-full-name }} pricing]({{ link-docs }}/functions/pricing)).
 * Fee for text generation (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
-* Fee for secret storage and secret operations (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
-* Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) when using [{{ cloud-logging-name }}](../../logging/).
+* Fee for storing the secret and operations with it (see [{{ lockbox-full-name }} pricing]({{ link-docs }}/lockbox/pricing)).
+* Fee for logging operations and data storage in a [log group]({{ link-docs }}/logging/concepts/log-group) (see [{{ cloud-logging-full-name }} pricing]({{ link-docs }}/logging/pricing)) when using [{{ cloud-logging-name }}]({{ link-docs }}/logging/).
 
 ## Automated AI agent deployment using {{ src-name }} CI/CD {#automatic-sourcecraft-setup}
 
@@ -86,7 +86,7 @@ Run a script to automatically create all the required resources in your selected
 
 To create an AI agent automatically:
 
-1. [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} CLI and [get authenticated](../../cli/operations/index.md#auth).
+1. [Install]({{ link-docs }}/cli/operations/install-cli) the {{ yandex-cloud }} CLI and [get authenticated]({{ link-docs }}/cli/operations/index#auth).
 1. [Download and install Python](https://www.python.org/downloads/).
 1. Clone the [repository](https://sourcecraft.dev/yandex-cloud-examples/yc-serverless-ai-agent) with scripts for creating the AI agent:
 
@@ -178,7 +178,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
+  1. In the [management console]({{ link-console-main }}), select the [folder]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder) where you are going to create your infrastructure.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the service account: `function-sa`.
@@ -210,7 +210,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       Save the service account ID (the `id` field value) and the folder ID (the `folder_id` field value), as you will need them later.
 
-      For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
+      For more information about the `yc iam service-account create` command, see the [CLI reference]({{ link-docs }}/cli/cli-ref/iam/cli-ref/service-account/create).
 
   1. Assign the `ai.languageModels.user` [role]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) for the folder to the created service account by specifying the folder and service account IDs you previously saved:
 
@@ -233,18 +233,18 @@ If you no longer need the resources you created, [delete them](#clear-out).
               type: serviceAccount
       ```
 
-      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
+      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference]({{ link-docs }}/cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding).
 
 - API {#api}
 
-  To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
+  To create a service account, use the [create]({{ link-docs }}/iam/api-ref/ServiceAccount/create) REST API method for the [ServiceAccount]({{ link-docs }}/iam/api-ref/ServiceAccount/index) resource or the [ServiceAccountService/Create]({{ link-docs }}/iam/api-ref/grpc/ServiceAccount/create) gRPC API call.
 
-  To assign the service account the `ai.languageModels.user` role for the folder, use the [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md) gRPC API call.
+  To assign the service account the `ai.languageModels.user` role for the folder, use the [updateAccessBindings]({{ link-docs }}/resource-manager/api-ref/Folder/updateAccessBindings) REST API method for the [Folder]({{ link-docs }}/resource-manager/api-ref/Folder/index) resource or the [FolderService/UpdateAccessBindings]({{ link-docs }}/resource-manager/api-ref/grpc/Folder/updateAccessBindings) gRPC API call.
 
 {% endlist %}
 
 
-## Create an API key for your service account {#create-api-key}
+## Create an API key for the service account {#create-api-key}
 
 {% list tabs group=instructions %}
 
@@ -253,7 +253,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** and select the `function-sa` service account you created earlier.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
-  1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select [`yc.ai.languageModels.execute`](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
+  1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select [`yc.ai.languageModels.execute`]({{ link-docs }}/iam/concepts/authorization/api-key#scoped-api-keys).
   1. Optionally, set **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-expires-at }}** for the API key.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Save the secret key, as you will need it to create a function.
@@ -289,11 +289,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       The key value is shown only once. Save it now, as you will not be able to retrieve it again.
 
-      For more information about the `yc iam api-key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/api-key/create.md).
+      For more information about the `yc iam api-key create` command, see the [CLI reference]({{ link-docs }}/cli/cli-ref/iam/cli-ref/api-key/create).
 
 - API {#api}
 
-  To create an API key, use the [create](../../iam/api-ref/ApiKey/create.md) REST API method for the [ApiKey](../../iam/api-ref/ApiKey/index.md) resource or the [ApiKeyService/Create](../../iam/api-ref/grpc/ApiKey/create.md) gRPC API call.
+  To create an API key, use the [create]({{ link-docs }}/iam/api-ref/ApiKey/create) REST API method for the [ApiKey]({{ link-docs }}/iam/api-ref/ApiKey/index) resource or the [ApiKeyService/Create]({{ link-docs }}/iam/api-ref/grpc/ApiKey/create) gRPC API call.
 
 {% endlist %}
 
@@ -309,7 +309,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `api-key-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, enter the secret key: `api-key`.
-  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, paste the secret key you obtained in the previous step.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, paste the secret key you got in the previous step.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -340,11 +340,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
           - api-key
       ```
 
-      For more information about the `yc lockbox secret create` command, see the [CLI reference](../../cli/cli-ref/lockbox/cli-ref/secret/create.md).
+      For more information about the `yc lockbox secret create` command, see the [CLI reference]({{ link-docs }}/cli/cli-ref/lockbox/cli-ref/secret/create).
 
 - API {#api}
 
-  To create a secret, use the [create](../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md) gRPC API call.
+  To create a secret, use the [create]({{ link-docs }}/lockbox/api-ref/Secret/create) REST API method for the [Secret]({{ link-docs }}/lockbox/api-ref/Secret/index) resource or the [SecretService/Create]({{ link-docs }}/lockbox/api-ref/grpc/Secret/create) gRPC API call.
 
 {% endlist %}
 
@@ -359,12 +359,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. On the left-hand panel, select ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**. In the window that opens:
 
       1. In the search bar, enter the name of the service account created earlier, `function-sa`, and select it from the search results.
-      1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select [`lockbox.payloadViewer`](../../lockbox/security/index.md#lockbox-payloadViewer).
+      1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select [`lockbox.payloadViewer`]({{ link-docs }}/lockbox/security/index#lockbox-payloadViewer).
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  1. Assign the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer) for `api-key-secret` to the `function-sa` service account:
+  1. Assign the `lockbox.payloadViewer` [role]({{ link-docs }}/lockbox/security/index#lockbox-payloadViewer) for `api-key-secret` to the `function-sa` service account:
 
       ```bash
       yc lockbox secret add-access-binding \
@@ -373,11 +373,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
           --role lockbox.payloadViewer
       ```
 
-      For more information about the `yc lockbox secret add-access-binding` command, see the [CLI reference](../../cli/cli-ref/lockbox/cli-ref/secret/add-access-binding.md).
+      For more information about the `yc lockbox secret add-access-binding` command, see the [CLI reference]({{ link-docs }}/cli/cli-ref/lockbox/cli-ref/secret/add-access-binding).
 
 - API {#api}
 
-  To assign a role for a secret to the service account, use the [setAccessBindings](../../lockbox/api-ref/Secret/setAccessBindings.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/SetAccessBindings](../../lockbox/api-ref/grpc/Secret/setAccessBindings.md) gRPC API call.
+  To assign a role for a secret to the service account, use the [setAccessBindings]({{ link-docs }}/lockbox/api-ref/Secret/setAccessBindings) REST API method for the [Secret]({{ link-docs }}/lockbox/api-ref/Secret/index) resource or the [SecretService/SetAccessBindings]({{ link-docs }}/lockbox/api-ref/grpc/Secret/setAccessBindings) gRPC API call.
 
 {% endlist %}
 
@@ -813,7 +813,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
      1. In the window that opens, enter `ai-agent-function` as the function name.
      1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Create a [function version](../../functions/concepts/function.md#version):
+  1. Create a [function version]({{ link-docs }}/functions/concepts/function#version):
      1. Select `{{ python-full-ver }}` as the runtime, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` and attach the `openai-function.zip` file you created earlier.
      1. Specify the entry point: `index.handler`.
@@ -822,7 +822,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Select the `function-sa` service account.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-             * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you are creating the infrastructure.
+             * `FOLDER_ID`: [ID of the folder]({{ link-docs }}/resource-manager/operations/folder/get-id) where you are creating the infrastructure.
              * `MODEL_NAME`: URI of the {{ ai-studio-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
 
                  Here is an example: `gpt://<folder_ID>/yandexgpt/latest`.
@@ -855,9 +855,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
       status: ACTIVE
       ```
 
-      For more information about the `yc serverless function create` command, see the [CLI reference](../../cli/cli-ref/serverless/cli-ref/function/create.md).
+      For more information about the `yc serverless function create` command, see the [CLI reference]({{ link-docs }}/cli/cli-ref/serverless/cli-ref/function/create).
 
-  1. Create a [version](../../functions/concepts/function.md#version) of `ai-agent-function`:
+  1. Create a [version]({{ link-docs }}/functions/concepts/function#version) of `ai-agent-function`:
 
       ```bash
       yc serverless function version create \
@@ -875,17 +875,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       Where:
 
-      * `--service-account-id`: `function-sa` service account [ID](../../iam/operations/sa/get-id.md) you saved earlier.
+      * `--service-account-id`: `function-sa` service account [ID]({{ link-docs }}/iam/operations/sa/get-id) you saved earlier.
       * `--environment`: Environment variables:
 
-          * `FOLDER_ID`: [ID](../../resource-manager/operations/folder/get-id.md) of the folder you saved earlier when creating the service account.
+          * `FOLDER_ID`: [ID]({{ link-docs }}/resource-manager/operations/folder/get-id) of the folder you saved earlier when creating the service account.
           * `MODEL_NAME`: URI of the {{ ai-studio-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
 
                  Here is an example: `gpt://<folder_ID>/yandexgpt/latest`.
                 
                  Specify the ID of the folder you are creating the infrastructure in.
 
-          * `BASE_URL`: {{ ai-studio-full-name }} URL, `https://{{ api-host-llm }}/v1`.
+          * `BASE_URL`:{{ ai-studio-full-name }} URL, `https://{{ api-host-llm }}/v1`.
 
       Result:
 
@@ -919,13 +919,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
       concurrency: "1"
       ```
 
-      For more information about the `yc serverless function version create` command, see the [CLI reference](../../cli/cli-ref/serverless/cli-ref/function/version/create.md).
+      For more information about the `yc serverless function version create` command, see the [CLI reference]({{ link-docs }}/cli/cli-ref/serverless/cli-ref/function/version/create).
 
 - API {#api}
 
-  To create a function, use the [create](../../functions/functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md) gRPC API call.
+  To create a function, use the [create]({{ link-docs }}/functions/functions/api-ref/Function/create) REST API method for the [Function]({{ link-docs }}/functions/functions/api-ref/Function/index) resource or the [FunctionService/Create]({{ link-docs }}/functions/functions/api-ref/grpc/Function/create) gRPC API call.
 
-  To create a function version, use the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
+  To create a function version, use the [createVersion]({{ link-docs }}/functions/functions/api-ref/Function/createVersion) REST API method for the [Function]({{ link-docs }}/functions/functions/api-ref/Function/index) resource or the [FunctionService/CreateVersion]({{ link-docs }}/functions/functions/api-ref/grpc/Function/createVersion) gRPC API call.
 
 {% endlist %}
 
@@ -1010,6 +1010,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
-1. [Delete the function](../../functions/operations/function/function-delete.md).
-1. [Delete the secret](../../lockbox/operations/secret-delete.md).
-1. If you logged data to a log group, [delete the group](../../logging/operations/delete-group.md).
+1. [Delete the function]({{ link-docs }}/functions/operations/function/function-delete).
+1. [Delete the secret]({{ link-docs }}/lockbox/operations/secret-delete).
+1. If you logged data to a log group, [delete the group]({{ link-docs }}/logging/operations/delete-group).

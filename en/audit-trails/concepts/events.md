@@ -33,7 +33,7 @@ Service name: `apploadbalancer`.
 
 ## {{ ai-studio-full-name }} {#ai-studio}
 
-Service name: `ai`.
+Service name: `ai` for all events except {{ sw-full-name }} events. For {{ sw-full-name }} events, the service name is `serverless.workflows`.
 
 {% include [ai-studio-events](../../_includes/audit-trails/events/ai-studio-events.md) %}
 
@@ -421,11 +421,5 @@ Service name: `network`.
 Service name: `websql`.
 
 {% include [websql-events](../../_includes/audit-trails/events/websql-events.md) %}
-
-## {{ sw-full-name }} {#workflows}
-
-Service name: `serverless.workflows`.
-
-{% include [workflows-events](../../_includes/audit-trails/events/workflows-events.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

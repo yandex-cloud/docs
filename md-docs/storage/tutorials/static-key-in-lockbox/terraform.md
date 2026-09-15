@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > [Хранение статического ключа доступа в секрете Yandex Lockbox](index.md) > Terraform
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Безопасность и управление доступом > [Хранение статического ключа доступа в секрете Yandex Lockbox](index.md) > Terraform
 
 # Использование секрета Yandex Lockbox для хранения статического ключа доступа с помощью Terraform
 

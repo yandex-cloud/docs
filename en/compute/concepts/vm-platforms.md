@@ -53,6 +53,7 @@ Intel Ice Lake with</br>NVIDIA® Tesla® T4</br>(`standard-v3-t4`) | [NVIDIA® T
 {{ t4i-ice-lake }}</br>(`standard-v3-t4i`) | T4i | [Intel® Xeon® Gold 6338](https://ark.intel.com/content/www/us/en/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | **Maximum number of GPUs per VM**: 1 </br> **Number of vCPUs per GPU**: 4, 8, 16, or 32 </br> **RAM per GPU**: 16, 32, 64, or 128 GB
 GPU PLATFORM V4</br>(`gpu-standard-v4`) | GPU V4 | Intel® Xeon® Platinum | **Maximum number of GPUs per VM**: 8 </br> **Number of vCPUs per GPU**: 22 or 22.5 </br> **RAM per GPU**: 220 or 225 GB
 
+
 ## Limits {#restrictions}
 
 The table below shows which {{ compute-name }} platforms are supported in the `{{ region-id }}-d` and `{{ region-id }}-e` [availability zones](../../overview/concepts/geo-scope.md).
@@ -86,6 +87,7 @@ To migrate a VM with a non-supported platform from the `{{ region-id }}-d` or `{
 * [Stop](../operations/vm-control/vm-stop-and-start.md#stop) the VM, [change](../operations/vm-control/vm-update-resources.md#update-vcpu-ram) the platform, and [move](../operations/vm-control/vm-change-zone.md#relocate-command) the VM by running [yc compute instance relocate](../cli-ref/instance/relocate.md).
 
 {% endnote %}
+
 
 ### See also {#see-also}
 

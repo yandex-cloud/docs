@@ -18,7 +18,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
   1. Select the file storage from the list.
-  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the file storage.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../../security/index.md#roles-list).
@@ -95,7 +95,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `filesystem_id`: File storage ID.
-      * `role`: [Role](../../security/index.md#roles-list).
+      * `role`: [Role](../../security/index.md#roles-list) to assign.
       * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_compute_filesystem_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_filesystem_iam_binding).
@@ -126,7 +126,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
   1. Select the file storage from the list.
-  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the file storage.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../../security/index.md#roles-list).
@@ -143,7 +143,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% include [set-access-bindings](../../../_includes/compute/set-access-bindings-note.md) %}
 
-  1. Make sure the resource has no important roles assigned before proceeding:
+  1. Make sure the resource has no roles assigned that you would not want to lose:
 
      ```bash
      yc compute filesystem list-access-bindings <file_storage_ID>
@@ -205,7 +205,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `filesystem_id`: File storage ID.
-      * `role`: [Role](../../security/index.md#roles-list).
+      * `role`: [Role](../../security/index.md#roles-list) to assign.
       * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_compute_filesystem_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_filesystem_iam_binding).
@@ -237,7 +237,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
   1. Select the file storage from the list.
-  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. In the line with the user in question, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
   1. Click ![cross](../../../_assets/console-icons/xmark.svg) next to a role to delete it.
   1. Click **{{ ui-key.yacloud.common.save }}**.

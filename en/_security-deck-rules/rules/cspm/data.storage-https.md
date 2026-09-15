@@ -9,9 +9,12 @@
 
 [Object Storage](https://yandex.cloud/en/docs/storage) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your Object Storage website requires HTTPS access. Integration with [Certificate Manager](https://yandex.cloud/en/docs/certificate-manager) is also supported. See the instructions in the Object Storage documentation:
 
-* [Configuring HTTPS](https://yandex.cloud/en/docs/storage/operations/hosting/certificate) * [Bucket](https://yandex.cloud/en/docs/storage/concepts/bucket)
+* [Configuring HTTPS](https://yandex.cloud/en/docs/storage/operations/hosting/certificate)
+* [Bucket](https://yandex.cloud/en/docs/storage/concepts/bucket)
 
 When using [Object Storage](https://yandex.cloud/en/docs/storage), make sure that support for TLS protocols below version 1.2 is disabled at the client level. Use the [`aws:securetransport`](https://yandex.cloud/en/docs/storage/s3/api-ref/policy/conditions) bucket policy to make sure running without TLS is disabled for the bucket.
+
+**Risks if the rule is not followed:** Without HTTPS, data transmitted between users and the static website is sent in plaintext, exposing it to interception and man-in-the-middle attacks. Sensitive content, session tokens, or form submissions can be captured by network attackers. Modern browsers also warn users about or block HTTP-only sites, reducing trust and availability.
 
 #### Instructions and solutions
 

@@ -12,7 +12,7 @@ This section describes how to configure an application health check for an exist
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the group to update.
-  1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
+  1. Click [pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_health-check }}**, enable **{{ ui-key.yacloud.compute.groups.create.field_enable-health-check }}**.
   1. Configure health check settings:
      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}` or `{{ ui-key.yacloud.common.label_tcp }}`.

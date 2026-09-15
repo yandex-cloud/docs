@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Использование гибридного хранилища в Yandex Managed Service for ClickHouse®
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Перенос данных и интеграция с базами данных > Использование гибридного хранилища в Yandex Managed Service for ClickHouse®
 
 # Использование гибридного хранилища в Managed Service for ClickHouse®
 

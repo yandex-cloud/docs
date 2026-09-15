@@ -13,12 +13,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for using a NAT gateway (see [{{ vpc-name }} pricing](../../vpc/pricing.md#nat-gateways)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md#nat-gateways)).
 
 
 ## Get your cloud ready {#before-you-begin}
@@ -53,7 +51,7 @@ The support cost for this solution includes:
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-     1. [Create a {{ k8s }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. When creating, specify the preconfigured security groups.
+     1. [Create a {{ k8s }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) of any suitable configuration. When creating, specify the preconfigured security groups.
 
    - {{ TF }} {#tf}
 

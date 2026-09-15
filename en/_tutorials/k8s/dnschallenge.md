@@ -11,12 +11,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* DNS zone and DNS query fee (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Public DNS requests and DNS zone (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
 
 
 ## Getting started {#before-begin}
@@ -39,7 +37,7 @@ The support cost for this solution includes:
     {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. {% include [configure-cert-manager](../../_includes/managed-kubernetes/security-groups/configure-cert-manager.md) %}
-1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. When creating, specify the preconfigured security groups.
+1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) of any suitable configuration. When creating, specify the preconfigured security groups.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 

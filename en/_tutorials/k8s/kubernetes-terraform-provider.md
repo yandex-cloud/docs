@@ -20,12 +20,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for an NLB (see [{{ network-load-balancer-name }} pricing](../../network-load-balancer/pricing.md)).
-* Fee for VM and NLB public IP addresses (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Each network load balancer: incoming and outgoing traffic processed by the load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
+* Public IP addresses for {{ managed-k8s-name }} cluster's master and nodes, and for the network load balancer (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Set up the infrastructure for {{ managed-k8s-name }} {#prepare-kubernetes-infrastructure}
@@ -49,13 +47,13 @@ The support cost for this solution includes:
    * {{ k8s }} node group.
 
 1. Specify the variable values in the `k8s-cluster.tf` file.
-1. Validate your {{ TF }} configuration files using this command:
+1. Make sure the {{ TF }} configuration files are correct using this command:
 
    ```bash
    terraform validate
    ```
 
-   {{ TF }} will display any configuration errors detected in your files.
+   {{ TF }} will show any errors found in your configuration files.
 
 1. Create an infrastructure:
 
@@ -230,7 +228,7 @@ Create a test application and a `LoadBalancer` service:
 
    When the `READY` column shows `2/2`, run the `terraform apply` command again.
 
-You can also create other standard {{ k8s }} resources using {{ TF }} manifests. Use the YAML configuration of the resource you need as a base (see [this example for a pod](https://kubernetes.io/docs/concepts/workloads/pods/#using-pods)). Take the structure and parameters from the configuration and apply the {{ TF }} markup. For example, replace the `containerPort` parameter from the YAML file with the `container_port` parameter in {{ TF }}. For a full list of {{ TF }} resources for {{ k8s }}, see [this Kubernetes provider article](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs).
+You can also create other standard {{ k8s }} resources using {{ TF }} manifests. Use the YAML configuration of the resource you need as a base (see [this example for a pod](https://kubernetes.io/docs/concepts/workloads/pods/#using-pods)). Take the structure and parameters from the configuration and apply the {{ TF }} markup. For example, replace the `containerPort` parameter from the YAML file with the `container_port` parameter in {{ TF }}. For a full list of {{ TF }} resources for {{ k8s }}, see [this provider article](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs).
 
 For information about creating [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) using {{ TF }}, see [this {{ TF }} tutorial](https://developer.hashicorp.com/terraform/tutorials/kubernetes/kubernetes-provider?variants=kubernetes%3Akind#managing-custom-resources).
 

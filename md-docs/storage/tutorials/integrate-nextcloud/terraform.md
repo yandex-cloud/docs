@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > [Развертывание Nextcloud в интеграции с Object Storage](index.md) > Развертывание Nextcloud на ВМ или в группе ВМ с помощью Terraform
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Хостинг сайтов и веб-приложений > [Развертывание Nextcloud в интеграции с Object Storage](index.md) > Развертывание Nextcloud на ВМ или в группе ВМ с помощью Terraform
 
 # Развертывание Nextcloud на виртуальной машине или в группе виртуальных машин Yandex Compute Cloud в интеграции с Object Storage с помощью Terraform
 

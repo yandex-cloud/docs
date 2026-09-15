@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > [Конвертация видео в GIF на Python](index.md) > Консоль управления
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Разработка и развертывание приложений > [Конвертация видео в GIF на Python](index.md) > Консоль управления
 
 # Конвертация видео в GIF на Python с помощью консоли управления
 

@@ -71,7 +71,7 @@ description: Follow this guide to create a rule with a {{ sw-full-name }} target
 
       * `--workflow-target`: Parameter used to configure the `{{ sw-full-name }}` target and its properties:
 
-          * `workflow-id`: ID of [workflow](../../../concepts/workflows/workflow.md) to receive the messages matching the rule at its input.
+          * `workflow-id`: ID of [workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) to receive the messages matching the rule at its input.
           * `service-account-id`: ID of the [service account](../../../../iam/concepts/users/service-accounts.md) which has the `serverless.workflowsExecutor` role or higher for the selected workflow.
 
 
@@ -165,7 +165,7 @@ description: Follow this guide to create a rule with a {{ sw-full-name }} target
       * `jq_filter`: [jq template](https://jqlang.github.io/jq/manual/) for event [filtering](../../../concepts/eventrouter/rule.md#filter).
       * `workflow`: Section to configure the `{{ sw-full-name }}` target and its parameters:
 
-          * `workflow_id`: ID of the [workflow](../../../concepts/workflows/workflow.md) to receive the messages matching the rule.
+          * `workflow_id`: ID of the [workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) to receive the messages matching the rule.
           * `service_account_id`: ID of the [service account](../../../../iam/concepts/users/service-accounts.md) which has the `serverless.workflowsExecutor` role or higher for the selected workflow.
 
           {% include [target-grouping-tf](../../../../_includes/serverless-integrations/target-grouping-tf.md) %}

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Создание интерактивного serverless-приложения с использованием WebSocket
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Разработка и развертывание приложений > Создание интерактивного serverless-приложения с использованием WebSocket
 
 # Создание интерактивного serverless-приложения с использованием WebSocket
 

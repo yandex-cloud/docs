@@ -18,8 +18,8 @@ description: Follow this guide to add the {{ sw-full-name }} extension using the
 
       {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-      * **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}**: Service account with the `serverless.workflows.executor` role to [run a workflow](../../../serverless-integrations/concepts/workflows/execution.md). If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
-      * **Workflow**: [Workflow](../../../serverless-integrations/concepts/workflows/workflow.md) name.
+      * **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}**: Service account with the `serverless.workflows.executor` role to [run a workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/execution). If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
+      * **Workflow**: [Workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) name.
 
   1. Click **{{ ui-key.yacloud.common.add }}**.
 

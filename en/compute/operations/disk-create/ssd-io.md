@@ -16,7 +16,7 @@ The disk size must be a multiple of 93 GB.
   
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}**.
   1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Enter a name for the disk. The naming requirements are as follows:
   
@@ -130,7 +130,7 @@ The disk size must be a multiple of 93 GB.
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
      ```bash
      yc compute disk list

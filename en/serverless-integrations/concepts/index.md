@@ -31,12 +31,6 @@ keywords:
 
 ## Available features {#instruments}
 
-### {{ sw-name }} {#workflows}
-
-{% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
-
-Build and automate workflows using the Yandex Workflows Language (YaWL).
-
 ### {{ er-name }} {#eventrouter}
 
 {% include [event-router-preview-note](../../_includes/serverless-integrations/event-router-preview-note.md) %}

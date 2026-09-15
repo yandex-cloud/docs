@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Статический сайт в Yandex Object Storage > Обзор
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Хостинг сайтов и веб-приложений > Статический сайт в Yandex Object Storage > Обзор
 
 # Статический сайт в Yandex Object Storage
 

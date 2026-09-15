@@ -16,6 +16,14 @@ yc components update
 ```
 
 
+## Required paid resources {#paid-resources}
+
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+
+
+
 ## Migrate the node group and pod workload to a different availability zone {#transfer-a-node-group}
 
 [Set up the node group](#prepare) and proceed with migration using one of the following methods:

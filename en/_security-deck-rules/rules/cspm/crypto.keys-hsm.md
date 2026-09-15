@@ -13,6 +13,8 @@ To use the HSM, when creating a key, select HSM as the algorithm type. The HSM w
 
 It is recommended to use HSMs for KMS keys to enhance the security level.
 
+HSM-backed keys provide hardware-enforced isolation, ensuring cryptographic operations cannot be performed outside the secure hardware boundary.
+
 #### Instructions and solutions
 
 [Set](https://yandex.cloud/en/docs/kms/operations/symmetric-encryption) the encryption algorithm for KMS keys to AES-256 HSM.

@@ -17,12 +17,10 @@ While running, the total number of [group nodes](../../managed-kubernetes/concep
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }}] pricing(../../compute/pricing.md)).
-* Fee for a public IP address for cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ kms-name }} fee: number of active key versions (in `Active` and `Scheduled For Destruction` statuses) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses for {{ managed-k8s-name }} cluster's master and nodes (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ kms-full-name }}: number of active key versions and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
 
 
 ## Getting started {#before-you-begin}

@@ -7,12 +7,23 @@
 
 #### Description
 
-When creating a cluster in Managed Service for Kubernetes, specify two service accounts:
+A cluster in [Managed Service for Kubernetes](https://yandex.cloud/en/docs/managed-kubernetes/) uses two service accounts:
 
-* **Cluster service account**: On behalf of this service account, Managed Service for Kubernetes manages cluster nodes, subnets for pods and services, disks, load balancers, encrypts and decrypts secrets. * **Node group service account**: Under this service account, Managed Service for Kubernetes cluster nodes get authenticated in Yandex Container Registry or Yandex Cloud Registry. For other container registries, you do not need to assign roles to the service account.
+* **Cluster service account** — Managed Service for Kubernetes uses it to manage cluster nodes, subnets for Pods and Services, disks, load balancers, and to encrypt and decrypt secrets.
+* **Node group service account** — cluster nodes use it to authenticate in [Container Registry](https://yandex.cloud/en/docs/container-registry/) when pulling images. For other registries, no roles need to be granted to this service account.
+
+Using the same service account for both purposes is convenient at first, but it gives every node in the cluster the permissions of the cluster service account — including the ability to manage nodes, subnets, and load balancers. A compromised node can then change the cluster's network or scale node groups, not only pull images.
+
+Splitting the roles between two service accounts limits the blast radius of a compromised node to what it actually needs.
+
+**Risks if the rule is not followed:** If a single service account is used for both the cluster and node groups, a compromised node gains full cluster management permissions. An attacker who takes control of a node can modify the cluster's network configuration, scale or delete node groups, and access secrets — far beyond what a node should be able to do.
 
 #### Instructions and solutions
 
-Make sure that the access of IAM accounts to Managed Service for Kubernetes resources is managed at the following levels:
+Use two separate service accounts for the cluster:
 
-* Managed Service for Kubernetes service roles (access to the Yandex Cloud API). These allow you to control clusters and node groups (e.g., create a cluster, create/edit/delete a node group, and so on). * Service roles required to access the Kubernetes API. These allow you to control cluster resources via the Kubernetes API (e.g., perform standard actions with Kubernetes: create, delete, view namespaces, work with pods, deployments, create roles, and so on). Only the basic global roles are available at cluster level: `k8s.cluster-api.cluster-admin`, `k8s.cluster-api.editor`, or `k8s.cluster-api.viewer` . * Primitive roles. These are global primitive IAM roles that comprise service roles (e.g., the primitive `admin` role comprises both the service administration role and the administration role for access to the Kubernetes API). * Standard Kubernetes roles. Inside the Kubernetes cluster itself, the Kubernetes tools can help you create both regular roles and cluster roles. Thus you can manage access for IAM accounts at the namespace level. To assign IAM roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace stating the cloud user's IAM ID in the subjects name field.
+1. Create a service account for the cluster and grant it the [roles required for cluster management](https://yandex.cloud/en/docs/managed-kubernetes/security/#yc-api).
+2. Create a separate service account for the node group and grant it only the [`container-registry.images.puller`](https://yandex.cloud/en/docs/container-registry/security/) role on the registries from which the cluster pulls images.
+3. For an existing cluster with a shared service account, create the missing one and switch the cluster or node group to it through [updating the cluster](https://yandex.cloud/en/docs/managed-kubernetes/operations/update-cluster) or [updating the node group](https://yandex.cloud/en/docs/managed-kubernetes/operations/node-group/node-group-update).
+
+For details on access management in Managed Service for Kubernetes, see the [service security documentation](https://yandex.cloud/en/docs/managed-kubernetes/security/).

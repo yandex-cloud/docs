@@ -134,7 +134,6 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](images-with-pre-installed-software/setup.md)
 * [{#T}](images-with-pre-installed-software/operate.md)
 * [{#T}](images-with-pre-installed-software/get-list.md)
-* [{#T}](images-with-pre-installed-software/get-info.md)
 
 ### Yandex Data Science Virtual Machine {#dsvm}
 

@@ -45,7 +45,7 @@ items:
               Доступ в бакет с помощью сервисного подключения из {{
               vpc-short-name }}
             href: operations/buckets/access-via-vpc.md
-          - name: Поиск чувствительных данных в бакете
+          - name: Искать чувствительные данные в бакете
             href: operations/buckets/sensitive-data-search.md
           - name: Управление версионированием бакета
             href: operations/buckets/versioning.md
@@ -119,6 +119,60 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: Хостинг сайтов и веб-приложений
+        items:
+          - name: Статический сайт в {{ objstorage-full-name }}
+            items:
+              - name: Обзор
+                href: tutorials/static/index.md
+              - name: Консоль управления
+                href: tutorials/static/console.md
+              - name: Terraform
+                href: tutorials/static/terraform.md
+          - name: >-
+              Хостинг статического сайта на фреймворке Gatsby в {{
+              objstorage-name }}
+            href: tutorials/gatsby-static-website.md
+          - name: >-
+              Настройка хостинга статического сайта в бакете {{
+              objstorage-full-name }} с доступом через {{ cdn-full-name }}
+            items:
+              - name: Обзор
+                href: tutorials/cdn-hosting/index.md
+              - name: Консоль управления, CLI, API
+                href: tutorials/cdn-hosting/console.md
+              - name: '{{ TF }}'
+                href: tutorials/cdn-hosting/terraform.md
+          - name: Интеграция L7-балансировщика с CDN и {{ objstorage-name }}
+            items:
+              - name: Обзор
+                href: tutorials/cdn-storage-integration/index.md
+              - name: Консоль управления, CLI и API
+                href: tutorials/cdn-storage-integration/console.md
+              - name: '{{ TF }}'
+                href: tutorials/cdn-storage-integration/terraform.md
+          - name: Развертывание Nextcloud в интеграции с {{ objstorage-name }}
+            items:
+              - name: Обзор
+                href: tutorials/integrate-nextcloud/index.md
+              - name: Развертывание Nextcloud на ВМ из образа {{ coi }}
+                href: tutorials/integrate-nextcloud/coi-based.md
+              - name: Развертывание Nextcloud на ВМ или в группе ВМ вручную
+                href: tutorials/integrate-nextcloud/fault-tolerant.md
+              - name: >-
+                  Развертывание Nextcloud на ВМ или в группе ВМ с помощью {{ TF
+                  }}
+                href: tutorials/integrate-nextcloud/terraform.md
+          - name: >-
+              Установка Ghost CMS High Availability с помощью {{ cloud-apps-name
+              }}
+            href: tutorials/ghost-cms-cloudapp.md
+          - name: Установка WordPress с помощью {{ cloud-apps-name }}
+            href: tutorials/wordpress-cloudapp.md
+          - name: >-
+              Установка WordPress High Availability с помощью {{ cloud-apps-name
+              }}
+            href: tutorials/wordpress-ha-cloudapp.md
       - name: Резервное копирование
         items:
           - name: Обзор
@@ -129,277 +183,245 @@ items:
             href: tutorials/storage-backup-aws-s3-sync.md
           - name: Резервное копирование в {{ objstorage-name }} с помощью rclone
             href: tutorials/storage-backup-rclone.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью Veeam
+              Backup
+            href: tutorials/backup-with-veeam.md
           - name: Резервное копирование в {{ objstorage-name }} с помощью GeeseFS
             href: tutorials/storage-backup-geesefs.md
+          - name: Резервное копирование ВМ с помощью Хайстекс Акура
+            href: tutorials/hystax-backup.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью Duplicati
+            href: tutorials/object-storage-duplicati.md
+          - name: >-
+              Резервное копирование кластера {{ managed-k8s-name }} в {{
+              objstorage-name }}
+            href: tutorials/kubernetes-backup.md
           - name: >-
               Резервное копирование в {{ objstorage-name }} с помощью CloudBerry
               Desktop Backup
             href: tutorials/object-storage-cloudberry.md
-          - name: Резервное копирование в {{ objstorage-name }} с помощью Duplicati
-            href: tutorials/object-storage-duplicati.md
           - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
             href: tutorials/backup-with-bacula.md
           - name: >-
               Резервное копирование в {{ objstorage-name }} с помощью Veritas
               Backup Exec
             href: tutorials/object-storage-veritas.md
+      - name: Сбор и анализ логов
+        items:
+          - name: Получение статистики запросов к объекту с использованием S3 Select
+            href: tutorials/server-logs.md
+          - name: Получение статистики посещения сайта с использованием S3 Select
+            href: tutorials/user-agent-statistics.md
+          - name: Поиск событий в аудитных логах
+            items:
+              - name: Обзор
+                href: tutorials/search-events-audit-logs/index.md
+              - name: Инструменты для работы с аудитными логами
+                href: tutorials/search-events-audit-logs/tools.md
+              - name: Примеры запросов для поиска событий
+                href: tutorials/search-events-audit-logs/examples.md
+              - name: Настройка работы с {{ yq-full-name }}
+                href: tutorials/search-events-audit-logs/query.md
+          - name: Анализ логов с использованием DataLens
+            href: tutorials/storage-logs-analysis.md
           - name: >-
-              Резервное копирование в {{ objstorage-name }} с помощью Veeam
-              Backup
-            href: tutorials/backup-with-veeam.md
-          - name: Резервное копирование ВМ с помощью Хайстекс Акура
-            href: tutorials/hystax-backup.md
+              Получение статистики запросов к объектам с использованием {{
+              yq-full-name }}
+            href: tutorials/server-logs-yq.md
+          - name: Хранение журналов работы приложения
+            href: tutorials/log-ingestion.md
+          - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
+            href: tutorials/search-events-bucket.md
+          - name: Загрузка аудитных логов в SIEM ArcSight
+            href: tutorials/export-logs-to-arcsight.md
+          - name: Репликация логов в {{ objstorage-name }} с помощью Fluent Bit
+            href: tutorials/replicate-logs-to-storage.md
+          - name: Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}
+            href: tutorials/replicate-logs-to-storage-via-data-streams.md
+          - name: Загрузка аудитных логов в SIEM Splunk
+            href: tutorials/export-logs-to-splunk.md
+          - name: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
+            href: tutorials/search-events-query.md
+      - name: Разработка и развертывание приложений
+        items:
+          - name: Разработка Telegram-бота
+            items:
+              - name: Обзор
+                href: tutorials/telegram-bot-serverless/index.md
+              - name: Консоль управления
+                href: tutorials/telegram-bot-serverless/console.md
+              - name: '{{ TF }}'
+                href: tutorials/telegram-bot-serverless/terraform.md
+          - name: Сокращатель ссылок
+            items:
+              - name: Обзор
+                href: tutorials/serverless-url-shortener/index.md
+              - name: Консоль управления
+                href: tutorials/serverless-url-shortener/console.md
+              - name: '{{ TF }}'
+                href: tutorials/serverless-url-shortener/terraform.md
+          - name: Сине-зеленое и канареечное развертывание версий сервиса
+            href: tutorials/blue-green-canary-deployment.md
+          - name: Конвертация видео в GIF на Python
+            items:
+              - name: Обзор
+                href: tutorials/video-converting-queue/index.md
+              - name: Консоль управления
+                href: tutorials/video-converting-queue/console.md
+              - name: '{{ TF }}'
+                href: tutorials/video-converting-queue/terraform.md
+          - name: Разработка навыка Алисы и сайта с авторизацией
+            href: tutorials/alice-shareable-todolist.md
+          - name: Публикация обновлений для игр
+            href: tutorials/prefetch.md
+          - name: Разработка пользовательской интеграции в {{ api-gw-name }}
+            href: tutorials/api-gw-integration.md
+          - name: Развертывание веб-приложения с использованием Java Servlet API
+            href: tutorials/java-servlet-todo-list.md
           - name: >-
-              Резервное копирование кластера {{ managed-k8s-name }} в {{
+              Создание интерактивного serverless-приложения с использованием
+              WebSocket
+            href: tutorials/websocket-app.md
+          - name: >-
+              Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name
+              }} и аутентификацией в Firebase
+            href: tutorials/jwt-authorizer-firebase.md
+      - name: Безопасность и управление доступом
+        items:
+          - name: Шифрование на стороне сервера
+            href: tutorials/server-side-encryption.md
+          - name: Подключение к {{ objstorage-name }} из {{ vpc-short-name }}
+            href: tutorials/storage-vpc-access.md
+          - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
+            items:
+              - name: Обзор
+                href: tutorials/static-key-in-lockbox/index.md
+              - name: CLI
+                href: tutorials/static-key-in-lockbox/console.md
+              - name: '{{ TF }}'
+                href: tutorials/static-key-in-lockbox/terraform.md
+      - name: Работа с файловыми системами
+        items:
+          - name: Подключение бакета как диска в Windows
+            href: tutorials/s3-disk-connect.md
+          - name: >-
+              Монтирование бакетов к файловой системе хостов {{
+              dataproc-full-name }}
+            href: tutorials/data-processing-init-actions-geesefs.md
+      - name: Перенос данных и интеграция с базами данных
+        items:
+          - name: Автоматическое копирование объектов из бакета в бакет
+            href: tutorials/bucket-to-bucket.md
+          - name: Использование гибридного хранилища в {{ mch-full-name }}
+            href: tutorials/clickhouse-hybrid-storage.md
+          - name: Миграция базы данных из {{ mpg-name }} в {{ objstorage-name }}
+            href: tutorials/mpg-to-objstorage.md
+          - name: >-
+              Выгрузка данных {{ GP }} в гибридное хранилище {{
+              objstorage-full-name }}
+            href: tutorials/greenplum-yezzey.md
+          - name: >-
+              Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name
+              }} с использованием {{ sf-full-name }}, {{ objstorage-full-name }}
+              и {{ data-transfer-full-name }}
+            href: tutorials/data-transfer-direct-to-mch.md
+          - name: >-
+              Миграция данных из {{ yds-full-name }} с помощью {{
+              data-transfer-full-name }}
+            href: tutorials/yds-obj-migration.md
+          - name: >-
+              Перенос данных в {{ mpg-full-name }} с использованием {{
+              data-transfer-full-name }}
+            href: tutorials/object-storage-to-postgresql.md
+          - name: >-
+              Миграция базы данных из {{ mmy-full-name }} в {{
+              objstorage-full-name }}
+            href: tutorials/mmy-objs-migration.md
+          - name: >-
+              Загрузка данных из {{ mos-full-name }} в {{ objstorage-full-name
+              }} с помощью {{ data-transfer-full-name }}
+            href: tutorials/opensearch-to-object-storage.md
+          - name: >-
+              Загрузка данных из {{ ydb-full-name }} с помощью {{
+              data-transfer-full-name }}
+            href: tutorials/ydb-to-object-storage.md
+          - name: >-
+              Загрузка данных в {{ mgp-full-name }} с помощью {{
+              data-transfer-full-name }}
+            href: tutorials/object-storage-to-greenplum.md
+          - name: >-
+              Загрузка данных в {{ mch-full-name }} с помощью {{
+              data-transfer-full-name }}
+            href: tutorials/object-storage-to-clickhouse.md
+          - name: >-
+              Миграция данных из {{ objstorage-full-name }} в {{ mmy-full-name
+              }} с помощью {{ data-transfer-full-name }}
+            href: tutorials/objs-mmy-migration.md
+          - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
+            href: tutorials/bigquery-to-clickhouse.md
+          - name: >-
+              Загрузка данных в {{ ydb-full-name }} с помощью {{
+              data-transfer-full-name }}
+            href: tutorials/object-storage-to-ydb.md
+      - name: Обработка и анализ данных
+        items:
+          - name: Анализ поресурсной детализации расходов
+            href: tutorials/billing-resource-detailing.md
+          - name: Использование {{ objstorage-name }} в {{ dataproc-name }}
+            href: tutorials/copy-files-from-object-storage.md
+          - name: >-
+              Импорт данных из {{ objstorage-name }}, обработка и экспорт в {{
+              mch-name }}
+            href: tutorials/s3-data-processing-ch.md
+          - name: Работа с данными с помощью {{ yq-full-name }}
+            href: tutorials/yq-storage.md
+          - name: >-
+              Создание внешней таблицы на базе таблицы из бакета с помощью
+              конфигурационного файла
+            href: tutorials/mgp-config-server-for-s3.md
+          - name: Автоматизация задач с помощью {{ maf-short-name }}
+            href: tutorials/airflow-auto-tasks.md
+          - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
+            href: tutorials/dp-mch-data-exchange.md
+          - name: Обработка файлов детализации в сервисе {{ billing-name }}
+            href: tutorials/billing.md
+          - name: Использование {{ objstorage-name }} в {{ msp-full-name }}
+            href: tutorials/spark-objstorage-integration.md
+          - name: >-
+              Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с
+              помощью Sqoop
+            href: tutorials/sqoop-mmy.md
+          - name: >-
+              Импорт данных из {{ mpg-full-name }} в {{ dataproc-full-name }} с
+              помощью Sqoop
+            href: tutorials/sqoop-mpg.md
+          - name: Федеративные запросы к данным с помощью {{ yq-name }}
+            href: tutorials/yq-federative-queries.md
+          - name: Визуализация данных {{ yq-full-name }}
+            href: tutorials/data-from-yandex-query-visualization.md
+      - name: Машинное обучение и искусственный интеллект
+        items:
+          - name: >-
+              Обучение модели в {{ ml-platform-full-name }} на данных из {{
               objstorage-name }}
-            href: tutorials/kubernetes-backup.md
-      - name: Получение статистики запросов к объекту с использованием S3 Select
-        href: tutorials/server-logs.md
-      - name: Получение статистики посещения сайта с использованием S3 Select
-        href: tutorials/user-agent-statistics.md
-      - name: >-
-          Получение статистики запросов к объектам с использованием {{
-          yq-full-name }}
-        href: tutorials/server-logs-yq.md
-      - name: Анализ поресурсной детализации расходов
-        href: tutorials/billing-resource-detailing.md
-      - name: Шифрование на стороне сервера
-        href: tutorials/server-side-encryption.md
-      - name: Интеграция L7-балансировщика с CDN и {{ objstorage-name }}
+            href: tutorials/s3-to-datasphere.md
+          - name: Регулярное асинхронное распознавание аудиофайлов в бакете
+            href: tutorials/batch-recognition-stt.md
+          - name: >-
+              Регулярное распознавание изображений и PDF-документов из бакета {{
+              objstorage-short-name }}
+            href: tutorials/vision-ocrrecognizer-storage.md
+          - name: Распознавание архива изображений в {{ vision-name }}
+            href: tutorials/archive-from-vision-to-object-storage.md
+          - name: Создание сервера MLFlow для логирования экспериментов и артефактов
+            href: tutorials/mlflow-datasphere.md
+      - name: Управление инфраструктурой с {{ TF }}
         items:
-          - name: Обзор
-            href: tutorials/cdn-storage-integration/index.md
-          - name: Консоль управления, CLI и API
-            href: tutorials/cdn-storage-integration/console.md
-          - name: '{{ TF }}'
-            href: tutorials/cdn-storage-integration/terraform.md
-      - name: Сине-зеленое и канареечное развертывание версий сервиса
-        href: tutorials/blue-green-canary-deployment.md
-      - name: Анализ логов с использованием DataLens
-        href: tutorials/storage-logs-analysis.md
-      - name: Поиск событий в аудитных логах
-        items:
-          - name: Обзор
-            href: tutorials/search-events-audit-logs/index.md
-          - name: Инструменты для работы с аудитными логами
-            href: tutorials/search-events-audit-logs/tools.md
-          - name: Примеры запросов для поиска событий
-            href: tutorials/search-events-audit-logs/examples.md
-          - name: Настройка работы с {{ yq-full-name }}
-            href: tutorials/search-events-audit-logs/query.md
-      - name: >-
-          Монтирование бакетов к файловой системе хостов {{ dataproc-full-name
-          }}
-        href: tutorials/data-processing-init-actions-geesefs.md
-      - name: Использование {{ objstorage-name }} в {{ dataproc-name }}
-        href: tutorials/copy-files-from-object-storage.md
-      - name: >-
-          Импорт данных из {{ objstorage-name }}, обработка и экспорт в {{
-          mch-name }}
-        href: tutorials/s3-data-processing-ch.md
-      - name: Подключение бакета как диска в Windows
-        href: tutorials/s3-disk-connect.md
-      - name: >-
-          Миграция данных из {{ yds-full-name }} с помощью {{
-          data-transfer-full-name }}
-        href: tutorials/yds-obj-migration.md
-      - name: Использование гибридного хранилища в {{ mch-full-name }}
-        href: tutorials/clickhouse-hybrid-storage.md
-      - name: >-
-          Загрузка данных из {{ mos-full-name }} в {{ objstorage-full-name }} с
-          помощью {{ data-transfer-full-name }}
-        href: tutorials/opensearch-to-object-storage.md
-      - name: Автоматическое копирование объектов из бакета в бакет
-        href: tutorials/bucket-to-bucket.md
-      - name: Регулярное асинхронное распознавание аудиофайлов в бакете
-        href: tutorials/batch-recognition-stt.md
-      - name: >-
-          Обучение модели в {{ ml-platform-full-name }} на данных из {{
-          objstorage-name }}
-        href: tutorials/s3-to-datasphere.md
-      - name: Подключение к {{ objstorage-name }} из {{ vpc-short-name }}
-        href: tutorials/storage-vpc-access.md
-      - name: >-
-          Перенос данных в {{ mpg-full-name }} с использованием {{
-          data-transfer-full-name }}
-        href: tutorials/object-storage-to-postgresql.md
-      - name: >-
-          Загрузка данных в {{ mgp-full-name }} с помощью {{
-          data-transfer-full-name }}
-        href: tutorials/object-storage-to-greenplum.md
-      - name: >-
-          Загрузка данных в {{ mch-full-name }} с помощью {{
-          data-transfer-full-name }}
-        href: tutorials/object-storage-to-clickhouse.md
-      - name: >-
-          Загрузка данных в {{ ydb-full-name }} с помощью {{
-          data-transfer-full-name }}
-        href: tutorials/object-storage-to-ydb.md
-      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
-        href: tutorials/dp-mch-data-exchange.md
-      - name: >-
-          Загрузка данных из {{ ydb-full-name }} с помощью {{
-          data-transfer-full-name }}
-        href: tutorials/ydb-to-object-storage.md
-      - name: >-
-          Хостинг статического сайта на фреймворке Gatsby в {{ objstorage-name
-          }}
-        href: tutorials/gatsby-static-website.md
-      - name: Установка WordPress High Availability с помощью {{ cloud-apps-name }}
-        href: tutorials/wordpress-ha-cloudapp.md
-      - name: Установка WordPress с помощью {{ cloud-apps-name }}
-        href: tutorials/wordpress-cloudapp.md
-      - name: Установка Ghost CMS High Availability с помощью {{ cloud-apps-name }}
-        href: tutorials/ghost-cms-cloudapp.md
-      - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
-        items:
-          - name: Обзор
-            href: tutorials/static-key-in-lockbox/index.md
-          - name: CLI
-            href: tutorials/static-key-in-lockbox/console.md
-          - name: '{{ TF }}'
-            href: tutorials/static-key-in-lockbox/terraform.md
-      - name: Миграция базы данных из {{ mpg-name }} в {{ objstorage-name }}
-        href: tutorials/mpg-to-objstorage.md
-      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
-        href: tutorials/dp-mch-data-exchange.md
-      - name: >-
-          Импорт данных из {{ mpg-full-name }} в {{ dataproc-full-name }} с
-          помощью Sqoop
-        href: tutorials/sqoop-mpg.md
-      - name: >-
-          Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с
-          помощью Sqoop
-        href: tutorials/sqoop-mmy.md
-      - name: >-
-          Миграция данных из {{ objstorage-full-name }} в {{ mmy-full-name }} с
-          помощью {{ data-transfer-full-name }}
-        href: tutorials/objs-mmy-migration.md
-      - name: >-
-          Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name
-          }}
-        href: tutorials/mmy-objs-migration.md
-      - name: >-
-          Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-full-name
-          }}
-        href: tutorials/greenplum-yezzey.md
-      - name: >-
-          Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с
-          использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
-          data-transfer-full-name }}
-        href: tutorials/data-transfer-direct-to-mch.md
-      - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
-        href: tutorials/terraform-state-storage.md
-      - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
-        href: tutorials/terraform-state-lock.md
-      - name: Статический сайт в {{ objstorage-full-name }}
-        items:
-          - name: Обзор
-            href: tutorials/static/index.md
-          - name: Консоль управления
-            href: tutorials/static/console.md
-          - name: Terraform
-            href: tutorials/static/terraform.md
-      - name: Визуализация данных {{ yq-full-name }}
-        href: tutorials/data-from-yandex-query-visualization.md
-      - name: Публикация обновлений для игр
-        href: tutorials/prefetch.md
-      - name: Разработка пользовательской интеграции в {{ api-gw-name }}
-        href: tutorials/api-gw-integration.md
-      - name: Сокращатель ссылок
-        items:
-          - name: Обзор
-            href: tutorials/serverless-url-shortener/index.md
-          - name: Консоль управления
-            href: tutorials/serverless-url-shortener/console.md
-          - name: '{{ TF }}'
-            href: tutorials/serverless-url-shortener/terraform.md
-      - name: Хранение журналов работы приложения
-        href: tutorials/log-ingestion.md
-      - name: Разработка навыка Алисы и сайта с авторизацией
-        href: tutorials/alice-shareable-todolist.md
-      - name: >-
-          Создание интерактивного serverless-приложения с использованием
-          WebSocket
-        href: tutorials/websocket-app.md
-      - name: Развертывание веб-приложения с использованием Java Servlet API
-        href: tutorials/java-servlet-todo-list.md
-      - name: Разработка Telegram-бота
-        items:
-          - name: Обзор
-            href: tutorials/telegram-bot-serverless/index.md
-          - name: Консоль управления
-            href: tutorials/telegram-bot-serverless/console.md
-          - name: '{{ TF }}'
-            href: tutorials/telegram-bot-serverless/terraform.md
-      - name: Репликация логов в {{ objstorage-name }} с помощью Fluent Bit
-        href: tutorials/replicate-logs-to-storage.md
-      - name: Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}
-        href: tutorials/replicate-logs-to-storage-via-data-streams.md
-      - name: Загрузка аудитных логов в SIEM ArcSight
-        href: tutorials/export-logs-to-arcsight.md
-      - name: Загрузка аудитных логов в SIEM Splunk
-        href: tutorials/export-logs-to-splunk.md
-      - name: Создание сервера MLFlow для логирования экспериментов и артефактов
-        href: tutorials/mlflow-datasphere.md
-      - name: Работа с данными с помощью {{ yq-full-name }}
-        href: tutorials/yq-storage.md
-      - name: Федеративные запросы к данным с помощью {{ yq-name }}
-        href: tutorials/yq-federative-queries.md
-      - name: Распознавание архива изображений в {{ vision-name }}
-        href: tutorials/archive-from-vision-to-object-storage.md
-      - name: >-
-          Регулярное распознавание изображений и PDF-документов из бакета {{
-          objstorage-short-name }}
-        href: tutorials/vision-ocrrecognizer-storage.md
-      - name: Конвертация видео в GIF на Python
-        items:
-          - name: Обзор
-            href: tutorials/video-converting-queue/index.md
-          - name: Консоль управления
-            href: tutorials/video-converting-queue/console.md
-          - name: '{{ TF }}'
-            href: tutorials/video-converting-queue/terraform.md
-      - name: Автоматизация задач с помощью {{ maf-short-name }}
-        href: tutorials/airflow-auto-tasks.md
-      - name: Обработка файлов детализации в сервисе {{ billing-name }}
-        href: tutorials/billing.md
-      - name: >-
-          Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name }} и
-          аутентификацией в Firebase
-        href: tutorials/jwt-authorizer-firebase.md
-      - name: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
-        href: tutorials/search-events-query.md
-      - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
-        href: tutorials/search-events-bucket.md
-      - name: >-
-          Создание внешней таблицы на базе таблицы из бакета с помощью
-          конфигурационного файла
-        href: tutorials/mgp-config-server-for-s3.md
-      - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
-        href: tutorials/bigquery-to-clickhouse.md
-      - name: Развертывание Nextcloud в интеграции с {{ objstorage-name }}
-        items:
-          - name: Обзор
-            href: tutorials/integrate-nextcloud/index.md
-          - name: Развертывание Nextcloud на ВМ из образа {{ coi }}
-            href: tutorials/integrate-nextcloud/coi-based.md
-          - name: Развертывание Nextcloud на ВМ или в группе ВМ вручную
-            href: tutorials/integrate-nextcloud/fault-tolerant.md
-          - name: Развертывание Nextcloud на ВМ или в группе ВМ с помощью {{ TF }}
-            href: tutorials/integrate-nextcloud/terraform.md
-      - name: >-
-          Настройка хостинга статического сайта в бакете {{ objstorage-full-name
-          }} с доступом через {{ cdn-full-name }}
-        items:
-          - name: Обзор
-            href: tutorials/cdn-hosting/index.md
-          - name: Консоль управления, CLI, API
-            href: tutorials/cdn-hosting/console.md
-          - name: '{{ TF }}'
-            href: tutorials/cdn-hosting/terraform.md
-      - name: Использование {{ objstorage-name }} в {{ msp-full-name }}
-        href: tutorials/spark-objstorage-integration.md
+          - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
+            href: tutorials/terraform-state-storage.md
+          - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
+            href: tutorials/terraform-state-lock.md
   - name: Концепции
     items:
       - name: Обзор

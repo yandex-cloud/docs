@@ -17,7 +17,7 @@ Remove a [non-replicated disk](../../concepts/disk.md#nr-disks) from a [placemen
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Navigate to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
   1. Select the placement group to remove a disk from.
-  1. Go to the **{{ ui-key.yacloud.compute.placement-group.switch_disks }}** panel.
+  1. Navigate to the **{{ ui-key.yacloud.compute.placement-group.switch_disks }}** tab.
   1. To the right of the name of the disk to remove, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -73,7 +73,7 @@ Remove a [non-replicated disk](../../concepts/disk.md#nr-disks) from a [placemen
      terraform plan
      ```
 
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
      ```bash

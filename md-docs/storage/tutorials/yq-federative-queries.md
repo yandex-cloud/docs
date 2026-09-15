@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Федеративные запросы к данным с помощью Query
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Обработка и анализ данных > Федеративные запросы к данным с помощью Query
 
 # Федеративные запросы к данным с помощью Yandex Query
 

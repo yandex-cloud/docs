@@ -20,14 +20,12 @@ See the full configuration of {{ alb-name }} ingress controller resources in the
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* DNS zone and DNS query fee (see [{{ dns-name }}](../../dns/pricing.md) pricing).
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
-* Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ objstorage-name }} bucket fee covering data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Public DNS requests and DNS zones (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Each active L7 load balancer: use of computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -815,7 +813,7 @@ If you specified a name for the Ingress resource group settings in the `ingress.
 
 ## Make sure the applications are accessible via the L7 load balancer {#verify-setup}
 
-1. If you have no [ExternalDNS with the {{ dns-name }} plugin](/marketplace/products/yc/externaldns) installed, [add an A record to your domain zone](../../dns/operations/resource-record-create.md). In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the public IP address of your L7 {{ alb-name }}. If you are using ExternalDNS with the {{ dns-full-name }} plugin, this record will be created automatically.
+1. If you have no [ExternalDNS with the {{ dns-name }} plugin](/marketplace/products/yc/externaldns) installed, [add an A record to your domain zone](../../dns/operations/resource-record-create.md). In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the public IP address of your L7 {{ alb-name }}. If you are using ExternalDNS with the {{ dns-name }} plugin, this record will be created automatically.
 1. Test the load balancer:
 
    {% list tabs %}

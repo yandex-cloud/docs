@@ -74,7 +74,8 @@ The maximum string length in characters is 50. ||
   },
   "group_claims_settings": {
     "group_distribution_type": "GroupDistributionType",
-    "group_attribute_name": "string"
+    "group_attribute_name": "string",
+    "group_attribute_value": "GroupAttributeValue"
   },
   "identity_provider_metadata": {
     "issuer": "string",
@@ -287,6 +288,13 @@ Distribution type for group claims.
 Name of the SAML attribute that contains group information.
 
 The maximum string length in characters is 8000. ||
+|| group_attribute_value | enum **GroupAttributeValue**
+
+Source of the group value provided to the application.
+
+- `NAME`: The group name is provided to the application.
+- `ID`: The group ID is provided to the application.
+- `EXTERNAL_ID`: The group external ID is provided to the application. ||
 |#
 
 ## IdentityProviderMetadata {#yandex.cloud.organizationmanager.v1.idp.application.saml.IdentityProviderMetadata}

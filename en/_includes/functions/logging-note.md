@@ -1,5 +1,5 @@
 {% note info %}
 
-Logging is not free of charge. For more information, see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md).
+Logging is not free of charge. For more information, see [{{ cloud-logging-full-name }} pricing]({{ link-docs }}/logging/pricing).
 
 {% endnote %}

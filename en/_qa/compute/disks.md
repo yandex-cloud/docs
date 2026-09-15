@@ -54,7 +54,7 @@ To resolve this, create a zero-filled file to overwrite all unused disk space, f
 
 {% note info %}
 
-This does not work for [encrypted disks](../../compute/concepts/encryption.md#encryption-options), as written zeros get encrypted with the disk key and are not compressed. After the free space is filled with zeros, the snapshot will expand to the full disk size.
+This does not work for [encrypted disks](../../compute/concepts/encryption.md#encryption-options), as the written zeros get encrypted with the disk key and are not compressed. After the free space is filled with zeros, the snapshot will expand to the full disk size.
 
 {% endnote %}
 
@@ -100,7 +100,7 @@ Snapshots are billed and count towards [quotas]({{ link-console-quotas }}) based
    * Role for the folder: `viewer` or `compute.images.user`.
 
    See [{#T}](../../iam/operations/roles/grant.md).
-1. Create an image from your snapshot under **{{ ui-key.yacloud.compute.snapshots_81jHX }}** or from the disk itself under **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+1. Create an image from your snapshot under **{{ ui-key.yacloud.compute.snapshots_81jHX }}** or from the disk itself under **{{ ui-key.yacloud.compute.storage_uisyT }}**.
 
 A user in the cloud you want to move your VM to must follow these steps:
 1. Run this [CLI](../../cli/) command:

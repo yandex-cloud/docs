@@ -136,6 +136,6 @@ Yandex MPP Analytics for PostgreSQL позволяет использовать 
 ## Примеры использования {#examples}
 
 * [Загрузка данных из Yandex Object Storage в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer](../tutorials/object-storage-to-greenplum.md)
-* [Выгрузка данных Greenplum® в холодное хранилище Yandex Object Storage](../tutorials/yezzey.md)
+* [Выгрузка данных Greenplum® в гибридное хранилище Yandex Object Storage](../tutorials/yezzey.md)
 
 _Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._
