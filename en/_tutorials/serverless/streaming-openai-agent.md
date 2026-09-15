@@ -1,7 +1,7 @@
 # Creating an agent based on the OpenAI Agents SDK with response streaming via web sockets on {{ sf-full-name }} and {{ api-gw-name }}
 
 
-In this tutorial, you will create an agent with response streaming via [web sockets](https://{{ lang }}.wikipedia.org/wiki/WebSocket) on [{{ sf-full-name }}](../../functions/) and [{{ api-gw-full-name }}](../../api-gateway/). The function will use the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to access [the {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index#yandex) models.
+In this tutorial, you will create an agent with response streaming via [web sockets](https://{{ lang }}.wikipedia.org/wiki/WebSocket) on [{{ sf-full-name }}]({{ link-docs }}/functions/) and [{{ api-gw-full-name }}]({{ link-docs }}/api-gateway/). The function will use the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to access the [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index#yandex) models.
 
 Agents may take a long time to respond when handling complex requests, e.g., generation of large texts with reasoning, search operations, or indexing. In such cases, it is essential to monitor progress and receive incremental results in real time. Response streaming enables immediate output of tokens, phrases, intermediate messages, step statuses, and logs, followed by the final response, without waiting for the entire scenario to complete. This enhances the perceived speed, provides a more interactive UI/UX, and enables users to cancel, retry, and dynamically update the interface. Streaming is supported by most frameworks. The OpenAI Agents SDK also supports [streaming](https://openai.github.io/openai-agents-python/streaming/).
 
@@ -9,15 +9,15 @@ Agents may take a long time to respond when handling complex requests, e.g., gen
 
 On the diagram:
 
-1. The user establishes a WebSocket connection to the [API gateway](../../api-gateway/concepts/index.md) and uses it to send a request to the AI agent.
-1. The API gateway forwards the request to the [function](../../functions/concepts/function.md) handler.
+1. The user establishes a WebSocket connection to the [API gateway]({{ link-docs }}/api-gateway/concepts/index) and uses it to send a request to the AI agent.
+1. The API gateway forwards the request to the [function]({{ link-docs }}/functions/concepts/function) handler.
 1. The function handler creates and runs the AI agent using the OpenAI Agent SDK in streaming mode. In this mode, the agent will instantly stream model output, without waiting for the complete response.
 1. The AI agent augments the user’s query with additional context and sends it to the [text generation model]({{ link-docs-ai }}ai-studio/concepts/generation/index).
-1. A [service account](../../iam/concepts/users/service-accounts.md) provides the AI agent with access to the [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index) using an [API key](../../iam/concepts/authorization/api-key.md).
-1. The service account grants the function access to the [secret](../../lockbox/concepts/secret.md) containing the service account API key.
+1. A [service account]({{ link-docs }}/iam/concepts/users/service-accounts) provides the AI agent with access to the [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index) using an [API key]({{ link-docs }}/iam/concepts/authorization/api-key).
+1. The service account grants the function access to the [secret]({{ link-docs }}/lockbox/concepts/secret) containing the service account API key.
 1. The function retrieves the service account API key from the secret.
 1. The model sends the generated response to the AI agent.
-1. The AI agent streams the model output in real time. The data is instantly sent to the established WebSocket connection using the [{{ api-gw-name }} Web Socket Connection Service](../../api-gateway/apigateway/websocket/api-ref/Connection/send.md). The function then terminates.
+1. The AI agent streams the model output in real time. The data is instantly sent to the established WebSocket connection using the [{{ api-gw-name }} Web Socket Connection Service]({{ link-docs }}/api-gateway/apigateway/websocket/api-ref/Connection/send). The function then terminates.
 1. The API gateway forwards the response to the user.
 
 To create an agent:
@@ -36,7 +36,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note tip %}
 
-If you do not want to tie your AI agent to a specific vendor, deploy the function in {{ serverless-containers-full-name }} as described in [{#T}](../../tutorials/serverless/functions-framework-to-container.md).
+If you do not want to tie your AI agent to a specific vendor, deploy the function in {{ serverless-containers-full-name }} as described in [{#T}]({{ link-docs }}/tutorials/serverless/functions-framework-to-container).
 
 {% endnote %}
 
@@ -53,11 +53,11 @@ If you do not want to tie your AI agent to a specific vendor, deploy the functio
 
 The infrastructure support cost for this tutorial includes:
 
-* Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-name }} pricing]({{ link-docs }}/api-gateway/pricing)).
 * Fee for text generation (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
-* Fee for the number of function calls, computing resources allocated for the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
-* Fee for storing the secret and operations with it (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
-* Fee for retrieval and storage of logs (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
+* Fee for the number of function calls, computing resources allocated for the function, and outgoing traffic (see [{{ sf-name }} pricing]({{ link-docs }}/functions/pricing)).
+* Fee for storing the secret and operations with it (see [{{ lockbox-full-name }} pricing]({{ link-docs }}/lockbox/pricing)).
+* Fee for retrieval and storage of logs (see [{{ cloud-logging-full-name }} pricing]({{ link-docs }}/logging/pricing)).
 
 
 ## Set up your environment {#setup-environment}
@@ -256,11 +256,11 @@ The function will use the service account to get access to the secret and {{ fou
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
+  1. In the [management console]({{ link-console-main }}), select the [folder]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder) where you are going to create your infrastructure.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the service account: `agent-streamer-sa`.
-  1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select these [roles](../../iam/roles-reference.md):
+  1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select these [roles]({{ link-docs }}/iam/roles-reference):
       * `serverless.functions.invoker`
       * `lockbox.payloadViewer`
       * `api-gateway.websocketWriter`
@@ -289,7 +289,7 @@ The function will use the service account to get access to the secret and {{ fou
       name: agent-streamer-sa
       ```
 
-  1. Assign [roles](../../iam/roles-reference.md) to the service account:
+  1. Assign [roles]({{ link-docs }}/iam/roles-reference) to the service account:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_name_or_ID> \
@@ -347,9 +347,9 @@ The function will use the service account to get access to the secret and {{ fou
 
 - API {#api}
 
-  To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
+  To create a service account, use the [create]({{ link-docs }}/iam/api-ref/ServiceAccount/create) REST API method for the [ServiceAccount]({{ link-docs }}/iam/api-ref/ServiceAccount/index) resource or the [ServiceAccountService/Create]({{ link-docs }}/iam/api-ref/grpc/ServiceAccount/create) gRPC API call.
 
-  To assign the service account the `serverless.functions.invoker`, `lockbox.payloadViewer`, `api-gateway.websocketWriter`, and `ai.languageModels.user` [roles](../../iam/roles-reference.md) for the folder, use the [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md) gRPC API call.
+  To assign the service account the `serverless.functions.invoker`, `lockbox.payloadViewer`, `api-gateway.websocketWriter`, and `ai.languageModels.user` [roles]({{ link-docs }}/iam/roles-reference) for the folder, use the [updateAccessBindings]({{ link-docs }}/resource-manager/api-ref/Folder/updateAccessBindings) REST API method for the [Folder]({{ link-docs }}/resource-manager/api-ref/Folder/index) resource or the [FolderService/UpdateAccessBindings]({{ link-docs }}/resource-manager/api-ref/grpc/Folder/updateAccessBindings) gRPC API call.
 
 {% endlist %}
 
@@ -366,7 +366,7 @@ The function will use the API key to get access to the {{ foundation-models-name
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Select the `agent-streamer-sa` service account you created earlier.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
-  1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select [`yc.ai.languageModels.execute`](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
+  1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select [`yc.ai.languageModels.execute`]({{ link-docs }}/iam/concepts/authorization/api-key#scoped-api-keys).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Save the ID and secret key to later create the function.
 
@@ -391,7 +391,7 @@ The function will use the API key to get access to the {{ foundation-models-name
   Where:
 
   * `--service-account-id`: `agent-streamer-sa` service account ID.
-  * `--scopes`: Key [scopes](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
+  * `--scopes`: Key [scopes]({{ link-docs }}/iam/concepts/authorization/api-key#scoped-api-keys).
 
   Result:
 
@@ -410,14 +410,14 @@ The function will use the API key to get access to the {{ foundation-models-name
 
 - API {#api}
 
-  To create an API key, use the [create](../../iam/api-ref/ApiKey/create.md) REST API method for the [ApiKey](../../iam/api-ref/ApiKey/index.md) resource or the [ApiKeyService/Create](../../iam/api-ref/grpc/ApiKey/create.md) gRPC API call.
+  To create an API key, use the [create]({{ link-docs }}/iam/api-ref/ApiKey/create) REST API method for the [ApiKey]({{ link-docs }}/iam/api-ref/ApiKey/index) resource or the [ApiKeyService/Create]({{ link-docs }}/iam/api-ref/grpc/ApiKey/create) gRPC API call.
 
 {% endlist %}
 
 
 ## Create a {{ lockbox-name }} secret {#create-secret}
 
-The [{{ lockbox-name }}](../../lockbox/) secret will store the secret key.
+The [{{ lockbox-name }}]({{ link-docs }}/lockbox/) secret will store the secret key.
 
 {% list tabs group=instructions %}
 
@@ -429,7 +429,7 @@ The [{{ lockbox-name }}](../../lockbox/) secret will store the secret key.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `api-key-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, enter `api-key`.
-  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, paste the secret key you obtained in the previous step.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, paste the secret key you got in the previous step.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -465,7 +465,7 @@ The [{{ lockbox-name }}](../../lockbox/) secret will store the secret key.
 
 - API {#api}
 
-  To create a secret, use the [create](../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md) gRPC API call.
+  To create a secret, use the [create]({{ link-docs }}/lockbox/api-ref/Secret/create) REST API method for the [Secret]({{ link-docs }}/lockbox/api-ref/Secret/index) resource or the [SecretService/Create]({{ link-docs }}/lockbox/api-ref/grpc/Secret/create) gRPC API call.
 
 {% endlist %}
 
@@ -486,7 +486,7 @@ The function will be created based on the archive with its code and dependencies
      1. In the window that opens, enter `agent-streamer` as the function name.
      1. Click **{{ ui-key.yacloud.common.create }}**.
 
-  1. Create a [function version](../../functions/concepts/function.md#version):
+  1. Create a [function version]({{ link-docs }}/functions/concepts/function#version):
 
      1. Select `{{ python-full-ver }}` as the runtime , disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` and attach the `function.zip` archive you created earlier.
@@ -501,15 +501,15 @@ The function will be created based on the archive with its code and dependencies
              * `BASE_URL`: {{ ai-studio-full-name }} URL, `https://{{ api-host-llm }}/v1`.
              * `MODEL_NAME`: URI of the {{ ai-studio-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
 
-                 For example, this URI may look like this: `gpt://<folder_ID>/yandexgpt/latest`, where `<folder_ID>` is the [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you are creating the infrastructure.
+                 For example, this URI may look like this: `gpt://<folder_ID>/yandexgpt/latest`, where `<folder_ID>` is the [ID of the folder]({{ link-docs }}/resource-manager/operations/folder/get-id) where you are creating the infrastructure.
 
-             * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you are creating the infrastructure.
+             * `FOLDER_ID`: [ID of the folder]({{ link-docs }}/resource-manager/operations/folder/get-id) where you are creating the infrastructure.
 
          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
 
              * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}** field, specify `API_KEY` and select the previously created `api-key-secret`, its version, and `api-key`.
 
-        * If you prefer to opt out of logging so as not to [pay](../../logging/pricing.md) for [{{ cloud-logging-name }}](../../logging/), disable the **{{ ui-key.yacloud.logging.field_logging }}** option.
+        * If you prefer to opt out of logging so as not to [pay]({{ link-docs }}/logging/pricing) for [{{ cloud-logging-name }}]({{ link-docs }}/logging/), disable the **{{ ui-key.yacloud.logging.field_logging }}** option.
 
      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -560,11 +560,11 @@ The function will be created based on the archive with its code and dependencies
           * `BASE_URL`: {{ ai-studio-full-name }} URL, `https://{{ api-host-llm }}/v1`.
           * `MODEL_NAME`: URI of the {{ ai-studio-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
 
-              For example, this URI may look like this: `gpt://<folder_ID>/yandexgpt/latest`, where `<folder_ID>` is the [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you are creating the infrastructure.
+              For example, this URI may look like this: `gpt://<folder_ID>/yandexgpt/latest`, where `<folder_ID>` is the [ID of the folder]({{ link-docs }}/resource-manager/operations/folder/get-id) where you are creating the infrastructure.
 
-          * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you are creating the infrastructure.
+          * `FOLDER_ID`: [ID of the folder]({{ link-docs }}/resource-manager/operations/folder/get-id) where you are creating the infrastructure.
 
-      * `--secret`: `api-key-secret`.
+      * `--secret`: `api-key-secret` secret.
 
       Result:
 
@@ -598,9 +598,9 @@ The function will be created based on the archive with its code and dependencies
 
 - API {#api}
 
-  To create a function, use the [create](../../functions/functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md) gRPC API call.
+  To create a function, use the [create]({{ link-docs }}/functions/functions/api-ref/Function/create) REST API method for the [Function]({{ link-docs }}/functions/functions/api-ref/Function/index) resource or the [FunctionService/Create]({{ link-docs }}/functions/functions/api-ref/grpc/Function/create) gRPC API call.
 
-  To create a function version, use the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
+  To create a function version, use the [createVersion]({{ link-docs }}/functions/functions/api-ref/Function/createVersion) REST API method for the [Function]({{ link-docs }}/functions/functions/api-ref/Function/index) resource or the [FunctionService/CreateVersion]({{ link-docs }}/functions/functions/api-ref/grpc/Function/createVersion) gRPC API call.
 
 {% endlist %}
 
@@ -662,7 +662,7 @@ Create an API gateway for accessing the function.
 
     - API {#api}
 
-      To create an API gateway, use the [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/ApiGateway/create.md) gRPC API call.
+      To create an API gateway, use the [create]({{ link-docs }}/api-gateway/apigateway/api-ref/ApiGateway/create) REST API method for the [ApiGateway]({{ link-docs }}/api-gateway/apigateway/api-ref/ApiGateway/index) resource or the [ApiGatewayService/Create]({{ link-docs }}/api-gateway/apigateway/api-ref/grpc/ApiGateway/create) gRPC API call.
 
     {% endlist %}
 
@@ -696,9 +696,9 @@ Create an API gateway for accessing the function.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop [paying](#paid-resources) for the resources you no longer need, delete them.
+Delete the resources you no longer need to avoid [paying](#paid-resources) for them:
 
-1. [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
-1. [Delete](../../functions/operations/function/function-delete.md) the function.
-1. [Delete](../../lockbox/operations/secret-delete.md) the secret.
-1. If the function logging feature was left on, [delete](../../logging/operations/delete-group.md) the log group.
+1. [Delete]({{ link-docs }}/api-gateway/operations/api-gw-delete) the API gateway.
+1. [Delete]({{ link-docs }}/functions/operations/function/function-delete) the function.
+1. [Delete]({{ link-docs }}/lockbox/operations/secret-delete) the secret.
+1. If the function logging feature was left on, [delete]({{ link-docs }}/logging/operations/delete-group) the log group.

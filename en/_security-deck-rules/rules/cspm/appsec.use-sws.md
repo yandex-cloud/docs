@@ -17,6 +17,8 @@ This rule checks only the built-in information security features in Yandex Cloud
 
 {% endnote %}
 
+**Risks if the rule is not followed:** Without Smart Web Security, web applications are exposed to L7 DDoS attacks, bot traffic, and web exploits (such as SQL injection and XSS) that can compromise application availability and data integrity. Unprotected endpoints are a primary target for automated attack tools.
+
 #### Instructions and solutions
 
 [Creating a security profile and connecting it to a virtual host of an L7 load balancer](https://yandex.cloud/en/docs/smartwebsecurity/quickstart).

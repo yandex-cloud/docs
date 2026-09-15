@@ -33,7 +33,7 @@ The infrastructure support cost for connecting to the model from the code editor
 
 ### Create a service account {#create-sa}
 
-You will need this [service account](../../iam/concepts/users/service-accounts.md) to get an [API key](../../iam/concepts/authorization/api-key.md).
+You will need this [service account]({{ link-docs }}/iam/concepts/users/service-accounts) to get an [API key]({{ link-docs }}/iam/concepts/authorization/api-key).
 
 {% list tabs group=instructions %}
 
@@ -63,7 +63,7 @@ To enable the code editor to access the model, create an API key.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select `yc.ai.languageModels.execute`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and the secret key.
+  1. Save the ID and secret key.
 
 {% endlist %}
 
@@ -88,7 +88,7 @@ To enable the code editor to access the model, create an API key.
      1. In the **OpenAI API-key** field, paste the secret key value you got in the previous [step](#create-key).
      1. In the **Model** field, specify the model URI in `gpt://<folder_ID>/<model_ID>/latest` format, where:
 
-         * `<folder_ID>`: `aistudio` [folder ID](../../resource-manager/operations/folder/get-id.md).
+         * `<folder_ID>`: `aistudio` [folder ID]({{ link-docs }}/resource-manager/operations/folder/get-id).
          * `<model_ID>`: [Model ID]({{ link-docs-ai }}ai-studio/concepts/generation/models), e.g., `qwen3-235b-a22b-fp8` or `gpt-oss-120b`.
 
          {% note info %}
@@ -107,7 +107,7 @@ To enable the code editor to access the model, create an API key.
      1. In the **API-key** field, paste the secret key value you got in the previous [step](#create-key).
      1. In the **Model** field, specify the model URI in `gpt://<folder_ID>/<model_ID>/latest` format, where:
 
-         * `<folder_ID>`: `aistudio` [folder ID](../../resource-manager/operations/folder/get-id.md).
+         * `<folder_ID>`: `aistudio` [folder ID]({{ link-docs }}/resource-manager/operations/folder/get-id).
          * `<model_ID>`: [Model ID]({{ link-docs-ai }}ai-studio/concepts/generation/models), e.g., `qwen3-235b-a22b-fp8` or `gpt-oss-120b`.
      1. Click **Go!**.
 

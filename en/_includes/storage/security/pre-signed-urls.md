@@ -144,7 +144,7 @@ Hex(Hash-SHA256(<CanonicalRequest>))
 
 Where:
 
-* `AWS4-HMAC-SHA256`: Hash algorithm. 
+* `AWS4-HMAC-SHA256`: Hashing algorithm.
 * `timestamp`: Current time in ISO 8601 format, e.g., `20190801T000000Z`. The specified date value (not the format) must match the date in the `scope` parameter.
 * `scope`: `<YYYYMMDD>/{{ region-id }}/s3/aws4_request`.
 * `CanonicalRequest`: [Canonical request](#canonical-request) generated earlier. The signature string contains the [SHA256](https://en.wikipedia.org/wiki/SHA-2) hash of the canonical request in hexadecimal representation.
@@ -153,7 +153,7 @@ Where:
 
 {% include [generate-signing-key](../generate-signing-key.md) %}
 
-### Sign a string with a key {#signing}
+### Sign the string with the key {#signing}
 
 To get a string signature, use `HMAC` with the `SHA256` hash function and convert the result to hexadecimal format.
 

@@ -2,13 +2,7 @@
 
 # Поиск чувствительных данных в Object Storage
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
-_Поиск чувствительных данных_ — это инструмент на основе модуля [Контроль данных](../../security-deck/concepts/dspm.md) (Data Security Posture Management), помогающий обнаруживать чувствительную информацию, сохраненную в [бакетах](bucket.md) Object Storage. Это позволяет своевременно настраивать [политики доступа](policy.md), обезличивать данные и принимать другие меры защиты.
+_Поиск чувствительных данных_ — это инструмент на основе [модуля контроля данных](../../security-deck/concepts/dspm.md) (Data Security Posture Management), помогающий обнаруживать чувствительную информацию, сохраненную в [бакетах](bucket.md) Object Storage. Это позволяет своевременно настраивать [политики доступа](policy.md), обезличивать данные и принимать другие меры защиты.
 
 Вы можете [создавать](../operations/buckets/sensitive-data-search.md) задания на сканирование бакетов и работать с результатами сканирования в интерфейсе Object Storage через [консоль управления](https://console.yandex.cloud).
 
@@ -44,6 +38,6 @@ _Поиск чувствительных данных_ — это инструм
 
 #### Полезные ссылки {#see-also}
 
-* [Поиск чувствительных данных в бакете](../operations/buckets/sensitive-data-search.md)
+* [Искать чувствительные данные в бакете](../operations/buckets/sensitive-data-search.md)
 * [Модуль контроля данных (DSPM)](../../security-deck/concepts/dspm.md)
 * [Подготовить данные для сканирования в DSPM](../../security-deck/operations/dspm/create-data-source.md)

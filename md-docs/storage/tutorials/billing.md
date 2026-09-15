@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Обработка файлов детализации в сервисе Yandex Cloud Billing
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Обработка и анализ данных > Обработка файлов детализации в сервисе Yandex Cloud Billing
 
 # Обработка файлов детализации в сервисе Yandex Cloud Billing
 

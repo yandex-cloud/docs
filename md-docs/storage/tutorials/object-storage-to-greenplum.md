@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Загрузка данных в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Перенос данных и интеграция с базами данных > Загрузка данных в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer
 
 # Загрузка данных из Object Storage в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer
 

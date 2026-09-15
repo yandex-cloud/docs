@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Загрузка аудитных логов в SIEM Splunk
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Сбор и анализ логов > Загрузка аудитных логов в SIEM Splunk
 
 # Загрузка аудитных логов в SIEM Splunk
 

@@ -7,24 +7,29 @@
 
 #### Description
 
-To improve the security of your infrastructure, we recommend that you categorize your encryption keys into two groups:
+Each version of a KMS key contains its own key material — the actual cryptographic key used to encrypt and decrypt data. Rotation creates a new version with new key material, while previous versions stay available for decrypting data that was already encrypted with them.
 
-* Keys for services that process critical data but do not store it, such as Message Queue or Cloud Functions. * Keys for services storing critical data, e.g., Managed Services for Databases.
+Rotation is what makes data retention practical: when the time comes to remove old data, you can also retire the key version that protected it, and the key material disappears together with the data.
 
-For the first group, we recommend that you set up automatic key rotation with a rotation period longer than the data processing period in these services. When the rotation period expires, the old key versions must be deleted. In the case of automatic rotation and the deletion of old key versions, previously processed data cannot be restored and decrypted.
+[Key Management Service](https://yandex.cloud/en/docs/kms/) supports both manual and automatic rotation. The right setup depends on whether the key protects data the service stores or only data the service processes:
 
-For data storage services, we recommend that you either manually rotate keys or use automatic key rotation, depending on your internal procedures for processing critical data.
-
-A secure value for AES-GCM mode is encryption using 4294967296 (= 2^32^) blocks. Having reached this number of encrypted blocks, you need to create a new DEK version. For more information about the AES-GCM operating mode, see the [NIST materials](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf).
+* **Keys for services that only process data** (Message Queue, Cloud Functions). Set up automatic rotation with a period longer than how long any one piece of data is processed. Old key versions can be retired once the data they protected has been processed.
+* **Keys for services that store data** (managed databases, encrypted disks, Object Storage). Use manual rotation or automatic rotation that aligns with your data retention rules. Old versions should be retired only after all data encrypted with them has been re-encrypted or deleted — destroying a version that still has data behind it makes that data unrecoverable.
 
 {% note alert "**Note**" %}
 
-Destroying any version of a key means destroying all data encrypted with it. You can protect a key against deletion by setting the `deletionProtection` parameter. However, it does not protect against deleting individual versions.
+`deletionProtection` on a key protects the key as a whole, but does not protect individual versions of it. Plan version retention separately.
 
 {% endnote %}
 
-For more information about key rotation, see the KMS documentation, [Key version](https://yandex.cloud/en/docs/kms/concepts/version).
+**Risks if the rule is not followed:** Without key rotation, a compromised key version remains in use indefinitely — any data encrypted with it stays at risk for as long as the key is not rotated, and there is no mechanism to limit the exposure window after a potential key compromise.
 
 #### Instructions and solutions
 
-[Set](https://yandex.cloud/en/docs/kms/concepts/version) the key rotation period.
+For each KMS key in production:
+
+1. Decide whether the key encrypts data the service stores or only processes — that determines when old versions can be retired.
+2. [Set the rotation period](https://yandex.cloud/en/docs/kms/concepts/version) on the key, aligning it with your data retention rules.
+3. For keys that protect stored data, document a procedure for safely retiring old versions — only after all data encrypted with them has been re-encrypted or deleted.
+
+Read more about key versions in the [KMS documentation](https://yandex.cloud/en/docs/kms/concepts/version).

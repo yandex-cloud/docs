@@ -1,5 +1,5 @@
 A cloud network must have:
-* [Subnets](../../vpc/concepts/network#subnet) in all [availability zones](../../overview/concepts/geo-scope.md).
+* [Subnets]({{ link-docs }}/vpc/concepts/network#subnet) in all [availability zones]({{ link-docs }}/overview/concepts/geo-scope).
 * At least one resource with an IP address in the specified cloud network.
 
 {% note info %}

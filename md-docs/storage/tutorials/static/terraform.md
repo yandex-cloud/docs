@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > [Статический сайт в Yandex Object Storage](index.md) > Terraform
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Хостинг сайтов и веб-приложений > [Статический сайт в Yandex Object Storage](index.md) > Terraform
 
 # Статический сайт в Yandex Object Storage с помощью Terraform
 

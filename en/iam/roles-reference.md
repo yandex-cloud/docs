@@ -2890,7 +2890,7 @@ Learn more in [Access management in {{ er-name }}](../serverless-integrations/se
 
 {% include [serverless.workflows.admin](../_roles/serverless/workflows/admin.md) %}
 
-Learn more in [Access management in {{ sw-name }}](../serverless-integrations/security/workflows.md).
+Learn more in [Access management in {{ sw-name }}]({{ link-docs-ai }}ai-studio/security/index#workflows-roles).
 
 
 ## {{ yandex-siem-full-name }} {#yandex-siem-roles}

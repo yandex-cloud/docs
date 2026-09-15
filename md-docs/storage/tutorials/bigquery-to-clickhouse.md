@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Миграция базы данных из Google BigQuery в Managed Service for ClickHouse®
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Перенос данных и интеграция с базами данных > Миграция базы данных из Google BigQuery в Managed Service for ClickHouse®
 
 # Миграция базы данных из Google BigQuery в Yandex Managed Service for ClickHouse®
 

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Развертывание веб-приложения с JWT-авторизацией в API Gateway и аутентификацией в Firebase
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Разработка и развертывание приложений > Развертывание веб-приложения с JWT-авторизацией в API Gateway и аутентификацией в Firebase
 
 # Развертывание веб-приложения с JWT-авторизацией в Yandex API Gateway и аутентификацией в Firebase
 

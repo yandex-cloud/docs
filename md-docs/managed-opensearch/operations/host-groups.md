@@ -131,7 +131,14 @@
 
         * [Тип группы](../concepts/host-roles.md): `OpenSearch` или `Dashboards`.
         * Имя. Оно должно быть уникальным в кластере.
-        * Для группы хостов `OpenSearch` выберите [роль хостов](../concepts/host-roles.md).
+        * Для группы хостов `OpenSearch` выберите [роли хостов](../concepts/host-roles.md).
+          
+            {% note tip %}
+                  
+            Для использования S3-хранилища Warm Storage назначьте хостам роль [WARM](../concepts/host-roles.md#warm). Функциональность Warm Storage находится на [стадии Preview](../../overview/concepts/launch-stages.md). Чтобы её активировать, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+            
+            {% endnote %}
+
         * Платформу, тип и класс хостов.
 
             Класс хостов определяет технические характеристики виртуальных машин, на которых будут развернуты ноды OpenSearch. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
@@ -239,11 +246,13 @@
           ```
     
     
-       * `roles` — [роли хостов](../concepts/host-roles.md). Возможные значения:
+       * `roles` — [роли хостов](../concepts/host-roles.md). Возможные значения: `data`, `manager`, `warm`, `ingest`. Несколько ролей можно указать через знак `+`. Примеры: `data`, `data+manager`, `manager+data`.
     
-          * `data` — предоставляется только роль `DATA`;
-          * `manager` — предоставляется только роль `MANAGER`;
-          * `data+manager` или `manager+data` — предоставляются обе роли.
+          {% note tip %}
+                
+          Для использования S3-хранилища Warm Storage назначьте хостам роль [WARM](../concepts/host-roles.md#warm). Функциональность Warm Storage находится на [стадии Preview](../../overview/concepts/launch-stages.md). Чтобы её активировать, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+          
+          {% endnote %}
     
     * `--dashboards-node-group` — конфигурация группы хостов `Dashboards`. Настраивается так же, как группа хостов `OpenSearch`, за исключением ролей хостов. Для группы `Dashboards` роли настраивать не нужно.
 
@@ -285,7 +294,13 @@
         Где:
 
         * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
-        * `roles` — роли хостов: `DATA` и `MANAGER`.
+        * `roles` — список [ролей хостов](../concepts/host-roles.md). Возможные значения: `DATA`, `MANAGER`, `WARM`, `INGEST`.
+          
+          {% note tip %}
+                
+          Для использования S3-хранилища Warm Storage назначьте хостам роль [WARM](../concepts/host-roles.md#warm). Функциональность Warm Storage находится на [стадии Preview](../../overview/concepts/launch-stages.md). Чтобы её активировать, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+          
+          {% endnote %}
 
     1. Чтобы создать группу хостов `Dashboards`, добавьте блок `dashboards` в блок `config`:
 
@@ -397,7 +412,7 @@
                     "diskSize": "<размер_хранилища_в_байтах>",
                     "diskTypeId": "<тип_диска>"
                 },
-                "roles": ["<роль_1>","<роль_2>"],
+                "roles": ["<список_ролей>"],
                 "hostsCount": "<число_хостов>",
                 "zoneIds": [
                     "<зона_доступности_1>",
@@ -429,7 +444,14 @@
             * `diskSize` — размер диска в байтах;
             * `diskTypeId` — [тип диска](../concepts/storage.md).
 
-        * `roles` (только для хостов `OpenSearch`) — список [ролей хостов](../concepts/host-roles.md): `DATA` или `MANAGER`. На одну группу можно назначить одну или обе роли.
+        * `roles` (только для хостов `OpenSearch`) — список [ролей хостов](../concepts/host-roles.md). Возможные значения: `DATA`, `MANAGER`, `WARM`, `INGEST`.
+          
+          {% note tip %}
+                
+          Для использования S3-хранилища Warm Storage назначьте хостам роль [WARM](../concepts/host-roles.md#warm). Функциональность Warm Storage находится на [стадии Preview](../../overview/concepts/launch-stages.md). Чтобы её активировать, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+          
+          {% endnote %}
+
         * `hostsCount` — количество хостов в группе. Минимальное число хостов `DATA` и `Dashboards` — один, хостов `MANAGER` — три.
         * `zoneIds` — список зон доступности, где размещаются хосты кластера.
 
@@ -528,7 +550,7 @@
                     "disk_size": "<размер_хранилища_в_байтах>",
                     "disk_type_id": "<тип_диска>"
                 },
-                "roles": ["<роль_1>","<роль_2>"],
+                "roles": ["<список_ролей>"],
                 "hosts_count": "<число_хостов>",
                 "zone_ids": [
                     "<зона_доступности_1>",
@@ -560,7 +582,14 @@
             * `disk_size` — размер диска в байтах;
             * `disk_type_id` — [тип диска](../concepts/storage.md).
 
-        * `roles` (только для хостов `OpenSearch`) — список [ролей хостов](../concepts/host-roles.md): `DATA` или `MANAGER`. На одну группу можно назначить одну или обе роли.
+        * `roles` (только для хостов `OpenSearch`) — список [ролей хостов](../concepts/host-roles.md). Возможные значения: `DATA`, `MANAGER`, `WARM`, `INGEST`.
+          
+          {% note tip %}
+                
+          Для использования S3-хранилища Warm Storage назначьте хостам роль [WARM](../concepts/host-roles.md#warm). Функциональность Warm Storage находится на [стадии Preview](../../overview/concepts/launch-stages.md). Чтобы её активировать, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+          
+          {% endnote %}
+          
         * `hosts_count` — количество хостов в группе. Минимальное число хостов `DATA` и `Dashboards` — один, хостов `MANAGER` — три.
         * `zone_ids` — список зон доступности, где размещаются хосты кластера.
 
@@ -650,7 +679,14 @@
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной группы и выберите пункт **Изменить**.
     1. Измените настройки группы хостов:
 
-        * [Роль хостов](../concepts/host-roles.md) (только для группы хостов `OpenSearch`).
+        * [Роли хостов](../concepts/host-roles.md) (только для группы хостов `OpenSearch`).
+
+            {% note tip %}
+                  
+            Для использования S3-хранилища Warm Storage назначьте хостам роль [WARM](../concepts/host-roles.md#warm). Функциональность Warm Storage находится на [стадии Preview](../../overview/concepts/launch-stages.md). Чтобы её активировать, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+            
+            {% endnote %}
+            
         * Платформу, тип и класс хостов.
 
             Класс хостов определяет технические характеристики виртуальных машин, на которых будут развернуты ноды OpenSearch. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
@@ -725,12 +761,14 @@
     * `--node-group-name` — имя группы хостов, которую нужно изменить.
     * `--resource-preset-id` — новый класс хостов. Он определяет технические характеристики виртуальных машин, на которых будут развернуты узлы OpenSearch. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
     * `--disk-size` — новый размер диска в байтах. Минимальное и максимальное значения зависят от выбранного класса хостов.
-    * `--hosts-count` — новое количество хостов в группе.
-    * `--roles` — новые [роли хостов](../concepts/host-roles.md). Возможные значения:
+    * `--hosts-count` — новое количество хостов в группе.        
+    * `roles` — новые [роли хостов](../concepts/host-roles.md). Возможные значения: `data`, `manager`, `warm`, `ingest`. Несколько ролей можно указать через знак `+`. Примеры: `data`, `data+manager`, `manager+data`.
 
-      * `data` — предоставляется только роль `DATA`;
-      * `manager` — предоставляется только роль `MANAGER`;
-      * `data+manager` или `manager+data` — предоставляются обе роли.
+      {% note tip %}
+            
+      Для использования S3-хранилища Warm Storage назначьте хостам роль [WARM](../concepts/host-roles.md#warm). Функциональность Warm Storage находится на [стадии Preview](../../overview/concepts/launch-stages.md). Чтобы её активировать, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+      
+      {% endnote %}
 
 - Terraform {#tf}
 
@@ -766,7 +804,13 @@
         Где:
 
         * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
-        * `roles` — роли хостов: `DATA` и `MANAGER`.
+        * `roles` — список [ролей хостов](../concepts/host-roles.md). Возможные значения: `DATA`, `MANAGER`, `WARM`, `INGEST`.
+          
+          {% note tip %}
+                
+          Для использования S3-хранилища Warm Storage назначьте хостам роль [WARM](../concepts/host-roles.md#warm). Функциональность Warm Storage находится на [стадии Preview](../../overview/concepts/launch-stages.md). Чтобы её активировать, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+          
+          {% endnote %}
 
     1. Чтобы изменить конфигурацию группы хостов `Dashboards`, измените параметры блока `dashboards`:
 
@@ -877,6 +921,7 @@
                     "diskSize": "<размер_хранилища_в_байтах>",
                     "diskTypeId": "<тип_диска>"
                 },
+                "roles": ["<список_ролей>"],
                 "hostsCount": "<число_хостов>",
                 "zoneIds": [
                     "<зона_доступности_1>",
@@ -909,6 +954,14 @@
                 * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
                 * `diskSize` — размер диска в байтах;
                 * `diskTypeId` — [тип диска](../concepts/storage.md).
+
+            * `roles` (только для хостов `OpenSearch`) — список [ролей хостов](../concepts/host-roles.md). Возможные значения: `DATA`, `MANAGER`, `WARM`, `INGEST`.
+              
+              {% note tip %}
+                    
+              Для использования S3-хранилища Warm Storage назначьте хостам роль [WARM](../concepts/host-roles.md#warm). Функциональность Warm Storage находится на [стадии Preview](../../overview/concepts/launch-stages.md). Чтобы её активировать, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+              
+              {% endnote %}
 
             * `hostsCount` — количество хостов в группе. Минимальное число хостов `DATA` и `Dashboards` — один, хостов `MANAGER` — три.
             * `zoneIds` — список зон доступности, где размещаются хосты кластера.
@@ -1039,6 +1092,7 @@
                     "disk_size": "<размер_хранилища_в_байтах>",
                     "disk_type_id": "<тип_диска>"
                 },
+                "roles": ["<список_ролей>"],
                 "hosts_count": "<число_хостов>",
                 "zone_ids": [
                     "<зона_доступности_1>",
@@ -1071,6 +1125,14 @@
                 * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
                 * `disk_size` — размер диска в байтах;
                 * `disk_type_id` — [тип диска](../concepts/storage.md).
+
+            * `roles` (только для хостов `OpenSearch`) — список [ролей хостов](../concepts/host-roles.md). Возможные значения: `DATA`, `MANAGER`, `WARM`, `INGEST`.
+              
+              {% note tip %}
+                    
+              Для использования S3-хранилища Warm Storage назначьте хостам роль [WARM](../concepts/host-roles.md#warm). Функциональность Warm Storage находится на [стадии Preview](../../overview/concepts/launch-stages.md). Чтобы её активировать, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+              
+              {% endnote %}
 
             * `hosts_count` — количество хостов в группе. Минимальное число хостов `DATA` и `Dashboards` — один, хостов `MANAGER` — три.
             * `zone_ids` — список зон доступности, где размещаются хосты кластера.

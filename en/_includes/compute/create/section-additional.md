@@ -7,4 +7,4 @@ Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
   * **{{ managed-prometheus-name }}**: [Install and configure an agent](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md) to collect additional metrics from VM instances and apps in {{ prometheus-name }} format:
      * Select or create a workspace to store your metrics.
      * Optionally, describe the [delivery parameters](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md) for your custom metrics, in JSON format.
-* Optionally, under **{{ ui-key.yacloud.compute.instances.create.section_placement }}**, select a VM [placement group](../../../compute/concepts/placement-groups.md).
+* Optionally, under **{{ ui-key.yacloud.compute.instances.create.section_placement }}**, select a [VM reserve pool](../../../compute/concepts/reserved-pools.md) or [VM placement group](../../../compute/concepts/placement-groups.md).

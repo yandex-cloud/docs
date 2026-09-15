@@ -3,7 +3,7 @@ Event name | Description
 `batch_inference.CancelBatchInference` | Stopping a model in batch mode
 `batch_inference.DeleteBatchInference` | Deleting a processing result in batch mode
 `batch_inference.StartBatchInference` | Running a model in batch mode
-`dedicated_instance.CreateDedicatedInstance` | Creating a [dedicated instance]({{ link-docs-ai }}/ai-studio/concepts/generation/dedicated-instance)
+`dedicated_instance.CreateDedicatedInstance` | Creating a [dedicated instance]({{ link-docs-ai }}ai-studio/concepts/generation/dedicated-instance)
 `dedicated_instance.DeleteDedicatedInstance` | Deleting a dedicated instance
 `dedicated_instance.StartDedicatedInstance` | Starting a dedicated instance
 `dedicated_instance.StopDedicatedInstance` | Stopping a dedicated instance
@@ -13,7 +13,7 @@ Event name | Description
 `guardrails.BlockContentByDictionary` | Blocking content by dictionary
 `guardrails.ChangeDefaultGuardrail` | Updating the default guardrail
 `guardrails.CompleteContentCheck` | Completing a content check
-`guardrails.CreateDictionary` | Creating a [dictionary]({{ link-docs-ai }}/ai-studio/concepts/security/guardrails#dictionaries) of phrases and regular expressions in a [guardrail]({{ link-docs-ai }}/ai-studio/concepts/security/guardrails#rules)
+`guardrails.CreateDictionary` | Creating a [dictionary]({{ link-docs-ai }}ai-studio/concepts/security/guardrails#dictionaries) of phrases and regular expressions in a [guardrail]({{ link-docs-ai }}/ai-studio/concepts/security/guardrails#rules)
 `guardrails.CreateGuardrail` | Creating a guardrail
 `guardrails.DeleteDictionary` | Deleting a dictionary of phrases and regular expressions from a guardrail
 `guardrails.DeleteGuardrail` | Deleting a guardrail
@@ -38,5 +38,5 @@ Event name | Description
 `responses.McpToolList` | Getting a list of MCP tools
 `responses.WebSearchToolSearch` | Searching via the Web Search Tool
 `settings.SetFolderSettings` | Updating service settings in a folder
-`tuning.CancelTuning` | Stop model [tuning]({{ link-docs-ai }}/ai-studio/concepts/tuning/index)
+`tuning.CancelTuning` | Stop model [tuning]({{ link-docs-ai }}ai-studio/concepts/tuning/index)
 `tuning.StartTuning` | Start model tuning

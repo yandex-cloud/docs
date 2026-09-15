@@ -74,7 +74,7 @@ In {{ objstorage-name }}, you can [export metadata](../../concepts/s3-inventory.
       * `--configuration`: Export configuration options:
         * `id`: Configuration ID. This is a required setting.
         * `is_enabled`: Flag to enable or disable the configuration.
-        * `frequency`: Export frequency. This is a required setting. The possible values are:
+        * `frequency`: Export frequency. This is a required setting. The possible values are as follows:
           * `DAILY`: Once a day. The export starts at 03:00 UTC every day.
           * `WEEKLY`: Once a week. The export starts at 03:00 UTC every Sunday.
           
@@ -86,7 +86,7 @@ In {{ objstorage-name }}, you can [export metadata](../../concepts/s3-inventory.
           * `bucket`: Name of the bucket for metadata export. The source and target buckets must be in the same [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud). This is a required setting.
           * `format`: Export results format. Only `CSV` is supported. This is a required setting.
           * `prefix`: Folder (prefix) to generate export results in.
-        * `included_object_versions`: [Versions](../../concepts/versioning.md) of objects to include in the export list. This is a required setting. The possible values are:
+        * `included_object_versions`: [Versions](../../concepts/versioning.md) of objects to include in the export list. This is a required setting. The possible values are as follows:
           * `ALL`: All versions.
           * `CURRENT`: Current version.
         * `filter`: Filter for objects to include in the export. In the `prefix` field, specify a folder containing the objects to include in the export list. This is an optional setting.

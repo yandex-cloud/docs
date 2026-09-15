@@ -17,8 +17,13 @@ To mitigate risks associated with web attacks, we recommend using the Yandex Sma
 
 You can manage the web application firewall using a [WAF profile](https://yandex.cloud/en/docs/smartwebsecurity/concepts/waf) that connects to a [security profile](https://yandex.cloud/en/docs/smartwebsecurity/concepts/profiles) in Smart Web Security as a separate [rule](https://yandex.cloud/en/docs/smartwebsecurity/concepts/rules).
 
+**Risks if the rule is not followed:** Without a WAF, web applications are vulnerable to OWASP Top 10 attacks including SQL injection, cross-site scripting (XSS), and remote code execution. These attacks can lead to data breaches, account takeovers, and full application compromise.
+
 #### Instructions and solutions
 
 Create a WAF profile and connect it to a security profile in Smart Web Security. It is recommended to configure and test your security profile Basic and Smart Protection rules beforehand.
 
-1. [Create](https://yandex.cloud/en/docs/smartwebsecurity/operations/waf-profile-create) a WAF profile. 2. [Configure](https://yandex.cloud/en/docs/smartwebsecurity/operations/configure-set-rules) a WAF rule set. 3. [Add](https://yandex.cloud/en/docs/smartwebsecurity/operations/exclusion-rule-add) an exclusion rule to the WAF profile. 4. [Attach](https://yandex.cloud/en/docs/smartwebsecurity/operations/rule-add) the WAF profile to your security profile.
+1. [Create](https://yandex.cloud/en/docs/smartwebsecurity/operations/waf-profile-create) a WAF profile.
+2. [Configure](https://yandex.cloud/en/docs/smartwebsecurity/operations/configure-set-rules) a WAF rule set.
+3. [Add](https://yandex.cloud/en/docs/smartwebsecurity/operations/exclusion-rule-add) an exclusion rule to the WAF profile.
+4. [Attach](https://yandex.cloud/en/docs/smartwebsecurity/operations/rule-add) the WAF profile to your security profile.

@@ -1634,6 +1634,36 @@
 
  - [Delete](idp/application/saml/api-ref/grpc/SignatureCertificate/delete.md)
 
+#### Organization Policy API
+
+ - [Overview](policy/api-ref/grpc/index.md)
+
+##### AuthenticationPolicyRule
+
+ - [Overview](policy/api-ref/grpc/AuthenticationPolicyRule/index.md)
+
+ - [Get](policy/api-ref/grpc/AuthenticationPolicyRule/get.md)
+
+ - [List](policy/api-ref/grpc/AuthenticationPolicyRule/list.md)
+
+ - [Create](policy/api-ref/grpc/AuthenticationPolicyRule/create.md)
+
+ - [Update](policy/api-ref/grpc/AuthenticationPolicyRule/update.md)
+
+ - [Delete](policy/api-ref/grpc/AuthenticationPolicyRule/delete.md)
+
+ - [Activate](policy/api-ref/grpc/AuthenticationPolicyRule/activate.md)
+
+ - [Deactivate](policy/api-ref/grpc/AuthenticationPolicyRule/deactivate.md)
+
+##### Operation
+
+ - [Overview](policy/api-ref/grpc/Operation/index.md)
+
+ - [Get](policy/api-ref/grpc/Operation/get.md)
+
+ - [Cancel](policy/api-ref/grpc/Operation/cancel.md)
+
 #### SAML Federation API
 
  - [Overview](saml/api-ref/grpc/index.md)
@@ -2061,6 +2091,36 @@
  - [Update](idp/application/saml/api-ref/SignatureCertificate/update.md)
 
  - [Delete](idp/application/saml/api-ref/SignatureCertificate/delete.md)
+
+#### Organization Policy API
+
+ - [Overview](policy/api-ref/index.md)
+
+##### AuthenticationPolicyRule
+
+ - [Overview](policy/api-ref/AuthenticationPolicyRule/index.md)
+
+ - [Get](policy/api-ref/AuthenticationPolicyRule/get.md)
+
+ - [List](policy/api-ref/AuthenticationPolicyRule/list.md)
+
+ - [Create](policy/api-ref/AuthenticationPolicyRule/create.md)
+
+ - [Update](policy/api-ref/AuthenticationPolicyRule/update.md)
+
+ - [Delete](policy/api-ref/AuthenticationPolicyRule/delete.md)
+
+ - [Activate](policy/api-ref/AuthenticationPolicyRule/activate.md)
+
+ - [Deactivate](policy/api-ref/AuthenticationPolicyRule/deactivate.md)
+
+##### Operation
+
+ - [Overview](policy/api-ref/Operation/index.md)
+
+ - [Get](policy/api-ref/Operation/get.md)
+
+ - [Cancel](policy/api-ref/Operation/cancel.md)
 
 #### SAML Federation API
 

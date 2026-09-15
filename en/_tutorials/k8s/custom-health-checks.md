@@ -30,14 +30,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* DNS zone and DNS query fee (see [{{ dns-name }}](../../dns/pricing.md) pricing).
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
-* Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for {{ container-registry-name }} [storage](../../container-registry/pricing.md).
+* Public DNS requests and DNS zone (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Each active L7 load balancer: use of computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ container-registry-full-name }}: storing created Docker images and leveraging the vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 
 
 ## Get your cloud ready {#before-begin}
@@ -58,7 +56,7 @@ The support cost for this solution includes:
 
    1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
    1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
-   1. [Create a registry](../../container-registry/operations/registry/registry-create.md) in {{ container-registry-full-name }}.
+   1. [Create a registry](../../container-registry/operations/registry/registry-create.md) in {{ container-registry-name }}.
 
 - {{ TF }} {#tf}
 
@@ -76,7 +74,7 @@ The support cost for this solution includes:
       * Service account for the {{ k8s }} cluster.
       * {{ k8s }} cluster.
       * {{ k8s }} node group.
-      * {{ container-registry-full-name }}.
+      * {{ container-registry-name }}.
 
    1. In `k8s-custom-health-checks.tf`, specify the following:
 
@@ -116,7 +114,7 @@ Use [this guide](../../managed-kubernetes/operations/applications/alb-ingress-co
    {% include [Run kubectl cluster-info](../../_includes/managed-kubernetes/kubectl-info.md) %}
 
 1. [Install Docker](https://docs.docker.com/get-docker/).
-1. [Authenticate in {{ container-registry-full-name }}](../../container-registry/operations/authentication.md#cred-helper) using a Docker credential helper.
+1. [Authenticate in {{ container-registry-name }}](../../container-registry/operations/authentication.md#cred-helper) using a Docker credential helper.
 
 ## Create a Docker image {#docker-image}
 

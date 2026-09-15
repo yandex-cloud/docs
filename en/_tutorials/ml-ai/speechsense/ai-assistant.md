@@ -23,7 +23,7 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 
 ### Required paid resources {#paid-resources}
 
-* {{ speechsense-name }}: Number of characters in each chat transcript and AI assistant-enabled dialog analysis (see [{{ speechsense-name }} pricing]({{ link-docs-ai }}/speechsense/pricing)).
+* {{ speechsense-name }}: Number of characters in each chat transcript and AI assistant-enabled dialog analysis (see [{{ speechsense-name }} pricing]({{ link-docs-ai }}speechsense/pricing)).
 
 ## Set up your infrastructure {#infrastructure-prepare}
 

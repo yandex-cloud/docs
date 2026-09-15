@@ -6,7 +6,7 @@
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the instance group to update.
-  1. In the top-right corner, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Click [pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, add the [availability zone](../../overview/concepts/geo-scope.md) you want to move the instance group to. 
   1. If your instance group is a [manually scaled](../../compute/concepts/instance-groups/scale.md#fixed-scale) one, under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**, specify a group size sufficient to place instances in all the selected availability zones.
 

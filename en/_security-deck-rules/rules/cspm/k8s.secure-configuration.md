@@ -17,6 +17,9 @@ In Managed Service for Kubernetes, the user is fully in control of all node grou
 
 The [CIS Kubernetes Benchmark](https://www.cisecurity.org/benchmark/kubernetes) standard is designed to build a secure Kubernetes configuration, including node configurations. In Yandex Cloud, the Kubernetes node groups are deployed by default with the configuration that complies with CIS Kubernetes Benchmark.
 
+**Risks if the rule is not followed:** Insecure node group configurations — such as privileged containers, disabled audit logging, or overly permissive file system permissions — can be exploited by an attacker who gains access to a node. These misconfigurations can enable container escapes, privilege escalation, and lateral movement across the cluster.
+
 #### Instructions and solutions
 
-* Using the [kube-bench](https://github.com/aquasecurity/kube-bench) tool, check whether the node group configuration is compliant with CIS Kubernetes Benchmark. The tool officially supports the Yandex Cloud node groups. * [Starboard Operator](https://blog.aquasec.com/automate-kubernetes-compliance) is a free tool that helps you automate scanning of images for vulnerabilities and checking that the configuration is compliant with CIS Kubernetes Benchmark. Starboard Operator supports integration with kube-bench and is used for its automatic startup.
+* Using the [kube-bench](https://github.com/aquasecurity/kube-bench) tool, check whether the node group configuration is compliant with CIS Kubernetes Benchmark. The tool officially supports the Yandex Cloud node groups.
+* [Starboard Operator](https://blog.aquasec.com/automate-kubernetes-compliance) is a free tool that helps you automate scanning of images for vulnerabilities and checking that the configuration is compliant with CIS Kubernetes Benchmark. Starboard Operator supports integration with kube-bench and is used for its automatic startup.

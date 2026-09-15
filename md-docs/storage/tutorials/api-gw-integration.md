@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Разработка пользовательской интеграции в API Gateway
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Разработка и развертывание приложений > Разработка пользовательской интеграции в API Gateway
 
 # Разработка пользовательской интеграции в API Gateway
 

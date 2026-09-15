@@ -7,24 +7,22 @@
 
 #### Description
 
-Yandex Cloud provides two options for centralized identity management:
+**How this rule works:** The rule checks whether centralized identity management (federation or user pools) is configured for the organization.
 
-* [Identity federation](https://yandex.cloud/en/docs/organization/concepts/add-federation) (external IdP) for single sign-on (SSO) access to applications. With SSO, users can access multiple applications without having to enter their username and password every time.
+Yandex Cloud has two ways to manage user accounts centrally:
 
-If your company has a user and access management system (e.g., Active Directory or Google Workspace), you can use it to authenticate employees in [Yandex Identity Hub](https://yandex.cloud/en/docs/organization/). In which case you do not need to create a new Yandex account for every employee. They can get access to Yandex Cloud services using their corporate accounts.
+* [Identity federation](https://yandex.cloud/en/docs/organization/concepts/add-federation) (external IdP) for single sign-on (SSO) into Yandex Cloud. If your company already runs a user and access management system (Active Directory, Google Workspace, Keycloak), you can use it to authenticate employees in [Yandex Identity Hub](https://yandex.cloud/en/docs/organization/) — no need to create a separate Yandex account for each employee, and the company's password and account policies stay in effect.
 
-* [User pools](https://yandex.cloud/en/docs/organization/concepts/user-pools) for linking your [domains](https://yandex.cloud/en/docs/organization/concepts/domains) and managing access permissions, authentication settings, and [My account](https://yandex.cloud/en/docs/organization/concepts/my-account) data you can edit.
+* [User pools](https://yandex.cloud/en/docs/organization/concepts/user-pools) for centrally managing local accounts in your domains, with control over authentication settings and account data.
 
-Pools and users in pools exist only at the organization level and are subject to Yandex Cloud [security policies](https://yandex.cloud/en/docs/security/standarts).
+Without centralized account management, employees use personal Yandex ID accounts to access cloud resources. That works, but offboarding becomes manual and error-prone, password and 2FA policies cannot be enforced from one place, and the company has limited visibility into who has active access.
+
+**Risks if the rule is not followed:** Former employees may retain access to cloud resources, corporate security policies (password complexity, 2FA) cannot be enforced uniformly, and there is no centralized audit trail for access events — making it difficult to detect unauthorized access.
 
 #### Instructions and solutions
 
-For centralized identity management, use [SAML-compatible identity federations](https://yandex.cloud/en/docs/organization/concepts/add-federation) or [user pools](https://yandex.cloud/en/docs/organization/concepts/user-pools).
+Set up centralized account management for the organization:
 
-With identity federations, you can set up single sign-on authentication in Yandex Cloud via your own IdP server. This way, your employees can use their corporate accounts that are subject to the company security policies.
-
-For more information, see [Identity federations](https://yandex.cloud/en/docs/organization/concepts/add-federation).
-
-User pools group [local users](https://yandex.cloud/en/docs/iam/concepts/users/accounts#local) together, thus allowing you to manage them centrally, link your [domains](https://yandex.cloud/en/docs/organization/concepts/domains), manage access permissions, authentication settings, and [My account](https://yandex.cloud/en/docs/organization/concepts/my-account) data you can edit.
-
-Learn more about creating user pools [here](https://yandex.cloud/en/docs/organization/operations/user-pools/create-userpool).
+* For most companies, configure a [SAML-compatible identity federation](https://yandex.cloud/en/docs/organization/operations/setup-federation) with your existing IdP — this enables SSO and inherits the company's account policies.
+* For accounts that do not fit into the corporate IdP (for example, partners, contractors), use [user pools](https://yandex.cloud/en/docs/organization/operations/user-pools/create-userpool).
+* Enable [group mapping](https://yandex.cloud/en/docs/organization/operations/federation-group-mapping) between the IdP and Identity Hub so that role assignments follow IdP groups, not individual accounts.

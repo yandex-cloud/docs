@@ -122,7 +122,10 @@ keywords:
 
         * [Тип группы](../concepts/host-roles.md): `{{ OS }}` или `Dashboards`.
         * Имя. Оно должно быть уникальным в кластере.
-        * Для группы хостов `{{ OS }}` выберите [роль хостов](../concepts/host-roles.md).
+        * Для группы хостов `{{ OS }}` выберите [роли хостов](../concepts/host-roles.md).
+          
+            {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
+
         * Платформу, тип и класс хостов.
 
             Класс хостов определяет технические характеристики виртуальных машин, на которых будут развернуты ноды {{ OS }}. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
@@ -218,7 +221,9 @@ keywords:
         Где:
 
         * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
-        * `roles` — роли хостов: `DATA` и `MANAGER`.
+        * `roles` — список [ролей хостов](../concepts/host-roles.md). Возможные значения: `DATA`, `MANAGER`, `WARM`, `INGEST`.
+          
+          {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
 
     1. Чтобы создать группу хостов `Dashboards`, добавьте блок `dashboards` в блок `config`:
 
@@ -277,7 +282,7 @@ keywords:
                     "diskSize": "<размер_хранилища_в_байтах>",
                     "diskTypeId": "<тип_диска>"
                 },
-                "roles": ["<роль_1>","<роль_2>"],
+                "roles": ["<список_ролей>"],
                 "hostsCount": "<число_хостов>",
                 "zoneIds": [
                     "<зона_доступности_1>",
@@ -309,7 +314,10 @@ keywords:
             * `diskSize` — размер диска в байтах;
             * `diskTypeId` — [тип диска](../concepts/storage.md).
 
-        * `roles` (только для хостов `{{ OS }}`) — список [ролей хостов](../concepts/host-roles.md): `DATA` или `MANAGER`. На одну группу можно назначить одну или обе роли.
+        * `roles` (только для хостов `{{ OS }}`) — список [ролей хостов](../concepts/host-roles.md). Возможные значения: `DATA`, `MANAGER`, `WARM`, `INGEST`.
+          
+          {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
+
         * `hostsCount` — количество хостов в группе. Минимальное число хостов `DATA` и `Dashboards` — один, хостов `MANAGER` — три.
         * `zoneIds` — список зон доступности, где размещаются хосты кластера.
 
@@ -395,7 +403,7 @@ keywords:
                     "disk_size": "<размер_хранилища_в_байтах>",
                     "disk_type_id": "<тип_диска>"
                 },
-                "roles": ["<роль_1>","<роль_2>"],
+                "roles": ["<список_ролей>"],
                 "hosts_count": "<число_хостов>",
                 "zone_ids": [
                     "<зона_доступности_1>",
@@ -427,7 +435,10 @@ keywords:
             * `disk_size` — размер диска в байтах;
             * `disk_type_id` — [тип диска](../concepts/storage.md).
 
-        * `roles` (только для хостов `{{ OS }}`) — список [ролей хостов](../concepts/host-roles.md): `DATA` или `MANAGER`. На одну группу можно назначить одну или обе роли.
+        * `roles` (только для хостов `{{ OS }}`) — список [ролей хостов](../concepts/host-roles.md). Возможные значения: `DATA`, `MANAGER`, `WARM`, `INGEST`.
+          
+          {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
+          
         * `hosts_count` — количество хостов в группе. Минимальное число хостов `DATA` и `Dashboards` — один, хостов `MANAGER` — три.
         * `zone_ids` — список зон доступности, где размещаются хосты кластера.
 
@@ -512,7 +523,10 @@ keywords:
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной группы и выберите пункт **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_edit }}**.
     1. Измените настройки группы хостов:
 
-        * [Роль хостов](../concepts/host-roles.md) (только для группы хостов `{{ OS }}`).
+        * [Роли хостов](../concepts/host-roles.md) (только для группы хостов `{{ OS }}`).
+
+            {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
+            
         * Платформу, тип и класс хостов.
 
             Класс хостов определяет технические характеристики виртуальных машин, на которых будут развернуты ноды {{ OS }}. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
@@ -566,12 +580,10 @@ keywords:
     * `--node-group-name` — имя группы хостов, которую нужно изменить.
     * `--resource-preset-id` — новый класс хостов. Он определяет технические характеристики виртуальных машин, на которых будут развернуты узлы {{ OS }}. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
     * `--disk-size` — новый размер диска в байтах. Минимальное и максимальное значения зависят от выбранного класса хостов.
-    * `--hosts-count` — новое количество хостов в группе.
-    * `--roles` — новые [роли хостов](../../managed-opensearch/concepts/host-roles.md). Возможные значения:
+    * `--hosts-count` — новое количество хостов в группе.        
+    * `roles` — новые [роли хостов](../../managed-opensearch/concepts/host-roles.md). Возможные значения: `data`, `manager`, `warm`, `ingest`. Несколько ролей можно указать через знак `+`. Примеры: `data`, `data+manager`, `manager+data`.
 
-      * `data` — предоставляется только роль `DATA`;
-      * `manager` — предоставляется только роль `MANAGER`;
-      * `data+manager` или `manager+data` — предоставляются обе роли.
+      {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
 
 - {{ TF }} {#tf}
 
@@ -607,7 +619,9 @@ keywords:
         Где:
 
         * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
-        * `roles` — роли хостов: `DATA` и `MANAGER`.
+        * `roles` — список [ролей хостов](../concepts/host-roles.md). Возможные значения: `DATA`, `MANAGER`, `WARM`, `INGEST`.
+          
+          {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
 
     1. Чтобы изменить конфигурацию группы хостов `Dashboards`, измените параметры блока `dashboards`:
 
@@ -661,6 +675,7 @@ keywords:
                     "diskSize": "<размер_хранилища_в_байтах>",
                     "diskTypeId": "<тип_диска>"
                 },
+                "roles": ["<список_ролей>"],
                 "hostsCount": "<число_хостов>",
                 "zoneIds": [
                     "<зона_доступности_1>",
@@ -693,6 +708,10 @@ keywords:
                 * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
                 * `diskSize` — размер диска в байтах;
                 * `diskTypeId` — [тип диска](../concepts/storage.md).
+
+            * `roles` (только для хостов `{{ OS }}`) — список [ролей хостов](../concepts/host-roles.md). Возможные значения: `DATA`, `MANAGER`, `WARM`, `INGEST`.
+              
+              {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
 
             * `hostsCount` — количество хостов в группе. Минимальное число хостов `DATA` и `Dashboards` — один, хостов `MANAGER` — три.
             * `zoneIds` — список зон доступности, где размещаются хосты кластера.
@@ -791,6 +810,7 @@ keywords:
                     "disk_size": "<размер_хранилища_в_байтах>",
                     "disk_type_id": "<тип_диска>"
                 },
+                "roles": ["<список_ролей>"],
                 "hosts_count": "<число_хостов>",
                 "zone_ids": [
                     "<зона_доступности_1>",
@@ -823,6 +843,10 @@ keywords:
                 * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
                 * `disk_size` — размер диска в байтах;
                 * `disk_type_id` — [тип диска](../concepts/storage.md).
+
+            * `roles` (только для хостов `{{ OS }}`) — список [ролей хостов](../concepts/host-roles.md). Возможные значения: `DATA`, `MANAGER`, `WARM`, `INGEST`.
+              
+              {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
 
             * `hosts_count` — количество хостов в группе. Минимальное число хостов `DATA` и `Dashboards` — один, хостов `MANAGER` — три.
             * `zone_ids` — список зон доступности, где размещаются хосты кластера.

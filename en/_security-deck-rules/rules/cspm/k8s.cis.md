@@ -18,6 +18,7 @@ The benchmark's rules help detect key types of threats:
 * Certificate rotation.
 * Access permissions to the configuration files (`kubelet.conf`, `config.yaml`, service file).
 * Authentication mode and the kubelet's permission to manage `iptables`.
+
 Whenever the rule is triggered, you get an [alert](https://yandex.cloud/en/docs/security-deck/concepts/alerts) with details on the violation, a list of facts and affected resources, and guidelines to fix the issue.
 
 #### Instructions and solutions

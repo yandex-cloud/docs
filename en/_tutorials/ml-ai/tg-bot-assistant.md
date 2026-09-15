@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost for creating an AI assistant includes:
 
-* Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
+* Fee for using [{{ ml-platform-name }} computing resources]({{ link-docs }}/datasphere/pricing).
 * Fee for [text generation]({{ link-docs-ai }}pricing) by the model.
 
 ## Set up your infrastructure {#infra}
@@ -48,7 +48,7 @@ The infrastructure support cost for creating an AI assistant includes:
 
 ### Create a service account for the {{ ml-platform-name }} project {#create-sa}
 
-You need to create a [service account](../../iam/concepts/users/service-accounts.md) to access the model from the notebook.
+You need to create a [service account]({{ link-docs }}/iam/concepts/users/service-accounts) to access the model from the notebook.
 
 {% list tabs group=instructions %}
 
@@ -57,7 +57,7 @@ You need to create a [service account](../../iam/concepts/users/service-accounts
   1. Navigate to `data-folder`.
   1. On the left-hand panel, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ServicesSection.title_ur39b }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**, or find it using the search bar on the dashboard.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Specify the service account name, e.g., `gpt-user`.
+  1. Enter a name for the service account, e.g., `gpt-user`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` role to this service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -79,7 +79,7 @@ To enable the service account to access the model from the notebook, add it to t
 
 ## Create an API key for the service account {#create-key}
 
-To enable the service account to access the model, create an [API key](../../iam/concepts/authorization/api-key.md).
+To enable the service account to access the model, create an [API key]({{ link-docs }}/iam/concepts/authorization/api-key).
 
 {% list tabs group=instructions %}
 
@@ -92,7 +92,7 @@ To enable the service account to access the model, create an [API key](../../iam
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select `yc.ai.languageModels.execute`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and the secret key.
+  1. Save the ID and secret key.
 
 {% endlist %}
 
@@ -104,12 +104,12 @@ To enable the service account to access the model, create an [API key](../../iam
 
 ## Create secrets {#create-secrets}
 
-To use the API key, folder ID, and bot access token from the notebook, create [secrets](../../datasphere/concepts/secrets.md) with the relevant values.
+To use the API key, folder ID, and bot access token from the notebook, create [secrets]({{ link-docs }}/datasphere/concepts/secrets) with the relevant values.
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![secret](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter the name for the secret: `api_key`.
+1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter a name for the secret: `api_key`.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, paste the key ID.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. Similarly, create two more secrets: `folder_id` with the folder ID and `tg_token` with the Telegram bot token.
@@ -150,4 +150,4 @@ The notebook code connects to the model, provides it with the relevant functions
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created, [delete the project](../../datasphere/operations/projects/delete.md).
+To stop paying for the resources you created, [delete the project]({{ link-docs }}/datasphere/operations/projects/delete).

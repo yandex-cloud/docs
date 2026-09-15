@@ -15,7 +15,7 @@ description: Follow this guide to get information about a disk placement group.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Navigate to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
   1. Select the disk placement group.
-  1. The **{{ ui-key.yacloud.compute.placement-group.overview.label_title }}** page will show the disk placement group details.
+  1. The **{{ ui-key.yacloud.compute.placement-group.overview.label_title }}** tab will display detailed information about the disk placement group.
 
 - CLI {#cli}
 
@@ -74,7 +74,7 @@ description: Follow this guide to get information about a disk placement group.
       * `output "placement_group"`: Output variable that contains information about the disk placement group:
         * `value`: Return value.
 
-      You can replace `name` with another variable to get the information you need. For more information about the `yandex_compute_disk_placement_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_disk_placement_group).
+      You can replace `name` with any other attribute to get the information you need. For more information about the `yandex_compute_disk_placement_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_disk_placement_group).
 
   1. Create the resources:
 

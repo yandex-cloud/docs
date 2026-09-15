@@ -239,6 +239,19 @@ apiPlayground:
               Name of the SAML attribute that contains group information.
               The maximum string length in characters is 8000.
             type: string
+          groupAttributeValue:
+            description: |-
+              **enum** (GroupAttributeValue)
+              Source of the group value provided to the application.
+              - `NAME`: The group name is provided to the application.
+              - `ID`: The group ID is provided to the application.
+              - `EXTERNAL_ID`: The group external ID is provided to the application.
+            type: string
+            enum:
+              - GROUP_ATTRIBUTE_VALUE_UNSPECIFIED
+              - NAME
+              - ID
+              - EXTERNAL_ID
 ---
 
 # SAML Application API, REST: Application.Create
@@ -292,7 +305,8 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/app
   },
   "groupClaimsSettings": {
     "groupDistributionType": "string",
-    "groupAttributeName": "string"
+    "groupAttributeName": "string",
+    "groupAttributeValue": "string"
   }
 }
 ```
@@ -486,6 +500,13 @@ Distribution type for group claims.
 Name of the SAML attribute that contains group information.
 
 The maximum string length in characters is 8000. ||
+|| groupAttributeValue | **enum** (GroupAttributeValue)
+
+Source of the group value provided to the application.
+
+- `NAME`: The group name is provided to the application.
+- `ID`: The group ID is provided to the application.
+- `EXTERNAL_ID`: The group external ID is provided to the application. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -1,14 +1,14 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Поиск чувствительных данных в бакете
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Искать чувствительные данные в бакете
 
-# Поиск чувствительных данных в бакете
+# Искать чувствительные данные в бакете
 
-{% note info %}
+Вы можете искать в бакете [чувствительные данные](../../concepts/sensitive-data-search.md) — пароли, данные банковских карт, адреса электронной почты и другие — с помощью [модуля контроля данных](../../../security-deck/concepts/dspm.md) (Data Security Posture Management). Создать сканирование бакета и работать с результатами можно в сервисе Object Storage через [консоль управления](https://console.yandex.cloud).
 
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
+{% note warning %}
+
+Поиск чувствительных данных в бакете — платная операция. Сканирование, запущенное из интерфейса Object Storage, выполняет модуль контроля данных (DSPM) сервиса [Yandex Security Deck](../../../security-deck/index.md). Стоимость сканирования рассчитывается по [правилам тарификации](../../../security-deck/pricing.md) Security Deck и в детализации расходов относится к этому сервису.
 
 {% endnote %}
-
-[Модуль контроля данных](../../../security-deck/concepts/dspm.md) (Data Security Posture Management) находит [чувствительную информацию](../../concepts/sensitive-data-search.md) в хранилищах с помощью сканирования [бакетов](../../concepts/bucket.md). Вы можете создавать сканирование бакетов и работать с результатами сканирования в сервисе Object Storage через [консоль управления](https://console.yandex.cloud).
 
 
 ## Перед началом работы {#before-begin}
@@ -143,6 +143,12 @@
 {% endlist %}
 
 Подробнее про ошибки сканирования на странице [Диагностика ошибок в работе модуля контроля данных (DSPM)](../../../security-deck/diagnostics/dspm-diagnostics.md).
+
+#### Полезные ссылки {#see-also}
+
+* [Поиск чувствительных данных в Object Storage](../../concepts/sensitive-data-search.md)
+* [Модуль контроля данных (DSPM)](../../../security-deck/concepts/dspm.md)
+* [Подготовить данные для сканирования в DSPM](../../../security-deck/operations/dspm/create-data-source.md)
 
 [*bucket-object-key]: [Ключ объекта](../../concepts/object.md#key) — это полное имя файла внутри бакета, часто записанное как путь в файловой системе. Примеры ключей: `docs/reports/2026/april.pdf`, `photos/trips/paris/img001.jpg`.
 

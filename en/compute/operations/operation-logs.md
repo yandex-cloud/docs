@@ -22,7 +22,7 @@ The system logs all actions with {{ compute-name }} resources as a list of opera
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Select the VM.
-  1. Go to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.operations_kRLeR }}** panel for the selected VM.
+  1. Navigate to the **{{ ui-key.yacloud.compute.operations_kRLeR }}** tab for the selected VM.
 
      This will open the list of operations with the VM and resources connected to it.
 
@@ -32,7 +32,7 @@ The system logs all actions with {{ compute-name }} resources as a list of opera
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get the list of operations for the {{ compute-name }} resource, run this command:
+  To get a list of operations for the {{ compute-name }} resource, run this command:
 
   ```bash
   yc compute <resource_type> list-operations <resource_name_or_ID>

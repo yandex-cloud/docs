@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Конвертация видео в GIF на Python > Обзор
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Разработка и развертывание приложений > Конвертация видео в GIF на Python > Обзор
 
 # Конвертация видео в GIF на Python
 

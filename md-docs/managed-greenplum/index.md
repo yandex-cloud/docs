@@ -154,7 +154,7 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [Миграция базы данных из MySQL® в Greenplum®](tutorials/mmy-to-mgp.md)
 
- - [Выгрузка данных Greenplum® в холодное хранилище Object Storage](tutorials/yezzey.md)
+ - [Выгрузка данных Greenplum® в гибридное хранилище Object Storage](tutorials/yezzey.md)
 
  - [Загрузка данных из Object Storage в Yandex MPP Analytics for PostgreSQL с помощью Data Transfer](tutorials/object-storage-to-greenplum.md)
 

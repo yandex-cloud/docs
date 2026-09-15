@@ -10,6 +10,12 @@
 || Максимальное количество организаций, которые может создать субъект | 10 ||
 || Максимальное количество федераций в организации 
 `organization-manager.federations.count` | 10 ||
+|| {{ ui-key.yacloud_quotas.quotas.organization-manager.authenticationPolicyRules.count }}
+`organization-manager.authenticationPolicyRules.count` | 10 ||
+|| {{ ui-key.yacloud_quotas.quotas.organization-manager.federationCertificates.count }}
+`organization-manager.federationCertificates.count` | 100 ||
+|| {{ ui-key.yacloud_quotas.quotas.organization-manager.federationUsers.count }}
+`organization-manager.federationUsers.count` | 1 000 ||
 || Максимальное количество сертификатов в федерации | 100 ||
 || Максимальное количество субъектов в федерации | 10 000 ||
 || Максимальное количество облаков в организации | 5 ||

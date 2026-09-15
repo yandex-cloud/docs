@@ -18,17 +18,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* {{ container-registry-full-name }}: Storing created Docker images and leveraging the vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* {{ GL }} instance. The cost depends on the instance creation method:
 
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for public IP addresses if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for a NAT gateway if used instead of public IP addresses for cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#nat-gateways)).
-* Fee for {{ container-registry-name }} [storage](../../container-registry/pricing.md).
-* {{ GL }} instance fee that depends on the instance creation method:
+   * {{ mgl-name }}: You pay for the VM computing resources, volume of stored data and backups, and the amount of outgoing traffic (see [{{ mgl-name }} pricing](../../managed-gitlab/pricing.md)).
+   * VM with a {{ GL }} image: You pay for the VM computing resources and the {{ GL }} image ([{{ compute-name }} pricing](../../compute/pricing.md)).
 
-   * {{ mgl-name }}: You pay for VM resources, data and backup storage, and the amount of outgoing traffic (see [{{ mgl-name }} pricing](../../managed-gitlab/pricing.md)).
-   * VM with the {{ GL }} image: You pay for VM resources, {{ GL }} image, VM public IP address (see [{{ compute-name }}](../../compute/pricing.md) and [{{ vpc-name }} pricing](../../vpc/pricing.md#nat-gateways)).
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes and for the {{ GL }} image VM with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* NAT gateway if used instead of public IP addresses for your cluster nodes: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md#nat-gateways)).
 
 
 ## Getting started {#before-you-begin}
@@ -40,7 +39,7 @@ The support cost for this solution includes:
 - Manually {#manual}
 
   1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
-  1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) the new {{ managed-k8s-name }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group) will be created in.
+  1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where the new {{ managed-k8s-name }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group) will reside.
   1. [Create these service accounts](../../iam/operations/sa/create.md):
      * Service account for {{ k8s }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the new {{ managed-k8s-name }} cluster.
      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) and [{{ roles-cr-pusher }}](../../container-registry/security/index.md#container-registry-images-pusher) roles. The {{ managed-k8s-name }} nodes will use this service account to push the [Docker images](../../container-registry/concepts/docker-image.md) built in {{ GL }} to the [registry](../../container-registry/concepts/registry.md) and pull them to run [pods](../../managed-kubernetes/concepts/index.md#pod).
@@ -57,7 +56,7 @@ The support cost for this solution includes:
 
   1. [Create a security group](../../managed-gitlab/operations/configure-security-group.md) for the [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instance).
   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for resources and nodes, as well as the security groups for the cluster.
-  1. [Create a {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
+  1. [Create a {{ container-registry-name }}](../../container-registry/operations/registry/registry-create.md).
   1. [Save the registry ID](../../container-registry/operations/registry/registry-list.md#registry-get), as you will need it at the next steps.
 
 - {{ TF }} {#tf}

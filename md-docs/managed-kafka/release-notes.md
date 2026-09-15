@@ -2,6 +2,10 @@
 
 # История изменений в Yandex Managed Service for Apache Kafka®
 
+## Сентябрь 2026 {#september-2026}
+
+* Для Apache Kafka® 4.x (начиная с версии 4.0) минимальное значение настроек [Log segment bytes](concepts/settings-list.md#settings-log-segment-bytes) на уровне кластера и [Segment bytes](concepts/settings-list.md#settings-topic-segment-bytes) на уровне топика увеличено до 1 048 576 байт (1 МиБ).
+
 ## Июнь 2026 {#june-2026}
 
 * Добавлена возможность [изменить тип диска](operations/storage-space.md#change-disk-size) хостов-брокеров в [высокодоступном кластере](concepts/ha-cluster.md).

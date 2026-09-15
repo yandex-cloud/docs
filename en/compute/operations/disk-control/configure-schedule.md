@@ -21,8 +21,8 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the disk.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Open the ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** tab and select the disk.
-  1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}** and select the disk of interest.
+  1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, click **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
   1. Select a schedule or create a new one. For more information on schedule settings, see [this guide](../snapshot-control/create-schedule.md).
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -155,7 +155,7 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the disk.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Open the ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** tab and select the disk.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}** and select the disk of interest.
   1. In the row with the schedule under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-schedule }}**.
 
 - CLI {#cli}

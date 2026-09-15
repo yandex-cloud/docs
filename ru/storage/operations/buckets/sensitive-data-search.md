@@ -3,11 +3,15 @@ title: Поиск чувствительных данных в бакете {{ o
 description: Следуя данной инструкции, вы узнаете, как создавать сканирование бакета и работать с результатами сканирования в {{ objstorage-full-name }}.
 ---
 
-# Поиск чувствительных данных в бакете
+# Искать чувствительные данные в бакете
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
+Вы можете искать в бакете [чувствительные данные](../../concepts/sensitive-data-search.md) — пароли, данные банковских карт, адреса электронной почты и другие — с помощью [модуля контроля данных](../../../security-deck/concepts/dspm.md) ({{ dspm-full-name }}). Создать сканирование бакета и работать с результатами можно в сервисе {{ objstorage-name }} через [консоль управления]({{ link-console-main }}).
 
-[Модуль контроля данных](../../../security-deck/concepts/dspm.md) ({{ dspm-full-name }}) находит [чувствительную информацию](../../concepts/sensitive-data-search.md) в хранилищах с помощью сканирования [бакетов](../../../storage/concepts/bucket.md). Вы можете создавать сканирование бакетов и работать с результатами сканирования в сервисе {{ objstorage-name }} через [консоль управления]({{ link-console-main }}).
+{% note warning %}
+
+Поиск чувствительных данных в бакете — платная операция. Сканирование, запущенное из интерфейса {{ objstorage-name }}, выполняет модуль контроля данных ({{ dspm-name }}) сервиса [{{ sd-full-name }}](../../../security-deck/). Стоимость сканирования рассчитывается по [правилам тарификации](../../../security-deck/pricing.md) {{ sd-name }} и в детализации расходов относится к этому сервису.
+
+{% endnote %}
 
 
 ## Перед началом работы {#before-begin}
@@ -136,6 +140,12 @@ description: Следуя данной инструкции, вы узнаете
 {% endlist %}
 
 {% include [errors-scan-outro](../../../_includes/security-deck/errors-scan-outro.md) %}
+
+#### Полезные ссылки {#see-also}
+
+* [{#T}](../../concepts/sensitive-data-search.md)
+* [{#T}](../../../security-deck/concepts/dspm.md)
+* [{#T}](../../../security-deck/operations/dspm/create-data-source.md)
 
 [*bucket-object-key]: [Ключ объекта](../../concepts/object.md#key) — это полное имя файла внутри бакета, часто записанное как путь в файловой системе. Примеры ключей: `docs/reports/2026/april.pdf`, `photos/trips/paris/img001.jpg`.
 

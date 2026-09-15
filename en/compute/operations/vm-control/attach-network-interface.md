@@ -27,7 +27,7 @@ To add another network interface to your VM:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM belongs to.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Select the VM to which you want to add an additional network interface.
-  1. On the **{{ ui-key.yacloud.common.overview }}** tab, under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, click **{{ ui-key.yacloud.compute.instance.overview.button_add-network-interface }}**.
+  1. On the **{{ ui-key.yacloud.common.overview }}** tab, under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click **{{ ui-key.yacloud.compute.instance.overview.button_add-network-interface }}**.
   1. In the window that opens, specify the network interface properties:
 
      * **{{ ui-key.yacloud.compute.instances.field_network-interface-index }}**: Responsible for the order in which network interfaces are connected. Each VM network interface must have a unique number.
@@ -191,7 +191,7 @@ To add another network interface to your VM:
       * `subnet_id`: [Subnet](../../../vpc/concepts/network.md#subnet) ID.
       * `allow_stopping_for_update`: Parameter to allow the VM to stop for updates.
 
-      For more information about `yandex_compute_instance` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
+      For more information about the properties of the `yandex_compute_instance` resource, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
 
   1. Create the resources:
 
