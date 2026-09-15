@@ -83,22 +83,22 @@ You can add the following annotations to `ObjectMeta`:
 
   Number of consecutive successful [checks](../../../network-load-balancer/concepts/health-check.md) to consider a node healthy.
 
-  It can range from `2` to `10`.
+  The minimum value is `2`; the maximum value is `10`.
 * **yandex.cloud/load-balancer-healthcheck-interval**
 
   [Health check](../../../network-load-balancer/concepts/health-check.md) interval in seconds.
 
-  It can range from `2s` to `300s`.
+  The minimum value is `2s`; the maximum value is `300s`.
 * **yandex.cloud/load-balancer-healthcheck-timeout**
 
   [Health check](../../../network-load-balancer/concepts/health-check.md) timeout in seconds. If a node fails to respond within this time, it is considered unhealthy.
 
-  It can range from `1s` to `60s`.
+  The minimum value is `1s`; the maximum value is `60s`.
 * **yandex.cloud/load-balancer-healthcheck-unhealthy-threshold**
 
   Number of consecutive failed [checks](../../../network-load-balancer/concepts/health-check.md) to consider a node unhealthy.
 
-  The valid values range from `2` to `10`.
+  The minimum value is `2`; the maximum value is `10`.
 
 ## ServiceSpec {#servicespec}
 

@@ -2,7 +2,7 @@ You can restrict access to a bucket at the service level. This will make access 
 
 {% note warning %}
 
-With this option on, the bucket will not be accessible from the public network. There is a separate option enabling bucket access via the [management console]({{ link-console-main }}). See also [Server side copy](#server-side-copy).
+With this option on, the bucket will not be accessible from the public network. There is a separate option enabling bucket access via the [management console]({{ link-console-main }}). For more information, see [Server-side copy](#server-side-copy).
 
 {% endnote %}
 
@@ -15,7 +15,7 @@ With this option on, the bucket will not be accessible from the public network. 
   1. In the [management console]({{ link-console-main }}), select the folder where you configured the {{ vpc-short-name }} service connection.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket from the list.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
   1. Under **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_label-strict-mode_2ttnd }}**, enable **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_description-strict-mode_9cpMe }}**.
   1. In the **{{ ui-key.yacloud.storage.form.Service_onnectionsField.field_lable-service-connections_iGyHa }}** field, specify the ID of the service connection you created.
   1. Optionally, enable **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_force-cloud-console-access_5bS8y }}**. This option enables you to access the bucket from the management console even if access is allowed only via {{ vpc-short-name }} service connections. When this option is disabled, you can only access the bucket via the API or CLI.
@@ -73,7 +73,7 @@ With this option on, the bucket will not be accessible from the public network. 
   1. In the [management console]({{ link-console-main }}), select the folder where you configured the {{ vpc-short-name }} service connection.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket from the list.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
   1. Under **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_label-strict-mode_2ttnd }}**, disable **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_description-strict-mode_9cpMe }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -99,6 +99,6 @@ With this option on, the bucket will not be accessible from the public network. 
 
 - API {#api}
 
-  To allow bucket access only from {{ vpc-short-name }} service connections at the service level, use the [update](../../storage/api-ref/Bucket/update.md) REST API method for the [Bucket](../../storage/api-ref/grpc/Bucket/index.md) resource or the [Bucket/Update](../../storage/api-ref/grpc/Bucket/update.md) gRPC API call.
+  To restore bucket access from the public network, use the [update](../../storage/api-ref/Bucket/update.md) REST API method for the [Bucket](../../storage/api-ref/grpc/Bucket/index.md) resource or the [Bucket/Update](../../storage/api-ref/grpc/Bucket/update.md) gRPC API call.
 
 {% endlist %}

@@ -1,7 +1,7 @@
 ### Outbound internet access control is performed {#check-outgoing-internet-connection}
 #|
 || **kind** | **severity** | **ID** ||
-|| auto | information | network.check-outgoing-internet-connection ||
+|| automatic | information | network.check-outgoing-internet-connection ||
 |#
 
 #### Description

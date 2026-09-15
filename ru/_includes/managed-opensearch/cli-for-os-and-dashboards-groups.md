@@ -23,10 +23,8 @@
       ```
 
 
-   * `roles` — [роли хостов](../../managed-opensearch/concepts/host-roles.md). Возможные значения:
+   * `roles` — [роли хостов](../../managed-opensearch/concepts/host-roles.md). Возможные значения: `data`, `manager`, `warm`, `ingest`. Несколько ролей можно указать через знак `+`. Примеры: `data`, `data+manager`, `manager+data`.
 
-      * `data` — предоставляется только роль `DATA`;
-      * `manager` — предоставляется только роль `MANAGER`;
-      * `data+manager` или `manager+data` — предоставляются обе роли.
+      {% include [note-warm-storage](note-warm-storage.md) %}
 
 * `--dashboards-node-group` — конфигурация группы хостов `Dashboards`. Настраивается так же, как группа хостов `{{ OS }}`, за исключением ролей хостов. Для группы `Dashboards` роли настраивать не нужно.

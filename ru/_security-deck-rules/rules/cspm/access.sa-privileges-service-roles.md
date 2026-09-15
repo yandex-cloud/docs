@@ -7,12 +7,23 @@
 
 #### Описание
 
-Следуйте принципу минимальных привилегий и [назначайте сервисному аккаунту](https://yandex.cloud/ru/docs/iam/operations/roles/grant) только те роли, которые необходимы для функционирования сервиса.
+**Как работает правило:**
 
 Правило обнаруживает сервисные аккаунты со следующими ролями в пределах сервисов:
 
-* `compute.admin` * `storage.admin` * `iam.serviceAccounts.admin` * `vpc.admin` * `k8s.admin` * `lockbox.admin` * `kms.admin`
+* `compute.admin`
+* `storage.admin`
+* `iam.serviceAccounts.admin`
+* `vpc.admin`
+* `k8s.admin`
+* `lockbox.admin`
+* `kms.admin`
+
+**Риски при невыполнении правила:** сервисные аккаунты с ролями уровня `admin` на критичных сервисах могут выполнять любые операции в этих сервисах. Скомпрометированный ключ такого аккаунта даёт злоумышленнику возможность читать все секреты из Lockbox, расшифровывать данные ключами KMS, изменять сетевые конфигурации или захватить кластеры Kubernetes — в зависимости от назначенных ролей. Ограничение сервисных аккаунтов минимально необходимыми ролями снижает ущерб от компрометации ключа.
+
+Следуйте принципу минимальных привилегий и [назначайте сервисному аккаунту](https://yandex.cloud/ru/docs/iam/operations/roles/grant) только те роли, которые необходимы для функционирования сервиса.
 
 #### Инструкции и решения по выполнению
 
-* [Отзовите](https://yandex.cloud/ru/docs/security-deck/operations/ciem/revoke-permissions) избыточные доступы у сервисного аккаунта с помощью сервиса Security Deck. * [Отзовите](https://yandex.cloud/ru/docs/iam/operations/roles/revoke) избыточные права у сервисного аккаунта с помощью сервиса IAM.
+* [Отзовите](https://yandex.cloud/ru/docs/security-deck/operations/ciem/revoke-permissions) избыточные доступы у сервисного аккаунта с помощью сервиса Security Deck.
+* [Отзовите](https://yandex.cloud/ru/docs/iam/operations/roles/revoke) избыточные права у сервисного аккаунта с помощью сервиса IAM.

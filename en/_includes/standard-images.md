@@ -1,7 +1,8 @@
 To get a list of available images using the CLI, run this command:
 
 ```bash
-yc compute image list --folder-id standard-images
+yc compute image list \
+  --folder-id standard-images
 ```
 
 Result:

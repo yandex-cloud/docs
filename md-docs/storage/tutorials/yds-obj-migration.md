@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Миграция данных из Yandex Data Streams с помощью Yandex Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Перенос данных и интеграция с базами данных > Миграция данных из Yandex Data Streams с помощью Yandex Data Transfer
 
 # Миграция данных из Yandex Data Streams с помощью Yandex Data Transfer
 

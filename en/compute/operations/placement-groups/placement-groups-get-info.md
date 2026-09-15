@@ -12,7 +12,7 @@ title: How to get information about a placement group in {{ compute-full-name }}
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Select the group.
-  1. The **{{ ui-key.yacloud.compute.placement-group.overview.label_title }}** page will show the VM placement group details.
+  1. The **{{ ui-key.yacloud.compute.placement-group.overview.label_title }}** tab will display detailed information about the VM placement group.
 
 - CLI
 
@@ -69,7 +69,7 @@ title: How to get information about a placement group in {{ compute-full-name }}
       * `output "placement_group"`: Output variable that contains information about the placement group creation time:
         * `value`: Return value.
 
-      You can replace `created_at` with another variable to get the information you need. For more information about the `yandex_compute_placement_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_placement_group).
+      You can replace `created_at` with any other attribute to get the information you need. For more information about the `yandex_compute_placement_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_placement_group).
 
   1. Create the resources:
 

@@ -295,7 +295,7 @@ To add more hosts to a {{ mmy-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. [Navigate to]({{ link-console-main }}/link/managed-mysql) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** and select the `nextcloud-db-cluster` cluster.
-  1. In the left-hand menu, select ![cube](../../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
+  1. Navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
   1. Use the **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}** button to add more [hosts](../../../managed-mysql/concepts/instance-types.md) to have three hosts in the cluster, one per [availability zone](../../../overview/concepts/geo-scope.md).
 
         Do not enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** when creating hosts.
@@ -323,7 +323,7 @@ Before you create a VM snapshot to proceed with the instance group deployment, a
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
       1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, select ![hard-drive](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+      1. In the left-hand panel, select ![hard-drive](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}**.
       1. In the line with the disk, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify `nextcloud-vm-snapshot` as the snapshot name.
       1. Click **{{ ui-key.yacloud.common.create }}**.

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Распознавание архива изображений в Vision OCR
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Машинное обучение и искусственный интеллект > Распознавание архива изображений в Vision OCR
 
 # Распознавание архива изображений в Yandex Vision OCR
 

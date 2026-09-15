@@ -66,7 +66,9 @@ keywords:
 
       1. Введите имя группы хостов. Оно должно быть уникальным в кластере.
 
-      1. Выберите [роли хостов](../concepts/host-roles.md) `DATA` и `MANAGER`.
+      1. Выберите [роли хостов](../concepts/host-roles.md).
+
+          {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
 
       1. Выберите платформу, тип и класс хостов.
 
@@ -338,7 +340,10 @@ keywords:
         {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
 
       * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
-      * `roles` — роли хостов: `DATA` и `MANAGER`.
+      * `roles` — список [ролей хостов](../concepts/host-roles.md). Возможные значения: `DATA`, `MANAGER`, `WARM`, `INGEST`.
+          
+          {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
+
       * `maintenance_window` — время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
           * `type` — тип технического обслуживания. Принимает значения:
               * `ANYTIME` — в любое время.
@@ -402,7 +407,7 @@ keywords:
                               "diskSize": "<размер_хранилища_в_байтах>",
                               "diskTypeId": "<тип_диска>"
                           },
-                          "roles": ["<роль_1>","<роль_2>"],
+                          "roles": ["<список_ролей>"],
                           "hostsCount": "<число_хостов>",
                           "zoneIds": [
                               "<зона_доступности_1>",
@@ -497,7 +502,10 @@ keywords:
                       * `diskSize` — размер диска в байтах;
                       * `diskTypeId` — [тип диска](../concepts/storage.md).
 
-                  * `roles` — список [ролей хостов](../concepts/host-roles.md). Кластер должен содержать хотя бы по одной группе хостов `DATA` и `MANAGER`. Это может быть одна группа, на которую назначены две роли, или несколько групп с разными ролями.
+                  * `roles` — список [ролей хостов](../concepts/host-roles.md). Возможные значения: `DATA`, `MANAGER`, `WARM`, `INGEST`.
+                  
+                    {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
+
                   * `hostsCount` — количество хостов в группе. Минимальное число хостов `DATA` — один, хостов `MANAGER` — три.
                   * `zoneIds` — список зон доступности, где размещаются хосты кластера.
 
@@ -605,7 +613,7 @@ keywords:
                               "disk_size": "<размер_хранилища_в_байтах>",
                               "disk_type_id": "<тип_диска>"
                           },
-                          "roles": ["<роль_1>","<роль_2>"],
+                          "roles": ["<список_ролей>"],
                           "hosts_count": "<число_хостов>",
                           "zone_ids": [
                               "<зона_доступности_1>",
@@ -699,7 +707,10 @@ keywords:
                       * `disk_size` — размер диска в байтах;
                       * `disk_type_id` — [тип диска](../concepts/storage.md).
 
-                  * `roles` — список [ролей хостов](../concepts/host-roles.md). Кластер должен содержать хотя бы по одной группе хостов `DATA` и `MANAGER`. Это может быть одна группа, на которую назначены две роли, или несколько групп с разными ролями.
+                  * `roles` — список [ролей хостов](../concepts/host-roles.md). Возможные значения: `DATA`, `MANAGER`, `WARM`, `INGEST`.
+                  
+                    {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
+                  
                   * `hosts_count` — количество хостов в группе. Минимальное число хостов `DATA` — один, хостов `MANAGER` — три.
                   * `zone_ids` — список зон доступности, где размещаются хосты кластера.
 

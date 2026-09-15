@@ -2,7 +2,7 @@
 
 In this tutorial, you will use {{ ai-studio-full-name }}' [text generation capabilities]({{ link-docs-ai }}ai-studio/concepts/generation/models) to implement the scenario of automatic [review](https://docs.github.com/en/get-started/learning-about-github/github-glossary#review) of proposed code changes on [GitHub](https://github.com/).
 
-This solution uses a [GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions) script to request {{ yandex-cloud }} for an AI review of changes in the [pull request](https://docs.github.com/en/get-started/learning-about-github/github-glossary#pull-request). The steps of pulling the changes, requesting a review from the generative model, and publishing the review to GitHub are performed by a {{ sw-full-name }} [workflow](../../serverless-integrations/concepts/workflows/workflow.md).
+This solution uses a [GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions) script to request {{ yandex-cloud }} for an AI review of changes in the [pull request](https://docs.github.com/en/get-started/learning-about-github/github-glossary#pull-request). The steps of pulling the changes, requesting a review from the generative model, and publishing the review to GitHub are performed by a {{ sw-full-name }} [workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow).
 
 ![ai-powered-github-pr-review](../../_assets/tutorials/ai-powered-github-pr-review.svg)
 
@@ -10,10 +10,10 @@ On the diagram:
 
 1. User adds a [commit](https://docs.github.com/en/get-started/learning-about-github/github-glossary#commit) to a pull request on GitHub.
 1. When the new commit appears in the pull request, a GitHub Actions script is run.
-1. The GitHub Actions script gets the {{ yandex-cloud }} service account's [authorized key](../../iam/concepts/authorization/key.md) stored in a GitHub [repository secret](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
-1. The GitHub Actions script requests an [IAM token](../../iam/concepts/authorization/iam-token.md) in exchange for the [service account's](../../iam/concepts/users/service-accounts.md) authorized key in {{ iam-full-name }}. The IAM token is required for authentication in the {{ si-full-name }} API.
+1. The GitHub Actions script gets the {{ yandex-cloud }} service account's [authorized key]({{ link-docs }}/iam/concepts/authorization/key) stored in a GitHub [repository secret](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
+1. The GitHub Actions script requests an [IAM token]({{ link-docs }}/iam/concepts/authorization/iam-token) in exchange for the [service account's]({{ link-docs }}/iam/concepts/users/service-accounts) authorized key in {{ iam-full-name }}. The IAM token is required for authentication in the {{ si-full-name }} API.
 1. The GitHub Actions script uses the IAM token to send an HTTP request to the {{ sw-full-name }} workflow to generate a review. The pull request number is at the same time provided to the {{ sw-name }} workflow.
-1. The {{ sw-name }} workflow gets the [access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#about-personal-access-tokens) named `personal access token (classic)` for access to the GitHub repository in a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md).
+1. The {{ sw-name }} workflow gets the [access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#about-personal-access-tokens) named `personal access token (classic)` for access to the GitHub repository in a {{ lockbox-full-name }} [secret]({{ link-docs }}/lockbox/concepts/secret).
 1. The {{ sw-name }} workflow uses the access token to pull the changes proposed in the pull request from the GitHub repository.
 1. The {{ sw-name }} workflow requests the {{ ai-studio-full-name }} [model]({{ link-docs-ai }}ai-studio/concepts/generation/models) to review the changes proposed in the pull request. The model returns the review with its comments and tips on how to improve the code.
 1. The {{ sw-name }} workflow uses the access token to publish the review in the GitHub pull request.
@@ -43,11 +43,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support costs for implementing a scenario for automatic AI review of pull requests include:
 * Fee for text generation (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
 * Fee for storing the secret and operations with it (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
-* Fee for data logging and storage in a [log group](../../logging/concepts/log-group.md) if using [{{ cloud-logging-name }}](../../logging/) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
+* Fee for data logging and storage in a [log group]({{ link-docs }}/logging/concepts/log-group) if using [{{ cloud-logging-name }}]({{ link-docs }}/logging/) (see [{{ cloud-logging-full-name }} pricing]({{ link-docs }}/logging/pricing)).
 
 ### Create a {{ lockbox-name }} secret {#create-secret}
 
-Create a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md) to safely store the GitHub access token.
+Create a {{ lockbox-full-name }} [secret]({{ link-docs }}/lockbox/concepts/secret) to safely store the GitHub access token.
 
 {% list tabs group=instructions %}
 
@@ -100,17 +100,17 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md) to s
 
 - API {#api}
 
-  Use the [create](../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md) gRPC API call.
+  Use the [create]({{ link-docs }}/lockbox/api-ref/Secret/create) REST API method for the [Secret]({{ link-docs }}/lockbox/api-ref/Secret/index) resource or the [SecretService/Create]({{ link-docs }}/lockbox/api-ref/grpc/Secret/create) gRPC API call.
 
 {% endlist %}
 
 ### Create service accounts {#create-sa}
 
-Create these two [service accounts](../../iam/concepts/users/service-accounts.md):
-* `workflow-sa`: This one will be used to run the {{ sw-name }} [workflow](../../serverless-integrations/concepts/workflows/workflow.md).
+Create these two [service accounts]({{ link-docs }}/iam/concepts/users/service-accounts.md):
+* `workflow-sa`: This one will be used to run the {{ sw-name }} [workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow).
 * `github-worker`: This one will be used to execute the workflow on a request from the GitHub Actions script.
 
-1. Create a service account named `workflow-sa` and assign the [`{{ roles-lockbox-payloadviewer }}`](../../lockbox/security/index.md#lockbox-payloadViewer) and [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) [roles](../../iam/concepts/access-control/roles.md) to it.
+1. Create a service account named `workflow-sa` and assign the [`{{ roles-lockbox-payloadviewer }}`]({{ link-docs }}/lockbox/security/index#lockbox-payloadViewer) and [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) [roles]({{ link-docs }}/iam/concepts/access-control/roles) to it.
 
     {% list tabs group=instructions %}
 
@@ -120,7 +120,7 @@ Create these two [service accounts](../../iam/concepts/users/service-accounts.md
         1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
         1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
         1. Name the service account: `workflow-sa`.
-        1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select the [`{{ roles-lockbox-payloadviewer }}`](../../lockbox/security/index.md#lockbox-payloadViewer) and [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) roles.
+        1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select the [`{{ roles-lockbox-payloadviewer }}`]({{ link-docs }}/lockbox/security/index#lockbox-payloadViewer) and [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) roles.
         1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
     - CLI {#cli}
@@ -154,7 +154,7 @@ Create these two [service accounts](../../iam/concepts/users/service-accounts.md
 
           Where:
 
-          * `<folder_ID>`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are creating the infrastructure in.
+          * `<folder_ID>`: [ID of the folder]({{ link-docs }}/resource-manager/operations/folder/get-id) you are creating the infrastructure in.
           * `<service_account_ID>`: Service account ID saved in the previous step.
 
           Result:
@@ -173,17 +173,17 @@ Create these two [service accounts](../../iam/concepts/users/service-accounts.md
 
     - API {#api}
 
-      To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
+      To create a service account, use the [create]({{ link-docs }}/iam/api-ref/ServiceAccount/create) REST API method for the [ServiceAccount]({{ link-docs }}/iam/api-ref/ServiceAccount/index) resource or the [ServiceAccountService/Create]({{ link-docs }}/iam/api-ref/grpc/ServiceAccount/create) gRPC API call.
 
-      To assign the service account a role for the folder, use the [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md) gRPC API call.
+      To assign the service account a role for the folder, use the [updateAccessBindings]({{ link-docs }}/resource-manager/api-ref/Folder/updateAccessBindings) REST API method for the [Folder]({{ link-docs }}/resource-manager/api-ref/Folder/index) resource or the [FolderService/UpdateAccessBindings]({{ link-docs }}/resource-manager/api-ref/grpc/Folder/updateAccessBindings) gRPC API call.
 
     {% endlist %}
 
-1. Similarly, create a service account named `github-worker` and assign the `serverless.workflows.executor` [role](../../iam/concepts/access-control/roles.md) to it.
+1. Similarly, create a service account named `github-worker` and assign the `serverless.workflows.executor` [role]({{ link-docs }}/iam/concepts/access-control/roles) to it.
 
 ### Create an authorized key for the service account {#create-authorized-key}
 
-Create an [authorized key](../../iam/concepts/authorization/key.md) for the `github-worker` service account. An authorized key will allow the GitHub Actions script to get an IAM token for authentication in the {{ yandex-cloud }} API.
+Create an [authorized key]({{ link-docs }}/iam/concepts/authorization/key) for the `github-worker` service account. An authorized key will allow the GitHub Actions script to get an IAM token for authentication in the {{ yandex-cloud }} API.
 
 
 {% list tabs group=instructions %}
@@ -213,19 +213,19 @@ Create an [authorized key](../../iam/concepts/authorization/key.md) for the `git
 
 - API {#api}
 
-  Use the [create](../../iam/api-ref/Key/create.md) REST API method for the [Key](../../iam/api-ref/Key/index.md) resource or the [KeyService/Create](../../iam/api-ref/grpc/Key/create.md) gRPC API call.
+  Use the [create]({{ link-docs }}/iam/api-ref/Key/create) REST API method for the [Key]({{ link-docs }}/iam/api-ref/Key/index) resource or the [KeyService/Create]({{ link-docs }}/iam/api-ref/grpc/Key/create) gRPC API call.
 
 {% endlist %}
 
 ## Create a workflow {#create-si-workflow}
 
-Create a {{ sw-name }} [workflow](../../serverless-integrations/concepts/workflows/workflow.md) on the {{ yandex-cloud }} side.
+Create a {{ sw-name }} [workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) on the {{ yandex-cloud }} side.
 
 {% include [workflow-constructor-tip](../../_includes/serverless-integrations/workflow-constructor-tip.md) %}
 
 ![ai-powered-github-pr-review-workflow](../../_assets/tutorials/ai-powered-github-pr-review-workflow.png)
 
-1. Create a file named `yawl-spec.yaml` with the following [YaWL specification](../../serverless-integrations/concepts/workflows/yawl/index.md) of the workflow:
+1. Create a file named `yawl-spec.yaml` with the following [YaWL specification]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/index) of the workflow:
 
     **yawl-spec.yaml**
 
@@ -303,7 +303,7 @@ Create a {{ sw-name }} [workflow](../../serverless-integrations/concepts/workflo
       1. Expand **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}**.
       1. In the **{{ ui-key.yacloud.common.name }}** field, enter the workflow name, e.g., `github-ai-review-workflow`.
       1. In the **{{ ui-key.yacloud.serverless-workflows.label_service-account }}** field, select the `workflow-sa` service account you previously created.
-      1. Optionally, [configure](../../serverless-integrations/operations/workflows/workflow/logs-write.md) logging for workflow runs.
+      1. Optionally, [configure]({{ link-docs-ai }}ai-studio/operations/workflows/workflow/logs-write) logging for workflow runs.
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
       The action will open a window containing a table with information about the new workflow. Save its ID as you will need it later to configure the GitHub Actions script.
@@ -325,7 +325,7 @@ Create a {{ sw-name }} [workflow](../../serverless-integrations/concepts/workflo
       * `--yaml-spec`: Path to the previously created YaWL specification file, e.g., `./yawl-spec.yaml`.
       * `--name`: Name of the new workflow, e.g., `github-ai-review-workflow`.
       * `--service-account-id`: ID of the `workflow-sa` service account you saved earlier.
-      * `--no-logging`: Disables the logging of workflow runs. This is an optional setting. If not set, workflow runs are logged to the default [log group](../../logging/concepts/log-group.md) of the folder the workflow was created in.
+      * `--no-logging`: Disables the logging of workflow runs. This is an optional setting. If not set, workflow runs are logged to the default [log group]({{ link-docs }}/logging/concepts/log-group) of the folder the workflow was created in.
 
       Result:
 
@@ -348,7 +348,7 @@ Create a {{ sw-name }} [workflow](../../serverless-integrations/concepts/workflo
 
     - API {#api}
 
-      To create a workflow, use the [Create](../../serverless-integrations/workflows/api-ref/Workflow/create.md) REST API method for the [Workflows](../../serverless-integrations/workflows/api-ref/Workflow/index.md) resource or the [WorkflowService/Create](../../serverless-integrations/workflows/api-ref/grpc/Workflow/create.md) gRPC API call.
+      To create a workflow, use the [Create]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/create) REST API method for the [Workflows]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/index) resource or the [WorkflowService/Create]({{ link-docs-ai }}ai-studio/workflows/api-ref/grpc/Workflow/create) gRPC API call.
 
     {% endlist %}
 
@@ -410,7 +410,7 @@ To test the script, create a new pull request in your GitHub repository. When cr
 
 To stop paying for the resources you created:
 
-1. [Delete](../../lockbox/operations/secret-delete.md) the {{ lockbox-name }} secret.
-1. [Delete](../../serverless-integrations/operations/workflows/workflow/delete.md) the {{ sw-name }} workflow.
-1. [Delete](../../logging/operations/delete-group.md) the log group if you had activated workflow run logging.
-1. Optionally, [delete](../../iam/operations/sa/delete.md) the service accounts.
+1. [Delete]({{ link-docs }}/lockbox/operations/secret-delete) the {{ lockbox-name }} secret.
+1. [Delete]({{ link-docs-ai }}ai-studio/operations/workflows/workflow/delete) the {{ sw-name }} workflow.
+1. [Delete]({{ link-docs }}/logging/operations/delete-group) the log group if you had activated workflow run logging.
+1. Optionally, [delete]({{ link-docs }}/iam/operations/sa/delete) the service accounts.

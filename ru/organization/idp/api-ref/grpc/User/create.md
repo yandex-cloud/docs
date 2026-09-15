@@ -28,7 +28,8 @@ Creates a user in the specified userpool.
   },
   "password_hash": {
     "password_hash": "string",
-    "password_hash_type": "PasswordHashType"
+    "password_hash_type": "PasswordHashType",
+    "created_at": "google.protobuf.Timestamp"
   },
   // end of the list of possible fields
   "is_active": "google.protobuf.BoolValue",
@@ -37,7 +38,8 @@ Creates a user in the specified userpool.
   "department": "string",
   "job_title": "string",
   "employee_id": "string",
-  "expires_at": "google.protobuf.Timestamp"
+  "expires_at": "google.protobuf.Timestamp",
+  "password_change_required": "bool"
 }
 ```
 
@@ -125,6 +127,10 @@ The maximum string length in characters is 256. ||
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp when the user account expires. ||
+|| password_change_required | **bool**
+
+Whether the user must change their password on first login.
+Applies only when [PasswordHash](#yandex.cloud.organizationmanager.v1.idp.PasswordHash) credentials are provided. ||
 |#
 
 ## PasswordSpec {#yandex.cloud.organizationmanager.v1.idp.PasswordSpec}
@@ -166,6 +172,13 @@ Supported by 389 DS, FreeIPA, ALD Pro.
 - `LDAP_PBKDF2_SHA256_OPENLDAP`: OpenLDAP-compatible format `{PBKDF2-SHA256}` (hyphen). Supported by 389 DS, FreeIPA, ALD Pro.
 - `LDAP_PBKDF2_SHA512`: Supported by 389 DS, FreeIPA, ALD Pro.
 - `LDAP_PKCS5S2`: Supported by Apache Directory Server. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp when the password was created.
+For synchronized passwords, use the time when the password was last set in the source directory.
+If omitted, the current time is used.
+Used by [CreateUserRequest](#yandex.cloud.organizationmanager.v1.idp.CreateUserRequest) and [SetPasswordHashRequest](/docs/organization/idp/api-ref/grpc/User/setPasswordHash#yandex.cloud.organizationmanager.v1.idp.SetPasswordHashRequest).
+This value is ignored if [CreateUserRequest.password_change_required](#yandex.cloud.organizationmanager.v1.idp.CreateUserRequest) or [SetPasswordHashRequest.need_change](/docs/organization/idp/api-ref/grpc/User/setPasswordHash#yandex.cloud.organizationmanager.v1.idp.SetPasswordHashRequest) is true. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

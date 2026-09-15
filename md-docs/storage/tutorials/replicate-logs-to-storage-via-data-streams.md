@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Репликация логов в Object Storage с помощью Data Streams
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Сбор и анализ логов > Репликация логов в Object Storage с помощью Data Streams
 
 # Репликация логов в Object Storage с помощью Yandex Data Streams
 

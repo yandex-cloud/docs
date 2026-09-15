@@ -24,7 +24,11 @@ Enable the **Basic Threat Detector rules** check:
 3. Click **Workspace parameters**.
 4. Navigate to the **Control modules** tab.
 5. Expand the **Threat Detection** standard list.
+
     {% note tip %}
+
     If the module is not on the list, contact a manager to gain access.
+
     {% endnote %}
+
 6. Enable **Basic Threat Detector rules**.

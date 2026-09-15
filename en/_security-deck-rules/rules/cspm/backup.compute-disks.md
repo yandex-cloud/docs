@@ -7,20 +7,19 @@
 
 #### Description
 
-This rule lists virtual machines which do not have configured back up policy.
+Backups for VM disks are the only practical way to recover from data loss or corruption — accidental deletion, ransomware, a failed update, hardware failure. Without backups, an incident on the VM directly turns into permanent data loss and downtime.
 
-It is important to configure back ups since it is the only practical way to restore VM's operation after a data loss or a data corruption. Without back ups, any incident leads to non-recoverable loss and operational downtime.
+Yandex Cloud offers two ways to back up VM disks:
 
-In cloud, there are two options to back up VMs:
+* [Cloud Backup](https://yandex.cloud/en/docs/backup/) — a managed backup service with policies, retention rules, and the ability to restore on a different VM.
+* [Scheduled disk snapshots](https://yandex.cloud/en/docs/compute/concepts/snapshot-schedule) — a Compute Cloud feature that periodically creates [snapshots](https://yandex.cloud/en/docs/compute/concepts/snapshot) of the disks.
 
-* Scheduled snapshots * Cloud Backup
+**Risks if the rule is not followed:** Without backups, any data loss event — accidental deletion, ransomware, hardware failure, or a failed update — results in permanent, unrecoverable data loss and extended downtime with no way to restore the previous state.
 
 #### Instructions and solutions
 
-[Backups](https://yandex.cloud/en/docs/compute/concepts/backups) in Compute Cloud includes snapshots of disks connected to VMs and Yandex Cloud Backup usage.
+Configure backups for the VM:
 
-Cloud Backup is a service for creating backups and restoring Yandex Cloud resources and their data.
-
-You can connect to Cloud Backup either a new Yandex Compute Cloud VM as soon as its is created or an existing VM with active and configured apps, resources, data, etc.
-
-For Cloud Backup to be able to back up and restore a VM, the VM must be associated with a [backup policy](https://yandex.cloud/en/docs/backup/concepts/policy).
+* For production workloads, [activate Cloud Backup](https://yandex.cloud/en/docs/backup/operations/activate-service) and [attach the VM to a backup policy](https://yandex.cloud/en/docs/backup/operations/policy-vm/attach-and-detach-vm) with a retention period that matches your recovery requirements.
+* For other VMs, [create a snapshot schedule](https://yandex.cloud/en/docs/compute/operations/snapshot-schedule/create) for the disks and pick a frequency and retention period that match how often the data changes.
+* Periodically verify that backups can actually be restored — an unverified backup is not a backup.

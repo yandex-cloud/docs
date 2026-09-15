@@ -12,7 +12,7 @@ title: How to get information about a disk image in {{ compute-full-name }}
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
   1. Select the image.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will show the image details.
+  1. The **{{ ui-key.yacloud.common.overview }}** tab will show the image details.
 
 - CLI {#cli}
 
@@ -72,7 +72,7 @@ title: How to get information about a disk image in {{ compute-full-name }}
       * `output "image"`: Output variable that contains information about the minimum disk size:
         * `value`: Return value.
 
-      You can replace `min_disk_size` with another variable to get the information you need. For more information about the `yandex_compute_image` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_image).
+      You can replace `min_disk_size` with any other attribute to get the information you need. For more information about the `yandex_compute_image` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_image).
 
   1. Create the resources:
 

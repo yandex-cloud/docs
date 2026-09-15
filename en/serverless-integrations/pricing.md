@@ -8,4 +8,4 @@ editable: false
 
 
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ sw-name }} and {{ er-name }} are free of charge.
+At the [Preview](../overview/concepts/launch-stages.md) stage, {{ er-name }} are free of charge.

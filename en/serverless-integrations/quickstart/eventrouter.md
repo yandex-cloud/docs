@@ -13,7 +13,7 @@ keywords:
 
 {% include [event-router-preview-note](../../_includes/serverless-integrations/event-router-preview-note.md) %}
 
-In this tutorial, you will use an {{ er-name }} [bus](../concepts/eventrouter/bus.md) to forward a message from a [{{ message-queue-name }}](../../message-queue/) to a [workflow](../concepts/workflows/workflow.md) in {{ sw-name }}.
+In this tutorial, you will use an {{ er-name }} [bus](../concepts/eventrouter/bus.md) to forward a message from a [{{ message-queue-name }}](../../message-queue/) to a [workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) in {{ sw-name }}.
 
 If it matches the filter defined in the rule inside the bus, a message entering the queue will be forwarded to the workflow. The workflow will be executed automatically. Before being forwarded, the message will be converted according to the template defined in the same rule as the filter.
 
@@ -39,6 +39,33 @@ To get started in {{ yandex-cloud }}:
 
 {% endlist %}
 
+## Create a workflow {#create-workflow}
+
+{% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
+
+{% list tabs group=instructions %}
+
+- {{ ai-studio-name }} UI {#console}
+
+    1. Go to the [{{ ai-studio-name }} UI]({{ link-console-ai }}).
+    1. In the left-hand panel, expand ![atom](../../_assets/ai-studio/atom.svg) **{{ agents-atelier-name }}** and select ![graph-node](../../_assets/console-icons/graph-node.svg) **{{ sw-name }}**.
+    1. Click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
+    1. Select the `YaML specification` method.
+    1. Add the specification as follows:
+        ```
+        yawl: "0.1"
+        start: noopstep
+        steps:
+          noopstep:
+            noOp:
+              output: |-
+                \(.)
+        ```
+    1. Click ![sliders](../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}** and select `sa-for-eventrouter` in the **{{ ui-key.yacloud.serverless-workflows.label_service-account }}** field.
+    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %}
+
 ## Create a queue {#create-queue}
 
 {% list tabs group=instructions %}
@@ -52,34 +79,6 @@ To get started in {{ yandex-cloud }}:
     1. Click **{{ ui-key.yacloud.common.create }}**.
     1. Open the queue you created.
     1. In the **{{ ui-key.yacloud.common.overview }}** tab, under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, copy the queue URL as you will need it later.
-
-{% endlist %}
-
-## Create a workflow {#create-workflow}
-
-{% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-    1. Open your [management console]({{ link-console-main }}) and navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-    1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
-    1. In the top-right corner, click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
-    1. In the **{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}** field, add the specification as follows:
-        ```
-        yawl: "0.1"
-        start: noopstep
-        steps:
-          noopstep:
-            noOp:
-              output: |-
-                \(.)
-        ```
-    1. Expand the **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}** section.
-    1. In the **{{ ui-key.yacloud.common.name }}** field, enter the workflow name: `sample-workflow`.
-    1. In the **{{ ui-key.yacloud.serverless-workflows.label_service-account }}** field, select `sa-for-eventrouter`.
-    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -128,7 +127,7 @@ To get started in {{ yandex-cloud }}:
         ```
     1. Under **{{ ui-key.yacloud.serverless-event-router.label_targets }}**, click **{{ ui-key.yacloud.common.add }}**.
     1. In the **{{ ui-key.yacloud.serverless-event-router.label_target-type }}** field, select `{{ sw-full-name }}`.
-    1. In the **Workflow** field, specify `sample-workflow`.
+    1. In the **Workflow** field, specify the workflow you created earlier.
     1. In the **Service account** field, specify `sa-for-eventrouter`.
     1. Expand the **{{ ui-key.yacloud.serverless-event-router.label_target-transformer }}** section and specify the jq template to convert messages:
         ```
@@ -174,9 +173,11 @@ Make sure the messages matching the created rule are converted and forwarded to 
          ```
     1. Make sure the filter you specified in the rule stopped the message from going through the bus:
 
-        1. Open your [management console]({{ link-console-main }}) and navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-        1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+        1. Navigate to the [{{ ai-studio-name }} UI]({{ link-console-ai }}).
+        1. In the left-hand panel, expand ![atom](../../_assets/ai-studio/atom.svg) **{{ agents-atelier-name }}** and select ![graph-node](../../_assets/console-icons/graph-node.svg) **{{ sw-name }}**.
+        1. Select a workflow.
         1. Navigate to the **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}** tab. You should not see any completed executions on the page.
+
 
     1. Send the second message to `sample-queue` using the previously saved queue URL:
 
@@ -198,8 +199,9 @@ Make sure the messages matching the created rule are converted and forwarded to 
          ```
     1. Make sure the filter you specified in the rule allowed the message to go through the bus and then the message was converted according to the template and forwarded to the workflow:
 
-        1. Open your [management console]({{ link-console-main }}) and navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-        1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+        1. Navigate to the [{{ ai-studio-name }} UI]({{ link-console-ai }}).
+        1. In the left-hand panel, expand ![atom](../../_assets/ai-studio/atom.svg) **{{ agents-atelier-name }}** and select ![graph-node](../../_assets/console-icons/graph-node.svg) **{{ sw-name }}**.
+        1. Select a workflow.
         1. Navigate to the **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}** tab. You should now see a completed execution on the page.
         1. Select the completed execution.
         1. Make sure the **{{ ui-key.yacloud.serverless-workflows.label_input_data }}** section displays the converted message:

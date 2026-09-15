@@ -68,7 +68,7 @@ Create a resource folder to host your metadata catalog.
 
     1. In the [management console]({{ link-console-main }}), select the [resource folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a metadata catalog.
     1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
+    1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. Click **{{ ui-key.yacloud.data-catalog.label_create-catalog }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter the catalog name: `test-sales`.
     1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -83,7 +83,7 @@ Create a resource folder to host your metadata catalog.
 
 - Management console {#console}
 
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}**.
+    1. Navigate to the **{{ ui-key.yacloud.data-catalog.layout.label.sources-new-layout_N6vT1 }}** tab.
     1. Click **{{ ui-key.yacloud.data-catalog.label_create-source-button }}**.
     1. Specify `test-sales-source` as the source name.
     1. Select the type of the backend that will supply metadata for analysis. Once the source is created, you cannot change the database type. Available backends:
@@ -104,7 +104,7 @@ Create a resource folder to host your metadata catalog.
 
 - Management console {#console}
 
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud.data-catalog.label_ingestions }}**.
+  1. Navigate to the **{{ ui-key.yacloud.data-catalog.label_ingestions }}** tab.
   1. Click **{{ ui-key.yacloud.data-catalog.label_create-ingestion-action }}**.
   1. Specify the ingestion settings:
 
@@ -122,7 +122,7 @@ Create a resource folder to host your metadata catalog.
   
      During ingestion, the AI assistant will automatically mark up the data. Once successfully completed, the ingestion will get the **{{ ui-key.yacloud.data-catalog.label_ingestion-status-Success }}** status.
 
-  1. To view ingested and marked-up data, select ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** in the left-hand panel.
+  1. To view ingested and marked-up data, go to the **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}** tab.
 
      The page displays the info about the data, i.e., data source, database, and tables.
 
@@ -238,3 +238,13 @@ If using the agent in {{ ai-studio-name }}, do the test in the right-hand **Agen
    * `Where can I find the website users' behavior data?`
    * `Which data should I use to analyze sales funnel conversion rate?`
    * `Show all dependencies of the transactions table to see how schema changes affect it`.
+
+[*glossary]: {% include notitle [glossary](../../_popups/metadata-hub/data-catalog.md#glossary) %}
+
+[*domain]: {% include notitle [domain](../../_popups/metadata-hub/data-catalog.md#domain) %}
+
+[*classification]: {% include notitle [classification](../../_popups/metadata-hub/data-catalog.md#classification) %}
+
+[*tag]: {% include notitle [tag](../../_popups/metadata-hub/data-catalog.md#tag) %}
+
+[*term]: {% include notitle [term](../../_popups/metadata-hub/data-catalog.md#term) %}

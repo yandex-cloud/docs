@@ -17,6 +17,8 @@ This rule checks only the built-in information security features in Yandex Cloud
 
 You need to connect your ARL profile to the [security profile](https://yandex.cloud/en/docs/smartwebsecurity/concepts/profiles) in Smart Web Security.
 
+**Risks if the rule is not followed:** Without rate limiting, web applications are vulnerable to HTTP flood attacks and API abuse that can exhaust backend resources and cause denial of service. Attackers can also exploit unrestricted access for credential brute-forcing or automated data harvesting.
+
 #### Instructions and solutions
 
 [Creating an ARL profile and connecting it to a security profile in Smart Web Security](https://yandex.cloud/en/docs/smartwebsecurity/quickstart#arl).

@@ -13,7 +13,7 @@ Add an existing [VM](../../concepts/vm.md) to a [placement group](../../concepts
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Navigate to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
   1. Select the placement group to add a VM to.
-  1. Go to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** panel.
+  1. Navigate to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** tab.
   1. In the top-right corner, click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.placement-group.instances.button_add-instance }}**.
   1. In the window that opens, select the VM and click **{{ ui-key.yacloud.compute.placement-group.instances.popup-add_button_add }}**.
 
@@ -199,7 +199,7 @@ Add an existing [VM](../../concepts/vm.md) to a [placement group](../../concepts
      terraform plan
      ```
 
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
      ```bash

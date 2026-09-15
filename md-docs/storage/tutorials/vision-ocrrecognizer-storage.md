@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Регулярное распознавание изображений и PDF-документов из бакета Object Storage
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Машинное обучение и искусственный интеллект > Регулярное распознавание изображений и PDF-документов из бакета Object Storage
 
 # Регулярное распознавание изображений и PDF-документов из бакета Object Storage
 

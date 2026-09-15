@@ -2,7 +2,7 @@
 
 You can get the output from a VM serial port and use it, e.g., for troubleshooting.
 
-To access the output data, you need the `compute.operator` or `{{ roles-viewer }}` role.
+To access the output data, you need the `compute.operator` or `{{ roles-viewer }}` [role](../../security/index.md).
 
 {% list tabs group=instructions %}
 

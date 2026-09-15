@@ -13,7 +13,7 @@ title: How to get information about a disk snapshot schedule in {{ compute-full-
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Navigate to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
   1. Select the schedule.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will show the disk snapshot schedule details.
+  1. The **{{ ui-key.yacloud.common.overview }}** tab will show the disk snapshot schedule details.
 
 - CLI
 
@@ -75,7 +75,7 @@ title: How to get information about a disk snapshot schedule in {{ compute-full-
       * `output "snapshot_schedule"`: Output variable that contains information about the disk snapshot schedule:
         * `value`: Return value.
 
-      You can replace `status` with another variable to get the information you need. For more information about the `yandex_compute_snapshot_schedule` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_snapshot_schedule).
+      You can replace `status` with any other attribute to get the information you need. For more information about the `yandex_compute_snapshot_schedule` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_snapshot_schedule).
 
   1. Create the resources:
 

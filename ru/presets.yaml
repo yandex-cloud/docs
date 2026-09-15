@@ -4437,6 +4437,13 @@ default:
             count: Количество сервисных аккаунтов, привязанных к федерациям
           serviceAccounts:
             count: Количество сервисных аккаунтов
+        organization-manager:
+          authenticationPolicyRules:
+            count: Количество правил в политиках аутентификации в организации
+          federationCertificates:
+            count: Количество SAML-сертификатов для федераций
+          federationUsers:
+            count: Количество пользователей во всех федерациях в организации
         vdi:
           desktopCores:
             count: Количество vCPU рабочих столов
@@ -4615,6 +4622,7 @@ default:
       ai-assistant:
         label_ai-assistant-open: AI-ассистент
       airflow:
+        action_button-load-config-from-file: Загрузить из файла
         button_create-cluster: Создать кластер
         cluster:
           overview:

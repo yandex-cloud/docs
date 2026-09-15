@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Монтирование бакетов к файловой системе хостов Yandex Data Processing
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Работа с файловыми системами > Монтирование бакетов к файловой системе хостов Yandex Data Processing
 
 # Монтирование бакетов Object Storage к файловой системе хостов Yandex Data Processing
 

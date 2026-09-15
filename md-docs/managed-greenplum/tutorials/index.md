@@ -8,7 +8,7 @@
 * [Миграция базы данных из Greenplum® в PostgreSQL](greenplum-to-postgresql.md)
 * [Миграция базы данных из Greenplum® в ClickHouse®](greenplum-to-clickhouse.md)
 * [Миграция данных из Yandex Managed Service for MySQL® в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer](mmy-to-mgp.md)
-* [Выгрузка данных кластера в холодное хранилище Yandex Object Storage](yezzey.md)
+* [Выгрузка данных кластера в гибридное хранилище Yandex Object Storage](yezzey.md)
 * [Загрузка данных из Yandex Object Storage в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer](object-storage-to-greenplum.md)
 * [Копирование данных из Managed Service for OpenSearch в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer](opensearch-to-greenplum.md)
 * [Поставка данных из Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer](managed-kafka-to-greenplum.md)

@@ -13,6 +13,8 @@ You may need to recover access to a [VM](../../concepts/vm.md) in the following 
 
 ## Loss of VM user credentials {#cloud-init}
 
+### Recovery by creating a VM {#recovery-new-vm}
+
 If you lost your private SSH key for Linux or your Windows user password:
 1. [Create](../disk-control/create-snapshot.md) a [disk](../../concepts/disk.md) snapshot for the VM you want to recover access to.
 1. If you find it important to keep the [public IP address](../../../vpc/concepts/address.md#public-addresses) used by the current VM, [make](../../../vpc/operations/set-static-ip.md) this IP address static.
@@ -61,7 +63,37 @@ If you lost your private SSH key for Linux or your Windows user password:
 
     Otherwise, they will remain billable, and {{ yandex-cloud }} will continue to charge you for them.
 
-If the 'cloud-init' or [network](../../../vpc/concepts/network.md#network) configuration was changed for the VM, the described method may not work. In this case, see [VM failure to start](#os-recovery).
+If the VM’s `cloud-init` or [network](../../../vpc/concepts/network.md#network) configuration was changed, the described method may not work. In this case, see [VM failure to start](#os-recovery).
+
+### Recovery using metadata {#recovery-metadata}
+
+You can set a new user password by updating the [VM metadata](../../concepts/vm-metadata.md).
+
+1. [Update the metadata](../../operations/vm-metadata/update-vm-metadata.md) via the management console, CLI, Terraform, or API. Use the following configuration:
+
+   ```
+   #cloud-config
+   bootcmd:
+      - [sh, -xc, "sudo echo '<username>:<new_password>':| chpasswd"]
+   ```
+   
+1. [Restart the VM](../../operations/vm-control/vm-stop-and-start.md#restart).
+
+1. Connect to the VM over [SSH](../../operations/vm-connect/ssh.md) or via the [serial console](../../operations/serial-console/connect-ssh.md) using the new password.
+
+   {% note warning %}
+
+   When using the [serial console](../../concepts/serial-console.md), evaluate the associated risks. We recommend enabling serial console access only when absolutely necessary. [Disable it](../serial-console/index.md#disable) immediately once you complete the required actions.
+
+   {% endnote %}
+
+1. Set a new user password. For example, use this command for Linux distributions:
+
+   ```
+   sudo passwd <username>
+   ```
+
+1. After a successful connection, [clear the metadata](../../operations/vm-metadata/update-vm-metadata.md) to avoid password resets on VM reboot.
 
 ## Change in the public part of an SSH key {#ssh-recovery}
 

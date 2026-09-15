@@ -7,22 +7,18 @@
 
 #### Description
 
-A security group (SG) is a resource created at the [cloud network](https://yandex.cloud/en/docs/vpc/concepts/network#network) level. Once created, a [security group](https://yandex.cloud/en/docs/vpc/concepts/security-groups) can be used in Yandex Cloud [services](https://yandex.cloud/en/docs/vpc/concepts/security-groups#security-groups-apply) to control network access to an object it applies to.
+A [security group](https://yandex.cloud/en/docs/vpc/concepts/security-groups) in [Virtual Private Cloud](https://yandex.cloud/en/docs/vpc/) controls inbound and outbound network traffic for cloud objects it is attached to — virtual machines, Managed Service for Kubernetes clusters, load balancers, managed databases.
 
-A default security group (DSG) is created automatically while creating a [new cloud network](https://yandex.cloud/en/docs/vpc/concepts/network#network). The default security group has the following properties:
+A new cloud network always has a [default security group](https://yandex.cloud/en/docs/vpc/concepts/security-groups#default-security-group) — it is created automatically and allows all inbound and outbound traffic. The default group is convenient when you start, but it does not enforce any restrictions: an object that has no other security group attached gets unrestricted network access through it.
 
-* It will allow any network traffic, both egress and ingress, in the new cloud network. * It applies to traffic passing through all subnets in the network where the DSG is created. * It is only used if no security group is explicitly assigned to the object yet. * You cannot delete the DSG: it is deleted automatically when deleting the network.
+For real workloads, create your own security groups with explicit rules — for example, only `HTTP/HTTPS` for a web server or only `SSH` from a bastion host — and attach them to objects in the network. Up to five security groups can be attached to one object.
 
-The default security group is a convenient but insecure mechanism that automatically allows all network traffic (incoming and outgoing) for your network objects. While simplifying the initial setup, such openness creates significant risks:
-
-* Attackers can get access to resources through public interfaces. * Uncontrolled traffic makes your network more vulnerable to DDoS attacks and port scanning. * The DSG remains active until you assign another security group to the object.
-
-We recommend you to [create](https://yandex.cloud/en/docs/vpc/operations/security-group-create) a security group of your own with [rules](https://yandex.cloud/en/docs/vpc/concepts/security-groups#security-groups-rules) explicitly allowing only the traffic you need (e.g., `HTTP/HTTPS` for web servers or `SSH` for administration) and assign this group to your cloud [objects](https://yandex.cloud/en/docs/vpc/concepts/security-groups#security-groups-apply) ([VMs](https://yandex.cloud/en/docs/compute/concepts/vm), [Kubernetes clusters](https://yandex.cloud/en/docs/managed-kubernetes/concepts/#kubernetes-cluster), etc.) to override the DSG.
-
-This is important because without your rules cloud resources remain open to all and any connections from the internet, whereas security groups of your own enable the [principle of least privilege](https://yandex.cloud/en/docs/iam/best-practices/using-iam-securely#restrict-access), thus reducing the attack surface.
-
-You can combine security groups by assigning up to five groups per object for more flexible access control.
+**Risks if the rule is not followed:** Using only the default security group means all cloud objects in the network have unrestricted inbound and outbound traffic. Without custom security groups with explicit allow rules, there is no network-level segmentation — any compromised resource can freely communicate with all other resources in the network, and any internet-facing port is accessible to external attackers.
 
 #### Instructions and solutions
 
-[Create](https://yandex.cloud/en/docs/vpc/operations/security-group-create) a security group in each Virtual Private Cloud with restricted access rules, so that it can be assigned to cloud objects.
+For each cloud network:
+
+1. [Create a security group](https://yandex.cloud/en/docs/vpc/operations/security-group-create) with [rules](https://yandex.cloud/en/docs/vpc/concepts/security-groups#security-groups-rules) that allow only the protocols, ports, and source addresses that the workload really needs.
+2. Attach this group to virtual machines, Kubernetes clusters, managed databases, and other objects in the network — this overrides the default group for them.
+3. In rules, prefer references to other security groups over hardcoded IP addresses (in the **Source/Destination** field choose **Security group** instead of **CIDR**) — this keeps access rules working when IP addresses change.

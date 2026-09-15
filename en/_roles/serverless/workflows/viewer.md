@@ -1,3 +1,3 @@
-The `serverless.workflows.viewer` role enables viewing info on [workflows](../../../serverless-integrations/concepts/limits.md#workflows) and [access permissions](../../../iam/concepts/access-control/index.md) assigned to them, viewing the history of workflow [executions](../../../serverless-integrations/concepts/limits.md#workflows), as well as info on {{ sw-full-name }} [quotas](../../../serverless-integrations/concepts/limits.md#workflows).
+The `serverless.workflows.viewer` role enables viewing info on [workflows]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) and [access permissions]({{ link-docs }}/iam/concepts/access-control/) assigned to them, viewing the history of workflow [executions]({{ link-docs-ai }}ai-studio/concepts/workflows/execution), as well as info on {{ sw-full-name }} [quotas]({{ link-docs-ai }}ai-studio/concepts/limits).
 
 This role includes the `serverless.workflows.auditor` permissions.

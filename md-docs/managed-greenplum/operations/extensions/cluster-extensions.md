@@ -127,7 +127,7 @@ Yandex MPP Analytics for PostgreSQL поддерживает следующие 
 | — | 1.1 ||
 || [yezzey](yezzey.md). Расширение от Yandex Cloud
 
-Позволяет перемещать [таблицы AO и AOCO](../../concepts/tables.md) из хранилища кластера в холодное хранилище и наоборот. Чтобы использовать это расширение, включите [гибридное хранилище](../../concepts/hybrid-storage.md) в кластере Yandex MPP Analytics for PostgreSQL.
+Позволяет перемещать [таблицы AO и AOCO](../../concepts/tables.md) из хранилища кластера в гибридное хранилище и наоборот. Чтобы использовать это расширение, включите [гибридное хранилище](../../concepts/hybrid-storage.md) в кластере Yandex MPP Analytics for PostgreSQL.
 | 1.8 | 1.8.8 ||
 || [xml2](https://www.postgresql.org/docs/current/xml2.html)
 Добавляет функции для выполнения запросов XPath и преобразований XSLT.

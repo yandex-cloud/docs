@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Публикация обновлений для игр
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Разработка и развертывание приложений > Публикация обновлений для игр
 
 # Публикация обновлений для игр с помощью Yandex Cloud CDN
 

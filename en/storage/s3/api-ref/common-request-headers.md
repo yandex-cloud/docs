@@ -25,7 +25,7 @@ Data type in the request, e.g., `text/html`. For more information about data typ
 
 The default type is `binary/octet-stream`. ||
 || `Content-MD5` |
-128-bit MD5 hash value of the request body, `base64`-encoded.
+128-bit MD5 hash of the request body, `base64`-encoded.
 
 This header is compliant with [RFC 1864](http://www.ietf.org/rfc/rfc1864.txt).
 

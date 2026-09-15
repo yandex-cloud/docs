@@ -42,12 +42,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support cost includes:
-* Fee for computing resources and disks of VMs used for {{ k8s }} cluster deployment, auxiliary VM, and {{ managed-k8s-name }} management cluster nodes (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using the computing resources of the L7 load balancer (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
-* Fee for using the {{ managed-k8s-name }} management cluster master and outgoing traffic (see [{{ managed-k8s-full-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for [public IP addresses](../../vpc/concepts/address.md#public-addresses) for auxiliary VMs and {{ managed-k8s-name }} management cluster (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for using a [NAT gateway](../../vpc/concepts/gateways.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#nat-gateways)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* VMs: use of computing resources, storage, public IP address, and the OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Each active L7 load balancer: use of computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Public IP addresses for the {{ managed-k8s-name }} cluster master and nodes (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md#nat-gateways)).
+
 
 #### Optional costs {#optional-expenses}
 

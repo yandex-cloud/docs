@@ -3,7 +3,7 @@
 
 In this tutorial, you will learn how to create a Telegram bot that can:
 
-* Convert text messages to [speech]({{ link-docs-ai }}/speechkit/tts/index) and [transcribe]({{ link-docs-ai }}/speechkit/stt/index) voice messages using the {{ speechkit-full-name }} [Python SDK](https://pypi.org/project/yandex-speechkit/).
+* Convert text messages to [speech]({{ link-docs-ai }}speechkit/tts/index) and [transcribe]({{ link-docs-ai }}speechkit/stt/index) voice messages using the {{ speechkit-full-name }} [Python SDK](https://pypi.org/project/yandex-speechkit/).
 * [Recognize text]({{ link-docs-ai }}vision/concepts/ocr/index) in images with {{ vision-full-name }}.
 
 Authentication in {{ yandex-cloud }} services is performed using a service account with an [IAM token](../../iam/concepts/authorization/iam-token.md). The IAM token resides in the [handler function](../../functions/operations/function-sa.md) context, where the handler manages user interaction with the bot.

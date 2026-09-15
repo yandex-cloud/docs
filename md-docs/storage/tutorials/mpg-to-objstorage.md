@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Миграция базы данных из Managed Service for PostgreSQL в Object Storage
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Перенос данных и интеграция с базами данных > Миграция базы данных из Managed Service for PostgreSQL в Object Storage
 
 # Миграция базы данных из Managed Service for PostgreSQL в Object Storage
 

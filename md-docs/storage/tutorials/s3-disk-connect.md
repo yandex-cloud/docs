@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Подключение бакета как диска в Windows
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Работа с файловыми системами > Подключение бакета как диска в Windows
 
 # Подключение бакета как диска в Windows
 

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Автоматизация задач с помощью Managed Service for Apache Airflow™
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Обработка и анализ данных > Автоматизация задач с помощью Managed Service for Apache Airflow™
 
 # Автоматизация задач Yandex Query с помощью Yandex Managed Service for Apache Airflow™
 

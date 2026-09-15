@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Развертывание веб-приложения с использованием Java Servlet API
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Разработка и развертывание приложений > Развертывание веб-приложения с использованием Java Servlet API
 
 # Развертывание веб-приложения с использованием Java Servlet API
 

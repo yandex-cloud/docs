@@ -358,7 +358,6 @@ default:
   link-video-main: https://video.yandex.cloud/
   link-wiki: https://wiki.yandex.com/
   link-wiki-cloudless: https://yandex.ru/support/wiki/ru
-  link-yadisk-doc: https://yandex.ru/dev/disk-api/doc/en/
   link-yandex: https://yandex.com
   links:
     es:
@@ -2432,6 +2431,7 @@ default:
         product-pricing-type_free: Free
         product-pricing-type_license: Subscription
         product-pricing-type_payg: PAYG
+        related-products_row_vm: "VM\_Image"
       notify-subs:
         label_inherited-subscribers: Default subscribers
         label_subscribers-dialog-header: Adding users
@@ -5037,8 +5037,6 @@ default:
           button_create-key: Create key
           button_create-key-new: Create
           label_no-symmetric-key: Not selected
-        vpc-security-group-select:
-          label_add-security-group: Add security group
         vpc:
           network-select:
             button_create-network: Create network
@@ -5087,6 +5085,8 @@ default:
             cloudBackup_title_aB1c2: Cloud Backup
           BackupSection:
             section_backup_1MXwy: Backup
+          BasicSection:
+            field_instance-name_n8rSv: VM name
           CloudBackupFooter:
             button_create-policy_cBf1a: Create policy
             placeholder_select-policy_cBf3c: Select policy
@@ -5541,7 +5541,6 @@ default:
         label_source-data-tab: Uploaded data
         label_source-database-type: Data source type
         label_source-queries-tab: Queries
-        label_sources: Data sources
         label_subterms: Child terms
         label_tag-mutual-exclusion: Mutually exclusive
         label_tags-and-classification: Tags and classifications
@@ -5553,7 +5552,6 @@ default:
             search-new-layout_Y7pK2: Search
             sources-new-layout_N6vT1: Sources
             storage-new-layout_L4xQ8: Storage
-        title_search-data: Metadata search
       data-streams:
         button_connect: Connect
         button_create-stream: Create stream
@@ -7304,55 +7302,16 @@ default:
           button_create: Create connection
       serverless-workflows:
         button_create-workflow: Create workflow
-        edit-switch-choice_default-field: Default condition
         label_additional-parameters: Additional parameters
-        label_create-workflow-title: Create workflow
-        label_edit-workflow-title: Edit workflow
         label_execution-url: Start URL
         label_input_data: Input data
-        label_input-data: Input data
-        label_network: Network
-        label_output_data: Output data
-        label_output-data: Output data
         label_public-access: Public workflow
         label_run-workflow: Execute
         label_service: Workflows
         label_service-account: Service account
-        label_stop-workflow: Stop
-        label_terminate-workflow: Terminate
         label_timeline: Timeline
         label_workflow-executions: Executions
-        label_workflows: Workflows
         spec-editor-type_label_text-editor: YaML specification
-        spec-editor-type_label_visual-editor: Constructor
-        workflow-editor_backoff-rate-field: Backoff rate
-        workflow-editor_catch-rule-error-list-label: Errors
-        workflow-editor_catch-rule-error-list-mode-label: Error selection mode
-        workflow-editor_catch-rule-label: Transition rule for errors
-        workflow-editor_catch-rule-output-field: Error template
-        workflow-editor_error-list-field: Errors
-        workflow-editor_error-list-mode-field: Error selection mode
-        workflow-editor_foreach-step-concurrency-field: Number of input data elements processed concurrently
-        workflow-editor_initial-delay-field: Initial delay, ms
-        workflow-editor_main-settings-label: Main settings
-        workflow-editor_max-delay-field: Maximum delay, ms
-        workflow-editor_parallel-step-concurrency-field: Number of branches executing concurrently
-        workflow-editor_retry-count-field: Maximum number of retries
-        workflow-editor_step-name-label: Step name
-        workflow-editor_wait-step-duration-field: Waiting time, s
-        workflow-editor_wait-step-jq-expression-field: Template
-        workflow-editor_wait-step-type-field: Waiting
-        workflow-editor_wait-step-type-field-duration-label: Time interval
-        workflow-editor_wait-step-type-field-until-label: Timestamp
-        workflow-editor_wait-step-until-field: Timestamp
-        workflow-editor_wait-step-use-jq-expression-field: Use templating
-        workflow-editor_while-step-condition-field: Execution condition template
-        workflow-editor_while-step-max-iterations-field: Maximum number of iterations
-        workflow-viewer_error-message-label: Error text
-        workflow-viewer_node-input-label: Input
-        workflow-viewer_node-output-label: Output
-        workflow-viewer_node-settings-label: Settings
-        workflow-viewer_trigger-settings-label: Start
       shared:
         iam:
           action_assign-roles_8vkmR: Assign roles
@@ -7658,6 +7617,7 @@ default:
             field_resource: Resource
             field_user: User
             field_value: Value
+            label_all-actions: All actions
             label_if-exists: Apply if the field exists
             label_select-users: Select users
           popup-create-folder_button_create: Create
@@ -7909,6 +7869,8 @@ default:
             column_sg-rules-ports: Ports
             column_sg-rules-protocol: Protocol
             column_sg-rules-source: Source
+            content-section:
+              button_add-rule: Add rule
             forms:
               button_select-all-port-range: Select all
               field_sg-name: Name
@@ -9383,224 +9345,6 @@ default:
         path_name: Path
         serverless_containers_properties_container_id_view_spec_layout_title: Container
         service_account_id_name: Service account
-    yc-serverless-workflows:
-      dynamic-forms:
-        ai_studio_agent_properties_message_view_spec_layout_title: Message
-        ai_studio_agent_properties_prompt_template_id_view_spec_layout_title: Agent ID
-        ai_studio_agent_properties_variables_view_spec_item_label: Add variable
-        ai_studio_agent_properties_variables_view_spec_layout_title: Prompt variables
-        ai_studio_agent_title: AI Studio agent
-        common_retry_policy_view_spec_layout_title: Retry policy
-        common_timeout_view_spec_layout_title: Timeout, ms
-        containers_integration_properties_body_view_spec_layout_title: Request body
-        containers_integration_properties_headers_view_spec_item_label: Add header
-        containers_integration_properties_headers_view_spec_layout_title: Request headers
-        containers_integration_properties_http_method_view_spec_layout_title: Request method
-        containers_integration_properties_path_view_spec_layout_title: Request path
-        containers_integration_properties_query_view_spec_item_label: Add parameter
-        containers_integration_properties_query_view_spec_layout_title: Request query parameters
-        containers_integration_properties_serverless_container_view_spec_layout_title: Container
-        disk_integration_title: Yandex Disk
-        disk_properties_action_description_download: Download from disk
-        disk_properties_action_description_upload: Upload to disk
-        disk_properties_action_properties_download_properties_view_spec_layout_title: Content type
-        disk_properties_action_properties_upload_properties_content_view_spec_layout_title: File content
-        disk_properties_oauth_token_description_lockbox: Lockbox
-        disk_properties_oauth_token_description_plain: Text
-        disk_properties_oauth_token_properties_lockbox_properties_name_view_spec_layout_title: Secret
-        disk_properties_oauth_token_properties_plain_properties_token_view_spec_layout_title: Value
-        disk_properties_oauth_token_view_spec_layout_title: OAuth token
-        disk_properties_path_view_spec_layout_title: Path
-        foundation_models_properties_action_description_classify: Fine-tuned classification
-        foundation_models_properties_action_description_few_shot_classify: Classifcation by prompt
-        foundation_models_properties_action_description_generate: Text generation
-        foundation_models_properties_action_description_vision: Working with images
-        foundation_models_properties_action_properties_few_shot_classify_properties_labels_description_labels_array: List
-        foundation_models_properties_action_properties_few_shot_classify_properties_labels_description_labels_json: JSON
-        foundation_models_properties_action_properties_few_shot_classify_properties_labels_properties_labels_json_view_spec_title: JSON object
-        foundation_models_properties_action_properties_few_shot_classify_properties_labels_view_spec_layout_title: Labels
-        foundation_models_properties_action_properties_few_shot_classify_properties_samples_description_samples_array: List
-        foundation_models_properties_action_properties_few_shot_classify_properties_samples_description_samples_json: JSON
-        foundation_models_properties_action_properties_few_shot_classify_properties_samples_properties_samples_json_view_spec_title: JSON object
-        foundation_models_properties_action_properties_few_shot_classify_properties_samples_view_spec_layout_title: Sample queries
-        foundation_models_properties_action_properties_few_shot_classify_properties_task_description_view_spec_layout_title: Task
-        foundation_models_properties_action_properties_few_shot_classify_properties_text_view_spec_layout_title: Text
-        foundation_models_properties_action_properties_generate_properties_context_description_json: JSON string
-        foundation_models_properties_action_properties_generate_properties_context_description_messages: Messages
-        foundation_models_properties_action_properties_generate_properties_context_view_spec_layout_title: Context
-        foundation_models_properties_action_properties_generate_properties_max_tokens_view_spec_layout_title: Number of tokens
-        foundation_models_properties_action_properties_generate_properties_model_description_base_model: Base model
-        foundation_models_properties_action_properties_generate_properties_model_description_custom: Fine-tuned model
-        foundation_models_properties_action_properties_generate_properties_reasoning_mode_description_disabled: Disabled
-        foundation_models_properties_action_properties_generate_properties_reasoning_mode_description_enabled_hidden: Enabled
-        foundation_models_properties_action_properties_generate_properties_reasoning_mode_description_reasoning_mode_unspecified: Unspecified
-        foundation_models_properties_action_properties_generate_properties_reasoning_mode_view_spec_layout_title: Reasoning mode
-        foundation_models_properties_action_properties_generate_properties_structured_output_description_json_object: JSON object
-        foundation_models_properties_action_properties_generate_properties_structured_output_description_json_schema: JSON schema
-        foundation_models_properties_action_properties_generate_properties_structured_output_description_none: None
-        foundation_models_properties_action_properties_generate_properties_structured_output_properties_json_schema_view_spec_layout_title: JSON schema
-        foundation_models_properties_action_properties_generate_properties_structured_output_view_spec_layout_title: Structured output
-        foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title: Temperature
-        foundation_models_properties_action_properties_vision_properties_context_properties_json_view_spec_layout_title: JSON string
-        foundation_models_properties_action_properties_vision_properties_context_properties_messages_items_properties_images_items_properties_base64_view_spec_layout_title: Base64
-        foundation_models_properties_action_properties_vision_properties_context_properties_messages_items_properties_images_items_properties_file_view_spec_layout_title: Image source
-        foundation_models_properties_action_properties_vision_properties_context_properties_messages_items_properties_images_view_spec_item_label: Add image
-        foundation_models_properties_action_properties_vision_properties_context_properties_messages_view_spec_item_label: Add message
-        foundation_models_properties_action_properties_vision_properties_context_properties_messages_view_spec_layout_title: Messages
-        foundation_models_properties_action_properties_vision_properties_context_view_spec_layout_title: Context
-        foundation_models_properties_action_properties_vision_properties_max_tokens_view_spec_layout_title: Number of tokens
-        foundation_models_properties_action_properties_vision_properties_temperature_view_spec_layout_title: Temperature
-        foundation_models_properties_model_properties_custom_view_spec_layout_title: Model URI
-        functions_integration_properties_serverless_function_view_spec_layout_title: Function
-        grpc_integration_title: gRPC
-        grpc_properties_body_view_spec_layout_title: Request body
-        grpc_properties_endpoint_view_spec_layout_title: Endpoint
-        grpc_properties_headers_view_spec_item_label: Add header
-        grpc_properties_headers_view_spec_layout_title: Request headers
-        grpc_properties_method_view_spec_layout_title: Method
-        grpc_properties_use_service_account_view_spec_layout_title: Use service account
-        http_properties_body_view_spec_layout_title: Request body
-        http_properties_headers_view_spec_item_label: Add header
-        http_properties_headers_view_spec_layout_title: Request headers
-        http_properties_http_method_view_spec_layout_title: Method
-        http_properties_query_view_spec_item_label: Add parameter
-        http_properties_query_view_spec_layout_title: Request query parameters
-        http_properties_url_view_spec_layout_title: URL
-        http_properties_use_service_account_view_spec_layout_title: Use service account
-        object_storage_properties_action_description_get: Get object
-        object_storage_properties_action_description_put: Add object
-        object_storage_properties_action_properties_get_properties_content_type_view_spec_layout_title: Content type
-        object_storage_properties_action_properties_put_properties_content_view_spec_layout_title: Object content
-        object_storage_properties_action_view_spec_layout_title: Action
-        object_storage_properties_bucket_view_spec_layout_title: Bucket
-        object_storage_properties_object_view_spec_layout_title: Object name
-        postbox_properties_cc_to_addresses_properties_address_array_view_spec_item_label: Add BCC
-        postbox_properties_cc_to_addresses_properties_address_array_view_spec_layout_title: Address array
-        postbox_properties_cc_to_addresses_properties_raw_string_view_spec_layout_title: Raw string
-        postbox_properties_cc_to_addresses_view_spec_layout_title: BCC addresses
-        postbox_properties_from_address_view_spec_layout_title: From address
-        postbox_properties_message_properties_raw_view_spec_layout_title: Template
-        postbox_properties_message_properties_simple_properties_body_html_view_spec_layout_title: HTML content
-        postbox_properties_message_properties_simple_properties_body_text_view_spec_layout_title: Text
-        postbox_properties_message_properties_simple_properties_charset_view_spec_layout_title: Encoding
-        postbox_properties_message_properties_simple_properties_subject_view_spec_layout_title: Subject
-        postbox_properties_message_properties_simple_view_spec_layout_title: Text
-        postbox_properties_message_view_spec_layout_title: Message
-        postbox_properties_to_addresses_properties_address_array_view_spec_item_label: Add address
-        postbox_properties_to_addresses_properties_address_array_view_spec_layout_title: Address array
-        postbox_properties_to_addresses_properties_raw_string_view_spec_layout_title: Raw string
-        postbox_properties_to_addresses_view_spec_layout_title: To addresses
-        shared_disk_properties_disk_type_description_private: Personal
-        shared_disk_properties_disk_type_description_shared: Shared
-        shared_disk_properties_disk_type_view_spec_layout_title: Disk type
-        tracker_properties_action_description_create_comment: Add comment
-        tracker_properties_action_description_create_issue: Create issue
-        tracker_properties_action_description_get_issue: Get issue
-        tracker_properties_action_description_link_issues: Link issue
-        tracker_properties_action_description_list_comments: Get comment
-        tracker_properties_action_description_list_issues: Find issue
-        tracker_properties_action_description_update_comment: Update comment
-        tracker_properties_action_description_update_issue: Update issue
-        tracker_properties_action_description_update_issue_status: Update issue status
-        tracker_properties_action_properties_create_comment_properties_key_view_spec_layout_title: Issue key
-        tracker_properties_action_properties_create_comment_properties_mentions_description_array: List
-        tracker_properties_action_properties_create_comment_properties_mentions_description_none: Do not invite
-        tracker_properties_action_properties_create_comment_properties_mentions_description_simple: JSON
-        tracker_properties_action_properties_create_comment_properties_mentions_view_spec_layout_title: Invite users
-        tracker_properties_action_properties_create_comment_properties_text_view_spec_layout_title: Text
-        tracker_properties_action_properties_create_issue_properties_additional_properties_view_spec_layout_title: Additional fields
-        tracker_properties_action_properties_create_issue_properties_assignee_view_spec_layout_title: Assignee
-        tracker_properties_action_properties_create_issue_properties_author_view_spec_layout_title: Author
-        tracker_properties_action_properties_create_issue_properties_description_view_spec_layout_title: Description
-        tracker_properties_action_properties_create_issue_properties_followers_view_spec_layout_title: Add followers
-        tracker_properties_action_properties_create_issue_properties_parent_view_spec_layout_title: Parent issue
-        tracker_properties_action_properties_create_issue_properties_priority_view_spec_layout_title: Priority
-        tracker_properties_action_properties_create_issue_properties_queue_view_spec_layout_title: Queue
-        tracker_properties_action_properties_create_issue_properties_sprints_description_array: List
-        tracker_properties_action_properties_create_issue_properties_sprints_description_none: Do not add
-        tracker_properties_action_properties_create_issue_properties_sprints_description_simple: JSON
-        tracker_properties_action_properties_create_issue_properties_sprints_view_spec_layout_title: Add to sprints
-        tracker_properties_action_properties_create_issue_properties_title_view_spec_layout_title: Name
-        tracker_properties_action_properties_create_issue_properties_type_view_spec_layout_title: Type
-        tracker_properties_action_properties_get_issue_properties_key_view_spec_layout_title: Issue key
-        tracker_properties_action_properties_link_issues_properties_key_view_spec_layout_title: Key of first issue
-        tracker_properties_action_properties_link_issues_properties_link_key_view_spec_layout_title: Key of the second issue
-        tracker_properties_action_properties_link_issues_properties_relationship_view_spec_layout_title: Link type
-        tracker_properties_action_properties_list_comments_properties_page_size_view_spec_layout_title: Number of comments
-        tracker_properties_action_properties_list_issues_properties_page_number_view_spec_layout_title: Page name
-        tracker_properties_action_properties_list_issues_properties_page_size_view_spec_layout_title: Page size
-        tracker_properties_action_properties_list_issues_properties_search_options_description_filter: Issue filtering parameters
-        tracker_properties_action_properties_list_issues_properties_search_options_description_keys: Issue key list
-        tracker_properties_action_properties_list_issues_properties_search_options_description_query: Query language filter
-        tracker_properties_action_properties_list_issues_properties_search_options_description_queue: Queue
-        tracker_properties_action_properties_list_issues_properties_search_options_properties_filter_properties_issue_properties_view_spec_layout_title: Filtering fields
-        tracker_properties_action_properties_list_issues_properties_search_options_properties_filter_properties_sort_description_on: Enabled
-        tracker_properties_action_properties_list_issues_properties_search_options_properties_filter_properties_sort_properties_on_properties_order_view_spec_layout_title: Descending
-        tracker_properties_action_properties_list_issues_properties_search_options_properties_filter_properties_sort_view_spec_layout_title: Sort by
-        tracker_properties_action_properties_list_issues_properties_search_options_properties_keys_view_spec_layout_title: Issue keys
-        tracker_properties_action_properties_list_issues_properties_search_options_properties_queue_view_spec_layout_title: Queue name
-        tracker_properties_action_properties_list_issues_properties_search_options_view_spec_layout_title: Search parameters
-        tracker_properties_action_properties_update_comment_properties_id_view_spec_layout_title: Comment ID
-        tracker_properties_action_properties_update_comment_properties_issue_key_view_spec_layout_title: Issue key
-        tracker_properties_action_properties_update_comment_properties_text_view_spec_layout_title: Text
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_description_add: Add value
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_description_remove: Delete value
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_description_replace: Update value
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_description_set: Replace value
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_properties_add_view_spec_layout_title: Value
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_properties_replace_description_key_value: Dictionary
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_view_spec_layout_title: Change field
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_key_view_spec_placeholder: Field name
-        tracker_properties_action_properties_update_issue_properties_followers_description_add: Add follower
-        tracker_properties_action_properties_update_issue_properties_followers_description_none: Do not change
-        tracker_properties_action_properties_update_issue_properties_followers_description_remove: Delete follower
-        tracker_properties_action_properties_update_issue_properties_followers_description_replace: Update follower
-        tracker_properties_action_properties_update_issue_properties_followers_description_set: Replace followers
-        tracker_properties_action_properties_update_issue_properties_followers_properties_add_view_spec_layout_title: Follower
-        tracker_properties_action_properties_update_issue_properties_followers_properties_replace_description_key_value: Dictionary
-        tracker_properties_action_properties_update_issue_properties_followers_view_spec_layout_title: Change followers
-        tracker_properties_action_properties_update_issue_properties_sprints_description_add: Add sprint
-        tracker_properties_action_properties_update_issue_properties_sprints_description_none: Do not change
-        tracker_properties_action_properties_update_issue_properties_sprints_description_remove: Delete sprint
-        tracker_properties_action_properties_update_issue_properties_sprints_description_replace: Update sprint
-        tracker_properties_action_properties_update_issue_properties_sprints_description_set: Replace sprints
-        tracker_properties_action_properties_update_issue_properties_sprints_properties_add_description_array: List
-        tracker_properties_action_properties_update_issue_properties_sprints_properties_add_description_simple: JSON
-        tracker_properties_action_properties_update_issue_properties_sprints_properties_add_view_spec_layout_title: Sprint
-        tracker_properties_action_properties_update_issue_properties_sprints_properties_replace_description_key_value: Dictionary
-        tracker_properties_action_properties_update_issue_properties_sprints_properties_replace_description_plain: JSON
-        tracker_properties_action_properties_update_issue_properties_sprints_view_spec_layout_title: Change sprints
-        tracker_properties_action_properties_update_issue_status_properties_key_view_spec_layout_title: Issue key
-        tracker_properties_action_properties_update_issue_status_properties_transition_view_spec_layout_title: Transition
-        tracker_properties_action_view_spec_layout_title: Action
-        tracker_properties_endpoint_view_spec_layout_title: Endpoint
-        tracker_properties_oauth_token_description_lockbox: Lockbox
-        tracker_properties_oauth_token_description_plain: Text
-        tracker_properties_oauth_token_properties_lockbox_properties_name_view_spec_layout_title: Secret
-        tracker_properties_oauth_token_properties_plain_properties_token_view_spec_layout_title: Value
-        tracker_properties_oauth_token_view_spec_layout_title: OAuth token
-        tracker_properties_organization_description_cloud: Yandex Cloud Organization
-        tracker_properties_organization_description_none: Not specified
-        tracker_properties_organization_description_yandex: Yandex 360
-        tracker_properties_organization_properties_cloud_view_spec_layout_title: Organization ID
-        tracker_properties_organization_view_spec_layout_title: Organization
-        workflow_properties_serverless_workflow_view_spec_layout_title: Workflow ID
-        workflow_properties_workflow_input_view_spec_layout_title: Input data
-        ydb_document_properties_action_properties_get_properties_key_view_spec_layout_title: Key
-        ydb_document_properties_action_properties_put_properties_item_view_spec_layout_title: Attributes
-        ydb_document_properties_action_properties_scan_properties_exclusive_start_key_view_spec_layout_title: Key
-        ydb_document_properties_action_properties_scan_properties_limit_view_spec_layout_title: Limit
-        ydb_document_properties_action_properties_update_properties_expression_attribute_values_view_spec_layout_title: Attribute values
-        ydb_document_properties_action_properties_update_properties_expression_view_spec_layout_title: Expression for update
-        ydb_document_properties_action_properties_update_properties_key_view_spec_layout_title: Key
-        ydb_document_properties_action_view_spec_layout_title: Action
-        ydb_document_properties_ydb_database_view_spec_layout_title: Database
-        ydb_document_properties_ydb_table_view_spec_layout_title: Path to table
-        yds_integration_title: Data Streams
-        yds_properties_database_view_spec_layout_title: Database
-        yds_properties_topic_view_spec_layout_title: Topic
-        ymq_integration_title: Message Queue
-        ymq_properties_queue_arn_view_spec_layout_title: ARN of the queue
     yc-ui-ai-studio:
       components:
         LabelSet:
