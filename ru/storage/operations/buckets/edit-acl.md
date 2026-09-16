@@ -1,9 +1,9 @@
 ---
-title: Редактирование ACL бакета в {{ objstorage-full-name }}
+title: Редактировать ACL бакета в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете редактировать список управления доступом (ACL) бакета в {{ objstorage-name }}.
 ---
 
-# Редактирование ACL бакета
+# Редактировать ACL бакета
 
 {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
 

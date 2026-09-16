@@ -1,9 +1,9 @@
 ---
-title: Настройка публичного доступа к бакету в {{ objstorage-full-name }}
+title: Открыть и закрыть публичный доступ к бакету в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете настроить публичный доступ к бакету в {{ objstorage-name }}.
 ---
 
-# Настройка публичного доступа к бакету
+# Открыть и закрыть публичный доступ к бакету
 
 {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
 

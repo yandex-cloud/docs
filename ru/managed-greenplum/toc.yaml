@@ -81,6 +81,8 @@ items:
             href: operations/pxf/settings.md
       - name: Подключение к внешнему файловому серверу (gpfdist)
         href: operations/gpfdist/connect.md
+      - name: Доступ из {{ TR }}
+        href: operations/gpfdist/trino-access.md
       - name: Расширения
         items:
           - name: Управление расширениями

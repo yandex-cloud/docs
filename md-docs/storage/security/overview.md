@@ -141,10 +141,10 @@
 
 ## Полезные ссылки {#see-also}
 
-* [Настройка прав доступа к бакету с помощью Identity and Access Management](../operations/buckets/iam-access.md)
-* [Редактирование ACL бакета](../operations/buckets/edit-acl.md)
+* [Настроить права доступа к бакету с помощью Identity and Access Management](../operations/buckets/iam-access.md)
+* [Редактировать ACL бакета](../operations/buckets/edit-acl.md)
 * [Редактировать ACL объекта](../operations/objects/edit-acl.md)
-* [Управление политикой доступа (bucket policy)](../operations/buckets/policy.md)
-* [Настройка публичного доступа к бакету](../operations/buckets/bucket-availability.md)
-* [Доступ в бакет с помощью Security Token Service](../operations/buckets/create-sts-key.md)
-* [Доступ в бакет с помощью сервисного подключения из Yandex Virtual Private Cloud](../operations/buckets/access-via-vpc.md)
+* [Управлять политикой доступа (bucket policy)](../operations/buckets/policy.md)
+* [Открыть и закрыть публичный доступ к бакету](../operations/buckets/bucket-availability.md)
+* [Получить доступ в бакет с помощью Security Token Service](../operations/buckets/create-sts-key.md)
+* [Настроить доступ в бакет с помощью сервисного подключения из Yandex Virtual Private Cloud](../operations/buckets/access-via-vpc.md)

@@ -30,7 +30,7 @@
 
  - [Референсная архитектура для облачной инфраструктуры в изолированном режиме без доступа в интернет](domains/architecture-isolated.md)
 
-## Стандарт по защите облачной инфраструктуры, версия 1.4.3
+## Стандарт по защите облачной инфраструктуры, версия 1.4.4
 
  - [Все разделы на одной странице](standard/all.md)
 
@@ -67,6 +67,36 @@
  - [Шифрование и защита данных](standard-360/encryption-data-protection.md)
 
  - [Интеграции и сторонние сервисы](standard-360/integrations.md)
+
+## Стандарт безопасности для внедрения и эксплуатации ИИ-систем в Yandex Cloud, версия 1.0.0
+
+ - [Все разделы на одной странице](standard-ai/all.md)
+
+ - [Введение](standard-ai/intro.md)
+
+ - [Безопасная архитектура и разработка ИИ-приложений](standard-ai/secure-architecture.md)
+
+ - [Данные, обучение, модели и выпуски](standard-ai/data-training-models.md)
+
+ - [IAM, сеть, шифрование, секреты и аудит](standard-ai/iam-network-crypto-secrets-audit.md)
+
+ - [Среда исполнения, RAG-хранилища и вывод из эксплуатации](standard-ai/runtime-rag-decom.md)
+
+ - [Мониторинг и реагирование на инциденты](standard-ai/monitoring-incident-response.md)
+
+ - [Агенты, инструменты, MCP и агентный RAG](standard-ai/agents-tools-mcp.md)
+
+ - [Цепочка поставок](standard-ai/supply-chain.md)
+
+ - [Профили реализации в Yandex Cloud](standard-ai/profiles.md)
+
+ - [Соответствие требованиям и обработка персональных и регулируемых данных](standard-ai/compliance-pii.md)
+
+ - [Проверка и тестирование безопасности](standard-ai/security-testing.md)
+
+ - [Метрики внедрения и контроля стандарта](standard-ai/metrics.md)
+
+ - [Безопасность систем искусственного интеллекта для финтех-организаций](standard-ai/fintech.md)
 
  - [Фреймворк безопасной работы с агентами AI-SAFE](ai-safe.md)
 

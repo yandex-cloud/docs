@@ -23,8 +23,6 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. Убедитесь, что кластер {{ managed-k8s-name }} расположен в том же [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), что и [публичная зона {{ dns-name }}](../../../dns/concepts/dns-zone.md#public-zones).
-
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
     {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}

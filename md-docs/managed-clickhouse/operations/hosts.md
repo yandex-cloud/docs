@@ -14,7 +14,7 @@
 
 {% note warning %}
 
-Если вы создали кластер без поддержки [ClickHouse® Keeper](../concepts/coordination-system.md#ck), то прежде чем добавлять новые хосты в любой из [шардов](../concepts/sharding.md), [добавьте не менее трех хостов ZooKeeper](zk-hosts.md#add-zk).
+Если вы создали кластер без поддержки [ClickHouse® Keeper](../concepts/replication.md#ck), то прежде чем добавлять новые хосты в любой из [шардов](../concepts/sharding.md), [добавьте не менее трех хостов ZooKeeper](zk-hosts.md#add-zk).
 
 {% endnote %}
 
@@ -784,7 +784,7 @@
 
 Нельзя удалить хост из кластера или шарда, если достигнут [соответствующий лимит на минимальное количество хостов](../concepts/limits.md#mch-limits).
 
-Нельзя удалить хосты, на которых размещается [ClickHouse® Keeper](../concepts/coordination-system.md#ck), если при создании кластера была включена поддержка этого механизма репликации.
+Нельзя удалить хосты, на которых размещается [ClickHouse® Keeper](../concepts/replication.md#ck), если при создании кластера была включена поддержка этого механизма репликации.
 
 Нельзя удалить хосты разных типов (ClickHouse® и ZooKeeper) за один раз.
 

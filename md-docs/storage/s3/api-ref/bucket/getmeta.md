@@ -45,7 +45,7 @@ HEAD /{bucket} HTTP/2
 * [Бакет в Object Storage](../../../concepts/bucket.md)
 
 
-* [Получение информации о бакете и статистики бакета](../../../operations/buckets/get-info.md)
+* [Получить информацию о бакете и его статистику](../../../operations/buckets/get-info.md)
 
 
 #### Полезные ссылки {#see-also}

@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Доступ в бакет с помощью Security Token Service
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Получить доступ в бакет с помощью Security Token Service
 
-# Доступ в бакет с помощью Security Token Service
+# Получить доступ в бакет с помощью Security Token Service
 
 # Создать временный ключ доступа с помощью Security Token Service
 
@@ -174,4 +174,4 @@
 #### Полезные ссылки {#see-also}
 
 * [Обзор способов управления доступом в Object Storage](../../security/overview.md)
-* [Доступ к бакету с помощью эфемерного ключа доступа](manage-ephemeral-keys.md)
+* [Получить доступ к бакету с помощью эфемерного ключа доступа](manage-ephemeral-keys.md)

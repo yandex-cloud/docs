@@ -163,7 +163,7 @@ blocks:
 * [{{ iam-full-name }}](../iam/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
 * {{ preview-stage }} [{{ si-full-name }}](../serverless-integrations/pricing.md)
-* {{ preview-stage }} [Vibecraft]({{ link-src-docs }}/vibecraft/pricing)
+* {{ preview-stage }} [{{ vc-name }}]({{ link-src-docs }}/vibecraft/pricing)
 * [{{ websql-full-name }}](../websql/pricing.md)
 
  Тегом {{ preview-stage }} отмечены сервисы на стадии [Preview](../overview/concepts/launch-stages.md). 

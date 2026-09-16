@@ -37,7 +37,7 @@ DELETE /{bucket} HTTP/2
 
 * [Бакет в Object Storage](../../../concepts/bucket.md)
 
-* [Удаление бакета](../../../operations/buckets/delete.md)
+* [Удалить бакет](../../../operations/buckets/delete.md)
 
 #### Полезные ссылки {#see-also}
 

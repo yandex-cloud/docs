@@ -1,6 +1,6 @@
 #### Квоты {#vc-quotas}
 
-Vibecraft основывается на компонентах {{ src-name }} и {{ yandex-cloud }}, в которых установлены определенные ограничения:
+{{ vc-name }} основывается на компонентах {{ src-name }} и {{ yandex-cloud }}, в которых установлены определенные ограничения:
 * [Квоты в {{ ca-full-name }}]({{ link-src-docs }}/code-assistant/concepts/limits)
 * [Квоты и лимиты в {{ src-full-name }}]({{ link-src-docs }}/sourcecraft/concepts/limits)
 * [Квоты и лимиты {{ container-registry-full-name }}](../../container-registry/concepts/limits)

@@ -46,6 +46,8 @@
 
  - [Интеграция с Object Storage](operations/objstorage-integration.md)
 
+ - [Интеграция с SourceCraft Security](operations/sourcecraft-security.md)
+
  - [Работа с управляемым раннером](operations/runner.md)
 
 ## Практические руководства
@@ -91,6 +93,8 @@
  - [Резервные копии](concepts/backup.md)
 
  - [Безопасность в GitLab](concepts/security.md)
+
+ - [Интеграция с SourceCraft Security](concepts/sourcecraft-security.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 

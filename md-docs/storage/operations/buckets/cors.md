@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Управление конфигурацией CORS
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Настроить CORS
 
-# Настройка CORS
+# Настроить CORS
 
 Object Storage позволяет управлять [конфигурацией CORS](../../concepts/cors.md) в бакете.
 
@@ -149,7 +149,7 @@ Object Storage позволяет управлять [конфигурацией
 
   {% note info %}
   
-  Кроме статических ключей доступа для аутентификации в Object Storage можно использовать IAM-токен. Подробнее смотрите в разделе [Создание бакета](create.md) и в [документации провайдера](../../../terraform/resources/storage_object.md). 
+  Кроме статических ключей доступа для аутентификации в Object Storage можно использовать IAM-токен. Подробнее смотрите в разделе [Создать бакет](create.md) и в [документации провайдера](../../../terraform/resources/storage_object.md). 
   
   {% endnote %}
 

@@ -20,4 +20,5 @@ description: На странице представлен список поша�
 * [{#T}](instance/monitoring.md)
 * [{#T}](omniauth.md)
 * [{#T}](objstorage-integration.md)
+* [{#T}](sourcecraft-security.md)
 * [{#T}](runner.md)

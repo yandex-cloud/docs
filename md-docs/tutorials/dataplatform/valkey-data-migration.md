@@ -385,9 +385,9 @@
 
 - Вручную {#manual}
 
-    * [Удалите кластер Yandex Managed Service for Valkey™](../../managed-valkey/operations/cluster-delete.md).
-    * Если вы создавали промежуточную виртуальную машину, [удалите ее](../../compute/operations/vm-control/vm-delete.md).
-    * Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
+    1. [Удалите кластер Yandex Managed Service for Valkey™](../../managed-valkey/operations/cluster-delete.md).
+    1. Если вы создавали промежуточную виртуальную машину, [удалите ее](../../compute/operations/vm-control/vm-delete.md).
+    1. Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
 
 - Terraform {#tf}
 

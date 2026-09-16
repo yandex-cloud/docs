@@ -1,9 +1,9 @@
 ---
-title: Настройка прав доступа к бакету {{ objstorage-full-name }} с помощью {{ iam-name }}
+title: Настроить права доступа к бакету {{ objstorage-full-name }} с помощью {{ iam-name }}
 description: Следуя данной инструкции, вы сможете назначить роль на бакет.
 ---
 
-# Настройка прав доступа к бакету с помощью {{ iam-name }}
+# Настроить права доступа к бакету с помощью {{ iam-name }}
 
 {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
 

@@ -123,6 +123,7 @@
         --postgresql-version <номер_новой_версии>
      ```
 
+
 - {{ TF }} {#tf}    
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -151,6 +152,7 @@
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
          {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

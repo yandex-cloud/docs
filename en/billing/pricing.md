@@ -146,7 +146,7 @@ The following services are always free of charge:
 * [{{ iam-full-name }}](../iam/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
 * {{ preview-stage }} [{{ si-full-name }}](../serverless-integrations/pricing.md)
-* {{ preview-stage }} [Vibecraft]({{ link-src-docs }}/vibecraft/pricing.md)
+* {{ preview-stage }} [{{ vc-name }}]({{ link-src-docs }}/vibecraft/pricing.md)
 * [{{ websql-full-name }}](../websql/pricing.md)
 
  Services at the [Preview](../overview/concepts/launch-stages.md) stage are labeled as {{ preview-stage }}.

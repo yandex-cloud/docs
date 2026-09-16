@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../index.md) > Концепции API Yandex Cloud > API Yandex Cloud
+[Документация Yandex Cloud](../index.md) > Концепции API Yandex Cloud > Концепции API Yandex Cloud
 
 # Концепции API Yandex Cloud
 

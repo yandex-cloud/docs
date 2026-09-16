@@ -5,7 +5,11 @@ description: Чтобы подключиться к API-шлюзу по прот
 
 # Поддержка протокола WebSocket
 
-{% include [note-preview-pricing.md](../../../_includes/mdb/mgp/cloud-storage-preview.md) %}
+{% note info %}
+
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и не тарифицируется.
+
+{% endnote %}
 
 Чтобы подключиться к API-шлюзу по протоколу WebSocket, клиентские приложения должны сделать [GET-запрос](https://www.rfc-editor.org/rfc/rfc6455#section-1.3) на URI, для которого настроены интеграции в [OpenAPI-спецификации](../../../glossary/openapi.md). Интеграции вызываются, когда выполняются следующие операции:
 * `x-yc-apigateway-websocket-connect` — открытие соединения.

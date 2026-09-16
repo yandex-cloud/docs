@@ -380,7 +380,7 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 Квоты {{ ca-full-name }} устанавливаются в зависимости от используемого тарифного плана. Подробнее на странице [Тарифные планы {{ ca-name }}]({{ link-src-docs }}/sourcecraft/pricing#ca-plans).
 
 
-### Vibecraft {#vc}
+### {{ vc-name }} {#vc}
 
 {% include [limits](../../_includes/vibecraft/limits.md) %}
 

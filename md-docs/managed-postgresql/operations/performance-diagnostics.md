@@ -17,8 +17,8 @@ Managed Service for PostgreSQL предоставляет встроенный �
     1. Включите опцию **Сбор статистики** (по умолчанию отключена).
     1. Настройте **Интервал сбора сессий** и **Интервал сбора запросов**. Допустимые значения:
         
-        * для сессий — от `5` до `86400` секунд;
-        * для запросов — от `60` до `86400` секунд.
+        * для сессий — от `1` до `86400` секунд;
+        * для запросов — от `1` до `86400` секунд.
 
 * CLI {#cli}
 
@@ -41,8 +41,9 @@ Managed Service for PostgreSQL предоставляет встроенный �
 
     Допустимые значения параметров:
 
-    - `sessions-sampling-interval` — от `5` до `86400` секунд.
-    - `statements-sampling-interval` — от `60` до `86400` секунд.
+    - `sessions-sampling-interval` — от `1` до `86400` секунд.
+    - `statements-sampling-interval` — от `1` до `86400` секунд.
+
 
 * Terraform {#tf}
 
@@ -73,8 +74,8 @@ Managed Service for PostgreSQL предоставляет встроенный �
        Где:
        
        * `enabled` — активация сбора статистики: `true` или `false`.
-       * `sessions_sampling_interval` — интервал сбора сессий от `5` до `86400` секунд.
-       * `statements_sampling_interval` — интервал сбора запросов от `60` до `86400` секунд.
+       * `sessions_sampling_interval` — интервал сбора сессий от `1` до `86400` секунд.
+       * `statements_sampling_interval` — интервал сбора запросов от `1` до `86400` секунд.
 
     1. Проверьте корректность настроек.
 
@@ -137,6 +138,7 @@ Managed Service for PostgreSQL предоставляет встроенный �
         
         {% endnote %}
 
+
 * REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -171,8 +173,8 @@ Managed Service for PostgreSQL предоставляет встроенный �
         Где `configSpec.performanceDiagnostics` — настройки сбора статистики:
 
         * `enabled` — активация сбора статистики: `true` или `false`.
-        * `sessionsSamplingInterval` — интервал сбора сессий. Допустимые значения — от `5` до `86400` секунд.
-        * `statementsSamplingInterval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
+        * `sessionsSamplingInterval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
+        * `statementsSamplingInterval` — интервал сбора запросов. Допустимые значения — от `1` до `86400` секунд.
 
      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
@@ -207,8 +209,8 @@ Managed Service for PostgreSQL предоставляет встроенный �
         Где `configSpec.performanceDiagnostics` — настройки сбора статистики:
 
         * `enabled` — активация сбора статистики: `true` или `false`.
-        * `sessionsSamplingInterval` — интервал сбора сессий. Допустимые значения — от `5` до `86400` секунд.
-        * `statementsSamplingInterval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
+        * `sessionsSamplingInterval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
+        * `statementsSamplingInterval` — интервал сбора запросов. Допустимые значения — от `1` до `86400` секунд.
 
      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
@@ -256,8 +258,8 @@ Managed Service for PostgreSQL предоставляет встроенный �
         Где `config_spec.performance_diagnostics` — настройки сбора статистики:
 
         * `enabled` — активация сбора статистики: `true` или `false`.
-        * `sessions_sampling_interval` — интервал сбора сессий. Допустимые значения — от `5` до `86400` секунд.
-        * `statements_sampling_interval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
+        * `sessions_sampling_interval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
+        * `statements_sampling_interval` — интервал сбора запросов. Допустимые значения — от `1` до `86400` секунд.
 
      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
@@ -315,8 +317,8 @@ Managed Service for PostgreSQL предоставляет встроенный �
         Где `config_spec.performance_diagnostics` — настройки сбора статистики:
 
         * `enabled` — активация сбора статистики: `true` или `false`.
-        * `sessions_sampling_interval` — интервал сбора сессий. Допустимые значения — от `5` до `86400` секунд.
-        * `statements_sampling_interval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
+        * `sessions_sampling_interval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
+        * `statements_sampling_interval` — интервал сбора запросов. Допустимые значения — от `1` до `86400` секунд.
 
      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 

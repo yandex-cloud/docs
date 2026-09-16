@@ -50,6 +50,7 @@
 ## Работа с утилитой `gpfdist` {#gpfdist}
 
 * [Подключение к внешнему файловому серверу](gpfdist/connect.md)
+* [Доступ из Trino](gpfdist/trino-access.md)
 
 ## Расширения {#extensions}
 

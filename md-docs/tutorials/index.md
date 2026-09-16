@@ -1118,6 +1118,8 @@
 
  - [Распределенные блокировки для «1С:Предприятия» в кластере Yandex Managed Service for Valkey™](dataplatform/1c-valkey-locks.md)
 
+ - [Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища кеша для «1С-Битрикс: Управление сайтом»](infrastructure-management/yc-valkey-as-1c-cache-storage.md)
+
  - [Поставка данных из Managed Service for YDB в Managed Service for Apache Kafka® с помощью Data Transfer](dataplatform/ydb-mkf-replication.md)
 
  - [Поставка данных из Managed Service for Apache Kafka® в Managed Service for YDB с помощью Data Transfer](dataplatform/mkf-ydb-stream.md)

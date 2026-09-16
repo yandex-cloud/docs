@@ -102,6 +102,8 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [Подключение к внешнему файловому серверу (gpfdist)](operations/gpfdist/connect.md)
 
+ - [Доступ из Trino](operations/gpfdist/trino-access.md)
+
 ### Расширения
 
  - [Управление расширениями](operations/extensions/cluster-extensions.md)

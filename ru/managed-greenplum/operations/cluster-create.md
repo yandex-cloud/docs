@@ -70,10 +70,6 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
-        
-        {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
-
-
     1. Укажите реквизиты пользователя-администратора. Это специальный пользователь, который необходим для управления кластером и не может быть удален. Подробнее читайте в разделе [Пользователи и роли](../concepts/cluster-users.md).
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — может содержать латинские буквы, цифры, дефис и подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
@@ -651,10 +647,6 @@ description: Следуя данной инструкции, вы сможете
 
             Гибридное хранилище нельзя отключить после сохранения настроек кластера.
 
-            
-            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
-
-
         
         * `masterHostGroupIds` и `segmentHostGroupIds` — (опционально) идентификаторы групп [выделенных хостов](../../compute/concepts/dedicated-host.md) для хостов-мастеров и хостов-сегментов.
 
@@ -846,10 +838,6 @@ description: Следуя данной инструкции, вы сможете
         * `cloud_storage.enable` — использование гибридного хранилища. Установите значение `true`, чтобы включить в кластере [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в гибридное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
 
             Гибридное хранилище нельзя отключить после сохранения настроек кластера.
-
-            
-            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
-
 
         
         * `master_host_group_ids` и `segment_host_group_ids` — (опционально) идентификаторы групп [выделенных хостов](../../compute/concepts/dedicated-host.md) для хостов-мастеров и хостов-сегментов.

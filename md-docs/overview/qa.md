@@ -66,7 +66,7 @@
 
 * [SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/qa/common)
 * [SourceCraft Code Assistant](https://sourcecraft.dev/portal/docs/ru/code-assistant/qa)
-* [Vibecraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/qa)
+* [VibeCraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/qa)
 * [Yandex Cloud Logging](../logging/qa/index.md)
 * [Yandex Container Registry](../container-registry/qa/index.md)
 * [Yandex Managed Service for GitLab](../managed-gitlab/qa/index.md)

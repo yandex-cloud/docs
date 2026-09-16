@@ -74,7 +74,7 @@ GET /{bucket}?encryption HTTP/2
 
 * [Бакет в Object Storage](../../../concepts/bucket.md)
 
-* [Шифрование бакета](../../../operations/buckets/encrypt.md)
+* [Настроить и отключить шифрование по умолчанию в бакете](../../../operations/buckets/encrypt.md)
 
 #### Полезные ссылки {#see-also}
 

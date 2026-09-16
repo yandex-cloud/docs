@@ -46,7 +46,7 @@ DELETE /{bucket}?lifecycle HTTP/2
 
 * [Жизненные циклы объектов в бакете](../../../concepts/lifecycles.md)
 
-* [Управление жизненными циклами объектов в бакете](../../../operations/buckets/lifecycles.md)
+* [Настроить жизненный цикл объектов в бакете](../../../operations/buckets/lifecycles.md)
 
 #### Полезные ссылки {#see-also}
 

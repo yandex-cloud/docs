@@ -589,12 +589,12 @@
 * `phones`
 * `mobile`
 ||
-|| Аватар | Отображается в сервисах Yandex Cloud. Изображение передается в кодировке [Base64](https://ru.wikipedia.org/wiki/Base64). Ограничение по длине: 204800 символов. |
+|| Аватар | Отображается в сервисах Yandex Cloud. В атрибуте `thumbnailPhoto` передается изображение в кодировке [Base64](https://ru.wikipedia.org/wiki/Base64) с ограничением по длине значения 204800 символов, а в атрибутах `photos` и `picture` — ссылка на изображение. |
 * `thumbnailPhoto`
 * `photos`
 * `picture`
 ||
-|| Членство в группах | Используется для функционала динамического сопоставления членства в группах. |
+|| Членство в группах | Используется для динамического сопоставления членства в группах. |
 * `member`
 * `http://schemas.xmlsoap.org/claims/group`
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`
