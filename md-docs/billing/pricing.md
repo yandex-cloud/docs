@@ -165,7 +165,7 @@ blocks:
 * [Yandex Identity and Access Management](../iam/pricing.md)
 * [Yandex Resource Manager](../resource-manager/pricing.md)
 * <code><b><small>Preview</small></b></code> [Yandex Serverless Integrations](../serverless-integrations/pricing.md)
-* <code><b><small>Preview</small></b></code> [Vibecraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/pricing)
+* <code><b><small>Preview</small></b></code> [VibeCraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/pricing)
 * [Yandex WebSQL](../websql/pricing.md)
 
  Тегом <code><b><small>Preview</small></b></code> отмечены сервисы на стадии [Preview](../overview/concepts/launch-stages.md).

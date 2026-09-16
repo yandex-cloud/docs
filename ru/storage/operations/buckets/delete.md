@@ -1,9 +1,9 @@
 ---
-title: Удаление бакета в {{ objstorage-full-name }}
+title: Удалить бакет в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете удалить бакет в {{ objstorage-name }}.
 ---
 
-# Удаление бакета
+# Удалить бакет
 
 {% note warning %}
 

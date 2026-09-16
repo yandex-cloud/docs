@@ -74,6 +74,12 @@
 
 Если на [шаге 3](#step-3) вы уже указали платежный аккаунт, переходите к следующему шагу. Если платежный аккаунт не был указан, на этом шаге вы сможете его создать.
 
+{% note info %}
+
+Для создания платежного аккаунта пользователю необходима [роль](../iam/roles-reference.md#organization-manager-organizations-owner) `organization-manager.organizations.owner`. Подробнее о назначении роли в [инструкции](../iam/operations/roles/grant.md).
+
+{% endnote %}
+
 Требования к платежному аккаунту: {#restrictions}
 
 * тип платежного аккаунта: [Бизнес-аккаунт](../billing/concepts/billing-account.md#ba-types);

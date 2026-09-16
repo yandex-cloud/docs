@@ -35,6 +35,7 @@ description: На странице представлен список прак�
 * [Создание кластера Linux-серверов «1С:Предприятия» с кластером {{ mpg-full-name }}](../infrastructure-management/1c-postgresql-linux.md)
 * [{#T}](../infrastructure-management/collect-metrics-1c-cluster.md)
 * [{#T}](../infrastructure-management/1c-valkey-locks.md)
+* [{#T}](../infrastructure-management/yc-valkey-as-1c-cache-storage.md)
 
 ## Интернет вещей (IOT) {#iot}
 

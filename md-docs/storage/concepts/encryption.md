@@ -40,5 +40,5 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Шифрование бакета](../operations/buckets/encrypt.md)
+* [Настроить и отключить шифрование по умолчанию в бакете](../operations/buckets/encrypt.md)
 * [Управление ключами](../../kms/operations/key.md)

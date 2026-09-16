@@ -502,7 +502,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
         * `enabled`: The value of `true` enables statistics collection. The default value is `false`.
         * `sessions-sampling-interval`: Session sampling interval in seconds. The valid values range from `1` to `86400`.
-        * `statements-sampling-interval`: Statement sampling interval in seconds. The valid values range from `60` to `86400`.
+        * `statements-sampling-interval`: Statement sampling interval in seconds. The valid values range from `1` to `86400`.
 
 
     You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -691,7 +691,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
          * `enabled`: Enables statistics collection, `true` or `false`.
          * `sessionsSamplingInterval`: Session sampling interval. The values range from `1` to `86400` seconds.
-         * `statementsSamplingInterval`: Statement sampling interval. The values range from `60` to `86400` seconds.
+         * `statementsSamplingInterval`: Statement sampling interval. The values range from `1` to `86400` seconds.
 
 
      * `maintenanceWindow`: [Maintenance](../concepts/maintenance.md) window settings, applying to both running and stopped clusters. Provide one of these two parameters:
@@ -828,7 +828,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
          * `enabled`: Enables statistics collection, `true` or `false`.
          * `sessions_sampling_interval`: Session sampling interval. The values range from `1` to `86400` seconds.
-         * `statements_sampling_interval`: Statement sampling interval. The values range from `60` to `86400` seconds.
+         * `statements_sampling_interval`: Statement sampling interval. The values range from `1` to `86400` seconds.
 
 
      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:

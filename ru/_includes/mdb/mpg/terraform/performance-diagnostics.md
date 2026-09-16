@@ -19,5 +19,5 @@ resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
 Где:
 
 * `enabled` — активация сбора статистики: `true` или `false`.
-* `sessions_sampling_interval` — интервал сбора сессий от `5` до `86400` секунд.
-* `statements_sampling_interval` — интервал сбора запросов от `60` до `86400` секунд.
+* `sessions_sampling_interval` — интервал сбора сессий от `1` до `86400` секунд.
+* `statements_sampling_interval` — интервал сбора запросов от `1` до `86400` секунд.

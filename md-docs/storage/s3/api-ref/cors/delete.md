@@ -47,7 +47,7 @@ DELETE /{bucket}?cors HTTP/2
 
 * [CORS в Object Storage](../../../concepts/cors.md)
 
-* [Настройка CORS](../../../operations/buckets/cors.md)
+* [Настроить CORS](../../../operations/buckets/cors.md)
 
 #### Полезные ссылки {#see-also}
 

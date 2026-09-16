@@ -64,7 +64,7 @@ GET /{bucket}?versioning HTTP/2
 
 * [Бакет в Object Storage](../../../concepts/bucket.md)
 
-* [Управление версионированием бакета](../../../operations/buckets/versioning.md)
+* [Включить и приостановить версионирование бакета](../../../operations/buckets/versioning.md)
 
 #### Полезные ссылки {#see-also}
 

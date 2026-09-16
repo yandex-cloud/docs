@@ -41,6 +41,10 @@
               {% include [note-approval-rules-pricing](../../../_includes/managed-gitlab/note-approval-rules-pricing.md) %}
 
           * Укажите [токен {{ GL }}](../approval-rules.md#gitlab-token) для активации правил ревью кода.
+      1. (Опционально) В блоке **{{ ui-key.yacloud.gitlab.components.InstanceForm.SourceCraftIntegrationSection.section_title }}** включите или отключите опцию **{{ ui-key.yacloud.gitlab.components.InstanceForm.SourceCraftIntegrationSection.field_enable }}**. Подробнее об [интеграции с {{ src-name }} Security](../../concepts/sourcecraft-security.md) и ее [настройке](../sourcecraft-security.md).
+
+          {% include [sourcecraft-security-instance-note](../../../_includes/managed-gitlab/sourcecraft-security-instance-note.md) %}
+
       1. В блоке **{{ ui-key.yacloud.gitlab.label_additional-section }}** включите или отключите удаление образов без тегов. Настройка влияет на свободное место на диске инстанса.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

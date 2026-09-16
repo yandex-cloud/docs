@@ -429,7 +429,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
                        update-ca-certificates 
 
                        echo "Restarting containerd"
-                       ps -x -o pid= -o comm= | awk '$2 ~ "^(containerd|dockerd)$" { print $1 }' | xargs kill
+                       { pgrep -x containerd; pgrep -x dockerd; } | xargs -r kill
                        #systemd will get them back less than a minute
                    else
                      echo "Doing Nothing as no certs has not been changed"

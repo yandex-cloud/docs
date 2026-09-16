@@ -103,6 +103,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {{ mpg-short-name }} запустит операцию изменения класса хостов для кластера.
 
+
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -134,6 +135,7 @@ description: Из статьи вы узнаете, как изменить на
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -274,6 +276,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {{ mpg-short-name }} запустит операцию по изменению настроек кластера.
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -308,6 +311,7 @@ description: Из статьи вы узнаете, как изменить на
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -502,10 +506,11 @@ description: Из статьи вы узнаете, как изменить на
 
         * `enabled` — значение `true` активирует сбор статистики. Значение по умолчанию — `false`.
         * `sessions-sampling-interval` — интервал сбора сессий, в секундах. Допустимые значения — от `1` до `86400`.
-        * `statements-sampling-interval` — интервал сбора запросов, в секундах. Допустимые значения — от `60` до `86400`.
+        * `statements-sampling-interval` — интервал сбора запросов, в секундах. Допустимые значения — от `1` до `86400`.
 
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 
 - {{ TF }} {#tf}
 
@@ -603,6 +608,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -691,7 +697,7 @@ description: Из статьи вы узнаете, как изменить на
 
          * `enabled` — активация сбора статистики: `true` или `false`.
          * `sessionsSamplingInterval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
-         * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
+         * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `1` до `86400` секунд.
 
 
      * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
@@ -828,7 +834,7 @@ description: Из статьи вы узнаете, как изменить на
 
          * `enabled` — активация сбора статистики: `true` или `false`.
          * `sessions_sampling_interval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
-         * `statements_sampling_interval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
+         * `statements_sampling_interval` — интервал сбора запросов. Возможные значения: от `1` до `86400` секунд.
 
 
      * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
@@ -931,6 +937,7 @@ description: Из статьи вы узнаете, как изменить на
 
   Имя хоста-реплики можно запросить со [списком хостов в кластере](hosts.md#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -959,6 +966,7 @@ description: Из статьи вы узнаете, как изменить на
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -1052,6 +1060,7 @@ description: Из статьи вы узнаете, как изменить на
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -1078,6 +1087,7 @@ description: Из статьи вы узнаете, как изменить на
     Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

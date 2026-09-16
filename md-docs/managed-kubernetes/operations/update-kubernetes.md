@@ -29,6 +29,7 @@
 - Консоль управления {#console}
 
   Чтобы узнать список доступных версий для кластера Managed Service for Kubernetes:
+  
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. В строке кластера Managed Service for Kubernetes нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
@@ -67,7 +68,9 @@
 
 ### Настройка автоматического обновления при создании или изменении кластера {#cluster-auto-upgrade}
 
-Выберите режим автоматического обновления кластера Managed Service for Kubernetes и задайте нужный график обновления:
+Автоматическое обновление устанавливает доступные исправления и новые ревизии компонентов в рамках текущей минорной версии кластера Managed Service for Kubernetes, например: 1.28.9 → 1.28.10. Переход на следующую минорную версию необходимо выполнять [вручную](#cluster-manual-upgrade).
+
+Для автоматического обновления кластера Managed Service for Kubernetes выберите соответствующий режим и задайте график обновления:
 
 
 
@@ -78,6 +81,7 @@
   Настройки обновлений можно указать при [создании кластера Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-create.md) или [изменении его настроек](kubernetes-cluster/kubernetes-cluster-update.md).
 
   В поле **Частота обновлений / Отключение** выберите политику обновления кластера Managed Service for Kubernetes:
+  
   * `Отключено` — выберите эту опцию, чтобы не использовать автоматические обновления.
   * `В любое время` — выберите эту опцию, чтобы Managed Service for Kubernetes управлял графиком установки обновлений.
   * `Ежедневно` — укажите начало и длительность интервала времени в UTC, в течение которого запустится обновление. Параметр не связан с длительностью самого обновления и временем его окончания.
@@ -97,6 +101,7 @@
   ```
 
   Где:
+  
   * `--auto-upgrade` — выбор режима автоматического обновления кластера Managed Service for Kubernetes. Значение по умолчанию — `true` (автоматическое обновление включено).
   * `--anytime-maintenance-window` — выбор произвольного времени обновления кластера Managed Service for Kubernetes.
   * `--daily-maintenance-window` — задать начало и длительность интервала времени в UTC, в течение которого запустится обновление.
@@ -269,6 +274,7 @@
   Настройки автоматического обновления задаются в блоке `masterSpec.maintenancePolicy` при [создании кластера Managed Service for Kubernetes](../managed-kubernetes/api-ref/Cluster/create.md) или [изменении его настроек](../managed-kubernetes/api-ref/Cluster/update.md).
 
   Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../managed-kubernetes/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../managed-kubernetes/api-ref/grpc/Cluster/update.md) и передайте в запросе:
+  
   * Идентификатор кластера Managed Service for Kubernetes в параметре `clusterId`. Чтобы узнать идентификатор кластера Managed Service for Kubernetes, [получите список кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md).
   * Настройки автоматического обновления в параметре `masterSpec.maintenancePolicy`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -282,6 +288,7 @@
   Чтобы отключить автоматическое обновление, передайте значение `false` в параметре `masterSpec.maintenancePolicy.autoUpgrade`.
 
   Для включения и настройки окна обновлений передайте одно из допустимых значений параметра `maintenanceWindow`:
+  
   * Чтобы кластер Managed Service for Kubernetes обновлялся в произвольное время, передайте значение `"anytime": {}`.
   * Чтобы настроить ежедневные обновления, добавьте блок `dailyMaintenanceWindow`:
 
@@ -341,7 +348,7 @@
 
 ### Ручное обновление версии кластера {#cluster-manual-upgrade}
 
-При необходимости обновите версию кластера Managed Service for Kubernetes вручную. За один этап кластер Managed Service for Kubernetes можно обновить только до следующей минорной версии относительно текущей. Обновление до более новых версий производится в несколько этапов, например: 1.19 → 1.20 → 1.21.
+При необходимости обновите версию кластера Managed Service for Kubernetes вручную. За один этап кластер можно обновить только до следующей минорной версии относительно текущей. Обновление до более новых версий производится в несколько этапов, например: 1.19 → 1.20 → 1.21.
 
 {% list tabs group=instructions %}
 
@@ -369,6 +376,7 @@
   1. Откройте актуальный конфигурационный файл с описанием кластера Managed Service for Kubernetes.
 
      О том, как создать такой файл, читайте в разделе [Создание кластера Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-create.md).
+  
   1. Измените версию в описании кластера Managed Service for Kubernetes:
 
      ```hcl
@@ -483,6 +491,7 @@
   Настройки обновлений можно указать при [создании группы узлов Managed Service for Kubernetes](node-group/node-group-create.md) или [изменении ее настроек](node-group/node-group-update.md).
 
   В поле **В процессе создания и обновления разрешено** укажите настройки масштабирования группы узлов Managed Service for Kubernetes:
+  
   * **Расширение размера группы, макс.** — задайте максимальное количество узлов, на которое можно превысить размер группы при ее обновлении.
 
     {% note warning %}
@@ -494,6 +503,7 @@
   * **Уменьшение размера группы, макс.** — задайте максимальное количество недоступных узлов группы при ее обновлении.
 
   В поле **Частота обновлений / Отключение** выберите политику обновления группы узлов Managed Service for Kubernetes:
+  
   * `Отключено` — выберите эту опцию, чтобы не использовать автоматические обновления.
   * `В любое время` — выберите эту опцию, чтобы Managed Service for Kubernetes управлял графиком установки обновлений.
   * `Ежедневно` — укажите начало и длительность интервала времени в UTC, в течение которого запустится обновление. Параметр не связан с длительностью самого обновления и временем его окончания.
@@ -537,6 +547,7 @@
   * `--auto-repair` — выбор режима пересоздания сбойных узлов. Возможные значения: `true` или `false`.
 
     Режим `--auto-repair` находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+  
   * `--anytime-maintenance-window` — выбор произвольного времени обновления группы узлов Managed Service for Kubernetes.
   * `--daily-maintenance-window` — задать начало и длительность интервала времени в UTC, в течение которого запустится обновление.
 
@@ -571,6 +582,7 @@
   1. Откройте актуальный конфигурационный файл с описанием группы узлов Managed Service for Kubernetes.
 
      О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group/node-group-create.md).
+  
   1. Измените параметры автоматического обновления в описании группы узлов Managed Service for Kubernetes.
 
      {% note info %}
@@ -643,6 +655,7 @@
        ```
 
        Где:
+       
        * `max_expansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.
 
          {% note warning %}
@@ -744,6 +757,7 @@
   Настройки автоматического обновления задаются в блоке `maintenancePolicy` при [создании группы узлов Managed Service for Kubernetes](../managed-kubernetes/api-ref/NodeGroup/create.md) или [изменении ее настроек](../managed-kubernetes/api-ref/NodeGroup/update.md).
 
   Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) или вызовом gRPC API [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) и передайте в запросе:
+  
   * Идентификатор группы узлов Managed Service for Kubernetes в параметре `nodeGroupId`. Чтобы узнать идентификатор группы узлов Managed Service for Kubernetes, [получите список групп в кластере](node-group/node-group-list.md).
   * Настройки автоматического обновления в параметре `maintenancePolicy`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -757,6 +771,7 @@
   Чтобы отключить автоматическое обновление, передайте значение `false` в параметре `maintenancePolicy.autoUpgrade`.
 
   Для включения и настройки окна обновлений передайте одно из допустимых значений параметра `maintenanceWindow`:
+  
   * Чтобы группа узлов Managed Service for Kubernetes обновлялась в произвольное время, передайте значение `"anytime": {}`.
   * Чтобы настроить ежедневные обновления, добавьте блок `dailyMaintenanceWindow`:
 
@@ -873,6 +888,7 @@
   1. Откройте актуальный конфигурационный файл с описанием группы узлов Managed Service for Kubernetes.
 
      О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group/node-group-create.md).
+  
   1. Измените версию в описании группы узлов Managed Service for Kubernetes:
 
      ```hcl
@@ -954,6 +970,7 @@
   {% endnote %}
 
   Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) или вызовом gRPC API [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) и передайте в запросе:
+  
   * Идентификатор группы узлов Managed Service for Kubernetes в параметре `nodeGroupId`. Чтобы узнать идентификатор группы узлов Managed Service for Kubernetes, [получите список групп в кластере](node-group/node-group-list.md).
   * Нужную версию Kubernetes в параметре `version.version`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -971,6 +988,7 @@
 Для кластера Managed Service for Kubernetes и группы узлов доступно обновление в рамках одной версии Kubernetes. При установке обновления мажорная версия Kubernetes не меняется.
 
 При таком обновлении возможны:
+
 * Установка новых пакетов.
 * Обновление образа Kubernetes.
 * Обновление патч-версии Kubernetes.
@@ -1009,6 +1027,7 @@
   {% endnote %}
 
   Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../managed-kubernetes/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../managed-kubernetes/api-ref/grpc/Cluster/update.md) и передайте в запросе:
+  
   * Идентификатор кластера Managed Service for Kubernetes в параметре `clusterId`. Чтобы узнать идентификатор кластера Managed Service for Kubernetes, [получите список кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md#list).
   * Значение `true` в параметре `masterSpec.version.version`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -1055,6 +1074,7 @@
   {% endnote %}
 
   Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) или вызовом gRPC API [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) и передайте в запросе:
+  
   * Идентификатор группы узлов Managed Service for Kubernetes в параметре `nodeGroupId`. Чтобы узнать идентификатор группы узлов Managed Service for Kubernetes, [получите список групп в кластере](node-group/node-group-list.md).
   * Значение `true` в параметре `version.latestRevision`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -1129,6 +1149,7 @@
   {% endnote %}
 
   Воспользуйтесь методом REST API [rescheduleMaintenance](../managed-kubernetes/api-ref/Cluster/rescheduleMaintenance.md) для ресурса [Cluster](../managed-kubernetes/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/RescheduleMaintenance](../managed-kubernetes/api-ref/grpc/Cluster/rescheduleMaintenance.md) и передайте в запросе:
+  
   * Идентификатор кластера Managed Service for Kubernetes в параметре `clusterId`. Чтобы узнать идентификатор кластера Managed Service for Kubernetes, [получите список кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md#list).
   * Новые дату и время обновления в формате `YYYY-MM-DDThh:mm:ssZ` в параметре `delayedUntil`. Например: `2026-01-01T21:00:00Z`.
 

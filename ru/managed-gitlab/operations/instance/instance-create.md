@@ -11,6 +11,8 @@ description: Из статьи вы узнаете, как создать инс
 
 {% include [warn-subnet](../../../_includes/managed-gitlab/warn-subnet.md) %}
 
+При создании инстанса в консоли управления вы можете включить [интеграцию с {{ src-name }} Security](../sourcecraft-security.md), чтобы автоматически проверять безопасность кода в репозиториях.
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

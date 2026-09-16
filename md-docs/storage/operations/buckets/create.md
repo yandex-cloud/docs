@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Создание бакета
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Создать бакет
 
-# Создание бакета
+# Создать бакет
 
 Чтобы создать [бакет](../../concepts/bucket.md), у вас должна быть _минимальная_ [роль](../../security/index.md#storage-editor) `storage.editor` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
@@ -453,9 +453,9 @@
 #### Полезные ссылки {#see-also}
 
 * [Загрузить объект](../objects/upload.md)
-* [Редактирование ACL бакета](edit-acl.md)
-* [Ограничение максимального размера бакета](limit-max-volume.md)
-* [Настройка публичного доступа к бакету](bucket-availability.md)
-* [Управление метками бакета](tagging.md)
-* [Управление жизненными циклами объектов в бакете](lifecycles.md)
-* [Управление политикой доступа (bucket policy)](policy.md)
+* [Редактировать ACL бакета](edit-acl.md)
+* [Ограничить максимальный размер бакета](limit-max-volume.md)
+* [Открыть и закрыть публичный доступ к бакету](bucket-availability.md)
+* [Управлять метками бакета](tagging.md)
+* [Настроить жизненный цикл объектов в бакете](lifecycles.md)
+* [Управлять политикой доступа (bucket policy)](policy.md)

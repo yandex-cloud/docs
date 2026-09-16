@@ -26,4 +26,4 @@ resource_type | Тип ресурса: `bucket`
 
 #### Полезные ссылки {#see-also}
 
-[Просмотр метрик бакета](operations/buckets/get-stats.md)
+[Посмотреть метрики бакета](operations/buckets/get-stats.md)

@@ -141,6 +141,7 @@
         --postgresql-version <номер_новой_версии>
      ```
 
+
 - Terraform {#tf}    
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
@@ -220,6 +221,7 @@
          {% endcut %}
          
          {% endnote %}
+
 
 - REST API {#api}
 

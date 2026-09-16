@@ -1360,6 +1360,10 @@ items:
           }}
         href: dataplatform/1c-valkey-locks.md
       - name: >-
+          Использование кластера {{ mrd-name }} в качестве хранилища кеша для
+          «1С-Битрикс: Управление сайтом»
+        href: infrastructure-management/yc-valkey-as-1c-cache-storage.md
+      - name: >-
           Поставка данных из {{ ydb-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/ydb-mkf-replication.md

@@ -28,47 +28,6 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
-
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
-
-    1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-
-    1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
-
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
-
-        * (Опционально) Введите имя и описание триггера.
-
-        * {% include [triggers-labels-step](../../../_includes/functions/triggers-labels-step.md) %}
-
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `Telegram`.
-
-    1. В блоке **Настройки Telegram** укажите токен Telegram-бота, полученный от [@BotFather](https://core.telegram.org/bots/features#botfather).
-
-    1. {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
-
-    1. В блоке **Приёмники**:
-
-        1. В поле **Тип приёмника** выберите `Функция`.
-
-        1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию и укажите:
-
-            {% include [function-settings](../../../_includes/functions/function-settings.md) %}
-
-        1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
-
-            {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
-
-        1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
-
-        1. {% include [trigger-console-filter](../../../_includes/functions/trigger-console-filter.md) %}
-
-        1. {% include [trigger-console-template](../../../_includes/functions/trigger-console-template.md) %}
-
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - {{ TF }} {#tf}
 

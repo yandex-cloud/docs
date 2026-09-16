@@ -53,6 +53,7 @@ description: На странице представлен список поша�
 ## Работа с утилитой `gpfdist` {#gpfdist}
 
 * [{#T}](gpfdist/connect.md)
+* [{#T}](gpfdist/trino-access.md)
 
 ## Расширения {#extensions}
 

@@ -23,6 +23,7 @@
 - Консоль управления {#console}
 
   Чтобы узнать список доступных версий для кластера {{ managed-k8s-name }}:
+  
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. В строке кластера {{ managed-k8s-name }} нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
@@ -59,7 +60,9 @@
 
 ### Настройка автоматического обновления при создании или изменении кластера {#cluster-auto-upgrade}
 
-Выберите режим автоматического обновления кластера {{ managed-k8s-name }} и задайте нужный график обновления:
+Автоматическое обновление устанавливает доступные исправления и новые ревизии компонентов в рамках текущей минорной версии кластера {{ managed-k8s-name }}, например: 1.28.9 → 1.28.10. Переход на следующую минорную версию необходимо выполнять [вручную](#cluster-manual-upgrade).
+
+Для автоматического обновления кластера {{ managed-k8s-name }} выберите соответствующий режим и задайте график обновления:
 
 {% include [kz-auto-upgrade-warning](../../_includes/managed-kubernetes/kz-auto-upgrade-warning.md) %}
 
@@ -70,6 +73,7 @@
   Настройки обновлений можно указать при [создании кластера {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении его настроек](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md).
 
   В поле **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** выберите политику обновления кластера {{ managed-k8s-name }}:
+  
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — выберите эту опцию, чтобы не использовать автоматические обновления.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}` — выберите эту опцию, чтобы {{ managed-k8s-name }} управлял графиком установки обновлений.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — укажите начало и длительность интервала времени в UTC, в течение которого запустится обновление. Параметр не связан с длительностью самого обновления и временем его окончания.
@@ -89,6 +93,7 @@
   ```
 
   Где:
+  
   * `--auto-upgrade` — выбор режима автоматического обновления кластера {{ managed-k8s-name }}. Значение по умолчанию — `true` (автоматическое обновление включено).
   * `--anytime-maintenance-window` — выбор произвольного времени обновления кластера {{ managed-k8s-name }}.
   * `--daily-maintenance-window` — задать начало и длительность интервала времени в UTC, в течение которого запустится обновление.
@@ -211,6 +216,7 @@
   Настройки автоматического обновления задаются в блоке `masterSpec.maintenancePolicy` при [создании кластера {{ managed-k8s-name }}](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/create.md) или [изменении его настроек](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md).
 
   Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../managed-kubernetes/api-ref/Cluster) или вызовом gRPC API [ClusterService/Update](../managed-kubernetes/api-ref/grpc/Cluster/update.md) и передайте в запросе:
+  
   * Идентификатор кластера {{ managed-k8s-name }} в параметре `clusterId`. Чтобы узнать идентификатор кластера {{ managed-k8s-name }}, [получите список кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md).
   * Настройки автоматического обновления в параметре `masterSpec.maintenancePolicy`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -220,6 +226,7 @@
   Чтобы отключить автоматическое обновление, передайте значение `false` в параметре `masterSpec.maintenancePolicy.autoUpgrade`.
 
   Для включения и настройки окна обновлений передайте одно из допустимых значений параметра `maintenanceWindow`:
+  
   * Чтобы кластер {{ managed-k8s-name }} обновлялся в произвольное время, передайте значение `"anytime": {}`.
   * Чтобы настроить ежедневные обновления, добавьте блок `dailyMaintenanceWindow`:
 
@@ -275,7 +282,7 @@
 
 ### Ручное обновление версии кластера {#cluster-manual-upgrade}
 
-При необходимости обновите версию кластера {{ managed-k8s-name }} вручную. За один этап кластер {{ managed-k8s-name }} можно обновить только до следующей минорной версии относительно текущей. Обновление до более новых версий производится в несколько этапов, например: 1.19 → 1.20 → 1.21.
+При необходимости обновите версию кластера {{ managed-k8s-name }} вручную. За один этап кластер можно обновить только до следующей минорной версии относительно текущей. Обновление до более новых версий производится в несколько этапов, например: 1.19 → 1.20 → 1.21.
 
 {% list tabs group=instructions %}
 
@@ -303,6 +310,7 @@
   1. Откройте актуальный конфигурационный файл с описанием кластера {{ managed-k8s-name }}.
 
      О том, как создать такой файл, читайте в разделе [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
+  
   1. Измените версию в описании кластера {{ managed-k8s-name }}:
 
      ```hcl
@@ -357,6 +365,7 @@
   Настройки обновлений можно указать при [создании группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-group/node-group-create.md) или [изменении ее настроек](../../managed-kubernetes/operations/node-group/node-group-update.md).
 
   В поле **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}** укажите настройки масштабирования группы узлов {{ managed-k8s-name }}:
+  
   * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-expansion }}** — задайте максимальное количество узлов, на которое можно превысить размер группы при ее обновлении.
 
     {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
@@ -364,6 +373,7 @@
   * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-unavailable }}** — задайте максимальное количество недоступных узлов группы при ее обновлении.
 
   В поле **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** выберите политику обновления группы узлов {{ managed-k8s-name }}:
+  
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — выберите эту опцию, чтобы не использовать автоматические обновления.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}` — выберите эту опцию, чтобы {{ managed-k8s-name }} управлял графиком установки обновлений.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — укажите начало и длительность интервала времени в UTC, в течение которого запустится обновление. Параметр не связан с длительностью самого обновления и временем его окончания.
@@ -403,6 +413,7 @@
   * `--auto-repair` — выбор режима пересоздания сбойных узлов. Возможные значения: `true` или `false`.
 
     Режим `--auto-repair` находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+  
   * `--anytime-maintenance-window` — выбор произвольного времени обновления группы узлов {{ managed-k8s-name }}.
   * `--daily-maintenance-window` — задать начало и длительность интервала времени в UTC, в течение которого запустится обновление.
 
@@ -437,6 +448,7 @@
   1. Откройте актуальный конфигурационный файл с описанием группы узлов {{ managed-k8s-name }}.
 
      О том, как создать такой файл, читайте в разделе [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+  
   1. Измените параметры автоматического обновления в описании группы узлов {{ managed-k8s-name }}.
 
      {% note info %}
@@ -509,6 +521,7 @@
        ```
 
        Где:
+       
        * `max_expansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.
 
          {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
@@ -552,6 +565,7 @@
   Настройки автоматического обновления задаются в блоке `maintenancePolicy` при [создании группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/create.md) или [изменении ее настроек](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md).
 
   Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) и передайте в запросе:
+  
   * Идентификатор группы узлов {{ managed-k8s-name }} в параметре `nodeGroupId`. Чтобы узнать идентификатор группы узлов {{ managed-k8s-name }}, [получите список групп в кластере](node-group/node-group-list.md).
   * Настройки автоматического обновления в параметре `maintenancePolicy`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -561,6 +575,7 @@
   Чтобы отключить автоматическое обновление, передайте значение `false` в параметре `maintenancePolicy.autoUpgrade`.
 
   Для включения и настройки окна обновлений передайте одно из допустимых значений параметра `maintenanceWindow`:
+  
   * Чтобы группа узлов {{ managed-k8s-name }} обновлялась в произвольное время, передайте значение `"anytime": {}`.
   * Чтобы настроить ежедневные обновления, добавьте блок `dailyMaintenanceWindow`:
 
@@ -669,6 +684,7 @@
   1. Откройте актуальный конфигурационный файл с описанием группы узлов {{ managed-k8s-name }}.
 
      О том, как создать такой файл, читайте в разделе [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+  
   1. Измените версию в описании группы узлов {{ managed-k8s-name }}:
 
      ```hcl
@@ -696,6 +712,7 @@
   {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
 
   Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) и передайте в запросе:
+  
   * Идентификатор группы узлов {{ managed-k8s-name }} в параметре `nodeGroupId`. Чтобы узнать идентификатор группы узлов {{ managed-k8s-name }}, [получите список групп в кластере](node-group/node-group-list.md).
   * Нужную версию {{ k8s }} в параметре `version.version`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -709,6 +726,7 @@
 Для кластера {{ managed-k8s-name }} и группы узлов доступно обновление в рамках одной версии {{ k8s }}. При установке обновления мажорная версия {{ k8s }} не меняется.
 
 При таком обновлении возможны:
+
 * Установка новых пакетов.
 * Обновление образа {{ k8s }}.
 * Обновление патч-версии {{ k8s }}.
@@ -743,6 +761,7 @@
   {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
 
   Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../managed-kubernetes/api-ref/Cluster) или вызовом gRPC API [ClusterService/Update](../managed-kubernetes/api-ref/grpc/Cluster/update.md) и передайте в запросе:
+  
   * Идентификатор кластера {{ managed-k8s-name }} в параметре `clusterId`. Чтобы узнать идентификатор кластера {{ managed-k8s-name }}, [получите список кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md#list).
   * Значение `true` в параметре `masterSpec.version.version`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -781,6 +800,7 @@
   {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
 
   Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) и передайте в запросе:
+  
   * Идентификатор группы узлов {{ managed-k8s-name }} в параметре `nodeGroupId`. Чтобы узнать идентификатор группы узлов {{ managed-k8s-name }}, [получите список групп в кластере](node-group/node-group-list.md).
   * Значение `true` в параметре `version.latestRevision`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -847,6 +867,7 @@
   {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
 
   Воспользуйтесь методом REST API [rescheduleMaintenance](../managed-kubernetes/api-ref/Cluster/rescheduleMaintenance.md) для ресурса [Cluster](../managed-kubernetes/api-ref/Cluster) или вызовом gRPC API [ClusterService/RescheduleMaintenance](../managed-kubernetes/api-ref/grpc/Cluster/rescheduleMaintenance.md) и передайте в запросе:
+  
   * Идентификатор кластера {{ managed-k8s-name }} в параметре `clusterId`. Чтобы узнать идентификатор кластера {{ managed-k8s-name }}, [получите список кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md#list).
   * Новые дату и время обновления в формате `YYYY-MM-DDThh:mm:ssZ` в параметре `delayedUntil`. Например: `2026-01-01T21:00:00Z`.
 

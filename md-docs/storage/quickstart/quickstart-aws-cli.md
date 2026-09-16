@@ -218,7 +218,7 @@
   aws s3 mb s3://<имя_бакета>
   ```
 
-  Подробнее в документе [Создание бакета](../operations/buckets/create.md).
+  Подробнее в документе [Создать бакет](../operations/buckets/create.md).
 
 {% endlist %}
 

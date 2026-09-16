@@ -56,7 +56,7 @@ OPTIONS /{bucket}/{key} HTTP/2
 
 * [Объект](../../../concepts/object.md)
 
-* [Настройка CORS](../../../operations/buckets/cors.md)
+* [Настроить CORS](../../../operations/buckets/cors.md)
 
 #### Полезные ссылки {#see-also}
 

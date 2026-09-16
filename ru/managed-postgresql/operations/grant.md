@@ -66,6 +66,7 @@ description: '{{ PG }} управляет правами доступа к ба�
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md), имя пользователя — со [списком пользователей](cluster-users.md#list-users).
 
+
 - {{ TF }} {#tf}
 
   Чтобы назначить роли пользователю кластера:
@@ -95,6 +96,7 @@ description: '{{ PG }} управляет правами доступа к ба�
     1. Подтвердите изменение ресурсов.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 
@@ -229,6 +231,7 @@ description: '{{ PG }} управляет правами доступа к ба�
     1. [Подключитесь](connect/index.md) к базе данных с помощью учетной записи владельца базы данных.
     1. Выполните команду `GRANT`. Подробное описание синтаксиса команды смотрите в [документации {{ PG }}](https://www.postgresql.org/docs/current/sql-grant.html).
 
+
 - {{ TF }} {#tf}
 
     {% note warning %}
@@ -318,6 +321,7 @@ description: '{{ PG }} управляет правами доступа к ба�
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+
 {% endlist %}
 
 ## Отозвать привилегию у пользователя {#revoke-privilege}
@@ -328,6 +332,7 @@ description: '{{ PG }} управляет правами доступа к ба�
 
     1. [Подключитесь](connect/index.md) к базе данных с помощью учетной записи владельца базы данных.
     1. Выполните команду `REVOKE`. Подробное описание синтаксиса команды смотрите в [документации {{ PG }}](https://www.postgresql.org/docs/current/sql-revoke.html).
+
 
 - {{ TF }} {#tf}
 
@@ -345,6 +350,7 @@ description: '{{ PG }} управляет правами доступа к ба�
     1. Подтвердите изменение ресурсов.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 {% endlist %}
 

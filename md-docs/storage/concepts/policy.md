@@ -480,4 +480,4 @@
 
 #### Полезные ссылки {#see-also}
 
-[Управление политикой доступа (bucket policy)](../operations/buckets/policy.md)
+[Управлять политикой доступа (bucket policy)](../operations/buckets/policy.md)

@@ -28,51 +28,51 @@
 
 ### Бакеты
 
- - [Создание бакета](operations/buckets/create.md)
+ - [Создать бакет](operations/buckets/create.md)
 
- - [Удаление бакета](operations/buckets/delete.md)
+ - [Удалить бакет](operations/buckets/delete.md)
 
- - [Ограничение максимального размера бакета](operations/buckets/limit-max-volume.md)
+ - [Ограничить максимальный размер бакета](operations/buckets/limit-max-volume.md)
 
- - [Шифрование бакета](operations/buckets/encrypt.md)
+ - [Настроить и отключить шифрование по умолчанию](operations/buckets/encrypt.md)
 
- - [Управление жизненными циклами объектов](operations/buckets/lifecycles.md)
+ - [Настроить жизненный цикл объектов](operations/buckets/lifecycles.md)
 
- - [Управление конфигурацией CORS](operations/buckets/cors.md)
+ - [Настроить CORS](operations/buckets/cors.md)
 
- - [Настройка прав доступа с помощью IAM](operations/buckets/iam-access.md)
+ - [Настроить права доступа с помощью IAM](operations/buckets/iam-access.md)
 
- - [Редактирование ACL бакета](operations/buckets/edit-acl.md)
+ - [Редактировать ACL бакета](operations/buckets/edit-acl.md)
 
- - [Управление политикой доступа](operations/buckets/policy.md)
+ - [Управлять политикой доступа](operations/buckets/policy.md)
 
- - [Настройка публичного доступа к бакету](operations/buckets/bucket-availability.md)
+ - [Открыть и закрыть публичный доступ к бакету](operations/buckets/bucket-availability.md)
 
  - [Запретить доступ со статическими ключами](operations/buckets/disable-statickey-auth.md)
 
- - [Доступ в бакет с помощью Security Token Service](operations/buckets/create-sts-key.md)
+ - [Получить доступ в бакет с помощью Security Token Service](operations/buckets/create-sts-key.md)
 
- - [Доступ в бакет с помощью эфемерного ключа доступа](operations/buckets/manage-ephemeral-keys.md)
+ - [Получить доступ в бакет с помощью эфемерного ключа доступа](operations/buckets/manage-ephemeral-keys.md)
 
- - [Доступ в бакет с помощью сервисного подключения из VPC](operations/buckets/access-via-vpc.md)
+ - [Настроить доступ в бакет с помощью сервисного подключения из VPC](operations/buckets/access-via-vpc.md)
 
  - [Искать чувствительные данные в бакете](operations/buckets/sensitive-data-search.md)
 
- - [Управление версионированием бакета](operations/buckets/versioning.md)
+ - [Включить и приостановить версионирование бакета](operations/buckets/versioning.md)
 
- - [Включение механизма логирования](operations/buckets/enable-logging.md)
+ - [Логировать действия с бакетом](operations/buckets/enable-logging.md)
 
- - [Управление блокировками версий объектов](operations/buckets/configure-object-lock.md)
+ - [Включить и выключить блокировку версий объектов (object lock)](operations/buckets/configure-object-lock.md)
 
- - [Управление выгрузкой метаданных объектов](operations/buckets/manage-s3-inventory.md)
+ - [Управлять выгрузкой метаданных объектов](operations/buckets/manage-s3-inventory.md)
 
- - [Управление метками бакета](operations/buckets/tagging.md)
+ - [Управлять метками бакета](operations/buckets/tagging.md)
 
- - [Получение списка бакетов](operations/buckets/get-list.md)
+ - [Получить список бакетов](operations/buckets/get-list.md)
 
- - [Получение информации и статистики о бакете](operations/buckets/get-info.md)
+ - [Получить информацию о бакете и его статистику](operations/buckets/get-info.md)
 
- - [Просмотр метрик бакета](operations/buckets/get-stats.md)
+ - [Посмотреть метрики бакета](operations/buckets/get-stats.md)
 
 ### Объекты
 

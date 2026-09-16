@@ -58,6 +58,8 @@
 
       {% include [backup-policy-create-settings](../../_includes/mdb/cli/backup-policy-create-settings.md) %}
 
+
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -96,6 +98,7 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_postgresql_backup_retention_policy).
+
 
 - REST API {#api}
 
@@ -302,6 +305,8 @@
 
       Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters), а идентификатор политики — со [списком политик](#list-policies).
 
+
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -317,6 +322,7 @@
     1. Подтвердите изменение ресурсов.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 

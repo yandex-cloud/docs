@@ -114,4 +114,4 @@
 
 * [Обзор способов управления доступом в Object Storage](../../../storage/security/overview.md)
 * [Создать временный ключ доступа с помощью Security Token Service](../sa/create-sts-key.md)
-* [Доступ к бакету с помощью эфемерного ключа доступа](../../../storage/operations/buckets/manage-ephemeral-keys.md)
+* [Получить доступ к бакету с помощью эфемерного ключа доступа](../../../storage/operations/buckets/manage-ephemeral-keys.md)

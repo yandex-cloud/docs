@@ -1,9 +1,9 @@
 ---
-title: Создание бакета в {{ objstorage-full-name }}
+title: Создать бакет в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете создать бакет в {{ objstorage-name }}.
 ---
 
-# Создание бакета
+# Создать бакет
 
 {% include [create-bucket](../../../_includes/storage/create-bucket.md) %}
 

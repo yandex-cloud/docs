@@ -73,6 +73,8 @@ description: Следуя данной инструкции, вы сможете
 
 Если на [шаге 3](#step-3) вы уже указали платежный аккаунт, переходите к следующему шагу. Если платежный аккаунт не был указан, на этом шаге вы сможете его создать.
 
+{% include [billing-account-required-role](../_includes/billing/billing-account-required-role.md) %}
+
 Требования к платежному аккаунту: {#restrictions}
 
 * тип платежного аккаунта: [Бизнес-аккаунт](../billing/concepts/billing-account.md#ba-types);

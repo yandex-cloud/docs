@@ -78,7 +78,7 @@ Object Storage позволяет управлять [конфигурацией
 
 * [CORS в Object Storage](../../../concepts/cors.md)
 
-* [Настройка CORS](../../../operations/buckets/cors.md)
+* [Настроить CORS](../../../operations/buckets/cors.md)
 
 #### Полезные ссылки {#see-also}
 
