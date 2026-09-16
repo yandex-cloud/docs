@@ -2,14 +2,6 @@
 
 # Гибридное хранилище в Yandex MPP Analytics for PostgreSQL
 
-
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и не тарифицируется.
-
-{% endnote %}
-
-
 В кластерах Yandex MPP Analytics for PostgreSQL поддерживается _гибридное хранилище_: часть данных может находиться в хранилище кластера, а часть — в гибридном хранилище. По умолчанию данные хранятся в хранилище кластера [на дисках выбранного типа](storage.md). Данные, с которыми работают редко, но которые нужно хранить долго, можно перенести из хранилища кластера в гибридное хранилище — в служебный бакет Yandex Object Storage. Так хранение [будет дешевле](../pricing/index.md#rules-storage).
 
 Гибридное хранилище можно включить в кластерах Yandex MPP Analytics for PostgreSQL при [создании](../operations/cluster-create.md) или [изменении](../operations/update.md#change-additional-settings) кластера.

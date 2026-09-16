@@ -137,6 +137,7 @@ description: Вы можете создавать резервные копии 
           * `network-ssd-io-m3`.
 
 
+
 - {{ TF }} {#tf}
 
   Используйте {{ TF }} для восстановления:
@@ -234,6 +235,7 @@ description: Вы можете создавать резервные копии 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
   {{ TF }} создаст новый кластер. Базы данных и пользователи будут развернуты из резервной копии.
+
 
 - REST API {#api}
 
@@ -712,6 +714,7 @@ description: Вы можете создавать резервные копии 
      --backup-window-start 11:25:00
   ```
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -750,6 +753,7 @@ description: Вы можете создавать резервные копии 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -883,6 +887,7 @@ description: Вы можете создавать резервные копии 
 
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -918,6 +923,7 @@ description: Вы можете создавать резервные копии 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

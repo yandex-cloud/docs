@@ -9,6 +9,7 @@ default:
   AF: Apache Airflow™
   agents-atelier-name: Agent Atelier
   ai-playground: AI Playground
+  ai-search-name: AI Search
   ai-studio-full-name: Yandex AI Studio
   ai-studio-name: AI Studio
   airflow-service-address: 10.248.0.0/13
@@ -1309,7 +1310,8 @@ default:
   search-api-request-ch: 400 символов
   search-api-request-w: 40 слов
   security-group: enp6saqnq4ie********
-  security-standard-current-version: 1.4.3
+  security-standard-ai-current-version: 1.0.0
+  security-standard-current-version: 1.4.4
   serial-ssh-host: serialssh.cloud.yandex.net
   serverless-containers-full-name: Yandex Serverless Containers
   serverless-containers-host: containers.yandexcloud.net
@@ -2551,6 +2553,17 @@ default:
           view:
             label_metric: Индикатор
     sourcecraft:
+      appsec:
+        paywall-action-billing_e7ueS: Начать бесплатный пробный период
+        title_alert-status_8gX2y: Статус проблем
+        title_overview-sast_i4bAJ: Оповещения анализа кода
+        title_overview-sca_nxbV5: Оповещения о зависимостях
+        title_overview-secrets_c6BUu: Оповещения сканирования секретов
+        title_resolved-alerts_cUQ2s: Обработанные проблемы
+        title_sast_aUyTA: Предупреждения сканирования кода
+        title_sca_djQmF: Зависимости
+        title_secrets-scanning_qjZ4J: Предупреждения сканирования секретов
+        title_security-risks_mkLFM: Уровень критичности проблемы
       cicd:
         value_status-created_9AAET: В очереди
         value_succeeded_3Dd8C: Успех
@@ -2562,6 +2575,9 @@ default:
         value_role-org-owner_f9UaR: Владелец организации
       mainApp:
         route_create-repository_4e8Ef: Создать репозиторий
+        route_repositories_hzdYT: Репозитории
+        route_security_4Dbxc: Безопасность
+        route_security-overview_dQuX9: Обзор
         route_service-connections_2PPgz: Сервисные подключения
       orgCommon:
         link_your-craftspace_bHYz8: Ваша мастерская
@@ -6247,6 +6263,10 @@ default:
             label_backup-link: Резервная копия
             label_lifetime: Время жизни
             label_secrets-link: Секреты GitLab
+          InstanceForm:
+            SourceCraftIntegrationSection:
+              field_enable: Включить интеграцию с SourceCraft
+              section_title: Интеграция с SourceCraft
         field_admin-email: Электронная почта
         field_admin-login: Логин
         field_approval-rules: Правила ревью кода
@@ -6259,6 +6279,7 @@ default:
         field_idle-time-minutes: Лимит простоя воркера, в минутах
         field_max-use-count: Максимум задач на воркер
         field_max-workers: Максимум воркеров
+        field_sourcecraft-integration: Интеграция с SourceCraft
         field_task-minInstances: Минимум воркеров
         label_additional-section: Дополнительные настройки
         label_admin-section: Данные администратора
@@ -10511,6 +10532,7 @@ default:
   unified-agent-short-name: Unified Agent
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
+  vc-name: VibeCraft
   vector-store-name: Vector Store
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video

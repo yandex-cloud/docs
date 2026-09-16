@@ -37,6 +37,8 @@ items:
         href: operations/omniauth.md
       - name: Интеграция с {{ objstorage-name }}
         href: operations/objstorage-integration.md
+      - name: Интеграция с {{ src-name }} Security
+        href: operations/sourcecraft-security.md
       - name: Работа с управляемым раннером
         href: operations/runner.md
   - name: Практические руководства
@@ -90,6 +92,8 @@ items:
         href: concepts/backup.md
       - name: Безопасность в {{ GL }}
         href: concepts/security.md
+      - name: Интеграция с {{ src-name }} Security
+        href: concepts/sourcecraft-security.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Интеграция с хранилищем {{ objstorage-name }}

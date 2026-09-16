@@ -601,6 +601,7 @@ description: Из статьи вы узнаете, как управлять х
 
   Имя хоста можно запросить со [списком хостов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
   Чтобы удалить хост из кластера:
@@ -619,6 +620,7 @@ description: Из статьи вы узнаете, как управлять х
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

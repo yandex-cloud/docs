@@ -15,53 +15,53 @@ items:
         href: operations/index.md
       - name: Бакеты
         items:
-          - name: Создание бакета
+          - name: Создать бакет
             href: operations/buckets/create.md
-          - name: Удаление бакета
+          - name: Удалить бакет
             href: operations/buckets/delete.md
-          - name: Ограничение максимального размера бакета
+          - name: Ограничить максимальный размер бакета
             href: operations/buckets/limit-max-volume.md
-          - name: Шифрование бакета
+          - name: Настроить и отключить шифрование по умолчанию
             href: operations/buckets/encrypt.md
-          - name: Управление жизненными циклами объектов
+          - name: Настроить жизненный цикл объектов
             href: operations/buckets/lifecycles.md
-          - name: Управление конфигурацией CORS
+          - name: Настроить CORS
             href: operations/buckets/cors.md
-          - name: Настройка прав доступа с помощью {{ iam-short-name }}
+          - name: Настроить права доступа с помощью {{ iam-short-name }}
             href: operations/buckets/iam-access.md
-          - name: Редактирование ACL бакета
+          - name: Редактировать ACL бакета
             href: operations/buckets/edit-acl.md
-          - name: Управление политикой доступа
+          - name: Управлять политикой доступа
             href: operations/buckets/policy.md
-          - name: Настройка публичного доступа к бакету
+          - name: Открыть и закрыть публичный доступ к бакету
             href: operations/buckets/bucket-availability.md
           - name: Запретить доступ со статическими ключами
             href: operations/buckets/disable-statickey-auth.md
-          - name: Доступ в бакет с помощью {{ sts-name }}
+          - name: Получить доступ в бакет с помощью {{ sts-name }}
             href: operations/buckets/create-sts-key.md
-          - name: Доступ в бакет с помощью эфемерного ключа доступа
+          - name: Получить доступ в бакет с помощью эфемерного ключа доступа
             href: operations/buckets/manage-ephemeral-keys.md
           - name: >-
-              Доступ в бакет с помощью сервисного подключения из {{
+              Настроить доступ в бакет с помощью сервисного подключения из {{
               vpc-short-name }}
             href: operations/buckets/access-via-vpc.md
           - name: Искать чувствительные данные в бакете
             href: operations/buckets/sensitive-data-search.md
-          - name: Управление версионированием бакета
+          - name: Включить и приостановить версионирование бакета
             href: operations/buckets/versioning.md
-          - name: Включение механизма логирования
+          - name: Логировать действия с бакетом
             href: operations/buckets/enable-logging.md
-          - name: Управление блокировками версий объектов
+          - name: Включить и выключить блокировку версий объектов (object lock)
             href: operations/buckets/configure-object-lock.md
-          - name: Управление выгрузкой метаданных объектов
+          - name: Управлять выгрузкой метаданных объектов
             href: operations/buckets/manage-s3-inventory.md
-          - name: Управление метками бакета
+          - name: Управлять метками бакета
             href: operations/buckets/tagging.md
-          - name: Получение списка бакетов
+          - name: Получить список бакетов
             href: operations/buckets/get-list.md
-          - name: Получение информации и статистики о бакете
+          - name: Получить информацию о бакете и его статистику
             href: operations/buckets/get-info.md
-          - name: Просмотр метрик бакета
+          - name: Посмотреть метрики бакета
             href: operations/buckets/get-stats.md
       - name: Объекты
         items:

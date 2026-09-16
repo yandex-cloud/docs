@@ -55,6 +55,8 @@ sequenceDiagram
 
 В кластере {{ TR }} можно создать не больше восьми каталогов с включенными GPFDIST-серверами.
 
+Для чтения данных по GPFDIST обязательно включите **Доступ из Trino** в настройках кластера {{ mgp-name }}. Данные между сегментами {{ GP }} и воркерами {{ TR }} передаются с шифрованием. Подробнее смотрите в разделе [Доступ из {{ TR }}](../../managed-greenplum/operations/gpfdist/trino-access.md).
+
 Чтение данных напрямую с сегментов {{ GP }} состоит из следующих этапов:
 
 1. Коннектор создает внешнюю таблицу с указанием адреса воркера {{ TR }}, читающего данные:
@@ -62,7 +64,7 @@ sequenceDiagram
     ```sql
     CREATE WRITABLE EXTERNAL TEMPORARY TABLE <имя_внешней_таблицы>
            ...
-           LOCATION('gpfdist://<адрес_воркера_{{ TR }}>');
+           LOCATION('gpfdists://<адрес_воркера_{{ TR }}>');
     ```
 
 1. Коннектор выполняет запрос:
@@ -84,7 +86,7 @@ sequenceDiagram
     participant s2 as Greenplum Segment 2
 
     activate w1
-    w1 ->> m : CREATE WRITABLE EXTERNAL TABLE ext_table <br>LOCATION ('gpfdist://worker1/table1')
+    w1 ->> m : CREATE WRITABLE EXTERNAL TABLE ext_table <br>LOCATION ('gpfdists://worker1/table1')
     activate m
     m -->> w1 : OK
     deactivate m

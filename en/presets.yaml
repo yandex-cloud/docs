@@ -9837,6 +9837,7 @@ default:
   unified-agent-short-name: Unified Agent
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
+  vc-name: VibeCraft
   vector-store-name: Vector Store
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video

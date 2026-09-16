@@ -263,7 +263,7 @@ description: Следуя данной инструкции, вы сможете
 
        * `enabled` — значение `true` активирует сбор статистики. Значение по умолчанию — `false`.
        * `sessions-sampling-interval` — интервал сбора сессий, в секундах. Допустимые значения — от `1` до `86400`.
-       * `statements-sampling-interval` — интервал сбора запросов, в секундах. Допустимые значения — от `60` до `86400`.
+       * `statements-sampling-interval` — интервал сбора запросов, в секундах. Допустимые значения — от `1` до `86400`.
 
 
      
@@ -304,6 +304,7 @@ description: Следуя данной инструкции, вы сможете
      Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/), передайте параметр `--serverless-access`. Подробнее о настройке доступа в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
      Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/index.yaml), передайте параметр `--yandexquery-access=true`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
+
 
 
 - {{ TF }} {#tf}
@@ -458,6 +459,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -595,7 +597,7 @@ description: Следуя данной инструкции, вы сможете
 
          * `enabled` — активация сбора статистики: `true` или `false`.
          * `sessionsSamplingInterval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
-         * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
+         * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `1` до `86400` секунд.
 
        {% include [disk-size-autoscaling-rest](../../_includes/mdb/mpg/disk-size-autoscaling-rest.md) %}
 
@@ -788,7 +790,7 @@ description: Следуя данной инструкции, вы сможете
 
          * `enabled` — активация сбора статистики: `true` или `false`.
          * `sessions_sampling_interval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
-         * `statements_sampling_interval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
+         * `statements_sampling_interval` — интервал сбора запросов. Возможные значения: от `1` до `86400` секунд.
 
        {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mpg/disk-size-autoscaling-grpc.md) %}
 
@@ -855,6 +857,7 @@ description: Следуя данной инструкции, вы сможете
 Если вы указали идентификаторы групп безопасности при создании кластера, для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups).
 
 {% endnote %}
+
 
 
 ## Создать копию кластера {#duplicate}
@@ -933,6 +936,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+
 ## Примеры {#examples}
 
 ### Создание кластера с одним хостом {#creating-a-single-host-cluster}
@@ -974,6 +978,7 @@ description: Следуя данной инструкции, вы сможете
      --security-group-ids {{ security-group }} \
      --deletion-protection
   ```
+
 
 
 - {{ TF }} {#tf}
@@ -1063,5 +1068,6 @@ description: Следуя данной инструкции, вы сможете
   }
   ```
 
+- 
 
 {% endlist %}

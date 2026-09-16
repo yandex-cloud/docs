@@ -72,4 +72,4 @@
 
 * [Обзор способов управления доступом в Object Storage](overview.md)
 * [Security Token Service](sts.md)
-* [Доступ к бакету с помощью эфемерного ключа доступа](../operations/buckets/manage-ephemeral-keys.md)
+* [Получить доступ к бакету с помощью эфемерного ключа доступа](../operations/buckets/manage-ephemeral-keys.md)

@@ -17,4 +17,5 @@
 * [Мониторинг состояния инстанса Managed Service for GitLab](instance/monitoring.md)
 * [Настройка OmniAuth](omniauth.md)
 * [Интеграция с Object Storage](objstorage-integration.md)
+* [Настроить интеграцию Managed Service for GitLab с SourceCraft Security](sourcecraft-security.md)
 * [Работа с управляемым раннером](runner.md)

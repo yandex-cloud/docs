@@ -52,7 +52,7 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Управление жизненными циклами объектов в бакете](../operations/buckets/lifecycles.md)
+* [Настроить жизненный цикл объектов в бакете](../operations/buckets/lifecycles.md)
 
 [*noncurrent-delete-markers]: #### {#noncurrent-delete-markers}
                               

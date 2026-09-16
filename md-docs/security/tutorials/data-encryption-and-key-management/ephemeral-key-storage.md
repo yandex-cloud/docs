@@ -210,7 +210,7 @@
   make_bucket: my-bucket
   ```
 
-  Подробности в документе [Создание бакета](../../../storage/operations/buckets/create.md).
+  Подробности в документе [Создать бакет](../../../storage/operations/buckets/create.md).
 
 {% endlist %}
 

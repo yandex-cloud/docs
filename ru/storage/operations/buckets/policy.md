@@ -1,9 +1,9 @@
 ---
-title: Управление политикой доступа к бакету {{ objstorage-full-name }}
+title: Управлять политикой доступа к бакету {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы научитесь управлять политикой доступа к бакету в {{ objstorage-name }}.
 ---
 
-# Управление политикой доступа (bucket policy)
+# Управлять политикой доступа (bucket policy)
 
 {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
 

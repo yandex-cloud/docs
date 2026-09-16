@@ -5,7 +5,7 @@
 
 Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md). 
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 
 

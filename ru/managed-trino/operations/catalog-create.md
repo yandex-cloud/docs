@@ -688,7 +688,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
 {% note warning %}
 
-Данные, передающиеся по протоколу GPFDIST между кластерами {{ mtr-name }} и {{ mgp-name }}, не шифруются. Чтобы обеспечить безопасное подключение, [настройте группы безопасности кластеров](connect.md#security-groups-for-greenplum).
+Для безопасного подключения по GPFDIST обязательно [включите доступ из {{ TR }}](../../managed-greenplum/operations/gpfdist/trino-access.md) в настройках кластера {{ mgp-name }}. Данные между сегментами {{ GP }} и воркерами {{ TR }} передаются с шифрованием. Также [настройте группы безопасности кластеров](connect.md#security-groups-for-greenplum).
 
 {% endnote %}
 

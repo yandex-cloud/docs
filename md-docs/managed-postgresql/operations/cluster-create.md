@@ -371,7 +371,7 @@ Managed Service for PostgreSQL резервирует 15 подключений 
 
        * `enabled` — значение `true` активирует сбор статистики. Значение по умолчанию — `false`.
        * `sessions-sampling-interval` — интервал сбора сессий, в секундах. Допустимые значения — от `1` до `86400`.
-       * `statements-sampling-interval` — интервал сбора запросов, в секундах. Допустимые значения — от `60` до `86400`.
+       * `statements-sampling-interval` — интервал сбора запросов, в секундах. Допустимые значения — от `1` до `86400`.
 
 
      
@@ -421,6 +421,7 @@ Managed Service for PostgreSQL резервирует 15 подключений 
      Чтобы разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа в документации [Cloud Functions](../../functions/operations/database-connection.md).
 
      Чтобы разрешить доступ к кластеру из сервиса [Yandex Query](../../query/index.md), передайте параметр `--yandexquery-access=true`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
+
 
 
 - Terraform {#tf}
@@ -642,8 +643,8 @@ Managed Service for PostgreSQL резервирует 15 подключений 
      Где:
      
      * `enabled` — активация сбора статистики: `true` или `false`.
-     * `sessions_sampling_interval` — интервал сбора сессий от `5` до `86400` секунд.
-     * `statements_sampling_interval` — интервал сбора запросов от `60` до `86400` секунд.
+     * `sessions_sampling_interval` — интервал сбора сессий от `1` до `86400` секунд.
+     * `statements_sampling_interval` — интервал сбора запросов от `1` до `86400` секунд.
 
      Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
   1. Проверьте корректность настроек.
@@ -706,6 +707,7 @@ Managed Service for PostgreSQL резервирует 15 подключений 
      {% endcut %}
      
      {% endnote %}
+
 
 - REST API {#api}
 
@@ -850,7 +852,7 @@ Managed Service for PostgreSQL резервирует 15 подключений 
 
          * `enabled` — активация сбора статистики: `true` или `false`.
          * `sessionsSamplingInterval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
-         * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
+         * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `1` до `86400` секунд.
 
        * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища:
          * `plannedUsageThreshold` (опционально) — порог заполнения хранилища в процентах, при достижении которого оно будет увеличено в следующее окно обслуживания. По умолчанию — `0` (автоматическое расширение отключено).
@@ -1074,7 +1076,7 @@ Managed Service for PostgreSQL резервирует 15 подключений 
 
          * `enabled` — активация сбора статистики: `true` или `false`.
          * `sessions_sampling_interval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
-         * `statements_sampling_interval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
+         * `statements_sampling_interval` — интервал сбора запросов. Возможные значения: от `1` до `86400` секунд.
 
        * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища:
                 
@@ -1161,6 +1163,7 @@ Managed Service for PostgreSQL резервирует 15 подключений 
 Если вы указали идентификаторы групп безопасности при создании кластера, для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups).
 
 {% endnote %}
+
 
 
 ## Создать копию кластера {#duplicate}
@@ -1283,6 +1286,7 @@ Managed Service for PostgreSQL резервирует 15 подключений 
 
 {% endlist %}
 
+
 ## Примеры {#examples}
 
 ### Создание кластера с одним хостом {#creating-a-single-host-cluster}
@@ -1324,6 +1328,7 @@ Managed Service for PostgreSQL резервирует 15 подключений 
      --security-group-ids enp6saqnq4ie******** \
      --deletion-protection
   ```
+
 
 
 - Terraform {#tf}
@@ -1413,5 +1418,6 @@ Managed Service for PostgreSQL резервирует 15 подключений 
   }
   ```
 
+- 
 
 {% endlist %}

@@ -7,6 +7,8 @@ description: Следуя данной инструкции, вы сможете
 
 Участник любого облака может создать один или несколько [платежных аккаунтов](../concepts/billing-account.md).
 
+{% include [billing-account-required-role](../../_includes/billing/billing-account-required-role.md) %}
+
 {% list tabs group=customers %}
 
 - Физические лица {#individuals}

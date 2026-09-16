@@ -10,6 +10,7 @@ description: Следуя данной инструкции, вы сможете
 * [Изменить имя и описание кластера](#change-name-and-description).
 * [Изменить настройку публичного доступа](#change-public-access).
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
+* [Включить доступ из {{ TR }}](gpfdist/trino-access.md).
 * [Изменить настройки регламентных операций технического обслуживания](#change-background-settings).
 * [Изменить настройки СУБД](#change-gp-settings).
 * [Изменить настройки протокола PXF для оптимизации работы с внешними данными](./pxf/settings.md).
@@ -322,10 +323,6 @@ description: Следуя данной инструкции, вы сможете
 
             {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
-            
-            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
-
-
         * **{{ ui-key.yacloud.mdb.forms.section_pooler }}** — режим работы и параметры [менеджера подключений](../concepts/pooling.md):
 
             {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
@@ -465,10 +462,6 @@ description: Следуя данной инструкции, вы сможете
 
             {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
-            
-            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
-
-
         * `pooler_config` — настройки [менеджера подключений](../concepts/pooling.md):
 
             * `pooling_mode` — режим работы: `SESSION` или `TRANSACTION`.
@@ -583,10 +576,6 @@ description: Следуя данной инструкции, вы сможете
         * `cloudStorage.enable` — использование гибридного хранилища. Установите значение `true`, чтобы включить в кластере [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в гибридное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
 
             Гибридное хранилище нельзя отключить после сохранения настроек кластера.
-
-            
-            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
-
 
     1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -716,10 +705,6 @@ description: Следуя данной инструкции, вы сможете
         * `cloud_storage.enable` — использование гибридного хранилища. Установите значение `true`, чтобы включить в кластере [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в гибридное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
 
             Гибридное хранилище нельзя отключить после сохранения настроек кластера.
-
-            
-            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
-
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

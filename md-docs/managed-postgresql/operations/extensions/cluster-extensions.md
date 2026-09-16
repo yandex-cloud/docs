@@ -26,7 +26,9 @@ Managed Service for PostgreSQL поддерживает подключение �
 * `pglogical` — необходима для работы [расширения pglogical](https://github.com/2ndQuadrant/pglogical);
 * `timescaledb` — необходима для работы [расширения TimescaleDB](https://github.com/timescale/timescaledb).
 
+
 Чтобы объявить библиотеку в Terraform-манифесте, укажите ее название в формате `SHARED_PRELOAD_LIBRARIES_<название_библиотеки>`. Например, `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`.
+
 
 {% note warning %}
 
@@ -153,6 +155,7 @@ Managed Service for PostgreSQL поддерживает подключение �
 
   При установке нескольких расширений могут возникнуть ошибки. Подробнее о возможных причинах и способах устранения ошибок в разделе [Вопросы и ответы](../../qa/errors.md#cli-extensions-error).
 
+
 - Terraform {#tf}
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
@@ -204,6 +207,7 @@ Managed Service for PostgreSQL поддерживает подключение �
      
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
+
 
 - REST API {#api}
 

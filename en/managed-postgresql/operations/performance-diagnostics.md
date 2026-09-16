@@ -15,8 +15,8 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
     1. Enable **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** (disabled by default).
     1. Set the **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** and **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. Valid values:
         
-        * For sessions: From `5` to `86400` seconds.
-        * For queries: From `60` to `86400` seconds.
+        * For sessions: From `1` to `86400` seconds.
+        * For queries: From `1` to `86400` seconds.
 
 - CLI {#cli}
 
@@ -37,8 +37,8 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
 
     Allowed values:
 
-    - `sessions-sampling-interval`: From `5` to `86400` seconds.
-    - `statements-sampling-interval`: From `60` to `86400` seconds.
+    - `sessions-sampling-interval`: From `1` to `86400` seconds.
+    - `statements-sampling-interval`: From `1` to `86400` seconds.
 
 - {{ TF }} {#tf}
 
@@ -92,8 +92,8 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
         Where `configSpec.performanceDiagnostics` represents the statistics collection settings:
 
         * `enabled`: Enables statistics collection, `true` or `false`.
-        * `sessionsSamplingInterval`: Session sampling interval. Allowed values range from `5` to `86400`.
-        * `statementsSamplingInterval`: Statement sampling interval. Allowed values range from `60` to `86400`.
+        * `sessionsSamplingInterval`: Session sampling interval. Allowed values range from `1` to `86400`.
+        * `statementsSamplingInterval`: Statement sampling interval. Allowed values range from `1` to `86400`.
 
      1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -124,8 +124,8 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
         Where `configSpec.performanceDiagnostics` represents the statistics collection settings:
 
         * `enabled`: Enables statistics collection, `true` or `false`.
-        * `sessionsSamplingInterval`: Session sampling interval. Allowed values range from `5` to `86400`.
-        * `statementsSamplingInterval`: Statement sampling interval. Allowed values range from `60` to `86400`.
+        * `sessionsSamplingInterval`: Session sampling interval. Allowed values range from `1` to `86400`.
+        * `statementsSamplingInterval`: Statement sampling interval. Allowed values range from `1` to `86400`.
 
      1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -165,8 +165,8 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
         Where `config_spec.performance_diagnostics` represents the statistics collection settings:
 
         * `enabled`: Enables statistics collection, `true` or `false`.
-        * `sessions_sampling_interval`: Session sampling interval. Allowed values range from `5` to `86400`.
-        * `statements_sampling_interval`: Statement sampling interval. Allowed values range from `60` to `86400`.
+        * `sessions_sampling_interval`: Session sampling interval. Allowed values range from `1` to `86400`.
+        * `statements_sampling_interval`: Statement sampling interval. Allowed values range from `1` to `86400`.
 
      1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -205,8 +205,8 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
         Where `config_spec.performance_diagnostics` represents the statistics collection settings:
 
         * `enabled`: Enables statistics collection, `true` or `false`.
-        * `sessions_sampling_interval`: Session sampling interval. Allowed values range from `5` to `86400`.
-        * `statements_sampling_interval`: Statement sampling interval. Allowed values range from `60` to `86400`.
+        * `sessions_sampling_interval`: Session sampling interval. Allowed values range from `1` to `86400`.
+        * `statements_sampling_interval`: Statement sampling interval. Allowed values range from `1` to `86400`.
 
      1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

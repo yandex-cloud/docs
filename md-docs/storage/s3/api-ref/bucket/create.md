@@ -64,7 +64,7 @@ X-Amz-Grant-Read: uri="http://acs.amazonaws.com/groups/s3/AuthenticatedUsers"
 
 * [Бакет в Object Storage](../../../concepts/bucket.md)
 
-* [Создание бакета](../../../operations/buckets/create.md)
+* [Создать бакет](../../../operations/buckets/create.md)
 
 #### Полезные ссылки {#see-also}
 

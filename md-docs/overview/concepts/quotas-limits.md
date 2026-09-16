@@ -2653,11 +2653,11 @@ gt4.1 ^1^ | 0
 Квоты SourceCraft Code Assistant устанавливаются в зависимости от используемого тарифного плана. Подробнее на странице [Тарифные планы Code Assistant](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing#ca-plans).
 
 
-### Vibecraft {#vc}
+### VibeCraft {#vc}
 
 #### Квоты {#vc-quotas}
 
-Vibecraft основывается на компонентах SourceCraft и Yandex Cloud, в которых установлены определенные ограничения:
+VibeCraft основывается на компонентах SourceCraft и Yandex Cloud, в которых установлены определенные ограничения:
 * [Квоты в SourceCraft Code Assistant](https://sourcecraft.dev/portal/docs/ru/code-assistant/concepts/limits)
 * [Квоты и лимиты в SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/limits)
 * [Квоты и лимиты Yandex Container Registry](../../container-registry/concepts/limits.md)

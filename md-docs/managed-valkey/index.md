@@ -107,6 +107,8 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Распределенные блокировки для «1С:Предприятия» в кластере Yandex Managed Service for Valkey™](tutorials/1c-valkey-locks.md)
 
+ - [Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища кеша для «1С-Битрикс: Управление сайтом»](tutorials/yc-valkey-as-1c-cache-storage.md)
+
 ## Концепции
 
  - [Взаимосвязь ресурсов сервиса](concepts/index.md)

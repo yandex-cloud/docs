@@ -258,7 +258,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        * `enabled`: The value of `true` enables statistics collection. The default value is `false`.
        * `sessions-sampling-interval`: Session sampling interval in seconds. The valid values range from `1` to `86400`.
-       * `statements-sampling-interval`: Statement sampling interval in seconds. The valid values range from `60` to `86400`.
+       * `statements-sampling-interval`: Statement sampling interval in seconds. The valid values range from `1` to `86400`.
 
 
      
@@ -590,7 +590,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          * `enabled`: Enables statistics collection, `true` or `false`.
          * `sessionsSamplingInterval`: Session sampling interval. The values range from `1` to `86400` seconds.
-         * `statementsSamplingInterval`: Statement sampling interval. The values range from `60` to `86400` seconds.
+         * `statementsSamplingInterval`: Statement sampling interval. The values range from `1` to `86400` seconds.
 
        {% include [disk-size-autoscaling-rest](../../_includes/mdb/mpg/disk-size-autoscaling-rest.md) %}
 
@@ -783,7 +783,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          * `enabled`: Enables statistics collection, `true` or `false`.
          * `sessions_sampling_interval`: Session sampling interval. The values range from `1` to `86400` seconds.
-         * `statements_sampling_interval`: Statement sampling interval. The values range from `60` to `86400` seconds.
+         * `statements_sampling_interval`: Statement sampling interval. The values range from `1` to `86400` seconds.
 
        {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mpg/disk-size-autoscaling-grpc.md) %}
 

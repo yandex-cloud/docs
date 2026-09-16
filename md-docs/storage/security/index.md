@@ -272,4 +272,4 @@ flowchart BT
 
 ## Полезные ссылки {#see-also}
 
-* [Настройка прав доступа к бакету с помощью Identity and Access Management](../operations/buckets/iam-access.md)
+* [Настроить права доступа к бакету с помощью Identity and Access Management](../operations/buckets/iam-access.md)

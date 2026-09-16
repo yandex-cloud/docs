@@ -1,9 +1,9 @@
 ---
-title: Получение списка бакетов в {{ objstorage-full-name }}
+title: Получить список бакетов в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете получить список бакетов в {{ objstorage-name }}.
 ---
 
-# Получение списка бакетов
+# Получить список бакетов
 
 {% list tabs group=instructions %}
 

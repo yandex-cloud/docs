@@ -106,7 +106,7 @@ Object Storage поддерживает безопасное подключен�
 
 Вы можете организовать прямой доступ к бакетам Object Storage из облачных сетей VPC с помощью [сервисного подключения VPC](../../vpc/concepts/private-endpoint.md). При таком подключении сервис Object Storage будет доступен по [внутренним IP-адресам](../../vpc/concepts/address.md#internal-addresses) VPC без использования доступа в интернет.
 
-Подробнее о настройке доступа смотрите на странице [Доступ в бакет с помощью сервисного подключения из Yandex Virtual Private Cloud](../operations/buckets/access-via-vpc.md).
+Подробнее о настройке доступа смотрите на странице [Настроить доступ в бакет с помощью сервисного подключения из Yandex Virtual Private Cloud](../operations/buckets/access-via-vpc.md).
 
 
 ## Публичный доступ к бакетам {#bucket-access}
