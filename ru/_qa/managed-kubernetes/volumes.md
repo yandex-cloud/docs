@@ -1,6 +1,6 @@
 #### Какие существуют особенности работы с дисковым хранилищем при размещении БД ({{ MY }}, {{ PG }} и т. д.) в кластере {{ k8s }}? {#bd}
 
-При размещении БД в кластере {{ k8s }} используйте контроллеры [StatefullSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/). Мы не рекомендуем запускать в {{ k8s }} statefull-сервисы в постоянными томами. Для работы с базами данных statefull-сервисов используйте [управляемые базы данных {{ yandex-cloud }}]({{ link-cloud-services }}#data-platform), например {{ mmy-name }} или {{ mpg-name }}.
+При размещении БД в кластере {{ k8s }} используйте контроллеры [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/). Мы не рекомендуем запускать в {{ k8s }} stateful-сервисы с постоянными томами. Для работы с базами данных stateful-сервисов используйте [управляемые базы данных {{ yandex-cloud }}]({{ link-cloud-services }}#data-platform), например {{ mmy-name }} или {{ mpg-name }}.
 
 #### Как подключить под к управляемым базам данных {{ yandex-cloud }}? {#mdb}
 
