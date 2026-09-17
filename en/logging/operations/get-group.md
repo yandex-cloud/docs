@@ -13,7 +13,7 @@ description: Follow this guide to get information about a log group.
   1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/tray.svg) **{{ ui-key.yacloud.logging.label_groups }}**.
   1. Select the log group.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will show the log group details.
+  1. The **{{ ui-key.yacloud.common.overview }}** tab will show the log group details.
 
 - CLI {#cli}
 

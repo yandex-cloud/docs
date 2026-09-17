@@ -8,7 +8,7 @@
   1. [Navigate]({{ link-console-main }}/link/data-streams) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
   1. Click **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
   1. Specify an existing [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) database in {{ ydb-short-name }} or [create](../../ydb/quickstart.md#serverless) a new one. If you have created a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) to update the database list.
-  1. Name the data stream, e.g., `logs-stream`.
+  1. Enter the **{{ ui-key.yacloud.common.name }}** of the data stream, e.g., `logs-stream`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
   Wait for the stream to start. Once the stream is ready for use, its status will change from `Creating` to `Active`.

@@ -123,6 +123,14 @@ Aliases:
 
   - [yc managed-mongodb hosts update](hosts/update.md) — Update specified hosts in the cluster.
 
+- [yc managed-mongodb maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-mongodb maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-mongodb maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-mongodb maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
+
 - [yc managed-mongodb resource-preset](resource-preset/index.md) — Learn about MongoDB resource presets.
 
   - [yc managed-mongodb resource-preset get](resource-preset/get.md) — Get information about a MongoDB resource preset.

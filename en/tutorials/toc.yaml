@@ -541,6 +541,8 @@ items:
               Running the DeepSeek-R1 language model in a {{ compute-name }} GPU
               cluster
             href: infrastructure/gpu-cluster-deepseek.md
+          - name: Web service SLO monitoring
+            href: infrastructure-management/slo-blackbox-exporter.md
       - name: Network
         items:
           - name: Configuring time synchronization using NTP
@@ -1407,7 +1409,7 @@ items:
     items:
       - name: All tutorials
         href: windows/index.md
-      - name: Secure password transmission to an initialization script
+      - name: Securely providing a password to an initialization script
         items:
           - name: Overview
             href: windows/secure-password-script/index.md

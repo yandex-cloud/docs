@@ -5,13 +5,13 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/subject-detai
 
 # yc iam v0 subject-details get
 
-Show details of the specified subjects
+Show details of subjects specified by positional IDs or --subject-ids
 
 #### Command Usage
 
 Syntax:
 
-`yc iam subject-details get <SUBJECT-ID> [<SUBJECT-ID>...] [Flags...] [Global Flags...]`
+`yc iam subject-details get [<SUBJECT-ID>...] [Flags...] [Global Flags...]`
 
 Aliases:
 
@@ -23,9 +23,9 @@ Aliases:
 
 #|
 ||Flag | Description ||
-|| `--subject-id` | `string`
+|| `--subject-ids` | `value[,value]`
 
-ID of the subject. ||
+Comma-separated IDs of the subjects to return. ||
 || `--field-mask` | `value[,value]`
 
 Fields of the subject to return. ||

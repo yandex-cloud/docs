@@ -13,17 +13,13 @@ description: Follow this guide to edit a WAF exclusion rule.
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Select the profile where you want to edit an [exclusion rule](../concepts/waf.md#exclusion-rules).
-  1. In the left-hand menu, go to the ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** tab.
-  1. Next to the rule in question, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Navigate to the **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** tab.
+  1. Next to the rule in question, click ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the exclusion rule name and description as needed.
   1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}** to log exception rule triggering.
-  
   1. {% include [waf-rule-rules-section](../../_includes/smartwebsecurity/waf-rule-rules-section.md) %}
-  
   1. {% include [waf-rule-request-condition](../../_includes/smartwebsecurity/waf-rule-request-condition.md) %}
-
   1. {% include [waf-rule-traffic-conditions](../../_includes/smartwebsecurity/waf-rule-traffic-conditions.md) %}
-
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - {{ TF }} {#tf}
@@ -34,65 +30,19 @@ description: Follow this guide to edit a WAF exclusion rule.
 
   1. Open the {{ TF }} configuration file and edit the `exclusion_rule` section in the `yandex_sws_waf_profile` description.
 
-      ```hcl
-      # WAF profile
-      resource "yandex_sws_waf_profile" "default" {
-        name = "waf-profile-default"
-        core_rule_set {
-          inbound_anomaly_score = 2
-          paranoia_level        = local.waf_paranoia_level
-          rule_set {
-            name    = "OWASP Core Ruleset"
-            version = "4.0.0"
-          }
-        }
+     {% cut "Example of configuring WAF profile exclusion rules in your {{ TF }} configuration" %}
 
-        ...
+     {% include [waf-profile-exclusion-terraform-example](../../_includes/smartwebsecurity/waf-profile-exclusion-terraform-example.md) %}
 
-        # Exclusion rule
-        exclusion_rule {
-          name = "<exclusion_rule_name>"
-          condition {
-            source_ip {
-              ip_ranges_match {
-                ip_ranges = [
-                  "<IP_address_range_1>",
-                  "<IP_address_range_2>",
-                  ...
-                  "<IP_address_range_n>"
-                ]
-              }
-              ip_ranges_not_match {
-                ip_ranges = [
-                  "<IP_address_range_3>",
-                  "<IP_address_range_4>",
-                  ...
-                  "<IP_address_range_y>"
-                ]
-              }
-            }
-          }
+     {% endcut %}
 
-          exclude_rules {
-            exclude_all = <true_or_false>
-            rule_ids    = [
-              "rule_ID_1",
-              "rule_ID_2",
-              ...
-              "rule_ID_n",
-            ]
-          }
-        }
-      }
-      ```
-
-      For more on the properties of the `sws_waf_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more on the properties of the `yandex_sws_waf_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the resource update in the [management console]({{ link-console-main }}).
+  You can check the update in the [management console]({{ link-console-main }}).
 
 - API {#api}
 

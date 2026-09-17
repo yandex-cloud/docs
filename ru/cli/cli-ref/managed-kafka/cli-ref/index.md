@@ -95,6 +95,14 @@ Aliases:
 
   - [yc managed-kafka connector-s3-sink update](connector-s3-sink/update.md) — Modify attributes of a Kafka S3-Sink connector.
 
+- [yc managed-kafka maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-kafka maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-kafka maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-kafka maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
+
 - [yc managed-kafka topic](topic/index.md) — Manage Kafka topics.
 
   - [yc managed-kafka topic create](topic/create.md) — Create a Kafka topic.

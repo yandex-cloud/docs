@@ -1,6 +1,6 @@
 # Viewing operations with a secret
 
-The system logs all actions with {{ lockbox-name }} resources as a list of operations. Each operation gets an ID.
+The system logs all actions with {{ lockbox-name }} resources as a list of operations. Each operation gets a unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -12,7 +12,7 @@ The system logs all actions with {{ lockbox-name }} resources as a list of opera
     1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Click the name of the secret you need.
-    1. In the left-hand panel, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+    1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 - CLI {#cli}
 

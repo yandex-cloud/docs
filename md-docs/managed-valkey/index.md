@@ -105,6 +105,8 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Миграция базы данных в Yandex Managed Service for Valkey™](tutorials/data-migration.md)
 
+ - [Использование Yandex Managed Service for Valkey™ с модулем Search и моделей Yandex AI Studio для векторного поиска в RAG-системе](tutorials/valkey-rag-search.md)
+
  - [Распределенные блокировки для «1С:Предприятия» в кластере Yandex Managed Service for Valkey™](tutorials/1c-valkey-locks.md)
 
  - [Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища кеша для «1С-Битрикс: Управление сайтом»](tutorials/yc-valkey-as-1c-cache-storage.md)
@@ -257,6 +259,16 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [update](cli-ref/hosts/update.md)
 
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
 ### resource-preset
 
  - [Overview](cli-ref/resource-preset/index.md)
@@ -392,6 +404,16 @@ Yandex Managed Service for Valkey™ часто используется, что
  - [list](cli-ref/v0/hosts/list.md)
 
  - [update](cli-ref/v0/hosts/update.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/v0/maintenance/reschedule.md)
 
 #### resource-preset
 

@@ -2,15 +2,15 @@
 
 To link {{ GL }} merge requests to {{ tracker-name }} issues, create a hook:
 
-1. If you do not yet have an OAuth token for using the {{ tracker-name }} API, [get one]({{ link-tracker-cloudless }}concepts/access#section_about_OAuth).
+1. If you do not yet have an OAuth token for using the {{ tracker-name }} API, [get one](https://yandex.ru/support/tracker/{{ lang }}/api/access#about_OAuth).
 
     {% note warning %}
 
-    To work with the {{ tracker-name }} API, users must have relevant permissions in Tracker. To set up the integration, make sure you have permission to change the queue settings. For more on access permissions, see [this section]({{ link-tracker-cloudless }}role-model).
+    To work with the {{ tracker-name }} API, users must have relevant permissions in Tracker. To set up the integration, make sure you have permission to change the queue settings. For more on access permissions, see [this section](https://yandex.ru/support/tracker/{{ lang }}/role-model).
 
     {% endnote %}
 
-1. Check if you have access to the API by [requesting information about the current user]({{ link-tracker-cloudless }}get-user-info).
+1. Check if you have access to the API by [requesting information about the current user](https://yandex.ru/support/tracker/{{ lang }}/api/users/get-user-info).
 1. Open the {{ GL }} instance and go to the hook settings:
     * To enable integration for the entire [{{ GL }} instance](../../managed-gitlab/concepts/index.md) (the {{ GL }} admin privileges are required):
         1. In the left-hand panel, click the **Your work** drop-down list and select **Admin Area**.

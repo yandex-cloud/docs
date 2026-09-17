@@ -316,6 +316,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [list-operations](cli-ref/cluster/list-operations.md)
 
+ - [migrate-to-keeper](cli-ref/cluster/migrate-to-keeper.md)
+
  - [move](cli-ref/cluster/move.md)
 
  - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
@@ -399,6 +401,16 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [restart](cli-ref/hosts/restart.md)
 
  - [update](cli-ref/hosts/update.md)
+
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
 
 ### ml-model
 
@@ -548,6 +560,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [list-operations](cli-ref/v0/cluster/list-operations.md)
 
+ - [migrate-to-keeper](cli-ref/v0/cluster/migrate-to-keeper.md)
+
  - [move](cli-ref/v0/cluster/move.md)
 
  - [remove-access-binding](cli-ref/v0/cluster/remove-access-binding.md)
@@ -631,6 +645,16 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [restart](cli-ref/v0/hosts/restart.md)
 
  - [update](cli-ref/v0/hosts/update.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/v0/maintenance/reschedule.md)
 
 #### ml-model
 

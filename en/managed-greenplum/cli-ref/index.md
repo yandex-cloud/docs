@@ -113,6 +113,14 @@ Aliases:
 
 
 
+- [yc managed-greenplum maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-greenplum maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-greenplum maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-greenplum maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
+
 - [yc managed-greenplum pxf-datasource](pxf-datasource/index.md) — Manage Greenplum pxf datasources
 
   - [yc managed-greenplum pxf-datasource delete](pxf-datasource/delete.md) — Delete pxf-datasource for specified Greenplum cluster

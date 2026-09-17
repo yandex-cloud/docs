@@ -88,6 +88,14 @@ Syntax:
 
   - [yc managed-kafka v0 connector-s3-sink update](connector-s3-sink/update.md) — Modify attributes of a Kafka S3-Sink connector.
 
+- [yc managed-kafka v0 maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-kafka v0 maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-kafka v0 maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-kafka v0 maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
+
 - [yc managed-kafka v0 topic](topic/index.md) — Manage Kafka topics.
 
   - [yc managed-kafka v0 topic create](topic/create.md) — Create a Kafka topic.

@@ -72,7 +72,7 @@ To grant an individual user, user group, or [service account](../../iam/concepts
           Where:
 
           * `--service-account-id`: [Service account ID](../../iam/operations/sa/get-id.md).
-          * `--role`: Role to assign.
+          * `--role`: [Role](../security/index.md#roles-list) to assign.
 
 - {{ TF }} {#tf}
 
@@ -96,9 +96,9 @@ To grant an individual user, user group, or [service account](../../iam/concepts
 
       * `certificate_id`: Certificate ID.
       * `role`: [Role](../security/index.md#roles-list) to assign.
-      * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-       For more on the properties of the `yandex_cm_certificate_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+      For more on the properties of the `yandex_cm_certificate_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
 
   1. Create the resources:
 
@@ -154,7 +154,7 @@ To grant an individual user, user group, or [service account](../../iam/concepts
       Where:
 
       * `--access-binding`: Role to assign:
-          * `role`: ID of the role to assign.
+          * `role`: Role ID.
           * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
       For example, this command will assign roles to multiple users and a single service account:
@@ -194,9 +194,9 @@ To grant an individual user, user group, or [service account](../../iam/concepts
 
       * `certificate_id`: Certificate ID.
       * `role`: [Role](../security/index.md#roles-list) to assign.
-      * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-       For more on the properties of the `yandex_cm_certificate_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+      For more on the properties of the `yandex_cm_certificate_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
 
   1. Create the resources:
 
@@ -279,10 +279,11 @@ To grant an individual user, user group, or [service account](../../iam/concepts
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the changes using this [CLI](../../cli/quickstart.md) command:
+      You can check the changes using this [CLI](../../cli/) command:
+
       ```bash
       yc certificate-manager certificate list-access-bindings <certificate_ID>
-      ``
+      ```
 
 - API {#api}
 

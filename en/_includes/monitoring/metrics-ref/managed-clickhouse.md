@@ -4,7 +4,7 @@ Labels shared by all {{ mch-name }} metrics:
 
 Label | Value
 ----|----
-dc | Resource availability zone: `rc1a`, `rc1b`, or `rc1d`
+dc | Resource [availability zone](../../../overview/concepts/geo-scope.md): `rc1a`, `rc1b`, `rc1d`
 host | Host FQDN
 node | Host type: `replica`, `follower`, or `leader`
 resource_id | Cluster ID
@@ -1096,7 +1096,7 @@ These are the {{ CH }} native metrics from the [system.metrics]({{ ch.docs }}{{ 
 These are the {{ CH }} native metrics from the [system.query_log]({{ ch.docs }}{{ lang }}/operations/system-tables/query_log) table.
 For each metric, the increment per unit of time (second) is calculated.
 
-| Name<br/>Type |
+| Name<br>Type |
 | ----- |
 | `ch_system_query_log_avg_query_ms`<br/>`DGAUGE` |
 | `ch_system_query_log_insert_avg_query_ms`<br/>`DGAUGE` |

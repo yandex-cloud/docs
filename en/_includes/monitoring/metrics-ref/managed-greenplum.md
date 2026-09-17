@@ -781,18 +781,18 @@ Additional labels:
 ## Pressure stall information (Linux PSI) metrics {#managed-greenplum-pressure-stall-information-metrics}
 | Name<br/>Type, units | Description |
 | :--- | :--- |
-| `psi.cpu.some.avg10`<br/>`DGAUGE`, % | Average fraction of time over the last 10 seconds during which at least some tasks were delayed due to insufficient computing resources |
-| `psi.cpu.some.avg60`<br/>`DGAUGE`, %  | Average fraction of time over the last 60 seconds during which at least some tasks were delayed due to insufficient computing resources |
-| `psi.cpu.some.avg300`<br/>`DGAUGE`, %  | Average fraction of time over the last 300 seconds during which at least some tasks were delayed due to insufficient computing resources |
-| `psi.cpu.some.total`<br/>`DGAUGE`, ms | Total time during which some processes were waiting for CPU resources |
-| `psi.memory.full.avg10`<br/>`DGAUGE`, % | Average fraction of time over the last 10 seconds during which all active tasks were simultaneously delayed due to insufficient available memory |
-| `psi.memory.full.avg60`<br/>`DGAUGE`, % | Average fraction of time over the last 60 seconds during which all active tasks were simultaneously delayed due to insufficient available memory |
-| `psi.memory.full.avg300`<br/>`DGAUGE`, % | Average fraction of time over the last 300 seconds during which all active tasks were simultaneously delayed due to insufficient available memory |
-| `psi.memory.full.total`<br/>`DGAUGE`, ms | Total time during which all processes were waiting for access to memory resources |
-| `psi.memory.some.avg10`<br/>`DGAUGE`, % | Average fraction of time over the last 10 seconds during which at least some tasks were delayed due to insufficient available memory |
-| `psi.memory.some.avg60`<br/>`DGAUGE`, % | Average fraction of time over the last 60 seconds during which at least some tasks were delayed due to insufficient available memory |
-| `psi.memory.some.avg300`<br/>`DGAUGE`, % | Average fraction of time over the last 300 seconds during which at least some tasks were delayed due to insufficient available memory |
-| `psi.memory.some.total`<br/>`DGAUGE`, ms | Total time during which some processes were waiting for access to memory resources |
+| `psi.cpu.some.avg10`<br/>`DGAUGE`, % | Average fraction of time over the last 10 seconds during which at least some tasks were delayed due to insufficient computing resources. |
+| `psi.cpu.some.avg60`<br/>`DGAUGE`, %  | Average fraction of time over the last 60 seconds during which at least some tasks were delayed due to insufficient computing resources. |
+| `psi.cpu.some.avg300`<br/>`DGAUGE`, %  | Average fraction of time over the last 300 seconds during which at least some tasks were delayed due to insufficient computing resources. |
+| `psi.cpu.some.total`<br/>`DGAUGE`, ms | Total time during which some processes were waiting for CPU resources. |
+| `psi.memory.full.avg10`<br/>`DGAUGE`, % | Average fraction of time over the last 10 seconds during which all active tasks were simultaneously delayed due to insufficient available memory. |
+| `psi.memory.full.avg60`<br/>`DGAUGE`, % | Average fraction of time over the last 60 seconds during which all active tasks were simultaneously delayed due to insufficient available memory. |
+| `psi.memory.full.avg300`<br/>`DGAUGE`, % | Average fraction of time over the last 300 seconds during which all active tasks were simultaneously delayed due to insufficient available memory. |
+| `psi.memory.full.total`<br/>`DGAUGE`, ms | Total time during which all processes were waiting for access to memory resources. |
+| `psi.memory.some.avg10`<br/>`DGAUGE`, % | Average fraction of time over the last 10 seconds during which at least some tasks were delayed due to insufficient available memory. |
+| `psi.memory.some.avg60`<br/>`DGAUGE`, % | Average fraction of time over the last 60 seconds during which at least some tasks were delayed due to insufficient available memory. |
+| `psi.memory.some.avg300`<br/>`DGAUGE`, % | Average fraction of time over the last 300 seconds during which at least some tasks were delayed due to insufficient available memory. |
+| `psi.memory.some.total`<br/>`DGAUGE`, ms | Total time during which some processes were waiting for access to memory resources. |
 
 ## Process metrics {#managed-greenplum-process-metrics}
 | Name<br/>Type, units | Description |

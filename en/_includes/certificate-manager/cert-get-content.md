@@ -44,7 +44,7 @@ To get the contents of a certificate:
           ```text
           -----BEGIN CERTIFICATE-----
           MIIFFjCCAv6gAwIBAg...
-          -----END CERTIFICATE-----`
+          -----END CERTIFICATE-----
           ```
        
        * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_private_key_only }}**:
@@ -52,19 +52,14 @@ To get the contents of a certificate:
           ```text
           -----BEGIN PRIVATE KEY-----
           MIIEvgIBADANBgk...
-          -----END PRIVATE KEY-----`
+          -----END PRIVATE KEY-----
           ```
 
     1. Click **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_download }}**.
 
 - CLI {#cli}
 
-  The command will display a certificate chain and a private key and save their contents to the `--chain` and `--key` files, respectively.
-  
-  * `--id`: Certificate ID; make sure you set either the `--id` or `--name` flag.
-  * `--name`: Certificate name; make sure you set either the `--id` or `--name` flag.
-  * `--chain`: File to save the certificate chain to, in PEM format. This is an optional flag.
-  * `--key`: File to save the private key to, in PEM format. This is an optional flag.
+  Run this command:
 
   ```bash
   yc certificate-manager certificate content \
@@ -73,15 +68,24 @@ To get the contents of a certificate:
     --key private_key.pem
   ```
 
+  Where:
+
+  * `--id`: Certificate ID. Specify either `--id` or `--name`.
+  * `--name`: Certificate name. Specify either `--id` or `--name`.
+  * `--chain`: File to save the certificate chain to, in PEM format. This is an optional flag.
+  * `--key`: File to save the private key to, in PEM format. This is an optional flag.
+
+  The command will display a certificate chain and a private key and save them to the files specified in `--chain` and `--key`.
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To get the contents of a custom certificate using {{ TF }}:
+  To get the contents of a certificate using {{ TF }}:
   
-  1. In the {{ TF }} configuration file, describe the resources you want to create:
+  1. Describe the `yandex_cm_certificate_content` data source and output variables in the {{ TF }} configuration file:
 
      ```hcl
      data "yandex_cm_certificate_content" "cert_by_id" {
@@ -104,18 +108,18 @@ To get the contents of a certificate:
        
        * `certificate_id`: Certificate ID.
      
-     * `output` sections: `certificate_chain` output variables with the certificate chain and the `certificate_key` private key:
+     * `output` sections: `certificate_chain` and `certificate_key` output variables containing the certificate chain and the private key:
        
        * `value`: Return value.
        * `sensitive`: Label data as sensitive.
 
-     For more information about the `yandex_cm_certificate_content` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/cm_certificate_content).
+     For more information about the properties of the `yandex_cm_certificate_content` data source, see [this provider guide]({{ tf-provider-datasources-link }}/cm_certificate_content).
   
-  1. Create the resources:
+  1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. To check the result, run these commands:
+     To check the result, run these commands:
      
      * Get the certificate chain:
 

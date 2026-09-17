@@ -22,19 +22,19 @@ To learn more about {{ ydb-full-name }} concepts, see the following articles:
 
 {{ ydb-short-name }} enables online transaction processing (OLTP) and online analytical processing (OLAP).
 
-To interact with {{ ydb-short-name }}, you can use the [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/) and [SDKs]({{ ydb.docs }}/reference/ydb-sdk/) for C++, Java, Python, Node.js, PHP, and Go. The language used for DB queries is [YQL]({{ ydb.docs }}/yql/reference/), a dialect of SQL. For more information about the purpose and best practices of using {{ ydb-short-name }} tools when developing applications, see [Recommendations]({{ ydb.docs }}/best_practices/).
+To interact with {{ ydb-short-name }}, you can use the [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/) and [SDKs]({{ ydb.docs }}/reference/ydb-sdk/) for C++, Java, Python, Node.js, PHP, and Go. The language used for DB queries is [YQL]({{ ydb.docs }}/yql/reference/), a dialect of SQL. For more information about the purpose and best practices of using {{ ydb-short-name }} tools when developing applications, see [Recommendations]({{ ydb.docs }}public-materials/articles).
 
 To learn more about {{ ydb-short-name }} concepts, see the following articles:
 
 * [Terms and definitions]({{ ydb.docs }}/concepts/databases).
 * [Data model and schema]({{ ydb.docs }}/concepts/datamodel).
 * [Transactions]({{ ydb.docs }}/concepts/transactions).
-* [Secondary indexes]({{ ydb.docs }}/concepts/secondary_indexes).
+* [Secondary indexes]({{ ydb.docs }}concepts/query_execution/secondary_indexes).
 * [Change Data Capture (CDC)]({{ ydb.docs }}/concepts/cdc).
 * [Time to Live (TTL)]({{ ydb.docs }}/concepts/ttl).
 * [Scan queries]({{ ydb.docs }}/concepts/scan_query).
 * [Database limits]({{ ydb.docs }}/concepts/limits-ydb).
-* [{{ ydb-short-name }} cluster]({{ ydb.docs }}/concepts/cluster/).
+* [{{ ydb-short-name }} cluster]({{ ydb.docs }}concepts/glossary#cluster).
 
 ## Service Level Agreement {#sla}
 

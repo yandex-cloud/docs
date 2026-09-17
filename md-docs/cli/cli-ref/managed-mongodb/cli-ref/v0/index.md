@@ -114,6 +114,14 @@ Syntax:
 
   - [yc managed-mongodb v0 hosts update](hosts/update.md) — Update specified hosts in the cluster.
 
+- [yc managed-mongodb v0 maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-mongodb v0 maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-mongodb v0 maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-mongodb v0 maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
+
 - [yc managed-mongodb v0 resource-preset](resource-preset/index.md) — Learn about MongoDB resource presets.
 
   - [yc managed-mongodb v0 resource-preset get](resource-preset/get.md) — Get information about a MongoDB resource preset.

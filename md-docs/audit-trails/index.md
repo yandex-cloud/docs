@@ -246,6 +246,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
 ## Справочник аудитных логов (англ.)
 
+ - [Обзор](events-ref/index.md)
+
 ### accesstransparency
 
  - [ComputeNodeAccess](audit/accesstransparency/events-ref/ComputeNodeAccess.md)

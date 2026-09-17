@@ -5,7 +5,7 @@ description: This guide describes the properties of the `yandex_ydb_topic` resou
 
 # Managing {{ ydb-short-name }} topic configurations
 
-For operations with [topics]({{ ydb.docs }}/concepts/topic), use the `yandex_ydb_topic` resource.
+For operations with [topics]({{ ydb.docs }}concepts/datamodel/topic), use the `yandex_ydb_topic` resource.
 
 {% note info %}
 
@@ -59,7 +59,7 @@ You can create a consumer using {{ TF }} but you cannot delete it. To delete a c
 
 {% endnote %}
 
-Data [consumer]({{ ydb.docs }}/concepts/topic#consumer) description:
+Data [consumer]({{ ydb.docs }}concepts/datamodel/topic#consumer) description:
 | **Field name** | **Type** | **Description** |
 | --- | --- | --- |
 |`name`|`string`<br>`required`|Consumer name.|

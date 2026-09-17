@@ -68,7 +68,7 @@ description: Следуя данной инструкции, вы узнаете
 
                 {% note info %}
 
-                Функциональность недоступна для [тарифа]({{ link-yandex }}/support/yandex-360/business/purchase/{{ lang }}/plans/payment-plans-ru) {{ yandex-360 }} Минимальный.
+                Функциональность недоступна для [тарифа](https://yandex.ru/support/yandex-360/business/purchase/{{ lang }}/plans/payment-plans-ru) {{ yandex-360 }} Минимальный.
 
                 {% endnote %}
 

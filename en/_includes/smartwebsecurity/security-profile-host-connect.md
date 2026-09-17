@@ -10,4 +10,4 @@
     
   1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**. If the selected hosts are already connected to another security profile, confirm the connection.
 
-      You will see the connected virtual hosts under ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}**.
+      You will see the connected virtual hosts under **{{ ui-key.yacloud.common.connected_resources }}**.

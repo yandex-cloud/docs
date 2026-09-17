@@ -11,7 +11,7 @@ Manage registries
 
 Syntax:
 
-`yc cloud-registry registry <group|command>`
+`yc cloud-registry v0 registry <group|command>`
 
 #### Command Tree
 
@@ -39,9 +39,9 @@ Syntax:
 
 - [yc cloud-registry v0 registry remove-ip-permissions](remove-ip-permissions.md) — Remove ip permissions for the specified registry
 
-- [yc cloud-registry v0 registry set-access-bindings](set-access-bindings.md) — Set access bindings for the specified registry and delete all existing access bindings if there were any
+- [yc cloud-registry v0 registry set-access-bindings](set-access-bindings.md) — Set access bindings for the specified registry
 
-- [yc cloud-registry v0 registry set-ip-permissions](set-ip-permissions.md) — Set ip permissions for the specified registry and delete all existing ip permission if there were any
+- [yc cloud-registry v0 registry set-ip-permissions](set-ip-permissions.md) — Set ip permissions for the specified registry
 
 - [yc cloud-registry v0 registry update](update.md) — Updates the specified registry
 
@@ -53,7 +53,7 @@ Syntax:
 
   - [yc cloud-registry v0 registry lifecycle-policy delete](lifecycle-policy/delete.md) — Deletes the specified lifecycle policy
 
-  - [yc cloud-registry v0 registry lifecycle-policy dry-run](lifecycle-policy/dry-run.md) — Simulate the lifecycle policy execution and show the number of artifacts to be deleted
+  - [yc cloud-registry v0 registry lifecycle-policy dry-run](lifecycle-policy/dry-run.md) — Simulate the lifecycle policy execution
 
   - [yc cloud-registry v0 registry lifecycle-policy get](lifecycle-policy/get.md) — Get information about a lifecycle policy.
 
@@ -79,15 +79,10 @@ Syntax:
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -97,21 +92,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

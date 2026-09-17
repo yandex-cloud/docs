@@ -76,6 +76,8 @@ Syntax:
 
   - [yc managed-clickhouse v0 cluster list-operations](cluster/list-operations.md) — List operations for a ClickHouse cluster.
 
+  - [yc managed-clickhouse v0 cluster migrate-to-keeper](cluster/migrate-to-keeper.md) — Migrate a ClickHouse cluster from ZooKeeper to ClickHouse Keeper.
+
   - [yc managed-clickhouse v0 cluster move](cluster/move.md) — Move the specified ClickHouse cluster into the folder
 
   - [yc managed-clickhouse v0 cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified ClickHouse cluster
@@ -149,6 +151,14 @@ Syntax:
   - [yc managed-clickhouse v0 hosts restart](hosts/restart.md) — Restart specified hosts of the cluster.
 
   - [yc managed-clickhouse v0 hosts update](hosts/update.md) — Update the specified hosts
+
+- [yc managed-clickhouse v0 maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-clickhouse v0 maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-clickhouse v0 maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-clickhouse v0 maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
 
 - [yc managed-clickhouse v0 ml-model](ml-model/index.md) — Manage ClickHouse machine learning models.
 

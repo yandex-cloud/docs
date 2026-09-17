@@ -5,7 +5,7 @@ description: В инструкции описаны свойства ресур�
 
 # Управление конфигурацией топиков {{ ydb-short-name }}
 
-Для работы с [топиками]({{ ydb.docs }}/concepts/topic) используется ресурс `yandex_ydb_topic`.
+Для работы с [топиками]({{ ydb.docs }}concepts/datamodel/topic) используется ресурс `yandex_ydb_topic`.
 
 {% note info %}
 
@@ -59,7 +59,7 @@ resource "yandex_ydb_topic" "ydb_topic" {
 
 {% endnote %}
 
-Описание читателя данных ([consumer]({{ ydb.docs }}/concepts/topic#consumer)):
+Описание читателя данных ([consumer]({{ ydb.docs }}concepts/datamodel/topic#consumer)):
 | **Название поля** | **Тип** | **Описание** |
 | --- | --- | --- |
 |`name`|`string`<br>`required`|Имя читателя|

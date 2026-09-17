@@ -268,6 +268,16 @@
 
  - [update](cli-ref/hosts/update.md)
 
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
 ### resource-preset
 
  - [Overview](cli-ref/resource-preset/index.md)
@@ -423,6 +433,16 @@
  - [stepdown](cli-ref/v0/hosts/stepdown.md)
 
  - [update](cli-ref/v0/hosts/update.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/v0/maintenance/reschedule.md)
 
 #### resource-preset
 

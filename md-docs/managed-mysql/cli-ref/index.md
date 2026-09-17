@@ -116,6 +116,14 @@ Aliases:
 
   - [yc managed-mysql hosts update](hosts/update.md) — Update the specified hosts
 
+- [yc managed-mysql maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-mysql maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-mysql maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-mysql maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
+
 - [yc managed-mysql resource-preset](resource-preset/index.md) — Manage MySQL resource presets
 
   - [yc managed-mysql resource-preset get](resource-preset/get.md) — Show information about the specified MySQL resource preset

@@ -15,9 +15,9 @@ You can edit basic [rules](../concepts/rules.md), as well as Smart Protection an
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Select the profile where you want to edit a rule.
-  1. On the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab, click ![options](../../_assets/console-icons/ellipsis.svg) next to the rule in question and select **{{ ui-key.yacloud.common.edit }}**.
+  1. On the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab, click ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** next to the rule.
   1. In the window that opens, configure the new rule:
-  
+
       {% include [add-rule](../../_includes/smartwebsecurity/add-rule.md) %}
 
 - CLI {#cli}
@@ -28,151 +28,151 @@ You can edit basic [rules](../concepts/rules.md), as well as Smart Protection an
 
   1. To view a list of current security profiles in the default folder, run this command:
 
-     {% include [security-profile-list-command](../../_includes/smartwebsecurity/security-profile-list-command.md) %}
+      {% include [security-profile-list-command](../../_includes/smartwebsecurity/security-profile-list-command.md) %}
 
   1. Update the security profile by applying the [YAML](https://en.wikipedia.org/wiki/YAML) configuration with updated description of the current security rules:
-  
-     1. To get the YAML configuration for the current security rules in the profile, run this command specifying the security profile name or ID:
 
-         {% include [security-profile-get-command](../../_includes/smartwebsecurity/security-profile-get-command.md) %}
+      1. To get the YAML configuration for the current security rules in the profile, run this command specifying the security profile name or ID:
 
-     1. Copy the current rule configuration (the `security_rules` section contents) to any text editor and save it to a file after editing it as needed. In the example below, we edited the rule name and replaced the `DENY` action with `ALLOW`:
+          {% include [security-profile-get-command](../../_includes/smartwebsecurity/security-profile-get-command.md) %}
 
-         {% cut "security-rules.yaml" %}
+      1. Copy the current rule configuration (the `security_rules` section contents) to any text editor and save it to a file after editing it as needed. In the example below, we edited the rule name and replaced the `DENY` action with `ALLOW`:
 
-         ```yaml
-         - name: rule-condition-allow
-           priority: "11111"
-           dry_run: true
-           rule_condition:
-             action: ALLOW
-             condition:
-               authority:
-                 authorities:
-                   - exact_match: example.com
-                   - exact_match: example.net
-               http_method:
-                 http_methods:
-                   - exact_match: GET
-                   - exact_match: POST
-               request_uri:
-                 path:
-                   prefix_match: /search
-                 queries:
-                   - key: firstname
-                     value:
-                       pire_regex_match: .ivan.
-                   - key: lastname
-                     value:
-                       pire_regex_not_match: .petr.
-               headers:
-                 - name: User-Agent
-                   value:
-                     pire_regex_match: .curl.
-                 - name: Referer
-                   value:
-                     pire_regex_not_match: .bot.
-               source_ip:
-                 ip_ranges_match:
-                   ip_ranges:
-                     - 1.2.33.44
-                     - 2.3.4.56
-                 ip_ranges_not_match:
-                   ip_ranges:
-                     - 8.8.0.0/16
-                     - 10::1234:1abc:1/64
-                 geo_ip_match:
-                   locations:
-                     - ru
-                     - es
-                 geo_ip_not_match:
-                   locations:
-                     - us
-                     - fm
-                     - gb
-         ```
+          {% cut "security-rules.yaml" %}
 
-         {% endcut %}
+          ```yaml
+          - name: rule-condition-allow
+            priority: "11111"
+            dry_run: true
+            rule_condition:
+              action: ALLOW
+              condition:
+                authority:
+                  authorities:
+                    - exact_match: example.com
+                    - exact_match: example.net
+                http_method:
+                  http_methods:
+                    - exact_match: GET
+                    - exact_match: POST
+                request_uri:
+                  path:
+                    prefix_match: /search
+                  queries:
+                    - key: firstname
+                      value:
+                        pire_regex_match: .ivan.
+                    - key: lastname
+                      value:
+                        pire_regex_not_match: .petr.
+                headers:
+                  - name: User-Agent
+                    value:
+                      pire_regex_match: .curl.
+                  - name: Referer
+                    value:
+                      pire_regex_not_match: .bot.
+                source_ip:
+                  ip_ranges_match:
+                    ip_ranges:
+                      - 1.2.33.44
+                      - 2.3.4.56
+                  ip_ranges_not_match:
+                    ip_ranges:
+                      - 8.8.0.0/16
+                      - 10::1234:1abc:1/64
+                  geo_ip_match:
+                    locations:
+                      - ru
+                      - es
+                  geo_ip_not_match:
+                    locations:
+                      - us
+                      - fm
+                      - gb
+          ```
 
-         {% include [change-profile-rules-alert](../../_includes/smartwebsecurity/change-profile-rules-alert.md) %}
+          {% endcut %}
 
-     1. To update a security profile, run this command specifying the profile name or ID:
-    
-         ```bash
-         yc smartwebsecurity security-profile update <security_profile_name_or_ID> \
-            --security-rules-file <path_to_file_with_security_rules>
-         ```
+          {% include [change-profile-rules-alert](../../_includes/smartwebsecurity/change-profile-rules-alert.md) %}
 
-         Where `--security-rules-file` is the path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with the description of security rules.
+      1. To update a security profile, run this command specifying the profile name or ID:
+
+          ```bash
+          yc smartwebsecurity security-profile update <security_profile_name_or_ID> \
+              --security-rules-file <path_to_file_with_security_rules>
+          ```
+
+          Where `--security-rules-file` is the path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with the description of security rules.
 
 
-         {% cut "Result:" %}
+          {% cut "Result:" %}
 
-         ```yaml
-         id: fev450d61ucv********
-         folder_id: b1gt6g8ht345********
-         cloud_id: b1gia87mbaom********
-         labels:
-           label1: value1
-           label2: value2
-         name: my-new-profile
-         description: my description
-         default_action: DENY
-         security_rules:
-           - name: rule-condition-allow
-             priority: "11111"
-             dry_run: true
-             rule_condition:
-               action: ALLOW
-               condition:
-                 authority:
-                   authorities:
-                     - exact_match: example.com
-                     - exact_match: example.net
-                 http_method:
-                   http_methods:
-                     - exact_match: GET
-                     - exact_match: POST
-                 request_uri:
-                   path:
-                     prefix_match: /search
-                   queries:
-                     - key: firstname
-                       value:
-                         pire_regex_match: .ivan.
-                     - key: lastname
-                       value:
-                         pire_regex_not_match: .petr.
-                 headers:
-                   - name: User-Agent
-                     value:
-                       pire_regex_match: .curl.
-                   - name: Referer
-                     value:
-                       pire_regex_not_match: .bot.
-                 source_ip:
-                   ip_ranges_match:
-                     ip_ranges:
-                       - 1.2.33.44
-                       - 2.3.4.56
-                   ip_ranges_not_match:
-                     ip_ranges:
-                       - 8.8.0.0/16
-                       - 10::1234:1abc:1/64
-                   geo_ip_match:
-                     locations:
-                       - ru
-                       - es
-                   geo_ip_not_match:
-                     locations:
-                       - us
-                       - fm
-                       - gb
-             description: My first security rule. This rule it's just example to show possibilities of configuration.
-         created_at: "2024-08-05T17:54:48.898624Z"
-         ```
+          ```yaml
+          id: fev450d61ucv********
+          folder_id: b1gt6g8ht345********
+          cloud_id: b1gia87mbaom********
+          labels:
+            label1: value1
+            label2: value2
+          name: my-new-profile
+          description: my description
+          default_action: DENY
+          security_rules:
+            - name: rule-condition-allow
+              priority: "11111"
+              dry_run: true
+              rule_condition:
+                action: ALLOW
+                condition:
+                  authority:
+                    authorities:
+                      - exact_match: example.com
+                      - exact_match: example.net
+                  http_method:
+                    http_methods:
+                      - exact_match: GET
+                      - exact_match: POST
+                  request_uri:
+                    path:
+                      prefix_match: /search
+                    queries:
+                      - key: firstname
+                        value:
+                          pire_regex_match: .ivan.
+                      - key: lastname
+                        value:
+                          pire_regex_not_match: .petr.
+                  headers:
+                    - name: User-Agent
+                      value:
+                        pire_regex_match: .curl.
+                    - name: Referer
+                      value:
+                        pire_regex_not_match: .bot.
+                  source_ip:
+                    ip_ranges_match:
+                      ip_ranges:
+                        - 1.2.33.44
+                        - 2.3.4.56
+                    ip_ranges_not_match:
+                      ip_ranges:
+                        - 8.8.0.0/16
+                        - 10::1234:1abc:1/64
+                    geo_ip_match:
+                      locations:
+                        - ru
+                        - es
+                    geo_ip_not_match:
+                      locations:
+                        - us
+                        - fm
+                        - gb
+              description: My first security rule. This rule it's just example to show possibilities of configuration.
+          created_at: "2024-08-05T17:54:48.898624Z"
+          ```
 
-         {% endcut %}
+          {% endcut %}
 
   For more information about the `yc smartwebsecurity security-profile update` command, see the [CLI reference](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
 
@@ -234,7 +234,7 @@ You can edit basic [rules](../concepts/rules.md), as well as Smart Protection an
 
   1. Create the resources:
 
-       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
   You can check the resource update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 

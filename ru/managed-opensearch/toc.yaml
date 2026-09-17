@@ -35,6 +35,8 @@ items:
             href: operations/cluster-access.md
           - name: Настройка доступа к Object Storage
             href: operations/s3-access.md
+          - name: Техническое обслуживание
+            href: operations/cluster-maintenance.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
       - name: Подключение
@@ -220,6 +222,16 @@ items:
             href: cli-ref/extension/list.md
           - name: update
             href: cli-ref/extension/update.md
+      - name: maintenance
+        items:
+          - name: Overview
+            href: cli-ref/maintenance/index.md
+          - name: get
+            href: cli-ref/maintenance/get.md
+          - name: list
+            href: cli-ref/maintenance/list.md
+          - name: reschedule
+            href: cli-ref/maintenance/reschedule.md
       - name: node-group
         items:
           - name: Overview
@@ -324,6 +336,16 @@ items:
                 href: cli-ref/v0/extension/list.md
               - name: update
                 href: cli-ref/v0/extension/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/v0/maintenance/index.md
+              - name: get
+                href: cli-ref/v0/maintenance/get.md
+              - name: list
+                href: cli-ref/v0/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/v0/maintenance/reschedule.md
           - name: node-group
             items:
               - name: Overview

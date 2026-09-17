@@ -5,6 +5,7 @@ description: In this tutorial, you will learn about {{ lockbox-full-name }} secr
 
 # Secrets in {{ lockbox-full-name }}
 
+
 ## Secret {#secret}
 
 A secret is a set of versions that store your data, such as API keys, passwords, or tokens. A version contains sets of keys and values. A key is a non-secret name that identifies a value. The value is your secret data.

@@ -61,7 +61,7 @@ Once you have the data you need to send to notifications to a user, create an en
   1. [Navigate]({{ link-console-main }}/link/cns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select the **{{ ui-key.yacloud.cns.type_web }}** tab.
   1. Select a notification channel.
-  1. Select the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Click **{{ ui-key.yacloud.cns.action_create-endpoint }}**.
   1. Enter the **{{ ui-key.yacloud.cns.field_web-push-endpoint_params }}** received when subscribing the user.
   1. Optionally, enter **{{ ui-key.yacloud.cns.field_endpoint-user-data }}**, a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoded text up to 2,048 characters long.

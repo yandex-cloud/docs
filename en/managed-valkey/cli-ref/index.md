@@ -107,6 +107,14 @@ Aliases:
 
   - [yc managed-redis hosts update](hosts/update.md) — Update the specified hosts
 
+- [yc managed-redis maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-redis maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-redis maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-redis maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
+
 - [yc managed-redis resource-preset](resource-preset/index.md) — Manage Redis resource presets
 
   - [yc managed-redis resource-preset get](resource-preset/get.md) — Show information about the specified Redis resource preset

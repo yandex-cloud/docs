@@ -54,3 +54,4 @@ description: Различные сценарии использования ма
 
 * [{#T}](ai-model-ide-integration.md)
 * [{#T}](data-catalog-integration.md)
+* [{#T}](../dataplatform/valkey-rag-search.md)

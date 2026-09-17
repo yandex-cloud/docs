@@ -43,6 +43,14 @@
 
   Подробнее в описании настройки `auto_explain.log_format` в [документации {{ PG }}]({{ pg.docs.org }}/current/auto-explain.html#AUTO-EXPLAIN-CONFIGURATION-PARAMETERS-LOG-FORMAT).
 
+- **Auto explain log io**{#setting-auto-explain-log-io} {{ tag-all }}
+
+  Определяет, будет ли в модуле `auto_explain` выводиться статистика ввода-вывода при логировании плана выполнения запроса. Работает аналогично параметру `IO` в команде `EXPLAIN`. Применяется только при включенной настройке [Auto explain log analyze](#setting-auto-explain-log-analyze).
+
+  По умолчанию настройка выключена (статистика ввода-вывода не выводится в лог).
+
+  Подробнее в описании настройки `auto_explain.log_io` в [документации {{ PG }}](https://www.postgresql.org/docs/19/auto-explain.html#AUTO-EXPLAIN-CONFIGURATION-PARAMETERS-LOG-IO).
+
 - **Auto explain log min duration**{#setting-auto-explain-log-min-duration} {{ tag-all }}
 
   Минимальное время выполнения запроса (в миллисекундах), при котором включается логирование в модуле `auto_explain`.
@@ -98,6 +106,14 @@
   Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.0001`.
 
   Подробнее в описании настройки `autovacuum_analyze_scale_factor` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-ANALYZE-SCALE-FACTOR).
+
+- **Autovacuum max parallel workers**{#setting-autovacuum-max-parallel-workers} {{ tag-all }}
+
+  Максимальное количество параллельных рабочих процессов, которые один рабочий процесс [автоочистки](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) может использовать для обработки индексов. Ограничение применяется к фазам вакуумирования индексов и очистки индексов. Фактическое число параллельных процессов дополнительно ограничено параметром [Max parallel workers](#setting-max-parallel-workers). Значение `0` отключает параллельное вакуумирование во время автоочистки.
+
+  Минимальное значение — `0`, по умолчанию — `0`.
+
+  Подробнее в описании настройки `autovacuum_max_parallel_workers` в [документации {{ PG }}](https://www.postgresql.org/docs/19/runtime-config-vacuum.html#GUC-AUTOVACUUM-MAX-PARALLEL-WORKERS).
 
 - **Autovacuum max workers**{#setting-autovacuum-max-workers} {{ tag-all }}
 
@@ -585,14 +601,6 @@
 
   Подробнее в описании настройки `enable_tidscan` в [документации {{ PG }}](https://www.postgresql.org/docs/current/ddl-system-columns.html).
 
-- **Escape string warning**{#setting-escape-string-warning} {{ tag-all }}
-
-  Включает предупреждение о наличии в запросе символа `\` в обычной строковой константе (с синтаксисом `'...'`). Настройка работает только при отключенном параметре [Standard conforming strings](#setting-standard-strings).
-
-  По умолчанию настройка включена.
-
-  Подробнее в описании настройки `escape_string_warning` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-ESCAPE-STRING-WARNING).
-
 - **Exit on error**{#setting-exit-on-error} {{ tag-all }}
 
   Включает прерывание сессии в случае любой ошибки в запросе.
@@ -756,6 +764,18 @@
   Подробнее в описании настройки `lock_timeout` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT).
 
   Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
+
+- **Log autoanalyze min duration**{#setting-log-autoanalyze-min-duration} {{ tag-all }}
+
+  Задает минимальную длительность выполнения автоматического анализа (в миллисекундах), при превышении которой информация об анализе записывается в лог.
+
+  При значении `0` в логе фиксируются все операции автоанализа. Значение `-1` отключает логирование операций автоанализа.
+
+  До {{ PG }} версии `19` параметр `log_autovacuum_min_duration` управлял логированием как операций `VACUUM`, так и `ANALYZE`. Начиная с версии `19` эти параметры разделены: [Log autovacuum min duration](#setting-log-autovacuum-min-duration) управляет только логированием операций `VACUUM`, а `log_autoanalyze_min_duration` — только операций `ANALYZE`.
+
+  Минимальное значение — `-1`, по умолчанию — `600000` (10 минут).
+
+  Подробнее в описании настройки `log_autoanalyze_min_duration` в [документации {{ PG }}](https://www.postgresql.org/docs/19/runtime-config-logging.html#GUC-LOG-AUTOANALYZE-MIN-DURATION).
 
 - **Log autovacuum min duration**{#setting-log-autovacuum-min-duration} {{ tag-all }}
 
@@ -1047,6 +1067,14 @@
   Минимальное значение — `0`, максимальное значение — `262143`, по умолчанию — `0`.
 
   Подробнее в описании настройки `max_prepared_transactions` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS).
+
+- **Max repack replication slots**{#setting-max-repack-replication-slots} {{ tag-all }}
+
+  Максимальное количество слотов репликации, зарезервированных для команды `REPACK CONCURRENTLY`. Команда использует логическое декодирование для воспроизведения изменений, внесенных во время копирования таблицы, поэтому ей требуется слот репликации. Этот пул слотов не пересекается с [Max replication slots](#setting-max-replication-slots), что исключает возможность команды `REPACK` занять слоты, используемые логической репликацией.
+
+  Минимальное значение — `0`, по умолчанию — `5`.
+
+  Подробнее в описании настройки `max_repack_replication_slots` в [документации {{ PG }}](https://www.postgresql.org/docs/19/runtime-config-replication.html#GUC-MAX-REPACK-REPLICATION-SLOTS).
 
 - **Max replication slots**{#setting-max-replication-slots} {{ tag-all }}
 
@@ -1366,14 +1394,6 @@
   Разделенные запятыми имена библиотек общего пользования (shared libraries), которые будут загружаться при запуске сервера {{ PG }}. Библиотеки требуются для работы некоторых [расширений {{ PG }}](../../../managed-postgresql/operations/extensions/cluster-extensions.md).
 
   Подробнее в описании настройки `shared_preload_libraries` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES).
-
-- **Standard conforming strings**{#setting-standard-strings} {{ tag-all }}
-
-  Включает прочтение символа `\` в обычных строковых константах (`'...'`) не как спецсимвола, а как обычного символа согласно стандарту SQL.
-
-  По умолчанию настройка включена.
-
-  Подробнее в описании настройки `standard_conforming_strings` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-STANDARD-CONFORMING-STRINGS).
 
 - **Statement timeout**{#setting-statement-timeout} {{ tag-all }}
 

@@ -12,7 +12,7 @@ description: Follow this guide to send an in-browser push notification.
   1. In the [management console]({{ link-console-main }}), select the folder containing the endpoint.
   1. [Navigate]({{ link-console-main }}/link/cns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select an in-browser push notification channel.
-  1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Select the endpoint you need.
   1. Enter the notification text and click **{{ ui-key.yacloud.cns.action_send-msg }}**.
 

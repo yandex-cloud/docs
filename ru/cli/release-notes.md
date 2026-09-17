@@ -7,6 +7,81 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.35.0 (17.09.26) {#v-1-35-0}
+
+#### {{ compute-name }} {#v-1-35-0-compute-name}
+
+В команду `yc compute gpu-cluster create` добавлен параметр `--subnets` для указания количества подсетей GPU-кластера.
+
+#### {{ iam-name }} {#v-1-35-0-iam-name}
+
+В команде `yc iam subject-details get` параметр `--subject-id` заменен на `--subject-ids` для передачи списка идентификаторов через запятую.
+
+#### {{ mch-name }} {#v-1-35-0-mch-name}
+
+* Добавлена команда `yc managed-clickhouse cluster migrate-to-keeper`.
+* Добавлена группа команд `yc managed-clickhouse maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+* Добавлены параметры для чтения пароля из файла (`--password-file`) и стандартного ввода (`--password-from-stdin`) в командах:
+
+  * `yc managed-clickhouse user create`;
+  * `yc managed-clickhouse user update`.
+
+* Исправлено ограничение по роли при IAM-аутентификации пользовательских аккаунтов в команде `yc managed-clickhouse connect`.
+
+#### {{ mgp-name }} {#v-1-35-0-mgp-name}
+
+* Добавлена группа команд `yc managed-greenplum maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+* Добавлены параметры для чтения пароля из файла (`--password-file`) и стандартного ввода (`--password-from-stdin`) в командах:
+
+  * `yc managed-greenplum user create`;
+  * `yc managed-greenplum user update`.
+
+#### {{ mkf-name }} {#v-1-35-0-mkf-name}
+
+Добавлена группа команд `yc managed-kafka maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+
+#### {{ mmg-name }} {#v-1-35-0-mmg-name}
+
+* Добавлена группа команд `yc managed-mongodb maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+* Добавлены параметры для чтения пароля из файла (`--password-file`) и стандартного ввода (`--password-from-stdin`) в командах:
+
+  * `yc managed-mongodb user create`;
+  * `yc managed-mongodb user update`.
+
+#### {{ mmy-name }} {#v-1-35-0-mmy-name}
+
+Добавлена группа команд `yc managed-mysql maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+
+#### {{ mos-name }} {#v-1-35-0-mos-name}
+
+* Добавлена группа команд `yc managed-opensearch maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+
+#### {{ mpg-name }} {#v-1-35-0-mpg-name}
+
+* Добавлена группа команд `yc managed-postgresql maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+* Добавлены параметры для чтения пароля из файла (`--password-file`) и стандартного ввода (`--password-from-stdin`) в командах:
+
+  * `yc managed-postgresql user create`;
+  * `yc managed-postgresql user update`.
+
+#### {{ mrd-name }} {#v-1-35-0-mrd-name}
+
+* Добавлена группа команд `yc managed-redis maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+* Добавлены параметры для чтения пароля из файла (`--password-file`) и стандартного ввода (`--password-from-stdin`) в командах:
+
+  * `yc managed-redis user create`;
+  * `yc managed-redis user update`.
+
+#### {{ mspqr-name }} {#v-1-35-0-mspqr-name}
+
+* Добавлена группа команд `yc managed-sharded-postgresql maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+* Добавлены параметры для чтения пароля из файла (`--password-file`) и стандартного ввода (`--password-from-stdin`) в командах:
+
+  * `yc managed-sharded-postgresql user create`;
+  * `yc managed-sharded-postgresql user update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.34.0 (10.09.26) {#v-1-34-0}
 
 #### {{ billing-name }} {#v-1-34-0-billing-name}
@@ -182,8 +257,6 @@ description: На странице представлены релизы CLI, а
 * Добавлена поддержка действия CAPTCHA в статических и динамических квотах Advanced Rate Limiter:
   * `yc smartwebsecurity advanced-rate-limiter profile create`;
   * `yc smartwebsecurity advanced-rate-limiter profile update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.33.0 (07.09.26) {#v-1-33-0}
 

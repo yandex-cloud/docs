@@ -333,7 +333,7 @@ Managed Service for PostgreSQL доступен всем зарегистрир�
 
 #### Какую версию PostgreSQL использует Managed Service for PostgreSQL? {#dbms-version}
 
-Managed Service for PostgreSQL поддерживает PostgreSQL 14, 15, 16, 17 и 18, а также PostgreSQL 14, 15, 16, 17 и 18 для 1C. В консоли управления по умолчанию используется версия 17.
+Managed Service for PostgreSQL поддерживает PostgreSQL 14, 15, 16, 17, 18 и 19, а также PostgreSQL 14, 15, 16, 17, 18 и 19 для 1C. В консоли управления по умолчанию используется версия 17.
 
 
 #### Что происходит, когда выпускается новая версия СУБД? {#new-version}

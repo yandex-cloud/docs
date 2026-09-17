@@ -91,7 +91,7 @@ Now you will be able to select this list when adding a rule to a [security](rule
   1. Click the row with the list you need.
   1. Navigate to the **{{ ui-key.yacloud.smart-web-security.label_match-list_ip_qG1ho }}** tab.
   1. Click ![image](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.smart-web-security.MatchListActions.button_download_bdcBp }}**.
-      
+
       The list will be saved in CSV format.
 
 {% endlist %}
@@ -106,7 +106,7 @@ Now you will be able to select this list when adding a rule to a [security](rule
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/files.svg) **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
-  1. Next to the list, click ![options](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Next to the list, click ![options](../../_assets/console-icons/ellipsis.svg) and select ![pencil-to-line](../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yacloud.smart-web-security.MatchListActions.button_rename_r3ma9 }}**.
   1. Update the name and/or description for the list, add or delete labels as needed.
   1. Click **{{ ui-key.yacloud.common.save-changes }}**.
 
@@ -124,11 +124,11 @@ Now you will be able to select this list when adding a rule to a [security](rule
   1. Click the row with the list you need.
   1. Navigate to the **{{ ui-key.yacloud.smart-web-security.label_match-list_ip_qG1ho }}** tab.
 
-      * To update the description for one or more values, select them and click ![image](../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yacloud.smart-web-security.match-lists.label_action-edit-description }}**.
+      * To update the description for one or more values, select them and click ![image](../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yacloud.smart-web-security.match-lists.label_action-edit-description }}** on the panel below.
       * To delete one or more values, select them and click ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
       * To edit the list as text or upload a new list file:
 
-          1. Click **{{ ui-key.yacloud.smart-web-security.MatchListActions.button_edit-list-items_2JFvu }}**.
+          1. Click ![pencil-to-square](../../_assets/console-icons/pencil-to-square.svg) **{{ ui-key.yacloud.smart-web-security.MatchListActions.button_edit-list-items_2JFvu }}**.
           1. Edit the list or upload a new file.
           1. Click **{{ ui-key.yacloud.common.save-changes }}**.
 

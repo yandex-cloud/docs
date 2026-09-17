@@ -89,6 +89,14 @@ Syntax:
 
   - [yc managed-sharded-postgresql v0 hosts update](hosts/update.md) — Update the specified hosts
 
+- [yc managed-sharded-postgresql v0 maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-sharded-postgresql v0 maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-sharded-postgresql v0 maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-sharded-postgresql v0 maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
+
 - [yc managed-sharded-postgresql v0 user](user/index.md) — Manage Sharded PostgreSQL users
 
   - [yc managed-sharded-postgresql v0 user create](user/create.md) — Create a Sharded PostgreSQL user

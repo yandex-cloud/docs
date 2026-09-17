@@ -22,7 +22,7 @@ You can [publish](../operations/video/get-link.md) a video and select its access
 
 * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}**: Available indefinitely to anyone with a link to it. {#permanent-link}
 
-On the website, you can post both single videos and [playlists](playlists.md) with videos in a particular order. In playlists, only videos with permanent links will be available for viewing. For more information on publishing playlists, see [{#T}](../operations/playlists/get-link.md).
+On the website, you can post both single videos and [playlists](playlists.md) with videos in a particular order. In playlists, only videos with permanent links will be available for viewing. For details on publishing playlists, see [{#T}](../operations/playlists/get-link.md).
 
 ## Statuses {#statuses}
 
@@ -42,9 +42,7 @@ On the website, you can post both single videos and [playlists](playlists.md) wi
 
 You can change the following basic video playback settings when [generating](../operations/video/get-link.md) a direct link or website embed code:
 
-* Default sound setting for video playback.
-* Automatic start of playback when opened.
-* Displaying video controls in the player.
+{% include [publication-parameters](../_includes/video/publication-parameters.md) %}
 
 {% include [iframe-settings](../../_includes/video/iframe-settings.md) %}
 
@@ -52,30 +50,15 @@ Also, you can use [presets](presets.md) to configure some of the player settings
 
 ## Video viewing statistics {#video-statistics}
 
-For each video, you can [look up the viewing statistics](../operations/video/get-statistics.md) and flexibly customize the statistics period.
+You can [view statistics](../operations/video/get-statistics.md) for each video. To customize the statistics, select the calculation period and time interval. The difference from the previous period will help you estimate the growth or decline of interest in the video.
 
-The following viewing statistics are currently available:
+{% include [statistics-description](../_includes/video/statistics-description.md) %}
 
-* Number of views: Integer.
-* Share of viewed content: Percentage ratio of average viewing time to video duration.
-* Total viewing time: Total viewing time in hours and minutes.
-* Average viewing time: Average viewing time in hours and minutes.
-* Linear chart with distribution of the number of views per unit of time with the following discretization levels:
-
-    * `5 minutes`
-    * `1 hour`
-    * `1 day`
-* Pie chart with distribution of views by device OS type.
-* Pie chart with distribution of views by device type.
-* [Heat map](https://en.wikipedia.org/wiki/Heat_map) with data on video fragment views.
-
-    Each point on the heat map corresponds to a 30-second video fragment.
-
-    On the heat map, the fact of video fragment playback is counted as a view regardless of playback duration. For example, if you start a video and stop it right away, a view will be counted for the first fragment of the video.
+To estimate engagement, use a line chart with data on the number of views of fragments of the video.
 
 ## AI features {#ai-capabilities}
 
-To provide users with more options and expand your video audience, enable AI features built on Yandex ML models. For more on AI features, see the [Yandex blog](https://habr.com/ru/companies/yandex/articles/792608/).
+To provide users with more options and expand your video audience, enable AI features built on Yandex ML models. For more information about AI features, see [this article](https://habr.com/ru/companies/yandex/articles/792608/) in the Yandex blog.
 
 ### Summarization {#summarization}
 
@@ -83,11 +66,11 @@ To provide users with more options and expand your video audience, enable AI fea
 
 ### Neural translation {#stranslation}
 
-[Neural translation](../operations/video/translation.md) enables the automatic translation of video content into multiple languages and voiceover with [diverse voice options](https://habr.com/ru/news/905118/). View the list of supported languages in the [{{ video-name }} interface]({{ link-video-main }}).
+[Neural translation](../operations/video/translation.md) enables the automatic translation of video content into multiple languages and voiceover with [diverse voice options](https://habr.com/ru/news/905118/). View the list of supported languages in the [{{ video-name }} UI]({{ link-video-main }}).
 
 ### Subtitles {#subtitles}
 
-Neural [subtitles](../operations/video/subtitles.md) not only include spoken text but also provide speaker differentiation. Each speaker switch is indicated by a dash and new line, making the dialogue easier to follow. View the list of supported languages in the [{{ video-name }} interface]({{ link-video-main }}).
+Neural [subtitles](../operations/video/subtitles.md) not only include spoken text but also provide speaker differentiation. Each speaker switch is indicated by a dash and new line, making the dialogue easier to follow. View the list of supported languages in the [{{ video-name }} UI]({{ link-video-main }}).
 
 You can also upload custom subtitles in SRT and VTT formats. The maximum subtitle file size is 500 MB. You can load several subtitle files in one or more languages for one video.
 

@@ -18,7 +18,7 @@ description: Из статьи вы узнаете, какие бывают ош
 У сервисного аккаунта, от имени которого выполняется сканирование, нет доступа к каталогу, облаку или организации. Убедитесь, что аккаунту назначены [необходимые роли](../../storage/security/index.md#service-roles).
 
 ## Failed to list resources {#unable-to-list-resources}
-Сканирование пользовательских ресурсов для указанного пользователя не будет выполнено, так как для [тарифа]({{ link-yandex }}/support/yandex-360/business/purchase/{{ lang }}/plans/payment-plans-ru) {{ yandex-360 }} Минимальный эта функциональность недоступна.
+Сканирование пользовательских ресурсов для указанного пользователя не будет выполнено, так как для [тарифа](https://yandex.ru/support/yandex-360/business/purchase/{{ lang }}/plans/payment-plans-ru) {{ yandex-360 }} Минимальный эта функциональность недоступна.
 
 ## Error while listing user disk `user-name`. Unauthenticated {#wrong-credentials}
 Указаны неверные OAuth-токен или `client secret` для подключения к Яндекс Диску. Проверьте параметры подключения источника данных.

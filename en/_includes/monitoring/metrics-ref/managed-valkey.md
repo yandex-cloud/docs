@@ -17,13 +17,13 @@ subcluster_name | Subcluster name
 
 ## CPU metrics {#managed-valkey-cpu-metrics}
 
-These metrics show the processor core workload.
+CPU core workload.
 
 The consumption type goes into the `systag` label.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU share |
+| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU share. |
 | `cpu.guarantee`<br/>`DGAUGE`, count | Guaranteed number of cores |
 | `cpu.guest_nice`<br/>`DGAUGE`, % | CPU core usage, `guest_nice` usage type |
 | `cpu.guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type |
@@ -81,11 +81,11 @@ The consumption type goes into the `systag` label.
 | `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second for a given disk |
 | `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk |
 | `io.disk*.write_time`<br/>`DGAUGE`, milliseconds | Average write time for a given disk |
-| `io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage. |
-| `io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage. |
-| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk. |
+| `io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage |
+| `io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk |
 | `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk |
-| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk. |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk |
 | `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk |
 | `read_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk read request latency |
 | `read_ops`<br/>`DGAUGE`, operations per second | Average number of disk reads |
@@ -173,7 +173,7 @@ The consumption type goes into the `systag` label.
 | `committed_as`<br/>`DGAUGE`, bytes | RAM usage, `committed_as` usage type |
 | `count`<br/>`DGAUGE`, objects | Number of objects in a database |
 | `dirty`<br/>`DGAUGE`, bytes | RAM usage, `dirty` usage type |
-| `errorstat_<error_type>`<br/>`DGAUGE`, errors | Number of errors of the specified type.<br/>The `error` special label is the error type ID. The possible values are:<ul><li>`CLUSTERDOWN`</li><li>`ERR`</li><li>`MOVED`</li><li>`NOAUTH`</li><li>`NOPERM`</li><li>`WRONGPASS`</li></ul> |
+| `errorstat_<error_type>`<br/>`DGAUGE`, errors | Number of errors of the specified type.<br/>The `error` special label is the error type ID. The possible values are as follows:<ul><li>`CLUSTERDOWN`</li><li>`ERR`</li><li>`MOVED`</li><li>`NOAUTH`</li><li>`NOPERM`</li><li>`WRONGPASS`</li></ul> |
 | `free`<br/>`DGAUGE`, bytes | RAM usage, `free` usage type |
 | `high_free`<br/>`DGAUGE`, bytes | RAM usage, `high_free` usage type |
 | `high_total`<br/>`DGAUGE`, bytes | RAM usage, `high_total` usage type |
@@ -348,8 +348,8 @@ The consumption type goes into the `systag` label.
 | `tcp_passiveopens`<br/>`DGAUGE`, count | Number of times TCP connections have made a direct transition to the `SYN-RCVD` state from `LISTEN` |
 | `tcp_retranssegs`<br/>`DGAUGE`, count | Total segments retransmitted, i.e., number of TCP segments containing one or more previously transmitted octets that were retransmitted. |
 | `tcp_rtoalgorithm`<br/>`DGAUGE` | Algorithm used to determine the timeout for retransmitting unacknowledged octets |
-| `tcp_rtomax`<br/>`DGAUGE`, milliseconds | Maximum TCP retransmission timeout, in milliseconds |
-| `tcp_rtomin`<br/>`DGAUGE`, milliseconds | Minimum TCP retransmission timeout, in milliseconds |
+| `tcp_rtomax`<br/>`DGAUGE`, ms | Maximum TCP retransmission timeout, in milliseconds |
+| `tcp_rtomin`<br/>`DGAUGE`, ms | Minimum TCP retransmission timeout, in milliseconds |
 | `total`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type |
 | `udp_ignoredmulti`<br/>`DGAUGE`, count | Number of UDP multicast packets ignored |
 | `udp_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP packet contains an invalid kernel code checksum. |
@@ -385,7 +385,7 @@ The consumption type goes into the `systag` label.
 | `vmalloc_chunk`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_chunk` usage type |
 | `vmalloc_total`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_total` usage type |
 | `vmalloc_used`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_used` usage type |
-| `weighted_io_time`<br/>`DGAUGE`, milliseconds | I/O wait time |
+| `weighted_io_time`<br/>`DGAUGE`, ms | I/O wait time |
 | `write_back_tmp`<br/>`DGAUGE`, bytes | RAM usage, `write_back_tmp` usage type |
 | `write_back`<br/>`DGAUGE`, bytes | RAM usage, `write_back` usage type |
 | `write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed |

@@ -5,7 +5,7 @@ description: Follow this guide to edit a Let's Encrypt certificate.
 
 # Editing a Let's Encrypt certificate
 
-After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.md) and adding it to {{ certificate-manager-name }}, you can change its name or description. To edit a certificate:
+After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.md) and adding it to {{ certificate-manager-name }}, you can change its parameters. To edit a certificate:
 
 {% list tabs group=instructions %}
 
@@ -16,6 +16,8 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
   1. Select the certificate you need to edit.
   1. Click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.certificate-manager.overview.action_edit-meta }}**.
   1. Change the name or description of the certificate.
+  1. Enable or disable the deletion protection.
+  1. Update the certificate's labels.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -49,7 +51,7 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
   1. Run this command:
 
      ```bash
-     yc certificate-manager certificates update \
+     yc certificate-manager certificate update \
        --id fpq6gvvm6piu******** \
        --new-name myupdatedmanagedcert \
        --description "description of myupdatedmanagedcert"
@@ -79,7 +81,7 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and edit the fragment describing the certificate:
+  1. Open the {{ TF }} configuration file and change the certificate name or description:
 
      {% cut "Certificate description example" %}
 
@@ -91,7 +93,7 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
        domains     = ["my-domain.ru"]
 
        managed {
-       challenge_type = "DNS_CNAME"
+         challenge_type = "DNS_CNAME"
        }
      }
      ...

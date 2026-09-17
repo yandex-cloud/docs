@@ -7,14 +7,14 @@ Event name | Description
 `DeleteCluster` | Deleting a cluster
 `DeleteNodeGroup` | Deleting a node group
 `DeleteStoppedCluster` | Deleting a stopped cluster
-`InstallHelmRelease` | Installing a Helm version
+`marketplace.v1.InstallHelmRelease` | Installing an app from {{ marketplace-name }} using a Helm chart
+`marketplace.v1.UninstallHelmRelease` | Deleting an app installed from {{ marketplace-name }} using a Helm chart
+`marketplace.v1.UpdateHelmRelease` | Updating an app installed from {{ marketplace-name }} using a Helm chart
 `ScaleMaster` | Scaling the main node
 `SetClusterAccessBindings` | Assigning access permissions for a cluster
 `StartCluster` | Starting a cluster
 `StopCluster` | Stopping a cluster
-`UninstallHelmRelease` | Destroying a Helm version
 `UpdateCluster` | Updating a cluster
 `UpdateClusterAccessBindings` | Updating access permissions for a cluster
 `UpdateClusterCertificate` | Updating a [cluster certificate](../../../managed-kubernetes/concepts/release-channels-and-updates.md#certificates)
-`UpdateHelmRelease` | Updating a Helm version
 `UpdateNodeGroup` | Updating a node group

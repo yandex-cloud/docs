@@ -1,11 +1,11 @@
 ---
-title: How to create, update, and destroy encryption key pairs
-description: This guide describes how you can create, update, and destroy encryption key pairs.
+title: How to create, update, and delete an encryption key pair
+description: Follow this guide to create, update, and delete an encryption key pair.
 ---
 
 # Managing encryption key pairs
 
-You can use {{ kms-name }} to create, update, and destroy asymmetric encryption key pairs.
+You can use {{ kms-name }} to create, update, and delete asymmetric encryption key pairs.
 
 ## Creating an encryption key pair {#create}
 
@@ -13,15 +13,15 @@ You can use {{ kms-name }} to create, update, and destroy asymmetric encryption 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your key pair in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your key pair.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
-  1. In the top-right corner, click **{{ ui-key.yacloud.kms.asymmetric-keys.title_create }}**. In the window that opens:
+  1. Click **{{ ui-key.yacloud.kms.asymmetric-keys.title_create }}**. In the window that opens:
       
-      1. Enter a name and an optional description.
+      1. Enter a name and, optionally, a description.
       1. In the **{{ ui-key.yacloud.kms.asymmetric-key.form.title_type }}** field, select `{{ ui-key.yacloud.kms.asymmetric-keys.title_key-type-encryption }}`.
-      1. In the **{{ ui-key.yacloud.kms.asymmetric-key.form.title_algorithm }}** field, select the appropriate encryption algorithm.
-      1. Enable deletion protection if required.
+      1. In the **{{ ui-key.yacloud.kms.asymmetric-key.form.title_algorithm }}** field, select the encryption algorithm.
+      1. Enable deletion protection, if required.
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -30,13 +30,13 @@ You can use {{ kms-name }} to create, update, and destroy asymmetric encryption 
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to create an encryption key pair:
+  1. See the description of the CLI command for creating an encryption key pair:
 
       ```bash
       yc kms asymmetric-encryption-key create --help
       ```
 
-  1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder to create the key pair in.
+  1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder where you want to create your key pair.
 
   1. Create your key pair:
 
@@ -51,7 +51,7 @@ You can use {{ kms-name }} to create, update, and destroy asymmetric encryption 
       
       * `--name`: Name of the encryption key pair.
       * `--folder-id`: ID of the folder where the key pair will be created.
-      * `--encryption-algorithm`: Encryption algorithm. Available options:
+      * `--encryption-algorithm`: Encryption algorithm. Here are available options:
 
           * `rsa-2048-enc-oaep-sha-256`
           * `rsa-3072-enc-oaep-sha-256`
@@ -82,13 +82,13 @@ After creating an encryption key pair, you can change its name, description, and
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate key pair.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the key pair.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Navigate to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab.
-  1. In the line with the key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
+  1. In the key pair row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
       
-      1. Change the required key pair attributes.
+      1. Change the key pair attributes as appropriate.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -97,17 +97,17 @@ After creating an encryption key pair, you can change its name, description, and
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to update an encryption key pair:
+  1. See the description of the CLI command for updating an encryption key pair:
 
       ```bash
       yc kms asymmetric-encryption-key update --help
       ```
 
-  1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder with the key pair.
+  1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder containing the key pair.
 
   1. {% include [get-asymmetric-encryption-key](../../_includes/kms/get-a-encryption-key.md) %}
 
-  1. Update the key pair:
+  1. Update your key pair:
 
       ```bash
       yc kms asymmetric-encryption-key update \
@@ -120,7 +120,7 @@ After creating an encryption key pair, you can change its name, description, and
       
       * `--id`: ID of the encryption key pair.
       * `--new-name`: New name for the key pair.
-      * `--deletion-protection`: Flag to enable deletion protection. To disable the key pair deletion protection, use the `--no-deletion-protection` flag.
+      * `--deletion-protection`: Flag to enable deletion protection. To disable key pair deletion protection, use the `--no-deletion-protection` flag.
 
       Result:
 
@@ -134,7 +134,7 @@ After creating an encryption key pair, you can change its name, description, and
       deletion_protection: true
       ```
 
-      The command has renamed the encryption key pair and enabled its deletion protection.
+      The above command renamed the encryption key pair and enabled its deletion protection.
 
 - API {#api}
 
@@ -148,11 +148,11 @@ After creating an encryption key pair, you can change its name, description, and
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate key pair.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the key pair.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-  1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
+  1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Navigate to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab.
-  1. In the line with the key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the key pair row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
 - CLI {#cli}
@@ -161,13 +161,13 @@ After creating an encryption key pair, you can change its name, description, and
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to delete an encryption key pair:
+  1. See the description of the CLI command for deleting an encryption key pair:
 
       ```bash
       yc kms asymmetric-encryption-key delete --help
       ```
 
-  1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder with the key pair.
+  1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder containing the key pair.
 
   1. {% include [get-asymmetric-encryption-key](../../_includes/kms/get-a-encryption-key.md) %}
 

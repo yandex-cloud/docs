@@ -13,6 +13,8 @@ description: На этой странице приведен справочни�
 
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
+| [yandex_iam_oauth_client]({{ tf-provider-resources-link }}/iam_oauth_client) | [OAuth-клиент](../organization/concepts/applications/oidc.md) |
+| [yandex_iam_oauth_client_secret]({{ tf-provider-resources-link }}/iam_oauth_client_secret) | [Секрет OAuth-клиента](../organization/concepts/applications/oidc.md#oidc-secret) |
 | [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account) | [Сервисный аккаунт](./concepts/users/service-accounts.md) |
 | [yandex_iam_service_account_api_key]({{ tf-provider-resources-link }}/iam_service_account_api_key) | [API-ключ](./concepts/authorization/api-key.md) |
 | [yandex_iam_service_account_iam_binding]({{ tf-provider-resources-link }}/iam_service_account_iam_binding) | [Назначение](./concepts/access-control/index.md#access-bindings) прав доступа к сервисному аккаунту. Имеет ограничение в 1000 привязок на ресурс. <br>Вместо `iam_service_account_iam_binding` рекомендуется использовать `iam_service_account_iam_member` |
@@ -20,6 +22,9 @@ description: На этой странице приведен справочни�
 | [yandex_iam_service_account_iam_policy]({{ tf-provider-resources-link }}/iam_service_account_iam_policy) | Устанавливает политику доступа сервисного аккаунта и заменяет любую заданную политику |
 | [yandex_iam_service_account_key]({{ tf-provider-resources-link }}/iam_service_account_key) | [Авторизованный ключ](./concepts/authorization/key.md) |
 | [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key) | [Статический ключ](./concepts/authorization/access-key.md) |
+| [yandex_iam_workload_identity_federated_credential]({{ tf-provider-resources-link }}/iam_workload_identity_federated_credential) | [Привязка в федерации сервисных аккаунтов](./concepts/workload-identity.md#federated-credentials) |
+| [yandex_iam_workload_identity_oidc_federation]({{ tf-provider-resources-link }}/iam_workload_identity_oidc_federation) | [Федерация сервисных аккаунтов](./concepts/workload-identity.md) |
+| [yandex_iam_workload_identity_oidc_federation_iam_binding]({{ tf-provider-resources-link }}/iam_workload_identity_oidc_federation_iam_binding) | Назначение [роли](./concepts/access-control/roles.md) на [федерацию сервисных аккаунтов](./concepts/workload-identity.md) |
 
 ## Источники данных {#data-sources}
 
@@ -27,7 +32,11 @@ description: На этой странице приведен справочни�
 
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
+| [yandex_iam_oauth_client]({{ tf-provider-datasources-link }}/iam_oauth_client) | Информация об [OAuth-клиенте](../organization/concepts/applications/oidc.md) |
 | [yandex_iam_policy]({{ tf-provider-datasources-link }}/iam_policy) | Информация о политике доступа |
 | [yandex_iam_role]({{ tf-provider-datasources-link }}/iam_role) | Информация о [роли](./concepts/access-control/roles.md) |
 | [yandex_iam_service_account]({{ tf-provider-datasources-link }}/iam_service_account) | Информация о [сервисном аккаунте](./concepts/users/service-accounts.md) |
+| [yandex_iam_service_agent]({{ tf-provider-datasources-link }}/iam_service_agent) | Информация о [сервисном агенте](./concepts/service-control.md#service-agent) |
 | [yandex_iam_user]({{ tf-provider-datasources-link }}/iam_user) | Информация о пользователе |
+| [yandex_iam_workload_identity_federated_credential]({{ tf-provider-datasources-link }}/iam_workload_identity_federated_credential) | Информация о [привязке в федерации сервисных аккаунтов](./concepts/workload-identity.md#federated-credentials) |
+| [yandex_iam_workload_identity_oidc_federation]({{ tf-provider-datasources-link }}/iam_workload_identity_oidc_federation) | Информация о [федерации сервисных аккаунтов](./concepts/workload-identity.md) |

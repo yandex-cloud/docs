@@ -1,4 +1,4 @@
-[Create a {{ sws-name }} profile](../../../smartwebsecurity/operations/profile-create.md) by selecting **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+[Create a {{ sws-name }} profile](../../../smartwebsecurity/operations/profile-create.md) by selecting `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
 
 Use these settings when creating the profile:
 

@@ -12,7 +12,7 @@ description: Follow this guide to send a push notification.
   1. In the [management console]({{ link-console-main }}), select the folder containing the endpoint.
   1. [Navigate]({{ link-console-main }}/link/cns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select a push notification channel.
-  1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Select the endpoint you need.
   1. Select a notification format under **{{ ui-key.yacloud.cns.section_message-sending }}**: `Text` or `JSON`.
   1. Enter notification text or a JSON object with notification data.

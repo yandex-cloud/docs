@@ -14,6 +14,12 @@ There are two logging options available:
 
 This section covers logging via {{ sws-name }}. This method provides more advanced analysis compared to logging via {{ alb-name }}. Request logging via an L7 load balancer is described in [{#T}](../operations/configure-logging-alb.md).
 
+{% note info %}
+
+Currently, {{ sws-name }} writes its logs to {{ cloud-logging-name }}. This service will be shut down in Q2 2027. Log management will be migrated to a unified observability platform called [{{ monium-name }}](../../monium/). {{ cloud-logging-name }} will no longer be available for new security profiles; however, you will be able to set up logging to {{ monium-name }}.
+
+{% endnote %}
+
 Logs contain information about HTTP requests processed by {{ sws-name }}. You can only log requests that were blocked with a `DENY` verdict or sent to captcha with a `CAPTCHA` verdict. Additionally, you can log some legitimate requests with an `ALLOW` verdict. To reduce the size of logs, specify a sampling rate for such requests between 1% and 100%.
 
 {{ sws-name }} delivers logs in JSON format. Each log entry contains the following structural blocks: 

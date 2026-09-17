@@ -30,4 +30,4 @@ kubectl -n stackland-ytsaurus get ingress yt-ui -o jsonpath='{.spec.rules[0].hos
 ## Что дальше {#what-is-next}
 
 * [Подключиться к HTTP-прокси {{ YT }}](connect-api.md) — для запросов через {{ YT }} CLI и SDK.
-* [Документация {{ YT }} по веб-интерфейсу](https://ytsaurus.tech/docs/ru/user-guide/storage/web-interface).
+* [Документация {{ YT }} по веб-интерфейсу](https://ytsaurus.tech/docs/{{ lang }}/overview/about#ui).

@@ -48,6 +48,8 @@
 
  - [Настройка доступа к Object Storage](operations/s3-access.md)
 
+ - [Техническое обслуживание](operations/cluster-maintenance.md)
+
  - [Удаление кластера](operations/cluster-delete.md)
 
 ### Подключение
@@ -232,6 +234,16 @@
 
  - [update](cli-ref/extension/update.md)
 
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
 ### node-group
 
  - [Overview](cli-ref/node-group/index.md)
@@ -335,6 +347,16 @@
  - [list](cli-ref/v0/extension/list.md)
 
  - [update](cli-ref/v0/extension/update.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/v0/maintenance/reschedule.md)
 
 #### node-group
 
