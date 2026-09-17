@@ -8,65 +8,26 @@ resource "yandex_audit_trails_trail" "basic_trail" {
   }
   service_account_id = "<идентификатор_сервисного_аккаунта>"
 
-
-  # Должно быть указано только одно место назначения:
-  # storage_destination , logging_destination, data_stream_destination
-  # Настройки для всех мест назначения приведены для иллюстрации
-
-  logging_destination {
-    log_group_id = "<идентификатор_лог-группы>"
-  }
   storage_destination {
-    bucket_name   = "<идентификатор_бакета>"
+    bucket_name   = "<имя_бакета>"
     object_prefix = "<префикс>"
   }
-  data_stream_destination {
-    database_id = "<идентификатор_базы_данных_YDS>"
-    stream_name = "<имя_потока_данных_YDS>"
-    codec       = "<метод_сжатия_событий>"
-  }
-
-  # Настройки политики фильтрации
 
   filtering_policy {
     management_events_filter {
       resource_scope {
-        resource_id   = "<идентификатор_организации>"
-        resource_type = "organization-manager.organization"
-      }
-    }  
-    data_events_filter {
-      service = "<сервис>"
-      included_events = ["<тип_событий_сервиса>","<тип_событий_сервиса_2>"]
-      resource_scope {
-        resource_id   = "<идентификатор_облака>"
-        resource_type = "resource-manager.cloud"
-      }
-      resource_scope {
-        resource_id   = "<идентификатор_каталога>"
-        resource_type = "resource-manager.folder"
+        resource_id   = "<идентификатор_организации_облака_или_каталога>"
+        resource_type = "<тип>"
       }
     }
+
     data_events_filter {
-      service = "<сервис_2>"
+      service         = "<имя_сервиса>"
+      included_events = ["<полное_имя_события>"]
+
       resource_scope {
-        resource_id   = "<идентификатор_облака_2>"
-        resource_type = "resource-manager.cloud"
-      }
-      resource_scope {
-        resource_id   = "<идентификатор_облака_3>"
-        resource_type = "resource-manager.cloud"
-      }
-    }
-    data_events_filter {
-      service = "<сервис_3>"
-      resource_scope {
-        resource_id   = "<идентификатор_каталога_2>"
-        resource_type = "resource-manager.folder"
-      }
-      resource_scope {
-        resource_id   = "<идентификатор_каталога_3>"
-        resource_type = "resource-manager.folder"
+        resource_id   = "<идентификатор_организации_облака_или_каталога>"
+        resource_type = "<тип>"
       }
     }
   }

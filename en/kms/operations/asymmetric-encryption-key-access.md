@@ -5,7 +5,7 @@ description: Follow this guide to assign roles for an asymmetric encryption key 
 
 # Configuring access permissions for an asymmetric encryption key pair
 
-You can grant access to an [asymmetric encryption key pair](../concepts/asymmetric-encryption-key.md) to a user, service account, or user group. To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the key pair. To choose the ones you need, [learn](../security/index.md#roles-list) about the service's roles.
+You can grant access to an [asymmetric encryption key pair](../concepts/asymmetric-encryption-key.md) to a user, service account, or user group. To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the key pair. To choose the ones you need, [learn](../security/index.md#roles-list) about the existing roles.
 
 ## Assigning a role {#add-access-binding}
 
@@ -13,13 +13,13 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder containing an asymmetric encryption key pair.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the asymmetric encryption key pair.
    1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
-   1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab, click the name of the key pair.
-   1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+   1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab, click the key pair name.
+   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Select the group, user, or service account you need to grant access to the key pair.
-   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
@@ -36,7 +36,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
       yc kms asymmetric-encryption-key add-access-binding --help
       ```
 
-   1. Get a list of asymmetric key pairs along with their IDs:
+   1. Get a list of asymmetric key pairs with their IDs:
 
       ```bash
       yc kms asymmetric-encryption-key list
@@ -87,7 +87,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To assign a role for an asymmetric encryption key pair through {{ TF }}:
+   To assign a role for an asymmetric encryption key pair using {{ TF }}:
 
    1. In the {{ TF }} configuration file, describe the resources you want to create:
 
@@ -104,7 +104,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
        * `asymmetric_encryption_key_id`: ID of the asymmetric encryption key pair.
        * `role`: [Role](../security/index.md#roles-list) to assign.
-       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
        For more on the properties of the `yandex_kms_asymmetric_encryption_key_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
 
@@ -135,13 +135,13 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder containing an asymmetric encryption key pair.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the asymmetric encryption key pair.
    1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
-   1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab, click the name of the key pair.
-   1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+   1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab, click the key pair name.
+   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Select the group, user, or service account you need to grant access to the key pair.
-   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
@@ -224,7 +224,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To assign multiple roles for an asymmetric encryption key pair through {{ TF }}:
+   To assign multiple roles for an asymmetric encryption key pair using {{ TF }}:
 
    1. In the {{ TF }} configuration file, describe the resources you want to create:
 
@@ -250,7 +250,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
        * `asymmetric_encryption_key_id`: ID of the asymmetric encryption key pair.
        * `role`: [Role](../security/index.md#roles-list) to assign.
-       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
        For more on the properties of the `yandex_kms_asymmetric_encryption_key_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
 

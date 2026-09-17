@@ -23,6 +23,7 @@ To view [alerts](../../concepts/alerting/alert.md), you need the `viewer` role o
       * **ID**: Set a unique alert ID.
       * **Type**: Select the alert type.
       * **{{ ui-key.yacloud_monitoring.alert.title_description }}**: Describe the purpose of the alert.
+      * **Alert level**: Select the [alert severity level](../../concepts/alerting/alert.md#severity): `Unspecified`, `Disaster`, `Critical`, or `Info`.
 
   1. Describe [queries](../../concepts/alerting/alert.md#queries).
   1. Configure the alert [trigger conditions](../../concepts/alerting/alert.md#condition):

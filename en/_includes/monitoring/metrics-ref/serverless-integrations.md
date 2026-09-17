@@ -1,27 +1,4 @@
-The metric name goes into the `name` label.
-
-
-## {{ sw-full-name }} metrics {#workflows}
-
-All {{ sw-name }} metrics share the `workflow` label, which is the workflow ID.
-
-Metric name<br>Type, units | Description<br>Labels
---- | ---
-`step_completed_per_second`<br>`DGAUGE`, steps per second | Number of completed steps per second.<br>This metric features the `step` label containing the step name.
-`step_failed_per_second`<br>`DGAUGE`, steps per second | Number of failed steps per second.<br>Labels:<ul><li>`step`: Step name</li><li>`error_code`: Error code.</li></ul>
-`step_inflight_count`<br>`DGAUGE`, steps | Number of steps currently in progress.<br>This metric features the `step` label containing the step name.
-`step_started_per_second`<br>`DGAUGE`, steps/s | Number of started steps per second.<br>This metric features the `step` label containing the step name.
-`step_time_milliseconds`<br>`DGAUGE`, milliseconds | Step execution time.<br>Labels:<ul><li>`bin`: Histogram buckets.</li><li>`step`: Step name</li></ul>
-`step_time_milliseconds_count`<br>`DGAUGE`, number of steps | Total number of step time measurements.<br>This metric features the `step` label containing the step name.
-`step_time_milliseconds_sum`<br>`DGAUGE`, milliseconds | Total execution time for all steps.<br>This metric features the `step` label containing the step name.
-`workflow_completed_per_second`<br>`DGAUGE`, workflows per second | Number of completed workflows per second
-`workflow_failed_per_second`<br>`DGAUGE`, workflows per second | Number of failed workflows per second.<br>This metric features the `error_code` label containing the error code.
-`workflow_inflight_count`<br>`DGAUGE`, workflows | Number of workflows currently in progress
-`workflow_scheduled_per_second`<br>`DGAUGE`, workflows per second | Number of scheduled workflows per second
-`workflow_started_per_second`<br>`DGAUGE`, workflows per second | Number of started workflows per second
-`workflow_time_milliseconds`<br>`DGAUGE`, milliseconds | Execution time per workflow.<br>This metric features the `bin` label containing histogram buckets.
-`workflow_time_milliseconds_count`<br>`DGAUGE`, count | Total number of workflow time measurements.
-`workflow_time_milliseconds_sum`<br>`DGAUGE`, milliseconds | Total execution time for all workflows.
+The `name` label contains the metric name.
 
 
 ## {{ er-full-name }} metrics {#eventrouter}
@@ -34,7 +11,7 @@ All {{ er-name }} metrics share the `bus` label, which is the [bus](../../../ser
 Metric name<br>Type, units | Description<br>Labels
 --- | ---
 `serverless_eventrouter_bus_put_event_per_second`<br>`DGAUGE`, messages per second | Frequency of messages sent using the [EventService/Put](../../../serverless-integrations/eventrouter/api-ref/grpc/Event/put.md) gRPC API call.
-`serverless_eventrouter_bus_sent_error_per_second`<br>`DGAUGE`, errors per second | Frequency of bus errors.<br>Labels:<ul><li>`code`: Error code. The possible values are:<ul><li>`EVENTROUTER_BUS_SEND_ERROR`</li><li>`EVENTROUTER_EVENT_SIZE_EXCEEDED`</li></ul></li><li>`source`: Source</li></ul>
+`serverless_eventrouter_bus_sent_error_per_second`<br>`DGAUGE`, errors per second | Frequency of bus errors.<br>Labels:<ul><li>`code`: Error code. The possible values are as follows:<ul><li>`EVENTROUTER_BUS_SEND_ERROR`</li><li>`EVENTROUTER_EVENT_SIZE_EXCEEDED`</li></ul></li><li>`source`: Source</li></ul>
 `serverless_eventrouter_put_event_latency_milliseconds`<br>`DGAUGE`, milliseconds | Time from receiving a message sent using the [EventService/Put](../../../serverless-integrations/eventrouter/api-ref/grpc/Event/put.md) gRPC API call until it is written to the bus.
 
 

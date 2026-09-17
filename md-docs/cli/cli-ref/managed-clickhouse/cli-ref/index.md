@@ -80,6 +80,8 @@ Aliases:
 
   - [yc managed-clickhouse cluster list-operations](cluster/list-operations.md) — List operations for a ClickHouse cluster.
 
+  - [yc managed-clickhouse cluster migrate-to-keeper](cluster/migrate-to-keeper.md) — Migrate a ClickHouse cluster from ZooKeeper to ClickHouse Keeper.
+
   - [yc managed-clickhouse cluster move](cluster/move.md) — Move the specified ClickHouse cluster into the folder
 
   - [yc managed-clickhouse cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified ClickHouse cluster
@@ -153,6 +155,14 @@ Aliases:
   - [yc managed-clickhouse hosts restart](hosts/restart.md) — Restart specified hosts of the cluster.
 
   - [yc managed-clickhouse hosts update](hosts/update.md) — Update the specified hosts
+
+- [yc managed-clickhouse maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-clickhouse maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-clickhouse maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-clickhouse maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
 
 - [yc managed-clickhouse ml-model](ml-model/index.md) — Manage ClickHouse machine learning models.
 

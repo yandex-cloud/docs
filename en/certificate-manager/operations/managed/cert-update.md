@@ -1,3 +1,8 @@
+---
+title: How to update a Let's Encrypt certificate in {{ certificate-manager-full-name }}
+description: Follow this guide to update a Let's Encrypt certificate.
+---
+
 # Renewing a certificate
 
 {{ certificate-manager-name }} initiates a certificate renewal 30 days prior to its expiration. The certificate status will change to `Renewing`.
@@ -18,8 +23,8 @@ To renew a Let's Encrypt certificate:
     1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
     1. Select the certificate in the `Renewing` status that you need to renew.
     1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, you will see the details required to pass the domain rights check. For more information, see [{#T}](../../concepts/challenges.md).
-    1. As soon as you successfully pass the domain ownership verification, its status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will switch to `Valid`.
-    1. After the check status for all the domains changes to `Valid`, a certificate will be issued and its status will change to `Issued`.
+    1. As soon as you successfully pass the domain ownership verification, its status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.
+    1. After the verification status of all domains changes to `Valid`, a certificate will be issued and its status will change to `Issued`.
 
 - API {#api}
 

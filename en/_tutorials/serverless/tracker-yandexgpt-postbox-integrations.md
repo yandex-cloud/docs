@@ -5,7 +5,7 @@
 
 In this tutorial, you will create [workflows]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) in {{ sw-full-name }} and configure their integration with [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index), and [{{ postbox-full-name }}]({{ link-docs }}/postbox/index.yaml).
 
-Your workflows will receive information about the issues in a given {{ tracker-name }} [queue]({{ link-tracker-cloudless }}about-tracker#ochered) and use {{ gpt-pro }} to analyze the work completed within these issues, their statuses, and evaluation. The results of the analysis and a brief progress report will be saved in a comment to one of the {{ tracker-name }} issues and also sent to the specified email address via {{ postbox-name }}.
+Your workflows will receive information about the issues in a given {{ tracker-name }} [queue]({{ link-tracker-cloudless }}queue-intro) and use {{ gpt-pro }} to analyze the work completed within these issues, their statuses, and evaluation. The results of the analysis and a brief progress report will be saved in a comment to one of the {{ tracker-name }} issues and also sent to the specified email address via {{ postbox-name }}.
 
 To configure a workflow in {{ sw-full-name }}:
 
@@ -64,15 +64,15 @@ To make sure the workflows you create in this tutorial work properly, set up a q
 
 - {{ tracker-name }} UI {#console}
 
-  1. If {{ tracker-full-name }} is not enabled in your organization, [enable]({{ link-tracker-cloudless }}enable-tracker) it.
-  1. If you do not have a queue in {{ tracker-name }} yet, [create]({{ link-tracker-cloudless }}manager/create-queue) one.
-  1. [Create]({{ link-tracker-cloudless }}user/create-ticket) 5–10 test issues in your queue that meet the following requirements:
+  1. If {{ tracker-full-name }} is not enabled in your organization, [enable](https://yandex.ru/support/tracker/{{ lang }}/enable-tracker) it.
+  1. If you do not have a queue in {{ tracker-name }} yet, [create](https://yandex.ru/support/tracker/{{ lang }}/manager/create-queue) one.
+  1. [Create](https://yandex.ru/support/tracker/{{ lang }}/user/create-ticket) 5–10 test issues in your queue that meet the following requirements:
 
       * The test issues must be created in one queue.
-      * All test issues must have the `product` [tag]({{ link-tracker-cloudless }}glossary#rus-t) set in the **Tags** field.
-      * All test issues must be evaluated in [Story Points]({{ link-tracker-cloudless }}glossary#en-s) in the **Story Points** field.
-      * Some of the test issues must be in the `Closed` [status]({{ link-tracker-cloudless }}about-tracker#process), and some, in the `Open` status.
-      * Closed test issues must include [comments]({{ link-tracker-cloudless }}user/comments) on your work progress.
+      * All test issues must have the `product` [tag]({{ link-tracker-cloudless }}quick-start/glossary#t) set in the **Tags** field.
+      * All test issues must be evaluated in [Story Points]({{ link-tracker-cloudless }}quick-start/glossary#s) in the **Story Points** field.
+      * Some of the test issues must be in the `Closed` [status](https://yandex.ru/support/tracker/{{ lang }}/manager/workflow-status-edit#status-types), and some, in the `Open` status.
+      * Closed test issues must include [comments](https://yandex.ru/support/tracker/{{ lang }}/user/comments) on your work progress.
 
 {% endlist %}
 
@@ -244,7 +244,7 @@ To enable the workflow to send emails, create a {{ postbox-name }} [address]({{ 
 
       1. Analyzing issues with specified tag in a given {{ tracker-name }} queue:
           * Total number of issues.
-          * Total sum of [Story Points]({{ link-tracker-cloudless }}glossary#en-s) awarded to issues.
+          * Total sum of [Story Points]({{ link-tracker-cloudless }}quick-start/glossary#s) awarded to issues.
           * Number of closed issues.
           * Percentage ratio of the number of closed issues to the total number of issues.
           * Sum of `Story Points` awarded to closed issues.
@@ -363,9 +363,9 @@ To enable the workflow to send emails, create a {{ postbox-name }} [address]({{ 
 
       * `<organization_ID>`: [ID]({{ link-docs }}/organization/operations/organization-get-id) of your {{ org-full-name }}.
       * `<secret_ID>`: Previously saved [secret]({{ link-docs }}/lockbox/concepts/secret) ID with the application's OAuth token.
-      * `<queue_key_in_{{ tracker-name }}>`: [Key]({{ link-tracker-cloudless }}glossary#rus-k) of the {{ tracker-name }} queue where you created the test issues.
+      * `<queue_key_in_{{ tracker-name }}>`: [Key]({{ link-tracker-cloudless }}quick-start/glossary#i) of the {{ tracker-name }} queue where you created the test issues.
       * `<folder_ID>`: [ID]({{ link-docs }}/resource-manager/operations/folder/get-id) of the folder where you are creating a workflow.
-      * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}glossary#rus-z) in the comment to which the summary of the analyzed test issues will be uploaded.
+      * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}quick-start/glossary#i) in the comment to which the summary of the analyzed test issues will be uploaded.
       * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`), you can specify any address on this domain, e.g., `tracker-robot@example.com` or `noreply@example.com`.
       * `<recipient_address>`: Email address to which the workflow will send a summary of the analyzed {{ tracker-name }} test issues.
 
@@ -501,7 +501,7 @@ To enable the workflow to send emails, create a {{ postbox-name }} [address]({{ 
       * `<organization_ID>`: [ID]({{ link-docs }}/organization/operations/organization-get-id) of your {{ org-full-name }}.
       * `<secret_ID>`: Previously saved [secret]({{ link-docs }}/lockbox/concepts/secret) ID with the application's OAuth token.
       * `<folder_ID>`: [ID]({{ link-docs }}/resource-manager/operations/folder/get-id) of the folder where you are creating a workflow.
-      * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}glossary#rus-z) in the comment to which the summary of the analyzed test issues will be uploaded.
+      * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}quick-start/glossary#i) in the comment to which the summary of the analyzed test issues will be uploaded.
       * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain, e.g., `tracker-robot@example.com` or `noreply@example.com`.
       * `<recipient_address>`: Email address to which the workflow will send a summary of the analyzed {{ tracker-name }} test issues.
 

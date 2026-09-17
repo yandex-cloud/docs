@@ -1,28 +1,28 @@
 # Key management
 
-You can use {{ kms-name }} to create, rotate, and destroy symmetric encryption keys.
+You can use {{ kms-name }} to create, rotate, and delete symmetric encryption keys.
 
-## Create a key {#create}
+## Creating a key {#create}
 
-To create a key:
+To create a new key:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key attributes:
+  1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the following key attributes:
 
-     * Any name and optional description.
+     * Custom name and optional description.
      * [Encryption algorithm](../concepts/key.md#parameters), e.g., `AES-256`.
      * [Rotation](../concepts/index.md#rotation) period (how often to change key versions).
-     * (Optional) Enable deletion protection.
+     * Optionally, enable deletion protection.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
-  When creating a key, you create its first version; to open a page with its attributes, click the key in the list.
+  When you create a key, its first version is created automatically. Click the key in the list to open the page with its attributes.
 
 - CLI {#cli}
 
@@ -39,11 +39,11 @@ To create a key:
   Where:
 
   * `--name`: Key name.
-  * `--default-algorithm`: [Encryption algorithms](../concepts/key.md#parameters), such as `aes-128`, `aes-192`, `aes-256`, `aes-256-hsm`, or `gost-r-3412-2015-k`.
-  * `--rotation-period`: Key rotation period. To create a key without automatic rotation, do not specify the `--rotation-period` parameter.
-  * `--deletion-protection`: Key deletion protection. To create a key without deletion protection, do not specify the `--deletion-protection` parameter.
+  * `--default-algorithm`: [Encryption algorithm](../concepts/key.md#parameters), such as `aes-128`, `aes-192`, `aes-256`, `aes-256-hsm`, or `gost-r-3412-2015-k`.
+  * `--rotation-period`: Key rotation period. To create a key without automatic rotation, do not specify `--rotation-period`.
+  * `--deletion-protection`: Key deletion protection. To create a key without deletion protection, do not specify `--deletion-protection`.
 
-  When creating a key, you create its first version. It is specified in the `primary_version` field.
+  When you create a key, its first version is created automatically. It is specified in the `primary_version` field.
 
 - {{ TF }} {#tf}
 
@@ -59,20 +59,20 @@ To create a key:
 
 {% endlist %}
 
-## Edit a key {#update}
+## Updating a key {#update}
 
-After creating a key, you can change any of its attributes. If you change the encryption algorithm, the new algorithm is used starting with the next key version. To create a new version right away and make it the default one, [rotate the key](#rotate).
+After creating a key, you can change any of its attributes. If you change the encryption algorithm, the new algorithm will be used starting with the next key version. To create a new version right away and make it the default one, [rotate the key](#rotate).
 
-To edit a key:
+To update a key:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. In the key row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Change the key attributes and click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -90,16 +90,16 @@ To edit a key:
 
   Where:
 
-  * `--name`: Key name. If there are several keys of the same name in the folder, use the key ID.
+  * `--name`: Key name. If there are several keys with the same name within the folder, use the key ID.
   * `--new-name`: New key name.
-  * `--default-algorithm`: [Encryption algorithms](../concepts/key.md#parameters), such as `aes-128`, `aes-192`, `aes-256`, `aes-256-hsm`, or `gost-r-3412-2015-k`.
-  * `--rotation-period`: Key rotation period. To disable automatic rotation for an updated key, do not specify the `--rotation-period` parameter.
+  * `--default-algorithm`: [Encryption algorithm](../concepts/key.md#parameters), such as `aes-128`, `aes-192`, `aes-256`, `aes-256-hsm`, or `gost-r-3412-2015-k`.
+  * `--rotation-period`: Key rotation period. To disable automatic rotation for the updated key, do not specify `--rotation-period`.
   * `--deletion-protection`: Key deletion protection. To disable deletion protection, specify the `--no-deletion-protection` parameter.
 
 - {{ TF }} {#tf}
 
-  To edit a key:
-  1. Open the {{ TF }} configuration file and change the required parameters of the `yandex_kms_symmetric_key` resource.
+  To update a key:
+  1. Open the {{ TF }} configuration file and change the properties of the `yandex_kms_symmetric_key` resource as needed.
 
      Here is an example of the configuration file structure:
 
@@ -134,7 +134,7 @@ To edit a key:
      terraform plan
      ```
 
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
      ```bash
@@ -161,21 +161,21 @@ After creating a key, you can change its current [status](../concepts/key.md#par
 
 {% note info %}
 
-Key deactivation (changing the key status from `Active` to `Inactive`) is an [eventually consistent](../concepts/consistency.md) operation. Changes caused by such operations take effect with a delay of up to three hours.
+Key deactivation (changing the key status from `Active` to `Inactive`) is an [eventually consistent](../concepts/consistency.md) operation. Changes resulting from such operations take effect with a delay of up to three hours.
 
 {% endnote %}
 
-To change key status:
+To change a key status:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. To deactivate a key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-deactivate }}** next to an `Active` key.
-  1. To activate a key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-activate }}** next to an `Inactive` key.
+  1. To deactivate a key, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![toggle-off](../../_assets/console-icons/toggle-off.svg) **{{ ui-key.yacloud.kms.symmetric-keys.button_action-deactivate }}** next to the relevant `Active` key.
+  1. To activate a key, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![toggle-on](../../_assets/console-icons/toggle-on.svg) **{{ ui-key.yacloud.kms.symmetric-keys.button_action-activate }}** next to the relevant `Inactive` key.
 
 - CLI {#cli}
 
@@ -189,12 +189,12 @@ To change key status:
 
   Where:
 
-  * `--name`: Key name. If there are several keys of the same name in the folder, use the key ID in the `--id` parameter.
+  * `--name`: Key name. If there are several keys with the same name within the folder, use the key ID in the `--id` parameter.
   * `--status`: New key status. It can be either `active` or `inactive`.
 
 - {{ TF }} {#tf}
 
-  1. Open the {{ TF }} configuration file and add the `status` parameter set to `ACTIVE` or `INACTIVE` to the `yandex_kms_symmetric_key` resource's description.
+  1. Open the {{ TF }} configuration file and add the `status` parameter set to `ACTIVE` or `INACTIVE` to the `yandex_kms_symmetric_key` resource description.
 
      Here is an example of the configuration file structure:
 
@@ -229,7 +229,7 @@ To change key status:
      terraform plan
      ```
 
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
      ```bash
@@ -250,9 +250,9 @@ To change key status:
 
 {% endlist %}
 
-## Rotate a key {#rotate}
+## Rotating a key {#rotate}
 
-When a key is rotated, a new version is generated and immediately set as the default version. You can set up automatic rotation, but you can also rotate a key manually at any time.
+When a key is rotated, a new version is generated and immediately set as the default version. You can setup automatic key rotation on a regular schedule, but you can also rotate the key manually at any time.
 
 {% include [rotation-delay](../../_includes/kms/rotation-delay.md) %}
 
@@ -262,15 +262,15 @@ To rotate a key:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-rotate }}**.
+  1. In the key row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![arrow-rotate-right](../../_assets/console-icons/arrow-rotate-right.svg) **{{ ui-key.yacloud.kms.symmetric-keys.button_action-rotate }}**.
   1. Confirm the rotation (make sure that changing the default version will not affect your work).
 
 - CLI {#cli}
 
-  Run the command with the key ID or name specified:
+  Run the following command, specifying the key ID or name:
 
   ```bash
   yc kms symmetric-key rotate example-key
@@ -282,33 +282,33 @@ To rotate a key:
 
 {% endlist %}
 
-## Destroy a key {#delete}
+## Deleting a key {#delete}
 
-By destroying a key you also destroy all its versions. You cannot delete a key right away: the versions of a key marked for deletion change their status to `Scheduled For Destruction` for 3 days. During this time, your account will continue [to be charged](../pricing.md) for these key versions. Before the 3 days expire, you can request technical support to restore a key and its versions.
+Deleting a key also deletes all its versions. You cannot delete a key right away. When a key is marked for deletion, its versions remain in the `Scheduled For Destruction` status for three days. The key versions remain [billable](../pricing.md) during this period. Within these three days, you can contact support to restore the key along with its versions.
 
 {% note alert %}
 
-3 days after the key is requested to be destroyed, the key and its versions are permanently destroyed: if you still have any data encrypted with this key, you cannot decrypt the data.
+Three days after you request the deletion of a key, the key and all its versions are permanently deleted. If you still have any data encrypted with this key, you will not be able to decrypt it.
 
 {% endnote %}
 
 If key deletion protection is enabled, [disable](#update) it first.
 
-To destroy a key:
+To delete a key:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the key row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
-  Run the command with the key ID or name specified:
+  Run the following command, specifying the key ID or name:
 
   ```bash
   yc kms symmetric-key delete example-key
@@ -317,9 +317,9 @@ To destroy a key:
 - {{ TF }} {#tf}
 
   To delete a key created with {{ TF }}:
-  1. Open the {{ TF }} configuration file and delete the fragment with the key description.
+  1. Open the {{ TF }} configuration file and delete the section with the key description.
 
-     Example key description in the {{ TF }} configuration:
+     Here is an example of a key description in the {{ TF }} configuration:
 
      ```hcl
      ...
@@ -351,7 +351,7 @@ To destroy a key:
      terraform plan
      ```
 
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
      ```bash
@@ -374,7 +374,7 @@ To destroy a key:
 
 {% note info %}
 
-Deleting a key is an [eventually consistent](../concepts/consistency.md) operation. Changes caused by such operations take effect with a delay of up to three hours.
+Deleting a key is an [eventually consistent](../concepts/consistency.md) operation. Changes resulting from such operations take effect with a delay of up to three hours.
 
 {% endnote %}
 

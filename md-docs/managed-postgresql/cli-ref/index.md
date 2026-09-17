@@ -120,6 +120,14 @@ Aliases:
 
   - [yc managed-postgresql hosts update-config](hosts/update-config.md) — Updates PostgreSQL config for the specified hosts
 
+- [yc managed-postgresql maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-postgresql maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-postgresql maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-postgresql maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
+
 - [yc managed-postgresql performance-diagnostics](performance-diagnostics/index.md) — Export PostgreSQL performance diagnostics data
 
   - [yc managed-postgresql performance-diagnostics list-raw-sessions](performance-diagnostics/list-raw-sessions.md) — List raw PostgreSQL session states for the specified time range

@@ -5938,6 +5938,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list-operations](cli-ref/managed-clickhouse/cli-ref/cluster/list-operations.md)
 
+ - [migrate-to-keeper](cli-ref/managed-clickhouse/cli-ref/cluster/migrate-to-keeper.md)
+
  - [move](cli-ref/managed-clickhouse/cli-ref/cluster/move.md)
 
  - [remove-access-binding](cli-ref/managed-clickhouse/cli-ref/cluster/remove-access-binding.md)
@@ -6021,6 +6023,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [restart](cli-ref/managed-clickhouse/cli-ref/hosts/restart.md)
 
  - [update](cli-ref/managed-clickhouse/cli-ref/hosts/update.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/managed-clickhouse/cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/managed-clickhouse/cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/managed-clickhouse/cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-clickhouse/cli-ref/maintenance/reschedule.md)
 
 #### ml-model
 
@@ -6170,6 +6182,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list-operations](cli-ref/managed-clickhouse/cli-ref/v0/cluster/list-operations.md)
 
+ - [migrate-to-keeper](cli-ref/managed-clickhouse/cli-ref/v0/cluster/migrate-to-keeper.md)
+
  - [move](cli-ref/managed-clickhouse/cli-ref/v0/cluster/move.md)
 
  - [remove-access-binding](cli-ref/managed-clickhouse/cli-ref/v0/cluster/remove-access-binding.md)
@@ -6253,6 +6267,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [restart](cli-ref/managed-clickhouse/cli-ref/v0/hosts/restart.md)
 
  - [update](cli-ref/managed-clickhouse/cli-ref/v0/hosts/update.md)
+
+##### maintenance
+
+ - [Overview](cli-ref/managed-clickhouse/cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/managed-clickhouse/cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/managed-clickhouse/cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-clickhouse/cli-ref/v0/maintenance/reschedule.md)
 
 ##### ml-model
 
@@ -6492,6 +6516,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [segment](cli-ref/managed-greenplum/cli-ref/hosts/list/segment.md)
 
+#### maintenance
+
+ - [Overview](cli-ref/managed-greenplum/cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/managed-greenplum/cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/managed-greenplum/cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-greenplum/cli-ref/maintenance/reschedule.md)
+
 #### pxf-datasource
 
  - [Overview](cli-ref/managed-greenplum/cli-ref/pxf-datasource/index.md)
@@ -6672,6 +6706,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [segment](cli-ref/managed-greenplum/cli-ref/v0/hosts/list/segment.md)
 
+##### maintenance
+
+ - [Overview](cli-ref/managed-greenplum/cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/managed-greenplum/cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/managed-greenplum/cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-greenplum/cli-ref/v0/maintenance/reschedule.md)
+
 ##### pxf-datasource
 
  - [Overview](cli-ref/managed-greenplum/cli-ref/v0/pxf-datasource/index.md)
@@ -6838,6 +6882,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/managed-kafka/cli-ref/connector-s3-sink/update.md)
 
+#### maintenance
+
+ - [Overview](cli-ref/managed-kafka/cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/managed-kafka/cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/managed-kafka/cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-kafka/cli-ref/maintenance/reschedule.md)
+
 #### topic
 
  - [Overview](cli-ref/managed-kafka/cli-ref/topic/index.md)
@@ -6961,6 +7015,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [create](cli-ref/managed-kafka/cli-ref/v0/connector-s3-sink/create.md)
 
  - [update](cli-ref/managed-kafka/cli-ref/v0/connector-s3-sink/update.md)
+
+##### maintenance
+
+ - [Overview](cli-ref/managed-kafka/cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/managed-kafka/cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/managed-kafka/cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-kafka/cli-ref/v0/maintenance/reschedule.md)
 
 ##### topic
 
@@ -7420,6 +7484,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/managed-mongodb/cli-ref/hosts/update.md)
 
+#### maintenance
+
+ - [Overview](cli-ref/managed-mongodb/cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/managed-mongodb/cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/managed-mongodb/cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-mongodb/cli-ref/maintenance/reschedule.md)
+
 #### resource-preset
 
  - [Overview](cli-ref/managed-mongodb/cli-ref/resource-preset/index.md)
@@ -7576,6 +7650,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/managed-mongodb/cli-ref/v0/hosts/update.md)
 
+##### maintenance
+
+ - [Overview](cli-ref/managed-mongodb/cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/managed-mongodb/cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/managed-mongodb/cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-mongodb/cli-ref/v0/maintenance/reschedule.md)
+
 ##### resource-preset
 
  - [Overview](cli-ref/managed-mongodb/cli-ref/v0/resource-preset/index.md)
@@ -7730,6 +7814,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/managed-mysql/cli-ref/hosts/update.md)
 
+#### maintenance
+
+ - [Overview](cli-ref/managed-mysql/cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/managed-mysql/cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/managed-mysql/cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-mysql/cli-ref/maintenance/reschedule.md)
+
 #### resource-preset
 
  - [Overview](cli-ref/managed-mysql/cli-ref/resource-preset/index.md)
@@ -7872,6 +7966,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/managed-mysql/cli-ref/v0/hosts/update.md)
 
+##### maintenance
+
+ - [Overview](cli-ref/managed-mysql/cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/managed-mysql/cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/managed-mysql/cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-mysql/cli-ref/v0/maintenance/reschedule.md)
+
 ##### resource-preset
 
  - [Overview](cli-ref/managed-mysql/cli-ref/v0/resource-preset/index.md)
@@ -7984,6 +8088,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/managed-opensearch/cli-ref/extension/update.md)
 
+#### maintenance
+
+ - [Overview](cli-ref/managed-opensearch/cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/managed-opensearch/cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/managed-opensearch/cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-opensearch/cli-ref/maintenance/reschedule.md)
+
 #### node-group
 
  - [Overview](cli-ref/managed-opensearch/cli-ref/node-group/index.md)
@@ -8087,6 +8201,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [list](cli-ref/managed-opensearch/cli-ref/v0/extension/list.md)
 
  - [update](cli-ref/managed-opensearch/cli-ref/v0/extension/update.md)
+
+##### maintenance
+
+ - [Overview](cli-ref/managed-opensearch/cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/managed-opensearch/cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/managed-opensearch/cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-opensearch/cli-ref/v0/maintenance/reschedule.md)
 
 ##### node-group
 
@@ -8223,6 +8347,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [update](cli-ref/managed-postgresql/cli-ref/hosts/update.md)
 
  - [update-config](cli-ref/managed-postgresql/cli-ref/hosts/update-config.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/managed-postgresql/cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/managed-postgresql/cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/managed-postgresql/cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-postgresql/cli-ref/maintenance/reschedule.md)
 
 #### performance-diagnostics
 
@@ -8386,6 +8520,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update-config](cli-ref/managed-postgresql/cli-ref/v0/hosts/update-config.md)
 
+##### maintenance
+
+ - [Overview](cli-ref/managed-postgresql/cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/managed-postgresql/cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/managed-postgresql/cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-postgresql/cli-ref/v0/maintenance/reschedule.md)
+
 ##### performance-diagnostics
 
  - [Overview](cli-ref/managed-postgresql/cli-ref/v0/performance-diagnostics/index.md)
@@ -8532,6 +8676,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/managed-redis/cli-ref/hosts/update.md)
 
+#### maintenance
+
+ - [Overview](cli-ref/managed-redis/cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/managed-redis/cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/managed-redis/cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-redis/cli-ref/maintenance/reschedule.md)
+
 #### resource-preset
 
  - [Overview](cli-ref/managed-redis/cli-ref/resource-preset/index.md)
@@ -8668,6 +8822,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/managed-redis/cli-ref/v0/hosts/update.md)
 
+##### maintenance
+
+ - [Overview](cli-ref/managed-redis/cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/managed-redis/cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/managed-redis/cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-redis/cli-ref/v0/maintenance/reschedule.md)
+
 ##### resource-preset
 
  - [Overview](cli-ref/managed-redis/cli-ref/v0/resource-preset/index.md)
@@ -8788,6 +8952,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/managed-sharded-postgresql/cli-ref/hosts/update.md)
 
+#### maintenance
+
+ - [Overview](cli-ref/managed-sharded-postgresql/cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/managed-sharded-postgresql/cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/managed-sharded-postgresql/cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-sharded-postgresql/cli-ref/maintenance/reschedule.md)
+
  - [resource-preset](cli-ref/managed-sharded-postgresql/cli-ref/resource-preset.md)
 
 #### user
@@ -8889,6 +9063,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [list](cli-ref/managed-sharded-postgresql/cli-ref/v0/hosts/list.md)
 
  - [update](cli-ref/managed-sharded-postgresql/cli-ref/v0/hosts/update.md)
+
+##### maintenance
+
+ - [Overview](cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/reschedule.md)
 
  - [resource-preset](cli-ref/managed-sharded-postgresql/cli-ref/v0/resource-preset.md)
 

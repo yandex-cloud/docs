@@ -1,4 +1,4 @@
-All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). You can filter records using a [filter expression language](../../logging/concepts/filter.md).
+All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). You can filter log entries using a [filter expression language](../../logging/concepts/filter.md).
 
 {% list tabs group=instructions %}
 
@@ -6,8 +6,8 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the log group.
   1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-  1. Click the row with the log group whose records you want to view.
-  1. The page that opens will show the log group entries.
+  1. Click the row with the log group where you want to view log entries.
+  1. The page that opens will show the log group entries on the **{{ ui-key.yacloud.common.logs }}** tab.
 
 - CLI {#cli}
 
@@ -29,9 +29,9 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
   * `HH:MM:SS`, e.g., `15:04:05`.
   * [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt). For example, `2006-01-02T15:04:05Z`, `2h`, or `3h30m ago`.
 
-  To access a log group, use its name or unique ID. To find them out, [get](../../logging/operations/list.md) a list of log groups in the folder. If you do not specify the name or ID, the output will contain records from the [default log group](../../logging/concepts/log-group.md) in the current folder. You can skip the `--group-name` and `--group-id` parameters and specify the group name or ID directly.
+  To access a log group, use its name or unique ID. To find them out, [get](../../logging/operations/list.md) a list of log groups in the folder. If you do not specify the name or ID, the output will contain entries from the [default log group](../../logging/concepts/log-group.md) in the current folder. You can skip the `--group-name` and `--group-id` parameters and specify the group name or ID directly.
 
-  To limit the number of output records, use the `--limit` parameter. The values may range from 1 to 1,000.
+  To limit the number of output log entries, use the `--limit` parameter. The values may range from 1 to 1,000.
 
   To view the entries in JSON format, run this command:
 
@@ -58,17 +58,17 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
   ]
   ```
 
-  To read records as they appear, use the `--follow` flag:
+  To read log entries as they appear, use the `--follow` flag:
 
   ```bash
   yc logging read --group-name=default --follow
   ```
 
-  This command will display records from the last hour and will continue streaming new ones until you stop it with **Ctrl** + **C**. The `--follow` flag cannot be used together with the `--since` and `--until` parameters.
+  This command will display log entries from the last hour and will continue streaming new ones until you stop it with **Ctrl** + **C**. The `--follow` flag cannot be used together with the `--since` and `--until` parameters.
 
 - SDK {#sdk}
 
-  You can read {{ cloud-logging-name }} records using the [{{ yandex-cloud }} SDK](../../overview/sdk/quickstart.md), which is available for various languages. Below are examples of using the Python SDK. You can work with code in your infrastructure or in [{{ sf-full-name }}](../../functions/).
+  You can read {{ cloud-logging-name }} entries using the [{{ yandex-cloud }} SDK](../../overview/sdk/quickstart.md), which is available for various languages. Below are examples of using the Python SDK. You can work with code in your infrastructure or in [{{ sf-full-name }}](../../functions/).
 
   **Locally**
 

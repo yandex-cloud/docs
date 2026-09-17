@@ -44,12 +44,12 @@ Specify one of --origin-group-id, --origin-custom-source, --origin-bucket-source
 
 Origin balancer id.
 Mandatory argument for --origin-balancer-source ||
-|| `--secondary-hostnames` | `value[,value]`
+|| `--secondary-hostnames` | `[]string`
 
 List of secondary hostnames. ||
 || `--origin-protocol` | `string`
 
-Origin protocol. Valid values: HTTP, HTTPS, MATCH. Values: 'http', 'https', 'match' ||
+Origin protocol. Valid values: HTTP, HTTPS, MATCH. ||
 || `--active` | Specifies if create resource in active state. True by default ||
 || `--dont-use-ssl-cert` | Don't use SSL certificate.
 Mutually exclusive with --lets-encrypt-gcore-ssl-cert, --cert-manager-ssl-cert-id ||
@@ -82,16 +82,16 @@ Mutually exclusive with --cache-expiration-time ||
 || `--browser-cache-expiration-time` | `int`
 
 Cache expiration time for customers' browsers in seconds. ||
-|| `--cache-http-headers` | `value[,value]`
+|| `--cache-http-headers` | `[]string`
 
 List of HTTP Headers that must be included in the response. ||
 || `--ignore-query-string` | Files with different query strings will be cached as one object.
 Mutually exclusive with --query-params-whitelist and --query-params-blacklist ||
-|| `--query-params-whitelist` | `value[,value]`
+|| `--query-params-whitelist` | `[]string`
 
 Files with these query strings will be cached as different objects.
 Mutually exclusive with --query-params-blacklist and --ignore-query-string ||
-|| `--query-params-blacklist` | `value[,value]`
+|| `--query-params-blacklist` | `[]string`
 
 Files with these query strings will be cached as one object.
 Mutually exclusive with --query-params-whitelist and --ignore-query-string ||
@@ -104,7 +104,7 @@ Mutually exclusive with --gzip-on and --brotli-compression. ||
 || `--gzip-on` | The option allows to compress content with gzip on the CDN`s end.
 CDN servers will request only uncompressed content from the origin.
 Mutually exclusive with --fetch-compressed and --brotli-compression. ||
-|| `--brotli-compression` | `value[,value]`
+|| `--brotli-compression` | `[]string`
 
 The option allows to compress content with brotli on the CDN's end.
 Specify the content-type for each type of content you wish to have compressed.
@@ -128,18 +128,18 @@ Mutually exclusive with --host-header. ||
 
 Specify up to 50 custom HTTP Headers that a CDN server adds to response.
 You can add header with multiple values if these values are different. ||
-|| `--cors` | `value[,value]`
+|| `--cors` | `[]string`
 
 The option adds the Access-Control-Allow-Origin header to responses from CDN servers. It has 3 parameters:
 1. Adds * as the Access-Control-Allow-Origin header value, "value": ["*"]
 2. Adds "$http_origin" as the Access-Control-Allow-Origin header value if the origin matches one of the listed domains
 "value": ["domain.com", "second.dom.com"]
 3. Adds "$http_origin" as the Access-Control-Allow-Origin header value, "value": ["$http_origin"] ||
-|| `--stale` | `value[,value]`
+|| `--stale` | `[]string`
 
 The list of errors which the option is applied for. Possible values:
 'error', 'http_403', 'http_404', 'http_429', 'http_500', 'http_502', 'http_503', 'http_504', 'invalid_header', 'timeout', 'updating' ||
-|| `--allowed-http-methods` | `value[,value]`
+|| `--allowed-http-methods` | `[]string`
 
 The list of allowed HTTP methods. Available methods:
 GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS. ||
@@ -182,7 +182,7 @@ The policy type for ip address acl option.
 Must be specified with acl-excepted-values flag. Possible values:
 allow - to allow access to all IP addresses except the ones specified in the acl-excepted-values field.
 deny — to block access to all IP addresses except the ones specified in the acl-excepted-values field. ||
-|| `--acl-excepted-values` | `value[,value]`
+|| `--acl-excepted-values` | `[]string`
 
 The list of specified IP addresses to be allowed or denied depending on acl policy type.
 Provide an IP address with a subnet mask. Example, 192.168.3.2/32 or 2a03:d000:2980:7::8/128.
@@ -199,15 +199,10 @@ If two or more IP addresses belong to the same network, it is sufficient to spec
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -217,21 +212,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

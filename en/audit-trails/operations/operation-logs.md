@@ -1,6 +1,6 @@
-# Viewing operations on {{ at-full-name }} resources
+# Viewing {{ at-full-name }} resource operations
 
-The system logs all actions with {{ at-name }} resources as a list of operations. Each operation gets an ID.
+The system logs all actions with {{ at-name }} resources as a list of operations. Each operation gets a unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -12,7 +12,7 @@ The system logs all actions with {{ at-name }} resources as a list of operations
   1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.audit-trails.label_trails }}**.
   1. Select the trail you need.
-  1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected trail.
+  1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab for the selected trail.
 
      You will see a list of operations with the selected trail.
 

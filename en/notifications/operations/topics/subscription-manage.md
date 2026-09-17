@@ -15,7 +15,7 @@ description: Follow this guide to update or delete a subscription in {{ cns-name
   1. [Navigate]({{ link-console-main }}/link/cns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}** on the left.
   1. Select the topic containing the subscription.
-  1. Select **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}** on the left.
+  1. Navigate to the **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}** tab.
   1. Select the subscription and specify the new settings.
   1. Click **{{ ui-key.yacloud.common.save-changes }}**.
 
@@ -69,7 +69,7 @@ description: Follow this guide to update or delete a subscription in {{ cns-name
   1. [Navigate]({{ link-console-main }}/link/cns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}** on the left.
   1. Select the topic containing the subscription.
-  1. Select **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}** on the left.
+  1. Navigate to the **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}** tab.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the subscription and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 

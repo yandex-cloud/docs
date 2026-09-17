@@ -66,6 +66,8 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
 
  - [Квоты и лимиты](concepts/limits.md)
 
+ - [Техническое обслуживание](concepts/maintenance.md)
+
  - [Настройки Sharded PostgreSQL](concepts/settings-list.md)
 
  - [Политика поддержки версий Sharded PostgreSQL](concepts/update-policy.md)
@@ -161,6 +163,16 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
  - [list](cli-ref/hosts/list.md)
 
  - [update](cli-ref/hosts/update.md)
+
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
 
  - [resource-preset](cli-ref/resource-preset.md)
 
@@ -263,6 +275,16 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
  - [list](cli-ref/v0/hosts/list.md)
 
  - [update](cli-ref/v0/hosts/update.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/v0/maintenance/reschedule.md)
 
  - [resource-preset](cli-ref/v0/resource-preset.md)
 

@@ -334,6 +334,16 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [segment](cli-ref/hosts/list/segment.md)
 
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
 ### pxf-datasource
 
  - [Overview](cli-ref/pxf-datasource/index.md)
@@ -513,6 +523,16 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
  - [master](cli-ref/v0/hosts/list/master.md)
 
  - [segment](cli-ref/v0/hosts/list/segment.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/v0/maintenance/reschedule.md)
 
 #### pxf-datasource
 

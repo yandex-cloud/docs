@@ -25,14 +25,14 @@ You can use a digital signature to validate the source code, binary files, and c
 The digital signature process actors are the owner of a key pair's private key and the recipients of signed data. Digital signatures are created and verified as follows:
 
 1. The signature owner creates an asymmetric key pair with digital signature support.
-1. The owner creates a digital signature for their own data. At this step, a hash value of user data is calculated, which is then signed by the private key based on a specified algorithm. The employed hash function is specified in the name of the algorithm.
+1. The owner creates a digital signature for their own data. At this step, a hash value of user data is calculated, which is then signed by the private key based on a specified algorithm. The underlying hash function is declared in the algorithm name.
 1. The signature owner transmits the data, the digital signature, and the public key of the asymmetric key pair to a recipient.
 1. The recipient uses the public key to verify the digital signature.
-1. If the hash decrypted by the recipient matches that of the data, it means the signature is correct.
+1. If the hash decrypted by the recipient matches the data hash, the signature is correct.
 
 ### Supported digital signature algorithms {#supported-algorithms}
 
-{{ kms-short-name }} provides [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) and [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) cryptographic algorithms for using digital signatures. For both encryption algorithms, you can choose key size and hashing algorithm (digest):
+{{ kms-short-name }} provides [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) and [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) cryptographic algorithms for using digital signatures. For both encryption algorithms, you can choose the key size and hashing (digest) algorithm:
 
 * `RSA_2048_SIGN_PSS_SHA_256`
 * `RSA_2048_SIGN_PSS_SHA_384`

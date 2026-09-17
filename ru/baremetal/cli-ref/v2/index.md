@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v2/
 
 # yc baremetal v2
 
-Manage Baremetal resources
+(preview) V2 Manage Baremetal resources
 
 #### Command Usage
 

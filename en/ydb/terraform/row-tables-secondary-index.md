@@ -5,7 +5,7 @@ description: This tutorial describes the properties of the `yandex_ydb_table_ind
 
 # Creating secondary indexes in row-oriented tables
 
-For operations with a [table index]({{ ydb.docs }}/concepts/secondary_indexes), use the `yandex_ydb_table_index` resource.
+For operations with a [table index]({{ ydb.docs }}concepts/query_execution/secondary_indexes), use the `yandex_ydb_table_index` resource.
 
 {% note info %}
 

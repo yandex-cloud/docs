@@ -12,7 +12,7 @@ description: In this guide, you will learn how to create a log group in {{ cloud
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [log group](../concepts/log-group.md).
     1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
-    1. Optionally, enter a name and description for the log group. Follow these naming requirements:
+    1. Optionally, enter a **{{ ui-key.yacloud.common.name }}** and **{{ ui-key.yacloud.common.description }}** for the log group. The name format is as follows:
 
         {% include [name-format](../../_includes/name-format.md) %}
 

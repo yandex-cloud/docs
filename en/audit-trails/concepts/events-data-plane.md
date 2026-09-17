@@ -43,6 +43,12 @@ Service name: `clouddesktop`.
 
 {% include [clouddesktop-events-dp](../../_includes/audit-trails/events/clouddesktop-events-dp.md) %}
 
+## {{ cloud-registry-full-name }} {#cloud-registry}
+
+Service name: `cloudregistry`.
+
+{% include [cloudregistry-events-dp](../../_includes/audit-trails/events/cloudregistry-events-dp.md) %}
+
 ## {{ dns-full-name }} {#dns}
 
 Service name: `dns`.

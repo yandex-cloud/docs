@@ -27,10 +27,14 @@ Name of the ClickHouse cluster. ||
 || `--password` | `string`
 
 New password of the ClickHouse user. ||
+|| `--password-file` | `string`
+
+File containing the password of the ClickHouse user. ||
+|| `--password-from-stdin` | Read password from stdin. ||
+|| `--generate-password` | Generate password using Connection Manager. ||
 || `--permissions` | `value[,value]`
 
 New set of databases that the user should be able to access. ||
-|| `--generate-password` | Generate password using Connection Manager. ||
 || `--settings` | `key1=value1[,key2=value2][,"key3=val3a,val3b"]`
 
 User-specific settings. Acceptable keys:

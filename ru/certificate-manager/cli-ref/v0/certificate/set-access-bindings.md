@@ -11,7 +11,7 @@ Set access bindings for the specified certificate and delete all existing access
 
 Syntax:
 
-`yc certificate-manager certificate set-access-bindings <CERTIFICATE> [Flags...] [Global Flags...]`
+`yc certificate-manager v0 certificate set-access-bindings <CERTIFICATE> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -23,33 +23,11 @@ Specifies the certificate ID. ||
 || `--name` | `string`
 
 Specifies the certificate name. ||
-|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
-|| `--access-binding` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--access-binding` | `KEY=VALUE[,KEY=VALUE...]`
 
-Access binding to set. Can be used multiple times.
-
-Possible property names:
-
-- `role`: Binding role ID.
-
-- `service-account-id`: Service account, whose access will be updated.
-
-- `service-account-name`: Service account, whose access will be updated.
-
-- `user-account-id`: User account, whose access will be updated.
-
-- `user-yandex-login`: User account, whose access will be updated.
-
-- `all-authenticated-users`: Access will be updated for all authenticated users
-
-- `group-members`: Update access for members of the group with specified ID
-
-- `organization-users`: Update access for users of organization with specified ID
-
-- `federation-users`: Update access for users of federation with specified ID
-
-- `subject`: Subject whose access will be updated; in TYPE:ID format, e.g. userAccount:&lt;ID&gt;, serviceAccount:&lt;ID&gt;, system:&lt;ID&gt;. ||
+Access binding to set. Can be used multiple times. ||
 || `-y`, `--yes` | Automatic yes to prompts. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 
 #### Global Flags
@@ -58,15 +36,10 @@ Possible property names:
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -76,21 +49,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

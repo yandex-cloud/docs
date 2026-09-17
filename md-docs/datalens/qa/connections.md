@@ -31,7 +31,7 @@ DataLens может подключаться к Яндекс Метрике на
 * для Метрики:
 
   * воспользоваться [примером кода](https://github.com/zhdanchik/yandex_metrika_cloud_case/) из [документации](../tutorials/data-from-metrica-yc-visualization.md#get-download-data-in-ch) для экспорта сырых данных в ClickHouse® через LogsAPI;
-  * подключить пакет **Метрика Про** и [настроить передачу данных](https://yandex.ru/support/metrica/pro/cloud.html) в кластер Managed Service for ClickHouse®.
+  * подключить пакет **Метрика Про** и [настроить передачу данных](https://yandex.ru/support/metrica/ru/uploading-data/cloud) в кластер Managed Service for ClickHouse®.
 
 ### Почему при загрузке CSV в таблице отображаются только первые 100 строк, хотя их больше? {#csv-rows-display}
 

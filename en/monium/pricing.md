@@ -89,5 +89,3 @@ The prices below are per 1,000 hours of alert or sub-alert operation (alert hour
 
 {% include [usd.md](../_pricing/monium/usd-alert-calculations.md) %}
 
-
-

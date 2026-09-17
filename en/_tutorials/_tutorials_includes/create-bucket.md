@@ -7,7 +7,7 @@
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [bucket](../../storage/concepts/bucket.md).
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. Enter a name for the bucket.
+  1. **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** the bucket.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** field, select `{{ ui-key.yacloud.storage.value_cold }}`.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 

@@ -320,7 +320,7 @@ The consumption type goes into the `systag` label.
 | `udp_indatagrams`<br/>`DGAUGE`, count | Total UDP packets received  | 
 | `udp_inerrors`<br/>`DGAUGE`, count | Number of bad UDP packets received, excluding those with checksum errors  | 
 | `udp_memerrors`<br/>`DGAUGE`, errors | Number of UDP out-of-memory errors |
-| `udp_noports`<br/>`DGAUGE`, count | Total UDP packets received with no application on the destination port  | 
+| `udp_noports`<br/>`DGAUGE`, count | Total UDP packets received with no application on the destination port  |
 | `udp_outdatagrams`<br/>`DGAUGE`, count | Total UDP packets sent from the object in question | 
 | `udp_rcvbuferrors`<br/>`DGAUGE`, count | Number of UDP receive buffer errors  | 
 | `udp_sndbuferrors`<br/>`DGAUGE`, count | Number of UDP send buffer errors  | 

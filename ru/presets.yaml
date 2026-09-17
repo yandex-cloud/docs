@@ -226,6 +226,7 @@ default:
   forms-full-name: Яндекс Формы
   forms-name: Формы
   forms-short-name: Forms
+  foundation-models-full-name: Yandex AI Studio
   foundation-models-name: AI Studio
   GL: GitLab
   gl:
@@ -2448,6 +2449,8 @@ default:
   tf-provider-mpg: https://yandex.cloud/ru/docs/terraform/resources/mdb_postgresql_cluster
   tf-provider-mrd: https://yandex.cloud/ru/docs/terraform/resources/mdb_redis_cluster_v2
   tf-provider-msp: https://yandex.cloud/ru/docs/terraform/resources/spark_cluster
+  tf-provider-mspqr: >-
+    https://yandex.cloud/ru/docs/terraform/resources/mdb_sharded_postgresql_cluster
   tf-provider-mtr: https://yandex.cloud/ru/docs/terraform/resources/trino_cluster
   tf-provider-mtr-access: https://yandex.cloud/ru/docs/terraform/resources/trino_access_control
   tf-provider-resources-link: https://yandex.cloud/ru/docs/terraform/resources
@@ -3880,6 +3883,7 @@ default:
             field_login-requirements: Требования при входе
             field_require-once: Запросить однократно при первом входе
             field_ttl: Срок действия
+            login-requirement_reauth_j8x8i: Повторная аутентификация
             login-requirement_skip-mfa: Не запрашивать MFA
             login-requirement_step-up: Требовать усиленную проверку (Step-up)
             section_title: Результат
@@ -7311,6 +7315,7 @@ default:
             label_title: Обзор
             label_version: Версия
             label_web-server-url: Перейти
+            label_websql-service: WebSQL
             section_additional: Дополнительные настройки
             section_configuration: Настройки
             section_resource: Ресурсы

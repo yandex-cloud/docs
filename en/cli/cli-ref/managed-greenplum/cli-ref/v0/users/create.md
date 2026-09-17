@@ -26,7 +26,11 @@ Greenplum cluster name. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--password` | `string`
 
-User's password ||
+User's password. ||
+|| `--password-file` | `string`
+
+File containing the password of the Greenplum user. ||
+|| `--password-from-stdin` | Read password from stdin. ||
 || `--resource-group` | `string`
 
 User's resource group ||

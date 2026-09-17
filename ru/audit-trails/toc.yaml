@@ -240,6 +240,8 @@ items:
     href: concepts/events-data-plane.md
   - name: Справочник аудитных логов (англ.)
     items:
+      - name: Обзор
+        href: events-ref/index.md
       - name: accesstransparency
         items:
           - name: ComputeNodeAccess

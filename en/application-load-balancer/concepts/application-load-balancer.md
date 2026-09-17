@@ -51,7 +51,7 @@ To correctly distribute the load across backends, add a permission for incoming 
 
 ## Autoscaling and resource units {#lcu-scaling}
 
-An internal group of VM instances called _resource units_ is created in each availability zone of the load balancer. {#lcu-scaling-example}
+The system creates an internal group of VM instances called _resource units_ within each availability zone of the load balancer. {#lcu-scaling-example}
 
 {% include [lcu-thresholds](../../_includes/application-load-balancer/lcu-thresholds.md) %}
 
@@ -135,6 +135,16 @@ One load balancer can serve both regular and encrypted traffic on different port
 The listener can accept HTTP traffic on port 80 and redirect traffic to HTTPS port 443. The listener gets an HTTP request from a client and returns a response with HTTP code 302. Further requests will be accepted at port 443 via HTTPS.
 
 If an HTTPS listener is used, specify a [certificate](../../certificate-manager/concepts/imported-certificate.md) from {{ certificate-manager-name }} that will be used to terminate TLS connections.
+
+### Mutual TLS authentication (mTLS) {#mtls}
+
+{{ alb-name }} supports [mutual TLS authentication](https://en.wikipedia.org/wiki/Mutual_authentication#mTLS) (mTLS) for HTTPS listeners. When mTLS is enabled, the client and the load balancer validate each other’s certificates before accepting traffic.
+
+To enable validation of client certificates, specify a PEM file with the issuing CA root certificate in the listener settings. The load balancer will establish a TLS connection only if the client provides a certificate signed by this trusted CA.
+
+You can provide data from a verified client certificate, such as the certificate itself, issuer and subject details, to the backend in HTTP headers. The backend can use this data to identify the client and save these details in audit logs.
+
+For more information on setting up client certificate validation, see [Terminating TLS connections](../tutorials/tls-termination/console.md).
 
 ## Use cases {#examples}
 

@@ -29,31 +29,31 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
   1. In the list, select the load balancer linked to the security profile.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
-     
-     1. Enable **{{ ui-key.yacloud.alb.label_log-requests }}**.
-     1. Select or create a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to store your load balancer logs.
-     1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and configure its [settings](../../application-load-balancer/concepts/application-load-balancer.md#discard-logs-rules).
-  
+
+      1. Enable **{{ ui-key.yacloud.alb.label_log-requests }}**.
+      1. Select or create a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to store your load balancer logs.
+      1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and configure its [settings](../../application-load-balancer/concepts/application-load-balancer.md#discard-logs-rules).
+
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
   For other ways to enable logging, see [{#T}](../../application-load-balancer/operations/application-load-balancer-manage-logs.md).
 
 - {{ at-name }} {#at}
 
-  You can log {{ at-name }} events to a bucket in {{ objstorage-name }}, log group in {{ cloud-logging-name }}, data stream in {{ yds-name }}, or bus in {{ er-name }}. In this guide, we will set up logging of audit events to a log group.
+  You can log {{ at-name }} events to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md), {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md), {{ yds-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts), or {{ er-name }} [bus](../../serverless-integrations/concepts/eventrouter/bus.md). In this guide, we will set up logging of audit events to a log group.
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
   1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
-  1. Enter a name for the trail, e.g., `trail-sws`.
-  1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, select **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}** as the destination object.
-  1. Select or create a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to store {{ sws-name }} events.
-  1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, enable event collection and select **{{ sws-name }}**.
-
-      For the rest of the settings in this section, leave the default values. The system will log all data events from {{ sws-name }} in the current folder, ignoring management events.
-  
-  1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, create or select an account with the `logging.writer` role.
+  1. In the **{{ ui-key.yacloud.audit-trails.label_log-receiver }}** field, select `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`.
+  1. Select a log group or [create](../../logging/operations/create-group.md) a new one.
+  1. Disable **{{ ui-key.yacloud.audit-trails.label_control-plane-collection-new }}**.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_data-plane-collection-new }}**, clear the list and select **{{ ui-key.yacloud.audit-trails.label_smartwebsecurity }}**.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select an account with the `logging.writer` [role](../../logging/security/index.md#logging-writer) or [create](../../iam/operations/sa/create.md) a new one.
+  1. Under **{{ ui-key.yacloud.audit-trails.section_general-info }}**, enter a name for the trail, e.g., `trail-sws`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
+
+  The system will log all data events from {{ sws-name }} in the current folder, ignoring management events.
 
   For other ways to enable event logging, see [{#T}](../../audit-trails/operations/create-trail.md).
 
@@ -67,11 +67,19 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
   1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Select **{{ ui-key.yacloud.common.logs }}**.
-  1. Select the number of messages per page and the time interval: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
-  1. In the **Query** row, specify you query using the [filter expression language](../../logging/concepts/filter.md) and click **Run**.
+  1. Select the ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** section.
+  1. Select the log display period using one of the following methods:
 
-     You can find examples of queries below.
+      * Click the interval, e.g., **Last hour**, and select one of the options: from **Last 5 minutes** to **Last day**.
+
+          You can also select the required dates in the calendar and specify the time in the **From** and **To** fields.
+
+      * Select a preset period: **Now**, **5m**, **30m**, **1h**, **1d**, **2d**, or specify your own value.
+      * On the timeline, move the period start and end indicators.
+
+  1. In the **Query** row, specify your query using the [filter expression language](../../logging/concepts/filter.md) and click **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
+
+      You can find examples of queries below.
 
   1. To view log details, expand it.
 
@@ -87,47 +95,47 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
   ### Filters for active rules {#active-rule-filters}
 
   * Show requests blocked by basic rules based on specific [conditions](../concepts/conditions.md), e.g., by IP list or region:
-    
-    ```
-    json_payload.smartwebsecurity.matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-    ```
-    
+
+      ```text
+      json_payload.smartwebsecurity.matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
+      ```
+
   * Show requests that have triggered the [Smart Protection](../concepts/rules.md#smart-protection-rules) rules with a CAPTCHA challenge:
-    
-    ```
-    json_payload.smartwebsecurity.matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.matched_rule.verdict = CAPTCHA
-    ```
+
+      ```text
+      json_payload.smartwebsecurity.matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.matched_rule.verdict = CAPTCHA
+      ```
 
   * Show requests blocked based on the [WAF](../concepts/waf.md) profile, i.e., by the security profile WAF rules:
-    
-    ```
-    json_payload.smartwebsecurity.matched_rule.rule_type = WAF and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-    ```
+
+      ```text
+      json_payload.smartwebsecurity.matched_rule.rule_type = WAF and json_payload.smartwebsecurity.matched_rule.verdict = DENY
+      ```
 
   * Show requests blocked by the [ARL](../concepts/arl.md) profile rules:
-    
-    ```
-    json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY
-    ```
+
+      ```text
+      json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY
+      ```
 
   * Show requests which triggered a specific ARL rule, `arl-rule-1`:
-    
-    ```
-    json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY and json_payload.smartwebsecurity.advanced_rate_limiter.applied_quota_name = "arl-rule-1"
-    ```
+
+      ```text
+      json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY and json_payload.smartwebsecurity.advanced_rate_limiter.applied_quota_name = "arl-rule-1"
+      ```
 
   You can similarly add other conditions to the filters and adjust them to fit your traffic flow.
 
   ### Filters for rules in logging mode {#dry-run-filters}
 
   * Show requests that have triggered the [Smart Protection](../concepts/rules.md#smart-protection-rules) rules with a CAPTCHA challenge:
-    
-    ```
+
+    ```text
     json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.dry_run_matched_rule.verdict = CAPTCHA
     ```
 
   * View requests that have triggered the ARL rules (limits on requests).
-    
+
     For the **Logging only** mode, you cannot use a request filtered by the `DENY` verdict, because this mode does not block requests. The rule verdict will be `ALLOW` even after the limit is exceeded. To debug the rules, use the `dry_run_exceeded_quota_names` parameter. This parameter shows which ARL rules were triggered by the request. If this parameter contains no rules, no limits were exceeded.
 
     Here is an example of a log fragment with the `dry_run_exceeded_quota_names` parameter:
@@ -152,20 +160,28 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
   1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Select the log group receiving your {{ at-name }} events.
-  1. Select the number of messages per page and the time interval: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
-  1. In the **Query** field, specify you query using the [filter expression language](../../logging/concepts/filter.md) and click **Execute**.
+  1. Select the log display period using one of the following methods:
 
-     {{ at-name }} events are written in JSON format. To find a specific [event](../at-ref.md#data-plane-events), provide its name in the following format:
+      * Click the interval, e.g., **Last hour**, and select one of the options: from **Last 5 minutes** to **Last day**.
 
-     ```
-     yandex.cloud.audit.smartwebsecurity.<event_name>
-     ```
+          You can also select the required dates in the calendar and specify the time in the **From** and **To** fields.
 
-     For examples of how to create queries, see [{#T}](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
+      * Select a preset period: **Now**, **5m**, **30m**, **1h**, **1d**, **2d**, or specify your own value.
+      * On the timeline, move the period start and end indicators.
+
+  1. In the **Query** row, specify your query using the [filter expression language](../../logging/concepts/filter.md) and click **Execute**.
+
+      {{ at-name }} events are written in JSON format. To find a specific [event](../at-ref.md#data-plane-events), provide its name in the following format:
+
+      ```
+      yandex.cloud.audit.smartwebsecurity.<event_name>
+      ```
+
+      For examples of how to create queries, see [{#T}](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
   1. To view log details, expand it.
 
-For other ways to view logs, see [{#T}](../../application-load-balancer/operations/application-load-balancer-get-logs.md).
+  For other ways to view logs, see [{#T}](../../application-load-balancer/operations/application-load-balancer-get-logs.md).
 
 {% endlist %}
 

@@ -5,7 +5,7 @@
 # Интеграция GitLab с Яндекс Трекер
 
 
-В [задачах Трекер](https://yandex.ru/support/tracker/ru/about-tracker#zadacha) можно автоматически добавлять ссылки на [мерж-реквесты](https://docs.gitlab.com/ee/user/project/merge_requests/) из GitLab, указывая [ключ](https://yandex.ru/support/tracker/ru/glossary#key) нужной задачи в названии или описании нового мерж-реквеста. Ссылки будут размещаться в разделе [Связи с внешними приложениями](https://yandex.ru/support/tracker/ru/external-links).
+В [задачах Трекер](https://yandex.ru/support/tracker/ru/working-with-issues) можно автоматически добавлять ссылки на [мерж-реквесты](https://docs.gitlab.com/ee/user/project/merge_requests/) из GitLab, указывая [ключ](https://yandex.ru/support/tracker/ru/quick-start/glossary#rus-k) нужной задачи в названии или описании нового мерж-реквеста. Ссылки будут размещаться в разделе [Связи с внешними приложениями](https://yandex.ru/support/tracker/ru/external-links).
 
 Дополнительно можно включить автоматическое создание комментариев в задаче с информацией о мерж-реквестах. Автоматическое комментирование доступно только для [Managed Service for GitLab](../../managed-gitlab/index.md).
 
@@ -35,7 +35,7 @@
 В стоимость поддержки инфраструктуры входит:
 
 * Плата за [диск](../../compute/concepts/disk.md) и постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за количество пользователей Трекер с полным доступом, если их более 5 ([тарифы Трекер](https://yandex.ru/support/tracker/ru/cloud/pricing)).
+* Плата за количество пользователей Трекер с полным доступом, если их более 5 ([тарифы Трекер](https://yandex.ru/support/tracker/ru/pricing)).
 * Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Подключите Яндекс Трекер {#enable-tracker}
@@ -149,7 +149,7 @@
 
 Чтобы привязывать мерж-реквесты из GitLab к задачам в Трекер, создайте хук:
 
-1. Если у вас еще нет OAuth-токена для работы с Трекер API, [получите его](https://yandex.ru/support/tracker/ru/concepts/access#section_about_OAuth).
+1. Если у вас еще нет OAuth-токена для работы с Трекер API, [получите его](https://yandex.ru/support/tracker/ru/api/access#about_OAuth).
 
     {% note warning %}
 
@@ -157,7 +157,7 @@
 
     {% endnote %}
 
-1. Проверьте наличие доступа к API с помощью [запроса информации о текущем пользователе](https://yandex.ru/support/tracker/ru/get-user-info).
+1. Проверьте наличие доступа к API с помощью [запроса информации о текущем пользователе](https://yandex.ru/support/tracker/ru/api/users/get-user-info).
 1. Откройте инстанс GitLab и перейдите к настройкам хука:
     * Для включения интеграции на весь [инстанс GitLab](../../managed-gitlab/concepts/index.md) (требуются права администратора GitLab):
         1. В панели слева нажмите на раскрывающийся список **Your work** и выберите пункт **Admin Area**.
@@ -198,7 +198,7 @@
 ## Проверьте результат {#check-result}
 
 1. [Создайте задачу](https://yandex.ru/support/tracker/ru/user/create-ticket#create-task) в Трекер.
-1. [Создайте мерж-реквест](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html) в GitLab и укажите в его названии или описании [ключ задачи](https://yandex.ru/support/tracker/ru/glossary#key).
+1. [Создайте мерж-реквест](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html) в GitLab и укажите в его названии или описании [ключ задачи](https://yandex.ru/support/tracker/ru/quick-start/glossary#rus-k).
 1. Убедитесь, что в задаче Трекер в разделе [Связи с внешними приложениями](https://yandex.ru/support/tracker/ru/external-links) появилась ссылка на мерж-реквест из GitLab.
 
     Если вы использовали Managed Service for GitLab и включили автоматическое комментирование при [создании хука](#create-hook), то в задаче появится комментарий со ссылкой на мерж-реквест и информацией о нем.

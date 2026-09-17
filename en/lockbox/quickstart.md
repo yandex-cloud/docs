@@ -5,7 +5,6 @@ description: In this tutorial, you will learn how to create secrets and get thei
 
 # Getting started with {{ lockbox-name }}
 
-
 Create your first secret and get its contents.
 
 A secret is a set of versions that store your data. A version contains sets of keys and values:

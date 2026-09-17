@@ -362,7 +362,7 @@ Labels:
 || `average_utilization_in_zone`
 `DGAUGE`
 |
-Average resource usage for all VM instances in the availability zone.
+Average resource usage for all VM instances in the [availability zone](../../../overview/concepts/geo-scope.md).
 Labels:
 - *resource_id*: Instance group name or ID.
 - *resource_type*: Resource type. The only available value is `instance_group`.

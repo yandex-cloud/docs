@@ -41,6 +41,6 @@
 * AI:
   * [Convert text to speech and vice versa using {{ speechkit-name }}]({{ link-docs-ai }}speechkit/quickstart/index).
   * [Translate text in {{ translate-name }}]({{ link-docs-ai }}translate/quickstart).
-  * [Analyze an image using computer vision in {{ vision-name }}]({{ link-docs-ai }}vision/quickstart).
+  * [Analyze an image using computer vision in {{ vision-name }}]({{ link-docs-ai }}vision/concepts/ocr/).
   * [Train and launch your machine learning models in {{ ml-platform-name }}](../datasphere/quickstart.md).
   * [Create an AI agent for your business]({{ link-docs-ai }})

@@ -203,7 +203,7 @@ keywords:
 
       * `--maintenance` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
 
-          * `anytime` — в любое время. 
+          * `anytime` (по умолчанию) — в любое время. 
           * `weekly` — по расписанию. Для этого значения дополнительно укажите: 
 
               * `weekday` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
@@ -345,13 +345,8 @@ keywords:
           {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
 
       * `maintenance_window` — время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
-          * `type` — тип технического обслуживания. Принимает значения:
-              * `ANYTIME` — в любое время.
-              * `WEEKLY` — по расписанию.
-          * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-          * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
-            
-            > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
+
+          {% include [terraform-maintenance-window](../../_includes/mdb/mos/terraform/maintenance-window-params.md) %}
             
       Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 

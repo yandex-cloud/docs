@@ -437,13 +437,7 @@ description: Следуя данной инструкции, вы сможете
 
         * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
 
-            * `type` — тип технического обслуживания. Принимает значения:
-                * `ANYTIME` — в любое время.
-                * `WEEKLY` — по расписанию.
-            * `day` — день недели для типа `WEEKLY`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-            * `hour` — порядковый номер часового интервала по UTC для типа `WEEKLY`: от `1` до `24`.
-
-              > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
+            {% include [terraform-maintenance-window](../../_includes/mdb/mgp/terraform-maintenance-window.md) %}
 
         
         * `access.data_lens` — доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md): `true` или `false`.

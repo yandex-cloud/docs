@@ -15,6 +15,7 @@
 * [Управление резервными копиями](cluster-backups.md)
 * [Управление доступом к кластеру](cluster-access.md)
 * [Настройка доступа к Object Storage](s3-access.md)
+* [Техническое обслуживание](cluster-maintenance.md)
 * [Удаление кластера](cluster-delete.md)
 
 ## Подключение к кластеру

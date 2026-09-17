@@ -27,10 +27,14 @@ Name of the ClickHouse cluster. ||
 || `--password` | `string`
 
 Password of the ClickHouse user. ||
+|| `--password-file` | `string`
+
+File containing the password of the ClickHouse user. ||
+|| `--password-from-stdin` | Read password from stdin. ||
+|| `--generate-password` | Generate password using Connection Manager. ||
 || `--permissions` | `value[,value]`
 
 Databases that the user should be able to access. ||
-|| `--generate-password` | Generate password using Connection Manager. ||
 || `--auth-method` | `string`
 
 Authentication method for the user. Values: 'iam', 'password' ||

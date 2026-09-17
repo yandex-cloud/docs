@@ -354,7 +354,7 @@ default:
   link-src-main: https://sourcecraft.dev
   link-support-mail: support@yandex.cloud
   link-tracker: https://tracker.yandex.com/
-  link-tracker-cloudless: https://yandex.ru/support/tracker/ru
+  link-tracker-cloudless: https://yandex.ru/support/tracker/en/
   link-video-main: https://video.yandex.cloud/
   link-wiki: https://wiki.yandex.com/
   link-wiki-cloudless: https://yandex.ru/support/wiki/ru
@@ -2519,6 +2519,8 @@ default:
           no-data-key-value: No data
           ok: Ok
           warn: Warn
+        section:
+          type-settings: Alert settings
         threshold-status:
           alarm: Alarm
           warn: Warning
@@ -2620,6 +2622,7 @@ default:
           dash-picker:
             new-dashboard: New dashboard
         entities-list:
+          action_edit: Edit
           common-filter-placeholder: Search by entry
         juggler-modal:
           form:
@@ -2740,7 +2743,6 @@ default:
           annotations: Annotations
           evaluation-window-key-value: Evaluation window
           main-info: Basic information
-          metrics: Metrics
           no-data: No data policy
           notification-channels: Notifications
           time-shift: Evaluation delay
@@ -2787,6 +2789,9 @@ default:
           apply-and-parse: Execute
         hint:
           search-hotkey: 'Search hotkey: Cmd/Ctrl + Enter'
+        tokens:
+          placeholder:
+            service: Enter value of the service label
       quicklinks:
         action:
           add-link: Add a link
@@ -2795,7 +2800,6 @@ default:
           function: Aggregation function
       services:
         label_custom: Custom Metrics
-        label_logging: Cloud Logging
         label_managed-kafka: Managed Service for Kafka
         label_mysql: Managed Service for MySQL
         label_postgresql: Managed Service for PostgreSQL
@@ -4019,9 +4023,11 @@ default:
         field_logo-enabled: Show logo
         field_logo-redirect-on-click-url: Logo redirect link
         field_logo-show-with-controls: Hide with player interface
+        field_persist-playback-progress: Save playback progress
         label_style-preset: Player preset
         label_title: Template name
         section_logo-settings: Logo settings
+        section_playback-settings: Playback settings
         section_styles-settings: Style setup
         section_wigets-settings: Widget settings
         title_presets: Player template
@@ -4035,10 +4041,9 @@ default:
         action_add-stream-episode: Add an episode
         action_copy-code: Copy
         action_create-stream: Create a broadcast
-        action_start-stream: Start
-        action_stop-stream: Finish
         field_segment-duration: Delay mode
         label_auto-publish-streams: Auto-start broadcast
+        label_enable-broadcast: Accept signal
         label_episode-autoplay: Auto play video
         label_episode-hidden: Hide controls in player
         label_episode-mute: Play video without sound by default
@@ -4053,12 +4058,13 @@ default:
         label_stream-episode-start: Episode start
         option_segment-duration-low: Low
         option_segment-duration-standart: Standard
-        status_finished: Finished
         status_offline: Offline
         status_on-air: On air
         status_preparing: Preparing
         status_ready: Ready
         title_stream-episodes: Episodes
+        title_stream-event-journal-tab: Journal and metrics
+        title_stream-view-statistics-tab: View statistics
         title_streams: Broadcasts
       thumbnails:
         label_thumbnail: Thumbnail
@@ -4267,20 +4273,26 @@ default:
         label_event-filter-section: Collecting data events
         label_eventRouter: EventRouter
         label_log-group: Log group
+        label_log-receiver: Log destination
         label_object-prefix: Object prefix
         label_objectStorage: Object Storage
         label_organization-manager:
           organization: Organization
         label_path-filter-section: Collecting management events
+        label_resource-manager_events-filter_all: Get all
+        label_resource-manager_events-filter_exclude: Exclude
+        label_resource-manager_events-filter_include: Selected
         label_resource-manager:
           cloud: Cloud
           folder: Folder
         label_resource-type: Resource
         label_service-account: Service account
+        label_smartwebsecurity: Smart Web Security
         label_stream-name: Data stream
         label_trail: Trail
         label_trails: Trails
         logs: Diagnostic log
+        section_general-info: General information
         title_kms-key: Encryption key
       backup:
         action_add-to-recovery-list: Add to list of files to be recovered
@@ -4634,6 +4646,7 @@ default:
           field_chain: Intermediate certificate chain
           field_privateKey: Private key
         metadata:
+          field_description: ' Description'
           field_name: Name
         overview:
           action_edit-meta: Edit
@@ -4998,6 +5011,7 @@ default:
           button_add-label: Add label
           label_enter-keyboard-key: Enter
           label_labels: Labels
+          label_labels_1qrKA: Labels
         maintenance-alert:
           button_reschedule: Reschedule
           value_next-available-window: Next window
@@ -7338,6 +7352,8 @@ default:
           label_rule-without-grouping: No grouping
           label_save-rule: Save rule
           section_rules: Rules
+        ArlRuleAction:
+          label_rule-action-ban-period_2bxZV: Temporarily block all requests for
         arlTitle_e3MD8: Advanced Rate Limiter
         attach-dialog:
           action_connect: Connect
@@ -7355,8 +7371,26 @@ default:
             label_domain_1hgsY: Domain
             label_proxy-server_w9BGG: Proxy server
         baseRulesTitle_xcJEe: Base rules
+        createCustomPage_t4SuU: Create template
         CreateDomain:
           createDomain_b2Ykj: Add domain
+        custom-pages:
+          context_name: Page name
+          label_body: Response body
+          label_content_type: Content-Type
+          label_format: Response format
+          label_status_code: Response code
+        CustomPageForm:
+          add_header_8Zgm9: Add response header
+          field_description_vtia9: Description
+          preset_client_ip_m4Np5: IP address
+          preset_request_time_k9Lx1: Request time
+          preset_unique_key_j7Rw2: Request ID
+        customPages_rriaz: Response templates
+        CustomPagesActions:
+          label_view_tJsLT: View
+        CustomPageSelectField:
+          field_custom-page_3Yccb: Response page template
         Domain:
           Overview:
             howToActivateProtection_dK3yy: How do I activate protection?
@@ -7397,6 +7431,7 @@ default:
         MatchListActions:
           button_download_bdcBp: Download list
           button_edit-list-items_2JFvu: Edit list
+          button_rename_r3ma9: Rename
         MatchListForm:
           item-type_asn_oyhKw: ASN numbers
           item-type_ip_7TYwL: IP addresses
@@ -7458,12 +7493,13 @@ default:
           label_paranoia-level: Paranoia level
           label_paranoia-option-1: Only 1
           label_profiles: WAF profiles
-          label_request-condition_33CzA: Scope
           label_save-settings: Save settings
           title_exclusion-rule-condition-section: Traffic conditions
           title_exclusion-rules: Exclusion rules
           value_exclude-all-no: Selected rules
           value_exclude-all-yes: All rules
+          verdict-all: Verdict DENY returned in each selected rule set
+          verdict-at-least-one: Verdict DENY returned in at least one selected rule set
         WafProfileExclusionRuleForm:
           RulesSection:
             field_exclude-all_gKv9U: WAF rules

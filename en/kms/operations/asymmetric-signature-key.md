@@ -1,13 +1,13 @@
 ---
-title: How to create, update, and destroy digital signature key pairs
-description: This guide describes how you can create, update, and destroy digital signature key pairs.
+title: How to create, update, and delete digital signature key pairs
+description: Follow this guide to create, update, and delete digital signature key pairs.
 ---
 
 # Managing digital signature key pairs
 
-You can use {{ kms-name }} to create, update, and destroy digital signature key pairs.
+You can use {{ kms-name }} to create, update, and delete digital signature key pairs.
 
-## Creating digital signature key pairs {#create}
+## Creating a digital signature key pair {#create}
 
 To create a digital signature key pair:
 
@@ -15,15 +15,15 @@ To create a digital signature key pair:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your key pair in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your key pair.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
-  1. In the top-right corner, click **{{ ui-key.yacloud.kms.asymmetric-keys.title_create }}**. In the window that opens:
+  1. Click **{{ ui-key.yacloud.kms.asymmetric-keys.title_create }}**. In the window that opens:
       
-      1. Enter a name and an optional description.
+      1. Enter a name and, optionally, a description.
       1. In the **{{ ui-key.yacloud.kms.asymmetric-key.form.title_type }}** field, select `{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}`.
-      1. In the **{{ ui-key.yacloud.kms.asymmetric-key.form.title_algorithm }}** field, select the appropriate signature algorithm.
-      1. Enable deletion protection if required.
+      1. In the **{{ ui-key.yacloud.kms.asymmetric-key.form.title_algorithm }}** field, select the signature algorithm.
+      1. Enable deletion protection, if required.
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -32,13 +32,13 @@ To create a digital signature key pair:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to create a digital signature key pair:
+  1. See the description of the CLI command for creating a digital signature key pair:
 
       ```bash
       yc kms asymmetric-signature-key create --help
       ```
 
-  1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder to create the key pair in.
+  1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder where you want to create your key pair.
 
   1. Create your digital signature key pair:
 
@@ -52,7 +52,7 @@ To create a digital signature key pair:
       Where:
       
       * `--name`: Name of the digital signature key pair.
-      * `--folder-id`: ID of the folder where the key pair will be created.
+      * `--folder-id`: ID of the folder to host the new key pair.
       * `--signature-algorithm`: Digital signature algorithm. The following [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) and [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) algorithms are available:
 
           * `rsa-2048-sign-pss-sha-256`
@@ -82,7 +82,7 @@ To create a digital signature key pair:
 
 {% endlist %}
 
-## Updating digital signature key pairs {#update}
+## Updating a digital signature key pair {#update}
 
 After creating a key pair, you can change its name, description, and labels, as well as enable or disable deletion protection.
 
@@ -92,13 +92,13 @@ To update a digital signature key pair:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate key pair.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the key pair.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-  1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
+  1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Navigate to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-  1. In the line with the key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
-
-      1. Change the required key pair attributes.
+  1. In the key pair row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
+      
+      1. Change the key pair attributes as appropriate.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -107,13 +107,13 @@ To update a digital signature key pair:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to update a digital signature key pair:
+  1. See the description of the CLI command for updating a digital signature key pair:
 
       ```bash
       yc kms asymmetric-signature-key update --help
       ```
 
-  1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder with the key pair.
+  1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder containing the key pair.
 
   1. {% include [get-signature-key](../../_includes/kms/get-signature-key.md) %}
 
@@ -130,7 +130,7 @@ To update a digital signature key pair:
       
       * `--id`: ID of the digital signature key pair.
       * `--new-name`: New name for the key pair.
-      * `--deletion-protection`: Flag to enable deletion protection. To disable the key pair deletion protection, use the `--no-deletion-protection` flag.
+      * `--deletion-protection`: Flag to enable deletion protection. To disable key pair deletion protection, use the `--no-deletion-protection` flag.
 
       Result:
 
@@ -144,7 +144,7 @@ To update a digital signature key pair:
       deletion_protection: true
       ```
 
-     The command renamed the digital signature key pair and enabled its deletion protection.
+     The above command renamed the digital signature key pair and enabled its deletion protection.
 
 {% endlist %}
 
@@ -156,11 +156,11 @@ To delete a digital signature key pair:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate key pair.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the key pair.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Navigate to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-  1. In the line with the key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the key pair row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
 - CLI {#cli}
@@ -169,13 +169,13 @@ To delete a digital signature key pair:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to delete a signature key pair:
+  1. See the description of the CLI command for deleting a signature key pair:
 
       ```bash
       yc kms asymmetric-signature-key delete --help
       ```
 
-  1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder with the key pair.
+  1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder containing the key pair.
 
   1. {% include [get-signature-key](../../_includes/kms/get-signature-key.md) %}
 

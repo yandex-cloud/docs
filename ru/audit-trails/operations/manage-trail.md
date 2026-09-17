@@ -6,9 +6,11 @@ description: Следуя данной инструкции, вы сможете
 # Управление трейлом
 
 
-Вы можете изменять [объект назначения](../concepts/trail.md#target), [типы](../concepts/control-plane-vs-data-plane.md) собираемых событий, [области сбора](../concepts/trail.md#collecting-area) аудитных логов и [другие настройки](../concepts/trail.md#trail-settings) трейла, а также [удалять](#delete-trail) его.
+Вы можете изменять [объект назначения](../concepts/trail.md#target), [уровни](../concepts/control-plane-vs-data-plane.md) собираемых событий, [области сбора](../concepts/trail.md#collecting-area) аудитных логов и [другие настройки](../concepts/trail.md#trail-settings) трейла, а также [удалять](#delete-trail) его.
 
 ## Изменить трейл {#update-trail}
+
+В фильтры событий уровня сервисов можно добавить [условия по значениям полей](../concepts/trail.md#field-filters) через CLI, {{ TF }} или API. При изменении политики фильтрации передавайте ее целиком, сохраняя остальные нужные фильтры.
 
 {% list tabs group=instructions %}
 
@@ -28,7 +30,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Посмотрите описание команды [CLI](../../cli/) для изменения трейла, чтобы получить подробную информацию о доступных аргументах:
+  Посмотрите описание команды CLI для изменения трейла:
 
   ```bash
   yc audit-trails trail update --help
@@ -36,13 +38,14 @@ description: Следуя данной инструкции, вы сможете
 
   Трейл можно изменить, указав его параметры одним из двух способов:
 
-  {% cut "В YAML-спецификации:" %}
+  {% cut "В YAML-спецификации" %}
 
-  Создайте YAML-спецификацию, содержащую обновленные параметры трейла, и укажите этот файл в команде для создания трейла.
+  Создайте YAML-спецификацию, содержащую обновленные параметры трейла, и укажите этот файл в команде для изменения трейла.
   
   Этот способ упрощает работу с параметрами трейла и снижает вероятность ошибки. Кроме того, настроить регистрацию [событий уровня сервисов](../concepts/control-plane-vs-data-plane.md#data-plane-events) можно только с помощью YAML-спецификации.
 
-  1. [Создайте YAML-спецификацию](prepare-spec.md#spec-for-update) с обновленной конфигурацией трейла.
+  1. [Подготовьте YAML-спецификацию](prepare-spec.md) на основе текущих настроек трейла и измените нужные параметры.
+  1. {% include [field-filter-cli](../../_includes/audit-trails/field-filter-cli.md) %}
   1. Чтобы изменить трейл, выполните команду:
 
       ```bash
@@ -51,7 +54,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% endcut %}
 
-  {% cut "В аргументах команды:" %}
+  {% cut "В параметрах команды" %}
 
   Используйте этот способ, если конфигурация трейла простая и содержит небольшое количество параметров.
   
@@ -61,36 +64,20 @@ description: Следуя данной инструкции, вы сможете
 
   {% endnote %}
 
-  Чтобы изменить трейл, выполните команду:
+  Укажите в команде только те параметры, которые хотите изменить. Например, чтобы изменить имя трейла, выполните команду:
 
   ```bash
   yc audit-trails trail update \
     --name <имя_трейла> \
-    --new-name <новое_имя_трейла> \
-    --description <описание_трейла> \
-    --labels <список_меток> \
-    --service-account-id <идентификатор_сервисного_аккаунта> \
-    --destination-bucket <имя_бакета> \
-    --destination-bucket-object-prefix <префикс_для_объектов> \
-    --destination-log-group-id <идентификатор_лог_группы> \
-    --destination-yds-stream <имя_потока_данных_YDS> \
-    --destination-yds-database-id <идентификатор_базы_данных_YDS> \
-    --destination-yds-codec <метод_сжатия_событий> \
-    --filter-all-folder-id <идентификатор_каталога> \
-    --filter-all-cloud-id <идентификатор_облака> \
-    --filter-all-organisation-id <идентификатор_организации> \
-    --filter-some-folder-ids <список_каталогов_в_облаке> \
-    --filter-from-cloud-id <идентификатор_облака_с_выбранными_каталогами> \
-    --filter-some-cloud-ids <список_облаков_в_организации> \
-    --filter-from-organisation-id <идентификатор_организации_с_выбранными_облаками>
-    ```
+    --new-name <новое_имя_трейла>
+  ```
 
-    Где:
-    
-    * `--name` — имя трейла, который требуется изменить. Вместо имени можно передать идентификатор трейла в параметре `--id`.
-    * `--new-name` — новое имя трейла. Имя должно быть уникальным в рамках каталога. Необязательный параметр.
+  Параметры команды:
 
-    {% include [trail-cli-flag-desc](../../_includes/audit-trails/trail-cli-flag-desc.md) %}
+  * `--name` — имя трейла, который требуется изменить. Вместо имени можно передать идентификатор трейла в параметре `--id`.
+  * `--new-name` — новое имя трейла. Имя должно быть уникальным в рамках каталога. Необязательный параметр.
+
+  {% include [trail-cli-flag-desc](../../_includes/audit-trails/trail-cli-flag-desc.md) %}
 
   {% endcut %}
 
@@ -114,11 +101,13 @@ description: Следуя данной инструкции, вы сможете
 
       Подробнее о параметрах ресурса `yandex_audit_trails_trail` в [документации провайдера]({{ tf-provider-resources-link }}/audit_trails_trail).
 
-  1. Создайте ресурсы:
+  1. {% include [field-filter-tf](../../_includes/audit-trails/field-filter-tf.md) %}
+
+  1. Примените изменения:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+      Проверьте настройки трейла в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
 
      ```bash
      yc audit-trails trail get <имя_трейла>
@@ -126,11 +115,16 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы изменить трейл, воспользуйтесь методом REST API [update](../api-ref/Trail/update.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Update](../api-ref/grpc/Trail/update.md).
+    1. [Аутентифицируйтесь](../api-ref/authentication.md) в API и получите настройки трейла методом REST API [get](../api-ref/Trail/get.md) или вызовом gRPC API [TrailService/Get](../api-ref/grpc/Trail/get.md).
+    1. Измените нужные параметры трейла.
+    1. {% include [field-filter-api](../../_includes/audit-trails/field-filter-api.md) %}
+    1. Обновите трейл методом REST API [update](../api-ref/Trail/update.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Update](../api-ref/grpc/Trail/update.md). Передайте идентификатор трейла, обновленные параметры и маску изменений.
 
-  Чтобы упростить создание спецификации трейла, вы можете получить параметры трейла с помощью метода REST API [get](../api-ref/Trail/get.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызова gRPC API [TrailService/Get](../api-ref/grpc/Trail/get.md).
+        Если меняете политику фильтрации, включите `filteringPolicy` в `updateMask` для REST API или `filtering_policy` в `update_mask.paths` для gRPC API.
 
 {% endlist %}
+
+Примеры фильтров из [инструкции по созданию трейла](create-trail.md#filter-examples) подходят и для изменения трейла.
 
 ## Удалить трейл {#delete-trail}
 

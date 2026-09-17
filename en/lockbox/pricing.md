@@ -41,7 +41,6 @@ There is no charge for using secrets created with {{ connection-manager-name }}.
 </MDX>
 
 
-
 ### Cost calculation example {#price-example}
 
 Here is an example of calculating the monthly cost of {{ lockbox-name }} for the following configuration:

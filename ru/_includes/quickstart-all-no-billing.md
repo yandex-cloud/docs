@@ -43,6 +43,6 @@
 * Искусственный интеллект:
   * [Преобразуйте текст в речь и наоборот с помощью {{ speechkit-name }}]({{ link-docs-ai }}speechkit/quickstart/index).
   * [Переведите текст в {{ translate-name }}]({{ link-docs-ai }}translate/quickstart).
-  * [Анализируйте изображение с помощью компьютерного зрения в {{ vision-name }}]({{ link-docs-ai }}vision/quickstart).
+  * [Анализируйте изображение с помощью компьютерного зрения в {{ vision-name }}]({{ link-docs-ai }}vision/concepts/ocr/).
   * [Обучайте и запускайте модели машинного обучения в {{ ml-platform-name }}](../datasphere/quickstart.md).
   * [Создайте AI-агента для своего бизнеса]({{ link-docs-ai }})

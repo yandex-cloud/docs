@@ -2,7 +2,7 @@
 
 # Управление конфигурацией топиков YDB
 
-Для работы с [топиками](https://ydb.tech/docs/ru//concepts/topic) используется ресурс `yandex_ydb_topic`.
+Для работы с [топиками](https://ydb.tech/docs/ru/concepts/datamodel/topic) используется ресурс `yandex_ydb_topic`.
 
 {% note info %}
 
@@ -56,7 +56,7 @@ resource "yandex_ydb_topic" "ydb_topic" {
 
 {% endnote %}
 
-Описание читателя данных ([consumer](https://ydb.tech/docs/ru//concepts/topic#consumer)):
+Описание читателя данных ([consumer](https://ydb.tech/docs/ru/concepts/datamodel/topic#consumer)):
 | **Название поля** | **Тип** | **Описание** |
 | --- | --- | --- |
 |`name`|`string`<br>`required`|Имя читателя|

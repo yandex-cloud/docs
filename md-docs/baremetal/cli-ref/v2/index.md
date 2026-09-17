@@ -2,7 +2,7 @@
 
 # yc baremetal v2
 
-Manage Baremetal resources
+(preview) V2 Manage Baremetal resources
 
 #### Command Usage
 

@@ -157,7 +157,7 @@ Syntax:
 
 
 
-- [yc baremetal v2](v2/index.md) — Manage Baremetal resources
+- [yc baremetal v2](v2/index.md) — (preview) V2 Manage Baremetal resources
 
 
 

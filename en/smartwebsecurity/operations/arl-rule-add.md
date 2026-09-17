@@ -14,8 +14,8 @@ You can only add ARL rules to an [ARL](../concepts/arl.md) profile. Basic [rules
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the ARL profile.
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
-  1. Select the profile to add a rule to.
-  1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** and in the window that opens:
+  1. Select the profile where you want to add a rule.
+  1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** and do the following in the window that opens:
 
       {% include [add-arl-rule](../../_includes/smartwebsecurity/add-arl-rule.md) %}
 
@@ -43,7 +43,7 @@ You can only add ARL rules to an [ARL](../concepts/arl.md) profile. Basic [rules
             priority    = <rule_priority>
             description = "<rule_description>"
             dry_run     = true
-  
+
             static_quota {
               action = "DENY"
               limit  = <rule_limit>
@@ -65,7 +65,7 @@ You can only add ARL rules to an [ARL](../concepts/arl.md) profile. Basic [rules
             priority    = <rule_priority>
             description = "<rule_description>"
             dry_run     = true
-  
+
             static_quota {
               action = "DENY"
               limit  = <rule_limit>
@@ -81,13 +81,13 @@ You can only add ARL rules to an [ARL](../concepts/arl.md) profile. Basic [rules
           }
         }
         ```
-  
+
         {% include [arl-profile-parameters](../../_includes/smartwebsecurity/arl-profile-parameters.md) %}
-  
+
         For more on the properties of the `yandex_sws_advanced_rate_limiter_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
-  
+
     1. Apply the changes:
-  
+
          {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
          You can check the resource update in the [management console]({{ link-console-main }}).

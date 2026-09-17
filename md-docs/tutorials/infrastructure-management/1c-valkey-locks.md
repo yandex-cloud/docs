@@ -63,7 +63,7 @@
 
   1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для HTTP-сервера блокировок в той же сети, что и кластер.
 
-  1. [Настройте группы безопасности](../../managed-valkey/operations/connect/index.md#configuring-security-groups) так, чтобы:
+  1. [Настройте группы безопасности](../../managed-valkey/operations/connect/index.md#configure-security-groups) так, чтобы:
 
      * HTTP-сервер мог подключаться к кластеру.
      * Сервер 1С:Предприятия мог обращаться к HTTP-серверу по выбранному порту.

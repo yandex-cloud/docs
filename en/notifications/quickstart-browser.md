@@ -79,7 +79,7 @@ To create an endpoint, get this user data:
 - Management console {#console}
 
   1. Select the notification channel you created.
-  1. Select the ![image](../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Click **{{ ui-key.yacloud.cns.action_create-endpoint }}**.
   1. Enter the **{{ ui-key.yacloud.cns.field_web-push-endpoint_params }}** you received in the user’s browser.
   1. Click **{{ ui-key.yacloud.common.create }}**.

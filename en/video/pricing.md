@@ -44,7 +44,6 @@ The minimum billing unit of outgoing traffic is 1 GB.
 </MDX>
 
 
-
 ## Calculation examples {#price-example}
 
 ### Video hosting pricing {#hosting-example}

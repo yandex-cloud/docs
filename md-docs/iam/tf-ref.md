@@ -15,6 +15,8 @@ Terraform распространяется под лицензией [Business S
 
 | **Ресурс Terraform** | **Ресурс Yandex Cloud** |
 | --- | --- |
+| [yandex_iam_oauth_client](../terraform/resources/iam_oauth_client.md) | [OAuth-клиент](../organization/concepts/applications/oidc.md) |
+| [yandex_iam_oauth_client_secret](../terraform/resources/iam_oauth_client_secret.md) | [Секрет OAuth-клиента](../organization/concepts/applications/oidc.md#oidc-secret) |
 | [yandex_iam_service_account](../terraform/resources/iam_service_account.md) | [Сервисный аккаунт](concepts/users/service-accounts.md) |
 | [yandex_iam_service_account_api_key](../terraform/resources/iam_service_account_api_key.md) | [API-ключ](concepts/authorization/api-key.md) |
 | [yandex_iam_service_account_iam_binding](../terraform/resources/iam_service_account_iam_binding.md) | [Назначение](concepts/access-control/index.md#access-bindings) прав доступа к сервисному аккаунту. Имеет ограничение в 1000 привязок на ресурс. <br>Вместо `iam_service_account_iam_binding` рекомендуется использовать `iam_service_account_iam_member` |
@@ -22,6 +24,9 @@ Terraform распространяется под лицензией [Business S
 | [yandex_iam_service_account_iam_policy](../terraform/resources/iam_service_account_iam_policy.md) | Устанавливает политику доступа сервисного аккаунта и заменяет любую заданную политику |
 | [yandex_iam_service_account_key](../terraform/resources/iam_service_account_key.md) | [Авторизованный ключ](concepts/authorization/key.md) |
 | [yandex_iam_service_account_static_access_key](../terraform/resources/iam_service_account_static_access_key.md) | [Статический ключ](concepts/authorization/access-key.md) |
+| [yandex_iam_workload_identity_federated_credential](../terraform/resources/iam_workload_identity_federated_credential.md) | [Привязка в федерации сервисных аккаунтов](concepts/workload-identity.md#federated-credentials) |
+| [yandex_iam_workload_identity_oidc_federation](../terraform/resources/iam_workload_identity_oidc_federation.md) | [Федерация сервисных аккаунтов](concepts/workload-identity.md) |
+| [yandex_iam_workload_identity_oidc_federation_iam_binding](../terraform/resources/iam_workload_identity_oidc_federation_iam_binding.md) | Назначение [роли](concepts/access-control/roles.md) на [федерацию сервисных аккаунтов](concepts/workload-identity.md) |
 
 ## Источники данных {#data-sources}
 
@@ -29,7 +34,11 @@ Terraform распространяется под лицензией [Business S
 
 | **Источник данных Terraform** | **Описание** |
 | --- | --- |
+| [yandex_iam_oauth_client](../terraform/data-sources/iam_oauth_client.md) | Информация об [OAuth-клиенте](../organization/concepts/applications/oidc.md) |
 | [yandex_iam_policy](../terraform/data-sources/iam_policy.md) | Информация о политике доступа |
 | [yandex_iam_role](../terraform/data-sources/iam_role.md) | Информация о [роли](concepts/access-control/roles.md) |
 | [yandex_iam_service_account](../terraform/data-sources/iam_service_account.md) | Информация о [сервисном аккаунте](concepts/users/service-accounts.md) |
+| [yandex_iam_service_agent](../terraform/data-sources/iam_service_agent.md) | Информация о [сервисном агенте](concepts/service-control.md#service-agent) |
 | [yandex_iam_user](../terraform/data-sources/iam_user.md) | Информация о пользователе |
+| [yandex_iam_workload_identity_federated_credential](../terraform/data-sources/iam_workload_identity_federated_credential.md) | Информация о [привязке в федерации сервисных аккаунтов](concepts/workload-identity.md#federated-credentials) |
+| [yandex_iam_workload_identity_oidc_federation](../terraform/data-sources/iam_workload_identity_oidc_federation.md) | Информация о [федерации сервисных аккаунтов](concepts/workload-identity.md) |

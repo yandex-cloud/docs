@@ -3,9 +3,11 @@ Event name | Description
 `CreateArtifact` | Creating an [artifact](../../../cloud-registry/concepts/artifacts/index.md)
 `CreateLifecyclePolicy` | Creating a [lifecycle policy](../../../cloud-registry/concepts/lifecycle-policy.md)
 `CreateRegistry` | Creating a registry
+`CreateScanPolicy` | Creating a scan policy
 `DeleteArtifact` | Deleting artifacts
 `DeleteLifecyclePolicy` | Deleting a lifecycle policy
 `DeleteRegistry` | Deleting a registry
+`DeleteScanPolicy` | Deleting a scan policy
 `RevokeDelegation` | Revoking delegation permissions for access to cloud resources from a service account
 `SetArtifactAccessBindings` | Assigning access permissions for an artifact
 `SetIpPermissions` | Configuring access for IP addresses
@@ -17,5 +19,6 @@ Event name | Description
 `UpdateIpPermissions` | Changing access for IP addresses
 `UpdateLifecyclePolicy` | Updating a lifecycle policy
 `UpdateRegistry` | Updating a registry
+`UpdateScanPolicy` | Updating a scan policy
 `UpdateRegistryAccessBindings` | Updating access permissions for a registry
 `UpdateRegistryFolderAccessBindings` | Updating access permissions for a registry folder

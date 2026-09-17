@@ -12,7 +12,7 @@ description: Follow this guide to delete a {{ sws-full-name }} profile.
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. In the row with the profile you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the row with the profile, click ![options](../../_assets/console-icons/ellipsis.svg) → ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
 - CLI {#cli}
@@ -44,9 +44,9 @@ description: Follow this guide to delete a {{ sws-full-name }} profile.
      ```
 
      {% note info %}
-     
+
      Deleting a security profile may affect access to the virtual hosts it is connected to.
-     
+
      {% endnote %}
 
   For more information about the `yc smartwebsecurity security-profile delete` command, see the [CLI reference](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/delete.md).
@@ -62,7 +62,7 @@ description: Follow this guide to delete a {{ sws-full-name }} profile.
   1. Open the {{ TF }} configuration file and delete the section describing the profile.
 
      {% cut "Example of a security profile description in the {{ TF }} configuration" %}
-     
+
      ```hcl
      resource "yandex_sws_security_profile" "demo-profile-simple" {
        name                             = "<security_profile_name>"

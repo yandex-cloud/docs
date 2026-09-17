@@ -5,6 +5,7 @@ description: Follow this guide to create a notification channel that invokes a f
 
 # Creating a notification channel that invokes a function
 
+
 You can specify a function in {{ sf-name }} as the notification method. This function will be invoked when an alert fires or in an escalation as a standard notification channel.
 
 To set up notifications with {{ sf-name }}:

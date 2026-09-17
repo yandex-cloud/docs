@@ -12,9 +12,11 @@ description: Следуя данной инструкции, вы сможете
 * лог-группу [{{ cloud-logging-full-name }}](../../logging/index.yaml);
 * поток данных [{{ yds-full-name }}](../../data-streams/index.yaml).
 
+При создании трейла через CLI, {{ TF }} или API в фильтрах событий уровня сервисов можно задать [условия по значениям полей](../concepts/trail.md#field-filters). Это позволяет уменьшить поток событий и объем хранимых логов.
+
 ## Перед началом работы {#before-you-begin}
 
-В зависимости от выбранного [объекта назначения](../concepts/trail.md#target) для логов, подготовьте необходимую инфраструктуру для создания трейла:
+Подготовьте [объект назначения](../concepts/trail.md#target) и сервисный аккаунт для трейла:
 
 {% list tabs group=trail-target %}
 
@@ -96,6 +98,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. {% include [control-plane-on-console](../../_includes/audit-trails/control-plane-on-console.md) %}
   1. {% include [data-plane-on-console](../../_includes/audit-trails/data-plane-on-console.md) %}
+
+      Чтобы ограничить сбор событий по значениям полей, задайте [условия фильтрации](../concepts/trail.md#field-filters) через CLI, API или {{ TF }}.
+
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите [созданный ранее](#before-you-begin) сервисный аккаунт, от имени которого будет работать трейл.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя создаваемого трейла. Оно должно быть уникальным в рамках каталога.
   1. (Опционально) Укажите описание трейла.
@@ -107,41 +112,35 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Посмотрите описание команды [CLI](../../cli/) для создания трейла, чтобы получить подробную информацию о доступных аргументах:
+  Посмотрите описание команды CLI для создания трейла:
 
   ```bash
   yc audit-trails trail create --help
   ```
 
-  Трейл можно создать, указав его параметры одним из двух способов:
+  Для сбора [событий уровня сервисов](../concepts/control-plane-vs-data-plane.md#data-plane-events) используйте YAML-спецификацию. Если нужны только события уровня конфигурации, параметры можно передать непосредственно в команде.
 
-  {% cut "В YAML-спецификации:" %}
+  {% cut "В YAML-спецификации" %}
 
-  [Создайте YAML-спецификацию](prepare-spec.md#spec-for-create), содержащую параметры трейла, и укажите этот файл в команде для создания трейла.
-  
-  Этот способ упрощает работу с параметрами трейла и снижает вероятность ошибки. Кроме того, настроить регистрацию [событий уровня сервисов](../concepts/control-plane-vs-data-plane.md#data-plane-events) можно только с помощью YAML-спецификации.
-
-  1. Создайте YAML-файл с конфигурацией трейла:
+  1. Создайте YAML-файл с конфигурацией трейла. В шаблоне логи загружаются в бакет:
 
       {% include [trail-create-cli-yaml-config](../../_includes/audit-trails/trail-create-cli-yaml-config.md) %}
 
-      Где:
+      За основу также можно взять [спецификацию существующего трейла](prepare-spec.md#spec-for-create).
+
+      Параметры конфигурации:
 
       * `name` — имя трейла. Оно должно быть уникальным в рамках каталога.
       * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, в котором будет размещен трейл.
-      * `destination` — настройки выбранного места назначения, куда будут загружаться аудитные логи.
+      * `destination` — настройки объекта назначения для аудитных логов.
 
-          {% note warning %}
-
-          Настройки мест назначения — взаимоисключающие. Использование одних настроек делает невозможным использование других.
-
-          {% endnote %}
+          Укажите только один объект назначения: `object_storage`, `cloud_logging` или `data_stream`.
 
           * `object_storage` — загружать логи в [бакет](../../storage/concepts/bucket.md#naming) {{ objstorage-full-name }}:
 
               * `bucket_id` — [имя](../../storage/concepts/bucket.md#naming) созданного [ранее](#before-you-begin) бакета.
 
-                  Имя бакета можно запросить со списком бакетов в каталоге (используется каталог по умолчанию):
+                  Чтобы посмотреть имена бакетов в каталоге по умолчанию, выполните команду:
 
                   ```bash
                   yc storage bucket list
@@ -153,9 +152,27 @@ description: Следуя данной инструкции, вы сможете
 
           * `cloud_logging` — загружать логи в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
 
+              Замените блок `destination` в шаблоне:
+
+              ```yaml
+              destination:
+                cloud_logging:
+                  log_group_id: <идентификатор_лог_группы>
+              ```
+
               В параметре `log_group_id` укажите идентификатор [созданной ранее](#before-you-begin) лог-группы. Идентификатор можно запросить со [списком лог-групп в каталоге](../../logging/operations/list.md).
           
           * `data_stream` — загружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}:
+
+              Замените блок `destination` в шаблоне:
+
+              ```yaml
+              destination:
+                data_stream:
+                  stream_name: <имя_потока_данных>
+                  database_id: <идентификатор_базы_данных>
+                  codec: RAW
+              ```
 
               * `stream_name` — имя [созданного ранее](#before-you-begin) потока данных. Имя можно запросить со [списком потоков данных в каталоге](../../data-streams/operations/manage-streams.md#list-data-streams).
               * `database_id` — идентификатор базы данных {{ ydb-short-name }}, которая используется потоком данных {{ yds-name }}. Идентификатор можно запросить со [списком баз данных {{ ydb-short-name }} в каталоге](../../ydb/operations/manage-databases.md#list-db).
@@ -165,6 +182,8 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [trail-create-cli-yaml-desc-filtering](../../_includes/audit-trails/trail-create-cli-yaml-desc-filtering.md) %}
 
+  1. {% include [field-filter-cli](../../_includes/audit-trails/field-filter-cli.md) %}
+
   1. Выполните команду:
 
       ```bash
@@ -173,44 +192,38 @@ description: Следуя данной инструкции, вы сможете
 
   {% endcut %}
 
-  {% cut "В аргументах команды:" %}
+  {% cut "В параметрах команды" %}
 
-  Используйте этот способ, если конфигурация трейла простая и содержит небольшое количество параметров.
-
-  {% note info %}
-
-  Настроить регистрацию [событий уровня сервисов](../concepts/control-plane-vs-data-plane.md#data-plane-events) можно только с помощью YAML-спецификации.
-
-  {% endnote %}
-
-  Выполните команду:
+  Чтобы собирать события уровня конфигурации из каталога и загружать их в бакет, выполните команду:
 
   ```bash
   yc audit-trails trail create \
     --name <имя_трейла> \
-    --description <описание_трейла> \
-    --labels <список_меток> \
     --service-account-id <идентификатор_сервисного_аккаунта> \
     --destination-bucket <имя_бакета> \
-    --destination-bucket-object-prefix <префикс_для_объектов> \
-    --destination-log-group-id <идентификатор_лог_группы> \
-    --destination-yds-stream <имя_потока_данных_YDS> \
-    --destination-yds-database-id <идентификатор_базы_данных_YDS> \
-    --destination-yds-codec <метод_сжатия_событий> \
-    --filter-all-folder-id <идентификатор_каталога> \
-    --filter-all-cloud-id <идентификатор_облака> \
-    --filter-all-organisation-id <идентификатор_организации> \
-    --filter-some-folder-ids <список_каталогов_в_облаке> \
-    --filter-from-cloud-id <идентификатор_облака_с_выбранными_каталогами> \
-    --filter-some-cloud-ids <список_облаков_в_организации> \
-    --filter-from-organisation-id <идентификатор_организации_с_выбранными_облаками>
-    ```
+    --filter-all-folder-id <идентификатор_каталога>
+  ```
 
-    Где:
-    
-    * `--name` — имя создаваемого трейла.
+  Для другого объекта назначения замените `--destination-bucket` одним из вариантов:
 
-    {% include [trail-cli-flag-desc](../../_includes/audit-trails/trail-cli-flag-desc.md) %}
+  * Лог-группа:
+
+      ```bash
+      --destination-log-group-id <идентификатор_лог_группы>
+      ```
+
+  * Поток данных:
+
+      ```bash
+      --destination-yds-stream <имя_потока_данных> \
+      --destination-yds-database-id <идентификатор_базы_данных>
+      ```
+
+  Параметры команды:
+
+  * `--name` — имя создаваемого трейла.
+
+  {% include [trail-cli-flag-desc](../../_includes/audit-trails/trail-cli-flag-desc.md) %}
 
   {% endcut %}
 
@@ -220,7 +233,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Опишите в конфигурационном файле параметры трейла, который будет собирать аудитные логи:
+  1. Опишите в конфигурационном файле параметры трейла. В шаблоне логи загружаются в бакет:
 
       {% include [trail-tf-manifest](../../_includes/audit-trails/trail-tf-manifest.md) %}
 
@@ -234,6 +247,8 @@ description: Следуя данной инструкции, вы сможете
 
       Подробнее о параметрах ресурса `yandex_audit_trails_trail` в [документации провайдера]({{ tf-provider-resources-link }}/audit_trails_trail).
 
+  1. {% include [field-filter-tf](../../_includes/audit-trails/field-filter-tf.md) %}
+
   1. Создайте ресурсы:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -246,9 +261,13 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](../api-ref/grpc/Trail/create.md).
+    1. [Аутентифицируйтесь](../api-ref/authentication.md) в API.
+    1. Подготовьте параметры трейла: каталог, объект назначения, сервисный аккаунт и политику фильтрации с нужными сервисами и областями сбора.
 
-  Чтобы упростить создание спецификации трейла, вы можете получить параметры существующего трейла с помощью метода REST API [get](../api-ref/Trail/get.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызова gRPC API [TrailService/Get](../api-ref/grpc/Trail/get.md).
+        Чтобы взять за основу настройки существующего трейла, получите их методом REST API [get](../api-ref/Trail/get.md) или вызовом gRPC API [TrailService/Get](../api-ref/grpc/Trail/get.md).
+
+    1. {% include [field-filter-api](../../_includes/audit-trails/field-filter-api.md) %}
+    1. Создайте трейл методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](../api-ref/grpc/Trail/create.md).
 
 {% endlist %}
 
@@ -258,46 +277,22 @@ description: Следуя данной инструкции, вы сможете
 
 ## Примеры {#examples}
 
-### Создание трейла с фильтрами событий уровня конфигурации и уровня сервисов {#example-control-data-planes}
+### Создание трейла с фильтрацией событий {#example-control-data-planes}
 
-Создайте трейл со следующими параметрами:
+В примере трейл `sample-trail-all-planes` создается в каталоге `folder0***` и записывает логи в бакет `sample-logs-bucket` с помощью сервисного аккаунта `service0***`.
 
-* Имя трейла — `sample-trail-all-planes`.
-* Каталог, в котором будет размещен трейл — каталог с идентификатором `folder0***`.
-* Объект назначения — бакет {{ objstorage-name }} с именем `sample-logs-bucket`.
-* Сервисный аккаунт для трейла — аккаунт с идентификатором `service0***`.
-* Настройки фильтра событий уровня конфигурации:
+Фильтры определяют, какие события попадают в логи:
 
-    В качестве области сбора логов выбрана организация с идентификатором `org1***`. Логи будут собираться из всех облаков, которые принадлежат этой организации.
-
-* Настройки фильтров событий уровня сервиса:
-
-    * Для сервиса [{{ mpg-name }}](../../managed-postgresql/) логи будут собираться из облака с идентификатором `cloud1***` и каталога с идентификатором `folder1***`.
-
-        Будут собираться все [события сервиса](../concepts/events-data-plane.md#mpg), кроме следующих:
-
-        * `yandex.cloud.audit.mdb.postgresql.CreateDatabase`,
-        * `yandex.cloud.audit.mdb.postgresql.UpdateDatabase`.
-
-    * Для сервиса [{{ objstorage-name }}](../../storage/) логи будут собираться из облаков с идентификаторами `cloud2***` и `cloud3***`.
-
-        Будут собираться только следующие [события сервиса](../concepts/events-data-plane.md#objstorage):
-
-        * `yandex.cloud.audit.storage.ObjectCreate`,
-        * `yandex.cloud.audit.storage.ObjectUpdate`,
-        * `yandex.cloud.audit.storage.ObjectDelete`.
-
-    * Для сервиса [{{ compute-name }}](../../compute/) логи будут собираться из каталогов с идентификаторами `folder2***` и `folder3***`.
-
-        Будут собираться все [события сервиса](../concepts/events-data-plane.md#compute).
+* События уровня конфигурации — из всех облаков организации `org1***`.
+* События уровня сервисов:
+  * [{{ mpg-name }}](../../managed-postgresql/) — из облака `cloud1***` и каталога `folder1***`: все события, кроме `CreateDatabase` и `UpdateDatabase`.
+  * [{{ iam-name }}](../../iam/) — из каталога `folder2***`: только события `CreateIamToken`. Из них исключаются события, в которых одновременно тип учетных данных равен `iam.session`, а имя субъекта — `user@example.com`.
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-  1. Создайте YAML-файл `sample-trail-all-planes.yaml` с конфигурацией трейла.
-
-      {% cut "sample-trail-all-planes.yaml" %}
+  1. Создайте YAML-файл `sample-trail-all-planes.yaml` с конфигурацией трейла:
 
       ```yaml
       name: sample-trail-all-planes
@@ -320,28 +315,26 @@ description: Следуя данной инструкции, вы сможете
                 type: resource-manager.folder
             excluded_events:
               event_types:
-              - yandex.cloud.audit.mdb.postgresql.CreateDatabase
-              - yandex.cloud.audit.mdb.postgresql.UpdateDatabase
-          - service: storage
-            resource_scopes:
-              - id: cloud2***
-                type: resource-manager.cloud
-              - id: cloud3***
-                type: resource-manager.cloud
-            included_events:
-              event_types:
-                - yandex.cloud.audit.storage.ObjectCreate
-                - yandex.cloud.audit.storage.ObjectUpdate
-                - yandex.cloud.audit.storage.ObjectDelete
-          - service: compute
+                - yandex.cloud.audit.mdb.postgresql.CreateDatabase
+                - yandex.cloud.audit.mdb.postgresql.UpdateDatabase
+          - service: iam
             resource_scopes:
               - id: folder2***
                 type: resource-manager.folder
-              - id: folder3***
-                type: resource-manager.folder
+            included_events:
+              event_types:
+                - yandex.cloud.audit.iam.CreateIamToken
+            exclude_rules:
+              - conditions:
+                  - field: $.details.credential.type
+                    operator: IN
+                    values:
+                      - iam.session
+                  - field: $.details.subject_name
+                    operator: IN
+                    values:
+                      - user@example.com
       ```
-
-      {% endcut %}
 
   1. Выполните команду:
 
@@ -349,11 +342,9 @@ description: Следуя данной инструкции, вы сможете
       yc audit-trails trail create --file sample-trail-all-planes.yaml
       ```
 
-  Будет создан трейл с указанными параметрами.
-
 - {{ TF }} {#tf}
 
-  1. Опишите в конфигурационном файле {{ TF }} параметры создаваемого трейла:
+  1. Опишите в конфигурационном файле {{ TF }} параметры трейла:
 
       ```hcl
       resource "yandex_audit_trails_trail" "basic_trail" {
@@ -362,62 +353,66 @@ description: Следуя данной инструкции, вы сможете
         service_account_id = "service0***"
 
         storage_destination {
-          bucket_name  = "sample-logs-bucket"
+          bucket_name = "sample-logs-bucket"
         }
 
         filtering_policy {
           management_events_filter {
             resource_scope {
               resource_id   = "org1***"
-              resource_type = "resource-manager.organization"
+              resource_type = "organization-manager.organization"
             }
-          }  
+          }
+
           data_events_filter {
             service = "mdb.postgresql"
-            excluded_events = ["yandex.cloud.audit.mdb.postgresql.CreateDatabase","yandex.cloud.audit.mdb.postgresql.UpdateDatabase"]
+            excluded_events = [
+              "yandex.cloud.audit.mdb.postgresql.CreateDatabase",
+              "yandex.cloud.audit.mdb.postgresql.UpdateDatabase",
+            ]
+
             resource_scope {
               resource_id   = "cloud1***"
               resource_type = "resource-manager.cloud"
             }
+
             resource_scope {
               resource_id   = "folder1***"
               resource_type = "resource-manager.folder"
             }
           }
+
           data_events_filter {
-            service = "storage"
-            resource_scope {
-              resource_id   = "cloud2***"
-              resource_type = "resource-manager.cloud"
-            }
-            resource_scope {
-              resource_id   = "cloud3***"
-              resource_type = "resource-manager.cloud"
-            }
-          }
-          data_events_filter {
-            service = "compute"
+            service         = "iam"
+            included_events = ["yandex.cloud.audit.iam.CreateIamToken"]
+
             resource_scope {
               resource_id   = "folder2***"
               resource_type = "resource-manager.folder"
             }
-            resource_scope {
-              resource_id   = "folder3***"
-              resource_type = "resource-manager.folder"
+
+            exclude_rule {
+              condition {
+                field    = "$.details.credential.type"
+                operator = "IN"
+                values   = ["iam.session"]
+              }
+
+              condition {
+                field    = "$.details.subject_name"
+                operator = "IN"
+                values   = ["user@example.com"]
+              }
             }
           }
         }
       }
-     ```
+      ```
 
-  1. Создайте ресурсы:
-
-      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-
-      Будет создан трейл с указанными параметрами. Проверить появление трейла можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+  1. Примените конфигурацию:
 
       ```bash
-      yc audit-trails trail get sample-trail-all-planes
+      terraform apply
       ```
 
 - API {#api}
@@ -428,21 +423,18 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [bash-windows-note-single](../../_includes/translate/bash-windows-note-single.md) %}
 
-  1. [Получите](../../iam/operations/index.md#authentication) IAM-токен, чтобы [аутентифицироваться](../api-ref/authentication.md) в API.
-
-  1. Сохраните полученный IAM-токен в переменную, выполните в терминале:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и запишите его в переменную окружения:
 
       ```bash
-      export IAM_TOKEN=<IAM-токен>
+      export IAM_TOKEN=<iam-токен>
       ```
 
-  1. Подготовьте файл `body.json` с телом запроса и описанием создаваемого трейла:
+  1. Подготовьте файл `body.json` с телом запроса:
 
       ```json
       {
-        "folderId": "folder0**",
+        "folderId": "folder0***",
         "name": "sample-trail-all-planes",
-        "description": "sample-trail",
         "destination": {
           "objectStorage": {
             "bucketId": "sample-logs-bucket"
@@ -454,19 +446,13 @@ description: Следуя данной инструкции, вы сможете
             "resourceScopes": [
               {
                 "id": "org1***",
-                "type": "resource-manager.organization"
+                "type": "organization-manager.organization"
               }
             ]
           },
           "dataEventsFilters": [
             {
               "service": "mdb.postgresql",
-              "excludedEvents": {
-                "eventTypes": [
-                  "yandex.cloud.audit.mdb.postgresql.CreateDatabase"
-                  ,"yandex.cloud.audit.mdb.postgresql.UpdateDatabase"
-                ]
-              },
               "resourceScopes": [
                 {
                   "id": "cloud1***",
@@ -476,31 +462,41 @@ description: Следуя данной инструкции, вы сможете
                   "id": "folder1***",
                   "type": "resource-manager.folder"
                 }
-              ]
+              ],
+              "excludedEvents": {
+                "eventTypes": [
+                  "yandex.cloud.audit.mdb.postgresql.CreateDatabase",
+                  "yandex.cloud.audit.mdb.postgresql.UpdateDatabase"
+                ]
+              }
             },
             {
-              "service": "storage",
+              "service": "iam",
               "resourceScopes": [
                 {
-                  "id": "cloud2**",
-                  "type": "resource-manager.cloud"
-                },
-                {
-                  "id": "cloud3**",
-                  "type": "resource-manager.cloud"
+                  "id": "folder2***",
+                  "type": "resource-manager.folder"
                 }
-              ]
-            },
-            {
-              "service": "compute",
-              "resourceScopes": [
+              ],
+              "includedEvents": {
+                "eventTypes": [
+                  "yandex.cloud.audit.iam.CreateIamToken"
+                ]
+              },
+              "excludeRules": [
                 {
-                  "id": "folder2**",
-                  "type": "resource-manager.folder"
-                },
-                {
-                  "id": "folder3**",
-                  "type": "resource-manager.folder"
+                  "conditions": [
+                    {
+                      "field": "$.details.credential.type",
+                      "operator": "IN",
+                      "values": ["iam.session"]
+                    },
+                    {
+                      "field": "$.details.subject_name",
+                      "operator": "IN",
+                      "values": ["user@example.com"]
+                    }
+                  ]
                 }
               ]
             }
@@ -509,39 +505,212 @@ description: Следуя данной инструкции, вы сможете
       }
       ```
 
-  1. Выполните в терминале запрос:
+  1. Выполните запрос:
 
       ```bash
       curl \
         --request POST \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
-        --data "@<файл_с_телом_запроса>" \
+        --header "Content-Type: application/json" \
+        --data "@body.json" \
         https://audittrails.api.cloud.yandex.net/audit-trails/v1/trails
-      ```
-
-      Где:
-      
-      * `<файл_с_телом_запроса>` — путь к созданному ранее файлу с телом запроса `body.json`.
-
-      Результат:
-
-      ```json
-      {
-      "done": true,
-      "metadata": {
-        "@type": "type.googleapis.com/yandex.cloud.audittrails.v1.CreateTrailMetadata",
-        "trailId": "cnpvprd5pa66********"
-      },
-      "id": "cnp9qb9g8ldb********",
-      "description": "operation_create",
-      "createdAt": "2025-02-20T07:06:18.547321903Z",
-      "createdBy": "ajevfb0tjfts********",
-      "modifiedAt": "2025-02-20T07:06:18.547321903Z"
-      }
       ```
 
 {% endlist %}
 
+### Фильтрация по значениям полей {#filter-examples}
+
+Примеры подходят для создания и изменения трейла. Добавьте фрагмент в фильтр нужного сервиса: в CLI — в элемент списка `filtering_policy.data_events_filters`, в {{ TF }} — в блок `filtering_policy.data_events_filter`.
+
+{% cut "Исключение событий по типу учетных данных и пользователю" %}
+
+Фильтр для `iam` исключает события с типом учетных данных `iam.session` и именем субъекта `user@example.com`, например [CreateIamToken](../audit/iam/events-ref/CreateIamToken.md).
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  ```yaml
+  exclude_rules:
+    - conditions:
+        - field: $.details.credential.type
+          operator: IN
+          values:
+            - iam.session
+        - field: $.details.subject_name
+          operator: IN
+          values:
+            - user@example.com
+  ```
+
+- {{ TF }} {#tf}
+
+  ```hcl
+  exclude_rule {
+    condition {
+      field    = "$.details.credential.type"
+      operator = "IN"
+      values   = ["iam.session"]
+    }
+
+    condition {
+      field    = "$.details.subject_name"
+      operator = "IN"
+      values   = ["user@example.com"]
+    }
+  }
+  ```
+
+{% endlist %}
+
+{% endcut %}
+
+{% cut "Исключение событий по IP-адресу" %}
+
+Фильтр для `mdb.mongodb` исключает события [GenericAuditEvent](../audit/mdb/mongodb/events-ref/GenericAuditEvent.md) с адресом `details.remote_address` из подсети `192.0.2.0/24`.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  ```yaml
+  exclude_rules:
+    - conditions:
+        - field: $.event_type
+          operator: IN
+          values:
+            - yandex.cloud.audit.mdb.mongodb.GenericAuditEvent
+        - field: $.details.remote_address
+          operator: IP_IN
+          values:
+            - 192.0.2.0/24
+  ```
+
+- {{ TF }} {#tf}
+
+  ```hcl
+  exclude_rule {
+    condition {
+      field    = "$.event_type"
+      operator = "IN"
+      values   = ["yandex.cloud.audit.mdb.mongodb.GenericAuditEvent"]
+    }
+
+    condition {
+      field    = "$.details.remote_address"
+      operator = "IP_IN"
+      values   = ["192.0.2.0/24"]
+    }
+  }
+  ```
+
+{% endlist %}
+
+{% endcut %}
+
+{% cut "Исключение сетевых событий по адресам источника и назначения" %}
+
+Фильтр для `network` исключает события [ExternalFlow](../audit/vpc/events-ref/ExternalFlow.md) с адресами источника и назначения из подсети `198.51.100.0/24`.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  ```yaml
+  exclude_rules:
+    - conditions:
+        - field: $.event_type
+          operator: IN
+          values:
+            - yandex.cloud.audit.network.flowlogs.ExternalFlow
+        - field: $.details.dst_addr
+          operator: IP_IN
+          values:
+            - 198.51.100.0/24
+        - field: $.details.src_addr
+          operator: IP_IN
+          values:
+            - 198.51.100.0/24
+  ```
+
+- {{ TF }} {#tf}
+
+  ```hcl
+  exclude_rule {
+    condition {
+      field    = "$.event_type"
+      operator = "IN"
+      values   = ["yandex.cloud.audit.network.flowlogs.ExternalFlow"]
+    }
+
+    condition {
+      field    = "$.details.dst_addr"
+      operator = "IP_IN"
+      values   = ["198.51.100.0/24"]
+    }
+
+    condition {
+      field    = "$.details.src_addr"
+      operator = "IP_IN"
+      values   = ["198.51.100.0/24"]
+    }
+  }
+  ```
+
+{% endlist %}
+
+{% endcut %}
+
+{% cut "Сбор событий чтения секретов {{ k8s }}" %}
+
+Фильтр для `k8s` оставляет только события [ApiServerWatch](../audit/k8s/apiserver/events-ref/ApiServerWatch.md), [ApiServerGet](../audit/k8s/apiserver/events-ref/ApiServerGet.md) и [ApiServerList](../audit/k8s/apiserver/events-ref/ApiServerList.md) для ресурсов типа `secrets`.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  ```yaml
+  include_rules:
+    - conditions:
+        - field: $.event_type
+          operator: IN
+          values:
+            - yandex.cloud.audit.k8s.apiserver.ApiServerWatch
+            - yandex.cloud.audit.k8s.apiserver.ApiServerGet
+            - yandex.cloud.audit.k8s.apiserver.ApiServerList
+        - field: $.details.native_api_server_event.objectRef.resource
+          operator: IN
+          values:
+            - secrets
+  ```
+
+- {{ TF }} {#tf}
+
+  ```hcl
+  include_rule {
+    condition {
+      field    = "$.event_type"
+      operator = "IN"
+      values = [
+        "yandex.cloud.audit.k8s.apiserver.ApiServerWatch",
+        "yandex.cloud.audit.k8s.apiserver.ApiServerGet",
+        "yandex.cloud.audit.k8s.apiserver.ApiServerList",
+      ]
+    }
+
+    condition {
+      field    = "$.details.native_api_server_event.objectRef.resource"
+      operator = "IN"
+      values   = ["secrets"]
+    }
+  }
+  ```
+
+{% endlist %}
+
+Регистр ключа `objectRef` соответствует исходному событию {{ k8s }}.
+
+{% endcut %}
 
 ## Что дальше {#whats-next}
 

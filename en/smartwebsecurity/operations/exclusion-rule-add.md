@@ -13,17 +13,13 @@ description: Follow this guide to create a WAF exclusion rule.
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Select the profile where you want to add an [exclusion rule](../concepts/waf.md#exclusion-rules).
-  1. In the left-hand menu, select ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-exclusion-rule }}**.
+  1. Select ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-exclusion-rule }}**.
   1. Name the exclusion rule.
   1. Optionally, provide a description.
   1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}** to log exception rule triggering.
-
   1. {% include [waf-rule-rules-section](../../_includes/smartwebsecurity/waf-rule-rules-section.md) %}
-  
   1. {% include [waf-rule-request-condition](../../_includes/smartwebsecurity/waf-rule-request-condition.md) %}
-
   1. {% include [waf-rule-traffic-conditions](../../_includes/smartwebsecurity/waf-rule-traffic-conditions.md) %}
-
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - {{ TF }} {#tf}
@@ -38,14 +34,6 @@ description: Follow this guide to create a WAF exclusion rule.
       # WAF profile
       resource "yandex_sws_waf_profile" "default" {
         name = "waf-profile-default"
-        core_rule_set {
-          inbound_anomaly_score = 2
-          paranoia_level        = local.waf_paranoia_level
-          rule_set {
-            name    = "OWASP Core Ruleset"
-            version = "4.0.0"
-          }
-        }
 
         ...
 
@@ -86,27 +74,33 @@ description: Follow this guide to create a WAF exclusion rule.
       }
       ```
 
+     {% cut "Example of configuring WAF profile exclusion rules in your {{ TF }} configuration" %}
+
+     {% include [waf-profile-exclusion-terraform-example](../../_includes/smartwebsecurity/waf-profile-exclusion-terraform-example.md) %}
+
+     {% endcut %}
+
       Where:
-      
+
       * `exclusion_rule`:
-         
+
          * `name`: Exclusion rule name.
          * `condition`: [Conditions](../concepts/conditions.md) for the exception rule to trigger. The above example uses a condition based on the traffic source IP address.
 
             Under `condition`, you can specify multiple different condition types at the same time.
-         
+
          * `exclude_rules`: Exclusion rule settings:
-            
-            * `exclude_all`: Exclusion will apply to all rules. It can be either `false` or `true`.
+
+            * `exclude_all`: Exclusion will apply to all rules. The possible values are `false` or `true`.
             * `rule_ids`: List of IDs of rules from the basic set to which the exclusion will apply. To specify individual rules, set `exclude_all` to `false`.
 
-      For more on the properties of the `sws_waf_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more on the properties of the `yandex_sws_waf_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
 
-  1. Create the resources:
+  1. Apply the changes:
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the resource update in the [management console]({{ link-console-main }}).
+  You can check the update in the [management console]({{ link-console-main }}).
 
 - API {#api}
 

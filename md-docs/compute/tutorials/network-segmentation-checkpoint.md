@@ -38,8 +38,8 @@
 * Решение Check Point в данном примере настроено с базовыми политиками доступа (Access Control) и NAT.
 
 Решение Check Point CloudGuard IaaS доступно в Yandex Cloud Marketplace в варианте BYOL с Trial периодом 15 дней:
-* ВМ NGFW [Check Point CloudGuard IaaS - Firewall & Threat Prevention BYOL](https://yandex.cloud/ru/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-byol-m);
-* ВМ сервера управления [Check Point CloudGuard IaaS - Security Management BYOL](https://yandex.cloud/ru/marketplace/products/checkpoint/cloudguard-iaas-security-management-byol-m) для задач управления NGFW.
+* ВМ NGFW Check Point CloudGuard IaaS - Firewall & Threat Prevention BYOL;
+* ВМ сервера управления Check Point CloudGuard IaaS - Security Management BYOL для задач управления NGFW.
 
 Для использования в продуктивной среде необходимо приобрести лицензии на решение Check Point CloudGuard IaaS. Если используется собственная инсталляция сервера управления Check Point, то развертывать ВМ сервера управления в облаке не требуется.
 

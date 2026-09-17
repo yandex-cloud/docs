@@ -24,6 +24,10 @@ Redis cluster name. ||
 || `--password` | `string`
 
 Password of Redis user ||
+|| `--password-file` | `string`
+
+File containing the password of the Redis user. ||
+|| `--password-from-stdin` | Read password from stdin. ||
 || `--disabled` | Disabled flag of Redis user. False by default. ||
 || `--enabled` | Enabled flag of Redis user. True by default ||
 || `--raw` | `string`

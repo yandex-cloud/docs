@@ -1,3 +1,8 @@
+---
+title: Domain ownership verification in {{ certificate-manager-name }}
+description: How to verify domain ownership using HTTP or DNS challenges to issue Let's Encrypt certificates in {{ certificate-manager-name }}. Learn about verification statuses and conditions for automatic verification.
+---
+
 # Domain ownership verification
 
 To get and renew a Let's Encrypt certificate, verify ownership for each domain specified in the certificate. In {{ certificate-manager-name }}, there are two types of checks available: `HTTP` and `DNS`. When you create a certificate, you can choose any type of check. Domain ownership verification may take a while.
@@ -8,9 +13,9 @@ You only need to verify domain ownership for Let's Encrypt certificates. {{ cert
 
 {% endnote %}
 
-{{ certificate-manager-name }} waits for each domain from the certificate to pass the check (all checks have the `Valid` status). After that, Let's Encrypt will issue a certificate. Then the certificate changes its status to `Issued` and you can use it in services integrated with {{ certificate-manager-name }}.
+{{ certificate-manager-name }} waits for each domain from the certificate to pass the check (all checks have the `Valid` status). After that, Let's Encrypt will issue the certificate. Then the certificate changes its status to `Issued` and you can use it in services integrated with {{ certificate-manager-name }}.
 
-If you fail to pass the check within one week, the certificate status will become `Invalid` (if you are obtaining the certificate) or `Renewal_failed` (if you are renewing the certificate). To obtain a certificate after that, request another certificate from Let's Encrypt.
+If you fail to verify domain ownership within one week, the certificate status will change to `Invalid` for new certificates or `Renewal_failed` for those being renewed. To obtain a certificate after that, request another certificate from Let's Encrypt.
 
 ## Certificate challenge statuses {#status}
 
@@ -19,8 +24,8 @@ Certificate checks can have the following statuses:
 * `Pending`: Awaiting completion. {{ certificate-manager-name }} determines whether the check is complete.
 * `Validating`: Pending approval from Let's Encrypt.
 * `Valid`: Complete.
-* `Invalid`: Checking the rights for a specific domain failed or the one-week period allocated for the procedure expired.
-* `Renewal_failed`: Checking the rights upon certificate renewal failed or the one-week period allocated for the procedure expired.
+* `Invalid`: Failed to verify ownership for a specific domain or the one-week period allocated for the procedure expired.
+* `Renewal_failed`: Failed to verify ownership upon certificate renewal or the one-week period allocated for the procedure expired.
 * `Issued`: Certificate is issued.
 
 ## HTTP {#http}
@@ -63,13 +68,13 @@ Add only one record. If you add both records, the caching servers will come into
 
 {% endnote %}
 
-When using a TXT record, you will have to pass the check every 60 days as part of the automatic certificate renewal.
+If using a TXT record, you will have to pass the check every 60 days as part of the automatic certificate renewal.
 
-Using a CNAME record enables you to undergo a check only once. To do this, you need to delegate to {{ certificate-manager-name }} the right to respond in the domain's DNS zone used for the check. This will pass the check.
+With a CNAME record, it is enough to pass the check once. To do this, you need to delegate to {{ certificate-manager-name }} the right to respond in the domain's DNS zone used for the check. This will pass the check.
 
 ### Adding a CNAME record {#cname}
 
-To automatically check the rights for the `example.com` domain:
+To automatically pass ownership verification for the `example.com` domain:
 
 1. In the [management console]({{ link-console-main }}), select the folder you added the certificate to.
 1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -83,7 +88,7 @@ To automatically check the rights for the `example.com` domain:
 
 ### Adding a TXT record {#txt}
 
-To check rights for the `example.com` domain, follow these steps:
+To pass the domain ownership verification for `example.com`:
 
 1. In the [management console]({{ link-console-main }}), select the folder you added the certificate to.
 1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -114,7 +119,7 @@ To check rights for the `example.com` domain, follow these steps:
 
 1. After the certificate status changes to `Issued`, delete the `TXT` record you added from the DNS server.
 
-## Validating rights automatically {#auto}
+## Automatic domain ownership verification {#auto}
 
 In some cases, the domain ownership verification procedure requires no user input.
 

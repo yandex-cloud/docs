@@ -87,6 +87,14 @@ Syntax:
 
   - [yc managed-opensearch v0 extension update](extension/update.md) — Update an extension in a managed OpenSearch cluster.
 
+- [yc managed-opensearch v0 maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-opensearch v0 maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-opensearch v0 maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-opensearch v0 maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
+
 - [yc managed-opensearch v0 node-group](node-group/index.md) — Node groups of a managed OpenSearch cluster.
 
   - [yc managed-opensearch v0 node-group add](node-group/add.md) — Add new node groups to a managed OpenSearch cluster.

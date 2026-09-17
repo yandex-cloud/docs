@@ -15,7 +15,7 @@ You can delete basic rules, as well as Smart Protection and WAF rules, from a [s
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Select the profile where you want to delete a [rule](../concepts/rules.md).
-  1. On the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab, click ![options](../../_assets/console-icons/ellipsis.svg) next to the rule in question and select **{{ ui-key.yacloud.common.delete }}**.
+  1. On the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab, click ![options](../../_assets/console-icons/ellipsis.svg) → ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** next to the rule.
   1. Confirm the deletion.
 
 - CLI {#cli}
@@ -29,7 +29,7 @@ You can delete basic rules, as well as Smart Protection and WAF rules, from a [s
      {% include [security-profile-list-command](../../_includes/smartwebsecurity/security-profile-list-command.md) %}
 
   1. Update the security profile by applying the updated [YAML](https://en.wikipedia.org/wiki/YAML) configuration of the security rules after removing irrelevant rules from it:
-  
+
      1. To get the YAML configuration for the current security rules in the profile, run this command specifying the security profile name or ID:
 
          ```bash
@@ -195,7 +195,7 @@ You can delete basic rules, as well as Smart Protection and WAF rules, from a [s
          {% include [change-profile-rules-alert](../../_includes/smartwebsecurity/change-profile-rules-alert.md) %}
 
      1. To update a security profile, run this command specifying the profile name or ID:
-    
+
          ```bash
          yc smartwebsecurity security-profile update <security_profile_name_or_ID> \
             --security-rules-file <path_to_file_with_security_rules>

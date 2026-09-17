@@ -1,4 +1,4 @@
-1. [Connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM via a private IP address, using the NAT instance as a jump host:
+1. [Connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to your test VM via its internal IP address using the NAT instance as a jump host:
 
     ```bash
     ssh -J <NAT_instance_username>@<NAT_instance_public_IP_address> \
@@ -32,3 +32,5 @@
     ```
 
     If it returns the public IP address of the NAT instance, the configuration is correct.
+    
+    You can only use this method to check outgoing traffic. You cannot inspect incoming traffic via a NAT instance.

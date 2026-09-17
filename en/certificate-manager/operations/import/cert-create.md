@@ -56,13 +56,24 @@ To add a custom certificate to {{ certificate-manager-name }}:
   1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
   1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_import }}**.
   1. In the window that opens, in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field, enter a custom certificate name.
-  1. Optionally, in the **Description** field, describe your custom certificate.
-  1. In the **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**.
+  1. Optionally, in the **{{ ui-key.yacloud.certificate-manager.metadata.field_description }}** field, provide a custom certificate description.
+  1. Optionally, enable **{{ ui-key.yacloud.common.deletion-protection }}**.
+  1. Optionally, add **{{ ui-key.yacloud.component.label-set.label_labels_1qrKA }}**.
+  1. In the **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**:
      
      1. Choose how to add it: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
      1. Click **Attach file**.
         
         1. In the window that opens, select the `cert.pem` self-signed certificate file.
+     
+     1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  
+  1. Optionally, in the **{{ ui-key.yacloud.certificate-manager.import.field_chain }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-chain }}**:
+
+     1. Choose how to add it: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
+     1. Click **Attach file**.
+        
+        1. In the window that opens, select the file containing all certificates from the chain in sequence, e.g., `fullchain.pem`.
      
      1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
   

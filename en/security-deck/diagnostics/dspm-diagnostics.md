@@ -18,7 +18,7 @@ The service account performing the scan has no access to the specified bucket. V
 The service account performing the scan has no access to the folder, cloud, or organization. Verify that the account has the [necessary roles](../../storage/security/index.md#service-roles).
 
 ## Failed to list resources {#unable-to-list-resources}
-The scanning of user resources for the specified user will not be performed because this functionality is not available for the {{ yandex-360 }} Minimum [plan]({{ link-yandex }}/support/yandex-360/business/purchase/{{ lang }}/plans/payment-plans-ru).
+The scanning of user resources for the specified user will not be performed because this functionality is not available for the {{ yandex-360 }} Minimum [plan](https://yandex.ru/support/yandex-360/business/purchase/{{ lang }}/plans/payment-plans-ru).
 
 ## Error while listing user disk `user-name`. Unauthenticated {#wrong-credentials}
 Invalid OAuth token or `client secret` specified for connection to Yandex Disk. Check the data source connection settings.

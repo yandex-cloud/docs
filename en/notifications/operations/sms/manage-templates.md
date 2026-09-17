@@ -26,7 +26,7 @@ To deregister an SMS template in the `Active` status:
   1. In the [management console]({{ link-console-main }}), select the folder containing the template.
   1. [Navigate]({{ link-console-main }}/link/cns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. In the left-hand panel, select ![route](../../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.cns.label_channels }}** and select a channel with an [individual sender](../../concepts/sms.md#individual-sender) you want to delete a template from.
-  1. In the left-hand menu, select ![square-chart-bar](../../../_assets/console-icons/square-chart-bar.svg) **{{ ui-key.yacloud.cns.local.label_templates_26VqM }}**.
+  1. Navigate to the **{{ ui-key.yacloud.cns.local.label_templates_26VqM }}** tab.
   1. In the row with the template, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **Deregister**.
   1. In the window that opens, confirm deregistration.
 
@@ -45,7 +45,7 @@ To delete an SMS template in the `Deregistered` status:
   1. In the [management console]({{ link-console-main }}), select the folder containing the template.
   1. [Navigate]({{ link-console-main }}/link/cns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. In the left-hand panel, select ![route](../../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.cns.label_channels }}** and select a channel with an [individual sender](../../concepts/sms.md#individual-sender) you want to delete a template from.
-  1. In the left-hand menu, select ![square-chart-bar](../../../_assets/console-icons/square-chart-bar.svg) **{{ ui-key.yacloud.cns.local.label_templates_26VqM }}**.
+  1. Navigate to the **{{ ui-key.yacloud.cns.local.label_templates_26VqM }}** tab.
   1. In the row with the template, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.
 

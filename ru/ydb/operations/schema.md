@@ -32,7 +32,7 @@
      * **{{ ui-key.yacloud.ydb.table.form.column_name }}** колонки. Должно быть уникальным в рамках таблицы.
      * **{{ ui-key.yacloud.ydb.table.form.column_type }}** данных колонки. Независимо от типа данных, каждая колонка может содержать значение `NULL`.
      * **{{ ui-key.yacloud.ydb.table.form.column_primary-key }}**. Укажите, входит ли колонка в состав первичного ключа. По первичному ключу автоматически строятся первичные индексы.
-  1. При необходимости настройте [вторичные индексы]({{ ydb.docs }}/concepts/secondary_indexes):
+  1. При необходимости настройте [вторичные индексы]({{ ydb.docs }}concepts/query_execution/secondary_indexes):
      * **{{ ui-key.yacloud.ydb.table.form.column_name }}** вторичного индекса. Должно быть уникальным в рамках таблицы.
      * **{{ ui-key.yacloud.ydb.table.form.column_index-key }}** — одна или несколько колонок, которые образуют ключ для построения вторичного индекса.
   1. Настройте политику [партиционирования]({{ ydb.docs }}/concepts/datamodel):

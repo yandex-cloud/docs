@@ -83,7 +83,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
        
        * `value`: Return value.
 
-     You can replace `current_version` with another variable to get the information you need. For more information about the properties of the `yandex_lockbox_secret` data source, see [this provider guide]({{ tf-provider-datasources-link }}/lockbox_secret).
+     You can replace `current_version` with any other attribute to get the information you need. For more information about the properties of the `yandex_lockbox_secret` data source, see [this provider guide]({{ tf-provider-datasources-link }}/lockbox_secret).
   
   1. Create the resources:
 
@@ -237,7 +237,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
     1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Click the name of the secret you need.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+    1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
 
 - CLI {#cli}
 

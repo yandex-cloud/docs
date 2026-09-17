@@ -19,6 +19,19 @@ Event name | Description
 `DeleteEntry` | Deleting an object
 `DeleteSharedEntry` | Deleting a shared object
 `DeleteWorkbooks` | Deleting one or multiple workbooks
+`platform.CreateAirflowCluster` | Creating an Airflow cluster
+`platform.CreateCloudEnvironment` | Creating a cloud environment
+`platform.CreateRestCatalog` | Creating a REST catalog
+`platform.CreateRestCatalogNamespace` | Creating a REST catalog namespace
+`platform.CreateSparkCluster` | Creating a Spark cluster
+`platform.CreateTrinoCluster` | Creating a Trino cluster
+`platform.DeleteAirflowCluster` | Deleting an Airflow cluster
+`platform.DeleteCloudEnvironment` | Deleting a cloud environment
+`platform.DeleteRestCatalog` | Deleting a REST catalog
+`platform.DeleteRestCatalogNamespace` | Deleting a REST catalog namespace
+`platform.DeleteSparkCluster` | Deleting a Spark cluster
+`platform.DeleteTrinoCluster` | Deleting a Trino cluster
+`platform.UpdateCloudEnvironment` | Updating a cloud environment
 `DisableBillingInstanceService` | Receiving a notification from {{ billing-name }} that the billing account linked to {{ datalens-name }} is inactive
 `DisableFolders` | [Disabling](../../../datalens/settings/navigation.md#disable-folder-navigation) folder navigation
 `DisableTenantBilling` | User scheduled Business plan deactivation for the beginning of the next month ^1^
@@ -32,7 +45,7 @@ Event name | Description
 `MoveSharedEntry` | Moving a shared object
 `MoveWorkbooks` | Moving workbooks
 `RenameEntry` | Renaming an object
-`SetDefaultColorPalette` | Customizing the default color palette
+`SetDefaultColorPalette` | Setting up the default color palette
 `SwitchAiAssistantProhibition` | Updating the restriction on using Neuroanalyst
 `SwitchDataExportProhibition` | Updating the data export restriction
 `SwitchEntriesPublicationStatus` | Updating an object publication status

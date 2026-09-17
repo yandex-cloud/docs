@@ -9,7 +9,7 @@ editable: false
 
 ## Pricing modes
 
-The pricing for data operations in [{{ ydb-short-name }} topics]({{ ydb.docs }}/concepts/topic) using {{ ydb-short-name }} request units (RUs) applies to the topics with the _on-demand pricing mode_. In this mode, topics are created by default via the {{ ydb-short-name }} CLI/SDK as well as when creating a [CDC feed]({{ ydb.docs }}/concepts/cdc).
+The pricing for data operations in [{{ ydb-short-name }} topics]({{ ydb.docs }}concepts/datamodel/topic) using {{ ydb-short-name }} request units (RUs) applies to the topics with the _on-demand pricing mode_. In this mode, topics are created by default via the {{ ydb-short-name }} CLI/SDK as well as when creating a [CDC feed]({{ ydb.docs }}/concepts/cdc).
 
 If you create a topic as a storage for a {{ yds-short-name }} [stream](../../data-streams/concepts/glossary.md#stream-concepts), [_pricing based on dedicated resources_](../../data-streams/pricing.md#rules) applies to it by default. For the topics with pricing based on dedicated resources, no {{ ydb-short-name }} RUs are charged. You pay for the resource usage on an hourly basis within {{ yds-full-name }}.
 
