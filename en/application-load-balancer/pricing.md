@@ -78,4 +78,3 @@ Calculating cost per hour:
   />
 </MDX>
 
-

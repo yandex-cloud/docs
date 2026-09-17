@@ -4,7 +4,7 @@
 
 * **{{ ui-key.yacloud.mdb.forms.backup-retain-period }}** — автоматические резервные копии будут храниться указанное количество дней. По умолчанию — 7 дней.
 
-* **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени технического обслуживания:
+* **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../../../../managed-spqr/concepts/maintenance.md):
 
     {% include [Maintenance window](../../console/maintenance-window-description.md) %}
 

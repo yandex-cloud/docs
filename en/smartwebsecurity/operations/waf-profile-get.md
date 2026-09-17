@@ -14,10 +14,10 @@ description: Follow this guide to get information about a WAF profile in {{ sws-
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Select the profile in question.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the profile details:
-     
+
      * Basic profile parameters.
      * Security profiles the WAF profile is attached to.
-     * Rule sets included in the profile, number of active rules in each set, as well as anomaly threshold and paranoia level for the OWASP set.
+     * Rule sets included in the profile, number of active rules in each set, anomaly and paranoia level for the OWASP set.
 
 - {{ TF }} {#tf}
 
@@ -25,7 +25,7 @@ description: Follow this guide to get information about a WAF profile in {{ sws-
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To get information about a {{ sws-full-name }} [WAF profile](../concepts/waf.md) created with {{ TF }}:
+  To get info about the {{ sws-full-name }} [WAF profile](../concepts/waf.md) you created with {{ TF }}:
 
   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
@@ -40,16 +40,16 @@ description: Follow this guide to get information about a WAF profile in {{ sws-
      ```
 
      Where:
-     
-     * `data "yandex_sws_waf_profile"`: Description of the WAF profile as a data source:
-       
-       * `name`: WAF profile name.
-     
-     * `output "profile-created"`: Output variable that contains information about the WAF profile creation timestamp:
-       
-       * `value`: Return value.
 
-     You can replace `created_at` with another variable to get the information you need. For more on the properties of the `yandex_sws_waf_profile` data source, see [this provider guide]({{ tf-provider-datasources-link }}/sws_waf_profile).
+     * `data "yandex_sws_waf_profile"`: Description of the WAF profile as a data source:
+
+       * `name`: WAF profile name.
+
+     * `output "profile-created"`: Output variable that contains information about the WAF profile creation timestamp:
+
+       * `value`: Value returned by the data source.
+
+     You can replace `created_at` with any other attribute to get the information you need. For more on the properties of the `yandex_sws_waf_profile` data source, see [this provider guide]({{ tf-provider-datasources-link }}/sws_waf_profile).
 
   1. Create the resources:
 

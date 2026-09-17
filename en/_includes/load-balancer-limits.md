@@ -1,7 +1,7 @@
 #### Quotas {#load-balancer-quotas}
 
 #|
-|| Type of limitation | Value ||
+|| Type of limit | Value ||
 || Number of load balancers per cloud
 `ylb.networkLoadBalancers.count` | 2 ||
 || Number of target groups per cloud
@@ -9,7 +9,8 @@
 |#
 
 #### Limits {#load-balancer-limits}
-Type of limitation | Value
+
+Type of limit | Value
 ----- | -----
 Number of targets per target group | 254
 Number of ports per listener | 10
@@ -17,9 +18,10 @@ Number of health checks per attached target group | 1
 Health check protocol | TCP, HTTP
 
 #### Other restrictions {#load-balancer-other-restrictions}
+
 A single target group can only contain targets from a single cloud network. 
 
-Within a single availability zone, a target group can only include targets on the same subnet.
+Within a single [availability zone](../overview/concepts/geo-scope.md), a target group can only include targets on the same subnet.
 
 If you add a target to the internal load balancer's target group, it will not be directly accessible on the target port.
 

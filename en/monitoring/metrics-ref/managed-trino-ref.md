@@ -6,6 +6,7 @@ editable: false
 
 # {{ mtr-full-name }} metrics
 
-This section describes [{{ mtr-name }}](../../managed-trino/) metrics delivered to {{ monitoring-name }}.
+
+This section describes the [{{ mtr-name }}](../../managed-trino/) metrics delivered to {{ monitoring-name }}.
 
 {% include [managed-trino.md](../../_includes/monitoring/metrics-ref/managed-trino.md) %}

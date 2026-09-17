@@ -67,12 +67,16 @@ items:
             href: operations/streams/obs-config-help.md
           - name: Starting a broadcast
             href: operations/streams/start.md
+          - name: Checking broadcast status
+            href: operations/streams/monitoring.md
           - name: Getting an embed code or link
             href: operations/streams/get-link.md
           - name: Revoking access to a broadcast
             href: operations/streams/revoke-access.md
           - name: Adding a completed broadcast to a playlist
             href: operations/streams/add-to-playlist.md
+          - name: Looking up broadcast viewing statistics
+            href: operations/streams/get-statistics.md
           - name: Deleting a broadcast
             href: operations/streams/delete.md
       - name: Playlists
@@ -91,6 +95,10 @@ items:
     items:
       - name: Out-of-the-box solutions for video design in IFrame
         href: tutorials/video-iframe.md
+      - name: Integrations
+        items:
+          - name: Plugin for Moodle LMS
+            href: tutorials/moodle-plugin.md
   - name: Concepts
     items:
       - name: Overview

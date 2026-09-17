@@ -1,3 +1,8 @@
+---
+title: Getting started with {{ certificate-manager-name }}
+description: Follow this guide to add your first Let's Encrypt certificate and use it to set up HTTPS access to a static website in {{ objstorage-full-name }}.
+---
+
 # Getting started with {{ certificate-manager-name }}
 
 Follow this guide to add your first [Let's Encrypt certificate](../concepts/managed-certificate.md) to {{ certificate-manager-name }} and use it to [set up HTTPS access](../../storage/operations/hosting/certificate.md) to a static website hosted in {{ objstorage-full-name }}.
@@ -58,12 +63,14 @@ To get started with {{ certificate-manager-name }}, you need:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
     1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
     1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
     1. In the window that opens, enter a name for the certificate.
     1. Optionally, add a description for the certificate.
+    1. Optionally, enable deletion protection.
+    1. Optionally, add labels.
     1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify the domains you want to issue the certificate for.
     1. Select [domain ownership verification type](../concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}`. 
     1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
@@ -78,7 +85,7 @@ To get started with {{ certificate-manager-name }}, you need:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Select a certificate in the `Validating` status in the list and click it.
   1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**:
@@ -98,19 +105,19 @@ To get started with {{ certificate-manager-name }}, you need:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. On the ![box](../../_assets/console-icons/box.svg) **{{ ui-key.yacloud.storage.switch_buckets }}** tab, click the bucket with the domain name.
-  1. At the top right, click ![folder](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.storage.bucket.button_create }}** and create a folder named `.well-known`.
+  1. Click ![folder](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.storage.bucket.button_create }}** and create a folder named `.well-known`.
   1. Under `.well-known`, create a folder named `acme-challenge`.
   1. Under `acme-challenge`, click ![arrow](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.button_upload }}**.
   1. In the window that opens, select the file with a record and click **Open**.
   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
   1. Wait until the certificate's status changes to `Issued`.
      
-     For more information on the status, see the certificate page. To do this, next to the **ui-key.yacloud.certificate-manager.overview.general_label_validation** field, click ![receipt](../../_assets/console-icons/receipt.svg) **ui-key.yacloud.certificate-manager.overview.button_validation_show-logs**. 
+     For more information on the status, see the certificate page. To do this, next to the **{{ ui-key.yacloud.certificate-manager.overview.general_label_validation }}** field, click ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.certificate-manager.overview.button_validation_show-logs }}**. 
   
-  1. Go to the `acme-challenge` folder.
+  1. Go to the `acme-challenge` directory.
   1. Click ![image](../../_assets/options.svg) to the right of the file and select ![trash](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
@@ -146,12 +153,12 @@ Certificates are not renewed automatically. Keep track of the lifecycle of your 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. On the ![box](../../_assets/console-icons/box.svg) **{{ ui-key.yacloud.storage.switch_buckets }}** tab, click the bucket with the domain name.
-    1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-    1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
-    1. Click **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}** at the top right.
+    1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab.
+    1. Select **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
+    1. Click **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}**.
     1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select `{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}`.
     1. In the **{{ ui-key.yacloud.storage.bucket.https.field_certificate-manager }}** field, select the certificate from the list that opens.
     1. Click **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.

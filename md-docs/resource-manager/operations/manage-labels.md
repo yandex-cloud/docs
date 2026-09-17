@@ -2,7 +2,7 @@
 
 # Управление метками
 
-Вы можете добавить, удалить или изменить [метку](../concepts/labels.md#services) ресурса с помощью консоли управления, командной строки Yandex Cloud и Terraform.
+Вы можете добавить, удалить или изменить [метку](../concepts/labels.md#services) ресурса с помощью консоли управления, командной строки Yandex Cloud, Terraform и API.
 
 Метки поддерживаются в определенных [сервисах](../concepts/labels.md#services). Управление метками в некоторых сервисах может отличаться, например в [Object Storage](../../storage/operations/buckets/tagging.md).
 
@@ -123,6 +123,17 @@
   > }
   > ```
 
+- API {#api}
+
+    Чтобы добавить метку облака или каталога, воспользуйтесь одним из методов:
+
+    * Для облака — методом REST API [update](../api-ref/Cloud/update.md) для ресурса [Cloud](../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/Update](../api-ref/grpc/Cloud/update.md).
+    * Для каталога — методом REST API [update](../api-ref/Folder/update.md) для ресурса [Folder](../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Update](../api-ref/grpc/Folder/update.md).
+
+    Получите текущие метки методом [Cloud.get](../api-ref/Cloud/get.md) или [Folder.get](../api-ref/Folder/get.md). Добавьте новую пару ключ–значение к текущему набору меток.
+
+    В запросе на изменение укажите `updateMask: "labels"` и полный итоговый набор меток в `labels`, включая метки, которые требуется сохранить. Переданный набор заменяет существующие метки ресурса.
+
 {% endlist %}
 
 Вы можете завести одну метку с несколькими значениями. Например, создать метку `my-cloud` с несколькими значениями:
@@ -132,7 +143,7 @@
 
 ## Изменить метку {#update-label}
 
-Изменить метки ресурса можно только с помощью командной строки Yandex Cloud и Terraform.
+Изменить метки ресурса можно с помощью командной строки Yandex Cloud, Terraform и API.
 
 {% list tabs group=instructions %}
 
@@ -230,6 +241,17 @@
   ```
   yc <имя_сервиса> <тип_ресурса> get <имя_или_идентификатор_ресурса>
   ``` 
+
+- API {#api}
+
+    Чтобы изменить метку облака или каталога, воспользуйтесь одним из методов:
+
+    * Для облака — методом REST API [update](../api-ref/Cloud/update.md) для ресурса [Cloud](../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/Update](../api-ref/grpc/Cloud/update.md).
+    * Для каталога — методом REST API [update](../api-ref/Folder/update.md) для ресурса [Folder](../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Update](../api-ref/grpc/Folder/update.md).
+
+    Получите текущие метки методом [Cloud.get](../api-ref/Cloud/get.md) или [Folder.get](../api-ref/Folder/get.md). Измените нужную пару ключ–значение в текущем наборе меток.
+
+    В запросе на изменение укажите `updateMask: "labels"` и полный итоговый набор меток в `labels`, включая метки, которые требуется сохранить. Переданный набор заменяет существующие метки ресурса.
 
 {% endlist %}
 
@@ -333,5 +355,16 @@
   ```
   yc <имя_сервиса> <тип_ресурса> get <имя_или_идентификатор_ресурса>
   ``` 
+
+- API {#api}
+
+    Чтобы удалить метку облака или каталога, воспользуйтесь одним из методов:
+
+    * Для облака — методом REST API [update](../api-ref/Cloud/update.md) для ресурса [Cloud](../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/Update](../api-ref/grpc/Cloud/update.md).
+    * Для каталога — методом REST API [update](../api-ref/Folder/update.md) для ресурса [Folder](../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Update](../api-ref/grpc/Folder/update.md).
+
+    Получите текущие метки методом [Cloud.get](../api-ref/Cloud/get.md) или [Folder.get](../api-ref/Folder/get.md). Исключите удаляемую метку из текущего набора. Чтобы удалить все метки, передайте пустой объект `labels`.
+
+    В запросе на изменение укажите `updateMask: "labels"` и полный итоговый набор меток в `labels`, включая метки, которые требуется сохранить. Переданный набор заменяет существующие метки ресурса.
 
 {% endlist %}

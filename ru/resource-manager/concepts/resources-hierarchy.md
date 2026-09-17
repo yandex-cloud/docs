@@ -91,6 +91,12 @@ _Каталог_ — пространство, в котором создают�
 
 ### Причины невозможности удаления каталогов {#inability-to-delete}
 
+Удаление каталога может быть запрещено [политикой авторизации](../../iam/concepts/access-control/access-policies.md) `resourceManager.denyFolderRemoval`, если она создана для самого каталога, его облака или организации. Если политика действует хотя бы для одного каталога в облаке, удалить это облако тоже не получится. Подробнее об области действия политики в разделе [resourceManager.denyFolderRemoval](../../iam/concepts/access-control/access-policies.md#resourceManager-denyFolderRemoval).
+
+Также существует политика [resourceManager.denyCloudRemoval](../../iam/concepts/access-control/access-policies.md#resourceManager-denyCloudRemoval), которая запрещает удаление облака, если создана для него или его организации.
+
+Запрет проверяется при запросе удаления, до перехода ресурса в статус `DELETING`. Чтобы удалить ресурс, предварительно удалите запрещающие политики на соответствующих уровнях иерархии. Порядок удаления политик описан в инструкциях для [организации](../../organization/operations/manage-access-policies.md#revoke), [облака](../operations/cloud/manage-access-policies.md#revoke) и [каталога](../operations/folder/manage-access-policies.md#revoke).
+
 В статусе `DELETING` удаление каталога может быть отменено системой. Возможные причины:
 
 * [IP-адрес](../../vpc/concepts/address.md) {{ vpc-full-name }} из удаляемого каталога используется [виртуальной машиной](../../compute/concepts/vm.md) в другом каталоге.

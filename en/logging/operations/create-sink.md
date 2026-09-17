@@ -13,11 +13,11 @@ description: In this guide, you will learn how to create a log sink in {{ cloud-
     1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Navigate to the **{{ ui-key.yacloud.logging.label_sinks }}** tab.
     1. Click **{{ ui-key.yacloud.logging.button_create-sink }}**.
-    1. Optionally, enter a name and description for your sink. The name format is as follows:
+    1. Optionally, enter **{{ ui-key.yacloud.common.name }}** and **{{ ui-key.yacloud.common.description }}** for the log sink. The name format is as follows:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
-    1. Optionally, add labels.
+    1. Optionally, add [labels](../../resource-manager/concepts/labels.md).
     1. In the **{{ ui-key.yacloud.logging.label_destination }}** field, select `{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}`.
     1. Select the bucket to save logs to.
     1. Optionally, specify a [folder](../../storage/concepts/object.md#folder).

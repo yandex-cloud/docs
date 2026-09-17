@@ -321,6 +321,16 @@ items:
                 href: cli-ref/hosts/list/master.md
               - name: segment
                 href: cli-ref/hosts/list/segment.md
+      - name: maintenance
+        items:
+          - name: Overview
+            href: cli-ref/maintenance/index.md
+          - name: get
+            href: cli-ref/maintenance/get.md
+          - name: list
+            href: cli-ref/maintenance/list.md
+          - name: reschedule
+            href: cli-ref/maintenance/reschedule.md
       - name: pxf-datasource
         items:
           - name: Overview
@@ -501,6 +511,16 @@ items:
                     href: cli-ref/v0/hosts/list/master.md
                   - name: segment
                     href: cli-ref/v0/hosts/list/segment.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/v0/maintenance/index.md
+              - name: get
+                href: cli-ref/v0/maintenance/get.md
+              - name: list
+                href: cli-ref/v0/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/v0/maintenance/reschedule.md
           - name: pxf-datasource
             items:
               - name: Overview

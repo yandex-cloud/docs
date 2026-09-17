@@ -1,7 +1,7 @@
 # {{ GL }} integration with {{ tracker-full-name }}
 
 
-In [{{ tracker-name }} issues]({{ link-tracker-cloudless }}about-tracker#zadacha), you can automatically add links to {{ GL }} [merge requests]({{ gl.docs }}/ee/user/project/merge_requests/) by specifying the relevant issue [key]({{ link-tracker-cloudless }}glossary#key) in the name or description of a new merge request. The links will be available in the [Links to external applications]({{ link-tracker-cloudless }}external-links) section.
+In [{{ tracker-name }} issues](https://yandex.ru/support/tracker/{{ lang }}/working-with-issues), you can automatically add links to {{ GL }} [merge requests]({{ gl.docs }}/ee/user/project/merge_requests/) by specifying the relevant issue [key]({{ link-tracker-cloudless }}quick-start/glossary#i) in the name or description of a new merge request. The links will be available in the [Links to external applications](https://yandex.ru/support/tracker/{{ lang }}/external-links) section.
 
 You can also enable automatic issue comments with merge request details. Auto comments are only available for [{{ mgl-name }}](../../managed-gitlab/).
 
@@ -25,12 +25,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support cost includes:
 
 * Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for the number of {{ tracker-name }} users with full access if there are more than five of them (see [{{ tracker-name }} pricing]({{ link-tracker-cloudless }}cloud/pricing)).
+* Fee for the number of {{ tracker-name }} users with full access if there are more than five of them (see [{{ tracker-name }} pricing](https://yandex.ru/support/tracker/{{ lang }}/pricing)).
 * Fee for using a [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Connect {{ tracker-full-name }} {#enable-tracker}
 
-[Enable {{ tracker-name }}]({{ link-tracker-cloudless }}enable-tracker) for your [{{ yandex-cloud }} organization](../../organization/).
+[Enable {{ tracker-name }}](https://yandex.ru/support/tracker/{{ lang }}/enable-tracker) for your [{{ yandex-cloud }} organization](../../organization/).
 
 ## Create a {{ GL }} instance {#create-gitlab}
 
@@ -104,9 +104,9 @@ To set up integration for an individual {{ GL }} project, create one.
 
 ## Check the result {#check-result}
 
-1. [Create an issue]({{ link-tracker-cloudless }}user/create-ticket#create-task) in {{ tracker-name }}.
-1. [Create a merge request]({{ gl.docs }}/ee/user/project/merge_requests/creating_merge_requests.html) in {{ GL }} and specify the [issue key]({{ link-tracker-cloudless }}glossary#key) in its name or description.
-1. Make sure a link to the merge request from {{ GL }} appears in the {{ tracker-name }} issue under [Links to external applications]({{ link-tracker-cloudless }}external-links).
+1. [Create an issue](https://yandex.ru/support/tracker/{{ lang }}/user/create-ticket#create-task) in {{ tracker-name }}.
+1. [Create a merge request]({{ gl.docs }}/ee/user/project/merge_requests/creating_merge_requests.html) in {{ GL }} and specify the [issue key]({{ link-tracker-cloudless }}quick-start/glossary#i) in its name or description.
+1. Make sure a link to the merge request from {{ GL }} appears in the {{ tracker-name }} issue under [Links to external applications](https://yandex.ru/support/tracker/{{ lang }}/external-links).
 
     If you used {{ mgl-name }} and enabled auto comments when [creating the hook](#create-hook), the issue will show a comment with the merge request link and details.
 

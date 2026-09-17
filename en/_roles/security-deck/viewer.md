@@ -9,9 +9,9 @@ The `security-deck.viewer` role enables viewing info on events of access to orga
 * View info on sensitive data [scan](../../security-deck/concepts/dspm.md#scanning) jobs in {{ dspm-name }}.
 * View info on data types and [categories](../../security-deck/concepts/dspm.md#data-categories).
 * View info on sensitive data scan jobs in {{ dspm-name }}.
-* View the lists of results and scan errors.
-* View {{ dspm-name }} scan results and info on detected threats.
-* View info on {{ dspm-name }} [data analysis](../../security-deck/concepts/dspm#discovery-mode) results.
+* View info on results of and errors relating to [continuous update scans](../../security-deck/concepts/dspm.md#change-scaning) and [regular sensitive data scans](../../security-deck/concepts/dspm.md#scanning) in {{ dspm-name }} (unmasked data only).
+* Download and export sensitive data scan results in {{ dspm-name }} (unmasked data only).
+* Estimate the cost of using {{ dspm-name }} (drawing on {{ objstorage-full-name }} bucket metadata in data sources).
 * View info on {{ sd-name }} [workspaces](../../security-deck/concepts/workspace.md) and resources managed in them, as well as on [access permissions](../../iam/concepts/access-control/index.md) granted for them.
 * View info on [connectors](../../security-deck/concepts/workspace.md#connectors).
 * View info on cloud infrastructure checks for compliance with [security standards](../../security-deck/concepts/cspm.md#standards) and their results, as well as on jobs for such checks and [exceptions](../../security-deck/concepts/cspm.md#exceptions) from check rules configured in the [{{ cspm-name }}](../../security-deck/concepts/cspm.md) settings.
@@ -25,3 +25,5 @@ The `security-deck.viewer` role enables viewing info on events of access to orga
 {% endcut %}
 
 This role includes the `access-transparency.viewer`, `dspm.viewer`, `cspm.viewer`, `kspm.viewer`, `security-deck.alertSinks.viewer`, `vulnerability-manager.viewer`, and `threat-detector.viewer` permissions.
+
+To export sensitive data scan results in {{ dspm-name }}, you also need the `storage.uploader` role for the bucket to save the results in and the `kms.keys.encrypter` role for the encryption key if the bucket is encrypted.

@@ -60,5 +60,4 @@ The minimum billing unit is one metric value. The cost is rounded to the nearest
 </MDX>
 
 
-
 {% include [trademark](../_includes/monitoring/trademark.md) %}

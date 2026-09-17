@@ -1,8 +1,8 @@
-# Key version control
+# Managing key versions
 
 You can make key versions primary (a primary key version is used for encryption and decryption by default) and destroy them. To create a new key version, [rotate](key.md#rotate) the key.
 
-## Make a version primary {#make-primary}
+## Making a version primary {#make-primary}
 
 {% note info %}
 
@@ -16,11 +16,11 @@ To make a version primary:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. Click the key you need in the list to open its attribute page.
-  1. In the line of the appropriate version, click ![menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-set-primary }}**.
+  1. Click the key in the list to open its attribute page.
+  1. In the version row, click ![menu](../../_assets/console-icons/ellipsis.svg) and select ![flag](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-set-primary }}**.
 
 - CLI {#cli}
 
@@ -43,7 +43,7 @@ To make a version primary:
      +----------------------+---------+--------+-----------+
      ```
 
-  1. Change the key version by specifying the ID of the desired version:
+  1. Change the key version, specifying the version ID you need:
 
      ```bash
      yc kms symmetric-key set-primary-version example-key-1 \
@@ -56,15 +56,15 @@ To make a version primary:
 
 {% endlist %}
 
-The next encryption or decryption request omitting the key version will use the new primary version.
+The next encryption or decryption request that does not specify a particular key version will use the new primary version.
 
-## Destroy a key version {#delete}
+## Destroying a key version {#delete}
 
-You cannot destroy a key version right away: you can only schedule its destruction (for the next day at least).
+You cannot destroy a key version right away; you can only schedule its destruction for the next day or later.
 
 {% note alert %}
 
-At the scheduled time and date, the key version is permanently destroyed: if you still have data encrypted with this key version, you can no longer decrypt it.
+At the scheduled time and date, the key version is permanently destroyed. If you still have any data encrypted with this key version, you will not be able to decrypt it.
 
 {% endnote %}
 
@@ -74,11 +74,11 @@ At the scheduled time and date, the key version is permanently destroyed: if you
 
   To destroy a version:
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. Click the key you need in the list to open its attribute page.
-  1. In the line of the appropriate version, click ![menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-schedule-destruction }}**.
+  1. Click the key in the list to open its attribute page.
+  1. In the version row, click ![menu](../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-schedule-destruction }}**.
 
   The version will change its status to `Scheduled for destruction`, and the **{{ ui-key.yacloud.kms.symmetric-key.overview.column_version-destroy }}** column will show the scheduled destruction date.
 
@@ -105,7 +105,7 @@ At the scheduled time and date, the key version is permanently destroyed: if you
      +----------------------+---------+--------+-----------+
      ```
 
-  1. Schedule the destruction of a version:
+  1. Schedule the destruction of the version:
 
      ```bash
      yc kms symmetric-key schedule-version-destruction example-key \
@@ -122,11 +122,11 @@ At the scheduled time and date, the key version is permanently destroyed: if you
 
 {% note info %}
 
-Scheduling a key version deletion is an [eventually consistent](../concepts/consistency.md) operation. Changes caused by such operations take effect with a delay of up to three hours.
+Scheduling key version destruction is an [eventually consistent](../concepts/consistency.md) operation. Changes resulting from such operations take effect with a delay of up to three hours.
 
 {% endnote %}
 
-## Cancel version destruction {#cancel-delete}
+## Canceling version destruction {#cancel-delete}
 
 If you scheduled the destruction of a key version, you can cancel it before the scheduled date:
 
@@ -134,11 +134,11 @@ If you scheduled the destruction of a key version, you can cancel it before the 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. Click the key you need in the list to open its attribute page.
-  1. In the line of the appropriate version, click ![menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-cancel-destruction }}**.
+  1. Click the key in the list to open its attribute page.
+  1. In the version row, click ![menu](../../_assets/console-icons/ellipsis.svg) and select ![arrow-rotate-left](../../_assets/console-icons/arrow-rotate-left.svg) **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-cancel-destruction }}**.
   
   The version status will revert to `Active`.
 
@@ -163,7 +163,7 @@ If you scheduled the destruction of a key version, you can cancel it before the 
      +----------------------+---------+---------------------------+-----------+
      ```
 
-  1. Cancel the destruction of a version:
+  1. Cancel the destruction of the version:
 
      ```bash
      yc kms symmetric-key cancel-version-destruction example-key \

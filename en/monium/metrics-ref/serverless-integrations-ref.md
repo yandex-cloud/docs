@@ -6,6 +6,7 @@ editable: false
 
 # {{ si-full-name }} metrics
 
-This section describes [{{ si-name }}](../../serverless-integrations/index.yaml) metrics delivered to {{ monitoring-name }}.
+
+This section describes the [{{ si-name }}](../../serverless-integrations/index.yaml) metrics delivered to {{ monitoring-name }}.
 
 {% include [serverless-integrations](../../_includes/monitoring/metrics-ref/serverless-integrations.md) %}

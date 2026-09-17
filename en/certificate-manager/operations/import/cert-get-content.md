@@ -1,8 +1,7 @@
 ---
-title: How to upload a certificate chain and private key to {{ certificate-manager-full-name }}
-description: In this article, you will learn how to upload a certificate chain and private key to {{ certificate-manager-full-name }} to use them for your own purposes.
+title: How to get the contents of a custom certificate in {{ certificate-manager-full-name }}
+description: In this article, you will learn how to get a certificate chain and a custom certificate private key in {{ certificate-manager-full-name }} to use them for your own purposes.
 ---
-
 
 # Getting the contents of a custom certificate
 

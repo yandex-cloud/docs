@@ -1116,6 +1116,8 @@
 
  - [Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища сессий PHP](dataplatform/valkey-as-php-sessions-storage.md)
 
+ - [Использование Yandex Managed Service for Valkey™ с модулем Search и моделей Yandex AI Studio для векторного поиска в RAG-системе](dataplatform/valkey-rag-search.md)
+
  - [Распределенные блокировки для «1С:Предприятия» в кластере Yandex Managed Service for Valkey™](dataplatform/1c-valkey-locks.md)
 
  - [Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища кеша для «1С-Битрикс: Управление сайтом»](infrastructure-management/yc-valkey-as-1c-cache-storage.md)
@@ -1599,3 +1601,5 @@
  - [Интеграция генеративных моделей в Visual Studio Code в качестве ассистента для написания кода](ml-ai/ai-model-ide-integration.md)
 
  - [Интеграция AI-аналитика данных с Data Catalog](ml-ai/data-catalog-integration.md)
+
+ - [Использование Yandex Managed Service for Valkey™ с модулем Search и моделей Yandex AI Studio для векторного поиска в RAG-системе](dataplatform/valkey-rag-search.md)

@@ -9,7 +9,7 @@ editable: false
 
 ## Режимы тарификации
 
-Тарификация операций с данными в [топиках {{ ydb-short-name }}]({{ ydb.docs }}/concepts/topic) с использованием Request Units {{ ydb-short-name }} применяется для топиков, использующих _режим тарификации по фактическому использованию (On-demand)_. В этом режиме по умолчанию создаются топики через {{ ydb-short-name }} CLI/SDK, а также при создании [потока CDC]({{ ydb.docs }}/concepts/cdc).
+Тарификация операций с данными в [топиках {{ ydb-short-name }}]({{ ydb.docs }}concepts/datamodel/topic) с использованием Request Units {{ ydb-short-name }} применяется для топиков, использующих _режим тарификации по фактическому использованию (On-demand)_. В этом режиме по умолчанию создаются топики через {{ ydb-short-name }} CLI/SDK, а также при создании [потока CDC]({{ ydb.docs }}/concepts/cdc).
 
 Если топик создается как хранилище для [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-short-name }}, он по умолчанию получает [_режим тарификации по выделенным ресурсам_](../../data-streams/pricing.md#rules). Для находящихся в режиме по выделенным ресурсам топиков начисление Request Units {{ ydb-short-name }} не производится, оплата делается на почасовой основе в рамках сервиса {{ yds-full-name }}.
 

@@ -11,9 +11,9 @@ description: Follow this guide to get information about a {{ sws-full-name }} AR
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the [ARL profile](../concepts/arl.md).
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
-  1. Select the profile you need.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will show the profile details.
+  1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
+  1. Select the profile in question.
+  1. The page will show the profile details.
 
 - {{ TF }} {#tf}
 
@@ -36,16 +36,16 @@ description: Follow this guide to get information about a {{ sws-full-name }} AR
      ```
 
      Where:
-     
+
      * `data "yandex_sws_advanced_rate_limiter_profile"`: Description of the ARL profile as a data source:
-       
+
        * `name`: ARL profile name.
-     
+
      * `output "profile-created"`: Output variable that contains information about the ARL profile creation timestamp:
-       
+
        * `value`: Return value.
 
-     You can replace `created_at` with another variable to get the information you need. For more on the properties of the `yandex_sws_advanced_rate_limiter_profile` data source, see [this provider guide]({{ tf-provider-datasources-link }}/sws_advanced_rate_limiter_profile).
+     You can replace `created_at` with any other attribute to get the information you need. For more on the properties of the `yandex_sws_advanced_rate_limiter_profile` data source, see [this provider guide]({{ tf-provider-datasources-link }}/sws_advanced_rate_limiter_profile).
 
   1. Create the resources:
 

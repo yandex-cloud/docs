@@ -98,6 +98,14 @@ Syntax:
 
 
 
+- [yc managed-greenplum v0 maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-greenplum v0 maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-greenplum v0 maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-greenplum v0 maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
+
 - [yc managed-greenplum v0 pxf-datasource](pxf-datasource/index.md) — Manage Greenplum pxf datasources
 
   - [yc managed-greenplum v0 pxf-datasource delete](pxf-datasource/delete.md) — Delete pxf-datasource for specified Greenplum cluster

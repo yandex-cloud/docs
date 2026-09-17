@@ -5,6 +5,7 @@ description: Follow this guide to create a webhook that invokes a function in {{
 
 # Webhook using {{ sf-name }}
 
+
 To automate processing of incidents and other events in your cloud, {{ monitoring-full-name }} supports invoking functions in {{ sf-name }}. This section provides an example of a webhook configured to send POST requests when an alert triggers. This means you can use alerts to call external API methods. You can also use [escalations](create-escalation.md) to invoke functions in {{ sf-name }}.
 
 To send POST requests when an alert triggers:

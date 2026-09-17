@@ -85,6 +85,14 @@
 
   Подробнее в описании настройки `auto_explain.log_format` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html#AUTO-EXPLAIN-CONFIGURATION-PARAMETERS-LOG-FORMAT).
 
+- **Auto explain log io**{#setting-auto-explain-log-io} <code><b><small>Все интерфейсы</small></b></code>
+
+  Определяет, будет ли в модуле `auto_explain` выводиться статистика ввода-вывода при логировании плана выполнения запроса. Работает аналогично параметру `IO` в команде `EXPLAIN`. Применяется только при включенной настройке [Auto explain log analyze](#setting-auto-explain-log-analyze).
+
+  По умолчанию настройка выключена (статистика ввода-вывода не выводится в лог).
+
+  Подробнее в описании настройки `auto_explain.log_io` в [документации PostgreSQL](https://www.postgresql.org/docs/19/auto-explain.html#AUTO-EXPLAIN-CONFIGURATION-PARAMETERS-LOG-IO).
+
 - **Auto explain log min duration**{#setting-auto-explain-log-min-duration} <code><b><small>Все интерфейсы</small></b></code>
 
   Минимальное время выполнения запроса (в миллисекундах), при котором включается логирование в модуле `auto_explain`.
@@ -140,6 +148,14 @@
   Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.0001`.
 
   Подробнее в описании настройки `autovacuum_analyze_scale_factor` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-ANALYZE-SCALE-FACTOR).
+
+- **Autovacuum max parallel workers**{#setting-autovacuum-max-parallel-workers} <code><b><small>Все интерфейсы</small></b></code>
+
+  Максимальное количество параллельных рабочих процессов, которые один рабочий процесс [автоочистки](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) может использовать для обработки индексов. Ограничение применяется к фазам вакуумирования индексов и очистки индексов. Фактическое число параллельных процессов дополнительно ограничено параметром [Max parallel workers](#setting-max-parallel-workers). Значение `0` отключает параллельное вакуумирование во время автоочистки.
+
+  Минимальное значение — `0`, по умолчанию — `0`.
+
+  Подробнее в описании настройки `autovacuum_max_parallel_workers` в [документации PostgreSQL](https://www.postgresql.org/docs/19/runtime-config-vacuum.html#GUC-AUTOVACUUM-MAX-PARALLEL-WORKERS).
 
 - **Autovacuum max workers**{#setting-autovacuum-max-workers} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -627,14 +643,6 @@
 
   Подробнее в описании настройки `enable_tidscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/ddl-system-columns.html).
 
-- **Escape string warning**{#setting-escape-string-warning} <code><b><small>Все интерфейсы</small></b></code>
-
-  Включает предупреждение о наличии в запросе символа `\` в обычной строковой константе (с синтаксисом `'...'`). Настройка работает только при отключенном параметре [Standard conforming strings](#setting-standard-strings).
-
-  По умолчанию настройка включена.
-
-  Подробнее в описании настройки `escape_string_warning` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-ESCAPE-STRING-WARNING).
-
 - **Exit on error**{#setting-exit-on-error} <code><b><small>Все интерфейсы</small></b></code>
 
   Включает прерывание сессии в случае любой ошибки в запросе.
@@ -798,6 +806,18 @@
   Подробнее в описании настройки `lock_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT).
 
   Настройка действует на уровне кластера Managed Service for PostgreSQL, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
+
+- **Log autoanalyze min duration**{#setting-log-autoanalyze-min-duration} <code><b><small>Все интерфейсы</small></b></code>
+
+  Задает минимальную длительность выполнения автоматического анализа (в миллисекундах), при превышении которой информация об анализе записывается в лог.
+
+  При значении `0` в логе фиксируются все операции автоанализа. Значение `-1` отключает логирование операций автоанализа.
+
+  До PostgreSQL версии `19` параметр `log_autovacuum_min_duration` управлял логированием как операций `VACUUM`, так и `ANALYZE`. Начиная с версии `19` эти параметры разделены: [Log autovacuum min duration](#setting-log-autovacuum-min-duration) управляет только логированием операций `VACUUM`, а `log_autoanalyze_min_duration` — только операций `ANALYZE`.
+
+  Минимальное значение — `-1`, по умолчанию — `600000` (10 минут).
+
+  Подробнее в описании настройки `log_autoanalyze_min_duration` в [документации PostgreSQL](https://www.postgresql.org/docs/19/runtime-config-logging.html#GUC-LOG-AUTOANALYZE-MIN-DURATION).
 
 - **Log autovacuum min duration**{#setting-log-autovacuum-min-duration} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1093,6 +1113,14 @@
   Минимальное значение — `0`, максимальное значение — `262143`, по умолчанию — `0`.
 
   Подробнее в описании настройки `max_prepared_transactions` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS).
+
+- **Max repack replication slots**{#setting-max-repack-replication-slots} <code><b><small>Все интерфейсы</small></b></code>
+
+  Максимальное количество слотов репликации, зарезервированных для команды `REPACK CONCURRENTLY`. Команда использует логическое декодирование для воспроизведения изменений, внесенных во время копирования таблицы, поэтому ей требуется слот репликации. Этот пул слотов не пересекается с [Max replication slots](#setting-max-replication-slots), что исключает возможность команды `REPACK` занять слоты, используемые логической репликацией.
+
+  Минимальное значение — `0`, по умолчанию — `5`.
+
+  Подробнее в описании настройки `max_repack_replication_slots` в [документации PostgreSQL](https://www.postgresql.org/docs/19/runtime-config-replication.html#GUC-MAX-REPACK-REPLICATION-SLOTS).
 
 - **Max replication slots**{#setting-max-replication-slots} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1412,14 +1440,6 @@
   Разделенные запятыми имена библиотек общего пользования (shared libraries), которые будут загружаться при запуске сервера PostgreSQL. Библиотеки требуются для работы некоторых [расширений PostgreSQL](../operations/extensions/cluster-extensions.md).
 
   Подробнее в описании настройки `shared_preload_libraries` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES).
-
-- **Standard conforming strings**{#setting-standard-strings} <code><b><small>Все интерфейсы</small></b></code>
-
-  Включает прочтение символа `\` в обычных строковых константах (`'...'`) не как спецсимвола, а как обычного символа согласно стандарту SQL.
-
-  По умолчанию настройка включена.
-
-  Подробнее в описании настройки `standard_conforming_strings` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-STANDARD-CONFORMING-STRINGS).
 
 - **Statement timeout**{#setting-statement-timeout} <code><b><small>Все интерфейсы</small></b></code>
 

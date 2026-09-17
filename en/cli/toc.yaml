@@ -6610,6 +6610,9 @@ items:
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/list-logs.md
               - name: list-operations
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/list-operations.md
+              - name: migrate-to-keeper
+                href: >-
+                  cli-ref/managed-clickhouse/cli-ref/cluster/migrate-to-keeper.md
               - name: move
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/move.md
               - name: remove-access-binding
@@ -6701,6 +6704,16 @@ items:
                 href: cli-ref/managed-clickhouse/cli-ref/hosts/restart.md
               - name: update
                 href: cli-ref/managed-clickhouse/cli-ref/hosts/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-clickhouse/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-clickhouse/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-clickhouse/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-clickhouse/cli-ref/maintenance/reschedule.md
           - name: ml-model
             items:
               - name: Overview
@@ -6868,6 +6881,9 @@ items:
                   - name: list-operations
                     href: >-
                       cli-ref/managed-clickhouse/cli-ref/v0/cluster/list-operations.md
+                  - name: migrate-to-keeper
+                    href: >-
+                      cli-ref/managed-clickhouse/cli-ref/v0/cluster/migrate-to-keeper.md
                   - name: move
                     href: cli-ref/managed-clickhouse/cli-ref/v0/cluster/move.md
                   - name: remove-access-binding
@@ -6969,6 +6985,17 @@ items:
                     href: cli-ref/managed-clickhouse/cli-ref/v0/hosts/restart.md
                   - name: update
                     href: cli-ref/managed-clickhouse/cli-ref/v0/hosts/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-clickhouse/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-clickhouse/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-clickhouse/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: >-
+                      cli-ref/managed-clickhouse/cli-ref/v0/maintenance/reschedule.md
               - name: ml-model
                 items:
                   - name: Overview
@@ -7222,6 +7249,16 @@ items:
                     href: cli-ref/managed-greenplum/cli-ref/hosts/list/master.md
                   - name: segment
                     href: cli-ref/managed-greenplum/cli-ref/hosts/list/segment.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-greenplum/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-greenplum/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-greenplum/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-greenplum/cli-ref/maintenance/reschedule.md
           - name: pxf-datasource
             items:
               - name: Overview
@@ -7431,6 +7468,17 @@ items:
                       - name: segment
                         href: >-
                           cli-ref/managed-greenplum/cli-ref/v0/hosts/list/segment.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-greenplum/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-greenplum/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-greenplum/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: >-
+                      cli-ref/managed-greenplum/cli-ref/v0/maintenance/reschedule.md
               - name: pxf-datasource
                 items:
                   - name: Overview
@@ -7620,6 +7668,16 @@ items:
                 href: cli-ref/managed-kafka/cli-ref/connector-s3-sink/create.md
               - name: update
                 href: cli-ref/managed-kafka/cli-ref/connector-s3-sink/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-kafka/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-kafka/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-kafka/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-kafka/cli-ref/maintenance/reschedule.md
           - name: topic
             items:
               - name: Overview
@@ -7761,6 +7819,16 @@ items:
                   - name: update
                     href: >-
                       cli-ref/managed-kafka/cli-ref/v0/connector-s3-sink/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-kafka/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-kafka/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-kafka/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: cli-ref/managed-kafka/cli-ref/v0/maintenance/reschedule.md
               - name: topic
                 items:
                   - name: Overview
@@ -8284,6 +8352,16 @@ items:
                 href: cli-ref/managed-mongodb/cli-ref/hosts/stepdown.md
               - name: update
                 href: cli-ref/managed-mongodb/cli-ref/hosts/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-mongodb/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-mongodb/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-mongodb/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-mongodb/cli-ref/maintenance/reschedule.md
           - name: resource-preset
             items:
               - name: Overview
@@ -8455,6 +8533,17 @@ items:
                     href: cli-ref/managed-mongodb/cli-ref/v0/hosts/stepdown.md
                   - name: update
                     href: cli-ref/managed-mongodb/cli-ref/v0/hosts/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-mongodb/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-mongodb/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-mongodb/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: >-
+                      cli-ref/managed-mongodb/cli-ref/v0/maintenance/reschedule.md
               - name: resource-preset
                 items:
                   - name: Overview
@@ -8616,6 +8705,16 @@ items:
                 href: cli-ref/managed-mysql/cli-ref/hosts/list.md
               - name: update
                 href: cli-ref/managed-mysql/cli-ref/hosts/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-mysql/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-mysql/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-mysql/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-mysql/cli-ref/maintenance/reschedule.md
           - name: resource-preset
             items:
               - name: Overview
@@ -8771,6 +8870,16 @@ items:
                     href: cli-ref/managed-mysql/cli-ref/v0/hosts/list.md
                   - name: update
                     href: cli-ref/managed-mysql/cli-ref/v0/hosts/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-mysql/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-mysql/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-mysql/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: cli-ref/managed-mysql/cli-ref/v0/maintenance/reschedule.md
               - name: resource-preset
                 items:
                   - name: Overview
@@ -8888,6 +8997,16 @@ items:
                 href: cli-ref/managed-opensearch/cli-ref/extension/list.md
               - name: update
                 href: cli-ref/managed-opensearch/cli-ref/extension/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-opensearch/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-opensearch/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-opensearch/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-opensearch/cli-ref/maintenance/reschedule.md
           - name: node-group
             items:
               - name: Overview
@@ -9006,6 +9125,17 @@ items:
                     href: cli-ref/managed-opensearch/cli-ref/v0/extension/list.md
                   - name: update
                     href: cli-ref/managed-opensearch/cli-ref/v0/extension/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-opensearch/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-opensearch/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-opensearch/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: >-
+                      cli-ref/managed-opensearch/cli-ref/v0/maintenance/reschedule.md
               - name: node-group
                 items:
                   - name: Overview
@@ -9151,6 +9281,16 @@ items:
                 href: cli-ref/managed-postgresql/cli-ref/hosts/update.md
               - name: update-config
                 href: cli-ref/managed-postgresql/cli-ref/hosts/update-config.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-postgresql/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-postgresql/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-postgresql/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-postgresql/cli-ref/maintenance/reschedule.md
           - name: performance-diagnostics
             items:
               - name: Overview
@@ -9338,6 +9478,17 @@ items:
                   - name: update-config
                     href: >-
                       cli-ref/managed-postgresql/cli-ref/v0/hosts/update-config.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-postgresql/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-postgresql/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-postgresql/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/v0/maintenance/reschedule.md
               - name: performance-diagnostics
                 items:
                   - name: Overview
@@ -9496,6 +9647,16 @@ items:
                 href: cli-ref/managed-redis/cli-ref/hosts/list.md
               - name: update
                 href: cli-ref/managed-redis/cli-ref/hosts/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-redis/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-redis/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-redis/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-redis/cli-ref/maintenance/reschedule.md
           - name: resource-preset
             items:
               - name: Overview
@@ -9645,6 +9806,16 @@ items:
                     href: cli-ref/managed-redis/cli-ref/v0/hosts/list.md
                   - name: update
                     href: cli-ref/managed-redis/cli-ref/v0/hosts/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-redis/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-redis/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-redis/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: cli-ref/managed-redis/cli-ref/v0/maintenance/reschedule.md
               - name: resource-preset
                 items:
                   - name: Overview
@@ -9779,6 +9950,18 @@ items:
                 href: cli-ref/managed-sharded-postgresql/cli-ref/hosts/list.md
               - name: update
                 href: cli-ref/managed-sharded-postgresql/cli-ref/hosts/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: >-
+                  cli-ref/managed-sharded-postgresql/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-sharded-postgresql/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-sharded-postgresql/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: >-
+                  cli-ref/managed-sharded-postgresql/cli-ref/maintenance/reschedule.md
           - name: resource-preset
             href: cli-ref/managed-sharded-postgresql/cli-ref/resource-preset.md
           - name: user
@@ -9916,6 +10099,20 @@ items:
                   - name: update
                     href: >-
                       cli-ref/managed-sharded-postgresql/cli-ref/v0/hosts/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/reschedule.md
               - name: resource-preset
                 href: >-
                   cli-ref/managed-sharded-postgresql/cli-ref/v0/resource-preset.md

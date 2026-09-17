@@ -6,6 +6,44 @@ editable: false
 
 # {{ sws-full-name }} pricing policy
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        gravityIcon: Calculator
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=a9f2a3dd4fd2#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        gravityIcon: CircleRuble
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list?services=dn2hj22hpe85kloqo6ag
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
+
+
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}

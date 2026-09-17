@@ -26,6 +26,7 @@ This section describes functions you can use in a query searching for metrics.
   - [histogram_percentile](#histogram_percentile)
   - [histogram_sum](#histogram_sum)
   - [series_avg](#series_avg)
+  - [series_count](#series_count)
   - [series_max](#series_max)
   - [series_min](#series_min)
   - [series_percentile](#series_percentile)
@@ -260,7 +261,7 @@ The **series_avg** function has the following use cases (function overloading) d
 - **series_avg**(*[key: string]*, *source: timeseries_vector*): *timeseries_vector*
 - **series_avg**(*[key: string[]]*, *source: timeseries_vector*): *timeseries_vector*
 
-Aggregates timeseries into one (or multiple ones) by applying the avg (average) aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by.
+Aggregates timeseries into one (or several) by applying the avg aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by.
 
 For example, the `series_avg({...})` query will calculate the average value among all uploaded metrics at each point.
 
@@ -269,6 +270,15 @@ The `series_avg("host", {...})` query will calculate the average value among all
 The `series_avg(["host", "disk"], {...})` query will calculate the average value among all uploaded metrics for each combination of `host` and `disk` label values.
 
 
+### series_count
+
+The **series_count** function has the following use cases (function overloading) depending on the type of the _key_ input parameter (string or array of strings):
+
+- **series_count**(*[key: string]*, *source: timeseries_vector*): *timeseries_vector*
+- **series_count**(*[key: string[]]*, *source: timeseries_vector*): *timeseries_vector*
+
+Aggregates timeseries into one (or several) by applying the count aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
+
 ### series_max
 
 The **series_max** function has the following use cases (function overloading) depending on the type of _key_ input parameter (a string or an array of strings):
@@ -276,7 +286,7 @@ The **series_max** function has the following use cases (function overloading) d
 - **series_max**(*[key: string]*, *source: timeseries_vector*): *timeseries_vector*
 - **series_max**(*[key: string[]]*, *source: timeseries_vector*): *timeseries_vector*
 
-Aggregates timeseries into one (or multiple ones) by applying the max aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
+Aggregates timeseries into one (or several) by applying the max aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
 
 ### series_min
 
@@ -285,7 +295,7 @@ The **series_min** function has the following use cases (function overloading) d
 - **series_min**(*[key: string]*, *source: timeseries_vector*): *timeseries_vector*
 - **series_min**(*[key: string[]]*, *source: timeseries_vector*): *timeseries_vector*
 
-Aggregates timeseries into one (or multiple ones) by applying the min aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
+Aggregates timeseries into one (or several) by applying the min aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
 
 ### series_percentile
 
@@ -294,7 +304,7 @@ The **series_percentile** function has the following use cases (function overloa
 - **series_percentile**(*rank: number*, *source: timeseries_vector*): *timeseries_vector*
 - **series_percentile**(*rank: number[]*, *source: timeseries_vector*): *timeseries_vector*
 
-Aggregates timeseries into one (or multiple ones) by applying the percentile aggregation function for each time point.
+Aggregates timeseries into one (or several) by applying the percentile aggregation function for each time point.
 
 ### series_sum
 
@@ -303,7 +313,7 @@ The **series_sum** function has the following use cases (function overloading) d
 - **series_sum**(*[key: string]*, *source: timeseries_vector*): *timeseries_vector*
 - **series_sum**(*[key: string[]]*, *source: timeseries_vector*): *timeseries_vector*
 
-Aggregates timeseries into one (or multiple ones) by applying the sum aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
+Aggregates timeseries into one (or several) by applying the sum aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
 
 
 ## Ranking {#rank-functions}

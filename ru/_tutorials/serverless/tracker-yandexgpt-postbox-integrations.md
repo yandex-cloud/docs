@@ -5,7 +5,7 @@
 
 В данном руководстве вы создадите [рабочие процессы]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) {{ sw-full-name }} и настроите их интеграцию с [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index) и [{{ postbox-full-name }}]({{ link-docs }}/postbox/index).
 
-Созданные рабочие процессы будут получать информацию о задачах в указанной [очереди]({{ link-tracker-cloudless }}about-tracker#ochered) {{ tracker-name }}, с помощью модели {{ gpt-pro }} анализировать проделанную в этих задачах работу, статусы задач и выставленные оценки. Результаты анализа и краткий отчет о проделанной работе будут сохраняться в комментарии к одной из задач в {{ tracker-name }}, а также дублироваться письмом на заданный адрес электронной почты с помощью сервиса {{ postbox-name }}.
+Созданные рабочие процессы будут получать информацию о задачах в указанной [очереди]({{ link-tracker-cloudless }}queue-intro) {{ tracker-name }}, с помощью модели {{ gpt-pro }} анализировать проделанную в этих задачах работу, статусы задач и выставленные оценки. Результаты анализа и краткий отчет о проделанной работе будут сохраняться в комментарии к одной из задач в {{ tracker-name }}, а также дублироваться письмом на заданный адрес электронной почты с помощью сервиса {{ postbox-name }}.
 
 Чтобы настроить рабочий процесс {{ sw-name }}:
 
@@ -37,7 +37,7 @@
 
 * плата за хранение [секрета]({{ link-docs }}/lockbox/concepts/secret) и запросы к нему ([тарифы {{ lockbox-name }}]({{ link-docs }}/lockbox/pricing));
 * плата за использование {{ ai-studio-full-name }} ([тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
-* плата за использование {{ tracker-full-name }} ([тарифы {{ tracker-name }}]({{ link-tracker-cloudless }}pricing));
+* плата за использование {{ tracker-full-name }} ([тарифы {{ tracker-name }}](https://yandex.ru/support/tracker/{{ lang }}/pricing));
 * плата за использование {{ postbox-full-name }} ([тарифы {{ postbox-name }}]({{ link-docs }}/postbox/pricing)).
 
 ## Создайте сервисный аккаунт {#service-account}
@@ -64,15 +64,16 @@
 
 - Интерфейс {{ tracker-name }} {#console}
 
-  1. Если в вашей организации не подключен {{ tracker-full-name }}, [подключите]({{ link-tracker-cloudless }}enable-tracker) его.
-  1. Если у вас в {{ tracker-name }} еще нет очереди, [создайте]({{ link-tracker-cloudless }}manager/create-queue) ее.
-  1. [Создайте]({{ link-tracker-cloudless }}user/create-ticket) в вашей очереди 5–10 тестовых задач, отвечающих следующим требованиям:
+  1. Если в вашей организации не подключен {{ tracker-full-name }}, [подключите](https://yandex.ru/support/tracker/{{ lang }}/enable-tracker) его.
+  1. Если у вас в {{ tracker-name }} еще нет очереди, [создайте](https://yandex.ru/support/tracker/{{ lang }}/manager/create-queue) ее.
+  1. [Создайте](https://yandex.ru/support/tracker/{{ lang }}/user/create-ticket) в вашей очереди 5–10 тестовых задач, отвечающих следующим требованиям:
 
       * Тестовые задачи должны быть созданы в одной очереди.
-      * Для всех тестовых задач в поле **Теги** должен быть установлен [тег]({{ link-tracker-cloudless }}glossary#rus-t) `product`.
-      * Для всех тестовых задач в поле **Story Points** должна быть задана оценка в единицах [Story Point]({{ link-tracker-cloudless }}glossary#en-s).
-      * Часть тестовых задач должна быть в [статусе]({{ link-tracker-cloudless }}about-tracker#process) `Закрыт`, часть — в статусе `Открыт`.
-      * В закрытые тестовые задачи должны быть [добавлены]({{ link-tracker-cloudless }}user/comments) комментарии о прогрессе работы над этими задачами.
+      * Для всех тестовых задач в поле **Теги** должен быть установлен [тег]({{ link-tracker-cloudless }}quick-start/glossary#rus-t)
+ `product`.
+      * Для всех тестовых задач в поле **Story Points** должна быть задана оценка в единицах [Story Point]({{ link-tracker-cloudless }}quick-start/glossary#en-s).
+      * Часть тестовых задач должна быть в [статусе](https://yandex.ru/support/tracker/{{ lang }}/manager/workflow-status-edit#status-types) `Закрыт`, часть — в статусе `Открыт`.
+      * В закрытые тестовые задачи должны быть [добавлены](https://yandex.ru/support/tracker/{{ lang }}/user/comments) комментарии о прогрессе работы над этими задачами.
 
 {% endlist %}
 
@@ -244,7 +245,7 @@
 
       1. Анализ задач с нужным тегом в заданной очереди {{ tracker-name }}:
           * общее количество задач;
-          * общая суммарная оценка задач в единицах [Story Point]({{ link-tracker-cloudless }}glossary#en-s);
+          * общая суммарная оценка задач в единицах [Story Point]({{ link-tracker-cloudless }}quick-start/glossary#en-s);
           * количество закрытых задач;
           * процентное соотношение количества закрытых задач к общему количеству задач;
           * суммарная оценка закрытых задач в единицах `Story Point`;
@@ -363,9 +364,9 @@
 
       * `<идентификатор_организации>` — [идентификатор]({{ link-docs }}/organization/operations/organization-get-id) вашей организации {{ org-full-name }}.
       * `<идентификатор_секрета>` — сохраненный ранее идентификатор [секрета]({{ link-docs }}/lockbox/concepts/secret) с OAuth-токеном приложения.
-      * `<ключ_очереди_в_{{ tracker-name }}>` — [ключ]({{ link-tracker-cloudless }}glossary#rus-k) очереди {{ tracker-name }}, в которой вы создали тестовые задачи.
+      * `<ключ_очереди_в_{{ tracker-name }}>` — [ключ]({{ link-tracker-cloudless }}quick-start/glossary#rus-k) очереди {{ tracker-name }}, в которой вы создали тестовые задачи.
       * `<идентификатор_каталога>` — [идентификатор]({{ link-docs }}/resource-manager/operations/folder/get-id) каталога, в котором вы создаете рабочий процесс.
-      * `<ключ_задачи_с_отчетом>` — ключ [задачи]({{ link-tracker-cloudless }}glossary#rus-z) {{ tracker-name }}, в комментарий к которой будет выгружена сводка по проанализированным тестовым задачам.
+      * `<ключ_задачи_с_отчетом>` — ключ [задачи]({{ link-tracker-cloudless }}quick-start/glossary#rus-z) {{ tracker-name }}, в комментарий к которой будет выгружена сводка по проанализированным тестовым задачам.
       * `<ваш_домен>` — домен, который вы указали при создании адреса {{ postbox-name }}. В качестве адреса отправителя `fromAddress` вы можете указать любой адрес на этом домене. Например: `tracker-robot@example.com` или `noreply@example.com`.
       * `<адрес_получателя>` — адрес электронной почты, на который рабочий процесс отправит письмо со сводкой по проанализированным тестовым задачам {{ tracker-name }}.
 
@@ -501,7 +502,7 @@
       * `<идентификатор_организации>` — [идентификатор]({{ link-docs }}/organization/operations/organization-get-id) вашей организации {{ org-full-name }}.
       * `<идентификатор_секрета>` — сохраненный ранее идентификатор [секрета]({{ link-docs }}/lockbox/concepts/secret) с OAuth-токеном приложения.
       * `<идентификатор_каталога>` — [идентификатор]({{ link-docs }}/resource-manager/operations/folder/get-id) каталога, в котором вы создаете рабочий процесс.
-      * `<ключ_задачи_с_отчетом>` — ключ [задачи]({{ link-tracker-cloudless }}glossary#rus-z) {{ tracker-name }}, в комментарий к которой будет выгружена сводка по проанализированным тестовым задачам.
+      * `<ключ_задачи_с_отчетом>` — ключ [задачи]({{ link-tracker-cloudless }}quick-start/glossary#rus-z) {{ tracker-name }}, в комментарий к которой будет выгружена сводка по проанализированным тестовым задачам.
       * `<ваш_домен>` — домен, который вы указали при создании адреса {{ postbox-name }}. В качестве адреса отправителя `fromAddress` вы можете указать любой адрес на этом домене. Например: `tracker-robot@example.com` или `noreply@example.com`.
       * `<адрес_получателя>` — адрес электронной почты, на который рабочий процесс направит письмо со сводкой по проанализированным тестовым задачам {{ tracker-name }}.
 
@@ -568,7 +569,7 @@
 
     {% endlist %}
 1. [Удалите секрет]({{ link-docs }}/lockbox/operations/secret-delete).
-1. Удалите [задачи]({{ link-tracker-cloudless }}user/ticket-cancel) и [очередь]({{ link-tracker-cloudless }}manager/delete-queue) {{ tracker-name }}.
+1. Удалите [задачи](https://yandex.ru/support/tracker/{{ lang }}/user/ticket-cancel) и [очередь]({{ link-tracker-cloudless }}manager/delete-queue) {{ tracker-name }}.
 1. При необходимости удалите адрес {{ postbox-name }}:
 
     {% list tabs group=instructions %}

@@ -3,42 +3,42 @@ title: How to create a digital signature
 description: Follow this guide to create a digital signature.
 ---
 
-# Digital signature and its verification based on data hash
+# Digital signature and its hash-based verification
 
-In {{ kms-name }}, you can create a [digital signature](../concepts/digital-signature.md) that can be used to validate data authenticity and integrity, as well as to protect signed data from editing.
+In {{ kms-name }}, you can create a [digital signature](../concepts/digital-signature.md) that can be used to verify data authenticity and integrity, as well as to protect the signed data from modification.
 
 ## Getting started {#before-you-begin}
 
-In this tutorial, digital signature verification is performed using the [OpenSSL](https://www.openssl.org/) utility. If you do not have OpenSSL yet, install it.
+This guide uses [OpenSSL](https://www.openssl.org/) for digital signature verification. If you do not have OpenSSL yet, install it.
 
 {% include [install-openssl](../../_includes/kms/install-openssl.md) %}
 
 ## Create a digital signature {#create-signature}
 
-Depending on the size of a signed message or file, {{ kms-short-name }} allows creating a message signature based [on a private key](#message-signing) or a signature [based on data hash](#hash-signing).
+Depending on the size of the message or file to sign, {{ kms-short-name }} allows creating a [private key-based](#message-signing) or [hash-based](#hash-signing) message signature.
 
-### Message signature based on a private key {#message-signing}
+### Private key-based message signature {#message-signing}
 
 {% note info %}
 
-A signature based on a private key is used for messages of up to 32 KB.
+Private key-based signature is used for messages of up to 32 KB.
 
 {% endnote %}
 
 1. If you do not have a digital signature key pair, [create](./asymmetric-signature-key.md#create) one.
 
-1. Get a public signature key and save it:
+1. Get a signature public key and save it:
 
     {% list tabs group=instructions %}
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate digital signature key pair.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the digital signature key pair.
       1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Navigate to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-      1. In the line with the key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
-      1. In the window that opens, click **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download the digital signature public key.
+      1. In the key pair row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![shield-keyhole](../../_assets/console-icons/shield-keyhole.svg) **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
+      1. In the window that opens, click ![floppy-disk](../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download the digital signature public key.
 
     - CLI {#cli}
 
@@ -46,13 +46,13 @@ A signature based on a private key is used for messages of up to 32 KB.
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      1. View the description of the CLI command to get a signature public key:
+      1. View the description of the CLI command for getting a signature public key:
 
           ```bash
           yc kms asymmetric-signature-crypto get-public-key --help
           ```
 
-      1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder where the digital signature key pair is saved.
+      1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder containing the digital signature key pair.
 
       1. {% include [get-signature-key](../../_includes/kms/get-signature-key.md) %}
 
@@ -72,7 +72,7 @@ A signature based on a private key is used for messages of up to 32 KB.
 
         The message size must not exceed 32 KB.
 
-    1. Change the message encoding to `base64` by specifying the path to the created message file in `base64`:
+    1. Change the message encoding to `base64` by specifying the path to the created `base64`-encoded message file:
 
         ```bash
         base64 message.txt > <base64_message_file>
@@ -84,13 +84,13 @@ A signature based on a private key is used for messages of up to 32 KB.
 
     - CLI {#cli}
 
-      1. View the description of the CLI command to get a digital signature:
+      1. View the description of the CLI command for getting a digital signature:
 
           ```bash
           yc kms asymmetric-signature-crypto sign --help
           ```
 
-      1. Get the message's digital signature:
+      1. Get a digital signature for the message:
 
           ```bash
           yc kms asymmetric-signature-crypto sign \
@@ -106,7 +106,7 @@ A signature based on a private key is used for messages of up to 32 KB.
           * `--id`: ID of the digital signature key pair.
           * `--signature-output-file`: Path to the file to save the digital signature to.
           * `--message-file`: Path to the previously created file with the `base64`-encoded message.
-          * `--inform`: Message file format. Possible values: `raw` (default), `base64`, and `hex`.
+          * `--inform`: Message file format. The possible values are `raw` (default), `base64`, and `hex`.
           * `--outform`: Signature file format. Possible values: `raw` (default), `base64`, and `hex`.
 
           Result:
@@ -116,7 +116,7 @@ A signature based on a private key is used for messages of up to 32 KB.
           signature: MAa7C...imw==
           ```
 
-      1. Change the format of the resulting digital signature to [DER](https://en.wikipedia.org/wiki/X.690#DER_encoding) (this format is required for `OpenSSL`):
+      1. Change the digital signature format to [DER](https://en.wikipedia.org/wiki/X.690#DER_encoding), which is required for `OpenSSL`:
 
           ```bash
           echo -n "$(< <signature_file_path>)" | base64 -d > <signature_file>
@@ -127,15 +127,15 @@ A signature based on a private key is used for messages of up to 32 KB.
           * `<signature_file_path>`: Path to the signature file you got in the previous step.
           * `<signature_file>`: Path to the new signature file in `DER` format.
 
-      The `DER` signature file you get can be used to [verify](#verify-digital-signature) the signature using `OpenSSL`.
+      The signature file in `DER` format can be used to [verify](#verify-digital-signature) the signature using `OpenSSL`.
 
     {% endlist %}
 
-## File signature based on data hash {#hash-signing}
+## Hash-based file signature {#hash-signing}
 
 {% note info %}
 
-A hash-based signature is used for messages or files over 32 KB in size.
+Hash-based signature is used for messages or files over 32 KB.
 
 {% endnote %}
 
@@ -147,12 +147,12 @@ A hash-based signature is used for messages or files over 32 KB in size.
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate digital signature key pair.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the digital signature key pair.
       1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-      1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
+      1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Navigate to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-      1. In the line with the key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
-      1. In the window that opens, click **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download the signature public key.
+      1. In the key pair row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![shield-keyhole](../../_assets/console-icons/shield-keyhole.svg) **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
+      1. In the window that opens, click ![floppy-disk](../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download the signature public key.
 
     - CLI {#cli}
 
@@ -160,13 +160,13 @@ A hash-based signature is used for messages or files over 32 KB in size.
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-      1. View the description of the CLI command to get a signature public key:
+      1. View the description of the CLI command for getting a signature public key:
 
           ```bash
           yc kms asymmetric-signature-crypto get-public-key --help
           ```
 
-      1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder where the digital signature key pair is saved.
+      1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder containing the digital signature key pair.
 
       1. {% include [get-signature-key](../../_includes/kms/get-signature-key.md) %}
       
@@ -174,7 +174,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
 
     {% endlist %}
 
-1. Get a file's hash:
+1. Get the file hash:
 
     {% list tabs group=programming_language %}
 
@@ -190,13 +190,13 @@ A hash-based signature is used for messages or files over 32 KB in size.
 
       Where:
       
-      * `<hashing_algorithm>`: Hashing algorithm used when creating a digital signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results you get with the list of key pairs. The possible values are:
+      * `<hashing_algorithm>`: Hashing algorithm used to create the digital signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results of getting the list of key pairs. The possible values are as follows:
           
           * `sha256sum`: For SHA-256 algorithms.
           * `sha384sum`: For SHA-384 algorithms.
           * `sha512sum`: For SHA-512 algorithms.
       
-      * `<path_to_source_file>`: Path to the file for hashing.
+      * `<path_to_source_file>`: Path to the file to hash.
       * `<path_to_hash_file>`: Path to the file to save the hash to.
 
     - PowerShell {#powershell}
@@ -212,13 +212,13 @@ A hash-based signature is used for messages or files over 32 KB in size.
 
       Where:
       
-      * `<hashing_algorithm>`: Hashing algorithm used when creating a signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results you get with the list of key pairs. The possible values are:
+      * `<hashing_algorithm>`: Hashing algorithm used to create the signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results of getting the list of key pairs. The possible values are as follows:
           
           * `SHA256`: For SHA-256 algorithms.
           * `SHA384`: For SHA-384 algorithms.
           * `SHA512`: For SHA-512 algorithms.
       
-      * `<path_to_source_file>`: Path to the file for hashing.
+      * `<path_to_source_file>`: Path to the file to hash.
       * `<path_to_hash_file>`: Path to the file to save the hash to.
 
     This will create a text file containing the hash of the source file.
@@ -231,13 +231,13 @@ A hash-based signature is used for messages or files over 32 KB in size.
 
     - CLI {#cli}
 
-      1. View the description of the CLI command to get a hash-based digital signature:
+      1. View the description of the CLI command for getting a hash-based digital signature:
 
           ```bash
           yc kms asymmetric-signature-crypto sign-hash --help
           ```
 
-      1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder where the digital signature key pair is saved.
+      1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder containing the digital signature key pair.
 
       1. {% include [get-signature-key](../../_includes/kms/get-signature-key.md) %}
 
@@ -256,7 +256,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
           * `--id`: ID of the digital signature key pair.
           * `--signature-output-file`: Path to the file to save the digital signature to.
           * `--message-hash-file`: Path to the previously created hash file.
-          * `--inform`: Hash file format. The example uses the common `hex` format that is supported by all platforms. Possible values: `raw` (default), `base64`, and `hex`.
+          * `--inform`: Hash file format. Our example uses the common `hex` format that is supported by all platforms. The possible values are `raw` (default), `base64`, and `hex`.
 
           Result:
 

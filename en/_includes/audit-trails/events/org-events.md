@@ -21,6 +21,14 @@ Event name | Description
 `DeleteOrganization` | Deleting an organization
 `DeleteOsLoginProfile` | Deleting an {{ oslogin }} profile
 `DeleteUserSshKey` | Deleting an SSH user key
+`application.linked.CreateApplication` | Creating a linked application
+`application.linked.DeleteApplication` | Deleting a linked application
+`application.linked.ReactivateApplication` | Activating a linked application
+`application.linked.SetApplicationAccessBindings` | Assigning access permissions for a linked application
+`application.linked.SuspendApplication` | Deactivating a linked application
+`application.linked.UpdateApplication` | Updating a linked application
+`application.linked.UpdateApplicationAccessBindings` | Updating access permissions for a linked application
+`application.linked.UpdateApplicationAssignments` | Updating a list of linked application users
 `idp.AddUserBlock` | Adding a user section
 `idp.AddUserpoolDomain` | Associating a domain with a user pool
 `idp.branding.CreateAsset` | Uploading a resource for [branding](../../../organization/concepts/branding.md)

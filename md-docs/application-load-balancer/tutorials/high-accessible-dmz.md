@@ -33,7 +33,7 @@
 
 Next-Generation Firewall используется для защиты и сегментации облачной сети с выделением DMZ зоны для размещения публичных приложений. В [Yandex Cloud Marketplace](https://yandex.cloud/ru/marketplace?categories=security) доступно несколько вариантов NGFW.
 
-В данном сценарии развернуто решение [Check Point CloudGuard IaaS](https://yandex.cloud/ru/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-byol-m), которое предоставляет следующие возможности:
+В данном сценарии развернуто решение Check Point CloudGuard IaaS, которое предоставляет следующие возможности:
 
 * межсетевое экранирование;
 * NAT;

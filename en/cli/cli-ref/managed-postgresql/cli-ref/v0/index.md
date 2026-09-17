@@ -117,6 +117,14 @@ Syntax:
 
   - [yc managed-postgresql v0 hosts update-config](hosts/update-config.md) — Updates PostgreSQL config for the specified hosts
 
+- [yc managed-postgresql v0 maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-postgresql v0 maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-postgresql v0 maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-postgresql v0 maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
+
 - [yc managed-postgresql v0 performance-diagnostics](performance-diagnostics/index.md) — Export PostgreSQL performance diagnostics data
 
   - [yc managed-postgresql v0 performance-diagnostics list-raw-sessions](performance-diagnostics/list-raw-sessions.md) — List raw PostgreSQL session states for the specified time range

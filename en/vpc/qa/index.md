@@ -69,7 +69,7 @@ Get this information and send it to [our support]({{ link-console-support }}).
 
 {{ yandex-cloud }} only [blocks](../concepts/limits.md#vpc-egress-traffic-filter) traffic sent from pubic IP addresses on port 25. The only exception is the traffic sent to Yandex Mail email servers.
 
-To prevent email traffic blocks, reconfigure your email server to use ports 465 and 587. To do this, use these ports as an email gateway and [delegate your domain](https://yandex.com/support/business/delegate-domain.html) to Yandex servers with [Yandex Mail for Domains](https://habr.com/company/plesk/blog/304204/).
+To prevent email traffic blocks, reconfigure your email server to use ports 465 and 587. To do this, use these ports as an email gateway and [delegate your domain](https://yandex.com/support/yandex-360/business/admin/en/domains/register/delegate) to Yandex servers with [Yandex Mail for Domains](https://habr.com/company/plesk/blog/304204/).
 
 If you need port 25, assign your virtual machine a new IP address:
 

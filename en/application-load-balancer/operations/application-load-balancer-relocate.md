@@ -144,7 +144,7 @@ To move an [L7 load balancer](../concepts/application-load-balancer.md) backend 
      1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
      1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
      1. Select the load balancer you need.
-     1. Navigate to the ![image](../../_assets/console-icons/heart-pulse.svg) **{{ ui-key.yacloud.alb.label_healthchecks }}** tab.
+     1. Navigate to the **{{ ui-key.yacloud.alb.label_healthchecks }}** tab.
      1. Expand the list of targets. Make sure the target group VMs have the `HEALTHY` [status](../../compute/concepts/vm-statuses.md).
 
    - API {#api}

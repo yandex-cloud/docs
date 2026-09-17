@@ -14,8 +14,8 @@ description: Follow this guide to disconnect a security profile in {{ sws-full-n
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Select the security profile to disconnect from the [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host) [{{ alb-full-name }}](../../application-load-balancer/).
-  1. Navigate to the ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}** tab.
+  1. Select the security profile to disconnect from the [{{ alb-full-name }}](../../application-load-balancer/) [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host).
+  1. Navigate to the **{{ ui-key.yacloud.common.connected_resources }}** tab.
   1. Next to the host in question, click ![options](../../_assets/console-icons/ellipsis.svg) and select ![disconnect](../../_assets/console-icons/arrow-shape-left-from-line.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_disconnect-host }}**.
   1. Confirm your action.
 
@@ -27,82 +27,82 @@ description: Follow this guide to disconnect a security profile in {{ sws-full-n
 
   1. To view a list of [HTTP routers](../../application-load-balancer/concepts/http-router.md) in the default folder, run this command:
 
-     ```bash
-     yc application-load-balancer http-router list
-     ```
+      ```bash
+      yc application-load-balancer http-router list
+      ```
 
-     Result:
+      Result:
 
-     ```text
-     +----------------------+-------------------+-------------+-------------+
-     |          ID          |       NAME        | VHOST COUNT | ROUTE COUNT |
-     +----------------------+-------------------+-------------+-------------+
-     | ds7e9te73uak******** |  my-first-router  |           1 |           1 |
-     +----------------------+-------------------+-------------+-------------+
-     ```
+      ```text
+      +----------------------+-------------------+-------------+-------------+
+      |          ID          |       NAME        | VHOST COUNT | ROUTE COUNT |
+      +----------------------+-------------------+-------------+-------------+
+      | ds7e9te73uak******** |  my-first-router  |           1 |           1 |
+      +----------------------+-------------------+-------------+-------------+
+      ```
 
   1. To view a list of [virtual hosts](../../application-load-balancer/concepts/http-router.md#virtual-host) for the selected HTTP router, run this command:
 
-     ```bash
-     yc application-load-balancer http-router get <HTTP_router_name_or_ID>
-     ```
+      ```bash
+      yc application-load-balancer http-router get <HTTP_router_name_or_ID>
+      ```
 
-     Result:
+      Result:
 
-     ```text
-     id: ds7e9te73uak********
-     name: my-first-router
-     folder_id: b1gt6g8ht345********
-     virtual_hosts:
-       - name: test-virtual-host
-         routes:
-           - name: test-route
-             http:
-               match:
-                 path:
-                   prefix_match: /
-               route:
-                 backend_group_id: ds7e12p7l6j4********
-                 timeout: 60s
-                 auto_host_rewrite: false
-         route_options:
-           security_profile_id: fev3s055oq64********
-     created_at: "2024-08-05T08:34:03.973000654Z"
-     ```
+      ```text
+      id: ds7e9te73uak********
+      name: my-first-router
+      folder_id: b1gt6g8ht345********
+      virtual_hosts:
+        - name: test-virtual-host
+          routes:
+            - name: test-route
+              http:
+                match:
+                  path:
+                    prefix_match: /
+                route:
+                  backend_group_id: ds7e12p7l6j4********
+                  timeout: 60s
+                  auto_host_rewrite: false
+          route_options:
+            security_profile_id: fev3s055oq64********
+      created_at: "2024-08-05T08:34:03.973000654Z"
+      ```
 
-     Names of virtual hosts are specified in the `virtual_hosts.name` parameter. The example above features only one virtual host: `test-virtual-host`.
+      Names of virtual hosts are specified in the `virtual_hosts.name` parameter. The example above features only one virtual host: `test-virtual-host`.
 
   1. To disconnect a security profile from a virtual host, run this command:
 
-     ```bash
-     yc application-load-balancer virtual-host update <virtual_host_name> \
-        --http-router-name <HTTP_router_name> \
-        --security-profile-id ""
-     ```
+      ```bash
+      yc application-load-balancer virtual-host update <virtual_host_name> \
+          --http-router-name <HTTP_router_name> \
+          --security-profile-id ""
+      ```
 
-     Where:
+      Where:
 
-     * `<virtual_host_name>`: Virtual host name from the previous step.
-     * `--http-router-name`: [HTTP router](../../application-load-balancer/concepts/http-router.md) name. This is a required setting. Instead of the HTTP router name, you can provide its ID in the `http-router-id` parameter.
-     * `--security-profile-id`: Security profile ID. This is a required setting.
+      * `<virtual_host_name>`: Virtual host name from the previous step.
+      * `--http-router-name`: [HTTP router](../../application-load-balancer/concepts/http-router.md) name. This is a required setting. Instead of the HTTP router name, you can provide its ID in the `http-router-id` parameter.
+      * `--security-profile-id`: Security profile ID. This is a required setting.
 
-     Result:
+      Result:
 
-     ```text
-     done (1s)
-     name: test-virtual-host
-     routes:
-       - name: test-route
-         http:
-           match:
-             path:
-               prefix_match: /
-           route:
-             backend_group_id: ds7e12p7l6j4********
-             timeout: 60s
-             auto_host_rewrite: false
-     route_options: {}
-     ```
+      ```text
+      done (1s)
+      name: test-virtual-host
+      routes:
+        - name: test-route
+          http:
+            match:
+              path:
+                prefix_match: /
+            route:
+              backend_group_id: ds7e12p7l6j4********
+              timeout: 60s
+              auto_host_rewrite: false
+      route_options: {}
+      ```
 
   For more information about the `yc application-load-balancer virtual-host update` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
 
@@ -129,7 +129,7 @@ description: Follow this guide to disconnect a security profile in {{ sws-full-n
 
   1. Apply the changes:
 
-       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
   You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
@@ -152,8 +152,8 @@ description: Follow this guide to disconnect a security profile in {{ sws-full-n
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the security profile.
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Select **Domain protection** → **Domains**.
-  1. Select the domain.
-  1. In the top-right corner, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Select a domain.
+  1. In the top panel, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Delete the connected security profile.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -168,7 +168,7 @@ description: Follow this guide to disconnect a security profile in {{ sws-full-n
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the API gateway is in.
   1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Select the API gateway.
-  1. In the top-right corner, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. In the top panel, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Delete the [x-yc-apigateway:smartWebSecurity](../../api-gateway/concepts/extensions/sws.md) extension from the API gateway specification.
 
 {% endlist %}

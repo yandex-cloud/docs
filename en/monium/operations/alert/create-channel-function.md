@@ -5,6 +5,7 @@ description: Follow this guide to create a notification channel that invokes a f
 
 # Creating a notification channel that invokes a function
 
+
 You can specify a function in {{ sf-name }} as the notification method. This function will be invoked when an alert fires or in an escalation as a standard notification channel.
 
 To set up notifications with {{ sf-name }}:
@@ -13,7 +14,7 @@ To set up notifications with {{ sf-name }}:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. [Create a function](../../../functions/operations/function/function-create.md) and a [function version](../../../functions/operations/function/version-manage.md).
   1. In the settings, enable [asynchronous invocation](../../../functions/operations/function/function-invoke-async.md).

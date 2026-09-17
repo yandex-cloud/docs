@@ -8,7 +8,7 @@ Event name | Description
 `DeleteNetworkLoadBalancer` | Deleting a network load balancer
 `DeleteTargetGroup` | Deleting a target group
 `DetachNetworkLoadBalancerTargetGroup` | Detaching a target group from a network load balancer
-`DisableNetworkLoadBalancerZones` | Disabling an availability zone 
+`DisableNetworkLoadBalancerZones` | Disabling an [availability zone](../../../overview/concepts/geo-scope.md) 
 `EnableNetworkLoadBalancerZones` | Enabling an availability zone
 `RemoveNetworkLoadBalancerListener` | Removing a listener from a network load balancer
 `RemoveTargetGroupTargets` | Removing a VM from a target group

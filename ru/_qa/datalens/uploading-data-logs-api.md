@@ -8,4 +8,4 @@
 * для Метрики:
 
   * воспользоваться [примером кода](https://github.com/zhdanchik/yandex_metrika_cloud_case/) из [документации](../../datalens/tutorials/data-from-metrica-yc-visualization.md#get-download-data-in-ch) для экспорта сырых данных в {{ CH }} через LogsAPI;
-  * подключить пакет **{{ metrika-pro }}** и [настроить передачу данных](https://yandex.ru/support/metrica/pro/cloud.html) в кластер {{ mch-short-name }}.
+  * подключить пакет **{{ metrika-pro }}** и [настроить передачу данных](https://yandex.ru/support/metrica/ru/uploading-data/cloud) в кластер {{ mch-short-name }}.

@@ -364,6 +364,16 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [update-config](cli-ref/hosts/update-config.md)
 
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
 ### performance-diagnostics
 
  - [Overview](cli-ref/performance-diagnostics/index.md)
@@ -525,6 +535,16 @@ Managed Service for PostgreSQL помогает разворачивать и п
  - [update](cli-ref/v0/hosts/update.md)
 
  - [update-config](cli-ref/v0/hosts/update-config.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/v0/maintenance/reschedule.md)
 
 #### performance-diagnostics
 

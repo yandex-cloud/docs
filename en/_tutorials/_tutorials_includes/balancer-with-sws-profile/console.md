@@ -43,7 +43,7 @@ To create a security profile:
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a profile.
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
 
       {% include [pre-configured-profile](../../../_includes/smartwebsecurity/pre-configured-profile.md) %}
 
@@ -62,10 +62,10 @@ To create a security profile:
       1. Select the `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}` action.
 
           The rule will describe conditions under which requests will be routed to the test application backend.
-      1. In the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field, select {{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}.
+      1. In the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field, select `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
       1. In the **IP conditions** field that appears, select `Matches or belongs to range` and set the public IP address of the device from which you are going to send requests to the L7 load balancer, e.g., `158.160.100.200`.
       1. Click **{{ ui-key.yacloud.common.add }}**.
-        
+
           The rule you created will appear under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** in the table.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 

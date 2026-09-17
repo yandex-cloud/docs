@@ -13,7 +13,7 @@ Event name | Description
 `guardrails.BlockContentByDictionary` | Blocking content by dictionary
 `guardrails.ChangeDefaultGuardrail` | Updating the default guardrail
 `guardrails.CompleteContentCheck` | Completing a content check
-`guardrails.CreateDictionary` | Creating a [dictionary]({{ link-docs-ai }}ai-studio/concepts/security/guardrails#dictionaries) of phrases and regular expressions in a [guardrail]({{ link-docs-ai }}/ai-studio/concepts/security/guardrails#rules)
+`guardrails.CreateDictionary` | Creating a [dictionary]({{ link-docs-ai }}ai-studio/concepts/security/guardrails#dictionaries) of phrases and regular expressions in a [guardrail]({{ link-docs-ai }}ai-studio/concepts/security/guardrails#rules)
 `guardrails.CreateGuardrail` | Creating a guardrail
 `guardrails.DeleteDictionary` | Deleting a dictionary of phrases and regular expressions from a guardrail
 `guardrails.DeleteGuardrail` | Deleting a guardrail
@@ -39,4 +39,9 @@ Event name | Description
 `responses.WebSearchToolSearch` | Searching via the Web Search Tool
 `settings.SetFolderSettings` | Updating service settings in a folder
 `tuning.CancelTuning` | Stop model [tuning]({{ link-docs-ai }}ai-studio/concepts/tuning/index)
-`tuning.StartTuning` | Start model tuning
+`tuning.StartTuning` | Start model fine-tuning
+`createWorkflow` | Creating a workflow
+`deleteWorkflow` | Deleting a workflow
+`setWorkflowAccessBindings` | Assigning access permissions for a workflow
+`updateWorkflow` | Updating a workflow
+`updateWorkflowAccessBindings` | Updating access permissions for a workflow

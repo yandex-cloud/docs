@@ -5,7 +5,6 @@ description: Follow this guide to manage secret versions.
 
 # Secret version management
 
-
 With secret version management, you can:
 
 * [Create a new user secret version](#create-version).

@@ -6,84 +6,95 @@ In {{ yandex-cloud }}, _Services_ allow you to manage specific cloud resources a
 
 There are different service packages available in different [regions](region.md). Services at the [Preview](./launch-stages.md) stage are labeled as {{ preview-stage }}.
 
-| Service                                                                          | Description | Russia | Kazakhstan
-|---------------------------------------------------------------------------------|---|---|---|
-| [{{ gost-gateway-name }}](../../gost-gateway/index.yaml)                        | {{ preview-stage }} Information protection service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ ai-studio-full-name }}]({{ link-docs-ai }})                  | Platform for creating AI applications and AI agents based on large generative models | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ api-gw-full-name }}](../../api-gateway/index.yaml)                          | Service for managing API gateways | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ alb-full-name }}](../../application-load-balancer/index.yaml)               | Service for distributing incoming traffic between web application components | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ at-full-name }}](../../audit-trails/index.yaml)                             | Service for collecting and exporting audit logs | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ baremetal-full-name }}](../../baremetal/index.yaml)                         | Service for leasing a dedicated physical server | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml)     | TLS certificate management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml)                       | Service for deployment of applications based on {{ yandex-cloud }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ backup-full-name }}](../../backup/index.yaml)                               | Service for backing up {{ yandex-cloud }} resources | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ billing-name }}](../../billing/index.yaml)                                  | Payments and cost breakdown service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ cdn-full-name }}](../../cdn/index.yaml)                                     | Service for setting up a content delivery network (CDN) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ console-full-name }}](../../console/index.yaml)                             | {{ yandex-cloud }} resource management console | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ cloud-desktop-full-name }}](../../cloud-desktop/index.yaml)                 | {{ preview-stage }} Service for creating remote desktops in a cloud | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ dns-full-name }}](../../dns/)                                     | Administering DNS resource records and handling DNS requests | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ sf-full-name }}](../../functions/index.yaml)                                | Serverless computing service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ interconnect-full-name }}](../../interconnect/index.yaml)                   | Dedicated network connection management | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ cloud-logging-full-name }}](../../logging/index.yaml)                       | {{ cloud-logging-name }} aggregates and reads the logs of user apps and {{ yandex-cloud }} resources | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ cns-full-name }}](../../notifications/index.yaml)                           | Service for multichannel user notifications | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ org-full-name }}](../../organization/index.yaml)                            | Service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ postbox-full-name }}](../../postbox/index.yaml)                             | Email service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ quota-manager-full-name }}](../../quota-manager/index.yaml)                 | Service for managing your cloud resource quotas | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ cloud-registry-full-name }}](../../cloud-registry/index.yaml)               | Service for storing and managing development artifacts | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ cr-full-name }}](../../cloud-router/index.yaml)               | Service for managing network topologies of a hybrid cloud in {{ yandex-cloud }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ stackland-full-name }}](../../stackland/index.yaml)                         | {{ preview-stage }} Service for managing AI loads and microservice solutions on-premise | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ video-full-name }}](../../video/index.yaml)                                 | Video hosting and online streaming service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/)                           | AI-driven developer assistant with code autocompletion | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ compute-full-name }}](../../compute/index.yaml)                             | Service for creating and managing VMs | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ container-registry-full-name }}](../../container-registry/index.yaml)       | Service for managing Docker images and containers | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ dataproc-full-name }}](../../data-proc/index.yaml)                          | Service for managing Apache Hadoop® and {{ SPRK }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ yds-full-name }}](../../data-streams/index.yaml)                            | Service for managing data streams in real time | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)                 | Service for migrating databases, object storages, or message brokers | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ datalens-full-name }}](../../datalens/index.yaml)                           | Data visualization and analytics | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ ml-platform-full-name }}](../../datasphere/index.yaml)                      | Full-cycle ML development service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/index.md)           | Protection from DDoS attacks | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ iam-full-name }}](../../iam/index.yaml)                                     | Cloud resource access management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ iot-full-name }}](../../iot-core/index.yaml)                                | IoT service that provides two-way messaging between registries and devices over the MQTT protocol | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ kms-full-name }}](../../kms/index.yaml)                                     | Encryption key management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ lockbox-name }}](../../lockbox/index.yaml)                                  | Service for creating and storing secrets in the {{ yandex-cloud }} infrastructure | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ maf-full-name }}](../../managed-airflow/index.yaml)                        | Service for creating and managing {{ AF }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ mkf-full-name }}](../../managed-kafka/index.yaml)                           | Service for creating and managing {{ KF }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ msp-full-name }}](../../managed-spark/index.yaml)                           | Service for creating and managing {{ SPRK }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ mch-full-name }}](../../managed-clickhouse/index.yaml)                      | Service for creating and managing {{ CH }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ mgl-full-name }}](../../managed-gitlab/index.yaml)                          | Service for managing the {{ GL }} DevOps platform | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ mgp-full-name }}](../../managed-greenplum/index.yaml)                       | Service for creating and managing {{ GP }} and {{ CB }} database clusters. | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ managed-k8s-full-name }}®](../../managed-kubernetes/index.yaml)             | Service for creating and managing Kubernetes clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ mmg-full-name }}](../../storedoc/index.yaml)                         | Service for creating and managing {{ SD }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ mmy-full-name }}](../../managed-mysql/index.yaml)                          | Service for creating and managing {{ MY }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ mos-full-name }}](../../managed-opensearch/index.yaml)                      | Service for creating and managing {{ OS }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ mpg-full-name }}](../../managed-postgresql/index.yaml)                      | Service for creating and managing {{ PG }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ mspqr-full-name }}](../../managed-spqr/index.yaml)                      | Service for creating and managing {{ PG }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ mrd-full-name }}™](../../managed-valkey/index.yaml)                          | Service for creating and managing {{ VLK }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ mtr-full-name }}](../../managed-trino/index.yaml)                           | Distributed analytical SQL engine management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ ydb-full-name }}](../../ydb/index.yaml)                                     | {{ ydb-full-name }} database management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ myt-full-name }}](../../managed-ytsaurus/index.yaml)                                     | Service for creating and managing {{ ytsaurus-name }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ marketplace-full-name }}](../../marketplace/index.yaml)                     | Store with out-of-the-box tools for development, data analysis, security, business apps, and more | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ message-queue-full-name }}](../../message-queue/index.yaml)                 | Service for messaging between applications | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml)                   | Service for managing database connections, storing data exchange workflows, and describing datasets | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ monitoring-full-name }}](../../monitoring/index.yaml)                       | Service for collecting and visualizing metrics | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ monium-full-name }}](../../monium/index.yaml)                       | Service for collecting, storing, and analyzing telemetry (metrics, logs, and traces) from cloud resources and applications residing in any infrastructure. | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.yaml) | Service for distributing network load across cloud resources | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ neurosupport-full-name }}](../../neurosupport/index.yaml) |{{ preview-stage }} Service powered by {{ yagpt-name }} that assists contact center agents in responding to user messages | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ objstorage-full-name }}](../../storage/index.yaml)                          | All-purpose scalable cloud-based object storage | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ yq-full-name }}](../../query/index.yaml)                                    | Service for running queries using the common SQL dialect | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ resmgr-full-name }}](../../resource-manager/index.yaml)                     | Cloud resource management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts/index)                       | Search query service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ sd-full-name }}](../../security-deck/index.yaml)                            | Cloud security management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Serverless launch of containerized applications | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ si-full-name }}](../../serverless-integrations/index.yaml)                  | {{ preview-stage }} Service for configuring and managing integrations using serverless technologies | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ captcha-full-name }}](../../smartcaptcha/index.yaml)                        | System user identification service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ sws-full-name }}](../../smartwebsecurity/index.yaml)                        | Service for protection against DDoS attacks and bots at the application level (L7) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/overview)              | Speech recognition and synthesis technologies | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/)                     | Speech analytics service for analyzing voice and text communication channels | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/index)                         | Machine translation service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ vpc-full-name }}](../../vpc/index.yaml)                                     | Cloud network management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ vision-full-name }}]({{ link-docs-ai }}vision/concepts/ocr/index)                               | Computer vision service for image-to-text and PDF recognition | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ websql-full-name }}](../../websql/index.yaml)                               | Service for connecting to managed database clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
+#|
+|| **Service** | **Description** | **Russia** | **Kazakhstan** ||
+|| **Infrastructure and network** | > | > | > ||
+|| [{{ alb-full-name }}](../../application-load-balancer/index.yaml) | Service for distributing incoming traffic across web application components | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ baremetal-full-name }}](../../baremetal/index.yaml) | Service for renting a dedicated physical server | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ backup-full-name }}](../../backup/index.yaml) | Service for backing up {{ yandex-cloud }} resources | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ cdn-full-name }}](../../cdn/index.yaml) | Service for setting up a content delivery network (CDN) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ dns-full-name }}](../../dns/) | Administering DNS resource records and handling DNS requests | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ interconnect-full-name }}](../../interconnect/index.yaml) | Dedicated network connection management | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ cr-full-name }}](../../cloud-router/index.yaml) | {{ preview-stage }} Service for managing the network topologies of a hybrid cloud in {{ yandex-cloud }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ stackland-full-name }}](../../stackland/index.yaml) | Service for managing AI loads and microservice solutions on-premise | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ video-full-name }}](../../video/index.yaml) | Video hosting and online streaming service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ compute-full-name }}](../../compute/index.yaml) | Service for creating and managing VMs | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.yaml) | Service for distributing network load across cloud resources | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ objstorage-full-name }}](../../storage/index.yaml) | All-purpose scalable cloud-based object storage | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ vpc-full-name }}](../../vpc/index.yaml) | Cloud network management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| **Data platform** | > | > | > ||
+|| [{{ dataproc-full-name }}](../../data-proc/index.yaml) | Service for managing Apache Hadoop® and {{ SPRK }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) | Service for migrating databases, object storages, or message brokers | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ datalens-full-name }}](../../datalens/index.yaml) | Data visualization and analytics | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ maf-full-name }}](../../managed-airflow/index.yaml) | Service for creating and managing {{ AF }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ mkf-full-name }}](../../managed-kafka/index.yaml) | Service for creating and managing {{ KF }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ msp-full-name }}](../../managed-spark/index.yaml) | Service for creating and managing {{ SPRK }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ mch-full-name }}](../../managed-clickhouse/index.yaml) | Service for creating and managing {{ CH }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ mmy-full-name }}](../../managed-mysql/index.yaml) | Service for creating and managing {{ MY }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ mos-full-name }}](../../managed-opensearch/index.yaml) | Service for creating and managing {{ OS }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ mpg-full-name }}](../../managed-postgresql/index.yaml) | Service for creating and managing {{ PG }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ mspqr-full-name }}](../../managed-spqr/index.yaml) | Service for creating and managing {{ PG }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ mtr-full-name }}](../../managed-trino/index.yaml) | Service for managing a distributed analytical SQL engine | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ mrd-full-name }}](../../managed-valkey/index.yaml) | Service for creating and managing {{ VLK }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ ydb-full-name }}](../../ydb/index.yaml) | {{ ydb-full-name }} database management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ myt-full-name }}](../../managed-ytsaurus/index.yaml) | Service for creating and managing {{ ytsaurus-name }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml) | Service for managing database connections, storing data exchange workflows, and describing datasets | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ mgp-full-name }}](../../managed-greenplum/index.yaml) | Service for creating and managing {{ GP }} and {{ CB }} database clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ mmg-full-name }}](../../storedoc/index.yaml) | Service for creating and managing {{ SD }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ websql-full-name }}](../../websql/index.yaml) | Service for connecting to managed database clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| **AI** | > | > | > ||
+|| [{{ ai-studio-full-name }}]({{ link-docs-ai }}) | Platform for creating AI applications and AI agents based on large generative models | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ ml-platform-full-name }}](../../datasphere/index.yaml) | Full-cycle ML development service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts/index) | Search query service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/overview) | Speech recognition and synthesis technologies | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/) | Speech analytics service for analyzing voice and text communication channels | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/index) | Machine translation service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ vision-full-name }}]({{ link-docs-ai }}vision/concepts/ocr/index) | Computer vision service for image-to-text and PDF recognition | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| **Security** | > | > | > ||
+|| [{{ gost-gateway-name }}](../../gost-gateway/index.yaml) | {{ preview-stage }} Information protection service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ at-full-name }}](../../audit-trails/index.yaml) | Service for collecting and exporting audit logs | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml) | TLS certificate management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ cloud-desktop-full-name }}](../../cloud-desktop/index.yaml) | {{ preview-stage }} Service for creating remote desktops in a cloud | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ ycdr-full-name }}](../../ycdr/index.yaml) | {{ preview-stage }} It collects data from the cloud infrastructure to detect anomalies | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ cloud-registry-full-name }}](../../cloud-registry/index.yaml) | Service for storing and managing development artifacts | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/index.md) | Protection against DDoS attacks | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ org-full-name }}](../../organization/index.yaml) | Service for managing the organizational structure, setting up integration with an employee catalog, and differentiating user access to the organization's cloud resources | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ kms-full-name }}](../../kms/index.yaml) | Encryption key management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ lockbox-name }}](../../lockbox/index.yaml) | Service for creating and storing secrets in the {{ yandex-cloud }} infrastructure | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ sd-full-name }}](../../security-deck/index.yaml) | Cloud security management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ yandex-siem-full-name }}](../../siem/index.yaml) | {{ preview-stage }} It collects data from the cloud infrastructure to detect anomalies | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ captcha-full-name }}](../../smartcaptcha/index.yaml) | System user identification service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | Service for protection against DDoS attacks and bots at the application level (L7) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| **DevOps tools** | > | > | > ||
+|| [{{ src-full-name }}]({{ link-src-docs }}) | Collaborative development platform that integrates source code management, CI/CD, and AI tools | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/) | AI-driven developer assistant with code autocompletion | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [Vibecraft]({{ link-src-docs }}/vibecraft/) | {{ preview-stage }} Collaborative development platform that integrates source code management, CI/CD, and AI tools | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ cloud-logging-full-name }}](../../logging/index.yaml) | Service for aggregating and reading logs from user applications and {{ yandex-cloud }} resources | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ marketplace-full-name }}](../../marketplace/index.yaml) | Store with out-of-the-box tools for development, data analysis, security, business apps, and more | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ container-registry-full-name }}](../../container-registry/index.yaml) | Service for managing images and containers | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ mgl-full-name }}](../../managed-gitlab/index.yaml) | Service for managing the {{ GL }} DevOps platform | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ managed-k8s-full-name }}®](../../managed-kubernetes/index.yaml) | Service for creating and managing Kubernetes clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ monitoring-full-name }}](../../monitoring/index.yaml) | Service for collecting and visualizing metrics | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ monium-full-name }}](../../monium/index.yaml) | Service for collecting, storing, and analyzing telemetry (metrics, logs, and traces) from cloud resources and applications residing in any infrastructure | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| **Serverless computing** | > | > | > ||
+|| [{{ api-gw-full-name }}](../../api-gateway/index.yaml) | Service for managing API gateways | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ sf-full-name }}](../../functions/index.yaml) | Serverless computing service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ cns-full-name }}](../../notifications/index.yaml) | Service for multichannel user notifications | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ postbox-full-name }}](../../postbox/index.yaml) | Email service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ yds-full-name }}](../../data-streams/index.yaml) | Service for managing data streams in real time | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ iot-full-name }}](../../iot-core/index.yaml) | IoT service that provides two-way messaging between registries and devices over the MQTT protocol | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ message-queue-full-name }}](../../message-queue/index.yaml) | Service for messaging between applications | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ yq-full-name }}](../../query/index.yaml)                                    | Service for running queries using the common SQL dialect | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Serverless launch of containerized applications | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ si-full-name }}](../../serverless-integrations/index.yaml) | {{ preview-stage }} Service for configuring and managing integrations using serverless technologies | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| **Resource management** | > | > | > ||
+|| [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml) | Service for deployment of applications based on {{ yandex-cloud }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ billing-name }}](../../billing/index.yaml) | Payments and cost breakdown service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ console-full-name }}](../../console/index.yaml) | {{ yandex-cloud }} resource management console | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ quota-manager-full-name }}](../../quota-manager/index.yaml)                 | Service for managing your cloud resource quotas | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ iam-full-name }}](../../iam/index.yaml) | Cloud resource access management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ resmgr-full-name }}](../../resource-manager/index.yaml) | Cloud resource management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|#
 
 ## How to enable services {#enable}
 

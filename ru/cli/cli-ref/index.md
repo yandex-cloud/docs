@@ -45,7 +45,7 @@ Syntax:
 
 - [yc datatransfer](datatransfer/cli-ref/index.md) — Manage Data Transfer endpoints and transfers
 
-- [yc desktops](desktops/cli-ref/index.md) — [PREVIEW] Manage Desktop resources
+- [yc desktops](desktops/cli-ref/index.md) — Manage Desktop resources
 
 - [yc dns](dns/cli-ref/index.md) — Manage Yandex DNS resources
 
@@ -109,7 +109,7 @@ Syntax:
 
 - [yc quota-manager](quota-manager/cli-ref/index.md) — Manage Yandex Quota Manager resources
 
-- [yc resource-manager](resource-manager/cli-ref/index.md) — Manage Yandex Resource Manager resources
+- [yc resource-manager](resource-manager/cli-ref/index.md) — Manage Yandex Cloud Resource Manager resources
 
 - [yc serverless](serverless/cli-ref/index.md) — Manage Serverless resources.
 
@@ -123,4 +123,4 @@ Syntax:
 
 - [yc vpc](vpc/cli-ref/index.md) — Manage Yandex Virtual Private Cloud resources
 
-- [yc ydb](ydb/cli-ref/index.md) — Manage YDB databases.
+- [yc ydb](ydb/cli-ref/index.md) — Manage YDB databases

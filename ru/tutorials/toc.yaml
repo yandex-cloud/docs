@@ -1356,6 +1356,10 @@ items:
       - name: Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP
         href: dataplatform/valkey-as-php-sessions-storage.md
       - name: >-
+          Использование {{ mrd-name }} с модулем Search и моделей {{
+          foundation-models-full-name }} для векторного поиска в RAG-системе
+        href: dataplatform/valkey-rag-search.md
+      - name: >-
           Распределенные блокировки для «1С:Предприятия» в кластере {{ mrd-name
           }}
         href: dataplatform/1c-valkey-locks.md
@@ -1978,4 +1982,8 @@ items:
             href: ml-ai/ai-model-ide-integration.md
           - name: Интеграция AI-аналитика данных с {{ data-catalog-name }}
             href: ml-ai/data-catalog-integration.md
+          - name: >-
+              Использование {{ mrd-name }} с модулем Search и моделей {{
+              foundation-models-full-name }} для векторного поиска в RAG-системе
+            href: dataplatform/valkey-rag-search.md
 path: ru/tutorials/toc.yaml

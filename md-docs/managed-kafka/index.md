@@ -258,6 +258,16 @@
 
  - [update](cli-ref/connector-s3-sink/update.md)
 
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
 ### topic
 
  - [Overview](cli-ref/topic/index.md)
@@ -381,6 +391,16 @@
  - [create](cli-ref/v0/connector-s3-sink/create.md)
 
  - [update](cli-ref/v0/connector-s3-sink/update.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/v0/maintenance/reschedule.md)
 
 #### topic
 

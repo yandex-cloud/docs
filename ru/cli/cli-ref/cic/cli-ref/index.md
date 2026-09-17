@@ -101,7 +101,7 @@ Syntax:
 
   - [yc cic trunk-connection-ticket revoke](trunk-connection-ticket/revoke.md) — Revokes a TrunkConnectionTicket and closes the underlying support ticket.
 
-- [yc cic v0](v0/index.md) — (legacy command tree) Manage Interconnect resources
+- [yc cic v0](v0/index.md) — (legacy command tree) Manage Cloud Interconnect resources
 
 
 

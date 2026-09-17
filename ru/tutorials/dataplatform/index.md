@@ -154,6 +154,7 @@ description: На странице представлен список прак�
 
 * [{#T}](valkey-data-migration.md)
 * [{#T}](valkey-as-php-sessions-storage.md)
+* [{#T}](valkey-rag-search.md)
 * [{#T}](1c-valkey-locks.md)
 * [{#T}](../infrastructure-management/yc-valkey-as-1c-cache-storage.md)
 

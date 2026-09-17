@@ -1,8 +1,12 @@
-Select **{{ ui-key.yacloud.common.logs }}**:
+Select ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**:
 
-* Select the number of messages per page and the period, e.g., `1 hour`.
+* Select the log display period using one of the following methods:
 
-* In the **Query** field, specify you query using the [filter expression language](../../logging/concepts/filter.md) and click **Run**.
+  * Click the interval, e.g., **Last hour**, and select one of the options: from **Last 5 minutes** to **Last day**.
+  * Select a preset period: **Now**, **5m**, **30m**, **1h**, **1d**, **2d**, or specify your own value.
+  * On the timeline, move the period start and end indicators.
+
+* In the **Query** row, specify your query using the [filter expression language](../../logging/concepts/filter.md) and click **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 
   **Request examples**
 

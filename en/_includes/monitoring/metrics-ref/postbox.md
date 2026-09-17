@@ -4,7 +4,7 @@ Labels shared by all {{ postbox-name }} metrics:
 
 Label | Value
 ----|----
-identity | Sender [address](../../../postbox/concepts/glossary.md#adress) ID
+identity | Sender [address](../../../postbox/concepts/glossary.md#address) ID
 service | Service label, always `postbox`
 
 ## Email acceptance metrics {#inbound-metrics}

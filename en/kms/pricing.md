@@ -11,15 +11,19 @@ editable: false
 
 
 
-To calculate the cost of [symmetric](https://yandex.cloud/en/prices?state=58d53a138d2f#calculator) and [asymmetric](https://yandex.cloud/en/prices?state=0f25db3ff729#calculator) encryption and [asymmetric signature](https://yandex.cloud/en/prices?state=b0cf7fa8b77f#calculator), use our calculator on the {{ yandex-cloud }} website or see the pricing info below.
+For an accurate cost calculation, select a calculator:
+
+* [Symmetric encryption](https://yandex.cloud/en/prices?state=58d53a138d2f#calculator)
+* [Asymmetric encryption](https://yandex.cloud/en/prices?state=0f25db3ff729#calculator)
+* [Asymmetric signature](https://yandex.cloud/en/prices?state=b0cf7fa8b77f#calculator)
 
 
-
-{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% endnote %}
 
 {% include [vat](../_includes/vat.md) %}
 
@@ -75,5 +79,4 @@ In the examples, the price per month is provided for reference based on 720 hour
 
 
 {% include [usd-asymmetric](../_pricing_examples/kms/usd-asymmetric.md) %}
-
 

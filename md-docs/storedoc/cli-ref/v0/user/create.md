@@ -24,6 +24,10 @@ Name of the MongoDB cluster. ||
 || `--password` | `string`
 
 Password of the MongoDB user. ||
+|| `--password-file` | `string`
+
+File containing the password of the MongoDB user. ||
+|| `--password-from-stdin` | Read password from stdin. ||
 || `--permission` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Database and role in the database to assign to the user. Can be specified multiple times.

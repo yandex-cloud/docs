@@ -27,6 +27,10 @@ Name of the MongoDB cluster. ||
 || `--password` | `string`
 
 New password for the user. ||
+|| `--password-file` | `string`
+
+File containing the new password for the user. ||
+|| `--password-from-stdin` | Read password from stdin. ||
 || `--permission` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 New set of permissions for the user. Can be specified multiple times.

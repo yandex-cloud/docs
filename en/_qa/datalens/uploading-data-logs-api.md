@@ -8,4 +8,4 @@ To work with raw Yandex Metrica and AppMetrica data, you can:
 * For Yandex Metrica:
 
   * Use the [sample code](https://github.com/zhdanchik/yandex_metrika_cloud_case/) from [this guide](../../datalens/tutorials/data-from-metrica-yc-visualization.md#get-download-data-in-ch) to export raw data to {{ CH }} via LogsAPI.
-  * Add the **{{ metrika-pro }}** package and [set up data transfer](https://yandex.ru/support/metrica/pro/cloud.html?lang=en) to a {{ mch-short-name }} cluster.
+  * Add the **{{ metrika-pro }}** package and [set up data transfer](https://yandex.com/support/metrica/en/uploading-data/cloud) to a {{ mch-short-name }} cluster.

@@ -1,8 +1,13 @@
+---
+title: How to renew a custom certificate in {{ certificate-manager-full-name }}
+description: Follow this guide to renew a custom certificate.
+---
+
 # Renewing a custom certificate
 
 {{ certificate-manager-name }} does not manage [custom certificates](../../concepts/imported-certificate.md). To make your certificate continuously available to your resources, make sure to renew it on time.
 
-To get a new version of a custom certificate:
+To renew a custom certificate:
 
 {% list tabs group=instructions %}
 
@@ -70,7 +75,7 @@ To get a new version of a custom certificate:
      
      * `--id`: ID of the certificate you need to renew.
      * `--chain`: Path to the new certificate chain file.
-     * `--key`: Path to the certificate's new private key file.
+     * `--key`: Path to the new certificate private key file.
 
      Result:
 

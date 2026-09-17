@@ -112,6 +112,14 @@ Syntax:
 
   - [yc managed-mysql v0 hosts update](hosts/update.md) — Update the specified hosts
 
+- [yc managed-mysql v0 maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-mysql v0 maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-mysql v0 maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-mysql v0 maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
+
 - [yc managed-mysql v0 resource-preset](resource-preset/index.md) — Manage MySQL resource presets
 
   - [yc managed-mysql v0 resource-preset get](resource-preset/get.md) — Show information about the specified MySQL resource preset

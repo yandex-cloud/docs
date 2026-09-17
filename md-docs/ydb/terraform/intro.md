@@ -30,10 +30,10 @@
 | [yandex_ydb_database_dedicated](../../terraform/resources/ydb_database_dedicated.md) | База данных [на выделенных ресурсах](../concepts/resources.md#resource-presets) (Dedicated) |
 | [yandex_ydb_database_iam_binding](../../terraform/resources/ydb_database_iam_binding.md) | [Привязка](../../iam/concepts/access-control/index.md#access-bindings) прав доступа к базе данных |
 | [yandex_ydb_database_serverless](../../terraform/resources/ydb_database_serverless.md) | [Бессерверная](../concepts/resources.md#serverless) база данных (Serverless) |
-| [yandex_ydb_topic](../../terraform/resources/ydb_topic.md) | [Топик](https://ydb.tech/docs/ru//concepts/topic) |
+| [yandex_ydb_topic](../../terraform/resources/ydb_topic.md) | [Топик](https://ydb.tech/docs/ru/concepts/datamodel/topic) |
 | [yandex_ydb_table](../../terraform/resources/ydb_table.md) | [Таблица](https://ydb.tech/docs/ru//concepts/datamodel/table) |
 | [yandex_ydb_table_changefeed](../../terraform/resources/ydb_table_changefeed.md) | [Change Data Capture](https://ydb.tech/docs/ru//concepts/cdc) |
-| `yandex_ydb_table_index` | [Вторичный индекс таблицы](https://ydb.tech/docs/ru//concepts/secondary_indexes) |
+| `yandex_ydb_table_index` | [Вторичный индекс таблицы](https://ydb.tech/docs/ru/concepts/query_execution/secondary_indexes) |
 
 ## Источники данных {#data-sources}
 

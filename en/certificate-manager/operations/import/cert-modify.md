@@ -1,11 +1,11 @@
 ---
 title: How to edit a custom certificate in {{ certificate-manager-full-name }}
-description: Follow this guide to edit a custom certificate.
+description: Follow this guide to update a custom certificate.
 ---
 
 # Editing a custom certificate
 
-After adding a [custom certificate](../../concepts/imported-certificate.md) to {{ certificate-manager-name }}, you can change its name or description. To edit a certificate:
+After you add a [custom certificate](../../concepts/imported-certificate.md) to {{ certificate-manager-name }}, you can edit its settings. To edit a certificate:
 
 {% list tabs group=instructions %}
 
@@ -16,6 +16,8 @@ After adding a [custom certificate](../../concepts/imported-certificate.md) to {
   1. Select the certificate you need to edit.
   1. Click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.certificate-manager.overview.action_edit-meta }}**.
   1. Change the name or description of the certificate.
+  1. Enable or disable the deletion protection.
+  1. Update the certificate's labels.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -49,7 +51,7 @@ After adding a [custom certificate](../../concepts/imported-certificate.md) to {
   1. Run this command:
 
      ```bash
-     yc certificate-manager certificates update \
+     yc certificate-manager certificate update \
        --id fpqmg47avvim******** \
        --new-name myupdatedcert \
        --description "description of myupdatedcert"

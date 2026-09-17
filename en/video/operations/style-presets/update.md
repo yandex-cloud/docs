@@ -17,17 +17,22 @@ You can update the pre-installed `Default Style Preset` and `Summarization Style
   1. Select a channel.
   1. On the ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud_video.presets.title_presets }}** tab, select the preset.
   1. In the **{{ ui-key.yacloud_video.presets.label_title }}** field, update the preset name.
+  1. Under **{{ ui-key.yacloud_video.presets.section_playback-settings }}**, enable **{{ ui-key.yacloud_video.presets.field_persist-playback-progress }}** to resume playback from the exact timestamp where the user stopped watching during the previous session.
   1. Under **{{ ui-key.yacloud_video.presets.section_wigets-settings }}**:
+     
      * Enable or disable relevant widgets.
      * Change their position in the player interface.
+  
   1. Under **{{ ui-key.yacloud_video.presets.section_styles-settings }}**:
+     
      * Change the color scheme.
      * Set sizes of elements.
      * Configure other visual settings.
   
   1. Under **{{ ui-key.yacloud_video.presets.section_logo-settings }}**:
+     
      1. Enable the **{{ ui-key.yacloud_video.presets.field_logo-enabled }}** option to display your logo over the video.
-     1. Upload the logo image (2 MB or less) in JPG, PNG, or GIF format.
+     1. Upload the logo image (10 MB or less) in JPG, PNG, or SVG format.
      1. Enable **{{ ui-key.yacloud_video.presets.field_logo-show-with-controls }}** for the logo to disappear together with player controls when the user is not interacting with the video.
      1. In the **{{ ui-key.yacloud_video.presets.field_logo-redirect-on-click-url }}** field, add a URL that will open when the logo is clicked.
   

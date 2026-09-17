@@ -14,11 +14,11 @@ You can edit ARL rules only in an [ARL](../concepts/arl.md) profile. Basic [rule
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the ARL profile.
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
-  1. Select the profile to update a rule in.
-  1. Next to the rule in question, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
-      
+  1. Select the profile where you want to edit a rule.
+  1. Click ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** next to the rule. In the window that opens:
+
       1. Edit the basic rule settings:
-          
+
           * **{{ ui-key.yacloud.common.name }}**.
           * **{{ ui-key.yacloud.common.description }}**.
           * Rule **priority**. The smaller the value, the higher is the rule priority.
@@ -31,7 +31,7 @@ You can edit ARL rules only in an [ARL](../concepts/arl.md) profile. Basic [rule
           {% include [arl-rule-request-count](../../_includes/smartwebsecurity/arl-rule-request-count.md) %}
 
       1. {% include [arl-rule-action-over-limit](../../_includes/smartwebsecurity/arl-rule-action-over-limit.md) %}
-      
+
       1. Select or [create](template-create.md) a response template that will be returned to the client whenever a rule triggers. The standard {{ yandex-cloud }} template is used by default.
       1. Click **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
 
@@ -82,7 +82,7 @@ You can edit ARL rules only in an [ARL](../concepts/arl.md) profile. Basic [rule
           priority    = <rule_priority>
           description = "<rule_description>"
           dry_run     = true
-  
+
           static_quota {
             action = "DENY"
             limit  = <rule_limit>

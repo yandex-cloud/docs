@@ -284,7 +284,7 @@ The consumption type goes into the `systag` label.
 | `udp_indatagrams`<br/>`DGAUGE`, count | Total UDP packets received  | 
 | `udp_inerrors`<br/>`DGAUGE`, count | Number of bad UDP packets received, excluding those with checksum errors  | 
 | `udp_memerrors`<br/>`DGAUGE`, errors | Number of UDP out-of-memory errors |
-| `udp_noports`<br/>`DGAUGE`, count | Total UDP packets received with no application on the destination port | 
+| `udp_noports`<br/>`DGAUGE`, count | Total UDP packets received with no application on the destination port |
 | `udp_outdatagrams`<br/>`DGAUGE`, count | Total UDP packets sent from the object in question | 
 | `udp_rcvbuferrors`<br/>`DGAUGE`, count | Number of UDP receive buffer errors  | 
 | `udp_sndbuferrors`<br/>`DGAUGE`, count | Number of UDP send buffer errors  | 
@@ -548,11 +548,11 @@ The consumption type goes into the `systag` label.
 | `opensearch_active_shards_percent_as_number`<br/>`DGAUGE`, count | Percentage of active shards | 
 | `opensearch_active_shards`<br/>`DGAUGE`, count | Number of active shards | 
 | `opensearch_backup_age`<br/>`DGAUGE`, seconds | Most recent backup age |
-| `opensearch_backup_free_space_required`<br/>`DGAUGE`, bytes | Storage size required to restore a cluster from a backup |
+| `opensearch_backup_free_space_required`<br/>`DGAUGE`, bytes | Storage size required to restore a cluster from a backup. |
 | `opensearch_backup_incremental_size`<br/>`DGAUGE`, bytes | Size of files created during the incremental backup |
 | `opensearch_backup_total_size`<br/>`DGAUGE`, bytes | Size of files referenced by the backup |
-| `opensearch_cluster_total_shards_limit`<br/>`DGAUGE`, count | Limit on the total number of shards per cluster (`cluster.routing.allocation.total_shards_limit` setting). A value of `-1` means there is no limit. |
-| `opensearch_cluster_total_shards_per_node`<br/>`DGAUGE`, count | Limit on the number of shards per node (`cluster.routing.allocation.total_shards_per_node` setting). A value of `-1` means there is no limit. |
+| `opensearch_cluster_total_shards_limit`<br/>`DGAUGE`, count | Limit on the total number of shards in a cluster (`cluster.routing.allocation.total_shards_limit` setting). The `-1` value means the limit is disabled. |
+| `opensearch_cluster_total_shards_per_node`<br/>`DGAUGE`, count | Limit on the number of shards hosted on a single node (`cluster.routing.allocation.total_shards_per_node` setting). The `-1` value means the limit is disabled. |
 | `opensearch_critical_watermark_bytes`<br/>`DGAUGE`, bytes | Critical disk space usage threshold |
 | `opensearch_critical_watermark_percentage`<br/>`DGAUGE`, % | Critical disk fill threshold |
 | `opensearch_delayed_unassigned_shards`<br/>`DGAUGE`, count | Number of delayed unassigned shards |
@@ -564,8 +564,8 @@ The consumption type goes into the `systag` label.
 | `opensearch_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if not. | 
 | `opensearch_low_watermark_bytes`<br/>`DGAUGE`, bytes | Lower threshold for used disk space |
 | `opensearch_low_watermark_percentage`<br/>`DGAUGE`, percentage | Disk fill lower threshold |
-| `opensearch_max_shards_per_cluster`<br/>`DGAUGE`, count | Maximum number of shards allowed in the cluster (`opensearch_max_shards_per_node` multiplied by the number of data nodes). |
-| `opensearch_max_shards_per_node`<br/>`DGAUGE`, count | Maximum allowed number of shards per node (`cluster.max_shards_per_node` setting). |
+| `opensearch_max_shards_per_cluster`<br/>`DGAUGE`, count | Maximum allowed number of shards in the entire cluster (calculated as `opensearch_max_shards_per_node` multiplied by the number of data nodes). |
+| `opensearch_max_shards_per_node`<br/>`DGAUGE`, count | Maximum number of shards allowed on a single node (`cluster.max_shards_per_node` setting). |
 | `opensearch_primary_shards_count`<br/>`DGAUGE`, count | Number of primary shards per cluster |
 | `opensearch_relocating_shards`<br/>`DGAUGE`, count | Number of shards being relocated | 
 | `opensearch_shards_count`<br/>`DGAUGE`, count | Total number of shards per cluster |

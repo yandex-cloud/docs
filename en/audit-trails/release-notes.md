@@ -5,9 +5,10 @@ description: This section contains the {{ at-name }} release notes.
 
 # {{ at-full-name }} release notes
 
+
 ## July 2026 {#jul-2026}
 
-* Added new events for the services:
+Added new events for the services:
 
   {% cut "{{ sw-full-name }}" %}
 

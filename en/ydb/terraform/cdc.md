@@ -5,7 +5,7 @@ description: Follow this guide to create or update a change data feed for a {{ y
 
 # Creating a change data feed for a table
 
-[Change data capture (CDC)]({{ ydb.docs }}/concepts/cdc) is a process of tracking changes in a particular table and delivering them to a consumer. When you add, update, or delete a table row, CDC generates a change record with the primary key of the row and writes it to the topic partition matching this key. A [topic]({{ ydb.docs }}/concepts/topic) is an entity for storing unstructured messages and delivering them to multiple subscribers. Basically, a topic is a named set of messages.
+[Change data capture (CDC)]({{ ydb.docs }}/concepts/cdc) is a process of tracking changes in a particular table and delivering them to a consumer. When you add, update, or delete a table row, CDC generates a change record with the primary key of the row and writes it to the topic partition matching this key. A [topic]({{ ydb.docs }}concepts/datamodel/topic) is an entity for storing unstructured messages and delivering them to multiple subscribers. Basically, a topic is a named set of messages.
 
 ## Description of the yandex_ydb_table_changefeed resource {#table_changefeed_description}
 
@@ -46,7 +46,7 @@ Full description of all the `yandex_ydb_table_changefeed` resource fields:
 
 When initializing the `yandex_ydb_table_changefeed` resource, you can only specify one connection field: `connection_string`, `table_path`, or `table_id`. If you specify multiple connection fields, they will come into conflict, e.g., the `table_id` field with a relative link in `<resource>.<ID>.<parameter>` format: `yandex_ydb_table.test_table_2.id`.
 
-The CDF resource contains the `consumer` section. A [consumer]({{ ydb.docs }}/concepts/topic#consumer) is a named entity for reading data from the topic. Each consumer has several setting fields. The main field is `name`, i.e., the consumer's name. When initializing the `yandex_ydb_table_changefeed` resource, you can specify multiple consumers, or none; however, in this case, you will not be able to read data from the CDF.
+The CDF resource contains the `consumer` section. A [consumer]({{ ydb.docs }}concepts/datamodel/topic#consumer) is a named entity for reading data from the topic. Each consumer has several setting fields. The main field is `name`, i.e., the consumer's name. When initializing the `yandex_ydb_table_changefeed` resource, you can specify multiple consumers, or none; however, in this case, you will not be able to read data from the CDF.
 
 Full list of the `consumer` section fields:
 | **Field name** | **Type** | **Description** |
@@ -55,4 +55,4 @@ Full list of the `consumer` section fields:
 | supported_codecs | `array[string]`<br>`optional` | Supported data encodings. |
 | starting_message_timestamp_ms | `integer`<br>`optional` | UNIX timestamp for the consumer to start reading data from. |
 
-The consumer name is used in the SDK or CLI to [read data]({{ ydb.docs }}/best_practices/cdc#read) from the topic.
+The consumer name is used in the [SDK]({{ ydb.docs }}reference/ydb-sdk/topic) or [CLI]({{ ydb.docs }}reference/ydb-cli/topic-read) to read data from the topic.

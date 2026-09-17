@@ -24,6 +24,10 @@ Sharded PostgreSQL cluster name. ||
 || `--password` | `string`
 
 Password of the Sharded PostgreSQL user. ||
+|| `--password-file` | `string`
+
+File containing the password of the Sharded PostgreSQL user. ||
+|| `--password-from-stdin` | Read password from stdin. ||
 || `--permissions` | `value[,value]`
 
 Names of the databases that the permission grants access to. ||

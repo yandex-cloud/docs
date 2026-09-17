@@ -20,12 +20,12 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
   1. Select one of these creation options:
-      
-      * **{{ ui-key.yacloud.smart-web-security.title_default-template }}**: This is a recommended option.
+
+      * `{{ ui-key.yacloud.smart-web-security.title_default-template }}`: This is a recommended option.
 
         {% include [pre-configured-profile](../../_includes/smartwebsecurity/pre-configured-profile.md) %}
-        
-      * **{{ ui-key.yacloud.smart-web-security.title_no-template }}**. This profile includes only the basic default rule enabled for all traffic.
+
+      * `{{ ui-key.yacloud.smart-web-security.title_no-template }}`: This profile includes only the basic default rule enabled for all traffic.
 
   1. Name the profile.
   1. Optionally, provide a description.
@@ -38,20 +38,20 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
   1. {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
   1. {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
-  
+
   1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}** and configure logging:
-     
+
      1. In the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** field, select the logs to write: **{{ cloud-logging-name }}** and **{{ at-name }}**.
      1. For {{ cloud-logging-name }}, select or create a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to store your logs.
      1. For logging, you can choose only those requests that triggered:
-        
-        * **{{ ui-key.yacloud.smart-web-security.baseRulesTitle_xcJEe }}**.
-        * **{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}** rules.
-        * **{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}** rules.
-        * **{{ ui-key.yacloud.smart-web-security.arlTitle_e3MD8 }}** rules.
-        * All selected rules applied the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.denyAndCaptchaTitle_tCthP }}** action (verdict).
-        * All selected rules applied the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}** action (legitimate requests).
-  
+
+        * `{{ ui-key.yacloud.smart-web-security.baseRulesTitle_xcJEe }}`.
+        * `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}` rules.
+        * `{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}` rules.
+        * `{{ ui-key.yacloud.smart-web-security.arlTitle_e3MD8 }}` rules.
+        * All selected rules applied the `{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.denyAndCaptchaTitle_tCthP }}` action (verdict).
+        * All selected rules applied the `{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}` action (legitimate requests).
+
      For information on how to set up logging, see [{#T}](configure-logging.md).
 
   1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
@@ -63,8 +63,8 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
   1. Add all relevant rules to the profile one by one.
 
       The rules you created will appear in the table under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}**.
-  
-  1. Optionally, enable or disable the use of HTTP request info to improve your machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
+
+  1. Optionally, under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**, you can enable or disable the use of HTTP request data for improving machine learning models.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -98,7 +98,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
      * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional setting. For example, `--labels foo=baz,bar=baz'`.
      * `--default-action`: Action to apply to traffic that does not match any other rule. This is an optional setting. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
      * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional setting.
-      * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional setting. Here is an example:
+     * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional setting. Here is an example:
 
           {% include [profile-create-yaml-example](../../_includes/smartwebsecurity/profile-create-yaml-example.md) %}
 
@@ -172,21 +172,21 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
       ```
 
       Where:
-      
+
       * `name`: Security profile name.
       * `default_action`: Action for the default basic rule. This action will apply to traffic that does not match any other rule. It can be either `ALLOW` to allow all requests to {{ sws-full-name }} or `DENY` to deny them.
       * `captcha_id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional setting.
       * `advanced_rate_limiter_profile_id`: [ARL profile](../concepts/arl.md) ID. This is an optional setting.
       * `security_rule`: Security [rule](../concepts/rules.md) description:
-         
+
          * `name`: Security rule name.
          * `priority`: Rule [priority](../concepts/rules.md#rules-order). The possible values range from 1 to 1,000,000.
          * `smart_protection`: Description of the [Smart Protection rule](../concepts/rules.md#smart-protection-rules) enabled for all traffic with the action type specified in the `mode` parameter.
-            
+
             * `mode`: [Rule action](../concepts/rules.md#rule-action). It can be either `FULL` to enable full protection, where suspicious requests are challenged with CAPTCHA, or `API` to enable API protection, where suspicious requests are blocked.
-         
+
          * `waf`: Web application firewall rule description. To add a WAF rule, you must first [create a WAF profile](waf-profile-create.md). The optional setting section contains:
-            
+
             * `waf_profile_id`: [WAF profile](../concepts/waf.md) ID.
 
       If you do not specify the `smart_protection` or `waf` rule type, the system will create a basic rule with simple filtering based on conditions specified under `rule_condition`.

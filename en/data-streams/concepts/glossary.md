@@ -19,7 +19,7 @@ As for now, you can only reduce the number of shards in a stream by deleting and
 
 {% endnote %}
 
-You can configure a data stream to increase the number of shards as the write speed into the stream increases. For more information, see [autopartitioning in the {{ ydb-short-name }} documentation]({{ ydb.docs }}/concepts/topic#partitioning).
+You can configure a data stream to increase the number of shards as the write speed into the stream increases. For more information, see [autopartitioning in the {{ ydb-short-name }} documentation]({{ ydb.docs }}{{ lang }}/concepts/datamodel/topic#autopartitioning).
 
 ### Shard key {#partition-key}
 
@@ -63,7 +63,7 @@ In some cases, the common [quota]({{ link-console-quotas }}) model for all consu
 
 ## Autopartitioning {#autopartitioning}
 
-When overloading individual [shards](#shard) or the entire [stream](#stream-concepts), some data may get lost. [Autopartitioning]({{ ydb.docs }}/concepts/topic#autopartitioning) automatically adds shards as needed and distributes the workloads. This helps you avoid data loss.
+When overloading individual [shards](#shard) or the entire [stream](#stream-concepts), some data may get lost. [Autopartitioning]({{ ydb.docs }}{{ lang }}/concepts/datamodel/topic#autopartitioning) automatically adds shards as needed and distributes the workloads. This helps you avoid data loss.
 
 You may enable and configure autopartitioning when or after [creating](../operations/manage-streams.md#create-data-stream) a data stream.
 

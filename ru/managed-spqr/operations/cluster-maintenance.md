@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Техническое обслуживание кластера {{ SPQR }}
 
-Вы можете управлять техническим обслуживанием кластера {{ mspqr-name }}, в том числе:
+Вы можете управлять [техническим обслуживанием](../concepts/maintenance.md) кластера {{ mspqr-name }}, в том числе:
 
 * [получить список обслуживаний](#list-maintenance);
 * [получить логи технического обслуживания кластера](#maintenance-logs);
@@ -86,7 +86,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -119,7 +119,7 @@ description: Следуя данной инструкции, вы сможете
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -197,7 +197,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -221,7 +221,7 @@ description: Следуя данной инструкции, вы сможете
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -246,13 +246,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Настроить окно обслуживания {#set-maintenance-window}
 
-По умолчанию техническое обслуживание может быть запланировано на любое время. Вы можете выбрать определенный день недели и час, на который будет планироваться техническое обслуживание. Например, можно указать время, когда кластер наименее загружен.
-
-{% note warning %}
-
-При выборе нового интервала обслуживания будут автоматически отменены запланированные обслуживания, которые не совпадают с новым интервалом.
-
-{% endnote %}
+По умолчанию техническое обслуживание может быть запланировано на любое время. Вы можете выбрать определенный день недели и часовой интервал, на который будет планироваться техническое обслуживание. Например, можно указать время, когда кластер наименее загружен.
 
 {% list tabs group=instructions %}
 
@@ -263,7 +257,7 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
   1. В открывшемся окне:
      * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
-     * Чтобы разрешить проведение технического обслуживания раз в неделю в определенное время суток, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и час по UTC.
+     * Чтобы разрешить проведение технического обслуживания раз в неделю в определенное время суток, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и интервал времени по UTC.
 
 - CLI {#cli}
 
@@ -283,7 +277,7 @@ description: Следуя данной инструкции, вы сможете
       yc managed-sharded-postgresql cluster update <имя_или_идентификатор_кластера> \
          --maintenance-window type=<тип_технического_обслуживания>,`
                              `day=<день_недели>,`
-                             `hour=<час_дня>
+                             `hour=<порядковый_номер_часового_интервала>
       ```
 
       Где `type` — тип технического обслуживания:
@@ -316,7 +310,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -331,7 +325,7 @@ description: Следуя данной инструкции, вы сможете
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<день_недели>",
-                     "hour": "<час>"
+                     "hour": "<порядковый_номер_часового_интервала>"
                    }
                  }
                }'
@@ -344,13 +338,15 @@ description: Следуя данной инструкции, вы сможете
 
        В данном случае передается только один параметр.
 
-     * `maintenanceWindow` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
+     * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
 
        * `anytime` — техническое обслуживание может быть запланировано на любое время.
-       * `weeklyMaintenanceWindow` — техническое обслуживание может быть запланировано только на выбранный день недели и час:
+       * `weeklyMaintenanceWindow` — техническое обслуживание может быть запланировано только на выбранный день недели и порядковый номер часового интервала:
 
-         * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`;
-         * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
+           * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`;
+           * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+
+             > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
@@ -361,7 +357,7 @@ description: Следуя данной инструкции, вы сможете
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -380,7 +376,7 @@ description: Следуя данной инструкции, вы сможете
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<день_недели>",
-                 "hour": "<час>"
+                 "hour": "<порядковый_номер_часового_интервала>"
                }
              }
            }' \
@@ -395,13 +391,15 @@ description: Следуя данной инструкции, вы сможете
 
        В данном случае передается только один параметр.
 
-     * `maintenance_window` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
+     * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
 
        * `anytime` — техническое обслуживание может быть запланировано на любое время.
-       * `weekly_maintenance_window` — техническое обслуживание может быть запланировано только на выбранный день недели и час:
+       * `weekly_maintenance_window` — техническое обслуживание может быть запланировано только на выбранный день недели и порядковый номер часового интервала:
 
-         * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`;
-         * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
+           * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`;
+           * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+
+             > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.spqr.v1.Cluster).
 
