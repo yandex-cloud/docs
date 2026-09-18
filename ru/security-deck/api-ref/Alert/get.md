@@ -109,7 +109,13 @@ Should alert details be internationalized (true) or left in source representatio
   "createTime": "string",
   "updateTime": "string",
   "details": "object",
-  "ruleId": "string"
+  "ruleId": "string",
+  "tags": [
+    "string"
+  ],
+  // Includes only one of the fields `organizationId`
+  "organizationId": "string"
+  // end of the list of possible fields
 }
 ```
 
@@ -205,6 +211,16 @@ Optional. Only present in Get method response. ||
 Rule ID associated with alert.
 Optional. May be absent if alert provider did not set this value
 or if alert is not related to a rule. ||
+|| tags[] | **string**
+
+Alert tags.
+Can be assigned after creation. ||
+|| organizationId | **string**
+
+Organization ID.
+Optional. May be absent if alert provider did not set this value.
+
+Includes only one of the fields `organizationId`. ||
 |#
 
 ## Category {#yandex.cloud.securitydeck.alerts.v1.Alert.Category}

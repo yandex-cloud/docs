@@ -49,7 +49,7 @@ resource "yandex_vpc_subnet" "<имя_подсети>" {
     Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
 
 * `version` — версия {{ TR }}.
-    
+
     {% include [change-version-note](../change-version-note.md) %}
 
 * `coordinator` — конфигурация [координатора](../../../managed-trino/concepts/index.md#coordinator):

@@ -16,6 +16,10 @@ Update alert.
   "update_mask": "google.protobuf.FieldMask",
   "status": "Status",
   "classification": "Classification",
+  "severity": "Severity",
+  "tags": [
+    "string"
+  ],
   // Includes only one of the fields `assignee_subject_id`
   "assignee_subject_id": "string"
   // end of the list of possible fields
@@ -50,6 +54,19 @@ Optional. Can be omitted but present in update_mask to remove classification. No
 - `BENIGN_POSITIVE`: Alert represents a legitimate problem but does not require attention.
 - `FALSE_POSITIVE`: Alert represents something that's not an issue.
 - `UNDETERMINED`: Alert relevance cannot be determined. ||
+|| severity | enum **Severity**
+
+Alert severity.
+Optional. Not used if not present in update_mask.
+
+- `INFO`: Informational severity
+- `LOW`: Low severity
+- `MEDIUM`: Medium severity
+- `HIGH`: High severity ||
+|| tags[] | **string**
+
+Alert tags.
+Not used if not present in update_mask. ||
 || assignee_subject_id | **string**
 
 Assign alert to a subject with specified ID.

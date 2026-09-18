@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Запуск PySpark-задания в Yandex Managed Service for YTsaurus
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > YTsaurus > Запуск PySpark-задания в Yandex Managed Service for YTsaurus
 
 # Запуск PySpark-задания в Yandex Managed Service for YTsaurus
 

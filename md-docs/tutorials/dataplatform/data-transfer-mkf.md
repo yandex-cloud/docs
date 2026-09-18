@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Перенос данных между кластерами Managed Service for Apache Kafka® с помощью Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Apache Kafka® > Поставка данных с помощью Data Transfer > Перенос данных между кластерами Managed Service for Apache Kafka®
 
 # Перенос данных между кластерами Managed Service for Apache Kafka® с помощью Data Transfer
 

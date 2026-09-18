@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция данных в Managed Service for OpenSearch из стороннего кластера OpenSearch с помощью Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > OpenSearch > Миграция данных в Managed Service for OpenSearch из стороннего кластера OpenSearch с помощью Data Transfer
 
 # Миграция данных в Yandex Managed Service for OpenSearch из стороннего кластера OpenSearch с помощью Yandex Data Transfer
 

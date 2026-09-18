@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Синхронизация данных из стороннего кластера MySQL® в Managed Service for MySQL® с помощью Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > MySQL® > Синхронизация данных из стороннего кластера MySQL® в Managed Service for MySQL® с помощью Data Transfer
 
 # Синхронизация данных из стороннего кластера MySQL® в Yandex Managed Service for MySQL® с помощью Yandex Data Transfer
 

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Аутентификация в OpenSearch Dashboards кластера Managed Service for OpenSearch с помощью Keycloak
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > OpenSearch > Аутентификация в OpenSearch Dashboards кластера Managed Service for OpenSearch с помощью Keycloak
 
 # Аутентификация в OpenSearch Dashboards кластера Yandex Managed Service for OpenSearch с помощью Keycloak
 

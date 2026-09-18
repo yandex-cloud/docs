@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Асинхронная репликация данных из Яндекс Метрика в ClickHouse® с помощью Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > ClickHouse® > Асинхронная репликация данных из Яндекс Метрика в ClickHouse® с помощью Data Transfer
 
 # Асинхронная репликация данных из Яндекс Метрика в ClickHouse® с помощью Yandex Data Transfer
 
@@ -24,13 +24,11 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-
 ## Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Пакет [Метрика Про](https://yandex.ru/support/metrica/pro/price.html).
-
 
 ## Перед началом работы {#before-you-begin}
 

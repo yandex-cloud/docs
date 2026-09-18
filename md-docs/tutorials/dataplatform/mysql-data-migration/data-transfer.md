@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > [Построение Data Platform](../index.md) > [Миграция БД из стороннего кластера MySQL® в кластер Managed Service for MySQL®](index.md) > Перенос данных с использованием сервиса Data Transfer
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > [Построение Data Platform](../index.md) > MySQL® > [Миграция БД из стороннего кластера MySQL® в кластер Managed Service for MySQL®](index.md) > Перенос данных с использованием сервиса Data Transfer
 
 # Перенос данных с использованием сервиса Data Transfer
 

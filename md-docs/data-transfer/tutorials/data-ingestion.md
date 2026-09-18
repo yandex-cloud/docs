@@ -29,7 +29,6 @@
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 * API-шлюз: количество запросов к шлюзу ([тарифы Yandex API Gateway](../../api-gateway/pricing.md)).
@@ -39,11 +38,10 @@
 
     * [По фактическому использованию](../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
 
-* База данных Managed Service for YDB, работающая в бессерверном режиме: операции с данными, объем хранимых данных и резервных копий ([тарифы Managed Service for YDB](../../ydb/pricing/index.md)).
+* База данных Yandex Managed Service for YDB, работающая в бессерверном режиме: операции с данными, объем хранимых данных и резервных копий ([тарифы Managed Service for YDB](../../ydb/pricing/index.md)).
 * Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Yandex Data Transfer](../pricing.md)).
-
 
 ## Настройте окружение {#setup}
 

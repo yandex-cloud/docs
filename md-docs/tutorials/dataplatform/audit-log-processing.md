@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Обработка аудитных логов Audit Trails
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Query > Обработка аудитных логов Audit Trails
 
 # Обработка аудитных логов Yandex Audit Trails
 

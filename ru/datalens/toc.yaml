@@ -984,6 +984,8 @@ items:
         href: concepts/publishing-and-embedding.md
       - name: Публикация объектов
         href: concepts/datalens-public.md
+      - name: Публикация по временной ссылке
+        href: concepts/datalens-temporary-link.md
       - name: Публичное встраивание
         href: security/embedded-objects.md
       - name: Поделиться объектом в организации

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Анализ производительности и оптимизация Yandex StoreDoc
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > MongoDB/Yandex StoreDoc > Анализ производительности и оптимизация Yandex StoreDoc
 
 # Анализ производительности и оптимизация MongoDB
 

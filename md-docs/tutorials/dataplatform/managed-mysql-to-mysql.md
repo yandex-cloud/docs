@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция на сторонний кластер MySQL®
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Data Transfer > Миграция на сторонний кластер MySQL®
 
 # Миграция на сторонний кластер MySQL®
 

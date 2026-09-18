@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Импорт данных из Managed Service for MySQL® в Yandex Data Processing с помощью Sqoop
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > MySQL® > Импорт данных из Managed Service for MySQL® в Yandex Data Processing с помощью Sqoop
 
 # Импорт данных из Yandex Managed Service for MySQL® в Yandex Data Processing с помощью Sqoop
 

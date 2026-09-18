@@ -29,11 +29,9 @@ Yandex Query — это интерактивный сервис для бесс�
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры для работы с данными Managed Service for ClickHouse® входит:
-
-* плата за использование [вычислительных ресурсов DataSphere](../../datasphere/pricing.md);
-* плата за запущенный [кластер Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md);
-* плата за объем считанных данных при исполнении [запросов Query](../../query/pricing.md).
+* Проект DataSphere: использование вычислительных ресурсов и хранилища ([тарифы DataSphere](../../datasphere/pricing.md)).
+* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
+* Сервис Query: объем считанных данных при исполнении запросов ([тарифы Query](../../query/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 

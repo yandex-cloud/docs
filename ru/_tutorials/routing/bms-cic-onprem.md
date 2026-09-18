@@ -3,6 +3,8 @@
 
 В данном руководстве вы установите сетевую связность между [сервером](../../baremetal/concepts/servers.md) {{ baremetal-name }}, расположенным в [приватной подсети](../../baremetal/concepts/private-network.md) {{ baremetal-full-name }}, и ресурсами, которые развернуты on-premises. Сетевая связность будет организована с помощью сервисов [{{ interconnect-name }}](../../interconnect/index.yaml) и [{{ cr-name }}](../../cloud-router/index.yaml).
 
+{% include [cr-v2-bms-onprem-notice](../../_includes/baremetal/cr-v2-bms-onprem-notice.md) %}
+
 Схема решения:
 
 ![bms-cic-onprem](../../_assets/tutorials/bms-cic-onprem.svg)

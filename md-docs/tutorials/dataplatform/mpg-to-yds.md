@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Захват изменений PostgreSQL и поставка в YDS
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > PostgreSQL > Захват изменений PostgreSQL и поставка в YDS
 
 # Захват изменений PostgreSQL и поставка в YDS
 

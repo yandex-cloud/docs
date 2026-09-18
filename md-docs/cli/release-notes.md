@@ -4,6 +4,14 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.35.1 (17.09.26) {#v-1-35-1}
+
+#### Изменения в системных командах CLI {#v-1-35-1-yc}
+
+Исправлено определение каталога при использовании глобального параметра `--folder-name`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.35.0 (17.09.26) {#v-1-35-0}
 
 #### Compute Cloud {#v-1-35-0-compute-name}
@@ -76,8 +84,6 @@
 
   * `yc managed-sharded-postgresql user create`;
   * `yc managed-sharded-postgresql user update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.34.0 (10.09.26) {#v-1-34-0}
 

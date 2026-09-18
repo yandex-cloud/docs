@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Обработка файлов детализации в сервисе Yandex Cloud Billing
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Query > Обработка файлов детализации в сервисе Yandex Cloud Billing
 
 # Обработка файлов детализации в сервисе Yandex Cloud Billing
 

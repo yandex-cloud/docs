@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция БД из стороннего кластера Apache Kafka® в Managed Service for Apache Kafka®
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Apache Kafka® > Миграция БД из стороннего кластера Apache Kafka® в Managed Service for Apache Kafka®
 
 # Миграция базы данных из стороннего кластера Apache Kafka® в Yandex Managed Service for Apache Kafka®
 

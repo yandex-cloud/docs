@@ -976,6 +976,8 @@
 
  - [Публикация объектов](concepts/datalens-public.md)
 
+ - [Публикация по временной ссылке](concepts/datalens-temporary-link.md)
+
  - [Публичное встраивание](security/embedded-objects.md)
 
  - [Поделиться объектом в организации](concepts/datalens-sharing.md)

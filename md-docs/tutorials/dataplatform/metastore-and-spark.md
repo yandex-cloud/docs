@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Интеграция Yandex Managed Service for Apache Spark™ и Apache Hive™ Metastore
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Managed Service for Apache Airflow™ > Интеграция Yandex Managed Service for Apache Spark™ и Apache Hive™ Metastore
 
 # Интеграция Yandex Managed Service for Apache Spark™ и Apache Hive™ Metastore
 

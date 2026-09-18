@@ -9,6 +9,12 @@ description: Из статьи вы узнаете, как безопасно в
 
 Встраивание непубличных объектов работает только в новой объектной модели {{ datalens-short-name }} на уровне [воркбуков](../workbooks-collections/index.md) и доступно только [администратору](./roles.md#datalens-workbooks-admin) воркбука.
 
+{% note warning %}
+
+Запросы на получение данных из непублично встроенных объектов учитываются в [тарификации](../pricing.md#embeds) рабочих мест.
+
+{% endnote %}
+
 {% include [datalens-embeded-connection-stop-list](../../_includes/datalens/datalens-embeded-connection-stop-list.md) %}
 
 ## Параметры отображения {#view-parameters}

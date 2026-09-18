@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция БД из Managed Service for MySQL® в Object Storage с помощью Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > MySQL® > Миграция БД из Managed Service for MySQL® в Object Storage с помощью Data Transfer
 
 # Миграция базы данных из Yandex Managed Service for MySQL® в Yandex Object Storage
 

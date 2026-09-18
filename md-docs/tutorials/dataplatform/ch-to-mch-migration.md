@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция данных в Managed Service for ClickHouse® при помощи Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > ClickHouse® > Миграция данных в Managed Service for ClickHouse® при помощи Data Transfer
 
 # Миграция данных в Yandex Managed Service for ClickHouse® при помощи Yandex Data Transfer
 

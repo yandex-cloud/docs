@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Настройка Kafka Connect для работы с кластером Managed Service for Apache Kafka®
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Apache Kafka® > Настройка Kafka Connect для работы с кластером Managed Service for Apache Kafka®
 
 # Настройка Kafka Connect для работы с кластером Yandex Managed Service for Apache Kafka®
 

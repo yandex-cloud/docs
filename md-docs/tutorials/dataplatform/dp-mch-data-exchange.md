@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Обмен данными между Managed Service for ClickHouse® и Yandex Data Processing
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > ClickHouse® > Обмен данными между Managed Service for ClickHouse® и Yandex Data Processing
 
 # Обмен данными между Yandex Managed Service for ClickHouse® и Yandex Data Processing
 

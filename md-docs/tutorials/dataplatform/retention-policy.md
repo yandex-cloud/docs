@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Отслеживание потери сообщений в топике Apache Kafka®
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Apache Kafka® > Отслеживание потери сообщений в топике Apache Kafka®
 
 # Отслеживание потери сообщений в топике Apache Kafka®
 

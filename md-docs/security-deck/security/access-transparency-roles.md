@@ -15,7 +15,7 @@ flowchart BT
     access-transparency.viewer["access-transparency.<br>viewer"] --> security-deck.viewer
 
     access-transparency.admin["access-transparency.<br>admin"] --> security-deck.admin
-    access-transparency.editor --> security-deck.editor
+    access-transparency.editor["access-transparency.<br>editor"] --> security-deck.editor
     access-transparency.editor --> access-transparency.admin
 
     security-deck.auditor ~~~ security-deck.admin

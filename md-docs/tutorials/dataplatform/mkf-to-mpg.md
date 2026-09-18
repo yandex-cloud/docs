@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Поставка данных из Managed Service for Apache Kafka® в Managed Service for PostgreSQL с помощью Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Apache Kafka® > Поставка данных с помощью Data Transfer > Поставка данных из Managed Service for Apache Kafka® в Managed Service for PostgreSQL
 
 # Поставка данных из Yandex Managed Service for Apache Kafka® в Yandex Managed Service for PostgreSQL с помощью Yandex Data Transfer
 

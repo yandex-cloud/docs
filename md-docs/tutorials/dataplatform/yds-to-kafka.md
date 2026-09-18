@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Поставка данных из Data Streams в Managed Service for Apache Kafka® с помощью Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Apache Kafka® > Поставка данных с помощью Data Transfer > Поставка данных из Data Streams в Managed Service for Apache Kafka®
 
 # Поставка данных из очереди Data Streams в Managed Service for Apache Kafka® с помощью Yandex Data Transfer
 
