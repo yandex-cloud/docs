@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Managed Service for Apache Airflow™ > Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™
 
 # Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™
 

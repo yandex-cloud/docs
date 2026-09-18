@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Поставка данных из Managed Service for PostgreSQL в Managed Service for Apache Kafka® с помощью Debezium
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Apache Kafka® > Поставка данных с помощью Debezium > Поставка данных из Managed Service for PostgreSQL в Managed Service for Apache Kafka®
 
 # Поставка данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for Apache Kafka® с помощью Debezium
 

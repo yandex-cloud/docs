@@ -3,7 +3,7 @@ title: Управление анализом данных в {{ sd-full-name }}
 description: Следуя данной инструкции, вы узнаете о работе с анализом данных в модуле {{ dspm-name }} сервиса {{ sd-full-name }}.
 ---
 
-# Управление анализом данных {{ dspm-name }}
+# Управлять анализом данных {{ dspm-name }}
 
 {% include [analysis-preview-mode](../../../_includes/security-deck/analysis-preview-mode.md) %}
 

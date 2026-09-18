@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция кластера Yandex Data Processing с HDFS в другую зону доступности
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Data Processing > Миграция кластера Yandex Data Processing с HDFS в другую зону доступности
 
 # Миграция кластера Yandex Data Processing с файловой системой HDFS в другую зону доступности
 

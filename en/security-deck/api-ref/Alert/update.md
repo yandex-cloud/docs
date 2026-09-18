@@ -63,6 +63,30 @@ apiPlayground:
             - BENIGN_POSITIVE
             - FALSE_POSITIVE
             - UNDETERMINED
+        severity:
+          description: |-
+            **enum** (Severity)
+            Alert severity.
+            Optional. Not used if not present in update_mask.
+            - `INFO`: Informational severity
+            - `LOW`: Low severity
+            - `MEDIUM`: Medium severity
+            - `HIGH`: High severity
+          type: string
+          enum:
+            - SEVERITY_UNSPECIFIED
+            - INFO
+            - LOW
+            - MEDIUM
+            - HIGH
+        tags:
+          description: |-
+            **string**
+            Alert tags.
+            Not used if not present in update_mask.
+          type: array
+          items:
+            type: string
         assigneeSubjectId:
           description: |-
             **string**
@@ -106,6 +130,10 @@ The maximum string length in characters is 50. ||
   "updateMask": "string",
   "status": "string",
   "classification": "string",
+  "severity": "string",
+  "tags": [
+    "string"
+  ],
   // Includes only one of the fields `assigneeSubjectId`
   "assigneeSubjectId": "string"
   // end of the list of possible fields
@@ -142,6 +170,19 @@ Optional. Can be omitted but present in update_mask to remove classification. No
 - `BENIGN_POSITIVE`: Alert represents a legitimate problem but does not require attention.
 - `FALSE_POSITIVE`: Alert represents something that's not an issue.
 - `UNDETERMINED`: Alert relevance cannot be determined. ||
+|| severity | **enum** (Severity)
+
+Alert severity.
+Optional. Not used if not present in update_mask.
+
+- `INFO`: Informational severity
+- `LOW`: Low severity
+- `MEDIUM`: Medium severity
+- `HIGH`: High severity ||
+|| tags[] | **string**
+
+Alert tags.
+Not used if not present in update_mask. ||
 || assigneeSubjectId | **string**
 
 Assign alert to a subject with specified ID.

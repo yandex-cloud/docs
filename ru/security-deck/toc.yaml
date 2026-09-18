@@ -36,6 +36,8 @@ items:
             href: operations/alerts/download.md
           - name: Управлять тегами алертов
             href: operations/alerts/tags.md
+          - name: Управлять подпиской
+            href: operations/alerts/notification.md
       - name: Контроль данных ({{ dspm-name }})
         items:
           - name: Обзор

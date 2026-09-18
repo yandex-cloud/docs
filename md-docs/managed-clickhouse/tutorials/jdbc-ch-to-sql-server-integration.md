@@ -17,15 +17,11 @@
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки решения входят:
-
-* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Managed Service for ClickHouse®](../pricing.md)).
-* Плата за NAT-шлюз, если для хостов кластера не включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-
+* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик, если для хостов кластера не включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Подготовьте инфраструктуру {#deploy-infrastructure}
 

@@ -88,6 +88,8 @@ _Приватная подсеть_ — это [виртуальная сеть 
 
 Сетевая связность между [серверами](./servers.md) {{ baremetal-name }}, приватными [подсетями](../../vpc/concepts/network.md#subnet) {{ vpc-name }} в облачной инфраструктуре и приватными подсетями в on-prem инфраструктуре настраивается с использованием сервиса [{{ interconnect-full-name }}](../../interconnect/concepts/priv-con.md).
 
+{% include [cr-v2-bms-onprem-notice](../../_includes/baremetal/cr-v2-bms-onprem-notice.md) %}
+
 [Статические маршруты](#static-routes), созданные в VRF, могут анонсироваться в {{ vpc-name }}. Для этого при [настройке](../operations/create-static-route.md) статического маршрута в VRF должна быть включена опция **{{ ui-key.yacloud.baremetal.vrfs.VrfStaticRoutesField.column_is-console-enabled_hiCs9 }}**.
 
 #### Полезные ссылки {#see-also}

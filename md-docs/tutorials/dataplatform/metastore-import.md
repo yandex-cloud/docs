@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Перенос метаданных между кластерами Yandex Data Processing с помощью Apache Hive™ Metastore
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Data Processing > Перенос метаданных между кластерами Yandex Data Processing с помощью Apache Hive™ Metastore
 
 # Перенос метаданных между кластерами Yandex Data Processing с помощью Apache Hive™ Metastore
 

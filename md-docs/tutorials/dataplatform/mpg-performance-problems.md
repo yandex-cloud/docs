@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Поиск проблем с производительностью кластера Managed Service for PostgreSQL
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > PostgreSQL > Поиск проблем с производительностью кластера Managed Service for PostgreSQL
 
 # Поиск проблем с производительностью кластера Managed Service for PostgreSQL
 

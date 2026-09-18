@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Захват изменений MySQL® и поставка в YDS
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > MySQL® > Захват изменений MySQL® и поставка в YDS
 
 # Захват изменений MySQL® и поставка в YDS
 

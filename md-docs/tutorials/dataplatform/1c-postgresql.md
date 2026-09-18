@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Создание кластера PostgreSQL для «1С:Предприятия»
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > PostgreSQL > Создание кластера PostgreSQL для «1С:Предприятия»
 
 # Создание кластера PostgreSQL для «1С:Предприятия»
 

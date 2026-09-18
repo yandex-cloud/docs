@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция БД из стороннего кластера Valkey™ в Yandex Managed Service for Valkey™
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Valkey™ > Миграция БД из стороннего кластера Valkey™ в Yandex Managed Service for Valkey™
 
 # Миграция базы данных из стороннего кластера Valkey™ в Yandex Managed Service for Valkey™
 

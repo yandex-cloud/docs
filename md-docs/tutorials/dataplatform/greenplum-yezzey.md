@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Выгрузка данных Greenplum® в гибридное хранилище Object Storage
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Greenplum® > Выгрузка данных Greenplum® в гибридное хранилище Object Storage
 
 # Выгрузка данных Greenplum® в гибридное хранилище Yandex Object Storage
 

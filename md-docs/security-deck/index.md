@@ -36,6 +36,8 @@
 
  - [Управлять тегами алертов](operations/alerts/tags.md)
 
+ - [Управлять подпиской](operations/alerts/notification.md)
+
 ### Контроль данных (DSPM)
 
  - [Обзор](operations/dspm/index.md)

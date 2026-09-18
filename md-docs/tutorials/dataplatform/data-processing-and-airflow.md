@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Автоматизация работы с Yandex Data Processing с помощью Managed Service for Apache Airflow™
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Data Processing > Автоматизация работы с Yandex Data Processing с помощью Managed Service for Apache Airflow™
 
 # Автоматизация работы с Yandex Data Processing с помощью Yandex Managed Service for Apache Airflow™
 

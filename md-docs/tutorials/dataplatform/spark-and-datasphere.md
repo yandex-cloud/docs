@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Интеграция Yandex Managed Service for Apache Spark™ и DataSphere
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Managed Service for Apache Airflow™ > Интеграция Yandex Managed Service for Apache Spark™ и DataSphere
 
 # Использование сервиса Yandex Managed Service for Apache Spark™ в Yandex DataSphere
 

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Работа с заданиями Yandex Data Processing > Запуск заданий Apache Hive
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Data Processing > Работа с заданиями Yandex Data Processing > Продвинутые примеры работы с заданиями Yandex Data Processing > Запуск заданий Apache Hive
 
 # Запуск заданий Apache Hive
 

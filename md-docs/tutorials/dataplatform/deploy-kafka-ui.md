@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Самостоятельное развертывание веб-интерфейса Apache Kafka®
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Apache Kafka® > Самостоятельное развертывание веб-интерфейса Apache Kafka®
 
 # Самостоятельное развертывание веб-интерфейса Apache Kafka®
 

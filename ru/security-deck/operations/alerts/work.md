@@ -3,7 +3,7 @@ title: Работать с алертами в {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в {{ sd-full-name }} работать с алертами.
 ---
 
-# Работа с алертами
+# Работать с алертами
 
 {% include [table-columns-tip](../../../_includes/security-deck/table-columns-tip.md) %}
 

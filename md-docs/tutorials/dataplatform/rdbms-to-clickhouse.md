@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Асинхронная репликация данных из PostgreSQL в ClickHouse®
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > ClickHouse® > Асинхронная репликация данных из PostgreSQL в ClickHouse®
 
 # Асинхронная репликация данных из PostgreSQL в ClickHouse®
 

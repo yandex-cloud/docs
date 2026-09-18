@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Решение проблем с сортировкой строк в PostgreSQL после обновления glibc
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > PostgreSQL > Решение проблем с сортировкой строк в PostgreSQL после обновления glibc
 
 # Решение проблем с сортировкой строк в PostgreSQL после обновления glibc
 

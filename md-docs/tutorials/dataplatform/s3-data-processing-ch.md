@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Импорт данных из Object Storage, обработка и экспорт в Managed Service for ClickHouse®
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Data Processing > Импорт данных из Object Storage, обработка и экспорт в Managed Service for ClickHouse®
 
 # Импорт данных из Yandex Object Storage, обработка и экспорт в Yandex Managed Service for ClickHouse®
 

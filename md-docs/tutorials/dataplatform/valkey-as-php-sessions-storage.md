@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища сессий PHP
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Valkey™ > Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища сессий PHP
 
 # Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища сессий PHP
 

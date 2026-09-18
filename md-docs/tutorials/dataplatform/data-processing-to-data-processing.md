@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Совместная работа с таблицами Yandex Data Processing с использованием Apache Hive™ Metastore
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Data Processing > Совместная работа с таблицами Yandex Data Processing с использованием Apache Hive™ Metastore
 
 # Совместная работа с таблицами Yandex Data Processing с использованием Apache Hive™ Metastore
 
