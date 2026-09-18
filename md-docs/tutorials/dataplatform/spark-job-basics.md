@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Работа с заданиями Yandex Data Processing > Работа с заданиями Spark
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Data Processing > Работа с заданиями Yandex Data Processing > Базовые примеры работы с заданиями Yandex Data Processing > Работа с заданиями Spark
 
 # Работа с заданиями Spark
 

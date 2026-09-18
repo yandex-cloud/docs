@@ -961,498 +961,551 @@ items:
     items:
       - name: Все руководства
         href: dataplatform/index.md
-      - name: Самостоятельное развертывание веб-интерфейса {{ KF }}
-        href: dataplatform/deploy-kafka-ui.md
-      - name: >-
-          Обновление кластера {{ mkf-name }} с {{ ZK }} на {{ kraft-short-name
-          }}
-        href: dataplatform/zk-kraft-kafka-migration.md
-      - name: Миграция БД из стороннего кластера {{ KF }} в {{ mkf-name }}
-        href: dataplatform/kafka-connector.md
-      - name: >-
-          Перенос данных между кластерами {{ mkf-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mkf.md
-      - name: >-
-          Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mmy.md
-      - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью Debezium
-        href: dataplatform/debezium-mmy.md
-      - name: >-
-          Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mpg.md
-      - name: Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью Debezium
-        href: dataplatform/debezium-mpg.md
-      - name: >-
-          Поставка данных из {{ ydb-name }} в {{ mkf-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/ydb-mkf-replication.md
-      - name: >-
-          Поставка данных из {{ mkf-name }} в {{ mch-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mkf-mch.md
-      - name: >-
-          Поставка данных из {{ mkf-name }} в {{ mgp-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/managed-kafka-to-greenplum.md
-      - name: >-
-          Поставка данных из {{ mkf-name }} в {{ mmg-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mkf-mmg.md
-      - name: >-
-          Поставка данных из {{ mkf-name }} в {{ mmy-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mkf-mmy.md
-      - name: >-
-          Поставка данных из {{ mkf-name }} в {{ mos-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mkf-mos.md
-      - name: >-
-          Поставка данных из {{ mkf-name }} в {{ mpg-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/mkf-to-mpg.md
-      - name: >-
-          Поставка данных из {{ mkf-name }} в {{ ydb-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/mkf-ydb-stream.md
-      - name: >-
-          Поставка данных из {{ mkf-name }} в {{ yds-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/mkf-yds-stream.md
-      - name: >-
-          Поставка данных из {{ yds-name }} в {{ ydb-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/yds-to-ydb.md
-      - name: >-
-          Поставка данных из {{ yds-name }} в {{ mkf-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/yds-to-kafka.md
-      - name: Захват изменений {{ ydb-short-name }} и поставка в {{ DS }}
-        href: dataplatform/ydb-to-yds.md
-      - name: Настройка Kafka Connect для работы с кластером {{ mkf-name }}
-        href: dataplatform/kafka-connect.md
-      - name: >-
-          Синхронизация топиков {{ KF }} в {{ objstorage-name }} без
-          использования интернета
-        href: dataplatform/kafka-topic-s3-sync-private.md
-      - name: Использование схем формата данных с {{ mkf-name }}
+      - name: '{{ KF }}'
         items:
-          - name: Управление схемами данных в {{ mkf-name }}
-            href: dataplatform/schema-registry-overview.md
-          - name: Использование {{ mkf-msr }} с {{ mkf-name }}
-            href: dataplatform/managed-schema-registry.md
-          - name: Использование {{ mkf-msr }} с {{ mkf-name }} с помощью REST API
-            href: dataplatform/managed-schema-registry-rest.md
-          - name: Использование Confluent Schema Registry с {{ mkf-name }}
-            href: dataplatform/confluent-schema-registry.md
-      - name: Отслеживание потери сообщений в топике {{ KF }}
-        href: dataplatform/retention-policy.md
-      - name: Автоматизация задач {{ yq-name }} с помощью {{ maf-name }}
-        href: dataplatform/airflow-auto-tasks.md
-      - name: >-
-          Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }}
-          Python SDK
-        href: dataplatform/using-python-sdk-in-airflow.md
-      - name: Настройка SMTP-сервера для отправки уведомлений по электронной почте
-        href: dataplatform/airflow-test-smtp-notification.md
-      - name: Добавление данных в БД {{ CH }}
-        href: dataplatform/insert-data-ch.md
-      - name: Миграция данных в {{ mch-name }} средствами {{ CH }}
-        href: dataplatform/clickhouse-migration.md
-      - name: Миграция данных в {{ mch-name }} при помощи {{ data-transfer-name }}
-        href: dataplatform/ch-to-mch-migration.md
-      - name: >-
-          Поставка данных из {{ mmy-name }} в {{ mch-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/mysql-to-clickhouse.md
-      - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
-        href: dataplatform/rdbms-to-clickhouse.md
-      - name: Обмен данными между {{ mch-name }} и {{ dataproc-name }}
-        href: dataplatform/dp-mch-data-exchange.md
-      - name: Настройка {{ mch-name }} для Graphite
-        href: dataplatform/clickhouse-for-graphite.md
-      - name: Получение данных из {{ mkf-name }} в {{ mch-name }}
-        href: dataplatform/fetch-data-from-mkf.md
-      - name: Получение данных из {{ mkf-name }} в ksqlDB
-        href: dataplatform/use-ksqldb-with-mkf.md
-      - name: >-
-          Поставка данных из {{ mkf-name }} в {{ mch-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mkf-mch.md
-        hidden: true
-      - name: Получение данных из {{ RMQ }} в {{ mch-name }}
-        href: dataplatform/fetch-data-from-rabbitmq.md
-      - name: Сохранение потока данных {{ yds-name }} в {{ mch-name }}
-        href: dataplatform/yds-to-clickhouse.md
-      - name: >-
-          Асинхронная репликация данных из {{ metrika }} в {{ CH }} с помощью {{
-          data-transfer-name }}
-        stage: preview
-        href: dataplatform/metrika-to-clickhouse.md
-      - name: Использование гибридного хранилища в {{ mch-name }}
-        href: dataplatform/clickhouse-hybrid-storage.md
-      - name: Шардирование таблиц {{ mch-name }}
-        href: dataplatform/clickhouse-sharding.md
-      - name: >-
-          Загрузка данных из {{ yandex-direct }} в витрину {{ mch-name }} с
-          использованием {{ sf-name }}, {{ objstorage-name }} и {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-direct-to-mch.md
-      - name: >-
-          Загрузка данных из {{ objstorage-name }} в {{ mch-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/object-storage-to-clickhouse.md
-      - name: >-
-          Миграция данных со сменой хранилища из {{ mos-name }} в {{ mch-name }}
-          с помощью {{ data-transfer-name }}
-        href: dataplatform/opensearch-to-clickhouse.md
-      - name: >-
-          Загрузка данных из {{ ydb-name }} в {{ mch-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/ydb-to-clickhouse.md
-      - name: >-
-          Интеграция {{ mch-full-name }} с Microsoft SQL Server через {{ CH }}
-          JDBC Bridge
-        href: dataplatform/jdbc-ch-to-sql-server-integration.md
-      - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
-        href: dataplatform/bigquery-to-clickhouse.md
-      - name: Интеграция {{ mch-full-name }} с Oracle через {{ CH }} JDBC Bridge
-        href: dataplatform/jdbc-ch-to-oracle-integration.md
-      - name: >-
-          Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
-          mch-name }}
-        href: dataplatform/mpg-pg-clickhouse-extension.md
-      - name: >-
-          Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
-          других облачных сетей
-        href: dataplatform/clickhouse-dns-peering.md
-      - name: Миграция кластера {{ dataproc-name }} с HDFS в другую зону доступности
-        href: dataplatform/hdfs-cluster-migration.md
-      - name: Импорт данных из {{ mmy-name }} в {{ dataproc-name }} с помощью Sqoop
-        href: dataplatform/sqoop-mmy.md
-      - name: Импорт данных из {{ mpg-name }} в {{ dataproc-name }} с помощью Sqoop
-        href: dataplatform/sqoop-mpg.md
-      - name: >-
-          Монтирование бакетов {{ objstorage-name }} к файловой системе хостов
-          {{ dataproc-name }}
-        href: dataplatform/data-processing-init-actions-geesefs.md
-      - name: Работа с топиками {{ KF }} с помощью {{ dataproc-name }}
-        href: dataplatform/data-processing-and-kafka.md
-      - name: Автоматизация работы с {{ dataproc-name }} с помощью {{ maf-name }}
-        href: dataplatform/data-processing-and-airflow.md
-      - name: >-
-          Совместная работа с таблицами {{ dataproc-name }} с использованием {{
-          metastore-name }}
-        href: dataplatform/data-processing-to-data-processing.md
-      - name: >-
-          Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{
-          metastore-name }}
-        href: dataplatform/metastore-import.md
-      - name: >-
-          Импорт данных из {{ objstorage-name }}, обработка и экспорт в {{
-          mch-name }}
-        href: dataplatform/s3-data-processing-ch.md
-      - name: Работа с заданиями {{ dataproc-name }}
+          - name: Поставка данных с помощью {{ data-transfer-name }}
+            items:
+              - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }}
+                href: dataplatform/data-transfer-mmy.md
+              - name: Поставка данных из {{ mpg-name }} в {{ mkf-name }}
+                href: dataplatform/data-transfer-mpg.md
+              - name: Поставка данных из {{ ydb-name }} в {{ mkf-name }}
+                href: dataplatform/ydb-mkf-replication.md
+              - name: Поставка данных из {{ mkf-name }} в {{ mch-name }}
+                href: dataplatform/data-transfer-mkf-mch.md
+              - name: Поставка данных из {{ mkf-name }} в {{ mgp-name }}
+                href: dataplatform/managed-kafka-to-greenplum.md
+              - name: Поставка данных из {{ mkf-name }} в {{ mmg-name }}
+                href: dataplatform/data-transfer-mkf-mmg.md
+              - name: Поставка данных из {{ mkf-name }} в {{ mmy-name }}
+                href: dataplatform/data-transfer-mkf-mmy.md
+              - name: Поставка данных из {{ mkf-name }} в {{ mos-name }}
+                href: dataplatform/data-transfer-mkf-mos.md
+              - name: Поставка данных из {{ mkf-name }} в {{ mpg-name }}
+                href: dataplatform/mkf-to-mpg.md
+              - name: Поставка данных из {{ mkf-name }} в {{ ydb-name }}
+                href: dataplatform/mkf-ydb-stream.md
+              - name: Поставка данных из {{ mkf-name }} в {{ yds-name }}
+                href: dataplatform/mkf-yds-stream.md
+              - name: Поставка данных из {{ yds-name }} в {{ ydb-name }}
+                href: dataplatform/yds-to-ydb.md
+              - name: Поставка данных из {{ yds-name }} в {{ mkf-name }}
+                href: dataplatform/yds-to-kafka.md
+              - name: Перенос данных между кластерами {{ mkf-name }}
+                href: dataplatform/data-transfer-mkf.md
+          - name: Поставка данных с помощью Debezium
+            items:
+              - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }}
+                href: dataplatform/debezium-mmy.md
+              - name: Поставка данных из {{ mpg-name }} в {{ mkf-name }}
+                href: dataplatform/debezium-mpg.md
+          - name: Использование схем формата данных с {{ mkf-name }}
+            items:
+              - name: Управление схемами данных в {{ mkf-name }}
+                href: dataplatform/schema-registry-overview.md
+              - name: Использование {{ mkf-msr }} с {{ mkf-name }}
+                href: dataplatform/managed-schema-registry.md
+              - name: >-
+                  Использование {{ mkf-msr }} с {{ mkf-name }} с помощью REST
+                  API
+                href: dataplatform/managed-schema-registry-rest.md
+              - name: Использование Confluent Schema Registry с {{ mkf-name }}
+                href: dataplatform/confluent-schema-registry.md
+          - name: Отслеживание потери сообщений в топике {{ KF }}
+            href: dataplatform/retention-policy.md
+          - name: Захват изменений {{ ydb-short-name }} и поставка в {{ DS }}
+            href: dataplatform/ydb-to-yds.md
+          - name: Настройка Kafka Connect для работы с кластером {{ mkf-name }}
+            href: dataplatform/kafka-connect.md
+          - name: >-
+              Синхронизация топиков {{ KF }} в {{ objstorage-name }} без
+              использования интернета
+            href: dataplatform/kafka-topic-s3-sync-private.md
+          - name: Самостоятельное развертывание веб-интерфейса {{ KF }}
+            href: dataplatform/deploy-kafka-ui.md
+          - name: >-
+              Обновление кластера {{ mkf-name }} с {{ ZK }} на {{
+              kraft-short-name }}
+            href: dataplatform/zk-kraft-kafka-migration.md
+          - name: Миграция БД из стороннего кластера {{ KF }} в {{ mkf-name }}
+            href: dataplatform/kafka-connector.md
+      - name: '{{ AF }}'
         items:
-          - name: Работа с заданиями Hive
-            href: dataplatform/hive-job-basics.md
-          - name: Работа с заданиями MapReduce
-            href: dataplatform/mapreduce-job-basics.md
-          - name: Работа с заданиями PySpark
-            href: dataplatform/pyspark-job-basics.md
-          - name: Работа с заданиями Spark
-            href: dataplatform/spark-job-basics.md
-          - name: Запуск заданий Apache Hive
-            href: dataplatform/how-to-use-hive.md
-          - name: Запуск Spark-приложений
-            href: dataplatform/run-spark-job.md
-          - name: Запуск заданий с удаленного хоста
-            href: dataplatform/remote-run-job.md
-      - name: Миграция коллекций из стороннего кластера {{ MG }} в {{ mmg-name }}
-        href: dataplatform/mongodb-migration-with-data-transfer.md
-      - name: Миграция данных в {{ mmg-name }}
-        href: dataplatform/storedoc-data-migration.md
-      - name: Миграция кластера {{ mmg-name }} с версии 4.4 на 6.0
-        href: dataplatform/storedoc-versions.md
-      - name: Шардирование коллекций {{ SD }}
-        href: dataplatform/storedoc-sharding.md
-      - name: Анализ производительности и оптимизация {{ SD }}
-        href: dataplatform/storedoc-profiling.md
-      - name: Миграция БД из стороннего кластера {{ MY }} в кластер {{ mmy-name }}
+          - name: Автоматизация задач {{ yq-name }} с помощью {{ maf-name }}
+            href: dataplatform/airflow-auto-tasks.md
+          - name: >-
+              Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud
+              }} Python SDK
+            href: dataplatform/using-python-sdk-in-airflow.md
+          - name: >-
+              Настройка SMTP-сервера для отправки уведомлений по электронной
+              почте
+            href: dataplatform/airflow-test-smtp-notification.md
+      - name: '{{ CH }}'
         items:
-          - name: Обзор
-            href: dataplatform/mysql-data-migration/index.md
-          - name: Перенос данных с использованием сервиса {{ data-transfer-name }}
-            href: dataplatform/mysql-data-migration/data-transfer.md
-          - name: Перенос данных с помощью логического дампа
-            href: dataplatform/mysql-data-migration/logical-dump-migration.md
-      - name: Анализ производительности и оптимизация {{ mmy-name }}
-        href: dataplatform/profiling-mmy.md
-      - name: >-
-          Синхронизация данных из стороннего кластера {{ MY }} в {{ mmy-name }}
-          с помощью {{ data-transfer-name }}
-        href: dataplatform/sync-mysql.md
-      - name: Миграция БД из {{ mmy-name }} в сторонний кластер {{ MY }}
-        href: dataplatform/mmy-to-mysql-migration.md
-      - name: >-
-          Миграция БД из {{ mmy-name }} в {{ objstorage-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/mmy-objs-migration.md
-      - name: >-
-          Перенос данных из {{ objstorage-name }} в {{ mmy-name }} с
-          использованием {{ data-transfer-name }}
-        href: dataplatform/objs-mmy-migration.md
-      - name: Импорт данных из {{ mmy-name }} в {{ dataproc-name }} с помощью Sqoop
-        href: dataplatform/sqoop-mmy.md
-        hidden: true
-      - name: >-
-          Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mmy.md
-      - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью Debezium
-        href: dataplatform/debezium-mmy.md
-      - name: >-
-          Миграция БД из {{ mmy-name }} в {{ ydb-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/mmy-ydb-migration.md
-      - name: Захват изменений {{ MY }} и поставка в {{ DS }}
-        href: dataplatform/mmy-to-yds.md
-      - name: >-
-          Миграция данных из {{ mmy-name }} в {{ mpg-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/mmy-to-mpg.md
-      - name: >-
-          Миграция данных из AWS RDS for {{ PG }} в {{ mpg-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/rds-to-mpg.md
-      - name: >-
-          Миграция данных из {{ mmy-name }} в {{ mgp-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/mmy-to-mgp.md
-      - name: Настройка политики индексов в {{ mos-name }}
-        href: dataplatform/opensearch-index-policy.md
-      - name: Настройка политики холодного хранилища в {{ mos-name }}
-        href: dataplatform/opensearch-cold-storage-policy.md
-      - name: >-
-          Миграция данных в {{ mos-name }} из стороннего кластера {{ OS }} с
-          помощью {{ data-transfer-name }}
-        href: dataplatform/mos-migration-from-standalone.md
-      - name: >-
-          Загрузка данных из {{ mos-name }} в {{ objstorage-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/opensearch-to-object-storage.md
-      - name: >-
-          Миграция данных из {{ mos-name }} в {{ ydb-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/opensearch-to-ydb.md
-      - name: >-
-          Копирование данных из {{ mos-name }} в {{ mgp-name }} с помощью {{
-          data-transfer-full-name }}
-        href: dataplatform/opensearch-to-greenplum.md
-      - name: >-
-          Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/postgresql-to-opensearch.md
-      - name: >-
-          Аутентификация в {{ OS }} Dashboards кластера {{ mos-name }} с помощью
-          {{ keycloak }}
-        href: dataplatform/opensearch-saml-keycloak.md
-      - name: Использование плагина yandex-lemmer в {{ mos-name }}
-        href: dataplatform/opensearch-yandex-lemmer.md
-      - name: Отправка оповещений по электронной почте в {{ mos-name }}
-        href: dataplatform/opensearch-email-notifications.md
-      - name: Подключение MCP-клиента к кластеру {{ OS }}
-        href: dataplatform/mos-mcp.md
-      - name: Создание кластера {{ PG }} для «1С:Предприятия»
-        href: dataplatform/1c-postgresql.md
-      - name: Поиск проблем с производительностью кластера {{ mpg-name }}
-        href: dataplatform/mpg-performance-problems.md
-      - name: Анализ производительности и оптимизация {{ mpg-name }}
-        href: dataplatform/mpg-profiling.md
-      - name: Логическая репликация {{ PG }}
-        href: dataplatform/mpg-replication-overview.md
-      - name: Миграция БД из стороннего кластера {{ PG }} в {{ mpg-name }}
-        href: dataplatform/postgresql-data-migration.md
-      - name: Миграция БД из {{ mpg-name }}
-        href: dataplatform/outbound-replication.md
-      - name: Миграция кластера {{ mpg-name }} на другую версию
-        href: dataplatform/postgresql-versions.md
-      - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
-        href: dataplatform/rdbms-to-clickhouse.md
-        hidden: true
-      - name: >-
-          Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mpg.md
-      - name: Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью Debezium
-        href: dataplatform/debezium-mpg.md
-      - name: Импорт данных из {{ mpg-name }} в {{ dataproc-name }} с помощью Sqoop
-        href: dataplatform/sqoop-mpg.md
-        hidden: true
-      - name: >-
-          Поставка данных из {{ mpg-name }} в {{ ydb-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/mpg-ydb-replication.md
-      - name: >-
-          Загрузка данных из {{ ydb-name }} в {{ mpg-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/ydb-to-postgresql.md
-      - name: Миграция БД из {{ mpg-name }} в {{ objstorage-name }}
-        href: dataplatform/mpg-to-objstorage.md
-      - name: >-
-          Перенос данных из {{ objstorage-name }} в {{ mpg-name }} с
-          использованием {{ data-transfer-name }}
-        href: dataplatform/object-storage-to-postgresql.md
-      - name: Захват изменений {{ PG }} и поставка в {{ DS }}
-        href: dataplatform/mpg-to-yds.md
-      - name: >-
-          Миграция данных из {{ mpg-name }} в {{ mmy-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/mpg-to-mmy.md
-      - name: >-
-          Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/postgresql-to-opensearch.md
-      - name: Решение проблем с сортировкой строк в {{ PG }} после обновления glibc
-        href: dataplatform/postgresql-glibc-collation-issues.md
-      - name: >-
-          Использование секрета {{ lockbox-name }} в PySpark-задании для
-          подключения к {{ mpg-full-name }}
-        href: dataplatform/job-pyspark-secret-access.md
-      - name: >-
-          Настройка прав доступа к секрету, созданному {{
-          connection-manager-name }}, для пользователя {{ mpg-name }}
-        href: dataplatform/conn-man-secret-access.md
-      - name: >-
-          Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
-          mch-name }}
-        href: dataplatform/mpg-pg-clickhouse-extension.md
-      - name: Миграция БД из {{ GP }} в {{ CH }}
-        href: dataplatform/greenplum-to-clickhouse.md
-      - name: Миграция БД из {{ GP }} в {{ PG }}
-        href: dataplatform/greenplum-to-postgresql.md
-      - name: Выгрузка данных {{ GP }} в гибридное хранилище {{ objstorage-name }}
-        href: dataplatform/greenplum-yezzey.md
-      - name: >-
-          Загрузка данных из {{ objstorage-name }} в {{ mgp-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/object-storage-to-greenplum.md
-      - name: >-
-          Копирование данных из {{ mos-name }} в {{ mgp-name }} с помощью {{
-          data-transfer-full-name }}
-        href: dataplatform/opensearch-to-greenplum.md
-      - name: >-
-          Создание внешней таблицы на базе таблицы из бакета {{ objstorage-name
-          }} с помощью конфигурационного файла
-        href: dataplatform/mgp-config-server-for-s3.md
-      - name: >-
-          Получение данных из внешних источников с помощью именованных запросов
-          в {{ GP }}
-        href: dataplatform/pxf-named-queries.md
-      - name: Миграция БД из стороннего кластера {{ VLK }} в {{ mrd-name }}
-        href: dataplatform/valkey-data-migration.md
-      - name: Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP
-        href: dataplatform/valkey-as-php-sessions-storage.md
-      - name: >-
-          Использование {{ mrd-name }} с модулем Search и моделей {{
-          foundation-models-full-name }} для векторного поиска в RAG-системе
-        href: dataplatform/valkey-rag-search.md
-      - name: >-
-          Распределенные блокировки для «1С:Предприятия» в кластере {{ mrd-name
-          }}
-        href: dataplatform/1c-valkey-locks.md
-      - name: >-
-          Использование кластера {{ mrd-name }} в качестве хранилища кеша для
-          «1С-Битрикс: Управление сайтом»
-        href: infrastructure-management/yc-valkey-as-1c-cache-storage.md
-      - name: >-
-          Поставка данных из {{ ydb-name }} в {{ mkf-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/ydb-mkf-replication.md
-        hidden: true
-      - name: >-
-          Поставка данных из {{ mkf-name }} в {{ ydb-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/mkf-ydb-stream.md
-        hidden: true
-      - name: >-
-          Миграция БД из {{ mmy-name }} в {{ ydb-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/mmy-ydb-migration.md
-        hidden: true
-      - name: >-
-          Поставка данных из {{ mpg-name }} в {{ ydb-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/mpg-ydb-replication.md
-        hidden: true
-      - name: >-
-          Загрузка данных из {{ objstorage-name }} в {{ ydb-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/object-storage-to-ydb.md
-      - name: >-
-          Загрузка данных из {{ ydb-name }} в {{ objstorage-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/ydb-to-object-storage.md
-      - name: Обработка аудитных логов {{ at-name }}
-        href: dataplatform/audit-log-processing.md
-      - name: Обработка логов {{ cloud-logging-name }}
-        href: dataplatform/cloud-logging-processing.md
-      - name: Обработка потока изменений Debezium
-        href: dataplatform/debezium-yq.md
-      - name: Анализ данных с помощью {{ jlab }}
-        href: dataplatform/jupyter-yq.md
-      - name: Обработка файлов детализации в сервисе {{ billing-name }}
-        href: dataplatform/billing-detail-files-processing.md
-      - name: Ввод данных в системы хранения
-        href: dataplatform/data-ingestion.md
-      - name: Умная обработка логов
-        href: dataplatform/log-ingestion.md
-      - name: Передача данных в микросервисных архитектурах
-        href: dataplatform/message-broker.md
-      - name: >-
-          Миграция данных в {{ objstorage-name }} с помощью {{
-          data-transfer-name }}
-        href: dataplatform/yds-obj-migration.md
-      - name: >-
-          Миграция данных из стороннего кластера {{ GP }} или {{ PG }} в {{
-          mgp-name }} с помощью {{ data-transfer-name }}
-        href: dataplatform/managed-greenplum.md
-      - name: Миграция кластера {{ mmg-name }}
-        href: dataplatform/storedoc.md
-      - name: Миграция кластера {{ MY }}
-        href: dataplatform/managed-mysql.md
-      - name: Миграция на сторонний кластер {{ MY }}
-        href: dataplatform/managed-mysql-to-mysql.md
-      - name: Миграция кластера {{ PG }}
-        href: dataplatform/managed-postgresql.md
-      - name: >-
-          Создание реестра схем для поставки данных в формате Debezium CDC из {{
-          KF }}
-        href: dataplatform/schema-registry-cdc-debezium-kafka.md
-      - name: >-
-          Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
-          mch-name }}
-        href: dataplatform/mpg-pg-clickhouse-extension.md
-      - name: Автоматизация работы с помощью {{ maf-full-name }}
-        href: dataplatform/airflow-and-spark.md
-      - name: Работа с таблицей в {{ objstorage-name }} из PySpark-задания
-        href: dataplatform/spark-simple-rw-job.md
-      - name: Интеграция {{ msp-full-name }} и {{ metastore-full-name }}
-        href: dataplatform/metastore-and-spark.md
-      - name: Запуск PySpark-задания с помощью {{ maf-full-name }}
-        href: dataplatform/airflow-spark-min.md
-      - name: Использование {{ objstorage-full-name }} в {{ msp-full-name }}
-        href: dataplatform/spark-objstorage-integration.md
-      - name: Интеграция {{ msp-full-name }} и {{ ml-platform-name }}
-        href: dataplatform/spark-and-datasphere.md
-      - name: >-
-          Использование секрета {{ lockbox-name }} в PySpark-задании для
-          подключения к {{ mpg-full-name }}
-        href: dataplatform/job-pyspark-secret-access.md
-      - name: Запуск PySpark-задания в {{ myt-full-name }}
-        href: dataplatform/yt-run-spark-job.md
+          - name: Добавление данных в БД {{ CH }}
+            href: dataplatform/insert-data-ch.md
+          - name: Получение данных из {{ mkf-name }} в {{ mch-name }}
+            href: dataplatform/fetch-data-from-mkf.md
+          - name: Получение данных из {{ mkf-name }} в ksqlDB
+            href: dataplatform/use-ksqldb-with-mkf.md
+          - name: Получение данных из {{ RMQ }} в {{ mch-name }}
+            href: dataplatform/fetch-data-from-rabbitmq.md
+          - name: Миграция данных в {{ mch-name }} средствами {{ CH }}
+            href: dataplatform/clickhouse-migration.md
+          - name: >-
+              Миграция данных в {{ mch-name }} при помощи {{ data-transfer-name
+              }}
+            href: dataplatform/ch-to-mch-migration.md
+          - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
+            href: dataplatform/bigquery-to-clickhouse.md
+          - name: >-
+              Миграция данных со сменой хранилища из {{ mos-name }} в {{
+              mch-name }} с помощью {{ data-transfer-name }}
+            href: dataplatform/opensearch-to-clickhouse.md
+          - name: >-
+              Поставка данных из {{ mmy-name }} в {{ mch-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/mysql-to-clickhouse.md
+          - name: >-
+              Поставка данных из {{ mkf-name }} в {{ mch-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/data-transfer-mkf-mch.md
+            hidden: true
+          - name: Обмен данными между {{ mch-name }} и {{ dataproc-name }}
+            href: dataplatform/dp-mch-data-exchange.md
+          - name: Настройка {{ mch-name }} для Graphite
+            href: dataplatform/clickhouse-for-graphite.md
+          - name: Сохранение потока данных {{ yds-name }} в {{ mch-name }}
+            href: dataplatform/yds-to-clickhouse.md
+          - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
+            href: dataplatform/rdbms-to-clickhouse.md
+          - name: >-
+              Асинхронная репликация данных из {{ metrika }} в {{ CH }} с
+              помощью {{ data-transfer-name }}
+            stage: preview
+            href: dataplatform/metrika-to-clickhouse.md
+          - name: Использование гибридного хранилища в {{ mch-name }}
+            href: dataplatform/clickhouse-hybrid-storage.md
+          - name: Шардирование таблиц {{ mch-name }}
+            href: dataplatform/clickhouse-sharding.md
+          - name: >-
+              Выполнение аналитических запросов в {{ mpg-name }} с обработкой в
+              {{ mch-name }}
+            href: dataplatform/mpg-pg-clickhouse-extension.md
+          - name: >-
+              Загрузка данных из {{ yandex-direct }} в витрину {{ mch-name }} с
+              использованием {{ sf-name }}, {{ objstorage-name }} и {{
+              data-transfer-name }}
+            href: dataplatform/data-transfer-direct-to-mch.md
+          - name: >-
+              Загрузка данных из {{ objstorage-name }} в {{ mch-name }} с
+              помощью {{ data-transfer-name }}
+            href: dataplatform/object-storage-to-clickhouse.md
+          - name: >-
+              Загрузка данных из {{ ydb-name }} в {{ mch-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/ydb-to-clickhouse.md
+          - name: >-
+              Интеграция {{ mch-full-name }} с Microsoft SQL Server через {{ CH
+              }} JDBC Bridge
+            href: dataplatform/jdbc-ch-to-sql-server-integration.md
+          - name: Интеграция {{ mch-full-name }} с Oracle через {{ CH }} JDBC Bridge
+            href: dataplatform/jdbc-ch-to-oracle-integration.md
+      - name: '{{ GP }}'
+        items:
+          - name: >-
+              Поставка данных из {{ mkf-name }} в {{ mgp-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/managed-kafka-to-greenplum.md
+          - name: Миграция БД из {{ GP }} в {{ CH }}
+            href: dataplatform/greenplum-to-clickhouse.md
+          - name: Миграция БД из {{ GP }} в {{ PG }}
+            href: dataplatform/greenplum-to-postgresql.md
+          - name: >-
+              Выгрузка данных {{ GP }} в гибридное хранилище {{ objstorage-name
+              }}
+            href: dataplatform/greenplum-yezzey.md
+          - name: >-
+              Загрузка данных из {{ objstorage-name }} в {{ mgp-name }} с
+              помощью {{ data-transfer-name }}
+            href: dataplatform/object-storage-to-greenplum.md
+          - name: >-
+              Копирование данных из {{ mos-name }} в {{ mgp-name }} с помощью {{
+              data-transfer-full-name }}
+            href: dataplatform/opensearch-to-greenplum.md
+          - name: >-
+              Создание внешней таблицы на базе таблицы из бакета {{
+              objstorage-name }} с помощью конфигурационного файла
+            href: dataplatform/mgp-config-server-for-s3.md
+          - name: >-
+              Получение данных из внешних источников с помощью именованных
+              запросов в {{ GP }}
+            href: dataplatform/pxf-named-queries.md
+      - name: '{{ MG }}/{{ SD }}'
+        items:
+          - name: >-
+              Миграция коллекций из стороннего кластера {{ MG }} в {{ mmg-name
+              }}
+            href: dataplatform/mongodb-migration-with-data-transfer.md
+          - name: Миграция данных в {{ mmg-name }}
+            href: dataplatform/storedoc-data-migration.md
+          - name: Миграция кластера {{ mmg-name }} с версии 4.4 на 6.0
+            href: dataplatform/storedoc-versions.md
+          - name: Шардирование коллекций {{ SD }}
+            href: dataplatform/storedoc-sharding.md
+          - name: Анализ производительности и оптимизация {{ SD }}
+            href: dataplatform/storedoc-profiling.md
+      - name: '{{ MY }}'
+        items:
+          - name: >-
+              Миграция БД из стороннего кластера {{ MY }} в кластер {{ mmy-name
+              }}
+            items:
+              - name: Обзор
+                href: dataplatform/mysql-data-migration/index.md
+              - name: >-
+                  Перенос данных с использованием сервиса {{ data-transfer-name
+                  }}
+                href: dataplatform/mysql-data-migration/data-transfer.md
+              - name: Перенос данных с помощью логического дампа
+                href: dataplatform/mysql-data-migration/logical-dump-migration.md
+          - name: Анализ производительности и оптимизация {{ mmy-name }}
+            href: dataplatform/profiling-mmy.md
+          - name: >-
+              Синхронизация данных из стороннего кластера {{ MY }} в {{ mmy-name
+              }} с помощью {{ data-transfer-name }}
+            href: dataplatform/sync-mysql.md
+          - name: Миграция БД из {{ mmy-name }} в сторонний кластер {{ MY }}
+            href: dataplatform/mmy-to-mysql-migration.md
+          - name: >-
+              Миграция БД из {{ mmy-name }} в {{ objstorage-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/mmy-objs-migration.md
+          - name: >-
+              Миграция БД из {{ mmy-name }} в {{ ydb-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/mmy-ydb-migration.md
+          - name: >-
+              Миграция данных из {{ mmy-name }} в {{ mpg-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/mmy-to-mpg.md
+          - name: >-
+              Миграция данных из AWS RDS for {{ PG }} в {{ mpg-name }} с помощью
+              {{ data-transfer-name }}
+            href: dataplatform/rds-to-mpg.md
+          - name: >-
+              Миграция данных из {{ mmy-name }} в {{ mgp-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/mmy-to-mgp.md
+          - name: >-
+              Перенос данных из {{ objstorage-name }} в {{ mmy-name }} с
+              использованием {{ data-transfer-name }}
+            href: dataplatform/objs-mmy-migration.md
+          - name: >-
+              Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/data-transfer-mmy.md
+          - name: >-
+              Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью
+              Debezium
+            href: dataplatform/debezium-mmy.md
+          - name: >-
+              Импорт данных из {{ mmy-name }} в {{ dataproc-name }} с помощью
+              Sqoop
+            href: dataplatform/sqoop-mmy.md
+            hidden: true
+          - name: Захват изменений {{ MY }} и поставка в {{ DS }}
+            href: dataplatform/mmy-to-yds.md
+      - name: '{{ OS }}'
+        items:
+          - name: Настройка политики индексов в {{ mos-name }}
+            href: dataplatform/opensearch-index-policy.md
+          - name: Настройка политики холодного хранилища в {{ mos-name }}
+            href: dataplatform/opensearch-cold-storage-policy.md
+          - name: >-
+              Миграция данных в {{ mos-name }} из стороннего кластера {{ OS }} с
+              помощью {{ data-transfer-name }}
+            href: dataplatform/mos-migration-from-standalone.md
+          - name: >-
+              Миграция данных из {{ mos-name }} в {{ ydb-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/opensearch-to-ydb.md
+          - name: >-
+              Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/postgresql-to-opensearch.md
+          - name: >-
+              Загрузка данных из {{ mos-name }} в {{ objstorage-name }} с
+              помощью {{ data-transfer-name }}
+            href: dataplatform/opensearch-to-object-storage.md
+          - name: >-
+              Копирование данных из {{ mos-name }} в {{ mgp-name }} с помощью {{
+              data-transfer-full-name }}
+            href: dataplatform/opensearch-to-greenplum.md
+          - name: >-
+              Аутентификация в {{ OS }} Dashboards кластера {{ mos-name }} с
+              помощью {{ keycloak }}
+            href: dataplatform/opensearch-saml-keycloak.md
+          - name: Использование плагина yandex-lemmer в {{ mos-name }}
+            href: dataplatform/opensearch-yandex-lemmer.md
+          - name: Отправка оповещений по электронной почте в {{ mos-name }}
+            href: dataplatform/opensearch-email-notifications.md
+          - name: Подключение MCP-клиента к кластеру {{ OS }}
+            href: dataplatform/mos-mcp.md
+      - name: '{{ PG }}'
+        items:
+          - name: Создание кластера {{ PG }} для «1С:Предприятия»
+            href: dataplatform/1c-postgresql.md
+          - name: Поиск проблем с производительностью кластера {{ mpg-name }}
+            href: dataplatform/mpg-performance-problems.md
+          - name: Анализ производительности и оптимизация {{ mpg-name }}
+            href: dataplatform/mpg-profiling.md
+          - name: Логическая репликация {{ PG }}
+            href: dataplatform/mpg-replication-overview.md
+          - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
+            href: dataplatform/rdbms-to-clickhouse.md
+            hidden: true
+          - name: Миграция БД из стороннего кластера {{ PG }} в {{ mpg-name }}
+            href: dataplatform/postgresql-data-migration.md
+          - name: Миграция БД из {{ mpg-name }}
+            href: dataplatform/outbound-replication.md
+          - name: Миграция кластера {{ mpg-name }} на другую версию
+            href: dataplatform/postgresql-versions.md
+          - name: Миграция БД из {{ mpg-name }} в {{ objstorage-name }}
+            href: dataplatform/mpg-to-objstorage.md
+          - name: >-
+              Миграция данных из {{ mpg-name }} в {{ mmy-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/mpg-to-mmy.md
+          - name: >-
+              Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/postgresql-to-opensearch.md
+          - name: >-
+              Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/data-transfer-mpg.md
+          - name: >-
+              Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью
+              Debezium
+            href: dataplatform/debezium-mpg.md
+          - name: >-
+              Поставка данных из {{ mpg-name }} в {{ ydb-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/mpg-ydb-replication.md
+          - name: >-
+              Импорт данных из {{ mpg-name }} в {{ dataproc-name }} с помощью
+              Sqoop
+            href: dataplatform/sqoop-mpg.md
+            hidden: true
+          - name: >-
+              Загрузка данных из {{ ydb-name }} в {{ mpg-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/ydb-to-postgresql.md
+          - name: >-
+              Перенос данных из {{ objstorage-name }} в {{ mpg-name }} с
+              использованием {{ data-transfer-name }}
+            href: dataplatform/object-storage-to-postgresql.md
+          - name: Захват изменений {{ PG }} и поставка в {{ DS }}
+            href: dataplatform/mpg-to-yds.md
+          - name: >-
+              Решение проблем с сортировкой строк в {{ PG }} после обновления
+              glibc
+            href: dataplatform/postgresql-glibc-collation-issues.md
+          - name: >-
+              Использование секрета {{ lockbox-name }} в PySpark-задании для
+              подключения к {{ mpg-full-name }}
+            href: dataplatform/job-pyspark-secret-access.md
+          - name: >-
+              Настройка прав доступа к секрету, созданному {{
+              connection-manager-name }}, для пользователя {{ mpg-name }}
+            href: dataplatform/conn-man-secret-access.md
+          - name: >-
+              Выполнение аналитических запросов в {{ mpg-name }} с обработкой в
+              {{ mch-name }}
+            href: dataplatform/mpg-pg-clickhouse-extension.md
+      - name: '{{ VLK }}'
+        items:
+          - name: Миграция БД из стороннего кластера {{ VLK }} в {{ mrd-name }}
+            href: dataplatform/valkey-data-migration.md
+          - name: >-
+              Использование кластера {{ mrd-name }} в качестве хранилища сессий
+              PHP
+            href: dataplatform/valkey-as-php-sessions-storage.md
+          - name: >-
+              Использование кластера {{ mrd-name }} с модулем Search и моделей
+              {{ foundation-models-full-name }} для векторного поиска в
+              RAG-системе
+            href: dataplatform/valkey-rag-search.md
+          - name: >-
+              Использование кластера {{ mrd-name }} в качестве хранилища кеша
+              для «1С-Битрикс: Управление сайтом»
+            href: infrastructure-management/yc-valkey-as-1c-cache-storage.md
+          - name: >-
+              Распределенные блокировки для «1С:Предприятия» в кластере {{
+              mrd-name }}
+            href: dataplatform/1c-valkey-locks.md
+      - name: '{{ ytsaurus-name }}'
+        items:
+          - name: Запуск PySpark-задания в {{ myt-full-name }}
+            href: dataplatform/yt-run-spark-job.md
+      - name: '{{ ydb-short-name }}'
+        items:
+          - name: >-
+              Поставка данных из {{ ydb-name }} в {{ mkf-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/ydb-mkf-replication.md
+            hidden: true
+          - name: >-
+              Поставка данных из {{ mkf-name }} в {{ ydb-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/mkf-ydb-stream.md
+            hidden: true
+          - name: >-
+              Поставка данных из {{ mpg-name }} в {{ ydb-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/mpg-ydb-replication.md
+            hidden: true
+          - name: >-
+              Миграция БД из {{ mmy-name }} в {{ ydb-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/mmy-ydb-migration.md
+            hidden: true
+          - name: >-
+              Загрузка данных из {{ objstorage-name }} в {{ ydb-name }} с
+              помощью {{ data-transfer-name }}
+            href: dataplatform/object-storage-to-ydb.md
+          - name: >-
+              Загрузка данных из {{ ydb-name }} в {{ objstorage-name }} с
+              помощью {{ data-transfer-name }}
+            href: dataplatform/ydb-to-object-storage.md
+      - name: '{{ dns-full-name }}'
+        items:
+          - name: >-
+              Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
+              других облачных сетей
+            href: dataplatform/clickhouse-dns-peering.md
+      - name: '{{ dataproc-name }}'
+        items:
+          - name: >-
+              Миграция кластера {{ dataproc-name }} с HDFS в другую зону
+              доступности
+            href: dataplatform/hdfs-cluster-migration.md
+          - name: >-
+              Импорт данных из {{ mmy-name }} в {{ dataproc-name }} с помощью
+              Sqoop
+            href: dataplatform/sqoop-mmy.md
+          - name: >-
+              Импорт данных из {{ mpg-name }} в {{ dataproc-name }} с помощью
+              Sqoop
+            href: dataplatform/sqoop-mpg.md
+          - name: >-
+              Монтирование бакетов {{ objstorage-name }} к файловой системе
+              хостов {{ dataproc-name }}
+            href: dataplatform/data-processing-init-actions-geesefs.md
+          - name: Работа с топиками {{ KF }} с помощью {{ dataproc-name }}
+            href: dataplatform/data-processing-and-kafka.md
+          - name: >-
+              Автоматизация работы с {{ dataproc-name }} с помощью {{ maf-name
+              }}
+            href: dataplatform/data-processing-and-airflow.md
+          - name: >-
+              Совместная работа с таблицами {{ dataproc-name }} с использованием
+              {{ metastore-name }}
+            href: dataplatform/data-processing-to-data-processing.md
+          - name: >-
+              Перенос метаданных между кластерами {{ dataproc-name }} с помощью
+              {{ metastore-name }}
+            href: dataplatform/metastore-import.md
+          - name: >-
+              Импорт данных из {{ objstorage-name }}, обработка и экспорт в {{
+              mch-name }}
+            href: dataplatform/s3-data-processing-ch.md
+          - name: Работа с заданиями {{ dataproc-name }}
+            items:
+              - name: Базовые примеры работы с заданиями {{ dataproc-name }}
+                items:
+                  - name: Работа с заданиями Hive
+                    href: dataplatform/hive-job-basics.md
+                  - name: Работа с заданиями MapReduce
+                    href: dataplatform/mapreduce-job-basics.md
+                  - name: Работа с заданиями PySpark
+                    href: dataplatform/pyspark-job-basics.md
+                  - name: Работа с заданиями Spark
+                    href: dataplatform/spark-job-basics.md
+              - name: Продвинутые примеры работы с заданиями {{ dataproc-name }}
+                items:
+                  - name: Запуск заданий Apache Hive
+                    href: dataplatform/how-to-use-hive.md
+                  - name: Запуск Spark-приложений
+                    href: dataplatform/run-spark-job.md
+                  - name: Запуск заданий с удаленного хоста
+                    href: dataplatform/remote-run-job.md
+      - name: '{{ yq-full-name }}'
+        items:
+          - name: Обработка аудитных логов {{ at-name }}
+            href: dataplatform/audit-log-processing.md
+          - name: Обработка логов {{ cloud-logging-name }}
+            href: dataplatform/cloud-logging-processing.md
+          - name: Обработка потока изменений Debezium
+            href: dataplatform/debezium-yq.md
+          - name: Анализ данных с помощью {{ jlab }}
+            href: dataplatform/jupyter-yq.md
+          - name: Обработка файлов детализации в сервисе {{ billing-name }}
+            href: dataplatform/billing-detail-files-processing.md
+      - name: '{{ yds-full-name }}'
+        items:
+          - name: Ввод данных в системы хранения
+            href: dataplatform/data-ingestion.md
+          - name: Умная обработка логов
+            href: dataplatform/log-ingestion.md
+          - name: Передача данных в микросервисных архитектурах
+            href: dataplatform/message-broker.md
+          - name: >-
+              Миграция данных в {{ objstorage-name }} с помощью {{
+              data-transfer-name }}
+            href: dataplatform/yds-obj-migration.md
+      - name: '{{ data-transfer-full-name }}'
+        items:
+          - name: >-
+              Миграция данных из стороннего кластера {{ GP }} или {{ PG }} в {{
+              mgp-name }} с помощью {{ data-transfer-name }}
+            href: dataplatform/managed-greenplum.md
+          - name: Миграция кластера {{ mmg-name }}
+            href: dataplatform/storedoc.md
+          - name: Миграция кластера {{ MY }}
+            href: dataplatform/managed-mysql.md
+          - name: Миграция на сторонний кластер {{ MY }}
+            href: dataplatform/managed-mysql-to-mysql.md
+          - name: Миграция кластера {{ PG }}
+            href: dataplatform/managed-postgresql.md
+          - name: >-
+              Создание реестра схем для поставки данных в формате Debezium CDC
+              из {{ KF }}
+            href: dataplatform/schema-registry-cdc-debezium-kafka.md
+          - name: >-
+              Выполнение аналитических запросов в {{ mpg-name }} с обработкой в
+              {{ mch-name }}
+            href: dataplatform/mpg-pg-clickhouse-extension.md
+      - name: '{{ maf-full-name }}'
+        items:
+          - name: Автоматизация работы с помощью {{ maf-full-name }}
+            href: dataplatform/airflow-and-spark.md
+          - name: Работа с таблицей в {{ objstorage-name }} из PySpark-задания
+            href: dataplatform/spark-simple-rw-job.md
+          - name: Интеграция {{ msp-full-name }} и {{ metastore-full-name }}
+            href: dataplatform/metastore-and-spark.md
+          - name: Запуск PySpark-задания с помощью {{ maf-full-name }}
+            href: dataplatform/airflow-spark-min.md
+          - name: Использование {{ objstorage-full-name }} в {{ msp-full-name }}
+            href: dataplatform/spark-objstorage-integration.md
+          - name: Интеграция {{ msp-full-name }} и {{ ml-platform-name }}
+            href: dataplatform/spark-and-datasphere.md
+          - name: >-
+              Использование секрета {{ lockbox-name }} в PySpark-задании для
+              подключения к {{ mpg-full-name }}
+            href: dataplatform/job-pyspark-secret-access.md
   - name: Продукты Microsoft в {{ yandex-cloud }}
     items:
       - name: Все руководства

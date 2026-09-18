@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция данных из Managed Service for PostgreSQL в Managed Service for MySQL® с помощью Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > PostgreSQL > Миграция данных из Managed Service for PostgreSQL в Managed Service for MySQL® с помощью Data Transfer
 
 # Миграция данных из Managed Service for PostgreSQL в Managed Service for MySQL® с помощью Data Transfer
 

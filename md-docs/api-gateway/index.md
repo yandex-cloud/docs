@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../index.md) > Yandex API Gateway > Yandex API Gateway
+[Документация Yandex Cloud](../index.md) > Yandex API Gateway > API Gateway
 
 # Yandex API Gateway
 

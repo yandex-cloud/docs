@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Получение данных из RabbitMQ в Managed Service for ClickHouse®
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > ClickHouse® > Получение данных из RabbitMQ в Managed Service for ClickHouse®
 
 # Получение данных из RabbitMQ в Yandex Managed Service for ClickHouse®
 
@@ -19,11 +19,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper, и дискового пространства ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса (опционально) ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

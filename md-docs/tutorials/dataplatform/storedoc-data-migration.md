@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция данных в Yandex StoreDoc
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > MongoDB/Yandex StoreDoc > Миграция данных в Yandex StoreDoc
 
 # Миграция данных в Yandex StoreDoc
 

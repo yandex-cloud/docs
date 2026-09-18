@@ -31,7 +31,6 @@ Yandex Query — это интерактивный сервис для бесс�
 1. [Создайте сообщество](../../datasphere/operations/community/create.md).
 1. [Привяжите платежный аккаунт](../../datasphere/operations/community/link-ba.md) к сообществу DataSphere, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе DataSphere.
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Проект DataSphere: использование вычислительных ресурсов и хранилища ([тарифы DataSphere](../../datasphere/pricing.md)).
@@ -39,7 +38,6 @@ Yandex Query — это интерактивный сервис для бесс�
 * Кластер Managed Service for ClickHouse®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../pricing.md)).
 * Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
 * Сервис Query: объем считанных данных при исполнении запросов ([тарифы Query](../../query/pricing.md)).
-
 
 ## Подготовьте инфраструктуру {#infra}
 

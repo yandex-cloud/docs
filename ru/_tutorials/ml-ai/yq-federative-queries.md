@@ -25,7 +25,6 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Проект {{ ml-platform-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ ml-platform-name }}](../../datasphere/pricing.md)).
@@ -33,7 +32,6 @@
 * Кластер {{ mch-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
 * Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 * Сервис {{ yq-name }}: объем считанных данных при исполнении запросов ([тарифы {{ yq-name }}](../../query/pricing.md)).
-
 
 ## Подготовьте инфраструктуру {#infra}
 

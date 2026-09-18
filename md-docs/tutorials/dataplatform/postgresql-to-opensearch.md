@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция данных из Managed Service for PostgreSQL в Managed Service for OpenSearch с помощью Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > OpenSearch > Миграция данных из Managed Service for PostgreSQL в Managed Service for OpenSearch с помощью Data Transfer
 
 # Миграция данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for OpenSearch с помощью Yandex Data Transfer
 

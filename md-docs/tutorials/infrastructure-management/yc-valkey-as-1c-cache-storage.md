@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Построение Data Platform > Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища кеша для «1С-Битрикс: Управление сайтом»
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Построение Data Platform > Valkey™ > Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища кеша для «1С-Битрикс: Управление сайтом»
 
 # Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища кеша для «1С-Битрикс: Управление сайтом»
 

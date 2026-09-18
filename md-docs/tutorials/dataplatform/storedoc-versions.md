@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция кластера Yandex StoreDoc с версии 4.4 на 6.0
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > MongoDB/Yandex StoreDoc > Миграция кластера Yandex StoreDoc с версии 4.4 на 6.0
 
 # Миграция кластера Yandex StoreDoc с версии 4.4 на 6.0 c помощью Yandex Data Transfer
 

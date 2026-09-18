@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Отправка запросов к API Yandex Cloud через Yandex Cloud Python SDK
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Apache Airflow™ > Отправка запросов к API Yandex Cloud через Yandex Cloud Python SDK
 
 # Отправка запросов к API Yandex Cloud через Yandex Cloud Python SDK
 

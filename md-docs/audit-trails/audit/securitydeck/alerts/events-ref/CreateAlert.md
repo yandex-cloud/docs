@@ -40,7 +40,8 @@
         "type": "string"
       }
     ],
-    "ruleId": "string"
+    "ruleId": "string",
+    "organizationId": "string"
   }
 }
 ```
@@ -124,6 +125,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || details | **object** ||
 || relatedResources[] | **[RelatedResource](#yandex.cloud.audit.securitydeck.alerts.RelatedResource)** ||
 || ruleId | **string** ||
+|| organizationId | **string** ||
 |#
 
 ## RelatedResource {#yandex.cloud.audit.securitydeck.alerts.RelatedResource}

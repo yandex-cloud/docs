@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Захват изменений YDB и поставка в YDS
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Apache Kafka® > Захват изменений YDB и поставка в YDS
 
 # Захват изменений Yandex Managed Service for YDB и поставка в Yandex Data Streams
 

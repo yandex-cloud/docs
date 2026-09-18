@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Использование схем формата данных с Managed Service for Apache Kafka® > Управление схемами данных в Managed Service for Apache Kafka®
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Apache Kafka® > Использование схем формата данных с Managed Service for Apache Kafka® > Управление схемами данных в Managed Service for Apache Kafka®
 
 # Управление схемами данных в Managed Service for Apache Kafka®
 

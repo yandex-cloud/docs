@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > ClickHouse® > Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®
 
 # Выполнение аналитических запросов в Yandex Managed Service for PostgreSQL с обработкой в Yandex Managed Service for ClickHouse® при помощи pg_clickhouse и Yandex Data Transfer
 

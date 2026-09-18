@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Получение данных из Managed Service for Apache Kafka® в Managed Service for ClickHouse®
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > ClickHouse® > Получение данных из Managed Service for Apache Kafka® в Managed Service for ClickHouse®
 
 # Получение данных из Yandex Managed Service for Apache Kafka® в Yandex Managed Service for ClickHouse®
 
@@ -34,9 +34,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Кластеры Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
 * Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#deploy-infrastructure}

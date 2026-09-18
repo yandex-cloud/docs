@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Использование Yandex Managed Service for Valkey™ с модулем Search и моделей Yandex AI Studio для векторного поиска в RAG-системе
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Valkey™ > Использование кластера Yandex Managed Service for Valkey™ с модулем Search и моделей Yandex AI Studio для векторного поиска в RAG-системе
 
 # Использование Yandex Managed Service for Valkey™ с модулем Search и моделей Yandex AI Studio для векторного поиска в RAG-системе
 

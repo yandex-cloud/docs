@@ -13,14 +13,15 @@
 
 ## Алерты {#alerts}
 
-* [Посмотреть алерты](alerts/view.md)
-* [Работа с алертами](alerts/work.md)
+* [Просмотр алертов](alerts/view.md)
+* [Работать с алертами](alerts/work.md)
 * [Скачать алерты](alerts/download.md)
 * [Управлять тегами алертов](alerts/tags.md)
+* [Управлять подпиской](alerts/notification.md)
 
 ## Модуль контроля данных (DSPM) {#dspm}
 
-* [Управление анализом данных DSPM](dspm/discovery-mode.md)
+* [Управлять анализом данных DSPM](dspm/discovery-mode.md)
 * [Подготовить данные для сканирования в DSPM](dspm/create-data-source.md)
 * [Создать сканирование DSPM](dspm/create-scan.md)
 * [Управлять результатами регулярного сканирования в DSPM](dspm/work-with-results.md)

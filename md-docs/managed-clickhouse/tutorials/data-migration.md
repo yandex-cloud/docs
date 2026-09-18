@@ -13,13 +13,32 @@
 
 ## Перенос данных при помощи remote {#transfer-remote}
 
-При помощи `remote` вы можете перенести отдельные таблицы из стороннего кластера ClickHouse®. Этот способ не требует установки ZooKeeper и дополнительных инструментов, а также обновления версии ClickHouse® кластера-источника. 
+При помощи `remote` вы можете перенести отдельные таблицы из стороннего кластера ClickHouse®. Этот способ не требует установки ZooKeeper и дополнительных инструментов, а также обновления версии ClickHouse® кластера-источника.
 
 {% note tip %}
 
 Перед переносом данных рекомендуется остановить мержи в кластер-источник при помощи команд `STOP MERGES` и `STOP TTL MERGES`, а также отключить потребителей.
 
 {% endnote %}
+
+### Перед началом работы {#before-begin-transfer-remote}
+
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+#### Необходимые платные ресурсы {#paid-resources-transfer-remote}
+
+* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+
+
+### Перенос данных {#transfer-remote-steps}
 
 Чтобы перенести таблицу из стороннего кластера ClickHouse® в кластер Managed Service for ClickHouse®:
 
@@ -86,6 +105,26 @@
 Для работы с командами `BACKUP` и `RESTORE` в стороннем кластере нужна версия ClickHouse® 22.10 или новее.
 
 {% endnote %}
+
+### Перед началом работы {#before-begin-backup-objstorage}
+
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+#### Необходимые платные ресурсы {#paid-resources-backup-objstorage}
+
+* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
+
+
+## Перенос данных {#backup-objstorage-steps}
 
 При помощи команд `BACKUP` и `RESTORE` и бакета Object Storage вы можете перенести из стороннего кластера ClickHouse® как отдельные таблицы, так и базу данных целиком:
 

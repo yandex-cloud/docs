@@ -62,14 +62,16 @@ keywords:
     1. (Опционально) В блоке **Политика перезапросов** задайте параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md):
 
         {% note warning %}
-        
+
         Настройка влияет на производительность запросов.
-        
+
         {% endnote %}
 
         1. Выберите **Тип объекта для перезапроса**:
+
            * **Задача** — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
            * **Запрос** — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
+
         1. (Опционально) В поле **Параметры перезапросов** задайте дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
         1. (Опционально) В поле **{{ ui-key.yacloud.trino.field_retry-storage-properties }}** задайте дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
         1. Выберите **{{ ui-key.yacloud.trino.field_retry-storage-type }}** для Exchange Manager:
@@ -80,6 +82,9 @@ keywords:
             Подробнее о типах хранилища в разделе [{#T}](../concepts/retry-policy.md#exchange-manager-storage).
 
     1. Задайте конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers).
+
+        {% include [host-resources-note](../../_includes/managed-trino/host-resources-note.md) %}
+
     1. (Опционально) В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте [каталоги Trino](../concepts/index.md#catalog). Вы можете сделать это как при создании кластера, так и позже. Подробнее в разделе [Создание каталога {{ TR }}](catalog-create.md).
     1. (Опционально) В блоке **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** задайте [правила доступа к объектам кластера](../concepts/access-control.md). Подробнее в разделе [{#T}](../operations/access-control.md).
     1. (Опционально) В блоке **{{ ui-key.yacloud.trino.section_resource-management }}** задайте [конфигурацию ресурсных групп](../concepts/access-control.md). Подробнее в разделе [{#T}](manage-resource-groups.md).
@@ -89,17 +94,18 @@ keywords:
         1. (Опционально) Выберите время [технического обслуживания](../concepts/maintenance.md) кластера:
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
-        
+
         1. (Опционально) Задайте параметры [TLS](../../glossary/tls.md).
-        
+
            {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
-           
+
            Загрузите один или несколько пользовательских сертификатов в PEM-формате:
+
            * самоподписанный сертификат;
            * сертификат, выпущенный в стороннем центре сертификации с цепочкой промежуточных сертификатов. Сертификат вместе с цепочкой сертификатов необходимо загружать в одном поле.
 
               {% cut "Пример" %}
-              
+
               ```text
               -----BEGIN CERTIFICATE-----
               <сертификат>
@@ -109,13 +115,13 @@ keywords:
               -----END CERTIFICATE-----
               ...
               -----BEGIN CERTIFICATE-----
-              <промежуточный_сертификат_N>
+              <промежуточный_сертификат_n>
               -----END CERTIFICATE-----
               -----BEGIN CERTIFICATE-----
               <корневой_сертификат>
               -----END CERTIFICATE-----
               ```
-              
+
               {% endcut %}
 
            {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
@@ -124,8 +130,10 @@ keywords:
 
             1. Включите настройку **{{ ui-key.yacloud.logging.field_logging }}**.
             1. Выберите место записи логов:
+
                 * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка. Логи будут записываться в лог-группу по умолчанию выбранного каталога.
                 * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
+
             1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -174,7 +182,7 @@ keywords:
         * `--version` — версия {{ TR }}.
 
           {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
-        
+
         * `--service-account-id` — идентификатор сервисного аккаунта.
         * `--subnet-ids` — список идентификаторов подсетей.
         * `--security-group-ids` — список идентификаторов групп безопасности.
@@ -193,18 +201,20 @@ keywords:
             * `minCount` — минимальное количество воркеров для автоматического масштабирования.
             * `maxCount` — максимальное количество воркеров для автоматического масштабирования.
 
+            {% include [host-resources-note](../../_includes/managed-trino/host-resources-note.md) %}
+
             Укажите либо фиксированное количество воркеров (`count`), либо минимальное и максимальное количество воркеров (`minCount`, `maxCount`) для автоматического масштабирования.
 
         * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
-        
+
         * `--trusted-certs-from-files` — список путей к сертификатам, разделенных запятой.
 
            {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
-        
+
            {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
-           
+
            {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
     1. Чтобы включить отправку логов {{ TR }} в сервис [{{ cloud-logging-full-name }}](../../logging/), задайте параметры логирования:
@@ -316,6 +326,8 @@ keywords:
 
         {% include [Terraform cluster parameters description](../../_includes/managed-trino/terraform/cluster-parameters.md) %}
 
+        {% include [host-resources-note](../../_includes/managed-trino/host-resources-note.md) %}
+
     1. Чтобы создать в кластере [каталоги {{ TR }}](../concepts/index.md#catalog), добавьте в конфигурационный файл нужное количество ресурсов `yandex_trino_catalog`. Вы можете сделать это как при создании кластера, так и позже. Подробнее в разделе [Создание каталога {{ TR }}](catalog-create.md).
 
     1. Чтобы включить отправку логов {{ TR }} в сервис [{{ cloud-logging-full-name }}](../../logging/), добавьте к описанию кластера блок `logging`:
@@ -334,7 +346,7 @@ keywords:
 
         {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
 
-    1. Чтобы задать параметры [TLS](../../glossary/tls.md):
+    1. Задайте параметры [TLS](../../glossary/tls.md):
 
        {% include [tls description](../../_includes/managed-trino/terraform/tls.md) %}
 
@@ -352,7 +364,7 @@ keywords:
 
 - REST API {#api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -360,7 +372,7 @@ keywords:
 
        {% note info %}
 
-       В примере приведены не все доступные параметры. Список всех параметров описан в [документации по API](../api-ref/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
+       В примере приведены не все доступные параметры. Полный список параметров приведен в [документации по API](../api-ref/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
 
        {% endnote %}
 
@@ -444,6 +456,8 @@ keywords:
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `trino` — конфигурация [компонентов](../concepts/index.md#cluster-architecture) кластера {{ TR }}.
 
+            {% include [host-resources-note](../../_includes/managed-trino/host-resources-note.md) %}
+
             * `coordinatorConfig` — конфигурация координатора.
 
                * `resources.resourcePresetId` — [класс вычислительных ресурсов](../concepts/instance-types.md) координатора.
@@ -463,14 +477,14 @@ keywords:
                       * `minCount` — минимальное количество воркеров.
                       * `maxCount` — максимальное количество воркеров.
 
-                  Укажите один из двух параметров: `fixedScale` либо `autoScale`. 
+                  Укажите один из двух параметров: `fixedScale` либо `autoScale`.
 
             * `retryPolicy` — параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md).
 
-               * `policy` – способ повторного выполнения запросов. Возможные значения:
+               * `policy` — способ повторного выполнения запросов. Возможные значения:
 
                   * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
-                  * `QUERY` – повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
+                  * `QUERY` — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
 
                * `exchangeManager.storage` — тип бакета в качестве хранилища Exchange Manager. Укажите один из двух параметров:
 
@@ -479,7 +493,7 @@ keywords:
 
                   Подробнее о типах хранилища в разделе [{#T}](../concepts/retry-policy.md#exchange-manager-storage).
 
-               * `exchangeManager.additionalProperties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+               * `exchangeManager.additionalProperties` — дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
                * `additionalProperties` — дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
@@ -498,7 +512,7 @@ keywords:
                * `trustedCertificates` — список сертификатов, разделенных запятой.
 
                   {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
-               
+
                {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
             * `accessControl` — конфигурация [правил доступа к объектам кластера](../concepts/access-control.md). Подробнее в разделе [{#T}](../operations/access-control.md).
@@ -549,7 +563,7 @@ keywords:
 
 - gRPC API {#grpc-api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -559,7 +573,7 @@ keywords:
 
        {% note info %}
 
-       В примере приведены не все доступные параметры. Список всех параметров описан в [документации по API](../api-ref/grpc/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
+       В примере приведены не все доступные параметры. Полный список параметров приведен в [документации по API](../api-ref/grpc/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
 
        {% endnote %}
 
@@ -643,6 +657,8 @@ keywords:
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `trino` — конфигурация [компонентов](../concepts/index.md#cluster-architecture) кластера {{ TR }}.
 
+            {% include [host-resources-note](../../_includes/managed-trino/host-resources-note.md) %}
+
             * `coordinator_config` — конфигурация координатора.
 
                * `resources.resource_preset_id` — [класс вычислительных ресурсов](../concepts/instance-types.md) координатора.
@@ -666,10 +682,10 @@ keywords:
 
             * `retry_policy` — параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md).
 
-               * `policy` – способ повторного выполнения запросов. Возможные значения:
+               * `policy` — способ повторного выполнения запросов. Возможные значения:
 
                   * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
-                  * `QUERY` – повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
+                  * `QUERY` — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
 
                * `exchange_manager.storage` — тип бакета в качестве хранилища Exchange Manager. Укажите один из двух параметров:
 
@@ -678,9 +694,9 @@ keywords:
 
                   Подробнее о типах хранилища в разделе [{#T}](../concepts/retry-policy.md#exchange-manager-storage).
 
-               * `exchange_manager.additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+               * `exchange_manager.additional_properties` — дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
-               * `additional_properties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+               * `additional_properties` — дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
             * `version` — версия {{ TR }}.
 
@@ -734,7 +750,7 @@ keywords:
 
                   > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
-    1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Выполните запрос [ClusterService/Create](../api-ref/grpc/Cluster/create.md), например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -765,8 +781,8 @@ keywords:
     * Сервисный аккаунт — `ajev56jp96ji********`.
     * Подсеть — `{{ subnet-id }}`.
     * Группа безопасности — `{{ security-group }}`.
-    * Координатор с [классом вычислительных ресурсов](../concepts/instance-types.md) — `c4-m16`.
-    * 4 воркера с [классом вычислительных ресурсов](../concepts/instance-types.md) — `c4-m16`.
+    * [Класс вычислительных ресурсов](../concepts/instance-types.md) координатора — `c4-m16`.
+    * Четыре воркера с [классом вычислительных ресурсов](../concepts/instance-types.md) `c4-m16`.
     * Защита от непреднамеренного удаления.
 
     Выполните следующую команду:
@@ -790,8 +806,8 @@ keywords:
     * Сервисный аккаунт — `ajev56jp96ji********`.
     * Сеть — `mtr-network`.
     * Подсеть — `mtr-subnet`. Зона доступности подсети — `ru-central1-a`, диапазон — `10.1.0.0/16`.
-    * Координатор с [классом вычислительных ресурсов](../concepts/instance-types.md) — `c4-m16`.
-    * 4 воркера с [классом вычислительных ресурсов](../concepts/instance-types.md) — `c4-m16`.
+    * [Класс вычислительных ресурсов](../concepts/instance-types.md) координатора — `c4-m16`.
+    * Четыре воркера с [классом вычислительных ресурсов](../concepts/instance-types.md) `c4-m16`.
     * Защита от непреднамеренного удаления.
 
     Конфигурационный файл для такого кластера выглядит так:

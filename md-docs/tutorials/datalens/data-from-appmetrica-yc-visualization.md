@@ -60,6 +60,11 @@ Customer journey — это последовательность действи�
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
+* Проект DataSphere: использование вычислительных ресурсов и хранилища ([тарифы DataSphere](../../datasphere/pricing.md)).
+
 ## 1. Подключите ClickHouse® и DataSphere {#ch-datasphere-connection}
 
 ### 1.1. Подключите ClickHouse® {#ch-connection}

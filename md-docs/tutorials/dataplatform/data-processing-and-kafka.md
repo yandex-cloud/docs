@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Работа с топиками Apache Kafka® с помощью Yandex Data Processing
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Data Processing > Работа с топиками Apache Kafka® с помощью Yandex Data Processing
 
 # Работа с топиками Apache Kafka® с помощью PySpark-заданий в Yandex Data Processing
 

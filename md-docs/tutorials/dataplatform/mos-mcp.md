@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Подключение MCP-клиента к кластеру OpenSearch
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > OpenSearch > Подключение MCP-клиента к кластеру OpenSearch
 
 # Подключение MCP-клиента к кластеру OpenSearch
 

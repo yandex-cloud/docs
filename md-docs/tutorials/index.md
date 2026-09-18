@@ -844,51 +844,45 @@
 
  - [Все руководства](dataplatform/index.md)
 
- - [Самостоятельное развертывание веб-интерфейса Apache Kafka®](dataplatform/deploy-kafka-ui.md)
+### Apache Kafka®
 
- - [Обновление кластера Managed Service for Apache Kafka® с ZooKeeper на KRaft](dataplatform/zk-kraft-kafka-migration.md)
+#### Поставка данных с помощью Data Transfer
 
- - [Миграция БД из стороннего кластера Apache Kafka® в Managed Service for Apache Kafka®](dataplatform/kafka-connector.md)
+ - [Поставка данных из Managed Service for MySQL® в Managed Service for Apache Kafka®](dataplatform/data-transfer-mmy.md)
 
- - [Перенос данных между кластерами Managed Service for Apache Kafka® с помощью Data Transfer](dataplatform/data-transfer-mkf.md)
+ - [Поставка данных из Managed Service for PostgreSQL в Managed Service for Apache Kafka®](dataplatform/data-transfer-mpg.md)
 
- - [Поставка данных из Managed Service for MySQL® в Managed Service for Apache Kafka® с помощью Data Transfer](dataplatform/data-transfer-mmy.md)
+ - [Поставка данных из Managed Service for YDB в Managed Service for Apache Kafka®](dataplatform/ydb-mkf-replication.md)
 
- - [Поставка данных из Managed Service for MySQL® в Managed Service for Apache Kafka® с помощью Debezium](dataplatform/debezium-mmy.md)
+ - [Поставка данных из Managed Service for Apache Kafka® в Managed Service for ClickHouse®](dataplatform/data-transfer-mkf-mch.md)
 
- - [Поставка данных из Managed Service for PostgreSQL в Managed Service for Apache Kafka® с помощью Data Transfer](dataplatform/data-transfer-mpg.md)
+ - [Поставка данных из Managed Service for Apache Kafka® в Yandex MPP Analytics for PostgreSQL](dataplatform/managed-kafka-to-greenplum.md)
 
- - [Поставка данных из Managed Service for PostgreSQL в Managed Service for Apache Kafka® с помощью Debezium](dataplatform/debezium-mpg.md)
+ - [Поставка данных из Managed Service for Apache Kafka® в Yandex StoreDoc](dataplatform/data-transfer-mkf-mmg.md)
 
- - [Поставка данных из Managed Service for YDB в Managed Service for Apache Kafka® с помощью Data Transfer](dataplatform/ydb-mkf-replication.md)
+ - [Поставка данных из Managed Service for Apache Kafka® в Managed Service for MySQL®](dataplatform/data-transfer-mkf-mmy.md)
 
- - [Поставка данных из Managed Service for Apache Kafka® в Managed Service for ClickHouse® с помощью Data Transfer](dataplatform/data-transfer-mkf-mch.md)
+ - [Поставка данных из Managed Service for Apache Kafka® в Managed Service for OpenSearch](dataplatform/data-transfer-mkf-mos.md)
 
- - [Поставка данных из Managed Service for Apache Kafka® в Yandex MPP Analytics for PostgreSQL с помощью Data Transfer](dataplatform/managed-kafka-to-greenplum.md)
+ - [Поставка данных из Managed Service for Apache Kafka® в Managed Service for PostgreSQL](dataplatform/mkf-to-mpg.md)
 
- - [Поставка данных из Managed Service for Apache Kafka® в Yandex StoreDoc с помощью Data Transfer](dataplatform/data-transfer-mkf-mmg.md)
+ - [Поставка данных из Managed Service for Apache Kafka® в Managed Service for YDB](dataplatform/mkf-ydb-stream.md)
 
- - [Поставка данных из Managed Service for Apache Kafka® в Managed Service for MySQL® с помощью Data Transfer](dataplatform/data-transfer-mkf-mmy.md)
+ - [Поставка данных из Managed Service for Apache Kafka® в Data Streams](dataplatform/mkf-yds-stream.md)
 
- - [Поставка данных из Managed Service for Apache Kafka® в Managed Service for OpenSearch с помощью Data Transfer](dataplatform/data-transfer-mkf-mos.md)
+ - [Поставка данных из Data Streams в Managed Service for YDB](dataplatform/yds-to-ydb.md)
 
- - [Поставка данных из Managed Service for Apache Kafka® в Managed Service for PostgreSQL с помощью Data Transfer](dataplatform/mkf-to-mpg.md)
+ - [Поставка данных из Data Streams в Managed Service for Apache Kafka®](dataplatform/yds-to-kafka.md)
 
- - [Поставка данных из Managed Service for Apache Kafka® в Managed Service for YDB с помощью Data Transfer](dataplatform/mkf-ydb-stream.md)
+ - [Перенос данных между кластерами Managed Service for Apache Kafka®](dataplatform/data-transfer-mkf.md)
 
- - [Поставка данных из Managed Service for Apache Kafka® в Data Streams с помощью Data Transfer](dataplatform/mkf-yds-stream.md)
+#### Поставка данных с помощью Debezium
 
- - [Поставка данных из Data Streams в Managed Service for YDB с помощью Data Transfer](dataplatform/yds-to-ydb.md)
+ - [Поставка данных из Managed Service for MySQL® в Managed Service for Apache Kafka®](dataplatform/debezium-mmy.md)
 
- - [Поставка данных из Data Streams в Managed Service for Apache Kafka® с помощью Data Transfer](dataplatform/yds-to-kafka.md)
+ - [Поставка данных из Managed Service for PostgreSQL в Managed Service for Apache Kafka®](dataplatform/debezium-mpg.md)
 
- - [Захват изменений YDB и поставка в YDS](dataplatform/ydb-to-yds.md)
-
- - [Настройка Kafka Connect для работы с кластером Managed Service for Apache Kafka®](dataplatform/kafka-connect.md)
-
- - [Синхронизация топиков Apache Kafka® в Object Storage без использования интернета](dataplatform/kafka-topic-s3-sync-private.md)
-
-### Использование схем формата данных с Managed Service for Apache Kafka®
+#### Использование схем формата данных с Managed Service for Apache Kafka®
 
  - [Управление схемами данных в Managed Service for Apache Kafka®](dataplatform/schema-registry-overview.md)
 
@@ -900,35 +894,55 @@
 
  - [Отслеживание потери сообщений в топике Apache Kafka®](dataplatform/retention-policy.md)
 
+ - [Захват изменений YDB и поставка в YDS](dataplatform/ydb-to-yds.md)
+
+ - [Настройка Kafka Connect для работы с кластером Managed Service for Apache Kafka®](dataplatform/kafka-connect.md)
+
+ - [Синхронизация топиков Apache Kafka® в Object Storage без использования интернета](dataplatform/kafka-topic-s3-sync-private.md)
+
+ - [Самостоятельное развертывание веб-интерфейса Apache Kafka®](dataplatform/deploy-kafka-ui.md)
+
+ - [Обновление кластера Managed Service for Apache Kafka® с ZooKeeper на KRaft](dataplatform/zk-kraft-kafka-migration.md)
+
+ - [Миграция БД из стороннего кластера Apache Kafka® в Managed Service for Apache Kafka®](dataplatform/kafka-connector.md)
+
+### Apache Airflow™
+
  - [Автоматизация задач Query с помощью Managed Service for Apache Airflow™](dataplatform/airflow-auto-tasks.md)
 
  - [Отправка запросов к API Yandex Cloud через Yandex Cloud Python SDK](dataplatform/using-python-sdk-in-airflow.md)
 
  - [Настройка SMTP-сервера для отправки уведомлений по электронной почте](dataplatform/airflow-test-smtp-notification.md)
 
+### ClickHouse®
+
  - [Добавление данных в БД ClickHouse®](dataplatform/insert-data-ch.md)
-
- - [Миграция данных в Managed Service for ClickHouse® средствами ClickHouse®](dataplatform/clickhouse-migration.md)
-
- - [Миграция данных в Managed Service for ClickHouse® при помощи Data Transfer](dataplatform/ch-to-mch-migration.md)
-
- - [Поставка данных из Managed Service for MySQL® в Managed Service for ClickHouse® с помощью Data Transfer](dataplatform/mysql-to-clickhouse.md)
-
- - [Асинхронная репликация данных из PostgreSQL в ClickHouse®](dataplatform/rdbms-to-clickhouse.md)
-
- - [Обмен данными между Managed Service for ClickHouse® и Yandex Data Processing](dataplatform/dp-mch-data-exchange.md)
-
- - [Настройка Managed Service for ClickHouse® для Graphite](dataplatform/clickhouse-for-graphite.md)
 
  - [Получение данных из Managed Service for Apache Kafka® в Managed Service for ClickHouse®](dataplatform/fetch-data-from-mkf.md)
 
  - [Получение данных из Managed Service for Apache Kafka® в ksqlDB](dataplatform/use-ksqldb-with-mkf.md)
 
- - [Поставка данных из Managed Service for Apache Kafka® в Managed Service for ClickHouse® с помощью Data Transfer](dataplatform/data-transfer-mkf-mch.md)
-
  - [Получение данных из RabbitMQ в Managed Service for ClickHouse®](dataplatform/fetch-data-from-rabbitmq.md)
 
+ - [Миграция данных в Managed Service for ClickHouse® средствами ClickHouse®](dataplatform/clickhouse-migration.md)
+
+ - [Миграция данных в Managed Service for ClickHouse® при помощи Data Transfer](dataplatform/ch-to-mch-migration.md)
+
+ - [Миграция базы данных из Google BigQuery в Managed Service for ClickHouse®](dataplatform/bigquery-to-clickhouse.md)
+
+ - [Миграция данных со сменой хранилища из Managed Service for OpenSearch в Managed Service for ClickHouse® с помощью Data Transfer](dataplatform/opensearch-to-clickhouse.md)
+
+ - [Поставка данных из Managed Service for MySQL® в Managed Service for ClickHouse® с помощью Data Transfer](dataplatform/mysql-to-clickhouse.md)
+
+ - [Поставка данных из Managed Service for Apache Kafka® в Managed Service for ClickHouse® с помощью Data Transfer](dataplatform/data-transfer-mkf-mch.md)
+
+ - [Обмен данными между Managed Service for ClickHouse® и Yandex Data Processing](dataplatform/dp-mch-data-exchange.md)
+
+ - [Настройка Managed Service for ClickHouse® для Graphite](dataplatform/clickhouse-for-graphite.md)
+
  - [Сохранение потока данных Data Streams в Managed Service for ClickHouse®](dataplatform/yds-to-clickhouse.md)
+
+ - [Асинхронная репликация данных из PostgreSQL в ClickHouse®](dataplatform/rdbms-to-clickhouse.md)
 
  - [Асинхронная репликация данных из Яндекс Метрика в ClickHouse® с помощью Data Transfer](dataplatform/metrika-to-clickhouse.md)
 
@@ -936,23 +950,189 @@
 
  - [Шардирование таблиц Managed Service for ClickHouse®](dataplatform/clickhouse-sharding.md)
 
+ - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](dataplatform/mpg-pg-clickhouse-extension.md)
+
  - [Загрузка данных из Яндекс Директ в витрину Managed Service for ClickHouse® с использованием Cloud Functions, Object Storage и Data Transfer](dataplatform/data-transfer-direct-to-mch.md)
 
  - [Загрузка данных из Object Storage в Managed Service for ClickHouse® с помощью Data Transfer](dataplatform/object-storage-to-clickhouse.md)
-
- - [Миграция данных со сменой хранилища из Managed Service for OpenSearch в Managed Service for ClickHouse® с помощью Data Transfer](dataplatform/opensearch-to-clickhouse.md)
 
  - [Загрузка данных из Managed Service for YDB в Managed Service for ClickHouse® с помощью Data Transfer](dataplatform/ydb-to-clickhouse.md)
 
  - [Интеграция Yandex Managed Service for ClickHouse® с Microsoft SQL Server через ClickHouse® JDBC Bridge](dataplatform/jdbc-ch-to-sql-server-integration.md)
 
- - [Миграция базы данных из Google BigQuery в Managed Service for ClickHouse®](dataplatform/bigquery-to-clickhouse.md)
-
  - [Интеграция Yandex Managed Service for ClickHouse® с Oracle через ClickHouse® JDBC Bridge](dataplatform/jdbc-ch-to-oracle-integration.md)
+
+### Greenplum®
+
+ - [Поставка данных из Managed Service for Apache Kafka® в Yandex MPP Analytics for PostgreSQL с помощью Data Transfer](dataplatform/managed-kafka-to-greenplum.md)
+
+ - [Миграция БД из Greenplum® в ClickHouse®](dataplatform/greenplum-to-clickhouse.md)
+
+ - [Миграция БД из Greenplum® в PostgreSQL](dataplatform/greenplum-to-postgresql.md)
+
+ - [Выгрузка данных Greenplum® в гибридное хранилище Object Storage](dataplatform/greenplum-yezzey.md)
+
+ - [Загрузка данных из Object Storage в Yandex MPP Analytics for PostgreSQL с помощью Data Transfer](dataplatform/object-storage-to-greenplum.md)
+
+ - [Копирование данных из Managed Service for OpenSearch в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer](dataplatform/opensearch-to-greenplum.md)
+
+ - [Создание внешней таблицы на базе таблицы из бакета Object Storage с помощью конфигурационного файла](dataplatform/mgp-config-server-for-s3.md)
+
+ - [Получение данных из внешних источников с помощью именованных запросов в Greenplum®](dataplatform/pxf-named-queries.md)
+
+### MongoDB/Yandex StoreDoc
+
+ - [Миграция коллекций из стороннего кластера MongoDB в Yandex StoreDoc](dataplatform/mongodb-migration-with-data-transfer.md)
+
+ - [Миграция данных в Yandex StoreDoc](dataplatform/storedoc-data-migration.md)
+
+ - [Миграция кластера Yandex StoreDoc с версии 4.4 на 6.0](dataplatform/storedoc-versions.md)
+
+ - [Шардирование коллекций Yandex StoreDoc](dataplatform/storedoc-sharding.md)
+
+ - [Анализ производительности и оптимизация Yandex StoreDoc](dataplatform/storedoc-profiling.md)
+
+### MySQL®
+
+#### Миграция БД из стороннего кластера MySQL® в кластер Managed Service for MySQL®
+
+ - [Обзор](dataplatform/mysql-data-migration/index.md)
+
+ - [Перенос данных с использованием сервиса Data Transfer](dataplatform/mysql-data-migration/data-transfer.md)
+
+ - [Перенос данных с помощью логического дампа](dataplatform/mysql-data-migration/logical-dump-migration.md)
+
+ - [Анализ производительности и оптимизация Managed Service for MySQL®](dataplatform/profiling-mmy.md)
+
+ - [Синхронизация данных из стороннего кластера MySQL® в Managed Service for MySQL® с помощью Data Transfer](dataplatform/sync-mysql.md)
+
+ - [Миграция БД из Managed Service for MySQL® в сторонний кластер MySQL®](dataplatform/mmy-to-mysql-migration.md)
+
+ - [Миграция БД из Managed Service for MySQL® в Object Storage с помощью Data Transfer](dataplatform/mmy-objs-migration.md)
+
+ - [Миграция БД из Managed Service for MySQL® в Managed Service for YDB с помощью Data Transfer](dataplatform/mmy-ydb-migration.md)
+
+ - [Миграция данных из Managed Service for MySQL® в Managed Service for PostgreSQL с помощью Data Transfer](dataplatform/mmy-to-mpg.md)
+
+ - [Миграция данных из AWS RDS for PostgreSQL в Managed Service for PostgreSQL с помощью Data Transfer](dataplatform/rds-to-mpg.md)
+
+ - [Миграция данных из Managed Service for MySQL® в Yandex MPP Analytics for PostgreSQL с помощью Data Transfer](dataplatform/mmy-to-mgp.md)
+
+ - [Перенос данных из Object Storage в Managed Service for MySQL® с использованием Data Transfer](dataplatform/objs-mmy-migration.md)
+
+ - [Поставка данных из Managed Service for MySQL® в Managed Service for Apache Kafka® с помощью Data Transfer](dataplatform/data-transfer-mmy.md)
+
+ - [Поставка данных из Managed Service for MySQL® в Managed Service for Apache Kafka® с помощью Debezium](dataplatform/debezium-mmy.md)
+
+ - [Импорт данных из Managed Service for MySQL® в Yandex Data Processing с помощью Sqoop](dataplatform/sqoop-mmy.md)
+
+ - [Захват изменений MySQL® и поставка в YDS](dataplatform/mmy-to-yds.md)
+
+### OpenSearch
+
+ - [Настройка политики индексов в Managed Service for OpenSearch](dataplatform/opensearch-index-policy.md)
+
+ - [Настройка политики холодного хранилища в Managed Service for OpenSearch](dataplatform/opensearch-cold-storage-policy.md)
+
+ - [Миграция данных в Managed Service for OpenSearch из стороннего кластера OpenSearch с помощью Data Transfer](dataplatform/mos-migration-from-standalone.md)
+
+ - [Миграция данных из Managed Service for OpenSearch в Managed Service for YDB с помощью Data Transfer](dataplatform/opensearch-to-ydb.md)
+
+ - [Миграция данных из Managed Service for PostgreSQL в Managed Service for OpenSearch с помощью Data Transfer](dataplatform/postgresql-to-opensearch.md)
+
+ - [Загрузка данных из Managed Service for OpenSearch в Object Storage с помощью Data Transfer](dataplatform/opensearch-to-object-storage.md)
+
+ - [Копирование данных из Managed Service for OpenSearch в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer](dataplatform/opensearch-to-greenplum.md)
+
+ - [Аутентификация в OpenSearch Dashboards кластера Managed Service for OpenSearch с помощью Keycloak](dataplatform/opensearch-saml-keycloak.md)
+
+ - [Использование плагина yandex-lemmer в Managed Service for OpenSearch](dataplatform/opensearch-yandex-lemmer.md)
+
+ - [Отправка оповещений по электронной почте в Managed Service for OpenSearch](dataplatform/opensearch-email-notifications.md)
+
+ - [Подключение MCP-клиента к кластеру OpenSearch](dataplatform/mos-mcp.md)
+
+### PostgreSQL
+
+ - [Создание кластера PostgreSQL для «1С:Предприятия»](dataplatform/1c-postgresql.md)
+
+ - [Поиск проблем с производительностью кластера Managed Service for PostgreSQL](dataplatform/mpg-performance-problems.md)
+
+ - [Анализ производительности и оптимизация Managed Service for PostgreSQL](dataplatform/mpg-profiling.md)
+
+ - [Логическая репликация PostgreSQL](dataplatform/mpg-replication-overview.md)
+
+ - [Асинхронная репликация данных из PostgreSQL в ClickHouse®](dataplatform/rdbms-to-clickhouse.md)
+
+ - [Миграция БД из стороннего кластера PostgreSQL в Managed Service for PostgreSQL](dataplatform/postgresql-data-migration.md)
+
+ - [Миграция БД из Managed Service for PostgreSQL](dataplatform/outbound-replication.md)
+
+ - [Миграция кластера Managed Service for PostgreSQL на другую версию](dataplatform/postgresql-versions.md)
+
+ - [Миграция БД из Managed Service for PostgreSQL в Object Storage](dataplatform/mpg-to-objstorage.md)
+
+ - [Миграция данных из Managed Service for PostgreSQL в Managed Service for MySQL® с помощью Data Transfer](dataplatform/mpg-to-mmy.md)
+
+ - [Миграция данных из Managed Service for PostgreSQL в Managed Service for OpenSearch с помощью Data Transfer](dataplatform/postgresql-to-opensearch.md)
+
+ - [Поставка данных из Managed Service for PostgreSQL в Managed Service for Apache Kafka® с помощью Data Transfer](dataplatform/data-transfer-mpg.md)
+
+ - [Поставка данных из Managed Service for PostgreSQL в Managed Service for Apache Kafka® с помощью Debezium](dataplatform/debezium-mpg.md)
+
+ - [Поставка данных из Managed Service for PostgreSQL в Managed Service for YDB с помощью Data Transfer](dataplatform/mpg-ydb-replication.md)
+
+ - [Импорт данных из Managed Service for PostgreSQL в Yandex Data Processing с помощью Sqoop](dataplatform/sqoop-mpg.md)
+
+ - [Загрузка данных из Managed Service for YDB в Managed Service for PostgreSQL с помощью Data Transfer](dataplatform/ydb-to-postgresql.md)
+
+ - [Перенос данных из Object Storage в Managed Service for PostgreSQL с использованием Data Transfer](dataplatform/object-storage-to-postgresql.md)
+
+ - [Захват изменений PostgreSQL и поставка в YDS](dataplatform/mpg-to-yds.md)
+
+ - [Решение проблем с сортировкой строк в PostgreSQL после обновления glibc](dataplatform/postgresql-glibc-collation-issues.md)
+
+ - [Использование секрета Yandex Lockbox в PySpark-задании для подключения к Yandex Managed Service for PostgreSQL](dataplatform/job-pyspark-secret-access.md)
+
+ - [Настройка прав доступа к секрету, созданному Connection Manager, для пользователя Managed Service for PostgreSQL](dataplatform/conn-man-secret-access.md)
 
  - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](dataplatform/mpg-pg-clickhouse-extension.md)
 
+### Valkey™
+
+ - [Миграция БД из стороннего кластера Valkey™ в Yandex Managed Service for Valkey™](dataplatform/valkey-data-migration.md)
+
+ - [Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища сессий PHP](dataplatform/valkey-as-php-sessions-storage.md)
+
+ - [Использование кластера Yandex Managed Service for Valkey™ с модулем Search и моделей Yandex AI Studio для векторного поиска в RAG-системе](dataplatform/valkey-rag-search.md)
+
+ - [Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища кеша для «1С-Битрикс: Управление сайтом»](infrastructure-management/yc-valkey-as-1c-cache-storage.md)
+
+ - [Распределенные блокировки для «1С:Предприятия» в кластере Yandex Managed Service for Valkey™](dataplatform/1c-valkey-locks.md)
+
+### YTsaurus
+
+ - [Запуск PySpark-задания в Yandex Managed Service for YTsaurus](dataplatform/yt-run-spark-job.md)
+
+### YDB
+
+ - [Поставка данных из Managed Service for YDB в Managed Service for Apache Kafka® с помощью Data Transfer](dataplatform/ydb-mkf-replication.md)
+
+ - [Поставка данных из Managed Service for Apache Kafka® в Managed Service for YDB с помощью Data Transfer](dataplatform/mkf-ydb-stream.md)
+
+ - [Поставка данных из Managed Service for PostgreSQL в Managed Service for YDB с помощью Data Transfer](dataplatform/mpg-ydb-replication.md)
+
+ - [Миграция БД из Managed Service for MySQL® в Managed Service for YDB с помощью Data Transfer](dataplatform/mmy-ydb-migration.md)
+
+ - [Загрузка данных из Object Storage в Managed Service for YDB с помощью Data Transfer](dataplatform/object-storage-to-ydb.md)
+
+ - [Загрузка данных из Managed Service for YDB в Object Storage с помощью Data Transfer](dataplatform/ydb-to-object-storage.md)
+
+### Yandex Cloud DNS
+
  - [Настройка Cloud DNS для доступа к кластеру Managed Service for ClickHouse® из других облачных сетей](dataplatform/clickhouse-dns-peering.md)
+
+### Yandex Data Processing
 
  - [Миграция кластера Yandex Data Processing с HDFS в другую зону доступности](dataplatform/hdfs-cluster-migration.md)
 
@@ -972,7 +1152,9 @@
 
  - [Импорт данных из Object Storage, обработка и экспорт в Managed Service for ClickHouse®](dataplatform/s3-data-processing-ch.md)
 
-### Работа с заданиями Yandex Data Processing
+#### Работа с заданиями Yandex Data Processing
+
+##### Базовые примеры работы с заданиями Yandex Data Processing
 
  - [Работа с заданиями Hive](dataplatform/hive-job-basics.md)
 
@@ -982,157 +1164,15 @@
 
  - [Работа с заданиями Spark](dataplatform/spark-job-basics.md)
 
+##### Продвинутые примеры работы с заданиями Yandex Data Processing
+
  - [Запуск заданий Apache Hive](dataplatform/how-to-use-hive.md)
 
  - [Запуск Spark-приложений](dataplatform/run-spark-job.md)
 
  - [Запуск заданий с удаленного хоста](dataplatform/remote-run-job.md)
 
- - [Миграция коллекций из стороннего кластера MongoDB в Yandex StoreDoc](dataplatform/mongodb-migration-with-data-transfer.md)
-
- - [Миграция данных в Yandex StoreDoc](dataplatform/storedoc-data-migration.md)
-
- - [Миграция кластера Yandex StoreDoc с версии 4.4 на 6.0](dataplatform/storedoc-versions.md)
-
- - [Шардирование коллекций Yandex StoreDoc](dataplatform/storedoc-sharding.md)
-
- - [Анализ производительности и оптимизация Yandex StoreDoc](dataplatform/storedoc-profiling.md)
-
-### Миграция БД из стороннего кластера MySQL® в кластер Managed Service for MySQL®
-
- - [Обзор](dataplatform/mysql-data-migration/index.md)
-
- - [Перенос данных с использованием сервиса Data Transfer](dataplatform/mysql-data-migration/data-transfer.md)
-
- - [Перенос данных с помощью логического дампа](dataplatform/mysql-data-migration/logical-dump-migration.md)
-
- - [Анализ производительности и оптимизация Managed Service for MySQL®](dataplatform/profiling-mmy.md)
-
- - [Синхронизация данных из стороннего кластера MySQL® в Managed Service for MySQL® с помощью Data Transfer](dataplatform/sync-mysql.md)
-
- - [Миграция БД из Managed Service for MySQL® в сторонний кластер MySQL®](dataplatform/mmy-to-mysql-migration.md)
-
- - [Миграция БД из Managed Service for MySQL® в Object Storage с помощью Data Transfer](dataplatform/mmy-objs-migration.md)
-
- - [Перенос данных из Object Storage в Managed Service for MySQL® с использованием Data Transfer](dataplatform/objs-mmy-migration.md)
-
- - [Импорт данных из Managed Service for MySQL® в Yandex Data Processing с помощью Sqoop](dataplatform/sqoop-mmy.md)
-
- - [Поставка данных из Managed Service for MySQL® в Managed Service for Apache Kafka® с помощью Data Transfer](dataplatform/data-transfer-mmy.md)
-
- - [Поставка данных из Managed Service for MySQL® в Managed Service for Apache Kafka® с помощью Debezium](dataplatform/debezium-mmy.md)
-
- - [Миграция БД из Managed Service for MySQL® в Managed Service for YDB с помощью Data Transfer](dataplatform/mmy-ydb-migration.md)
-
- - [Захват изменений MySQL® и поставка в YDS](dataplatform/mmy-to-yds.md)
-
- - [Миграция данных из Managed Service for MySQL® в Managed Service for PostgreSQL с помощью Data Transfer](dataplatform/mmy-to-mpg.md)
-
- - [Миграция данных из AWS RDS for PostgreSQL в Managed Service for PostgreSQL с помощью Data Transfer](dataplatform/rds-to-mpg.md)
-
- - [Миграция данных из Managed Service for MySQL® в Yandex MPP Analytics for PostgreSQL с помощью Data Transfer](dataplatform/mmy-to-mgp.md)
-
- - [Настройка политики индексов в Managed Service for OpenSearch](dataplatform/opensearch-index-policy.md)
-
- - [Настройка политики холодного хранилища в Managed Service for OpenSearch](dataplatform/opensearch-cold-storage-policy.md)
-
- - [Миграция данных в Managed Service for OpenSearch из стороннего кластера OpenSearch с помощью Data Transfer](dataplatform/mos-migration-from-standalone.md)
-
- - [Загрузка данных из Managed Service for OpenSearch в Object Storage с помощью Data Transfer](dataplatform/opensearch-to-object-storage.md)
-
- - [Миграция данных из Managed Service for OpenSearch в Managed Service for YDB с помощью Data Transfer](dataplatform/opensearch-to-ydb.md)
-
- - [Копирование данных из Managed Service for OpenSearch в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer](dataplatform/opensearch-to-greenplum.md)
-
- - [Миграция данных из Managed Service for PostgreSQL в Managed Service for OpenSearch с помощью Data Transfer](dataplatform/postgresql-to-opensearch.md)
-
- - [Аутентификация в OpenSearch Dashboards кластера Managed Service for OpenSearch с помощью Keycloak](dataplatform/opensearch-saml-keycloak.md)
-
- - [Использование плагина yandex-lemmer в Managed Service for OpenSearch](dataplatform/opensearch-yandex-lemmer.md)
-
- - [Отправка оповещений по электронной почте в Managed Service for OpenSearch](dataplatform/opensearch-email-notifications.md)
-
- - [Подключение MCP-клиента к кластеру OpenSearch](dataplatform/mos-mcp.md)
-
- - [Создание кластера PostgreSQL для «1С:Предприятия»](dataplatform/1c-postgresql.md)
-
- - [Поиск проблем с производительностью кластера Managed Service for PostgreSQL](dataplatform/mpg-performance-problems.md)
-
- - [Анализ производительности и оптимизация Managed Service for PostgreSQL](dataplatform/mpg-profiling.md)
-
- - [Логическая репликация PostgreSQL](dataplatform/mpg-replication-overview.md)
-
- - [Миграция БД из стороннего кластера PostgreSQL в Managed Service for PostgreSQL](dataplatform/postgresql-data-migration.md)
-
- - [Миграция БД из Managed Service for PostgreSQL](dataplatform/outbound-replication.md)
-
- - [Миграция кластера Managed Service for PostgreSQL на другую версию](dataplatform/postgresql-versions.md)
-
- - [Асинхронная репликация данных из PostgreSQL в ClickHouse®](dataplatform/rdbms-to-clickhouse.md)
-
- - [Поставка данных из Managed Service for PostgreSQL в Managed Service for Apache Kafka® с помощью Data Transfer](dataplatform/data-transfer-mpg.md)
-
- - [Поставка данных из Managed Service for PostgreSQL в Managed Service for Apache Kafka® с помощью Debezium](dataplatform/debezium-mpg.md)
-
- - [Импорт данных из Managed Service for PostgreSQL в Yandex Data Processing с помощью Sqoop](dataplatform/sqoop-mpg.md)
-
- - [Поставка данных из Managed Service for PostgreSQL в Managed Service for YDB с помощью Data Transfer](dataplatform/mpg-ydb-replication.md)
-
- - [Загрузка данных из Managed Service for YDB в Managed Service for PostgreSQL с помощью Data Transfer](dataplatform/ydb-to-postgresql.md)
-
- - [Миграция БД из Managed Service for PostgreSQL в Object Storage](dataplatform/mpg-to-objstorage.md)
-
- - [Перенос данных из Object Storage в Managed Service for PostgreSQL с использованием Data Transfer](dataplatform/object-storage-to-postgresql.md)
-
- - [Захват изменений PostgreSQL и поставка в YDS](dataplatform/mpg-to-yds.md)
-
- - [Миграция данных из Managed Service for PostgreSQL в Managed Service for MySQL® с помощью Data Transfer](dataplatform/mpg-to-mmy.md)
-
- - [Миграция данных из Managed Service for PostgreSQL в Managed Service for OpenSearch с помощью Data Transfer](dataplatform/postgresql-to-opensearch.md)
-
- - [Решение проблем с сортировкой строк в PostgreSQL после обновления glibc](dataplatform/postgresql-glibc-collation-issues.md)
-
- - [Использование секрета Yandex Lockbox в PySpark-задании для подключения к Yandex Managed Service for PostgreSQL](dataplatform/job-pyspark-secret-access.md)
-
- - [Настройка прав доступа к секрету, созданному Connection Manager, для пользователя Managed Service for PostgreSQL](dataplatform/conn-man-secret-access.md)
-
- - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](dataplatform/mpg-pg-clickhouse-extension.md)
-
- - [Миграция БД из Greenplum® в ClickHouse®](dataplatform/greenplum-to-clickhouse.md)
-
- - [Миграция БД из Greenplum® в PostgreSQL](dataplatform/greenplum-to-postgresql.md)
-
- - [Выгрузка данных Greenplum® в гибридное хранилище Object Storage](dataplatform/greenplum-yezzey.md)
-
- - [Загрузка данных из Object Storage в Yandex MPP Analytics for PostgreSQL с помощью Data Transfer](dataplatform/object-storage-to-greenplum.md)
-
- - [Копирование данных из Managed Service for OpenSearch в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer](dataplatform/opensearch-to-greenplum.md)
-
- - [Создание внешней таблицы на базе таблицы из бакета Object Storage с помощью конфигурационного файла](dataplatform/mgp-config-server-for-s3.md)
-
- - [Получение данных из внешних источников с помощью именованных запросов в Greenplum®](dataplatform/pxf-named-queries.md)
-
- - [Миграция БД из стороннего кластера Valkey™ в Yandex Managed Service for Valkey™](dataplatform/valkey-data-migration.md)
-
- - [Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища сессий PHP](dataplatform/valkey-as-php-sessions-storage.md)
-
- - [Использование Yandex Managed Service for Valkey™ с модулем Search и моделей Yandex AI Studio для векторного поиска в RAG-системе](dataplatform/valkey-rag-search.md)
-
- - [Распределенные блокировки для «1С:Предприятия» в кластере Yandex Managed Service for Valkey™](dataplatform/1c-valkey-locks.md)
-
- - [Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища кеша для «1С-Битрикс: Управление сайтом»](infrastructure-management/yc-valkey-as-1c-cache-storage.md)
-
- - [Поставка данных из Managed Service for YDB в Managed Service for Apache Kafka® с помощью Data Transfer](dataplatform/ydb-mkf-replication.md)
-
- - [Поставка данных из Managed Service for Apache Kafka® в Managed Service for YDB с помощью Data Transfer](dataplatform/mkf-ydb-stream.md)
-
- - [Миграция БД из Managed Service for MySQL® в Managed Service for YDB с помощью Data Transfer](dataplatform/mmy-ydb-migration.md)
-
- - [Поставка данных из Managed Service for PostgreSQL в Managed Service for YDB с помощью Data Transfer](dataplatform/mpg-ydb-replication.md)
-
- - [Загрузка данных из Object Storage в Managed Service for YDB с помощью Data Transfer](dataplatform/object-storage-to-ydb.md)
-
- - [Загрузка данных из Managed Service for YDB в Object Storage с помощью Data Transfer](dataplatform/ydb-to-object-storage.md)
+### Yandex Query
 
  - [Обработка аудитных логов Audit Trails](dataplatform/audit-log-processing.md)
 
@@ -1144,6 +1184,8 @@
 
  - [Обработка файлов детализации в сервисе Yandex Cloud Billing](dataplatform/billing-detail-files-processing.md)
 
+### Yandex Data Streams
+
  - [Ввод данных в системы хранения](dataplatform/data-ingestion.md)
 
  - [Умная обработка логов](dataplatform/log-ingestion.md)
@@ -1151,6 +1193,8 @@
  - [Передача данных в микросервисных архитектурах](dataplatform/message-broker.md)
 
  - [Миграция данных в Object Storage с помощью Data Transfer](dataplatform/yds-obj-migration.md)
+
+### Yandex Data Transfer
 
  - [Миграция данных из стороннего кластера Greenplum® или PostgreSQL в Yandex MPP Analytics for PostgreSQL с помощью Data Transfer](dataplatform/managed-greenplum.md)
 
@@ -1166,6 +1210,8 @@
 
  - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](dataplatform/mpg-pg-clickhouse-extension.md)
 
+### Yandex Managed Service for Apache Airflow™
+
  - [Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™](dataplatform/airflow-and-spark.md)
 
  - [Работа с таблицей в Object Storage из PySpark-задания](dataplatform/spark-simple-rw-job.md)
@@ -1179,8 +1225,6 @@
  - [Интеграция Yandex Managed Service for Apache Spark™ и DataSphere](dataplatform/spark-and-datasphere.md)
 
  - [Использование секрета Yandex Lockbox в PySpark-задании для подключения к Yandex Managed Service for PostgreSQL](dataplatform/job-pyspark-secret-access.md)
-
- - [Запуск PySpark-задания в Yandex Managed Service for YTsaurus](dataplatform/yt-run-spark-job.md)
 
 ## Продукты Microsoft в Yandex Cloud
 

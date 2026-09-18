@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция кластера Managed Service for PostgreSQL на другую версию
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > PostgreSQL > Миграция кластера Managed Service for PostgreSQL на другую версию
 
 # Миграция кластера Yandex Managed Service for PostgreSQL на другую версию c помощью Yandex Data Transfer
 

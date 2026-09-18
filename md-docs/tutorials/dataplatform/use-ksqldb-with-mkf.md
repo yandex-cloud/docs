@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Получение данных из Managed Service for Apache Kafka® в ksqlDB
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > ClickHouse® > Получение данных из Managed Service for Apache Kafka® в ksqlDB
 
 # Поставка данных в ksqlDB
 

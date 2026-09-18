@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Загрузка данных из Object Storage в Yandex MPP Analytics for PostgreSQL с помощью Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Greenplum® > Загрузка данных из Object Storage в Yandex MPP Analytics for PostgreSQL с помощью Data Transfer
 
 # Загрузка данных из Yandex Object Storage в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer
 

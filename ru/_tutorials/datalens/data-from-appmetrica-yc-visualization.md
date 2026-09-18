@@ -52,6 +52,11 @@ Customer journey — это последовательность действи�
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Проект {{ ml-platform-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ ml-platform-name }}](../../datasphere/pricing.md)).
+
 ## 1. Подключите {{ CH }} и {{ ml-platform-short-name }} {#ch-datasphere-connection}
 
 ### 1.1. Подключите {{ CH }} {#ch-connection}

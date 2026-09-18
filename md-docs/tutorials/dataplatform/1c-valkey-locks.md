@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Распределенные блокировки для «1С:Предприятия» в кластере Yandex Managed Service for Valkey™
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Valkey™ > Распределенные блокировки для «1С:Предприятия» в кластере Yandex Managed Service for Valkey™
 
 # Распределенные блокировки для 1С:Предприятия в кластере Yandex Managed Service for Valkey™
 
