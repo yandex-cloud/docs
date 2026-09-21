@@ -418,6 +418,76 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Cancel](advanced_rate_limiter/api-ref/grpc/Operation/cancel.md)
 
+#### SmartWebSecurity CustomPage API
+
+ - [Overview](custom_page/api-ref/grpc/index.md)
+
+##### CustomPage
+
+ - [Overview](custom_page/api-ref/grpc/CustomPage/index.md)
+
+ - [Get](custom_page/api-ref/grpc/CustomPage/get.md)
+
+ - [List](custom_page/api-ref/grpc/CustomPage/list.md)
+
+ - [Create](custom_page/api-ref/grpc/CustomPage/create.md)
+
+ - [Update](custom_page/api-ref/grpc/CustomPage/update.md)
+
+ - [Delete](custom_page/api-ref/grpc/CustomPage/delete.md)
+
+##### Operation
+
+ - [Overview](custom_page/api-ref/grpc/Operation/index.md)
+
+ - [Get](custom_page/api-ref/grpc/Operation/get.md)
+
+ - [Cancel](custom_page/api-ref/grpc/Operation/cancel.md)
+
+#### Smart Web Security Load Balancer API
+
+ - [Overview](load_balancer/api-ref/grpc/index.md)
+
+##### Domain
+
+ - [Overview](load_balancer/api-ref/grpc/Domain/index.md)
+
+ - [Get](load_balancer/api-ref/grpc/Domain/get.md)
+
+ - [List](load_balancer/api-ref/grpc/Domain/list.md)
+
+ - [Create](load_balancer/api-ref/grpc/Domain/create.md)
+
+ - [Update](load_balancer/api-ref/grpc/Domain/update.md)
+
+ - [Delete](load_balancer/api-ref/grpc/Domain/delete.md)
+
+##### LoadBalancer
+
+ - [Overview](load_balancer/api-ref/grpc/LoadBalancer/index.md)
+
+ - [Get](load_balancer/api-ref/grpc/LoadBalancer/get.md)
+
+ - [List](load_balancer/api-ref/grpc/LoadBalancer/list.md)
+
+ - [Create](load_balancer/api-ref/grpc/LoadBalancer/create.md)
+
+ - [Update](load_balancer/api-ref/grpc/LoadBalancer/update.md)
+
+ - [Delete](load_balancer/api-ref/grpc/LoadBalancer/delete.md)
+
+ - [Start](load_balancer/api-ref/grpc/LoadBalancer/start.md)
+
+ - [Stop](load_balancer/api-ref/grpc/LoadBalancer/stop.md)
+
+##### Operation
+
+ - [Overview](load_balancer/api-ref/grpc/Operation/index.md)
+
+ - [Get](load_balancer/api-ref/grpc/Operation/get.md)
+
+ - [Cancel](load_balancer/api-ref/grpc/Operation/cancel.md)
+
 #### SmartWebSecurity MatchList API
 
  - [Overview](match_list/api-ref/grpc/index.md)
@@ -527,6 +597,76 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
  - [Get](advanced_rate_limiter/api-ref/Operation/get.md)
 
  - [Cancel](advanced_rate_limiter/api-ref/Operation/cancel.md)
+
+#### SmartWebSecurity CustomPage API
+
+ - [Overview](custom_page/api-ref/index.md)
+
+##### CustomPage
+
+ - [Overview](custom_page/api-ref/CustomPage/index.md)
+
+ - [Get](custom_page/api-ref/CustomPage/get.md)
+
+ - [List](custom_page/api-ref/CustomPage/list.md)
+
+ - [Create](custom_page/api-ref/CustomPage/create.md)
+
+ - [Update](custom_page/api-ref/CustomPage/update.md)
+
+ - [Delete](custom_page/api-ref/CustomPage/delete.md)
+
+##### Operation
+
+ - [Overview](custom_page/api-ref/Operation/index.md)
+
+ - [Get](custom_page/api-ref/Operation/get.md)
+
+ - [Cancel](custom_page/api-ref/Operation/cancel.md)
+
+#### Smart Web Security Load Balancer API
+
+ - [Overview](load_balancer/api-ref/index.md)
+
+##### Domain
+
+ - [Overview](load_balancer/api-ref/Domain/index.md)
+
+ - [Get](load_balancer/api-ref/Domain/get.md)
+
+ - [List](load_balancer/api-ref/Domain/list.md)
+
+ - [Create](load_balancer/api-ref/Domain/create.md)
+
+ - [Update](load_balancer/api-ref/Domain/update.md)
+
+ - [Delete](load_balancer/api-ref/Domain/delete.md)
+
+##### LoadBalancer
+
+ - [Overview](load_balancer/api-ref/LoadBalancer/index.md)
+
+ - [Get](load_balancer/api-ref/LoadBalancer/get.md)
+
+ - [List](load_balancer/api-ref/LoadBalancer/list.md)
+
+ - [Create](load_balancer/api-ref/LoadBalancer/create.md)
+
+ - [Update](load_balancer/api-ref/LoadBalancer/update.md)
+
+ - [Delete](load_balancer/api-ref/LoadBalancer/delete.md)
+
+ - [Start](load_balancer/api-ref/LoadBalancer/start.md)
+
+ - [Stop](load_balancer/api-ref/LoadBalancer/stop.md)
+
+##### Operation
+
+ - [Overview](load_balancer/api-ref/Operation/index.md)
+
+ - [Get](load_balancer/api-ref/Operation/get.md)
+
+ - [Cancel](load_balancer/api-ref/Operation/cancel.md)
 
 #### SmartWebSecurity MatchList API
 

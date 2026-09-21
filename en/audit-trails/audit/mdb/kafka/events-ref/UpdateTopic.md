@@ -442,7 +442,9 @@ Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig
 || retentionMs | **string** (int64) ||
 || maxMessageBytes | **string** (int64) ||
 || minInsyncReplicas | **string** (int64) ||
-|| segmentBytes | **string** (int64) ||
+|| segmentBytes | **string** (int64)
+
+The minimum value is 1048576. ||
 || preallocate | **boolean** ||
 || messageTimestampType | **enum** (MessageTimestampType)
 

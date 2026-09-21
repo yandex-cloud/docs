@@ -27,8 +27,8 @@ You can enable link tracking when [creating](../operations/create-configuration.
 
 Method | [Metric](statistics.md#metrics) collection `Clicks` | Sending notifications to a data stream in {{ yds-name }}
 --- | --- | ---
-Under **{{ ui-key.yacloud.postbox.label_event-destinations }}**, Select the **Click tracking** notification type | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg)
-Under **Statistics collection settings**, enable **Engagement statistics**. | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)
+Select the **Click on link** notification type under **{{ ui-key.yacloud.postbox.label_event-destinations }}** | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg)
+Enable **{{ ui-key.yacloud.postbox.field_engagement-metrics }}** under **{{ ui-key.yacloud.postbox.section_tracking-options }}** | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)
 
 {% note info %}
 

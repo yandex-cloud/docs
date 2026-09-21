@@ -9,9 +9,9 @@ description:
     workflows for security incident response.</li> <li>Automate business
     operations.</li> <li>Set up CI/CD pipelines.</li> <li>Develop event-driven
     serverless applications based on orchestration and choreography to
-    coordinate and manage  events.</li></ul>
+    coordinate and manage events.</li></ul>
   - >-
-    {{ er-name }} are at the <a
+    {{ er-name }} is at the <a
     href="https://yandex.cloud/ru/docs/overview/concepts/launch-stages">Preview</a>
     stage.
 meta:
@@ -40,8 +40,8 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Prices and cost calculation rules
     href: pricing
   - title: '{{ er-name }} API reference'
-    description: '{{ er-name }} HTTP API method descriptions'
+    description: '{{ er-name }} HTTP API method description'
     href: eventrouter/api-ref/

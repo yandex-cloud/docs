@@ -11,10 +11,11 @@ To update an [inbound DNS connection](../concepts/dns-connection.md#dns-inbound)
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the DNS connection folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the inbound DNS connection.
+  1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. In the left-hand panel, select ![nodes-down](../../_assets/console-icons/nodes-down.svg) **{{ ui-key.yacloud.dns.label_inbound-endpoints }}**.
-  1. In the row with the DNS connection, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
+  1. Click the DNS connection.
+  1. Click **{{ ui-key.yacloud.common.edit }}** and update the connection settings:
 
       1. Optionally, change the DNS connection [name](*name) in the **{{ ui-key.yacloud.common.name }}** field.
       1. Optionally, provide any description in the **{{ ui-key.yacloud.common.description }}** field.
@@ -51,7 +52,7 @@ To update an [inbound DNS connection](../concepts/dns-connection.md#dns-inbound)
       * `--labels`: List of [labels](../../resource-manager/concepts/labels.md). This is an optional setting. You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
       * `--deletion-protection`: Enables protection of the inbound DNS connection from accidental deletion. This is an optional setting.
 
-          If you want to disable deletion protection, provide `--deletion-protection=false` in the command
+          If you want to disable deletion protection, provide `--deletion-protection=false` in the command.
 
       Result:
 
@@ -115,11 +116,11 @@ To update an [inbound DNS connection](../concepts/dns-connection.md#dns-inbound)
       * `address_id`: ID of the [reserved](../../vpc/operations/private-ip-reserve.md) [private](../../vpc/concepts/address.md#internal-addresses) IP address that will be used for the inbound DNS connection.
       * `deletion_protection`: Enables protection of the inbound DNS connection from accidental deletion. This is an optional setting.
 
-  1. Create the resources:
+  1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/cli-ref/dns/cli-ref/inbound-endpoint/get.md) command:
+      {{ TF }} will apply the changes. You can check the resource update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/cli-ref/dns/cli-ref/inbound-endpoint/get.md) command:
 
       ```bash
       yc dns inbound-endpoint get <DNS_connection_name>

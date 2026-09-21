@@ -33,6 +33,57 @@ To learn more about the MTU and MSS in {{ yandex-cloud }}, see [{#T}](../concept
    ss -i | grep mss
    ```
 
+### For a Debian VM without Netplan {#debian}
+
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH:
+
+   ```
+   ssh <username>@<VM_IP_address>
+   ```
+
+1. Open the `/etc/network/interfaces` file with root privileges using, e.g., `nano`:
+
+   ```bash
+   sudo nano /etc/network/interfaces
+   ```
+
+1. Find the interface section; it is typically `eth0` or `ens3`. The examples below feature `eth0`.
+
+1. Add the `mtu 1450` parameter to the interface section:
+
+   ```text
+   auto eth0
+   iface eth0 inet dhcp
+       mtu 1450
+   ```
+
+1. Save the changes and close the editor.
+
+1. Replace `eth0` with your interface name and restart it:
+
+   ```bash
+   sudo ifdown eth0 && sudo ifup eth0
+   ```
+
+   {% note alert %}
+
+   Restarting the interface may break the SSH connection. After restarting, reconnect or use the [serial console](../../compute/operations/serial-console/index.md) to access the VM.
+
+   {% endnote %}
+
+1. Check the new MTU and MSS values:
+
+   ```bash
+   ip link show eth0 | grep mtu
+   ss -i | grep mss
+   ```
+
+   Result:
+
+   ```text
+   2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 ...
+   ```
+
 ### For worker nodes of a {{ managed-k8s-name }} cluster {#managed-kubernetes}
 
 1. Create a DaemonSet YAML manifest with the following contents:

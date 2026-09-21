@@ -1,0 +1,1 @@
+{% include [video-moodle](../../_tutorials/applied/video-moodle.md) %}

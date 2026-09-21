@@ -12,7 +12,7 @@
 1. Создайте ключ для сервисного аккаунта:
 
    * Для отправки письма с помощью AWS CLI [создайте](../iam/operations/authentication/manage-access-keys.md#create-access-key) статический ключ доступа. Надежно сохраните идентификатор и секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
-   * Для отправки письма по протоколу SMTP [создайте](../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ. При создании API-ключа задайте область действия `yc.postbox.send`. Надежно сохраните полученный секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
+   * Для отправки письма по протоколу SMTP [создайте](../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ. При создании API-ключа задайте [область действия](*api-key-scope) `yc.postbox.send`. Надежно сохраните полученный секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
 
 ## Создайте адрес {#create-address}
 
@@ -64,3 +64,5 @@
 
 * [{#T}](concepts/notification.md)
 * [{#T}](operations/send-email.md)
+
+[*api-key-scope]: {% include notitle [api-key-scope](../_popups/iam/api-key-scope.md) %}

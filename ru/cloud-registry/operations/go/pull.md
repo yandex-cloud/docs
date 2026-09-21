@@ -40,6 +40,8 @@ description: Следуя данной инструкции, вы скачает
 
     - API-ключ {#api-key}
 
+        Для аутентификации по API-ключу задайте [область действия](*api-key-scope) ключа `yc.cloud-registry.artifacts.pull`.
+
         Добавьте в файл `~/.netrc` строку:
 
         ```text
@@ -96,3 +98,5 @@ description: Следуя данной инструкции, вы скачает
 
 * [{#T}](push.md)
 * [{#T}](create.md)
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

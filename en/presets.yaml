@@ -100,9 +100,6 @@ default:
   ch:
     docs: https://clickhouse.com/docs/en
   cic-bgp-asn: 200350
-  cic-pbc-subnet: 178.210.118.46/31
-  cic-pbc-subnet-client: 178.210.118.46
-  cic-pbc-subnet-cloud: 178.210.118.47
   cic-pbc-svc1-ip: 213.180.193.243/32
   ciem-full-name: Cloud Infrastructure Entitlement Management
   ciem-name: CIEM
@@ -2419,8 +2416,6 @@ default:
         label_delete-now: Delete now
       fileinput:
         button_attach-file: Attach file
-      forms:
-        label_value: Value
       helpfeedbackdialog:
         button_close: Close request
       labelset:
@@ -2688,6 +2683,7 @@ default:
       homepage:
         button_alerts-action: Create alert
         button_dashboards-action: Create dashboard
+        title_alerts: Alerts
         title_service-dashboards: Service dashboards
         title_service-features: Features
       logs-metrics:
@@ -2799,7 +2795,6 @@ default:
         field:
           function: Aggregation function
       services:
-        label_custom: Custom Metrics
         label_managed-kafka: Managed Service for Kafka
         label_mysql: Managed Service for MySQL
         label_postgresql: Managed Service for PostgreSQL
@@ -4839,6 +4834,7 @@ default:
         button_cron-15min: Every 15 minutes
         button_cron-1min: Every minute
         button_cron-day: Every day
+        button_refresh: Refresh
         button_update: Update
         button_upload: Upload
         cancel: Cancel
@@ -4919,6 +4915,7 @@ default:
           label_megabyte: MB
           label_time-min_many: minutes
           label_time-min_zero: minutes
+          label_time-sec: second
           label_time-sec_many: seconds
         update: Update
         updated-at: Date modified
@@ -4934,6 +4931,7 @@ default:
             button_select-subject: Select subject
         certificates:
           button_empty-add: Add certificate
+          popup-confirm_button_delete: Delete
         compute:
           network-select:
             field_address: IP address
@@ -5264,7 +5262,6 @@ default:
               cloud-backup-card:
                 label_connection-status: Connection status
               title_backup-section: Backup
-            button_action-edit: Edit VM
             button_action-ssh: Connect in Cloud Shell
             button_add-network-interface: Add network interface
             button_add-public-ip: Add public IP address
@@ -5649,7 +5646,6 @@ default:
         label_records: Data
         label_ttl: TTL
         label_zone: Zone
-        label_zone-record-sets: Records
         label_zones-list: Zones
       entity:
         ipAddress: IP address
@@ -6022,6 +6018,7 @@ default:
             label_message-queue: Message Queue
             label_metadata-hub: Yandex MetaData Hub
             label_monitoring: Monitoring
+            label_monium: Monium
             label_postbox: Cloud Postbox
             label_schema-registry: Schema Registry
             label_serverless-containers: Serverless Containers
@@ -6060,6 +6057,7 @@ default:
               column_key_last-used-at: Date of last use
               column_key_masked-secret: API key
               column_key_scope: Scope
+              field_key-algorithm: Encryption algorithm
               field_key-description: Description
               field_key-expires-at: Expires at
               field_key-scope: Scope
@@ -6109,17 +6107,14 @@ default:
         public-connection:
           public-connections_7xYcV: Public connections
         trunk-connection:
-          connection-capacity_tkrnE: Connection capacity
-          connection-type_23Twp: Connection type
-          connection-type-single-port-direct_1QHVe: Direct
           point-of-presence_265QN: Point of presence
-          transceiver-type_2WtM8: Transceiver type
           trunk-connections_kBGNL: Trunk connections
           TrunkConnectionListScreen:
             create-trunk-connection_oUuYo: Create trunk connection
         vlan-id_2wghK: VLAN ID
       iot:
         button_add-alias: Add alias
+        button_add-certificate: Add certificate
         button_add-device: Add device
         button_add-password: Add password
         button_add-yds-export: Add export
@@ -6537,18 +6532,27 @@ default:
         action_goto-partner-url: Link to service
         action_move: Move
         action_purchase-license: Purchase a subscription
+        action_send-msg: Send
         action_specify-vm: Link virtual machine
         action_to-pay-license: Pay
         button_continue: Continue
         button_disallow-analytics-scanning: Prohibit Marketplace from collecting statistics
         button_k8s-product-use: Go to install
+        button_request-access: Request access
+        button_request-access-from-publisher: Request access from publisher
+        button_request-access-to-product: Send request
         button_use: Use
         label_available-products: Application available for installation
         label_licenses: Subscriptions
+        label_product-access-request: Access requests
+        label_product-access-request-status-approved: Approved
         label_product-filter-search-placeholder: Product search
+        label_request-access-billing-account: Billing account
         label_service-name: Marketplace
         label_tariff-type: Pricing type
         section_tariff-section: Pricing method
+        title_product-request-messages: Message about request
+        title_request-access-to-product-dialog: Request for product access
       mdb:
         AuthMethodColumn:
           value_iam_boWet: IAM
@@ -6999,7 +7003,10 @@ default:
         button_create-configuration-set: Create configuration
         button_create-identity: Create address
         button_run-verification: Run verification
+        field_engagement-metrics: Engagement statistics
         field_secure-connection: Deliver emails only via secure connection
+        field_suppression-list-check: Check the list
+        field_suppression-reason-type: Suppression type
         label_address: Domain
         label_allowed-senders: Allowed senders
         label_configuration-set: Configuration
@@ -7028,7 +7035,14 @@ default:
         label_statistics_opens-event: Openings
         label_statistics_sent-event: Sent
         label_statistics_unsubscribes-event: Unsubscribes
+        label_suppressed-destinations: Suppression list
+        label_suppression-options: Suppression settings
+        Postbox:
+          SuppressedDestinations:
+            email-address_h3moC: Email address
+            reason_wp4hJ: Reason
         section_dkim: Email signature configuration (DKIM)
+        section_tracking-options: Statistics collection settings
       postgresql:
         cluster:
           additional-field-pooling_mode: Pooling mode
@@ -7344,7 +7358,6 @@ default:
         arl:
           column_rule-conditions: Conditions for traffic
           column_rule-priority: Priority
-          label_add-rule: Add rule
           label_connected-security-profiles: Connecting a security profile
           label_create-profile: Create ARL profile
           label_profiles: ARL profiles
@@ -7896,6 +7909,7 @@ default:
           overview:
             button_create_route-table: Create routing table
             button_create_subnetwork: Create subnet
+            column_route-table_network: Network
             column_subnetwork_route-table-id: Routing table
             section_subnetworks: Subnets
           security-groups:
@@ -7930,6 +7944,8 @@ default:
             label_destination-type-security-group: Security group
             label_egress: Egress
             label_ingress: Ingress
+            label_rules-egress: Outgoing traffic rules
+            label_rules-ingress: Incoming traffic rules
             label_section-rules: Rules
             label_title: Security groups
           switch_overview: Overview
@@ -7966,6 +7982,10 @@ default:
             button_create: Create routing table
           edit:
             button_edit: Save
+        route-tables:
+          column_static-routes: Static routes
+        subnet-used-addresses:
+          label_resource-type-vpc_virtualGateway: Gateway
         subnet:
           add-route-table:
             button_add: Link
@@ -7996,7 +8016,6 @@ default:
             button_update: Save changes
         switch_addresses: Public IP addresses
         switch_gateways: Gateways
-        switch_list: Cloud networks
         switch_networks: Subnets
         switch_private-endpoints: Service connections
         switch_route-tables: Routing tables

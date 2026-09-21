@@ -1,6 +1,6 @@
 # PutDomainIdentityDkimAttributes method
 
-Enables or disables [DKIM signing](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) for an [address](../../concepts/glossary.md#adress). This option allows the recipient to check that an email was indeed sent from the claimed domain. It is used for anti-phishing and anti-spam measures.
+Enables or disables [DKIM signing](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) for an [address](../../concepts/glossary.md#address). This allows the recipient to make sure the email was indeed sent from the claimed domain. It is used for anti-phishing and anti-spam measures.
 
 ## Request {#request}
 
@@ -33,7 +33,7 @@ Address to enable or disable DKIM authentication for. The minimum length is one 
 || **Parameter** | **Description** ||
 || `SigningEnabled` | **Type**: Boolean.
 
-Enables or disables DKIM signing for sending emails from the specified address. Possible values: `true` or `false`. ||
+Enables or disables DKIM signing for sending emails from the specified address. The possible values are `true` or `false`. ||
 |#
 
 ## Responses {#responses}
@@ -46,7 +46,7 @@ Enables or disables DKIM signing for sending emails from the specified address. 
 
 {% include [api-errors](../../../_includes/postbox/api-errors.md) %}
 
-Possible errors:
+The possible errors include:
 
 #|
 || **Error code** | **Description** ||

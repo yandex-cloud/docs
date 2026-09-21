@@ -53,9 +53,7 @@ The infrastructure support cost includes:
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
       1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Specify the service account name, e.g., `sa-live-debug`.
-
-          The naming requirements are as follows:
+      1. In the window that opens, enter the service account **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}**, e.g., `sa-live-debug`. The name format is as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -347,7 +345,7 @@ Delete the folder with the resources required for interactive debugging of funct
 - Management console {#console}
 
   1. In the [management console]({{ link-console-cloud }}), select `live-debug`. 
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the folder and select **{{ ui-key.yacloud.common.delete }}**.
+  1. To the right of the directory, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.components.FolderActions.button_action-delete-folder_mu24C }}**.
   1. In the **{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.field_folder-delete-after }}** field, select `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`.
   1. Click **{{ ui-key.yacloud.common.delete }}**.
 

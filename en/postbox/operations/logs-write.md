@@ -29,7 +29,7 @@ You can set up logging when or after [creating](create-address.md) an address. T
 
     To search for certain entries in the log group, you can use the [filter expression language](../../logging/concepts/filter.md). For example, to find all entries on sending messages to the recipient's email client with errors, use this expression:
 
-    ```
+    ```text
     message = "Message bounced" and json_payload.message.to: "example@yandex.ru"
     ```
 

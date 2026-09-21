@@ -28,6 +28,9 @@ Configuration name. ||
 ```json
 {
   "ConfigurationSetName": "<configuration_name>",
+  "SuppressionOptions": {
+    "SuppressedReasons": ["BOUNCE", "COMPLAINT"]
+  },
   "Tags": [
     {
       "Key": "key_1",
@@ -47,6 +50,14 @@ Configuration name. ||
 || `ConfigurationSetName` | **Type**: String.
 
 Configuration name. ||
+|| `SuppressionOptions` | **Type**: Object.
+
+Current [suppression list](../../concepts/suppression-list.md) settings for your configuration. Contains the `SuppressedReasons` array. ||
+|| `SuppressedReasons` | **Type**: Array.
+
+[Reasons](../../concepts/suppression-list.md#reasons) why the address from the suppression list blocks the send. Possible array item values: `BOUNCE` and `COMPLAINT`.
+
+If there is a `COMPLAINT` value in the array, the addresses are automatically added to the suppression list due to complaints from recipients. ||
 || `Tags` | **Type**: Array.
 
 Label array for configuration. ||
@@ -64,7 +75,7 @@ The `200 OK` response may contain additional parameters. Its format may vary sli
 
 {% include [api-errors](../../../_includes/postbox/api-errors.md) %}
 
-Possible errors:
+The possible errors include:
 
 #|
 || **Error code** | **Description** ||

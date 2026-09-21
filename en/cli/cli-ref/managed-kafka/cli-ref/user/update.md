@@ -26,6 +26,10 @@ Kafka cluster name. ||
 || `--password` | `string`
 
 New password of the Kafka user. ||
+|| `--password-file` | `string`
+
+File containing the new password of the Kafka user. ||
+|| `--password-from-stdin` | Read new password from stdin. ||
 || `--permission` | `;`
 
 New set of permissions for the user. Can be specified multiple times.

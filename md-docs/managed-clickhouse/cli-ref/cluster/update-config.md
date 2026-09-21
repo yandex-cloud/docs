@@ -905,6 +905,18 @@ the session timeout, the broker will remove the consumer from the group and trig
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/interfaces/mysql).
 
+- `grpc_protocol`: Enables or disables gRPC interface on ClickHouse server.
+
+  Default value: **false**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/concepts/features/interfaces/grpc).
+
+- `arrowflight_protocol`: Enables or disables Arrow Flight SQL interface on ClickHouse server.
+
+  Default value: **false**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/interfaces/arrowflight).
+
 - `custom_macros.name`: Name of the macro.
 
 - `custom_macros.value`: Value of the macro.

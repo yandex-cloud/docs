@@ -11,7 +11,7 @@ You cannot delete a security group created by default in the network.
 
 {% endnote %}
 
-To delete a [security group](../concepts/security-groups.md): 
+To delete a [security group](../concepts/security-groups.md):
 
 {% list tabs group=instructions %}
 
@@ -19,8 +19,8 @@ To delete a [security group](../concepts/security-groups.md):
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to delete a security group.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the group you need to delete.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the security group you need to delete.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -32,18 +32,19 @@ To delete a [security group](../concepts/security-groups.md):
 
   1. View the description of the CLI command for deleting security groups:
 
-      ```
+      ```bash
       yc vpc security-group delete --help
       ```
 
   1. Get a list of all security groups in the default folder:
 
-      ```
+      ```bash
       yc vpc security-group list
       ```
-	    
+
       Result:
-      ```
+
+      ```text
       +----------------------+-------------+-------------+----------------------+
       |          ID          |    NAME     | DESCRIPTION |      NETWORK-ID      |
       +----------------------+-------------+-------------+----------------------+
@@ -51,10 +52,10 @@ To delete a [security group](../concepts/security-groups.md):
       +----------------------+-------------+-------------+----------------------+
       ```
 
-  1. Select the `ID` or `NAME` of the appropriate network.
-  1. Delete the network:
+  1. Select `ID` or `NAME` of the security group in question.
+  1. Delete the security group:
 
-      ```
+      ```bash
       yc vpc security-group delete test-sg-cli
       ```
 
@@ -75,14 +76,7 @@ To delete a [security group](../concepts/security-groups.md):
      resource "yandex_vpc_security_group" "test-sg" {
        name        = "Test security group"
        description = "Description for security group"
-       network_id  = "${yandex_vpc_network.lab-net.id}"
-
-       ingress {
-         protocol       = "TCP"
-         description    = "Rule description 1"
-         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
-         port           = 8080
-       }
+       network_id  = yandex_vpc_network.lab-net.id
 
        egress {
          protocol       = "ANY"
@@ -91,45 +85,26 @@ To delete a [security group](../concepts/security-groups.md):
          from_port      = 8090
          to_port        = 8099
        }
+
+       ingress {
+         protocol       = "TCP"
+         description    = "Rule description 1"
+         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+         port           = 8080
+       }
      }
      ...
      ```
 
      {% endcut %}
 
-  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
+  1. Apply the configuration:
 
-  1. Check the configuration using this command:
-
-     ```
-     terraform validate
-     ```
-     
-     If the configuration is valid, you will get this message:
-     
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```
-     terraform plan
-     ```
-  
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the configuration changes:
-
-     ```
-     terraform apply
-     ```
-
-  1. Type `yes` and press **Enter** to confirm changes.
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-     ```
+     ```bash
      yc vpc security-group list
      ```
 

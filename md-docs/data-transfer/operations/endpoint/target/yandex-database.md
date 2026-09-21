@@ -227,6 +227,29 @@
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
 
+## Соответствие типов поддерживаемых данных в СУБД и эндпоинте {#type-mapping}
+
+#|
+|| **Тип Managed Service for YDB** | **Тип эндпоинта** ||
+|| Int64 | int64 ||
+|| Int32 | int32 ||
+|| Int32 | int16 ||
+|| Int32 | int8 ||
+|| Uint64 | uint64 ||
+|| Uint32 | uint32 ||
+|| Uint32 | uint16 ||
+|| Uint8 | uint8 ||
+|| N/A | float ||
+|| Double | double ||
+|| String | string ||
+|| Utf8 | utf8 ||
+|| Bool | boolean ||
+|| Date | date ||
+|| Datetime | datetime ||
+|| Timestamp | timestamp ||
+|| Json | any ||
+|#
+
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 
 Известные проблемы, связанные с использованием эндпоинта Managed Service for YDB:

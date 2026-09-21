@@ -13,7 +13,7 @@ The partner can provide the {{ yandex-cloud }} equipment connection service at o
 Upon the customer's request, the partner may provide the services to set up a direct trunk between the customer equipment and {{ yandex-cloud }} equipment.
 
 
-To set up a partner trunk, use [this tutorial](../tutorials/partner-trunk-priv-add.md).
+You can [create a partner trunk](../operations/trunk-create.md#partner) on your own.
 
 
 {% note warning %}

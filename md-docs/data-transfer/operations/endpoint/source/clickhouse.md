@@ -467,6 +467,33 @@ Yandex Data Transfer не может переносить базы данных 
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
 
+## Соответствие типов поддерживаемых данных в СУБД и эндпоинте {#type-mapping}
+
+#|
+|| **Тип ClickHouse®** | **Тип эндпоинта** ||
+|| Int64 | int64 ||
+|| Int32 | int32 ||
+|| Int16 | int16 ||
+|| Int8 | int8 ||
+|| UInt64 | uint64 ||
+|| UInt32 | uint32 ||
+|| UInt16 | uint16 ||
+|| UInt8 | uint8 ||
+|| — | float ||
+|| Float64 | double ||
+|| FixedString
+String | string ||
+|| Enum16
+Enum8
+IPv4
+IPv6 | utf8 ||
+|| — | boolean ||
+|| Date | date ||
+|| DateTime | datetime ||
+|| DateTime64 | timestamp ||
+|| REST... | any ||
+|#
+
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 
 * [Не добавляются новые таблицы](#no-new-tables)

@@ -19,9 +19,9 @@ You can also use a ready-made configuration file to deploy the infrastructure fo
 
 ### Required paid resources {#paid-resources}
 
-The cost of resources for syncing secrets includes:
-* Fee for using a [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for [{{ managed-k8s-name }} node group's](../../managed-kubernetes/concepts/index.md#node-group) [computing resources](../../compute/concepts/vm-platforms.md) and [disks](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 ### Create the infrastructure {#deploy-infrastructure}
 
@@ -55,6 +55,7 @@ The cost of resources for syncing secrets includes:
      Save the secret ID, as you will need it later.
 
 - {{ TF }} {#tf}
+
 
   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -120,7 +121,7 @@ The cost of resources for syncing secrets includes:
    kubectl create namespace ns
    ```
 
-1. Create a `yc-auth` secret with the `sa-key.json` key you created when [installing](#install-eso-lockbox) the External Secrets Operator:
+1. Create a `yc-auth` secret with the `sa-key.json` key you created when [installing](#install-eso-lockbox) External Secrets Operator:
 
    ```bash
    kubectl --namespace ns create secret generic yc-auth \

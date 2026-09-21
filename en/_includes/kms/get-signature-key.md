@@ -1,4 +1,4 @@
-Get the ID of the required digital signature key pair by specifying the folder ID:
+Get the ID of your digital signature key pair, specifying the folder ID:
 
 ```bash
 yc kms asymmetric-signature-key list \

@@ -229,6 +229,29 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [work with db](../../../../_includes/data-transfer/endpoints/sources/mongo-work-with-db.md) %}
 
+## Соответствие типов поддерживаемых данных в СУБД и эндпоинте {#type-mapping}
+
+#|
+|| **Тип {{ MG }}** | **Тип эндпоинта** ||
+|| bson | int64 ||
+|| bson | int32 ||
+|| bson | int16 ||
+|| bson | int8 ||
+|| bson | uint64 ||
+|| bson | uint32 ||
+|| bson | uint16 ||
+|| bson | uint8 ||
+|| bson | float ||
+|| bson | double ||
+|| bson | string ||
+|| bson | utf8 ||
+|| bson | boolean ||
+|| bson | date ||
+|| bson | datetime ||
+|| bson | timestamp ||
+|| bson | any ||
+|#
+
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 
 Известные проблемы, связанные с использованием эндпоинта {{ MG }}:

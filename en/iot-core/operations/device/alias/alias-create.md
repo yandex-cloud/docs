@@ -2,7 +2,7 @@
 
 {% include [iot-sunset-warning](../../../../_includes/iot-core/sunset-warning.md) %}
 
-Aliases are linked to specific devices. To create an alias, you need to [find the device ID or name](../device-list.md).
+Aliases are associated with specific devices. To create an alias, you need to [get the device ID or name](../device-list.md).
 
 {% include [monitoring-topic](../../../../_includes/iot-core/monitoring-topic.md) %}
 
@@ -12,14 +12,14 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
 
    To create an alias:
 
-   1. In the [management console]({{ link-console-main }}), select a folder where you wish to create an alias.
-   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Select the required registry from the list.
-   1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
-   1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) to the right of the device name and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
-   1. Add an alias:
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an alias.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** and select the registry of interest.
+   1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
+   1. To the right of the device name, click ![image](../../../../_assets/console-icons/ellipsis.svg) → ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. Under **{{ ui-key.yacloud.iot.label_aliases }}**:
       1. Click **{{ ui-key.yacloud.iot.button_add-alias }}**.
-      1. Fill out the fields: enter an alias, e.g., `events`, and the topic type after `$devices/<device_ID>`, e.g., `events`.<br/>You will be able to use the `events` alias instead of the `$devices/<device_ID>/events` topic.
+      1. Fill out the fields: enter an alias, e.g., `events`, and the topic type after `$devices/<device_ID>`, e.g., `events`.
+         You will be able to use the `events` alias instead of the `$devices/<device_ID>/events` topic.
       1. Repeat these steps for each alias you add.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -62,7 +62,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
 
   {% include [terraform-install](../../../../_includes/terraform-install.md) %}
 
-  To add an alias to a device created using {{ TF }}:
+  To add an alias to a device created with {{ TF }}:
 
   1. In the configuration file, specify the properties of the resources you want to create:
 
@@ -109,7 +109,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -118,7 +118,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify device aliases in the [management console]({{ link-console-main }}) or using the following [CLI](../../../../cli/quickstart.md) command:
+      You can check device aliases using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/quickstart.md) command:
 
       ```bash
       yc iot device get <device_name>

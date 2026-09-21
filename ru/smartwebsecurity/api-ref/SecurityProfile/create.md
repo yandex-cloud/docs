@@ -611,10 +611,12 @@ apiPlayground:
               **enum** (Action)
               Required field. Action to perform if this rule matched.
               - `DENY`: Deny request.
+              - `CAPTCHA`: Show a CAPTCHA challenge.
             type: string
             enum:
               - ACTION_UNSPECIFIED
               - DENY
+              - CAPTCHA
           condition:
             description: |-
               **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
@@ -754,10 +756,12 @@ apiPlayground:
               **enum** (Action)
               Required field. Action to perform if maximum size of body exceeded.
               - `DENY`: Deny request.
+              - `CAPTCHA`: Show a CAPTCHA challenge.
             type: string
             enum:
               - ACTION_UNSPECIFIED
               - DENY
+              - CAPTCHA
         required:
           - sizeLimitAction
       LogOptions:
@@ -795,12 +799,14 @@ apiPlayground:
               **enum** (Action)
               List of verdicts for which requests will be logged.
               - `DENY`: Deny request.
+              - `CAPTCHA`: Show a CAPTCHA challenge.
             type: array
             items:
               type: string
               enum:
                 - ACTION_UNSPECIFIED
                 - DENY
+                - CAPTCHA
           discardAllowPercentage:
             description: |-
               **string** (int64)
@@ -811,9 +817,10 @@ apiPlayground:
           outputs:
             description: |-
               **enum** (Output)
-              List of log destinations: Cloud Logging and/or Audit Trails.
-              - `CLOUD_LOGGING`: Write logs to Cloud Logging.
+              List of log destinations: Cloud Logging, Audit Trails, and/or Monium.
+              - `CLOUD_LOGGING`: Deprecated. Write logs to Cloud Logging. Use MONIUM instead.
               - `AUDIT_TRAILS`: Write logs to Audit Trails.
+              - `MONIUM`: Write logs to Monium.
             type: array
             items:
               type: string
@@ -821,6 +828,7 @@ apiPlayground:
                 - OUTPUT_UNSPECIFIED
                 - CLOUD_LOGGING
                 - AUDIT_TRAILS
+                - MONIUM
 ---
 
 # SmartWebSecurity API, REST: SecurityProfile.Create
@@ -2584,7 +2592,8 @@ RuleCondition object.
 Required field. Action to perform if this rule matched.
 
 - `ALLOW`: Pass request to service.
-- `DENY`: Deny request. ||
+- `DENY`: Deny request.
+- `CAPTCHA`: Redirect request to CAPTCHA. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
 
 The condition for matching the rule. ||
@@ -3149,10 +3158,11 @@ Percentage of ALLOW verdicts to discard from logging (0-100).
 Acceptable values are 0 to 100, inclusive. ||
 || outputs[] | **enum** (Output)
 
-List of log destinations: Cloud Logging and/or Audit Trails.
+List of log destinations: Cloud Logging, Audit Trails, and/or Monium.
 
-- `CLOUD_LOGGING`: Write logs to Cloud Logging.
-- `AUDIT_TRAILS`: Write logs to Audit Trails. ||
+- `CLOUD_LOGGING`: Deprecated. Write logs to Cloud Logging. Use MONIUM instead.
+- `AUDIT_TRAILS`: Write logs to Audit Trails.
+- `MONIUM`: Write logs to Monium. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

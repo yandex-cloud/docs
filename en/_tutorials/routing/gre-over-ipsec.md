@@ -184,7 +184,7 @@ Repeat these steps to create a second folder named `site-b`.
    1. In the [management console]({{ link-console-main }}), select the folder containing the new VM.
    1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the VM list, select `cisco-router-d`.
-   1. Go to the ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** tab and click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
+   1. Navigate to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab and click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
    1. Wait for the operating system to boot.
    1. To switch to privileged mode, run this command in the serial console:
 
@@ -229,7 +229,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
    fold -bw 72 <public_key_file_path>
    ```
 
-   This will output your public SSH key split into chunks of 72 characters each.
+   This will output your public SSH key split into chunks, 72 characters in each.
 
 1. Save the key hash:
 
@@ -286,7 +286,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
       Compare the SSH key hash on the router with the key hash on your computer.
 
-   1. In the serial console, enter the password that enables privileged mode:
+   1. In the serial console, enter the password that enables the privileged mode:
 
       ```bash
       cisco-router#configure terminal
@@ -304,7 +304,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
    ssh -i <private_key_file_path> test-user@<router_public_IP_address> 
    ```
 
-   If the configuration is correct, you will log in to the router as `test-user`. If these actions produce no connection, make sure the router configuration is correct in the serial console, i.e., check whether you ran the `aaa new-model` command, the key hashes are identical on your computer and the router, and password authorization is disabled for the test user. If still unable to locate the issue, repeat the previous steps. 
+   If the configuration is correct, you will log in to the router as `test-user`. If you cannot establish a connection, make sure the router configuration is correct in the serial console: the `aaa new-model` command has been executed, key hashes on your computer and the router match, password authorization is off for the test user. If still unable to locate the issue, repeat the previous steps.
 1. Switch to privileged mode. To do this, enter the `enable` command and your password. If the configuration is correct, you can proceed to configuring the router.
 
 ### Set up and configure a second VM with a Cisco Cloud Services Router {#create-second-vm}

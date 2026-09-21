@@ -15,13 +15,18 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the DNS zone where you want to create a resource record.
   1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. Select the zone from the list.
+  1. Click the zone of interest.
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Specify the record settings:
-     1. In the **{{ ui-key.yacloud.common.name }}** field, specify the record name.
+
+     1. Under **{{ ui-key.yacloud.common.name }}**, select one of these options:
+
+        * **{{ ui-key.yacloud.dns.label_create-subdomain }}**: Enter a domain name for the record.
+        * **{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}**: Use this option if you want the name to be the same as the zone name.
+     1. Optionally, add a description.
      1. Select the [record type](../concepts/resource-record.md#rr-types) from the drop-down list.
-     1. In the **{{ ui-key.yacloud.dns.label_form-ttl }}** field, select the record TTL (Time to Live) value from the dropdown list or specify a custom duration in seconds.
      1. Specify a **{{ ui-key.yacloud.dns.label_records }}** for the record.
+     1. In the **{{ ui-key.yacloud.dns.label_form-ttl }}** field, select the record TTL (Time to Live) value from the dropdown list or specify a custom duration in seconds.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}

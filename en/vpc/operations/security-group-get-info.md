@@ -1,5 +1,6 @@
 ---
 title: How to get information about a security group in {{ vpc-full-name }}
+description: Follow this guide to get information about a security group.
 ---
 
 # Getting security group info
@@ -12,7 +13,7 @@ title: How to get information about a security group in {{ vpc-full-name }}
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Select the security group you need.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the security group.
+  1. The **{{ ui-key.yacloud.common.overview }}** tab will display detailed information about the security group.
 
 - CLI {#cli}
 
@@ -66,12 +67,13 @@ title: How to get information about a security group in {{ vpc-full-name }}
      ```
 
      Where:
+
      * `data "yandex_vpc_security_group"`: Description of the security group as a data source:
        * `security_group_id`: Security group ID.
      * `output "group"`: Output variable containing information about the incoming traffic rules:
        * `value`: Return value.
 
-     You can replace `ingress` with another variable to get the information you need. For more on the properties of the `yandex_vpc_security_group` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_security_group).
+     You can replace `ingress` with any other attribute to get the information you need. For more on the properties of the `yandex_vpc_security_group` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_security_group).
 
   1. Create the resources:
 
@@ -135,13 +137,14 @@ title: How to get information about a security group in {{ vpc-full-name }}
      ```
 
      Where:
+
      * `data "yandex_vpc_security_group_rule"`: Description of the security group rule as a data source:
        * `security_group_binding`: ID of the security group containing the rule.
        * `rule_id`: Rule ID.
      * `output "rule"`: Output variable with information about the rule direction:
        * `value`: Return value.
 
-     You can replace `direction` with another variable to get the information you need. For more on the properties of the `datasource_vpc_security_group_rule` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_security_group_rule).
+     You can replace `direction` with any other attribute to get the information you need. For more on the properties of the `datasource_vpc_security_group_rule` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_security_group_rule).
 
   1. Create the resources:
 

@@ -18,6 +18,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
      1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone name. Note that it must end with a trailing dot. You cannot create top-level domain (TLD) zones. To create a domain name with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
      1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
      1. **{{ ui-key.yacloud.common.name }}** of the zone.
+     1. Optionally, add a description and labels.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -41,6 +42,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
        --zone <domain_zone>. \
        --public-visibility=true
      ```
+
      Where:
 
      * `--name`: Zone name. Note that the zone name must be unique within a folder. This is an optional setting.

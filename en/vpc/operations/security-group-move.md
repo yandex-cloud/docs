@@ -100,7 +100,7 @@ description: Follow this guide to move a security group to a different folder.
 
   * ID of the security group you need to move, in the `securityGroupId` parameter.
 
-    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
+    {% include [get-security-group-id](../../_includes/vpc/get-security-group-id.md) %}
 
   * ID of the folder you want to move the security group to, in the `destinationFolderId` parameter.
 

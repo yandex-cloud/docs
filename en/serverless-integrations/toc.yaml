@@ -353,7 +353,7 @@ items:
                 href: eventrouter/api-ref/Rule/updateAccessBindings.md
               - name: ListOperations
                 href: eventrouter/api-ref/Rule/listOperations.md
-  - name: API Triggers reference
+  - name: Triggers API reference
     items:
       - name: API authentication
         href: api-ref/triggers/authentication.md

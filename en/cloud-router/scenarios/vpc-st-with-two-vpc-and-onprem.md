@@ -1,5 +1,6 @@
 # Establishing network connectivity between two or more cloud networks and on-prem resources (VPC Stitching)
 
+
 {% include [cic-only-warning](../../_includes/interconnect/cic-only-warning.md) %}
 
 Reserved on-prem connection via two private Cloud Interconnect connections to one virtual router with two or more cloud networks and network connectivity between the cloud networks. This fully-connected topology is called `Full Mesh`.

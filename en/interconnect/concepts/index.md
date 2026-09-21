@@ -22,7 +22,7 @@ Such a task will require:
 
 * Creating a [Routing Instance](../../cloud-router/concepts/routing-instance.md) in the cloud folder.
 * Adding a `private connection` to `Routing Instance`.
-* On the {{ yandex-cloud }} virtual network side, [adding a set of subnet IP prefixes](../../cloud-router/tutorials/ri-prefixes-upsert.md) from a specific virtual network in `Routing Instance`, which will be announced towards the client equipment via BGP.
+* On the {{ yandex-cloud }} virtual network side, [adding a set of subnet IP prefixes](../../cloud-router/operations/ri-prefixes-upsert.md) from a specific virtual network in `Routing Instance`, which will be announced towards the client equipment via BGP.
 * On the client infrastructure side, via BGP, a set of IP prefixes of subnets with client resources must be announced through the client side of the `private connection`.
 
 Once these steps are complete, IP connectivity should be established between the client's infrastructure resources and cloud resources in {{ yandex-cloud }}, thus enabling IP traffic exchange between them.
@@ -53,4 +53,3 @@ Services provided by the points of presence or telecom operators are not include
 * Setting up and switching cross connections at the points of presence.
 * Organizing communication channels at the points of presence.
 * Placement of equipment at the points of presence.
-

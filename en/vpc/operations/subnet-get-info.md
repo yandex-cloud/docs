@@ -1,5 +1,6 @@
 ---
 title: How to get information about a subnet in {{ vpc-full-name }}
+description: Follow this guide to get information about a subnet.
 ---
 
 # Getting subnet info
@@ -12,7 +13,7 @@ title: How to get information about a subnet in {{ vpc-full-name }}
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.section_subnetworks }}**.
   1. Select the subnet you need.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the subnet.
+  1. The **{{ ui-key.yacloud.common.overview }}** tab will display detailed information about the subnet.
 
 - CLI {#cli}
 
@@ -67,12 +68,14 @@ title: How to get information about a subnet in {{ vpc-full-name }}
      ```
 
      Where:
+
      * `data "yandex_vpc_subnet"`: Description of the subnet as a data source:
        * `subnet_id`: Subnet ID.
      * `output "subnet"`: Output variable that contains the name of the subnet's availability zone:
        * `value`: Return value.
 
-     You can replace `zone` with another variable to get the information you need. For more on the properties of the `yandex_vpc_subnet` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_subnet).
+     You can replace `zone` with any other attribute to get the information you need. For more on the properties of the `yandex_vpc_subnet` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_subnet).
+
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

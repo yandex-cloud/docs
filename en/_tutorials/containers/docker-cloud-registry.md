@@ -1,3 +1,5 @@
+
+
 In this tutorial, you will deploy a [Docker image](../../cloud-registry/concepts/artifacts/docker.md) from a [registry](../../cloud-registry/concepts/registry.md) in {{ cloud-registry-full-name }} and run a container on a {{ compute-full-name }} [VM](../../compute/concepts/vm.md).
 
 To run a Docker image on a VM:
@@ -24,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of resources for running a Docker image includes:
 
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for storing created images (see [{{ cloud-registry-full-name }} pricing](../../cloud-registry/pricing.md)).
+* Fee for storing the created images (see [{{ cloud-registry-full-name }} pricing](../../cloud-registry/pricing.md)).
 * Fee for outbound traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 
@@ -115,7 +117,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) you wil
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. [Navigate]({{ link-console-main }}/link/cloud-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Select the previously created registry.
-  1. Navigate to the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the window that opens, select the `docker-puller` service account.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select `cloud-registry.artifacts.puller`.
@@ -219,7 +221,7 @@ Create a [cloud network](../../vpc/concepts/network.md) with a [subnet](../../vp
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Select `docker-ycr-network`.
-  1. Click ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}** at the top right.
+  1. Click ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify `docker-ycr-subnet-{{ region-id }}-b`.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select `{{ region-id }}-b`.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** field, specify `192.168.1.0/24`.

@@ -1,6 +1,6 @@
 # ListDomainIdentities method
 
-Returns a list of [addresses](../../concepts/glossary.md#adress) in a folder. The folder is selected based on the service account the request originates from.
+Returns a list of [addresses](../../concepts/glossary.md#address) in a folder. The folder is selected based on the service account the request originates from.
 
 ## Request {#request}
 
@@ -53,23 +53,23 @@ The maximum string length for the parameter is 100 characters. ||
 Array of addresses. ||
 || `IdentityType` | **Type**: String.
 
-Type of address. Possible value: `DOMAIN`. ||
+Address type. Possible value: `DOMAIN`. ||
 || `IdentityName` | **Type**: String.
 
 Address. ||
 || `SendingEnabled` | **Type**: Boolean.
 
-Indicates whether you can send emails from this address. Possible values: `true` or `false`.
+Indicates whether you can send emails from this address. The possible values are `true` or `false`.
 
 Before sending emails from this address, you must pass a verification as its owner. ||
 || `VerificationStatus` | **Type**: String.
 
 Verification status:
 
-* `PENDING`: Verification is ongoing, but so far {{ postbox-name }} has not verified the address.
+* `PENDING`: Verification is ongoing, but so far {{ postbox-name }} was not able to verify the address.
 * `SUCCESS`: Address successfully verified.
 * `FAILED`: Verification failed.
-* `TEMPORARY_FAILURE`: {{ postbox-name }} cannot detect the verification status due to a temporary issue.
+* `TEMPORARY_FAILURE`: {{ postbox-name }} is not able to identify the verification status due to a temporary issue.
 * `NOT_STARTED`: Verification was not started. ||
 
 || `NextToken` | **Type**: String.
@@ -83,7 +83,7 @@ The `200 OK` response may contain additional parameters. Its format may vary sli
 
 {% include [api-errors](../../../_includes/postbox/api-errors.md) %}
 
-Possible errors:
+The possible errors include:
 
 #|
 || **Error code** | **Description** ||

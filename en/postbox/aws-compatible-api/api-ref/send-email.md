@@ -1,6 +1,6 @@
 # SendEmail method
 
-Sends an email from an [address](../../concepts/glossary.md#adress) in a folder. The folder is selected based on the service account the request originates from.
+Sends an email from an [address](../../concepts/glossary.md#address) in a folder. The folder is selected based on the service account the request originates from.
 
 Alternatively, you can send emails via [SMTP protocol](../../quickstart.md#smtp).
 

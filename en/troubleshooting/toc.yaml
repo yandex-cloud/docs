@@ -171,18 +171,6 @@ items:
           How to restrict {{ objstorage-name }} bucket access to a specific {{
           cdn-name }} IP address range
         href: cdn/how-to/permit-bucket-access-only-to-cdn-networks.md
-  - name: '{{ cloud-logging-name }}'
-    items:
-      - name: All solutions for {{ cloud-logging-name }}
-        href: cloud-logging/index.md
-      - name: Sample {{ cloud-logging-name }} configurations and use cases
-        href: cloud-logging/how-to/index.md
-        hidden: true
-      - name: >-
-          Setting up the delivery of third-party application logs to {{
-          cloud-logging-name }}
-        href: >-
-          cloud-logging/how-to/sending-logs-from-third-party-libraries-and-apps.md
   - name: '{{ compute-name }}'
     items:
       - name: All solutions for {{ compute-name }}

@@ -16,7 +16,7 @@ You can email to the simulator address using any method supported by {{ postbox-
 || `success@simulator.pstbx.ru` | Successful delivery | {{ postbox-name }} accepts the email as delivered. ||
 || `bounce@simulator.pstbx.ru` | Delivery error | The simulator's mail server returns the `452 4.2.2 The recipient's inbox is out of storage space` SMTP response. ||
 || `delay@simulator.pstbx.ru` | Delivery delayed | {{ postbox-name }} fails to deliver the email due to a temporary error, sends a [delivery delayed notification](notification.md#delayed-delivery), and retries delivery. ||
-|| `suppressed@simulator.pstbx.ru` | Recipient on suppression list | {{ postbox-name }} does not attempt to deliver the email and sends a [delivery error notification](notification.md#bounce) with the `Suppressed` subtype, as if the recipient address were on the suppression list. ||
+|| `suppressed@simulator.pstbx.ru` | Recipient on suppression list | {{ postbox-name }} does not attempt to deliver the email and sends a [delivery error notification](notification.md#bounce) with the `Suppressed` subtype, as if the recipient's address were on the [global suppression list](suppression-list.md#global). ||
 |#
 
 ## How to use {#usage}

@@ -32,3 +32,7 @@ Two CNAME records are required to enable {{ postbox-name }} to automatically rot
 One common cause of delays is [greylisting](https://en.wikipedia.org/wiki/Greylisting_(email)) (`greylisting`) on the recipient's mail server. This is an anti-spam technique where the server temporarily rejects the first email delivery attempt assuming that a legitimate mail server will repeat it later.
 
 {{ postbox-name }} will automatically retry delivery. Usually, after the delay set by the recipient's server, the email will be accepted and delivered.
+
+#### Why was an email not sent to the recipient? {#message-suppressed}
+
+One possible reason is that the recipient's address is on a [suppression list](../concepts/suppression-list.md). For more information, see [{#T}](../concepts/suppression-list.md).

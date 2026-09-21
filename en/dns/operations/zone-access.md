@@ -29,7 +29,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
       yc dns zone list
       ```
 
-  1. View the roles already assigned for the resource:
+  1. View the list of roles already assigned for the resource:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>
@@ -47,7 +47,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
 
         Where:
 
-        * `--user-account-id`: [User ID](../../organization/operations/users-get.md). Use the `--all-authenticated-users` flag to assign a role to all authenticated users.
+        * `--user-account-id`: [User ID](../../organization/operations/users-get.md). Use the `--all-authenticated-users` parameter to assign a role to all authenticated users.
         * `--role`: [Role](../security/index.md#roles-list) to assign.
 
       * To a service account:
@@ -119,7 +119,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
 
   {% note alert %}
 
-  The `set-access-binding` command completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
+  The `set-access-binding` command completely overwrites access permissions for the resource. All roles previously assigned for this resource will be deleted.
 
   {% endnote %}
 

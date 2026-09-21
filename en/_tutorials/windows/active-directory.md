@@ -70,7 +70,7 @@ Create a [cloud network](../../vpc/concepts/network.md#network) named `ad-networ
        To create a subnet:
        1. Open the **{{ vpc-name }}** section in the folder where you want to create a subnet.
        1. Click the name of your cloud network.
-       1. Click **Add subnet**.
+       1. Click **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
        1. Specify `ad-subnet-a` as the name and select the `{{ region-id }}-a` availability zone from the drop-down list.
        1. Enter the subnet CIDR: IP address and subnet mask `10.1.0.0/16`.
        1. Click **Create subnet**.

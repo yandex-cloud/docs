@@ -49,3 +49,5 @@ description: Следуя данной инструкции, вы загрузи
     При публикации Go-модуля его имя указывается без префикса `registry.yandexcloud.net/go/<идентификатор_реестра>/`. Если основная версия Go-модуля больше 1, суффикс `/vN` также не указывается. Например, для Go-модуля `registry.yandexcloud.net/go/<идентификатор_реестра>/sample/module/v4` используйте имя `sample/module`.
 
     {% endnote %}
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

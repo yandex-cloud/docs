@@ -1,7 +1,7 @@
 The `postbox.editor` role allows you to manage {{ postbox-name }} addresses and send emails.
 
 Users with this role can:
-* Create, modify, and delete [addresses](../../postbox/concepts/glossary.md#adress) and their [configurations](../../postbox/concepts/glossary.md#configuration).
+* Create, modify, and delete [addresses](../../postbox/concepts/glossary.md#address) and their [configurations](../../postbox/concepts/glossary.md#configuration).
 * View information about addresses and their configurations.
 * Get a list of addresses and their configurations.
 * Send emails.

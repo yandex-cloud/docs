@@ -1,7 +1,7 @@
 The `auditor` role grants a permission to read configuration and metadata of any {{ yandex-cloud }} resources without any access to data.
 
 For instance, users with this role can:
-* View info on a [resource]({{ link-docs }}/resource-manager/concepts/resources-hierarchy).
+* View info on a [resource](../../resource-manager/concepts/resources-hierarchy.md).
 * View the resource metadata.
 * View the list of operations with a resource.
 

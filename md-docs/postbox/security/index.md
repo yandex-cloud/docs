@@ -40,7 +40,7 @@ flowchart BT
 Роль `postbox.auditor` позволяет просматривать информацию об адресах Yandex Cloud Postbox.
 
 Пользователи с этой ролью могут:
-* просматривать информацию об [адресах](../concepts/glossary.md#adress) и их [конфигурациях](../concepts/glossary.md#configuration);
+* просматривать информацию об [адресах](../concepts/glossary.md#address) и их [конфигурациях](../concepts/glossary.md#configuration);
 * получать списки адресов и их конфигураций.
 
 #### postbox.viewer {#postbox-viewer}
@@ -48,7 +48,7 @@ flowchart BT
 Роль `postbox.viewer` позволяет просматривать информацию об адресах Yandex Cloud Postbox.
 
 Пользователи с этой ролью могут:
-* просматривать информацию об [адресах](../concepts/glossary.md#adress) и их [конфигурациях](../concepts/glossary.md#configuration);
+* просматривать информацию об [адресах](../concepts/glossary.md#address) и их [конфигурациях](../concepts/glossary.md#configuration);
 * получать списки адресов и их конфигураций.
 
 Включает разрешения, предоставляемые ролью `postbox.auditor`.
@@ -58,7 +58,7 @@ flowchart BT
 Роль `postbox.editor` позволяет управлять адресами Yandex Cloud Postbox и отправлять письма.
 
 Пользователи с этой ролью могут:
-* создавать, изменять и удалять [адреса](../concepts/glossary.md#adress) и их [конфигурации](../concepts/glossary.md#configuration);
+* создавать, изменять и удалять [адреса](../concepts/glossary.md#address) и их [конфигурации](../concepts/glossary.md#configuration);
 * просматривать информацию об адресах и их конфигурациях;
 * получать список адресов и их конфигураций;
 * отправлять письма.
@@ -78,7 +78,7 @@ flowchart BT
 Роль `postbox.admin` позволяет управлять адресами Yandex Cloud Postbox, отправлять письма, а также просматривать информацию об отправленных письмах и статистику по ним.
 
 Пользователи с этой ролью могут:
-* создавать, изменять и удалять [адреса](../concepts/glossary.md#adress) и их [конфигурации](../concepts/glossary.md#configuration);
+* создавать, изменять и удалять [адреса](../concepts/glossary.md#address) и их [конфигурации](../concepts/glossary.md#configuration);
 * просматривать информацию об адресах и их конфигурациях;
 * получать список адресов и их конфигураций;
 * отправлять письма;
@@ -123,6 +123,7 @@ flowchart BT
 Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления.
 
 Прежде чем назначить роль `admin` на организацию, [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [платежный аккаунт](../../billing/concepts/billing-account.md), ознакомьтесь с информацией о защите [привилегированных аккаунтов](../../security/standard/all.md#privileged-users).
+
 
 Включает разрешения, предоставляемые ролью `editor`.
 

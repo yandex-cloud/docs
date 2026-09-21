@@ -1,3 +1,8 @@
+---
+title: Converting a static public IP address to dynamic
+description: Follow this guide to make a static public IP address dynamic.
+---
+
 # Converting a static public IP address to dynamic
 
 You can convert a static [public IP address](../concepts/address.md#public-addresses) assigned to a cloud resource to dynamic. If a VM uses a dynamic IP address, it gets lost when the VM is stopped and changes when it is started again.

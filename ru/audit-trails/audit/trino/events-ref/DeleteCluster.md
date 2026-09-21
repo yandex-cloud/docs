@@ -482,7 +482,8 @@ editable: false
         },
         "eventListeners": {
           "dataCatalog": "object"
-        }
+        },
+        "additionalProperties": "object"
       },
       "health": "string",
       "status": "string",
@@ -766,6 +767,9 @@ The maximum string length in characters is 50. ||
 || resourceManagement | **[ResourceManagementConfig](#yandex.cloud.trino.v1.ResourceManagementConfig)** ||
 || tls | **[TLSConfig](#yandex.cloud.trino.v1.TLSConfig)** ||
 || eventListeners | **[EventListenersConfig](#yandex.cloud.trino.v1.EventListenersConfig)** ||
+|| additionalProperties | **object** (map<**string**, **string**>)
+
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## CoordinatorConfig {#yandex.cloud.trino.v1.CoordinatorConfig}

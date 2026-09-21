@@ -16,6 +16,8 @@
 
     [Создайте](../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ для [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), от имени которого вы будете выполнять аутентификацию.
 
+    {% include [api-key-scopes](api-key-scopes.md) %}
+
     {% note info %}
 
     [Время жизни](../../iam/concepts/authorization/api-key.md#scoped-api-keys) API-ключа ограничивается вручную при создании.

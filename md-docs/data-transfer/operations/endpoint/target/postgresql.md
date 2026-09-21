@@ -503,6 +503,29 @@
 
   После этого трансфер сможет продолжить работу.
 
+## Соответствие типов поддерживаемых данных в СУБД и эндпоинте {#type-mapping}
+
+#|
+|| **Тип PostgreSQL** | **Тип эндпоинта** ||
+|| BIGINT | int64 ||
+|| INTEGER | int32 ||
+|| SMALLINT | int16 ||
+|| SMALLINT | int8 ||
+|| BIGINT | uint64 ||
+|| INTEGER | uint32 ||
+|| SMALLINT | uint16 ||
+|| SMALLINT | uint8 ||
+|| REAL | float ||
+|| DOUBLE PRECISION | double ||
+|| BYTEA | string ||
+|| TEXT | utf8 ||
+|| BOOLEAN | boolean ||
+|| DATE | date ||
+|| TIMESTAMP WITHOUT TIME ZONE | datetime ||
+|| TIMESTAMP WITHOUT TIME ZONE | timestamp ||
+|| JSONB | any ||
+|#
+
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 
 Известные проблемы, связанные с использованием эндпоинта PostgreSQL:

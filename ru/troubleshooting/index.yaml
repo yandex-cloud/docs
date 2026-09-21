@@ -27,9 +27,6 @@ links:
   - title: '{{ sf-name }}'
     description: Решения для {{ sf-name }}
     href: functions/
-  - title: '{{ cloud-logging-name }}'
-    description: Решения для {{ cloud-logging-name }}
-    href: cloud-logging/
   - title: '{{ compute-name }}'
     description: Решения для {{ compute-name }}
     href: compute/

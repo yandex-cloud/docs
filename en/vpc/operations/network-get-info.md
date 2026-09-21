@@ -9,11 +9,10 @@ description: Follow this guide to get information about a cloud network.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing your [cloud network](../concepts/network.md#network).
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [cloud network](../concepts/network.md#network).
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.vpc.switch_list }}**.
   1. Select the cloud network you need.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the selected network.
+  1. The **{{ ui-key.yacloud.common.overview }}** tab will display detailed information about the selected network.
 
 - CLI {#cli}
 
@@ -23,26 +22,26 @@ description: Follow this guide to get information about a cloud network.
 
   1. View the description of the CLI command to get information about the [cloud network](../concepts/network.md#network):
 
-      ```bash
-      yc vpc network get --help
-      ```
+     ```bash
+     yc vpc network get --help
+     ```
 
   1. Get information about a network by specifying its name or ID:
 
-      ```bash
-      yc vpc network get <network_name>
-      ```
+     ```bash
+     yc vpc network get <network_name>
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      id: ne7w0rkfj75j********
-      folder_id: f01derqpemb4********
-      created_at: "2023-10-25T14:59:46Z"
-      name: my-network
-      description: Auto-created network
-      default_security_group_id: 5ecur17yj09k********
-      ```
+     ```text
+     id: ne7w0rkfj75j********
+     folder_id: f01derqpemb4********
+     created_at: "2023-10-25T14:59:46Z"
+     name: my-network
+     description: Auto-created network
+     default_security_group_id: 5ecur17yj09k********
+     ```
 
 - {{ TF }} {#tf}
 
@@ -51,6 +50,7 @@ description: Follow this guide to get information about a cloud network.
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To get information about a [cloud network](../concepts/network.md#network) using {{ TF }}:
+
   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
      ```hcl
@@ -69,7 +69,8 @@ description: Follow this guide to get information about a cloud network.
      * `output "network"`: Output variable that contains information about the network creation timestamp:
        * `value`: Return value.
 
-     You can replace `created_at` with another variable to get the information you need. For more on the properties of the `yandex_vpc_network` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_network).
+     You can replace `created_at` with any other attribute to get the information you need. For more on the properties of the `yandex_vpc_network` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_network).
+
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -93,7 +94,6 @@ description: Follow this guide to get information about a cloud network.
   {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
 
   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
-
 
 {% endlist %}
 

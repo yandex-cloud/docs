@@ -311,6 +311,29 @@ description: Из статьи вы узнаете, как задать наст
 
 {% endlist %}
 
+## Соответствие типов поддерживаемых данных в СУБД и эндпоинте {#type-mapping}
+
+#|
+|| **Тип {{ CH }}** | **Тип эндпоинта** ||
+|| Int64 | int64 ||
+|| Int32 | int32 ||
+|| Int16 | int16 ||
+|| Int8 | int8 ||
+|| UInt64 | uint64 ||
+|| UInt32 | uint32 ||
+|| UInt16 | uint16 ||
+|| UInt8 | uint8 ||
+|| Float64 | float ||
+|| Float64 | double ||
+|| String | string ||
+|| String | utf8 ||
+|| UInt8 | boolean ||
+|| Date | date ||
+|| DateTime | datetime ||
+|| DateTime64(9) | timestamp ||
+|| String | any ||
+|#
+
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 
 * [Не добавляются новые таблицы](#no-new-tables)

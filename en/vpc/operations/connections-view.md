@@ -22,4 +22,3 @@ To view the chart of your VM or cluster [network connections](../concepts/monito
   {% include [conditions-for-deleting-records](../../_includes/vpc/conditions-for-deleting-records.md) %}
 
 {% endlist %}
-

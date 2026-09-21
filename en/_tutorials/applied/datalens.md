@@ -131,7 +131,7 @@ Create three devices: `my-device-1`, `my-device-2`, and `my-device-3`.
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Select the registry you created in the previous step.
-  1. In the left-hand menu, select **{{ ui-key.yacloud.iot.label_devices }}**.
+  1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
   1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter the device name: `my-device-1`.
   1. In the **{{ ui-key.yacloud.common.password }}** field, set a password for device access. The password must be at least 14 characters long and contain lowercase letters, capital letters, and numbers. To create a password, you can use [this password generator](https://passwordsgenerator.net/).
@@ -176,14 +176,15 @@ To run the emulator, create a [function](../../functions/concepts/function.md) t
 
   1. Create a function version:
 
-      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** window that opens, select `Node.js 18`.
+      1. On the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab, select the `Node.js 22` runtime.
       1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
 
-          * File name: `device-emulator.js`.
-          * File contents: Function code from [GitHub](https://github.com/yandex-cloud-examples/yc-geo-dist-devices-iot-monitoring/blob/main/device-emulator.js).
+          1. Specify a name for the file: `device-emulator.js`.
+          1. Click **{{ ui-key.yacloud.common.create }}**.
+          1. Add file contents: Function code from [GitHub](https://github.com/yandex-cloud-examples/yc-geo-dist-devices-iot-monitoring/blob/main/device-emulator.js).
 
       1. Similarly, create a file named `package.json` with the following contents:
 
@@ -199,12 +200,13 @@ To run the emulator, create a [function](../../functions/concepts/function.md) t
 
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `device-emulator.handler`.
 
-      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
+      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify the following:
 
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10 {{ ui-key.yacloud.common.units.label_time-sec }}`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
           * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-emulator-function-service-account`.
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
+
+      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**, specify the following:
 
               Key | Description | Value
               :--- | :--- | :---
@@ -264,7 +266,7 @@ To run the emulator, create a [function](../../functions/concepts/function.md) t
       1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
       1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
       1. Select `my-device-emulator-function`.
-      1. In the left-hand menu, select **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+      1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
       1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** list, select `$latest`, the most recent version of the function.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
 
@@ -307,7 +309,7 @@ To run the emulator, create a [function](../../functions/concepts/function.md) t
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter a name for the trigger, e.g., `my-emulator-function-trigger`.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
@@ -341,7 +343,8 @@ Create a data processing function, test it, and review the result of data proces
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
+
   1. Create a function:
 
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -349,23 +352,24 @@ Create a data processing function, test it, and review the result of data proces
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
   1. Create a function version:
-
-      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** window that opens, select `Python 3.12`.
+      1. On the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** tab, select the `Python 3.12` runtime.
       1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
 
-          * File name: `myfunction.py`.
-          * File contents: Function code from [GitHub](https://github.com/yandex-cloud-examples/yc-geo-dist-devices-iot-monitoring/blob/main/myfunction.py).
+          1. Specify a name for the file: `myfunction.py`.
+          1. Click **{{ ui-key.yacloud.common.create }}**.
+          1. Add file contents: Function code from [GitHub](https://github.com/yandex-cloud-examples/yc-geo-dist-devices-iot-monitoring/blob/main/myfunction.py).
 
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `myfunction.msgHandler`.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify the following:
 
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10 {{ ui-key.yacloud.common.units.label_time-sec }}`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
           * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-db-function-service-account`.
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
+
+      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**, specify the following:
 
               Key | Description | Value
               :--- | :--- | :---
@@ -389,7 +393,7 @@ Create a data processing function, test it, and review the result of data proces
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select `my-db-function`.
-  1. In the left-hand menu, select **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** list, select `$latest`, the most recent version of the function.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** field, paste the following data:
 
@@ -455,7 +459,7 @@ The trigger will invoke the function when messages appear in the [device topic](
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter a name for the trigger, e.g., `my-db-func-trigger`.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}`.
@@ -512,7 +516,7 @@ To monitor the state of your devices, configure a [connection](../../datalens/co
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-datalens-main }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
-  1. Click **Create connection**.
+  1. Under **Connections**, click **Create**.
   1. Select the **{{ PG }}** connector.
 
       When connecting to an external data source (which is not a {{ yandex-cloud }} resource), grant access to the source [for the {{ datalens-name }} IP address ranges](../../datalens/concepts/connection/index.md#changing-connection-ranges).
@@ -535,7 +539,7 @@ To monitor the state of your devices, configure a [connection](../../datalens/co
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-datalens-main }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
-  1. Click **Create dataset**.
+  1. Under **Datasets**, click **Create**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/plus.svg) **Add**.
   1. Select the `MyPGConnection` connection.
   1. In the left-hand menu, select the `public.iot_events` and `public.iot_position` tables and drag them to the right.
@@ -554,7 +558,7 @@ To monitor the state of your devices, configure a [connection](../../datalens/co
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-datalens-main }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
-  1. Click **Create chart**.
+  1. Under **Charts**, click **Create**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and select `My-pg-dataset`, which you created previously.
   1. Select **Line chart** as your [chart type](../../datalens/visualization-ref/line-chart.md).
   1. From the **Dimensions** section in the left-hand menu, drag the dimensions to the **Line chart** section as follows:
@@ -578,7 +582,7 @@ To monitor the state of your devices, configure a [connection](../../datalens/co
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-datalens-main }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
   1. Create a field to define device coordinates:
-      1. In the left-hand menu, select **Datasets**.
+      1. In the left-hand menu, select ![image](../../_assets/console-icons/circles-intersection.svg) **Datasets**.
       1. Select `My-pg-dataset` from the list of datasets.
       1. Go to the **Fields** tab.
       1. In the right part of the window, click ![image](../../_assets/console-icons/plus.svg) **Add field**.
@@ -607,14 +611,14 @@ To monitor the state of your devices, configure a [connection](../../datalens/co
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-datalens-main }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
-  1. Click **Create dashboard**.
+  1. Under **Dashboards**, click **Create**.
   1. Add the `My-pg-dataset — Map` and `My-pg-dataset — Line chart` charts, which you created at the previous steps, to the dashboard:
-      1. In the bottom panel, click **Chart**.
+      1. In the bottom panel, click ![image](../../_assets/console-icons/chart-column.svg) **Chart**.
       1. In the **Chart** field of the window that opens, click **Select** and select `My-pg-dataset — Map`.
       1. Click **Add**.
       1. Repeat the steps to add `My-pg-dataset — Line chart`.
   1. Configure the selector:
-      1. In the bottom panel, click **Selector**.
+      1. In the bottom panel, click ![image](../../_assets/console-icons/sliders.svg) **Selector**.
       1. In the **Dataset** field, click **Select** and select `My-pg-dataset`.
       1. In the **Field** list, select `device_id`.
       1. In the **Default value** list, select the ID of any one device you created in {{ iot-name }}.

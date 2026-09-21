@@ -68,6 +68,7 @@ Name of the S3 bucket to use as the Exchange Manager spool destination. ||
 || `--retry-policy-exchange-manager-additional-properties` | `key=value[,key=value...]`
 
 Map entries for ExchangeManagerConfig.additional_properties. ||
+|| `--event-listener-data-catalog-enabled` | Enable or disable the Data Catalog event listener. If omitted, the current setting is preserved. ||
 || `--trusted-certs-from-files` | `value[,value]`
 
 Trusted CA-certificates files. Empty list makes no effect. Each file should contain single self-signed CA-certificate or chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root. ||

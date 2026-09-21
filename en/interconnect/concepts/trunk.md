@@ -89,21 +89,21 @@ Using a **partner trunk** makes connecting to {{ yandex-cloud }} easier thanks t
 
 You can use such trunks to set up both [private](./priv-con.md) and [public](./pub-con.md) connections.
 
-{% note info "Tutorials" %}
+{% note info "Guide" %}
 
-* To set up a **private connection** over a partner trunk, use [this tutorial](../tutorials/partner-trunk-priv-add.md).
-* To set up a **public connection** over a partner trunk, use [this tutorial](../tutorials/partner-trunk-pub-add.md).
+* To set up a **private connection** over a partner trunk, use [this tutorial](../operations/priv-con-create.md).
+* To set up a **public connection** over a partner trunk, use [this tutorial](../operations/pub-con-create.md).
 
 {% endnote %}
 
-There is a limitation on the packet transfer rate per second (packets per second) for a trunk connection via a partner, which is calculated using the following formula:
+Partner trunk is subject to a packet transfer rate limit (packets per second), which is calculated using this formula:
 
 `PpsRate (Pps) = Capacity (Mbps) × 101.166667`
 
 Where:
 
 * `PpsRate`: Maximum packet transfer rate per second (Pps).
-* `Capacity`: Throughput of the trunk connection in megabits per second (Mbps).
+* `Capacity`: Trunk throughput in megabits per second (Mbps).
 
 
 ## Connection multiplexing (802.1Q) {#mux}
@@ -185,9 +185,6 @@ At the trunk level, {{ yandex-cloud }} equipment uses reception and transmission
 
 ## Use cases {#examples}
 
-* [{#T}](../tutorials/trunk-priv-add.md)
-* [{#T}](../tutorials/trunk-pub-add.md)
-* [{#T}](../tutorials/partner-trunk-priv-add.md)
-* [{#T}](../tutorials/partner-trunk-pub-add.md)
-* [{#T}](../tutorials/trunk-capacity-change.md)
-* [{#T}](../tutorials/trunk-del.md)
+* [{#T}](../operations/trunk-create.md)
+* [{#T}](../operations/trunk-update.md)
+* [{#T}](../operations/trunk-delete.md)

@@ -1,74 +1,66 @@
 ## Steps to follow {#order}
 
-Follow these steps when using [Cloud Interconnect](../../interconnect/concepts/index.md) and [Cloud Router](../../cloud-router/concepts/index.md) resources to create hybrid cloud network topologies:
-1. Create a [trunk](../../interconnect/concepts/trunk.md) to establish physical connectivity between the on-prem infrastructure and the cloud. This resource is created in the cloud folder you specify.
-1. Create a [private connection](../../interconnect/concepts/priv-con.md) in your trunk to establish IP and BGP connectivity between the on-prem infrastructure and the cloud. This resource is created in the same folder as the trunk.
-1. Create a [virtual router](../../cloud-router/concepts/routing-instance.md) in the specified folder to build the required network topology, which typically includes [virtual networks (VPCs)](../../vpc/concepts/network.md) and private connections.
-1. Add a private connection to the routing instance.
-1. Add a list of specified subnet IP prefixes from virtual networks (VPCs) to the routing instance.
-1. *Optional*. Add a list of specified static routes to the private connection to form a `VPC Stitching` network topology. 
+To create a hybrid cloud network topology:
 
-Currently, to manage [Cloud Interconnect](../../interconnect/concepts/index.md) and [Cloud Router](../../cloud-router/concepts/index.md) resources, you can do one of the following:
-* Contact [support]({{ link-console-support }}).
-* Use the [management console]({{ link-console-main }}/link/interconnect/trunk-connections), [YC CLI](../../interconnect/cli-ref/index.md) or [API calls](../../interconnect/api-ref/authentication.md). At the moment, these tools have limited availability.
+1. [Create a trunk](../../interconnect/operations/trunk-create.md) to establish physical connectivity between your infrastructure and {{ yandex-cloud }}.
+1. In your trunk, create a [private](../../interconnect/operations/priv-con-create.md) or [public](../../interconnect/operations/pub-con-create.md) connection.
+1. For a private connection, [create a virtual router](../../cloud-router/operations/ri-create.md).
+1. [Add the private connection](../../cloud-router/operations/ri-priv-con-add.md) to the virtual router.
+1. [Add cloud networks and IP prefixes](../../cloud-router/operations/ri-prefixes-upsert.md) to announce to your infrastructure.
+1. If needed, [add static routes](../../interconnect/operations/priv-con-update.md) to the private connection for the VPC Stitching topology.
 
-Below, we provide a list of operations you can perform on [Cloud Interconnect](../../interconnect/concepts/index.md) and [Cloud Router](../../cloud-router/concepts/index.md) resources with links to relevant guides. You can also find the guides in `Step-by-step guides` and `Tutorials` for Cloud Interconnect or Cloud Router.
-
+You can perform most operations with {{ interconnect-name }} and {{ cr-name }} resources yourself using the management console, CLI and API. You still need to contact support to create, update, and delete public connections, update trunk capacity, notify your partner, and physically cross-connect your direct connection.
 
 ## Trunk {#trunk}
 
-Action | Support | YC CLI
+Action | You | Support
 --- | --- | ---
-Getting information about a trunk | — | [Description](../../interconnect/operations/trunk-get-info.md)
-Get a list of trunk operations | — | [Description](../../interconnect/operations/trunk-operations.md)
-Creating a direct trunk | [Description](../../interconnect/tutorials/trunk-priv-add.md) | [Description](../../interconnect/operations/trunk-create.md#direct)
-Creating a partner trunk | [Description](../../interconnect/tutorials/partner-trunk-priv-add.md) | [Description](../../interconnect/operations/trunk-create.md#partner)
-Updating trunk parameters | Yes | [Description](../../interconnect/operations/trunk-update.md)
-Updating trunk capacity | [Description](../../interconnect/tutorials/trunk-capacity-change.md) | Not supported
-Moving a trunk to another folder | — | [Description](../../interconnect/operations/trunk-move.md)
-Deleting a trunk | [Description](../../interconnect/tutorials/trunk-del.md) | [Description](../../interconnect/operations/trunk-delete.md)
-
+Getting information | [Guide](../../interconnect/operations/trunk-get-info.md) | —
+Getting a list of operations | [Guide](../../interconnect/operations/trunk-operations.md) | —
+Creating a direct connection | [Guide](../../interconnect/operations/trunk-create.md#direct) | Agreement letter and physical connection are described in the guide
+Creating a partner connection | [Guide](../../interconnect/operations/trunk-create.md#partner) | Partner notification is described in the guide
+Updating basic settings | [Guide](../../interconnect/operations/trunk-update.md#update) | —
+Changing capacity | — | [Guide](../../interconnect/operations/trunk-update.md#capacity)
+Moving to another folder | [Guide](../../interconnect/operations/trunk-move.md) | —
+Deleting | [Guide](../../interconnect/operations/trunk-delete.md) | —
 
 ## Private connection {#prc}
 
-Action | Support | YC CLI
+Action | You | Support
 --- | --- | ---
-Get information about a private connection | — | [Description](../../interconnect/operations/priv-con-get-info.md)
-Getting a list of operations for a private connection | — | [Description](../../interconnect/operations/priv-con-operations.md)
-Create a private connection | [Description](../../interconnect/tutorials/trunk-priv-add.md#priv-create) | [Description](../../interconnect/operations/priv-con-create.md)
-Updating private connection parameters | Yes | [Description](../../interconnect/operations/priv-con-update.md)
-Moving a private connection to another folder | — | [Description](../../interconnect/operations/priv-con-move.md)
-Deleting a private connection | [Description](../../interconnect/tutorials/priv-del.md) | [Description](../../interconnect/operations/priv-con-delete.md)
-**Adding static routes to a private connection** (VPC stitching) | **Yes** | [Description](../../interconnect/operations/priv-con-update.md)
-**Removing static routes from a private connection** (VPC stitching) | **Yes** | [Description](../../interconnect/operations/priv-con-update.md)
+Getting information | [Guide](../../interconnect/operations/priv-con-get-info.md) | —
+Getting a list of operations | [Guide](../../interconnect/operations/priv-con-operations.md) | —
+Create | [Guide](../../interconnect/operations/priv-con-create.md) | —
+Updating settings | [Guide](../../interconnect/operations/priv-con-update.md) | —
+Moving to another folder | [Guide](../../interconnect/operations/priv-con-move.md) | —
+Deleting | [Guide](../../interconnect/operations/priv-con-delete.md) | —
+Adding or deleting static routes | [Guide](../../interconnect/operations/priv-con-update.md) | —
 
+## Virtual router {#ri}
 
-## Routing Instance {#ri}
-
-Action | Support | YC CLI
+Action | You | Support
 --- | --- | ---
-Getting information about a routing instance | — | [Description](../../cloud-router/operations/ri-get-info.md)
-Getting a list of routing instance operations | — | [Description](../../cloud-router/operations/ri-operations.md)
-Creating a routing instance | Yes | [Description](../../cloud-router/operations/ri-create.md)
-Updating routing instance parameters | Yes | [Description](../../cloud-router/operations/ri-update.md)
-Updating a list of IP prefixes in a routing instance | [Description](../../cloud-router/tutorials/ri-prefixes-upsert.md) | [Description](../../cloud-router/operations/ri-prefixes-upsert.md)
-Deleting IP prefixes from a routing instance | Yes | [Description](../../cloud-router/operations/ri-prefixes-upsert.md#remove-prefixes)
-Adding a private connection to a routing instance | Yes | [Description](../../cloud-router/operations/ri-priv-con-add.md)
-Deleting a private connection from a routing instance | Yes | [Description](../../cloud-router/operations/ri-priv-con-del.md)
-Deleting a routing instance | Yes | [Description](../../cloud-router/operations/ri-delete.md)
-
+Getting information | [Guide](../../cloud-router/operations/ri-get-info.md) | —
+Getting a list of operations | [Guide](../../cloud-router/operations/ri-operations.md) | —
+Create | [Guide](../../cloud-router/operations/ri-create.md) | —
+Updating basic settings | [Guide](../../cloud-router/operations/ri-update.md) | —
+Updating networks and IP prefixes | [Guide](../../cloud-router/operations/ri-prefixes-upsert.md) | —
+Adding a private connection | [Guide](../../cloud-router/operations/ri-priv-con-add.md) | —
+Deleting a private connection | [Guide](../../cloud-router/operations/ri-priv-con-del.md) | —
+Deleting | [Guide](../../cloud-router/operations/ri-delete.md) | —
 
 ## Public connection {#pbc}
 
-Action | Support | YC CLI
+Action | You | Support
 --- | --- | ---
-Getting information about a public connection | — | [Description](../../interconnect/operations/pub-con-get-info.md)
-
+Getting information | [Guide](../../interconnect/operations/pub-con-get-info.md) | —
+Create | — | [Guide](../../interconnect/operations/pub-con-create.md)
+Edit | — | [Contacting support]({{ link-console-support }})
+Deleting | — | [Guide](../../interconnect/operations/pub-con-delete.md)
 
 ## Other {#other}
 
-Action | Support | YC CLI
- --- | --- | ---
-Getting information about CIC partners | — | [Description](../../interconnect/operations/partner-get-info.md)
-Getting information about points of presence | — | [Description](../../interconnect/operations/pop-get-info.md)
-
+Action | You
+--- | ---
+Getting information about {{ interconnect-name }} partners | [Guide](../../interconnect/operations/partner-get-info.md)
+Getting information about points of presence | [Guide](../../interconnect/operations/pop-get-info.md)

@@ -43,7 +43,7 @@ resource "yandex_iam_service_account" "registry-sa" {
   folder_id = local.target_folder_id
 }
 
-# Assigning roles to a service account
+# Assigning a role to a service account
 
 resource "yandex_resourcemanager_folder_iam_member" "registry-sa-role-images-puller" {
   folder_id = local.target_folder_id

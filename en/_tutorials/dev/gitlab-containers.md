@@ -11,6 +11,7 @@ Each commit to {{ GL }} is followed by:
 * Applying a new {{ managed-k8s-name }} cluster configuration specifying the application to deploy.
 
 To set up the required infrastructure for storing source code, building the Docker image, and deploying the application, follow these steps:
+
 1. [Get your cloud ready](#before-you-begin).
 
    1. [Review the list of required paid resources](#paid-resources).
@@ -32,11 +33,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-Infrastructure support costs include fees for the following resources:
-* [Disks](../../compute/concepts/disk.md) and continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Use of a dynamic [public IP address](../../vpc/concepts/ips.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Storage of the Docker images you created (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
-* Use of the [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* {{ container-registry-name }}: Storing created Docker images and leveraging the vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* {{ GL }} instance: The cost depends on the instance creation method:
+
+   * {{ mgl-full-name }}: You pay for the VM computing resources, amount of stored data and backups, and the amount of outgoing traffic (see [{{ mgl-name }} pricing](../../managed-gitlab/pricing.md)).
+   * VM with a {{ GL }} image: You pay for the VM computing resources and the {{ GL }} image ([{{ compute-name }} pricing](../../compute/pricing.md)).
+
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes and for the {{ GL }} image VM with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 {% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
 

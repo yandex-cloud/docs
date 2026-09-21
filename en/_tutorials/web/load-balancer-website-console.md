@@ -38,8 +38,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * Enter a name for the instance group, e.g., `nlb-vm-group`.
       * Select the `nlb-sa` [service account](../../iam/concepts/users/service-accounts.md).
 
-  1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones to ensure fault tolerance of your hosting.
-  1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
+  1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the `{{ region-id }}-a` and `{{ region-id }}-b` [availability zones](../../overview/concepts/geo-scope.md) to ensure the fault tolerance of your hosting.
+  1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure the base VM instance:
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Choose a product:
 

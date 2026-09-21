@@ -95,6 +95,9 @@ editable: false
         // Includes only one of the fields `ipAddress`
         "ipAddress": "string",
         // end of the list of possible fields
+        "locality": {
+          "zoneId": "string"
+        },
         "subnetId": "string",
         "externalAddress": "boolean",
         "privateIpv4Address": "boolean"
@@ -286,7 +289,15 @@ A list of messages that carry the error details. ||
 || ipAddress | **string**
 
 Includes only one of the fields `ipAddress`. ||
+|| locality | **[Locality](#yandex.cloud.apploadbalancer.v1.Locality)** ||
 || subnetId | **string** ||
 || externalAddress | **boolean** ||
 || privateIpv4Address | **boolean** ||
+|#
+
+## Locality {#yandex.cloud.apploadbalancer.v1.Locality}
+
+#|
+||Field | Description ||
+|| zoneId | **string** ||
 |#

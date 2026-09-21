@@ -167,7 +167,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
       yc kms asymmetric-encryption-key set-access-bindings --help
       ```
 
-   1. Get a list of asymmetric key pairs along with their IDs:
+   1. Get a list of asymmetric key pairs with their IDs:
 
       ```bash
       yc kms asymmetric-encryption-key list

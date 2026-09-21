@@ -6,11 +6,11 @@
 `postbox.recipients_per_email.count` | 200 ||
 || Maximum size of an email with attachments 
 `postbox.email.size` | 10 MB ||
-|| Maximum number of [addresses](../../postbox/concepts/glossary.md#adress) 
+|| Maximum number of [addresses](../../postbox/concepts/glossary.md#address) 
 `postbox.identities.count` | 10 ||
 || Maximum email send rate 
 `postbox.send.rate` | 1 email per second ||
-|| Maximum rate of [SendBulkEmail](../../postbox/operations/send-bulk-email.md) method calls per cloud
+|| Maximum frequency of calling the [SendBulkEmail](../../postbox/operations/send-bulk-email.md) method per cloud
 `postbox.send_bulk.rate` | 1 request per second ||
 || Maximum number of emails that can be sent within a 24-hour time interval 
 `postbox.emails_sent.count` | 200 ||

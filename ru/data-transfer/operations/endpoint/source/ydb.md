@@ -180,6 +180,31 @@ description: Из статьи вы узнаете, как задать наст
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
 
+## Соответствие типов поддерживаемых данных в СУБД и эндпоинте {#type-mapping}
+
+#|
+|| **Тип {{ ydb-name }}** | **Тип эндпоинта** ||
+|| Int64 | int64 ||
+|| Int32 | int32 ||
+|| Int16 | int16 ||
+|| Int8 | int8 ||
+|| Uint64 | uint64 ||
+|| Uint32 | uint32 ||
+|| Uint16 | uint16 ||
+|| Uint8 | uint8 ||
+|| Float | float ||
+|| Double | double ||
+|| String | string ||
+|| Decimal
+DyNumber
+Utf8
+Uuid | utf8 ||
+|| Bool | boolean ||
+|| Date | date ||
+|| Datetime | datetime ||
+|| REST... | any ||
+|#
+
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 
 Известные проблемы, связанные с использованием эндпоинта {{ ydb-name }}:

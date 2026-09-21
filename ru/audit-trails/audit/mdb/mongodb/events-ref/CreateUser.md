@@ -102,6 +102,9 @@ editable: false
           ]
         }
       ],
+      "connectionManager": {
+        "connectionId": "string"
+      },
       "authType": "string",
       "deletionProtection": "boolean"
     }
@@ -288,6 +291,7 @@ A list of messages that carry the error details. ||
 || name | **string** ||
 || clusterId | **string** ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)** ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.mongodb.v1.ConnectionManager)** ||
 || authType | **enum** (AuthType)
 
 - `AUTH_TYPE_PASSWORD`
@@ -301,4 +305,11 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || databaseName | **string** ||
 || roles[] | **string** ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.mongodb.v1.ConnectionManager}
+
+#|
+||Field | Description ||
+|| connectionId | **string** ||
 |#

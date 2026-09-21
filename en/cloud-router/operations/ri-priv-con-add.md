@@ -29,11 +29,11 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
       yc cloudrouter routing-instance add-private-connection --help
       ```
 
-  1. Adding a private connection to the virtual router:
+  1. Add the private connection to the virtual router:
 
      ```bash
      yc cloudrouter routing-instance add-private-connection c3l87**********1dpin \
-       --cic-prc b1gqf**********jiz2w \ 
+       --cic-prc cf3r5ke20fo0******** \
        --async
      ```
 
@@ -51,11 +51,11 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
       ```
 
      Where:
+
       * `id`: ID of the operation performed with the virtual router.
       * `created_by`: ID of the subject running the operation.
 
-
-  1. Checking the modified virtual router configuration:
+  1. Check the modified virtual router configuration:
 
      ```bash
      yc cloudrouter routing-instance get c3l87**********1dpin
@@ -76,6 +76,7 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
      ```
 
      Where:
+
       * `id`: Virtual router ID.
       * `name`: Virtual router name.
       * `description`: Virtual router description.

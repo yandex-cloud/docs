@@ -59,6 +59,9 @@ description: Следуя данной инструкции, вы настрои
         - API-ключ (Base64)
 
           1. [Создайте](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого вы будете выполнять аутентификацию.
+
+              {% include [api-key-scopes](../../../_includes/cloud-registry/api-key-scopes.md) %}
+
           1. Создайте переменную окружения `NPM_AUTH`:
 
               ```bash
@@ -76,3 +79,5 @@ description: Следуя данной инструкции, вы настрои
               ```
 
         {% endlist %}
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

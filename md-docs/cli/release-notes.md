@@ -4,13 +4,33 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.36.0 (21.09.26) {#v-1-36-0}
+
+#### Managed Service for Apache Kafka® {#v-1-36-0-mkf-name}
+
+* Добавлены параметры `--password-file` и `--password-from-stdin` в команды `managed-kafka user create` и `managed-kafka user update` для указания источника пароля:
+  * `yc managed-kafka user create`;
+  * `yc managed-kafka user update`.
+
+#### Managed Service for MySQL® {#v-1-36-0-mmy-name}
+
+* Добавлены параметры `--password-file` и `--password-from-stdin` в команды `managed-mysql user create` и `managed-mysql user update` для указания источника пароля:
+  * `yc managed-mysql user create`;
+  * `yc managed-mysql user update`.
+
+#### Managed Service for Trino {#v-1-36-0-mtr-name}
+
+* Добавлен параметр `--event-listener-data-catalog-enabled` в команды для управления обработчиком событий Data Catalog:
+  * `yc managed-trino cluster create`;
+  * `yc managed-trino cluster update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.35.1 (17.09.26) {#v-1-35-1}
 
 #### Изменения в системных командах CLI {#v-1-35-1-yc}
 
 Исправлено определение каталога при использовании глобального параметра `--folder-name`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.35.0 (17.09.26) {#v-1-35-0}
 

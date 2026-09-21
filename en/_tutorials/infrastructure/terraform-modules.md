@@ -1,7 +1,7 @@
 # Using {{ yandex-cloud }} modules in {{ TF }}
 
 
-{{ yandex-cloud }} provides a ![](../../_assets/overview/solution-library-icon.svg)[set of modules for Terraform](https://github.com/terraform-yc-modules). {{ TF }} modules combine a number of cloud resources that should work together. Modules simplify the cloud infrastructure configuration, make it easier to reuse its blocks, and allow you to specify any parameters required for creating resources in variables. 
+{{ yandex-cloud }} provides a ![](../../_assets/overview/solution-library-icon.svg) [set of modules for {{ TF }}](https://github.com/terraform-yc-modules). {{ TF }} modules combine a number of cloud resources that should work together. Modules simplify the cloud infrastructure configuration, make it easier to reuse its blocks, and allow you to specify any parameters required for creating resources in variables. 
 
 This page explains how to enable the modules and use them to create a test infrastructure with a [cloud network](../../vpc/concepts/network.md#network), three [{{ vpc-full-name }}](../../vpc/) [subnets](../../vpc/concepts/network.md#subnet), and a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
@@ -14,16 +14,17 @@ To create your first infrastructure in {{ yandex-cloud }} using {{ TF }}:
 
 If you no longer need the resources, [delete them](#delete-resources).
 
+
 ## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 ### Required paid resources {#paid-resources}
 
-The cost of support for the infrastructure deployed through {{ TF }} in this tutorial includes:
-* Fee for the [{{ managed-k8s-name }} highly available master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for continuously running [VMs](../../compute/concepts/vm.md) in the [{{ managed-k8s-name }} node group](../../managed-kubernetes/concepts/index.md#node-group) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using dynamic [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes if public access enabled (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+
 
 ## Install {{ TF }} {#install-terraform}
 
