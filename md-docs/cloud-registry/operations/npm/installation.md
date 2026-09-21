@@ -56,6 +56,12 @@
         - API-ключ (Base64)
 
           1. [Создайте](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого вы будете выполнять аутентификацию.
+
+              При создании ключа задайте его [область действия](*api-key-scope):
+              
+              * `yc.cloud-registry.artifacts.pull` — для скачивания артефактов из реестра;
+              * `yc.cloud-registry.artifacts.push` — для публикации артефактов в реестре.
+
           1. Создайте переменную окружения `NPM_AUTH`:
 
               ```bash
@@ -73,3 +79,5 @@
               ```
 
         {% endlist %}
+
+[*api-key-scope]: Область действия — параметр API-ключа, который ограничивает применение ключа определенными операциями в дополнение к правам доступа сервисного аккаунта. Подробнее в разделе [API-ключи с ограничениями области и срока действия](../../../iam/concepts/authorization/api-key.md#scoped-api-keys).

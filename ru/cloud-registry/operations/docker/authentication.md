@@ -55,6 +55,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. Если у вас не установлен Docker, [установите](installation.md) его.
   1. [Создайте](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого вы будете выполнять аутентификацию.
+
+      {% include [api-key-scopes](../../../_includes/cloud-registry/api-key-scopes.md) %}
+
   1. Выполните команду:
 
       ```bash
@@ -126,3 +129,5 @@ yc cloud-registry configure-docker --profile <имя_профиля>
 #### Не использовать credential helper {#ch-not-use}
 
 Чтобы не использовать credential helper при аутентификации, удалите в конфигурационном файле `${HOME}/.docker/config.json` из блока `credHelpers` строку с доменом `{{ cloud-registry }}`.
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

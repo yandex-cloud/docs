@@ -11,18 +11,18 @@ You can reserve an [internal IP address](../concepts/address.md#internal-address
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to reserve an IP address.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to reserve an address.
    1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
    1. Select the subnet where you want to reserve the address.
-   1. Navigate to the ![addresses](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}** tab.
-   1. Click **{{ ui-key.yacloud.vpc.Subnetwork.SubnetUsedAddressesList.button_create_sPV4s }}**.  
+   1. Navigate to the **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}** tab.
+   1. Click **{{ ui-key.yacloud.vpc.Subnetwork.SubnetUsedAddressesList.button_create_sPV4s }}**.
    1. In the window that opens:
        * Enter a name and description for the internal address.
        * In the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field, enter the address you would like to reserve.
        * Optionally, enable **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection_jVSCP }}**.
        * Optionally, specify [labels](../../resource-manager/concepts/labels.md).
-   1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -99,9 +99,9 @@ You can reserve an [internal IP address](../concepts/address.md#internal-address
      }
      ```
 
-     For more information about `yandex_vpc_address` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_address).
+     For more on the properties of the `yandex_vpc_address` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_address).
 
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

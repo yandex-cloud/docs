@@ -1,13 +1,19 @@
 ---
 title: Request rate limit
-description: The x-yc-apigateway-rate-limits and x-yc-apigateway-rate-limit extensions allow you to set a request rate limit. You can set limits for an API gateway or specific paths and/or HTTP methods.
+description: The `x-yc-apigateway-rate-limits` and `x-yc-apigateway-rate-limit` extensions allow you to set a request rate limit. You can set limits for an API gateway or specific paths and/or HTTP methods.
 ---
 
 # Request rate limit
 
 {% note warning %}
 
-This extension is deprecated and discontinued. To limit the request processing rate, employ [integration with {{ sws-full-name }}](sws.md).
+The `x-yc-apigateway-rate-limits` and `x-yc-apigateway-rate-limit` extensions are deprecated and no longer supported. To limit the request processing rate, employ [integration with {{ sws-full-name }}](sws.md).
+
+{% endnote %}
+
+{% note warning %}
+
+These extensions are used to evenly distribute workload across the applications when processing legitimate traffic. In the case of DoS attacks, correct operation is not guaranteed. To protect your applications, use a [{{ sws-name }} security profile](sws.md).
 
 {% endnote %}
 

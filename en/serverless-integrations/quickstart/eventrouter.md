@@ -47,7 +47,7 @@ To get started in {{ yandex-cloud }}:
 
 - {{ ai-studio-name }} UI {#console}
 
-    1. Go to the [{{ ai-studio-name }} UI]({{ link-console-ai }}).
+    1. Navigate to the [{{ ai-studio-name }} UI]({{ link-console-ai }}).
     1. In the left-hand panel, expand ![atom](../../_assets/ai-studio/atom.svg) **{{ agents-atelier-name }}** and select ![graph-node](../../_assets/console-icons/graph-node.svg) **{{ sw-name }}**.
     1. Click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
     1. Select the `YaML specification` method.

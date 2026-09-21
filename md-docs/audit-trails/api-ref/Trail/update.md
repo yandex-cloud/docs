@@ -30,7 +30,7 @@ The maximum string length in characters is 50. ||
   "description": "string",
   "labels": "object",
   "destination": {
-    // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`
+    // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`, `monium`
     "objectStorage": {
       "bucketId": "string",
       "objectPrefix": "string"
@@ -47,7 +47,8 @@ The maximum string length in characters is 50. ||
     },
     "eventrouter": {
       "eventrouterConnectorId": "string"
-    }
+    },
+    "monium": "object"
     // end of the list of possible fields
   },
   "serviceAccountId": "string",
@@ -254,22 +255,27 @@ Updated event filtering policy ||
 Configuration for event delivery to Object Storage
 Uploaded objects will have prefix &lt;trail_id&gt;/ by default
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`, `monium`. ||
 || cloudLogging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging)**
 
 Configuration for event delivery to Cloud Logging
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`, `monium`. ||
 || dataStream | **[DataStream](#yandex.cloud.audittrails.v1.Trail.DataStream)**
 
 Configuration for event delivery to YDS
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`, `monium`. ||
 || eventrouter | **[EventRouter](#yandex.cloud.audittrails.v1.Trail.EventRouter)**
 
 Configuration for event delivery to EventRouter
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`, `monium`. ||
+|| monium | **object**
+
+Configuration for event delivery to Monium
+
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`, `monium`. ||
 |#
 
 ## ObjectStorage {#yandex.cloud.audittrails.v1.Trail.ObjectStorage}

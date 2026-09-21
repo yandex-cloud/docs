@@ -4,7 +4,7 @@ If you have your own corporate networks connected to {{ yandex-cloud }} [network
 
 To configure resolution of internal cloud DNS names by clients in your corporate network, you will create an [inbound DNS connection](../../dns/concepts/dns-connection.md#dns-inbound) on the {{ yandex-cloud }} side to redirect DNS requests from the corporate network to [DNS resolvers](../../dns/concepts/dns-resolver.md) in {{ vpc-name }} subnets. On the corporate network side, you will set up a DNS server, so that all DNS requests to cloud resources are redirected to the IP address of your new inbound DNS connection.
 
-In this scenario, a user connected to a corporate subnet in `subnet1` resolves a DNS name of a {{ mpg-full-name }} [cluster](../../managed-postgresql/concepts/index.md) host by sending DNS requests via a local [DNS forwarder](*dns_forwarder).
+In this scenario, you resolve a DNS name of a {{ mpg-full-name }} [cluster](../../managed-postgresql/concepts/index.md) host from a corporate network in `subnet1` by sending DNS requests via a local [DNS forwarder](*dns_forwarder).
 
 You can see the solution architecture in the diagram below:
 
@@ -15,7 +15,7 @@ You can see the solution architecture in the diagram below:
     * Consists of the `subnet1` subnet with the `172.16.1.0/24` address range.
     * `subnet1` hosts a DNS server (DNS forwarder) with the `172.16.1.200` IP address.
 
-        This server serves the DNS zone in the `subnet1` subnet and redirects DNS requests from the user's computer `172.16.1.10` to the cloud network, namely to the IP address of the [inbound DNS connection](../../dns/concepts/dns-connection.md#dns-inbound) created on the {{ yandex-cloud}} side.
+        This server serves the DNS zone in `subnet1` and redirects DNS requests from your computer `172.16.1.10` to the cloud network, namely to the IP address of the [inbound DNS connection](../../dns/concepts/dns-connection.md#dns-inbound) created on the {{ yandex-cloud}} side.
 1. {{ yandex-cloud }} network:
 
     * Consists of the `subnet2` [subnet](../../vpc/concepts/network.md#subnet) with the `192.168.1.0/24` address range.
@@ -39,6 +39,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+Make sure you have created and configured the following resources:
+
+* Active [trunk](../../interconnect/operations/trunk-create.md).
+* [Private connection](../../interconnect/operations/priv-con-create.md).
+* [Virtual router](../../cloud-router/operations/ri-create.md) paired with the private connection.
 
 ### Required paid resources {#paid-resources}
 
@@ -81,6 +87,12 @@ On the {{ yandex-cloud }} side, you will create a cloud network with a single su
   1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
 {% endlist %}
+
+### Connect your cloud network to the virtual router {#connect-network}
+
+[Add](../../cloud-router/operations/ri-prefixes-upsert.md#add-network) `my-vpc-network` to the virtual router. For the `{{ region-id }}-b` availability zone, specify the `192.168.1.0/24` IP prefix.
+
+As a result, resources located in `subnet2` will become accessible from your corporate network via {{ interconnect-name }}.
 
 ### Create a {{ mpg-full-name }} cluster {#create-cluster}
 
@@ -285,6 +297,7 @@ To stop paying for the resources:
 * [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
 * [Delete the inbound DNS connection](../../dns/operations/connection-inbound-delete.md).
 * [Delete the reserved internal IP address](../../vpc/operations/private-ip-delete.md).
+* [Delete my-vpc-network from the virtual router](../../cloud-router/operations/ri-prefixes-upsert.md#remove-network).
 * [Delete the subnet](../../vpc/operations/subnet-delete.md).
 * [Delete the cloud network](../../vpc/operations/network-delete.md).
 

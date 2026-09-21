@@ -259,6 +259,7 @@ editable: false
         "info": "string",
         "delayedUntil": "string"
       },
+      "isHa": "boolean",
       "kafkaUi": {
         "url": "string"
       },
@@ -582,6 +583,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || deletionProtection | **boolean** ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.kafka.v1.MaintenanceWindow)** ||
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.kafka.v1.MaintenanceOperation)** ||
+|| isHa | **boolean** ||
 || kafkaUi | **[KafkaUI](#yandex.cloud.mdb.kafka.v1.Cluster.KafkaUI)** ||
 || diskEncryptionKeyId | **string** ||
 |#
@@ -741,7 +743,9 @@ Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig
 || logRetentionHours | **string** (int64) ||
 || logRetentionMinutes | **string** (int64) ||
 || logRetentionMs | **string** (int64) ||
-|| logSegmentBytes | **string** (int64) ||
+|| logSegmentBytes | **string** (int64)
+
+The minimum value is 1048576. ||
 || socketSendBufferBytes | **string** (int64) ||
 || socketReceiveBufferBytes | **string** (int64) ||
 || autoCreateTopicsEnable | **boolean** ||
@@ -1022,7 +1026,9 @@ Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig
 || retentionMs | **string** (int64) ||
 || maxMessageBytes | **string** (int64) ||
 || minInsyncReplicas | **string** (int64) ||
-|| segmentBytes | **string** (int64) ||
+|| segmentBytes | **string** (int64)
+
+The minimum value is 1048576. ||
 || preallocate | **boolean** ||
 || messageTimestampType | **enum** (MessageTimestampType)
 

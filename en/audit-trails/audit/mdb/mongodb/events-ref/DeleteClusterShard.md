@@ -92,7 +92,8 @@ editable: false
     "shardName": "string",
     "shard": {
       "name": "string",
-      "clusterId": "string"
+      "clusterId": "string",
+      "isHa": "boolean"
     },
     "clusterName": "string"
   },
@@ -277,4 +278,5 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || name | **string** ||
 || clusterId | **string** ||
+|| isHa | **boolean** ||
 |#

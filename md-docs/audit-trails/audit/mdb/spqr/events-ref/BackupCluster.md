@@ -115,7 +115,9 @@
               "preferSameAvailabilityZone": "boolean",
               "enhancedMultishardProcessing": "boolean",
               "defaultTargetSessionAttrs": "string",
-              "defaultCommitStrategy": "string"
+              "defaultCommitStrategy": "string",
+              "allowPostprocessing": "boolean",
+              "autoRouteRoOnStandby": "boolean"
             },
             "resources": {
               "resourcePresetId": "string",
@@ -124,7 +126,14 @@
             }
           },
           "coordinator": {
-            "config": "object",
+            "config": {
+              "iterationTimeout": "string",
+              "lockIterationTimeout": "string",
+              "routerKeepaliveTime": "string",
+              "routerKeepaliveTimeout": "string",
+              "etcdMaxSendBytes": "string",
+              "etcdMaxTxnOps": "string"
+            },
             "resources": {
               "resourcePresetId": "string",
               "diskSize": "string",
@@ -154,9 +163,18 @@
               "preferSameAvailabilityZone": "boolean",
               "enhancedMultishardProcessing": "boolean",
               "defaultTargetSessionAttrs": "string",
-              "defaultCommitStrategy": "string"
+              "defaultCommitStrategy": "string",
+              "allowPostprocessing": "boolean",
+              "autoRouteRoOnStandby": "boolean"
             },
-            "coordinator": "object"
+            "coordinator": {
+              "iterationTimeout": "string",
+              "lockIterationTimeout": "string",
+              "routerKeepaliveTime": "string",
+              "routerKeepaliveTimeout": "string",
+              "etcdMaxSendBytes": "string",
+              "etcdMaxTxnOps": "string"
+            }
           },
           "balancer": {
             "cpuThreshold": "number",
@@ -166,7 +184,9 @@
             "keysPerMove": "string",
             "timeout": "string"
           },
-          "logLevel": "string"
+          "logLevel": "string",
+          "useSpqrguard": "boolean",
+          "forbidDirectShardQueries": "boolean"
         },
         "backupWindowStart": {
           "hours": "integer",
@@ -204,7 +224,11 @@
       "securityGroupIds": [
         "string"
       ],
-      "deletionProtection": "boolean"
+      "deletionProtection": "boolean",
+      "hostGroupIds": [
+        "string"
+      ],
+      "isHa": "boolean"
     },
     "backupId": "string",
     "backup": {
@@ -217,7 +241,8 @@
         "string"
       ],
       "size": "string",
-      "type": "string"
+      "type": "string",
+      "method": "string"
     },
     "description": "string",
     "labels": "object"
@@ -444,6 +469,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.spqr.v1.MaintenanceOperation)** ||
 || securityGroupIds[] | **string** ||
 || deletionProtection | **boolean** ||
+|| hostGroupIds[] | **string** ||
+|| isHa | **boolean** ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.spqr.v1.Monitoring}
@@ -482,6 +509,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 - `WARNING`
 - `ERROR`
 - `FATAL` ||
+|| useSpqrguard | **boolean** ||
+|| forbidDirectShardQueries | **boolean** ||
 |#
 
 ## RouterConfig {#yandex.cloud.mdb.spqr.v1.RouterConfig}
@@ -516,6 +545,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 - `BEST_EFFORT`
 - `ONE_PC`
 - `TWO_PC` ||
+|| allowPostprocessing | **boolean** ||
+|| autoRouteRoOnStandby | **boolean** ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}
@@ -531,8 +562,20 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 #|
 ||Field | Description ||
-|| config | **object** ||
+|| config | **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)** ||
 || resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)** ||
+|#
+
+## CoordinatorSettings {#yandex.cloud.mdb.spqr.v1.CoordinatorSettings}
+
+#|
+||Field | Description ||
+|| iterationTimeout | **string** (duration) ||
+|| lockIterationTimeout | **string** (duration) ||
+|| routerKeepaliveTime | **string** (duration) ||
+|| routerKeepaliveTimeout | **string** (duration) ||
+|| etcdMaxSendBytes | **string** (int64) ||
+|| etcdMaxTxnOps | **string** (int64) ||
 |#
 
 ## PostgreSQLConfig {#yandex.cloud.mdb.spqr.v1.PostgreSQLConfig}
@@ -549,7 +592,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 ||Field | Description ||
 || resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)** ||
 || router | **[RouterSettings](#yandex.cloud.mdb.spqr.v1.RouterSettings)** ||
-|| coordinator | **object** ||
+|| coordinator | **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)** ||
 |#
 
 ## BalancerSettings {#yandex.cloud.mdb.spqr.v1.BalancerSettings}
@@ -672,8 +715,12 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || sourceShardNames[] | **string** ||
 || size | **string** (int64) ||
-|| type | **enum** (BackupType)
+|| type | **enum** (BackupCreationType)
 
 - `AUTOMATED`
 - `MANUAL` ||
+|| method | **enum** (BackupMethod)
+
+- `BASE`
+- `FULL` ||
 |#

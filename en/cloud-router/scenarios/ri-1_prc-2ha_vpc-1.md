@@ -1,5 +1,6 @@
 # On-prem with redundancy and 1 VPC
 
+
 Reserved on-prem connection via two {{ interconnect-name }} [private connections](../../vpc/concepts/network.md) to a single virtual router with a single [cloud network](../../interconnect/concepts/priv-con.md).
 
 ![ri-topology-3](../../_assets/cloud-router/ri-topology-3.svg)
@@ -16,4 +17,3 @@ This topology enables network connectivity between `On-Prem` subnets and `Net-1`
 Use appropriate {{ interconnect-name }} [routing tools](prc-ha-with-active-standby.md) to prioritize traffic between [private connections](../../interconnect/concepts/priv-con.md).
 
 In case of failure of any of the private connections above, all network traffic will be automatically switched over to the remaining private connection.
-

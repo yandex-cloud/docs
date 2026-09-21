@@ -160,7 +160,7 @@ Create a {{ lockbox-name }} [secret]({{ link-docs }}/lockbox/quickstart) to stor
 
 ## Create an address and verify domain ownership in {{ postbox-name }} {#setup-postbox}
 
-To enable the workflow to send emails, create a {{ postbox-name }} [address]({{ link-docs }}/postbox/concepts/glossary#adress) and verify the ownership of the sending domain.
+To enable the workflow to send emails, create a {{ postbox-name }} [address]({{ link-docs }}/postbox/concepts/glossary#address) and verify the ownership of the sending domain.
 
 ### Create a {{ postbox-name }} address {#create-address}
 
@@ -363,9 +363,9 @@ To enable the workflow to send emails, create a {{ postbox-name }} [address]({{ 
 
       * `<organization_ID>`: [ID]({{ link-docs }}/organization/operations/organization-get-id) of your {{ org-full-name }}.
       * `<secret_ID>`: Previously saved [secret]({{ link-docs }}/lockbox/concepts/secret) ID with the application's OAuth token.
-      * `<queue_key_in_{{ tracker-name }}>`: [Key]({{ link-tracker-cloudless }}quick-start/glossary#i) of the {{ tracker-name }} queue where you created the test issues.
+      * `<queue_key_in_{{ tracker-name }}>`: [Key]({{ link-tracker-cloudless }}glossary#rus-k) of the {{ tracker-name }} queue where you created the test issues.
       * `<folder_ID>`: [ID]({{ link-docs }}/resource-manager/operations/folder/get-id) of the folder where you are creating a workflow.
-      * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}quick-start/glossary#i) in the comment to which the summary of the analyzed test issues will be uploaded.
+      * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}glossary#rus-z) in the comment to which the summary of the analyzed test issues will be uploaded.
       * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`), you can specify any address on this domain, e.g., `tracker-robot@example.com` or `noreply@example.com`.
       * `<recipient_address>`: Email address to which the workflow will send a summary of the analyzed {{ tracker-name }} test issues.
 
@@ -501,7 +501,7 @@ To enable the workflow to send emails, create a {{ postbox-name }} [address]({{ 
       * `<organization_ID>`: [ID]({{ link-docs }}/organization/operations/organization-get-id) of your {{ org-full-name }}.
       * `<secret_ID>`: Previously saved [secret]({{ link-docs }}/lockbox/concepts/secret) ID with the application's OAuth token.
       * `<folder_ID>`: [ID]({{ link-docs }}/resource-manager/operations/folder/get-id) of the folder where you are creating a workflow.
-      * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}quick-start/glossary#i) in the comment to which the summary of the analyzed test issues will be uploaded.
+      * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}glossary#rus-z) in the comment to which the summary of the analyzed test issues will be uploaded.
       * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain, e.g., `tracker-robot@example.com` or `noreply@example.com`.
       * `<recipient_address>`: Email address to which the workflow will send a summary of the analyzed {{ tracker-name }} test issues.
 

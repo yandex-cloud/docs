@@ -3694,7 +3694,8 @@
         "string"
       ],
       "deletionProtection": "boolean",
-      "diskEncryptionKeyId": "string"
+      "diskEncryptionKeyId": "string",
+      "isHa": "boolean"
     },
     "backupIds": [
       "string"
@@ -3936,6 +3937,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || securityGroupIds[] | **string** ||
 || deletionProtection | **boolean** ||
 || diskEncryptionKeyId | **string** ||
+|| isHa | **boolean** ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.mongodb.v1.Monitoring}

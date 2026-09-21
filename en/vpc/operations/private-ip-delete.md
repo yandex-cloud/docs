@@ -13,12 +13,13 @@ If deletion protection is on for the address, [disable](./deletion-protection.md
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), navigate to the folder containing the address.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the address.
    1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
    1. Select the subnet containing the reserved address.
-   1. Navigate to the ![addresses](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}** tab.
-   1. Next to the IP address you want to delete, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Navigate to the **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}** tab.
+   1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) in the row with the IP address to delete and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Confirm the deletion.
 
 - CLI {#cli}
 
@@ -78,45 +79,19 @@ If deletion protection is on for the address, [disable](./deletion-protection.md
      ...
      ```
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. Apply the changes:
 
-  1. Check the configuration using this command:
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     ```
-     terraform validate
-     ```
+  1. You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-     If the configuration is valid, you will get this message:
-
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```
-     terraform plan
-     ```
-
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the configuration changes:
-
-     ```
-     terraform apply
-     ```
-
-  1. Type `yes` and press **Enter** to confirm changes.
-
-     You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
-
-     ```
+     ```bash
      yc vpc address list
      ```
 
 - API {#api}
 
-  To delete an internal IP address, use the [delete](../api-ref/Address/delete.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Delete](../api-ref/grpc/Address/delete.md) gRPC API call, and provide in the request the ID of the IP address you are deleting in `addressId` for REST API, or `adress_id` for gRPC API.
+  To delete an internal IP address, use the [delete](../api-ref/Address/delete.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Delete](../api-ref/grpc/Address/delete.md) gRPC API call, and provide in the request the ID of the IP address you are deleting in `addressId` for REST API, or `address_id` for gRPC API.
 
   {% include [get-address-id](../../_includes/vpc/get-adress-id.md) %}
 

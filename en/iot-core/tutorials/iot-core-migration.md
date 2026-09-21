@@ -31,9 +31,9 @@ Criterion | Eclipse Mosquitto | TBMQ CE | ThingsBoard CE
 --- | --- | --- | ---
 Type | Lightweight MQTT broker | Clustered MQTT broker | IoT platform with MQTT API
 Optimal use case | Direct replacement for the MQTT functionality of {{ iot-full-name }} | High workload, many connections | You need UI, dashboards, rule engine, device management
-Clustering | No (active/passive only) | Yes, horizontal scaling | Yes
-External dependencies | No | {{ KF }}, {{ RD }}, {{ PG }} | {{ PG }} (other storages optionally)
-Device management and UI | No | No | Yes
+Clustering | None (active/passive only) | Yes, horizontal scaling | Yes
+External dependencies | None | {{ KF }}, {{ RD }}, {{ PG }} | {{ PG }} (other storages optionally)
+Device management and UI | None | None | Yes
 Operation complexity | Low | High | High
 
 Choose Eclipse Mosquitto if:
@@ -81,7 +81,7 @@ The endpoint may point to:
 
 For MQTT, use TCP port `8883` with TLS. An L7 load balancer is not suitable for standard MQTT because MQTT uses TCP, not HTTP.
 
-If some of the clients connect via MQTT over WebSocket (e.g., web or browser clients), configure a separate Mosquitto listener with `protocol websockets` and TLS (typically on port `443`) and open this port in your security group.
+If some clients connect via MQTT over WebSocket (e.g., web or browser clients), configure a separate Mosquitto listener with `protocol websockets` and TLS (typically on port `443`) and open this port in the security group.
 
 ### Authentication {#authentication}
 

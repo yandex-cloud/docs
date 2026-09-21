@@ -175,7 +175,7 @@ The infrastructure cost includes:
 
      * `--network-name`: `queue-autoscale-network`, the one where you are creating the subnet.
      * `--range`: Subnet CIDR.
-     * `--zone`: Subnet availability zone, `{{ region-id }}-d`.
+     * `--zone`: `{{ region-id }}-d` subnet [availability zone](../../overview/concepts/geo-scope.md).
 
      Result:
 
@@ -250,11 +250,11 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `queue-autoscale-queue`.
      1. Click **{{ ui-key.yacloud.common.create }}**.
   
-  1. Save the queue URL to the `queue` file:
+  1. Save the queue {{ ui-key.yacloud.ymq.queue.overview.label_url }} to the `queue` file:
   
      1. In the list of queues, select `queue-autoscale-queue`.
      1. Copy the queue **{{ ui-key.yacloud.ymq.queue.overview.label_url }}**.
-     1. Paste the URL into the `queue` file in the following format:
+     1. Paste the {{ ui-key.yacloud.ymq.queue.overview.label_url }} into the `queue` file in the following format:
      
         ```yaml
         QueueUrl: <queue_URL>

@@ -33,9 +33,9 @@ items:
             href: operations/asymmetric-signature-key-access.md
           - name: Digital signature and its verification
             href: operations/signature-verification.md
-          - name: Digital signature of files and artifacts using Cosign
+          - name: Signing files and artifacts digitally using Cosign
             href: operations/signature-verification-cosign.md
-      - name: Viewing operations on service resources
+      - name: Viewing service resource operations
         href: operations/operation-logs.md
   - name: Concepts
     items:
@@ -95,7 +95,7 @@ items:
         href: tutorials/terraform-secret.md
       - name: Auto Unseal in Hashicorp Vault
         href: tutorials/vault-secret.md
-      - name: Secure password transmission to an initialization script
+      - name: Securely providing a password to an initialization script
         items:
           - name: Overview
             href: tutorials/secure-password-script/index.md

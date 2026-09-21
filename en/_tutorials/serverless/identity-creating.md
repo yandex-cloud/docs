@@ -1,6 +1,6 @@
 
 
-In this tutorial, you will use {{ TF }} to create an [address](../../postbox/concepts/glossary.md#adress) in [{{ postbox-full-name }}](../../postbox/) and add [resource records](../../dns/concepts/resource-record.md#txt) to your domain’s [DNS zone](../../dns/concepts/dns-zone.md) to verify domain ownership and send emails.
+In this tutorial, you will use {{ TF }} to create an [address](../../postbox/concepts/glossary.md#address) in [{{ postbox-full-name }}](../../postbox/) and add [resource records](../../dns/concepts/resource-record.md#txt) to your domain’s [DNS zone](../../dns/concepts/dns-zone.md) to verify domain ownership and send emails.
 
 You can add a resource record for domain ownership verification to [{{ dns-full-name }}](../../dns/), if you have [delegated](#delegate) the domain, or with your domain registrar.
 
@@ -23,8 +23,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The costs to support the infrastructure for creating an address, verifying domain ownership, and sending emails include:
-* Fee for sent [emails](../../postbox/concepts/index.md) (see [{{ postbox-name }} pricing](../../postbox/pricing.md)).
-* Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md) if using [{{ dns-full-name }}](../../dns/) (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* Fee for outgoing [emails](../../postbox/concepts/index.md) (see [{{ postbox-name }} pricing](../../postbox/pricing.md)).
+* Fee for public DNS requests and [DNS zones](../../dns/concepts/dns-zone.md) if using [{{ dns-full-name }}](../../dns/) (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 
 ## Delegate your domain to {{ dns-name }} {#delegate}
@@ -82,7 +82,7 @@ The script will create:
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To create your infrastructure via {{ TF }}:
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
 1. Prepare your infrastructure description files:
 
      1. Clone the repository containing the configuration files.
@@ -95,7 +95,7 @@ To create your infrastructure via {{ TF }}:
         * `postbox-email-identity.tf`: New infrastructure configuration.
         * `postbox-email-identity.auto.tfvars`: User data file.
 
-   For more on the properties of resources used in {{ TF }}, see these provider guides:
+   Learn more on the properties of resources used in {{ TF }} in these provider guides:
    * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Assigning access permissions](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
    * [Static access key](../../iam/concepts/authorization/access-key.md): [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).

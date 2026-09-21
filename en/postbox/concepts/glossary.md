@@ -5,7 +5,7 @@ description: In this article, you will learn about the terms and definitions in 
 
 # Terms and definitions in {{ postbox-name }}
 
-## Address {#adress}
+## Address {#address}
 
 An address is the domain emails are sent from. To send emails from any mailbox on the domain, you need to get your [domain ownership confirmed](../operations/check-domain.md).
 
@@ -33,3 +33,12 @@ A subscription is a destination for [email operation notifications](notification
 {% include [dkim](../../_includes/postbox/dkim.md) %}
 
 {{ postbox-name }} supports Easy DKIM and the advanced DKIM settings. For more information, see [{#T}](dns-records.md#dkim).
+
+## Suppression list {#suppression-list}
+
+The suppression list is a list of addresses that {{ postbox-name }} blocks from receiving emails. {{ postbox-name }} uses two types of suppression lists:
+
+* Custom suppression list created and managed by the user.
+* Global suppression list managed by {{ postbox-name }}. The global suppression list applies to all {{ postbox-name }} addresses; it cannot be viewed or modified.
+
+For more information, see [{#T}](suppression-list.md).

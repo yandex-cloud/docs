@@ -206,7 +206,7 @@ To simulate this failure, delete one of the VM instances from the group:
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select `todo-ig`.
-  1. Navigate to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** panel.
+  1. Navigate to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** tab.
   1. Next to the VM you want to delete, click ![image](../../_assets/options.svg) → **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_delete }}**.
 
@@ -276,7 +276,7 @@ To move your resources to another data center:
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select `todo-ig`.
-  1. In the top-right corner, click **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, uncheck the `{{ region-id }}-b` availability zone.
   1. Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 
@@ -306,7 +306,7 @@ To update your application:
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select `todo-ig`.
-  1. In the top-right corner, click **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab.
   1. Select the relevant Docker container and click ![image](../../_assets/options.svg) → **{{ ui-key.yacloud.common.edit }}**.

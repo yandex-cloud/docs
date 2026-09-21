@@ -17,7 +17,7 @@ You can add the records via your DNS registrar or in [{{ dns-full-name }}](../..
 
 {{ postbox-name }} supports two DKIM configuration methods:
 
-* Simple setup, or Easy DKIM: {{ postbox-name }} automatically generates DKIM keys and manages their rotation. After an [address](glossary.md#adress) is created, the management console will display two CNAME records you need to add to your domain’s DNS zone. These records point to public keys managed by {{ postbox-name }}. For more information, see [{#T}](#key-rotation).
+* Easy DKIM: {{ postbox-name }} automatically generates DKIM keys and manages their rotation. After an [address](glossary.md#address) is created, the management console will display two CNAME records you need to add to your domain’s DNS zone. These records point to public keys managed by {{ postbox-name }}. For more information, see [{#T}](#key-rotation).
 
 * Advanced setup: You manually generate a pair of 1024-bit or 2048-bit keys, e.g., via OpenSSL, provide the private key to the service, and add a single TXT record containing the public key and chosen selector to the DNZ zone.
 

@@ -2,12 +2,10 @@
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the device is located.
-   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Select the registry where the device is located.
-   1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
-   1. Select the device.
-   1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the device.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** and select the registry that contains the device.
+   1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab and select the device.
+   1. On the **{{ ui-key.yacloud.common.overview }}** tab, go to **{{ ui-key.yacloud.iot.label_certificates }}**.
 
 - CLI {#cli}
 
@@ -15,7 +13,7 @@
 
   {% include [default-catalogue](../default-catalogue.md) %}
 
-  View the list of device certificates:
+  View a list of device certificates:
 
   ```bash
   yc iot device certificate list --device-name my-device

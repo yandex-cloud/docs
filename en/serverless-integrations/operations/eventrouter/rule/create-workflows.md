@@ -69,7 +69,7 @@ description: Follow this guide to create a rule with a {{ sw-full-name }} target
 
       {% include [target-basics-cli](../../../../_includes/serverless-integrations/target-basics-cli.md) %}
 
-      * `--workflow-target`: Parameter used to configure the `{{ sw-full-name }}` target and its properties:
+      * `--workflow-target`: Parameter for configuring the `{{ sw-full-name }}` target and its properties:
 
           * `workflow-id`: ID of [workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) to receive the messages matching the rule at its input.
           * `service-account-id`: ID of the [service account](../../../../iam/concepts/users/service-accounts.md) which has the `serverless.workflowsExecutor` role or higher for the selected workflow.
@@ -129,7 +129,7 @@ description: Follow this guide to create a rule with a {{ sw-full-name }} target
 
   To create a [rule](../../../concepts/eventrouter/rule.md) with a {{ sw-full-name }} target:
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_rule" "example_rule" {
@@ -178,7 +178,7 @@ description: Follow this guide to create a rule with a {{ sw-full-name }} target
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter rule list

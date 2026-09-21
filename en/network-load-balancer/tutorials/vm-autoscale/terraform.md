@@ -13,4 +13,4 @@ To create an infrastructure for an [autoscaling instance group](index.md) with {
 
 #### Useful links {#see-also}
 
-* [{#T}](console.md)
+[{#T}](console.md)

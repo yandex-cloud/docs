@@ -333,7 +333,7 @@ To delete a key:
      ```
 
   1. In the command line, go to the directory with the {{ TF }} configuration file.
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
 
      ```bash
      terraform validate
@@ -358,7 +358,7 @@ To delete a key:
      terraform apply
      ```
 
-  1. Type `yes` and press **Enter** to confirm changes.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 

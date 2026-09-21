@@ -100,7 +100,8 @@ editable: false
         "string"
       ],
       "size": "string",
-      "type": "string"
+      "type": "string",
+      "method": "string"
     },
     "clusterName": "string",
     "description": "string",
@@ -312,8 +313,12 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || sourceShardNames[] | **string** ||
 || size | **string** (int64) ||
-|| type | **enum** (BackupType)
+|| type | **enum** (BackupCreationType)
 
 - `AUTOMATED`
 - `MANUAL` ||
+|| method | **enum** (BackupMethod)
+
+- `BASE`
+- `FULL` ||
 |#

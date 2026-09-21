@@ -23,8 +23,8 @@ You get an error when attempting to add one more TXT record of the same type nex
 To add a new value:
 
 1. In the [management console]({{ link-console-main }}), select a folder to modify the DNS zone record in.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-1. Select the zone from the list.
+1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+1. Click the zone of interest.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the record you need and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 1. On the page that opens, click **{{ ui-key.yacloud.common.add }}**.
 1. Enter the new **{{ ui-key.yacloud.dns.label_records }}** of the record in the field that appears.

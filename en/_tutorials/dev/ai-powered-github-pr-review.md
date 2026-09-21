@@ -42,7 +42,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support costs for implementing a scenario for automatic AI review of pull requests include:
 * Fee for text generation (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
-* Fee for storing the secret and operations with it (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
+* Fee for storing the secret and operations with it (see [{{ lockbox-full-name }} pricing]({{ link-docs }}/lockbox/pricing)).
 * Fee for data logging and storage in a [log group]({{ link-docs }}/logging/concepts/log-group) if using [{{ cloud-logging-name }}]({{ link-docs }}/logging/) (see [{{ cloud-logging-full-name }} pricing]({{ link-docs }}/logging/pricing)).
 
 ### Create a {{ lockbox-name }} secret {#create-secret}
@@ -106,7 +106,7 @@ Create a {{ lockbox-full-name }} [secret]({{ link-docs }}/lockbox/concepts/secre
 
 ### Create service accounts {#create-sa}
 
-Create these two [service accounts]({{ link-docs }}/iam/concepts/users/service-accounts.md):
+Create two [service accounts]({{ link-docs }}/iam/concepts/users/service-accounts):
 * `workflow-sa`: This one will be used to run the {{ sw-name }} [workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow).
 * `github-worker`: This one will be used to execute the workflow on a request from the GitHub Actions script.
 

@@ -113,7 +113,12 @@
       "connectionManager": {
         "connectionId": "string"
       },
-      "deletionProtectionMode": "string"
+      "deletionProtectionMode": "string",
+      "userConnectionManager": {
+        "connectionId": "string",
+        "connectionFolderId": "string",
+        "secretFolderId": "string"
+      }
     }
   },
   "requestParameters": "object",
@@ -322,6 +327,7 @@ The maximum string length in characters is 50. ||
 - `DELETION_PROTECTION_MODE_DISABLED`
 - `DELETION_PROTECTION_MODE_ENABLED`
 - `DELETION_PROTECTION_MODE_INHERITED` ||
+|| userConnectionManager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)** ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mysql.v1.Permission}
@@ -377,4 +383,13 @@ The minimum value is 0. ||
 #|
 ||Field | Description ||
 || connectionId | **string** ||
+|#
+
+## UserConnectionManager {#yandex.cloud.mdb.v1.UserConnectionManager}
+
+#|
+||Field | Description ||
+|| connectionId | **string** ||
+|| connectionFolderId | **string** ||
+|| secretFolderId | **string** ||
 |#

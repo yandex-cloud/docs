@@ -12,11 +12,11 @@ To enable a software-accelerated network on an existing VM:
 
   1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** and select the VM.
-  1. On the top panel, click ![image](../../_assets/console-icons/stop.svg) **{{ ui-key.yacloud.common.stop }}** and confirm stopping the VM.
-  1. Wait for the VM status to change to `Stopped` and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** on the top panel.
+  1. In the top panel, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.stop }}**. In the window that opens, confirm stopping the VM.
+  1. Wait for the VM status to change to `Stopped` and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}**.
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-  1. On the top panel, click ![image](../../_assets/console-icons/stop.svg) **{{ ui-key.yacloud.common.start }}** and confirm starting the VM.
+  1. Click ![play](../../_assets/console-icons/play.svg) **{{ ui-key.yacloud.common.start }}** and confirm starting the VM in the window that opens.
 
 - CLI {#cli}
 
@@ -26,63 +26,63 @@ To enable a software-accelerated network on an existing VM:
 
   1. See the description of the CLI command for updating VM parameters:
 
-      ```bash
-      yc compute instance update --help
-      ```
+     ```bash
+     yc compute instance update --help
+     ```
 
   1. Get a list of VMs in the default folder:
 
-      {% include [compute-instance-list](../../compute/_includes_service/compute-instance-list.md) %}
+     {% include [compute-instance-list](../../compute/_includes_service/compute-instance-list.md) %}
 
   1. Select the `ID` or `NAME` of the relevant VM and stop it. For example, to stop a VM named `first-instance`, run this command:
 
-      ```bash
-      yc compute instance stop first-instance
-      ```
+     ```bash
+     yc compute instance stop first-instance
+     ```
 
   1. Enable a software-accelerated network:
 
-      1. Run this command:
+     1. Run this command:
 
-          ```bash
-          yc compute instance update first-instance \
-            --network-settings type=software-accelerated
-          ```
+        ```bash
+        yc compute instance update first-instance \
+          --network-settings type=software-accelerated
+        ```
 
-          Where `--network-settings` is the parameter that switches the network type.
+        Where `--network-settings` is the parameter that switches the network type.
 
-          Result:
+        Result:
 
-          ```text
-          id: fhm0b28lgfp4********
-          folder_id: b1gbnv36zqf5********
-          created_at: "2023-05-24T09:28:11Z"
-          name: first-instance
-          zone_id: {{ region-id }}-a
-          platform_id: standard-v3
-          resources:
-            memory: "2147483648"
-            cores: "2"
-            core_fraction: "100"
-          status: STOPPED
-          ...
-          network_settings:
-            type: SOFTWARE_ACCELERATED
-          placement_policy: {}
-          ```
+        ```text
+        id: fhm0b28lgfp4********
+        folder_id: b1gbnv36zqf5********
+        created_at: "2023-05-24T09:28:11Z"
+        name: first-instance
+        zone_id: {{ region-id }}-a
+        platform_id: standard-v3
+        resources:
+          memory: "2147483648"
+          cores: "2"
+          core_fraction: "100"
+        status: STOPPED
+        ...
+        network_settings:
+          type: SOFTWARE_ACCELERATED
+        placement_policy: {}
+        ```
 
-      1. Run the VM:
+     1. Run the VM:
 
-          ```bash
-          yc compute instance start first-instance
-          ```
+        ```bash
+        yc compute instance start first-instance
+        ```
 
   To disable a software-accelerated network, stop the VM and run this command:
 
-    ```bash
-    yc compute instance update first-instance \
-      --network-settings type=standard
-    ```
+  ```bash
+  yc compute instance update first-instance \
+    --network-settings type=standard
+  ```
 
 - {{ TF }} {#tf}
 
@@ -102,7 +102,7 @@ To enable a software-accelerated network on an existing VM:
      }
      ```
 
-     Where `network_acceleration_type` is the network acceleration type. The possible values are:
+     Where `network_acceleration_type` is the network acceleration type. The possible values are as follows:
      * `software_accelerated`: Software-accelerated network.
      * `standard`: Standard network. Specify this value to disable software accelerated network.
 
@@ -114,8 +114,8 @@ To enable a software-accelerated network on an existing VM:
 
 - API {#api}
 
-    Use the [update](../../compute/api-ref/Instance/update.md) REST API method for the [Instance](../../compute/api-ref/Instance/index.md) resource or the [InstanceService/Update](../../compute/api-ref/grpc/Instance/update.md) gRPC API call.
+  Use the [update](../../compute/api-ref/Instance/update.md) REST API method for the [Instance](../../compute/api-ref/Instance/index.md) resource or the [InstanceService/Update](../../compute/api-ref/grpc/Instance/update.md) gRPC API call.
 
-    To enable software accelerated network, in the request body, set `networkSettings.type` to `SOFTWARE_ACCELERATED`; to disable, set to `STANDARD`.
+  To enable software accelerated network, in the request body, set `networkSettings.type` to `SOFTWARE_ACCELERATED`; to disable, set to `STANDARD`.
 
 {% endlist %}

@@ -27,7 +27,7 @@ To set up storage of {{ mgl-name }} Docker images in {{ container-registry-full-
 1. [Enable a Docker image lifecycle policy](#lifecycle-policy).
 1. Optionally, [scan your Docker images for vulnerabilities](#vulnerability-scanner).
 
-If you have already configured your {{ mgl-full-name }} instance for Continuous Integration (CI), make sure to set up your [infrastructure for storing Docker images](#deploy-infrastructure). Then, proceed with the setup by [creating environment variables](#add-variables).
+If you have already configured your {{ mgl-name }} instance for Continuous Integration (CI), make sure to set up your [infrastructure for storing Docker images](#deploy-infrastructure). Then, proceed with the setup by [creating environment variables](#add-variables).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -43,12 +43,15 @@ By default, {{ GL }} {{ container-registry-name }} is disabled when creating a {
 
 ### Required paid resources {#paid-resources}
 
-Infrastructure support costs include fees for the following resources:
-
-* Disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Dynamic public IP address assigned (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Storage of the Docker images you created and vulnerability scanner, if [enabled](#vulnerability-scanner) (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 * {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* {{ container-registry-name }}: Storing created Docker images and leveraging the vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* {{ GL }} instance. The cost depends on the instance creation method:
+
+   * {{ mgl-name }}: You pay for the VM computing resources, volume of stored data and backups, and the amount of outgoing traffic (see [{{ mgl-name }} pricing](../../managed-gitlab/pricing.md)).
+   * VM with a {{ GL }} image: You pay for the VM computing resources and the {{ GL }} image ([{{ compute-name }} pricing](../../compute/pricing.md)).
+
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes and for the {{ GL }} image VM with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 ### Set up your infrastructure {#deploy-infrastructure}
 
@@ -299,7 +302,7 @@ To enable scanning, update the CI pipeline in your {{ GL }} project:
 
 To make sure the image scan completed successfully:
 
-1. Select **Build** in the left-hand panel in the `gitlab-test` project, and then select **Pipelines** from the drop-down menu.
+1. Select **Build** on the left-hand panel in the `gitlab-test` project, and then select **Pipelines** from the drop-down menu.
 1. Make sure the `build` and `test` stages have the `passed` status. This means that the CI pipeline completed successfully.
 1. Go to the [management console]({{ link-console-main }}/) and open your {{ container-registry-full-name }}.
 1. Open the repository with Docker images from the {{ GL }} project.

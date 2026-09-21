@@ -1,14 +1,14 @@
 # Getting started with {{ kms-name }}
 
-In this guide, you create your first [key](../concepts/index.md) and encrypt and decrypt text using the {{ kms-short-name }}. 
+In this guide, you will create your first [key](../concepts/index.md) and try your hand at encrypting and decrypting text using {{ kms-short-name }}. 
 
 ## Getting started {#before-you-begin}
 
 To get started with {{ kms-name }}:
 
-1. Log in to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the instructions.
+1. Log in to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the on-screen instructions.
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
-1. [Assign](../../iam/operations/roles/grant.md) to your {{ yandex-cloud }} account the `owner` or `editor` role or higher for the cloud of your choice.
+1. [Assign](../../iam/operations/roles/grant.md) the `owner` or `editor` role or higher for the cloud to your {{ yandex-cloud }} account.
 
     {% include [note-managing-roles](../../_includes/mdb/note-managing-roles.md) %}
 
@@ -23,21 +23,21 @@ To get started with {{ kms-name }}:
     Create a symmetric encryption key: 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a key.
     1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-    1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key parameters:
+    1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+    1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key properties:
        
        * In the **{{ ui-key.yacloud.common.name }}** field, specify `my-first-key`.
        * In the **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** field, specify `AES-256`.
        * In the **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}** field, leave `{{ ui-key.yacloud.kms.symmetric-key.form.value_no-rotation }}`.
        * Click **{{ ui-key.yacloud.common.create }}**.
     
-    1. Click the line with the key name and make sure the **{{ ui-key.yacloud.kms.symmetric-key.overview.label_title-versions }}** section contains the first key version.
+    1. Click the row with the key name and make sure the **{{ ui-key.yacloud.kms.symmetric-key.overview.label_title-versions }}** section contains the first key version.
 
 {% endlist %}
 
 ## Encrypt text using the key {#encrypt}
 
-Come up with a secret text, for example: <q>The launch is scheduled for Marchember 42.</q>. The text size must not exceed 32 KB. To encrypt large volumes of data, use [envelope encryption](../concepts/envelope.md).
+Come up with a secret text, e.g.: <q>The launch is scheduled for Marchember 42.</q>. The text size must not exceed 32 KB. To encrypt large amounts of data, use [envelope encryption](../concepts/envelope.md).
 
 {% list tabs group=instructions %}
 
@@ -48,7 +48,7 @@ Come up with a secret text, for example: <q>The launch is scheduled for Marchemb
     1. Save the secret text to the `plaintext.txt` file.
     1. Copy the ID of the previously created key from the management console.
         
-        1. In the [management console]({{ link-console-main }}), select the folder the key was created in.
+        1. In the [management console]({{ link-console-main }}), select the folder containing the key.
         1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
         1. In the window that opens, copy the key from the **{{ ui-key.yacloud.common.id }}** field.
     
@@ -82,12 +82,12 @@ Decrypt the `ciphertext` binary file from the previous step.
     --plaintext-file decrypted.txt
     ```
     
-    As a result, the `ciphertext` file will be decrypted and the following decrypted text will be written to the `decrypted.txt` file: <q>The launch is scheduled for Marchember 42.</q>.
+    This will decrypt the `ciphertext` file and write the following decrypted text to the `decrypted.txt` file: <q>The launch is scheduled for Marchember 42.</q>.
 
 {% endlist %}
 
 #### Useful links {#see-also}
 
-* [Updating keys](../operations/key.md#update)
+* [Updating a key](../operations/key.md#update)
 * [Rotating a key](../operations/key.md#rotate)
 * [Changing the default key version](../operations/version.md#make-primary)

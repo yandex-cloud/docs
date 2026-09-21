@@ -10,9 +10,7 @@ keywords:
   - Workflow
   - YaWL specification
   - Glue
-  - integrations
-  - API Gateway
-  - API gateway
+  - integration options
   - bus
   - connector
   - rule

@@ -86,8 +86,6 @@ items:
           Establishing network connectivity between a {{ baremetal-name }}
           private subnet and on-premise resources
         href: tutorials/bms-cic-onprem.md
-      - name: Changing VPC IP prefixes in a virtual router
-        href: tutorials/ri-prefixes-upsert.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

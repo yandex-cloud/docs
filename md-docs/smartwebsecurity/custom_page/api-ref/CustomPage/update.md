@@ -1,0 +1,248 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > REST (англ.) > [SmartWebSecurity CustomPage API](../index.md) > [CustomPage](index.md) > Update
+
+# SmartWebSecurity CustomPage API, REST: CustomPage.Update
+
+Updates the specified CustomPage resource.
+
+## HTTP request
+
+```
+PATCH https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/customPages/{customPageId}
+```
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| customPageId | **string**
+
+Required field. ID of the custom page to update. ||
+|#
+
+## Body parameters {#yandex.cloud.smartwebsecurity.v1.custom_page.UpdateCustomPageRequest}
+
+```json
+{
+  "updateMask": "string",
+  "labels": "object",
+  "name": "string",
+  "description": "string",
+  "content": "string",
+  "contentType": "string",
+  "statusCode": "string",
+  "headers": "object"
+}
+```
+
+#|
+||Field | Description ||
+|| updateMask | **string** (field-mask)
+
+A comma-separated names off ALL fields to be updated.
+Only the specified fields will be changed. The others will be left untouched.
+If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+the field's value will be reset to the default. The default value for most fields is null or 0.
+
+If `` updateMask `` is not sent in the request, all fields' values will be updated.
+Fields specified in the request will be updated to provided values.
+The rest of the fields will be reset to the default. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
+|| name | **string**
+
+Name of the custom page.
+
+The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
+|| description | **string**
+
+Description of the custom page.
+
+The maximum string length in characters is 512. ||
+|| content | **string**
+
+Content of the custom page. ||
+|| contentType | **string**
+
+MIME type of the custom page content.
+
+Value must match the regular expression ` [\t\x20-\x7E]* `. ||
+|| statusCode | **enum** (StatusCode)
+
+HTTP status code returned with the custom page.
+
+- `OK`: HTTP 200 OK.
+- `CREATED`: HTTP 201 Created.
+- `ACCEPTED`: HTTP 202 Accepted.
+- `NON_AUTHORITATIVE_INFORMATION`: HTTP 203 Non-Authoritative Information.
+- `NO_CONTENT`: HTTP 204 No Content.
+- `RESET_CONTENT`: HTTP 205 Reset Content.
+- `PARTIAL_CONTENT`: HTTP 206 Partial Content.
+- `MULTI_STATUS`: HTTP 207 Multi-Status.
+- `ALREADY_REPORTED`: HTTP 208 Already Reported.
+- `IM_USED`: HTTP 226 IM Used.
+- `MULTIPLE_CHOICES`: HTTP 300 Multiple Choices.
+- `MOVED_PERMANENTLY`: HTTP 301 Moved Permanently.
+- `FOUND`: HTTP 302 Found.
+- `SEE_OTHER`: HTTP 303 See Other.
+- `NOT_MODIFIED`: HTTP 304 Not Modified.
+- `USE_PROXY`: HTTP 305 Use Proxy.
+- `TEMPORARY_REDIRECT`: HTTP 307 Temporary Redirect.
+- `PERMANENT_REDIRECT`: HTTP 308 Permanent Redirect.
+- `BAD_REQUEST`: HTTP 400 Bad Request.
+- `UNAUTHORIZED`: HTTP 401 Unauthorized.
+- `PAYMENT_REQUIRED`: HTTP 402 Payment Required.
+- `FORBIDDEN`: HTTP 403 Forbidden.
+- `NOT_FOUND`: HTTP 404 Not Found.
+- `METHOD_NOT_ALLOWED`: HTTP 405 Method Not Allowed.
+- `NOT_ACCEPTABLE`: HTTP 406 Not Acceptable.
+- `PROXY_AUTHENTICATION_REQUIRED`: HTTP 407 Proxy Authentication Required.
+- `REQUEST_TIMEOUT`: HTTP 408 Request Timeout.
+- `CONFLICT`: HTTP 409 Conflict.
+- `GONE`: HTTP 410 Gone.
+- `LENGTH_REQUIRED`: HTTP 411 Length Required.
+- `PRECONDITION_FAILED`: HTTP 412 Precondition Failed.
+- `PAYLOAD_TOO_LARGE`: HTTP 413 Content Too Large.
+- `URI_TOO_LONG`: HTTP 414 URI Too Long.
+- `UNSUPPORTED_MEDIA_TYPE`: HTTP 415 Unsupported Media Type.
+- `RANGE_NOT_SATISFIABLE`: HTTP 416 Range Not Satisfiable.
+- `EXPECTATION_FAILED`: HTTP 417 Expectation Failed.
+- `MISDIRECTED_REQUEST`: HTTP 421 Misdirected Request.
+- `UNPROCESSABLE_ENTITY`: HTTP 422 Unprocessable Content.
+- `LOCKED`: HTTP 423 Locked.
+- `FAILED_DEPENDENCY`: HTTP 424 Failed Dependency.
+- `UPGRADE_REQUIRED`: HTTP 426 Upgrade Required.
+- `PRECONDITION_REQUIRED`: HTTP 428 Precondition Required.
+- `TOO_MANY_REQUESTS`: HTTP 429 Too Many Requests.
+- `REQUEST_HEADER_FIELDS_TOO_LARGE`: HTTP 431 Request Header Fields Too Large.
+- `INTERNAL_SERVER_ERROR`: HTTP 500 Internal Server Error.
+- `NOT_IMPLEMENTED`: HTTP 501 Not Implemented.
+- `BAD_GATEWAY`: HTTP 502 Bad Gateway.
+- `SERVICE_UNAVAILABLE`: HTTP 503 Service Unavailable.
+- `GATEWAY_TIMEOUT`: HTTP 504 Gateway Timeout.
+- `HTTP_VERSION_NOT_SUPPORTED`: HTTP 505 HTTP Version Not Supported.
+- `VARIANT_ALSO_NEGOTIATES`: HTTP 506 Variant Also Negotiates.
+- `INSUFFICIENT_STORAGE`: HTTP 507 Insufficient Storage.
+- `LOOP_DETECTED`: HTTP 508 Loop Detected.
+- `NOT_EXTENDED`: HTTP 510 Not Extended.
+- `NETWORK_AUTHENTICATION_REQUIRED`: HTTP 511 Network Authentication Required. ||
+|| headers | **object** (map<**string**, **string**>)
+
+HTTP response headers returned with the custom page.
+
+The maximum string length in characters for each value is 256. The string length in characters for each key must be 1-128. Each key must match the regular expression ``` [!#$%&'*+.^_\x60|~0-9A-Za-z-]* ```. Each value must match the regular expression ` [\t\x20-\x7E]* `. No more than 10 per resource. ||
+|#
+
+## Response {#yandex.cloud.operation.Operation}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "id": "string",
+  "description": "string",
+  "createdAt": "string",
+  "createdBy": "string",
+  "modifiedAt": "string",
+  "done": "boolean",
+  "metadata": "object",
+  // Includes only one of the fields `error`, `response`
+  "error": {
+    "code": "integer",
+    "message": "string",
+    "details": [
+      "object"
+    ]
+  },
+  "response": "object"
+  // end of the list of possible fields
+}
+```
+
+An Operation resource. For more information, see [Operation](../../../../api-design-guide/concepts/operation.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdBy | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modifiedAt | **string** (date-time)
+
+The time when the Operation resource was last modified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| done | **boolean**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **object**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **object**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#

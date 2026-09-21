@@ -1,5 +1,6 @@
 # Prioritizing traffic by direction for route 0.0.0.0/0
 
+
 To prioritize traffic by direction in {{ interconnect-name }}, you can use the following methods:
 
 * [Longest Prefix Match (LPM)](#lpm1)
@@ -39,4 +40,3 @@ Before announcing the prefix, the BGP routing policy on the R2 router adds the c
 This way, for the `0.0.0.0/0` traffic, {{ yandex-cloud }} will select the best route via the `M9` PoP, while the route via the `NORD` PoP will act as a failover due to its longer AS path.
 
 All traffic from the cloud subnets to the customer infrastructure will be routed through the private connection to `M9`. If this connection fails, the traffic will automatically failover to the private connection to `NORD`.
-

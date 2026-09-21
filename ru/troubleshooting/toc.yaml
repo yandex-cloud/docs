@@ -173,18 +173,6 @@ items:
           Как ограничить доступ к бакету {{ objstorage-name }} диапазоном
           IP-адресов, принадлежащих {{ cdn-name }}
         href: cdn/how-to/permit-bucket-access-only-to-cdn-networks.md
-  - name: '{{ cloud-logging-name }}'
-    items:
-      - name: Все решения для {{ cloud-logging-name }}
-        href: cloud-logging/index.md
-      - name: Примеры конфигураций и сценариев {{ cloud-logging-name }}
-        href: cloud-logging/how-to/index.md
-        hidden: true
-      - name: >-
-          Как настроить отправку журналов работы сторонних приложений в {{
-          cloud-logging-name }}
-        href: >-
-          cloud-logging/how-to/sending-logs-from-third-party-libraries-and-apps.md
   - name: '{{ compute-name }}'
     items:
       - name: Все решения для {{ compute-name }}

@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#cleanup).
 
 The support cost for this solution includes:
 * Fee for the number of {{ iot-name }} messages (see [{{ iot-full-name }} pricing](../../iot-core/pricing.md)).
-* Fee for the number of [function](../../functions/concepts/function.md) invocations in {{ sf-name }} (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of [function](../../functions/concepts/function.md) invocations (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for logging user [metrics](../../monitoring/concepts/data-model.md#metric) via the [{{ monitoring-name }}](../../monitoring/index.yaml) API (see [{{ monitoring-full-name }} pricing](../../monitoring/pricing.md)).
 
 ### Create service accounts {#create-sa}
@@ -62,7 +62,7 @@ The support cost for this solution includes:
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Select the registry you created in the previous step.
-  1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left-hand menu.
+  1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
   1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a device name, e.g., `my-device`.
   1. In the **{{ ui-key.yacloud.common.password }}** field, set a password for device access. To create a password, you can use [this password generator](https://passwordsgenerator.net/).
@@ -97,13 +97,14 @@ The emulator sends data from device sensors and processes data for monitoring an
       1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the function, e.g., `my-device-emulator-function`.
       1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Create a function version:
-      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** window that opens, select `Node.js 18`.
+      1. On the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** tab, select the `Node.js 22` runtime.
       1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
-          * File name: `device-emulator.js`.
-          * File contents: Function code from [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring/blob/master/device-emulator.js).
+          1. Specify a name for the file: `device-emulator.js`.
+          1. Click **{{ ui-key.yacloud.common.create }}**.
+          1. Add file contents: Function code from [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring/blob/master/device-emulator.js).
       1. Similarly, create a file named `package.json` with the following contents:
 
           ```json
@@ -117,21 +118,21 @@ The emulator sends data from device sensors and processes data for monitoring an
           ```
 
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `device-emulator.handler`.
-      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`.
+      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify the following:
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10 {{ ui-key.yacloud.common.units.label_time-sec }}`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
           * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-emulator-function-service-account`.
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-              Key | Description | Value
-              :--- | :--- | :---
-              `HUMIDITY_SENSOR_VALUE`    | Baseline humidity sensor reading         | `80.15`
-              `TEMPERATURE_SENSOR_VALUE` | Baseline temperature sensor reading       | `25.25`
-              `RACK_DOOR_SENSOR_VALUE`   | Rack door sensor reading             | `False`
-              `ROOM_DOOR_SENSOR_VALUE`   | Server room door sensor reading | `False`
-              `SMOKE_SENSOR_VALUE`       | Smoke sensor reading                             | `False`
-              `WATER_SENSOR_VALUE`       | Water sensor reading                             | `False`
-              `IOT_CORE_DEVICE_ID`       | ID of the device you created.         | You can look up the ID in the [management console]({{ link-console-main }}).<br>{{ iot-name }}
-              `DEVICE_ID`                | Custom device name                 | It is specified by the user.
+      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**, specify the following:
+          Key | Description | Value
+          :--- | :--- | :---
+          `HUMIDITY_SENSOR_VALUE`    | Baseline humidity sensor reading         | `80.15`
+          `TEMPERATURE_SENSOR_VALUE` | Baseline temperature sensor reading       | `25.25`
+          `RACK_DOOR_SENSOR_VALUE`   | Rack door sensor reading             | `False`
+          `ROOM_DOOR_SENSOR_VALUE`   | Server room door sensor reading | `False`
+          `SMOKE_SENSOR_VALUE`       | Smoke sensor reading                             | `False`
+          `WATER_SENSOR_VALUE`       | Water sensor reading                             | `False`
+          `IOT_CORE_DEVICE_ID`       | ID of the device you created.         | You can look up the ID in the [management console]({{ link-console-main }}).<br>{{ iot-name }}
+          `DEVICE_ID`                | Custom device name                 | It is specified by the user.
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -173,7 +174,7 @@ Optionally, to get detailed information from the sensors, [subscribe](../../iot-
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select `my-device-emulator-function`.
-  1. In the left-hand menu, select **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** list, select `$latest`, which is the most recently created function.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
 
@@ -212,7 +213,7 @@ Optionally, to get detailed information from the sensors, [subscribe](../../iot-
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter a name for the trigger, e.g., `my-emulator-function-trigger`.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
@@ -238,7 +239,7 @@ Optionally, to get detailed information from the sensors, [subscribe](../../iot-
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
   1. Create a function:
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
       1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the function, e.g., `my-monitoring-func`.
@@ -249,22 +250,23 @@ Optionally, to get detailed information from the sensors, [subscribe](../../iot-
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
-          * File name: `monitoring.py`.
-          * File contents: Function code from [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring/blob/master/monitoring.py).
+          1. Specify a name for the file: `monitoring.py`.
+          1. Click **{{ ui-key.yacloud.common.create }}**.
+          1. Add file contents: function code from [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring/blob/master/monitoring.py).
 
               Within this function, the `makeAllMetrics` method handles the processing of data to send to the monitoring service. If you want to add or remove parameters, make changes to this method.
 
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `monitoring.msgHandler`.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify the following:
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10 {{ ui-key.yacloud.common.units.label_time-sec }}`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
           * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-metrics-function-service-account`.
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
+      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**, specify the following:
 
-              Key | Description | Value
-              :--- | :--- | :---
-              `VERBOSE_LOG`       | Enabling or disabling data logging | `True`
-              `METRICS_FOLDER_ID` | ID of the folder where you deployed the services and for which you will create a dashboard in {{ monitoring-name }}. | You can look up the ID in the [management console]({{ link-console-main }}).
+          Key | Description | Value
+          :--- | :--- | :---
+          `VERBOSE_LOG`       | Enabling or disabling data logging | `True`
+          `METRICS_FOLDER_ID` | ID of the folder where you deployed the services and for which you will create a dashboard in {{ monitoring-name }}. | You can look up the ID in the [management console]({{ link-console-main }}).
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -279,7 +281,7 @@ Optionally, to get detailed information from the sensors, [subscribe](../../iot-
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select `my-monitoring-func`.
-  1. In the left-hand menu, select **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** list, select `$latest`, which is the most recently created function.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** field, paste the following data:
 
@@ -329,7 +331,7 @@ The trigger will invoke the function when a message appears in the [device topic
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter a name for the trigger, e.g., `my-monitoring-func-trigger`.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}`.
@@ -407,10 +409,9 @@ Set up sensor reading monitoring: create [charts](../../monitoring/concepts/visu
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-console-main }}/link/monitoring) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. Open the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** tab.
-  1. Click **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
-  1. At the top right, click **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
-  1. In the window that opens, enter a name for the dashboard and click **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
+  1. In the window that opens, enter a name for the dashboard and click **{{ ui-key.yacloud_monitoring.navigation.dialogs.button_save }}**.
+  1. At the top right, click ![image](../../_assets/console-icons/floppy-disk.svg).
+  1. In the window that opens, enter a name for the dashboard and click **{{ ui-key.yacloud_monitoring.navigation.dialogs.button_save }}**.
 
 {% endlist %}
 
@@ -423,18 +424,17 @@ Create a temperature variation chart:
 - {{ monitoring-short-name }} UI {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Navigate]({{ link-console-main }}/link/monitoring) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. Open the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** tab.
-  1. Next to the dashboard name, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.actions.common.edit }}**.
-  1. In the bottom section, click **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
+  1. [Navigate]({{ link-monitoring }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Click ![image](../../_assets/console-icons/plus.svg) → ![image](../../_assets/console-icons/chart-column.svg) **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}** at the top right.
+  1. Next to the dashboard name, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud_monitoring.component.entities-list.action_edit }}**.
+  1. In the top-right corner, click ![image](../../_assets/console-icons/plus.svg) → ![image](../../_assets/console-icons/chart-column.svg) **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
   1. Create a query for the chart:
 
-      1. In the query editor, click ![image](../../_assets/console-icons/plus.svg).
-      1. In the list of services (**service=**), select `{{ ui-key.yacloud_monitoring.services.label_custom }}`.
-      1. In the list of chart types (**name=**), select `Temperature`, which is room temperature.
-      1. In the **device_id=** list, select the ID of the device for which you want to create a chart.
-
-  1. At the top right, click **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
+      1. In the query editor, select the following in the ![image](../../_assets/monitoring/chart.svg) **{{ ui-key.yacloud_monitoring.querystring.tokens.placeholder.service }}** line:
+          * `service` → `custom`.
+          * `name` → `temperature`: Temperature in the room.
+          * `device_id` → ID of the device for which you want to create a chart.
+  1. At the top right, click ![image](../../_assets/console-icons/floppy-disk.svg).
 
   Create other charts in a similar way:
 
@@ -459,8 +459,8 @@ If you change the baselines in the environment variables of the emulation functi
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select `my-device-emulator-function`.
-  1. Click the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** tab.
-  1. Change some original variable values as you like under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** in the **{{ ui-key.yacloud_components.forms.label_value }}** field at the bottom of the window.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
+  1. Change some original variable values as you like under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** in the **{{ ui-key.yacloud.component.key-values-input.label_value }}** field at the bottom of the window.
 
       Key | Original value | New value
       :--- | :--- | :---
@@ -493,15 +493,16 @@ Customize a list of recipients and select a notification method.
 - {{ monitoring-short-name }} UI {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Navigate]({{ link-console-main }}/link/monitoring) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. Open the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}** tab.
-  1. Click **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
-  1. In the **{{ ui-key.yacloud_monitoring.channel.field_name }}** field, specify a name for the channel, e.g., `my-message-channel`.
-  1. From the **{{ ui-key.yacloud_monitoring.channel.field_method }}** list, select `{{ ui-key.yacloud_monitoring.channel.title_method-email }}`.
+  1. [Navigate]({{ link-monitoring }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
+  1. Click **{{ ui-key.yacloud_monitoring.channel.button_create }}**.
+  1. In the window that opens:
+      1. In the **{{ ui-key.yacloud_monitoring.channel.field_name }}** field, specify a name for the channel, e.g., `my-message-channel`.
+      1. From the **{{ ui-key.yacloud_monitoring.channel.field_method }}** list, select ![image](../../_assets/console-icons/envelope.svg) `{{ ui-key.yacloud_monitoring.channel.title_method-email }}`.
 
-      You can also set up notifications through text messages, push, or Telegram.
+          You can also set up notifications through text messages, push, or Telegram.
 
-  1. In the **{{ ui-key.yacloud_monitoring.channel.field_recipients }}** list, select an account.
+      1. In the **{{ ui-key.yacloud_monitoring.channel.field_recipients }}** list, select an account.
 
       You can select multiple recipients for notifications. You can specify the accounts of users having access to your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) as recipients. Learn more about how to add users to {{ yandex-cloud }} [here](../../organization/operations/add-account.md).
   1. Click **{{ ui-key.yacloud_monitoring.channel.button_create }}**.
@@ -521,22 +522,25 @@ Create an alert based on the room temperature sensor readings and connect the cr
 - {{ monitoring-short-name }} UI {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Navigate]({{ link-console-main }}/link/monitoring) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the alert.
-  1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}**, click ![image](../../_assets/console-icons/plus.svg) and fill out the fields:
-      1. In the list of services (**service=**), select `{{ ui-key.yacloud_monitoring.services.label_custom }}`.
-      1. In the list of alert types (**name=**), select `Temperature`.
-      1. In the **device_id=** list, select the ID of the device for which you want to create an alert.
+  1. [Navigate]({{ link-monitoring }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** under ![image](../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.homepage.title_alerts }}** at the bottom of the page.
+  1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.list-table.name }}** field, enter a name for the alert.
+  1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}**:
+      
+      1. In the query editor, select the following in the ![image](../../_assets/monitoring/chart.svg) **{{ ui-key.yacloud_monitoring.querystring.tokens.placeholder.service }}** line:
+          * `service` → `custom`.
+          * `name` → `temperature`: Temperature in the room.
+          * `device_id` → ID of the device for which you want to create an alert.
+  
   1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-conditions }}**, set the alert trigger conditions:
       1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.evaluation-type }}** list, select `{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.avg }}`.
       1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** list, select `{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}`.
       1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}** field, enter `50`.
       1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}** field, enter `70`.
-      1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}** list, select `5 minutes`.
+      1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}** list, select `5m`.
   1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}**, click **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.edit-notify-methods }}**, and then **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
   1. In the window that opens, select `my-message-channel` in the **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.notification-method }}** field and click **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
-  1. At the bottom of the window, click **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+  1. Click **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 

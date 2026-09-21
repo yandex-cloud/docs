@@ -176,7 +176,7 @@ Notification example:
 
 ### Email not delivered notification {#bounce}
 
-Comes when the recipient's mail exchange server responds to a delivery attempt with an error which, according to {{ postbox-name }}, does not require another delivery attempt, or when the recipient's address is on the suppression list.
+Comes when the recipient's mail server responds to a delivery attempt with an error which, according to {{ postbox-name }}, does not require another delivery attempt, or when the recipient's address is on one of the [suppression lists](suppression-list.md).
 
 Notification example:
 
@@ -574,13 +574,13 @@ Name | Type | Description
 `messageId` | String | Unique ID of the email. One email can have multiple recipients. Sent by {{ postbox-name }} when accepting the email for processing.
 `identityId` | String | ID of the {{ postbox-name }} address used when sending the email.
 `commonHeaders` | [CommonHeaders](#common-headers-object) object | Object containing the main headers of the email.
-`headers` | Array of [Header](#header-object) objects | Full list of email headers as received by {{ postbox-name }} before adding system-generated service headers. This list includes custom headers added by the sender, e.g., `X-Campaign-Id`. This field is omitted if message headers are not retained.
+`headers` | Array of [Header](#header-object) objects | Full list of email headers as received by {{ postbox-name }} before adding system-generated service headers. This list includes custom headers added by the sender, e.g., `X-Campaign-Id`. This field is omitted if email headers are not retained.
 `headersTruncated` | Boolean | The field is present only if its value is `true`. A value of `true` indicates the `headers` list is incomplete and has been cut off from the end because the total size of headers exceeded the 10 KiB limit.
 `tags` | Object | Object containing tags added to the email. The value of each tag is an array of strings. Custom tags always contain only one item.
 
 {% note info %}
 
-The `headers` array contains message headers exactly as transmitted by the sender, including custom headers, e.g., `X-Campaign-Id`. Headers that {{ postbox-name }} adds or modifies when processing an email, such as `List-Unsubscribe`, `List-Unsubscribe-Post`, or `DKIM-Signature`, are excluded from `headers`. The order of the headers is preserved.
+`headers` contains email headers the way they were transmitted by the sender, including custom headers, e.g., `X-Campaign-Id`. Headers that {{ postbox-name }} adds or modifies when processing an email, such as `List-Unsubscribe`, `List-Unsubscribe-Post`, or `DKIM-Signature`, are excluded from `headers`. The order of the headers is preserved.
 
 {% endnote %}
 
@@ -619,7 +619,7 @@ Empty object.
 Name | Type | Description
 --- | --- | ---
 `bounceType` | String | Error type. The possible values are:<ul><li>`Permanent`: Email not delivered.</li></ul>
-`bounceSubType` | String | Error subtype. The possible values are:<ul><li>`Undetermined`: Error cause not determined.</li><li>`Suppressed`: Email not delivered because the recipient is on the {{ postbox-name }} global suppression list.</li><li>`OnAccountSuppressionList`: Email not delivered because the recipient is on the {{ postbox-name }} user's suppression list.</li><li>`InsufficientTLS`: Failed to establish a secure TLS connection with the recipient's server.</li><li>`StartTlsNotOffered`: Recipient's server does not support the `STARTTLS` command.</li><li>`TlsCertificateUntrusted`: Recipient's server failed to present a trusted certificate.</li><li>`TlsVersionTooLow`: TLS version supported by the recipient's server is below the minimum acceptable value.</li></ul>
+`bounceSubType` | String | Error subtype. The possible values are:<ul><li>`Undetermined`: Unknown error.</li><li>`OnAccountSuppressionList`: Email not sent because the recipient is on the [custom suppression list](suppression-list.md#user).</li><li>`Suppressed`: Email not sent because the recipient is on the [global suppression list](suppression-list.md#global).</li><li>`InsufficientTLS`: Failed to establish a secure TLS connection with the recipient's server.</li><li>`StartTlsNotOffered`: Recipient's server does not support the `STARTTLS` command.</li><li>`TlsCertificateUntrusted`: Recipient's server failed to present a trusted certificate.</li><li>`TlsVersionTooLow`: TLS version supported by the recipient's server is below the minimum acceptable value.</li></ul>
 `bouncedRecipients` | Array of [BounceRecipient](#bounce-recipent-object) objects | Array containing information about the email recipient and the related delivery error, if any.
 `dialAttempts` | Array of [DialAttempt](#dial-attempt-object) objects | This is an optional field. A list of connection attempts to the recipient's mail servers and their specific error details. Omitted if no connection was made, e.g., if the address is on a suppression list.
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time the error was received from the recipient's email client.
@@ -755,4 +755,4 @@ In which case you will get these three notifications:
 * Notification that the email was delivered to `user1@example.com`.
 * Notification that the email was not delivered to `user2@other.example.com` with the error info. The notification will come after the second attempt to send the email.
 
-Since the mail client responded that the recipient `user2@other.example.com` was not found, the address will be temporarily put on the stop list. You should wait for some time before trying to reach the address again, otherwise you will get notified that your message was not delivered because the recipient was on the stop list.
+The mail client has responded that the recipient `user2@other.example.com` was not found; therefore, the address will be temporarily put on the [global suppression list](suppression-list.md#global). Wait a while before you try to send to the address again; otherwise, you will get notified that your message could not be delivered because the recipient was on the global suppression list.

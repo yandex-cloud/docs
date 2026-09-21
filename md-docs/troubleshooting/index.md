@@ -140,14 +140,6 @@
 
  - [Как ограничить доступ к бакету Object Storage диапазоном IP-адресов, принадлежащих Cloud CDN](cdn/how-to/permit-bucket-access-only-to-cdn-networks.md)
 
-## Cloud Logging
-
- - [Все решения для Cloud Logging](cloud-logging/index.md)
-
- - [Примеры конфигураций и сценариев Cloud Logging](cloud-logging/how-to/index.md)
-
- - [Как настроить отправку журналов работы сторонних приложений в Cloud Logging](cloud-logging/how-to/sending-logs-from-third-party-libraries-and-apps.md)
-
 ## Compute Cloud
 
  - [Все решения для Compute Cloud](compute/index.md)

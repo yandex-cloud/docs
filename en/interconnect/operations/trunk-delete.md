@@ -5,6 +5,12 @@ description: Follow this guide to delete a trunk in {{ interconnect-name }}.
 
 # Deleting a trunk
 
+Before deleting a trunk:
+
+1. [Delete](priv-con-delete.md) all private connections from the trunk.
+1. [Delete](pub-con-delete.md) all public connections from the trunk.
+1. If deletion protection is enabled for the trunk, [disable it](trunk-update.md).
+
 {% note info %}
 
 You need the [cic.editor](../security/index.md#cic-editor) role to run this operation.

@@ -61,7 +61,7 @@ Store your private key securely, as you will not be able to connect to the VM wi
   1. Create a subnet:
 
      1. Select `external-bastion-network`.
-     1. At the top right, click ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+     1. Click ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Specify the subnet parameters:
 
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `bastion-external-segment`
@@ -87,7 +87,7 @@ Store your private key securely, as you will not be able to connect to the VM wi
   1. Create a subnet:
 
      1. Select `internal-bastion-network`.
-     1. At the top right, click ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+     1. Click ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Specify the subnet parameters:
 
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `bastion-internal-segment`
@@ -109,8 +109,8 @@ Create a [security group](../../vpc/concepts/security-groups.md) and make the ba
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder in which to create the bastion host infrastructure.
-  1. [Navigate to]({{ link-console-main }}/link/vpc) **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** and select `external-bastion-network`.
-  1. In the left-hand menu, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** and select `external-bastion-network`.
+  1. Navigate to the **{{ ui-key.yacloud.vpc.label_security-groups }}** tab.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Specify the security group name: `secure-bastion-sg`.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, navigate to the **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab and click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -134,8 +134,8 @@ Create a security group and set up rules for inbound traffic from the bastion ho
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder in which to create the bastion host infrastructure.
-  1. [Navigate to]({{ link-console-main }}/link/vpc) **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** and select `internal-bastion-network`.
-  1. In the left-hand menu, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** and select `internal-bastion-network`.
+  1. Navigate to the **{{ ui-key.yacloud.vpc.label_security-groups }}** tab.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Specify the security group name: `internal-bastion-sg`.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, navigate to the **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab and click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.

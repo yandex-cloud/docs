@@ -6,7 +6,7 @@ You can make key versions primary (a primary key version is used for encryption 
 
 {% note info %}
 
-Updating the primary version of a key is an [eventually consistent](../concepts/consistency.md) operation. Changes caused by such operations take effect with a delay of up to three hours.
+Updating the primary version of a key is an [eventually consistent](../concepts/consistency.md) operation. Changes resulting from such operations take effect with a delay of up to three hours.
 
 {% endnote %}
 

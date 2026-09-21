@@ -45,7 +45,7 @@ description: This section contains the {{ si-name }} release notes.
 
 ### Updates {#updates}
 
-* Added support for the [DatabaseQuery]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/databasequery.md), [VectorStore](concepts/workflows/yawl/integration/vectorstore), and [AIStudioAgent]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/aistudioagent) steps.
+* Added support for the [DatabaseQuery]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/databasequery), [VectorStore]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/vectorstore), and [AIStudioAgent]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/aistudioagent) steps.
 * Added starting workflows by [timer]({{ link-docs-ai }}ai-studio/operations/workflows/execution/start-by-timer).
 * Added support for _Playground_ and an editor with syntax highlighting to write and debug templated jq expressions.
 
@@ -87,7 +87,7 @@ description: This section contains the {{ si-name }} release notes.
 
 ### Updates {#updates}
 
-* Added support for the [Workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/workflow), [Disk]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/disk), and [While]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/management/while.md) steps in {{ sw-name }}.
+* Added support for the [Workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/workflow), [Disk]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/disk), and [While]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/management/while) steps in {{ sw-name }}.
 * Added support for `EXCEL` and `CSV` types for the [ObjectStorage]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/objectstorage) and [Disk]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/disk) steps in {{ sw-name }}: now objects of these types can be automatically decoded from a base64-encoded string.
 * Added support for [error transition rules]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/index#catchrule) for {{ sw-name }} integration steps.
 
@@ -107,7 +107,7 @@ description: This section contains the {{ si-name }} release notes.
 
 ### Updates {#updates}
 
-* Added support for the [Tracker]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/tracker), [Postbox]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/postbox), and [Wait](concepts/workflows/yawl/management/wait) steps in {{ sw-name }}.
+* Added support for the [Tracker]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/tracker), [Postbox]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/postbox), and [Wait]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/management/wait) steps in {{ sw-name }}.
 
 ## November 2024 {#november-2024}
 

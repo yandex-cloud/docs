@@ -8,7 +8,7 @@ You can connect a single target group to multiple load balancers.
 
 If a load balancer uses multiple traffic listeners, the incoming traffic to these listeners will be distributed simultaneously across all target groups connected to this load balancer.
 
-Each resource in a target group is identified by a pair: the [internal IPv4 address](../../vpc/concepts/address.md) of the VM network interface and the [subnet](../../vpc/concepts/network.md#subnet) ID. Resources of the same group must be located in the same [cloud network](../../vpc/concepts/network.md). You cannot add resources from different networks or outside {{ yandex-cloud }} to a target group. Within a single availability zone, resources in a target group must be in the same subnet.
+Each resource in a target group is identified by a pair: the [internal IPv4 address](../../vpc/concepts/address.md) of the VM network interface and the [subnet](../../vpc/concepts/network.md#subnet) ID. Resources of the same group must be located in the same [cloud network](../../vpc/concepts/network.md). You cannot add resources from different networks or outside {{ yandex-cloud }} to a target group. Within a single [availability zone](../../overview/concepts/geo-scope.md), the target group resources must be in the same subnet.
 
 You can only connect a VM network interface to one target group. You cannot connect a VM network interface to multiple target groups at once.
 
@@ -34,9 +34,9 @@ Keep in mind that the load distribution among target resources is a complex proc
 You can implement the following use cases on a network load balancer:
 
 1. One listener and one target group. This is the minimum configuration possible. Resources in a target group can be located in one or more availability zones.
-2. One listener and multiple target groups. You can add resources from different availability zones in different groups.
-3. Multiple listeners and one target group. Each listener accepts traffic on a dedicated port.
-4. Multiple listeners and multiple target groups:
+1. One listener and multiple target groups. You can add resources from different availability zones in different groups.
+1. Multiple listeners and one target group. Each listener accepts traffic on a dedicated port.
+1. Multiple listeners and multiple target groups:
     * Each listener has its own target groups (one or more).
     * Node groups (one or more) are shared across all listeners.
 

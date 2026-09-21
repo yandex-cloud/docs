@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../security/index.md#postbox-sender) `postbox.sender`.
 1. Создайте ключ для сервисного аккаунта:
 
-    * [API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key). При создании API-ключа задайте область действия `yc.postbox.send`. Надежно сохраните полученный секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
+    * [API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key). При создании API-ключа задайте [область действия](*api-key-scope) `yc.postbox.send`. Надежно сохраните полученный секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
 
     * [Статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key). Надежно сохраните идентификатор и секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
 
@@ -160,3 +160,5 @@ description: Следуя данной инструкции, вы сможете
 {% endcut %}
 
 Чтобы использовать [AWS Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html) для подписи запроса, укажите параметр `--aws-sigv4`. Как формировать подпись самостоятельно, читайте в разделе [{#T}](../../postbox/aws-compatible-api/signing-requests.md).
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../_popups/iam/api-key-scope.md) %}

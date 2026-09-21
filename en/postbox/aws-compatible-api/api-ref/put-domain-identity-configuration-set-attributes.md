@@ -1,6 +1,6 @@
 # PutDomainIdentityConfigurationSetAttributes method
 
-Associates an [address](../../concepts/glossary.md#adress) with a [configuration](../../concepts/glossary.md#configuration) residing in the same folder. The folder is selected based on the service account the request originates from.
+Associates an [address](../../concepts/glossary.md#address) with a [configuration](../../concepts/glossary.md#configuration) residing in the same folder. The folder is selected based on the service account the request originates from.
 
 ## Request {#request}
 
@@ -46,7 +46,7 @@ Configuration name. ||
 
 {% include [api-errors](../../../_includes/postbox/api-errors.md) %}
 
-Possible errors:
+The possible errors include:
 
 #|
 || **Error code** | **Description** ||

@@ -72,7 +72,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% endlist %}
 
-1. Create a [network](../../vpc/concepts/network.md#network) named `yc-auto-network` and [subnets](../../vpc/concepts/network.md#subnet) in two availability zones:
+1. Create a [network](../../vpc/concepts/network.md#network) named `yc-auto-network` and [subnets](../../vpc/concepts/network.md#subnet) in two [availability zones](../../overview/concepts/geo-scope.md):
 
    {% list tabs group=instructions %}
 

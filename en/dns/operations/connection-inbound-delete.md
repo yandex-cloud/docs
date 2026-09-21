@@ -11,8 +11,8 @@ To delete an [inbound DNS connection](../concepts/dns-connection.md#dns-inbound)
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder containing the DNS connection.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the inbound DNS connection.
+  1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. In the left-hand panel, select ![nodes-down](../../_assets/console-icons/nodes-down.svg) **{{ ui-key.yacloud.dns.label_inbound-endpoints }}**.
   1. In the row with the DNS connection, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.
@@ -27,7 +27,7 @@ To delete an [inbound DNS connection](../concepts/dns-connection.md#dns-inbound)
 
       ```bash
       yc dns inbound-endpoint delete --help
-      ```   
+      ```
   1. {% include [list-inbound-endpoints-cli](../../_includes/dns/list-inbound-endpoints-cli.md) %}
   1. Delete the inbound DNS connection by specifying its name or ID:
 
@@ -39,7 +39,7 @@ To delete an [inbound DNS connection](../concepts/dns-connection.md#dns-inbound)
 
       {% note info %}
 
-      If the inbound DNS connection you are deleting has deletion protection enabled, disable it before deleting. For more information, see [{#T}](./connection-inbound-update.md).
+      If the inbound DNS connection you are deleting has deletion protection enabled, disable it before deleting. For more on updating a DNS connection, see [{#T}](./connection-inbound-update.md).
 
       {% endnote %}
 

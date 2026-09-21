@@ -6,7 +6,7 @@ description: Follow this guide to create private and public DNS zones.
 # Getting started with {{ dns-name }}
 
 
-Create [DNS zones](concepts/dns-zone.md) (Domain Name System), add `A` records for your test [VMs](../compute/concepts/vm.md), and test domain name resolution.
+Create [DNS zones](concepts/dns-zone.md), add `A` records for your test [VMs](../compute/concepts/vm.md), and test domain name resolution.
 
 ## Getting started {#before-begin}
 
@@ -26,13 +26,15 @@ Create a new domain zone:
 
 - Management console {#console}
 
-  1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** section in the folder where you need to create a DNS zone.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your DNS zone.
+  1. [Navigate](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Click **{{ ui-key.yacloud.dns.label_zones-list }}**.
   1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
-  1. Configure the DNS zone as follows:
-     1. **{{ ui-key.yacloud.dns.label_zone }}**: `testing`.
+  1. Specify zone settings:
+     1. **{{ ui-key.yacloud.dns.label_zone }}**: `testing`. Its name must end with a trailing dot.
      1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_private }}`.
-     1. **{{ ui-key.yacloud.common.name }}**: `test-zone`.
      1. **{{ ui-key.yacloud.dns.label_networks }}**: Network hosting your VMs.
+     1. **{{ ui-key.yacloud.common.name }}**: `test-zone`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -45,7 +47,7 @@ Create a new domain zone:
   --private-visibility network-ids=<network_ID>
   ```
 
-  Where `--private-visibility` is the ID of the network with your test VMs.
+  Where `--private-visibility network-ids` is the ID of the network with your test VMs.
 
 {% endlist %}
 
@@ -55,19 +57,19 @@ Create a new domain zone:
 
 - Management console {#console}
 
-  1. Open the list of zones and select `test-zone`.
-  1. Select **{{ ui-key.yacloud.dns.label_zone-record-sets }}** in the left-hand menu.
-  1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**. Configure the record as follows:
+  1. Click the zone you created.
+  1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
+  1. Configure the record as follows:
      1. **{{ ui-key.yacloud.common.name }}**: `test-vm-1`.
      1. **{{ ui-key.yacloud.common.type }}**: `A`.
+     1. **{{ ui-key.yacloud.dns.label_records }}**: `test-vm-1` [internal IP address](../vpc/concepts/address.md#internal-addresses).
      1. **{{ ui-key.yacloud.dns.label_form-ttl }}**: `600`.
-     1. **{{ ui-key.yacloud.dns.label_records }}**: `test-vm1` [internal IP address](../vpc/concepts/address.md#internal-addresses).
   1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}** once again. Configure another record:
      1. **{{ ui-key.yacloud.common.name }}**: `test-vm-2`.
      1. **{{ ui-key.yacloud.common.type }}**: `A`.
+     1. **{{ ui-key.yacloud.dns.label_records }}**: `test-vm-2` internal IP address.
      1. **{{ ui-key.yacloud.dns.label_form-ttl }}**: `600`.
-     1. **{{ ui-key.yacloud.dns.label_records }}**: `test-vm2` internal IP address.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -121,7 +123,9 @@ Create a new public domain zone:
 
 - Management console {#console}
 
-  1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** section in the folder where you need to create a DNS zone.
+  1. In the [management console]({{ link-console-main }}), select the folder where you need to create a public domain zone.
+  1. [Navigate](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Click **{{ ui-key.yacloud.dns.label_zones-list }}**.
   1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Specify zone settings:
      1. **{{ ui-key.yacloud.dns.label_zone }}**: `example.com.`.
@@ -147,13 +151,13 @@ Create a new public domain zone:
 
 - Management console {#console}
 
-  1. Open the list of zones and select `test-public-zone`.
-  1. Select **{{ ui-key.yacloud.dns.label_zone-record-sets }}** in the left-hand menu.
-  1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**. Specify the record settings:
+  1. Click the zone you created.
+  1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
+  1. Specify the record settings:
      1. **{{ ui-key.yacloud.common.name }}**: `www`.
      1. **{{ ui-key.yacloud.common.type }}**: `A`.
-     1. **{{ ui-key.yacloud.dns.label_form-ttl }}**: `600`.
      1. **{{ ui-key.yacloud.dns.label_records }}**: `test-vm-1` public IP address.
+     1. **{{ ui-key.yacloud.dns.label_form-ttl }}**: `600`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}

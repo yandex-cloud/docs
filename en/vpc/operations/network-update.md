@@ -1,3 +1,8 @@
+---
+title: Updating a cloud network
+description: In this tutorial, you will learn how to update cloud network settings.
+---
+
 # Updating a cloud network
 
 After creating a cloud network, you can change its name, description, and labels.
@@ -8,9 +13,9 @@ After creating a cloud network, you can change its name, description, and labels
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the [cloud network](../concepts/network.md) you want to update.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the subnet you need and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the network you need and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit as appropriate.
-  1. Click **{{ ui-key.yacloud.vpc.subnetworks.update.button_update }}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -20,59 +25,61 @@ After creating a cloud network, you can change its name, description, and labels
 
   1. See the description of the CLI command for updating [cloud network](../concepts/network.md) parameters:
 
-      ```bash
-      yc vpc network update --help
-      ```
+     ```bash
+     yc vpc network update --help
+     ```
 
   1. Get a list of all networks in the default folder:
 
-      ```bash
-      yc vpc network list
-      ```
+     ```bash
+     yc vpc network list
+     ```
 
-      Result:
-      ```text
-      +----------------------+----------------+
-      |          ID          |      NAME      |
-      +----------------------+----------------+
-      | enpavfmgapum******** | test-network-1 |
-      | enplom7a98s1******** | default        |
-      +----------------------+----------------+
-      ```
+     Result:
+
+     ```text
+     +----------------------+----------------+
+     |          ID          |      NAME      |
+     +----------------------+----------------+
+     | enpavfmgapum******** | test-network-1 |
+     | enplom7a98s1******** | default        |
+     +----------------------+----------------+
+     ```
 
   1. Select the `ID` or `NAME` of the network you need.
   1. Change the parameters of the cloud network by specifying its name:
 
-      ```bash
-      yc vpc network update enpavfmgapum******** --new-name test-network-renamed
-      ```
+     ```bash
+     yc vpc network update enpavfmgapum******** --new-name test-network-renamed
+     ```
 
-      Result:
-      ```text
-      id: enpavfmgapum********
-      folder_id: b1g6ci08ma55********
-      created_at: "2018-10-23T14:05:32Z"
-      name: test-network-renamed
-      description: My first network
-      labels:
-        new_label: test_label
-      ```
-     
-      You can provide the ID and name not only as positional arguments, but also using the `--id` and `--name` parameters:
+     Result:
 
-      ```bash
-      yc vpc network update \
-        --id enpavfmgapum******** \
-        --new-name test-network-renamed \
-        --labels new_label=test_label
-      ```
+     ```text
+     id: enpavfmgapum********
+     folder_id: b1g6ci08ma55********
+     created_at: "2018-10-23T14:05:32Z"
+     name: test-network-renamed
+     description: My first network
+     labels:
+       new_label: test_label
+     ```
 
-      ```bash
-      yc vpc network update \
-        --name test-network-1 \
-        --new-name test-network-renamed \
-        --labels new_label=test_label
-      ```
+     You can provide the ID and name not only as positional arguments, but also using the `--id` and `--name` parameters:
+
+     ```bash
+     yc vpc network update \
+       --id enpavfmgapum******** \
+       --new-name test-network-renamed \
+       --labels new_label=test_label
+     ```
+
+     ```bash
+     yc vpc network update \
+       --name test-network-1 \
+       --new-name test-network-renamed \
+       --labels new_label=test_label
+     ```
 
 - {{ TF }} {#tf}
 
@@ -145,6 +152,7 @@ You can update a cloud network using its name instead of its ID:
   ```
 
   Result:
+
   ```text
   id: enpavfmgapum********
   folder_id: b1g6ci08ma55********

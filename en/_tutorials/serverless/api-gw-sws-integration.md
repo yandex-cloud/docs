@@ -47,7 +47,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - {{ TF }} {#tf}
 
   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-  
+
   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
 
@@ -60,9 +60,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * ARL profile that sets a request limit and request grouping by `token`.
       * {{ sws-name }} profile that uses the ARL profile as well as enables IP-based blocking.
       * API gateway configured to work with the {{ sws-name }} profile.
-  
+
   1. In the local variables section of the `api-gw-sws-integration.tf` file, specify the following:
-  
+
       * `api-gw-name`: API gateway name.
       * `create-api-gw = 1`
 
@@ -94,7 +94,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * **Name**: `query-limit-rule`.
       * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}**: `999900`.
-      * **Request grouping**: **By property**.
+      * **Request grouping**: `By property`.
       * **Property**: `Query params`.
       * **Group by**: `token`.
       * **Request limit per group**: `1` per `1 minute`.
@@ -107,12 +107,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * **Name**: `ip-block-rule`.
       * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}**: `999700`.
-      * **Rule type**: **Basic**.
-      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: **Allow**.
+      * **Rule type**: `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
       * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-conditions }}**:
 
-          * **Traffic**: **On condition**.
-          * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `IP`.
+          * **Traffic**: `On condition`.
+          * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
           * **Conditions for IP**: `Matches or falls within the range`.
           * **IP matches or falls within the range**: Specify your IP address.
 
@@ -126,7 +126,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `allowed_ips`: List of IP addresses allowed to access the API gateway.
 
   1. In the `securityProfileId` parameter of the API gateway specification, specify the security profile ID.
-  
+
   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
@@ -205,7 +205,7 @@ Test the {{ sws-name }} settings:
 
 ### Checking the IP-based blocking {#check-ip-block}
 
-1. Send a GET request to the API gateway from an IP address you specified in the {{ sws-name }} profile:
+1. Send a GET request to the API gateway from the IP address you specified in the {{ sws-name }} profile:
 
     ```bash
     curl <API_gateway_service_domain>
@@ -227,7 +227,7 @@ Test the {{ sws-name }} settings:
 
 # Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need depending on how you created them:
+Some resources are not free of charge. To avoid paying for the resources you no longer need, delete them depending on how you created them:
 
 {% list tabs group=instructions %}
 

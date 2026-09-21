@@ -3,7 +3,7 @@ title: How to create a digital signature
 description: Follow this guide to create a digital signature.
 ---
 
-# Digital signature and its hash-based verification
+# Digital signature and its verification based on data hash
 
 In {{ kms-name }}, you can create a [digital signature](../concepts/digital-signature.md) that can be used to verify data authenticity and integrity, as well as to protect the signed data from modification.
 
@@ -15,13 +15,13 @@ This guide uses [OpenSSL](https://www.openssl.org/) for digital signature verifi
 
 ## Create a digital signature {#create-signature}
 
-Depending on the size of the message or file to sign, {{ kms-short-name }} allows creating a [private key-based](#message-signing) or [hash-based](#hash-signing) message signature.
+Depending on the size of the message or file to sign, {{ kms-short-name }} enables creating a message signature [using a private key](#message-signing) or a [hash-based](#hash-signing) signature.
 
-### Private key-based message signature {#message-signing}
+### Signing a message with a private key {#message-signing}
 
 {% note info %}
 
-Private key-based signature is used for messages of up to 32 KB.
+A signature based on a private key is used for messages of up to 32 KB.
 
 {% endnote %}
 
@@ -107,7 +107,7 @@ Private key-based signature is used for messages of up to 32 KB.
           * `--signature-output-file`: Path to the file to save the digital signature to.
           * `--message-file`: Path to the previously created file with the `base64`-encoded message.
           * `--inform`: Message file format. The possible values are `raw` (default), `base64`, and `hex`.
-          * `--outform`: Signature file format. Possible values: `raw` (default), `base64`, and `hex`.
+          * `--outform`: Signature file format. The possible values are `raw` (default), `base64`, and `hex`.
 
           Result:
 
@@ -131,11 +131,11 @@ Private key-based signature is used for messages of up to 32 KB.
 
     {% endlist %}
 
-## Hash-based file signature {#hash-signing}
+## Signing a file using its data hash {#hash-signing}
 
 {% note info %}
 
-Hash-based signature is used for messages or files over 32 KB.
+A hash-based signature is used for messages or files over 32 KB.
 
 {% endnote %}
 
@@ -190,7 +190,7 @@ Hash-based signature is used for messages or files over 32 KB.
 
       Where:
       
-      * `<hashing_algorithm>`: Hashing algorithm used to create the digital signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results of getting the list of key pairs. The possible values are as follows:
+      * `<hashing_algorithm>`: Hashing algorithm used when creating a digital signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results you get with the list of key pairs. The possible values are as follows:
           
           * `sha256sum`: For SHA-256 algorithms.
           * `sha384sum`: For SHA-384 algorithms.
@@ -212,7 +212,7 @@ Hash-based signature is used for messages or files over 32 KB.
 
       Where:
       
-      * `<hashing_algorithm>`: Hashing algorithm used to create the signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results of getting the list of key pairs. The possible values are as follows:
+      * `<hashing_algorithm>`: Hashing algorithm used when creating a signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results you get with the list of key pairs. The possible values are as follows:
           
           * `SHA256`: For SHA-256 algorithms.
           * `SHA384`: For SHA-384 algorithms.

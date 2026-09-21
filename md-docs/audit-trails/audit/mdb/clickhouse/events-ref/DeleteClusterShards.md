@@ -437,6 +437,8 @@
                     "port": "string"
                   },
                   "mysqlProtocol": "boolean",
+                  "grpcProtocol": "boolean",
+                  "arrowflightProtocol": "boolean",
                   "customMacros": [
                     {
                       "name": "string",
@@ -789,6 +791,8 @@
                     "port": "string"
                   },
                   "mysqlProtocol": "boolean",
+                  "grpcProtocol": "boolean",
+                  "arrowflightProtocol": "boolean",
                   "customMacros": [
                     {
                       "name": "string",
@@ -1141,6 +1145,8 @@
                     "port": "string"
                   },
                   "mysqlProtocol": "boolean",
+                  "grpcProtocol": "boolean",
+                  "arrowflightProtocol": "boolean",
                   "customMacros": [
                     {
                       "name": "string",
@@ -1167,7 +1173,8 @@
                 "diskSizeLimit": "string"
               }
             }
-          }
+          },
+          "isHa": "boolean"
         }
       ]
     },
@@ -1362,6 +1369,7 @@ A list of messages that carry the error details. ||
 || name | **string** ||
 || clusterId | **string** ||
 || config | **[ShardConfig](#yandex.cloud.mdb.clickhouse.v1.ShardConfig)** ||
+|| isHa | **boolean** ||
 |#
 
 ## ShardConfig {#yandex.cloud.mdb.clickhouse.v1.ShardConfig}
@@ -1494,6 +1502,8 @@ A list of messages that carry the error details. ||
 || queryCache | **[QueryCache](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.QueryCache)** ||
 || jdbcBridge | **[JdbcBridge](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge)** ||
 || mysqlProtocol | **boolean** ||
+|| grpcProtocol | **boolean** ||
+|| arrowflightProtocol | **boolean** ||
 || customMacros[] | **[Macro](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Macro)** ||
 || tls | **[Tls](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Tls)** ||
 || builtinDictionariesReloadInterval | **string** (int64) ||

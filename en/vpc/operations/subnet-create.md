@@ -15,16 +15,16 @@ description: Follow this guide to create a subnet.
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a subnet.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. At the top right, click **{{ ui-key.yacloud.common.create }}**.
-  1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify the subnet name. The naming requirements are as follows:
+  1. Click **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
+  1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify the subnet name. Make sure to follow these naming requirements:
 
      {% include [name-format](../../_includes/name-format.md) %}
 
-  1. (Optional) In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** field, add a description.
+  1. Optionally, add a description and labels for the subnet.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select an availability zone from the drop-down list.
-  1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** field, specify a cloud network. Make sure to create it in advance.
-  1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** field, enter the subnet IP address and mask. 
-     For more information about subnet IP address ranges, see [Cloud networks and subnets](../concepts/network.md). 
+  1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** field, select or create a cloud network.
+  1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** field, enter the subnet IP address and mask.
+     For more information about subnet IP address ranges, see [Cloud networks and subnets](../concepts/network.md).
      If you need to enter more CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
   1. Optionally, set **{{ ui-key.yacloud.vpc.subnetworks.create.section_dhcp-options }}**. Follow these steps:
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name }}** field, specify a DNS domain to search for unqualified names.
@@ -43,19 +43,19 @@ description: Follow this guide to create a subnet.
 
   1. View the description of the CLI command for creating a subnet:
 
-      ```
+      ```bash
       yc vpc subnet create --help
       ```
 
   1. Get a list of cloud networks in the required folder:
 
-      ```
+      ```bash
       yc vpc network list --folder-id b1g6ci08ma55********
       ```
 
       Result:
 
-      ```
+      ```text
       +----------------------+----------------+
       |          ID          |      NAME      |
       +----------------------+----------------+
@@ -66,7 +66,7 @@ description: Follow this guide to create a subnet.
 
   1. Select `NAME` or `ID` of the cloud network you need. Create a subnet in the default folder:
 
-      ```
+      ```bash
       yc vpc subnet create \
         --name test-subnet-1 \
         --description "My test subnet" \
@@ -85,7 +85,7 @@ description: Follow this guide to create a subnet.
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-      ```
+      ```bash
       yc vpc subnet create \
         --name test-subnet-1 \
         --description "My test subnet" \
@@ -98,13 +98,13 @@ description: Follow this guide to create a subnet.
 
   1. Get a list of all subnets in the default folder:
 
-      ```
+      ```bash
       yc vpc subnet list
       ```
 
       Result:
 
-      ```
+      ```text
       +----------------------+-----------------------+------------------------+
       |          ID          |         NAME          | ... |       RANGE      |
       +----------------------+-----------------------+------------------------+
@@ -116,13 +116,13 @@ description: Follow this guide to create a subnet.
 
       Get the same list with more details in YAML format:
 
-      ```
+      ```bash
       yc vpc subnet list --format yaml
       ```
 
       Result:
-      
-      ```
+
+      ```text
       ...
 
       - id: e2l0psbfoloe********
@@ -160,7 +160,7 @@ description: Follow this guide to create a subnet.
      ```hcl
      resource "yandex_vpc_subnet" "lab-subnet-a" {
        name           = "<subnet_name>"
-	   description    = "<subnet_description>"
+       description    = "<subnet_description>"
        v4_cidr_blocks = ["<IPv4_address>"]
        zone           = "<availability_zone>"
        network_id     = "<network_ID>"
@@ -171,32 +171,15 @@ description: Follow this guide to create a subnet.
 
      For more on the properties of the `yandex_vpc_subnet` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_subnet).
 
-  1. Make sure the configuration files are correct.
+  1. Apply the configuration:
 
-     1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using this command:
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        ```
-        terraform plan
-        ```
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
-     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
-
-  1. Deploy the cloud resources.
-
-     1. If the configuration is correct, run this command:
-
-        ```
-        terraform apply
-        ```
-
-     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
-
-        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
-
-        ```
-        yc vpc subnet list
-        ```
+     ```bash
+     yc vpc subnet list
+     ```
 
 - API {#api}
 
@@ -221,7 +204,7 @@ description: Follow this guide to create a subnet.
 
   Create a subnet with a name and description in the selected folder:
 
-    ```
+    ```bash
     yc vpc subnet create \
       --name test-subnet-1 \
       --description "My test subnet" \
@@ -232,7 +215,8 @@ description: Follow this guide to create a subnet.
     ```
 
     Create a subnet with DHCP settings:
-    ```
+
+    ```bash
     yc vpc subnet create \
       --name test-subnet-1 \
       --description "My test subnet" \
@@ -260,7 +244,7 @@ description: Follow this guide to create a subnet.
        description    = "My first subnet"
        v4_cidr_blocks = ["10.2.0.0/16"]
        zone           = "{{ region-id }}-a"
-       network_id     = "${yandex_vpc_network.lab-net.id}"
+       network_id     = yandex_vpc_network.lab-net.id
      }
      ```
 
@@ -271,17 +255,17 @@ description: Follow this guide to create a subnet.
      1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
-        ```
+        ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
      1. If the configuration is correct, run this command:
 
-        ```
+        ```bash
         terraform apply
         ```
 
@@ -289,7 +273,7 @@ description: Follow this guide to create a subnet.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
-        ```
+        ```bash
         yc vpc subnet list
         ```
 

@@ -251,6 +251,29 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [work with db](../../../../_includes/data-transfer/endpoints/sources/mysql-work-with-db.md) %}
 
+## Соответствие типов поддерживаемых данных в СУБД и эндпоинте {#type-mapping}
+
+#|
+|| **Тип {{ MY }}** | **Тип эндпоинта** ||
+|| BIGINT | int64 ||
+|| INT | int32 ||
+|| SMALLINT | int16 ||
+|| TINYINT | int8 ||
+|| BIGINT | uint64 ||
+|| INT | uint32 ||
+|| SMALLINT | uint16 ||
+|| TINYINT | uint8 ||
+|| FLOAT | float ||
+|| FLOAT | double ||
+|| TEXT | string ||
+|| TEXT | utf8 ||
+|| BIT | boolean ||
+|| DATE | date ||
+|| TIMESTAMP | datetime ||
+|| TIMESTAMP | timestamp ||
+|| JSON | any ||
+|#
+
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 
 Известные проблемы, связанные с использованием эндпоинта {{ MY }}:

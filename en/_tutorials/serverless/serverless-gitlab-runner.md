@@ -346,7 +346,7 @@ Specifying a network in the container settings creates a service subnet from the
 
       1. Under **{{ ui-key.yacloud.serverless-containers.section_resources }}**, specify the required RAM, e.g., `1024 {{ ui-key.yacloud.common.units.label_megabyte }}`.
       1. Under **{{ ui-key.yacloud.serverless-containers.section_image }}**, click **{{ ui-key.yacloud.component.image-field.button_custom-image }}** and specify `{{ registry }}/yc/serverless/gitlab-runner` in the **{{ ui-key.yacloud.serverless-containers.label_image-url }}** field.
-      1. Under **{{ ui-key.yacloud.serverless-containers.label_environment }}**, add the variables:
+      1. Under **{{ ui-key.yacloud.serverless-containers.label_environment }}**, add the following variables:
 
           * `CI_SERVER_URL`: `https://gitlab.com`
           * `WEBHOOK_PATH`: `/webhook`

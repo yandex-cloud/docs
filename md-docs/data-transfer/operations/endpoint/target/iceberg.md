@@ -122,3 +122,26 @@
 {% endlist %}
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
+
+## Соответствие типов поддерживаемых данных в СУБД и эндпоинте {#type-mapping}
+
+#|
+|| **Тип Apache Iceberg™** | **Тип эндпоинта** ||
+|| long | int64 ||
+|| int | int32 ||
+|| int | int16 ||
+|| int | int8 ||
+|| decimal(20, 0) | uint64 ||
+|| long | uint32 ||
+|| int | uint16 ||
+|| int | uint8 ||
+|| float | float ||
+|| double | double ||
+|| string | string ||
+|| string | utf8 ||
+|| boolean | boolean ||
+|| date | date ||
+|| timestamp | datetime ||
+|| timestamp | timestamp ||
+|| string | any ||
+|#

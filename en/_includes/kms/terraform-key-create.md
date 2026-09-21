@@ -1,4 +1,4 @@
-To create a key:
+To create a new key:
 
 1. Specify the `yandex_kms_symmetric_key` resource properties in the configuration file:
 
@@ -23,13 +23,13 @@ To create a key:
 
    * `description`: Key description.
    * `default_algorithm`: Encryption algorithm. The possible values are `AES-128`, `AES-192`, or `AES-256`.
-   * `rotation_period`: [Rotation](../../kms/concepts/version.md#rotate-key) period (how often to change key versions). To create a key without automatic rotation, do not specify the `rotation_period` parameter.
-   * `deletion_protection`: Key deletion protection. To create a key without deletion protection, do not specify the `deletion_protection` parameter.
+   * `rotation_period`: [Rotation](../../kms/concepts/version.md#rotate-key) period (how often to change key versions). To create a key without automatic rotation, do not specify `rotation_period`.
+   * `deletion_protection`: Key deletion protection. To create a key without deletion protection, do not specify `deletion_protection`.
    * `lifecycle.prevent_destroy`: Key deletion protection when running {{ TF }} commands. To create a key without such protection, do not specify the `lifecycle` section.
 
    {% note warning %}
 
-   Deleting a {{ kms-short-name }} key destroys all data encrypted with that key: the data becomes unrecoverable after the key is deleted. The `deletion_protection` parameter and the `lifecycle` section are required to prevent the deletion of the key (e.g., with the `terraform destroy` command).
+   Deleting a {{ kms-short-name }} key destroys all data encrypted with that key: the data becomes unrecoverable after the key is deleted. The `deletion_protection` parameter and the `lifecycle` section are required to prevent key deletion, e.g., with the `terraform destroy` command.
 
    {% endnote %}
 
@@ -53,7 +53,7 @@ To create a key:
    terraform plan
    ```
 
-   You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+   You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
 
 1. Apply the configuration changes:
 
@@ -61,9 +61,9 @@ To create a key:
    terraform apply
    ```
 
-1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+1. Type `yes` and press **Enter** to confirm the changes.
 
-   This will create all the resources you need in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
+   This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
    ```bash
    yc kms symmetric-key list

@@ -16,7 +16,7 @@ You can update a registry [name](registry-update.md#update-name) or [description
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update the registry name.
    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the **{{ ui-key.yacloud.common.name }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -80,7 +80,7 @@ You can update a registry [name](registry-update.md#update-name) or [description
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -111,7 +111,7 @@ You can update a registry [name](registry-update.md#update-name) or [description
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update the registry description.
    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the **{{ ui-key.yacloud.common.description }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -178,7 +178,7 @@ You can update a registry [name](registry-update.md#update-name) or [description
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -217,8 +217,8 @@ You can manage registry labels in the following ways:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to add a registry label.
    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
-   1. Fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+   1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, enter the key and [label](../../../resource-manager/concepts/labels.md) value.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -291,7 +291,7 @@ You can manage registry labels in the following ways:
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -322,8 +322,8 @@ You can manage registry labels in the following ways:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update a registry label.
    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
-   1. Edit the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields.
+   1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, update the key and the [label](../../../resource-manager/concepts/labels.md) value.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -392,7 +392,7 @@ You can manage registry labels in the following ways:
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -423,7 +423,7 @@ You can manage registry labels in the following ways:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a registry label.
    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. To the right of the label to delete, click ![image](../../../_assets/console-icons/xmark.svg).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -454,7 +454,7 @@ You can manage registry labels in the following ways:
 
   To delete a label of a registry created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the label value from the `labels` section of the registry description. To delete all labels, delete the entire `labels` section.
+  1. Open the {{ TF }} configuration file and delete the label value from the `labels` section in the registry description. To delete all labels, delete the entire `labels` section.
 
       Here is an example of a registry description in the {{ TF }} configuration:
 
@@ -489,7 +489,7 @@ You can manage registry labels in the following ways:
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
       ```bash

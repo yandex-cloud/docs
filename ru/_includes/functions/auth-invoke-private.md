@@ -12,13 +12,3 @@
     ```
 
     IAM-токен действует не больше 12 часов.
-
-* [API-ключ](../../iam/operations/authentication/manage-api-keys.md) для сервисного аккаунта.
-
-    Полученный API-ключ передайте в заголовке `Authorization` в следующем формате:
-
-    ```text
-    Authorization: Api-Key <API-ключ>
-    ```
-
-    {% include [api-keys-disclaimer](../iam/api-keys-disclaimer.md) %}

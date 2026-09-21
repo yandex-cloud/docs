@@ -13,4 +13,4 @@ To create a [fault-tolerant website with load balancing via {{ network-load-bala
 
 #### Useful links {#see-also}
 
-* [{#T}](terraform.md)
+[{#T}](terraform.md)

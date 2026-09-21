@@ -1,35 +1,35 @@
 default:
-  cdn-pop-count: 75
+  cdn-pop-count: 78
   cdn-pops:
     '0':
       cities:
         '0': Alexandrov
-        '1': Vladivostok
-        '2': Vladikavkaz
-        '3': Volgograd
-        '4': Voronezh
-        '5': Yekaterinburg
-        '6': Irkutsk
-        '7': Krasnodar
-        '8': Krasnoyarsk
-        '9': Moscow
-        '10': Nizhny Novgorod
-        '11': Novosibirsk
-        '12': Orenburg
-        '13': Petrozavodsk
-        '14': Rostov-on-Don
-        '15': Samara
-        '16': Saint Petersburg
-        '17': Simferopol
-        '18': Sochi
-        '19': Stavropol
-        '20': Tambov
-        '21': Tyumen
-        '22': Ufa
-        '23': Khabarovsk
-        '24': Chelyabinsk
-        '25': Chita
-        '26': Yaroslavl
+        '1': Chelyabinsk
+        '2': Chita
+        '3': Irkutsk
+        '4': Khabarovsk
+        '5': Krasnodar
+        '6': Krasnoyarsk
+        '7': Moscow
+        '8': Nizhny Novgorod
+        '9': Novosibirsk
+        '10': Orenburg
+        '11': Petrozavodsk
+        '12': Rostov-on-Don
+        '13': Saint Petersburg
+        '14': Samara
+        '15': Simferopol
+        '16': Sochi
+        '17': Stavropol
+        '18': Tambov
+        '19': Tyumen
+        '20': Ufa
+        '21': Vladikavkaz
+        '22': Vladivostok
+        '23': Volgograd
+        '24': Voronezh
+        '25': Yaroslavl
+        '26': Yekaterinburg
       country: Russia
     '1':
       cities:
@@ -37,7 +37,7 @@ default:
       country: Belarus
     '2':
       cities:
-        '0': Frankfurt am Main
+        '0': Frankfurt
       country: Germany
     '3':
       cities:
@@ -60,4 +60,4 @@ default:
       cities:
         '0': Tashkent
       country: Uzbekistan
-  cdn-throughput: 7
+  cdn-throughput: 8

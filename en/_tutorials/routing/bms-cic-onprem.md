@@ -1,5 +1,6 @@
 # Establishing network connectivity between {{ baremetal-full-name }} subnets and on-premise environment with {{ interconnect-name }}
 
+
 In this tutorial, you will set up network connectivity between a {{ baremetal-name }} [server](../../baremetal/concepts/servers.md) located in a [private {{ baremetal-full-name }} subnet](../../baremetal/concepts/private-network.md) and your on-premise resources. Network connectivity will be established using [{{ interconnect-name }}](../../interconnect/index.yaml) and [{{ cr-name }}](../../cloud-router/index.yaml).
 
 You can see the solution architecture in the diagram below:
@@ -12,7 +13,7 @@ To set up network connectivity between these resources and the virtual network, 
 
 {% note info %}
 
-It is assumed that the connectivity between on-premise and the {{ vpc-short-name }} network via {{ interconnect-name }} has already been established and is operational. 
+It is assumed that the on-premises connection to {{ yandex-cloud }} via {{ interconnect-name }} has already been established and is operational. You must have an active trunk and an active private connection.
 
 {% endnote %}
 
@@ -20,7 +21,7 @@ To set up network connectivity between {{ baremetal-name }} private subnets and 
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a cloud infrastructure](#setup-infrastructure).
-1. [Create a virtual router](#create-routing-instance).
+1. [Set up a virtual router](#create-routing-instance).
 1. [Create a private connection](#create-private-connection).
 1. [Check network connectivity](#check-connectivity).
 
@@ -30,23 +31,18 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
-The cost of supporting an infrastructure for network connectivity between {{ baremetal-name }} and {{ vpc-short-name }} subnets includes:
+The cost of infrastructure for network connectivity includes:
 
-* Fee for a [public IP address](../../vpc/concepts/address.md#public-addresses) assigned to the VM (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for [VM](../../compute/concepts/vm.md) computing resources and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for renting a {{ baremetal-name }} server (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
-
+* Fee for using {{ interconnect-name }} (see [{{ interconnect-name }} pricing](../../interconnect/pricing.md)).
 
 ## Create a cloud infrastructure {#setup-infrastructure}
 
 Create the {{ yandex-cloud }} infrastructure you will use to set up network connectivity.
 
-To configure {{ interconnect-name }} in {{ baremetal-name }}, you will need a private routable [subnet](../../baremetal/concepts/private-network.md#private-subnet) and a [VRF](../../baremetal/concepts/private-network.md#vrf-segment) in {{ baremetal-name }}, a [cloud network](../../vpc/concepts/network.md#network) with one or more {{ vpc-name }} [subnets](../../vpc/concepts/network.md#subnet), as well as a virtual router with one or more [announced](../../interconnect/concepts/priv-con.md#prc-announce) {{ vpc-short-name }} private subnet prefixes.
-
-To check network connectivity, you will need a {{ baremetal-name }} server and a {{ compute-name }} VM.
+To set it up, you will need a private routable [subnet](../../baremetal/concepts/private-network.md#private-subnet) and a [VRF](../../baremetal/concepts/private-network.md#vrf-segment) in {{ baremetal-name }}, a {{ baremetal-name }} server, an active {{ interconnect-name }} private connection, and a {{ cr-name }} virtual router.
 
 ### Create a VRF segment and a {{ baremetal-name }} private subnet {#setup-vrf}
 
@@ -59,10 +55,13 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
   1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Create a virtual routing and forwarding segment:
+
         1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** and click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
         1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, name your VRF segment: `my-vrf`.
         1. Click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
+
   1. Create a private subnet:
+
         1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
         1. In the **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** field, select the `{{ region-id }}-m3` server pool.
         1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the subnet name: `subnet-m3`.
@@ -98,6 +97,7 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select an image, e.g., `Ubuntu 24.04`.
       1. {% include [server-lease-step8](../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
       1. Under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
+
           1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m3` subnet you created earlier.
           1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
 
@@ -116,52 +116,33 @@ Server setup and OS installation may take up to 45 minutes. The server will have
 
 {% endnote %}
 
-## Create a virtual router {#create-routing-instance}
+## Set up a virtual router {#create-routing-instance}
 
-To set up network connectivity between {{ baremetal-name }} subnets and on-prem subnets, you need to [create a virtual router](../../cloud-router/operations/ri-create.md).
+1. [Make sure](../../cloud-router/operations/ri-get-info.md) you have a virtual router configured to connect your on-premise infrastructure to {{ yandex-cloud }}.
+1. If you do not have a virtual router, [create one](../../cloud-router/operations/ri-create.md).
+1. Make sure your active private {{ interconnect-name }} connection is added to the selected virtual router. [Add it](../../cloud-router/operations/ri-priv-con-add.md) if needed.
+1. Make sure your network hardware announces on-premise IP prefixes to the private connection over BGP.
 
-If your folder already has [{{ interconnect-name }}](../../interconnect/index.yaml) network connectivity (VPC-to-On-Prem) configured, you can either use an existing virtual router or create a new, additional one for standalone network connectivity.
-
-### Check that you have a virtual router in your folder {#check-for-ri}
-
-1. {% include [cli-install](../../_includes/cli-install.md) %}
-
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-1. {% include [check-for-routing-instance](../../_includes/baremetal/check-for-routing-instance.md) %}
-
-1. If you have a virtual router already, you may skip the next step and [proceed](#create-private-connection) to creating a private connection.
-
-    If you have no virtual router or you want to build additional dedicated network connectivity, [create a new one](../../cloud-router/operations/ri-create.md).
-
-## Configure a virtual router {#config-ri}
-
-In addition to the list of IP prefixes from the previous step, you should add the following to the virtual router:
-
-1. List of aggregated IP prefixes for private subnets from the Baremetal segment.
-1. List of aggregated IP prefixes for announced subnets from on-premise.
-
-You can associate the list of aggregated IP prefixes with any of the existing availability zones.
-
-For example, for the `192.168.1.0/24` subnet IP prefix, the `192.168.0.0/22` prefix can be the aggregate.
+The virtual router receives on-premise IP prefixes over BGP. You do not need to add them as cloud network prefixes.
 
 ## Create a private connection {#create-private-connection}
 
-Once the virtual router has been created in your folder, create a [private {{ interconnect-name }} connection](../../baremetal/concepts/private-network.md#private-connection-to-vpc) in {{ baremetal-name }}:
+Once your virtual router is ready, create a [private {{ interconnect-name }} connection](../../baremetal/concepts/private-network.md#private-connection-to-vpc) in {{ baremetal-name }}:
 
 {% include [create-private-connection](../../_includes/baremetal/create-private-connection.md) %}
 
 ## Test network connectivity {#check-connectivity}
 
-As soon as the status of the new private connection changes to `Ready`, network connectivity between the {{ baremetal-name }} and {{ vpc-short-name }} subnets will be established, and you can start checking it.
+As soon as the status of the new private connection changes to `Ready`, network connectivity between the {{ baremetal-name }} subnet and on-premises will be established, and you can start checking it.
 
 A network connectivity check assumes that:
-* The process of setting up a private connection to cloud networks has been successfully completed (the connection status is `Ready`).
-* The local firewall on the {{ baremetal-name }} server allows [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol) traffic.
-* The routing table in the {{ baremetal-name }} server OS contains a route to the CIRD of the subnet the VM resides in.
-* The [security group](../../vpc/concepts/security-groups.md) assigned to the VM [network interface](../../compute/concepts/network.md) allows ICMP traffic.
 
-### Test network connectivity from the private {{ baremetal-name }} subnet to on-premise resources {#check-bms-to-onprem}
+* The private connection has been successfully set up, and its status has changed to `Ready`.
+* The local firewall on the {{ baremetal-name }} server allows [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol) traffic.
+* The routing table in the {{ baremetal-name }} server OS contains a route to the on-premise prefix.
+* The firewall on the on-premise resource allows ICMP traffic from the {{ baremetal-name }} subnet.
+
+### Test network connectivity from the private {{ baremetal-name }} subnet to the on-premise resources {#check-bms-to-onprem}
 
 {% list tabs group=instructions %}
 
@@ -193,66 +174,32 @@ A network connectivity check assumes that:
       ```
 
       If you did not save the server administrator password, you can create a new password following [this guide](../../baremetal/operations/servers/reset-password.md) or [reinstall](../../baremetal/operations/servers/reinstall-os-from-marketplace.md) the server OS.
-  1. In the KVM console terminal, run the `ping` command to make sure you can access `sample-vm` by its [internal](../../compute/concepts/network.md#internal-ip) IP address:
+  1. In the KVM console terminal, run the `ping` command to make sure you can access the on-premise resource:
 
       ```bash
-      ping <VM_internal_IP_address> -c 5
+      ping <on_premise_resource_IP_address> -c 5
       ```
 
-      You can find the VM internal IP address in the [management console]({{ link-console-main }}) under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}** on the VM information page.
-
-      Result:
-
-      ```text
-      PING 192.168.11.2 (192.168.11.2) 56(84) bytes of data.
-      64 bytes from 192.168.11.2: icmp_seq=1 ttl=64 time=3.90 ms
-      64 bytes from 192.168.11.2: icmp_seq=2 ttl=64 time=0.235 ms
-      64 bytes from 192.168.11.2: icmp_seq=3 ttl=64 time=0.222 ms
-      64 bytes from 192.168.11.2: icmp_seq=4 ttl=64 time=0.231 ms
-      64 bytes from 192.168.11.2: icmp_seq=5 ttl=64 time=0.235 ms
-
-      --- 192.168.11.2 ping statistics ---
-      5 packets transmitted, 5 received, 0% packet loss, time 4086ms
-      rtt min/avg/max/mdev = 0.222/0.964/3.899/1.467 ms
-      ```
-
-      Network connectivity between the {{ baremetal-name }} server and the VM has been established with zero packet loss.
+      If packets are transmitted with zero loss, network connectivity from the {{ baremetal-name }} server to on-premises is working correctly.
 
 {% endlist %}
 
-### Test network connectivity from an on-premise resource to the private {{ baremetal-name }} subnet {#check-onprem-to-bms}
+### Test network connectivity from the on-premise resource to the private {{ baremetal-name }} subnet {#check-onprem-to-bms}
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
-1. In the terminal, run the `ping` command to make sure you can access `server-m3` by its private IP address:
+On the on-premise resource, run the `ping` command to make sure you can access `server-m3` by its private IP address:
 
-      ```bash
-      ping <server_private_IP_address> -c 5
-      ```
+```bash
+ping <server_private_IP_address> -c 5
+```
 
-      You can learn the {{ baremetal-name }} server's private IP address in the [management console]({{ link-console-main }}) under **Network settings** on the server information page.
+You can find your {{ baremetal-name }} server's private IP address in the management console under **Network settings** on the server information page.
 
-      Result:
-
-      ```text
-      PING 192.168.1.3 (192.168.1.3) 56(84) bytes of data.
-      64 bytes from 192.168.1.3: icmp_seq=1 ttl=64 time=0.271 ms
-      64 bytes from 192.168.1.3: icmp_seq=2 ttl=64 time=0.215 ms
-      64 bytes from 192.168.1.3: icmp_seq=3 ttl=64 time=0.262 ms
-      64 bytes from 192.168.1.3: icmp_seq=4 ttl=64 time=0.223 ms
-      64 bytes from 192.168.1.3: icmp_seq=5 ttl=64 time=0.208 ms
-
-      --- 192.168.1.3 ping statistics ---
-      5 packets transmitted, 5 received, 0% packet loss, time 4106ms
-      rtt min/avg/max/mdev = 0.208/0.235/0.271/0.025 ms
-      ```
-
-      Network connectivity between the VM and the {{ baremetal-name }} server has been established with zero packet loss.
+If packets are transmitted with zero loss, network connectivity from on-premises to the {{ baremetal-name }} server is working correctly.
 
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
 
-1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
 1. You cannot delete a {{ baremetal-name }} server. Instead, [cancel](../../baremetal/operations/servers/server-lease-cancel.md) the server lease renewal.
 1. Delete the private connection if you no longer need it:
 
@@ -269,3 +216,5 @@ To stop paying for the resources you created:
       The connection status will change to `Deleting`. Once all links are deleted, the connection will disappear from the list.
 
     {% endlist %}
+
+1. If you created a new virtual router for this tutorial, [delete the private connection from it](../../cloud-router/operations/ri-priv-con-del.md) and then [delete the router](../../cloud-router/operations/ri-delete.md).
