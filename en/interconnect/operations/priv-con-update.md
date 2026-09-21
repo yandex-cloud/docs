@@ -57,6 +57,8 @@ To update a [private connection](../concepts/priv-con.md):
   * [yc cic private-connection upsert-static-routes](../../cli/cli-ref/cic/cli-ref/private-connection/upsert-static-routes.md): Allows adding new static routes to a private connection in addition to existing ones.
   * [yc cic private-connection remove-static-routes](../../cli/cli-ref/cic/cli-ref/private-connection/remove-static-routes.md): Allows deleting some static routes from a private connection while preserving others.
 
+  Using the `--labels` parameter when running `yc cic private-connection update` will completely overwrite the existing labels.
+
   **yc cic private-connection update**
 
   1. See the description of the CLI command for updating a private connection:

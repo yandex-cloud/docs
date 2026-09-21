@@ -13,7 +13,7 @@
   ```
 
   Where:
-  * `<hashing_algorithm>`: Hashing algorithm used to create the signature key pair. The possible values are as follows:
+  * `<hashing_algorithm>`: Hashing algorithm used when creating a signature key pair. The possible values are as follows:
       * `sha256`: For SHA-256 algorithms.
       * `sha384`: For SHA-384 algorithms.
       * `sha512`: For SHA-512 algorithms.
@@ -86,7 +86,7 @@
   Where:
   * `<public_key_contents>`: Contents of the signature public key.
   * `<signature>`: Contents of the digital signature in the `base64` encoding.
-  * `<message>`: String containing the source message signed with the digital signature, or hash of the file signed with the digital signature.
+  * `<message>`: String with the source message signed with the digital signature, or hash of the file signed with the digital signature.
   * `<algorithm_type>`: Hash function used for the signature. The possible values are `SHA256`, `SHA384`, and `SHA512`.
 
   The code verifies the ECDSA signature. It returns `true` if the signature is valid, and `false` if it is not.
@@ -160,7 +160,7 @@
   Where:
   * `<public_key_contents>`: Contents of the signature public key in the `base64` encoding.
   * `<signature>`: Contents of the digital signature in the `base64` encoding.
-  * `<message>`: String containing the source message signed with the digital signature, or hash of the file signed with the digital signature.
+  * `<message>`: String with the source message signed with the digital signature, or hash of the file signed with the digital signature.
   * `<algorithm_type>`: Hash function used for the signature. The possible values are `sha256.New()`, `sha512.New384()`, and `sha512.New()`.
 
   The code verifies the ECDSA signature. It returns `true` if the signature is valid, and `false` if it is not.
@@ -220,7 +220,7 @@
   Where:
   * `<public_key_contents>`: Contents of the signature public key.
   * `<signature>`: Contents of the digital signature in the `base64` encoding.
-  * `<message>`: String containing the source message signed with the digital signature, or hash of the file signed with the digital signature.
+  * `<message>`: String with the source message signed with the digital signature, or hash of the file signed with the digital signature.
   * `<algorithm_type>`: Hash function used for the signature. The possible values are `SHA256`, `SHA384`, and `SHA512`.
 
   The code verifies the ECDSA signature. It returns `true` if the signature is valid, and `false` if it is not.

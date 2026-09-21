@@ -19,47 +19,47 @@ If deletion protection is enabled for the static address, [disable it](./deletio
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete the static address.
-   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the IP address you need:
-      * Select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
-      * (Optional) Select ![image](../../_assets/console-icons/lock-open.svg) **{{ ui-key.yacloud.vpc.addresses.button_action-disable-protection }}** if protection is enabled and click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_disable-protection }}**.
-   1. In the window that opens, confirm by clicking **{{ ui-key.yacloud.common.delete }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to delete the static address.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the IP address you need:
+     * Select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+     * (Optional) Select ![image](../../_assets/console-icons/lock-open.svg) **{{ ui-key.yacloud.vpc.addresses.button_action-disable-protection }}** if protection is enabled and click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_disable-protection }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
-   {% include [include](../../_includes/cli-install.md) %}
+  {% include [include](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI command for deleting an address:
+  1. See the description of the CLI command for deleting an address:
 
-      ```bash
-      yc vpc address delete --help
-      ```
+     ```bash
+     yc vpc address delete --help
+     ```
 
-   1. Get a list of addresses in the default folder:
+  1. Get a list of addresses in the default folder:
 
-      ```bash
-      yc vpc address list
-      ```
+     ```bash
+     yc vpc address list
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      +----------------------+------+----------------+----------+-------+
-      |          ID          | NAME |    ADDRESS     | RESERVED | USED  |
-      +----------------------+------+----------------+----------+-------+
-      | e9b6un9gkso6******** |      | 178.154.253.52 | true     | false |
-      +----------------------+------+----------------+----------+-------+
-      ```
+     ```text
+     +----------------------+------+----------------+----------+-------+
+     |          ID          | NAME |    ADDRESS     | RESERVED | USED  |
+     +----------------------+------+----------------+----------+-------+
+     | e9b6un9gkso6******** |      | 178.154.253.52 | true     | false |
+     +----------------------+------+----------------+----------+-------+
+     ```
 
-   1. Delete the address by specifying its ID:
+  1. Delete the address by specifying its ID:
 
-      ```bash
-      yc vpc address delete e9b6un9gkso6********
-      ```
+     ```bash
+     yc vpc address delete e9b6un9gkso6********
+     ```
 
 - {{ TF }} {#tf}
 
@@ -84,41 +84,17 @@ If deletion protection is enabled for the static address, [disable it](./deletio
      ...
      ```
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. Apply the changes:
 
-  1. Check the configuration using this command:
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     ```
-     terraform validate
-     ```
+  1. Type `yes` and press **Enter** to confirm the changes.
 
-     If the configuration is valid, you will get this message:
+  You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```
-     terraform plan
-     ```
-
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the configuration changes:
-
-     ```
-     terraform apply
-     ```
-
-  1. Type `yes` and press **Enter** to confirm changes.
-
-     You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
-
-     ```
-     yc vpc address list
-     ```
+  ```
+  yc vpc address list
+  ```
 
 - API {#api}
 

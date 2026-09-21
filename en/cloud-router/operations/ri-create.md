@@ -49,8 +49,19 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
 
       ```bash
       yc cloudrouter routing-instance create --name ri1 \
-        --description "Routing instance 1" \ 
+        --description "Routing instance 1" \
         --folder-id b1gqf**********jiz2w \
+        --async
+      ```
+
+      To immediately add private connections and cloud networks to a virtual router you are creating, use the `--cic-prc` and `--vpc-net` parameters:
+
+      ```bash
+      yc cloudrouter routing-instance create --name ri1 \
+        --description "Routing instance 1" \
+        --folder-id b1gqf**********jiz2w \
+        --cic-prc cf3r5ke20fo0******** \
+        --vpc-net 'id=enpcfncr6uld********,zone={{ region-id }}-a,ipv4-prefixes=[192.168.1.0/24]' \
         --async
       ```
 
@@ -67,10 +78,15 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
         routing_instance_id: c3l87**********1dpin
       ```
 
-  1. To check the result of creating a virtual router:
+  1. Check the result of creating a virtual router:
+
+      ```bash
+      yc cloudrouter routing-instance get c3l87**********1dpin
+      ```
+
+      Expected result:
 
       ```text
-      yc cloudrouter routing-instance get c3l87**********1dpin
       id: c3l87**********1dpin
       name: ri1
       description: Routing instance 1
@@ -81,6 +97,7 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
       ```
 
       Where:
+
       * `id`: Virtual router ID.
       * `name`: Virtual router name.
       * `description`: Virtual router description.

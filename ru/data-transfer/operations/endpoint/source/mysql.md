@@ -294,6 +294,60 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [work with db](../../../../_includes/data-transfer/endpoints/sources/mysql-work-with-db.md) %}
 
+## Соответствие типов поддерживаемых данных в СУБД и эндпоинте {#type-mapping}
+
+#|
+|| **Тип {{ MY }}** | **Тип эндпоинта** ||
+|| BIGINT | int64 ||
+|| INT
+MEDIUMINT | int32 ||
+|| SMALLINT | int16 ||
+|| TINYINT | int8 ||
+|| BIGINT UNSIGNED | uint64 ||
+|| INT UNSIGNED
+MEDIUMINT UNSIGNED | uint32 ||
+|| SMALLINT UNSIGNED | uint16 ||
+|| TINYINT UNSIGNED | uint8 ||
+|| — | float ||
+|| DECIMAL
+DECIMAL UNSIGNED
+DOUBLE
+FLOAT
+FLOAT UNSIGNED | double ||
+|| BINARY
+BIT
+BLOB
+GEOMCOLLECTION
+GEOMETRY
+LINESTRING
+LONGBLOB
+MEDIUMBLOB
+MULTILINESTRING
+MULTIPOINT
+MULTIPOLYGON
+POINT
+POLYGON
+REST...
+TINYBLOB
+VARBINARY | string ||
+|| CHAR
+ENUM
+LONGTEXT
+MEDIUMTEXT
+SET
+TEXT
+TIME
+TINYTEXT
+VARCHAR
+YEAR | utf8 ||
+|| — | boolean ||
+|| DATE | date ||
+|| — | datetime ||
+|| DATETIME
+TIMESTAMP | timestamp ||
+|| JSON | any ||
+|#
+
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 
 Известные проблемы, связанные с использованием эндпоинта {{ MY }}:

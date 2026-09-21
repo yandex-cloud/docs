@@ -149,7 +149,7 @@ Create a [cloud network](../../vpc/concepts/network.md) with a [subnet](../../vp
   1. In the left-hand panel, select ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. Click **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify `mongo-express-subnet-{{ region-id }}-b`.
-  1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select `{{ region-id }}-b`.
+  1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** field, select `mongo-express-network`.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** field, specify `192.168.1.0/24`.
   1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
@@ -188,7 +188,7 @@ Create a [cloud network](../../vpc/concepts/network.md) with a [subnet](../../vp
       Where:
 
       * `--name`: Subnet name.
-      * `--zone`: Availability zone.
+      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `--network-id`: `mongo-express-network` ID.
       * `--range`: List of IPv4 addresses for incoming or outgoing traffic.
 
@@ -610,14 +610,14 @@ To run your application in {{ yandex-cloud }}, create a [container](../../server
       1. Under **{{ ui-key.yacloud.serverless-containers.section_image }}**:
 
           1. In the **{{ ui-key.yacloud.serverless-containers.label_image-url }}** field, specify the URL of the Docker image you pushed [previously](#push-image).
-          1. Under **{{ ui-key.yacloud.serverless-containers.label_environment }}**, add the variables:
+          1. Under **{{ ui-key.yacloud.serverless-containers.label_environment }}**, add the following variables:
 
               * `ME_CONFIG_BASICAUTH_USERNAME`: Leave empty.
               * `ME_CONFIG_BASICAUTH_PASSWORD`: Leave empty.
               * `VCAP_APP_PORT`: Set it to `8080`.
               * `ME_CONFIG_MONGODB_SERVER`: Specify the VM public IP address obtained [earlier](#create-vm).
 
-          1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field, specify the secrets:
+          1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field, specify the secrets as follows:
 
               * `ME_CONFIG_MONGODB_AUTH_USERNAME`: Secret with the `login` key.
               * `ME_CONFIG_MONGODB_AUTH_PASSWORD`: Secret with the `password` key.

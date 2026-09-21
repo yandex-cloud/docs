@@ -8,7 +8,7 @@ Update the specified server
 
 Syntax:
 
-`yc baremetal server update <SERVER-NAME>|<SERVER-ID> [Flags...] [Global Flags...]`
+`yc baremetal v0 server update <SERVER-NAME>|<SERVER-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -27,29 +27,9 @@ A new name of the server. ||
 || `--description` | `string`
 
 Specifies a textual description of the server. ||
-|| `--network-interfaces` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--network-interfaces` | `key=value[,key=value...]`
 
-Adds a network interface spec to the server.
-
-Possible property names:
-
-- `id`: Specifies the ID of the network interface. Should not be specified when creating a server.
-
-- `configuration-network-interface-id`: Specifies the ID of the configuration network interface that determines the network interface configuration. If not specified, the configuration will be chosen automatically on the server side based on availability. It is recommended to specify this field for deterministic behavior.
-
-- `private-subnet-id`: Specifies the ID of the private subnet that the interface will be part of.
-
-- `public-subnet-id`: Specifies the ID of the public subnet that the interface will be part of.
-
-- `private-subnet-name`: Specifies the name of the private subnet that the interface will be part of.
-
-- `public-subnet-name`: Specifies the name of the public subnet that the interface will be part of.
-
-- `ephemeral-public-subnet`: Creates an ephemeral public subnet for the interface.
-
-- `tagged-subnet-ids`: Specifies the IDs of the additional private subnets to be assigned as VLAN-tagged subinterfaces.
-
-- `tagged-subnet-names`: Specifies the names of the additional private subnets to be assigned as VLAN-tagged subinterfaces. ||
+Adds a network interface spec to the server. ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
@@ -61,15 +41,10 @@ A list of label KEY=VALUE pairs to add. For example, to add two labels named 'fo
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -79,21 +54,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

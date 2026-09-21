@@ -7,8 +7,13 @@ Make sure to specify this key when creating the {{ managed-k8s-name }} cluster, 
 
 ## Required paid resources {#paid-resources}
 
-The cost of support for the described solution includes a {{ kms-name }} fee: number of active key versions (with `Active` or `Scheduled For Destruction` status) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ kms-name }}: number of active key versions and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
 
+
+## Create a cluster with an encryption key {#create-cluster}
 
 {% list tabs group=instructions %}
 

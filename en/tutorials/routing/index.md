@@ -32,18 +32,8 @@ description: Various use cases for network infrastructure in {{ yandex-cloud }}.
 ## {{ interconnect-name }} {#sec-interconnect}
 
 * [Configuring {{ interconnect-name }} access to cloud networks behind NGFWs](cic-with-ngfw.md)
-* [Creating a direct trunk and a private connection in it](trunk-priv-add.md)
-* [Creating a direct trunk and a public connection in it](trunk-pub-add.md)
-* [Creating a new partner trunk and a private connection in it](partner-trunk-priv-add.md)
-* [Creating a new partner trunk and a public connection in it](partner-trunk-pub-add.md)
-* [Adding a private connection to a direct or partner trunk](priv-add.md)
-* [Adding a public connection to a direct or partner trunk](pub-add.md)
-* [Changing trunk capacity](trunk-capacity-change.md)
-* [Deleting a private connection](priv-del.md)
-* [Deleting a public connection](pub-del.md)
-* [Deleting a trunk](trunk-del.md)
 
-## Configuring network resources and their interactions {#sec-network-resources}
+## Configuring network resources and interaction between them {#sec-network-resources}
 
 * [Setting up networking between resources from different folders](multi-folder-vpc.md)
 * [Implementing fault-tolerant use cases for network VMs](route-switcher.md)

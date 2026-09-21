@@ -18,7 +18,7 @@ To encrypt data:
 
    {% note warning %}
 
-   With `yandex_kms_secret_ciphertext`, you can hide secrets when deploying an infrastructure, but generally speaking it is unsafe to specify `plaintext` and `aad_context` in the configuration file in plain text. Secrets can be read from configuration files or execution logs and can end up in the {{ TF }} state.
+   With `yandex_kms_secret_ciphertext`, you can hide secrets when deploying an infrastructure, but generally speaking it is unsafe to specify `plaintext` and `aad_context` in the configuration file in plain text. Secrets can be read from configuration files, end up in the {{ TF }} state, or be exposed in execution logs.
 
    {% endnote %}
 
@@ -70,7 +70,7 @@ To encrypt data:
    }
    ```
 
-   After updating the configuration, you can check the encrypted data using the command:
+   After updating the configuration, you can check the encrypted data using this command:
 
    ```hcl
    terraform output decrypted_pass

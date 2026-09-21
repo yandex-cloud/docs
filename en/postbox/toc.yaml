@@ -23,6 +23,8 @@ items:
         href: operations/create-configuration.md
       - name: Linking a configuration to an address
         href: operations/bind-configuration.md
+      - name: Managing a custom suppression list
+        href: operations/manage-suppression-list.md
       - name: Limiting the list of senders
         href: operations/restrict-senders.md
       - name: Writing logs
@@ -37,6 +39,8 @@ items:
         href: concepts/dns-records.md
       - name: Configurations
         href: concepts/configuration.md
+      - name: Suppression lists
+        href: concepts/suppression-list.md
       - name: Email operation notifications
         href: concepts/notification.md
       - name: Email delivery simulator
@@ -136,6 +140,19 @@ items:
               - name: PutConfigurationSetDeliveryOptions method
                 href: >-
                   aws-compatible-api/api-ref/put-configuration-set-delivery-options.md
+              - name: PutConfigurationSetSuppressionOptions method
+                href: >-
+                  aws-compatible-api/api-ref/put-configuration-set-suppression-options.md
+          - name: Suppression list
+            items:
+              - name: ListSuppressedDestinations method
+                href: aws-compatible-api/api-ref/list-suppressed-destinations.md
+              - name: GetSuppressedDestination method
+                href: aws-compatible-api/api-ref/get-suppressed-destination.md
+              - name: PutSuppressedDestination method
+                href: aws-compatible-api/api-ref/put-suppressed-destination.md
+              - name: DeleteSuppressedDestination method
+                href: aws-compatible-api/api-ref/delete-suppressed-destination.md
           - name: Subscriptions
             items:
               - name: GetConfigurationSetEventDestinations method

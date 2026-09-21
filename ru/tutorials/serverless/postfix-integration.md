@@ -7,4 +7,4 @@ description: В этом руководстве вы узнаете, как на
 
 {% include [postfix-integration](../../_tutorials/serverless/postfix-integration.md) %}
 
-
+[*api-key-scope]: {% include notitle [api-key-scope](../../_popups/iam/api-key-scope.md) %}

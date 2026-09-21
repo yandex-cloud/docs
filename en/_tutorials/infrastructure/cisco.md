@@ -186,7 +186,7 @@ Create a user with administrator privileges and password authentication disabled
    ssh -i <private_key_file_path> test-user@<router_public_IP_address> 
    ```
 
-   If the configuration is correct, you will log in to the router as `test-user`. If these actions produce no connection, make sure the router configuration is correct in the serial console, i.e., check whether you ran the `aaa new-model` command, the key hashes are identical on your computer and the router, and password authorization is disabled for the test user. If still unable to locate the issue, repeat the previous steps. 
+   If the configuration is correct, you will log in to the router as `test-user`. If you cannot establish a connection, make sure the router configuration is correct in the serial console: the `aaa new-model` command has been executed, key hashes on your computer and the router match, password authorization is off for the test user. If still unable to locate the issue, repeat the previous steps.
 1. Enter the `enable` command and password. If the configuration is correct, you can proceed to configuring the router.
 
 ## How to delete the resources you created {#clear-out}

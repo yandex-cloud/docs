@@ -1,3 +1,8 @@
+---
+title: How to enable DDoS protection in {{ vpc-full-name }}
+description: Follow this guide to enable DDoS protection.
+---
+
 # Enabling DDoS protection
 
 You can activate [DDoS protection](../ddos-protection/index.md) when [creating](../../compute/quickstart/quick-create-linux.md) a VM and [reserving](get-static-ip.md) public IP addresses.
@@ -5,13 +10,14 @@ You can activate [DDoS protection](../ddos-protection/index.md) when [creating](
 Protected addresses are allocated from a separate pool; therefore, you cannot enable and disable protection for a previously reserved address.
 
 ## Enabling DDoS protection when creating a virtual machine {#enable-on-vm-creation}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-	When configuring a network on a new virtual machine, select the automatically assigned public IP address or an address from the list of the reserved ones. 
+  When configuring a network on a new virtual machine, select the automatically assigned public IP address or an address from the list of the reserved ones.
 
-	Once you select an address, select **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**.
+  Once you select an address, select **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**.
 
 {% endlist %}
 
@@ -21,15 +27,15 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
 
 - Management console {#console}
 
-	To reserve a protected static IP address:
+  To reserve a protected static IP address:
 
-	1. In the [management console]({{ link-console-main }}), select the folder where you need to reserve an address.
-	1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-	1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-	1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
-	1. Select the availability zone where you want to reserve the address.
-	1. Select **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**.
-	1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you need to reserve an address.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+  1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+  1. Select the availability zone where you want to reserve the address.
+  1. Select **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**.
+  1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 - {{ TF }} {#tf}
 
@@ -53,39 +59,15 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
 
      For more on the properties of the `yandex_vpc_address` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_address).
 
-  1. Validate your configuration using this command:
+  1. Apply the changes:
 
-     ```
-     terraform validate
-     ```
-     
-     If the configuration is valid, you will get this message:
-     
-     ```
-     Success! The configuration is valid.
-     ```
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  1. Run this command:
+  You can check whether DDoS protection is active in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
-     ```
-     terraform plan
-     ```
-  
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the configuration changes:
-
-     ```
-     terraform apply
-     ```
-     
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
-     You can check whether DDoS protection is active in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
-
-     ```
-     yc vpc address list
-     ```
+  ```bash
+  yc vpc address list
+  ```
 
 {% endlist %}
 

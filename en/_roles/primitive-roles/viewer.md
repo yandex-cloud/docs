@@ -1,4 +1,4 @@
-The `viewer` role grants the permissions to read the info on any {{ yandex-cloud }} [resources]({{ link-docs }}/resource-manager/concepts/resources-hierarchy).
+The `viewer` role grants the permissions to read the info on any {{ yandex-cloud }} [resources](../../resource-manager/concepts/resources-hierarchy.md).
 
 This role includes the `auditor` permissions.
 

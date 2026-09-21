@@ -13,9 +13,9 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 
   1. In the [management console]({{ link-console-main }}), select a folder to modify the DNS zone record in.
   1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. Select the zone from the list.
+  1. Click the zone of interest.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the record you need and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. Edit the record TTL, value, or description.
+  1. Change the description, value, or TTL of the record.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -40,22 +40,21 @@ You can update the value of a [resource record](../concepts/resource-record.md).
      --description "<description>"
      ```
 
-    Where:
+     Where:
 
-    * `--name`: Zone name. It must be unique within a folder.
-    * `--record`: DNS record containing the domain name, TTL, record type, and record value.
-    * `--description`: Description for the new records. If this parameter is not set, the description will be an empty string. This is an optional setting.
-
+     * `--name`: Zone name. It must be unique within a folder.
+     * `--record`: DNS record containing the domain name, TTL, record type, and record value.
+     * `--description`: Description for the new records. If this parameter is not set, the description will be an empty string. This is an optional setting.
 
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To update a DNS record created with {{ TF }}:
+  To update a DNS record created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and edit the fragment describing your DNS record.
+  1. Open the {{ TF }} configuration file and edit the fragment describing the DNS record.
 
-     {% cut "{{ TF }} DNS record description example" %}
+     {% cut "Example of a DNS record description in the {{ TF }} configuration" %}
 
      ```hcl
      ...
@@ -80,9 +79,9 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 
   1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can verify DNS record changes in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+     You can check the DNS record update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc dns zone list-records <zone_name>

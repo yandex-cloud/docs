@@ -10,7 +10,7 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
 
 {% note info %}
 
-Changes caused by [eventually consistent operations](../concepts/consistency.md) require up to three hours to become encryptable.
+Changes resulting from [eventually consistent operations](../concepts/consistency.md) may take up to three hours to take effect for encryption.
 
 {% endnote %}
 
@@ -25,7 +25,7 @@ Changes caused by [eventually consistent operations](../concepts/consistency.md)
   * `--version-id` (optional): [Version](../concepts/version.md) of the KMS key to use for encryption. The primary version is used by default.
   * `--plaintext-file`: Input plaintext file.
   * `--aad-context-file` (optional): Input file with [AAD context](../concepts/symmetric-encryption.md#add-context).
-  * `--ciphertext-file`: Output file with ciphertext.
+  * `--ciphertext-file`: Output ciphertext file.
 
   ```bash
   yc kms symmetric-crypto encrypt \
@@ -64,7 +64,7 @@ Changes caused by [eventually consistent operations](../concepts/consistency.md)
 
 {% note info %}
 
-Changes caused by [eventually consistent operations](../concepts/consistency.md) require up to three hours to become decryptable.
+Changes resulting from [eventually consistent operations](../concepts/consistency.md) may take up to three hours to take effect for decryption.
 
 {% endnote %}
 
@@ -76,7 +76,7 @@ Changes caused by [eventually consistent operations](../concepts/consistency.md)
 
   * `--id`: ID of the [KMS key](../concepts/key.md). Make sure you set either the `--id` or `--name` flag.
   * `--name`: Name of the KMS key. Make sure you set either the `--id` or `--name` flag.
-  * `--ciphertext-file`: Input file with ciphertext.
+  * `--ciphertext-file`: Input ciphertext file.
   * `--aad-context-file` (optional): Input file with [AAD context](../concepts/symmetric-encryption.md#add-context).
   * `--plaintext-file`: Output plaintext file.
 
@@ -109,7 +109,7 @@ Changes caused by [eventually consistent operations](../concepts/consistency.md)
 
 {% note info %}
 
-Changes triggered by [eventually consistent operations](../concepts/consistency.md) allow an encryption key change after as much as three hours.
+Changes resulting from [eventually consistent operations](../concepts/consistency.md) may take up to three hours to take effect for encryption key change.
 
 {% endnote %}
 
@@ -131,10 +131,10 @@ Changes triggered by [eventually consistent operations](../concepts/consistency.
 
   * `--version-id` (optional): [Version](../concepts/version.md) of the KMS key to use for encryption. The primary version is used by default.
   * `--aad-context-file` (optional): Output file with [AAD context](../concepts/symmetric-encryption.md#add-context).
-  * `--ciphertext-file`: Output file with ciphertext.
+  * `--ciphertext-file`: Output ciphertext file.
   * `--source-key-id`: ID of the {{ kms-name }} encryption key used for source text encryption.
   * `--source-aad-context-file` (optional): Input file with AAD context.
-  * `--source-ciphertext-file`: Input file with ciphertext.
+  * `--source-ciphertext-file`: Input ciphertext file.
 
   ```bash
   yc kms symmetric-crypto reencrypt \
@@ -146,7 +146,7 @@ Changes triggered by [eventually consistent operations](../concepts/consistency.
 
 - API {#api}
 
-  To change the data encryption key or its version, use the [reEncrypt](../../kms/api-ref/SymmetricCrypto/reEncrypt.md) REST API method for the [SymmetricCrypto](../../kms/api-ref/SymmetricCrypto/index.md) resource or the [SymmetricCryptoService/ReEncrypt](../../kms/api-ref/grpc/SymmetricCrypto/reEncrypt.md) gRPC API call.
+  To change a data encryption key or its version, use the [reEncrypt](../../kms/api-ref/SymmetricCrypto/reEncrypt.md) REST API method for the [SymmetricCrypto](../../kms/api-ref/SymmetricCrypto/index.md) resource or the [SymmetricCryptoService/ReEncrypt](../../kms/api-ref/grpc/SymmetricCrypto/reEncrypt.md) gRPC API call.
 
 {% endlist %}
 

@@ -1,3 +1,8 @@
+---
+title: Changing the security group name and description
+description: Follow this guide to change the name and description of a security group.
+---
+
 # Changing the name and description
 
 After creating a [security group](../concepts/security-groups.md), you can change its name and description, and [add](security-group-add-rule.md) or [remove](security-group-delete-rule.md) rules.
@@ -6,20 +11,20 @@ After creating a [security group](../concepts/security-groups.md), you can chang
 
 - Management console {#console}
 
-  To change the name or description of a group:
+  To change the name or description of a security group:
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the security group you want to update.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the group you need to update.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the security group you need to update.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
-  1. Edit the group name and description and click **{{ ui-key.yacloud.common.save }}**.
+  1. Edit the security group name and description and click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
   
   To update the security group, run this command:
 
-  ```
+  ```bash
   yc vpc security-group update <group_ID> --new-name test-sg-renamed
   ```
 
@@ -36,7 +41,7 @@ After creating a [security group](../concepts/security-groups.md), you can chang
      resource "yandex_vpc_security_group" "test-sg" {
        name        = "Test security group"
        description = "Description for security group"
-       network_id  = "${yandex_vpc_network.lab-net.id}"
+       network_id  = yandex_vpc_network.lab-net.id
      }
      ...
      ```
@@ -49,37 +54,13 @@ After creating a [security group](../concepts/security-groups.md), you can chang
 
      {% endnote %}
 
-  1. Check the configuration using this command:
+  1. Apply the configuration:
 
-     ```
-     terraform validate
-     ```
-     
-     If the configuration is valid, you will get this message:
-     
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```
-     terraform plan
-     ```
-  
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the configuration changes:
-
-     ```
-     terraform apply
-     ```
-     
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      You can check the security group update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-     ```
+     ```bash
      yc vpc security-group get <security_group_name>
      ```
 

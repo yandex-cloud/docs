@@ -821,6 +821,8 @@ items:
                     href: domain/api-ref/Operation/get.md
                   - name: Cancel
                     href: domain/api-ref/Operation/cancel.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
 path: en/cloud-registry/toc.yaml

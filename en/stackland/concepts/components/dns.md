@@ -8,7 +8,7 @@ To use DNS:
 1. Set up delegation of the dedicated domain zone: create NS and A records for the IP addresses of servers with the `control-plane` or `combined` role.
 1. Specify the domain zone in the `cluster.baseDomain.fqdn` installer property.
 
-{{ stackland-name }} provides DNS access on port 53 (UDP and TCP) for selected addresses.
+{{ stackland-name }} provides DNS access on port 53 (UDP and TCP) for the selected addresses.
 
 ## Subzones and record creation rules {#subzones-and-record-creation-rules}
 
@@ -91,7 +91,7 @@ spec:
   # ...
 ```
 
-The following restrictions apply:
+Limitations:
 
 * {{ stackland-name }} will block creating resources if the `host` value in the `Ingress` resource and the `dns.stackland.yandex.cloud/hostname` annotation value in the `Service` resource are subdomains of `sys.{{ cluster-domain }}` and `svc.{{ cluster-domain }}`.
 * {{ stackland-name }} prevents the creation of an `Ingress` or `Service` resource if another resource already uses the same domain name.

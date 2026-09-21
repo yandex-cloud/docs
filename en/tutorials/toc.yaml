@@ -843,6 +843,8 @@ items:
             href: web/user-agent-statistics.md
           - name: Formatting {{ video-name }} content in IFrame
             href: web/video-iframe.md
+          - name: Managing video content for Moodle courses
+            href: web/video-moodle-plugin.md
       - name: 1C
         items:
           - name: 1C-Bitrix online store
@@ -1500,27 +1502,7 @@ items:
               Configuring {{ interconnect-name }} access to cloud networks
               behind NGFWs
             href: routing/cic-with-ngfw.md
-          - name: Creating a direct trunk and a private connection in it
-            href: routing/trunk-priv-add.md
-          - name: Creating a direct trunk and a public connection in it
-            href: routing/trunk-pub-add.md
-          - name: Creating a new partner trunk and a private connection in it
-            href: routing/partner-trunk-priv-add.md
-          - name: Creating a new partner trunk and a public connection in it
-            href: routing/partner-trunk-pub-add.md
-          - name: Adding a private connection to a direct or partner trunk
-            href: routing/priv-add.md
-          - name: Adding a public connection to a direct or partner trunk
-            href: routing/pub-add.md
-          - name: Updating trunk capacity
-            href: routing/trunk-capacity-change.md
-          - name: Deleting a private connection
-            href: routing/priv-del.md
-          - name: Deleting a public connection
-            href: routing/pub-del.md
-          - name: Deleting a trunk
-            href: routing/trunk-del.md
-      - name: Configuring network resources and their interactions
+      - name: Configuring network resources and interaction between them
         items:
           - name: Setting up networking between resources from different folders
             href: routing/multi-folder-vpc.md

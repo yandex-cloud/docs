@@ -1,3 +1,8 @@
+---
+title: Viewing a list of addresses used in a subnet
+description: Follow this guide to view a list of addresses used in a subnet.
+---
+
 # Viewing a list of addresses used in a subnet
 
 You can view [internal IP addresses](../concepts/address.md#internal-addresses) that are assigned to cloud resources in your folder.
@@ -48,7 +53,7 @@ To view a list of internal addresses used in a subnet:
 
 - API {#api}
 
-   Use the [listUsedAddresses](../api-ref/Subnet/listUsedAddresses) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/ListUsedAddresses](../api-ref/grpc/Subnet/listUsedAddresses.md) gRPC API call and provide the ID of the subnet you want to update in the `subnetId` request parameter.
+   Use the [listUsedAddresses](../api-ref/Subnet/listUsedAddresses) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/ListUsedAddresses](../api-ref/grpc/Subnet/listUsedAddresses.md) gRPC API call and provide the subnet ID in the `subnetId` request parameter.
 
    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
 

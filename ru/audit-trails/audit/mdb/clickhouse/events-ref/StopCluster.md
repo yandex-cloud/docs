@@ -448,6 +448,8 @@ editable: false
                 "port": "string"
               },
               "mysqlProtocol": "boolean",
+              "grpcProtocol": "boolean",
+              "arrowflightProtocol": "boolean",
               "customMacros": [
                 {
                   "name": "string",
@@ -800,6 +802,8 @@ editable: false
                 "port": "string"
               },
               "mysqlProtocol": "boolean",
+              "grpcProtocol": "boolean",
+              "arrowflightProtocol": "boolean",
               "customMacros": [
                 {
                   "name": "string",
@@ -1152,6 +1156,8 @@ editable: false
                 "port": "string"
               },
               "mysqlProtocol": "boolean",
+              "grpcProtocol": "boolean",
+              "arrowflightProtocol": "boolean",
               "customMacros": [
                 {
                   "name": "string",
@@ -1273,6 +1279,9 @@ editable: false
             "maxParserDepth": "string",
             "minExecutionSpeed": "string",
             "minExecutionSpeedBytes": "string",
+            "useStatistics": "boolean",
+            "useStatisticsForPartPruning": "boolean",
+            "refreshStatisticsInterval": "string",
             "inputFormatValuesInterpretExpressions": "boolean",
             "inputFormatDefaultsForOmittedFields": "boolean",
             "inputFormatNullAsDefault": "boolean",
@@ -1435,7 +1444,8 @@ editable: false
         "string"
       ],
       "deletionProtection": "boolean",
-      "diskEncryptionKeyId": "string"
+      "diskEncryptionKeyId": "string",
+      "isHa": "boolean"
     }
   },
   "requestParameters": "object",
@@ -1658,6 +1668,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || securityGroupIds[] | **string** ||
 || deletionProtection | **boolean** ||
 || diskEncryptionKeyId | **string** ||
+|| isHa | **boolean** ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.clickhouse.v1.Monitoring}
@@ -1811,6 +1822,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || queryCache | **[QueryCache](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.QueryCache)** ||
 || jdbcBridge | **[JdbcBridge](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge)** ||
 || mysqlProtocol | **boolean** ||
+|| grpcProtocol | **boolean** ||
+|| arrowflightProtocol | **boolean** ||
 || customMacros[] | **[Macro](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Macro)** ||
 || tls | **[Tls](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Tls)** ||
 || builtinDictionariesReloadInterval | **string** (int64) ||
@@ -2422,6 +2435,9 @@ The maximum string length in characters is 63. ||
 || maxParserDepth | **string** (int64) ||
 || minExecutionSpeed | **string** (int64) ||
 || minExecutionSpeedBytes | **string** (int64) ||
+|| useStatistics | **boolean** ||
+|| useStatisticsForPartPruning | **boolean** ||
+|| refreshStatisticsInterval | **string** (int64) ||
 || inputFormatValuesInterpretExpressions | **boolean** ||
 || inputFormatDefaultsForOmittedFields | **boolean** ||
 || inputFormatNullAsDefault | **boolean** ||

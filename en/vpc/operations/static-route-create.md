@@ -20,24 +20,23 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a static route.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
-  1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Enter a name for the route table. Follow these naming requirements:
+  1. Click **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
+  1. Specify the route table name The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-  1. (Optional) Add a description of a route table.
+  1. Optionally, add a description and labels for the route table.
   1. Select the network to create the route table in.
-  1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
+  1. Under **{{ ui-key.yacloud.vpc.route-table-form.section_static-routes }}**, click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
   1. In the window that opens, enter the destination subnet prefix in CIDR notation.
-  1. Specify the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}**, which is an IP address from the [allowed ranges](../concepts/network.md#subnet).
+  1. Specify the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}**, which is an IP address from the [allowed ranges](../concepts/network.md#subnet) or select **{{ ui-key.yacloud.vpc.subnet-used-addresses.label_resource-type-vpc_virtualGateway }}** from the list.
   1. Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
   1. Click **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
   To use static routes, associate the route table with a subnet:
 
   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. In the row with the subnet, click ![image](../../_assets/console-icons/ellipsis.svg).
-  1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
+  1. In the subnet row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
   1. In the window that opens, select your route table from the list.
   1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
@@ -164,7 +163,7 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
 
      ```hcl
      resource "yandex_vpc_route_table" "test-route-table" {
-     name       = "<route_table_name>"
+       name       = "<route_table_name>"
        network_id = "<network_ID>"
        static_route {
          destination_prefix = "<destination_prefix>"
@@ -175,44 +174,27 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
 
      To add, update, or delete a route table, use the `yandex_vpc_route_table` resource indicating the network in the `network_id` field, e.g., `network_id = yandex_vpc_network.test_route_table.id`.
 
-     For more information about `yandex_vpc_route_table` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_route_table).
+     For more on the properties of the `yandex_vpc_route_table` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_route_table).
 
-  1. Make sure the configuration files are correct.
+  1. Apply the configuration:
 
-     1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using this command:
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        ```bash
-        terraform plan
-        ```
+     This will create all the resources you need in the specified folder. You can see their detailed description using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
+     ```bash
+     yc vpc route-table list
+     ```
 
-  1. Deploy the cloud resources.
+     Result:
 
-     1. If the configuration is correct, run this command:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
-
-        This will create all the resources you need in the specified folder. You can see their detailed description using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
-
-        ```bash
-        yc vpc route-table list
-        ```
-
-        Result:
-
-        ```text
-        +----------------------+-----------------------+-------------+----------------------+
-        |          ID          |         NAME          | DESCRIPTION |      NETWORK-ID      |
-        +----------------------+-----------------------+-------------+----------------------+
-        | enpahlhr1vnl******** | terraform-route-table |             | enp0asmd9pr9******** |
-        +----------------------+-----------------------+-------------+----------------------+
-        ```
+     ```text
+     +----------------------+-----------------------+-------------+----------------------+
+     |          ID          |         NAME          | DESCRIPTION |      NETWORK-ID      |
+     +----------------------+-----------------------+-------------+----------------------+
+     | enpahlhr1vnl******** | terraform-route-table |             | enp0asmd9pr9******** |
+     +----------------------+-----------------------+-------------+----------------------+
+     ```
 
 - API {#api}
 
@@ -290,7 +272,7 @@ Create a route table and associate it with your subnet. The example uses the fol
       resource "yandex_vpc_subnet" "example_subnet" {
         name           = "example-subnet"
         network_id     = "enp846vf5fus********"
-        zone           = {{ region-id }}-a
+        zone           = "{{ region-id }}-a"
         v4_cidr_blocks = ["10.2.0.0/16"]
         # Associating the route table with the subnet
         route_table_id = yandex_vpc_route_table.test_route_table.id

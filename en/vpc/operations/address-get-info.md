@@ -1,5 +1,6 @@
 ---
 title: How to get information about an IP address in {{ vpc-full-name }}
+description: Follow this guide to get information about an IP address.
 ---
 
 # Getting IP address info
@@ -11,7 +12,7 @@ title: How to get information about an IP address in {{ vpc-full-name }}
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [address](../concepts/address.md).
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-  1. The page that opens will display detailed information about all the available addresses.
+  1. The page that opens will display detailed information about all available addresses.
 
 - CLI {#cli}
 
@@ -53,6 +54,7 @@ title: How to get information about an IP address in {{ vpc-full-name }}
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To get information about an [address](../concepts/address.md) using {{ TF }}:
+
   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
      ```hcl
@@ -71,7 +73,8 @@ title: How to get information about an IP address in {{ vpc-full-name }}
      * `output "addr"`: Output variable containing information about the IP address:
        * `value`: Return value.
 
-     You can replace `external_ipv4_address` with another variable to get the information you need. For more on the properties of the `yandex_vpc_address` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_address).
+     You can replace `external_ipv4_address` with any other attribute to get the information you need. For more on the properties of the `yandex_vpc_address` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_address).
+
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

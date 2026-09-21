@@ -39,7 +39,7 @@ Metric name | Units | Dimension | Comment
 --- | --- | --- | ---
 `connection_state_up_down` | N/A | bool | Current operational status of the physical port or LAG.
 `lag_health` | Percent | Uint64 | Ratio of active ports to total ports in the LAG.
-`light_level_to_cloud_current_dbm` | dBm | float | Level of the incoming optical signal on the {{ yandex-cloud }} equipment port.
+`light_level_to_cloud_current_dbm` | dBm | float | Incoming optical signal level on the {{ yandex-cloud }} equipment port.
 `light_level_to_cloud_min_dbm` | dBm | float | Minimum optical signal level needed for a physical port to work correctly on the {{ yandex-cloud }} equipment.
 `light_level_to_cloud_max_dbm` | dBm | float | Maximum optical signal level needed for a physical port to work correctly on the {{ yandex-cloud }} equipment.
 `light_level_from_cloud_current_dbm` | dBm | float | Level of the outgoing optical signal from the {{ yandex-cloud }} equipment port.

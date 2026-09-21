@@ -106,7 +106,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
       1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Enter the service account name, e.g., `sa-terraform`.
+      1. Enter a service account name, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -142,7 +142,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select your service account folder.
-      1. Navigate to the ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+      1. Click ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Select `sa-terraform` from the account list and click ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
       1. In the dialog that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `admin` role.
 
@@ -313,15 +313,15 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 ## Test the solution {#test-functionality}
 
-1. In the [management console]({{ link-console-main }}), select the folder you created the resources in earlier.
+1. In the [management console]({{ link-console-main }}), select the folder you earlier created the resources in.
 
 1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 
 1. Select `test-cr-vm` from the list of VMs.
 
-1. In the left-hand menu, select ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}**.
+1. Navigate to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
 
-1. Click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
+1. Click **{{ ui-key.yacloud.compute.instance.overview.button_action-ssh }}**.
 
 1. Enter the `admin` username and the password from the `terraform output test_vm_password` command output (without quotation marks).
 

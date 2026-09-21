@@ -14,8 +14,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
   1. In the [management console]({{ link-console-main }}), select the folder containing your DNS zone.
   1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Find the zone you want to delete and click ![image](../../_assets/console-icons/ellipsis.svg) in its row.
-  1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
+  1. In the menu, click **{{ ui-key.yacloud.common.delete }}** and confirm deletion.
 
 - CLI {#cli}
 
@@ -52,15 +51,15 @@ To delete a [DNS zone](../concepts/dns-zone.md):
 
      ```hcl
      resource "yandex_vpc_network" "foo" {}
-     
+
      resource "yandex_dns_zone" "zone1" {
        name        = "my-public-zone"
        description = "Test public zone"
-     
+
        labels = {
          label1 = "test-public"
        }
-     
+
        zone    = "test.example-public2.com."
      }
      ```
@@ -73,9 +72,9 @@ To delete a [DNS zone](../concepts/dns-zone.md):
      ```
      terraform validate
      ```
-     
+
      If the configuration is valid, you will get this message:
-     
+
      ```
      Success! The configuration is valid.
      ```
@@ -84,15 +83,15 @@ To delete a [DNS zone](../concepts/dns-zone.md):
      ```
      terraform plan
      ```
-  
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
 
   1. Apply the configuration changes:
      ```
      terraform apply
      ```
-     
-  1. Type `yes` and press **Enter** to confirm changes.
+
+  1. Type `yes` and press **Enter** to confirm the changes.
 
      You can check whether the DNS zone was successfully deleted in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 

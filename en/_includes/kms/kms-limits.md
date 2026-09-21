@@ -1,7 +1,7 @@
 #### Quotas {#kms-quotas}
 
 #|
-|| Type of limitation | Value ||
+|| Type of limit | Value ||
 || Number of [symmetric keys](../../kms/concepts/key.md)
 `kms.keys.count` | 100 ||
 || Number of asymmetric [encryption](../../kms/concepts/asymmetric-encryption-key.md) keys
@@ -13,7 +13,7 @@
 
 #### Limits {#kms-limits}
 
-Type of limitation | Value
+Type of limit | Value
 ----- | -----
 Number of versions per key | 100
-Maximum amount of data to encrypt with the [encrypt](../../kms/api-ref/SymmetricCrypto/encrypt) operation | 32 KB
+Maximum data size to encrypt with the [encrypt](../../kms/api-ref/SymmetricCrypto/encrypt) operation | 32 KB

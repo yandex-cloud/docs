@@ -3696,7 +3696,8 @@ editable: false
         "string"
       ],
       "deletionProtection": "boolean",
-      "diskEncryptionKeyId": "string"
+      "diskEncryptionKeyId": "string",
+      "isHa": "boolean"
     },
     "hosts": [
       {
@@ -3749,6 +3750,9 @@ editable: false
             ]
           }
         ],
+        "connectionManager": {
+          "connectionId": "string"
+        },
         "authType": "string",
         "deletionProtection": "boolean"
       }
@@ -3978,6 +3982,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || securityGroupIds[] | **string** ||
 || deletionProtection | **boolean** ||
 || diskEncryptionKeyId | **string** ||
+|| isHa | **boolean** ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.mongodb.v1.Monitoring}
@@ -7049,6 +7054,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || name | **string** ||
 || clusterId | **string** ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)** ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.mongodb.v1.ConnectionManager)** ||
 || authType | **enum** (AuthType)
 
 - `AUTH_TYPE_PASSWORD`
@@ -7062,4 +7068,11 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 ||Field | Description ||
 || databaseName | **string** ||
 || roles[] | **string** ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.mongodb.v1.ConnectionManager}
+
+#|
+||Field | Description ||
+|| connectionId | **string** ||
 |#

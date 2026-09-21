@@ -21,10 +21,12 @@
 
 * [API-ключ](../../../iam/operations/authentication/manage-api-keys.md) для сервисного аккаунта.
 
-    Полученный API-ключ передайте в заголовке `Authorization` в следующем формате:
+    Для аутентификации по API-ключу задайте ему [область действия](*api-key-scope) `yc.serverless.functions.invoke`. Полученный API-ключ передайте в заголовке `Authorization` в следующем формате:
 
     ```text
     Authorization: Api-Key <API-ключ>
     ```
 
     Используйте API-ключи, если у вас нет возможности автоматически запрашивать [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
+
+[*api-key-scope]: Область действия — параметр API-ключа, который ограничивает применение ключа определенными операциями в дополнение к правам доступа сервисного аккаунта. Подробнее в разделе [API-ключи с ограничениями области и срока действия](../../../iam/concepts/authorization/api-key.md#scoped-api-keys).

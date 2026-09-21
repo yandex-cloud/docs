@@ -50,6 +50,7 @@ description: Follow this guide to get information about a NAT gateway.
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To get information about a [NAT gateway](../concepts/gateways.md) using {{ TF }}:
+
   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
      ```hcl
@@ -69,6 +70,7 @@ description: Follow this guide to get information about a NAT gateway.
        * `value`: Return value.
 
      You can replace `created_at` with any other attribute to get the information you need. For more on the properties of the `yandex_vpc_gateway` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_gateway).
+
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -89,8 +91,8 @@ description: Follow this guide to get information about a NAT gateway.
 
   To get detailed information about a [NAT gateway](../concepts/gateways.md), use the [get](../api-ref/Gateway/get.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Get](../api-ref/grpc/Gateway/get.md) gRPC API call and provide the NAT gateway ID in the `gatewayId` request parameter.
 
-   {% include [get-nat-gateway](../../_includes/vpc/get-nat-gateway.md) %}
+  {% include [get-nat-gateway](../../_includes/vpc/get-nat-gateway.md) %}
 
-   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+  {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}

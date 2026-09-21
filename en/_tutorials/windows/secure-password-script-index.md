@@ -1,6 +1,6 @@
-# Secure password transmission to an initialization script
+# Securely providing a password to an initialization script
 
-You can use an initialization script when creating a VM based on a Windows image. Such a script may contain system user passwords To protect sensitive data, use [{{ lockbox-full-name }}](../../lockbox/) tools and [{{ kms-full-name }}](../../kms/) keys instead of explicitly specifying settings in the script.
+You can use an initialization script when creating a Windows VM. Such a script may contain the administrator’s and other users’ logins and passwords. To protect sensitive data, use [{{ lockbox-full-name }}](../../lockbox/) features and [{{ kms-full-name }}](../../kms/) keys rather than specifying the credentials directly in the script.
 
 In this tutorial, you will create a Windows VM using an initialization script which retrieves usernames and passwords from Yandex Lockbox.
 

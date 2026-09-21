@@ -1,4 +1,5 @@
-# Even redistribution of on-prem traffic (Active-Active)
+# Evenly redistributing traffic from On-Prem (Active-Active)
+
 
 The example below shows load balancing using two private connections set up through two points of presence.
 
@@ -11,4 +12,3 @@ Note that this balancing mode can create traffic asymmetry. For example, a reque
 While {{ yandex-cloud }} hardware allows and correctly handles traffic asymmetry, specific types of equipment within the customer infrastructure, such as firewalls, may experience issues with asymmetric traffic patterns.
 
 To allow asymmetric traffic from {{ yandex-cloud }}, disable [RPF](https://en.wikipedia.org/wiki/Reverse-path_forwarding) on the network elements handling traffic in the customer infrastructure. This will enable you to use all active {{ interconnect-name }} links with a redundant connectivity through two or more points of presence.
-

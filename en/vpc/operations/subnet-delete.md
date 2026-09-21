@@ -19,7 +19,7 @@ You cannot restore a subnet after it is deleted.
   1. In the [management console]({{ link-console-main }}), select the folder where you need to delete a subnet.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the subnet you need and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the subnet row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -30,19 +30,19 @@ You cannot restore a subnet after it is deleted.
 
   1. View the description of the CLI command for deleting a subnet:
 
-      ```
+      ```bash
       yc vpc subnet delete --help
       ```
 
   1. Get a list of all subnets in the default folder:
 
-      ```
+      ```bash
       yc vpc subnet list
       ```
 
       Result:
 
-      ```
+      ```text
       +----------------------+-----------------------+------------------------+
       |          ID          |         NAME          | ... |       RANGE      |
       +----------------------+-----------------------+------------------------+
@@ -55,7 +55,7 @@ You cannot restore a subnet after it is deleted.
   1. Select the `ID` or `NAME` of the subnet you need.
   1. Delete the subnet from the default folder:
 
-      ```
+      ```bash
       yc vpc subnet delete test-subnet-1
       ```
 
@@ -75,49 +75,23 @@ You cannot restore a subnet after it is deleted.
      ...
      resource "yandex_vpc_subnet" "lab-subnet-a" {
        name           = "subnet-1"
-	   description    = "My first subnet"
+	     description    = "My first subnet"
        v4_cidr_blocks = ["10.2.0.0/16"]
        zone           = "{{ region-id }}-a"
-       network_id     = "${yandex_vpc_network.lab-net.id}"
+       network_id     = yandex_vpc_network.lab-net.id
      }
      ...
      ```
 
      {% endcut %}
 
-  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
+  1. Apply the configuration:
 
-  1. Check the configuration using this command:
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     ```
-     terraform validate
-     ```
-     
-     If the configuration is valid, you will get this message:
-     
-     ```
-     Success! The configuration is valid.
-     ```
+     You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-  1. Run this command:
-
-     ```
-     terraform plan
-     ```
-  
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the configuration changes:
-
-     ```
-     terraform apply
-     ```
-
-  1. Type `yes` and press **Enter** to confirm changes.
-
-     You can check the update using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
-
-     ```
+     ```bash
      yc vpc subnet list
      ```
 
@@ -141,13 +115,13 @@ You cannot restore a subnet after it is deleted.
 
   Delete a subnet from a different folder:
 
-  ```
+  ```bash
   yc vpc subnet delete test-subnet-2 --folder-id b1gnbfd11bq5********
   ```
 
-  Where `folder_id` is the folder ID.
+  Where `--folder-id` is the folder ID.
 
-  ```
+  ```bash
   yc vpc subnet delete test-subnet-2 --folder-name test-folder
   ```
 
@@ -155,11 +129,11 @@ You cannot restore a subnet after it is deleted.
 
   You can provide the ID and name not only as positional arguments, but also using the `--id` and `--name` parameters:
 
-  ```
+  ```bash
   yc vpc subnet delete --id enpavfmgapum********
   ```
-  
-  ```
+
+  ```bash
   yc vpc subnet delete --name test-network-1
   ```
 

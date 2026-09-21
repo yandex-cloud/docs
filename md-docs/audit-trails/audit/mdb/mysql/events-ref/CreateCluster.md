@@ -1023,7 +1023,12 @@
           "emergencyUsageThreshold": "string",
           "diskSizeLimit": "string"
         },
-        "fullVersion": "string"
+        "fullVersion": "string",
+        "connectionManager": {
+          "enabled": "boolean",
+          "connectionsFolderId": "string",
+          "secretsFolderId": "string"
+        }
       },
       "networkId": "string",
       "health": "string",
@@ -1048,7 +1053,8 @@
       "hostGroupIds": [
         "string"
       ],
-      "diskEncryptionKeyId": "string"
+      "diskEncryptionKeyId": "string",
+      "isHa": "boolean"
     },
     "hosts": [
       {
@@ -1109,7 +1115,12 @@
         "connectionManager": {
           "connectionId": "string"
         },
-        "deletionProtectionMode": "string"
+        "deletionProtectionMode": "string",
+        "userConnectionManager": {
+          "connectionId": "string",
+          "connectionFolderId": "string",
+          "secretFolderId": "string"
+        }
       }
     ]
   },
@@ -1338,6 +1349,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || deletionProtection | **boolean** ||
 || hostGroupIds[] | **string** ||
 || diskEncryptionKeyId | **string** ||
+|| isHa | **boolean** ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.mysql.v1.Monitoring}
@@ -1372,6 +1384,7 @@ Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`, `mysqlConf
 Acceptable values are 7 to 60, inclusive. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mysql.v1.DiskSizeAutoscaling)** ||
 || fullVersion | **string** ||
+|| connectionManager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)** ||
 |#
 
 ## MysqlConfigSet5_7 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet5_7}
@@ -2309,6 +2322,15 @@ Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64) ||
 |#
 
+## ClusterConnectionManager {#yandex.cloud.mdb.v1.ClusterConnectionManager}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| connectionsFolderId | **string** ||
+|| secretsFolderId | **string** ||
+|#
+
 ## MaintenanceWindow {#yandex.cloud.mdb.mysql.v1.MaintenanceWindow}
 
 #|
@@ -2435,6 +2457,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 - `DELETION_PROTECTION_MODE_DISABLED`
 - `DELETION_PROTECTION_MODE_ENABLED`
 - `DELETION_PROTECTION_MODE_INHERITED` ||
+|| userConnectionManager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)** ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mysql.v1.Permission}
@@ -2490,4 +2513,13 @@ The minimum value is 0. ||
 #|
 ||Field | Description ||
 || connectionId | **string** ||
+|#
+
+## UserConnectionManager {#yandex.cloud.mdb.v1.UserConnectionManager}
+
+#|
+||Field | Description ||
+|| connectionId | **string** ||
+|| connectionFolderId | **string** ||
+|| secretFolderId | **string** ||
 |#

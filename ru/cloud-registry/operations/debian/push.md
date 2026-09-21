@@ -74,3 +74,5 @@ description: Следуя данной инструкции, вы загрузи
 
 * [{#T}](installation.md)
 * [{#T}](pull.md)
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

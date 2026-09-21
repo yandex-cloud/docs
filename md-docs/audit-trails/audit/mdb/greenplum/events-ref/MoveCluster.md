@@ -393,19 +393,22 @@
             "mode": "string",
             "size": "string",
             "clientIdleTimeout": "string",
-            "idleInTransactionTimeout": "string"
+            "idleInTransactionTimeout": "string",
+            "poolDiscard": "boolean"
           },
           "userConfig": {
             "mode": "string",
             "size": "string",
             "clientIdleTimeout": "string",
-            "idleInTransactionTimeout": "string"
+            "idleInTransactionTimeout": "string",
+            "poolDiscard": "boolean"
           },
           "defaultConfig": {
             "mode": "string",
             "size": "string",
             "clientIdleTimeout": "string",
-            "idleInTransactionTimeout": "string"
+            "idleInTransactionTimeout": "string",
+            "poolDiscard": "boolean"
           }
         },
         "backgroundActivities": {
@@ -504,7 +507,8 @@
         "commandCenterEnabled": "boolean",
         "greenplumEnabled": "boolean",
         "poolerEnabled": "boolean"
-      }
+      },
+      "isHa": "boolean"
     }
   },
   "requestParameters": "object",
@@ -745,6 +749,7 @@ The maximum string length in characters is 256. ||
 || segmentHostGroupIds[] | **string** ||
 || serviceAccountId | **string** ||
 || logging | **[LoggingConfig](#yandex.cloud.mdb.greenplum.v1.LoggingConfig)** ||
+|| isHa | **boolean** ||
 |#
 
 ## GreenplumConfig {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig}
@@ -1128,6 +1133,7 @@ Acceptable values are 100 to 102400, inclusive. ||
 || size | **string** (int64) ||
 || clientIdleTimeout | **string** (int64) ||
 || idleInTransactionTimeout | **string** (int64) ||
+|| poolDiscard | **boolean** ||
 |#
 
 ## BackgroundActivitiesConfig {#yandex.cloud.mdb.greenplum.v1.BackgroundActivitiesConfig}

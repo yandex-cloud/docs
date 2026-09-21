@@ -3,10 +3,9 @@ title: Resource availability check
 description: In this article, you will learn about the purpose of resource availability checks and the different states of the network load balancer and target group resources.
 ---
 
-# Health checks
+# Resource availability check
 
-
-The load balancer uses *resource availability checks* to get information about the state of resources in attached target groups. Components of the health check module are hosted in each availability zone. In response to a state request, resources report that they either are ready to receive traffic or have failed. If a resource does not respond to a state request within the specified time frame, it is also considered failed. Checks are performed via TCP or HTTP at the time frames (intervals) specified in the configuration.
+The load balancer uses *resource availability checks* to get information about the state of resources in attached target groups. The components of the availability check module reside in each [availability zone](../../overview/concepts/geo-scope.md). In response to a state request, resources report that they either are ready to receive traffic or have failed. If a resource does not respond to a state request within the specified time frame, it is also considered failed. Checks are performed via TCP or HTTP at the time frames (intervals) specified in the configuration.
 
 For example, with a two-second health check interval, a resource in a target group will receive three state check requests with a two-second interval.
 

@@ -31,13 +31,13 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
   1. To get information about [trunks](../concepts/trunk.md), see the description of the CLI command:
 
       ```bash
-      yc cic trunk get --help
+      yc cic trunk-connection get --help
       ```
 
   1. Get a list of trunks in the specified folder:
 
       ```bash
-      yc cic trunk list --folder-id b1gt6g8ht345********
+      yc cic trunk-connection list --folder-id b1gt6g8ht345********
       ```
 
       Result:
@@ -48,7 +48,7 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
   1. Get information about the trunk by specifying its ID obtained in the previous step:
 
       ```bash
-      yc cic trunk get cf3dcodot14p********
+      yc cic trunk-connection get cf3dcodot14p********
       ```
 
       Result:
@@ -81,4 +81,3 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
       * `created_at`: Date and time of trunk creation.
 
 {% endlist %}
-

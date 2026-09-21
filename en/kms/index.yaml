@@ -1,8 +1,8 @@
 title: Yandex Key Management Service
 description:
   - >-
-    Yandex Key Management Service helps you create and manage encryption keys
-    that you can use to protect your data in the Yandex Cloud infrastructure and
+    With Yandex Key Management Service, you can create and manage encryption
+    keys to protect data across the Yandex Cloud infrastructure, as well as
     encrypt or decrypt any of your data.
   - >-
     This service is subject to a <a
@@ -13,8 +13,8 @@ description:
 meta:
   title: Yandex Key Management Service
   description: >-
-    Yandex Key Management Service helps you create and manage encryption keys
-    that you can use to protect your data in the Yandex Cloud infrastructure and
+    With Yandex Key Management Service, you can create and manage encryption
+    keys to protect data across the Yandex Cloud infrastructure, as well as
     encrypt or decrypt any of your data.
   keywords:
     - keyword: key management
@@ -46,7 +46,7 @@ links:
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn about service concepts and entities
+    description: Learn about the service concepts and entities
     href: concepts/
   - title: Tutorials
     description: Address common tasks related to KMS keys
@@ -58,8 +58,8 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions to use the service
+    description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Prices and cost calculation rules
     href: pricing

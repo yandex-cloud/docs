@@ -24,7 +24,7 @@
 || Количество [трансляций](streams.md) в одной организации
 `video.streams.count` | 500 ||
 || Количество одновременных [трансляций](streams.md#streams) в одной организации
-`video.parallelStreams.count` | 1 ||
+`video.parallelStreams.count` | 3 ||
 || Количество [эпизодов](streams.md#episodes) во всех трансляциях
 `video.episodes.count` | 500 ||
 || Общее количество [обложек](../operations/video/add-thumbnail.md) к видео во всех каналах

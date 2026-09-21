@@ -24,6 +24,11 @@ MySQL cluster name. ||
 || `--password` | `string`
 
 Password of the MySQL user. ||
+|| `--password-file` | `string`
+
+File containing the password of the MySQL user. ||
+|| `--password-from-stdin` | Read password from stdin. ||
+|| `--generate-password` | Generate password using Connection Manager. ||
 || `--permissions` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Database names and roles. Can be specified multiple times.
@@ -41,7 +46,6 @@ User global access roles, possible values: FLUSH_OPTIMIZER_COSTS,MDB_ADMIN,PROCE
 || `--authentication-plugin` | `string`
 
 Authentication plugin of the MySQL user. ||
-|| `--generate-password` | Generate password using Connection Manager. ||
 || `--max-questions-per-hour` | `int`
 
 The maximum permitted number of user questions per hour. ||

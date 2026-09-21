@@ -27,8 +27,8 @@ You can enable tracking for email openings when [creating](../operations/create-
 
 Method | `Openings` [metric](statistics.md#metrics) collection | Sending notifications to {{ yds-name }}
 --- | --- | ---
-Select the **Email opened** notification type under **{{ ui-key.yacloud.postbox.label_event-destinations }}**. | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg)
-Enable **Engagement statistics** under **Statistics collection settings**. | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)
+Select the **Email opened** notification type under **{{ ui-key.yacloud.postbox.label_event-destinations }}** | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg)
+Enable **{{ ui-key.yacloud.postbox.field_engagement-metrics }}** under **{{ ui-key.yacloud.postbox.section_tracking-options }}** | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)
 
 {% note info %}
 

@@ -1,5 +1,6 @@
 # On-prem without redundancy and 1 VPC
 
+
 Non-reserved on-prem connection via a single {{ interconnect-name }} [private connection](../../interconnect/concepts/priv-con.md) to a single virtual router with a single [VPC cloud network](../../vpc/concepts/network.md).
 
 ![ri-topology-1](../../_assets/cloud-router/ri-topology-1.svg)
@@ -12,4 +13,3 @@ The network topology is presented on the diagram in the following configuration:
 * The `Net-1` virtual network comprised of three subnets, `subnet-a1`, `subnet-b1`, and `subnet-d1`, connects to the virtual router from the {{ yandex-cloud }} side.
 
 This topology enables network connectivity between `On-Prem` subnets and `Net-1` VPC subnets.
-

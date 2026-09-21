@@ -1,3 +1,8 @@
+---
+title: How to delete a route table in {{ vpc-full-name }}
+description: Follow this guide to delete a route table.
+---
+
 # Deleting a route table
 
 If you no longer need the [route table](../concepts/routing.md), you can [delete](#delete-route-table) it. Before deleting a table, [disassociate it](#unlink-route-table) from all subnets it is associated with.
@@ -14,16 +19,16 @@ If you no longer need the [route table](../concepts/routing.md), you can [delete
 
      {% note info %}
 
-     If you do not know which network the route table belongs to, in the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**. This will open a list of route tables. Find the network you need in the **Network** column next to the route table name. To view the cloud network, click its name.
+     If you do not know which network the route table belongs to, in the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**. This will open a list of route tables. Find the network you need in the **{{ ui-key.yacloud.vpc.network.overview.column_route-table_network }}** column next to the route table name. To view the cloud network, click its name.
 
      {% endnote %}
 
   1. In the list of subnets, find the subnet associated with the route table.
   1. Disassociate the route table from the subnet using any of these methods:
      * In the row with subnet information, click ![image](../../_assets/console-icons/xmark.svg) next to the route table name.
-     * In the row with subnet information, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Edit**. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the row with the route table name and save the changes.
+     * In the row with subnet information, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the row with the route table name and save the changes.
      * Open the subnet information and click ![image](../../_assets/console-icons/xmark.svg) next to the route table name.
-     * Open the subnet information and click **Edit** in the top-right corner. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the row with the route table name and save the changes.
+     * Open the subnet information and click **{{ ui-key.yacloud.common.edit }}** in the top-right corner. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the row with the route table name and save the changes.
 
 - CLI {#cli}
 
@@ -35,30 +40,34 @@ If you no longer need the [route table](../concepts/routing.md), you can [delete
 
   1. View the description of the CLI command for updating subnet parameters:
 
-      ```bash
-      yc vpc subnet update --help
-      ```
+     ```bash
+     yc vpc subnet update --help
+     ```
 
   1. Get the name or ID of the subnet the route table is associated with:
 
-      ```bash
-      yc vpc subnet list
-      ```
-      Result:
-      ```text
-      +----------------------+----------------------------+----------------------+----------------------+---------------+-----------------+
-      |          ID          |            NAME            |      NETWORK ID      |    ROUTE TABLE ID    |     ZONE      |      RANGE      |
-      +----------------------+----------------------------+----------------------+----------------------+---------------+-----------------+
-      | e9b4vdgv0v1n******** | default-ru-central1-a      | enptgj64mv2r******** |                      | ru-central1-a | [10.128.0.0/24] |
-      | e2lp11c4o77d******** | default-ru-central1-b      | enptgj64mv2r******** | enpcaaqahk3c******** | ru-central1-b | [10.129.0.0/24] |
-      +----------------------+----------------------------+----------------------+----------------------+---------------+-----------------+
+     ```bash
+     yc vpc subnet list
+     ```
 
-      ```
+     Result:
+
+     ```text
+     +----------------------+----------------------------+----------------------+----------------------+---------------+-----------------+
+     |          ID          |            NAME            |      NETWORK ID      |    ROUTE TABLE ID    |     ZONE      |      RANGE      |
+     +----------------------+----------------------------+----------------------+----------------------+---------------+-----------------+
+     | e9b4vdgv0v1n******** | default-ru-central1-a      | enptgj64mv2r******** |                      | ru-central1-a | [10.128.0.0/24] |
+     | e2lp11c4o77d******** | default-ru-central1-b      | enptgj64mv2r******** | enpcaaqahk3c******** | ru-central1-b | [10.129.0.0/24] |
+     +----------------------+----------------------------+----------------------+----------------------+---------------+-----------------+
+     ```
+
   1. Disassociate the route table from the subnet:
-      ```bash
-      yc vpc subnet update <subnet_name_or_ID> --disassociate-route-table
-      ```
-      Use either the `--id` or `--name` parameter.
+
+     ```bash
+     yc vpc subnet update <subnet_name_or_ID> --disassociate-route-table
+     ```
+
+     Use either the `--id` or `--name` parameter.
 
 - {{ TF }} {#tf}
 
@@ -93,48 +102,24 @@ If you no longer need the [route table](../concepts/routing.md), you can [delete
      route_table_id = "<route_table_ID>"
      ```
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. Apply the changes:
 
-  1. Check the configuration using this command:
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     ```bash
-     terraform validate
-     ```
+  You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-     If the configuration is valid, you will get this message:
+  ```bash
+  yc vpc subnet get <subnet_name_or_ID>
+  ```
 
-     ```text
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```bash
-     terraform plan
-     ```
-
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the configuration changes:
-
-     ```bash
-     terraform apply
-     ```
-
-  1. Type `yes` and press **Enter** to confirm changes.
-
-     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
-
-     ```bash
-     yc vpc subnet get <subnet_name_or_ID>
-     ```
-     Use either the `--id` or `--name` parameter.
+  Use either the `--id` or `--name` parameter.
 
 - API {#api}
 
   To disassociate a route table from a subnet, use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/Subnet/update.md) gRPC API call, and provide an empty string in the following request parameter:
-    * `routeTableId`: For REST API
-    * `route_table_id`: For gRPC API
+
+  * `routeTableId`: For REST API
+  * `route_table_id`: For gRPC API
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -153,11 +138,12 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
 - Management console {#console}
 
   To delete a route table:
+
   1. In the [management console]({{ link-console-main }}), select the folder containing the route table you want to delete.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the table name and select **Delete**.
-  1. In the window that opens, click **Delete**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the table name and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
@@ -169,28 +155,33 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
 
   1. View the description of the CLI command for deleting a route table:
 
-      ```bash
-      yc vpc route-table delete --help
-      ```
+     ```bash
+     yc vpc route-table delete --help
+     ```
 
   1. Get the name or ID of the route table to delete:
 
-      ```bash
-      yc vpc route-table list
-      ```
-      Result:
-      ```text
-      +----------------------+---------+-------------+----------------------+
-      |          ID          |  NAME   | DESCRIPTION |      NETWORK-ID      |
-      +----------------------+---------+-------------+----------------------+
-      | enpd3s8svtkd******** | table-1 |             | enptgj64mv2r******** |
-      +----------------------+---------+-------------+----------------------+
-      ```
+     ```bash
+     yc vpc route-table list
+     ```
+
+     Result:
+
+     ```text
+     +----------------------+---------+-------------+----------------------+
+     |          ID          |  NAME   | DESCRIPTION |      NETWORK-ID      |
+     +----------------------+---------+-------------+----------------------+
+     | enpd3s8svtkd******** | table-1 |             | enptgj64mv2r******** |
+     +----------------------+---------+-------------+----------------------+
+     ```
+
   1. Delete the route table:
-      ```bash
-      yc vpc route-table delete <route_table_name_or_ID>
-      ```
-      Use either the `--id` or `--name` parameter.
+
+     ```bash
+     yc vpc route-table delete <route_table_name_or_ID>
+     ```
+
+     Use either the `--id` or `--name` parameter.
 
 - {{ TF }} {#tf}
 
@@ -220,51 +211,27 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
 
      {% endcut %}
 
-  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
+  1. Apply the changes:
 
-  1. Check the configuration using this command:
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     ```bash
-     terraform validate
-     ```
+  You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-     If the configuration is valid, you will get this message:
-
-     ```text
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```bash
-     terraform plan
-     ```
-
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the configuration changes:
-
-     ```bash
-     terraform apply
-     ```
-
-  1. Type `yes` and press **Enter** to confirm changes.
-
-     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
-
-     ```bash
-     yc vpc subnet list
-     ```
+  ```bash
+  yc vpc subnet list
+  ```
 
 - API {#api}
 
   To delete a route table, use the [delete](../api-ref/RouteTable/delete.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Delete](../api-ref/grpc/RouteTable/delete.md) gRPC API call, and provide the ID of the route table you want to delete in the following request parameter:
-    * `routeTableID`: For REST API
-    * `route_table_id`: For gRPC API
+
+  * `routeTableId`: For REST API
+  * `route_table_id`: For gRPC API
 
   To get the route table ID, use the [list](../api-ref/RouteTable/list.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/List](../api-ref/grpc/RouteTable/list.md) gRPC API call, and provide the folder ID in the following request parameter:
-    * `folderID`: For REST API
-    * `folder_id`: For gRPC API
+
+  * `folderId`: For REST API
+  * `folder_id`: For gRPC API
 
 {% endlist %}
 

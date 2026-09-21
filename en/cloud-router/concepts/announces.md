@@ -2,7 +2,7 @@
 
 To announce virtual network IP prefixes in a virtual router, you need to know the following:
 * The ID (`vpc_net_id`) of the virtual network containing the prefixes that need to be announced.
-* List of announced IPv4 prefixes of virtual network [subnets](../../vpc/concepts/network.md#subnet) and their allocation across [availability zones](../../overview/concepts/geo-scope.md). Typically, prefixes refer to the subnets configured in your cloud. In which case the announced prefixes and the actual subnet address ranges will match.
+* List of announced IPv4 prefixes of virtual network [subnets](../../vpc/concepts/network.md#subnet) and their allocation across [availability zones](../../overview/concepts/geo-scope.md). Typically, prefixes refer to the subnets configured in your cloud. In which case the announced prefixes and the actual subnet address ranges will match. When announcing IPv4 prefixes for your subnets, you can only use IP address ranges from [RFC 1918](https://www.rfc-editor.org/info/rfc1918/#section-3). Other IP address ranges, including the default `0.0.0.0/0` route, cannot be announced from cloud networks.
 
 {% note info %}
 

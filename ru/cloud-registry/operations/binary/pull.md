@@ -27,3 +27,5 @@ description: Следуя данной инструкции, вы скачает
         ```bash
         https://{{ cloud-registry }}/binaries/cn15fqbr806r********/sample-package/3.5.4
         ```
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

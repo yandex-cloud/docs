@@ -912,6 +912,26 @@ If the execution speed is lower, an exception is thrown. **0** means unlimited.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_execution_speed_bytes).
 
+- `use_statistics`: Allows using statistics to optimize queries.
+Preferred over **allow_statistics_optimize** because of consistency with **use_primary_key** and **use_skip_indexes**.
+
+  Default value: **false**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/use-statistics#use_statistics).
+
+- `use_statistics_for_part_pruning`: Use statistics to filter out parts during query execution.
+When enabled, pruning in SELECT queries will use column statistics (e.g. MinMax statistics) to eliminate parts that cannot contain matching data before reading any data.
+
+  Default value: **true**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/use-statistics#use_statistics_for_part_pruning).
+
+- `refresh_statistics_interval`: The interval of refreshing statistics cache in seconds. If it is set to zero, the refreshing will be disabled.
+
+  Default value: **0** for versions 25.11 and higher, **300** (5 minutes) for versions 26.2 and lower.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/ru/reference/settings/merge-tree-settings/refresh#refresh_statistics_interval).
+
 - `input_format_values_interpret_expressions`: Enables or disables SQL parser if the fast stream parser cannot parse the data.
 
   Enable this setting, if the data that you want to insert into a table contains SQL expressions.

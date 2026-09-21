@@ -203,6 +203,9 @@
         "maxParserDepth": "string",
         "minExecutionSpeed": "string",
         "minExecutionSpeedBytes": "string",
+        "useStatistics": "boolean",
+        "useStatisticsForPartPruning": "boolean",
+        "refreshStatisticsInterval": "string",
         "inputFormatValuesInterpretExpressions": "boolean",
         "inputFormatDefaultsForOmittedFields": "boolean",
         "inputFormatNullAsDefault": "boolean",
@@ -674,6 +677,9 @@ A list of messages that carry the error details. ||
 || maxParserDepth | **string** (int64) ||
 || minExecutionSpeed | **string** (int64) ||
 || minExecutionSpeedBytes | **string** (int64) ||
+|| useStatistics | **boolean** ||
+|| useStatisticsForPartPruning | **boolean** ||
+|| refreshStatisticsInterval | **string** (int64) ||
 || inputFormatValuesInterpretExpressions | **boolean** ||
 || inputFormatDefaultsForOmittedFields | **boolean** ||
 || inputFormatNullAsDefault | **boolean** ||

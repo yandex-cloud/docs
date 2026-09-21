@@ -60,6 +60,7 @@ Name of the S3 bucket to use as the Exchange Manager spool destination. ||
 || `--retry-policy-exchange-manager-additional-properties` | `key=value[,key=value...]`
 
 Map entries for ExchangeManagerConfig.additional_properties. ||
+|| `--event-listener-data-catalog-enabled` | Enable the Data Catalog event listener. ||
 || `--access-control-from-file` | `string`
 
 YAML file with access control rules. ||

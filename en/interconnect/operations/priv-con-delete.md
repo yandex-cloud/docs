@@ -5,6 +5,8 @@ description: Follow this guide to delete a private connection from a {{ intercon
 
 # Deleting a private connection
 
+If a private connection had been added to a [virtual router](../../cloud-router/concepts/routing-instance.md), first [delete it from the virtual router](../../cloud-router/operations/ri-priv-con-del.md).
+
 {% note info %}
 
 You need the [cic.editor](../security/index.md#cic-editor) role to run this operation.

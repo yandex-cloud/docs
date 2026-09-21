@@ -2,12 +2,10 @@
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the device is located.
-   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Select the registry where the device is located.
-   1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
-   1. Select the device.
-   1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_aliases }}** section.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the device.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** and select the registry hosting the device.
+   1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab and select the device to get a list of aliases for.
+   1. On the **{{ ui-key.yacloud.common.overview }}** tab, go to **{{ ui-key.yacloud.iot.label_aliases }}**.
 
 - CLI {#cli}
     

@@ -1,6 +1,11 @@
+---
+title: Updating a subnet
+description: Follow this guide to update a subnet.
+---
+
 # Updating a subnet
 
-After creating a [subnet](../concepts/network.md#subnet), you can change its name, description, and DHCP settings.
+After creating a [subnet](../concepts/network.md#subnet), you can update its name, description, and DHCP settings.
 
 {% list tabs group=instructions %}
 
@@ -9,7 +14,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
   1. In the [management console]({{ link-console-main }}), select the folder containing the subnet you want to update.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the subnet you need and select **{{ ui-key.yacloud.common.edit }}**.
+  1. In the subnet row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit as appropriate.
   1. Click **{{ ui-key.yacloud.vpc.subnetworks.update.button_update }}**.
 
@@ -21,19 +26,19 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
 
   1. See the description of the CLI command for updating subnet settings:
 
-      ```
+      ```bash
       yc vpc subnet update --help
       ```
 
   1. Get a list of all subnets in the default folder:
 
-      ```
+      ```bash
       yc vpc subnet list
       ```
-	    
+
       Result:
 
-      ```
+      ```text
       +----------------------+-----------------------+----------------------+
       |          ID          |         NAME          |         ...          |
       +----------------------+-----------------------+----------------------+
@@ -46,7 +51,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
   1. Select the `ID` or `NAME` of the subnet you need.
   1. Change the subnet parameters, e.g.:
 
-      ```
+      ```bash
       yc vpc subnet update e2l2prrbkbim******** \
         --new-name test-subnet-renamed \
         --labels new_label=test_label
@@ -54,7 +59,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
 
       Result:
 
-      ```
+      ```text
       id: e2l2prrbkbim********
       folder_id: b1g6ci08ma55********
       created_at: "2018-10-24T13:54:10Z"
@@ -80,47 +85,23 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
      ...
      resource "yandex_vpc_subnet" "lab-subnet-a" {
        name           = "subnet-1"
-	   description    = "My first subnet"
-       v4_cidr_blocks = ["10.2.0.0/16"]
-       zone           = "{{ region-id }}-a"
-       network_id     = "${yandex_vpc_network.lab-net.id}"
+	     description    = "My first subnet"
+	     v4_cidr_blocks = ["10.2.0.0/16"]
+	     zone           = "{{ region-id }}-a"
+	     network_id     = yandex_vpc_network.lab-net.id
      }
      ...
      ```
 
      For more on the properties of the `yandex_vpc_subnet` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_subnet).
 
-  1. Validate your configuration using this command:
+  1. Apply the configuration:
 
-     ```
-     terraform validate
-     ```
-     
-     If the configuration is valid, you will get this message:
-     
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```
-     terraform plan
-     ```
-  
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the configuration changes:
-
-     ```
-     terraform apply
-     ```
-     
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      You can check the subnet update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-     ```
+     ```bash
      yc vpc subnet get <subnet_name>
      ```
 
@@ -150,7 +131,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
 
 ## Examples {#examples}
 
-### Changing a subnet using the name flag {#using-name-flag}
+### Updating a subnet using its name parameter {#using-name-flag}
 
 {% list tabs group=instructions %}
 
@@ -158,7 +139,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
 
   You can change a subnet by using its name instead of its ID:
 
-  ```
+  ```bash
   yc vpc subnet update test-subnet-1 \
     --new-name test-subnet-renamed \
     --labels new_label=test_label
@@ -166,7 +147,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
 
   Result:
 
-  ```
+  ```text
   id: e2l2prrbkbim********
   folder_id: b1g6ci08ma55********
   created_at: "2018-10-24T13:54:10Z"
@@ -182,17 +163,17 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
 
   You can provide the subnet ID and name not only as positional arguments, but also using the `--id` and `--name` parameters:
 
-  ```
-  yc vpc network update \
-    --id enpavfmgapum******** \
-    --new-name test-network-renamed \
+  ```bash
+  yc vpc subnet update \
+    --id e2l2prrbkbim******** \
+    --new-name test-subnet-renamed \
     --labels new_label=test_label
   ```
 
-  ```
-  yc vpc network update \
-    --name test-network-1 \
-    --new-name test-network-renamed \
+  ```bash
+  yc vpc subnet update \
+    --name test-subnet-1 \
+    --new-name test-subnet-renamed \
     --labels new_label=test_label
   ```
 

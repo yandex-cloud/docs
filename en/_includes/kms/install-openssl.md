@@ -1,19 +1,19 @@
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
-   Run this command:
+  Run this command:
+  
+  ```bash
+  sudo apt-get install openssl
+  ```
 
-   ```bash
-   sudo apt-get install openssl
-   ```
+- Windows {#windows}
 
-- Windows
+  Use [Chocolatey](https://chocolatey.org/install). Run the following command in PowerShell as an admin:
 
-   Use the [Chocolatey](https://chocolatey.org/install) package manager. Run the following command as an admin in the PowerShell terminal:
-
-   ```powershell
-   choco install openssl
-   ```
+  ```powershell
+  choco install openssl
+  ```
 
 {% endlist %}

@@ -448,6 +448,76 @@ items:
                     href: advanced_rate_limiter/api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: advanced_rate_limiter/api-ref/grpc/Operation/cancel.md
+          - name: SmartWebSecurity CustomPage API
+            items:
+              - name: Overview
+                href: custom_page/api-ref/grpc/index.md
+              - name: CustomPage
+                items:
+                  - name: Overview
+                    href: custom_page/api-ref/grpc/CustomPage/index.md
+                  - name: Get
+                    href: custom_page/api-ref/grpc/CustomPage/get.md
+                  - name: List
+                    href: custom_page/api-ref/grpc/CustomPage/list.md
+                  - name: Create
+                    href: custom_page/api-ref/grpc/CustomPage/create.md
+                  - name: Update
+                    href: custom_page/api-ref/grpc/CustomPage/update.md
+                  - name: Delete
+                    href: custom_page/api-ref/grpc/CustomPage/delete.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: custom_page/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: custom_page/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: custom_page/api-ref/grpc/Operation/cancel.md
+          - name: Smart Web Security Load Balancer API
+            items:
+              - name: Overview
+                href: load_balancer/api-ref/grpc/index.md
+              - name: Domain
+                items:
+                  - name: Overview
+                    href: load_balancer/api-ref/grpc/Domain/index.md
+                  - name: Get
+                    href: load_balancer/api-ref/grpc/Domain/get.md
+                  - name: List
+                    href: load_balancer/api-ref/grpc/Domain/list.md
+                  - name: Create
+                    href: load_balancer/api-ref/grpc/Domain/create.md
+                  - name: Update
+                    href: load_balancer/api-ref/grpc/Domain/update.md
+                  - name: Delete
+                    href: load_balancer/api-ref/grpc/Domain/delete.md
+              - name: LoadBalancer
+                items:
+                  - name: Overview
+                    href: load_balancer/api-ref/grpc/LoadBalancer/index.md
+                  - name: Get
+                    href: load_balancer/api-ref/grpc/LoadBalancer/get.md
+                  - name: List
+                    href: load_balancer/api-ref/grpc/LoadBalancer/list.md
+                  - name: Create
+                    href: load_balancer/api-ref/grpc/LoadBalancer/create.md
+                  - name: Update
+                    href: load_balancer/api-ref/grpc/LoadBalancer/update.md
+                  - name: Delete
+                    href: load_balancer/api-ref/grpc/LoadBalancer/delete.md
+                  - name: Start
+                    href: load_balancer/api-ref/grpc/LoadBalancer/start.md
+                  - name: Stop
+                    href: load_balancer/api-ref/grpc/LoadBalancer/stop.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: load_balancer/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: load_balancer/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: load_balancer/api-ref/grpc/Operation/cancel.md
           - name: SmartWebSecurity MatchList API
             items:
               - name: Overview
@@ -564,6 +634,76 @@ items:
                     href: advanced_rate_limiter/api-ref/Operation/get.md
                   - name: Cancel
                     href: advanced_rate_limiter/api-ref/Operation/cancel.md
+          - name: SmartWebSecurity CustomPage API
+            items:
+              - name: Overview
+                href: custom_page/api-ref/index.md
+              - name: CustomPage
+                items:
+                  - name: Overview
+                    href: custom_page/api-ref/CustomPage/index.md
+                  - name: Get
+                    href: custom_page/api-ref/CustomPage/get.md
+                  - name: List
+                    href: custom_page/api-ref/CustomPage/list.md
+                  - name: Create
+                    href: custom_page/api-ref/CustomPage/create.md
+                  - name: Update
+                    href: custom_page/api-ref/CustomPage/update.md
+                  - name: Delete
+                    href: custom_page/api-ref/CustomPage/delete.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: custom_page/api-ref/Operation/index.md
+                  - name: Get
+                    href: custom_page/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: custom_page/api-ref/Operation/cancel.md
+          - name: Smart Web Security Load Balancer API
+            items:
+              - name: Overview
+                href: load_balancer/api-ref/index.md
+              - name: Domain
+                items:
+                  - name: Overview
+                    href: load_balancer/api-ref/Domain/index.md
+                  - name: Get
+                    href: load_balancer/api-ref/Domain/get.md
+                  - name: List
+                    href: load_balancer/api-ref/Domain/list.md
+                  - name: Create
+                    href: load_balancer/api-ref/Domain/create.md
+                  - name: Update
+                    href: load_balancer/api-ref/Domain/update.md
+                  - name: Delete
+                    href: load_balancer/api-ref/Domain/delete.md
+              - name: LoadBalancer
+                items:
+                  - name: Overview
+                    href: load_balancer/api-ref/LoadBalancer/index.md
+                  - name: Get
+                    href: load_balancer/api-ref/LoadBalancer/get.md
+                  - name: List
+                    href: load_balancer/api-ref/LoadBalancer/list.md
+                  - name: Create
+                    href: load_balancer/api-ref/LoadBalancer/create.md
+                  - name: Update
+                    href: load_balancer/api-ref/LoadBalancer/update.md
+                  - name: Delete
+                    href: load_balancer/api-ref/LoadBalancer/delete.md
+                  - name: Start
+                    href: load_balancer/api-ref/LoadBalancer/start.md
+                  - name: Stop
+                    href: load_balancer/api-ref/LoadBalancer/stop.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: load_balancer/api-ref/Operation/index.md
+                  - name: Get
+                    href: load_balancer/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: load_balancer/api-ref/Operation/cancel.md
           - name: SmartWebSecurity MatchList API
             items:
               - name: Overview

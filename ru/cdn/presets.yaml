@@ -1,5 +1,5 @@
 default:
-  cdn-pop-count: 75
+  cdn-pop-count: 78
   cdn-pops:
     '0':
       cities:
@@ -60,4 +60,4 @@ default:
       cities:
         '0': Ташкент
       country: Узбекистан
-  cdn-throughput: 7
+  cdn-throughput: 8

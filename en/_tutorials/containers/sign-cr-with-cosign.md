@@ -1,7 +1,7 @@
 # Signing and verifying {{ container-registry-full-name }} Docker images in {{ managed-k8s-full-name }}
 
 
-In this tutorial, you will learn how to sign [Docker images](../../container-registry/concepts/docker-image.md) using [Cosign](https://docs.sigstore.dev/cosign/overview/) in [{{ container-registry-full-name }}](../../container-registry/) and then set up signature verification in [{{ managed-k8s-full-name }}](../../managed-kubernetes/) using {{ kms-full-name }} keys.
+In this tutorial, you will learn how to sign [Docker images](../../container-registry/concepts/docker-image.md) using [Cosign](https://docs.sigstore.dev/cosign/overview/) in [{{ container-registry-full-name }}](../../container-registry/) and then set up signature verification in [{{ managed-k8s-full-name }}](../../managed-kubernetes/) using [{{ kms-full-name }}](../../kms/) keys.
 
 To sign Docker images and set up their verification:
 1. [Sign a Docker image using Cosign](#cosign).
@@ -13,12 +13,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for public IP addresses assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for {{ container-registry-name }} [storage](../../container-registry/pricing).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ container-registry-name }}: Storing created Docker images and leveraging the vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* {{ kms-name }}: Number of active key versions and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
 
 
 ## Getting started {#before-begin}
@@ -147,7 +146,7 @@ The support cost for this solution includes:
 
      {% endnote %}
 
-  1. Create a digital signature key pair and save it to {{ kms-name }}:
+  1. Create a digital signature key pair in {{ kms-name }} and save it:
 
      ```bash
      cosign generate-key-pair \
@@ -168,7 +167,7 @@ The support cost for this solution includes:
 
      The utility will return the ID of the created signature key pair and save the public signature key to a local file. Save the key pair ID, as you will need it in the next steps.
       
-     You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using a [CLI command](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md).
+     You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using the [CLI command](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md).
   1. Sign the image in {{ container-registry-name }}:
 
      ```bash
@@ -202,7 +201,7 @@ The support cost for this solution includes:
 
      Where:
      * `<key_pair_ID>`: Signature key pair ID you got earlier.
-     * `<registry_ID>`: ID of the [{{ container-registry-name }}](../../container-registry/operations/registry/registry-list.md#registry-list) containing the image.
+     * `<registry_ID>`: [ID of the {{ container-registry-name }}](../../container-registry/operations/registry/registry-list.md#registry-list) containing the image.
      * `<Docker_image_name>`: [Docker image name](../../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) in the {{ container-registry-name }}.
      * `<tag>`: Tag of the image version to verify the signature for.
 
@@ -449,7 +448,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
   1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
   1. [Delete](../../vpc/operations/address-delete.md) the cluster’s public static IP address if you reserved one.
   1. [Delete the service accounts](../../iam/operations/sa/delete.md).
-  1. [Delete all Docker images](../../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
+  1. [Delete all Docker images](../../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }}.
   1. [Delete the {{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md).
 
 - {{ TF }} {#tf}

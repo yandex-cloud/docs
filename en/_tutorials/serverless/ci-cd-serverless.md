@@ -3,13 +3,13 @@
 
 You can build a continuous integration/continuous delivery (CI/CD) pipeline using serverless products.
 
-As an example, we will use a [Django](https://www.djangoproject.com/) web app simulating an online store shopping cart. The app uses a database to store product descriptions and the user session to store the shopping cart status. We will deploy the Django app in a [container in {{ serverless-containers-name }}](../../serverless-containers/concepts/container.md) with secrets securely delivered to it through [{{ lockbox-name }}](../../lockbox/). [{{ api-gw-full-name }}](../../api-gateway/) accepts user requests and redirects them to the app container.
+As an example, we will use a [Django](https://www.djangoproject.com/) web app simulating an online store shopping cart. The app uses a database to store product descriptions and the user session to store the shopping cart status. We will deploy the Django app in a [container in {{ serverless-containers-full-name }}](../../serverless-containers/concepts/container.md) with secrets securely delivered to it through [{{ lockbox-full-name }}](../../lockbox/). [{{ api-gw-full-name }}](../../api-gateway/) accepts user requests and redirects them to the app container.
 
 The project uses two environments:
 * `prod`: Production environment available to users.
 * `testing`: Test environment for testing the app before the `prod` release.
 
-For each environment, there is an individual {{ yandex-cloud }} [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) and separate static resources, e.g., a database and [service accounts](../../iam/concepts/users/service-accounts.md). This isolates the environments from each other at the [{{ iam-full-name }}](../../iam/) settings level.
+For each environment, there is an individual {{ yandex-cloud }} [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) and a separate set of static resources: database, [service accounts](../../iam/concepts/users/service-accounts.md), etc. This isolates environments from each other at the [{{ iam-full-name }}](../../iam/) settings level.
 
 There is also a shared folder named `infra` with a [registry](../../container-registry/concepts/registry.md) in [{{ container-registry-full-name }}](../../container-registry/) containing all app's [Docker images](../../container-registry/concepts/docker-image.md). The system uses the `builder` service account to publish the images. The `prod` and `testing` environment service accounts have restricted permissions for the `infra` folder limited to [pulling Docker images](../../container-registry/operations/docker-image/docker-image-pull.md).
 
@@ -26,15 +26,18 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The infrastructure support cost includes:
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* {{ container-registry-name }}: storing created Docker images and leveraging the vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* {{ lockbox-name }} secrets: number of stored secret versions and requests to them (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
+* {{ serverless-containers-name }} container: number of container calls, idle time of provisioned instances, and computing resources allocated to run the container (see [{{ container-registry-name }} pricing](../../serverless-containers/pricing.md)).
+* API gateway: number of API gateway requests (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
+* {{ GL }} instance. The cost depends on the instance creation method:
 
-* Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a [{{ managed-k8s-full-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for storing the created Docker images (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
-* Fee for storing secrets (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-* Fee for the container invocation count, computing resources allocated for the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
-* Fee for API gateway requests (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
-* Fee for using [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+   * {{ mgl-name }}: You pay for the VM computing resources, volume of stored data and backups, and the amount of outgoing traffic (see [{{ mgl-name }} pricing](../../managed-gitlab/pricing)).
+   * VM with a {{ GL }} image: You pay for the VM computing resources and the {{ GL }} image ([{{ compute-name }} pricing](../../compute/pricing.md)).
+
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes and for the {{ GL }} image VM with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 ## Getting started {#before-begin}
 

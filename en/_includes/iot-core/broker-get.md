@@ -2,10 +2,10 @@
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the broker is located.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the broker.
    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
-   1. Select the broker. Detailed information about the broker will be displayed on the **{{ ui-key.yacloud.common.overview }}** page.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-branches.svg) **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. Select the broker. Detailed broker info will be displayed on the **{{ ui-key.yacloud.common.overview }}** tab.
 
 - CLI {#cli}
 
@@ -13,7 +13,7 @@
 
   {% include [default-catalogue](../default-catalogue.md) %}
 
-  1. View the description of the CLI command to get information about a broker:
+  1. See the description of the CLI command for getting information about a broker:
 	
       ```bash
       yc iot broker get --help
@@ -63,7 +63,7 @@
 
         * `value`: Return value.
 
-      You can replace `created_at` with another variable to get the information you need. For more on the properties of the `yandex_iot_core_broker` data source, see [this provider guide]({{ tf-provider-datasources-link }}/iot_core_broker).
+      You can replace `created_at` with any other attribute to get the information you need. For more on the properties of the `yandex_iot_core_broker` data source, see [this provider guide]({{ tf-provider-datasources-link }}/iot_core_broker).
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

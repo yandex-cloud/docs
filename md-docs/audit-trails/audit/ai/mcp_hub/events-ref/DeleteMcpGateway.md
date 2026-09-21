@@ -415,7 +415,7 @@ Includes only one of the fields `transport`.
 ||Field | Description ||
 || name | **string**
 
-The maximum string length in characters is 128. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_]{0,63})? `. ||
+The maximum string length in characters is 128. Value must match the regular expression ` ([-.0-9A-Z_a-z]{1,128})? `. ||
 || description | **string**
 
 The maximum string length in characters is 65536. ||

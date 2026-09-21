@@ -1,5 +1,5 @@
 ---
-title: How to configure an {{ objstorage-short-name }} restriction for access only from {{ vpc-full-name }} service connections
+title: Configuring an {{ objstorage-short-name }} restriction for access only from {{ vpc-full-name }} service connections
 description: Follow this guide to configure an {{ objstorage-short-name }} restriction for access only from service connections.
 ---
 

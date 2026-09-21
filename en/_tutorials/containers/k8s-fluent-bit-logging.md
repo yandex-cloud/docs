@@ -8,12 +8,10 @@ You can send [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ cloud-logging-name }} fee for data logging and storage (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ cloud-logging-name }}: amount of written data and its retention time (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
 
 
 ## Sending {{ managed-k8s-name }} master logs to {{ cloud-logging-name }} using master logging {#master-logging}
@@ -26,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out-master
 
 ### Getting started {#before-you-begin-master-logging}
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 

@@ -1,5 +1,6 @@
 ---
 title: How to get a list of DNS zones
+description: Follow this guide to get a list of DNS zones.
 ---
 
 # Getting a list of DNS zones
@@ -21,24 +22,24 @@ title: How to get a list of DNS zones
   1. See the description of the CLI command for getting a list of [DNS zones](../concepts/dns-zone.md):
 
      ```bash
-      yc dns zone list --help
-      ```
+     yc dns zone list --help
+     ```
 
   1. To get a list of DNS zones, run this command:
 
-      ```bash
-      yc dns zone list
-      ```
+     ```bash
+     yc dns zone list
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      +----------------------+------------+---------+------------------------------+-------------+
-      |          ID          |    NAME    |  ZONE   |          VISIBILITY          | DESCRIPTION |
-      +----------------------+------------+---------+------------------------------+-------------+
-      | dns5djfi2h68******** | test-zone. | staging | PRIVATE enpncp31fh3n******** |             |
-      +----------------------+------------+---------+------------------------------+-------------+
-      ```
+     ```text
+     +----------------------+------------+---------+------------------------------+-------------+
+     |          ID          |    NAME    |  ZONE   |          VISIBILITY          | DESCRIPTION |
+     +----------------------+------------+---------+------------------------------+-------------+
+     | dns5djfi2h68******** | test-zone. | staging | PRIVATE enpncp31fh3n******** |             |
+     +----------------------+------------+---------+------------------------------+-------------+
+     ```
 
 - API {#api}
 

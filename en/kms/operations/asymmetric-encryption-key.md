@@ -50,7 +50,7 @@ You can use {{ kms-name }} to create, update, and delete asymmetric encryption k
       Where:
       
       * `--name`: Name of the encryption key pair.
-      * `--folder-id`: ID of the folder where the key pair will be created.
+      * `--folder-id`: ID of the folder to host the new key pair.
       * `--encryption-algorithm`: Encryption algorithm. Here are available options:
 
           * `rsa-2048-enc-oaep-sha-256`

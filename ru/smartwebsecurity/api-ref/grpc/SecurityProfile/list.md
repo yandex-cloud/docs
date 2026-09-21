@@ -1817,7 +1817,8 @@ RuleCondition object.
 Required field. Action to perform if this rule matched.
 
 - `ALLOW`: Pass request to service.
-- `DENY`: Deny request. ||
+- `DENY`: Deny request.
+- `CAPTCHA`: Redirect request to CAPTCHA. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
 
 The condition for matching the rule. ||
@@ -2382,8 +2383,9 @@ Percentage of ALLOW verdicts to discard from logging (0-100).
 Acceptable values are 0 to 100, inclusive. ||
 || outputs[] | enum **Output**
 
-List of log destinations: Cloud Logging and/or Audit Trails.
+List of log destinations: Cloud Logging, Audit Trails, and/or Monium.
 
-- `CLOUD_LOGGING`: Write logs to Cloud Logging.
-- `AUDIT_TRAILS`: Write logs to Audit Trails. ||
+- `CLOUD_LOGGING`: Deprecated. Write logs to Cloud Logging. Use MONIUM instead.
+- `AUDIT_TRAILS`: Write logs to Audit Trails.
+- `MONIUM`: Write logs to Monium. ||
 |#

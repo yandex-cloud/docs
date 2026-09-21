@@ -1,11 +1,11 @@
 ---
 title: How to sign a file or artifact using Cosign
-description: Follow this guide to sign a file or artifact, or verify an electronic signature using the Cosign utility.
+description: Follow this guide to sign a file or artifact, or verify an electronic signature using Cosign.
 ---
 
-# Digitally signing files and artifacts using Cosign
+# Signing files and artifacts digitally using Cosign
 
-You can use digital signature key pairs created with the [Cosign](https://docs.sigstore.dev/signing/quickstart/) utility in {{ kms-name }}. A special build of Cosign allows you to store the created key pair in {{ kms-short-name }}, sign files and artifacts with the pair's private key, and verify a digital signature using its public key.
+In {{ kms-name }}, you can use digital signature key pairs created with [Cosign](https://docs.sigstore.dev/signing/quickstart/). A special build of Cosign enables you to store the created digital signature key pair in {{ kms-short-name }}, sign files and artifacts with the private key, and verify the digital signature with its public key.
 
 ## Getting started {#before-you-begin}
 
@@ -33,7 +33,7 @@ You can use digital signature key pairs created with the [Cosign](https://docs.s
 
 ## Sign a local file {#create-signature}
 
-1. Create a digital signature key pair and save it to {{ kms-short-name }}:
+1. Create a digital signature key pair in {{ kms-short-name }} and save it:
 
     ```bash
     cosign generate-key-pair \
@@ -55,7 +55,7 @@ You can use digital signature key pairs created with the [Cosign](https://docs.s
 
     The utility will return the ID of the created signature key pair and save the public signature key to a local file. Save the key pair ID, as you will need it in the next steps.
     
-    You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using a [CLI command](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md).
+    You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using the [CLI command](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md).
 
 1. Sign a local file:
 
@@ -68,8 +68,8 @@ You can use digital signature key pairs created with the [Cosign](https://docs.s
 
     Where:
     
-    * `<key_pair_ID>`: ID of the signature key pair you got in the previous step.
-    * `<path_to_file>`: Path to the local file you want to sign.
+    * `<key_pair_ID>`: Signature key pair ID you got in the previous step.
+    * `<path_to_file>`: Path to the local file to sign.
 
     Result:
 
@@ -79,11 +79,11 @@ You can use digital signature key pairs created with the [Cosign](https://docs.s
     <digital_signature_value>
     ```
 
-    Save the resulting digital signature value. You will need it for signature verification in the next step.
+    Save the digital signature value. You will need it for signature verification in the next step.
 
 ## Verify the digital signature {#verify-signature}
 
-To verify the signature, run the following command:
+To verify your signature, run the following command:
 
 ```bash
 cosign verify-blob \

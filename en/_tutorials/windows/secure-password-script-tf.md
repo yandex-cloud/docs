@@ -1,5 +1,5 @@
 1. [Get your cloud ready](#before-you-begin).
-1. [Create the infrastructure](#deploy).
+1. [Create your infrastructure](#deploy).
 1. [Log in to Windows](#login-windows).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -14,13 +14,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [paid-resources](../../_tutorials/_tutorials_includes/secure-password-script/paid-resources.md) %}
 
 
-## Create an infrastructure {#deploy}
+## Create your infrastructure {#deploy}
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To create your infrastructure via {{ TF }}:
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
-1. Set up your infrastructure description files:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
+1. Prepare your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
 
@@ -39,8 +39,8 @@ To create your infrastructure via {{ TF }}:
 
    - Manually {#manual}
 
-     1. Create a folder for configuration files.
-     1. In the folder, create:
+     1. Create a directory for configuration files.
+     1. In the directory, create:
         1. `yc-secured-password.tf` configuration file:
 
            {% cut "yc-secured-password.tf" %}
@@ -119,7 +119,7 @@ To create your infrastructure via {{ TF }}:
            ```hcl
            zone         = "<availability_zone>"
            folder_id    = "<folder_ID>"
-           admin_pass   = "<administrator_password>"
+           admin_pass   = "<admin_password>"
            username     = "<username>"
            user_pass    = "<user_password>"
            image_family = "<image_family>"
@@ -127,7 +127,7 @@ To create your infrastructure via {{ TF }}:
 
    {% endlist %}
 
-   For more on the properties of resources used in {{ TF }}, see these provider guides:
+   Learn more on the properties of resources used in {{ TF }} in these provider guides:
 
    * [Cloud network](../../vpc/concepts/network.md): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network). 
    * [Subnet](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
@@ -137,8 +137,8 @@ To create your infrastructure via {{ TF }}:
    * [Symmetric encryption key](../../kms/concepts/key.md): [yandex_kms_symmetric_key]({{ tf-provider-resources-link }}/kms_symmetric_key)
    * [Secret]({{ tf-provider-resources-link }}/lockbox_secret): [yandex_lockbox_secret](../../lockbox/concepts/secret.md).
    * [Secret version](../../lockbox/concepts/secret.md#version): [yandex_lockbox_secret_version_hashed]({{ tf-provider-resources-link }}/lockbox_secret_version_hashed).
-   * [Image](../../compute/concepts/image.md): [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image)
-   * [Disk](../../compute/concepts/disk.md): [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk)
+   * [Image](../../compute/concepts/image.md): [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image).
+   * [Disk](../../compute/concepts/disk.md): [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk).
    * [VM instance](../../compute/concepts/vm.md): [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
 
 1. In the `yc-secured-password.auto.tfvars` file, set the following user-defined properties:
@@ -149,7 +149,7 @@ To create your infrastructure via {{ TF }}:
        {% include [userpass-warn](../../_tutorials/_tutorials_includes/secure-password-script/userpass-warn.md) %}
 
    * `username`: Username.
-   * `user_pass`: Password.
+   * `user_pass`: User password.
    * `image_family`: Family of one of the VM [images](../../compute/concepts/image.md) with the required OS version.
 
 1. Create the resources:

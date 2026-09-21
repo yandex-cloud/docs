@@ -74,38 +74,29 @@ You need the [cic.editor](../security/index.md#cic-editor) role to run this oper
 
       ```text
       id: bd6g2l17c8sv********
-      name: prc-pop1
-      folder_id: b1gt6g8ht345********
-      region_id: {{ region-id }}
-      trunk_connection_id: cf3dcodot14p********
-      vlan_id: "125"
-      ipv4_peering:
-        peering_subnet: 192.168.10.0/30
-        peer_ip: 192.168.10.1
-        cloud_ip: 192.168.10.2
-        peer_bgp_asn: "20001"
-        peer_bgp_md5_key: '*** hidden ***'
-      status: ACTIVE
-      created_at: "2025-03-20T08:25:33Z"
+      description: private connection create
+      created_at: "2025-03-20T08:25:33.106772882Z"
+      created_by: ajeol2afu1js********
+      modified_at: "2025-03-20T08:25:33.106772882Z"
+      metadata:
+        '@type': type.googleapis.com/yandex.cloud.cic.v1.CreatePrivateConnectionMetadata
+        private_connection_id: cf3r5ke20fo0********
       ```
 
-      Where:
+  1. Wait for the operation to complete and [get information](priv-con-get-info.md) about the new private connection:
 
-      * `id`: Private connection ID.
-      * `name`: Private connection name.
-      * `description`: Private connection description.
-      * `folder_id`: ID of the cloud folder the private connection was created in.
-      * `region_id`: Cloud region the private connection was created in.
-      * `trunk_connection_id`: ID of the trunk the private connection was created in.
-      * `vlan_id`: VLAN ID for this private connection in the 802.1Q trunk. This value is selected by the customer. It must be different from the VLAN IDs of the previously set up private connections in this trunk.
-      * `ipv4_peering`: Group of IP/BGP connectivity parameters for the private connection:
-        * `peering_subnet`: [Point-to-point subnet](../concepts/priv-con.md#priv-address) for BGP peering. This value is selected by the customer.
-        * `peer_ip`: Customer endpoint IP address on the point-to-point peering subnet. This value is selected by the customer.
-        * `cloud_ip`: {{ yandex-cloud }} endpoint IP address on the point-to-point peering subnet. This value is selected by the customer.
-        * `peer_bgp_asn`: Customer endpoint [BGP ASN](../concepts/priv-con.md#bgp-asn) in ASPlain format. This value is selected by the customer.
-        * `peer_bgp_md5_key`: Optional setting. Encrypted BGP session key value.
-      * `status`: Resource state. Target state: `ACTIVE`.
-      * `created_at`: Date and time of resource creation.
-      * `async`: Running the operation in asynchronous mode. This is the recommended mode for all operations that involve changes to resources.
+      ```bash
+      yc cic private-connection get cf3r5ke20fo0********
+      ```
 
 {% endlist %}
+
+## What's next {#next}
+
+To set up network connectivity between your infrastructure and cloud networks:
+
+1. [Create a virtual router](../../cloud-router/operations/ri-create.md) or select an existing one.
+1. [Add the private connection](../../cloud-router/operations/ri-priv-con-add.md) to the virtual router.
+1. [Add cloud networks and IP prefixes](../../cloud-router/operations/ri-prefixes-upsert.md) to announce to your infrastructure.
+1. Configure BGP on your network equipment and [check the BGP session status](../concepts/monitoring.md#private-mon).
+1. Test IP connectivity between your infrastructure and cloud resources.

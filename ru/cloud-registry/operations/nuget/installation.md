@@ -63,3 +63,5 @@ description: Следуя данной инструкции, вы настрои
           ```
 
     {% endlist %}
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

@@ -8,7 +8,7 @@ Read logs
 
 Syntax:
 
-`yc logging read <LOG-GROUP-NAME>|<LOG-GROUP-ID> [SINCE] [FILTER] [Flags...] [Global Flags...]`
+`yc logging v0 read <LOG-GROUP-NAME>|<LOG-GROUP-ID> [SINCE] [FILTER] [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -25,12 +25,14 @@ Log group name. ||
 The maximum number of items to list. ||
 || `--since` | `timestamp`
 
-Show logs since this time in HH:MM:SS format or RFC-3339, or duration since now. Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago' ||
+Show logs since this time timestamp in HH:MM:SS format or RFC-3339, or duration since now.
+Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago' ||
 || `--until` | `timestamp`
 
-Show logs until this time in HH:MM:SS format or RFC-3339, or duration since now. Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago' ||
+Show logs until this time timestamp in HH:MM:SS format or RFC-3339, or duration since now.
+Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago' ||
 || `-f`, `--follow` | Output logs as they arrive ||
-|| `--levels` | `value[,value]`
+|| `--levels` | `[]string`
 
 Show logs with these levels (comma-separated) ||
 || `--filter` | `string`
@@ -39,13 +41,13 @@ Use this filter ||
 || `--max-response-size` | `byteSize`
 
 Specifies the maximum response size in bytes. You can also use M and T suffixes to specify MiB or TiB respectively. Default is 3.5 MiB. ||
-|| `--resource-types` | `value[,value]`
+|| `--resource-types` | `[]string`
 
 Show logs with these resource types (comma-separated) ||
-|| `--resource-ids` | `value[,value]`
+|| `--resource-ids` | `[]string`
 
 Show logs with these resource ids (comma-separated) ||
-|| `--stream-names` | `value[,value]`
+|| `--stream-names` | `[]string`
 
 Show logs with these stream names (comma-separated) ||
 |#
@@ -56,15 +58,10 @@ Show logs with these stream names (comma-separated) ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -74,21 +71,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

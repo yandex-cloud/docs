@@ -203,7 +203,7 @@ The sensor outputs the result in JSON format. Here is an example:
 
 Write the received information to a DB table using a function.
 
-Once you [connect to the cluster](#connect-to-cluster), create a table. Proceed as follows:
+Once you [connect to the cluster](#connect-to-cluster), create a table. Follow these steps:
 
 {% list tabs group=instructions %}
 
@@ -253,7 +253,7 @@ The function will receive messages from the MQTT broker and write data to the ta
 
 ### Create a function version {#func-version}
 
-After creating the function, you will be automatically redirected to the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** page.
+After creating the function, you will be automatically redirected to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** page.
 
 {% list tabs group=instructions %}
 
@@ -274,14 +274,14 @@ After creating the function, you will be automatically redirected to the **{{ ui
         {% endnote %}
 
     1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `myfunction.msgHandler`.
-    1. Specify the following version parameters:
+    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, set the following version parameters:
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud_portal.common.units.label_megabyte }}`
 
     1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, select `my-db-function-service-account`.
 
-    1. Add these environment variables:
+    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**, specify the following:
 
         * `VERBOSE_LOG`: Parameter displaying detailed information about the function. Type in `True`.
         * `DB_HOSTNAME`: Name of the {{ PG }} database host to connect to.
@@ -295,9 +295,9 @@ After creating the function, you will be automatically redirected to the **{{ ui
         1. In the [management console]({{ link-console-main }}), select the folder where you created the cluster.
         1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Select the `my-pg-database` cluster.
-        1. In the line with the database you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+        1. In the database row, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
         1. On the **PowerShell** tab, find a sample connection string.
-        1. Move the values of the `host`, `port`, `dbname`, and `user` variables to the appropriate **{{ ui-key.yacloud.common.value }}** field for the function environment variables.
+        1. Move the values of the `host`, `port`, `dbname`, and `user` variables to the appropriate **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields for the function environment variables.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -337,7 +337,7 @@ The trigger will accept copies of messages from the device topic and pass them t
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
 
-        * Select the data processing function that you created earlier.
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function }}** field, select the data processing function you created earlier.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}** field, specify `$latest`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** field, specify `my-db-function-service-account`.
 

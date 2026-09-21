@@ -21,6 +21,7 @@ description: In this article, you will learn how to work with {{ api-gw-full-nam
 * [Viewing the execution log](api-gw-logs.md)
 * [Writing to the execution log](api-gw-logs-write.md)
 * [{#T}](api-gw-domain-detach.md)
+* [{#T}](api-gw-stop-resume.md)
 * [{#T}](api-gw-migration.md)
 * [{#T}](api-gw-delete.md)
 
@@ -42,7 +43,7 @@ description: In this article, you will learn how to work with {{ api-gw-full-nam
 * [Creating a trigger for {{ yds-name }}](trigger/data-streams-trigger-create.md)
 * [Creating an email trigger](trigger/mail-trigger-create.md)
 
-## Managing triggers {#trigger-manage}
+## Managing a trigger {#trigger-manage}
 
 * [Updating a trigger](trigger/trigger-update.md)
 * [Viewing monitoring charts](trigger/trigger-monitoring.md)

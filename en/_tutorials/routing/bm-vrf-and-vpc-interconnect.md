@@ -1,6 +1,7 @@
 # Setting up network connectivity between {{ baremetal-full-name }} and {{ vpc-full-name }} subnets using {{ interconnect-full-name }}
 
 
+
 [{{ interconnect-full-name }}](../../interconnect/index.yaml)-based network connectivity in {{ baremetal-full-name }} enables access to [CIDRs](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) of {{ vpc-name }} private subnets in a cloud infrastructure and/or CIDRs of private subnets in an on-prem infrastructure.
 
 In this tutorial, you will set up network connectivity between a {{ baremetal-name }} [server](../../baremetal/concepts/servers.md) located in a private {{ baremetal-full-name }} [subnet](../../baremetal/concepts/private-network.md) and a {{ compute-full-name }} [VM](../../compute/concepts/vm.md) located in a subnet of a {{ vpc-full-name }} [cloud network](../../vpc/concepts/network.md#network).
@@ -17,7 +18,7 @@ To set up network connectivity between {{ baremetal-name }} and {{ vpc-name }} s
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a cloud infrastructure](#setup-infrastructure).
-1. [Request a virtual router](#request-ri).
+1. [Set up a virtual router](#request-ri).
 1. [Create a private connection](#create-prc).
 1. [Test network connectivity](#check-connectivity).
 
@@ -26,7 +27,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -37,7 +37,6 @@ The cost of supporting an infrastructure for network connectivity between {{ bar
 * Fee for renting a {{ baremetal-name }} server (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 
 {% include [bms-vpc-private-over-cic-free-traffic](../../_includes/baremetal/bms-vpc-private-over-cic-free-traffic.md) %}
-
 
 ## Create a cloud infrastructure {#setup-infrastructure}
 
@@ -58,6 +57,7 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
   1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
   1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Create a virtual routing and forwarding segment:
+
         1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** and click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
         1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, name your VRF segment: `my-vrf`.
         1. Click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
@@ -97,6 +97,7 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select an image, e.g., `Ubuntu 24.04`.
       1. {% include [server-lease-step8](../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
       1. Under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
+
           1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m3` subnet you created earlier.
           1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
 
@@ -140,7 +141,7 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM to.
       1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
       1. At the top right, click **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify `subnet-{{ region-id }}-b`.
-      1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select `{{ region-id }}-b`.
+      1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** field, select `sample-network`.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** field, specify `192.168.11.0/24`.
       
@@ -178,27 +179,21 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM to.
 {% endlist %}
 
 
-## Create a virtual router {#request-ri}
+## Set up a virtual router {#request-ri}
 
-To set up network connectivity between {{ baremetal-name }} subnets, {{ vpc-name }} subnets, and/or on-prem subnets, you need to [create a virtual router](../../cloud-router/operations/ri-create.md).
+[Check](../../cloud-router/operations/ri-get-info.md) whether the folder contains a suitable virtual router for this scenario.
 
-If your folder already has [{{ interconnect-name }}](../../interconnect/index.yaml) network connectivity (VPC-to-On-Prem) configured, you can either use an existing virtual router or create a new, additional one for standalone network connectivity.
+If there is no suitable router, [create one](../../cloud-router/operations/ri-create.md). Configure it as follows:
 
-### Check that you have a virtual router in your folder {#check-for-ri}
+1. Enter the name: `bms-vpc-router`.
+1. In the **{{ ui-key.yacloud.cloud-router.router.networks_fbzKL }}** field, select `sample-network`.
+1. For the `{{ region-id }}-a` availability zone, add the `{{ region-id }}-b` IP prefix.
 
-1. {% include [cli-install](../../_includes/cli-install.md) %}
-
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-1. {% include [check-for-routing-instance](../../_includes/baremetal/check-for-routing-instance.md) %}
-
-1. If you have a virtual router already, you may skip the next step and [proceed](#create-private-connection) to creating a private connection.
-
-    If you have no virtual router or you want to build additional dedicated network connectivity, [create a new one](../../cloud-router/operations/ri-create.md).
+If you are using an existing virtual router, [add](../../cloud-router/operations/ri-prefixes-upsert.md#add-network) `sample-network` and the `192.168.11.0/24` IP prefix for the `{{ region-id }}-b` availability zone to it.
 
 ## Create a private connection {#create-prc}
 
-Once the virtual router has been created in your folder, create a [private {{ interconnect-name }} connection](../../baremetal/concepts/private-network.md#private-connection-to-vpc) in {{ baremetal-name }}:
+Once your virtual router is ready, create a {{ interconnect-name }} [private connection](../../baremetal/concepts/private-network.md#private-connection-to-vpc) in {{ baremetal-name }}:
 
 {% include [create-private-connection](../../_includes/baremetal/create-private-connection.md) %}
 
@@ -207,6 +202,7 @@ Once the virtual router has been created in your folder, create a [private {{ in
 As soon as the status of the new private connection changes to `Ready`, network connectivity between the {{ baremetal-name }} and {{ vpc-short-name }} subnets will be established, and you can start checking it.
 
 A network connectivity check assumes that:
+
 * The process of setting up a private connection to cloud networks has been successfully completed (the connection status is `Ready`).
 * The local firewall on the {{ baremetal-name }} server allows [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol) traffic.
 * The routing table in the {{ baremetal-name }} server OS contains a route to the CIRD of the subnet the VM resides in.
@@ -324,3 +320,8 @@ To stop paying for the resources you created:
       The connection status will change to `Deleting`. Once all links are deleted, the connection will disappear from the list.
 
     {% endlist %}
+
+1. If you added `sample-network` to an existing virtual router, [delete the network](../../cloud-router/operations/ri-prefixes-upsert.md#remove-network).
+1. If you created a new virtual router for this tutorial, [delete it](../../cloud-router/operations/ri-delete.md).
+1. [Delete](../../vpc/operations/subnet-delete.md) `subnet-{{ region-id }}-b`.
+1. [Delete](../../vpc/operations/network-delete.md) `sample-network`.

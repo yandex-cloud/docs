@@ -8,7 +8,7 @@ Create a public subnet
 
 Syntax:
 
-`yc baremetal public-subnet create <PUBLIC-SUBNET-NAME> [Flags...] [Global Flags...]`
+`yc baremetal v0 public-subnet create <PUBLIC-SUBNET-NAME> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -23,25 +23,13 @@ Specifies a textual description of the public subnet. ||
 || `--prefix-length` | `int`
 
 Deprecated. Use --cidr-auto-allocation or --cidr-manual-allocation instead. ||
-|| `--cidr-auto-allocation` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--cidr-auto-allocation` | `key=value[,key=value...]`
 
-Automatic CIDR allocation from the system public prefix pool.
+Automatic CIDR allocation from the system public prefix pool. ||
+|| `--cidr-manual-allocation` | `key=value[,key=value...]`
 
-Possible property names:
-
-- `prefix-length`: Prefix length for automatic CIDR allocation (1-31). (required) ||
-|| `--cidr-manual-allocation` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
-
-Manual CIDR allocation with explicit CIDR from user's own public prefix pool (BYOIP).
-
-Possible property names:
-
-- `cidr`: CIDR block for manual allocation. (required)
-
-- `public-prefix-pool-id`: Public prefix pool ID.
-
-- `public-prefix-pool-name`: Public prefix pool name. ||
-|| `--hardware-pool-id` | `value[,value]`
+Manual CIDR allocation with explicit CIDR from user's own public prefix pool (BYOIP). ||
+|| `--hardware-pool-id` | `[]string`
 
 Specifies one or several hardware pool ids. ||
 || `--labels` | `key=value[,key=value...]`
@@ -56,15 +44,10 @@ A list of label KEY=VALUE pairs to add. For example, to add two labels named 'fo
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -74,21 +57,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

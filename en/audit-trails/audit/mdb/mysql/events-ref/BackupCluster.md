@@ -1025,7 +1025,12 @@ editable: false
           "emergencyUsageThreshold": "string",
           "diskSizeLimit": "string"
         },
-        "fullVersion": "string"
+        "fullVersion": "string",
+        "connectionManager": {
+          "enabled": "boolean",
+          "connectionsFolderId": "string",
+          "secretsFolderId": "string"
+        }
       },
       "networkId": "string",
       "health": "string",
@@ -1050,7 +1055,8 @@ editable: false
       "hostGroupIds": [
         "string"
       ],
-      "diskEncryptionKeyId": "string"
+      "diskEncryptionKeyId": "string",
+      "isHa": "boolean"
     },
     "backupId": "string",
     "backup": {
@@ -1291,6 +1297,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || deletionProtection | **boolean** ||
 || hostGroupIds[] | **string** ||
 || diskEncryptionKeyId | **string** ||
+|| isHa | **boolean** ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.mysql.v1.Monitoring}
@@ -1325,6 +1332,7 @@ Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`, `mysqlConf
 Acceptable values are 7 to 60, inclusive. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mysql.v1.DiskSizeAutoscaling)** ||
 || fullVersion | **string** ||
+|| connectionManager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)** ||
 |#
 
 ## MysqlConfigSet5_7 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet5_7}
@@ -2260,6 +2268,15 @@ Acceptable values are 0 to 100, inclusive. ||
 
 Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64) ||
+|#
+
+## ClusterConnectionManager {#yandex.cloud.mdb.v1.ClusterConnectionManager}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| connectionsFolderId | **string** ||
+|| secretsFolderId | **string** ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.mysql.v1.MaintenanceWindow}

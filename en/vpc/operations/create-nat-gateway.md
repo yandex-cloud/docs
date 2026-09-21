@@ -6,7 +6,7 @@ description: Follow this guide to create and set up a NAT gateway.
 # Setting up a NAT gateway
 
 
-`vpc.admin` and `vpc.gateways.user` are the minimum [roles](../security/#roles-list) required to create and configure a [NAT gateway](../concepts/gateways.md).
+`vpc.admin` and `vpc.gateways.user` are the minimum [roles](../security/index.md#roles-list) required to create and configure a [NAT gateway](../concepts/gateways.md).
 
 To create and set up a NAT gateway:
 
@@ -16,27 +16,27 @@ To create and set up a NAT gateway:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a gateway.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
-  1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
+  1. Click **{{ ui-key.yacloud.vpc.gateways.button_create-gateway }}**.
   1. Enter a name for the gateway. The naming requirements are as follows:
 
-      {% include [name-format](../../_includes/name-format.md) %}
-   
-  1. (Optional) Add a gateway description.
+     {% include [name-format](../../_includes/name-format.md) %}
+
+  1. Optionally, add a description and labels for the gateway.
   1. The default gateway type is `{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}`.
-  1. Click **{{ ui-key.yacloud.common.save }}**.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
-  1. Click **{{ ui-key.yacloud.common.create }}** to add a new table, or select an existing one.
-  1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
-  1. In the window that opens, select `{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}` in the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** field.
-  1. In the **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** field, select the NAT gateway you created. The destination prefix will apply automatically.
-  1. Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
-  1. Click **{{ ui-key.yacloud.vpc.route-table.edit.button_edit }}**. 
+  1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+  1. Click **{{ ui-key.yacloud.vpc.network.overview.button_create_route-table }}** to add a new table, or select an existing one.
+  1. Under **{{ ui-key.yacloud.vpc.route-table-form.section_static-routes }}**, click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**, and in the window that opens:
+     1. In the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** field, select `{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}`.
+     1. In the **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** field, select the NAT gateway you created. The destination prefix will apply automatically.
+     1. Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
+  1. Click **{{ ui-key.yacloud.vpc.route-table.edit.button_edit }}**.
 
   Next, associate the [route table](../concepts/routing.md) with a subnet to route traffic from it through the NAT gateway:
 
   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. In the row with the subnet, click ![image](../../_assets/console-icons/ellipsis.svg).
+  1. In the subnet row, click ![image](../../_assets/console-icons/ellipsis.svg).
   1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
   1. In the window that opens, select your route table from the list.
   1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -46,19 +46,20 @@ To create and set up a NAT gateway:
   {% include [include](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   1. View the description of the CLI create gateway command:
 
-      ```bash
-      yc vpc gateway create --help
-      ```
+     ```bash
+     yc vpc gateway create --help
+     ```
 
   1. Create a gateway in the default folder:
 
      ```bash
      yc vpc gateway create \
-        --name test-gateway
+       --name test-gateway
      ```
+
   1. Get the gateway ID:
 
      ```bash
@@ -79,9 +80,9 @@ To create and set up a NAT gateway:
 
      ```bash
      yc vpc route-table create \
-        --name=test-route-table \
-        --network-name=<network_name> \
-        --route destination=0.0.0.0/0,gateway-id=enpkq1v2e7p0********
+       --name=test-route-table \
+       --network-name=<network_name> \
+       --route destination=0.0.0.0/0,gateway-id=enpkq1v2e7p0********
      ```
 
      Where `--network-name` is the name of the network where you are creating the table.
@@ -90,7 +91,7 @@ To create and set up a NAT gateway:
 
      ```bash
      yc vpc subnet update <subnet_name> \
-        --route-table-name=test-route-table
+       --route-table-name=test-route-table
      ```
 
 - {{ TF }} {#tf}
@@ -98,9 +99,9 @@ To create and set up a NAT gateway:
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
-  
-  To create a NAT gateway, specify it as the next hop in the [route](../concepts/routing.md) table, and associate the table with the subnet, use the following configuration:
-  
+
+  To create a NAT gateway, set it as the next hop in the [route](../concepts/routing.md) table, and associate the table with the subnet, use the following configuration:
+
   ```hcl
   data "yandex_vpc_network" "net" {
     folder_id = "<folder_ID>"
@@ -118,7 +119,7 @@ To create and set up a NAT gateway:
 
   resource "yandex_vpc_gateway" "nat_gateway" {
     folder_id      = "<folder_ID>"
-    name = "test-gateway"
+    name           = "test-gateway"
     shared_egress_gateway {}
   }
 
@@ -140,35 +141,34 @@ To create and set up a NAT gateway:
 
   1. Create a NAT gateway. Use the [create](../api-ref/Gateway/create.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Create](../api-ref/grpc/Gateway/create.md) gRPC API call, and provide the following in the request:
 
-      * ID of the folder the gateway will reside in, in the `folderId` parameter.
-      * Gateaway name in the `name` parameter. The name format is as follows:
+     * ID of the folder the gateway will reside in, in the `folderId` parameter.
+     * Gateaway name in the `name` parameter. The name format is as follows:
 
-          {% include [name-format](../../_includes/name-format.md) %}
+       {% include [name-format](../../_includes/name-format.md) %}
 
   1. Associate the NAT gateway with the new route table by using the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/RouteTable/create.md) gRPC API call, and provide the following in the request:
 
-      * ID of the folder the route table will reside in, in the `folderId` parameter.
-      * Route table name in the `name` parameter. The name format is as follows:
+     * ID of the folder the route table will reside in, in the `folderId` parameter.
+     * Route table name in the `name` parameter. The name format is as follows:
 
-        {% include [name-format](../../_includes/name-format.md) %}
-      * ID of the network the route table will reside in, in the `networkId` parameter.
-      * `0.0.0.0/0` as the destination subnet prefix, in the `staticRoutes[].destinationPrefix` parameter.
-      * NAT gateway ID in the `staticRoutes[].gatewayId` parameter.
+       {% include [name-format](../../_includes/name-format.md) %}
+     * ID of the network the route table will reside in, in the `networkId` parameter.
+     * `0.0.0.0/0` as the destination subnet prefix, in the `staticRoutes[].destinationPrefix` parameter.
+     * NAT gateway ID in the `staticRoutes[].gatewayId` parameter.
 
-        {% include [get-nat-gateway](../../_includes/vpc/get-nat-gateway.md) %}
+       {% include [get-nat-gateway](../../_includes/vpc/get-nat-gateway.md) %}
 
   1. Associate the route table with your subnet by using the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/Subnet/update.md) gRPC API call, and provide the following in the request:
 
-      * Subnet ID in the `subnetId` parameter.
+     * Subnet ID in the `subnetId` parameter.
 
-        {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
+       {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
 
-        {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+       {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
-      * Route table ID in the `routeTableId` parameter.
-      * Name of the `routeTableId` parameter in the `updateMask` parameter.
+     * Route table ID in the `routeTableId` parameter.
+     * Name of the `routeTableId` parameter in the `updateMask` parameter.
 
-      {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
-

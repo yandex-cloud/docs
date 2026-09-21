@@ -264,7 +264,7 @@ editable: false
               "string"
             ],
             "parser": {
-              // Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`
+              // Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`, `confluentSchemaRegistryParser`
               "jsonParser": {
                 "dataSchema": {
                   // Includes only one of the fields `jsonFields`, `fields`
@@ -308,6 +308,45 @@ editable: false
                 "nullKeysAllowed": "boolean",
                 "addRestColumn": "boolean",
                 "unescapeStringValues": "boolean"
+              },
+              "confluentSchemaRegistryParser": {
+                // Includes only one of the fields `confluentSchemaRegistryConnection`
+                "confluentSchemaRegistryConnection": {
+                  "schemaRegistryUrl": "string",
+                  "tlsMode": {
+                    // Includes only one of the fields `enabled`
+                    "enabled": {
+                      "caCertificate": "string"
+                    }
+                    // end of the list of possible fields
+                  },
+                  "auth": {
+                    // Includes only one of the fields `noAuth`, `basic`
+                    "noAuth": "object",
+                    "basic": {
+                      "user": "string",
+                      "password": {
+                        // Includes only one of the fields `raw`
+                        "raw": "string"
+                        // end of the list of possible fields
+                      }
+                    }
+                    // end of the list of possible fields
+                  }
+                },
+                // end of the list of possible fields
+                "isGenerateUpdates": "boolean",
+                "tableNamePolicy": {
+                  // Includes only one of the fields `derived`, `manual`
+                  "derived": {
+                    "json": "string",
+                    "protobuf": "string"
+                  },
+                  "manual": {
+                    "tableName": "string"
+                  }
+                  // end of the list of possible fields
+                }
               }
               // end of the list of possible fields
             },
@@ -395,7 +434,7 @@ editable: false
               "serviceAccountId": "string"
             },
             "parser": {
-              // Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`
+              // Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`, `confluentSchemaRegistryParser`
               "jsonParser": {
                 "dataSchema": {
                   // Includes only one of the fields `jsonFields`, `fields`
@@ -439,6 +478,45 @@ editable: false
                 "nullKeysAllowed": "boolean",
                 "addRestColumn": "boolean",
                 "unescapeStringValues": "boolean"
+              },
+              "confluentSchemaRegistryParser": {
+                // Includes only one of the fields `confluentSchemaRegistryConnection`
+                "confluentSchemaRegistryConnection": {
+                  "schemaRegistryUrl": "string",
+                  "tlsMode": {
+                    // Includes only one of the fields `enabled`
+                    "enabled": {
+                      "caCertificate": "string"
+                    }
+                    // end of the list of possible fields
+                  },
+                  "auth": {
+                    // Includes only one of the fields `noAuth`, `basic`
+                    "noAuth": "object",
+                    "basic": {
+                      "user": "string",
+                      "password": {
+                        // Includes only one of the fields `raw`
+                        "raw": "string"
+                        // end of the list of possible fields
+                      }
+                    }
+                    // end of the list of possible fields
+                  }
+                },
+                // end of the list of possible fields
+                "isGenerateUpdates": "boolean",
+                "tableNamePolicy": {
+                  // Includes only one of the fields `derived`, `manual`
+                  "derived": {
+                    "json": "string",
+                    "protobuf": "string"
+                  },
+                  "manual": {
+                    "tableName": "string"
+                  }
+                  // end of the list of possible fields
+                }
               }
               // end of the list of possible fields
             },
@@ -1089,7 +1167,7 @@ editable: false
               "string"
             ],
             "parser": {
-              // Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`
+              // Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`, `confluentSchemaRegistryParser`
               "jsonParser": {
                 "dataSchema": {
                   // Includes only one of the fields `jsonFields`, `fields`
@@ -1133,6 +1211,45 @@ editable: false
                 "nullKeysAllowed": "boolean",
                 "addRestColumn": "boolean",
                 "unescapeStringValues": "boolean"
+              },
+              "confluentSchemaRegistryParser": {
+                // Includes only one of the fields `confluentSchemaRegistryConnection`
+                "confluentSchemaRegistryConnection": {
+                  "schemaRegistryUrl": "string",
+                  "tlsMode": {
+                    // Includes only one of the fields `enabled`
+                    "enabled": {
+                      "caCertificate": "string"
+                    }
+                    // end of the list of possible fields
+                  },
+                  "auth": {
+                    // Includes only one of the fields `noAuth`, `basic`
+                    "noAuth": "object",
+                    "basic": {
+                      "user": "string",
+                      "password": {
+                        // Includes only one of the fields `raw`
+                        "raw": "string"
+                        // end of the list of possible fields
+                      }
+                    }
+                    // end of the list of possible fields
+                  }
+                },
+                // end of the list of possible fields
+                "isGenerateUpdates": "boolean",
+                "tableNamePolicy": {
+                  // Includes only one of the fields `derived`, `manual`
+                  "derived": {
+                    "json": "string",
+                    "protobuf": "string"
+                  },
+                  "manual": {
+                    "tableName": "string"
+                  }
+                  // end of the list of possible fields
+                }
               }
               // end of the list of possible fields
             },
@@ -1220,7 +1337,7 @@ editable: false
               "serviceAccountId": "string"
             },
             "parser": {
-              // Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`
+              // Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`, `confluentSchemaRegistryParser`
               "jsonParser": {
                 "dataSchema": {
                   // Includes only one of the fields `jsonFields`, `fields`
@@ -1264,6 +1381,45 @@ editable: false
                 "nullKeysAllowed": "boolean",
                 "addRestColumn": "boolean",
                 "unescapeStringValues": "boolean"
+              },
+              "confluentSchemaRegistryParser": {
+                // Includes only one of the fields `confluentSchemaRegistryConnection`
+                "confluentSchemaRegistryConnection": {
+                  "schemaRegistryUrl": "string",
+                  "tlsMode": {
+                    // Includes only one of the fields `enabled`
+                    "enabled": {
+                      "caCertificate": "string"
+                    }
+                    // end of the list of possible fields
+                  },
+                  "auth": {
+                    // Includes only one of the fields `noAuth`, `basic`
+                    "noAuth": "object",
+                    "basic": {
+                      "user": "string",
+                      "password": {
+                        // Includes only one of the fields `raw`
+                        "raw": "string"
+                        // end of the list of possible fields
+                      }
+                    }
+                    // end of the list of possible fields
+                  }
+                },
+                // end of the list of possible fields
+                "isGenerateUpdates": "boolean",
+                "tableNamePolicy": {
+                  // Includes only one of the fields `derived`, `manual`
+                  "derived": {
+                    "json": "string",
+                    "protobuf": "string"
+                  },
+                  "manual": {
+                    "tableName": "string"
+                  }
+                  // end of the list of possible fields
+                }
               }
               // end of the list of possible fields
             },
@@ -2539,16 +2695,19 @@ Includes only one of the fields `databaseId`, `onPremise`. ||
 ||Field | Description ||
 || jsonParser | **[GenericParserCommon](#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon)**
 
-Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`. ||
+Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`, `confluentSchemaRegistryParser`. ||
 || auditTrailsV1Parser | **object**
 
-Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`. ||
+Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`, `confluentSchemaRegistryParser`. ||
 || cloudLoggingParser | **object**
 
-Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`. ||
+Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`, `confluentSchemaRegistryParser`. ||
 || tskvParser | **[GenericParserCommon](#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon)**
 
-Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`. ||
+Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`, `confluentSchemaRegistryParser`. ||
+|| confluentSchemaRegistryParser | **[ConfluentSchemaRegistryParser](#yandex.cloud.datatransfer.v1.endpoint.ConfluentSchemaRegistryParser)**
+
+Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`, `confluentSchemaRegistryParser`. ||
 |#
 
 ## GenericParserCommon {#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon}
@@ -2604,6 +2763,79 @@ Includes only one of the fields `jsonFields`, `fields`. ||
 || key | **boolean** ||
 || required | **boolean** ||
 || path | **string** ||
+|#
+
+## ConfluentSchemaRegistryParser {#yandex.cloud.datatransfer.v1.endpoint.ConfluentSchemaRegistryParser}
+
+#|
+||Field | Description ||
+|| confluentSchemaRegistryConnection | **[ConfluentSchemaRegistryConnection](#yandex.cloud.datatransfer.v1.endpoint.ConfluentSchemaRegistryConnection)**
+
+Includes only one of the fields `confluentSchemaRegistryConnection`. ||
+|| isGenerateUpdates | **boolean** ||
+|| tableNamePolicy | **[SchemaRegistryTableNamePolicy](#yandex.cloud.datatransfer.v1.endpoint.SchemaRegistryTableNamePolicy)** ||
+|#
+
+## ConfluentSchemaRegistryConnection {#yandex.cloud.datatransfer.v1.endpoint.ConfluentSchemaRegistryConnection}
+
+#|
+||Field | Description ||
+|| schemaRegistryUrl | **string** ||
+|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)** ||
+|| auth | **[ConfluentSchemaRegistryAuth](#yandex.cloud.datatransfer.v1.endpoint.ConfluentSchemaRegistryAuth)** ||
+|#
+
+## ConfluentSchemaRegistryAuth {#yandex.cloud.datatransfer.v1.endpoint.ConfluentSchemaRegistryAuth}
+
+#|
+||Field | Description ||
+|| noAuth | **object**
+
+Includes only one of the fields `noAuth`, `basic`. ||
+|| basic | **[BasicAuthSR](#yandex.cloud.datatransfer.v1.endpoint.BasicAuthSR)**
+
+Includes only one of the fields `noAuth`, `basic`. ||
+|#
+
+## BasicAuthSR {#yandex.cloud.datatransfer.v1.endpoint.BasicAuthSR}
+
+#|
+||Field | Description ||
+|| user | **string** ||
+|| password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)** ||
+|#
+
+## SchemaRegistryTableNamePolicy {#yandex.cloud.datatransfer.v1.endpoint.SchemaRegistryTableNamePolicy}
+
+#|
+||Field | Description ||
+|| derived | **[SchemaRegistryTableNamePolicyDerived](#yandex.cloud.datatransfer.v1.endpoint.SchemaRegistryTableNamePolicyDerived)**
+
+Includes only one of the fields `derived`, `manual`. ||
+|| manual | **[SchemaRegistryTableNamePolicyManual](#yandex.cloud.datatransfer.v1.endpoint.SchemaRegistryTableNamePolicyManual)**
+
+Includes only one of the fields `derived`, `manual`. ||
+|#
+
+## SchemaRegistryTableNamePolicyDerived {#yandex.cloud.datatransfer.v1.endpoint.SchemaRegistryTableNamePolicyDerived}
+
+#|
+||Field | Description ||
+|| json | **enum** (SchemaRegistryTableNamePolicyDerivedJSONType)
+
+- `SCHEMA_REGISTRY_TABLE_NAME_POLICY_DERIVED_JSON_TYPE_DEBEZIUM_LIKE`
+- `SCHEMA_REGISTRY_TABLE_NAME_POLICY_DERIVED_JSON_TYPE_TITLE` ||
+|| protobuf | **enum** (SchemaRegistryTableNamePolicyDerivedProtobufType)
+
+- `SCHEMA_REGISTRY_TABLE_NAME_POLICY_DERIVED_PROTOBUF_TYPE_DEBEZIUM_LIKE`
+- `SCHEMA_REGISTRY_TABLE_NAME_POLICY_DERIVED_PROTOBUF_TYPE_MESSAGE_NAME` ||
+|#
+
+## SchemaRegistryTableNamePolicyManual {#yandex.cloud.datatransfer.v1.endpoint.SchemaRegistryTableNamePolicyManual}
+
+#|
+||Field | Description ||
+|| tableName | **string** ||
 |#
 
 ## YDSAuthenticationMethod {#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod}

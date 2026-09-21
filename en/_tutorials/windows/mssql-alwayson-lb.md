@@ -83,7 +83,7 @@ Prepare a network infrastructure to host your availability group.
       1. Open the **{{ vpc-name }}** section in the folder where you want to create the subnets.
       1. Select the network: `ya-network`.
       1. Click ![image](../../_assets/console-icons/plus.svg) **Add subnet**.
-      1. Specify `ya-sqlserver-rc1a` as the name and select the `{{ region-id }}-a` availability zone from the drop-down list.
+      1. Fill out the form: enter `ya-sqlserver-rc1a` for subnet name and select `{{ region-id }}-a` for [availability zone](../../overview/concepts/geo-scope.md) from the drop-down list.
       1. Enter the subnet CIDR: IP address and subnet mask, `192.168.1.0/28`.
       1. Click **Create subnet**.
 
@@ -568,7 +568,7 @@ Connect to each VM you created and [activate your own Windows Server license on 
 
 ### Install and configure Active Directory {#install-ad}
 
-1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` for username and your password. 
+1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use the `Administrator` username and your password. 
 1. From `ya-jump1`, connect to the `ya-ad` VM under the same account using RDP.
 1. On `ya-ad`, run PowerShell and set the required server roles:
 
@@ -645,7 +645,7 @@ Connect to each VM you created and [activate your own Windows Server license on 
 
 ### Create users and groups in Active Directory {#create-ad-users-groups}
 
-1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` for username and your password.
+1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use the `Administrator` username and your password.
 
 1. Connect to the `ya-ad` VM from `ya-jump1` under the same account using RDP.
 
@@ -1003,7 +1003,7 @@ Install SQL Server on your database servers:
 
     {% endlist %}
 
-1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` for username and your password.
+1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use the `Administrator` username and your password.
 
 1. From `ya-jump1`, connect to the `ya-mssql1` VM under the same account using RDP. Configure a static IP address with its own subnet mask:
 

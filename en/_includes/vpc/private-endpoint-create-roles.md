@@ -3,5 +3,5 @@ To create a service connection, you need one of the following [roles](../../vpc/
 * `vpc.privateEndpoints.editor`
 * `vpc.privateEndpoints.admin`
 * `vpc.privateAdmin`
-* `vpc.admin`
+* `vpc.admin` (additionally requires the `vpc.bridgeAdmin` or `vpc.user` role)
 * `admin`

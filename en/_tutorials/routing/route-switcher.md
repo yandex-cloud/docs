@@ -73,7 +73,7 @@ The infrastructure support cost includes:
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
       1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Enter the service account name, e.g., `sa-terraform`.
+      1. Enter a service account name, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -318,7 +318,7 @@ The infrastructure support cost includes:
       1. In the [management console]({{ link-console-main }}), select your infrastructure folder.
       1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the VM list, select `test-vm`.
-      1. Navigate to the ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
+      1. Navigate to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
       1. Wait for the operating system to boot.
 
    {% endlist %}
@@ -408,7 +408,7 @@ The infrastructure support cost includes:
 
       1. In the [management console]({{ link-console-main }}), select your infrastructure folder.
       1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Select the `nat-a` VM from the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.stop }}**.
+      1. Click the `nat-a` VM in the list, then click ![image](../../_assets/console-icons/play.svg) **{{ ui-key.yacloud.common.start }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
    - CLI {#cli}

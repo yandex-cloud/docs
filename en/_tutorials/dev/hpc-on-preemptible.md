@@ -105,8 +105,8 @@ To create a VM:
 
 ### Create a cluster {#create-cluster}
 
-1. In the [management console]({{ link-console-main }}), go to **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
-1. To the right of the `master-node` VM disk, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**. Enter the name: `master-node-snapshot`. After you create the snapshot, it will appear in the list under **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
+1. In the [management console]({{ link-console-main }}), go to **{{ ui-key.yacloud.compute.storage_uisyT }}**.
+1. To the right of the `master-node` VM disk, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**. Enter the name: `master-node-snapshot`. After you create the snapshot, it will appear in the list under **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
 1. Go to **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** and click **{{ ui-key.yacloud.compute.groups.button_create }}**.
 1. Create an [instance group](../../compute/concepts/instance-groups/index.md):
    * In the **{{ ui-key.yacloud.compute.groups.create.field_name }}** field, enter a name for your instance group, e.g., `compute-group`.

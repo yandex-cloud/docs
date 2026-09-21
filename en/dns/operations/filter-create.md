@@ -13,7 +13,7 @@ To create a [DNS filter](../concepts/dns-filter.md):
 
   To create a new DNS filter and apply it at the cloud level:
 
-  1. See the description of the CLI command for creating a DNS zone:
+  1. See the description of the CLI command for creating a filter:
 
      ```bash
      yc dns firewall create --help
@@ -67,7 +67,7 @@ To create a [DNS filter](../concepts/dns-filter.md):
 
      Once the filter has been created, you can check the availability of the whitelisted and blacklisted FQDNs using the `dig` and `ping` commands from relevant cloud resources (VMs).
 
-    Result:
+     Result:
 
      ```text
      dig www.dom1.net 
@@ -100,7 +100,7 @@ To create a [DNS filter](../concepts/dns-filter.md):
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      ```hcl
      resource "yandex_dns_firewall" "filter1" {
@@ -143,7 +143,7 @@ To create a [DNS filter](../concepts/dns-filter.md):
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc dns firewall get <filter-name>

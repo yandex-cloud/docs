@@ -1,6 +1,6 @@
 # SendBulkEmail method
 
-Sends multiple template emails from an [address](../../concepts/glossary.md#adress) in the folder. The folder is selected based on the service account the request originates from.
+Sends multiple template emails from an [address](../../concepts/glossary.md#address) in the folder. The folder is selected based on the service account the request originates from.
 
 A single request contains a shared template and emails to send. For each email, you specify recipients, data to populate the template, headers, and tags.
 

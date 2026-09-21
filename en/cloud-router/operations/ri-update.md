@@ -26,22 +26,22 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
 
 - CLI {#cli}
 
-  Currently, you can update the following virtual router settings via the CLI:
-  * `new-name`: Private connection name.
-  * `description`: Private connection description.
-  
-  {% note info %}
-  
-  When updating IP prefix announcements or adding or deleting private connections in a virtual router, use [separate commands](cr-cic-ops.md#ri) instead of the `--vpc-net` and `--cic-prc` update command options.
-  
-  {% endnote %}
+  With the CLI, you can edit the following virtual router parameters:
+
+  * Name (`--new-name`).
+  * Description (`--description`).
+  * Labels (`--labels`).
+
+  If you use `--labels`, the current labels will be completely overwritten.
+
+  Use [separate commands](cr-cic-ops.md#ri) to change the announced IP prefixes and add or remove private connections.
   
   For example, to update the virtual router `description`, follow the steps below:
 
   1. View the description of the CLI command for updating a [virtual router](../concepts/routing-instance.md):
 
       ```bash
-      yc cloudrouter routing-instance update  --help
+      yc cloudrouter routing-instance update --help
       ```
 
   1. Provide a new `description` for the virtual router:

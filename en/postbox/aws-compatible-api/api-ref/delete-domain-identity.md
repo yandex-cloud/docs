@@ -1,6 +1,6 @@
 # DeleteDomainIdentity method
 
-This method deletes an [address](../../concepts/glossary.md#adress) in a folder. The folder is selected based on the service account the request originates from.
+This method deletes an [address](../../concepts/glossary.md#address) in a folder. The folder is selected based on the service account the request originates from.
 
 ## Request {#request}
 
@@ -31,7 +31,7 @@ Address to delete. The minimum length is one character. ||
 
 {% include [api-errors](../../../_includes/postbox/api-errors.md) %}
 
-Possible errors:
+The possible errors include:
 
 #|
 || **Error code** | **Description** ||

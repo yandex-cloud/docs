@@ -17,7 +17,7 @@ description: In this tutorial, you will learn about the Amazon API methods you c
 
 #|
 || **Method** | **Description** ||
-|| [ListDomainIdentities](list-domain-identities.md) | Returns a list of [addresses](../../concepts/glossary.md#adress). ||
+|| [ListDomainIdentities](list-domain-identities.md) | Returns a list of [addresses](../../concepts/glossary.md#address). ||
 || [GetDomainIdentity](get-domain-identity.md) | Returns information on the address. ||
 || [CreateDomainIdentity](create-domain-identity.md) | Creates an address. ||
 || [PutDomainIdentityDkimAttributes](put-domain-identity-dkim-attributes.md) | Enables/disables [DKIM signing](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail). This allows the recipient to make sure the email was indeed sent from the claimed domain. ||
@@ -34,6 +34,17 @@ description: In this tutorial, you will learn about the Amazon API methods you c
 || [PutDomainIdentityConfigurationSetAttributes](put-domain-identity-configuration-set-attributes.md) | Links an address and configuration. ||
 || [DeleteConfigurationSet](delete-configuration-set.md) | Deletes a configuration. ||
 || [PutConfigurationSetDeliveryOptions](put-configuration-set-delivery-options.md) | Manages delivery settings. ||
+|| [PutConfigurationSetSuppressionOptions](put-configuration-set-suppression-options.md) | Manages suppression list settings. ||
+|#
+
+## Suppression list {#suppressed-destinations}
+
+#|
+|| **Method** | **Description** ||
+|| [ListSuppressedDestinations](list-suppressed-destinations.md) | Returns a list of addresses on the [custom suppression list](../../concepts/suppression-list.md#user). ||
+|| [GetSuppressedDestination](get-suppressed-destination.md) | Returns information about an address on the suppression list. ||
+|| [PutSuppressedDestination](put-suppressed-destination.md) | Adds an address to the suppression list. ||
+|| [DeleteSuppressedDestination](delete-suppressed-destination.md) | Deletes an address from the suppression list. ||
 |#
 
 ## Subscriptions {#event-destinations}

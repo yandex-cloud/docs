@@ -2,7 +2,7 @@
 1. [Create a service account](#create-account).
 1. [Create a {{ kms-short-name }} key](#create-key).
 1. [Create a secret](#create-secret).
-1. [Create the VM](#create-vm).
+1. [Create a VM](#create-vm).
 1. [Log in to Windows](#login-windows).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -27,7 +27,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter the service account name, e.g., `win-secret-sa`.
+  1. Enter a service account name, e.g., `win-secret-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
@@ -65,13 +65,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your key pair in.
+     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your key pair.
      1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
      1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-     1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify its attributes:
+     1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify the key attributes:
          * **{{ ui-key.yacloud.common.name }}**: `win-secret-key`.
          * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`.
-         * Keep the default values for all other parameters.
+         * Leave the other settings at their defaults.
      1. Click **{{ ui-key.yacloud.common.create }}**.
 
      This will create a key and its first version; click the key in the list to open its attribute page.
@@ -89,7 +89,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      Where:
 
      * `--name`: Key name.
-     * `--default-algorithm`: Encryption algorithm: `aes-128`, `aes-192`, or `aes-256`.
+     * `--default-algorithm`: Encryption algorithm, such as `aes-128`, `aes-192`, or `aes-256`.
 
    - API {#api}
 
@@ -104,9 +104,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Management console {#console}
 
      1. Navigate to the **{{ ui-key.yacloud.common.label_access-rights }}** tab on the key page.
-     1. On the **Service account access permissions** page, find the `win-secret-sa` account in the list and click ![image](../../_assets/options.svg).
-     1. Click **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
-     1. In the dialog that opens, click **Add role** and select `kms.keys.encrypterDecrypter`.
+     1. In the list, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) in the `win-secret-sa` service account row and select **{{ ui-key.yacloud.shared.iam.action_assign-roles_8vkmR }}**.
+     1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** in the dialog that opens and select the `kms.keys.encrypterDecrypter` role.
 
    - CLI {#cli}
 
@@ -139,8 +138,8 @@ Create a {{ lockbox-name }} secret to save usernames and passwords of Windows us
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `win-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.EncryptionInfoSection.title_kms-key }}** field, specify the `win-secret-key` key.
   1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, enter the admin login: `Administrator`.
-  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}**, specify the administrator password.
-  1. You can add more users if needed by clicking **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** and specifying their usernames and passwords.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}**, specify the admin password.
+  1. You can add more users by clicking **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** and specifying their usernames and passwords.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -151,7 +150,7 @@ Create a {{ lockbox-name }} secret to save usernames and passwords of Windows us
       yc lockbox secret create \
         --name win-secret \
         --kms-key-id <key_ID> \
-        --payload "[{'key': 'Administrator', 'text_value': '<administrator_password>'},{'key': 'user1', 'text_value': '<user_password>'}]" \
+        --payload "[{'key': 'Administrator', 'text_value': '<admin_password>'},{'key': 'user1', 'text_value': '<user_password>'}]" \
         --cloud-id <cloud_ID> \
         --folder-id <folder_ID>
       ```
@@ -160,8 +159,8 @@ Create a {{ lockbox-name }} secret to save usernames and passwords of Windows us
 
       * `--name`: Secret name. This is a required setting.
       * `--kms-key-id`: {{ kms-short-name }} key ID.
-      * `--description`: Secret description This is an optional setting.
-      * `--payload`: Secret content in YAML or JSON format.
+      * `--description`: Secret description. This is an optional setting.
+      * `--payload`: Secret contents as a YAML or JSON array.
       * `--cloud-id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) where you want to create your secret.
       * `--folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to create your secret.
 
@@ -177,11 +176,9 @@ Create a {{ lockbox-name }} secret to save usernames and passwords of Windows us
 
    - Management console {#console}
 
-     1. Navigate to the **{{ ui-key.yacloud.common.label_access-rights }}** tab on the secret page.
-     1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-     1. Find the `win-secret-sa` account in the list and click ![image](../../_assets/options.svg).
-     1. Click **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
-     1. In the dialog that opens, click **Add role** and select `lockbox.payloadViewer`.
+     1. Open the **{{ ui-key.yacloud.common.label_access-rights }}** tab on the secret page.
+     1. In the list, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) in the `win-secret-sa` service account row and select **{{ ui-key.yacloud.shared.iam.action_assign-roles_8vkmR }}**.
+     1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** in the dialog that opens and select the `lockbox.payloadViewer` role.
 
    - CLI {#cli}
 
@@ -275,11 +272,11 @@ Create a Windows VM and add the administrator and user accounts to it.
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
      1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the Windows [image](../../compute/concepts/image.md).
-     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
-     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name, e.g., `win-test`.
+     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify a VM name, e.g., `win-test`.
      1. Under **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}**, specify the VM access credentials:
          * Select the `win-secret-sa` [service account](../../iam/concepts/index.md#sa).
-         * Grant it access to the [serial console](../../compute/concepts/serial-console.md).
+         * Enable access to the [serial console](../../compute/concepts/serial-console.md).
      1. Under **{{ ui-key.yacloud.common.metadata }}**:
          * In the **{{ ui-key.yacloud.component.key-values-input.label_key }}** field, specify `user-data`.
          * In the **{{ ui-key.yacloud.component.key-values-input.label_value }}** field, paste the contents of the `init.ps1` file.

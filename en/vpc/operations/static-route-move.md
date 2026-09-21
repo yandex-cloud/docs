@@ -1,3 +1,8 @@
+---
+title: Moving a route table to a different folder
+description: Follow this guide to move a route table to a different folder.
+---
+
 # Moving a route table to a different folder
 
 You can move cloud resources between folders within a single [cloud](../../resource-manager/concepts/resources-hierarchy.md).
@@ -35,6 +40,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
       yc vpc route-table list
       ```
       Result:
+
       ```text
       +----------------------+---------+-------------+----------------------+
       |          ID          |  NAME   | DESCRIPTION |      NETWORK-ID      |
@@ -50,6 +56,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
       ```
 
       Result:
+
       ```text
       +----------------------+------------------------+--------+--------+
       |          ID          |          NAME          | LABELS | STATUS |
@@ -69,9 +76,10 @@ You can move cloud resources between folders within a single [cloud](../../resou
      ```
      Use either `--destination-folder-name` or `--destination-folder-id`.
 
-     If the route table is not in the current folder (default folder), specify the source folder using `--folder-name` or `--folder-id`.
+     If the table is not in the current folder (default folder), specify the source folder using `--folder-name` or `--folder-id`.
 
      Result:
+
      ```text
      id: enp8c7ia88i8********
      folder_id: b1chgf288nvg********

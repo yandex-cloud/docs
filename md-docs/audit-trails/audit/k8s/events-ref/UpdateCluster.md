@@ -198,7 +198,13 @@
       "nodeIpv4CidrMaskSize": "string",
       "serviceIpv4CidrBlock": "string",
       "clusterIpv6CidrBlock": "string",
-      "serviceIpv6CidrBlock": "string"
+      "serviceIpv6CidrBlock": "string",
+      "clusterIpv4CidrBlocks": [
+        "string"
+      ],
+      "clusterIpv6CidrBlocks": [
+        "string"
+      ]
     },
     "serviceAccountId": "string",
     "nodeServiceAccountId": "string",
@@ -642,6 +648,8 @@ Includes only one of the fields `fixedScale`, `autoScale`. ||
 || serviceIpv4CidrBlock | **string** ||
 || clusterIpv6CidrBlock | **string** ||
 || serviceIpv6CidrBlock | **string** ||
+|| clusterIpv4CidrBlocks[] | **string** ||
+|| clusterIpv6CidrBlocks[] | **string** ||
 |#
 
 ## NetworkPolicy {#yandex.cloud.k8s.v1.NetworkPolicy}

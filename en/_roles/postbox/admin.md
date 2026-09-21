@@ -1,7 +1,7 @@
 The `postbox.admin` role enables managing {{ postbox-name }} addresses, sending emails, and viewing info on sent emails as well as their statistics.
 
 Users with this role can:
-* Create, modify, and delete [addresses](../../postbox/concepts/glossary.md#adress) and their [configurations](../../postbox/concepts/glossary.md#configuration).
+* Create, modify, and delete [addresses](../../postbox/concepts/glossary.md#address) and their [configurations](../../postbox/concepts/glossary.md#configuration).
 * View info on addresses and their configurations.
 * Get a list of addresses and their configurations.
 * Send emails.

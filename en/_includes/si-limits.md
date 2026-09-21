@@ -1,5 +1,3 @@
-### {{ sw-name }} {#workflows}
-
 ### {{ er-name }} {#eventrouter}
 
 #### Quotas {#er-quotas}
