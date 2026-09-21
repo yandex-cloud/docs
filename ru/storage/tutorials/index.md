@@ -24,6 +24,7 @@ description: На странице представлен список прак�
 ## Резервное копирование {#backup}
 
 * [Обзор](storage-backup-overview.md)
+* [{#T}](./backup-under-test.md)
 * [{#T}](./storage-backup-aws-s3-sync.md)
 * [{#T}](./storage-backup-rclone.md)
 * [{#T}](./backup-with-veeam.md)

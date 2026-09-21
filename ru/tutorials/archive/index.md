@@ -7,6 +7,7 @@ description: Различные сценарии хранения и восст�
 
 ## Резервное копирование в {{ objstorage-full-name }} {#backup}
 
+* [Автоматическая проверка восстановления PostgreSQL и вложений](backup-under-test.md)
 * [Обзор](storage-backup-overview.md)
 * [Резервное копирование в {{ objstorage-full-name }} с помощью AWS S3 Sync](storage-backup-aws-s3-sync.md)
 * [Резервное копирование в {{ objstorage-full-name }} с помощью rclone](storage-backup-rclone.md)
