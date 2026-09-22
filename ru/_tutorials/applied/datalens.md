@@ -442,7 +442,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
   1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер `my-pg-database`.
-  1. В меню слева выберите **SQL**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_go-to-websql }}**.
   1. В поле **Пароль** введите пароль, который вы задали для доступа к БД, и нажмите кнопку **Подключиться**.
   1. Выберите папку `public`.
   1. Посмотрите результаты обработки данных в таблицах `iot_events` и `iot_position`.
@@ -497,7 +497,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
   1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер `my-pg-database`.
-  1. В меню слева выберите **SQL**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_go-to-websql }}**.
   1. В поле **Пароль** укажите пароль, который вы задали для доступа к БД, и нажмите кнопку **Подключиться**.
   1. Выберите папку `public`.
   1. Посмотрите изменения в таблице `iot_events`.

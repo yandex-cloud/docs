@@ -39,6 +39,8 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
   1. {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
 
+  1. {% include [profile-protection-mode](../../_includes/smartwebsecurity/profile-protection-mode.md) %}
+
   1. (Опционально) Включите **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}** и настройте логирование:
 
      1. В поле **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** выберите, какие логи будут записываться: **{{ cloud-logging-name }}**, **{{ at-name }}**.

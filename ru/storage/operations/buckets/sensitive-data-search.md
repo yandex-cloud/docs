@@ -116,10 +116,10 @@ description: Следуя данной инструкции, вы узнаете
   1. Нажмите кнопку **{{ ui-key.yacloud.shared.layout.PageActions.button_more_sGEBS }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите ![folder-arrow-up-in](../../../_assets/console-icons/folder-arrow-up-in.svg) **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_export_gQ8rM }}**.
   1. В открывшемся окне задайте настройки экспорта:
 
-      * В поле **{{ ui-key.yacloud_org.security.dspm.label_field-bucket_3mM6u }}** выберите бакет, в котором будут сохранены результаты.
-      * В поле **{{ ui-key.yacloud_org.security.dspm.field_bucket-path_5qRqM }}** задайте [префикс](../../concepts/object.md#folder) объекта, в который будут сохранены результаты.
-      * В поле **{{ ui-key.yacloud_org.security.dspm.field_file-name_kWRPK }}** задайте имя файла, в который будут сохранены результаты. Файлу будет автоматически присвоено расширение `.csv`.
-      * В поле **{{ ui-key.yacloud_org.security.dspm.field_service-account_rTeXv }}** выберите сервисный аккаунт, которому назначены [роли](../../../iam/concepts/access-control/roles.md) `storage.uploader` на выбранный бакет и `kms.keys.encrypter` на [ключ шифрования](../../../kms/concepts/key.md), если бакет [зашифрован](../../concepts/encryption.md).
+      * В поле **{{ ui-key.yacloud_components.security.dspm.label_field_bucket }}** выберите бакет, в котором будут сохранены результаты.
+      * В поле **Путь в бакете** задайте [префикс](../../concepts/object.md#folder) объекта, в который будут сохранены результаты.
+      * В поле **{{ ui-key.yacloud_components.security.dspm.field_file_name }}** задайте имя файла, в который будут сохранены результаты. Файлу будет автоматически присвоено расширение `.csv`.
+      * В поле **{{ ui-key.yacloud_components.security.dspm.field_service_account }}** выберите сервисный аккаунт, которому назначены [роли](../../../iam/concepts/access-control/roles.md) `storage.uploader` на выбранный бакет и `kms.keys.encrypter` на [ключ шифрования](../../../kms/concepts/key.md), если бакет [зашифрован](../../concepts/encryption.md).
       * В блоке **{{ ui-key.yacloud_components.security.dspm.header_scan_result_sensitive_data }}** укажите, как отображать имена, контактные данные и другую личную информацию.
       * Нажмите **{{ ui-key.yacloud_components.security.dspm.action_export }}**, чтобы экспортировать результаты проверки параметров.
 

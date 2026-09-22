@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > saml.DeleteFederation
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > DeleteFederation
 
 # Identity Hub Audit Trails Events: DeleteFederation
 

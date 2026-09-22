@@ -41,6 +41,10 @@ description: Из статьи вы узнаете, как работать с {
 ## Модуль контроля конфигурации ({{ cspm-name }}) {#cspm}
 
 * [{#T}](./cspm/view-rules.md)
+* [{#T}](./cspm/create-custom-rule.md)
+* [{#T}](./cspm/edit-custom-rule.md)
+* [{#T}](./cspm/delete-custom-rule.md)
+* [{#T}](./cspm/check-environment.md)
 * [{#T}](./cspm/check-compliance.md)
 * [{#T}](./cspm/manage-exceptions.md)
 
@@ -57,6 +61,10 @@ description: Из статьи вы узнаете, как работать с {
 ## Модуль {{ vuln-man-name }} {#vulnerability-management}
 
 * [{#T}](./vulnerability-management/enable-vulnerability-management.md)
+* [{#T}](./vulnerability-management/create-scan-job.md)
+* [{#T}](./vulnerability-management/manage-scan-job.md)
+* [{#T}](./vulnerability-management/run-scan-job.md)
+* [{#T}](./vulnerability-management/view-scan-results.md)
 * [{#T}](./vulnerability-management/use-vulnerability-management.md)
 
 ## Пользовательские наборы правил {#custom-rules-sets}

@@ -4,9 +4,9 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-     1. Перейдите в раздел **{{ ui-key.yacloud.serverless-functions.switch_list }}** и выберите функцию `scan-on-push`.
-     1. В открывшемся окне откройте раздел **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и укажите период. По умолчанию задан период за 1 час.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+     1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите функцию `scan-on-push`.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и укажите период. По умолчанию задан период за 1 час.
 
    - CLI {#cli}
 
@@ -39,7 +39,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит реестр, содержащий Docker-образ.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+     1. [Перейдите]({{ link-console-main }}/link/container-registry) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. Выберите реестр, в который загрузили Docker-образ.
      1. Откройте репозиторий, в котором находится Docker-образ.
      1. Выберите нужный Docker-образ и проверьте значение параметра **{{ ui-key.yacloud.cr.image.label_last-scan-time }}**.

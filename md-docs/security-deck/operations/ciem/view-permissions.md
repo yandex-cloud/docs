@@ -20,7 +20,7 @@
 
   1. [Войдите в аккаунт](https://passport.yandex.ru/auth) пользователя организации с [ролью](../../../organization/security/index.md#organization-manager-viewer) `organization-manager.viewer` или выше на эту организацию.
   1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
-  1. На панели слева выберите ![person-gear](../../../_assets/console-icons/person-gear.svg) **Диагностика доступа**.
+  1. На панели слева выберите ![person-gear](../../../_assets/console-icons/person-gear.svg) **Access Analyzer**.
   1. Нажмите кнопку ![person-plus](../../../_assets/console-icons/person-plus.svg) **Выбрать субъект** и в открывшемся окне:
   
       1. Выберите нужного [пользователя](../../../overview/roles-and-resources.md#users), [сервисный аккаунт](../../../iam/concepts/users/accounts.md#sa), [группу пользователей](../../../organization/concepts/groups.md), [системную группу](../../../iam/concepts/access-control/system-group.md) или [публичную группу](../../../iam/concepts/access-control/public-group.md).

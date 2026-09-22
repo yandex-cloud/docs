@@ -23,6 +23,7 @@ yandex.cloud.audit.k8s.<имя_события>
 `DeleteStoppedCluster` | Удаление остановленного кластера
 `marketplace.v1.InstallHelmRelease` | Установка приложения из Cloud Marketplace с помощью Helm-чарта
 `marketplace.v1.UninstallHelmRelease` | Удаление приложения, установленного из Cloud Marketplace с помощью Helm-чарта
+`marketplace.v1.UpdateClusterSettings` | Изменение настроек [сбора статистики](operations/applications/marketplace.md#statics) использования приложений в кластере
 `marketplace.v1.UpdateHelmRelease` | Обновление приложения, установленного из Cloud Marketplace с помощью Helm-чарта
 `ScaleMaster` | Масштабирование основного узла
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру

@@ -1,5 +1,9 @@
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     
     om-passportUserAdmin["organization-manager.passportUserAdmin"] --> om-admin["organization-manager.admin"]
@@ -13,7 +17,6 @@ flowchart BT
     subgraph osLogins
     om-osl-viewer["organization-manager.osLogins.viewer"] --> om-osl-admin["organization-manager.osLogins.admin"]
     end;
-
 
     om-auditor["organization-manager.auditor"] ---> om-viewer ---> om-editor["organization-manager.editor"] --> om-admin
     om-admin --> om-owner["organization-manager.organizations.owner"]

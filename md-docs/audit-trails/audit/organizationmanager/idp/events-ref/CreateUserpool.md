@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > idp.CreateUserpool
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > CreateUserpool
 
 # Identity Hub Audit Trails Events: CreateUserpool
 

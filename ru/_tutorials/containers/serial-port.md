@@ -185,10 +185,17 @@
 ## Проверьте результат {#check-result}
 
 Чтобы проверить результат настройки вывода информации из Docker-контейнера в серийный порт:
-1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. Нажмите на имя нужной ВМ `coi-vm-with-sp`.
-1. В блоке **{{ ui-key.yacloud.compute.instance.switch_service-console }}** выберите порт `COM2`. Через несколько минут на экран начнет выводиться `Hello world!`.
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Нажмите на имя нужной ВМ `coi-vm-with-sp`.
+  1. В блоке **{{ ui-key.yacloud.compute.instance.switch_service-console }}** выберите порт `COM2`. Через несколько минут на экран начнет выводиться `Hello world!`.
+
+{% endlist %}
 
 Подробнее о работе с ВМ читайте в [пошаговых инструкциях](../../compute/operations/index.md).
 

@@ -15,7 +15,7 @@
   1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
   1. На панели слева выберите ![seal-check](../../../_assets/console-icons/seal-check.svg) **Соответствие требованиям**.
   1. В верхней части окна выберите окружение.
-  1. В строке с пользовательским набором правил нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Обновить**.
+  1. В строке с пользовательским набором правил нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Изменить**.
   1. Измените параметры набора.
   1. Нажмите **Сохранить изменения**.
 

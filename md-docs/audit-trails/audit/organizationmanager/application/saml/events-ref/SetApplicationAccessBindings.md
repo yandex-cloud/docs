@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Audit Trails](../../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > application.saml.SetApplicationAccessBindings
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Audit Trails](../../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > SetApplicationAccessBindings
 
 # Identity Hub Audit Trails Events: SetApplicationAccessBindings
 

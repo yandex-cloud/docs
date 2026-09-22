@@ -1,5 +1,9 @@
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     om-oa-userAdmin["organization-manager.oauthApplications.userAdmin"] --> om-oa-admin["organization-manager.oauthApplications.admin"]
     om-oa-viewer["organization-manager.oauthApplications.viewer"] --> om-oa-editor["organization-manager.oauthApplications.editor"]

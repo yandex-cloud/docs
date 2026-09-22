@@ -1,3 +1,9 @@
 [Интерфейс соответствия требованиям](../../security-deck/concepts/standard-compliance/index.md) позволяет просматривать, какие [наборы требований](../../security-deck/concepts/standard-compliance/index.md#security-rule-sets) активированы в [окружении](../../security-deck/concepts/workspace.md) в текущий момент, просматривать списки [правил контроля](../../security-deck/concepts/standard-compliance/index.md#security-rule-sets), входящих в наборы требований, а также управлять исключениями.
 
+{% note tip %}
+
+Воспользуйтесь [пользовательскими правилами](../../security-deck/concepts/custom-rules.md), чтобы адаптировать стандартные правила безопасности модулей под внутренние требования вашей компании.
+
+{% endnote %}
+
 Чтобы проверить соответствие инфраструктуры стандартам (наборам требований) безопасности, активированным в текущий момент в окружении:

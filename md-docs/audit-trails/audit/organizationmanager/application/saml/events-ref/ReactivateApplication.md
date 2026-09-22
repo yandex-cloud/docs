@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Audit Trails](../../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > application.saml.ReactivateApplication
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Audit Trails](../../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > ReactivateApplication
 
 # Identity Hub Audit Trails Events: ReactivateApplication
 

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > k8s > apiserver.ApiServerNonstandardVerb
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > k8s > ApiServerNonstandardVerb
 
 # Managed Services for Kubernetes Audit Trails Events: ApiServerNonstandardVerb
 

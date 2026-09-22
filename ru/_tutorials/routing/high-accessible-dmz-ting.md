@@ -124,7 +124,7 @@ NGFW используется для защиты и сегментации об
        1. Нажмите кнопку ![image](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
        1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}** и выберите сервисный аккаунт `sa-terraform`.
        1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `admin`.
-       1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+       1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 

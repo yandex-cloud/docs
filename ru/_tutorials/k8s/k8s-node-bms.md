@@ -1,5 +1,11 @@
 # Подключение сервера {{ baremetal-full-name }} как внешнего узла к кластеру {{ managed-k8s-full-name }}
 
+{% note tip %}
+
+В кластере {{ managed-k8s-name }} можно [создать группу узлов на выделенных серверах {{ baremetal-name }}](../../managed-kubernetes/operations/baremetal-group/create-baremetal.md) без предварительной аренды серверов. Сервис арендует серверы, автоматически настроит их и подключит к кластеру.
+
+{% endnote %}
+
 
 {% note info %}
 
@@ -69,7 +75,7 @@
 - Консоль управления {#console}
 
   1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**, затем **{{ ui-key.yacloud.k8s.cluster.node-groups.label_type-custom }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}** и выберите ![server](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.k8s.cluster.node-groups.label_type-custom }}**.
   1. Введите имя группы узлов {{ managed-k8s-name }}.
   1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_ips }}** укажите приватный IP-адрес подключаемого сервера {{ baremetal-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > k8s > apiserver.ApiServerPatch
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > k8s > ApiServerPatch
 
 # Managed Services for Kubernetes Audit Trails Events: ApiServerPatch
 

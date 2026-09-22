@@ -125,7 +125,7 @@ sudo apt update && sudo apt install --yes postgresql-client
      1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
      1. Введите электронную почту пользователя, к которой привязан аккаунт.
      1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-greenplum.clusters.connector`.
-     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
   1. Создайте пользователя в кластере {{ mgp-name }} и предоставьте ему доступ к нужной БД:
      1. Подключитесь к кластеру {{ mgp-name }} любым удобным методом.

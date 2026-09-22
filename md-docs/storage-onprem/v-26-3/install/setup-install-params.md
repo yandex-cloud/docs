@@ -2,66 +2,94 @@
 
 # Настройка параметров инсталляции
 
-В распакованном архиве `install-kit.tar.gz` содержится каталог `stands/example`, в котором представлен пример параметров установки.
+Параметры установки задаются в каталоге `ansible` на [установочном хосте](environment-preparation.md#installation-host):
 
-1. Создайте копию каталога `example`, например `my-onprem`:
+* `inventory.ini` — список хостов и их распределение по группам.
+* `group_vars/<имя_стенда>/main.yaml` — конфигурация стенда.
+* `group_vars/<имя_стенда>/vault.yaml` — секреты, которые будут созданы при установке.
 
-    ```text
-    stands/
-    ├─ example/
-    └─ my-onprem/
-      ├─ env
-      └─ pillar.sls
-    ```
+В примере используется стенд `my-onprem` из четырех хостов: три мастер-хоста Kubernetes и один worker-хост.
 
-1. Заполните файл `env`, используя IP-адреса, по которым осуществляется SSH-подключение. Например:
+## Список хостов {#inventory}
 
-    ```text
-    MASTER_IP='10.0.0.11'
-    MINION_IPS='10.0.0.12 10.0.0.13'
-    MASTER_HOST='onprem01.local'
+В файле `ansible/inventory.ini` опишите группы `my-onprem`, `my-onprem-masters` и `my-onprem-workers`:
 
-    DNS=$(cat <<EOF
-    onprem01.local 10.0.0.11
-    onprem02.local 10.0.0.12
-    onprem03.local 10.0.0.13
-    EOF
-    )
-    ```
+```ini
+[my-onprem:children]
+my-onprem-masters
+my-onprem-workers
 
-    Где:
+[my-onprem-masters]
+onprem01.local ansible_host=10.0.0.11
+onprem02.local ansible_host=10.0.0.12
+onprem03.local ansible_host=10.0.0.13
 
-    * `MASTER_IP` и `MASTER_HOST` — для Salt-мастера.
-    * `MINION_IPS` — для Salt-минионов.
-    * `DNS` используется для установки хостнеймов.
+[my-onprem-workers]
+onprem04.local ansible_host=10.0.0.14
+```
 
+В `ansible_host` укажите IP-адреса для SSH-подключения с установочного хоста. Для своего стенда замените `my-onprem` во всех именах групп. Это же имя указывается в параметре `cluster` при запуске установки и в имени подкаталога `group_vars`.
 
-## Конфигурация Salt: хосты, Kubernetes и OCI Registry
+Порядок мастер-хостов имеет значение: с первого хоста плейбук инициализирует кластер Kubernetes и запускает установку компонентов Object Storage.
 
-В файл `pillar.sls` записывается конфигурация для Salt, используемая для:
+## Конфигурация хостов, Kubernetes и OCI Registry {#host-config}
 
-* разворачивания кластера Kubernetes;
-* разворачивания локального OCI Registry.
+Создайте конфигурацию стенда из шаблона:
 
-Пример `pillar.sls` с комментариями:
+```bash
+cd ansible
+mkdir -p group_vars/my-onprem
+cp group_vars/example/main.yaml group_vars/my-onprem/main.yaml
+```
+
+Заполните `group_vars/my-onprem/main.yaml`. Ниже показаны основные параметры: остальные настройки сохраните из шаблона `group_vars/example/main.yaml`. Общие настройки из `group_vars/all.yaml` оставьте без изменений.
+
+Пример `main.yaml` с комментариями:
 
 ```yaml
+# Пользователь для подключения по SSH
+ansible_user: root
+
+# Установка из архива с локальным OCI Registry
+stand_type: external
+
 # Всегда onprem, не следует менять
 stand: onprem
 
-# Тип IP-адресации (IPv4 или IPv6)
+release:
+  # Имя архива с On-premises Yandex Object Storage
+  version: yc-storage-26.3.0.tar.zst
+  # Архив находится на установочном хосте в каталоге ansible/release
+  file_location: local
+
+# Режим подготовки HDD
+mds_mode: mds2
+
+# Точки монтирования:
+# false — /srv/angel/disks/<номер_диска>
+# true — /srv/angel/<номер_слота>/disks/<номер_диска>
+angelSlotTopology: false
+
+# Тип IP-адресации: IPv4 или IPv6
 ip_type: IPv4
 
-# Конфигурация пакетов, не следует менять
-install_packages:
-  kernel: False
-
-# В том случае, если хостеймы резолвятся на несколько IP-адресов,
-# следует явно указать IP-адреса internal-подсети:
+# При включенном VXLAN — IP-адреса виртуальных интерфейсов dummy-kube0
 internal_ips:
-  onprem01.local: 10.0.0.11
-  onprem02.local: 10.0.0.12
-  onprem03.local: 10.0.0.13
+  onprem01.local: 100.112.12.1
+  onprem02.local: 100.112.12.2
+  onprem03.local: 100.112.12.3
+  onprem04.local: 100.112.12.4
+
+# Настройки VXLAN
+vxlan:
+  enabled: true
+  net_prefix: "100.112"
+  # Адреса физических internal-интерфейсов
+  vxlan0_peers:
+    - 10.0.0.11
+    - 10.0.0.12
+    - 10.0.0.13
+    - 10.0.0.14
 
 # Конфигурация Kubernetes
 k8s:
@@ -69,57 +97,65 @@ k8s:
   pod_subnet: 10.11.0.0/16
   # Подсеть для сервисов
   service_subnet: 10.12.0.0/16
-  # Параметр blockSize для calico; рекомендуется 26 для IPv4, 122 для IPv6
+  # Размер блока Calico: 26 для IPv4, 122 для IPv6
   block_size: 26
-  # Хосты, которые будут выполнять роль мастеров Kubernetes
+  # Имена должны совпадать с группой my-onprem-masters в inventory.ini
   master_hostnames:
     - onprem01.local
     - onprem02.local
     - onprem03.local
   calico:
-    # Конфигурация nodeAddressAutodetection для Calico
-    # Необходимо, чтобы адреса хостов устанавливались равными IP-адресам internal-интерфейсов
     node_address_autodetection:
-      # Лучше всего, указать canReach: адрес gateway internal-подсети
+      # IP-адрес шлюза internal-подсети
       canReach: 10.0.0.1
 
-# Конфигурация локального OCI Registry 
+# Конфигурация локального OCI Registry
 zot:
-  # Хост, на котором будет установлен мастер OCI Registry
   master_hostname: onprem01.local
-  # Хосты, выполняющие роль зеркал
   mirror_hostnames:
     - onprem02.local
     - onprem03.local
 
-# Конфигурация для первоначальной установки yc-storage-operator
-# Не следует менять, за исключением helm_oci.targetRevision
+# Конфигурация yc-storage-operator
 yc_storage_operator:
   helm_oci:
     repoURL: zot-proxy.zot-proxy.svc.cluster.local
     chart: onprem/mds-charts/yc-storage-operator
-    # Версия yc-storage-operator, указана в поставке
+    # Версия yc-storage-operator в архиве
     targetRevision: 26.3.0
 
 # Конфигурация On-premises Yandex Object Storage
 bootstrap:
-  # Версия On-premises Yandex Object Storage, указана в поставке
+  # Версия On-premises Yandex Object Storage в архиве
   version: 26.3.0
-  # Параметры инсталляции On-premises Yandex Object Storage
+  # Вставьте сюда YAML-конфигурацию из следующего раздела
   values_object: |
     <конфигурация>
 ```
 
-Где `values_object` — [конфигурация On-premises Yandex Object Storage](#objstorage-config) в формате YAML.
+При заполнении конфигурации учитывайте следующие требования:
 
-* Подсети `k8s.pod_subnet`, `k8s.service_subnet` используются исключительно внутри кластера Kubernetes и не должны пересекаться с другими подсетями, включая data, internal и management.
-* `k8s.calico.node_address_autodetection` должен соответствовать internal-подсети.
-* Количество мастеров Kubernetes зависит от требований надежности: три — для поддержки отказа одного хоста, пять — для поддержки отказа двух хостов.
+* Укажите имя архива в `release.version` и версии компонентов из архива в `yc_storage_operator.helm_oci.targetRevision` и `bootstrap.version`.
+* При включенном VXLAN используйте для `internal_ips` адреса виртуальных интерфейсов из подсети `<net_prefix>.12.0/24`, например `100.112.12.0/24`. В `vxlan.vxlan0_peers` укажите адреса физических internal-интерфейсов. При выключенном VXLAN в `internal_ips` указываются адреса физических internal-интерфейсов.
+* Подсети `k8s.pod_subnet` и `k8s.service_subnet` используются внутри кластера Kubernetes и не должны пересекаться между собой и с другими подсетями, включая data, internal и management.
+* Параметр `k8s.calico.node_address_autodetection` должен обеспечивать выбор IP-адресов internal-интерфейсов.
+* Количество мастер-хостов Kubernetes зависит от требований надежности: три — для поддержки отказа одного хоста, пять — для поддержки отказа двух хостов.
 
+Для [подготовки HDD](installation-steps.md#step-6) используйте `mds_mode: mds2` — значение по умолчанию. Точки монтирования зависят от параметра `angelSlotTopology`, заданного на верхнем уровне `main.yaml`:
+
+#|
+|| **Значение `angelSlotTopology`** | **Точки монтирования HDD** ||
+|| `false` (по умолчанию) | `/srv/angel/disks/<номер_диска>`. ||
+|| `true` | `/srv/angel/<номер_слота>/disks/<номер_диска>`. ||
+|#
+
+Здесь `<номер_диска>` — порядковый номер диска, который плейбук назначает автоматически, начиная с единицы. При `angelSlotTopology: true` `<номер_слота>` обозначает номер слота Angel от одного до трех, а диски нумеруются отдельно в каждом слоте. Например, `/srv/angel/2/disks/1` — точка монтирования первого диска во втором слоте.
 
 ## Конфигурация On-premises Yandex Object Storage {#objstorage-config}
 
-Пример инсталляции Object Storage с комментариями:
+В `bootstrap.values_object` заполните YAML-описание инсталляции из шаблона `group_vars/example/main.yaml`. Ниже приведены основные параметры для замены `<конфигурация>` в примере `main.yaml`. Сохраните отступы: весь блок должен быть вложен в `values_object`.
+
+Пример конфигурации для четырех хостов:
 
 ```yaml
 # Уникальное имя инсталляции (буквы, цифры, _)
@@ -131,30 +167,34 @@ ipType: ipv4
 # Список хостов стенда
 # Для каждого указывается:
 # - name: FQDN хоста
-# - intIP: IP-адрес internal-интерфейсов
+# - intIP: IP-адрес из internal_ips
 # - dc: имя дата-центра (зоны доступности).
 hosts:
   - name: onprem01.local
-    intIP: "10.0.0.11"
+    intIP: "100.112.12.1"
     dc: dc1
   - name: onprem02.local
-    intIP: "10.0.0.12"
+    intIP: "100.112.12.2"
     dc: dc2
   - name: onprem03.local
-    intIP: "10.0.0.13"
+    intIP: "100.112.12.3"
     dc: dc3
-    
+  - name: onprem04.local
+    intIP: "100.112.12.4"
+    dc: dc4
+
 ipPools:
-  # Подсеть для management сервисов (консоль, API для CLI, метрики, и т.д.)
+  # Пул адресов для management-сервисов: консоли, API для CLI и метрик
+  # Исключите адреса, занятые хостами и другим оборудованием
   # Рекомендуется выделить не менее 16 адресов
   management:
-    - "10.0.2.0/24"
-    
+    - "10.0.2.224-10.0.2.254"
+
 # Настройки dataplane
 dataplane:
   # Класс избыточности: R3 или EC4+2
   redundancy: R3
-      
+
 # Конфигурация S3-совместимого API On-premises Yandex Object Storage
 s3:
   # Квота, согласно лицензии, в ГиБ
@@ -170,6 +210,7 @@ s3:
     - "s3-0.onprem.local"
     - "s3-1.onprem.local"
     - "s3-2.onprem.local"
+    - "s3-3.onprem.local"
   # Список IP-адресов, выделенных для S3 API.
   # Количество адресов должно соответствовать количеству хостов.
   # Адреса должны быть из data-подсети.
@@ -177,6 +218,7 @@ s3:
     - "10.0.1.11"
     - "10.0.1.12"
     - "10.0.1.13"
+    - "10.0.1.14"
 
 # Конфигурация консоли
 console:
@@ -186,32 +228,34 @@ console:
     # Консоль будет доступна только по этому домену
     domain: "console.onprem.local"
     # IP-адрес для веб-консоли, из management-подсети
-    ip: "10.0.2.255"
+    ip: "10.0.2.254"
     # Конфигурация для метрик, отображаемых непосредственно в веб-интерфейсе
     metrics:
       # Маска для имени сетевых интерфейсов, по которым следует отображать нагрузку
-      externalNetworkInterfacesMask: "etx.*"
+      externalNetworkInterfacesMask: "eth.*"
   # gRPC API для CLI
   grpc:
     # IP-адрес для gRPC API, из management-подсети
-    ip: "10.0.2.254"
-    
+    ip: "10.0.2.253"
+
 # Конфигурация ip-адресов эндпоинтов для метрик
 # Адреса также должны быть из management-подсети
 metrics:
   grafana:
     # IP-адрес для внутренней Grafana
-    ip: "10.0.2.253"
+    ip: "10.0.2.252"
   prometheusFederation:
     # IP-адрес для федеративного эндпоинта Prometheus, с которого можно выполнять скрапинг метрик
-    ip: "10.0.2.252"
+    ip: "10.0.2.251"
 ```
+
+Учитывайте особенности конфигурации:
 
 * Параметр `dc`, указанный для хостов в `hosts`, не обязательно должен соответствовать физическому расположению хостов. На практике он необходим для построения каплов дисков для репликации или EC.
     * При `dataplane.redundancy: R3` каждый из трех дисков капла должен относиться к разным `dc`.
     * При `dataplane.redundancy: EC4+2` берется по два диска из каждого `dc`, чтобы сформировать капл из шести.
 
-* В management-подсети (указанной в `ipPools.management`) будет использовано несколько дополнительных адресов, явно не задаваемых в конфигурации. Такие адреса будут выбираться из начала пула. Поэтому рекомендуется указывать явные адреса из конца пула (смотрите `console.ui.ip`, `console.grpc.ip` и т.д.)
+* В management-подсети (указанной в `ipPools.management`) будет использовано несколько дополнительных адресов, явно не задаваемых в конфигурации. Такие адреса будут выбираться из начала пула. Поэтому рекомендуется указывать явные адреса из конца пула (`console.ui.ip`, `console.grpc.ip` и другие).
 
 
 #### Что дальше? {#whats-next}

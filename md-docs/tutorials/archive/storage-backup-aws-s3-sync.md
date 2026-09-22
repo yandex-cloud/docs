@@ -172,9 +172,7 @@ AWS S3 Sync — стандартная команда [AWS CLI](../../storage/to
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
-  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
-  1. Выберите сервисный аккаунт `sa-backup-to-s3`.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management** и выберите сервисный аккаунт `sa-backup-to-s3`.
   1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать статический ключ доступа**.
   1. Задайте описание ключа и нажмите **Создать**.
   1. Сохраните полученные идентификатор и секретный ключ — они понадобятся позднее при монтировании бакета.

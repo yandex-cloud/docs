@@ -57,12 +57,12 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `webserver-network`.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите `webserver-subnet-{{ region-id }}-b`.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности `{{ region-id }}-b`.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** выберите облачную сеть `webserver-network`.

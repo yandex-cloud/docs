@@ -64,6 +64,8 @@ items:
             href: v-26-3/install/installation-steps.md
           - name: После установки
             href: v-26-3/install/getting-started.md
+          - name: Устранение неисправностей при установке
+            href: v-26-3/troubleshooting/installation-errors.md
       - name: Управление продуктом
         href: v-26-3/quickstart.md
       - name: Сценарии обслуживания
@@ -86,8 +88,6 @@ items:
             href: v-26-3/operations/update-certificates.md
       - name: Поиск и устранение неисправностей
         items:
-          - name: Устранение неисправностей при установке
-            href: v-26-3/troubleshooting/installation-errors.md
           - name: Алгоритмы решения проблем
             href: v-26-3/troubleshooting/problem-solving-algorithms.md
           - name: Типовые проблемы и их устранение

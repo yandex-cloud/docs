@@ -6,11 +6,16 @@ description: Следуя данной инструкции, вы сможете
 # Создание группы узлов
 
 
-[Группа узлов](../../concepts/index.md#node-group) — это группа виртуальных машин с одинаковой конфигурацией в [кластере {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), на которых запускаются пользовательские контейнеры.
+Эта инструкция описывает создание [облачной группы узлов](../../concepts/index.md#node-group) — группы виртуальных машин с одинаковой конфигурацией в [кластере {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), на которых запускаются пользовательские контейнеры.
 
-Перед тем как создавать группу узлов, [создайте](../kubernetes-cluster/kubernetes-cluster-create.md) кластер {{ managed-k8s-name }} и убедитесь, что в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) достаточно [свободных ресурсов](../../concepts/limits.md).
+Чтобы использовать физические серверы, [создайте группу узлов на серверах {{ baremetal-name }}](../baremetal-group/create-baremetal.md) или [подключите внешние узлы](../external-nodes-connect.md).
 
-{% include [os-new-version](../../../_includes/managed-kubernetes/note-os-new-version.md) %}
+## Перед началом работы {#before-you-begin}
+
+1. [Создайте кластер](../kubernetes-cluster/kubernetes-cluster-create.md) {{ managed-k8s-name }}.
+1. Убедитесь, что в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) достаточно [свободных ресурсов](../../concepts/limits.md) для создания группы узлов.
+
+## Создать группу узлов {#create-node-group}
 
 {% list tabs group=instructions %}
 

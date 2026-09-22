@@ -76,13 +76,13 @@ If you initiated bucket scanning via the {{ objstorage-full-name }} interface, y
 
   1. In the window that opens, set the export settings:
   
-     * In the **{{ ui-key.yacloud_org.security.dspm.label_field-bucket_3mM6u }}** field, select the bucket to save the results to.
-     * In the **{{ ui-key.yacloud_org.security.dspm.field_bucket-path_5qRqM }}** field, set the [prefix](../../../storage/concepts/object.md#folder) of the object to save the results to.
-     * In the **{{ ui-key.yacloud_org.security.dspm.field_file-name_kWRPK }}** field, specify the name of the file to save the results to. The file will automatically get the `.csv` extension.
-     * In the **{{ ui-key.yacloud_org.security.dspm.field_service-account_rTeXv }}** field, select the service account with the `storage.uploader` [role](../../../iam/concepts/access-control/roles.md) for the selected bucket and `kms.keys.encrypter` for the [encryption key](../../../kms/concepts/key.md), if the bucket is [encrypted](../../../storage/concepts/encryption.md).
+     * In the **{{ ui-key.yacloud_components.security.dspm.label_field_bucket }}** field, select the bucket to save the results to.
+     * In the **Path to bucket** field, set the [prefix](../../../storage/concepts/object.md#folder) of the object to save the results to.
+     * In the **{{ ui-key.yacloud_components.security.dspm.field_file_name }}** field, specify the name of the file to save the results to. The file will automatically get the `.csv` extension.
+     * In the **{{ ui-key.yacloud_components.security.dspm.field_service_account }}** field, select the service account with the `storage.uploader` [role](../../../iam/concepts/access-control/roles.md) for the selected bucket and `kms.keys.encrypter` for the [encryption key](../../../kms/concepts/key.md), if the bucket is [encrypted](../../../storage/concepts/encryption.md).
      * Click **{{ ui-key.yacloud_components.security.dspm.action_export_with_validation }}** to export the results with parameter validation.
 
-       If the selected service account does not have enough permissions for the operation, the information about this will be displayed on the **{{ ui-key.yacloud_org.security.dspm.tab_issues_title_hLQN2 }}** tab.
+       If the selected service account does not have enough permissions for the operation, the information about this will be displayed on the **{{ ui-key.yacloud_components.security.dspm.tab_issues_title }}** tab.
 
        Expand the section with information about missing roles, select the service account, and click ![list-check](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud_org.security.dspm.ScanForm.table_action_assign_roles_bw4am }}** to grant the lacking permissions to this service account. Then click **{{ ui-key.yacloud_components.security.dspm.action_export_with_validation }}** again.
 

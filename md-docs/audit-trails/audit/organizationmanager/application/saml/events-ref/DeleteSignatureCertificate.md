@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Audit Trails](../../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > application.saml.DeleteSignatureCertificate
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Audit Trails](../../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > DeleteSignatureCertificate
 
 # Identity Hub Audit Trails Events: DeleteSignatureCertificate
 

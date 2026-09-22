@@ -230,7 +230,7 @@ Assign to the service accounts the following [roles](../../iam/concepts/access-c
 
           Repeat this step and add the `storage.uploader` [role](../../storage/security/index.md#storage-uploader).
 
-      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
       In the same way, assign the `storage.viewer` [role](../../storage/security/index.md#storage-viewer) for the folder to the `kuma-bucket-sa` service account.
 
@@ -241,7 +241,7 @@ Assign to the service accounts the following [roles](../../iam/concepts/access-c
       1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. Select the `kuma-trail-sa` service account.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select [`kms.keys.encrypterDecrypter`](../../kms/security/index.md#kms-keys-encrypterDecrypter).
-      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
       In the same way, assign the `kms.keys.encrypterDecrypter` role for the encryption key to the `kuma-bucket-sa` service account.
 

@@ -32,9 +32,7 @@ yc managed-kubernetes cluster list
 * [Сервисные аккаунты](../../../iam/operations/sa/create.md).
 * [Конфигурацию ресурсов](../../concepts/index.md#master-resources) для мастера.
 * [Версию Kubernetes](../../concepts/release-channels-and-updates.md).
-* Политику [обновлений](../../concepts/release-channels-and-updates.md#updates).
 * Список [групп безопасности](../connect/security-groups.md).
-* Настройки отправки логов в [Yandex Cloud Logging](../../../logging/index.md).
 
   {% note alert %}
 
@@ -42,7 +40,8 @@ yc managed-kubernetes cluster list
 
   {% endnote %}
 
-* Маску [подсети](../../../vpc/concepts/network.md#subnet) [узлов Managed Service for Kubernetes](../../concepts/index.md#node-group).
+* Политику [обновлений](../../concepts/release-channels-and-updates.md#updates).
+* Сетевые настройки кластера.
 
   {% note warning %}
 
@@ -50,6 +49,16 @@ yc managed-kubernetes cluster list
   * После изменения маски подсети необходимо пересоздать группы узлов кластера.
 
   {% endnote %}
+
+  {% note info %}
+  
+  Для кластеров в [релизном канале](../../concepts/release-channels-and-updates.md) `RAPID` можно использовать [несколько диапазонов IP-адресов подов](../../concepts/cluster-multi-cidr.md). Добавьте CIDR в соответствии с [требованиями](../../concepts/cluster-multi-cidr.md#requirements), а после [настройте маскарадинг IP-адресов](../network/manage-ip-masq-agent.md).
+  
+  Можно только добавлять новые диапазоны CIDR. Изменять или удалять существующие диапазоны нельзя.
+  
+  {% endnote %}
+
+* Настройки отправки логов в [Yandex Cloud Logging](../../../logging/index.md).
 
 Инструкция по изменению [зоны доступности](../../../overview/concepts/geo-scope.md) кластера приведена в разделе [Миграция ресурсов Kubernetes в другую зону доступности](../../tutorials/migration-to-an-availability-zone.md).
 

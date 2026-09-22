@@ -12,30 +12,30 @@
 || Идентификатор требования | Требование [стандарта безопасности](../../../security/standard/all.md) | Идентификаторы проверки в [модуле CSPM](../cspm.md) ||
 || **Аутентификация и управление доступом** {align="center"} | > | > ||
 || `IAM1` | [Настроена федерация удостоверений (Single Sign-On, SSO)](../../../security/standard/all.md#saml-federation) | [cspm.access.idp](../../rules-reference/cspm.md#idp) ||
-|| `IAM2` | [Настроено сопоставление групп пользователей в федерации удостоверений](../../../security/standard/all.md#group-mapping) | [cspm.access.user-groups-mapping](../../rules-reference/cspm.md#access-user-groups-mapping) ||
+|| `IAM2` | [Настроено сопоставление групп пользователей в федерации удостоверений](../../../security/standard/all.md#group-mapping) | [cspm.access.user-groups-mapping](../../rules-reference/cspm.md#user-groups-mapping) ||
 || `IAM3` | [Учетные записи Яндекс ID используются только в исключительных случаях](../../../security/standard/all.md#yandex-id-accounts) | [cspm.yid.organization](../../rules-reference/cspm.md#yid-organization) ||
-|| `IAM4` | [Таймаут жизни cookie в федерации меньше 6 часов](../../../security/standard/all.md#cookie-timeout) | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#cookie-timeout-organization) ||
+|| `IAM4` | [Таймаут жизни cookie в федерации меньше 6 часов](../../../security/standard/all.md#cookie-timeout) | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#organization) ||
 || `IAM5` | [Только необходимые администраторы управляют членством в IAM-группах](../../../security/standard/all.md#iam-admins) | [cspm.access.user-groups-access](../../rules-reference/cspm.md#user-groups-access) ||
 || `IAM6` | [Используются сервисные роли вместо примитивных: admin, editor, viewer, auditor](../../../security/standard/all.md#min-privileges) | [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges) ||
 || `IAM9` | [Сервисным аккаунтам назначены минимальные привилегии](../../../security/standard/all.md#sa-privileges) |
 [cspm.access.sa-privileges-org-roles](../../rules-reference/cspm.md#sa-privileges-org-roles)
 [cspm.access.sa-privileges-service-roles](../../rules-reference/cspm.md#sa-privileges-service-roles)
 ||
-|| `IAM10` | [Только доверенные администраторы имеют доступ к сервисным аккаунтам](../../../security/standard/all.md#sa-admins) | [cspm.access.privileged-sa-access](../../rules-reference/cspm.md#access-privileged-sa-access) ||
+|| `IAM10` | [Только доверенные администраторы имеют доступ к сервисным аккаунтам](../../../security/standard/all.md#sa-admins) | [cspm.access.privileged-sa-access](../../rules-reference/cspm.md#privileged-sa-access) ||
 || `IAM11` | [Выполняется периодическая ротация ключей сервисных аккаунтов](../../../security/standard/all.md#sa-key-rotation) | [cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation) ||
-|| `IAM12` | [Для API-ключей сервисных аккаунтов задана область действия](../../../security/standard/all.md#api-key-scopes) | [cspm.access.defined-key-scopes](../../rules-reference/cspm.md#defined-key-scopes) ||
+|| `IAM12` | [Для API-ключей сервисных аккаунтов заданы минимально необходимые области действия](../../../security/standard/all.md#api-key-scopes) | [cspm.access.defined-key-scopes](../../rules-reference/cspm.md#defined-key-scopes) ||
 || `IAM16` | [На ВМ отключено получение токена через AWS IMDSv1](../../../security/standard/all.md#aws-token) | [cspm.aws-token](../../rules-reference/cspm.md#aws-token) ||
-|| `IAM17` | [Настроена двухфакторная аутентификация для привилегированных аккаунтов](../../../security/standard/all.md#mfa) | [cspm.access.userpool-mfa](../../rules-reference/cspm.md#userpool-mfa) ||
+|| `IAM17` | [Настроена двухфакторная аутентификация для привилегированных аккаунтов](../../../security/standard/all.md#twofa) | [cspm.access.userpool-mfa](../../rules-reference/cspm.md#userpool-mfa) ||
 || `IAM18` | [Привилегированные роли назначены только доверенным администраторам](../../../security/standard/all.md#privileged-users) | [cspm.access.check-privileged-roles](../../rules-reference/cspm.md#check-privileged-roles) ||
 || `IAM22` | [Для ресурсов в организации отсутствует публичный доступ](../../../security/standard/all.md#public-access) | [cspm.access.public-access](../../rules-reference/cspm.md#public-access) ||
 || `IAM24` | [На ресурсах используются метки](../../../security/standard/all.md#labels) | [cspm.o11y.labeled-resources](../../rules-reference/cspm.md#labeled-resources) ||
-|| `IAM26` | [Отслеживается дата последней аутентификации сервисного аккаунта и последнего использования ключей доступа в Identity and Access Management](../../../security/standard/all.md#track-sa-authentication) |
+|| `IAM26` | [Отслеживается дата последней аутентификации сервисного аккаунта и последнего использования ключей доступа в Identity and Access Management](../../../security/standard/all.md#key-usage-control) |
 [cspm.iam.unused-service-account](../../rules-reference/cspm.md#unused-service-account)
 [cspm.iam.unused-key](../../rules-reference/cspm.md#unused-key)
 ||
 || **Сетевая безопасность** {align="center"} | > | > ||
 || `NET1` | [Для объектов облака используется межсетевой экран или группы безопасности](../../../security/standard/all.md#firewall) | [cspm.network.firewall](../../rules-reference/cspm.md#firewall) ||
-|| `NET2` | [В Yandex Virtual Private Cloud существует как минимум одна группа безопасности](../../../security/standard/all.md#vpc-sg) | [cspm.network.network-firewall](../../rules-reference/cspm.md#network-firewall) ||
+|| `NET2` | [В Yandex Virtual Private Cloud создана группа безопасности и не используется группа безопасности по умолчанию](../../../security/standard/all.md#vpc-sg) | [cspm.network.network-firewall](../../rules-reference/cspm.md#network-firewall) ||
 || `NET3` | [В группах безопасности отсутствует слишком широкое правило доступа](../../../security/standard/all.md#access-rule) |
 [cspm.network.network-firewall-scope](../../rules-reference/cspm.md#network-firewall-scope)
 [cspm.k8s.network-firewall-scope](../../rules-reference/cspm.md#k8s-network-firewall-scope)
@@ -45,9 +45,10 @@
 [cspm.trusted-ip-k8s](../../rules-reference/cspm.md#trusted-ip-k8s)
 ||
 || `NET5` | [Включена защита от DDoS-атак](../../../security/standard/all.md#ddos-protection) |
-[cspm.appsec.ddos-protection.l3](../../rules-reference/cspm.md#appsec-ddos-protection-l3)
+[cspm.appsec.ddos-protection.l3](../../rules-reference/cspm.md#l3)
 [cspm.appsec.ddos-protection.l7](../../rules-reference/cspm.md#l7)
 ||
+|| `NET10` | [Исходящий доступ в интернет контролируется](../../../security/standard/all.md#outgoing-access) | [cspm.network.check-outgoing-internet-connection](../../rules-reference/cspm.md#check-outgoing-internet-connection) ||
 || **Безопасная конфигурация виртуальной среды** {align="center"} | > | > ||
 || `ENV1` | [Использование серийной консоли контролируется либо отсутствует](../../../security/standard/all.md#serial-console) | [cspm.access.serial-console](../../rules-reference/cspm.md#serial-console) ||
 || `ENV7` | [Отсутствует публичный доступ к бакету Object Storage](../../../security/standard/all.md#bucket-access) | [cspm.access.bucket-public-access](../../rules-reference/cspm.md#bucket-public-access) ||
@@ -62,7 +63,7 @@
 || `ENV26` | [Публичный доступ отсутствует для YDB](../../../security/standard/all.md#ydb-public) | [cspm.network.ydb-public](../../rules-reference/cspm.md#ydb-public) ||
 || `ENV28` | [Настроен ACL по IP-адресам для Yandex Container Registry](../../../security/standard/all.md#acl-container-registry) | [cspm.access.acl-container-registry](../../rules-reference/cspm.md#acl-container-registry) ||
 || `ENV29` | [Срок действия сертификата Yandex Certificate Manager составляет как минимум 30 дней](../../../security/standard/all.md#certificate-validity) | [cspm.crypto.certificate-validity](../../rules-reference/cspm.md#certificate-validity) ||
-|| `ENV30` | [Выполнены требования к защите приложений в Yandex Managed Service for GitLab](../../../security/standard/all.md#gitlab-security) | [cspm.o11y.gitlab-audited](../../rules-reference/cspm.md#gitlab-audited) ||
+|| `ENV30` | [Выполняются рекомендации по настройке безопасности инстанса Yandex Managed Service for GitLab](../../../security/standard/all.md#git-lab-secure) | [cspm.o11y.gitlab-audited](../../rules-reference/cspm.md#gitlab-audited) ||
 || `ENV33` | [Для подключения к виртуальной машине или узлу Kubernetes используется OS Login](../../../security/standard/all.md#os-login-onto-hosts) | [cspm.access.os-login-onto-hosts.vm](../../rules-reference/cspm.md#vm) ||
 || `ENV37` | [Используется Cloud Backup или механизм snapshot по расписанию](../../../security/standard/all.md#snapshot) | [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks) ||
 || **Шифрование данных и управление ключами** {align="center"} | > | > ||
@@ -78,24 +79,32 @@
 || `CRYPT12` | [Для ключей KMS включена защита от удаления](../../../security/standard/all.md#keys-deletion-protection) | [cspm.crypto.keys-deletion-protection](../../rules-reference/cspm.md#keys-deletion-protection) ||
 || `CRYPT13` | [В организации используется Yandex Lockbox для безопасного хранения секретов](../../../security/standard/all.md#secrets-lockbox) | [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox) ||
 || `CRYPT14` | [Для Serverless Containers и Cloud Functions используются секреты Lockbox](../../../security/standard/all.md#secrets-serverless-functions) | [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless) ||
+|| `CRYPT16` | [Администратор облака имеет инструкцию по действиям в случае компрометации секретов его облака](../../../security/standard/all.md#secrets-scanning) | [cspm.crypto.leaked-secrets-detection](../../rules-reference/cspm.md#leaked-secrets-detection) ||
 || **Сбор, мониторинг и анализ аудитных логов** {align="center"} | > | > ||
 || `AUDIT1` | [Включен сервис Yandex Audit Trails на уровне организации](../../../security/standard/all.md#audit-trails) |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
-[cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
+[cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#audit-trails-no-errors)
 [cspm.o11y.gitlab-audited](../../rules-reference/cspm.md#gitlab-audited)
 ||
+|| `AUDIT3` | [Настроено реагирование на события Yandex Audit Trails](../../../security/standard/all.md#reaction) | [cspm.o11y.audit-trails-reactions](../../rules-reference/cspm.md#audit-trails-reactions) ||
 || `AUDIT8` | [Отслеживаются события уровня сервисов](../../../security/standard/all.md#data-plane-events) | [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events) ||
 || **Защита приложений** {align="center"} | > | > ||
 || `APPSEC1` | [Используется Yandex SmartCaptcha](../../../security/standard/all.md#use-smartcaptcha) | [cspm.appsec.use-smartcaptcha](../../rules-reference/cspm.md#use-smartcaptcha) ||
 || `APPSEC2` | [Docker-образы сканируются при загрузке в Yandex Container Registry](../../../security/standard/all.md#upload-policy) | [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry) ||
 || `APPSEC3` | [Выполняется периодическое сканирование Docker-образов, хранящихся в Container Registry](../../../security/standard/all.md#periodic-scan) | [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan) ||
 || `APPSEC4` | [Контейнерные образы, используемые в продакшн-среде, имеют последнюю дату сканирования не позднее недели](../../../security/standard/all.md#last-scan-date) | [cspm.appsec.registry-recently-scan](../../rules-reference/cspm.md#registry-recently-scan) ||
-|| `APPSEC9` | [Используется профиль безопасности Smart Web Security](../../../security/standard/all.md#use-sws) | [cspm.appsec.use-sws](../../rules-reference/cspm.md#use-sws) ||
+|| `APPSEC9` | [Используется профиль безопасности Yandex Smart Web Security](../../../security/standard/all.md#use-sws) | [cspm.appsec.use-sws](../../rules-reference/cspm.md#use-sws) ||
 || `APPSEC10` | [Используется Web Application Firewall](../../../security/standard/all.md#use-waf) | [cspm.appsec.use-waf](../../rules-reference/cspm.md#use-waf) ||
 || `APPSEC11` | [Используется Advanced Rate Limiter](../../../security/standard/all.md#use-arl) | [cspm.appsec.use-arl](../../rules-reference/cspm.md#use-arl) ||
 || **Безопасность Kubernetes** {align="center"} | > | > ||
-|| `K8S3` | [Нет доступа к API Kubernetes](../../../security/standard/all.md#api-security) | [cspm.k8s.api-security](../../rules-reference/cspm.md#api-security) ||
+|| `K8S3` | [Нет доступа к API Kubernetes и группам узлов из недоверенных сетей](../../../security/standard/all.md#api-security) | [cspm.k8s.api-security](../../rules-reference/cspm.md#api-security) ||
 || `K8S4` | [В Managed Service for Kubernetes настроены аутентификация и управление доступом](../../../security/standard/all.md#kubernetes-auth) | [cspm.k8s.access](../../rules-reference/cspm.md#access) ||
-|| `K8S5` | [В Yandex Managed Service for Kubernetes используется безопасная конфигурация](../../../security/standard/all.md#kubernetes-safe-config) | [cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration) ||
-|| `K8S11` | [Используется политика безопасности Kubernetes](../../../security/standard/all.md#security-standards) | [cspm.k8s.kspm](../../rules-reference/cspm.md#k8s-kspm) ||
+|| `K8S5` | [В Yandex Managed Service for Kubernetes используется безопасная конфигурация](../../../security/standard/all.md#kubernetes-safe-config) |
+[cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration)
+[cspm.k8s.cis](../../rules-reference/cspm.md#cis)
+||
+|| `K8S11` | [Используется политика безопасности Kubernetes](../../../security/standard/all.md#security-standards) |
+[cspm.k8s.kspm](../../rules-reference/cspm.md#kspm)
+[cspm.k8s.disallow-k8s-not-regional](../../rules-reference/cspm.md#disallow-k8s-not-regional)
+||
 |#

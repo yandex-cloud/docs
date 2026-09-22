@@ -12,7 +12,8 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль безопасности](../concepts/profiles.md).
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
+  1. Откройте нужный профиль.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
   1. В открывшемся окне измените параметры:
 
       * **{{ ui-key.yacloud.common.name }}**.
@@ -23,6 +24,8 @@ description: Следуя данной инструкции, вы сможете
       * Выберите или создайте капчу [{{ captcha-name }}](../../smartcaptcha/) для проверки подозрительных запросов.
       * {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
       * {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
+
+  1. {% include [profile-protection-mode](../../_includes/smartwebsecurity/profile-protection-mode.md) %}
 
   1. Включите или отключите использование информации об HTTP-запросах для улучшения моделей машинного обучения в разделе **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
@@ -165,6 +168,7 @@ description: Следуя данной инструкции, вы сможете
 
 #### Полезные ссылки {#see-also}
 
+* [{#T}](../concepts/profiles.md)
 * [{#T}](rule-add.md)
 * [{#T}](rule-update.md)
 * [{#T}](host-connect.md)

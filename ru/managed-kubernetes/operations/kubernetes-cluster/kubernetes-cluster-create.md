@@ -41,8 +41,6 @@ description: Следуя данной инструкции, вы сможете
 
 ## Создайте кластер {{ managed-k8s-name }} {#kubernetes-cluster-create}
 
-{% include [os-new-version](../../../_includes/managed-kubernetes/note-os-new-version.md) %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

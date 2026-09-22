@@ -567,7 +567,7 @@
   1. Откройте [консоль управления]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `from-github-ci`.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. {% include [testing-function](../_tutorials_includes/ci-cd-github-functions/testing-function.md) %}
 
 {% endlist %}
@@ -596,7 +596,7 @@
   1. Откройте [консоль управления]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `from-github-ct`.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. {% include [testing-function](../_tutorials_includes/ci-cd-github-functions/testing-function.md) %}
 
 {% endlist %}
@@ -625,7 +625,7 @@
   1. Откройте [консоль управления]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `from-github-cd`.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. {% include [testing-function](../_tutorials_includes/ci-cd-github-functions/testing-function.md) %}
 
 {% endlist %}

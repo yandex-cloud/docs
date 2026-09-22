@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > idp.UpdateBranding
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > UpdateBranding
 
 # Identity Hub Audit Trails Events: UpdateBranding
 

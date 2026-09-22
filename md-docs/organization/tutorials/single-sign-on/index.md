@@ -36,6 +36,7 @@
     * [SAML](time/saml-time.md)
     * [OpenID Connect](time/oidc-time.md)
 * [VK Cloud](saml-vk-cloud.md)
+* [Warpgate](oidc-warpgate.md)
 * [Zabbix](saml-zabbix.md)
 * [Пассворк](saml-passwork.md)
 * [Яндекс 360](saml-yandex-360.md)

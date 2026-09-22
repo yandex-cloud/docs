@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > datalens > platform.DeleteRestCatalogNamespace
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > datalens > DeleteRestCatalogNamespace
 
 # DataLens Audit Trails Events: DeleteRestCatalogNamespace
 

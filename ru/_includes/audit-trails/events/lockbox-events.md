@@ -2,6 +2,7 @@
 --- | ---
 `AddVersion` | Добавление версии секрета
 `ActivateSecret` | Активация секрета
+`CancelDeleteSecret` | Отмена удаления секрета
 `CancelVersionDestruction` | Отмена ранее запланированного удаления версии секрета
 `CreateSecret` | Создание секрета
 `DeactivateSecret` | Деактивация секрета

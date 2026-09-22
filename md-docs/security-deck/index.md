@@ -92,6 +92,12 @@
 
  - [Управлять исключениями из правил контроля](operations/cspm/manage-exceptions.md)
 
+ - [Создать пользовательское правило](operations/cspm/create-custom-rule.md)
+
+ - [Редактировать пользовательское правило](operations/cspm/edit-custom-rule.md)
+
+ - [Удалить пользовательское правило](operations/cspm/delete-custom-rule.md)
+
 ### Обнаружение угроз (TD)
 
  - [Обзор](operations/td/index.md)
@@ -105,6 +111,14 @@
  - [Обзор](operations/vulnerability-management/index.md)
 
  - [Активировать модуль](operations/vulnerability-management/enable-vulnerability-management.md)
+
+ - [Создать расписание сканирований конечных точек](operations/vulnerability-management/create-scan-job.md)
+
+ - [Управлять расписанием сканирований конечных точек](operations/vulnerability-management/manage-scan-job.md)
+
+ - [Запустить сканирование конечных точек](operations/vulnerability-management/run-scan-job.md)
+
+ - [Посмотреть результаты сканирования конечных точек](operations/vulnerability-management/view-scan-results.md)
 
  - [Работать с дашбордом](operations/vulnerability-management/use-vulnerability-management.md)
 
@@ -150,6 +164,8 @@
 
  - [Аудит процессов и приложений](concepts/standard-compliance/inventory-k8s-rules.md)
 
+ - [Стандарт безопасности ИИ-систем в Yandex Cloud](concepts/standard-compliance/aispm.md)
+
  - [Контроль данных (DSPM)](concepts/dspm.md)
 
  - [Контроль Kubernetes® (KSPM)](concepts/kspm.md)
@@ -157,6 +173,8 @@
  - [Диагностика доступов (CIEM)](concepts/ciem.md)
 
  - [Контроль конфигурации (CSPM)](concepts/cspm.md)
+
+ - [Пользовательские правила](concepts/custom-rules.md)
 
  - [Обнаружение угроз (TD)](concepts/threat-detector.md)
 

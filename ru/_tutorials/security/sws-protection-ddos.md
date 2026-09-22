@@ -118,7 +118,7 @@ _Профиль безопасности_ — основной элемент {{
   1. Убедитесь, что для L7-балансировщика настроено [логирование](../../smartwebsecurity/operations/configure-logging.md).
   1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Выберите балансировщик, к которому привязан профиль безопасности.
-  1. Выберите раздел ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}**.
   1. Выберите период показа логов одним из способов, например **Последний час**.
   1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 

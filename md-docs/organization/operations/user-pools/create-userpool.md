@@ -9,7 +9,7 @@
 
   1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
   1. На панели слева выберите ![userpool](../../../_assets/organization/userpool.svg) **Пулы пользователей**.  
-  1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать пул пользователей**.
+  1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать пул пользователей**.
   1. Задайте имя и описание [пула пользователей](../../concepts/user-pools.md).
 
       Имя должно быть уникальным в рамках организации и соответствовать требованиям:

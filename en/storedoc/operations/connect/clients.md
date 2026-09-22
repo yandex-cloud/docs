@@ -221,7 +221,7 @@ To connect to a cluster using IAM authentication:
               To find the account you need, enter its associated email address.
           
           1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `managed-mongodb.clusters.connector` role.
-          1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+          1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
       
       1. Create a user named {{ SD }}:
 

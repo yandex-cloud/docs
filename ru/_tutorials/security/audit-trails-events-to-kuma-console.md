@@ -230,7 +230,7 @@
 
           Повторите этот шаг и добавьте [роль](../../storage/security/index.md#storage-uploader) `storage.uploader`.
 
-      1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      1. Нажмите **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
       Таким же образом назначьте сервисному аккаунту `kuma-bucket-sa` [роль](../../storage/security/index.md#storage-viewer) `storage.viewer` на каталог.
 
@@ -238,10 +238,10 @@
 
       1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}** и нажмите на строку с ключом `kuma-key`.
-      1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. Выберите сервисный аккаунт `kuma-trail-sa`.
       1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter`.
-      1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      1. Нажмите **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
       Таким же образом назначьте сервисному аккаунту `kuma-bucket-sa` роль `kms.keys.encrypterDecrypter` на ключ шифрования.
 
@@ -317,7 +317,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета, например `my-audit-logs-for-kuma`.
 
       {% include [bucket-name-note](../_tutorials_includes/audit-trails-events-to-kuma/bucket-name-note.md) %}

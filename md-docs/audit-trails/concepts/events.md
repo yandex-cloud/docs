@@ -1111,6 +1111,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 --- | ---
 `AddVersion` | Добавление версии секрета
 `ActivateSecret` | Активация секрета
+`CancelDeleteSecret` | Отмена удаления секрета
 `CancelVersionDestruction` | Отмена ранее запланированного удаления версии секрета
 `CreateSecret` | Создание секрета
 `DeactivateSecret` | Деактивация секрета
@@ -1269,6 +1270,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteStoppedCluster` | Удаление остановленного кластера
 `marketplace.v1.InstallHelmRelease` | Установка приложения из Cloud Marketplace с помощью Helm-чарта
 `marketplace.v1.UninstallHelmRelease` | Удаление приложения, установленного из Cloud Marketplace с помощью Helm-чарта
+`marketplace.v1.UpdateClusterSettings` | Изменение настроек [сбора статистики](../../managed-kubernetes/operations/applications/marketplace.md#statics) использования приложений в кластере
 `marketplace.v1.UpdateHelmRelease` | Обновление приложения, установленного из Cloud Marketplace с помощью Helm-чарта
 `ScaleMaster` | Масштабирование основного узла
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру

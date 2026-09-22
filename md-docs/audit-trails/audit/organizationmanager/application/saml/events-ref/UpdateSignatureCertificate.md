@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Audit Trails](../../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > application.saml.UpdateSignatureCertificate
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Audit Trails](../../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > UpdateSignatureCertificate
 
 # Identity Hub Audit Trails Events: UpdateSignatureCertificate
 

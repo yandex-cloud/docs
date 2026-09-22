@@ -62,7 +62,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `sample-network`.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.

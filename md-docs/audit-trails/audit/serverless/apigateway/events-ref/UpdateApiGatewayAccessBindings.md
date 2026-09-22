@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > serverless > apigateway.UpdateApiGatewayAccessBindings
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > serverless > UpdateApiGatewayAccessBindings
 
 # API Gateway Audit Trails Events: UpdateApiGatewayAccessBindings
 

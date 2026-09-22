@@ -29,7 +29,7 @@
 
     1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
-    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
+    1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
         1. Выберите метод единого входа **OIDC (OpenID Connect)**.
         1. В поле **Тип приложения** выберите тип [Web Application](*web_app_type).
            

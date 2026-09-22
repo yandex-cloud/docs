@@ -120,7 +120,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
-  1. Справа сверху нажмите **Создать сеть**.
+  1. Нажмите **Создать сеть**.
   1. В поле **Имя** укажите `vm-scale-scheduled-network`.
   1. Выберите опцию **Создать подсети**.
   1. Нажмите **Создать сеть**.

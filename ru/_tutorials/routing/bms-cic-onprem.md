@@ -55,7 +55,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. Создайте виртуальный сегмент сети:
 
         1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
@@ -151,7 +151,7 @@ IP-префиксы on-premises поступают в виртуальный м�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. В строке с сервером `server-m3` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.baremetal.label_kvm-console_37Kma }}**.
   
       Откроется окно с терминалом KVM-консоли, в котором вы увидите строку аутентификации:
@@ -210,7 +210,7 @@ ping <приватный_IP-адрес_сервера> -c 5
     - Консоль управления {#console} 
     
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали инфраструктуру.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+      1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
       1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** и выберите виртуальный сегмент сети `my-vrf`.
       1. В блоке **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}** нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![CircleXmark](../../_assets/console-icons/circle-xmark.svg) **{{ ui-key.yacloud.baremetal.action_delete-external-connection }}**.
       1. В открывшемся окне подтвердите удаление.

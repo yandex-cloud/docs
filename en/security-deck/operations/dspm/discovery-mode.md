@@ -111,17 +111,17 @@ To save a summary for preliminary analysis of environment resources to a file or
 
       * ![folder-arrow-up-in](../../../_assets/console-icons/folder-arrow-up-in.svg) **{{ ui-key.yacloud_org.security.dspm.AnalyticsPage.label_export-analytics_7ASg9 }}** to save the analysis results to an {{ objstorage-name }} bucket. In the window that opens:
 
-          * In the **{{ ui-key.yacloud_org.security.dspm.label_field-bucket_3mM6u }}** field, select the bucket to save the results to.
-          * In the **{{ ui-key.yacloud_org.security.dspm.field_bucket-path_5qRqM }}** field, set the [prefix](../../../storage/concepts/object.md#folder) of the object to save the results to.
-          * In the **{{ ui-key.yacloud_org.security.dspm.field_file-name_kWRPK }}** field, specify the name of the file to save the results to. The file will automatically get the `.csv` extension.
-          * In the **{{ ui-key.yacloud_org.security.dspm.field_service-account_rTeXv }}** field, select the service account on whose behalf export will be done. You must have the right to use the selected service account, i.e., the `iam.serviceAccounts.user` [role](../../../iam/security/index.md#iam-serviceAccounts-user) or higher, and the service account must have the following roles:
+          * In the **{{ ui-key.yacloud_components.security.dspm.label_field_bucket }}** field, select the bucket to save the results to.
+          * In the **Path to bucket** field, set the [prefix](../../../storage/concepts/object.md#folder) of the object to save the results to.
+          * In the **{{ ui-key.yacloud_components.security.dspm.field_file_name }}** field, specify the name of the file to save the results to. The file will automatically get the `.csv` extension.
+          * In the **{{ ui-key.yacloud_components.security.dspm.field_service_account }}** field, select the service account on whose behalf export will be done. You must have the right to use the selected service account, i.e., the `iam.serviceAccounts.user` [role](../../../iam/security/index.md#iam-serviceAccounts-user) or higher, and the service account must have the following roles:
               * [`storage.uploader`](../../../storage/security/index.md#storage-uploader) for the selected bucket.
               * [`kms.keys.encrypter`](../../../kms/security/index.md#kms-keys-encrypter) for the [encryption key](../../../kms/concepts/key.md) if the bucket is [encrypted](../../../storage/concepts/encryption.md).
-          * Click **{{ ui-key.yacloud_org.security.dspm.action_button-export_pMSM8 }}** to export the analysis results to the bucket.
+          * Click **Validate and export** to export the analysis results to the bucket.
 
-              If the selected service account does not have enough permissions for the operation, the information about this will be displayed on the **{{ ui-key.yacloud_org.security.dspm.tab_issues_title_hLQN2 }}** tab.
+              If the selected service account does not have enough permissions for the operation, the information about this will be displayed on the **{{ ui-key.yacloud_components.security.dspm.tab_issues_title }}** tab.
 
-              Expand the section with information about missing roles, select the service account, and click ![list-check](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud_org.security.dspm.ScanForm.table_action_assign_roles_bw4am }}** to grant the lacking permissions to this service account. Then click **{{ ui-key.yacloud_org.security.dspm.action_button-export_pMSM8 }}** again.
+              Expand the section with information about missing roles, select the service account, and click ![list-check](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud_org.security.dspm.ScanForm.table_action_assign_roles_bw4am }}** to grant the lacking permissions to this service account. Then click **Validate and export** again.
 
 {% endlist %}
 

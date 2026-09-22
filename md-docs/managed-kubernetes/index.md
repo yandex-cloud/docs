@@ -24,6 +24,8 @@
 
  - [Обновление Kubernetes](operations/update-kubernetes.md)
 
+ - [Настройка маскарадинга в кластерах с несколькими диапазонами IP-адресов подов](operations/network/manage-ip-masq-agent.md)
+
  - [Настройка автомасштабирования](operations/autoscale.md)
 
  - [Подключение Terraform-провайдера Kubernetes](operations/apply-tf-provider.md)
@@ -179,6 +181,14 @@
  - [Настройка IPSec-шлюзов для подключения внешних узлов к кластеру](operations/external-nodes-connect-ipsec.md)
 
  - [Подключение сервера BareMetal как внешнего узла](operations/bms-server-connect.md)
+
+### Работа с группой узлов BareMetal
+
+ - [Создание группы узлов](operations/baremetal-group/create-baremetal.md)
+
+ - [Изменение группы узлов](operations/baremetal-group/update-baremetal.md)
+
+ - [Удаление группы узлов](operations/baremetal-group/delete-baremetal.md)
 
 ### Работа с объектами Kubernetes из консоли управления
 
@@ -351,6 +361,8 @@
  - [Переменные в шаблоне узла](concepts/node-group/variables-in-the-template.md)
 
  - [Сеть в Managed Service for Kubernetes](concepts/network.md)
+
+ - [Кластеры с несколькими диапазонами IP-адресов подов](concepts/cluster-multi-cidr.md)
 
  - [Сетевые настройки и политики кластера](concepts/network-policy.md)
 

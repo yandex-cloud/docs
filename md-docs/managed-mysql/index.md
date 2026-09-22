@@ -42,6 +42,8 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Управление доступом к кластеру](operations/cluster-access.md)
 
+ - [Техническое обслуживание](operations/cluster-maintenance.md)
+
  - [Обновление версии MySQL®](operations/cluster-version-update.md)
 
  - [Удаление кластера](operations/cluster-delete.md)

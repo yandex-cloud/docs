@@ -603,7 +603,7 @@
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к БД.
   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
-  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -674,7 +674,7 @@
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к БД.
   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
-  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 

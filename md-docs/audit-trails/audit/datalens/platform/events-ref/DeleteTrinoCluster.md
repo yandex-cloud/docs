@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > datalens > platform.DeleteTrinoCluster
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > datalens > DeleteTrinoCluster
 
 # DataLens Audit Trails Events: DeleteTrinoCluster
 

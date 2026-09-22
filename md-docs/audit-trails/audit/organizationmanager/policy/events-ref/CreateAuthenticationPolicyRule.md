@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > policy.CreateAuthenticationPolicyRule
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > CreateAuthenticationPolicyRule
 
 # Identity Hub Audit Trails Events: CreateAuthenticationPolicyRule
 

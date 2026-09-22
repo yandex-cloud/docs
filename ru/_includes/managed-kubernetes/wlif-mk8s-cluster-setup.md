@@ -16,7 +16,7 @@
       1. В поле **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** включите федерацию сервисных аккаунтов.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
       1. На вкладке **{{ ui-key.yacloud.common.overview }}** кластера в блоке **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** скопируйте значения параметров **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}** и **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-jwks-uri_x2AJJ }}**. Они понадобятся для дальнейшей интеграции.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**, затем **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** и выберите раздел **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
       1. В строке группы узлов нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. В поле **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** включите федерацию сервисных аккаунтов.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.

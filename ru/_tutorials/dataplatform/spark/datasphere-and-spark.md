@@ -49,8 +49,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `data-folder`, [созданный ранее](#create-folder).
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите имя сети `data-network`.
 
       Вместе с ней автоматически будут созданы три подсети в разных зонах доступности.
@@ -65,7 +65,7 @@
 
 - Консоль управления {#console}
 
-   1. В каталоге `data-folder` выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. В каталоге `data-folder` [перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. На панели слева выберите ![image](../../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
    1. Нажмите **{{ ui-key.yacloud.common.create }}** и задайте настройки шлюза:
       1. Введите имя шлюза, например `nat-for-cluster`.
@@ -96,7 +96,7 @@
 - Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), например `sa-for-spark`.
    1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту [роли](../../../iam/concepts/access-control/roles.md):

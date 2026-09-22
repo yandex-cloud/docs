@@ -120,7 +120,7 @@ Set up your {{ mmy-name }} cluster for connection:
      1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
      1. If assigning the role to a Yandex account, federated account, or local user, enter the username or email address associated with the account. If assigning the role to a service account, enter its name or ID. Select the matching account from the search results.
      1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `managed-mysql.clusters.connector` role.
-     1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+     1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
   1. Create a user named {{ MY }}:
      1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
      1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
@@ -209,7 +209,7 @@ To connect to a {{ mmy-name }} database:
     1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
     1. Enter the user account’s email.
     1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** and select the `managed-mysql.clusters.connector` role.
-    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+    1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 1. Create a user named {{ MY }}:
 

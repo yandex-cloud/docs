@@ -767,7 +767,7 @@ Web Application Firewall (WAF) защищает от эксплуатации р
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль безопасности.
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
-  1. Перейдите на вкладку ![image](../../_assets/smartwebsecurity/waf.svg) **Профили WAF** и нажмите **Создать профиль WAF**.
+  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **Профили WAF** и нажмите **Создать профиль WAF**.
   1. Введите имя профиля, например `waf-site-protection`.
   1. Включите наборы правил, например ML WAF и Yandex Ruleset. Чтобы посмотреть правила в наборе, нажмите на строку с его описанием.
   1. Нажмите **Создать**.
