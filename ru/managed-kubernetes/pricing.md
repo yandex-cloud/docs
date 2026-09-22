@@ -24,7 +24,7 @@ editable: false
 
 В рамках сервиса {{ managed-k8s-name }} тарифицируется использование [мастера](concepts/index.md#master) и исходящий трафик.
 
-Узлы тарифицируются по [правилам тарификации {{ compute-full-name }}](../compute/pricing.md).
+Узлы облачных групп тарифицируются по [правилам тарификации {{ compute-full-name }}](../compute/pricing.md), а группы узлов на серверах {{ baremetal-name }} — по [правилам тарификации {{ baremetal-full-name }}](../baremetal/pricing.md).
 
 Если кластер остановлен, ресурсы мастера не тарифицируются. Оплачиваются только связанные с кластером ресурсы, например [диски виртуальных машин](../compute/pricing.md), [публичные IP-адреса](../vpc/pricing.md) и [сетевые балансировщики нагрузки](../network-load-balancer/pricing.md).
 

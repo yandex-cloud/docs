@@ -32,7 +32,7 @@
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать инфраструктуру.
       1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-      1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+      1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
       1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `joomla-network`.
       1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
       1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -204,10 +204,12 @@ ns1.{{ dns-ns-host-sld }}.
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
       1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Нажмите **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** и выберите `{{ ui-key.yacloud.certificate-manager.action_request }}`.
-      1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** укажите `joomla-cert`.
-      1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** укажите имя вашего домена. Например: `example.com`.
-      1. Выберите [тип проверки прав на домен](../../certificate-manager/concepts/challenges.md) — `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}`.
-      1. Нажмите **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
+      1. В открывшемся окне:
+
+         1. В поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** укажите `joomla-cert`.
+         1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** укажите имя вашего домена. Например: `example.com`.
+         1. Выберите [тип проверки прав на домен](../../certificate-manager/concepts/challenges.md) — `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}`.
+         1. Нажмите **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
     {% endlist %}
 

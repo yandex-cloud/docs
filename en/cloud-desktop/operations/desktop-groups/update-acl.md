@@ -16,7 +16,7 @@ description: In this tutorial, you will learn how to change access permissions f
   1. Select the desktop group to update access permissions for.
   1. In the left-hand panel, select ![persons](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.label_access-rights }}**.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-  1. In the **{{ ui-key.yacloud_components.acl.label.title }}** window that opens, grant or revoke permissions as needed.
+  1. In the **{{ ui-key.yacloud_components.acl.AclEditDialogNew.label_title }}** window that opens, grant or revoke permissions as needed.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}

@@ -5,4 +5,4 @@
 1. Select a user from the list or use the user search option.
 1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar.
 1. Repeat this step as many times as you need to add all the required roles.
-1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.

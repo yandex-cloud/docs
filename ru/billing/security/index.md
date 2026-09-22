@@ -154,7 +154,7 @@ description: Доступ к платежному аккаунту предос�
 
      1. Выберите пользователя, сервисный аккаунт или группу пользователей. При необходимости воспользуйтесь строкой поиска.
      1. Нажмите кнопку ![image](../../_assets/create.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите нужную роль.
-     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
   {% note info %}
 
@@ -174,7 +174,7 @@ description: Доступ к платежному аккаунту предос�
   
       1. Нажмите кнопку ![image](../../_assets/create.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}**.
       1. Выберите необходимую роль из списка.
-      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 {% endlist %}
 
@@ -197,7 +197,7 @@ description: Доступ к платежному аккаунту предос�
   1. В строке с нужным пользователем, сервисным аккаунтом или группой нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. В открывшемся окне:
 
       1. Нажмите значок ![image](../../_assets/cross.svg) справа от роли, которую необходимо отозвать.
-      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**. Роль будет отозвана.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**. Роль будет отозвана.
 
 - Без организации {#no-organization}
 
@@ -210,7 +210,7 @@ description: Доступ к платежному аккаунту предос�
   1. В строке с нужным пользователем, сервисным аккаунтом или группой нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. В открывшемся окне:
 
       1. Нажмите значок ![image](../../_assets/cross.svg) справа от роли, которую необходимо отозвать.
-      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**. Роль будет отозвана.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**. Роль будет отозвана.
 
   {% note info %}
 

@@ -132,7 +132,7 @@
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Создайте облачную сеть:
 
-      1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+      1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
       1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `sample-network`.
 
@@ -142,7 +142,7 @@
   1. Создайте подсеть:
 
       1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-      1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
+      1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
       1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите `subnet-{{ region-id }}-b`.
       1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
       1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** выберите облачную сеть `sample-network`.

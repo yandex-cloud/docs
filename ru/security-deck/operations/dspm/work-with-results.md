@@ -76,13 +76,13 @@ description: Следуя данной инструкции, вы узнаете
 
   1. В открывшемся окне задайте настройки экспорта:
   
-     * В поле **{{ ui-key.yacloud_org.security.dspm.label_field-bucket_3mM6u }}** выберите бакет, в котором будут сохранены результаты.
-     * В поле **{{ ui-key.yacloud_org.security.dspm.field_bucket-path_5qRqM }}** задайте [префикс](../../../storage/concepts/object.md#folder) объекта, в который будут сохранены результаты.
-     * В поле **{{ ui-key.yacloud_org.security.dspm.field_file-name_kWRPK }}** задайте имя файла, в который будут сохранены результаты. Файлу будет автоматически присвоено расширение `.csv`.
-     * В поле **{{ ui-key.yacloud_org.security.dspm.field_service-account_rTeXv }}** выберите сервисный аккаунт, которому назначены [роли](../../../iam/concepts/access-control/roles.md) `storage.uploader` на выбранный бакет и `kms.keys.encrypter` на [ключ шифрования](../../../kms/concepts/key.md), если бакет [зашифрован](../../../storage/concepts/encryption.md).
+     * В поле **{{ ui-key.yacloud_components.security.dspm.label_field_bucket }}** выберите бакет, в котором будут сохранены результаты.
+     * В поле **Путь в бакете** задайте [префикс](../../../storage/concepts/object.md#folder) объекта, в который будут сохранены результаты.
+     * В поле **{{ ui-key.yacloud_components.security.dspm.field_file_name }}** задайте имя файла, в который будут сохранены результаты. Файлу будет автоматически присвоено расширение `.csv`.
+     * В поле **{{ ui-key.yacloud_components.security.dspm.field_service_account }}** выберите сервисный аккаунт, которому назначены [роли](../../../iam/concepts/access-control/roles.md) `storage.uploader` на выбранный бакет и `kms.keys.encrypter` на [ключ шифрования](../../../kms/concepts/key.md), если бакет [зашифрован](../../../storage/concepts/encryption.md).
      * Нажмите кнопку **{{ ui-key.yacloud_components.security.dspm.action_export_with_validation }}**, чтобы экспортировать результаты с проверкой параметров.
 
-       Если у выбранного сервисного аккаунта окажется недостаточно прав для выполнения операции, на вкладке **{{ ui-key.yacloud_org.security.dspm.tab_issues_title_hLQN2 }}** отобразится информация об этом.
+       Если у выбранного сервисного аккаунта окажется недостаточно прав для выполнения операции, на вкладке **{{ ui-key.yacloud_components.security.dspm.tab_issues_title }}** отобразится информация об этом.
 
        Разверните блок с информацией об отсутствующих ролях, выберите сервисный аккаунт и нажмите ![list-check](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud_org.security.dspm.ScanForm.table_action_assign_roles_bw4am }}**, чтобы предоставить этому сервисному аккаунту недостающие права. Затем повторно нажмите кнопку **{{ ui-key.yacloud_components.security.dspm.action_export_with_validation }}**.
 

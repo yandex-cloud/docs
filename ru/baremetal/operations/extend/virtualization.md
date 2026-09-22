@@ -36,7 +36,7 @@ description: Следуя этой инструкции, вы сможете о�
 
 Отправка заявки не создает кластер автоматически. Специалист {{ yandex-cloud }} свяжется с вами по указанным контактам, чтобы уточнить требования и согласовать конфигурацию. После развертывания кластер появится в подразделе **{{ ui-key.yacloud.baremetal.label_extend-virtualization }}**, а входящие в него серверы — в списке серверов {{ baremetal-name }}.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/extend/virtualization.md)
 * [{#T}](../../concepts/server-configurations.md)

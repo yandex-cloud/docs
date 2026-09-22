@@ -24,7 +24,7 @@ To assign a role for a resource:
     1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
     1. Select the service account from the list or use the search bar.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar.
-    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+    1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 

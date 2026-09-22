@@ -1,5 +1,9 @@
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     om-gr-viewer["organization-manager.groups.viewer"] --> om-auditor["organization-manager.auditor"]
     om-gr-viewer --> om-gr-editor["organization-manager.groups.editor"]

@@ -42,14 +42,6 @@
 
 ## Создайте кластер Managed Service for Kubernetes {#kubernetes-cluster-create}
 
-{% note warning %}
-
-Начиная с Kubernetes версии 1.30 во всех [релизных каналах](../../concepts/release-channels-and-updates.md) базовый образ узлов кластера Managed Service for Kubernetes изменен с Ubuntu 20.04 на Ubuntu 22.04. В существующих кластерах и группах узлов версия операционной системы будет повышена в соответствии с выбранным способом обновления.
-
-Особенности и рекомендации по обновлению ОС приведены в разделе [Обновление операционной системы в группе узлов](../../concepts/node-os-update.md).
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -162,6 +154,15 @@
        * **Сilium CNI**, чтобы задействовать Cilium.
   
      * Укажите **CIDR кластера** — диапазон IP-адресов, из которого будут выделяться IP-адреса для [подов](../../concepts/index.md#pod).
+  
+       {% note info %}
+       
+       Для кластеров в [релизном канале](../../concepts/release-channels-and-updates.md) `RAPID` можно использовать [несколько диапазонов IP-адресов подов](../../concepts/cluster-multi-cidr.md). Добавьте CIDR в соответствии с [требованиями](../../concepts/cluster-multi-cidr.md#requirements), а после [настройте маскарадинг IP-адресов](../network/manage-ip-masq-agent.md).
+       
+       Можно только добавлять новые диапазоны CIDR. Изменять или удалять существующие диапазоны нельзя.
+       
+       {% endnote %}
+  
      * Укажите **CIDR сервисов** — диапазон IP-адресов, из которого будут выделяться IP-адреса для [сервисов](../../concepts/index.md#service).
      * Задайте маску подсети узлов Managed Service for Kubernetes и максимальное количество подов в узле.
   1. Нажмите кнопку **Создать**.

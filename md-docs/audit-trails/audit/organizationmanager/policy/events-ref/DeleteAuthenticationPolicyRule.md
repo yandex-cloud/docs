@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > policy.DeleteAuthenticationPolicyRule
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > DeleteAuthenticationPolicyRule
 
 # Identity Hub Audit Trails Events: DeleteAuthenticationPolicyRule
 

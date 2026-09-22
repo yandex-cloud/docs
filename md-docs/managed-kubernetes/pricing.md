@@ -19,7 +19,7 @@
 
 В рамках сервиса Managed Service for Kubernetes тарифицируется использование [мастера](concepts/index.md#master) и исходящий трафик.
 
-Узлы тарифицируются по [правилам тарификации Yandex Compute Cloud](../compute/pricing.md).
+Узлы облачных групп тарифицируются по [правилам тарификации Yandex Compute Cloud](../compute/pricing.md), а группы узлов на серверах BareMetal — по [правилам тарификации Yandex BareMetal](../baremetal/pricing.md).
 
 Если кластер остановлен, ресурсы мастера не тарифицируются. Оплачиваются только связанные с кластером ресурсы, например [диски виртуальных машин](../compute/pricing.md), [публичные IP-адреса](../vpc/pricing.md) и [сетевые балансировщики нагрузки](../network-load-balancer/pricing.md).
 

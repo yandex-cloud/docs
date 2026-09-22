@@ -215,47 +215,53 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
 
 В кластере `dataproc-source` создайте тестовую таблицу `countries`:
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
-1. Откройте страницу кластера `dataproc-source`.
-1. Перейдите по ссылке **Zeppelin Web UI** в разделе **UI Proxy**.
-1. Выберите **Notebook**, затем ![image](../../_assets/console-icons/plus.svg) **Create new note**.
-1. В появившемся окне укажите название записи и нажмите кнопку **Create**.
-1. Чтобы выполнить PySpark-задание, вставьте скрипт Python в строку ввода:
+{% list tabs group=instructions %}
 
-    ```python
-    %pyspark
+- Консоль управления {#console}
 
-    from pyspark.sql.types import *
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
+  1. Откройте страницу кластера `dataproc-source`.
+  1. Перейдите по ссылке **Zeppelin Web UI** в разделе **UI Proxy**.
+  1. Выберите **Notebook**, затем ![image](../../_assets/console-icons/plus.svg) **Create new note**.
+  1. В появившемся окне укажите название записи и нажмите кнопку **Create**.
+  1. Чтобы выполнить PySpark-задание, вставьте скрипт Python в строку ввода:
+  
+      ```python
+      %pyspark
+  
+      from pyspark.sql.types import *
+  
+      schema = StructType([StructField('Name', StringType(), True),
+      StructField('Capital', StringType(), True),
+      StructField('Area', IntegerType(), True),
+      StructField('Population', IntegerType(), True)])
+  
+      df = spark.createDataFrame([('Австралия', 'Канберра', 7686850, 19731984), ('Австрия', 'Вена', 83855, 7700000)], schema)
+      df.write.mode("overwrite").option("path","s3a://dataproc-bucket/countries").saveAsTable("countries")
+      ```
+  
+  1. Нажмите кнопку ![image](../../_assets/console-icons/play.svg) **Run all paragraphs** и дождитесь завершения задания.
+  1. Замените в строке ввода Python-код на SQL-запрос:
+  
+      ```sql
+      %sql
+  
+      SELECT * FROM countries;
+      ```
+  
+  1. Нажмите кнопку ![image](../../_assets/console-icons/play.svg) **Run all paragraphs**.
+  
+      Результат:
+  
+      ```text
+      |   Name    |  Capital |  Area   | Population |
+      | --------- | -------- | ------- | ---------- |
+      | Австралия | Канберра | 7686850 | 19731984   |
+      | Австрия   | Вена     | 83855   | 7700000    |
+      ```
 
-    schema = StructType([StructField('Name', StringType(), True),
-    StructField('Capital', StringType(), True),
-    StructField('Area', IntegerType(), True),
-    StructField('Population', IntegerType(), True)])
-
-    df = spark.createDataFrame([('Австралия', 'Канберра', 7686850, 19731984), ('Австрия', 'Вена', 83855, 7700000)], schema)
-    df.write.mode("overwrite").option("path","s3a://dataproc-bucket/countries").saveAsTable("countries")
-    ```
-
-1. Нажмите кнопку ![image](../../_assets/console-icons/play.svg) **Run all paragraphs** и дождитесь завершения задания.
-1. Замените в строке ввода Python-код на SQL-запрос:
-
-    ```sql
-    %sql
-
-    SELECT * FROM countries;
-    ```
-
-1. Нажмите кнопку ![image](../../_assets/console-icons/play.svg) **Run all paragraphs**.
-
-    Результат:
-
-    ```text
-    |   Name    |  Capital |  Area   | Population |
-    | --------- | -------- | ------- | ---------- |
-    | Австралия | Канберра | 7686850 | 19731984   |
-    | Австрия   | Вена     | 83855   | 7700000    |
-    ```
+{% endlist %}
 
 ## Экспортируйте данные {#export-data}
 
@@ -286,50 +292,68 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
 
 ## Подключите Yandex Data Processing к Apache Hive™ Metastore {#connect}
 
-1. [Создайте кластер Apache Hive™ Metastore](../operations/metastore/cluster-create.md) с параметрами:
+{% list tabs group=instructions %}
 
-    * **Сервисный аккаунт** — `dataproc-s3-sa`.
-    * **Версия** — `3.1`.
-    * **Сеть** — `dataproc-network`.
-    * **Подсеть** — `dataproc-subnet`.
-    * **Группы безопасности** — `dataproc-security-group`.
+- Консоль управления {#console}
 
-1. [Добавьте в настройки кластера](../../data-proc/operations/cluster-update.md) `dataproc-target` свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_Apache Hive™ Metastore>:9083`.
+  1. [Создайте кластер Apache Hive™ Metastore](../operations/metastore/cluster-create.md) с параметрами:
+  
+      * **Сервисный аккаунт** — `dataproc-s3-sa`.
+      * **Версия** — `3.1`.
+      * **Сеть** — `dataproc-network`.
+      * **Подсеть** — `dataproc-subnet`.
+      * **Группы безопасности** — `dataproc-security-group`.
+  
+  1. [Добавьте в настройки кластера](../../data-proc/operations/cluster-update.md) `dataproc-target` свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_Apache Hive™ Metastore>:9083`.
+  
+      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в консоли управления выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
 
-    Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в консоли управления выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
+{% endlist %}
 
 ## Импортируйте данные {#import-data}
 
-1. Откройте страницу кластера Apache Hive™ Metastore.
-1. Нажмите кнопку ![image](../../_assets/console-icons/arrow-down-to-square.svg) **Импорт**.
-1. В открывшемся окне укажите бакет `dataproc-bucket` и файл `metastore_dump.sql`.
-1. Нажмите кнопку **Импортировать**.
-1. Дождитесь, когда импорт завершится. Статус импорта можно проверить на странице кластера Apache Hive™ Metastore, в разделе ![image](../../_assets/console-icons/list-check.svg) **Операции**.
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Откройте страницу кластера Apache Hive™ Metastore.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/arrow-down-to-square.svg) **Импорт**.
+  1. В открывшемся окне укажите бакет `dataproc-bucket` и файл `metastore_dump.sql`.
+  1. Нажмите кнопку **Импортировать**.
+  1. Дождитесь, когда импорт завершится. Статус импорта можно проверить на странице кластера Apache Hive™ Metastore, в разделе ![image](../../_assets/console-icons/list-check.svg) **Операции**.
+
+{% endlist %}
 
 ## Проверьте результат {#check-result}
 
-1. Откройте страницу кластера `dataproc-target`.
-1. Перейдите по ссылке **Zeppelin Web UI** в разделе **UI Proxy**.
-1. Выберите **Notebook**, затем ![image](../../_assets/console-icons/plus.svg) **Create new note**.
-1. В появившемся окне укажите название записи и нажмите кнопку **Create**.
-1. Отправьте SQL-запрос:
+{% list tabs group=instructions %}
 
-    ```sql
-    %sql
+- Консоль управления {#console}
 
-    SELECT * FROM countries;
-    ```
+  1. Откройте страницу кластера `dataproc-target`.
+  1. Перейдите по ссылке **Zeppelin Web UI** в разделе **UI Proxy**.
+  1. Выберите **Notebook**, затем ![image](../../_assets/console-icons/plus.svg) **Create new note**.
+  1. В появившемся окне укажите название записи и нажмите кнопку **Create**.
+  1. Отправьте SQL-запрос:
+  
+      ```sql
+      %sql
+  
+      SELECT * FROM countries;
+      ```
+  
+  1. Нажмите кнопку ![image](../../_assets/console-icons/play.svg) **Run all paragraphs**.
+  
+      Результат:
+  
+      ```text
+      |   Name    |  Capital |  Area   | Population |
+      | --------- | -------- | ------- | ---------- |
+      | Австралия | Канберра | 7686850 | 19731984   |
+      | Австрия   | Вена     | 83855   | 7700000    |
+      ```
 
-1. Нажмите кнопку ![image](../../_assets/console-icons/play.svg) **Run all paragraphs**.
-
-    Результат:
-
-    ```text
-    |   Name    |  Capital |  Area   | Population |
-    | --------- | -------- | ------- | ---------- |
-    | Австралия | Канберра | 7686850 | 19731984   |
-    | Австрия   | Вена     | 83855   | 7700000    |
-    ```
+{% endlist %}
 
 В итоге в кластер `dataproc-target` были импортированы метаданные из кластера `dataproc-source`.
 

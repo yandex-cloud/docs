@@ -108,7 +108,7 @@ Provide your infrastructure and security administrators with access to the folde
       * `smart-web-security.editor`: To use and manage [{{ sws-name }}](../../smartwebsecurity/) profiles.
       * `compute.editor`: To be able to create, update, and delete [{{ compute-name }}](../../compute/) instances.
 
-  1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 {% endlist %}
 

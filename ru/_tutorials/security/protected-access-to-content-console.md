@@ -32,7 +32,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `webserver-network`.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -632,7 +632,7 @@
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
       1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-      1. Справа сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+      1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета, например `cdn-source-bucket`.
       1. Включите опцию **{{ ui-key.yacloud.storage.form-components.SizeLimitField.field_size-limit-enabled_hPy7f }}** и в появившихся полях задайте размер `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
       1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.

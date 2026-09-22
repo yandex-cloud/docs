@@ -1997,7 +1997,6 @@ default:
   tracker-short-name: Tracker
   translate-full-name: Yandex Translate
   translate-name: Translate
-  translate-short-name: Translate
   trino-service-address: 10.248.0.0/13
   tts-v3-count: 250 characters
   tts-v3-time: 24 seconds
@@ -2377,8 +2376,10 @@ default:
         placeholder:
           account-type-filter: Account type
       acl:
+        AclEditDialogNew:
+          action_apply: Save
+          label_title: Edit access bindings
         action:
-          apply: Save
           assign-roles: Assign roles
           edit-roles: Edit roles
           revoke-access: Revoke access
@@ -2388,7 +2389,6 @@ default:
           search-subject-placeholder_6nqFf: "User name or\_e-mail"
           service-accounts: Service accounts
           subject: "Who to\_grant access to"
-          title: Granting access
           user-accounts: User accounts
         resource-acl:
           label_bindings: Roles
@@ -2412,7 +2412,6 @@ default:
         withReserve: Enable
       cloud:
         button_delete: Delete
-        button_save: Save
         label_delete-now: Delete now
       fileinput:
         button_attach-file: Attach file
@@ -2452,7 +2451,11 @@ default:
           card_title_text: "In\_text"
           column_name: Name
           dialog_select-service-account_create-new-action: "Create a\_new one"
+          field_file_name: File name
+          field_service_account: Service account
           header_scan_result_sensitive_data: Display sensitive data
+          label_field_bucket: Bucket
+          tab_issues_title: Parameter validation
       services:
         service_compute: Compute Cloud
       settings:
@@ -3519,7 +3522,6 @@ default:
         kspm:
           title_clusters: Clusters
           title_dashboard: Dashboard
-        label_acl-diagnostics: CIEM
         label_alerts: Alerts
         label_comp: Compliance
         label_dspm: DSPM
@@ -3610,7 +3612,6 @@ default:
             details_button_1ZfAk: Details
           header_resource_kDJFW: Resource
         dspm:
-          action_button-export_pMSM8: Export
           AnalyticsPage:
             buckets_jwots: Buckets
             label_download-analytics_8mgG8: Download results by file
@@ -3644,16 +3645,12 @@ default:
             title_discovery_kkTCM: v2.0
             title_dspm_xm8pa: v1.0
             title_prefix_iWUEX: 'Interface: '
-          field_bucket-path_5qRqM: Path to bucket
-          field_file-name_kWRPK: File name
-          field_service-account_rTeXv: Service account
           infoTypes:
             value_financial-data_kTC5e: Financial data
             value_medical-data-images_7EQ2X: Medical data
             value_other_wUrAZ: Other
             value_personal-data_w5gVm: Personal data
             value_secrets_4CdGy: Secrets
-          label_field-bucket_3mM6u: Bucket
           label_include_in_scan_discovery_4wwj7: Buckets
           label_resources_9BVEB: Resources
           ScanForm:
@@ -3662,7 +3659,6 @@ default:
           search-categories_section_title_cPyLn: Data categories for search
           section_settings_title_igA6u: Scope parameters
           selected_resources_fbUsF: Selected
-          tab_issues_title_hLQN2: Parameter validation
           Yandex360DataSourceForm:
             action_add_resources_2qrRH: Add resources
             action_configure-connection_v6Gjm: Configure connection
@@ -3840,6 +3836,8 @@ default:
           label_search-placeholder: Describe issue or ask a question
           table:
             label_column_ticket_type: Ticket type
+      ui:
+        label_access-analyzer_4bfVo: Access Analyzer
       user:
         title_groups: Groups
         title_oslogin-profiles: OS Login Profiles
@@ -5659,7 +5657,7 @@ default:
         action_delete-backup: Delete backup
         action_get-backup-link: Get link
         action_restore-backup: Restore instance
-        button_configure-data-types: Configure data storage in Object Storage
+        button_configure-data-types: Configure storage
         button_create-instance: Create instance
         button_finish-migration: Complete migration
         button_rollback-migration: Cancel migration
@@ -6536,7 +6534,7 @@ default:
         action_specify-vm: Link virtual machine
         action_to-pay-license: Pay
         button_continue: Continue
-        button_disallow-analytics-scanning: Prohibit Marketplace from collecting statistics
+        button_disallow-analytics-scanning: Forbid statistics collection
         button_k8s-product-use: Go to install
         button_request-access: Request access
         button_request-access-from-publisher: Request access from publisher
@@ -7751,7 +7749,6 @@ default:
             label_server-logs_mfGpj: Write logs
             label_target-bucket_jEJ5E: Bucket for log storage
           BucketSettingsFormSection:
-            field_description-strict-mode_9cpMe: Available only via VPC service connections
             field_force-cloud-console-access_5bS8y: Access from console
             field_label-strict-mode_2ttnd: Strict mode
           BucketVersioningFormSection:

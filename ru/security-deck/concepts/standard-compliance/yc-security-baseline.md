@@ -14,7 +14,7 @@ description: В этом разделе приведен список прави
 || **Аутентификация и управление доступом** (IAM) {align="center"} | > | > ||
 || IAM1 | [Настроена федерация удостоверений (Single Sign-On, SSO)](../../../security/standard/all.md#saml-federation) | [cspm.access.idp](../../rules-reference/cspm.md#idp) ||
 || IAM5 | [Только необходимые администраторы управляют членством в IAM-группах](../../../security/standard/all.md#iam-admins) | [cspm.access.user-groups-access](../../rules-reference/cspm.md#user-groups-access) ||
-|| IAM17 | [Настроена двухфакторная аутентификация для привилегированных аккаунтов](../../../security/standard/all.md#mfa) | [cspm.access.userpool-mfa](../../rules-reference/cspm.md#userpool-mfa) ||
+|| IAM17 | [Настроена двухфакторная аутентификация для привилегированных аккаунтов](../../../security/standard/all.md#twofa) | [cspm.access.userpool-mfa](../../rules-reference/cspm.md#userpool-mfa) ||
 || IAM22 | [Для ресурсов в организации отсутствует публичный доступ](../../../security/standard/all.md#public-access) | [cspm.access.public-access](../../rules-reference/cspm.md#public-access) ||
 || **Сетевая безопасность** (NET) {align="center"} | > | > ||
 || NET3 | [В группах безопасности отсутствует слишком широкое правило доступа](../../../security/standard/all.md#access-rule) | [cspm.network.network-firewall-scope](../../rules-reference/cspm.md#network-firewall-scope) ||
@@ -24,6 +24,7 @@ description: В этом разделе приведен список прави
 || CRYPT9 | [Ключи {{ kms-short-name }} хранятся в аппаратном модуле безопасности (HSM)](../../../security/standard/all.md#keys-hsm) | [cspm.crypto.keys-hsm](../../rules-reference/cspm.md#keys-hsm) ||
 || CRYPT13 | [В организации используется {{ lockbox-full-name }} для безопасного хранения секретов](../../../security/standard/all.md#secrets-lockbox) | [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox) ||
 || CRYPT14 | [Для {{ serverless-containers-full-name }} и {{ sf-full-name }} используются секреты {{ lockbox-name }}](../../../security/standard/all.md#secrets-serverless-functions) | [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless) ||
+|| CRYPT16 | [Администратор облака имеет инструкцию по действиям в случае компрометации секретов его облака](../../../security/standard/all.md#secrets-scanning) | [cspm.crypto.leaked-secrets-detection](../../rules-reference/cspm.md#leaked-secrets-detection) ||
 || **Сбор, мониторинг и анализ аудитных логов** (AUDIT) {align="center"} | > | > ||
 || AUDIT1 | [Включен сервис {{ at-full-name }} на уровне организации](../../../security/standard/all.md#audit-trails) | [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails) ||
 || AUDIT8 | [Отслеживаются события уровня сервисов](../../../security/standard/all.md#data-plane-events) | [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events) ||
@@ -35,5 +36,5 @@ description: В этом разделе приведен список прави
 || APPSEC10 | [Используется Web Application Firewall](../../../security/standard/all.md#use-waf) | [cspm.appsec.use-waf](../../rules-reference/cspm.md#use-waf) ||
 || APPSEC11 | [Используется Advanced Rate Limiter](../../../security/standard/all.md#use-arl) | [cspm.appsec.use-arl](../../rules-reference/cspm.md#use-arl) ||
 || **Безопасность {{ k8s }}** (K8S) {align="center"} | > | > ||
-|| K8S11 | [Используется политика безопасности {{ k8s }}](../../../security/standard/all.md#security-standards) | [cspm.k8s.kspm](../../rules-reference/cspm.md#k8s-kspm) ||
+|| K8S11 | [Используется политика безопасности {{ k8s }}](../../../security/standard/all.md#security-standards) | [cspm.k8s.kspm](../../rules-reference/cspm.md#kspm) ||
 |#

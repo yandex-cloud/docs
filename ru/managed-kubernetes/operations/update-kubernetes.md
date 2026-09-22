@@ -34,7 +34,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Выберите кластер {{ managed-k8s-name }}.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**, с ней откроется вкладка **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** и выберите раздел **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
   1. В строке группы узлов нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Получите список доступных версий в поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}**.
 
@@ -352,8 +352,6 @@
 
 ## Обновление группы узлов {#node-group-upgrade}
 
-{% include [os-new-version](../../_includes/managed-kubernetes/note-os-new-version.md) %}
-
 ### Настройка автоматического обновления группы узлов {#node-group-auto-upgrade}
 
 Выберите режим автоматического обновления группы узлов {{ managed-k8s-name }} и задайте нужный график обновления:
@@ -662,7 +660,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Выберите кластер {{ managed-k8s-name }}.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**, с ней откроется вкладка **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** и выберите раздел **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
   1. В строке группы узлов нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** выберите вариант `Обновить до версии <номер_версии>`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -779,7 +777,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Выберите кластер {{ managed-k8s-name }}.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**, с ней откроется вкладка **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** и выберите раздел **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
   1. В строке группы узлов нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** выберите `Получить последние улучшения и исправления для версии...`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.

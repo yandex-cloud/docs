@@ -111,7 +111,7 @@ The user needs this role to access resources in this cloud in the management con
     1. In the window that opens, select **{{ ui-key.yacloud_org.common.resource-acl.label_invitee-accounts }}**.
     1. Select a user from the list or use the user search option.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `resource-manager.clouds.member` role.
-    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+    1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 {% endlist %}
 
@@ -140,7 +140,7 @@ To grant access permissions to all organization users in one go, assign the `All
 
        {% endnote %}
 
-    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+    1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 {% endlist %}
 

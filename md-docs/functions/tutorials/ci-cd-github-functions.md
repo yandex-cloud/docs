@@ -577,7 +577,7 @@
   1. Откройте [консоль управления](https://console.yandex.cloud).
   1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию `from-github-ci`.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/circle-play.svg) **Тестирование**.
+  1. Перейдите на вкладку **Тестирование**.
   1. В поле **Входные данные** введите следующий код и нажмите ![image](../../_assets/console-icons/play-fill.svg) **Запустить тест**:
      
      ```json
@@ -624,7 +624,7 @@
   1. Откройте [консоль управления](https://console.yandex.cloud).
   1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию `from-github-ct`.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/circle-play.svg) **Тестирование**.
+  1. Перейдите на вкладку **Тестирование**.
   1. В поле **Входные данные** введите следующий код и нажмите ![image](../../_assets/console-icons/play-fill.svg) **Запустить тест**:
      
      ```json
@@ -671,7 +671,7 @@
   1. Откройте [консоль управления](https://console.yandex.cloud).
   1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию `from-github-cd`.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/circle-play.svg) **Тестирование**.
+  1. Перейдите на вкладку **Тестирование**.
   1. В поле **Входные данные** введите следующий код и нажмите ![image](../../_assets/console-icons/play-fill.svg) **Запустить тест**:
      
      ```json

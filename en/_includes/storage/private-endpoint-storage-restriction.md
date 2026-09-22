@@ -16,7 +16,7 @@ With this option on, the bucket will not be accessible from the public network. 
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket from the list.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
-  1. Under **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_label-strict-mode_2ttnd }}**, enable **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_description-strict-mode_9cpMe }}**.
+  1. Under **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_label-strict-mode_2ttnd }}**, enable **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_label-strict-mode_2ttnd }}**.
   1. In the **{{ ui-key.yacloud.storage.form.Service_onnectionsField.field_lable-service-connections_iGyHa }}** field, specify the ID of the service connection you created.
   1. Optionally, enable **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_force-cloud-console-access_5bS8y }}**. This option enables you to access the bucket from the management console even if access is allowed only via {{ vpc-short-name }} service connections. When this option is disabled, you can only access the bucket via the API or CLI.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -74,7 +74,7 @@ With this option on, the bucket will not be accessible from the public network. 
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket from the list.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
-  1. Under **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_label-strict-mode_2ttnd }}**, disable **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_description-strict-mode_9cpMe }}**.
+  1. Under **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_label-strict-mode_2ttnd }}**, disable **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_label-strict-mode_2ttnd }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}

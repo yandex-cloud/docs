@@ -109,6 +109,6 @@ Managed Service for Kubernetes позволяет использовать в к
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Выберите кластер Managed Service for Kubernetes.
   1. Нажмите на вкладку **Другое** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **Marketplace**.
-  1. В блоке **Доступные для установки приложения** нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/ban.svg) **Запретить Marketplace собирать статистику**.
+  1. В блоке **Доступные для установки приложения** нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/ban.svg) **Запретить сбор статистики**.
 
 {% endlist %}

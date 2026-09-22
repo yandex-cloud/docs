@@ -100,8 +100,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
-      1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты** и выберите созданный ранее сервисный аккаунт `nextcloud-sa`.
+      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management** и выберите созданный ранее сервисный аккаунт `nextcloud-sa`.
       1. На панели сверху нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать статический ключ доступа**.
       1. Нажмите кнопку **Создать**.
       1. Сохраните идентификатор и секретный ключ.

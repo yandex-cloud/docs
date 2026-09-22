@@ -130,7 +130,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. In the window that opens, select the group, user, or service account you want to grant access to the disk.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../../security/index.md#roles-list).
   1. To add another role, click **{{ ui-key.yacloud_components.acl.button.add-role }}**.
-  1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 

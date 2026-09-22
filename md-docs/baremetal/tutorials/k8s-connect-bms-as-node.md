@@ -2,6 +2,12 @@
 
 # Подключение сервера Yandex BareMetal как внешнего узла к кластеру Yandex Managed Service for Kubernetes
 
+{% note tip %}
+
+В кластере Managed Service for Kubernetes можно [создать группу узлов на выделенных серверах BareMetal](../../managed-kubernetes/operations/baremetal-group/create-baremetal.md) без предварительной аренды серверов. Сервис арендует серверы, автоматически настроит их и подключит к кластеру.
+
+{% endnote %}
+
 
 {% note info %}
 
@@ -71,7 +77,7 @@
 - Консоль управления {#console}
 
   1. На странице кластера Managed Service for Kubernetes перейдите на вкладку **Управление узлами**.
-  1. Нажмите кнопку **Создать группу узлов**, затем **Внешняя**.
+  1. Нажмите кнопку **Создать группу узлов** и выберите ![server](../../_assets/console-icons/server.svg) **Внешняя**.
   1. Введите имя группы узлов Managed Service for Kubernetes.
   1. В поле **IP-адреса узлов** укажите приватный IP-адрес подключаемого сервера BareMetal.
   1. Нажмите кнопку **Добавить**.

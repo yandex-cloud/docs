@@ -108,7 +108,7 @@
       * `smart-web-security.editor` — использование профилей безопасности [{{ sws-name }}](../../smartwebsecurity/) и управление ими.
       * `compute.editor` — возможность создавать, обновлять и удалять ВМ [{{ compute-name }}](../../compute/).
 
-  1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Нажмите **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 {% endlist %}
 
@@ -123,7 +123,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** введите `alb-network`.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.

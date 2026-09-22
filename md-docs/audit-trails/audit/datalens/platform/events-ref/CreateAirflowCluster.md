@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > datalens > platform.CreateAirflowCluster
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > datalens > CreateAirflowCluster
 
 # DataLens Audit Trails Events: CreateAirflowCluster
 

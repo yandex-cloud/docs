@@ -72,6 +72,7 @@
 * [Посмотреть операции с кластером Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-operation-logs.md)
 * [Создание кластера Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-create.md)
 * [Изменение кластера Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-update.md)
+* [Настройка маскарадинга в кластерах с несколькими диапазонами IP-адресов подов](network/manage-ip-masq-agent.md)
 * [Управление доступом к кластеру Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-access.md)
 * [Включение поддержки федерации сервисных аккаунтов Yandex Identity and Access Management в кластере Yandex Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-wlif-integration.md)
 * [Получение списка доступных конфигураций мастера в кластере Kubernetes](kubernetes-cluster/kubernetes-cluster-configuration-list.md)
@@ -98,6 +99,12 @@
 * [Настройка WireGuard-шлюзов для подключения внешних узлов к кластеру](external-nodes-connect-wireguard.md)
 * [Настройка IPSec-шлюзов для подключения внешних узлов к кластеру](external-nodes-connect-ipsec.md)
 * [Подключение сервера Yandex BareMetal как внешнего узла к кластеру Yandex Managed Service for Kubernetes](bms-server-connect.md)
+
+## Работа с группой узлов BareMetal {#baremetal-node-group}
+
+* [Создание группы узлов на серверах BareMetal](baremetal-group/create-baremetal.md)
+* [Изменение группы узлов на серверах BareMetal](baremetal-group/update-baremetal.md)
+* [Удаление группы узлов на серверах BareMetal](baremetal-group/delete-baremetal.md)
 
 ## Работа с объектами Kubernetes из консоли управления {#kubernetes-console}
 

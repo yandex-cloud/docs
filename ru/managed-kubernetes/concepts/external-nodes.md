@@ -11,7 +11,7 @@ description: В данной статье описаны особенности 
 
 {% endnote %}
 
-{{ managed-k8s-name }} позволяет подключать в качестве узлов [кластера {{ k8s }}](./index.md#kubernetes-cluster) серверы, расположенные вне {{ yandex-cloud }}.
+{{ managed-k8s-name }} позволяет подключать в качестве внешних узлов [кластера {{ k8s }}](./index.md#kubernetes-cluster) серверы, расположенные вне {{ yandex-cloud }}.
 
 ## Требования для подключения внешних узлов к кластеру {#requirements}
 

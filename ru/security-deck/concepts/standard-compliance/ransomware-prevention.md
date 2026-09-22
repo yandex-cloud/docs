@@ -12,17 +12,17 @@ description: В этом разделе приведен список прави
 Выполнение этих требований помогает обеспечить защиту от атак программ-шифровальщиков и минимизировать последствия в случае успешной атаки:
 
 #|
-|| Требование | Идентификатор проверки в [модуле {{ cspm-name }}](../cspm.md) ||
-|| [Настроена двухфакторная аутентификация для привилегированных аккаунтов](../../../security/standard/all.md#mfa) | [cspm.access.userpool-mfa](../../rules-reference/cspm.md#userpool-mfa) ||
-|| [В {{ objstorage-name }} включена функция «Блокировка версии объекта» (object lock)](../../../security/standard/all.md#object-lock) | [cspm.s3.used-object-lock](../../rules-reference/cspm.md#used-object-lock) ||
-|| [Настроено резервное копирование дисков и баз данных](../../../security/standard/all.md#snapshot) | [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks) ||
-|| [Учетные записи Яндекс ID используются только в исключительных случаях](../../../security/standard/all.md#yandex-id-accounts) | [cspm.yid.organization](../../rules-reference/cspm.md#yid-organization) ||
-|| [Сервисным аккаунтам назначены минимальные привилегии](../../../security/standard/all.md#sa-privileges) |
+||::{align="center"} Идентификатор требования | Требование | Идентификатор проверки в [модуле {{ cspm-name }}](../cspm.md) ||
+||::{align="center"} [IAM3](../../../security/standard/all.md#yandex-id-accounts) | Учетные записи Яндекс ID используются только в исключительных случаях | [cspm.yid.organization](../../rules-reference/cspm.md#yid-organization) ||
+||::{align="center"} [IAM9](../../../security/standard/all.md#sa-privileges) | Сервисным аккаунтам назначены минимальные привилегии |
 [cspm.access.sa-privileges-org-roles](../../rules-reference/cspm.md#sa-privileges-org-roles)
 [cspm.access.sa-privileges-service-roles](../../rules-reference/cspm.md#sa-privileges-service-roles)
 ||
-|| [Отслеживается дата последней аутентификации сервисного аккаунта в {{ iam-name }}](../../../security/standard/all.md#track-sa-authentication) | [cspm.iam.unused-service-account](../../rules-reference/cspm.md#unused-service-account) ||
-|| [Отслеживается дата последнего использования ключей доступа в {{ iam-name }}](../../../security/standard/all.md#track-sa-authentication) | [cspm.iam.unused-key](../../rules-reference/cspm.md#unused-key) ||
-|| [Выполняется периодическая ротация ключей сервисных аккаунтов](../../../security/standard/all.md#sa-key-rotation) | [cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#iam-sa-key-rotation) ||
-|| [Включен сервис {{ at-full-name }}](../../../security/standard/all.md#audit-trails) | [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails) ||
+||::{align="center"} [IAM11](../../../security/standard/all.md#sa-key-rotation) | Выполняется периодическая ротация ключей сервисных аккаунтов | [cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation) ||
+||::{align="center"} [IAM17](../../../security/standard/all.md#twofa) | Настроена двухфакторная аутентификация для привилегированных аккаунтов | [cspm.access.userpool-mfa](../../rules-reference/cspm.md#userpool-mfa) ||
+||::{align="center"} [ENV9](../../../security/standard/all.md#object-lock) | В {{ objstorage-name }} включена функция «Блокировка версии объекта» (object lock) | [cspm.s3.used-object-lock](../../rules-reference/cspm.md#used-object-lock) ||
+||::{align="center"} [ENV37](../../../security/standard/all.md#snapshot) | Настроено резервное копирование дисков и баз данных | [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks) ||
+||::{align="center"} [IAM26](../../../security/standard/all.md#key-usage-control) | Отслеживается дата последней аутентификации сервисного аккаунта в {{ iam-name }} | [cspm.iam.unused-service-account](../../rules-reference/cspm.md#unused-service-account) ||
+|| ^ | Отслеживается дата последнего использования ключей доступа в {{ iam-name }} | [cspm.iam.unused-key](../../rules-reference/cspm.md#unused-key) ||
+||::{align="center"} [AUDIT1](../../../security/standard/all.md#audit-trails) | Включен сервис {{ at-full-name }} | [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails) ||
 |#

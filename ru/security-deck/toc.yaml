@@ -92,6 +92,12 @@ items:
             href: operations/cspm/check-compliance.md
           - name: Управлять исключениями из правил контроля
             href: operations/cspm/manage-exceptions.md
+          - name: Создать пользовательское правило
+            href: operations/cspm/create-custom-rule.md
+          - name: Редактировать пользовательское правило
+            href: operations/cspm/edit-custom-rule.md
+          - name: Удалить пользовательское правило
+            href: operations/cspm/delete-custom-rule.md
       - name: '{{ td-full-name }} ({{ td-name }})'
         items:
           - name: Обзор
@@ -107,6 +113,14 @@ items:
           - name: Активировать модуль
             href: >-
               operations/vulnerability-management/enable-vulnerability-management.md
+          - name: Создать расписание сканирований конечных точек
+            href: operations/vulnerability-management/create-scan-job.md
+          - name: Управлять расписанием сканирований конечных точек
+            href: operations/vulnerability-management/manage-scan-job.md
+          - name: Запустить сканирование конечных точек
+            href: operations/vulnerability-management/run-scan-job.md
+          - name: Посмотреть результаты сканирования конечных точек
+            href: operations/vulnerability-management/view-scan-results.md
           - name: Работать с дашбордом
             href: >-
               operations/vulnerability-management/use-vulnerability-management.md
@@ -154,6 +168,8 @@ items:
             href: concepts/standard-compliance/yc-gost-57580.md
           - name: Аудит процессов и приложений
             href: concepts/standard-compliance/inventory-k8s-rules.md
+          - name: Стандарт безопасности ИИ-систем в {{ yandex-cloud }}
+            href: concepts/standard-compliance/aispm.md
       - name: Контроль данных ({{ dspm-name }})
         href: concepts/dspm.md
       - name: Контроль {{ k8s }}® ({{ kspm-name }})
@@ -162,6 +178,8 @@ items:
         href: concepts/ciem.md
       - name: Контроль конфигурации ({{ cspm-name }})
         href: concepts/cspm.md
+      - name: Пользовательские правила
+        href: concepts/custom-rules.md
       - name: '{{ td-full-name }} ({{ td-name }})'
         href: concepts/threat-detector.md
       - name: '{{ vuln-man-name }} ({{ vuln-man-short-name }})'

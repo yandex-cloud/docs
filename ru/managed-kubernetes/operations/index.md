@@ -75,6 +75,7 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](kubernetes-cluster/kubernetes-cluster-operation-logs.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-update.md)
+* [{#T}](network/manage-ip-masq-agent.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-access.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-wlif-integration.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-configuration-list.md)
@@ -101,6 +102,12 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](external-nodes-connect-wireguard.md)
 * [{#T}](external-nodes-connect-ipsec.md)
 * [{#T}](bms-server-connect.md)
+
+## Работа с группой узлов {{ baremetal-name }} {#baremetal-node-group}
+
+* [{#T}](baremetal-group/create-baremetal.md)
+* [{#T}](baremetal-group/update-baremetal.md)
+* [{#T}](baremetal-group/delete-baremetal.md)
 
 ## Работа с объектами {{ k8s }} из консоли управления {#kubernetes-console}
 

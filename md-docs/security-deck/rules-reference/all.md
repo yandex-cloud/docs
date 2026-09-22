@@ -8,6 +8,317 @@
 
 Правила для проверки конфигурации облачных ресурсов.
 
+### API-ключи для сервисов AI Studio должны иметь ограничение срока действия {#api-key-rotation}
+
+#|
+|| **kind** | **severity** | **ID** ||
+|| automatic | medium | ai.api-key-rotation ||
+|#
+
+#### Описание
+
+**Как работает правило**: проверяется, что ключи API-ключи, созданные для работы в AI Studio, имеют установленный срок действия.
+
+Yandex Cloud позволяет задавать [срок действия](../../iam/concepts/authorization/api-key.md#scoped-api-keys) API-ключей, но максимальное время жизни должно определяться организационной политикой.
+
+Рекомендуемое время жизни по умолчанию — 90 дней для обычных систем и 30 дней для высокорисковых ИИ-систем и ИИ-агентов. [Статические ключи доступа](../../iam/concepts/authorization/access-key.md), совместимые с AWS API, и [авторизованные ключи](../../iam/concepts/authorization/key.md) могут не иметь ограничение срока действия, заданное на сервере, поэтому для них требуется ручная или автоматизированная ротация по параметру `createdAt` и удаление неиспользуемых ключей.
+
+#### Инструкции и решения по выполнению
+
+1. Получите все типы ключей для каждого сервисного аккаунта, который используется в компонентах AI, MCP, DataSphere: 
+
+   ```bash
+   yc iam api-key list --service-account-id <sa-id> --format json 
+   ``` 
+
+1. Если у полученных ключей не задано значение в поле `expires at`, срок действия не ограничен. 
+1. [Перевыпустите](../../iam/operations/compromised-credentials.md#api-key-reissue) ключи без ограничения срока действия и обязательно задайте срок действия.
+
+### API-ключи для сервисов AI Studio должны иметь ограниченные области действия {#api-key-scopes}
+
+#|
+|| **kind** | **severity** | **ID** ||
+|| automatic | medium | ai.api-key-scopes ||
+|#
+
+#### Описание
+
+**Как работает правило**: проверяются API-ключи с заданными областями действия в AI Studio, выводится список ключей с обширным областями действия.
+
+Область действия API-ключа должна соответствовать минимально необходимому действию. Если при создании API-ключа через CLI/API/Terraform вы не указываете область действия, применяется широкий набор областей [по умолчанию](../../iam/concepts/authorization/api-key.md#scoped-api-keys). Такой ключ часто получает доступ не только к операциям в ИИ-сервисах, но и к Monitoring, Search API, Serverless Functions/Containers invoke.
+
+Область действия API-ключа нельзя изменить после создания; решение — перевыпуск ключа с минимальным набором областей действия и удаление старого ключа после миграции потребителей.
+
+#### Инструкции и решения по выполнению
+
+1. Получите API-ключи сервисного аккаунта:
+
+   ```bash
+   yc iam api-key list --service-account-id <sa-id> --format json 
+   ```
+
+1. Для каждого ключа получите детали:
+
+   ```bash 
+   yc iam api-key get --id <key-id> --format json 
+   ```
+
+   Список областей действия API-ключа, созданного через CLI/API/Terraform без указания областей: `yc.ai.imageGeneration.execute, yc.ai.languageModels.execute, yc.ai.speechkitStt.execute, yc.ai.speechkitTts.execute, yc.ai.translate.execute, yc.ai.vision.execute, yc.monitoring.manage, yc.search-api.execute, yc.serverless.containers.invoke, yc.serverless.functions.invoke`.
+
+   Если полученная область действия ключа совпадает со списком по умолчанию или оказалась шире минимально необходимого профиля приложения, это нарушение.
+
+   Минимальные рекомендуемые профили: 
+   * Text generation only: yc.ai.languageModels.execute 
+   * Image generation only: yc.ai.imageGeneration.execute 
+   * Speech-to-text only: yc.ai.speechkitStt.execute 
+   * Text-to-speech only: yc.ai.speechkitTts.execute 
+   * Translate only: yc.ai.translate.execute 
+   * Vision/OCR only: yc.ai.vision.execute 
+   * MCP invoke only: yc.serverless.mcpGateways.invoke 
+   * Workflow execution only: yc.serverless.workflows.execute
+
+   Дополнительные доступные области действия, которые не должны появляться без явной необходимости: `yc.monitoring.manage, yc.monitoring.read, yc.search-api.execute, yc.serverless.functions.invoke, yc.serverless.containers.invoke, yc.serverless.workflows.execute, yc.serverless.mcpGateways.invoke, yc.logging.write, yc.datasphere.community-projects.manageResource, yc.speech-sense.use` и другие области действия из [актуального справочника](../../iam/concepts/authorization/api-key.md#scoped-api-keys) API-ключей.
+
+1. Если вы создали ключ через интерфейс AI Studio, не полагайтесь на источник создания. Всегда проверяйте фактические области действия ключа. 
+1. Перевыпустите ключ с минимальным набором областей:
+
+   ```bash
+   yc iam api-key create --service-account-id <sa-id> --scopes <scope1>,<scope2> --expires-at <iso8601> 
+   ``` 
+
+1. Обновите потребителей, затем удалите старый ключ:
+
+   ```bash 
+   yc iam api-key delete --id <old-key-id> 
+   ```
+
+   В Terraform используйте актуальный атрибут `scopes = [...]`. Не используйте `lifecycle.ignore_changes` для областей, если цель контроля — обнаруживать и исправлять drift.
+
+### У сервисных аккаунтов сервиса Yandex DataSphere должны отсутствовать критичные роли {#datasphere-sa-privileges}
+
+#|
+|| **kind** | **severity** | **ID** ||
+|| automatic | medium | ai.datasphere-sa-privileges ||
+|#
+
+#### Описание
+
+**Как работает правило**: проверяется, что у сервисных аккаунтов, привязанных к [сообществам](../../datasphere/concepts/community.md) или проектам Yandex DataSphere, нет ролей выше `editor`.
+
+В DataSphere пользовательский ML-код, [задания](../../datasphere/concepts/jobs/index.md) и операции с DataSphere Notebook могут выполняться от имени сервисного аккаунта или [сервисного агент](../../iam/concepts/service-control.md#service-agent) проекта или сообщества, поэтому для них требуется строго соблюдать принцип минимальных привилегий. Особенно опасны роли, позволяющие управлять сервисом [Yandex Identity and Access Management](../../iam/security/index.md#service-roles), [сервисными аккаунтами](../../iam/security/index.md#iam-serviceAccounts-admin), секретами, ключами шифрования, объектными хранилищами, виртуальными машинами и сетями или ИИ-ресурсами.
+
+#### Инструкции и решения по выполнению
+
+1. Получите список проектов и сообществ DataSphere:
+
+   ```bash
+   yc datasphere community list --format json yc datasphere project list --community-id <id> --format json 
+   ```
+
+   Если команды CLI недоступны в вашей версии, используйте REST API или выгрузку через UI: 
+   
+   * [Список сообществ](https://datasphere.api.cloud.yandex.net/datasphere/v2/communities)
+   * [Список проектов](https://datasphere.api.cloud.yandex.net/datasphere/v2/projects?communityId=<id>)
+1. Для каждого проекта или сообщества определите связанный сервисный аккаунт или агент. Если поле недоступно через CLI/API, посмотрите в [интерфейсе Datasphere](https://datasphere.yandex.cloud/communities). 
+1. Проверьте выданные доступы этих сервисных аккаунтов с помощью [Модуля диагностики доступов (CIEM)](../operations/ciem/view-permissions.md). 
+1. Актуальные роли DataSphere, которые нужно сверять со [справочником ролей](../../iam/roles-reference.md#datasphere-roles) Yandex Identity and Access Management перед запуском сканера: `datasphere.community-projects.viewer, datasphere.community-projects.developer, datasphere.community-projects.editor, datasphere.community-projects.admin, datasphere.communities.viewer, datasphere.communities.developer, datasphere.communities.editor, datasphere.communities.admin`. 
+1. Если конкретная роль отсутствует в tenant или справочнике, сканер не должен прекращать задание; логируйте role not found / not applicable. 
+1. Запрещенные роли для среды выполнения/сервисных аккаунтов в DataSphere без исключения: `admin, editor, resource-manager.clouds.owner, resource-manager.admin, iam.serviceAccounts.admin, iam.serviceAccounts.tokenCreator, lockbox.admin, lockbox.editor, kms.admin, kms.editor, storage.admin, compute.admin, vpc.admin, datasphere.communities.admin, datasphere.communities.editor, datasphere.community-projects.admin, datasphere.community-projects.editor, ai.admin, ai.editor, ai.models.admin, ai.models.editor`, любые ненужные `*.admin / *.editor`. 
+1. Разрешайте только минимальные роли к реально используемым ресурсам, например: 
+   * `storage.viewer` / upload-роли только на конкретный бакет; 
+   * `lockbox.payloadViewer` только на конкретный секрет; 
+   * `ai.models.user` или конкретные `ai.*.user` роли, если проект реально вызывает модели; 
+   * минимальные роли на логирование и мониторинг только при необходимости.
+
+   **Решение**: удалить широкие роли, создать отдельный сервисный аккаунт для проекта или сообщества, назначить минимальные роли на минимальном списке ресурсов, провести повторное сканирование.
+
+### Для разных инструментов, агентов и MCP-серверов должны использоваться разные сервисные аккаунты {#mcp-sa-duplicate}
+
+#|
+|| **kind** | **severity** | **ID** ||
+|| automatic | low | ai.mcp-sa-duplicate ||
+|#
+
+#### Описание
+
+**Как работает правило**: проверяются сервисные аккаунты, назначенные на MCP-сервер, Cloud Functions, Workflows. Если один сервисный аккаунт назначен на более чем один объект, правило считается нарушенным.
+
+Сервисный аккаунт должен соответствовать одной границе безопасности. Не всегда обязательно следовать принципу «один сервисный аккаунт строго на один ресурс»: допустимо использовать один аккаунт внутри одного утвержденного логического агента, если MCP Gateway, функция Cloud Functions и Workflow являются частью одной границы безопасности, имеют одного владельца, одну классификацию данных и одинаковый набор минимальных доступов. Но общий сервисный аккаунт между независимыми агентами, MCP Gateway, проектами DataSphere или Tools создает избыточный потенциальный ущерб. Development, staging и production должны использовать разные сервисные аккаунты.
+
+#### Инструкции и решения по выполнению
+
+1. Получите инвентаризацию всех компонентных типов: MCP Gateway, Functions, Containers, Workflows, проектов и сообществ DataSphere, AI Assistants, agent wrappers. 
+1. Для каждого ресурса сохраните `type, id, name, folderId, owner, dataClass, environment, serviceAccountId`. 
+1. Для Serverles-ресурсов получите сервисные аккаунты: 
+
+   ```bash 
+   yc serverless mcp-gateway get --name <name> --format json 
+   ```
+    
+1. Используйте разные сервисные аккаунты для разных инструментов, агентов и MCP-серверов. Рекомендуется выдавать точечные роли для сервисного аккаунта при работе с MCP-серверами, например [`serverless.mcpGateways.viewer`](https://aistudio.yandex.ru/ru/docs/ai-studio/security/#mcp-roles).
+
+### Не используйте сервисные аккаунты с высокими привилегиями для MCP-серверов, функций и рабочих процессов {#mcp-sa-privileges}
+
+#|
+|| **kind** | **severity** | **ID** ||
+|| automatic | high | ai.mcp-sa-privileges ||
+|#
+
+#### Описание
+
+**Как работает правило**: у сервисных аккаунтов проверяется наличие прав выше роли `editor`, назначенных на MCP-серверы, функции и рабочие процессы, реализующие Tools или отдельных шагов таких рабочих процессов.
+
+Через компрометацию сервисного аккаунта, от имени которого выполняется агентский workload, злоумышленник может получить доступ за пределы одного Tool или Gateway.
+
+Для MCP-серверов и агентских workloads особенно опасны роли управления сервисом [Yandex Identity and Access Management](../../iam/security/index.md#service-roles), [сервисными аккаунтами](../../iam/security/index.md#iam-serviceAccounts-admin), [секретами Lockbox](../../lockbox/concepts/secret.md), [ключами KMS](../../kms/concepts/index.md), [контейнерами Serverless](../../serverless-containers/concepts/container.md), объектными хранилищами, и роль [`organization-manager`](../../organization/security/index.md#organization-manager-organizations-owner).
+
+Примитивные роли `admin` и `editor` недопустимы для сервисного аккаунта, от имени которого выполняется агентский workload, без исключения. Роли чтения `viewer` и `auditor` не всегда административные, но могут приводить к утечке данных и требуют отдельного обоснования необходимости .
+
+#### Инструкции и решения по выполнению
+
+1. Получите инвентаризацию MCP Gateway, Functions, Containers и Workflows. 
+1. Для каждого ресурса определите `serviceAccountId`: 
+
+   ```bash 
+   yc serverless function get --name <name> --format json 
+   ``` 
+   
+1. Отзовите доступы с помощью [Модуля диагностики доступов (CIEM)](../operations/ciem/revoke-permissions.md).
+
+### К публичным MCP-серверам не следует подключать непубличные функции, workflows и Tools, требующие авторизации {#public-mcp-tools}
+
+#|
+|| **kind** | **severity** | **ID** ||
+|| automatic | medium | ai.public-mcp-tools ||
+|#
+
+#### Описание
+
+**Как работает правило**: проверяется, что привязанные к MCP-серверу функции, workflows и Tools являются публичными.
+
+Это сценарий, в котором может быть реализована уязвимость Confused Deputy и в котором может произойти злоупотребление прокси (proxy abuse): внешний субъект использует публичный MCP Gateway как посредника для вызова внутреннего Tool.
+
+Риск возникает даже если сам Tool не публичен напрямую: достаточно, что публичный Gateway имеет сервисный аккаунт с доступом  с доступом, который позволяет обращаться к внутреннему Tool.
+
+Контроль связан с [OWASP MCP07:2025 Insufficient Authentication & Authorization](https://owasp.org/www-project-mcp-top-10/2025/MCP07-2025–Insufficient-Authentication&Authorization) и рисками избыточных полномочий.
+
+#### Инструкции и решения по выполнению
+
+1. Найдите публичные MCP Gateway, используя проверку по правилу [Используйте публичные MCP-серверы только при необходимости](#public-mcp). 
+1. Получите список Tools публичного Gateway: 
+
+   ```bash
+   yc serverless mcp-gateway get --name <gateway-name> --format json 
+   ```
+
+### Используйте публичные MCP-серверы только при необходимости {#public-mcp}
+
+#|
+|| **kind** | **severity** | **ID** ||
+|| automatic | medium | ai.public-mcp ||
+|#
+
+#### Описание
+
+**Как работает правило**: проверятся, является ли публичным созданный MCP-сервер
+
+MCP Gateway должен быть приватным по умолчанию. Публичный доступ расширяет поверхность атаки и создает риск несанкционированного вызова Tools и агентской логики. Особенно опасна привязка к публичной группе [`allUsers`](../../iam/concepts/access-control/public-group.md#allUsers) с ролью `serverless.mcpGateways.anonymousInvoker`, так как она разрешает анонимный вызов MCP Gateway.
+
+Доступ на группу [`allAuthenticatedUsers`](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers) с ролью, позволяющей вызывать ресурс или сервис, также считается публичным, хотя и требует аутентификации в Yandex Cloud.
+
+Контроль соответствует [OWASP MCP07:2025 Insufficient Authentication & Authorization](https://owasp.org/www-project-mcp-top-10/2025/MCP07-2025–Insufficient-Authentication&Authorization).
+
+#### Инструкции и решения по выполнению
+
+1. Получите список MCP Gateway: 
+
+   ```bash
+   yc serverless mcp-gateway list --format json 
+   ``` 
+
+1. Для каждого Gateway проверьте доступ на публичную группу: 
+
+   ```bash 
+   yc serverless mcp-gateway list-access-bindings --name <name> --format json 
+   ```
+
+### Не выдавайте привилегированные роли в ИИ-сервисах системным группам и группам с большим количеством субъектов {#system-groups}
+
+#|
+|| **kind** | **severity** | **ID** ||
+|| automatic | medium | ai.system-groups ||
+|#
+
+#### Описание
+
+**Как работает правило**: проверяется наличие [системных групп](../../iam/concepts/access-control/system-group.md) в организации.
+
+Привилегированные AI- и MCP-роли должны выдаваться узким группам только при условии, что они действительно нужны для выполнения конкретной задачи. Особенно опасны `ai.admin`, `ai.editor`, роли для управления моделями, [датасетами](https://aistudio.yandex.ru/docs/ru/ai-studio/security/#datasets-roles), AI Assistant, MCP Gateway и [роли](https://aistudio.yandex.ru/docs/ru/ai-studio/security/#guardrails-roles) для модерации ответов моделей.
+
+Публичные и системные группы для таких ролей недопустимы. Для ролей чтения `viewer` и `auditor` и ролей `*user`риск ниже, но широкая выдача все равно требует пересмотра.
+
+#### Инструкции и решения по выполнению
+
+1. Получите привязки доступа организации: 
+
+   ```bash
+   yc organization-manager organization list-access-bindings --id <org-id> --format json 
+   ``` 
+
+1. Также проверьте привязки на уровне каталога и облака, если AI- и MCP-роли назначаются ниже уровня организации. 
+1. Роли критичного и высокого уровня риска для широких групп: `ai.admin, ai.editor, ai.models.admin, ai.models.editor, ai.datasets.admin, ai.datasets.editor, ai.guardrails.admin, ai.guardrails.editor, ai.assistants.admin, ai.assistants.editor, serverless.mcpGateways.admin, serverless.mcpGateways.editor`. 
+1. Роли среднего риска и потенциально опасные роли для широких групп: `ai.viewer, ai.auditor, ai.models.user, ai.models.viewer, ai.datasets.user, ai.datasets.viewer, ai.guardrails.user, ai.guardrails.viewer, ai.assistants.user, ai.assistants.viewer, ai.languageModels.user, ai.imageGeneration.user, ai.translate.user, ai.vision.user, ai.speechkit-stt.user, ai.speechkit-tts.user, ai.playground.user, serverless.mcpGateways.invoker`. 
+1. Перед внедрением в конкретном тенанте сверяйте имена ролей с актуальным [справочником ролей](../../iam/roles-reference.md). Если роль отсутствует в тенанте, сканер не должен прекращать задание; он должен выдавать сообщение `role not found / not applicable`. 
+1. Для групп получите состав: 
+
+   ```bash
+   yc organization-manager group list-members --group-id <id> --format json 
+   ``` 
+
+1. Публичные и системные группы `allUsers, allAuthenticatedUsers` всегда нарушение для привилегированных ролей. 
+1. Порог широкой группы — параметр стандарта: 
+   * по умолчанию: больше 50 уникальных идентичностей, привязанных к человеку (human subjects); 
+   * для ролей высокого риска `ai.admin, ai.editor, ai.models.admin, ai.models.editor, serverless.mcpGateways.admin, serverless.mcpGateways.editor` — больше 10 идентичностей, привязанных к человеку (human subjects).
+
+   **Решение**: создайте узкую группу с владельцем, процессом одобрения выдачи прав и регулярным пересмотром доступов, перенесите роль на эту группу, удалите назначение прав с широкой группы или публичной группы.
+
+### Секреты, используемые MCP Gateway и Tools, рекомендуется хранить в сервисе Yandex Lockbox {#tool-secrets}
+
+#|
+|| **kind** | **severity** | **ID** ||
+|| automatic | medium | ai.tool-secrets ||
+|#
+
+#### Описание
+
+**Как работает правило**: если в окружении есть ресурсы AI Studio, проверяется, что токены для подключения к Tools хранятся в сервисе [Yandex Lockbox](https://yandex.cloud/ru/services/lockbox).
+
+Секреты, используемые MCP Gateway и Tools, должны храниться в [Yandex Lockbox](https://yandex.cloud/ru/services/lockbox).
+
+Доступ к конфиденциальным данным секрета должен иметь только тот сервисный аккаунт, который действительно выполняет запросы к Tool, и его доступ должен быть ограничен конкретным секретом.
+
+Для [Cloud Functions](../../functions/concepts/index.md) и [Serverless Containers](../../serverless-containers/index.md) следует использовать штатную передачу секретов в runtime-конфигурацию, чтобы в версии функции или ревизии контейнера хранилась ссылка на секрет, а не значение.
+
+Для Workflows секреты не должны передаваться через входные параметры; workflow должен получать содержимое секрета runtime-доступом к Lockbox или через поддерживаемую безопасную интеграцию.
+
+Для внешних HTTP Tools заголовок не должен храниться в незашифрованном виде в конфигурации MCP Gateway.
+
+Контроль соответствует риску [OWASP MCP01:2025 Token Mismanagement and Secret Exposure](https://owasp.org/www-project-mcp-top-10/2025/MCP01-2025-Token-Mismanagement-and-Secret-Exposure).
+
+#### Инструкции и решения по выполнению
+
+1. Получите список MCP Gateway и прикрепленных Tools:
+
+   ```bash
+   yc serverless mcp-gateway list --format json; 
+   ```
+
+1. Для каждого Gateway выполните:
+
+   ```bash
+   yc serverless mcp-gateway get --name <gateway-name> --format json 
+   ```
+
 ### Парольная политика соответствует требованиям стандарта PCI DSS 4.0 {#pci-dss}
 #|
 || **kind** | **severity** | **ID** ||
@@ -1836,7 +2147,7 @@ yc compute instance update <идентификатор_или_имя_ВМ> \
 
 Задайте значение параметра **Время жизни cookie** равным 6 часам (21600 секундам) или меньше.
 
-### Доступ к компонентам Kubernetes ограничен по IP-адресам, портам и протоколам {#network-firewall-scope}
+### Доступ к компонентам Kubernetes ограничен по IP-адресам, портам и протоколам {#k8s-network-firewall-scope}
 
 #|
 || **kind** | **severity** | **ID** ||

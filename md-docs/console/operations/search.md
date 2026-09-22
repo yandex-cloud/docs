@@ -276,15 +276,6 @@
 [Кластер](../../metadata-hub/concepts/metastore.md) | Идентификатор, имя, метки, описание, сервисный аккаунт
 
 
-### Yandex Monitoring {#monitoring}
-
-Тип объекта | Поля
---- | ---
-[Алерт](../../monitoring/concepts/alerting/alert.md) | Идентификатор, имя, описание
-[Дашборд](../../monitoring/concepts/visualization/dashboard.md) | Идентификатор, имя, описание
-[Канал уведомлений](../../monitoring/concepts/alerting/notification-channel.md) | Идентификатор, имя, описание
-
-
 ### Yandex MPP Analytics for PostgreSQL {#mgp}
 
 Тип объекта | Поля

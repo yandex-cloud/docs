@@ -910,7 +910,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
   1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
-  1. На панели сверху нажмите кнопку **Создать L7-балансировщик**.
+  1. Нажмите кнопку **Создать L7-балансировщик**.
   1. В поле **Имя** укажите `canary-balancer`.
   1. В блоке **Сетевые настройки**:
 

@@ -221,7 +221,7 @@
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. На панели слева выберите ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}**.
-  1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.userpools.action_create-userpool }}**.
+  1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.userpools.action_create-userpool }}**.
   1. Задайте имя пула, например `netbird-users`, и при необходимости описание. Имя должно быть уникальным в рамках организации и соответствовать требованиям:
      
      {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}

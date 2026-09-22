@@ -40,7 +40,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Выберите кластер Managed Service for Kubernetes.
-  1. Перейдите на вкладку **Управление узлами**, с ней откроется вкладка **Группы узлов**.
+  1. Перейдите на вкладку **Управление кластером** и выберите раздел **Группы узлов**.
   1. В строке группы узлов нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Получите список доступных версий в поле **Версия Kubernetes**.
 
@@ -472,14 +472,6 @@
 
 ## Обновление группы узлов {#node-group-upgrade}
 
-{% note warning %}
-
-Начиная с Kubernetes версии 1.30 во всех [релизных каналах](../concepts/release-channels-and-updates.md) базовый образ узлов кластера Managed Service for Kubernetes изменен с Ubuntu 20.04 на Ubuntu 22.04. В существующих кластерах и группах узлов версия операционной системы будет повышена в соответствии с выбранным способом обновления.
-
-Особенности и рекомендации по обновлению ОС приведены в разделе [Обновление операционной системы в группе узлов](../concepts/node-os-update.md).
-
-{% endnote %}
-
 ### Настройка автоматического обновления группы узлов {#node-group-auto-upgrade}
 
 Выберите режим автоматического обновления группы узлов Managed Service for Kubernetes и задайте нужный график обновления:
@@ -866,7 +858,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Выберите кластер Managed Service for Kubernetes.
-  1. Перейдите на вкладку **Управление узлами**, с ней откроется вкладка **Группы узлов**.
+  1. Перейдите на вкладку **Управление кластером** и выберите раздел **Группы узлов**.
   1. В строке группы узлов нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В поле **Версия Kubernetes** выберите вариант `Обновить до версии <номер_версии>`.
   1. Нажмите кнопку **Сохранить**.
@@ -1049,7 +1041,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Выберите кластер Managed Service for Kubernetes.
-  1. Перейдите на вкладку **Управление узлами**, с ней откроется вкладка **Группы узлов**.
+  1. Перейдите на вкладку **Управление кластером** и выберите раздел **Группы узлов**.
   1. В строке группы узлов нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В поле **Версия Kubernetes** выберите `Получить последние улучшения и исправления для версии...`.
   1. Нажмите кнопку **Сохранить**.

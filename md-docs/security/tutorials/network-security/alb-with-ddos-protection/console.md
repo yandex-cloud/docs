@@ -601,7 +601,6 @@
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
   1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
-  1. В меню слева выберите **Балансировщики**.
   1. Нажмите кнопку **Создать L7-балансировщик**.
   1. Введите имя балансировщика: `ddos-protect-alb`.
   1. В блоке **Сетевые настройки** выберите сеть `ddos-network` и группу безопасности `ddos-sg-balancer`.

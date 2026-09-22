@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}**.
   1. Выберите роль для пользователя.
-  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 

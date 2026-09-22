@@ -938,7 +938,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали инфраструктуру.
   1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите созданную функцию.
-  1. Откройте вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. Нажмите ![play-fill](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** и посмотрите результат тестирования.
 
       При успешном выполнении запроса состояние функции изменится на `Выполнена`, а ответ функции будет содержать код статуса `200` и ответ модели. Например:
@@ -953,7 +953,7 @@
 - Продвинутый AI-агент {#advanced}
 
   1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите созданную функцию.
-  1. Откройте вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** укажите:
 
       ```json
@@ -979,7 +979,7 @@
 - Агент-переводчик {#complex}
 
   1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите созданную функцию.
-  1. Откройте вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** укажите:
 
       ```json

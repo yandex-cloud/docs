@@ -120,7 +120,7 @@ sudo apt update && sudo apt install --yes mysql-client
      1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
      1. Если роль выдается аккаунту на Яндексе, федеративному аккаунту или локальному пользователю, введите имя пользователя или электронную почту, к которой привязан аккаунт. Если роль выдается сервисному аккаунту, введите его имя или идентификатор. В результатах поиска выберите найденный аккаунт.
      1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-mysql.clusters.connector`.
-     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
   1. Создайте пользователя {{ MY }}:
      1. Выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
@@ -209,7 +209,7 @@ sudo apt update && sudo apt install --yes mysql-client
     1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
     1. Введите электронную почту пользователя, к которой привязан аккаунт.
     1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** и выберите роль `managed-mysql.clusters.connector`.
-    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 1. Создайте пользователя {{ MY }}:
 

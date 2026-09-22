@@ -20,7 +20,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
    1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Select the group, user, or service account you need to grant access to the key pair.
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
-   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+   1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 
@@ -142,7 +142,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
    1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Select the group, user, or service account you need to grant access to the key pair.
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
-   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+   1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 

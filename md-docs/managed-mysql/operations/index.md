@@ -14,6 +14,7 @@
 * [Миграция хостов кластера в другую зону доступности](host-migration.md)
 * [Управление резервными копиями](cluster-backups.md)
 * [Управление доступом к кластеру](cluster-access.md)
+* [Техническое обслуживание](cluster-maintenance.md)
 * [Обновление версии MySQL®](cluster-version-update.md)
 * [Удаление кластера](cluster-delete.md)
 

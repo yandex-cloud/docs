@@ -178,7 +178,7 @@
     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
     1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
     1. Выберите трейл `logsyq`.
-    1. Нажмите **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
+    1. Справа сверху нажмите ![cube](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
     1. Создайте соединение:
         * выберите **{{ ui-key.yacloud.common.resource-acl.label_service-account }}** `bucket-yq-sa`;
         * для остальных параметров оставьте значения по умолчанию.

@@ -1,5 +1,9 @@
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     om-up-userAdmin["organization-manager.userpools.userAdmin"] --> om-up-editor["organization-manager.userpools.editor"]
     om-up-extGroupsViewer["organization-manager.userpools.extGroupsViewer"] --> om-up-extGroupsManager["organization-manager.userpools.extGroupsManager"]

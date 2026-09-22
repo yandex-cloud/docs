@@ -134,7 +134,7 @@ description: Следуя данной инструкции, вы настрои
   1. В открывшемся окне выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к файловому хранилищу.
   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые [роли](../../security/index.md#roles-list).
   1. Добавьте еще роль через кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 

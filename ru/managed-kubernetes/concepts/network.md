@@ -58,6 +58,9 @@ description: При создании кластера {{ k8s }} вы может�
 Например, при [создании кластера](../operations/kubernetes-cluster/kubernetes-cluster-create.md) со следующими параметрами:
 * Туннельный режим не задействован.
 * Диапазон IP-адресов для подов: `10.1.0.0/16`.
+
+  {% include [cluster-multi-cidr-note](../../_includes/managed-kubernetes/cluster-multi-cidr-note.md) %}
+  
 * Диапазон IP-адресов для сервисов: `10.2.0.0/16`.
 * Маска подсети узлов: `24`.
 
