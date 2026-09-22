@@ -257,7 +257,7 @@
 
       1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
       1. На панели слева выберите ![image](../../../../_assets/console-icons/key.svg) **Симметричные ключи** и нажмите на строку с ключом `kuma-key`.
-      1. Перейдите в раздел ![image](../../../../_assets/console-icons/persons.svg) **Права доступа** и нажмите **Назначить роли**.
+      1. Перейдите на вкладку **Права доступа** и нажмите **Назначить роли**.
       1. Выберите сервисный аккаунт `kuma-trail-sa`.
       1. Нажмите ![image](../../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter`.
       1. Нажмите **Сохранить**.
@@ -336,7 +336,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
-  1. Справа сверху нажмите **Создать бакет**.
+  1. Нажмите **Создать бакет**.
   1. В поле **Имя** укажите имя бакета, например `my-audit-logs-for-kuma`.
 
       {% note info %}

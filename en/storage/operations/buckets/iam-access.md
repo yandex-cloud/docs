@@ -22,7 +22,7 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
   1. Select a user from the list or use the user search option.
   1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}**.
   1. Select a role for the user.
-  1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 

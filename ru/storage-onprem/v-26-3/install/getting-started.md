@@ -1,3 +1,8 @@
+---
+title: Проверка установки {{ objstorage-onprem-name }}
+description: Проверка готовности кластера и компонентов {{ objstorage-onprem-name }} после выполнения плейбука Ansible.
+---
+
 # После установки
 
 Перед началом работы убедитесь, что выполнены все предыдущие инструкции:
@@ -6,7 +11,30 @@
 1. [Настроены параметры инсталляции](./setup-install-params.md).
 1. [Выполнены шаги установки](./installation-steps.md).
 
-После завершения указанных инструкций {{ objstorage-onprem-name }} установлен и готов к использованию. Вы можете создать первые тенанты и ключи доступа согласно инструкции по управлению продуктом и использовать S3 API:
+## Проверьте результат установки {#check-installation}
+
+После завершения плейбука Ansible оператор продолжает установку компонентов внутри кластера. Подключитесь к первому мастер-хосту из `inventory.ini` и проверьте состояние:
+
+```bash
+kubectl get nodes
+kubectl get pods -n argocd
+kubectl get pods -n yc-storage-operator
+kubectl get instances.storage.yandex.cloud
+kubectl get updaterequests.storage.yandex.cloud
+```
+
+Дождитесь следующих результатов:
+
+* Все узлы кластера {{ k8s }} перешли в статус `Ready`.
+* Поды ArgoCD и `yc-storage-operator` перешли в статус `Running`.
+* Ресурс `Instance` перешел в статус `ready`.
+* Все ресурсы `UpdateRequest` перешли в статус `Done`.
+
+Если возникли проблемы, обратитесь к статье [{#T}](../troubleshooting/installation-errors.md).
+
+## Начните работу {#start-using}
+
+После проверки {{ objstorage-onprem-name }} готов к использованию. [Создайте тенант](../quickstart.md#create-tenant) и [ключи доступа](../quickstart.md#create-access-key), настройте AWS CLI и выполните запрос к S3 API:
 
 ```bash
 aws --endpoint-url https://s3.onprem.local s3 ls
@@ -18,7 +46,7 @@ aws --endpoint-url https://s3.onprem.local s3 ls
     * [CLI](../../cli-ref/cli_tenants_create.md)
 
 * [Создание учетных данных S3](../quickstart.md#create-access-key)
-    * [CLI](../../cli-ref/cli_service-accounts_create.md)
+    * [CLI](../../cli-ref/cli_access-keys_create.md)
 
 * [Сценарии обслуживания](../operations/index.md)
 * [Использование gRPC API](../api-ref/index.md)

@@ -57,8 +57,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`, [созданный ранее](#create-folder).
-  1. В списке сервисов выберите **Virtual Private Cloud**.
-  1. В правом верхнем углу нажмите **Создать сеть**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
+  1. Нажмите **Создать сеть**.
   1. В поле **Имя** укажите имя сети `data-network`.
 
       Вместе с ней автоматически будут созданы три подсети в разных зонах доступности.
@@ -73,7 +73,7 @@
 
 - Консоль управления {#console}
 
-   1. В каталоге `data-folder` выберите сервис **Virtual Private Cloud**.
+   1. В каталоге `data-folder` [перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
    1. На панели слева выберите ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **Шлюзы**.
    1. Нажмите **Создать** и задайте настройки шлюза:
       1. Введите имя шлюза, например `nat-for-cluster`.
@@ -104,7 +104,7 @@
 - Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
-   1. В списке сервисов выберите **Identity and Access Management**.
+   1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
    1. Нажмите кнопку **Создать сервисный аккаунт**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `sa-for-spark`.
    1. Нажмите **Добавить роль** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):

@@ -184,47 +184,53 @@
 
 В кластере `dataproc-source` создайте тестовую таблицу `countries`:
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. [Перейдите]({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-1. Откройте страницу кластера `dataproc-source`.
-1. Перейдите по ссылке **Zeppelin Web UI** в разделе **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
-1. Выберите **Notebook**, затем ![image](../../../_assets/console-icons/plus.svg) **Create new note**.
-1. В появившемся окне укажите название записи и нажмите кнопку **Create**.
-1. Чтобы выполнить PySpark-задание, вставьте скрипт Python в строку ввода:
+{% list tabs group=instructions %}
 
-    ```python
-    %pyspark
+- Консоль управления {#console}
 
-    from pyspark.sql.types import *
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. Откройте страницу кластера `dataproc-source`.
+  1. Перейдите по ссылке **Zeppelin Web UI** в разделе **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
+  1. Выберите **Notebook**, затем ![image](../../../_assets/console-icons/plus.svg) **Create new note**.
+  1. В появившемся окне укажите название записи и нажмите кнопку **Create**.
+  1. Чтобы выполнить PySpark-задание, вставьте скрипт Python в строку ввода:
+  
+      ```python
+      %pyspark
+  
+      from pyspark.sql.types import *
+  
+      schema = StructType([StructField('Name', StringType(), True),
+      StructField('Capital', StringType(), True),
+      StructField('Area', IntegerType(), True),
+      StructField('Population', IntegerType(), True)])
+  
+      df = spark.createDataFrame([('Австралия', 'Канберра', 7686850, 19731984), ('Австрия', 'Вена', 83855, 7700000)], schema)
+      df.write.mode("overwrite").option("path","s3a://dataproc-bucket/countries").saveAsTable("countries")
+      ```
+  
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/play.svg) **Run all paragraphs** и дождитесь завершения задания.
+  1. Замените в строке ввода Python-код на SQL-запрос:
+  
+      ```sql
+      %sql
+  
+      SELECT * FROM countries;
+      ```
+  
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/play.svg) **Run all paragraphs**.
+  
+      Результат:
+  
+      ```text
+      |   Name    |  Capital |  Area   | Population |
+      | --------- | -------- | ------- | ---------- |
+      | Австралия | Канберра | 7686850 | 19731984   |
+      | Австрия   | Вена     | 83855   | 7700000    |
+      ```
 
-    schema = StructType([StructField('Name', StringType(), True),
-    StructField('Capital', StringType(), True),
-    StructField('Area', IntegerType(), True),
-    StructField('Population', IntegerType(), True)])
-
-    df = spark.createDataFrame([('Австралия', 'Канберра', 7686850, 19731984), ('Австрия', 'Вена', 83855, 7700000)], schema)
-    df.write.mode("overwrite").option("path","s3a://dataproc-bucket/countries").saveAsTable("countries")
-    ```
-
-1. Нажмите кнопку ![image](../../../_assets/console-icons/play.svg) **Run all paragraphs** и дождитесь завершения задания.
-1. Замените в строке ввода Python-код на SQL-запрос:
-
-    ```sql
-    %sql
-
-    SELECT * FROM countries;
-    ```
-
-1. Нажмите кнопку ![image](../../../_assets/console-icons/play.svg) **Run all paragraphs**.
-
-    Результат:
-
-    ```text
-    |   Name    |  Capital |  Area   | Population |
-    | --------- | -------- | ------- | ---------- |
-    | Австралия | Канберра | 7686850 | 19731984   |
-    | Австрия   | Вена     | 83855   | 7700000    |
-    ```
+{% endlist %}
 
 ## Экспортируйте данные {#export-data}
 
@@ -255,50 +261,68 @@
 
 ## Подключите {{ dataproc-name }} к {{ metastore-name }} {#connect}
 
-1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) с параметрами:
+{% list tabs group=instructions %}
 
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `dataproc-s3-sa`.
-    * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — `{{ metastore.integration-version }}`.
-    * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `dataproc-network`.
-    * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}** — `dataproc-subnet`.
-    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `dataproc-security-group`.
+- Консоль управления {#console}
 
-1. [Добавьте в настройки кластера](../../../data-proc/operations/cluster-update.md) `dataproc-target` свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}`.
+  1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) с параметрами:
+  
+      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `dataproc-s3-sa`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — `{{ metastore.integration-version }}`.
+      * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `dataproc-network`.
+      * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}** — `dataproc-subnet`.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `dataproc-security-group`.
+  
+  1. [Добавьте в настройки кластера](../../../data-proc/operations/cluster-update.md) `dataproc-target` свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}`.
+  
+      Чтобы узнать IP-адрес кластера {{ metastore-name }}, в консоли управления выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и в блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.metastore.label_metastore }}**. Для нужного кластера скопируйте значение из колонки **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}**.
 
-    Чтобы узнать IP-адрес кластера {{ metastore-name }}, в консоли управления выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и в блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.metastore.label_metastore }}**. Для нужного кластера скопируйте значение из колонки **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}**.
+{% endlist %}
 
 ## Импортируйте данные {#import-data}
 
-1. Откройте страницу кластера {{ metastore-name }}.
-1. Нажмите кнопку ![image](../../../_assets/console-icons/arrow-down-to-square.svg) **{{ ui-key.yacloud.metastore.action_import }}**.
-1. В открывшемся окне укажите бакет `dataproc-bucket` и файл `metastore_dump.sql`.
-1. Нажмите кнопку **{{ ui-key.yacloud.metastore.dialog.import-export.action_import }}**.
-1. Дождитесь, когда импорт завершится. Статус импорта можно проверить на странице кластера {{ metastore-name }}, в разделе ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}**.
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Откройте страницу кластера {{ metastore-name }}.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/arrow-down-to-square.svg) **{{ ui-key.yacloud.metastore.action_import }}**.
+  1. В открывшемся окне укажите бакет `dataproc-bucket` и файл `metastore_dump.sql`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.metastore.dialog.import-export.action_import }}**.
+  1. Дождитесь, когда импорт завершится. Статус импорта можно проверить на странице кластера {{ metastore-name }}, в разделе ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}**.
+
+{% endlist %}
 
 ## Проверьте результат {#check-result}
 
-1. Откройте страницу кластера `dataproc-target`.
-1. Перейдите по ссылке **Zeppelin Web UI** в разделе **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
-1. Выберите **Notebook**, затем ![image](../../../_assets/console-icons/plus.svg) **Create new note**.
-1. В появившемся окне укажите название записи и нажмите кнопку **Create**.
-1. Отправьте SQL-запрос:
+{% list tabs group=instructions %}
 
-    ```sql
-    %sql
+- Консоль управления {#console}
 
-    SELECT * FROM countries;
-    ```
+  1. Откройте страницу кластера `dataproc-target`.
+  1. Перейдите по ссылке **Zeppelin Web UI** в разделе **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
+  1. Выберите **Notebook**, затем ![image](../../../_assets/console-icons/plus.svg) **Create new note**.
+  1. В появившемся окне укажите название записи и нажмите кнопку **Create**.
+  1. Отправьте SQL-запрос:
+  
+      ```sql
+      %sql
+  
+      SELECT * FROM countries;
+      ```
+  
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/play.svg) **Run all paragraphs**.
+  
+      Результат:
+  
+      ```text
+      |   Name    |  Capital |  Area   | Population |
+      | --------- | -------- | ------- | ---------- |
+      | Австралия | Канберра | 7686850 | 19731984   |
+      | Австрия   | Вена     | 83855   | 7700000    |
+      ```
 
-1. Нажмите кнопку ![image](../../../_assets/console-icons/play.svg) **Run all paragraphs**.
-
-    Результат:
-
-    ```text
-    |   Name    |  Capital |  Area   | Population |
-    | --------- | -------- | ------- | ---------- |
-    | Австралия | Канберра | 7686850 | 19731984   |
-    | Австрия   | Вена     | 83855   | 7700000    |
-    ```
+{% endlist %}
 
 В итоге в кластер `dataproc-target` были импортированы метаданные из кластера `dataproc-source`.
 

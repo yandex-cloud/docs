@@ -33,7 +33,7 @@ https://c-cat0adul1fj0********.rw.mdb.yandexcloud.net/
 
     1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
-    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
+    1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
         1. Выберите метод единого входа **SAML (Security Assertion Markup Language)**.
         1. В поле **Имя** задайте имя создаваемого приложения: `opensearch-app`.
         1. (Опционально) В поле **Описание** задайте описание приложения.
@@ -172,7 +172,7 @@ https://c-cat0adul1fj0********.rw.mdb.yandexcloud.net/
 
         1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
         1. На панели слева выберите ![groups](../../../_assets/console-icons/persons.svg) **Группы**.
-        1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать группу**.
+        1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать группу**.
         1. Задайте название, например, `opensearch-users`. Название группы должно точно соответствовать имени группы пользователей, указанному при сопоставлении с ролью OpenSearch.
         1. Нажмите **Создать группу**.
         1. Добавьте пользователей в группу:

@@ -72,7 +72,8 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **Публичные IP-адреса**. Нажмите кнопку **Зарезервировать публичный IP-адрес**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **Публичные IP-адреса**.
+  1. Нажмите кнопку **Зарезервировать публичный IP-адрес**.
   1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`. Нажмите кнопку **Зарезервировать**.
 
 {% endlist %}

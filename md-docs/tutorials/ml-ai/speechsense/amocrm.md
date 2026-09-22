@@ -50,9 +50,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором был создан сервисный аккаунт.
-  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
-  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
-  1. Выберите сервисный аккаунт `speechsense`.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management** и выберите сервисный аккаунт `speechsense`.
   1. На панели сверху нажмите ![image](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать API-ключ**.
   1. В открывшемся окне в поле **Область действия** выберите [область действия](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.speech-sense.use`.
   1. Нажмите **Создать**.

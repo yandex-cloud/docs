@@ -189,7 +189,7 @@
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
     1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
     1. Выберите трейл `logsyq`.
-    1. Нажмите ![cube](../../../_assets/console-icons/cube.svg) **Обработать в YQ**.
+    1. Справа сверху нажмите ![cube](../../../_assets/console-icons/cube.svg) **Обработать в YQ**.
     1. Создайте соединение:
         * выберите **Сервисный аккаунт** `bucket-yq-sa`;
         * для остальных параметров оставьте значения по умолчанию.

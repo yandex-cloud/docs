@@ -29,7 +29,7 @@ yc managed-kubernetes node-group list
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Выберите кластер Managed Service for Kubernetes.
-  1. Перейдите на вкладку **Управление узлами**, с ней откроется вкладка **Группы узлов**.
+  1. Перейдите на вкладку **Управление кластером** и выберите раздел **Группы узлов**.
   1. В строке группы узлов нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. Подтвердите удаление.
 

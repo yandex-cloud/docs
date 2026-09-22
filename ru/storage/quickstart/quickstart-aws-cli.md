@@ -56,7 +56,7 @@ description: Следуя данной инструкции, вы сможете
       1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
       1. Выберите нужный сервисный аккаунт из списка или воспользуйтесь поиском.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль из списка или воспользуйтесь поиском.
-      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
       Подробнее в документе [{#T}](../../iam/operations/sa/assign-role-for-sa.md).
 

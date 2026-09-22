@@ -60,7 +60,7 @@
 
       1. Включите опцию **Запись логов**.
       1. Выберите или создайте [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, в которую будут записываться логи балансировщика.
-      1. Нажмите **Добавить правило отбрасывания логов** и настройте его [параметры](../../application-load-balancer/concepts/application-load-balancer.md#discard-logs-rules).
+      1. Нажмите **Добавить правило** и настройте его [параметры](../../application-load-balancer/concepts/application-load-balancer.md#discard-logs-rules).
 
   1. Нажмите **Сохранить**.
 

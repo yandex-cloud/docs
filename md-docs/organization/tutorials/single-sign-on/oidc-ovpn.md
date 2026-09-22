@@ -262,7 +262,7 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
 
   1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
-  1. В центре страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
+  1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
       1. Выберите метод единого входа **OIDC (OpenID Connect)**.
       1. В поле **Тип приложения** выберите тип [Web Application](*web_app_type).
          
@@ -416,7 +416,7 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
 
 {% note info %}
 
-Управлять пользователями и группами, добавленными в OIDC-приложение, может пользователь, которому назначена [роль](../../security/index.md#organization-manager-oidcApplications-userAdmin) `organization-manager.oidcApplications.userAdmin` или выше.
+Управлять пользователями и группами, добавленными в OIDC-приложение, может пользователь, которому назначена [роль](../../security/index.md#organization-manager-oauthApplications-userAdmin) `organization-manager.oauthApplications.userAdmin` или выше.
 
 {% endnote %}
 

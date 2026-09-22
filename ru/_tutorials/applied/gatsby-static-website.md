@@ -70,7 +70,7 @@ keywords:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Справа вверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите зарегистрированное вами доменное имя, например `gatsbytest.ru`.
   1. Включите опцию **{{ ui-key.yacloud.storage.form-components.SizeLimitField.field_size-limit-enabled_hPy7f }}** и в появившихся полях задайте размер `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access) **Публичный** для всех операций.
@@ -462,8 +462,8 @@ keywords:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ objstorage-name }}**.
   1. Нажмите на имя необходимого бакета, в данном примере это `gatsbytest.ru`.
-  1. На панели слева выберите ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. В меню сверху выберите **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** выберите сертификат в появившемся списке.

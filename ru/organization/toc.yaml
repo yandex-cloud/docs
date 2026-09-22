@@ -343,6 +343,8 @@ items:
                 href: tutorials/single-sign-on/time/oidc-time.md
           - name: VK Cloud
             href: tutorials/single-sign-on/saml-vk-cloud.md
+          - name: Warpgate
+            href: tutorials/single-sign-on/oidc-warpgate.md
           - name: Zabbix
             href: tutorials/single-sign-on/saml-zabbix.md
           - name: Пассворк

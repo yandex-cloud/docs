@@ -221,7 +221,7 @@ description: Следуя этой инструкции, вы сможете п�
               Чтобы найти нужный аккаунт, введите в это поле адрес почты, к которому привязан аккаунт.
           
           1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-mongodb.clusters.connector`.
-          1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+          1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
       
       1. Создайте пользователя {{ SD }}:
 

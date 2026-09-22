@@ -336,6 +336,8 @@
 
  - [VK Cloud](tutorials/single-sign-on/saml-vk-cloud.md)
 
+ - [Warpgate](tutorials/single-sign-on/oidc-warpgate.md)
+
  - [Zabbix](tutorials/single-sign-on/saml-zabbix.md)
 
  - [Пассворк](tutorials/single-sign-on/saml-passwork.md)

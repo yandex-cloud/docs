@@ -38,6 +38,10 @@
 ## Модуль контроля конфигурации (CSPM) {#cspm}
 
 * [Посмотреть правила контроля безопасности модуля CSPM и их нарушения](cspm/view-rules.md)
+* [Создать пользовательское правило](cspm/create-custom-rule.md)
+* [Редактировать пользовательское правило](cspm/edit-custom-rule.md)
+* [Удалить пользовательское правило](cspm/delete-custom-rule.md)
+* [Проверить окружение на соответствие правилам контроля](cspm/check-environment.md)
 * [Проверить соответствие инфраструктуры стандартам безопасности](cspm/check-compliance.md)
 * [Управлять исключениями из правил контроля безопасности модуля CSPM](cspm/manage-exceptions.md)
 
@@ -54,6 +58,10 @@
 ## Модуль Управление уязвимостями {#vulnerability-management}
 
 * [Активировать модуль Управление уязвимостями (VM)](vulnerability-management/enable-vulnerability-management.md)
+* [Создать расписание сканирований конечных точек в модуле Управление уязвимостями (VM)](vulnerability-management/create-scan-job.md)
+* [Управлять расписанием сканирований конечных точек в модуле Управление уязвимостями (VM)](vulnerability-management/manage-scan-job.md)
+* [Запустить сканирование конечных точек в модуле Управление уязвимостями (VM)](vulnerability-management/run-scan-job.md)
+* [Посмотреть результаты сканирования конечных точек в модуле Управление уязвимостями (VM)](vulnerability-management/view-scan-results.md)
 * [Работать с дашбордом модуля Управление уязвимостями (VM)](vulnerability-management/use-vulnerability-management.md)
 
 ## Пользовательские наборы правил {#custom-rules-sets}

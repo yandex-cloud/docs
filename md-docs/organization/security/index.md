@@ -72,7 +72,11 @@
 С помощью сервисных ролей для управления использованием сервиса [Yandex Identity Hub](#organization-manager-idpInstances-billingViewer) вы можете управлять доступом к данным пользователей о подписке на платные возможности и статистике использования квот сервиса.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     
     om-passportUserAdmin["organization-manager.passportUserAdmin"] --> om-admin["organization-manager.admin"]
@@ -86,7 +90,6 @@ flowchart BT
     subgraph osLogins
     om-osl-viewer["organization-manager.osLogins.viewer"] --> om-osl-admin["organization-manager.osLogins.admin"]
     end;
-
 
     om-auditor["organization-manager.auditor"] ---> om-viewer ---> om-editor["organization-manager.editor"] --> om-admin
     om-admin --> om-owner["organization-manager.organizations.owner"]
@@ -105,7 +108,11 @@ flowchart BT
 С помощью сервисных ролей [федераций удостоверений](#organization-manager-federations-extGroupsViewer) вы можете управлять доступом пользователей к федерациям и их настройкам, а также к группам пользователей, привязанных к федерациям из внешних источников.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     om-fed-extGroupsViewer["organization-manager.federations.extGroupsViewer"] --> om-fed-extGroupsCleaner["organization-manager.federations.extGroupsCleaner"]
     om-fed-extGroupsViewer --> om-fed-extGroupsManager["organization-manager.federations.extGroupsManager"]
@@ -131,7 +138,11 @@ flowchart BT
 С помощью сервисных ролей [групп пользователей](#organization-manager-groups-viewer) вы можете управлять доступом к группам и их настройкам, а также к действиям над пользователями и сервисными аккаунтами, входящими в группы.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     om-gr-viewer["organization-manager.groups.viewer"] --> om-auditor["organization-manager.auditor"]
     om-gr-viewer --> om-gr-editor["organization-manager.groups.editor"]
@@ -152,7 +163,11 @@ flowchart BT
 С помощью сервисных ролей [OIDC-приложений](#organization-manager-oauthApplications-auditor) вы можете управлять доступом к OIDC-приложениям, их настройкам и действиям со списком добавленных в приложения пользователей.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     om-oa-userAdmin["organization-manager.oauthApplications.userAdmin"] --> om-oa-admin["organization-manager.oauthApplications.admin"]
     om-oa-viewer["organization-manager.oauthApplications.viewer"] --> om-oa-editor["organization-manager.oauthApplications.editor"]
@@ -171,7 +186,11 @@ flowchart BT
 С помощью сервисных ролей [SAML-приложений](#organization-manager-samlApplications-auditor) вы можете управлять доступом к SAML-приложениям и их настройкам, а также к просмотру добавленных в них пользователей.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     om-sa-viewer["organization-manager.samlApplications.viewer"] --> om-viewer["organization-manager.viewer"]
     om-sa-viewer --> om-sa-editor["organization-manager.samlApplications.editor"]
@@ -190,7 +209,11 @@ flowchart BT
 С помощью сервисных ролей [пулов пользователей](#organization-manager-userpools-extGroupsViewer) вы можете управлять доступом к пулам и их настройкам, действиям с входящими в них локальными пользователями, внешними группами и синхронизацией пользователей.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     om-up-userAdmin["organization-manager.userpools.userAdmin"] --> om-up-editor["organization-manager.userpools.editor"]
     om-up-extGroupsViewer["organization-manager.userpools.extGroupsViewer"] --> om-up-extGroupsManager["organization-manager.userpools.extGroupsManager"]

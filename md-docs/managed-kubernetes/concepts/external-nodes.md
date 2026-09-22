@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-Managed Service for Kubernetes позволяет подключать в качестве узлов [кластера Kubernetes](index.md#kubernetes-cluster) серверы, расположенные вне Yandex Cloud.
+Managed Service for Kubernetes позволяет подключать в качестве внешних узлов [кластера Kubernetes](index.md#kubernetes-cluster) серверы, расположенные вне Yandex Cloud.
 
 ## Требования для подключения внешних узлов к кластеру {#requirements}
 

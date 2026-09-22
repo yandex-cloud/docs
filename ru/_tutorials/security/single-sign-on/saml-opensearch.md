@@ -31,7 +31,7 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
 
     1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
+    1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
         1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}**.
         1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `opensearch-app`.
         1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
@@ -166,7 +166,7 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
 
         1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
         1. На панели слева выберите ![groups](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
-        1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.entity.group.action_create }}**.
+        1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.entity.group.action_create }}**.
         1. Задайте название, например, `opensearch-users`. Название группы должно точно соответствовать имени группы пользователей, указанному при сопоставлении с ролью {{ OS }}.
         1. Нажмите **{{ ui-key.yacloud_org.groups.action_create-group }}**.
         1. Добавьте пользователей в группу:

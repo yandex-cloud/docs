@@ -86,7 +86,7 @@ Extend: Yandex Cloud Stackland автоматически подготавлив
 
 Создание и подготовка серверов занимают некоторое время. Когда кластер будет готов, откройте его страницу в подразделе **Extend: Yandex Cloud Stackland**. На странице отображаются узлы, их роли, конфигурации, приватные IP-адреса и бастионный хост.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Extend: Yandex Cloud Stackland](../../concepts/extend/stackland.md)
 * [Подготовка к работе с Stackland](../../../stackland/quickstart.md#prerequisites)

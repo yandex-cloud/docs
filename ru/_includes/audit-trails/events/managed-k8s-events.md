@@ -9,6 +9,7 @@
 `DeleteStoppedCluster` | Удаление остановленного кластера
 `marketplace.v1.InstallHelmRelease` | Установка приложения из {{ marketplace-name }} с помощью Helm-чарта
 `marketplace.v1.UninstallHelmRelease` | Удаление приложения, установленного из {{ marketplace-name }} с помощью Helm-чарта
+`marketplace.v1.UpdateClusterSettings` | Изменение настроек [сбора статистики](../../../managed-kubernetes/operations/applications/marketplace.md#statics) использования приложений в кластере
 `marketplace.v1.UpdateHelmRelease` | Обновление приложения, установленного из {{ marketplace-name }} с помощью Helm-чарта
 `ScaleMaster` | Масштабирование основного узла
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру

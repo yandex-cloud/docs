@@ -15,7 +15,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Выберите кластер Managed Service for Kubernetes.
-  1. Перейдите на вкладку **Управление узлами**.
+  1. Перейдите на вкладку **Управление кластером** и выберите раздел **Группы узлов**.
 
 - CLI {#cli}
 
@@ -52,7 +52,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Выберите кластер Managed Service for Kubernetes.
-  1. Перейдите на вкладку **Управление узлами**.
+  1. Перейдите на вкладку **Управление кластером** и выберите раздел **Группы узлов**.
   1. Нажмите на имя группы узлов.
 
   Чтобы посмотреть информацию об отдельном узле группы, перейдите на вкладку **Узлы** и выберите нужный узел. {#get-node}

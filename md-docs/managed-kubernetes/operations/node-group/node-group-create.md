@@ -3,28 +3,28 @@
 # Создание группы узлов
 
 
-[Группа узлов](../../concepts/index.md#node-group) — это группа виртуальных машин с одинаковой конфигурацией в [кластере Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster), на которых запускаются пользовательские контейнеры.
+Эта инструкция описывает создание [облачной группы узлов](../../concepts/index.md#node-group) — группы виртуальных машин с одинаковой конфигурацией в [кластере Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster), на которых запускаются пользовательские контейнеры.
 
-Перед тем как создавать группу узлов, [создайте](../kubernetes-cluster/kubernetes-cluster-create.md) кластер Managed Service for Kubernetes и убедитесь, что в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) достаточно [свободных ресурсов](../../concepts/limits.md).
+Чтобы использовать физические серверы, [создайте группу узлов на серверах BareMetal](../baremetal-group/create-baremetal.md) или [подключите внешние узлы](../external-nodes-connect.md).
 
-{% note warning %}
+## Перед началом работы {#before-you-begin}
 
-Начиная с Kubernetes версии 1.30 во всех [релизных каналах](../../concepts/release-channels-and-updates.md) базовый образ узлов кластера Managed Service for Kubernetes изменен с Ubuntu 20.04 на Ubuntu 22.04. В существующих кластерах и группах узлов версия операционной системы будет повышена в соответствии с выбранным способом обновления.
+1. [Создайте кластер](../kubernetes-cluster/kubernetes-cluster-create.md) Managed Service for Kubernetes.
+1. Убедитесь, что в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) достаточно [свободных ресурсов](../../concepts/limits.md) для создания группы узлов.
 
-Особенности и рекомендации по обновлению ОС приведены в разделе [Обновление операционной системы в группе узлов](../../concepts/node-os-update.md).
-
-{% endnote %}
+## Создать группу узлов {#create-node-group}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   Чтобы создать [группу узлов Managed Service for Kubernetes](../../concepts/index.md#node-group):
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан [кластер Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster).
+  
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Выберите кластер Managed Service for Kubernetes, для которого необходимо создать группу узлов.
-  1. На странице кластера Managed Service for Kubernetes перейдите на вкладку **Управление узлами**.
-  1. Нажмите кнопку **Создать группу узлов**.
+  1. Выберите кластер Managed Service for Kubernetes.
+  1. На странице кластера Managed Service for Kubernetes перейдите на вкладку **Управление кластером** и выберите раздел **Группы узлов**.
+  1. Нажмите кнопку **Создать группу узлов**. Если открылось меню выбора типа группы, выберите ![cloud](../../../_assets/console-icons/cloud.svg) **Облачную**.
   1. Введите имя и описание группы узлов Managed Service for Kubernetes.
   1. В поле **Версия Kubernetes** выберите версию Kubernetes для узлов Managed Service for Kubernetes.
   1. В поле **Среда запуска контейнеров** выберите `containerd`.

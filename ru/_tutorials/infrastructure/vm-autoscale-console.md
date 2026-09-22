@@ -163,7 +163,7 @@
 
      1. Откройте [консоль управления]({{ link-console-main }}).
      1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-     1. Откройте вкладку **Группы безопасности**.
+     1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
      1. Создайте группу безопасности для балансировщика:
         1. Нажмите кнопку **Создать группу**.
         1. Укажите **Имя** группы: `sg-autoscale`.

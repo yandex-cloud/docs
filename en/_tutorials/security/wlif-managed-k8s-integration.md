@@ -205,7 +205,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
       1. Select the service account you created earlier.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `{{ roles-lockbox-payloadviewer }}` [role](../../lockbox/security/index.md#lockbox-payloadViewer).
-      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
     - CLI {#cli}
 

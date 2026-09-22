@@ -76,6 +76,8 @@ HTTP API продукта совместим с API AWS S3, то есть для
 
  - [После установки](v-26-3/install/getting-started.md)
 
+ - [Устранение неисправностей при установке](v-26-3/troubleshooting/installation-errors.md)
+
  - [Управление продуктом](v-26-3/quickstart.md)
 
 ### Сценарии обслуживания
@@ -97,8 +99,6 @@ HTTP API продукта совместим с API AWS S3, то есть для
  - [Обновление сертификатов](v-26-3/operations/update-certificates.md)
 
 ### Поиск и устранение неисправностей
-
- - [Устранение неисправностей при установке](v-26-3/troubleshooting/installation-errors.md)
 
  - [Алгоритмы решения проблем](v-26-3/troubleshooting/problem-solving-algorithms.md)
 

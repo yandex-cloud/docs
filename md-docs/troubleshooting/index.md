@@ -296,30 +296,6 @@
 
  - [Как делегировать домен на серверы Cloud DNS](dns/how-to/delegate-public-zone.md)
 
-## Cloud Functions
-
- - [Все решения для Cloud Functions](functions/index.md)
-
- - [Решения для известных проблем Cloud Functions](functions/known-issues/index.md)
-
- - [Устранение ошибки `CORS` при обращении к API SpeechKit, Vision OCR или Translate из фронтенда веб-приложения](functions/known-issues/cors-error-when-querying-api-fron-webapp-frontend.md)
-
- - [Устранение ошибок с HTTP 499 при работе облачной функции или контейнера Serverless Containers](functions/known-issues/errors-499-in-function-or-container-logs.md)
-
- - [Устранение ошибки `No node can serve the request (Too many reschedules)`](functions/known-issues/too-many-reschedules.md)
-
- - [Устранение ошибки `No node can serve the request (concurrent requests exceeded)`](functions/known-issues/concurrent-request-quota-exceeded.md)
-
- - [Устранение ошибки Permission denied при создании новых ресурсов](functions/known-issues/permission-denied-when-creating-new-resources.md)
-
- - [Примеры конфигураций и сценариев Cloud Functions](functions/how-to/index.md)
-
- - [Как подключиться к функции из MDB](functions/how-to/accessing-function-from-mdb.md)
-
- - [Как настроить статический IP-адрес](functions/how-to/static-ip-address.md)
-
- - [Как работать с облачными функциями асинхронно](functions/how-to/async-functions-invokes.md)
-
 ## Identity and Access Management
 
  - [Все решения для IAM](iam/index.md)

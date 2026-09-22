@@ -154,7 +154,7 @@ The steps for assigning a role for a billing account depend on whether the billi
 
      1. Select a user, service account, or user group. Use the search bar if needed.
      1. Click ![image](../../_assets/create.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role.
-     1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+     1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
   {% note info %}
 
@@ -174,7 +174,7 @@ The steps for assigning a role for a billing account depend on whether the billi
   
       1. Click ![image](../../_assets/create.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}**.
       1. Select a role from the list.
-      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 {% endlist %}
 
@@ -197,7 +197,7 @@ The steps for revoking a role for a billing account depend on whether the billin
   1. In the line with the required user, service account, or group, click ![image](../../_assets/horizontal-ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. In the window that opens:
 
       1. Click ![image](../../_assets/cross.svg) to the right of the role you want to revoke.
-      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**. The role will be revoked.
+      1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**. The role will be revoked.
 
 - Accoounts associated with no organization {#no-organization}
 
@@ -210,7 +210,7 @@ The steps for revoking a role for a billing account depend on whether the billin
   1. In the line with the required user, service account, or group, click ![image](../../_assets/horizontal-ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. In the window that opens:
 
       1. Click ![image](../../_assets/cross.svg) to the right of the role you want to revoke.
-      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**. The role will be revoked.
+      1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**. The role will be revoked.
 
   {% note info %}
 

@@ -37,8 +37,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**, затем **{{ ui-key.yacloud.k8s.cluster.node-groups.label_type-custom }}**.
+  1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** и выберите раздел **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}** и выберите ![server](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.k8s.nodes.button_create-custom-ng }}**.
   1. Введите имя группы узлов {{ managed-k8s-name }}.
   1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_ips }}** укажите [IP-адрес](../../vpc/concepts/address.md) подключаемого сервера, доступный из [облачной сети](../../vpc/concepts/network.md#network) кластера {{ managed-k8s-name }}.
   1. При необходимости нажмите кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-ip }}**, чтобы добавить еще IP-адреса.
@@ -76,7 +76,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**, затем **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** и выберите раздел **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
   1. В строке группы узлов нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Внесите изменения и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -119,7 +119,7 @@ description: Следуя данной инструкции, вы сможете
 
     - Консоль управления {#console}
 
-      1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**, с ней откроется вкладка **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+      1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** и выберите раздел **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
       1. В строке созданной группы узлов нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. В поле **{{ ui-key.yacloud.k8s.node-group.overview.label_secret }}** выберите в выпадающем списке имя созданного секрета.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
@@ -204,7 +204,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+  1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** и выберите раздел **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
   1. Выберите созданную группу узлов {{ managed-k8s-name }} и перейдите на вкладку **{{ ui-key.yacloud.k8s.node-group.overview.label_tab-nodes }}**.
   1. Убедитесь, что созданный узел {{ managed-k8s-name }} имеет статус `Ready`.
   1. Откройте созданный узел и перейдите на вкладку **{{ ui-key.yacloud.k8s.node.overview.label_events }}**.
@@ -235,7 +235,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**, с ней откроется вкладка **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** и выберите раздел **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
   1. В строке созданной группы узлов нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Удалите IP-адреса созданных узлов {{ managed-k8s-name }}.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.

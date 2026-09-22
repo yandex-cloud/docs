@@ -15,6 +15,10 @@ items:
         href: operations/node-connect-oslogin.md
       - name: Обновление {{ k8s }}
         href: operations/update-kubernetes.md
+      - name: >-
+          Настройка маскарадинга в кластерах с несколькими диапазонами
+          IP-адресов подов
+        href: operations/network/manage-ip-masq-agent.md
       - name: Настройка автомасштабирования
         href: operations/autoscale.md
       - name: Подключение {{ TF }}-провайдера {{ k8s }}
@@ -179,6 +183,14 @@ items:
             href: operations/external-nodes-connect-ipsec.md
           - name: Подключение сервера {{ baremetal-name }} как внешнего узла
             href: operations/bms-server-connect.md
+      - name: Работа с группой узлов {{ baremetal-name }}
+        items:
+          - name: Создание группы узлов
+            href: operations/baremetal-group/create-baremetal.md
+          - name: Изменение группы узлов
+            href: operations/baremetal-group/update-baremetal.md
+          - name: Удаление группы узлов
+            href: operations/baremetal-group/delete-baremetal.md
       - name: Работа с объектами {{ k8s }} из консоли управления
         items:
           - name: Подключение к терминалу запущенного контейнера
@@ -374,6 +386,8 @@ items:
             href: concepts/node-group/variables-in-the-template.md
       - name: Сеть в {{ managed-k8s-name }}
         href: concepts/network.md
+      - name: Кластеры с несколькими диапазонами IP-адресов подов
+        href: concepts/cluster-multi-cidr.md
       - name: Сетевые настройки и политики кластера
         href: concepts/network-policy.md
       - name: Автоматическое масштабирование

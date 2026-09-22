@@ -1,18 +1,24 @@
 1. Введите имя правила.
-1. (опционально) Введите описание.
+1. (Опционально) Введите описание.
 1. Задайте приоритет правила. Добавляемое правило будет иметь более высокий приоритет, чем преднастроенные правила.
 
     {% include [preconfigured-rules-priority](./preconfigured-rules-priority.md) %}
 
     Приоритет правил описан в разделе [{#T}](../../smartwebsecurity/concepts/rules.md#rules-order).
 
-1. (опционально) Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)**, если вы хотите только фиксировать информацию о трафике, который соответствует заданным условиям, но не применять к нему никаких действий.
+1. (Опционально) Включите **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)**, чтобы фиксировать информацию о трафике, который соответствует заданным условиям, но не применять к нему никаких действий.
 1. Выберите тип правила:
     * [**{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}**](../../smartwebsecurity/concepts/rules.md#base-rules) — правило, которое по заданным условиям разрешает, запрещает или отправляет трафик в [{{ captcha-full-name }}](../../smartcaptcha/).
     * [**{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}**](../../smartwebsecurity/concepts/rules.md#smart-protection-rules) — правило, которое отправляет трафик на автоматический анализ с помощью алгоритмов машинного обучения и поведенческого анализа. Подозрительные запросы отправляются в {{ captcha-full-name }} для дополнительной верификации.
     * [**{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}**](../../smartwebsecurity/concepts/rules.md#waf-rules) — правило, которое подключает набор правил из профиля WAF. Подозрительные запросы отправляются в {{ captcha-full-name }}.
 
         Для правила WAF выберите или [создайте профиль WAF](../../smartwebsecurity/operations/waf-profile-create.md).
+1. Выберите [режимы защиты](../../smartwebsecurity/concepts/profiles.md#protection-mode), в которых будет действовать правило:
+
+    * **Все режимы** (по умолчанию).
+    * **«Повышенная защита» и «Под атакой»**.
+    * **«Под атакой»**.
+
 1. Выберите [действие](../../smartwebsecurity/concepts/rules.md#rule-action):
     * Для базового правила: 
       * `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}`;

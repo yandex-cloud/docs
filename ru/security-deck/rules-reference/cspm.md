@@ -8,6 +8,24 @@ editable: false
 
 Правила для проверки конфигурации облачных ресурсов.
 
+{% include [ai.api-key-rotation](../../_security-deck-rules/rules/cspm/ai.api-key-rotation.md) %}
+
+{% include [ai.api-key-scopes](../../_security-deck-rules/rules/cspm/ai.api-key-scopes.md) %}
+
+{% include [ai.datasphere-sa-privileges](../../_security-deck-rules/rules/cspm/ai.datasphere-sa-privileges.md) %}
+
+{% include [ai.mcp-sa-duplicate](../../_security-deck-rules/rules/cspm/ai.mcp-sa-duplicate.md) %}
+
+{% include [ai.mcp-sa-privileges](../../_security-deck-rules/rules/cspm/ai.mcp-sa-privileges.md) %}
+
+{% include [ai.public-mcp-tools](../../_security-deck-rules/rules/cspm/ai.public-mcp-tools.md) %}
+
+{% include [ai.public-mcp](../../_security-deck-rules/rules/cspm/ai.public-mcp.md) %}
+
+{% include [ai.system-groups](../../_security-deck-rules/rules/cspm/ai.system-groups.md) %}
+
+{% include [ai.tool-secrets](../../_security-deck-rules/rules/cspm/ai.tool-secrets.md) %}
+
 {% include [access.password-policy.pci-dss](../../_security-deck-rules/rules/cspm/access.password-policy.pci-dss.md) %}
 
 {% include [crypto.leaked-secrets-detection](../../_security-deck-rules/rules/cspm/crypto.leaked-secrets-detection.md) %}

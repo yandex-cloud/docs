@@ -38,7 +38,7 @@ description: Следуя данной инструкции, вы сможете
    1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
    1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к облаку или каталогу.
    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
-   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 
@@ -309,7 +309,7 @@ description: Следуя данной инструкции, вы сможете
    1. Перейдите в раздел ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к ресурсу.
    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
-   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 
@@ -435,7 +435,7 @@ description: Следуя данной инструкции, вы сможете
    1. Перейдите в раздел ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к ресурсу.
    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
-   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 

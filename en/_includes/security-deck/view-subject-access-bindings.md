@@ -4,7 +4,7 @@
 
   1. [Log in]({{ link-passport-login }}) as an organization user with the `organization-manager.viewer` [role](../../organization/security/index.md#organization-manager-viewer) or higher for the organization.
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. In the left-hand panel, select ![person-gear](../../_assets/console-icons/person-gear.svg) **{{ ui-key.yacloud_org.security-center.label_acl-diagnostics }}**.
+  1. In the left-hand panel, select ![person-gear](../../_assets/console-icons/person-gear.svg) **{{ ui-key.yacloud_org.ui.label_access-analyzer_4bfVo }}**.
   1. Click ![person-plus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.page.acl-diagnostics.action_select-subject }}** and in the window that opens:
   
       1. Select the [user](../../overview/roles-and-resources.md#users), [service account](../../iam/concepts/users/accounts.md#sa), [user group](../../organization/concepts/groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md) you need.

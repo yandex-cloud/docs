@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > oauth.OAuthFederationPrivateTlsUpdateCertificate
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > OAuthFederationPrivateTlsUpdateCertificate
 
 # Identity Hub Audit Trails Events: OAuthFederationPrivateTlsUpdateCertificate
 

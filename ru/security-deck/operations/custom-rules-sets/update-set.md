@@ -14,7 +14,7 @@ description: В данном разделе вы узнаете, как в {{ sd
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![seal-check](../../../_assets/console-icons/seal-check.svg) **{{ ui-key.yacloud_org.security-center.label_comp }}**.
   1. В верхней части окна выберите окружение.
-  1. В строке с пользовательским набором правил нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.update }}**.
+  1. В строке с пользовательским набором правил нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_org.actions.edit }}**.
   1. Измените параметры набора.
   1. Нажмите **{{ ui-key.yacloud.common.save-changes }}**.
 

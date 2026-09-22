@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > datalens > platform.CreateRestCatalogNamespace
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > datalens > CreateRestCatalogNamespace
 
 # DataLens Audit Trails Events: CreateRestCatalogNamespace
 

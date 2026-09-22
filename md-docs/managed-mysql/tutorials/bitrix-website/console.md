@@ -336,13 +336,20 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
-1. [Удалите](../../../compute/operations/vm-control/vm-delete.md) ВМ `bitrixwebsite`.
-1. [Удалите](../../operations/cluster-delete.md) кластер БД `BitrixMySQL®`.
 
-Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
-1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud** в вашем каталоге.
-1. Откройте вкладку **Публичные IP-адреса**.
-1. Найдите нужный IP-адрес, нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Удалите](../../../compute/operations/vm-control/vm-delete.md) ВМ `bitrixwebsite`.
+  1. [Удалите](../../operations/cluster-delete.md) кластер БД `BitrixMySQL®`.
+  
+  Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud** в вашем каталоге.
+  1. Откройте вкладку **Публичные IP-адреса**.
+  1. Найдите нужный IP-адрес, нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.
+
+{% endlist %}
 
 #### Полезные ссылки {#see-also}
 

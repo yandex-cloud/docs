@@ -1,5 +1,9 @@
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     om-sa-viewer["organization-manager.samlApplications.viewer"] --> om-viewer["organization-manager.viewer"]
     om-sa-viewer --> om-sa-editor["organization-manager.samlApplications.editor"]

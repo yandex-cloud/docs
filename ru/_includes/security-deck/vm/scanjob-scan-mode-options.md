@@ -1,0 +1,6 @@
+В блоке **{{ ui-key.yacloud_org.security.vm.EndpointScanForm.section_scan_type_title }}** выберите нужный [режим сканирования](../../../security-deck/concepts/vulnerability-management.md#endpoint-scanning-modes):
+
+* `{{ ui-key.yacloud_org.security.vm.EndpointScanForm.scan_type_surface_title }}` — чтобы при сканировании находить дополнительные цели, которые могли быть упущены при базовом анализе поверхности атаки. Подробнее об этом режиме сканирования читайте в разделе [{#T}](../../../security-deck/concepts/vulnerability-management.md#endpoint-advanced-analysis).
+* `{{ ui-key.yacloud_org.security.vm.EndpointScanForm.scan_type_vulnerability_title }}` — чтобы при сканировании выполнять глубокое сигнатурное сканирование и тестирование атак и обнаруживать различные типы уязвимостей и угроз. Подробнее об этом режиме сканирования читайте в разделе [{#T}](../../../security-deck/concepts/vulnerability-management.md#endpoint-deep-scanning).
+
+    (Опционально) Нажмите кнопку **{{ ui-key.yacloud_org.security.vm.EndpointScanForm.action_advanced_modules }}**, чтобы выбрать конкретные модули (методы анализа), которые будут использоваться во время глубокого сканирования на уязвимости.

@@ -466,34 +466,40 @@ service:
 
 blackbox_exporter возвращает бинарный результат проверки: `probe_success` равно `1` при успехе и `0` при неудаче. На основе этой метрики создайте SLO на доступность:
 
-1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева раскройте раздел ![image](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**.
-1. Выберите ![image](../../_assets/console-icons/calculator.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.slo.title }}**.
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
-1. Укажите параметры SLO:
+{% list tabs group=instructions %}
 
-    * **Название** — например, `SLO HTTP Availability 30d`.
-    * **Окно вычисления** — `30d`.
-    * **Задержка вычисления** — `2m`. Значение должно быть больше интервала сбора метрик: при `scrape_interval: 30s` значение `2m` достаточно.
-    * **SLO** — `99.9%`.
-    * **Метод расчета** — `Good Events / Total Events`.
+- Интерфейс {{ monium-name }} {#console}
 
-1. В блоке **Good Events** укажите запрос:
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева раскройте раздел ![image](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**.
+  1. Выберите ![image](../../_assets/console-icons/calculator.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.slo.title }}**.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+  1. Укажите параметры SLO:
+  
+      * **Название** — например, `SLO HTTP Availability 30d`.
+      * **Окно вычисления** — `30d`.
+      * **Задержка вычисления** — `2m`. Значение должно быть больше интервала сбора метрик: при `scrape_interval: 30s` значение `2m` достаточно.
+      * **SLO** — `99.9%`.
+      * **Метод расчета** — `Good Events / Total Events`.
+  
+  1. В блоке **Good Events** укажите запрос:
+  
+      ```js
+      series_sum(
+          {project = "folder__<идентификатор_каталога>", cluster = "production", service = "lemp", probe_type = "http", name = "probe_success"}
+        )
+      ```
+  
+  1. В блоке **Total Events** укажите запрос:
+  
+      ```js
+      series_count(
+          {project = "folder__<идентификатор_каталога>", cluster = "production", service = "lemp", probe_type = "http", name = "probe_success"}
+        )
+      ```
+  
+  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
-    ```js
-    series_sum(
-        {project = "folder__<идентификатор_каталога>", cluster = "production", service = "lemp", probe_type = "http", name = "probe_success"}
-      )
-    ```
-
-1. В блоке **Total Events** укажите запрос:
-
-    ```js
-    series_count(
-        {project = "folder__<идентификатор_каталога>", cluster = "production", service = "lemp", probe_type = "http", name = "probe_success"}
-      )
-    ```
-
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+{% endlist %}
 
 Error Budget рассчитывается автоматически сразу после создания SLO.
 
@@ -507,34 +513,46 @@ Error Budget рассчитывается автоматически сразу 
 
 ### Создайте алерт по остатку Error Budget {#alert-budget-remaining}
 
-1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева раскройте раздел ![image](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**.
-1. Выберите ![image](../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
-1. Нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **SLO**.
-1. Укажите название и уровень алерта, например `Critical` — остаток Error Budget сигнализирует о постепенной деградации.
-1. Выберите SLO, созданный на предыдущем шаге.
-1. В поле **Метод расчета** выберите `Остаток Error Budget`.
-1. Укажите условия срабатывания:
+{% list tabs group=instructions %}
 
-    * **Warning** — `50%`.
-    * **Alarm** — `20%`.
+- Интерфейс {{ monium-name }} {#console}
 
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева раскройте раздел ![image](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**.
+  1. Выберите ![image](../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **SLO**.
+  1. Укажите название и уровень алерта, например `Critical` — остаток Error Budget сигнализирует о постепенной деградации.
+  1. Выберите SLO, созданный на предыдущем шаге.
+  1. В поле **Метод расчета** выберите `Остаток Error Budget`.
+  1. Укажите условия срабатывания:
+  
+      * **Warning** — `50%`.
+      * **Alarm** — `20%`.
+  
+  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+
+{% endlist %}
 
 ### Создайте алерт по скорости расхода Error Budget {#alert-burn-rate}
 
-1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева раскройте раздел ![image](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**.
-1. Выберите ![image](../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
-1. Нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **SLO**.
-1. Укажите название и уровень алерта, например `Disaster` — высокая скорость расхода Error Budget сигнализирует о внезапном инциденте.
-1. Выберите SLO, созданный на предыдущем шаге.
-1. В поле **Метод расчета** выберите `Скорость расхода Error Budget`.
-1. Укажите условия срабатывания:
+{% list tabs group=instructions %}
 
-    * **Warning** — `1%`.
-    * **Alarm** — `2%`.
-    * **Окно вычисления** — `1h`.
+- Интерфейс {{ monium-name }} {#console}
 
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева раскройте раздел ![image](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**.
+  1. Выберите ![image](../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **SLO**.
+  1. Укажите название и уровень алерта, например `Disaster` — высокая скорость расхода Error Budget сигнализирует о внезапном инциденте.
+  1. Выберите SLO, созданный на предыдущем шаге.
+  1. В поле **Метод расчета** выберите `Скорость расхода Error Budget`.
+  1. Укажите условия срабатывания:
+  
+      * **Warning** — `1%`.
+      * **Alarm** — `2%`.
+      * **Окно вычисления** — `1h`.
+  
+  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+
+{% endlist %}
 
 
 ## Настройте SLO на время отклика сервиса {#slo-latency}
@@ -561,43 +579,48 @@ blackbox_exporter измеряет время синтетических про�
 
 ### Создайте SLO на время отклика {#create-slo-latency}
 
-1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева раскройте раздел ![image](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**.
-1. Выберите ![image](../../_assets/console-icons/calculator.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.slo.title }}**.
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
-1. Укажите параметры SLO:
+{% list tabs group=instructions %}
 
-    * **Название** — например, `SLO LATENCY HTTP 30d`.
-    * **Окно вычисления** — `30d`.
-    * **SLO** — `99%`.
-    * **Метод расчета** — `Good Events / Total Events`.
+- Интерфейс {{ monium-name }} {#console}
 
-1. В блоке **Good Events** укажите запрос:
-
-    ```js
-    series_sum(
-      heaviside(
-        ({project="folder__<идентификатор_каталога>", cluster="production", service="lemp", probe_type="http", name="probe_duration_seconds"} * -1) + 0.3
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева раскройте раздел ![image](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**.
+  1. Выберите ![image](../../_assets/console-icons/calculator.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.slo.title }}**.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+  1. Укажите параметры SLO:
+  
+      * **Название** — например, `SLO LATENCY HTTP 30d`.
+      * **Окно вычисления** — `30d`.
+      * **SLO** — `99%`.
+      * **Метод расчета** — `Good Events / Total Events`.
+  
+  1. В блоке **Good Events** укажите запрос:
+  
+      ```js
+      series_sum(
+        heaviside(
+          ({project="folder__<идентификатор_каталога>", cluster="production", service="lemp", probe_type="http", name="probe_duration_seconds"} * -1) + 0.3
+        )
       )
-    )
-    ```
+      ```
+  
+      Где:
+  
+      * `0.3` — порог задержки в секундах, 300 мс.
+      * `heaviside()` — функция, которая отбирает пороговые проверки. Возвращает `1`, если задержка меньше 300 мс, и `0`, если больше.
+  
+      Проверки с задержкой ровно 300 мс учитываются как половина события, что на практике не влияет на расчет SLI.
+  
+  1. В блоке **Total Events** укажите запрос:
+  
+      ```js
+      series_sum(
+        {project="folder__<идентификатор_каталога>", cluster="production", service="lemp", probe_type="http", name="probe_duration_seconds"} * 0 + 1
+      )
+      ```
+  
+  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
-    Где:
-
-    * `0.3` — порог задержки в секундах, 300 мс.
-    * `heaviside()` — функция, которая отбирает пороговые проверки. Возвращает `1`, если задержка меньше 300 мс, и `0`, если больше.
-
-    Проверки с задержкой ровно 300 мс учитываются как половина события, что на практике не влияет на расчет SLI.
-
-1. В блоке **Total Events** укажите запрос:
-
-    ```js
-    series_sum(
-      {project="folder__<идентификатор_каталога>", cluster="production", service="lemp", probe_type="http", name="probe_duration_seconds"} * 0 + 1
-    )
-    ```
-
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
-
+{% endlist %}
 
 ## Используйте системные метрики для диагностики после алерта {#diagnostics}
 

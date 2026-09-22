@@ -24,9 +24,6 @@ links:
   - title: '{{ dns-name }}'
     description: Решения для {{ dns-name }}
     href: dns/
-  - title: '{{ sf-name }}'
-    description: Решения для {{ sf-name }}
-    href: functions/
   - title: '{{ compute-name }}'
     description: Решения для {{ compute-name }}
     href: compute/

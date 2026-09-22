@@ -111,7 +111,7 @@
     1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_org.common.resource-acl.label_invitee-accounts }}**.
     1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `resource-manager.clouds.member`.
-    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 {% endlist %}
 
@@ -140,7 +140,7 @@
 
       {% endnote %}
 
-    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 {% endlist %}
 

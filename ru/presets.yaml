@@ -2858,8 +2858,10 @@ default:
         placeholder:
           account-type-filter: Тип аккаунта
       acl:
+        AclEditDialogNew:
+          action_apply: Сохранить
+          label_title: Выдача доступа
         action:
-          apply: Сохранить
           assign-roles: Назначить роли
           edit-roles: Изменить роли
           revoke-access: Отозвать доступ
@@ -2869,7 +2871,6 @@ default:
           search-subject-placeholder_6nqFf: Имя или e-mail пользователя
           service-accounts: Сервисные аккаунты
           subject: Кому выдать доступ
-          title: Выдача доступа
           user-accounts: Пользовательские аккаунты
         resource-acl:
           label_bindings: Роли
@@ -2891,8 +2892,6 @@ default:
         StockConfigurations: Выбрать из готовых
         type: Тип
         withReserve: Есть
-      cloud:
-        button_save: Сохранить
       fileinput:
         button_attach-file: Прикрепить файл
       helpfeedbackdialog:
@@ -2931,7 +2930,11 @@ default:
           card_title_text: "В\_тексте"
           column_name: Имя
           dialog_select-service-account_create-new-action: Создать новый
+          field_file_name: Имя файла
+          field_service_account: Сервисный аккаунт
           header_scan_result_sensitive_data: Отображение чувствительных данных
+          label_field_bucket: Бакет
+          tab_issues_title: Проверка параметров
       services:
         service_compute: Compute Cloud
       settings:
@@ -3509,6 +3512,8 @@ default:
           label_field-name: Имя
           label_source-info: Информация об источнике
         scan-jobs:
+          action_pause-job_uHH7x: Деактивировать
+          action_resume-job_pXZ4G: Активировать
           field_data-sources: Источники данных
         scan-resource-group:
           button_select_bucket: Выбрать бакет
@@ -4010,7 +4015,6 @@ default:
         kspm:
           title_clusters: Кластеры
           title_dashboard: Дашборд
-        label_acl-diagnostics: Диагностика доступа
         label_alerts: Алерты
         label_comp: Соответствие требованиям
         label_dspm: Контроль данных
@@ -4124,7 +4128,6 @@ default:
             details_button_1ZfAk: Детали
           header_resource_kDJFW: Ресурс
         dspm:
-          action_button-export_pMSM8: Выгрузить
           AnalyticsPage:
             buckets_jwots: Бакеты
             label_download-analytics_8mgG8: Скачать результаты в файл
@@ -4158,16 +4161,12 @@ default:
             title_discovery_kkTCM: v2.0
             title_dspm_xm8pa: v1.0
             title_prefix_iWUEX: 'Интерфейс: '
-          field_bucket-path_5qRqM: Путь в бакете
-          field_file-name_kWRPK: Имя файла
-          field_service-account_rTeXv: Сервисный аккаунт
           infoTypes:
             value_financial-data_kTC5e: Финансовые данные
             value_medical-data-images_7EQ2X: Медицинские данные
             value_other_wUrAZ: Прочее
             value_personal-data_w5gVm: Персональные данные
             value_secrets_4CdGy: Секреты
-          label_field-bucket_3mM6u: Бакет
           label_include_in_scan_discovery_4wwj7: Бакеты
           label_resources_9BVEB: Ресурсы
           ScanForm:
@@ -4176,7 +4175,8 @@ default:
           search-categories_section_title_cPyLn: Категории данных для поиска
           section_settings_title_igA6u: Параметры области
           selected_resources_fbUsF: Выбранные
-          tab_issues_title_hLQN2: Проверка параметров
+          useScanJobRowAction:
+            action_start-job_sT6cv: Запустить сейчас
           Yandex360DataSourceForm:
             action_add_resources_2qrRH: Добавить ресурсы
             action_configure-connection_v6Gjm: Настроить подключение
@@ -4200,6 +4200,8 @@ default:
             section-title_mode: Эффект
             title_audit: Отключить режим блокировки для правила
             title_ignore: Игнорировать правило
+        rules:
+          create_rule_pcNF6: Создать правило
         settings:
           SettingsPageLayout:
             alertSinkLabel_gvxBa: Приёмники алертов
@@ -4252,6 +4254,42 @@ default:
           template_type_local_77J2t: Инстанс
           title_ap766: Сохранить запрос как шаблон
         vm:
+          EndpointScanForm:
+            action_advanced_modules: Продвинутая настройка модулей
+            action_select_resources_pfycc: Выбрать ресурсы
+            action_submit: Создать сканирование
+            addresses_option_ignore_iAJ9J: Игнорировать адреса
+            addresses_option_no_restrictions_ppxAa: Без ограничений
+            label_addresses_uxHGp: Адреса
+            label_resources_t6Wt8: Ресурсы
+            label_schedule: Запуск
+            label_schedule_name: Имя расписания
+            resources_option_all_cAPZE: Все ресурсы
+            resources_option_selected_8L9Ng: Выбранные ресурсы
+            scan_type_surface_title: Расширенный анализ поверхности атаки
+            scan_type_vulnerability_title: Сканирование уязвимостей
+            section_launch_title: Настройки запуска
+            section_scan_type_title: Тип сканирования
+            section_target_group_title_56ieb: Группа целей
+          ScheduleSelect:
+            option_14-days: Каждые 14 дней
+            option_30-days: Каждые 30 дней
+            option_7-days: Каждые 7 дней
+          title_sXtyM: Артефакты с уязвимостями
+          VmArtifactScanResultBody:
+            title_vulnerabilities: Уязвимости
+          VmNewScanButton:
+            action_newScan_ea47W: Новое сканирование
+          VmPageLayout:
+            endpoints_rHSN4: Конечные точки
+            scans_rtzA2: Сканирования
+            scanSchedules_nrR97: Расписания сканирований
+            vulnerabilityManagement_jG6cd: Управление уязвимостями
+          VmScanPageLayout:
+            page_tab_title_info_3uEGR: Информация о сканировании
+            page_tab_title_vulnerabilities_6U9ra: Уязвимости
+          VmScanSchedulePageLayout:
+            page_tab_title_history_5qVRr: История сканирований
           WorkspaceVulnerabilityForm:
             add_image_trigger_title: Поиск уязвимостей при добавлении образов в реестры
             scan_only_latest_title: Сканировать только образы с тегом latest или последние добавленные
@@ -4366,6 +4404,7 @@ default:
           table:
             label_column_ticket_type: Тип обращения
       ui:
+        label_access-analyzer_4bfVo: Access Analyzer
         label_cspm_amGv8: Контроль облачной конфигурации
       user:
         title_groups: Группы
@@ -4668,7 +4707,7 @@ default:
         section_workers: Конфигурация воркеров
       alb:
         button_add-backend: Создать бэкенд
-        button_add-discard-rule: Добавить правило отбрасывания логов
+        button_add-discard-rule: Добавить правило
         button_add-healthcheck: Добавить проверку состояния
         button_add-host-id: Добавить хост
         button_add-listener: Добавить обработчик
@@ -6254,7 +6293,7 @@ default:
         action_delete-backup: Удалить резервную копию
         action_get-backup-link: Получить ссылку
         action_restore-backup: Восстановить инстанс
-        button_configure-data-types: Настроить хранение данных в Object Storage
+        button_configure-data-types: Настроить хранение
         button_create-instance: Создать инстанс
         button_finish-migration: Завершить миграцию
         button_rollback-migration: Отменить миграцию
@@ -6769,6 +6808,7 @@ default:
             label_title: Обзор
             section_master: Конфигурация мастера
           switch_access: Управление доступом
+          switch_cluster-overview: Управление кластером
           switch_configuration: ConfigMap и секреты
           switch_custom-resources: Пользовательские ресурсы
           switch_events: События
@@ -6891,6 +6931,8 @@ default:
         nodes:
           button_action-cordon: Cordon
           button_action-uncordon: Uncordon
+          button_create-custom-ng: Внешнюю
+          button_create-ng: Облачную
           label_node-groups: Группы узлов
           label_nodes: Узлы
         pv:
@@ -7156,7 +7198,7 @@ default:
         action_specify-vm: Привязать виртуальную машину
         action_to-pay-license: Оплатить
         button_continue: Далее
-        button_disallow-analytics-scanning: Запретить Marketplace собирать статистику
+        button_disallow-analytics-scanning: Запретить сбор статистики
         button_k8s-product-use: Перейти к установке
         button_request-access: Запросить доступ
         button_request-access-from-publisher: Запросить доступ у издателя
@@ -8108,6 +8150,10 @@ default:
           label_waf-rule: Web Application Firewall
           title_security-rules: Правила безопасности
           title_waf-profile: Профиль WAF
+        PanicModeLabel:
+          mode-name_green_5oA4f: Нормальный
+          mode-name_red_iPa4X: Под атакой
+          mode-name_yellow_sc1Te: Повышенная защита
         proxy-servers:
           publicIpColumn_dPwQF: Публичный IP
         ProxyServer:
@@ -8121,6 +8167,12 @@ default:
         ProxyServers:
           createProxyServer_jatYQ: Создать прокси-сервер
         SecurityProfileForm:
+          AdaptiveProtectionSection:
+            controlModeAutomatic: Автоматически
+            controlModeManual: Вручную
+            holdLabel: Сохранять текущий режим после снижения нагрузки
+            sectionTitle: Адаптивная защита
+            thresholdLabelBefore: Включать, если входящая нагрузка превышает
           LoggingSection:
             allowPercentageTitle_3334: Сколько не записывать логов с вердиктом ALLOW
             allowTitle_g6CLe: ALLOW
@@ -8392,7 +8444,6 @@ default:
             label_server-logs_mfGpj: Запись логов
             label_target-bucket_jEJ5E: Бакет для хранения логов
           BucketSettingsFormSection:
-            field_description-strict-mode_9cpMe: Доступ только через сервисные подключения VPC
             field_force-cloud-console-access_5bS8y: Доступ из консоли управления
             field_label-strict-mode_2ttnd: Строгий режим
           BucketVersioningFormSection:

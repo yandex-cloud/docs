@@ -4,14 +4,270 @@
 
 Вы можете управлять [техническим обслуживанием](../concepts/maintenance.md) кластера Yandex Managed Service for PostgreSQL.
 
-## Получить список обслуживаний {#list-maintenance}
+## Получить список обслуживаний {#list-maintenances}
 
-  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
+Для сервиса Managed Service for PostgreSQL можно получить список обслуживаний в:
 
-Чтобы просмотреть обслуживания с определенным статусом, нажмите кнопку **Статус** над списком обслуживаний и в выпадающем меню выберите нужный статус. Вы также можете найти обслуживание по его идентификатору или имени задания – используйте поле над списком обслуживаний.
+* [облаке](#list-maintenance-cloud)
+* [каталоге](#list-maintenance-folder)
+* [кластере](#list-maintenance-cluster)
 
-Чтобы получить информацию о [влиянии обслуживания на доступность кластера](../concepts/maintenance.md#impact-on-cluster), нажмите на идентификатор нужного обслуживания. В блоке **Подробнее о задании** отображается информация о влиянии обслуживания на пользователей.
+### Получить список обслуживаний в облаке {#list-maintenance-cloud}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     ```bash
+     export IAM_TOKEN="<IAM-токен>"
+     ```
+
+  1. Воспользуйтесь методом [Maintenance.List](../api-ref/Maintenance/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/maintenances/?cloudId=<идентификатор_облака>'
+     ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+    1. Воспользуйтесь вызовом [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/maintenance_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cloud_id": "<идентификатор_облака>"
+                }' \
+            mdb.api.cloud.yandex.net:443 \
+            yandex.cloud.mdb.postgresql.v1.MaintenanceService.List
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+{% endlist %}
+
+### Получить список обслуживаний в каталоге {#list-maintenance-folder}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     ```bash
+     export IAM_TOKEN="<IAM-токен>"
+     ```
+
+  1. Воспользуйтесь методом [Maintenance.List](../api-ref/Maintenance/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/maintenances/?folderId=<идентификатор_каталога>'
+     ```
+
+     
+     Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+    1. Воспользуйтесь вызовом [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/maintenance_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "folder_id": "<идентификатор_каталога>"
+                }' \
+            mdb.api.cloud.yandex.net:443 \
+            yandex.cloud.mdb.postgresql.v1.MaintenanceService.List
+        ```
+
+        
+        Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+{% endlist %}
+
+### Получить список обслуживаний в кластере {#list-maintenance-cluster}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
+
+    Чтобы просмотреть обслуживания с определенным статусом, нажмите кнопку **Статус** над списком обслуживаний и в выпадающем меню выберите нужный статус. Вы также можете найти обслуживание по его идентификатору или имени задания – используйте поле над списком обслуживаний.
+
+    Чтобы получить информацию о [влиянии обслуживания на доступность кластера](../concepts/maintenance.md#impact-on-cluster), нажмите на идентификатор нужного обслуживания. В блоке **Подробнее о задании** отображается информация о влиянии обслуживания на пользователей.
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     ```bash
+     export IAM_TOKEN="<IAM-токен>"
+     ```
+
+  1. Воспользуйтесь методом [Maintenance.List](../api-ref/Maintenance/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/maintenances/?resourceId=<идентификатор_кластера>'
+     ```
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+    1. Воспользуйтесь вызовом [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/maintenance_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "resource_id": "<идентификатор_кластера>"
+                }' \
+            mdb.api.cloud.yandex.net:443 \
+            yandex.cloud.mdb.postgresql.v1.MaintenanceService.List
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+{% endlist %}
+
+## Получить информацию об обслуживании {#get-maintenance}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     ```bash
+     export IAM_TOKEN="<IAM-токен>"
+     ```
+
+  1. Воспользуйтесь методом [Maintenance.Get](../api-ref/Maintenance/get.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/maintenances/<идентификатор_обслуживания>'
+     ```
+
+     Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenances).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+    1. Воспользуйтесь вызовом [MaintenanceService.Get](../api-ref/grpc/Maintenance/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/maintenance_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "maintenance_id": "<идентификатор_обслуживания>"
+                }' \
+            mdb.api.cloud.yandex.net:443 \
+            yandex.cloud.mdb.postgresql.v1.MaintenanceService.Get
+        ```
+
+        Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenances).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance).
+
+{% endlist %}
 
 ## Получить логи кластера, относящиеся к техническому обслуживанию {#maintenance-logs}
 
@@ -73,40 +329,85 @@
 
 - REST API {#api}
 
-  Чтобы перенести обслуживание на новую дату и время:
+  Перенести запланированное обслуживание можно с помощью одного из методов:
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+  * [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md)
+  * [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md)
+  
+  Чтобы перенести запланированное обслуживание с помощью метода `Cluster.RescheduleMaintenance`:
 
-        ```bash
-        export IAM_TOKEN="<IAM-токен>"
-        ```
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    1. Воспользуйтесь методом [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
 
-        ```bash
-        curl \
-        --request POST \
-        --header "Authorization: Bearer $IAM_TOKEN" \
-        --header "Content-Type: application/json" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
-        --data '{
-                    "rescheduleType": <тип_переноса>,
-                    "delayedUntil": <временная_метка>
-                }'
-        ```
+  1. Выполните запрос, например с помощью [cURL](https://curl.se/):
 
-        Где `rescheduleType` — тип переноса, принимает одно из двух значений:
+      ```bash
+      curl \
+      --request POST \
+      --header "Authorization: Bearer $IAM_TOKEN" \
+      --header "Content-Type: application/json" \
+      --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
+      --data '{
+                  "rescheduleType": <тип_переноса>,
+                  "delayedUntil": <временная_метка>
+              }'
+      ```
 
-          * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно;
-          * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
+      Где `rescheduleType` — тип переноса, принимает одно из двух значений:
 
-        Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `delayedUntil` указывать не нужно.
+      * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно;
+      * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
 
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+      Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `delayedUntil` указывать не нужно.
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
+
+  Чтобы перенести запланированное обслуживание с помощью метода `Maintenance.Reschedule`:
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Выполните запрос, например с помощью [cURL](https://curl.se/):
+
+      ```bash
+      curl \
+      --request POST \
+      --header "Authorization: Bearer $IAM_TOKEN" \
+      --header "Content-Type: application/json" \
+      --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/maintenances/<идентификатор_обслуживания>:reschedule' \
+      --data '{
+                  "rescheduleType": <тип_переноса>,
+                  "scheduledAt": <временная_метка>
+              }'
+      ```
+
+      Где `rescheduleType` — тип переноса, принимает одно из двух значений:
+
+      * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно;
+      * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
+
+      Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `scheduledAt` указывать не нужно.
+
+      Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenances).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
+
+  Перенести запланированное обслуживание можно с помощью одного из вызовов:
+  
+  * [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md)
+  * [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md)
+
+  Чтобы перенести запланированное обслуживание с помощью вызова `ClusterService.RescheduleMaintenance`:
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
@@ -121,34 +422,80 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+  1. Выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "reschedule_type": <тип_переноса>,
+              "delayed_until": <временная_метка>
+            }' \
+        mdb.api.cloud.yandex.net:443 \
+        yandex.cloud.mdb.postgresql.v1.ClusterService.RescheduleMaintenance
+      ```
+
+      Где `reschedule_type` — тип переноса, принимает одно из двух значений:
+
+      * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно;
+      * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
+
+      Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `delayed_until` указывать не нужно.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
+
+  Чтобы перенести запланированное обслуживание с помощью вызова `MaintenanceService.Reschedule`:
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
      ```bash
-     grpcurl \
-       -format json \
-       -import-path ~/cloudapi/ \
-       -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
-       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-       -d '{
-             "cluster_id": "<идентификатор_кластера>",
-             "reschedule_type": <тип_переноса>,
-             "delayed_until": <временная_метка>
-           }' \
-       mdb.api.cloud.yandex.net:443 \
-       yandex.cloud.mdb.postgresql.v1.ClusterService.RescheduleMaintenance
+     export IAM_TOKEN="<IAM-токен>"
      ```
 
-     Где `reschedule_type` — тип переноса, принимает одно из двух значений:
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-        * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно;
-        * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
+  1. Выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
-     Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `delayed_until` указывать не нужно.
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "maintenance_id": "<идентификатор_обслуживания>",
+              "reschedule_type": <тип_переноса>,
+              "scheduled_at": <временная_метка>
+            }' \
+        mdb.api.cloud.yandex.net:443 \
+        yandex.cloud.mdb.postgresql.v1.MaintenanceService.Reschedule
+      ```
 
-     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+      Где `reschedule_type` — тип переноса, принимает одно из двух значений:
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.postgresql.v1.Cluster).
+      * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно;
+      * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
+
+      Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `scheduled_at` указывать не нужно.
+
+      Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenances).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -194,32 +541,69 @@
 
 - REST API {#api}
 
-  Чтобы провести запланированное обслуживание кластера немедленно:
+  Провести запланированное обслуживание немедленно можно с помощью одного из методов:
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+  * [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md)
+  * [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md)
+  
+  Чтобы провести запланированное обслуживание немедленно с помощью метода `Cluster.RescheduleMaintenance`:
 
-        ```bash
-        export IAM_TOKEN="<IAM-токен>"
-        ```
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    1. Воспользуйтесь методом [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+     ```bash
+     export IAM_TOKEN="<IAM-токен>"
+     ```
 
-        ```bash
-        curl \
-        --request POST \
-        --header "Authorization: Bearer $IAM_TOKEN" \
-        --header "Content-Type: application/json" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
-        --data '{
-                    "rescheduleType": "IMMEDIATE"
-                }'
-        ```
+  1. Выполните запрос, например с помощью [cURL](https://curl.se/):
 
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     ```bash
+     curl \
+     --request POST \
+     --header "Authorization: Bearer $IAM_TOKEN" \
+     --header "Content-Type: application/json" \
+     --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
+     --data '{
+                 "rescheduleType": "IMMEDIATE"
+             }'
+     ```
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
+
+  Чтобы провести запланированное обслуживание немедленно с помощью метода `Maintenance.Reschedule`:
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     ```bash
+     export IAM_TOKEN="<IAM-токен>"
+     ```
+
+  1. Выполните запрос, например с помощью [cURL](https://curl.se/):
+
+      ```bash
+      curl \
+      --request POST \
+      --header "Authorization: Bearer $IAM_TOKEN" \
+      --header "Content-Type: application/json" \
+      --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/maintenances/<идентификатор_обслуживания>:reschedule' \
+      --data '{
+                  "rescheduleType": "IMMEDIATE"
+              }'
+      ```
+
+      Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenances).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
+
+  Провести запланированное обслуживание немедленно можно с помощью одного из вызовов:
+  
+  * [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md)
+  * [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md)
+
+  Чтобы провести запланированное обслуживание немедленно с помощью вызова `ClusterService.RescheduleMaintenance`:
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
@@ -234,7 +618,8 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+  1. Выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -253,7 +638,44 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.postgresql.v1.Cluster).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
+
+  Чтобы провести запланированное обслуживание немедленно с помощью вызова `MaintenanceService.Reschedule`:
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     ```bash
+     export IAM_TOKEN="<IAM-токен>"
+     ```
+
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+
+  1. Выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/maintenance_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "maintenance_id": "<идентификатор_обслуживания>",
+             "reschedule_type": "IMMEDIATE"
+           }' \
+       mdb.api.cloud.yandex.net:443 \
+       yandex.cloud.mdb.postgresql.v1.MaintenanceService.Reschedule
+     ```
+
+     Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenances).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -412,7 +834,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      {% note warning %}
      
@@ -470,7 +892,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      {% note warning %}
      

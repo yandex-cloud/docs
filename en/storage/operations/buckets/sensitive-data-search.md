@@ -112,10 +112,10 @@ The {{ objstorage-name }} UI allows you to scan individual buckets for sensitive
   1. Click ![image](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageActions.button_more_sGEBS }}** → **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_export_gQ8rM }}**.
   1. In the window that opens, set the export settings:
 
-      * In the **{{ ui-key.yacloud_org.security.dspm.label_field-bucket_3mM6u }}** field, select the bucket to save the results to.
-      * In the **{{ ui-key.yacloud_org.security.dspm.field_bucket-path_5qRqM }}** field, set the [prefix](../../concepts/object.md#folder) of the object to save the results to.
-      * In the **{{ ui-key.yacloud_org.security.dspm.field_file-name_kWRPK }}** field, specify the name of the file to save the results to. The file will automatically get the `.csv` extension.
-      * In the **{{ ui-key.yacloud_org.security.dspm.field_service-account_rTeXv }}** field, select the service account with the `storage.uploader` [role](../../../iam/concepts/access-control/roles.md) for the selected bucket and `kms.keys.encrypter` for the [encryption key](../../../kms/concepts/key.md), if the bucket is [encrypted](../../concepts/encryption.md).
+      * In the **{{ ui-key.yacloud_components.security.dspm.label_field_bucket }}** field, select the bucket to save the results to.
+      * In the **Path to bucket** field, set the [prefix](../../concepts/object.md#folder) of the object to save the results to.
+      * In the **{{ ui-key.yacloud_components.security.dspm.field_file_name }}** field, specify the name of the file to save the results to. The file will automatically get the `.csv` extension.
+      * In the **{{ ui-key.yacloud_components.security.dspm.field_service_account }}** field, select the service account with the `storage.uploader` [role](../../../iam/concepts/access-control/roles.md) for the selected bucket and `kms.keys.encrypter` for the [encryption key](../../../kms/concepts/key.md), if the bucket is [encrypted](../../concepts/encryption.md).
       * Under **{{ ui-key.yacloud_components.security.dspm.header_scan_result_sensitive_data }}**, specify how to display names, contact information, and other personal data.
       * Click **{{ ui-key.yacloud_components.security.dspm.action_export }}** to export the parameter check results.
 

@@ -433,6 +433,14 @@
 
   ![report-page](../../_assets/datalens/report/preview-presentation.png)
 
+  Для чартов [Таблица](../visualization-ref/table-chart.md#additional-settings) и [Сводная таблица](../visualization-ref/pivot-table-chart.md#pagination) с включенной пагинацией отображаются кнопки навигации.
+
+  {% cut "Предпросмотр таблицы с пагинацией в формате презентации" %}
+
+  ![report-page](../../_assets/datalens/report/preview-presentation-pagination.png)
+
+  {% endcut %}
+
 Чтобы выйти из режима предпросмотра, нажмите кнопку **Закрыть** вверху экрана или **Esc** на клавиатуре.
 
 ## Экспортировать отчет {#report-export}

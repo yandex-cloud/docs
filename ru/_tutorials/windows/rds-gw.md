@@ -129,7 +129,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 - Консоль управления {#console}
 
    1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется создать группу безопасности.
-   1. Откройте вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_title }}**.
+   1. На панели слева выберите **{{ ui-key.yacloud.vpc.network.security-groups.label_title }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. Введите имя группы безопасности `my-rdgw-sg`.
    1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть, которой будет назначена группа безопасности — `rdgw-network`.

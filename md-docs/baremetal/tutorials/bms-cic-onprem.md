@@ -69,7 +69,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать инфраструктуру.
-  1. В списке сервисов выберите **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. Создайте виртуальный сегмент сети:
 
         1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF** и нажмите кнопку **Создать VRF**.
@@ -293,7 +293,7 @@ IP-префиксы on-premises поступают в виртуальный м�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали инфраструктуру.
-  1. В списке сервисов выберите **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. В строке с сервером `server-m3` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **KVM-консоль**.
   
       Откроется окно с терминалом KVM-консоли, в котором вы увидите строку аутентификации:
@@ -356,7 +356,7 @@ ping <приватный_IP-адрес_сервера> -c 5
     - Консоль управления {#console} 
     
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали инфраструктуру.
-      1. В списке сервисов выберите **BareMetal**.
+      1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
       1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF** и выберите виртуальный сегмент сети `my-vrf`.
       1. В блоке **Приватное соединение с облачными сетями** нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![CircleXmark](../../_assets/console-icons/circle-xmark.svg) **Отключить соединение**.
       1. В открывшемся окне подтвердите удаление.

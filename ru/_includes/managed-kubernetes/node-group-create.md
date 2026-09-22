@@ -1,9 +1,10 @@
 Чтобы создать [группу узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group):
-1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+
+1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
 1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Выберите кластер {{ managed-k8s-name }}, для которого необходимо создать группу узлов.
-1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
+1. Выберите кластер {{ managed-k8s-name }}.
+1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** и выберите раздел **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**. Если открылось меню выбора типа группы, выберите ![cloud](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud.k8s.nodes.button_create-ng }}**.
 1. Введите имя и описание группы узлов {{ managed-k8s-name }}.
 1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** выберите версию {{ k8s }} для узлов {{ managed-k8s-name }}.
 1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_container-runtime }}** выберите `{{ ui-key.yacloud.k8s.node-groups.create.label_runtime-CONTAINERD }}`.

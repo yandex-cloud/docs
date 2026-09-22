@@ -255,8 +255,8 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер Managed Service for Kubernetes.
     1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-    1. Выберите нужный кластер.
-    1. Слева выберите ![image](../../../../_assets/console-icons/timestamps.svg) **Сервисы и Ingress**, а в правой части — вкладку **Ingresses**. Для вашего `Ingress`-ресурса в столбце **Балансировщик** перейдите по ссылке на L7-балансировщик.
+    1. Выберите нужный кластер. 
+    1. Перейдите на вкладку **Сервисы и Ingress**, а затем — на вкладку **Ingresses**. Для вашего `Ingress`-ресурса в столбце **Балансировщик** перейдите по ссылке на L7-балансировщик.
     1. Наблюдайте за пользовательской нагрузкой, поступающей на L7-балансировщик, на графиках [статистики работы балансировщика](../../../../application-load-balancer/operations/application-load-balancer-get-stats.md).
 
 1. Удалите освободившийся статический публичный IP-адрес, который был зарезервирован для L7-балансировщика.
@@ -278,7 +278,7 @@
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер Managed Service for Kubernetes.
     1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
     1. Выберите нужный кластер.
-    1. Слева выберите ![image](../../../../_assets/console-icons/timestamps.svg) **Сервисы и Ingress**, а в правой части — вкладку **Ingresses**. Для вашего `Ingress`-ресурса в столбце **Балансировщик** перейдите по ссылке на L7-балансировщик.
+    1. Перейдите на вкладку **Сервисы и Ingress** и выберите **Ingresses**. Для вашего `Ingress`-ресурса в столбце **Балансировщик** перейдите по ссылке на L7-балансировщик.
     1. Наблюдайте за пользовательской нагрузкой, поступающей на L7-балансировщик, на графиках [статистики работы балансировщика](../../../../application-load-balancer/operations/application-load-balancer-get-stats.md).
 
 1. Наблюдайте за снижением нагрузки на сетевой балансировщик с помощью [метрик балансировщика](../../../../monitoring/metrics-ref/network-load-balancer-ref.md) `processed_bytes` и `processed_packets`. Для визуализации этих метрик можно [создать дашборд](../../../../monitoring/operations/dashboard/create.md). Если нагрузка на сетевом балансировщике долгое время отсутствует, то перенос на L7-балансировщик завершен.
