@@ -752,16 +752,6 @@ items:
       - name: Sample {{ monitoring-name }} configurations and use cases
         href: monitoring/how-to/index.md
         hidden: true
-  - name: '{{ serverless-containers-name }}'
-    items:
-      - name: All solutions for {{ serverless-containers-name }}
-        href: serverless-containers/index.md
-      - name: Solutions for known {{ serverless-containers-name }} issues
-        href: serverless-containers/known-issues/index.md
-        hidden: true
-      - name: Sample {{ serverless-containers-name }} configurations and use cases
-        href: serverless-containers/how-to/index.md
-        hidden: true
   - name: '{{ captcha-name }}'
     items:
       - name: All solutions for {{ captcha-name }}

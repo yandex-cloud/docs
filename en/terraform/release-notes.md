@@ -4,6 +4,27 @@ description: Changelog, updates, and version history for the {{ yandex-cloud }} 
 editable: false
 ---
 
+## 0.229.0 (September 22, 2026)
+
+##### FEATURES:
+* trino: add event_listeners.data_catalog support to the cluster resource and data source
+* alb: added `client_certificate` field to the `resource_yandex_alb_backend_group` resource
+* mdb: add ChangeFreeze resources for managed database and data processing services
+* cloudrouter: add the `yandex_cloudrouter_routing_instance` resource and data source
+
+##### BUG FIXES:
+* opensearch: preserve explicitly configured access blocks with disabled flags in yandex_mdb_opensearch_cluster, fixing inconsistent state after apply
+* mdb_clickhouse: do not plan the ClickHouse settings absent from the configuration from state when the version of `yandex_mdb_clickhouse_cluster_v2` changes, since the API answers with the defaults of the new version
+* mdb_clickhouse: update `service_account_id` in `yandex_mdb_clickhouse_cluster_v2`
+
+##### ENHANCEMENTS:
+* mdb_greenplum: support disk_encryption_key_id when creating and restoring yandex_mdb_greenplum_cluster and yandex_mdb_greenplum_cluster_v2; the parameter only works when both master and segment hosts use `local-ssd` disks
+
+##### WARNING:
+* compute: change `subnets` in `yandex_compute_gpu_cluster` resource from computed to optional+computed
+
+
+
 ## 0.228.0 (September 14, 2026)
 
 ##### FEATURES:

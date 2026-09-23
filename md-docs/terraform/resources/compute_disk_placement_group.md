@@ -19,18 +19,22 @@ resource "yandex_compute_disk_placement_group" "group1" {
 
 ## Arguments & Attributes Reference
 
-- `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (String). The resource description.
+- `created_at` (*Read-Only*) (String). Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+- `description` (String). Description of the placement group.
 - `disk_placement_group_id` (String). ID of the placement group to return.
  To get the placement group ID, use [DiskPlacementGroupService.List] request.
  The length must be less than or equal to 50.
  This field is required.
-- `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `name` (String). The resource name.
-- `status` (*Read-Only*) (String). Status of the Disk Placement Group.
-- `zone` (String). The [availability zone](../../overview/concepts/geo-scope.md) where resource is located. If it is not provided, the default provider zone will be used.
+- `folder_id` (String). ID of the folder that the placement group belongs to.
+- `id` (String). ID of the placement group to return.
+ To get the placement group ID, use [DiskPlacementGroupService.List] request.
+ The length must be less than or equal to 50.
+ This field is required.
+- `labels` (Map Of String). Resource labels as `key:value` pairs.
+- `name` (String). Name of the placement group.
+ The name is unique within the folder.
+- `status` (*Read-Only*) (String). Current status of the placement group
+- `zone` (String). ID of the availability zone where the placement group resides.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

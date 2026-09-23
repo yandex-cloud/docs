@@ -24,27 +24,18 @@ The full list of possible host configurations on each platform is provided below
 
 {% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
 
-For example, Intel Broadwell is not available in `{{ region-id }}-d`.
-
 Configuration types:
 
-* **s1**, **s2**, **s3**, and **s4a**: Standard configurations with a 4:1 RAM GB to vCPU ratio.
-* **m2**, **m3**, and **m4a**: Configurations with an increased RAM GB to vCPU ratio (8:1). These configurations are well suited for clusters with high cache requirements.
-* **c3** and **c4a**: Configurations with a reduced RAM GB to vCPU ratio (2:1). These configurations may be useful for clusters with higher processor performance requirements.
-* **b1**, **b2**, **b3**: Configurations with a guaranteed vCPU share under 100%. This host class is intended for test workloads. The minimum recommended host configuration for production solutions is two vCPUs with a guaranteed share of 50%.
+* **s2**, **s3**, **s4a**: Standard configurations with a GB RAM to vCPU ratio of 4:1.
+* **m2**, **m3**, and **m4a**: Configurations with an increased GB RAM to vCPU ratio (8:1). These configurations are well suited for clusters with high cache requirements.
+* **c3** and **c4a**: Configurations with a reduced GB RAM to vCPU ratio (2:1). These configurations may be useful for clusters with higher processor performance requirements.
+* **b2**, **b3**: Configurations with a guaranteed vCPU share under 100%. This host class is intended for test workloads. The minimum recommended host configuration for production solutions is two vCPUs with a guaranteed share of 50%.
 
 
 {% include [note-burstable-deprecated](../../_includes/mdb/note-burstable-deprecated.md) %}
 
 | Host class name | Number of vCPUs | CPU performance | RAM, GB | Disk <br>size, GB |
 |-------------------|----------------|------------------------|---------|----------------------|
-| **Intel Broadwell**                                                                          |
-| b1.medium         | 2              | 50%                    | 4       | 10–512               |
-| s1.micro          | 2              | 100%                   | 8       | 10–512               |
-| s1.small          | 4              | 100%                   | 16      | 10–512               |
-| s1.medium         | 8              | 100%                   | 32      | 10–512               |
-| s1.large          | 16             | 100%                   | 64      | 10–512               |
-| s1.xlarge         | 32             | 100%                   | 128     | 10–512               |
 | **Intel Cascade Lake**                                                                       |
 | b2.medium         | 2              | 50%                    | 4       | 10–512               |
 | m2.micro          | 2              | 100%                   | 16      | 10–512               |

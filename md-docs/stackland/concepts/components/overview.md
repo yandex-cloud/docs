@@ -6,6 +6,8 @@ Yandex Cloud Stackland включает набор компонентов, ко�
 
 Компоненты можно включать и отключать по мере необходимости. Управление компонентами осуществляется через сервис Component Manager.
 
+Чтобы задать настройки компонентов при первой установке кластера, подготовьте конфигурации по инструкции [Настройка компонентов перед установкой](../../quickstart.md#component-configuration).
+
 ## Основные компоненты {#main-components}
 
 ### Identity and Access Management
@@ -38,7 +40,7 @@ CNI (Container Network Interface) — стандартизированный и�
 
 ### Policy Manager {#policy-manager}
 
-[Policy Manager](policy-manager.md) объединяет инструменты, которые проверяют ресурсы Kubernetes на соответствие политикам и генерируют отчёты в формате [OpenReports](https://openreports.io/docs/api/). Текущая реализация основана на [Kyverno](https://kyverno.io/).
+[Policy Manager](policy-manager.md) проверяет ресурсы Kubernetes с помощью [Kyverno](https://kyverno.io/) и сканирует образы пользовательских приложений с помощью Trivy Operator. Результаты сохраняются в `PolicyReport` и `VulnerabilityReport`. Найденные уязвимости не блокируют запуск подов.
 
 ### Secrets Store {#secrets-store}
 
@@ -74,6 +76,10 @@ Stackland предоставляет готовый набор дашбордо�
 
 [Managed Service for PostgreSQL](postgresql.md) — открытая объектно-реляционная СУБД. Компонент упрощает развёртывание и обновление кластера БД, обеспечивает отказоустойчивость, предоставляет средства резервного копирования и мониторинга.
 
+### Managed Service for Apache Airflow™ {#airflow}
+
+[Managed Service for Apache Airflow™](airflow.md) — платформа оркестрации рабочих процессов. Компонент позволяет создавать кластеры Apache Airflow™, загружать DAG-файлы из Git или S3-совместимого хранилища, запускать задачи в отдельных подах Kubernetes и хранить их логи в S3.
+
 ### Managed Service for Apache Kafka® {#kafka}
 
 [Managed Service for Apache Kafka®](kafka.md) — брокер сообщений. Компонент позволяет создавать сущности Apache Kafka®: кластер, топики и пользователей — с помощью кастомных ресурсов `KafkaCluster`, `KafkaTopic` и `KafkaUserAccess`.
@@ -84,7 +90,7 @@ Stackland предоставляет готовый набор дашбордо�
 
 ### Iceberg REST Catalog {#rest-catalog}
 
-[Iceberg REST Catalog](rest-catalog.md) — каталог метаданных для таблиц Apache Iceberg по протоколу Iceberg REST Catalog. Компонент позволяет создавать каталоги и пользователей с доступом по OAuth2 с помощью кастомных ресурсов `RestCatalog` и `RestCatalogPrincipal`.
+[Iceberg REST Catalog](rest-catalog.md) — каталог метаданных для таблиц Apache Iceberg по протоколу Iceberg REST Catalog. Компонент позволяет создавать каталоги с помощью ресурса `StacklandRestCatalog` и назначать права пользователям, группам и сервисным аккаунтам с помощью ресурса `StacklandRestCatalogAccessBinding`. Хранилище данных каталога создается автоматически.
 
 ### Managed Service for Trino {#trino}
 
@@ -106,8 +112,10 @@ Stackland предоставляет готовый набор дашбордо�
 
 ### Model Gallery {#model-gallery}
 
-Model Gallery — модуль для хостинга и инференса больших языковых моделей и моделей эмбеддингов. Включает реестр моделей, хранилище весов, очередь инференса и gRPC-сервер для генеративных моделей семейства YandexGPT. Обеспечивает единую точку доступа к foundation-моделям для других модулей платформы. Компонент не входит в базовую поставку и требует отдельной лицензии.
+[Model Gallery](ai-studio.md#model-gallery-configuration) — модуль для запуска языковых моделей и получения эмбеддингов в составе AI Studio. Его модели можно использовать в AI-агентах и ассистентах. Компонент не входит в базовую поставку и требует отдельной лицензии.
 
 ### Agent Atelier {#agent-atelier}
 
-Agent Atelier — модуль для создания и запуска AI-агентов и ассистентов. Позволяет собирать сценарии на базе workflows, подключать инструменты через MCP-gateway, готовить датасеты и выполнять файнтюнинг моделей. Использует Model Gallery как источник моделей и Identity and Access Management для управления доступом. Компонент не входит в базовую поставку и требует отдельной лицензии.
+[Agent Atelier](ai-studio.md#agent-atelier-configuration) — модуль для создания и запуска AI-агентов и ассистентов в составе AI Studio. Позволяет настраивать сценарии работы, подключать инструменты и готовить датасеты. Использует модели из Model Gallery. Компонент не входит в базовую поставку и требует отдельной лицензии.
+
+Требования к инфраструктуре, зависимости и настройки обоих модулей описаны в разделе [AI Studio](ai-studio.md).

@@ -28,98 +28,98 @@ data "yandex_alb_load_balancer" "tf-alb-data" {
 
 ## Arguments & Attributes Reference
 
-- `allocation_policy` [Block]. Allocation zones for the Load Balancer instance.
-  - `location` [Block]. Unique set of locations.
-    - `disable_traffic` (Bool). If set, will disable all L7 instances in the zone for request handling.
-    - `subnet_id` (**Required**)(String). ID of the subnet that location is located at.
-    - `zone_id` (**Required**)(String). The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
-- `allow_zonal_shift` (Bool). Specifies whether application load balancer is available to zonal shift
-- `auto_scale_policy` [Block]. Scaling settings of the application load balancer.
-  - `max_size` (Number). Upper limit for total instance count (across all zones)
-  - `min_zone_size` (Number). Lower limit for instance count in each zone.
+- `allocation_policy` (*Read-Only*) (List Of Object). Allocation zones for the Load Balancer instance.
+  - `location` . 
+    - `disable_traffic` . 
+    - `subnet_id` . 
+    - `zone_id` . 
+- `allow_zonal_shift` (*Read-Only*) (Bool). Specifies whether application load balancer is available to zonal shift
+- `auto_scale_policy` (*Read-Only*) (List Of Object). Scaling settings of the application load balancer.
+  - `max_size` . 
+  - `min_zone_size` . 
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (String). The resource description.
-- `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
+- `description` (*Read-Only*) (String). The resource description.
+- `folder_id` (*Read-Only*) (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `listener` [Block]. List of listeners for the Load Balancer.
-  - `endpoint` [Block]. Network endpoint (addresses and ports) of the listener.
-    - `address` [Block]. One or more addresses to listen on.
-      - `external_ipv4_address` [Block]. External IPv4 address.
-        - `address` (String). Provided by the client or computed automatically.
-      - `external_ipv6_address` [Block]. External IPv6 address.
-        - `address` (String). Provided by the client or computed automatically.
-      - `internal_ipv4_address` [Block]. Internal IPv4 address.
-        - `address` (String). Provided by the client or computed automatically.
-        - `subnet_id` (String). ID of the subnet that the address belongs to.
-    - `ports` (**Required**)(List Of Number). One or more ports to listen on.
-  - `http` [Block]. HTTP handler that sets plain text HTTP router.
-    - `handler` [Block]. HTTP handler.
-      - `allow_http10` (Bool). If set, will enable only HTTP1 protocol with HTTP1.0 support.
-      - `http2_options` [Block]. If set, will enable HTTP2 protocol for the handler.
-        - `max_concurrent_streams` (Number). Maximum number of concurrent streams.
-      - `http_router_id` (String). HTTP router id.
-      - `preserve_http1_header_casing` (Bool). When unset, will preserve the casing of the incoming HTTP headers, otherwise would convert them to lowercase. Works only for HTTP1.1 and HTTP1.0 requests.
-      - `rewrite_request_id` (Bool). When unset, will preserve the incoming `x-request-id` header, otherwise would rewrite it with a new value.
-    - `redirects` [Block]. Shortcut for adding http -> https redirects.
-      - `http_to_https` (Bool). If set redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`.
-  - `name` (**Required**)(String). Name of the listener.
-  - `stream` [Block]. Stream configuration
-    - `handler` [Block]. Stream handler resource.
-      - `backend_group_id` (String). Backend Group ID.
-      - `idle_timeout` (String). The idle timeout is the interval after which the connection will be forcibly closed if no data has been transmitted or received on either the upstream or downstream connection. If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout.
-  - `tls` [Block]. TLS configuration
-    - `default_handler` [Block]. TLS handler resource.
-      - `certificate_ids` (**Required**)(Set Of String). Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used.
-      - `client_certificates_verification` [Block]. Client certificates verification settings.
-        - `accept_untrusted` (Bool). If true, ALB will not check certification chain and will allow expired client certificates.
-        - `allow_expired` (Bool). If true, ALB will allow expired client certificates even if accept_untrusted is set to false.
-        - `bytes` (String). Trusted certificate authority certificates bundle (PEM text).
-        - `require_client_certificate` (Bool). If true, ALB will reject connections without a valid client certificate.
-      - `http_handler` [Block]. HTTP handler.
-        - `allow_http10` (Bool). If set, will enable only HTTP1 protocol with HTTP1.0 support.
-        - `http2_options` [Block]. If set, will enable HTTP2 protocol for the handler.
-          - `max_concurrent_streams` (Number). Maximum number of concurrent streams.
-        - `http_router_id` (String). HTTP router id.
-        - `preserve_http1_header_casing` (Bool). When unset, will preserve the casing of the incoming HTTP headers, otherwise would convert them to lowercase. Works only for HTTP1.1 and HTTP1.0 requests.
-        - `rewrite_request_id` (Bool). When unset, will preserve the incoming `x-request-id` header, otherwise would rewrite it with a new value.
-      - `stream_handler` [Block]. Stream handler resource.
-        - `backend_group_id` (String). Backend Group ID.
-        - `idle_timeout` (String). The idle timeout is the interval after which the connection will be forcibly closed if no data has been transmitted or received on either the upstream or downstream connection. If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout.
-    - `sni_handler` [Block]. Settings for handling requests with Server Name Indication (SNI)
-      - `handler` [Block]. TLS handler resource.
-        - `certificate_ids` (**Required**)(Set Of String). Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used.
-        - `client_certificates_verification` [Block]. Client certificates verification settings.
-          - `accept_untrusted` (Bool). If true, ALB will not check certification chain and will allow expired client certificates.
-          - `allow_expired` (Bool). If true, ALB will allow expired client certificates even if accept_untrusted is set to false.
-          - `bytes` (String). Trusted certificate authority certificates bundle (PEM text).
-          - `require_client_certificate` (Bool). If true, ALB will reject connections without a valid client certificate.
-        - `http_handler` [Block]. HTTP handler.
-          - `allow_http10` (Bool). If set, will enable only HTTP1 protocol with HTTP1.0 support.
-          - `http2_options` [Block]. If set, will enable HTTP2 protocol for the handler.
-            - `max_concurrent_streams` (Number). Maximum number of concurrent streams.
-          - `http_router_id` (String). HTTP router id.
-          - `preserve_http1_header_casing` (Bool). When unset, will preserve the casing of the incoming HTTP headers, otherwise would convert them to lowercase. Works only for HTTP1.1 and HTTP1.0 requests.
-          - `rewrite_request_id` (Bool). When unset, will preserve the incoming `x-request-id` header, otherwise would rewrite it with a new value.
-        - `stream_handler` [Block]. Stream handler resource.
-          - `backend_group_id` (String). Backend Group ID.
-          - `idle_timeout` (String). The idle timeout is the interval after which the connection will be forcibly closed if no data has been transmitted or received on either the upstream or downstream connection. If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout.
-      - `name` (**Required**)(String). Name of the SNI handler
-      - `server_names` (**Required**)(Set Of String). Server names that are matched by the SNI handler
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
+- `listener` (*Read-Only*) (List Of Object). List of listeners for the Load Balancer.
+  - `endpoint` . 
+    - `address` . 
+      - `external_ipv4_address` . 
+        - `address` . 
+      - `external_ipv6_address` . 
+        - `address` . 
+      - `internal_ipv4_address` . 
+        - `address` . 
+        - `subnet_id` . 
+    - `ports` . 
+  - `http` . 
+    - `handler` . 
+      - `allow_http10` . 
+      - `http2_options` . 
+        - `max_concurrent_streams` . 
+      - `http_router_id` . 
+      - `preserve_http1_header_casing` . 
+      - `rewrite_request_id` . 
+    - `redirects` . 
+      - `http_to_https` . 
+  - `name` . 
+  - `stream` . 
+    - `handler` . 
+      - `backend_group_id` . 
+      - `idle_timeout` . 
+  - `tls` . 
+    - `default_handler` . 
+      - `certificate_ids` . 
+      - `client_certificates_verification` . 
+        - `accept_untrusted` . 
+        - `allow_expired` . 
+        - `bytes` . 
+        - `require_client_certificate` . 
+      - `http_handler` . 
+        - `allow_http10` . 
+        - `http2_options` . 
+          - `max_concurrent_streams` . 
+        - `http_router_id` . 
+        - `preserve_http1_header_casing` . 
+        - `rewrite_request_id` . 
+      - `stream_handler` . 
+        - `backend_group_id` . 
+        - `idle_timeout` . 
+    - `sni_handler` . 
+      - `handler` . 
+        - `certificate_ids` . 
+        - `client_certificates_verification` . 
+          - `accept_untrusted` . 
+          - `allow_expired` . 
+          - `bytes` . 
+          - `require_client_certificate` . 
+        - `http_handler` . 
+          - `allow_http10` . 
+          - `http2_options` . 
+            - `max_concurrent_streams` . 
+          - `http_router_id` . 
+          - `preserve_http1_header_casing` . 
+          - `rewrite_request_id` . 
+        - `stream_handler` . 
+          - `backend_group_id` . 
+          - `idle_timeout` . 
+      - `name` . 
+      - `server_names` . 
 - `load_balancer_id` (String). The resource identifier.
 - `log_group_id` (*Read-Only*) (String). Cloud Logging group ID to send logs to. Leave empty to use the balancer folder default log group.
-- `log_options` [Block]. Cloud Logging settings.
-  - `disable` (Bool). Set to `true` to disable Cloud Logging for the balancer.
-  - `discard_rule` [Block]. List of rules to discard a fraction of logs.
-    - `discard_percent` (Number). The percent of logs which will be discarded.
-    - `grpc_codes` (List Of String). list of grpc codes by name, e.g, [**NOT_FOUND**, **RESOURCE_EXHAUSTED**].
-    - `http_code_intervals` (List Of String). List of http code intervals *1XX*-*5XX* or *ALL*
-    - `http_codes` (List Of Number). List of http codes *100*-*599*.
-  - `log_group_id` (String). Cloud Logging group ID to send logs to. Leave empty to use the balancer folder default log group.
+- `log_options` (*Read-Only*) (List Of Object). Cloud Logging settings.
+  - `disable` . 
+  - `discard_rule` . 
+    - `discard_percent` . 
+    - `grpc_codes` . 
+    - `http_code_intervals` . 
+    - `http_codes` . 
+  - `log_group_id` . 
 - `name` (String). The resource name.
-- `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
-- `region_id` (String). The region ID where Load Balancer is located at.
-- `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
+- `network_id` (*Read-Only*) (String). The `VPC Network ID` of subnets which resource attached to.
+- `region_id` (*Read-Only*) (String). The region ID where Load Balancer is located at.
+- `security_group_ids` (*Read-Only*) (Set Of String). The list of security groups applied to resource or their components.
 - `status` (*Read-Only*) (String). Status of the Load Balancer.
 - `timeouts` [Block]. 
   - `create` (String). 

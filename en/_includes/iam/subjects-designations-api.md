@@ -1,4 +1,4 @@
-To indicate a subject, use a combination of its type and unique ID in the `subject.type` and `subject.id` fields of the request. Possible combinations:
+To indicate a subject, use a combination of its type and unique ID in the `subject.type` and `subject.id` fields of the request. Here are possible combinations:
 
 #|
 || **subject.type** | **subject.id** ||

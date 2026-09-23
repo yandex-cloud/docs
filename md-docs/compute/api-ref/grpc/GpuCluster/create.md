@@ -17,7 +17,8 @@ Creates a GPU cluster in the specified folder.
   "description": "string",
   "labels": "map<string, string>",
   "zone_id": "string",
-  "interconnect_type": "GpuInterconnectType"
+  "interconnect_type": "GpuInterconnectType",
+  "subnets": "int64"
 }
 ```
 
@@ -46,6 +47,9 @@ To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.Li
 Type of interconnect to use for this GPU cluster.
 
 - `INFINIBAND`: InfiniBand interconnect. ||
+|| subnets | **int64**
+
+Number of subnets to create for this GPU cluster. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -107,7 +107,7 @@ Create two shards in the {{ mspqr-name }} cluster. To create a shard:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you [created](#cluster-create) the {{ SPQR }} cluster.
 1. [Create](../managed-postgresql/operations/cluster-create.md#create-cluster) a {{ mpg-name }} cluster in the same cloud network as the {{ SPQR }} cluster.
-1. Open your {{ SPQR }} cluster and go to the ![image](../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** tab.
+1. Open your {{ SPQR }} cluster and navigate to the **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** tab.
 1. Click **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}** in the top-right corner of the page.
 1. In the window that opens:
 

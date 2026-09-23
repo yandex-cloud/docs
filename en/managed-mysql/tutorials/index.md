@@ -1,6 +1,6 @@
 ---
 title: '{{ mmy-full-name }} use cases'
-description: Various use cases for {{ mmy-full-name }} in {{ yandex-cloud }}.
+description: Various {{ mmy-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ mmy-name }} tutorials
@@ -27,4 +27,4 @@ description: Various use cases for {{ mmy-full-name }} in {{ yandex-cloud }}.
 * [{#T}](mysql-to-clickhouse.md)
 
 
-To learn how to migrate {{ mmy-name }} cluster hosts to a different availability zone, see [this guide](../operations/host-migration.md).
+To learn how to migrate {{ mmy-name }} cluster hosts to a different [availability zone](../../overview/concepts/geo-scope.md), see [this guide](../operations/host-migration.md).

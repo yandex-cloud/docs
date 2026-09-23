@@ -18,14 +18,17 @@ resource "yandex_iam_service_account" "builder" {
 
 ## Arguments & Attributes Reference
 
-- `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (*Read-Only*) (String). The resource description.
+- `created_at` (*Read-Only*) (String). Creation timestamp.
+- `description` (String). Description of the service account. 0-256 characters long.
 - `expires_at` (String). Timestamp when the service account expires.
-- `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `id` (String). 
+- `folder_id` (String). ID of the folder that the service account belongs to.
+- `id` (String). ID of the ServiceAccount resource to return.
+ To get the service account ID, use a [ServiceAccountService.List] request.
 - `labels` (Map Of String). Resource labels as `` key:value `` pairs. Maximum of 64 per resource.
-- `name` (String). The resource name.
-- `service_account_id` (String). ID of a specific service account.
+- `name` (**Required**)(String). Name of the service account.
+ The name is unique within the cloud. 3-63 characters long.
+- `service_account_id` (String). ID of the ServiceAccount resource to return.
+ To get the service account ID, use a [ServiceAccountService.List] request.
 - `status` (*Read-Only*) (String). Current status of the service account.
  Determines whether the service account can authenticate and access the system.
 - `timeouts` [Block]. 

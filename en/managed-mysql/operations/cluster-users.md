@@ -11,7 +11,7 @@ You can add and remove users, as well as manage their settings.
 - Management console {#console}
 
   1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the cluster name and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
 
 - CLI {#cli}
 
@@ -21,7 +21,7 @@ You can add and remove users, as well as manage their settings.
 
   To get a list of cluster users, run this command:
 
-  ```
+  ```bash
   {{ yc-mdb-my }} user list --cluster-name=<cluster_name>
   ```
 
@@ -114,7 +114,7 @@ You can add and remove users, as well as manage their settings.
 - Management console {#console}
 
   1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of your cluster and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 
   
@@ -151,6 +151,13 @@ You can add and remove users, as well as manage their settings.
       1. In the drop-down list, select the privilege you want to grant the user.
       1. Repeat these two steps to add all required privileges.
   1. To revoke a privilege granted by mistake, click ![image](../../_assets/console-icons/xmark.svg) to its right.
+  1. Select the deletion protection option. Possible values:
+     - **Same as cluster**
+     - **Enabled**
+     - **Disabled**
+
+     {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
   1. Optionally, under **Advanced settings**: 
       * Configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-user-settings) for the user.
       * Under **Global permissions**, specify the [administrative privileges](../concepts/settings-list.md#setting-administrative-privileges) to grant the user at the cluster level.
@@ -168,7 +175,8 @@ You can add and remove users, as well as manage their settings.
   {{ yc-mdb-my }} user create <username> \
     --cluster-name=<cluster_name> \
     --password=<user_password> \
-    --permissions=<database_list>
+    --deletion-protection=<deletion_protection> \
+    --permissions database=<DB_name>,role=<privilege_1>,role=<privilege_2>,...,role=<privilege_N>
   ```
 
   Where:
@@ -183,7 +191,13 @@ You can add and remove users, as well as manage their settings.
     To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the new user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-  * `permissions`: List of databases the user must have access to.
+  * `deletion-protection`: User protection from accidental deletion: `enabled`, `disabled`, or `inherited` (inherits cluster setting). The default value is `disabled`.
+
+    {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
+  * `permissions`: Database the user is granted access to, along with the user's privileges for that database. For the list of available privileges, see [{#T}](../concepts/user-rights.md#db-privileges).
+
+    Add a separate `permissions` property for each database you want the user to access.
 
   {% include [username-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
@@ -195,13 +209,14 @@ You can add and remove users, as well as manage their settings.
 
       For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
-  1. Add the `yandex_mdb_mysql_user` resource:
+  1. Add the `yandex_mdb_mysql_user_v2` resource:
 
       ```hcl
-      resource "yandex_mdb_mysql_user" "<username>" {
-        cluster_id = "<cluster_ID>"
-        name       = "<username>"
-        password   = "<password>"
+      resource "yandex_mdb_mysql_user_v2" "<username>" {
+        cluster_id               = "<cluster_ID>"
+        name                     = "<username>"
+        password                 = "<password>"
+        deletion_protection_mode = "<deletion_protection>"
         permission {
           database_name = "<DB_name>"
           roles         = [<list_of_privileges>]
@@ -213,6 +228,12 @@ You can add and remove users, as well as manage their settings.
       Where:
 
       * `database_name`: Name of the database the user will have access to.
+      * `deletion_protection_mode`: User protection from accidental deletion.
+
+         * `DELETION_PROTECTION_MODE_ENABLED`: Enabled.
+         * `DELETION_PROTECTION_MODE_DISABLED`: Disabled (default).
+         * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
+
       * `roles`: List of user privileges for the database.
 
       {% include [username-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
@@ -229,11 +250,11 @@ You can add and remove users, as well as manage their settings.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more on the properties of the `yandex_mdb_mysql_user` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  For more on the properties of the `yandex_mdb_mysql_user_v2` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user_v2).
 
 - REST API {#api}
 
@@ -248,6 +269,7 @@ You can add and remove users, as well as manage their settings.
           "userSpec": {
               "name": "<username>",
               "password": "<user_password>",
+              "deletionProtectionMode": "<deletion_protection>",
               "permissions": [
                   {
                       "databaseName": "<DB_name>",
@@ -274,7 +296,15 @@ You can add and remove users, as well as manage their settings.
           To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-      * `permissions`: User permission settings:
+      * `deletionProtectionMode`: User protection from accidental deletion:
+
+         * `DELETION_PROTECTION_MODE_ENABLED`: Enabled.
+         * `DELETION_PROTECTION_MODE_DISABLED`: Disabled (default).
+         * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
+
+         {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
+      * `permissions`: User permissions:
 
           * `databaseName`: Name of the database to which the user will have access.
           * `roles`: Array of user privileges, each provided as a separate string in the array. For the list of possible values, see [{#T}](../concepts/user-rights.md#db-privileges).
@@ -311,6 +341,7 @@ You can add and remove users, as well as manage their settings.
           "user_spec": {
               "name": "<username>",
               "password": "<user_password>",
+              "deletion_protection_mode": "<deletion_protection>",
               "permissions": [
                   {
                       "database_name": "<DB_name>",
@@ -336,6 +367,14 @@ You can add and remove users, as well as manage their settings.
 
         To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
+
+      * `deletion_protection_mode`: User protection from accidental deletion.
+
+         * `DELETION_PROTECTION_MODE_ENABLED`: Enabled.
+         * `DELETION_PROTECTION_MODE_DISABLED`: Disabled (default).
+         * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
+
+         {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
 
       * `permissions`: User permissions:
 
@@ -372,7 +411,7 @@ You can add and remove users, as well as manage their settings.
 - Management console {#console}
 
   1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of your cluster and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
 
   
@@ -454,11 +493,11 @@ You can add and remove users, as well as manage their settings.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more on the properties of the `yandex_mdb_mysql_user` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  For more on the properties of the `yandex_mdb_mysql_user_v2` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user_v2).
 
 - REST API {#api}
 
@@ -589,8 +628,9 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 - Management console {#console}
 
   1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of your cluster and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Configure user protection from accidental deletion by selecting the relevant value in the **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** field.
   1. Configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-user-settings) for the user.
   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
@@ -602,9 +642,10 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
   To configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-user-settings) for a user, run this command:
 
-  ```
+  ```bash
   {{ yc-mdb-my }} user update <username> \
     --cluster-name=<cluster_name> \
+    --deletion-protection=<deletion_protection> \
     --global-permissions=<list_of_privileges> \
     --authentication-plugin=<authentication_plugin> \
     --max-questions-per-hour=<maximum_requests> \
@@ -615,6 +656,7 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
   Where:
 
+  * `deletion-protection`: User protection from accidental deletion: `enabled`, `disabled`, or `inherited` (inherits cluster setting).
   * `global-permissions`: Comma-separated list of administrative privileges.
   * `max-questions-per-hour`: Maximum number of requests per hour.
   * `max-updates-per-hour`: Maximum number of `UPDATE` requests per hour.
@@ -629,12 +671,12 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
       For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
-  1. Locate the `yandex_mdb_mysql_user` resource for the user in question.
+  1. Locate the `yandex_mdb_mysql_user_v2` resource for the user in question.
 
   1. To set limits on the number of connections and requests, add the `connection_limits` section to the user description:
 
       ```hcl
-      resource "yandex_mdb_mysql_user" "<username>" {
+      resource "yandex_mdb_mysql_user_v2" "<username>" {
         ...
         connection_limits {
           max_questions_per_hour   = <maximum_requests>
@@ -653,12 +695,25 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
       * `max-connections-per-hour`: Maximum number of connections per hour.
       * `max-user-connections`: Maximum number of concurrent connections.
 
-  1. To configure a user authentication plugin, add the `authentication_plugin` section to the user description:
+  1. To configure a user authentication plugin, add the `authentication_plugin` property to the user description:
 
       ```hcl
-      resource "yandex_mdb_mysql_user" "<username>" {
+      resource "yandex_mdb_mysql_user_v2" "<username>" {
         ...
         authentication_plugin = "<authentication_plugin>"
+      }
+      ```
+
+  1. To configure user protection from accidental deletion, add the `deletion_protection_mode` property to the user description. The possible values are:
+
+      * `DELETION_PROTECTION_MODE_ENABLED`: Enabled.
+      * `DELETION_PROTECTION_MODE_DISABLED`: Disabled (default).
+      * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
+
+      ```hcl
+      resource "yandex_mdb_mysql_user_v2" "<username>" {
+        ...
+        deletion_protection_mode = "<deletion_protection>"
       }
       ```
 
@@ -666,11 +721,11 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more on the properties of the `yandex_mdb_mysql_user` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  For more on the properties of the `yandex_mdb_mysql_user_v2` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user_v2).
 
 - REST API {#api}
 
@@ -689,7 +744,7 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
           --header "Content-Type: application/json" \
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/users/<username>' \
           --data '{
-                    "updateMask": "globalPermissions,connectionLimits,authenticationPlugin",
+                    "updateMask": "globalPermissions,connectionLimits,authenticationPlugin,deletionProtectionMode",
                     "globalPermissions": [
                       "<administrative_privilege_1>",
                       "<administrative_privilege_2>",
@@ -702,7 +757,8 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
                       "maxConnectionsPerHour": "<maximum_connections>",
                       "maxUserConnections": "<maximum_concurrent_connections>"
                     },
-                    "authenticationPlugin": "<authentication_plugin>"
+                    "authenticationPlugin": "<authentication_plugin>",
+                    "deletionProtectionMode": "<deletion_protection>"
                   }'
       ```
 
@@ -720,6 +776,10 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
           The minimum value for each of these connection settings is `0`.
 
       * `authenticationPlugin`: User authentication plugin. For the list of available plugins, see [this method description](../api-ref/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
+      * `deletionProtectionMode`: User protection from accidental deletion:
+         * `DELETION_PROTECTION_MODE_ENABLED`: Enabled.
+         * `DELETION_PROTECTION_MODE_DISABLED`: Disabled (default).
+         * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
 
       You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 
@@ -750,7 +810,8 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
                   "paths": [
                     "global_permissions",
                     "connection_limits",
-                    "authentication_plugin"
+                    "authentication_plugin",
+                    "deletion_protection_mode"
                   ]
                 },
                 "global_permissions": [
@@ -765,7 +826,8 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
                   "max_connections_per_hour": "<maximum_connections>",
                   "max_user_connections": "<maximum_concurrent_connections>"
                 },
-                "authentication_plugin": "<authentication_plugin>"
+                "authentication_plugin": "<authentication_plugin>",
+                "deletion_protection_mode": "<deletion_protection>"
               }' \
           {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.mysql.v1.UserService.Update
@@ -785,6 +847,10 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
           The minimum value for each of these connection settings is `0`.
 
       * `authentication_plugin`: User authentication plugin. For the list of available plugins, see [this method description](../api-ref/grpc/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
+      * `deletion_protection_mode`: User protection from accidental deletion.
+         * `DELETION_PROTECTION_MODE_ENABLED`: Enabled.
+         * `DELETION_PROTECTION_MODE_DISABLED`: Disabled (default).
+         * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
 
       You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 
@@ -794,12 +860,18 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
 ## Deleting a user {#removeuser}
 
+{% note info %}
+
+Before you delete a user, [disable their deletion protection](#update-settings).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of your cluster and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}
@@ -810,7 +882,7 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
   To delete a user, run this command:
 
-  ```
+  ```bash
   {{ yc-mdb-my }} user delete <username> --cluster-name=<cluster_name>
   ```
 
@@ -822,17 +894,17 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
       For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
-  1. Delete the `yandex_mdb_mysql_user` resource with the target user’s description.
+  1. Delete the `yandex_mdb_mysql_user_v2` resource with the target user’s description.
 
   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more on the properties of the `yandex_mdb_mysql_user` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  For more on the properties of the `yandex_mdb_mysql_user_v2` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user_v2).
 
 - REST API {#api}
 

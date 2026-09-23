@@ -8,7 +8,7 @@
 
 * **Allow data loss**{#settings-allow-data-loss} {{ tag-all }}
 
-    When enabled, if the current master fails, the cluster may fail over to a replica that does not contain the most recent records. This may result in data loss. If most hosts reside in a single availability zone, {{ VLK }} will continue to operate despite the missing records.
+    When enabled, if the current master fails, the cluster may fail over to a replica that does not contain the most recent records. This may result in data loss. If most hosts reside in a single [availability zone](../../overview/concepts/geo-scope.md), {{ VLK }} will continue to operate despite the last records being missing.
 
     When disabled, master failover will be delayed until the replicas are fully synchronized to prevent data loss. However, if more than 50% of hosts fail simultaneously, a new master will not be selected, and write operations will be unavailable. In this case, you will need to manually select a new master, but all data will be preserved and saved after selecting a master and synchronizing replicas.
 
@@ -18,7 +18,7 @@
 
     Maximum [AOF file](../../managed-valkey/concepts/replication.md#persistence) size as a percentage of the total disk space. When this limit is exceeded, new write requests are blocked to prevent disk overflow.
 
-    The valid values range from `1` to `100`. The default value is `99`.
+    The minimum value is `1`, the maximum is `100`, and the default is `99`.
 
 * **Client output buffer limit normal**{#settings-limit-normal} {{ tag-all }}
 
@@ -81,7 +81,7 @@
 
     {{ VLK }} uses logical databases isolated from one another. Operations with keys and values in one database do not affect data in other databases. Each database has a unique number, from `0` to `Databases − 1`.
 
-    The valid values range from `1` to `2147483647`. The default value is `16`.
+    The minimum value is `1`, the maximum is `2147483647`, and the default is `16`.
 
     For more information, see [this {{ VLK }} guide](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L379).
 

@@ -53,6 +53,8 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Управление доступом к кластеру](operations/cluster-access.md)
 
+ - [Управление многоуровневым хранилищем](operations/tiered-storage.md)
+
  - [Удаление кластера](operations/cluster-delete.md)
 
 ### Подключение
@@ -128,6 +130,8 @@ Yandex Managed Service for Valkey™ часто используется, что
  - [Сеть в Yandex Managed Service for Valkey™](concepts/network.md)
 
  - [Шардирование](concepts/sharding.md)
+
+ - [Автомасштабирование](concepts/autoscaling.md)
 
  - [Резервные копии](concepts/backup.md)
 

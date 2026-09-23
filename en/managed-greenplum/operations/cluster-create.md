@@ -312,7 +312,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `--log-command-center-enabled`: Transferring [Command Center](../concepts/command-center.md) logs.
         * `--log-greenplum-enabled`: Transferring DBMS logs.
         * `--log-pooler-enabled`: Transferring [connection pooler](../concepts/pooling.md) logs.
-        * `--log-folder-id`: Specify the ID of the folder whose log group you want to use.
+        * `--log-folder-id`: ID of the folder whose log group you want to use.
         * `--log-group-id`: ID of the log group to write logs to.
 
             Specify either `--log-folder-id` or `--log-group-id`.
@@ -467,7 +467,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
           * `greenplum_enabled`: Transferring DBMS logs, `true` or `false`.
           * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
-          * `folder_id`: Specify the ID of the folder whose log group you want to use.
+          * `folder_id`: ID of the folder whose log group you want to use.
           * `log_group_id`: ID of the log group to write logs to.
 
               Specify either `folder_id` or `log_group_id`.
@@ -669,7 +669,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `commandCenterEnabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
             * `greenplumEnabled`: Transferring DBMS logs, `true` or `false`.
             * `poolerEnabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
-            * `folderId`: Specify the ID of the folder whose log group you want to use.
+            * `folderId`: ID of the folder whose log group you want to use.
             * `logGroupId`: ID of the log group to write logs to.
 
                 Specify either `folderId` or `logGroupId`.
@@ -865,7 +865,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
             * `greenplum_enabled`: Transferring DBMS logs, `true` or `false`.
             * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
-            * `folder_id`: Specify the ID of the folder whose log group you want to use.
+            * `folder_id`: ID of the folder whose log group you want to use.
             * `log_group_id`: ID of the log group to write logs to.
 
                 Specify either `folder_id` or `log_group_id`.

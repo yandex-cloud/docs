@@ -25,18 +25,27 @@ resource "yandex_compute_filesystem" "default" {
 
 ## Arguments & Attributes Reference
 
-- `block_size` (*Read-Only*) (Number). Block size of the filesystem, specified in bytes.
-- `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (*Read-Only*) (String). The resource description.
-- `filesystem_id` (String). ID of the filesystem.
-- `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `id` (String). 
-- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
-- `name` (String). The resource name.
-- `size` (*Read-Only*) (Number). Size of the filesystem, specified in GB.
-- `status` (*Read-Only*) (String). The status of the filesystem.
-- `type` (*Read-Only*) (String). Type of filesystem to create. Type `network-hdd` is set by default.
-- `zone` (*Read-Only*) (String). The [availability zone](../../overview/concepts/geo-scope.md) where resource is located. If it is not provided, the default provider zone will be used.
+- `block_size` (Number). Block size used for the filesystem, specified in bytes.
+- `created_at` (*Read-Only*) (String). Creation timestamp.
+- `description` (String). Description of the filesystem.
+- `filesystem_id` (String). ID of the filesystem to return.
+ To get the filesystem ID, make a [FilesystemService.List] request.
+ The length must be less than or equal to 50.
+ This field is required.
+- `folder_id` (String). ID of the folder that the filesystem belongs to.
+- `id` (String). ID of the filesystem to return.
+ To get the filesystem ID, make a [FilesystemService.List] request.
+ The length must be less than or equal to 50.
+ This field is required.
+- `labels` (Map Of String). Filesystem labels as `key:value` pairs.
+ For details about the concept, see [documentation](../../overview/concepts/services.md#labels).
+- `name` (String). Name of the filesystem. The name is unique within the folder.
+- `size` (Number). Size of the filesystem, specified in bytes.
+- `status` (*Read-Only*) (String). Current status of the filesystem.
+- `type` (String). ID of the filesystem type.
+ To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List] request.
+- `zone` (String). ID of the availability zone where the filesystem resides.
+ A filesystem can be attached only to instances residing in the same availability zone.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

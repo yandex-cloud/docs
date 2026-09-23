@@ -1,4 +1,4 @@
-View the roles assigned for a resource:
+View the roles assigned for the resource:
 
 ```bash
 yc <service_name> <resource_category> list-access-bindings <resource_name_or_ID>
@@ -8,7 +8,7 @@ Where:
 
 * `<service_name>`: Name of the service the resource belongs to, e.g., `resource-manager`.
 * `<resource_category>`: Resource category, e.g., `folder`.
-* `<resource_name_or_ID>`: Resource name or ID. You can specify a resource by its name or ID.
+* `<resource_name_or_ID>`: Resource name or ID. You can specify the resource by name or ID.
 
 For example, you can view the roles and the assignees for the `default` folder:
 

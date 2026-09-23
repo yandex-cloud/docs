@@ -5,6 +5,7 @@ description: Follow this guide to connect to a {{ MY }} cluster from {{ datalens
 
 # Connecting to a {{ MY }} cluster from {{ datalens-name }}
 
+
 {% include [mdb-datalens-connector-intro](../../_includes/mdb/datalens-connector-intro.md) %}
 
 To use an existing cluster as a data source for {{ datalens-full-name }}:

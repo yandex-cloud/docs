@@ -5,12 +5,11 @@ description: In this tutorial, you will learn about {{ mgp-name }} backups and h
 
 # Backups in {{ mgp-name }}
 
-
 {{ mgp-short-name }} supports automatic and manual database backups.
 
 {% include [deprecated-note](../../_includes/mdb/backups/deprecated-note.md) %}
 
-To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore). You can also restore your cluster to move its hosts to a different availability zone.
+To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore). Restoring a cluster also allows you to move its hosts to a different [availability zone](../../overview/concepts/geo-scope.md).
 
 ## Creating a backup {#size}
 

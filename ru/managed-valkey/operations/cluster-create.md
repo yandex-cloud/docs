@@ -73,6 +73,13 @@ description: Следуя данной инструкции, вы сможете
        * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
      
      * Выберите версию СУБД.
+
+       {% note tip %}
+
+       Для использования [многоуровневого хранилища](../concepts/storage.md#data-tiering) выберите версию `Valkey TS 9.1`.
+
+       {% endnote %}
+
      * (Опционально) Добавьте метки.
      * Если требуется, включите [шардирование кластера](../concepts/sharding.md).
 
@@ -291,6 +298,26 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
+      Чтобы настроить [автомасштабирование кластера](../concepts/autoscaling.md), передайте параметр `--shard-autoscaling`:
+
+      ```bash
+      {{ yc-mdb-rd }} cluster create \
+         ...
+         --shard-autoscaling enabled=<включить_автомасштабирование_шардов>,` \
+              `min-shards=<минимальное_количество_шардов>,` \
+              `max-shards=<максимальное_количество_шардов>,` \
+              `cpu-down-threshold=<порог_загрузки_CPU_для_уменьшения_числа_шардов>,` \
+              `cpu-up-threshold=<порог_загрузки_CPU_для_увеличения_числа_шардов>,` \
+              `memory-down-threshold=<порог_загрузки_RAM_для_уменьшения_числа_шардов>,` \
+              `memory-up-threshold=<порог_загрузки_RAM_для_увеличения_числа_шардов>,` \
+              `network-down-threshold=<порог_загрузки_сети_для_уменьшения_числа_шардов>,` \
+              `network-up-threshold=<порог_загрузки_сети_для_увеличения_числа_шардов>
+      ```
+
+      Где:
+
+      {% include [autoscale-description](../../_includes/mdb/mvk/cli-shard-autoscaling.md) %}
+
       
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
@@ -499,6 +526,23 @@ description: Следуя данной инструкции, вы сможете
               "valkeyBloom": {
                 "enabled": "<включить_модуль_Valkey-Bloom>"
               }
+            },
+            "shardAutoscalingSettings": {
+              "enabled": <включить_автомасштабирование_шардов>,
+              "minShards": "<минимальное_количество_шардов>",
+              "maxShards": "<максимальное_количество_шардов>",
+              "cpuThreshold": {
+                "downThreshold": "<порог_загрузки_CPU_для_уменьшения_числа_шардов>",
+                "upThreshold": "<порог_загрузки_CPU_для_увеличения_числа_шардов>"
+              },
+              "memoryThreshold": {
+                "downThreshold": "<порог_загрузки_RAM_для_уменьшения_числа_шардов>",
+                "upThreshold": "<порог_загрузки_RAM_для_уменьшения_числа_шардов>"
+              },
+              "networkThreshold": {
+                "downThreshold": "<порог_загрузки_сети_для_уменьшения_числа_шардов>",
+                "upThreshold": "<порог_загрузки_сети_для_уменьшения_числа_шардов>"
+              }
             }
           },
           "hostSpecs": [
@@ -565,14 +609,18 @@ description: Следуя данной инструкции, вы сможете
             * `modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
 
                * `valkeySearch.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
-                   
+
                    * `valkeySearch.readerThreads` — количество потоков обработки запросов.
                    * `valkeySearch.writerThreads` — количество потоков индексации.
-               
+
                * `valkeyJson.enabled` — подключить модуль `Valkey-JSON`: `true` или `false`.
                * `valkeyBloom.enabled` — подключить модуль `Valkey-Bloom`: `true` или `false`.
 
                {% include [modules-warn](../../_includes/mdb/mvk/enable-modules-note.md) %}
+
+            * `shardAutoscalingSettings` — параметры [автомасштабирования кластера](../concepts/autoscaling.md):
+
+              {% include [autoscale-description](../../_includes/mdb/mvk/api/shard-autoscaling-rest.md) %}
 
         * `hostSpecs` — параметры хоста:
 
@@ -688,6 +736,24 @@ description: Следуя данной инструкции, вы сможете
               "valkey_bloom": {
                 "enabled": "<включить_модуль_Valkey-Bloom>"
               }
+            },
+            "shard_autoscaling_settings": {
+              "enabled": <включить_автомасштабирование_шардов>,
+              "min_shards": "<минимальное_количество_шардов>",
+              "max_shards": "<максимальное_количество_шардов>",
+                "cpu_threshold": {
+                  "down_threshold": "<порог_загрузки_CPU_для_уменьшения_числа_шардов>",
+                  "up_threshold": "<порог_загрузки_CPU_для_увеличения_числа_шардов>"
+                },
+                "memory_threshold": {
+                  "down_threshold": "<порог_загрузки_RAM_для_уменьшения_числа_шардов>",
+                  "up_threshold": "<порог_загрузки_RAM_для_уменьшения_числа_шардов>"
+                },
+                "network_threshold": {
+                  "down_threshold": "<порог_загрузки_сети_для_уменьшения_числа_шардов>",
+                  "up_threshold": "<порог_загрузки_сети_для_уменьшения_числа_шардов>"
+                }
+              }
             }
           },
           "host_specs": [
@@ -754,14 +820,18 @@ description: Следуя данной инструкции, вы сможете
             * `modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
 
                * `valkey_search.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
-                   
+
                    * `valkey_search.reader_threads` — количество потоков обработки запросов.
                    * `valkey_search.writer_threads` — количество потоков индексации.
-               
+
                * `valkey_json.enabled` — подключить модуль `Valkey-JSON`: `true` или `false`.
                * `valkey_bloom.enabled` — подключить модуль `Valkey-Bloom`: `true` или `false`.
 
                {% include [modules-warn](../../_includes/mdb/mvk/enable-modules-note.md) %}
+
+            * `shard_autoscaling_settings` — параметры [автомасштабирования кластера](../concepts/autoscaling.md):
+
+              {% include [autoscale-description](../../_includes/mdb/mvk/api/shard-autoscaling-grpc.md) %}
 
         * `host_specs` — параметры хоста:
 

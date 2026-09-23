@@ -18,7 +18,6 @@ The amount of memory allocated to a host also depends on the `maxmemory` configu
 
 The host class determines the available [disk types](./storage.md):
 
-* **hm1**: `network-ssd`, `local-ssd`.
 * **hm2**, **hm3**, **m3**, **m4a**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
 * **hm4af**, **m4af**: `network-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
 * **b2**, **b3**: `network-ssd`.
@@ -33,37 +32,22 @@ The storage space available to the host should be at least twice as large as the
 
 {% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
 
-For example, `{{ region-id }}-d` does not support Intel Broadwell and local SSD storage if Intel Cascade Lake is used.
+For example, `{{ region-id }}-d` does not support local SSD storage if using Intel Cascade Lake.
 
 Configuration types:
 
 * **burstable** (**b2**, **b3**): Configurations with a [guaranteed vCPU share](../../compute/concepts/performance-levels.md) under 100%. This host class is intended for test load, while the minimum recommended host configuration for production solutions is two vCPUs with a guaranteed share of 100%.
 
-* **high-memory** (**hm1**, **hm2**, **hm3**, **hm4af**): Standard configurations for {{ VLK }}.
+* **high-memory** (**hm2**, **hm3**, **hm4af**): Standard configurations for {{ VLK }}.
 
     A cluster with this configuration type may contain several hosts (from one to current [quota](./limits.md) limit) per cluster or [shard](./sharding.md). The minimum number of hosts per cluster [depends](./limits.md#mrd-limits) on the [selected disk type](./storage.md).
 
-* **memory-optimized** (**m3**, **m4a**, **m4af**): Configurations with an increased RAM GB to vCPU ratio (8:1). These configurations are well suited for clusters with high cache requirements.    
+* **memory-optimized** (**m3**, **m4a**, **m4af**): Configurations with an increased GB RAM to vCPU ratio (8:1). These configurations are well suited for clusters with high cache requirements.
 
 {% include [note-burstable-deprecated](../../_includes/mdb/note-burstable-deprecated.md) %}
 
 | Host class name | Number of vCPUs | RAM, GB | CPU performance | Disk <br>size, GB |
 |-------------------|----------------|---------|------------------------|----------------------|
-| **Intel Broadwell**                                                                          |
-| hm1.nano          | 2              | 8       | 100%                   | 16 - 4,096            |
-| hm1.micro         | 2              | 12      | 100%                   | 24 - 4,096            |
-| hm1.small         | 2              | 16      | 100%                   | 32 - 4,096            |
-| hm1.medium        | 4              | 24      | 100%                   | 48 - 4,096            |
-| hm1.large         | 4              | 32      | 100%                   | 64 - 4,096            |
-| hm1.xlarge        | 4              | 48      | 100%                   | 96 - 4,096            |
-| hm1.2xlarge       | 4              | 64      | 100%                   | 128 - 4,096           |
-| hm1.3xlarge       | 4              | 80      | 100%                   | 160 - 4,096           |
-| hm1.4xlarge       | 8              | 96      | 100%                   | 192 - 4,096           |
-| hm1.5xlarge       | 8              | 128     | 100%                   | 256 - 4,096           |
-| hm1.6xlarge       | 8              | 160     | 100%                   | 320 - 4,096           |
-| hm1.7xlarge       | 8              | 192     | 100%                   | 384 - 4,096           |
-| hm1.8xlarge       | 8              | 224     | 100%                   | 448 - 4,096           |
-| hm1.9xlarge       | 8              | 256     | 100%                   | 512 - 4,096           |
 | **Intel Cascade Lake**                                                                       |
 | b2.medium         | 2              | 4       | 50%                    | 8 - 32               |
 | hm2.nano          | 2              | 8       | 100%                   | 16 - 8,184            |

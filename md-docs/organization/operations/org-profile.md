@@ -26,6 +26,36 @@
 
   1. Нажмите кнопку **Сохранить**.
 
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Посмотрите описание команды:
+
+      ```bash
+      yc organization-manager organization update --help
+      ```
+
+  1. Измените данные организации:
+
+      ```bash
+      yc organization-manager organization update \
+        --id <идентификатор_организации> \
+        --new-name <техническое_название> \
+        --title "<название_организации>" \
+        --description "<описание_организации>"
+      ```
+
+      `--id` — [идентификатор организации](organization-get-id.md). Передайте только те из необязательных параметров `--new-name`, `--title` и `--description`, которые хотите изменить.
+
+- API {#api}
+
+    Воспользуйтесь методом REST API [update](../api-ref/Organization/update.md) для ресурса [Organization](../api-ref/Organization/index.md) или вызовом gRPC API [OrganizationService/Update](../api-ref/grpc/Organization/update.md).
+
 {% endlist %}
 
 {% note info %}

@@ -13,8 +13,10 @@ blocks:
     animated: false
     colSizes:
       all: 12
-      lg: 6
-      sm: 6
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Price calculator
@@ -81,19 +83,19 @@ There are different ways to calculate the cost depending on the [host type](conc
 
 You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-The minimum billing unit is one minute, e.g., you will be charged for 2 hours when using a host for 90 minutes (1.5 hours). You will not be charged for the time when the {{ MY }} host is unavailable for basic operations.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as two minutes). You will not be charged for the time when the {{ MY }} host is unavailable for basic operations.
 
 
 ### Disk space usage {#rules-storage}
 
-You are billed for the following:
+You pay for the following:
 
 * Storage allocated for database clusters.
 
-    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
+    * You can order local SSD storage (`local-ssd`) only for clusters with three or more hosts:
 
       
-        * For **Intel Broadwell** and **Intel Cascade Lake**: In 100 GB increments.
+        * For **Intel Cascade Lake**: In increments of 100 GB.
 
 
         * For **Intel Ice Lake** and **AMD Zen 4**: In {{ local-ssd-v3-step }} increments.
@@ -104,7 +106,7 @@ You are billed for the following:
 
 For more information, see [Backups in {{ mmy-name }}](concepts/backup.md).
  
-The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
+The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as 2 minutes).
 
 ### Cluster cost calculation example {#example}
 

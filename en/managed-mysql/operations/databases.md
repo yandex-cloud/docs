@@ -122,10 +122,20 @@ You can add and remove databases, view database details, and manage some databas
   1. If you want a new user to become the database owner, [create it](cluster-users.md#adduser).
   1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
-  1. Enter a database name and click **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
+  1. Specify database settings:
 
-      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+     * Name
 
+       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
+     * Accidental deletion protection enabled. The possible values are:
+        - **Same as cluster**
+        - **Enabled**
+        - **Disabled**
+
+        {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
+
+  1. Click **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
   1. [Grant access privileges](grant.md#grant-privilege) for the created database to the relevant cluster users.
 
 - CLI {#cli}
@@ -145,10 +155,16 @@ You can add and remove databases, view database details, and manage some databas
   1. Run this command:
 
       ```bash
-      {{ yc-mdb-my }} database create <DB_name> --cluster-name=<cluster_name>
+      {{ yc-mdb-my }} database create <DB_name> \
+        --cluster-name=<cluster_name> \
+        --deletion-protection=<deletion_protection>
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
+      Possible values ​​for database protection from from accidental deletion: `enabled`, `disabled`, or `inherited` (inherits the value from the cluster). The default value is `disabled`.
+
+      {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
 
       You can get the cluster name from the [list of clusters in your folder](cluster-list.md).
 
@@ -160,26 +176,33 @@ You can add and remove databases, view database details, and manage some databas
 
       For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
-  1. Add the `yandex_mdb_mysql_database` resource:
+  1. Add the `yandex_mdb_mysql_database_v2` resource:
 
       ```hcl
-      resource "yandex_mdb_mysql_database" "<DB_name>" {
-        cluster_id = "<cluster_ID>"
-        name       = "<DB_name>"
+      resource "yandex_mdb_mysql_database_v2" "<DB_name>" {
+        cluster_id               = "<cluster_ID>"
+        name                     = "<DB_name>"
+        deletion_protection_mode = "<deletion_protection>"
       }
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
+      Possible values ​​for database protection from accidental deletion:
+
+      * `DELETION_PROTECTION_MODE_ENABLED`: Enabled.
+      * `DELETION_PROTECTION_MODE_DISABLED`: Disabled (default).
+      * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
+
   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more on the properties of the `yandex_mdb_mysql_database` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_database).
+  For more on the properties of the `yandex_mdb_mysql_database_v2` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_database_v2).
 
 - REST API {#api}
 
@@ -197,12 +220,21 @@ You can add and remove databases, view database details, and manage some databas
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/databases' \
           --data '{
                     "databaseSpec": {
-                      "name": "<DB_name>"
+                      "name": "<DB_name>",
+                      "deletionProtectionMode": "<deletion_protection>"
                     }
                   }'
       ```
 
       {% include [database-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
+      Possible values ​​for database protection from accidental deletion:
+
+      * `DELETION_PROTECTION_MODE_ENABLED`: Enabled.
+      * `DELETION_PROTECTION_MODE_DISABLED`: Disabled (default).
+      * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
+
+      {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -227,7 +259,8 @@ You can add and remove databases, view database details, and manage some databas
           -d '{
                 "cluster_id": "<cluster_ID>",
                 "database_spec": {
-                  "name": "<DB_name>"
+                  "name": "<DB_name>",
+                  "deletion_protection_mode": "<deletion_protection>"
                 }
               }' \
           {{ api-host-mdb }}:{{ port-https }} \
@@ -236,21 +269,34 @@ You can add and remove databases, view database details, and manage some databas
 
       {% include [database-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
+      Possible values ​​for database protection from accidental deletion:
+
+      * `DELETION_PROTECTION_MODE_ENABLED`: Enabled.
+      * `DELETION_PROTECTION_MODE_DISABLED`: Disabled (default).
+      * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
+
+      {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
+
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
-## Deleting a database {#remove-db}
+## Configuring deletion protection {#update-db-deletion-protection}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the database in question and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the relevant database row and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Select your preferred option in the **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** field.
+
+     {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
+
+  1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
 - CLI {#cli}
 
@@ -258,86 +304,139 @@ You can add and remove databases, view database details, and manage some databas
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To delete a database, run this command:
+  To configure database deletion protection, run this command:
 
   ```bash
-   {{ yc-mdb-my }} database delete <DB_name> --cluster-name=<cluster_name>
+  {{ yc-mdb-my }} database update <DB_name> \
+    --cluster-name=<cluster_name> \
+    --deletion-protection=<deletion_protection>
   ```
 
-  You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
+  Possible values ​​for database protection from from accidental deletion: `enabled`, `disabled`, or `inherited` (inherits the value from the cluster). The default value is `disabled`.
+
+  {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
+
+  You can get the cluster name from the [list of clusters in your folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For information on how to create this file, see [Creating a cluster](cluster-create.md).
+  1. Find the `yandex_mdb_mysql_database_v2` resource describing your target database.
 
-  1. Remove the `yandex_mdb_mysql_database` resource with the name of the database you want to delete.
+  1. Add the `deletion_protection_mode` attribute. The possible values are:
+
+      * `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection enabled.
+      * `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection disabled (default).
+      * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
+
+      ```hcl
+      resource "yandex_mdb_mysql_database_v2" "<DB_name>" {
+        ...
+        deletion_protection_mode = "<deletion_protection>"
+        ...
+      }
+      ```
 
   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more on the properties of the `yandex_mdb_mysql_database` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_database).
+  For more on the properties of the `yandex_mdb_mysql_database_v2` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_database_v2).
 
 - REST API {#api}
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
-      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Database.delete](../api-ref/Database/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Database.Update](../api-ref/Database/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
-      ```bash
-      curl \
-          --request DELETE \
-          --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/databases/<DB_name>'
-      ```
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the database name from the [list of databases in your cluster](#list-db).
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/databases/<DB_name>' \
+       --data '{
+                 "updateMask": "deletionProtectionMode",
+                 "deletionProtectionMode": "<deletion_protection>"
+               }'
+     ```
 
-  1. Check the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+     Where:
+
+     * `updateMask`: Comma-separated string of settings to update.
+
+       Here, we provide only one setting.
+
+     * `deletionProtectionMode`: Database protection from accidental deletion:
+        * `DELETION_PROTECTION_MODE_ENABLED`: Enabled.
+        * `DELETION_PROTECTION_MODE_DISABLED`: Disabled (default).
+        * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
+
+        {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
+
+     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the database name, from the [list of databases in your cluster](#list-db).
+
+  1. Check the [server response](../api-ref/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
-      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [DatabaseService.Update](../api-ref/grpc/Database/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
-      ```bash
-      grpcurl \
-          -format json \
-          -import-path ~/cloudapi/ \
-          -import-path ~/cloudapi/third_party/googleapis/ \
-          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/database_service.proto \
-          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-          -d '{
-                "cluster_id": "<cluster_ID>",
-                "database_name": "<DB_name>"
-              }' \
-          {{ api-host-mdb }}:{{ port-https }} \
-          yandex.cloud.mdb.mysql.v1.DatabaseService.Delete
-      ```
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the database name, from the [list of databases in your cluster](#list-db).
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/database_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "database_name": "<DB_name>",
+             "update_mask": {
+               "paths": [
+                 "deletion_protection_mode"
+               ]
+             },
+             "deletion_protection_mode": "<deletion_protection>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.mysql.v1.DatabaseService.Update
+     ```
 
-  1. Check the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+     Where:
+
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+
+       Here, we provide only one setting.
+
+     * `deletion_protection_mode`: Database protection from accidental deletion:
+        * `DELETION_PROTECTION_MODE_ENABLED`: Enabled.
+        * `DELETION_PROTECTION_MODE_DISABLED`: Disabled (default).
+        * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
+
+        {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
+
+     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the database name, from the [list of databases in your cluster](#list-db).
+
+  1. Check the [server response](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
-
-{% note warning %}
-
-Before creating a new database with the same name, wait for the delete operation to complete. Otherwise, the original database will be restored. You can get the operation status with the [list of cluster operations](cluster-list.md#list-operations).
-
-{% endnote %}
 
 ## Setting SQL mode {#sql-mode}
 
@@ -395,7 +494,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -516,3 +615,106 @@ To configure the `CHARACTER SET` and `COLLATE` database settings:
    ```sql
    ALTER TABLE <DB_name>.<table_name> CONVERT TO CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci';
    ```
+
+## Deleting a database {#remove-db}
+
+{% note info %}
+
+Before you delete a database, [disable its deletion protection](#update-db-deletion-protection).
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the database in question and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To delete a database, run this command:
+
+  ```bash
+   {{ yc-mdb-my }} database delete <DB_name> --cluster-name=<cluster_name>
+  ```
+
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
+
+- {{ TF }} {#tf}
+
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
+
+  1. Remove the `yandex_mdb_mysql_database_v2` resource with the name of the database you want to delete.
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm resource changes.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more on the properties of the `yandex_mdb_mysql_database_v2` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_database_v2).
+
+- REST API {#api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Call the [Database.delete](../api-ref/Database/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+      ```bash
+      curl \
+          --request DELETE \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/databases/<DB_name>'
+      ```
+
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the database name from the [list of databases in your cluster](#list-db).
+
+  1. Check the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Call the [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/database_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "database_name": "<DB_name>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.DatabaseService.Delete
+      ```
+
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the database name, from the [list of databases in your cluster](#list-db).
+
+  1. Check the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
+
+{% note warning %}
+
+Before creating a new database with the same name, wait for the delete operation to complete. Otherwise, the original database will be restored. You can check the operation status in the [list of cluster operations](cluster-list.md#list-operations).
+
+{% endnote %}

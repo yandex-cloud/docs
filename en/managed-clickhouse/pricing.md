@@ -12,7 +12,11 @@ blocks:
   - type: card-layout-block
     animated: false
     colSizes:
-      all: 6
+      all: 12
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Price calculator
@@ -83,7 +87,7 @@ In clusters with [{{ CK }}](./concepts/replication.md#ck) support off and with t
 
 {% endnote %}
 
-The minimum billing unit is one minute, e.g., 1.5 minutes of host usage is billed as 2 minutes. You do not pay for the time when the DBMS or {{ ZK }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as two minutes). You do not pay for the time when the DBMS or {{ ZK }} host is unable to perform its main functions.
 
 
 ### Disk space usage {#rules-storage}
@@ -93,7 +97,7 @@ You pay for the following:
 * Storage allocated for DB clusters.
 
    * You can order local SSD storage (`local-ssd`) only for clusters with three or more hosts:
-        * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
+        * For **Intel Cascade Lake**: In increments of 100 GB.
         * For **Intel Ice Lake** and **AMD Zen 4**: In {{ local-ssd-v3-step }} increments.
    * You can order non-replicated SSD storage (`network-ssd-nonreplicated`) only for clusters with three or more hosts, and it must be allocated in 93 GB increments.
 
@@ -101,7 +105,7 @@ You pay for the following:
 
 For more information, see [Backups in {{ mch-name }}](concepts/backup.md).
 
-The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
+The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as 2 minutes).
 
 ### Cluster cost calculation example {#example}
 

@@ -12,8 +12,10 @@ blocks:
     animated: false
     colSizes:
       all: 12
-      lg: 6
-      sm: 6
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Price calculator
@@ -52,7 +54,7 @@ This section describes the {{ mos-name }} pricing [policy](#rules) and [current 
 
 ## Cluster status {#running-stopped}
 
-Pricing applies differently depending on cluster status:
+Pricing applies differently depending on the cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -77,7 +79,7 @@ The host operation cost depends on what resources you allocate for it. You can f
 
 You can select a host class both for hosts with the `DATA` role and hosts with the `MANAGER` and `DASHBOARDS` roles.
 
-The host operation cost is charged per hour. The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You will not be charged for the time when the {{ OS }} host is unavailable for basic operations.
+The host operation cost is charged per hour. The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as two minutes). You will not be charged for the time when the {{ OS }} host is unavailable for basic operations.
 
 ### Disk space usage {#rules-storage}
 
@@ -89,7 +91,7 @@ You pay for the following:
 
 For more information, see [Backups in {{ mos-name }}](concepts/backup.md).
 
-The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
+The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as 2 minutes).
 
 ### Cluster cost calculation example {#example}
 

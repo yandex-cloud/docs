@@ -20,7 +20,7 @@ output "dbname" {
 ## Arguments & Attributes Reference
 
 - `cluster_id` (**Required**)(String). ID of the ClickHouse cluster. Provided by the client when the database is created.
-- `engine` (String). Database engine, possible values are: atomic,replicated.
+- `engine` (*Read-Only*) (String). Database engine, possible values are: atomic,replicated.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `name` (**Required**)(String). The name of the database.
 - `timeouts` [Block]. 

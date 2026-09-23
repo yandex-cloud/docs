@@ -23,17 +23,20 @@ resource "yandex_compute_gpu_cluster" "default" {
 
 ## Arguments & Attributes Reference
 
-- `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (*Read-Only*) (String). The resource description.
-- `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `gpu_cluster_id` (String). ID of the GPU cluster.
-- `id` (String). 
-- `interconnect_type` (*Read-Only*) (String). Type of interconnect between nodes to use in GPU cluster. Type `INFINIBAND` is set by default, and it is the only one available at the moment.
-- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
-- `name` (String). The resource name.
-- `status` (*Read-Only*) (String). The status of the GPU cluster.
-- `subnets` (*Read-Only*) (Number). Number of subnets in the GPU cluster.
-- `zone` (*Read-Only*) (String). The [availability zone](../../overview/concepts/geo-scope.md) where resource is located. If it is not provided, the default provider zone will be used.
+- `created_at` (*Read-Only*) (String). Creation timestamp.
+- `description` (String). Description of the GPU cluster.
+- `folder_id` (String). ID of the folder that the GPU cluster belongs to.
+- `gpu_cluster_id` (String). ID of the GPU cluster to return.
+ To get a GPU cluster ID, make a [GpuClusterService.List] request.
+- `id` (String). ID of the GPU cluster to return.
+ To get a GPU cluster ID, make a [GpuClusterService.List] request.
+- `interconnect_type` (String). Type of interconnect used for this GPU cluster.
+- `labels` (Map Of String). GPU cluster labels as `key:value` pairs.
+- `name` (String). Name of the GPU cluster.
+ The name is unique within the folder.
+- `status` (*Read-Only*) (String). Status of the GPU cluster.
+- `subnets` (Number). Number of subnets in the GPU cluster.
+- `zone` (String). ID of the availability zone where the GPU cluster resides.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

@@ -28,6 +28,8 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
  - [Настройка внешнего доступа к поду в кластере](tutorials/expose-app-domain.md)
 
+ - [Проверка подписи собственных образов](tutorials/verify-own-image-signatures.md)
+
 ## Пошаговые инструкции
 
  - [Все инструкции](operations/index.md)
@@ -42,7 +44,11 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
  - [Назначить права доступа](operations/iam/assign-role.md)
 
-### Базы данных
+ - [Создать резервную копию YDB](operations/iam/ydb-backup.md)
+
+ - [Восстановить YDB из резервной копии](operations/iam/ydb-restore.md)
+
+### Базы данных и аналитика
 
 #### Managed Service for PostgreSQL
 
@@ -106,9 +112,9 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
  - [Изменить каталог](operations/rest-catalog/edit-catalog.md)
 
- - [Создать пользователя каталога](operations/rest-catalog/create-principal.md)
+ - [Назначить права на каталог](operations/rest-catalog/create-principal.md)
 
- - [Удалить пользователя каталога](operations/rest-catalog/delete-principal.md)
+ - [Отозвать права на каталог](operations/rest-catalog/delete-principal.md)
 
  - [Удалить каталог](operations/rest-catalog/delete-catalog.md)
 
@@ -139,6 +145,28 @@ Stackland базируется на Kubernetes®, что позволяет ра
  - [Подключиться к HTTP-прокси](operations/ytsaurus/connect-api.md)
 
  - [Отключить YTsaurus](operations/ytsaurus/disable.md)
+
+### Оркестрация данных
+
+#### Managed Service for Apache Airflow™
+
+ - [Включить Managed Service for Apache Airflow™](operations/airflow/enable.md)
+
+ - [Создать кластер Apache Airflow™](operations/airflow/create-cluster.md)
+
+ - [Изменить настройки кластера Apache Airflow™](operations/airflow/edit-cluster.md)
+
+ - [Получить учетные данные администратора Apache Airflow™](operations/airflow/get-admin-credentials.md)
+
+ - [Открыть веб-интерфейс Apache Airflow™](operations/airflow/connect-ui.md)
+
+ - [Приостановить или возобновить кластер Apache Airflow™](operations/airflow/pause-resume.md)
+
+ - [Удалить кластер Apache Airflow™](operations/airflow/delete-cluster.md)
+
+ - [Устранение неполадок Apache Airflow™](operations/airflow/troubleshooting.md)
+
+ - [Отключить Managed Service for Apache Airflow™](operations/airflow/disable.md)
 
 ### Бакеты
 
@@ -202,6 +230,8 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
  - [Удалить пресет с политиками](operations/policy-manager/delete-preset.md)
 
+ - [Посмотреть отчеты об уязвимостях](operations/policy-manager/view-vulnerability-reports.md)
+
 ### Проекты
 
  - [Все инструкции](operations/projects/index.md)
@@ -231,6 +261,14 @@ Stackland базируется на Kubernetes®, что позволяет ра
  - [Инъекция секретов через ConfigMap](operations/secrets-store/inject-secrets-configmap.md)
 
  - [Диагностика Secrets Store](operations/secrets-store/troubleshooting.md)
+
+### AI Studio
+
+ - [Загрузить образы](operations/ai-studio/install-images.md)
+
+ - [Включить AI Studio](operations/ai-studio/configure.md)
+
+ - [Отключить AI Studio](operations/ai-studio/disable.md)
 
 ### Дисковая подсистема
 
@@ -270,6 +308,8 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
  - [Managed Service for PostgreSQL](concepts/components/postgresql.md)
 
+ - [Managed Service for Apache Airflow™](concepts/components/airflow.md)
+
  - [Managed Service for ClickHouse®](concepts/components/clickhouse.md)
 
  - [Iceberg REST Catalog](concepts/components/rest-catalog.md)
@@ -293,6 +333,8 @@ Stackland базируется на Kubernetes®, что позволяет ра
  - [Secrets Store](concepts/components/secrets-store.md)
 
  - [SpeechSense](concepts/components/speechsense.md)
+
+ - [AI Studio](concepts/components/ai-studio.md)
 
 ### Мониторинг кластера
 

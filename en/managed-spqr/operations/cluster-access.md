@@ -101,7 +101,7 @@ To manage user view permissions for cluster lists, we recommend using different 
 
       * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
       * `role`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
-      * `members`: List of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
+      * `members`: List of designations of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
           Here is an example:
 
@@ -109,14 +109,18 @@ To manage user view permissions for cluster lists, we recommend using different 
           * `userAccount:ajerq94vab34********`
           * `system:allAuthenticatedUsers`
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
 
   1. Make sure the configuration files are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -160,7 +164,11 @@ To manage user view permissions for cluster lists, we recommend using different 
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
 
   1. Check the [server response](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
@@ -207,7 +215,11 @@ To manage user view permissions for cluster lists, we recommend using different 
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
       
 
 
@@ -251,7 +263,7 @@ To manage user view permissions for cluster lists, we recommend using different 
 
       * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
       * `role`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
-      * `members`: List of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
+      * `members`: List of designations of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
           Here is an example:
 
@@ -259,14 +271,18 @@ To manage user view permissions for cluster lists, we recommend using different 
           * `userAccount:ajerq94vab34********`
           * `system:allAuthenticatedUsers`
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
 
   1. Make sure the configuration files are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -328,7 +344,11 @@ To manage user view permissions for cluster lists, we recommend using different 
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
 
   1. Check the [server response](../api-ref/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
@@ -394,7 +414,11 @@ To manage user view permissions for cluster lists, we recommend using different 
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
 
 
@@ -428,7 +452,7 @@ To manage user view permissions for cluster lists, we recommend using different 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -468,11 +492,15 @@ To manage user view permissions for cluster lists, we recommend using different 
       Where:
 
       * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
-      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
-      * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
+      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being revoked, e.g., `managed-spqr.editor`.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+      * `access_binding_deltas.subject.type`: Subject type to revoke a role from.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
 
   1. Check the [server response](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
@@ -516,11 +544,15 @@ To manage user view permissions for cluster lists, we recommend using different 
       Where:
 
       * {% include [cluster-id-resource](../../_includes/managed-spqr/cluster-id-resource.md) %}
-      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
-      * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
+      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being revoked, e.g., `managed-spqr.editor`.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+      * `access_binding_deltas.subject.type`: Subject type to revoke a role from.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
 
   1. Check the [server response](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
@@ -565,7 +597,7 @@ For a service account to be able to view the info of all {{ mspqr-name }} cluste
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

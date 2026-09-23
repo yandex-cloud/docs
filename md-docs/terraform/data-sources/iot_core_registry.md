@@ -25,17 +25,17 @@ data "yandex_iot_core_registry" "my_registry" {
 
 ## Arguments & Attributes Reference
 
-- `certificates` (Set Of String). A set of certificate's fingerprints for the IoT Core Registry.
+- `certificates` (*Read-Only*) (Set Of String). A set of certificate's fingerprints for the IoT Core Registry.
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (String). The resource description.
+- `description` (*Read-Only*) (String). The resource description.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `log_options` [Block]. Options for logging for IoT Core Registry.
-  - `disabled` (Bool). Is logging for registry disabled.
-  - `folder_id` (String). Log entries are written to default log group for specified folder.
-  - `log_group_id` (String). Log entries are written to specified log group.
-  - `min_level` (String). Minimum log entry level.
-- `name` (**Required**)(String). The resource name.
-- `passwords` (Set Of String). A set of passwords's id for the IoT Core Registry.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
+- `log_options` (*Read-Only*) (List Of Object). 
+  - `disabled` . 
+  - `folder_id` . 
+  - `log_group_id` . 
+  - `min_level` . 
+- `name` (String). The resource name.
+- `passwords` (*Read-Only*) (Set Of String). A set of passwords's id for the IoT Core Registry.
 - `registry_id` (String). IoT Core Registry id used to define registry.

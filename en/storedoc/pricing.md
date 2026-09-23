@@ -64,18 +64,19 @@ The {{ mmg-name }} usage cost includes:
 
 You are charged for each hour of host uptime, based on its allocated computing resources. Supported resource configurations are listed in the [Host classes](concepts/instance-types.md) section. For vCPU and RAM prices, see [Pricing](#prices).
 
-The minimum billing unit is one minute, e.g., 1.5 minutes of host usage is billed as 2 minutes. You will not be charged for the time when the {{ SD }} host is unavailable for basic operations.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as two minutes). You will not be charged for the time when the {{ SD }} host is unavailable for basic operations.
 
 ### Disk usage {#rules-storage}
 
-You are billed for the following:
+You pay for the following:
 
 * Storage allocated for database clusters.
 
     * You can order non-replicated SSD storage (`network-ssd-nonreplicated`) only for clusters with three or more hosts, and it must be allocated in 93 GB increments.
 
     * You can order local SSD storage (`local-ssd`) only for clusters with three or more hosts:
-        * For **Intel Broadwell** and **Intel Cascade Lake**: In 100 GB increments.
+        
+        * For **Intel Cascade Lake**: In increments of 100 GB.
         * For **Intel Ice Lake** and **AMD Zen 4**: In {{ local-ssd-v3-step }} increments.
 
     For details on platform-specific storage limitations, see [{#T}](./concepts/storage.md).
@@ -84,7 +85,7 @@ You are billed for the following:
 
 For more information, see [Backups in {{ mmg-name }}](concepts/backup.md).
 
-The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
+The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as 2 minutes).
 
 ### Cluster cost calculation example {#example}
 

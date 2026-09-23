@@ -33,6 +33,12 @@ You can create several hosts in a cluster in one go.
 
 To prevent data loss, the new host automatically inherits the data schema from existing hosts.
 
+{% note warning %}
+
+In a cluster with a disabled [coordination service](../concepts/coordination-system.md) or built-in {{ CK }}, you cannot create a host in an existing shard. First, [enable](update.md#enable-coordination) {{ CK }} or {{ ZK }} on separate hosts.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -149,7 +155,7 @@ To prevent data loss, the new host automatically inherits the data schema from e
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -327,7 +333,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

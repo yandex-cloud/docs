@@ -92,6 +92,18 @@
 * Смотрите записи вебинаров и конференций в плейлисте DataLens на [Youtube](https://www.youtube.com/playlist?list=PL1x4ET76A10b_H4qg7ZjpAcANaLJuZbiz).
 
 
+* Видеообзор новой ролевой модели:
+
+  * [YouTube](https://www.youtube.com/watch?v=3OxgX-tn5tw)
+  * [VK Видео](https://vkvideo.ru/video-200452713_456240491)
+
+* Воркшоп по Нейроаналитику с конференции AHA’26:
+
+  * [YouTube](https://www.youtube.com/watch?v=IEFXUL7Csfk)
+  * [VK Видео](https://vkvideo.ru/video-200452713_456240461)
+
+
+
 * Новости и истории успеха доступны в [блоге Yandex Cloud](https://yandex.cloud/ru/blog?services=23).
 
 * [Демонстрационный дашборд](https://datalens.ru/gallery/wcyljs3cf5mwi) DataLens.

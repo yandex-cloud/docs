@@ -47,6 +47,8 @@ items:
             href: operations/databases.md
           - name: Queries in {{ websql-full-name }}
             href: operations/web-sql-query.md
+          - name: Working with data distribution policies
+            href: operations/distribution-policy-management.md
       - name: Users and sessions
         items:
           - name: Role and user management
@@ -177,7 +179,7 @@ items:
         href: concepts/backup.md
       - name: Resource groups
         href: concepts/resource-groups.md
-      - name: Sharding
+      - name: Data distribution
         href: concepts/sharding.md
       - name: Users and roles
         href: concepts/cluster-users.md

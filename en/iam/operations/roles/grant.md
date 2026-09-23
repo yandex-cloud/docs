@@ -102,14 +102,14 @@ Use the [role reference](../../roles-reference.md) to select roles.
       Here is an example of the configuration file structure:
 
       ```hcl
-      // Assigning a role for the cloud
+      // Assigning a role for a cloud
       resource "yandex_resourcemanager_cloud_iam_member" "cloud_member" {
         cloud_id = "<cloud_ID>"
         role     = "<role>"
         member   = "<subject>"
       }
 
-      // Assigning a role for the folder
+      // Assigning a role for a folder
       resource "yandex_resourcemanager_folder_iam_member" "folder_member" {
         folder_id = "<folder_ID>"
         role      = "<role>"
@@ -179,7 +179,7 @@ To assign a role for an organization:
 
   1. Click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the [role](../../../iam/concepts/access-control/roles.md) to assign. You can assign multiple roles.
 
-      You can find the description of the available roles in the [{{ yandex-cloud }} role reference](../../../iam/roles-reference.md).
+      For descriptions of available roles, see the [{{ yandex-cloud }} role reference](../../../iam/roles-reference.md).
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -307,7 +307,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
    1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder containing the resource.
    1. Open the resource page.
    1. Navigate to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-   1. Select the group, user, or service account you need to grant access to the resource.
+   1. Select a group, user, or service account you need to grant access to the resource.
    1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
    1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
@@ -359,7 +359,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
           {% endcut %}
 
-      For example, to assign a service account the `viewer` role for the VM:
+      For example, to assign a service account the `viewer` role for a VM:
 
       ```bash
       yc compute instance add-access-binding \
@@ -433,7 +433,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
    1. In the [management console]({{ link-console-main }}), select the folder containing your resource.
    1. Open the resource page.
    1. Navigate to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-   1. Select the group, user, or service account you need to grant access to the resource.
+   1. Select a group, user, or service account you need to grant access to the resource.
    1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
    1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
@@ -530,7 +530,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
       Where:
 
       * `cloud_id`: Cloud ID. You can get the list of available clouds using the `yc resource-manager cloud list` [CLI](../../../cli/quickstart.md) command. This is a required setting.
-      * `role`: Role you need to assign. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, only one role can be assigned. This is a required setting.
+      * `role`: Role you need to assign. You can get the list of roles using the `yc iam role list` [CLI](../../../cli/quickstart.md) command. In one `yandex_resourcemanager_cloud_iam_member` resource, only one role can be assigned. This is a required setting.
       * `members`: List of [subjects](../../concepts/access-control/index.md#subject) getting the role. This is a required setting.
 
           {% cut "Subject designations" %}

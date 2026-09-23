@@ -26,7 +26,7 @@ To revoke a [refresh token](../../concepts/authorization/refresh-token.md) for a
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. View the description of the refresh token revocation command:
+  1. View the description of the command for revoking a refresh token:
 
       ```bash
       yc iam refresh-token revoke --help
@@ -53,7 +53,7 @@ To revoke a [refresh token](../../concepts/authorization/refresh-token.md) for a
 
       Where:
 
-      * `--refresh-token`: Body of the refresh token to revoke. Provide the value in the standard input stream, `stdin`. This is an optional setting. Examples of use:
+      * `--refresh-token`: Body of the refresh token to revoke. Provide the value in the standard input stream, `stdin`. This is an optional setting. Here are examples of use:
       
           * To provide the token body in a string: `yc iam refresh-token revoke --refresh-token <<< "<refresh_token_body>"`.
           * To provide the token body in a file: `yc iam refresh-token revoke --refresh-token < <path_to_refresh_token_body_file>`. 
@@ -62,9 +62,9 @@ To revoke a [refresh token](../../concepts/authorization/refresh-token.md) for a
       * `--refresh-token-id`: ID of the refresh token to revoke. This is an optional setting.
 
           You cannot use any other `yc iam refresh-token revoke` parameters together with `--refresh-token-id`.
-      * `--subject-id`: [ID](../../../organization/operations/users-get.md) of the federated user whose refresh tokens you want to revoke. This is an optional setting. If not specified, the system will revoke the refresh tokens for the user currently authenticated in the {{ yandex-cloud }} CLI.
+      * `--subject-id`: [ID](../../../organization/operations/users-get.md) of the federated user whose refresh tokens you want to revoke. This is an optional setting. If you skip it, the system will revoke the refresh tokens for the user currently authenticated in the {{ yandex-cloud }} CLI.
 
-          By default, any [federated user](../../concepts/users/accounts.md#saml-federation) can revoke their refresh tokens. To revoke refresh tokens of other users, a user must have one of the following [roles](../../concepts/access-control/roles.md) for the organization: [organization-manager.federations.userAdmin](../../../organization/security/index.md#organization-manager-federations-userAdmin) or [iam.userAccounts.refreshTokenRevoker](../../security/index.md#iam-userAccounts-refreshTokenRevoker).
+          By default, any [federated user](../../concepts/users/accounts.md#saml-federation) can revoke their refresh tokens. To revoke refresh tokens for other users, a user needs one of the following [roles](../../concepts/access-control/roles.md) for the organization: [organization-manager.federations.userAdmin](../../../organization/security/index.md#organization-manager-federations-userAdmin) or [iam.userAccounts.refreshTokenRevoker](../../security/index.md#iam-userAccounts-refreshTokenRevoker).
       * `--client-id`: ID of the OAuth application you want to revoke refresh tokens for, e.g., `yc.oauth.public-sdk` for the {{ yandex-cloud }} CLI. This is an optional setting.
       * `--client-instance-info`: Version ID of the OAuth application you want to revoke refresh tokens for, e.g., `yc/0.141.0`. This is an optional setting.
 

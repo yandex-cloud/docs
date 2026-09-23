@@ -55,6 +55,7 @@ description: Из статьи вы узнаете, как работать с �
 ## Сетевые сценарии {#network-scenarios}
 
 * [{#T}](create-load-balancer.md)
+* [{#T}](configure-load-balancer-target-groups.md)
 * [{#T}](calico.md)
 * [{#T}](cilium.md)
 * [{#T}](cilium-node-local-dns.md)

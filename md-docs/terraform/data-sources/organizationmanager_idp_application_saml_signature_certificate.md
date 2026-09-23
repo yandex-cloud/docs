@@ -29,13 +29,13 @@ output "my_certificate.status" {
 
 ## Arguments & Attributes Reference
 
-- `application_id` (**Required**)(String). ID of the SAML application that the signature certificate belongs to.
+- `application_id` (*Read-Only*) (String). ID of the SAML application that the signature certificate belongs to.
 - `created_at` (*Read-Only*) (String). Creation timestamp.
 - `data` (*Read-Only*) (String). Certificate data in PEM format.
-- `description` (String). Description of the signature certificate.
+- `description` (*Read-Only*) (String). Description of the signature certificate.
 - `fingerprint` (*Read-Only*) (String). SHA256-fingerprint of the signature certificate.
 - `id` (String). ID of the signature certificate to return.
-- `name` (String). Name of the signature certificate.
+- `name` (*Read-Only*) (String). Name of the signature certificate.
 - `not_after` (*Read-Only*) (String). Time after which the signature certificate is not valid.
 - `not_before` (*Read-Only*) (String). Time before which the signature certificate is not valid.
 - `signature_certificate_id` (String). ID of the signature certificate to return.

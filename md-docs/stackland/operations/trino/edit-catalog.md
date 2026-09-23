@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Базы данных > Managed Service for Trino > Изменить настройки каталога
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Базы данных и аналитика > Managed Service for Trino > Изменить настройки каталога
 
 # Изменить настройки каталога Managed Service for Trino
 
@@ -17,24 +17,20 @@
   1. Откройте файл ресурса `TrinoCatalog`. Например, с помощью команды `open trinocatalog.yaml`.
   1. Отредактируйте параметры выбранного типа каталога.
 
-      Общие параметры:
+      Для каталогов PostgreSQL и ClickHouse® доступны параметры в блоках `spec.postgres` и `spec.clickhouse` соответственно:
 
-      * `spec.<тип>.url` — адрес источника данных.
-      * `spec.<тип>.additionalProperties` — дополнительные настройки коннектора.
+      * `url` — адрес источника данных.
+      * `credentialsSecretRef` — ссылка на Secret с учетными данными.
+      * `certificateSecretRef` — ссылка на Secret с TLS-сертификатом.
+      * `additionalProperties` — дополнительные настройки коннектора.
 
-      Для каталогов PostgreSQL и ClickHouse дополнительно доступны:
+      Для каталога Apache Iceberg™ доступны параметры:
 
-      * `spec.<тип>.credentialsSecretRef` — ссылка на Secret с учетными данными.
-      * `spec.<тип>.certificateSecretRef` — ссылка на Secret с TLS-сертификатом.
+      * `spec.stacklandRestCatalog.catalogRef` — имя ресурса `StacklandRestCatalog` в том же пространстве имен. При выборе другого каталога убедитесь, что он готов к работе, а пользователям Trino [назначены права](../rest-catalog/create-principal.md) на него.
+      * `spec.stacklandRestCatalog.useExternalEndpoint` — использование внешнего адреса каталога. Для значения `true` должен быть настроен [публичный доступ](../../concepts/components/rest-catalog.md#endpoints) и заполнено поле `status.externalEndpoint` каталога.
+      * `spec.stacklandRestCatalog.additionalProperties` — [дополнительные настройки Iceberg](../../concepts/components/trino.md#iceberg-settings): формат и сжатие данных, размер файлов, требования к фильтрам в запросах, статистика, работа с хранилищем и поддержка представлений Iceberg. Добавьте нужные параметры или измените их значения, как в [примере создания каталога](create-catalog.md#cli). При создании представлений указывайте `SECURITY INVOKER` — подробнее в разделе [Представления Iceberg](../../concepts/components/trino.md#iceberg-views).
 
-      Поля `spec.cluster`, `spec.name` и `spec.type` менять нельзя: `spec.cluster` и `spec.name` образуют имя ресурса (`metadata.name`), а смена `spec.type` не поддерживается.
-
-      Для каталога Iceberg также доступны параметры:
-
-      * `spec.iceberg.rest.warehouse` — имя REST catalog.
-      * `spec.iceberg.rest.oauth2` — параметры аутентификации (статический токен или client credentials).
-      * `spec.iceberg.s3` — параметры S3-хранилища.
-      * `spec.iceberg.stacklandStorage.bucketRef` — ссылка на бакет в Object Storage.
+      В манифесте должен быть указан один блок с настройками коннектора. Параметр `spec.type` не используется. Значения `spec.cluster` и `spec.name` должны соответствовать имени ресурса `metadata.name` в формате `<spec.name>-<spec.cluster>`.
 
   1. Примените манифест: `kubectl apply -f trinocatalog.yaml -n <пространство_имен>`.
 
@@ -51,7 +47,9 @@
   1. Нажмите **Редактировать**.
   1. Измените параметры в блоке **Настройки каталога**. Поля **Имя** и **Тип** доступны только для чтения.
 
-      Секретные поля (**Пароль**, **Токен доступа**, **Секрет клиента**, **Secret access key**) пустые. Если оставить их пустыми и сохранить, существующие значения в Secret не изменятся. Введите новое значение, чтобы обновить его.
+      Для PostgreSQL и ClickHouse® поле **Пароль** пустое. Если оставить его пустым и сохранить, существующее значение в Secret не изменится. Введите новое значение, чтобы обновить его.
+
+      Для Apache Iceberg™ можно выбрать другой **REST Catalog** в том же пространстве имен и изменить **Способ доступа**: **Внутренний** или **Внешний**. Внешний способ доступен при наличии внешнего адреса у выбранного каталога. Убедитесь, что пользователям [назначены права](../rest-catalog/create-principal.md#console) на новый каталог.
 
       В разделе **Дополнительные настройки** ключ доступен только для чтения у существующих строк; меняется только значение. Новые ключи можно добавить.
 

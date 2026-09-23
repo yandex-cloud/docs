@@ -62,7 +62,7 @@ data "yandex_cm_certificate" "example" {
 ## Arguments & Attributes Reference
 
 - `certificate_id` (String). Certificate Id.
-- `challenges` (*Read-Only*) (List Of Object). Array of challenges.
+- `challenges` (*Read-Only*) (List Of Object). 
   - `created_at` . 
   - `dns_name` . 
   - `dns_type` . 
@@ -74,15 +74,15 @@ data "yandex_cm_certificate" "example" {
   - `type` . 
   - `updated_at` . 
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
+- `deletion_protection` (*Read-Only*) (Bool). The `true` value means that resource is protected from accidental deletion.
 - `description` (String). The resource description.
-- `domains` (List Of String). Domains for this certificate. Should be specified for managed certificates.
+- `domains` (*Read-Only*) (List Of String). Domains for this certificate. Should be specified for managed certificates.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
 - `issued_at` (*Read-Only*) (String). Certificate issue timestamp.
 - `issuer` (*Read-Only*) (String). Certificate Issuer.
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `name` (**Required**)(String). The resource name.
+- `name` (String). The resource name.
 - `not_after` (*Read-Only*) (String). Certificate end valid period.
 - `not_before` (*Read-Only*) (String). Certificate start valid period.
 - `serial` (*Read-Only*) (String). Certificate Serial Number.

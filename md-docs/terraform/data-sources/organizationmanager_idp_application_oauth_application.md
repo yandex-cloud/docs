@@ -32,19 +32,19 @@ output "my_app.client_id" {
 - `application_id` (String). ID of the OAuth application to return.
  To get the OAuth application ID, make a [ApplicationService.List] request.
 - `client_grant` [Block]. Represents current connection to the OAuth client with specified scopes
-  - `authorized_scopes` (Set Of String). List of authorized client scopes by the application
-  - `client_id` (**Required**)(String). OAuth client id
+  - `authorized_scopes` (*Read-Only*) (Set Of String). List of authorized client scopes by the application
+  - `client_id` (*Read-Only*) (String). OAuth client id
 - `created_at` (*Read-Only*) (String). Creation timestamp.
-- `description` (String). Description of the application. 0-256 characters long.
+- `description` (*Read-Only*) (String). Description of the application. 0-256 characters long.
 - `group_claims_settings` [Block]. Settings of the group claims
-  - `group_claim_value` (String). Source of the group value provided to the application.
-  - `group_distribution_type` (String). Represents current distribution type of the groups. I.e. which groups are visible for the application users.
+  - `group_claim_value` (*Read-Only*) (String). Source of the group value provided to the application.
+  - `group_distribution_type` (*Read-Only*) (String). Represents current distribution type of the groups. I.e. which groups are visible for the application users.
 - `id` (String). ID of the OAuth application to return.
  To get the OAuth application ID, make a [ApplicationService.List] request.
-- `labels` (Map Of String). Resource labels as `` key:value `` pairs.
-- `name` (**Required**)(String). Name of the application.
+- `labels` (*Read-Only*) (Map Of String). Resource labels as `` key:value `` pairs.
+- `name` (*Read-Only*) (String). Name of the application.
  The name is unique within the organization. 3-63 characters long.
-- `organization_id` (**Required**)(String). ID of the organization that the application belongs to.
+- `organization_id` (*Read-Only*) (String). ID of the organization that the application belongs to.
 - `status` (*Read-Only*) (String). Current status of the application.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

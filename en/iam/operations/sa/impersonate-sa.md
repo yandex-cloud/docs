@@ -1,6 +1,6 @@
 ---
 title: How to use impersonation in {{ iam-full-name }}
-description: Follow this guide to perform operations on {{ yandex-cloud }} resources under a service account using impersonation.
+description: Follow this guide to perform operations on {{ yandex-cloud }} resources as a service account using impersonation.
 ---
 
 # Using impersonation
@@ -11,7 +11,7 @@ description: Follow this guide to perform operations on {{ yandex-cloud }} resou
 
 {% endnote %}
 
-[Impersonation](../../concepts/access-control/impersonation.md) enables a user to perform actions under a [service account](../../concepts/users/service-accounts.md) using the `--impersonate-service-account-id` parameter in the [{{ yandex-cloud }} CLI](../../../cli/index.yaml) command.
+[Impersonation](../../concepts/access-control/impersonation.md) enables a user to perform actions as a [service account](../../concepts/users/service-accounts.md) using the `--impersonate-service-account-id` parameter in the [{{ yandex-cloud }} CLI](../../../cli/index.yaml) command.
 
 {% note info %}
 
@@ -21,7 +21,7 @@ To use impersonation:
 
 {% endnote %}
 
-To perform an operation under a service account:
+To perform an operation as a service account:
 
 {% list tabs group=instructions %}
 
@@ -29,7 +29,7 @@ To perform an operation under a service account:
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. [Find out](./get-id.md) the ID of the service account you want to assign the role to. To find out the ID, get a list of available service accounts (in the administrator's profile):
+  1. [Get](./get-id.md) the ID of the service account you want to assign the role to. To do this, get a list of available service accounts (in the administrator's profile):
 
       ```bash
       yc iam service-account list
@@ -46,7 +46,7 @@ To perform an operation under a service account:
       +----------------------+----------+--------+---------------------+-----------------------+
       ```
 
-  1. Assign the `test-sa` service account the `viewer` role for `my-folder`. Put `serviceAccount` for subject type, and the service account's ID for value (in the administrator's profile):
+  1. Assign the `viewer` role for `my-folder` to the `test-sa` service account. Put `serviceAccount` for subject type, and the service account's ID for value (in the administrator's profile):
 
       ```
       yc resource-manager folder add-access-binding my-folder \
@@ -54,7 +54,7 @@ To perform an operation under a service account:
         --subject serviceAccount:<service_account_ID>
       ```
 
-  1. [Get](../../../organization/operations/users-get.md) the user's ID and assign the `iam.serviceAccounts.tokenCreator` role for the `test-sa` service account (in the administrator's profile):
+  1. [Get](../../../organization/operations/users-get.md) the user ID and assign the `iam.serviceAccounts.tokenCreator` role for the `test-sa` service account to the user (in the administrator's profile):
 
       ```
       yc iam service-account add-access-binding test-sa \
@@ -62,7 +62,7 @@ To perform an operation under a service account:
         --subject userAccount:<user_ID>
       ```
 
-  1. The user can run a command under the `test-sa` service account using the `--impersonate-service-account-id` parameter.
+  1. The user can run a command as the `test-sa` service account using the `--impersonate-service-account-id` parameter.
 
       For example, the user can get a list of VMs in `my-folder`:
 
@@ -81,7 +81,7 @@ To perform an operation under a service account:
 
       The token will [expire](../../concepts/authorization/iam-token.md#lifetime) automatically.
 
-  1. If the user no longer needs this permission, revoke the role from the service account (in the administrator's profile):
+  1. If the user no longer needs access permissions, revoke the role from the service account (in the administrator's profile):
 
       ```
       yc resource-manager folder remove-access-binding my-folder \

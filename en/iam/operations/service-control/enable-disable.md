@@ -12,7 +12,7 @@ In {{ iam-full-name }}, you can enable and disable [service access](../../concep
 
 ## Enabling a service {#enable}
 
-To grant access to user cloud resources to a service, you need enable the service:
+Enable a service to grant it access to user cloud resources:
 
 {% list tabs group=instructions %}
 
@@ -31,7 +31,7 @@ To grant access to user cloud resources to a service, you need enable the servic
 
   1. [Get](./list-get.md#list) a list of services you can enable or disable with information on their [statuses](../../concepts/service-control.md#access-status).
 
-  1. Run the command, specifying the ID of the service to enable:
+  1. Run this command, specifying the ID of the service to enable:
 
       ```bash
       yc iam service-control enable <service_ID>
@@ -55,13 +55,13 @@ To grant access to user cloud resources to a service, you need enable the servic
 
 {% endlist %}
 
-This will change the service [status](../../concepts/service-control.md#access-status) in the specified cloud to `ENABLED` and create the [service agents](../../concepts/service-control.md#service-agent) with permissions to manage user resources in this cloud.
+This will change the service [status](../../concepts/service-control.md#access-status) in the specified cloud to `ENABLED` and create [service agents](../../concepts/service-control.md#service-agent) with permissions to manage user resources in that cloud.
 
 ## Disabling a service {#disable}
 
-If a service has resources with access to the other user resources in this cloud, you cannot disable this service. To disable such a service, first delete all the service resources that have access to the other user resources.
+If a service has resources with access to the other user resources in this cloud, you cannot disable this service. To disable such a service, first delete all the service resources that have access to other user resources.
 
-To revoke the service's access to the user resources in the cloud, disable the service:
+To revoke the service's access to user resources in the cloud, disable the service:
 
 {% list tabs group=instructions %}
 
@@ -80,7 +80,7 @@ To revoke the service's access to the user resources in the cloud, disable the s
 
   1. [Get](./list-get.md#list) a list of services you can enable or disable with information on their [statuses](../../concepts/service-control.md#access-status).
 
-  1. Run the command, specifying the ID of the service to disable:
+  1. Run this command, specifying the ID of the service to disable:
 
       ```bash
       yc iam service-control disable <service_ID>
@@ -104,7 +104,7 @@ To revoke the service's access to the user resources in the cloud, disable the s
 
 {% endlist %}
 
-As a result, the [status](../../concepts/service-control.md#access-status) of the service in the specified cloud will change to `DISABLED`, its [service agents](../../concepts/service-control.md#service-agent) will be deleted, and the service will lose access to user resources in this cloud.
+As a result, the [status](../../concepts/service-control.md#access-status) of the service in the specified cloud will change to `DISABLED`, its [service agents](../../concepts/service-control.md#service-agent) will be deleted, and the service will lose access to user resources in that cloud.
 
 #### Useful links {#see-also}
 

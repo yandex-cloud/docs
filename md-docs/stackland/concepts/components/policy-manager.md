@@ -2,22 +2,68 @@
 
 # Policy Manager
 
-Policy Manager объединяет инструменты, которые проверяют ресурсы Kubernetes на соответствие политикам и генерируют отчеты в формате [OpenReports](https://openreports.io/docs/api/). За уведомлениями Policy Manager можно следить в консоли управления в разделе **Система > События**. Текущая реализация проверки политик основана на [Kyverno](https://kyverno.io/).
+Policy Manager проверяет ресурсы Kubernetes на соответствие политикам и
+сканирует образы пользовательских приложений на известные уязвимости. Проверки
+политик выполняет [Kyverno](https://kyverno.io/), а образы сканирует Trivy
+Operator. Результаты доступны в консоли управления и в ресурсах Kubernetes.
 
-В Policy Manager можно выбрать один из двух пресетов политик:
+{% note warning %}
 
-* baseline — пресет, основанный на базовом ([baseline](https://kubernetes.io/docs/concepts/security/pod-security-standards/)) стандарте безопасности Kubernetes для подов.
-* restricted — пресет, основанный на защищенном ([restricted](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted)) стандарте безопасности Kubernetes для подов.
+Найденные уязвимости не блокируют создание, запуск или перезапуск подов. Trivy
+работает только в режиме формирования отчетов.
 
-Выбрать пресет политик кластера по умолчанию можно с помощью кастомного ресурса `PolicyManagerConfig`. Активировать дополнительный пресет можно с помощью ресурса `ClusterPolicySet`.
+{% endnote %}
 
-## Как выбрать пресет {#how-to-choose}
+## Политики безопасности {#policies}
 
-Пресет baseline применяется по умолчанию. Он подойдет для приложений, сбой или недоступность которых не приводит к серьезным последствиям. Этот пресет защищает от известных способов превышения привилегий в контейнерных средах. Он прост в применении и подойдет для случаев, когда не нужен широкий набор политик для настройки. Посмотреть доступные политики можно в [документации Kubernetes](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline).
+В Policy Manager доступны два пресета политик:
 
-Пресет restricted обеспечивает соблюдение текущих рекомендаций по защите подов. Он ориентирован на приложения, критически важные с точки зрения безопасности, а также на пользователей с низким уровнем доверия. Посмотреть доступные политики можно в [документации Kubernetes](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted).
+* baseline — базовый стандарт [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline);
+* restricted — защищенный стандарт [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted).
 
-Чтобы добавить новый пресет в кластер, обратитесь к инструкции [Активировать пресет с политиками](../../operations/policy-manager/apply-preset.md). Чтобы изменить пресет по умолчанию, нужно изменить настройки `PolicyManagerConfig`.
+Пресет baseline применяется по умолчанию. Он подойдет для приложений, сбой или
+недоступность которых не приводит к серьезным последствиям. Пресет restricted
+предназначен для критичных приложений и пользователей с низким уровнем доверия.
+
+Пресет по умолчанию задается в ресурсе `PolicyManagerConfig`. Дополнительный
+пресет можно активировать ресурсом `ClusterPolicySet` по инструкции
+[Активировать пресет политик](../../operations/policy-manager/apply-preset.md).
+Оба пресета работают в audit-режиме и формируют отчеты о нарушениях.
+
+## Сканирование образов {#image-scanning}
+
+Сканирование включено по умолчанию. Для каждого образа актуальной версии
+пользовательской нагрузки Trivy Operator создает ресурс `VulnerabilityReport`.
+Если в нем есть находки, адаптер создает отдельный стандартный `PolicyReport`,
+доступный существующим потребителям отчетов Policy Manager. Когда список
+находок становится пустым, адаптер удаляет только связанный `PolicyReport`. Все
+уровни серьезности сохраняются в `VulnerabilityReport`.
+
+Для приватного пользовательского образа оператор читает ServiceAccount исходной
+нагрузки, находит указанные в нем `imagePullSecrets` и передает эти учетные
+данные заданию сканирования. Сам scan job работает от ServiceAccount оператора в
+пространстве имен Policy Manager. Если найденных данных недостаточно для
+загрузки образа, отчет не будет создан.
+
+Базы для пакетов ОС и Java-библиотек поставляются в отдельных образах.
+Основная база устанавливается initContainer сервера Trivy, Java DB — отдельным
+initContainer в общий кеш каждого scan job. Образ сканера не содержит архивов
+баз. В поставку входят offline-базы, поэтому для их
+получения стандартной конфигурации не нужен доступ в интернет. Чтобы обновлять
+базы независимо от релизов Stackland, укажите доступные зеркала:
+`database.registry` вместе с `database.repository` для основной базы и
+`database.javaRegistry` вместе с `database.javaRepository` для Java DB. Оба
+зеркала должны разрешать анонимное чтение образов: учетные данные реестра
+пользовательской нагрузки для загрузки баз не используются. Основную базу
+скачивает один Trivy Server. Внешняя Java DB загружается отдельно в каждый scan
+job (около 1 ГБ на одно сканирование), поэтому при ее использовании учитывайте
+пропускную способность реестра и `scanJobTimeout`. Встроенная Java DB сетевой
+загрузки не требует. Каждый scanner container в scan job запрашивает `3Gi` и
+ограничен `6Gi` временного хранилища для Java DB и распакованных слоев образа;
+суммарные значения для job умножаются на число контейнеров исходной нагрузки.
+
+Подробнее о просмотре результатов см. в инструкции
+[Посмотреть отчеты об уязвимостях](../../operations/policy-manager/view-vulnerability-reports.md).
 
 ## Конфигурация {#configuration}
 
@@ -37,9 +83,35 @@ spec:
           presets:
             - baseline      # основан на Pod Security Standards Baseline (default)
             # - restricted  # основан на Pod Security Standards Restricted (optional)
+    trivy:
+      enabled: true # сканирование образов включено по умолчанию
+      settings:
+        scanner:
+          reportTTL: 24h
+          scanJobTimeout: 5m
+          concurrentScanJobs: 5
+          excludeNamespaces:
+            - tenant-sandbox
+        # Не указывайте database, чтобы использовать базу из поставки.
+        # Для независимых обновлений задайте registry и repository вместе:
+        # database:
+        #   registry: registry.example.com
+        #   repository: security/trivy-db
+        # Для обновления Java DB вне релиза задайте оба Java-параметра:
+        #   javaRegistry: registry.example.com
+        #   javaRepository: security/trivy-java-db
 ```
 
 Где:
 
-* `enabled` — включает использование компонента. Если выбрать `enabled: false`, то все компоненты Policy Manager (Controller, Kyverno, Policy Reporter, ClusterPolicySet) будут удалены.
-* `settings.defaultPolicySet.engines` — задает список пресетов политик и инструментов для их проверки.
+* `enabled` — включает Policy Manager. При значении `false` удаляются Kyverno,
+  Policy Reporter, контроллер политик и сканер;
+* `settings.defaultPolicySet.engines.kyverno.presets` — задает пресеты Kyverno;
+* `settings.trivy.enabled` — включает сканер и адаптер отчетов отдельно от
+  остальных частей Policy Manager;
+* `settings.trivy.settings.scanner.reportTTL` — задает срок хранения отчета и
+  эффективный интервал повторного сканирования; минимальное значение — `1s`;
+* `settings.trivy.settings.scanner.concurrentScanJobs` — ограничивает количество
+  одновременно выполняющихся заданий сканирования;
+* `settings.trivy.settings.scanner.scanJobTimeout` — ограничивает длительность
+  одного задания; минимальное значение — `1s`.

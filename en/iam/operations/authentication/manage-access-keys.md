@@ -1,6 +1,6 @@
 ---
 title: How to manage static access keys in {{ iam-full-name }}
-description: In this tutorial, you will learn how to create and delete static access keys in {{ iam-full-name }} via the management console, CLI, and API.
+description: In this guide, you will learn how to create and delete static access keys in {{ iam-full-name }} via the management console, CLI, and API.
 ---
 
 # Managing static access keys
@@ -93,8 +93,8 @@ To create a service account static access key:
         pgp_key            = "keybase:keybaseusername"
         output_to_lockbox  {
           secret_id             = "<Lockbox_secret_ID>"
-          entry_for_access_key  = "<secret’s_key_for_static_key_ID>"
-          entry_for_secret_key  = "<secret’s_key_for_secret_key>"
+          entry_for_access_key  = "<secret_key_for_static_key_ID>"
+          entry_for_secret_key  = "<secret_key_for_secret_key>"
         }
       }
      ```
@@ -103,12 +103,12 @@ To create a service account static access key:
 
      * `service_account_id`: Service account ID. This is a required setting.
      * `description`: Key description. This is an optional setting.
-     * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional setting. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format.
+     * `pgp_key`: Additional PGP key for private key encryption. This is an optional setting. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format.
 
-     * `output_to_lockbox`: Description of the {{ lockbox-full-name }} [secret](../../../lockbox/concepts/secret.md) to save the secret key values in to prevent their possible leakage through the `terraform.tfstate` file. This is an optional setting. Nested parameters:
-         * `secret_id`: ID of the {{ lockbox-full-name }} secret to store the key ID and secret key in. The secret must be [custom](../../../lockbox/concepts/secret.md#secret-type).
-         * `entry_for_access_key`: Secret key to assign to the static access key ID value you are saving.
-         * `entry_for_secret_key`: Secret key to assign to the secret key value you are saving.
+     * `output_to_lockbox`: Description of the {{ lockbox-full-name }} [secret](../../../lockbox/concepts/secret.md) to save the secret key values to, in order to prevent their possible leak through the `terraform.tfstate` file. This is an optional setting. Nested parameters:
+         * `secret_id`: ID of the {{ lockbox-full-name }} secret to store the key ID and secret key in. The secret must be of the [user type](../../../lockbox/concepts/secret.md#secret-type).
+         * `entry_for_access_key`: Secret key to assign to the static access key ID value being saved.
+         * `entry_for_secret_key`: Secret key to assign to the secret key value being saved.
 
      For more on `yandex_iam_service_account_static_access_key` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
          
@@ -134,7 +134,7 @@ To create a service account static access key:
      1. Confirm creating the static access key by typing `yes` in the terminal and pressing **Enter**.
 
         If there are any errors when creating the key, {{ TF }} will report them.
-        If the key is created successfully, {{ TF }} will store it in its state without showing it to the user. The terminal will display only the ID of the created key.
+        If the key is created successfully, {{ TF }} will store it in its state without showing it to the user. The terminal will only display the ID of the created key.
 
         You can verify that the service account key has been created using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
          
@@ -150,7 +150,7 @@ To create a service account static access key:
 
 ### Examples {#examples}
 
-#### Add a description when creating a service account {#add-description}
+#### Adding a description when creating an access key {#add-description}
 
 Add a description when creating an access key.
 
@@ -200,7 +200,7 @@ To delete a service account static access key:
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_service-account-keys }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the key to delete, and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-confirm_button_delete }}**.
 
@@ -210,7 +210,7 @@ To delete a service account static access key:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Get a list of static access keys of the service account by specifying its name:
+  1. Get a list of static access keys for your service account by specifying the service account name:
 
      ```bash
      yc iam access-key list \
@@ -240,7 +240,7 @@ To delete a service account static access key:
 
     1. Open the {{ TF }} configuration file and delete the section with the static access key description.
 
-        Example of a static access key description in the {{ TF }} configuration:
+        Here is an example of a static access key description in the {{ TF }} configuration:
 
         ```hcl
         resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
@@ -249,8 +249,8 @@ To delete a service account static access key:
           pgp_key            = "keybase:keybaseusername"
           output_to_lockbox  {
             secret_id             = "<Lockbox_secret_ID>"
-            entry_for_access_key  = "<secret’s_key_for_static_key_ID>"
-            entry_for_secret_key  = "<secret’s_key_for_secret_key>"
+            entry_for_access_key  = "<secret_key_for_static_key_ID>"
+            entry_for_secret_key  = "<secret_key_for_secret_key>"
           }
         }
         ```
@@ -276,9 +276,9 @@ To delete a service account static access key:
             terraform apply
             ```
 
-        1. Confirm creating and deleting the resources by typing `yes` in the terminal and clicking **Enter**.
+        1. Confirm creating or deleting the resources by typing `yes` in the terminal and clicking **Enter**.
 
-        This will create or delete all the resources you need in the specified folder. You can check the new resources and their settings or make sure the resources were deleted using the [management console]({{ link-console-main }}) and this CLI command:
+        This will create or delete all the resources you need in the specified folder. You can check the new resources and their settings or make sure the resources have been deleted using the [management console]({{ link-console-main }}) and this CLI command:
 
         ```bash
         yc iam access-key list --service-account-id <service_account_ID>
