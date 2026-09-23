@@ -30,11 +30,13 @@ For information about moving {{ ZK }} hosts to a different [availability zone](.
 
 ## Adding {{ ZK }} hosts {#add-zk}
 
+
 {% note info %}
 
 Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 
@@ -184,7 +186,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -296,7 +298,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

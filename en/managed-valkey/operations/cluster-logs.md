@@ -11,7 +11,7 @@
 - Management console {#console}
 
     1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mdb.cluster.logs.label_title }}** tab.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.logs.label_title }}** tab.
     1. Specify a time period for the log entries you want to view by entering it manually or selecting it in the calendar using the date input field.
     1. Select the type of events to display: **{{ ui-key.yacloud.redis.label_log-type-valkey }}** or **{{ ui-key.yacloud.redis.label_log-type-valkey-audit }}** (audit events).
 

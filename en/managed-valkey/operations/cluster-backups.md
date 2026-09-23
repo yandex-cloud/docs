@@ -5,7 +5,6 @@ description: You can back up {{ VLK }} clusters and restore them from existing b
 
 # Managing backups in {{ mrd-name }}
 
-
 You can create [backups](../concepts/backup.md) and use existing backups to restore your clusters.
 
 {{ mrd-name }} automatically creates a daily backup as well. You can [set the backup start time](#set-backup-window):
@@ -96,7 +95,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
       * Name: `mynewrd`.
       * Environment: `PRODUCTION`.
       * Network: `default`.
-      * Host class: `hm1.nano` (one host); subnet: `b0rcctk2rvtr********`; availability zone: `{{ region-id }}-a`; access: public; [replica priority](../concepts/replication.md#master-failover): `50`.
+      * With one `hm1.nano` class host in subnet `b0rcctk2rvtr********`, [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`, with public access and [replica priority](../concepts/replication.md#master-failover) of `50`.
       * Password: `P@ssWord`.
       * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
 

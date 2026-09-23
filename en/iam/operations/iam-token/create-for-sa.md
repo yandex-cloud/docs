@@ -5,21 +5,21 @@ description: Follow this guide to get an IAM token for a service account.
 
 # Getting an IAM token for a service account
 
-## Selecting a method to get an IAM token {#choose-method}
+## Selecting a method for getting an IAM token {#choose-method}
 
-There are multiple options you can use to get an [IAM token](../../concepts/authorization/iam-token.md) for the [service account](../../concepts/users/service-accounts.md):
+You can get an [IAM token](../../concepts/authorization/iam-token.md) for a [service account](../../concepts/users/service-accounts.md) using any of the following:
 
 ![choose-method](../../../_assets/iam/choose-method.svg)
 
 * [VM metadata service](../../../compute/operations/vm-connect/auth-inside-vm.md): Preferred method when using a [{{ compute-full-name }}](../../../compute/) VM instance.
-* [Workload identity federation](../../concepts/workload-identity.md): If you want to authenticate to the {{ yandex-cloud }} API upon request from an external system compatible with the [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC) protocol. For example, when integrating with GitHub, [{{ mgl-full-name }}](../../../managed-gitlab/), or a custom {{ k8s }} installation.
+* [Workload identity federation](../../concepts/workload-identity.md): Use it if you want to authenticate with the {{ yandex-cloud }} API when making a request from an external system that is compatible with the [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC) protocol. For example, when integrating with GitHub, [{{ mgl-full-name }}](../../../managed-gitlab/), or a custom {{ k8s }} installation.
 * [CLI](#via-cli): This is the easiest way if the external system is not OIDC-compatible but allows you to install the CLI.
 * [JSON Web Token](#via-jwt): Allows you to control IAM token generation at every step.
 * [Function](../../../functions/operations/function-sa.md): To get an IAM token from the function code in [{{ sf-name }}](../../../functions/).
 
 {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
 
-## Get an IAM token using the CLI {#via-cli}
+## Getting an IAM token using the CLI {#via-cli}
 
 {% list tabs group=instructions %}
 
@@ -42,7 +42,7 @@ There are multiple options you can use to get an [IAM token](../../concepts/auth
   t1.9euelZrLop7Uz8up********
   ```
 
-  The value you get is an IAM token. You can copy it, save it to a file, or write it into a variable:
+  The returned value is an IAM token. You can copy and save it to a file or store it in a variable:
 
   ```bash
   export IAM_TOKEN=`<IAM_token>`
@@ -54,39 +54,39 @@ There are multiple options you can use to get an [IAM token](../../concepts/auth
 
 {% note tip %}
 
-You can use the profile you created to perform CLI operations under your service account.
+You can use the created profile to run CLI operations on behalf of the service account.
 
 {% endnote %}
 
-## Get an IAM token using a JWT {#via-jwt}
+## Getting an IAM token using a JWT {#via-jwt}
 
 To get an IAM token, create a [JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT) and exchange it for an IAM token.
 
 ### Getting started {#before-you-begin}
 
-1. [Find out the service account ID](../sa/get-id.md).
-1. [Create the authorized keys](../authentication/manage-authorized-keys.md#create-authorized-key) required for generating a JWT. Save the public key ID.
+1. [Get the service account ID](../sa/get-id.md).
+1. [Create authorized keys](../authentication/manage-authorized-keys.md#create-authorized-key) required for creating a JWT. Save the public key ID.
 
-### 1. To create a JWT {#jwt-create}
+### 1. Creating a JWT {#jwt-create}
 
-Create a JWT manually by following the instructions or use a library for your programming language.
+Create a JWT manually by following the steps below or use a library for your programming language.
 
 {% note tip %}
 
-On [jwt.io](https://jwt.io) you can view the list of libraries and try generating a token manually.
+Visit [jwt.io](https://jwt.io) to view a list of libraries and try creating a token manually.
 
 {% endnote %}
 
 {% list tabs group=programming_language %}
 
-- Guide {#instruction}
+- How to create a JWT token {#instruction}
 
   Generate the parts that make up a JWT:
-  * `header`: Base64Url-encoded JWT headers.
+  * `header`: Base64Url-encoded JWT header.
   * `payload`: Base64Url-encoded JWT Claims Set.
-  * `signature`: Signature generated from parts of the header and payload.
+  * `signature`: Signature generated from the header and payload.
 
-  To create a JWT, join all parts using a period as the delimiter:
+  To create a JWT, join all its parts using dots as separators:
 
   ```
   header.payload.signature
@@ -94,10 +94,10 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   **1.1. Generating a header**
 
-  A service account's JWT header must contain the following fields:
-  * `typ`: Token type, the value is always `JWT`.
+  A service account’s JWT header must contain the following fields:
+  * `typ`: Token type, which is always `JWT`.
   * `alg`: Encryption algorithm. The only supported algorithm is [PS256](https://tools.ietf.org/html/rfc7518#section-3.5).
-  * `kid`: ID of the public key obtained when [creating authorized keys](../authentication/manage-authorized-keys.md#create-authorized-key). The key must belong to the service account that the IAM token is requested for.
+  * `kid`: Public key ID you got when [creating authorized keys](../authentication/manage-authorized-keys.md#create-authorized-key). The key must belong to the service account for which the IAM token is requested.
 
   Example:
 
@@ -114,10 +114,10 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   **1.2. Generating a payload**
 
   A service account's JWT payload must contain the following fields:
-  * `iss`: ID of the service account whose key the JWT is signed with.
-  * `aud`: Link by which an IAM token will be requested: `https://iam.{{ api-host }}/iam/v1/tokens`.
-  * `iat`: JWT issue time in [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time) format.
-  * `exp`: JWT expiration time in Unix timestamp format. The expiration time must not exceed the issue time by more than one hour, i.e., `exp - iat ≤ 3600`.
+  * `iss`: ID of the service account whose key is used to sign the JWT.
+  * `aud`: URL used to request the IAM token, `https://iam.{{ api-host }}/iam/v1/tokens`.
+  * `iat`: JWT issue time as a [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time).
+  * `exp`: JWT expiration time as a Unix timestamp. The expiration time must not exceed the issue time by more than one hour, i.e., `exp - iat ≤ 3600`.
 
   Example:
 
@@ -134,7 +134,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   **1.3. Generating a signature**
 
-  Create a signature using the private key obtained when [creating authorized keys](../authentication/manage-authorized-keys.md#create-authorized-key). For the signature, use a string consisting of the header and payload separated by a period (`.`):
+  Create a signature using the private key you got when [creating authorized keys](../authentication/manage-authorized-keys.md#create-authorized-key). Use the header and payload separated by a dot (`.`) as the signing input:
 
   ```
   header.payload
@@ -151,10 +151,10 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Example of creating a JWT using [PyJWT](https://github.com/jpadilla/pyjwt/):
-  - Tested for Python 3.13.0 and PyJWT 2.10.0.
+  - Tested with Python 3.13.0 and PyJWT 2.10.0.
   - Required data is read from the JSON file obtained when creating the authorized key.
 
-  Install the `PyJWT` and `cryptography` modules to use `PS256` algorithm:
+  Install the `PyJWT` and `cryptography` modules to use the `PS256` algorithm:
   
   ```bash
   pip3 install PyJWT
@@ -214,7 +214,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Example of creating a JWT using the [JJWT](https://github.com/jwtk/jjwt), [Bouncy Castle](https://github.com/bcgit/bc-java), and [Jackson Databind](https://github.com/FasterXML/jackson-databind) libraries:
-  - Verified for Java 21 and JJWT 0.12.5.
+  - Tested with Java 21 and JJWT 0.12.5.
   - Required data is read from the JSON file obtained when creating the authorized key.
 
   ```java
@@ -293,11 +293,11 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Example of creating a JWT using [jose-jwt](https://www.nuget.org/packages/jose-jwt/):
-  - Verified for jose-jwt 5.0.0.
+  - Tested with jose-jwt 5.0.0.
 
   **Net Framework / Net Core**:
 
-    Verified for Net Framework 4.8.1 and Net Core 3.1.
+    Tested with Net Framework 4.8.1 and Net Core 3.1.
 
     ```c#
     using System;
@@ -350,7 +350,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   **.NET 5.0+**:
     
-    Verified for NET 5.0, NET 6.0, NET 7.0, and NET 8.0.
+    Tested with NET 5.0, NET 6.0, NET 7.0, and NET 8.0.
 
     ```c#
     using System;
@@ -396,8 +396,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
-  Example of creating a JWT using [golang-jwt](https://github.com/golang-jwt/jwt).
-  - Tested for Go 1.23.1 and golang-jwt v5.
+  Example of creating a JWT using [golang-jwt](https://github.com/golang-jwt/jwt):
+  - Tested with Go 1.23.1 and golang-jwt v5.
   - Private key is read from the JSON file obtained when creating the authorized key.
 
   Install the required packages:
@@ -493,7 +493,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Example of creating a JWT using [node-jose](https://github.com/cisco/node-jose):
-  - Verified for Node.js v20.12.1 and node-jose 2.2.0.
+  - Tested with Node.js v20.12.1 and node-jose 2.2.0.
   - Required data is read from the JSON file obtained when creating the authorized key.
 
   
@@ -535,8 +535,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Example of creating a JWT using [PHP JWT Framework](https://github.com/web-token/jwt-framework):
-  - Verified for PHP v8.3.4 and web-token/jwt-framework v3.3.5.
-  - Verified for PHP v7.4.33 and web-token/jwt-framework v2.2.11.
+  - Tested with PHP v8.3.4 and web-token/jwt-framework v3.3.5.
+  - Tested with PHP v7.4.33 and web-token/jwt-framework v2.2.11.
   - Required data is read from the JSON file obtained when creating the authorized key.
 
 
@@ -555,7 +555,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   $keyId = $keyData['id'];
   $serviceAccountId = $keyData['service_account_id'];
   
-  // You need to delete header/metadata from the private key
+  // Remove header/metadata from the private key
   if (strpos($privateKeyPem, "PLEASE DO NOT REMOVE THIS LINE!") === 0) {
       $privateKeyPem = substr($privateKeyPem, strpos($privateKeyPem, "\n") + 1);
   }
@@ -593,7 +593,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   
   // Saving the token to a file
   file_put_contents('jwt_token.txt', $token);
-  // Printing the token to console
+  // Printing the token to the console
   echo "JWT Token: " . $token . PHP_EOL;
   ```
 
@@ -602,7 +602,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Example of creating a JWT using [jwt-cpp](https://github.com/Thalhammer/jwt-cpp):
-  - Verified for C++ 14 and jwt-cpp 0.7.0.
+  - Tested with C++ 14 and jwt-cpp 0.7.0.
   - Required data is read from the JSON file obtained when creating the authorized key.
 
   ```cpp
@@ -650,10 +650,10 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Example of creating a JWT using [ruby-jwt](https://github.com/jwt/ruby-jwt):
-  - Verified for Ruby 3.2.3 and jwt 2.8.1.
+  - Tested with Ruby 3.2.3 and jwt 2.8.1.
   - Required data is read from the JSON file obtained when creating the authorized key.
 
-  Install the jwt package:
+  Install `jwt`:
 
   ```
   gem install jwt
@@ -709,10 +709,10 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 {% endlist %}
 
 
-### 2. Exchange the JWT for an IAM token {#get-iam-token}
+### 2. Exchanging the JWT for an IAM token {#get-iam-token}
 
-When exchanging the JWT for an IAM token, make sure the following conditions are met:
-* The service account and key specified in the JWT exist (they have not been deleted).
+When exchanging your JWT for an IAM token, make sure the following conditions are met:
+* The service account and key specified in the JWT exist and have not been deleted.
 * The key belongs to the service account.
 * The signature is valid.
 

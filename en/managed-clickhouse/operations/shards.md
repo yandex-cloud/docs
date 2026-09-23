@@ -4,13 +4,19 @@ You can enable sharding for a cluster, as well as add and configure individual s
 
 ## Enabling sharding {#enable}
 
-{{ mch-name }} clusters are created with a single shard. To start sharding data, [add](#add-shard) one or more shards and [create](../tutorials/sharding.md#example) a distributed table.
+If you do not enable sharding when creating a {{ mch-name }} cluster, a single shard containing all cluster hosts will be created. To be able to shard your data, [add](#add-shard) one or more shards and [create](../tutorials/sharding.md#example) a distributed table.
 
 ## Creating a shard {#add-shard}
 
 The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM quotas available to database clusters in your cloud. To review current resource usage, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** section.
 
 You can create multiple shards in a cluster in one go.
+
+{% note warning %}
+
+In a cluster with a disabled [coordination service](../concepts/coordination-system.md) or built-in {{ CK }}, you cannot create a shard of two or more hosts. First, [enable the {{ CK }} or {{ ZK }} coordination service](update.md#coordination) on individual hosts.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -128,7 +134,7 @@ You can create multiple shards in a cluster in one go.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -394,7 +400,7 @@ You can create multiple shards in a cluster in one go.
 
 - SQL {#sql}
 
-  Shard numbers in {{ CH }} (`shard_num`) follow the lexicographical order of shard names in {{ mch-name }}, e.g., `A-shard`, `B-shard`, `shard10`, `shard100`.
+  Shard numbers in {{ CH }} (`shard_num`) match the alphabetic order of shard names in {{ mch-name }}, e.g., `A-shard`, `B-shard`, `shard10`, `shard100`.
 
   To get the number and name of each shard, run the following query:
 
@@ -425,7 +431,7 @@ You can edit the shard weight as well as the [host class](../concepts/instance-t
   1. Edit as needed and click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
   1. If you have changes the disk type for a shard with {{ CH }} hosts:
       1. In the window that opens, look up the number of non-replicated tables in the **Non-replicated MergeTree tables** chart and their size in **Size of non-replicated MergeTree tables**. The data in the non-replicated tables will be lost. If you need to keep it, [convert]({{ ch.docs }}{{ lang }}/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree) the non-replicated tables to replicated ones before you change the disk type.
-      1. Confirm updating the resources.
+      1. Confirm resource changes.
 
 - CLI {#cli}
 

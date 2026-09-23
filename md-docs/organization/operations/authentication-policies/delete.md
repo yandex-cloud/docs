@@ -33,6 +33,10 @@
   1. В строке с нужной политикой аутентификации нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. В открывшемся окне подтвердите удаление.
 
+- API {#api}
+
+    Воспользуйтесь методом REST API [delete](../../policy/api-ref/AuthenticationPolicyRule/delete.md) для ресурса [AuthenticationPolicyRule](../../policy/api-ref/AuthenticationPolicyRule/index.md) или вызовом gRPC API [AuthenticationPolicyRuleService/Delete](../../policy/api-ref/grpc/AuthenticationPolicyRule/delete.md).
+
 {% endlist %}
 
 #### Полезные ссылки {#see-also}

@@ -36,10 +36,10 @@ description: Следуя данной инструкции, вы сможете
   1. Выполните команду:
 
      ```bash
-     yc organization-manager group list-effective --subject_id <идентификатор_пользователя>
+     yc organization-manager group list-effective --subject-id <идентификатор_пользователя>
      ```
 
-     Где `--subject_id` — идентификатор нужного пользователя, полученный на предыдущем шаге.
+     Где `--subject-id` — идентификатор пользователя, полученный на предыдущем шаге.
 
 - API {#api}
 

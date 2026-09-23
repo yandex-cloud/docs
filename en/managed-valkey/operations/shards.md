@@ -179,8 +179,7 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
      
      * Optionally, edit the host settings.
      * Click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
-     * In the **{{ ui-key.yacloud.mdb.forms.host_column_zone }}** field, select the availability zone and **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}**, and enable **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**.
-  
+     * In the **{{ ui-key.yacloud.mdb.forms.host_column_zone }}** field, select an [availability zone](../../overview/concepts/geo-scope.md), select **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}**, and enable **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
 - CLI {#cli}
@@ -248,7 +247,7 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

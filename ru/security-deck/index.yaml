@@ -68,6 +68,17 @@ blocks:
         text: Стандарт по защите облачной инфраструктуры
         url: >-
           https://yandex.cloud/ru/docs/security-deck/concepts/standard-compliance/yc-cloud-security-standard
+      - src: _assets/image/cspm-standard-ransomware.svg
+        text: Стандарт предотвращения атак программ-шифровальщиков
+        url: >-
+          https://yandex.cloud/ru/docs/security-deck/concepts/standard-compliance/ransomware-prevention
+      - src: _assets/image/cspm-standard-aispm.svg
+        text: "Стандарт безопасности ИИ-систем в Yandex\_Cloud"
+        url: >-
+          https://yandex.cloud/ru/docs/security-deck/concepts/standard-compliance/aispm
+  - type: icons-block
+    size: m
+    items:
       - src: _assets/image/cspm-152-fz.svg
         text: №152-ФЗ «О персональных данных»
         url: >-

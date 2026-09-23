@@ -36,28 +36,20 @@ output "dns_record_fqdn" {
 ## Arguments & Attributes Reference
 
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (String). The resource description.
-- `dns_options` [Block]. Private endpoint DNS options block.
-  - `private_dns_records_enabled` (Bool). If enabled - additional service DNS will be created.
-- `dns_records` (*Read-Only*) (List Of Object). Private endpoint DNS records block.
+- `description` (*Read-Only*) (String). The resource description.
+- `dns_options` (*Read-Only*) (List Of Object). 
+  - `private_dns_records_enabled` . 
+- `dns_records` (*Read-Only*) (List Of Object). 
   - `name` . 
-- `endpoint_address` [Block]. Private endpoint address specification block.
-
-{% note warning %}
-
-Only one of `address_id` or `subnet_id` + `address` arguments can be specified.
-
-{% endnote %}
-
-
-  - `address` (String). Specifies IP address within `subnet_id`.
-  - `address_id` (String). ID of the address.
-  - `subnet_id` (String). Subnet of the IP address.
-- `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
+- `endpoint_address` (*Read-Only*) (List Of Object). 
+  - `address` . 
+  - `address_id` . 
+  - `subnet_id` . 
+- `folder_id` (*Read-Only*) (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (String). The resource name.
-- `network_id` (**Required**)(String). ID of the network which private endpoint belongs to.
+- `network_id` (*Read-Only*) (String). ID of the network which private endpoint belongs to.
 - `private_endpoint_id` (String). ID of the private endpoint.
 - `service_name` (String). Name of the cloud service to access through the private endpoint (e.g. `yandex.cloud.storage`).
 - `status` (*Read-Only*) (String). Status of the private endpoint.

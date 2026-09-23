@@ -72,7 +72,7 @@ To get started:
     1. Select the [cloud network you created before you started out](#before-you-begin).
     1. Select the default security group or create a new one.
 
-1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, specify the availability zones and subnets for the hosts that will be created together with the cluster.
+1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, specify the [availability zones](../overview/concepts/geo-scope.md) and subnets for the hosts that will be created together with the cluster.
 
    If you plan to connect to the cluster from the internet, enable **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}** for the hosts.
 

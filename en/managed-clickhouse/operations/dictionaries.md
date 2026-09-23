@@ -797,7 +797,33 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_access-to-key-from-attributes }}**: Gets the name of the composite key using the `dictGetString` function. This setting is used for the `ip_trie` layout. Enabling this setting increases RAM usage.
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}**: Dictionary key column name. The key column must have the `UInt64` data type. This setting is used for the `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`, and `ssd_cache` layouts. For more details, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}**: Description of the dictionary's composite key. The key may consist of one or more elements. This setting is used for the `complex_key_*` and `ip_trie` layouts:
+
+  * SSD storage settings for the `ssd_cache` and `complex_key_ssd_cache` layouts:
+
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_block-size }}**: Read block size in bytes. The default value is `4096` (4 KB).
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_file-size }}**: Maximum cache file size in bytes. The default value is `4294967296` (4 GB).
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_read-buffer-size }}**: Size of the RAM buffer for reading data from SSDs, in bytes. The default value is `65536` (64 KB).
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_write-buffer-size }}**: Size of the RAM buffer for writing data to SSDs, in bytes. The default value is `4096` (4 KB).
+
+    For more on the `*_ssd_cache` layout settings, see [this {{ CH }} guide](https://clickhouse.com/docs/ru/reference/statements/create/dictionary/layouts/ssd-cache).
+
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_range-min }}**: Column of data for the start of the range. This setting is used for the `range_hashed` and `complex_key_range_hashed` layouts. Specify the following:
+
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-min-name }}**: Column name.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-min-type }}**: Column data type.
+
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_range-max }}**: Column of data for the end of the range. This setting is used for the `range_hashed` and `complex_key_range_hashed` layouts. Specify the following:
+
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-max-name }}**: Column name.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-max-type }}**: Column data type.
+
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-key }}**: Columns making up the composite key of the dictionary. This setting is used for the `complex_key_*` and `ip_trie` layouts.
+    * The `ip_trie` layout supports composite keys consisting of one element only. Specify only column name for this layout.
+    * The `complex_key_*` layouts support composite keys of one or more elements. Specify column name and data type for each element.
+
+    For more information about composite key settings, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#composite-key).
+
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}**: Description of the source table columns containing data for the dictionary. This setting is used for the `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`, `complex_key_*`, `ip_trie`, and `ssd_cache` layouts. For each element, specify:
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-name }}**: Column name.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-type }}**: Column data type.
@@ -806,18 +832,14 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-hierarchical }}**: Hierarchical support flag.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-injective }}**: Injective `id` → `attribute` mapping flag.
 
-    For more information about composite key settings, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#composite-key).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.section_lifetime }}**: Dictionary update interval. Select the update interval type and its settings:
 
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}**: Dictionary update rate settings:
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_fixed-lifetime }}**: Fixed period between dictionary updates:
+      * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_fixed-lifetime }}**: Dictionary data update interval, in seconds.
 
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_update-interval }}**: Dictionary update interval. Select the update interval type and its settings:
-
-      * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_fixed-lifetime }}**: Fixed period between dictionary updates:
-        * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_fixed-lifetime }}**: Dictionary data update interval, in seconds.
-
-      * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_range-lifetime }}**: Time range for {{ CH }} to randomly select the time for update. This helps distribute the dictionary source load when updating across many servers:
-        * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-min }}**: Minimum interval between dictionary updates, in seconds.
-        * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-max }}**: Maximum interval between dictionary updates, in seconds.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_range-lifetime }}**: Time range for {{ CH }} to randomly select the time for update. This helps distribute the dictionary source load when updating across many servers:
+      * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-min }}**: Minimum interval between dictionary updates, in seconds.
+      * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-max }}**: Maximum interval between dictionary updates, in seconds.
 
     For more information about updating dictionaries, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/lifetime).
 
@@ -926,7 +948,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
     * `--layout-read-buffer-size`: Size of the RAM buffer for reading data from SSDs, in bytes. The default value is `65536` (64 KB).
     * `--layout-write-buffer-size`: Size of the RAM buffer for writing data to SSDs, in bytes. The default value is `4096` (4 KB).
 
-    For more details, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/ssd-cache).
+    For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/ssd-cache).
   
   * `--structure-id`: Dictionary key column name. The key column must have the `UInt64` data type. This setting is used for the `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`, and `ssd_cache` layouts. For more information about keys, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
   * `--structure-key`: Description of the dictionary's composite key. The key may consist of one or more elements. This setting is used for the `complex_key_*` and `ip_trie` layouts:
@@ -979,11 +1001,11 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
       * `db`: Source database name.
       * `table`: Source table name.
       * `where`: Condition for selecting rows to build a dictionary from. For example, the `id=10` condition is the same as the `WHERE id=10` SQL clause.
-      * `host`: Source host name. This is an optional setting.
+      * `host`: Source host name. This is an optional parameter.
 
           The host must be in the same network as the {{ CH }} cluster.
 
-      * `port`: Port for connecting to the source. This is an optional setting.
+      * `port`: Port for connecting to the source. This is an optional parameter.
       * `user`: Name of the source database user.
       * `password`: Password to access the source database.
       * `secure`: Set to establish an SSL connection.
@@ -1116,11 +1138,11 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
       * `db`: Source database name.
       * `table`: Source table name.
       * `where`: Condition for selecting rows to build a dictionary from. For example, the `id=10` condition is the same as the `WHERE id=10` SQL clause.
-      * `host`: Source host name. This is an optional setting.
+      * `host`: Source host name. This is an optional parameter.
 
           The host must be in the same network as the {{ CH }} cluster.
 
-      * `port`: Port for connecting to the source. This is an optional setting.
+      * `port`: Port for connecting to the source. This is an optional parameter.
       * `user`: Name of the source database user.
       * `password`: Password to access the source database.
       * `secure`: Set to establish an SSL connection.
@@ -1208,7 +1230,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
       * `layout.read_buffer_size`: Size of the RAM buffer for reading data from SSDs, in bytes. The default value is `65536` (64 KB).
       * `layout.write_buffer_size`: Size of the RAM buffer for writing data to SSDs, in bytes. The default value is `4096` (4 KB).
 
-      For more details, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/ssd-cache).
+      For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/ssd-cache).
 
     * `structure.id.name`: Dictionary key column name. The key column must have the `UInt64` data type. This setting is used for the `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, `DIRECT`, and `SSD_CACHE` layouts. For more information about keys, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
     * `structure.key.attributes`: Description of the dictionary's composite key. The key may consist of one or more elements. This setting is used for the `COMPLEX_KEY_*` and `IP_TRIE` layouts.

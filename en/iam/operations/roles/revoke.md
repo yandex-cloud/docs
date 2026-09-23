@@ -1,4 +1,4 @@
-# Revoke a role for a resource
+# Revoking a role for a resource
 
 {% note info %}
 
@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-If you want to prevent a [subject](../../concepts/access-control/index.md#subject) from accessing a resource, revoke the relevant roles for this resource and for resources that grant inherited access rights. For more information, see [{#T}](../../concepts/access-control/index.md).
+If you want to prevent a [subject](../../concepts/access-control/index.md#subject) from accessing a resource, revoke the relevant roles for that resource and for the resources that grant inherited access permissions. For more information, see [{#T}](../../concepts/access-control/index.md).
 
 
 ## Revoking a role {#revoke-one-role}
@@ -15,15 +15,15 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
 - Management console {#console}
 
-    * To revoke a role in the folder and its child resources:
+    * To revoke a role in a folder and its child resources:
 
         {% include [update-access-binding-user-console-folder](../../../_includes/resource-manager/update-access-binding-user-console-folder.md) %}
 
-    * To revoke a role in the cloud:
+    * To revoke a role in a cloud:
 
         {% include [update-access-binding-user-console-cloud](../../../_includes/resource-manager/update-access-binding-user-console-cloud.md) %}
 
-    * To revoke all the folder or cloud roles at once:
+    * To revoke all folder or cloud roles at once:
 
         1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select a folder or cloud.
         1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -34,7 +34,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    To revoke a role from a subject, delete access permissions for the appropriate resource:
+    To revoke a role from a subject, delete access permissions for the relevant resource:
 
     1. {% include [list-access-bindings-via-cli](../../../_includes/iam/list-access-bindings-via-cli.md) %}
     1. To delete access permissions, run this command:
@@ -61,7 +61,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-    1. To revoke a resource role from a subject, find the resource description in the configuration file:
+    1. To revoke a role for a resource from a subject, find the resource description in the configuration file:
 
         ```
         resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
@@ -110,10 +110,10 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
 - API {#api}
 
-    To revoke a resource role from a subject, delete the relevant access permissions:
+    To revoke a role for a resource from a subject, delete the relevant access permissions:
 
     1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
-    1. Create the request body, e.g., in the `body.json` file. In the request body, specify access permissions to delete. For example, revoke the `editor` role from the `ajei8n54hmfh********` user:
+    1. Create a request body, e.g., in the `body.json` file. In the request body, specify access permissions to delete. For example, revoke the `editor` role from the `ajei8n54hmfh********` user:
 
         **body.json:**
         ```json

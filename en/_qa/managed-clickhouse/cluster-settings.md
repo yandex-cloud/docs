@@ -49,3 +49,23 @@ A cluster with five {{ ZK }} hosts is resilient enough to keep running without t
 Adding more than five {{ ZK }} hosts to a cluster is not supported.
 
 Thus, we recommend creating three or five {{ ZK }} hosts per {{ mch-name }} cluster.
+
+#### How do I add a host to a cluster with disabled coordination service? {#add-hosts-disabled-coordination}
+
+If you try to add a host to a cluster with disabled [coordination service](../../managed-clickhouse/concepts/coordination-system.md), you will get this error:
+
+```text
+ERROR: rpc error: code = FailedPrecondition desc = shard cannot have more than 1 host in non-HA cluster configuration
+```
+
+To add a host to the cluster, first [enable the {{ CK }} or {{ ZK }} coordination service](../../managed-clickhouse/operations/update.md#enable-coordination) on individual hosts.
+
+#### How do I add a multi-host shard to a cluster with disabled coordination service? {#add-shard-disabled-coordination}
+
+If you try to add a multi-host shard to a sharded cluster with disabled [coordination service](../../managed-clickhouse/concepts/coordination-system.md), you will get this error:
+
+```text
+ERROR: rpc error: code = FailedPrecondition desc = To create a shard with two or more hosts, you must enable the coordination service first.
+```
+
+To add a multi-host shard to the cluster, first [enable the {{ CK }} or {{ ZK }} coordination service](../../managed-clickhouse/operations/update.md#enable-coordination) on individual hosts.

@@ -39,7 +39,7 @@ After creating a cluster, you can edit its basic and advanced settings.
         1. Change platform in the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** field.
         1. Change **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** for the VM the hosts are deployed on.
         1. Change the **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
-        1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, change disk type and storage size.
+        1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, change the storage size.
 
     1. Configure advanced cluster settings:
 
@@ -48,6 +48,286 @@ After creating a cluster, you can edit its basic and advanced settings.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** and change the [cluster-level DBMS settings](../concepts/settings-list.md).
 
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To update cluster and host settings:
+
+    1. View the description of the CLI command for updating a cluster:
+
+        ```bash
+        yc managed-sharded-postgresql cluster update --help
+        ```
+
+    1. Specify the new cluster settings in the update command. Note that our example does not contain all available settings:
+
+       * For a cluster with standard sharding:
+
+         
+         
+         ```bash
+         yc managed-sharded-postgresql cluster update <cluster_name_or_ID>  \
+          --new-name <cluster_name> \
+          --security-group-ids <security_group_IDs> \      
+          --infra-resource-preset <host_class> \
+          --infra-disk-size <storage_size_in_GB> \
+          --deletion-protection \
+          --maintenance-window type=<maintenance_type>,`
+                               `day=<day_of_week>,`
+                               `hour=<sequence_number_of_hour_interval> \
+          --websql-access=<true_or_false> \
+          --backup-window-start <backup_start_time> \
+          --backup-retain-period-days <automatic_backup_retention_period>
+         ```
+
+
+
+       * For a cluster with advanced sharding:
+
+         
+         
+         ```bash
+         yc managed-sharded-postgresql cluster update <cluster_name_or_ID>  \
+           --new-name <cluster_name> \
+           --security-group-ids <security_group_IDs> \      
+           --router-resource-preset <host_class> \
+           --router-disk-size <storage_size_in_GB> \
+           --coordinator-resource-preset <host_class> \
+           --coordinator-disk-size <storage_size_in_GB> \
+           --deletion-protection \
+           --maintenance-window type=<maintenance_type>,`
+                                  `day=<day_of_week>,`
+                                  `hour=<sequence_number_of_hour_interval> \
+           --websql-access=<true_or_false> \
+           --backup-window-start <backup_start_time> \
+           --backup-retain-period-days <automatic_backup_retention_period>
+         ```
+
+
+
+         Where:
+
+         * `<cluster_name_or_ID>`: Cluster name or ID which you can get with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+         * `--new-name`: New cluster name.
+
+         
+         * `--security-group-ids`: List of security group IDs.
+
+            {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
+
+
+         * `--infra-resource-preset`, `--router-resource-preset`, and `--coordinator-resource-preset`: `INFRA`, `ROUTER`, and `COORDINATOR` host classes, respectively.
+         * `--infra-disk-size`, `--router-disk-size`, and `--coordinator-disk-size`: `INFRA`, `ROUTER`, and `COORDINATOR` host storage sizes, respectively.
+         * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+           {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+         * `--maintenance-window`: Maintenance window settings that apply to both running and stopped clusters. The `type` setting defines the maintenance type:
+
+           {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
+         * `--backup-retain-period`: Automatic backup retention period, in days.
+
+         {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
+
+    To update the cluster service configuration:
+
+    1. View the description of the CLI command to update the configuration:
+
+        ```bash
+        yc managed-sharded-postgresql cluster update-config --help
+        ```
+
+    1. Specify the new configuration settings in the update command. Note that our example does not contain all available settings:
+
+        ```bash
+        yc managed-sharded-postgresql cluster update-config <cluster_name_or_ID>  \
+          --set router.show_notice_messages=<show_information_notifications>,`
+                router.prefer_same_availability_zone=<routing_priority_to_router_availability_zone>,`
+                router.default_route_behavior=<allow_multishard_requests>,`
+                router.time_quantiles="<list_of_time_quantiles_for_displaying_statistics>"
+        ```
+
+        Where:
+
+        * `<cluster_name_or_ID>`: Cluster name or ID which you can get with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+        * `--set`: New router configuration:
+          * `router.show_notice_messages`: Show information notifications, `true` or `false`.
+          * `router.prefer_same_availability_zone`: Enable priority routing of read requests to the router's availability zone, `true` or `false`.
+          * `router.default_route_behavior`: Router's multishard request execution policy. Possible values: `BLOCK` or `ALLOW`.
+          * `router.time_quantiles`: List of time quantiles for displaying statistics. The default value is `"0.5,0.75,0.9,0.95,0.99,0.999,0.9999"`.
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
+
+        For information on how to create this file, see [Creating a cluster](cluster-create.md).
+
+        For the complete list of configurable {{ mspqr-name }} cluster fields, see [this {{ TF }} provider guide](https://yandex.cloud/en/docs/terraform/resources/mdb_sharded_postgresql_cluster).
+
+    1. Change the resource descriptions:
+
+       * For a cluster with standard sharding:
+
+         
+         ```hcl
+         resource "yandex_mdb_sharded_postgresql_cluster" "<cluster_name>" {
+           ...
+           security_group_ids = [ "<list_of_security_group_IDs>" ]
+           config = {
+             sharded_postgresql_config = {
+               infra = {
+                 resources = {
+                   resource_preset_id = "<host_class>"
+                   disk_size          = <storage_size_in_GB>
+                 }
+                 router = {
+                   show_notice_messages = <show_information_notifications>
+                   prefer_same_availability_zone = <routing_priority_to_router_availability_zone>
+                   default_route_behavior = <allow_multishard_requests>
+                   time_quantiles = [ <list_of_time_quantiles_for_displaying_statistics> ]
+                 }
+               }
+             }
+             deletion_protection = <protect_cluster_from_deletion>
+             maintenance_window = {
+               type = "<maintenance_type>"
+               day  = "<day_of_week>"
+               hour = <sequence_number_of_hour_interval>
+             }
+             backup_retain_period_days = <number_of_days>
+             backup_window_start = {
+               hours   = <backup_start_hour>
+               minutes = <backup_start_minute>
+             }
+           }
+         }
+         ```
+
+
+       * For a cluster with advanced sharding:
+
+         
+         ```hcl
+         resource "yandex_mdb_sharded_postgresql_cluster" "<cluster_name>" {
+           ...
+           security_group_ids = [ "<list_of_security_group_IDs>" ]
+           config = {
+             sharded_postgresql_config = {
+               router = {
+                 resources = {
+                   resource_preset_id = "<host_class>"
+                   disk_size          = <storage_size_in_GB>
+                 }
+                 config = {
+                   show_notice_messages = <show_information_notifications>
+                   prefer_same_availability_zone = <routing_priority_to_router_availability_zone>
+                   default_route_behavior = <allow_multishard_requests>
+                   time_quantiles = [ <list_of_time_quantiles_for_displaying_statistics> ]
+                 }
+               }
+               coordinator = {
+                 resources = {
+                   resource_preset_id = "<host_class>"
+                   disk_size          = <storage_size_in_GB>
+                 }
+               }
+             }
+             deletion_protection = <protect_cluster_from_deletion>
+             maintenance_window = {
+               type = "<maintenance_type>"
+               day  = "<day_of_week>"
+               hour = <sequence_number_of_hour_interval>
+             }
+             backup_retain_period_days = <number_of_days>
+             backup_window_start = {
+               hours   = <backup_start_hour>
+               minutes = <backup_start_minute>
+             }
+           }
+         }
+         ```
+
+
+       Where:
+
+       
+       * `security_group_ids`: [Security group](../../vpc/concepts/security-groups.md) IDs.
+
+         {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
+
+
+       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+
+          {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+       * `config`: Cluster settings:
+
+         * `sharded_postgresql_config`: {{ SPQR }} settings:
+
+           * `router`: Router settings:
+
+             * `config`: Router configuration:
+
+                * `show_notice_messages`: Show information notifications, `true` or `false`.
+                * `time_quantiles`: Array of time quantile strings for displaying statistics. The default values are `"0.5"`, `"0.75"`, `"0.9"`, `"0.95"`, `"0.99"`, `"0.999"`, `"0.9999"`.
+                * `default_route_behavior`: Router's multishard request execution policy. Possible values: `BLOCK` or `ALLOW`.
+                * `prefer_same_availability_zone`: Enable priority routing of read requests to the router's availability zone, `true` or `false`.
+
+             * `resources`: `ROUTER` host resource parameters:
+                * `resource_preset_id`: [Host class](../concepts/instance-types.md).
+                * `disk_size`: Disk size, in GB.
+
+           * `coordinator`: Coordinator settings:
+             * `resources`: Resource parameters:
+               * `resource_preset_id`: Host class.
+               * `disk_size`: Disk size, in GB.
+
+           * `infra`: `INFRA` host settings:
+
+             * `resources`: Resource parameters:
+               * `resource_preset_id`: Host class.
+               * `disk_size`: Disk size, in GB.
+
+             * `router`: Router configuration:
+
+               * `show_notice_messages`: Show information notifications, `true` or `false`.
+               * `time_quantiles`: Array of time quantile strings for displaying statistics. The default values are `"0.5"`, `"0.75"`, `"0.9"`, `"0.95"`, `"0.99"`, `"0.999"`, `"0.9999"`.
+               * `default_route_behavior`: Router's multishard request execution policy. Possible values: `BLOCK` or `ALLOW`.
+               * `prefer_same_availability_zone`: Enable priority routing of read requests to the router's availability zone, `true` or `false`.
+
+       * `backup_window_start`: Backup window settings.
+
+         Here, specify the backup start time. Allowed values:
+
+         * `hours`: From `0` to `23` hours.
+         * `minutes`: Between `0` and `59` minutes.
+
+       * `backup_retain_period_days`: Cluster backup retention period in days. Possible values: between `7` and `60` days.
+
+       * `maintenance_window`: Maintenance window settings:
+
+         * `type`: Maintenance type. The possible values include:
+             * `ANYTIME`: Any time.
+             * `WEEKLY`: On a schedule.
+         * `day`: Day of week for the `WEEKLY` type, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+         * `hour`: UTC hour interval for the `WEEKLY` type, from `1` to `24`.
+
+           > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+
+    1. Make sure the settings are correct.
+
+       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+       {% include [Terraform timeouts](../../_includes/mdb/mspqr/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -84,22 +364,19 @@ After creating a cluster, you can edit its basic and advanced settings.
              },
              "resources": {
                "resourcePresetId": "<router_host_class>",
-               "diskSize": "<storage_size_in_bytes>",
-               "diskTypeId": "<disk_type>"
+               "diskSize": "<storage_size_in_bytes>"
              }
            },
            "coordinator": {
              "resources": {
                "resourcePresetId": "<coordinator_host_class>",
-               "diskSize": "<storage_size_in_bytes>",
-               "diskTypeId": "<disk_type>"
+               "diskSize": "<storage_size_in_bytes>"
              }
            },
            "infra": {
              "resources": {
                "resourcePresetId": "INFRA_host_class",
-               "diskSize": "<storage_size_in_bytes>",
-               "diskTypeId": "<disk_type>"
+               "diskSize": "<storage_size_in_bytes>"
              },
              "router": {
                "showNoticeMessages": <show_information_notifications>,
@@ -168,21 +445,18 @@ After creating a cluster, you can edit its basic and advanced settings.
 
            * `resources`: `ROUTER` host resource parameters:
              * `resourcePresetId`: [Host class](../concepts/instance-types.md).
-             * `diskSize`: Disk size, in bytes.
-             * `diskTypeId`: [Disk type](../concepts/storage.md).
+             * `diskSize`: Disk size in bytes.
 
            * `coordinator`: For advanced sharding, configure the following coordinator settings:
              * `resources`: Resource parameters:
                * `resourcePresetId`: Host class.
-               * `diskSize`: Disk size, in bytes.
-               * `diskTypeId`: Disk type.
+               * `diskSize`: Disk size in bytes.
 
            * `infra`: For standard sharding, set the following `INFRA` host settings:
 
              * `resources`: Resource parameters:
                * `resourcePresetId`: Host class.
-               * `diskSize`: Disk size, in bytes.
-               * `diskTypeId`: Disk type.
+               * `diskSize`: Disk size in bytes.
 
              * `router`: Router configuration:
 
@@ -270,22 +544,19 @@ After creating a cluster, you can edit its basic and advanced settings.
              },
              "resources": {
                "resource_preset_id": "<router_host_class>",
-               "disk_size": "<storage_size_in_bytes>",
-               "disk_type_id": "<disk_type>"
+               "disk_size": "<storage_size_in_bytes>"
              }
            },
            "coordinator": {
              "resources": {
                "resource_preset_id": "<coordinator_host_class>",
-               "disk_size": "<storage_size_in_bytes>",
-               "disk_type_id": "<disk_type>"
+               "disk_size": "<storage_size_in_bytes>"
              }
            },
            "infra": {
              "resources": {
                "resource_preset_id": "INFRA_host_class",
-               "disk_size": "<storage_size_in_bytes>",
-               "disk_type_id": "<disk_type>"
+               "disk_size": "<storage_size_in_bytes>"
              },
              "router": {
                "show_notice_messages": {
@@ -374,21 +645,18 @@ After creating a cluster, you can edit its basic and advanced settings.
 
            * `resources`: `ROUTER` host resource parameters:
              * `resource_preset_id`: [Host class](../concepts/instance-types.md).
-             * `disk_size`: Disk size, in bytes.
-             * `disk_type_id`: [Disk type](../concepts/storage.md).
+             * `disk_size`: Disk size in bytes.
 
            * `coordinator`: For advanced sharding, configure the following coordinator settings:
              * `resources`: Resource parameters:
                * `resource_preset_id`: Host class.
-               * `disk_size`: Disk size, in bytes.
-               * `disk_type_id`: Disk type.
+               * `disk_size`: Disk size in bytes.
 
            * `infra`: For standard sharding, set the following `INFRA` host settings:
 
              * `resources`: Resource parameters:
                * `resource_preset_id`: Host class.
-               * `disk_size`: Disk size, in bytes.
-               * `disk_type_id`: Disk type.
+               * `disk_size`: Disk size in bytes.
 
              * `router`: Router configuration:
 

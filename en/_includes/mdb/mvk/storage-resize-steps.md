@@ -5,7 +5,7 @@ Upon reaching the specified threshold, the storage expands differently depending
 * For non-replicated SSDs and ultra high-speed network SSDs with three replicas, by 93 GB.
 * For local SSDs:
 
-    * **Intel Broadwell** and **Intel Cascade Lake**, by 100 GB.
+    * **Intel Cascade Lake**, by 100 GB.
     * **Intel Ice Lake** and **AMD Zen 4**, by {{ local-ssd-v3-step }}.
 
 

@@ -103,6 +103,10 @@
          * `Не запрашивать MFA` — чтобы полностью отключить требование MFA или запрашивать его только при первом входе. Для этого соответственно отключите или включите опцию **Запросить однократно при первом входе**.
       1. Нажмите кнопку **Сохранить**.
 
+- API {#api}
+
+    Воспользуйтесь методом REST API [update](../../policy/api-ref/AuthenticationPolicyRule/update.md) для ресурса [AuthenticationPolicyRule](../../policy/api-ref/AuthenticationPolicyRule/index.md) или вызовом gRPC API [AuthenticationPolicyRuleService/Update](../../policy/api-ref/grpc/AuthenticationPolicyRule/update.md).
+
 {% endlist %}
 
 #### Полезные ссылки {#see-also}

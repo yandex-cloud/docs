@@ -24,32 +24,32 @@ output "network_id" {
 ## Arguments & Attributes Reference
 
 - `cloud_storage` [Block]. Cloud storage settings
-  - `enable` (Bool). enable Cloud Storage for cluster
+  - `enable` (*Read-Only*) (Bool). enable Cloud Storage for cluster
 - `cluster_config` [Block]. Greenplum® and Odyssey® configuration.
   - `background_activities` [Block]. Managed Greenplum® background tasks configuration.
     - `analyze_and_vacuum` [Block]. Configuration for `ANALYZE` and `VACUUM` operations.
-      - `analyze_timeout` (Number). Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate.
+      - `analyze_timeout` (*Read-Only*) (Number). Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate.
       - `start` [Block]. Time when analyze will start
-        - `hours` (Number). hours
-        - `minutes` (Number). minutes
-      - `vacuum_timeout` (Number). Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate.
+        - `hours` (*Read-Only*) (Number). hours
+        - `minutes` (*Read-Only*) (Number). minutes
+      - `vacuum_timeout` (*Read-Only*) (Number). Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate.
     - `query_killer_scripts` [Block]. Configuration for long running queries killer.
       - `idle` [Block]. Configuration of script that kills long running queries that are in `idle` state.
-        - `enable` (Bool). Use query killer or not
-        - `ignore_users` (Set Of String). Ignore these users when considering queries to terminate
-        - `max_age` (Number). Maximum duration for this type of queries (in seconds).
+        - `enable` (*Read-Only*) (Bool). Use query killer or not
+        - `ignore_users` (*Read-Only*) (Set Of String). Ignore these users when considering queries to terminate
+        - `max_age` (*Read-Only*) (Number). Maximum duration for this type of queries (in seconds).
       - `idle_in_transaction` [Block]. Configuration of script that kills long running queries that are in `idle in transaction` state.
-        - `enable` (Bool). Use query killer or not
-        - `ignore_users` (Set Of String). Ignore these users when considering queries to terminate
-        - `max_age` (Number). Maximum duration for this type of queries (in seconds).
+        - `enable` (*Read-Only*) (Bool). Use query killer or not
+        - `ignore_users` (*Read-Only*) (Set Of String). Ignore these users when considering queries to terminate
+        - `max_age` (*Read-Only*) (Number). Maximum duration for this type of queries (in seconds).
       - `long_running` [Block]. Configuration of script that kills long running queries (in any state).
-        - `enable` (Bool). Use query killer or not
-        - `ignore_users` (Set Of String). Ignore these users when considering queries to terminate
-        - `max_age` (Number). Maximum duration for this type of queries (in seconds).
+        - `enable` (*Read-Only*) (Bool). Use query killer or not
+        - `ignore_users` (*Read-Only*) (Set Of String). Ignore these users when considering queries to terminate
+        - `max_age` (*Read-Only*) (Number). Maximum duration for this type of queries (in seconds).
     - `table_sizes` [Block]. Enables scripts that collects tables sizes to `*_sizes` tables in `mdb_toolkit` schema.
       - `starts` [Block]. Time when start "table_sizes" script
-        - `hours` (Number). hours
-        - `minutes` (Number). minutes
+        - `hours` (*Read-Only*) (Number). hours
+        - `minutes` (*Read-Only*) (Number). minutes
   - `greenplum_config_set_6` [Block]. package: yandex.cloud.mdb.greenplum.v1
 filename: yandex/cloud/mdb/greenplum/v1/cluster.proto
 
@@ -112,119 +112,119 @@ filename: yandex/cloud/mdb/greenplum/v1/cluster.proto
     - `runaway_detector_activation_percent` (*Read-Only*) (Number). Percent of utilized Greenplum Database vmem that triggers the termination of queries.
  https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#runaway_detector_activation_percent
   - `pool` [Block]. Odyssey® pool settings.
-    - `client_idle_timeout` (Number). Client pool idle timeout, in seconds.
+    - `client_idle_timeout` (*Read-Only*) (Number). Client pool idle timeout, in seconds.
 
  Drop stale client connection after this much seconds of idleness, which is not in transaction.
 
  Set to zero to disable.
-    - `idle_in_transaction_timeout` (Number). Client pool idle in transaction timeout, in seconds.
+    - `idle_in_transaction_timeout` (*Read-Only*) (Number). Client pool idle in transaction timeout, in seconds.
 
  Drop client connection in transaction after this much seconds of idleness.
 
  Set to zero to disable.
-    - `mode` (String). Route server pool mode.
-    - `size` (Number). The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.
+    - `mode` (*Read-Only*) (String). Route server pool mode.
+    - `size` (*Read-Only*) (Number). The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.
 
  Set to zero to disable the limit.
   - `pxf_config` [Block]. package: yandex.cloud.mdb.greenplum.v1
 filename: yandex/cloud/mdb/greenplum/v1/cluster.proto
 
-    - `connection_timeout` (Number). Timeout for connection to the Apache Tomcat® server when making read requests.
+    - `connection_timeout` (*Read-Only*) (Number). Timeout for connection to the Apache Tomcat® server when making read requests.
 
  Specify values in seconds.
-    - `max_threads` (Number). Maximum number of the Apache Tomcat® threads.
+    - `max_threads` (*Read-Only*) (Number). Maximum number of the Apache Tomcat® threads.
 
  To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware Greenplum® Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
-    - `pool_allow_core_thread_timeout` (Bool). Determines whether the timeout for core streaming threads is permitted.
-    - `pool_core_size` (Number). Number of core streaming threads per pool.
-    - `pool_max_size` (Number). Maximum allowed number of core streaming threads.
-    - `pool_queue_capacity` (Number). Maximum number of requests you can add to a pool queue for core streaming threads.
+    - `pool_allow_core_thread_timeout` (*Read-Only*) (Bool). Determines whether the timeout for core streaming threads is permitted.
+    - `pool_core_size` (*Read-Only*) (Number). Number of core streaming threads per pool.
+    - `pool_max_size` (*Read-Only*) (Number). Maximum allowed number of core streaming threads.
+    - `pool_queue_capacity` (*Read-Only*) (Number). Maximum number of requests you can add to a pool queue for core streaming threads.
 
  If `0`, no pool queue is generated.
-    - `upload_timeout` (Number). Timeout for connection to the Apache Tomcat® server when making write requests.
+    - `upload_timeout` (*Read-Only*) (Number). Timeout for connection to the Apache Tomcat® server when making write requests.
 
  Specify the values in seconds.
-    - `xms` (Number). Maximum size, in megabytes, of the JVM heap for the PXF daemon.
-    - `xmx` (Number). Initial size, in megabytes, of the JVM heap for the PXF daemon.
+    - `xms` (*Read-Only*) (Number). Maximum size, in megabytes, of the JVM heap for the PXF daemon.
+    - `xmx` (*Read-Only*) (Number). Initial size, in megabytes, of the JVM heap for the PXF daemon.
 - `config` [Block]. Greenplum® cluster configuration.
   - `access` [Block]. Access policy for external services.
-    - `data_lens` (Bool). Allows data export from the cluster to DataLens.
-    - `data_transfer` (Bool). Allows access for DataTransfer.
-    - `web_sql` (Bool). Allows SQL queries to the cluster databases from the management console.
-    - `yandex_query` (Bool). Allow access for YandexQuery.
-  - `assign_public_ip` (Bool). Determines whether the cluster has a public IP address.
+    - `data_lens` (*Read-Only*) (Bool). Allows data export from the cluster to DataLens.
+    - `data_transfer` (*Read-Only*) (Bool). Allows access for DataTransfer.
+    - `web_sql` (*Read-Only*) (Bool). Allows SQL queries to the cluster databases from the management console.
+    - `yandex_query` (*Read-Only*) (Bool). Allow access for YandexQuery.
+  - `assign_public_ip` (*Read-Only*) (Bool). Determines whether the cluster has a public IP address.
 
  After the cluster has been created, this setting cannot be changed.
-  - `backup_retain_period_days` (Number). Retention policy of automated backups.
-  - `backup_window_start` (String). Time to start the daily backup, in the UTC timezone.
-  - `subnet_id` (String). ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id]).
-  - `version` (String). Version of the Greenplum® server software.
-  - `zone_id` (**Required**)(String). ID of the availability zone the cluster belongs to.
+  - `backup_retain_period_days` (*Read-Only*) (Number). Retention policy of automated backups.
+  - `backup_window_start` (*Read-Only*) (String). Time to start the daily backup, in the UTC timezone.
+  - `subnet_id` (*Read-Only*) (String). ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id]).
+  - `version` (*Read-Only*) (String). Version of the Greenplum® server software.
+  - `zone_id` (*Read-Only*) (String). ID of the availability zone the cluster belongs to.
  To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request.
 - `created_at` (*Read-Only*) (String). Time when the cluster was created.
-- `deletion_protection` (Bool). Determines whether the cluster is protected from being deleted.
-- `description` (String). Description of the Greenplum® cluster.
-- `environment` (**Required**)(String). Deployment environment of the Greenplum® cluster.
+- `deletion_protection` (*Read-Only*) (Bool). Determines whether the cluster is protected from being deleted.
+- `description` (*Read-Only*) (String). Description of the Greenplum® cluster.
+- `environment` (*Read-Only*) (String). Deployment environment of the Greenplum® cluster.
 - `folder_id` (String). ID of the folder that the Greenplum® cluster belongs to.
-- `host_group_ids` (Set Of String). Host groups hosting VMs of the cluster.
+- `host_group_ids` (*Read-Only*) (Set Of String). Host groups hosting VMs of the cluster.
 - `id` (String). ID of the Greenplum® cluster resource to return.
 
  To get the cluster ID, use a [ClusterService.List] request.
-- `labels` (Map Of String). Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource.
+- `labels` (*Read-Only*) (Map Of String). Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource.
 - `logging` [Block]. Cloud logging configuration
-  - `command_center_enabled` (Bool). send Yandex Command Center logs
-  - `enabled` (Bool). package: yandex.cloud.mdb.greenplum.v1
+  - `command_center_enabled` (*Read-Only*) (Bool). send Yandex Command Center logs
+  - `enabled` (*Read-Only*) (Bool). package: yandex.cloud.mdb.greenplum.v1
 filename: yandex/cloud/mdb/greenplum/v1/cluster.proto
 
   - `folder_id` (String). package: yandex.cloud.mdb.greenplum.v1
 filename: yandex/cloud/mdb/greenplum/v1/cluster.proto
 
-  - `greenplum_enabled` (Bool). send Greenplum logs
-  - `log_group_id` (String). package: yandex.cloud.mdb.greenplum.v1
+  - `greenplum_enabled` (*Read-Only*) (Bool). send Greenplum logs
+  - `log_group_id` (*Read-Only*) (String). package: yandex.cloud.mdb.greenplum.v1
 filename: yandex/cloud/mdb/greenplum/v1/cluster.proto
 
-  - `pooler_enabled` (Bool). send Pooler logs
+  - `pooler_enabled` (*Read-Only*) (Bool). send Pooler logs
 - `maintenance_window` [Block]. A Greenplum® cluster maintenance window. Should be defined by either one of the two options.
   - `anytime` [Block]. An any-time maintenance window.
   - `weekly_maintenance_window` [Block]. A weekly maintenance window.
-    - `day` (String). Day of the week.
-    - `hour` (Number). Hour of the day in the UTC timezone.
+    - `day` (*Read-Only*) (String). Day of the week.
+    - `hour` (*Read-Only*) (Number). Hour of the day in the UTC timezone.
 - `master_config` [Block]. Configuration of the Greenplum® master subcluster.
   - `resources` [Block]. Computational resources allocated to Greenplum® master subcluster hosts.
-    - `disk_size` (Number). Volume of the storage used by the host, in bytes.
-    - `disk_type_id` (String). Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`.
-    - `resource_preset_id` (String). ID of the preset for computational resources allocated to a host.
+    - `disk_size` (*Read-Only*) (Number). Volume of the storage used by the host, in bytes.
+    - `disk_type_id` (*Read-Only*) (String). Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`.
+    - `resource_preset_id` (*Read-Only*) (String). ID of the preset for computational resources allocated to a host.
 
  Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
-- `master_host_count` (Number). Number of hosts in the master subcluster.
-- `master_host_group_ids` (Set Of String). Host groups hosting VMs of the master subcluster.
+- `master_host_count` (*Read-Only*) (Number). Number of hosts in the master subcluster.
+- `master_host_group_ids` (*Read-Only*) (Set Of String). Host groups hosting VMs of the master subcluster.
 - `monitoring` [Block]. Description of monitoring systems relevant to the Greenplum® cluster.
   - `description` (*Read-Only*) (String). Description of the monitoring system.
   - `link` (*Read-Only*) (String). Link to the monitoring system charts for the Greenplum® cluster.
   - `name` (*Read-Only*) (String). Name of the monitoring system.
-- `name` (**Required**)(String). Name of the Greenplum® cluster.
+- `name` (*Read-Only*) (String). Name of the Greenplum® cluster.
  The name is unique within the folder.
-- `network_id` (**Required**)(String). ID of the cloud network that the cluster belongs to.
+- `network_id` (*Read-Only*) (String). ID of the cloud network that the cluster belongs to.
 - `planned_operation` [Block]. Maintenance operation planned at nearest [maintenance_window].
   - `delayed_until` (*Read-Only*) (String). Delay time for the maintenance operation.
   - `info` (*Read-Only*) (String). The description of the operation.
-- `security_group_ids` (Set Of String). User security groups.
+- `security_group_ids` (*Read-Only*) (Set Of String). User security groups.
 - `segment_config` [Block]. Configuration of the Greenplum® segment subcluster.
   - `resources` [Block]. Computational resources allocated to Greenplum® segment subcluster hosts.
-    - `disk_size` (Number). Volume of the storage used by the host, in bytes.
-    - `disk_type_id` (String). Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`.
-    - `resource_preset_id` (String). ID of the preset for computational resources allocated to a host.
+    - `disk_size` (*Read-Only*) (Number). Volume of the storage used by the host, in bytes.
+    - `disk_type_id` (*Read-Only*) (String). Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`.
+    - `resource_preset_id` (*Read-Only*) (String). ID of the preset for computational resources allocated to a host.
 
  Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
-- `segment_host_count` (Number). Number of hosts in the segment subcluster.
-- `segment_host_group_ids` (Set Of String). Host groups hosting VMs of the segment subcluster.
-- `segment_in_host` (Number). Number of segments per host.
+- `segment_host_count` (*Read-Only*) (Number). Number of hosts in the segment subcluster.
+- `segment_host_group_ids` (*Read-Only*) (Set Of String). Host groups hosting VMs of the segment subcluster.
+- `segment_in_host` (*Read-Only*) (Number). Number of segments per host.
 - `service_account_id` (String). Service account that will be used to access a Yandex Cloud resources
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
   - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
   - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-- `user_name` (**Required**)(String). Owner user name.
+- `user_name` (*Read-Only*) (String). Owner user name.
 
 

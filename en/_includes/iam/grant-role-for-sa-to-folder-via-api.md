@@ -1,9 +1,9 @@
-To assign the service account a role for a cloud or folder, use the `updateAccessBindings` REST API method for the [Cloud](../../resource-manager/api-ref/Cloud/index.md) or [Folder](../../resource-manager/api-ref/Folder/index.md) resource:
+To assign a role for a cloud or folder to a service account, use the `updateAccessBindings` REST API method for the [Cloud](../../resource-manager/api-ref/Cloud/index.md) or [Folder](../../resource-manager/api-ref/Folder/index.md) resource:
 
-1. Select the role to assign to the service account. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
-1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the service accounts folder.
+1. Select a role to assign to the service account. For role descriptions, see the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md) in the {{ iam-full-name }} documentation.
+1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder with service accounts.
 1. [Get](../../iam/operations/iam-token/create.md) an IAM token for authentication in the {{ yandex-cloud }} API.
-1. Get a list of folder service accounts to find out their IDs:
+1. Get a list of service accounts in the folder to find out their IDs:
 
     ```bash
     export FOLDER_ID=<folder_ID>
@@ -30,7 +30,7 @@ To assign the service account a role for a cloud or folder, use the `updateAcces
     }
     ```
 
-1. Create the request body, e.g., in the `body.json` file. Specify `ADD` in the `action` property:
+1. Create a request body, e.g., in the `body.json` file. Specify `ADD` in the `action` property:
 
     ```json
     {

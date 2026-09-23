@@ -269,7 +269,6 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
 ## Restoring a cluster from a backup {#restore}
 
-
 {% note warning %}
 
 {% include [deprecated-note](../../_includes/mdb/backups/deprecated-note.md) %}

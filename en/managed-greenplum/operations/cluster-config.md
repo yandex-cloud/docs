@@ -5,7 +5,6 @@ description: Follow this guide to update a {{ mgp-name }} cluster's configuratio
 
 # Updating a {{ mgp-name }} cluster's configuration
 
-
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
@@ -421,6 +420,7 @@ You can add segment hosts to a {{ mgp-name }} cluster by [expanding it](cluster-
 ## Changing the cluster's availability zone {#change-cluster-zone}
 
 All hosts of a {{ mgp-name }} cluster are located in the same {{ yandex-cloud }} [availability zone](../../overview/concepts/geo-scope.md). You cannot migrate a cluster to a different availability zone. If you need to change the availability zone, [restore the cluster from a backup](cluster-backups.md#restore). When restoring from a backup, specify a new availability zone in the new cluster's settings.
+
 
 {% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
 

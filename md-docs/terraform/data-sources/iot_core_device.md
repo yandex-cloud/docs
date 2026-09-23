@@ -25,13 +25,13 @@ data "yandex_iot_core_device" "my_device" {
 
 ## Arguments & Attributes Reference
 
-- `aliases` (Map Of String). A set of key/value aliases pairs to assign to the IoT Core Device.
-- `certificates` (Set Of String). A set of certificate's fingerprints for the IoT Core Device.
+- `aliases` (*Read-Only*) (Map Of String). A set of key/value aliases pairs to assign to the IoT Core Device.
+- `certificates` (*Read-Only*) (Set Of String). A set of certificate's fingerprints for the IoT Core Device.
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (String). The resource description.
+- `description` (*Read-Only*) (String). The resource name.
 - `device_id` (String). IoT Core Device id used to define device.
 - `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `name` (**Required**)(String). The resource name.
-- `passwords` (Set Of String). A set of passwords's id for the IoT Core Device.
-- `registry_id` (**Required**)(String). IoT Core Registry ID for the IoT Core Device.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
+- `name` (String). The resource name.
+- `passwords` (*Read-Only*) (Set Of String). A set of passwords's id for the IoT Core Device.
+- `registry_id` (*Read-Only*) (String). IoT Core Registry ID for the IoT Core Device.

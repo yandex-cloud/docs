@@ -53,4 +53,17 @@ description: Из этой статьи вы узнаете, как удалит
 
     Воспользуйтесь методом REST API [Federation.delete](../saml/api-ref/Federation/delete.md) для ресурса [Federation](../saml/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/Delete](../saml/api-ref/grpc/Federation/delete.md).
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. В конфигурации, которая управляет федерацией, удалите блок ресурса `yandex_organizationmanager_saml_federation` для федерации и связанные с ним ссылки. Подробная информация о ресурсе приведена в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_saml_federation).
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      Перед подтверждением проверьте, что план удаляет федерацию и только ожидаемые связанные ресурсы.
+
 {% endlist %}

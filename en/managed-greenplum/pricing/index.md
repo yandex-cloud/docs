@@ -12,15 +12,18 @@ blocks:
     animated: false
     colSizes:
       all: 12
-      lg: 6
-      sm: 6
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Price calculator
         text: Calculate the cost of the service based on your needs
-        urlTitle: Price calculator
         gravityIcon: Calculator
         iconPosition: left
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=a98dc01f27e8#calculator
         size: s
         border: shadow
         centered: true
@@ -82,7 +85,7 @@ There are different ways to calculate the cost depending on the [host type](../c
 
 Supported resource configurations are listed in the [Host classes](../concepts/instance-types.md) section. For vCPU and RAM prices, see [Pricing](#prices).
 
-The minimum billing unit is one minute, e.g., 1.5 minutes of host usage is billed as 2 minutes. You will not be charged for the time when the {{ mgp-name }} host is unavailable for basic operations.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as two minutes). You will not be charged for the time when the {{ mgp-name }} host is unavailable for basic operations.
 
 ### Disk space usage {#rules-storage}
 
@@ -106,7 +109,7 @@ You pay for the following:
 
 For more information, see [Backups in {{ mgp-name }}](../concepts/backup.md).
 
-The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
+The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as 2 minutes).
 
 ### Cluster cost calculation example {#example}
 

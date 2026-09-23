@@ -34,6 +34,10 @@ description: Следуя данной инструкции, вы сможете
       1. {% include [auth-policy-create-action](../../../_includes/organization/auth-policy-create-action.md) %}
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
+- API {#api}
+
+    Воспользуйтесь методом REST API [update](../../policy/api-ref/AuthenticationPolicyRule/update.md) для ресурса [AuthenticationPolicyRule](../../policy/api-ref/AuthenticationPolicyRule/index.md) или вызовом gRPC API [AuthenticationPolicyRuleService/Update](../../policy/api-ref/grpc/AuthenticationPolicyRule/update.md).
+
 {% endlist %}
 
 #### Полезные ссылки {#see-also}

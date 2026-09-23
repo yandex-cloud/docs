@@ -104,8 +104,8 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where:
 
-      * `--role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-opensearch.editor`.
-      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
+      * `--role`: [Role](../security/index.md#roles-list), e.g., `managed-opensearch.editor`.
+      * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
           Here is an example:
 
@@ -113,7 +113,11 @@ Thus, you can granularly assign different roles for particular clusters to diffe
           * `userAccount:aje8tj79************`
           * `system:allAuthenticatedUsers`
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
   1. To view a list of roles assigned for the cluster, run this command:
 
@@ -140,22 +144,26 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `cluster_id`: Cluster ID.
-      * `role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-opensearch.editor`.
-      * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
-    
-        Here is an example:
-        
-        * `serviceAccount:${yandex_iam_service_account.mos_sa.id}`
-        * `userAccount:ajerq94vab34********`
-        * `system:allAuthenticatedUsers`
+      * `role`: [Role](../security/index.md#roles-list), e.g., `managed-opensearch.editor`.
+      * `members`: List of designations of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-        {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          Here is an example:
+
+          * `serviceAccount:${yandex_iam_service_account.mos_sa.id}`
+          * `userAccount:ajerq94vab34********`
+          * `system:allAuthenticatedUsers`
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
   1. Make sure the configuration files are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
       
@@ -203,7 +211,11 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -249,7 +261,11 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -294,7 +310,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where `--access-binding` assigns a role to a subject. You can assign multiple roles at once by describing each of them in a separate `--access-binding` parameter.
 
       * `role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-opensearch.editor`.
-      * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
+      * `subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
           Here is an example:
 
@@ -302,13 +318,17 @@ Thus, you can granularly assign different roles for particular clusters to diffe
           * `userAccount:aje8tj79************`
           * `system:allAuthenticatedUsers`
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-      For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+      For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Add resource descriptions:
     
@@ -330,21 +350,25 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       * `cluster_id`: Cluster ID.
       * `role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-opensearch.editor`.
-      * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
-    
-        Here is an example:
-        
-        * `serviceAccount:${yandex_iam_service_account.mos_sa.id}`
-        * `userAccount:ajerq94vab34********`
-        * `system:allAuthenticatedUsers`
+      * `members`: List of designations of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-        {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          Here is an example:
+
+          * `serviceAccount:${yandex_iam_service_account.mos_sa.id}`
+          * `userAccount:ajerq94vab34********`
+          * `system:allAuthenticatedUsers`
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
   1. Make sure the configuration files are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
       
@@ -410,7 +434,11 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -474,7 +502,11 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -512,7 +544,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `--role`: [Role](../security/index.md#roles-list) being revoked, e.g., `managed-opensearch.editor`.
-      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to, in `<subject_type>:<subject_ID>` format.
+      * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
           Here is an example:
 
@@ -520,13 +552,17 @@ Thus, you can granularly assign different roles for particular clusters to diffe
           * `userAccount:aje8tj79************`
           * `system:allAuthenticatedUsers`
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
 - {{ TF }} {#tf}
   
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-      For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+      For more on how to create this file, see [Creating a cluster](cluster-create.md).
   
   1. Find the description of the resource with the role you want to revoke and delete this description:
       
@@ -542,7 +578,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
       
@@ -586,11 +622,15 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where:
 
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-opensearch.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
-      * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being revoked, e.g., `managed-opensearch.editor`.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+      * `access_binding_deltas.subject.type`: Subject type to revoke a role from.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -632,11 +672,15 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `resource_id`: Cluster ID.
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-opensearch.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
-      * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being revoked, e.g., `managed-opensearch.editor`.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+      * `access_binding_deltas.subject.type`: Subject type to revoke a role from.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -677,7 +721,7 @@ For a service account to be able to view the info of all {{ mos-name }} clusters
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+      For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Add resource descriptions:
 
@@ -699,7 +743,7 @@ For a service account to be able to view the info of all {{ mos-name }} clusters
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -20,10 +20,10 @@ data "yandex_iam_workload_identity_federated_credential" "fed_cred" {
 ## Arguments & Attributes Reference
 
 - `created_at` (*Read-Only*) (String). Creation timestamp.
-- `external_subject_id` (String). Id of the external subject (exact match).
+- `external_subject_id` (*Read-Only*) (String). Id of the external subject (exact match).
 - `federated_credential_id` (String). ID of the federated credential to return.
  To get the federated credential ID, make a [FederatedCredentialService.List] request.
-- `federation_id` (**Required**)(String). ID of the workload identity federation which is used for authentication.
+- `federation_id` (*Read-Only*) (String). ID of the workload identity federation which is used for authentication.
 - `id` (String). ID of the federated credential to return.
  To get the federated credential ID, make a [FederatedCredentialService.List] request.
 - `service_account_id` (String). Id of the service account that the federated credential belongs to.

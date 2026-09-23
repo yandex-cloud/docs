@@ -59,7 +59,7 @@
 
       1. Нажмите кнопку **Сохранить**.
 
-    - Terraform{#tf}
+    - Terraform {#tf}
 
       [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
       
@@ -95,7 +95,7 @@
           resource "yandex_organizationmanager_group_mapping_item" "group_mapping_item-2" {
             federation_id     = "<идентификатор_федерации>"
             internal_group_id = "<группа_Cloud_Organization>"
-            external_group_id = "<группа_поставщика_удостоверений"
+            external_group_id = "<группа_поставщика_удостоверений>"
 
           depends_on = [yandex_organizationmanager_group_mapping.my_group_map]
           }
@@ -103,7 +103,7 @@
 
           Где:
           * `federation_id` — идентификатор федерации.
-          * `internal_group_id` — имя группы Yandex Identity Hub.
+          * `internal_group_id` — идентификатор группы Yandex Identity Hub.
           * `external_group_id` — имя группы поставщика удостоверений.
 
           Подробнее о параметрах ресурса `yandex_organizationmanager_group_mapping_item` читайте в [документации провайдера](../../terraform/resources/organizationmanager_group_mapping_item.md).

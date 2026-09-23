@@ -99,7 +99,7 @@ Learn more about other cluster updates:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -242,7 +242,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -393,7 +393,7 @@ For more information about data persistence and its settings, see [Persistence](
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -538,7 +538,7 @@ We recommend changing the host class only when the cluster is idle.
      {{ yc-mdb-rd }} cluster update --help
      ```
 
-  1. Get the list of available host classes (the `ZONE IDS` column lists the availability zones you can select each class in):
+  1. Get the list of available host classes (the `ZONE IDS` column lists the [availability zones](../../overview/concepts/geo-scope.md) you can select each class in):
 
      
      ```bash
@@ -594,7 +594,7 @@ We recommend changing the host class only when the cluster is idle.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -759,7 +759,7 @@ We recommend changing the host class only when the cluster is idle.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -941,7 +941,7 @@ For more information about storage and autoscaling, see [Storage in {{ mrd-name 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1086,7 +1086,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1295,7 +1295,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1357,7 +1357,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
         * `configSpec.redis.auditLog`: Enable logging of connection and authorization audit events, `true` or `false`. Audit event logging may impact your cluster performance.
 
-            This setting will not affect standard {{ VLK }} logs.
+            This setting does not apply to standard {{ VLK }} logs.
 
         * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:
 
@@ -1444,7 +1444,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
         * `config_spec.redis.audit_log`: Enable logging of connection and authorization audit events, `true` or `false`. Audit event logging may impact your cluster performance.
 
-            This setting will not affect standard {{ VLK }} logs.
+            This setting does not apply to standard {{ VLK }} logs.
 
         * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two properties:
 
@@ -1534,7 +1534,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1653,7 +1653,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1772,7 +1772,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -320,6 +320,10 @@ Monium платформа для сбора, хранения и анализа 
 
  - [Виджеты](concepts/visualization/widget.md)
 
+ - [Блокноты](concepts/visualization/notebooks.md)
+
+ - [Контекстные ссылки](concepts/visualization/context-links.md)
+
 ### Работа с дашбордами
 
  - [Создание и управление дашбордом](operations/dashboard/create.md)
@@ -343,6 +347,10 @@ Monium платформа для сбора, хранения и анализа 
 ### Пошаговые инструкции
 
  - [Создание алерта](operations/alert/create-alert.md)
+
+ - [Создание композитного алерта](operations/alert/create-composite-alert.md)
+
+ - [Создание алерта SLO](operations/alert/create-slo-alert.md)
 
  - [Создание канала уведомлений с получателем](operations/alert/create-channel.md)
 

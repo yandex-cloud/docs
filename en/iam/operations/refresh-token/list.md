@@ -18,24 +18,24 @@ To get a list of [refresh tokens](../../concepts/authorization/refresh-token.md)
   1. Locate the user in the list. Use the filter or search bar at the top of the screen as needed.
   1. Navigate to the **{{ ui-key.yacloud_org.my-account.SecurityPageLayout.refresh_breadcrumb }}** tab.
   1. Optionally, in the **{{ ui-key.yacloud_org.users.refresh_tokens.placeholder_client-search }}** field, enter the name of the OAuth application for which you want to get the list of refresh tokens.
-  1. Optionally, in the **{{ ui-key.yacloud_org.users.refresh_tokens.placeholder_client-id-search }}** field, enter the ID of the OAuth application for which you want to get the list of refresh tokens. For example, `yc.oauth.public-sdk` for the {{ yandex-cloud }} CLI.
+  1. Optionally, in the **{{ ui-key.yacloud_org.users.refresh_tokens.placeholder_client-id-search }}** field, enter the ID of the OAuth application for which you want to get the list of refresh tokens. For example, specify `yc.oauth.public-sdk` for the {{ yandex-cloud }} CLI.
   1. Optionally, to change the displayed columns, click ![settings](../../../_assets/console-icons/gear.svg) in the top-right corner of the list.
 
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. View the description of the command to view a list of refresh tokens:
+  1. View the description of the command for viewing a list of refresh tokens:
 
       ```bash
       yc iam refresh-token list --help
       ```
 
-  1. To view the list of refresh tokens, run this command:
+  1. To view a list of refresh tokens, run this command:
 
       {% note info %}
 
-      You can run the `yc iam refresh-token list` command without specifying any additional filter parameters. In this case, it will return a list of all refresh tokens for the user currently authenticated in the {{ yandex-cloud }} CLI.
+      You can run the `yc iam refresh-token list` command without any additional filter parameters. In this case, it will return a list of all refresh tokens for the user currently authenticated in the {{ yandex-cloud }} CLI.
 
       {% endnote %}
 
@@ -49,15 +49,15 @@ To get a list of [refresh tokens](../../concepts/authorization/refresh-token.md)
 
       Where:
 
-      * `--subject-id`: [ID](../../../organization/operations/users-get.md) of the federated user to get a list of refresh tokens for. This is an optional setting. If not specified, the system will display a list of refresh tokens for the user currently authenticated in the {{ yandex-cloud }} CLI.
+      * `--subject-id`: [ID](../../../organization/operations/users-get.md) of the federated user to get a list of refresh tokens for. This is an optional setting. If you skip it, the system will display a list of refresh tokens for the user currently authenticated in the {{ yandex-cloud }} CLI.
 
-          By default, any [federated user](../../concepts/users/accounts.md#saml-federation) can view the list of their refresh tokens. To view the lists of other users’ refresh tokens, a user must have one of the following [roles](../../concepts/access-control/roles.md) for the organization: [organization-manager.admin](../../../organization/security/index.md#organization-manager-admin), [organization-manager.viewer](../../../organization/security/index.md#organization-manager-viewer), or [iam.userAccounts.refreshTokenViewer](../../security/index.md#iam-userAccounts-refreshTokenViewer).
+          By default, any [federated user](../../concepts/users/accounts.md#saml-federation) can view a list of their refresh tokens. To view lists of other users’ refresh tokens, a user needs one of the following [roles](../../concepts/access-control/roles.md) for the organization: [organization-manager.admin](../../../organization/security/index.md#organization-manager-admin), [organization-manager.viewer](../../../organization/security/index.md#organization-manager-viewer), or [iam.userAccounts.refreshTokenViewer](../../security/index.md#iam-userAccounts-refreshTokenViewer).
       * `--client-id`: ID of the OAuth application you want to get a list of refresh tokens for, e.g., `yc.oauth.public-sdk` for the {{ yandex-cloud }} CLI. This is an optional setting.
       * `--client-instance-info`: Version ID of the OAuth application you want to get a list of refresh tokens for, e.g., `yc/0.141.0`. This is an optional setting.
-      * `--protection-level`: [Protection level](../../concepts/authorization/refresh-token.md#dpop-verification) of the DPoP key for the refresh tokens you want to get the list of. This is an optional setting. The possible values are:
+      * `--protection-level`: [Protection level](../../concepts/authorization/refresh-token.md#dpop-verification) of the DPoP key for the refresh tokens whose list you want to get. This is an optional setting. The possible values are:
 
-          * `INSECURE_KEY_DPOP`: The DPoP key is stored in the user’s local file system.
-          * `SECURE_KEY_DPOP`: The DPoP key is stored on a YubiKey.
+          * `INSECURE_KEY_DPOP`: DPoP key is stored in the user’s local file system.
+          * `SECURE_KEY_DPOP`: DPoP key is stored on a YubiKey.
           * `NO_PROTECTION`: No DPoP key is used.
 
       Result:
@@ -79,4 +79,4 @@ To get a list of [refresh tokens](../../concepts/authorization/refresh-token.md)
 
 {% endlist %}
 
-You can also view the list of your refresh tokens through the [My account](../../../organization/concepts/my-account.md) portal. This feature is available to all user categories including Yandex account users.
+You can also view a list of your refresh tokens through the [My account](../../../organization/concepts/my-account.md) portal. This feature is available to all user categories including Yandex account users.

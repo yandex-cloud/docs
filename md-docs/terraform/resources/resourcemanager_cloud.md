@@ -17,12 +17,14 @@ resource "yandex_resourcemanager_cloud" "my_cloud" {
 
 ## Arguments & Attributes Reference
 
-- `cloud_id` (String). ID of the cloud.
-- `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (String). The resource description.
-- `id` (String). 
+- `cloud_id` (String). ID of the Cloud resource to return.
+ To get the cloud ID, use a [CloudService.List] request.
+- `created_at` (*Read-Only*) (String). Creation timestamp.
+- `description` (String). Description of the cloud. 0-256 characters long.
+- `id` (String). ID of the Cloud resource to return.
+ To get the cloud ID, use a [CloudService.List] request.
 - `labels` (Map Of String). Resource labels as `` key:value `` pairs. Maximum of 64 per resource.
-- `name` (String). The resource name.
+- `name` (**Required**)(String). Name of the cloud. 3-63 characters long.
 - `organization_id` (String). ID of the organization that the cloud belongs to.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

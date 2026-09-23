@@ -17,14 +17,17 @@ resource "yandex_resourcemanager_folder" "folder1" {
 
 ## Arguments & Attributes Reference
 
-- `cloud_id` (String). Cloud that the resource belongs to. If value is omitted, the default provider cloud is used.
-- `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (*Read-Only*) (String). The resource description.
-- `folder_id` (String). ID of the folder.
-- `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `name` (String). The resource name.
-- `status` (*Read-Only*) (String). Current status of the folder.
+- `cloud_id` (String). ID of the cloud that the folder belongs to.
+- `created_at` (*Read-Only*) (String). Creation timestamp.
+- `description` (String). Description of the folder. 0-256 characters long.
+- `folder_id` (String). ID of the Folder resource to return.
+ To get the folder ID, use a [FolderService.List] request.
+- `id` (String). ID of the Folder resource to return.
+ To get the folder ID, use a [FolderService.List] request.
+- `labels` (Map Of String). Resource labels as `` key:value `` pairs. Maximum of 64 per resource.
+- `name` (**Required**)(String). Name of the folder.
+ The name is unique within the cloud. 3-63 characters long.
+- `status` (*Read-Only*) (String). Status of the folder.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

@@ -8,7 +8,9 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
 {{ CH }} and {{ ZK }} hosts of a {{ mch-name }} cluster reside in {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). Follow this guide to migrate {{ CH }} and {{ ZK }} hosts to a different availability zone. If you want to migrate hosts with built-in {{ CK }}, contact [support]({{ link-console-support }}).
 
+
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
+
 
 ## Migrating {{ CH }} hosts {#clickhouse-hosts}
 
@@ -16,7 +18,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
 
    Non-replicated tables will be lost during migration.
 
-1. If the cluster does not have a coordination service, [enable](update.md#enable-coordination) one. Without a coordination service, you will not be able to add new hosts to [shards](../concepts/sharding.md) and perform migration.
+1. If the cluster does not have a coordination service, [enable](update.md#enable-coordination) one. Without a coordination service, you will not be able to add new hosts to [shards](../concepts/sharding.md) and perform migration. If your cluster uses built-in {{ CK }}, you only need to enable the coordination service for the production environment.
 1. [Create a subnet](../../vpc/operations/subnet-create.md) in your target availability zone.
 1. Add a host to your cluster:
 
@@ -76,7 +78,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
          }
          ```
 
-         In the `zone` attribute, specify the target availability zone for your hosts.
+         In the `zone` argument, specify the target availability zone for your hosts.
 
       1. Make sure the settings are correct.
 
@@ -276,7 +278,7 @@ description: Follow this guide to migrate {{ CH }} cluster hosts to a different 
          }
          ```
 
-         In the `zone` attribute, specify the target availability zone for your hosts.
+         In the `zone` parameter, specify the target availability zone for your hosts.
 
       1. Make sure the settings are correct.
 

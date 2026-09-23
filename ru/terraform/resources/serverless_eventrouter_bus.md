@@ -16,15 +16,15 @@ subcategory: Serverless Event Router
 
 ## Arguments & Attributes Reference
 
-- `bus_id` (String). ID of the bus
-- `cloud_id` (*Read-Only*) (String). ID of the cloud that the bus resides in
-- `created_at` (*Read-Only*) (String). Creation timestamp
-- `deletion_protection` (*Read-Only*) (Bool). Deletion protection
-- `description` (*Read-Only*) (String). Description of the bus
-- `folder_id` (*Read-Only*) (String). ID of the folder that the bus belongs to
-- `id` (String). 
-- `labels` (*Read-Only*) (Map Of String). Bus labels
-- `name` (String). Name of the bus
+- `bus_id` (String). ID of the bus to get.
+- `cloud_id` (String). ID of the cloud that the bus resides in.
+- `created_at` (*Read-Only*) (String). Creation timestamp.
+- `deletion_protection` (Bool). Deletion protection.
+- `description` (String). Description of the bus.
+- `folder_id` (String). ID of the folder that the bus belongs to.
+- `id` (String). ID of the bus to get.
+- `labels` (Map Of String). Resource labels as `key:value` pairs.
+- `name` (String). Name of the bus.
 - `status` (*Read-Only*) (String). Status of the bus.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

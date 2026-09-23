@@ -105,7 +105,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `--role`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
-      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
+      * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
           Here is an example:
 
@@ -113,13 +113,73 @@ Thus, you can granularly assign different roles for particular clusters to diffe
           * `userAccount:aje8tj79************`
           * `system:allAuthenticatedUsers`
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
   1. To view a list of roles assigned for the cluster, run this command:
 
       ```bash
       {{ yc-mdb-pg }} cluster list-access-bindings <cluster_name_or_ID>
       ```
+
+- {{ TF }} {#tf}
+
+  {% note info %}
+
+  To assign roles for a {{ mpg-name }} cluster, use the `yandex_mdb_postgresql_cluster_iam_binding` resource with the `members` parameter.
+     
+  {% endnote %}
+
+  1. Open the current configuration file with the {{ mpg-name }} cluster description.
+ 
+     To learn how to create this file, see [{#T}](cluster-create.md).
+ 
+  1. Add a resource description:
+   
+     ```hcl
+     resource "yandex_mdb_postgresql_cluster_iam_binding" "<local_resource_name>" {
+       cluster_id = "<cluster_ID>"
+       role       = "<role>"
+       members    = ["<subject_type>:<subject_ID>"]
+     }
+     ```
+
+     Where:
+
+     * `cluster_id`: Cluster ID.
+     * `role`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
+     * `members`: Array of designations of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role.
+
+        Here is an example:
+
+        * `serviceAccount:${yandex_iam_service_account.mpg_sa.id}`
+        * `userAccount:ajerq94v************`
+        * `system:allAuthenticatedUsers`
+
+        {% cut "Subject designations" %}
+
+        {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+        {% endcut %}
+
+  1. Make sure the configuration files are correct.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm resource changes.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     
+     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_cluster_iam_binding).
+
+  1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
+   
+     ```bash
+     {{ yc-mdb-pg }} cluster list-access-bindings <cluster_name_or_ID>
+     ```
 
 - REST API {#api}
 
@@ -157,7 +217,11 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -203,61 +267,13 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
-
-- {{ TF }} {#tf}
-
-  {% note info %}
-
-  To assign roles for a {{ mpg-name }} cluster, use the `yandex_mdb_postgresql_cluster_iam_binding` resource with the `members` parameter.
-     
-  {% endnote %}
-
-  1. Open the current configuration file with the {{ mpg-name }} cluster description.
- 
-     To learn how to create this file, see [{#T}](cluster-create.md).
- 
-  1. Add a resource description:
-   
-     ```hcl
-     resource "yandex_mdb_postgresql_cluster_iam_binding" "<local_resource_name>" {
-       cluster_id = "<cluster_ID>"
-       role       = "<role>"
-       members    = ["<subject_type>:<subject_ID>"]
-     }
-     ```
-
-     Where:
-
-     * `cluster_id`: Cluster ID.
-     * `role`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
-     * `members`: Array of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role, in `<subject_type>:<subject_ID>` format.
-
-       Here is an example:
-
-       * `serviceAccount:${yandex_iam_service_account.mpg_sa.id}`
-       * `userAccount:ajerq94v************`
-       * `system:allAuthenticatedUsers`
-
-       {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
-
-  1. Make sure the configuration files are correct.
-
-     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-  1. Confirm updating the resources.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-  
-     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_cluster_iam_binding).
-
-  1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
-
-     ```bash
-     {{ yc-mdb-pg }} cluster list-access-bindings <cluster_name_or_ID>
-     ```
 
 {% endlist %}
 
@@ -300,7 +316,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where `--access-binding` assigns a role to a subject. You can assign multiple roles at once by describing each of them in a separate `--access-binding` parameter.
 
       * `role`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
-      * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
+      * `subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
           Here is an example:
 
@@ -308,7 +324,73 @@ Thus, you can granularly assign different roles for particular clusters to diffe
           * `userAccount:aje8tj79************`
           * `system:allAuthenticatedUsers`
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
+
+- {{ TF }} {#tf}
+
+  {% note info %}
+   
+  To assign roles for a {{ mpg-name }} cluster, use the `yandex_mdb_postgresql_cluster_iam_binding` resource with the `members` parameter.
+   
+  {% endnote %}
+
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+ 
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
+
+  1. Add resource descriptions:
+   
+     ```hcl
+     resource "yandex_mdb_postgresql_cluster_iam_binding" "<resource_1_local_name>" {
+       cluster_id = "<cluster_ID>"
+       role       = "<role_1>"
+       members    = ["<subject_type>:<subject_ID>"]
+     }
+
+     resource "yandex_mdb_postgresql_cluster_iam_binding" "<resource_2_local_name>" {
+       cluster_id = "<cluster_ID>"
+       role       = "<role_2>"
+       members    = ["<subject_type>:<subject_ID>"]
+     }
+     ```
+
+     Where:
+
+     * `cluster_id`: Cluster ID.
+     * `role`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
+     * `members`: Array of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role, in `<subject_type>:<subject_ID>` format.
+
+        Here is an example:
+
+        * `serviceAccount:${yandex_iam_service_account.mpg_sa.id}`
+        * `userAccount:ajerq94v************`
+        * `system:allAuthenticatedUsers`
+
+        {% cut "Subject designations" %}
+
+        {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+        {% endcut %}
+
+  1. Make sure the configuration files are correct.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm resource changes.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     
+     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_cluster_iam_binding).
+
+  1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
+   
+     ```bash
+     {{ yc-mdb-pg }} cluster list-access-bindings <cluster_name_or_ID>
+     ```
 
 - REST API {#api}
 
@@ -364,7 +446,11 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -428,67 +514,13 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
-
-- {{ TF }} {#tf}
-
-  {% note info %}
-   
-  To assign roles for a {{ mpg-name }} cluster, use the `yandex_mdb_postgresql_cluster_iam_binding` resource with the `members` parameter.
-   
-  {% endnote %}
-
-  1. Open the current {{ TF }} configuration file with the infrastructure plan.
- 
-     To learn how to create this file, see [Creating a cluster](cluster-create.md).
-
-  1. Add resource descriptions:
-   
-     ```hcl
-     resource "yandex_mdb_postgresql_cluster_iam_binding" "<resource_1_local_name>" {
-       cluster_id = "<cluster_ID>"
-       role       = "<role_1>"
-       members    = ["<subject_type>:<subject_ID>"]
-     }
-
-     resource "yandex_mdb_postgresql_cluster_iam_binding" "<resource_2_local_name>" {
-       cluster_id = "<cluster_ID>"
-       role       = "<role_2>"
-       members    = ["<subject_type>:<subject_ID>"]
-     }
-     ```
-
-     Where:
-
-     * `cluster_id`: Cluster ID.
-     * `role`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
-     * `members`: Array of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role, in `<subject_type>:<subject_ID>` format.
-
-       Here is an example:
-
-       * `serviceAccount:${yandex_iam_service_account.mpg_sa.id}`
-       * `userAccount:ajerq94v************`
-       * `system:allAuthenticatedUsers`
-
-       {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
-
-  1. Make sure the configuration files are correct.
-
-     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-  1. Confirm updating the resources.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_cluster_iam_binding).
-
-  1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
-
-     ```bash
-     {{ yc-mdb-pg }} cluster list-access-bindings <cluster_name_or_ID>
-     ```
 
 {% endlist %}
 
@@ -524,7 +556,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `--role`: [Role](../security/index.md#roles-list) being revoked, e.g., `managed-postgresql.editor`.
-      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to, in `<subject_type>:<subject_ID>` format.
+      * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
           Here is an example:
 
@@ -532,7 +564,49 @@ Thus, you can granularly assign different roles for particular clusters to diffe
           * `userAccount:aje8tj79************`
           * `system:allAuthenticatedUsers`
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
+
+- {{ TF }} {#tf}
+
+  {% note info %}
+
+  To revoke roles for a {{ mpg-name }} cluster, use the `yandex_mdb_postgresql_cluster_iam_binding` resource with the `members` parameter.
+
+  {% endnote %}
+
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+ 
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
+
+  1. Find the description of the resource with the role you want to revoke and delete this description:
+   
+     ```hcl
+     resource "yandex_mdb_postgresql_cluster_iam_binding" "<local_resource_name>" {
+       cluster_id = "<cluster_ID>"
+       role       = "<role>"
+       members    = ["<subject_type>:<subject_ID>"]
+     }
+     ```
+
+  1. Make sure the configuration files are correct.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm resource changes.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     
+     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_cluster_iam_binding).
+
+  1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
+   
+     ```bash
+     {{ yc-mdb-pg }} cluster list-access-bindings <cluster_name_or_ID>
+     ```
 
 - REST API {#api}
 
@@ -566,11 +640,15 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where:
 
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
-      * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being revoked, e.g., `managed-postgresql.editor`.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+      * `access_binding_deltas.subject.type`: Subject type to revoke a role from.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -612,51 +690,17 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `resource_id`: Cluster ID.
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
-      * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being revoked, e.g., `managed-postgresql.editor`.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+      * `access_binding_deltas.subject.type`: Subject type to revoke a role from.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
-
-- {{ TF }} {#tf}
-
-  {% note info %}
-
-  To revoke roles for a {{ mpg-name }} cluster, use the `yandex_mdb_postgresql_cluster_iam_binding` resource with the `members` parameter.
-
-  {% endnote %}
-
-  1. Open the current {{ TF }} configuration file with the infrastructure plan.
- 
-     To learn how to create this file, see [Creating a cluster](cluster-create.md).
-
-  1. Find the description of the resource with the role you want to revoke and delete this description:
-   
-     ```hcl
-     resource "yandex_mdb_postgresql_cluster_iam_binding" "<local_resource_name>" {
-       cluster_id = "<cluster_ID>"
-       role       = "<role>"
-       members    = ["<subject_type>:<subject_ID>"]
-     }
-     ```
-
-  1. Make sure the configuration files are correct.
-
-     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-  1. Confirm updating the resources.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_cluster_iam_binding).
-
-  1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
-
-     ```bash
-     {{ yc-mdb-pg }} cluster list-access-bindings <cluster_name_or_ID>
-     ```
 
 {% endlist %}
 
@@ -690,6 +734,36 @@ For a service account to be able to view the info of all {{ mpg-name }} clusters
       ```bash
       {{ yc-mdb-pg }} cluster list-access-bindings <cluster_name_or_ID>
       ```
+
+- {{ TF }} {#tf}
+
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+ 
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
+
+  1. Add resource descriptions:
+
+     ```hcl
+     resource "yandex_resourcemanager_folder_iam_member" "mpg-viewer-account-iam" {
+       folder_id   = "<folder_ID>"
+       role        = "managed-postgresql.viewer"
+       member      = "serviceAccount:<service_account_ID>"
+     }
+
+     resource "yandex_mdb_postgresql_cluster_iam_binding" "mpg-cluster-api-editor" {
+       cluster_id = "<cluster_ID>"
+       role       = "managed-postgresql.editor"
+       members    = ["serviceAccount:<service_account_ID>"]
+     }
+     ```
+
+  1. Make sure the configuration files are correct.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm resource changes.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
@@ -867,35 +941,5 @@ For a service account to be able to view the info of all {{ mpg-name }} clusters
         {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.postgresql.v1.ClusterService.ListAccessBindings
       ```
-
-- {{ TF }} {#tf}
-
-  1. Open the current {{ TF }} configuration file with the infrastructure plan.
-
-     To learn how to create this file, see [Creating a cluster](cluster-create.md).
-
-  1. Add resource descriptions:
-
-     ```hcl
-     resource "yandex_resourcemanager_folder_iam_member" "mpg-viewer-account-iam" {
-       folder_id   = "<folder_ID>"
-       role        = "managed-postgresql.viewer"
-       member      = "serviceAccount:<service_account_ID>"
-     }
-
-     resource "yandex_mdb_postgresql_cluster_iam_binding" "mpg-cluster-api-editor" {
-       cluster_id = "<cluster_ID>"
-       role       = "managed-postgresql.editor"
-       members    = ["serviceAccount:<service_account_ID>"]
-     }
-     ```
-
-  1. Make sure the configuration files are correct.
-
-     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-  1. Confirm updating the resources.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
 title: Viewing access policies created for a resource
-description: In this tutorial, you will learn how to view {{ iam-full-name }} access policies created for a folder, cloud, or organization.
+description: In this guide, you will learn how to view {{ iam-full-name }} access policies created for a folder, cloud, or organization.
 ---
 
 # Viewing access policies created for a resource

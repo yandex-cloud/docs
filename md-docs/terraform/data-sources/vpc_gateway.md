@@ -27,10 +27,10 @@ data "yandex_vpc_gateway" "default" {
 ## Arguments & Attributes Reference
 
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (String). The resource description.
+- `description` (*Read-Only*) (String). The resource description.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `gateway_id` (String). ID of the VPC Gateway.
 - `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (String). The resource name.
 - `shared_egress_gateway` [Block]. Shared egress gateway configuration. Currently empty.

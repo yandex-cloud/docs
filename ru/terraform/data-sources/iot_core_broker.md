@@ -28,17 +28,17 @@ data "yandex_iot_core_broker" "my_broker" {
 ## Arguments & Attributes Reference
 
 - `broker_id` (String). IoT Core Broker id used to define broker.
-- `certificates` (Set Of String). A set of certificate's fingerprints for the IoT Core Broker.
+- `certificates` (*Read-Only*) (Set Of String). A set of certificate's fingerprints for the IoT Core Broker.
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (String). The resource description.
+- `description` (*Read-Only*) (String). The resource description.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `log_options` [Block]. Options for logging for IoT Core Broker.
-  - `disabled` (Bool). Is logging for broker disabled.
-  - `folder_id` (String). Log entries are written to default log group for specified folder.
-  - `log_group_id` (String). Log entries are written to specified log group.
-  - `min_level` (String). Minimum log entry level.
-- `name` (**Required**)(String). The resource name.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
+- `log_options` (*Read-Only*) (List Of Object). 
+  - `disabled` . 
+  - `folder_id` . 
+  - `log_group_id` . 
+  - `min_level` . 
+- `name` (String). The resource name.
 
 

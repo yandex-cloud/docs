@@ -12,7 +12,7 @@ To set up authentication in the {{ yandex-cloud }} API via a workload identity f
 1. [Get your cloud ready](#prepare-cloud).
 1. [Create a workload identity federation](#create-wlif).
 1. [Create federated credentials](#create-federated-credential).
-1. [Exchange a JWT of an external subject for a service account IAM token](#exchange-jwt-for-iam).
+1. [Exchange an external subject JWT for a service account IAM token](#exchange-jwt-for-iam).
 
 For examples of setting up authentication for specific OIDC providers, see these tutorials:
 
@@ -51,7 +51,7 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
 
           To get this value, refer to the OIDC provider's documentation or contact their support.
 
-          You can specify multiple resources to issue the IAM token for.
+          You can specify multiple resources at once.
       1. In the **{{ ui-key.yacloud.iam.federations.field_jwks }}** field, specify the URL for retrieving the current public key issued by the OIDC provider and used for [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) signature verification.
 
           To get this value, refer to the OIDC provider's documentation or contact their support.
@@ -88,7 +88,7 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
       * `--issuer`: URL of the OIDC provider.
 
           To get this value, refer to the OIDC provider's documentation or contact their support.
-      * `--audiences`: Resources to issue the token for. You can specify multiple resources at once, separated by commas.
+      * `--audiences`: Target resources for the token. You can specify multiple resources at once, separated by commas.
 
           To get this value, refer to the OIDC provider's documentation or contact their support.
       * `--jwks-url`: URL for retrieving the current public key issued by the OIDC provider and used for [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) signature verification.
@@ -110,7 +110,7 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
       created_at: "2024-12-28T16:04:31.530652473Z"
       ```
 
-      Save the value of the new workload identity federation ID. You will need it to create federated credentials.
+      Save the ID of the new workload identity federation. You will need it to create federated credentials.
 
       For more information about the `yc iam workload-identity oidc federation create` command, see the [CLI reference](../../../cli/cli-ref/iam/cli-ref/workload-identity/oidc/federation/create.md).
 
@@ -120,7 +120,7 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, define the parameters of the federation you want to create:
+  1. In the {{ TF }} configuration file, specify the properties of the federation you want to create:
 
       ```hcl
       resource "yandex_iam_workload_identity_oidc_federation" "wlif" {
@@ -137,8 +137,8 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
       * `name`: Name of the new federation, e.g., `sample-iam-federation`. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
-      * `folder_id`: [ID](../../../resource-manager/operations/folder/get-id.md) of the folder to create the workload identity federation in.
-      * `audiences`: Resources to issue the token for. You can specify multiple resources at once, separated by commas.
+      * `folder_id`: [ID](../../../resource-manager/operations/folder/get-id.md) of the folder to host the new workload identity federation.
+      * `audiences`: Target resources for the token. You can specify multiple resources at once, separated by commas.
 
           To get this value, refer to the OIDC provider's documentation or contact their support.
       * `issuer`: URL of the OIDC provider.
@@ -178,7 +178,7 @@ Federated credentials refer to the link established between a workload identity 
 
 {% note info %}
 
-To create federated credentials, the user needs the following:
+To create federated credentials, the user needs:
 * `iam.serviceAccounts.federatedCredentialEditor` [role](../../security/index.md#iam-serviceAccounts-federatedCredentialEditor) or higher for the service account that will be used in the federated credentials.
 * `iam.workloadIdentityFederations.user` [role](../../security/index.md#iam-workloadIdentityFederations-user) or higher for the folder containing the workload identity federation.
 
@@ -190,9 +190,9 @@ To create federated credentials, the user needs the following:
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder containing the service account.
   
-      [Create](../sa/create.md) a new service account if you need to.
+      [Create](../sa/create.md) a new service account, if required.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Select the appropriate service account from the list.
+  1. Select the service account from the list.
   1. In the top panel, click ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
   1. In the **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** field, select the federation you created earlier.
   1. In the **{{ ui-key.yacloud.iam.connected-federation.field_subject }}** field, specify the external subject ID.
@@ -208,7 +208,7 @@ To create federated credentials, the user needs the following:
       yc iam workload-identity federated-credential create --help
       ```
 
-  1. Create federated credentials, specifying the ID of the appropriate service account:
+  1. Create federated credentials, specifying the service account ID:
 
       ```bash
       yc iam workload-identity federated-credential create \
@@ -219,7 +219,7 @@ To create federated credentials, the user needs the following:
 
       Where:
 
-      * `--service-account-id`: [ID](../sa/get-id.md) of the {{ yandex-cloud }} service account.
+      * `--service-account-id`: {{ yandex-cloud }} service account [ID](../sa/get-id.md).
 
           The service account can reside in a folder other than the one containing the workload identity federation.
       * `--federation-id`: Workload identity federation ID obtained in the previous step.
@@ -241,7 +241,7 @@ To create federated credentials, the user needs the following:
 
 - {{ TF }} {#tf}
 
-  1. In the {{ TF }} configuration file, define the parameters of the federated credentials you want to create:
+  1. In the {{ TF }} configuration file, specify the properties of the federated credentials you want to create:
 
       ```hcl
       resource "yandex_iam_workload_identity_federated_credential" "fc" {
@@ -253,7 +253,7 @@ To create federated credentials, the user needs the following:
 
       Where:
 
-      * `service_account_id`: [ID](../sa/get-id.md) of the {{ yandex-cloud }} service account.
+      * `service_account_id`: {{ yandex-cloud }} service account [ID](../sa/get-id.md).
 
           The service account can reside in a folder other than the one containing the workload identity federation.
       * `federation_id`: Workload identity federation ID.
@@ -299,7 +299,7 @@ Where:
 
 * `grant_type`: Request type, which is always `urn:ietf:params:oauth:grant-type:token-exchange`.
 * `requested_token_type`: Requested token type, which is always `urn:ietf:params:oauth:token-type:access_token`.
-* `audience`: [ID](../sa/get-id.md) of the {{ yandex-cloud }} service account.
+* `audience`: {{ yandex-cloud }} service account [ID](../sa/get-id.md).
 * `subject_token`: External subject JWT.
 * `subject_token_type`: External subject token type, which is always `urn:ietf:params:oauth:token-type:id_token`.
 

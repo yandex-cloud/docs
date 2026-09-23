@@ -17,7 +17,7 @@ To delete an access policy created for a [folder](../../resource-manager/concept
 
       Where:
 
-      * `--name`: Name of the folder that you want to delete the policy for. Instead of the folder name, you can provide its [ID](../../resource-manager/operations/folder/get-id.md) in the `--id` parameter.
+      * `--name`: Name of the folder to delete the policy for. Instead of the folder name, you can provide its [ID](../../resource-manager/operations/folder/get-id.md) in the `--id` parameter.
       * `--access-policy-template-id`: ID of the access policy template you want to delete for the specified folder.
   1. [Make sure](../../resource-manager/operations/folder/manage-access-policies.md#view-assigned) the policy was deleted.
 

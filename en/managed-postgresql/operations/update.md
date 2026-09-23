@@ -76,7 +76,7 @@ We recommend changing the host class only when the cluster is idle.
       {{ yc-mdb-pg }} cluster update --help
       ```
 
-  1. Request a list of available host classes. The `ZONE IDS` column lists the availability zones where the relevant class can be selected:
+  1. Get the list of available host classes (the `ZONE IDS` column lists the [availability zones](../../overview/concepts/geo-scope.md) you can select each class in):
 
      
      ```bash
@@ -265,7 +265,7 @@ You can change the DBMS settings for the hosts in your cluster.
 
   1. Set the parameter values as needed:
 
-      All supported arguments are listed in the `postgresqlConfig_<{{ PG }}_version>` field of the [ `update` method’s request format](../api-ref/Cluster/update.md). To specify an argument name in the CLI call, convert its name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `maxPreparedTransactions` argument from the API request becomes `max_prepared_transactions` for the CLI command:
+      All supported arguments are listed in the `postgresqlConfig_<{{ PG }}_version>` field of the [`update` method’s request format](../api-ref/Cluster/update.md). To specify an argument name in the CLI call, convert its name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `maxPreparedTransactions` argument from the API request becomes `max_prepared_transactions` for the CLI command:
 
       ```bash
       {{ yc-mdb-pg }} cluster update-config <cluster_name_or_ID> \
@@ -1071,7 +1071,7 @@ To perform a master failover:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

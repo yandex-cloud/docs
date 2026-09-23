@@ -1,60 +1,154 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Базы данных > Iceberg REST Catalog > Создать пользователя каталога
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Базы данных и аналитика > Iceberg REST Catalog > Назначить права на каталог
 
-# Создать пользователя каталога
+# Назначить права на каталог
 
-Пользователь каталога [Iceberg REST Catalog](../../concepts/components/rest-catalog.md) — это учетная запись с доступом по протоколу OAuth2. Создайте пользователя в проекте с уже существующим каталогом.
+Чтобы предоставить доступ к [Iceberg REST Catalog](../../concepts/components/rest-catalog.md), назначьте роль существующему пользователю, группе или сервисному аккаунту. Отдельную учетную запись каталога создавать не требуется.
 
-{% list tabs group=instructions %}
+Если пользователь или группа еще не созданы, воспользуйтесь инструкцией [Создать пользователя](../iam/create-user.md) или [Создать группу](../iam/create-group.md). Сервисный аккаунт Kubernetes можно создать командой `kubectl create serviceaccount <имя_сервисного_аккаунта> -n <пространство_имен>`.
 
-- CLI {#cli}
+## Через CLI {#cli}
 
-  1. Создайте файл ресурса `RestCatalogPrincipal`. Например, с помощью команды `touch restcatalogprincipal.yaml`.
-  1. Откройте файл и вставьте конфигурацию ниже. Создайте вместе с пользователем секрет с учетными данными OAuth2:
+1. Создайте файл `stacklandrestcatalogaccessbinding.yaml` с конфигурацией ресурса `StacklandRestCatalogAccessBinding`. Выберите один вариант манифеста в зависимости от нужной области доступа:
 
-      ```yaml
-      apiVersion: restcatalog.stackland.yandex.cloud/v1alpha1
-      kind: RestCatalogPrincipal
-      metadata:
-        name: analytics-service-account    # Имя пользователя каталога; уникально в пределах кластера
-      spec:
-        catalog: analytics                 # Имя каталога (RestCatalog.metadata.name) в этом же проекте
-        principalRoles:                    # Имена групп пользователей из declaredPrincipalRoles каталога
-          - analytics-admin
-        credentialsSecretRef:
-          name: analytics-principal-credentials   # Ссылка на секрет с учетными данными OAuth2
-      ---
-      apiVersion: v1
-      kind: Secret
-      metadata:
-        name: analytics-principal-credentials
-      type: Opaque
-      stringData:
-        clientId: analytics-service-account       # Совпадает с именем пользователя каталога
-        clientSecret: <секрет_клиента>            # Задает администратор
-      ```
+    {% list tabs %}
+    
+    - Каталог
+    
+        ```yaml
+        apiVersion: stacklandrestcatalog.stackland.yandex.cloud/v1alpha1
+        kind: StacklandRestCatalogAccessBinding
+        metadata:
+          name: analytics-reader
+        spec:
+          catalogRef: analytics
+          subject:
+            kind: User
+            name: analytics-user
+          catalog:
+            role: reader
+        ```
+    
+    - Пространство имен
+    
+        ```yaml
+        apiVersion: stacklandrestcatalog.stackland.yandex.cloud/v1alpha1
+        kind: StacklandRestCatalogAccessBinding
+        metadata:
+          name: analytics-reader
+        spec:
+          catalogRef: analytics
+          subject:
+            kind: User
+            name: analytics-user
+          namespace:
+            namespacePath: [sales, reports]
+            role: reader
+        ```
+    
+    - Таблица
+    
+        ```yaml
+        apiVersion: stacklandrestcatalog.stackland.yandex.cloud/v1alpha1
+        kind: StacklandRestCatalogAccessBinding
+        metadata:
+          name: analytics-reader
+        spec:
+          catalogRef: analytics
+          subject:
+            kind: User
+            name: analytics-user
+          table:
+            namespacePath: [sales, reports]
+            name: orders
+            role: reader
+        ```
+    
+    - Представление
+    
+        ```yaml
+        apiVersion: stacklandrestcatalog.stackland.yandex.cloud/v1alpha1
+        kind: StacklandRestCatalogAccessBinding
+        metadata:
+          name: analytics-reader
+        spec:
+          catalogRef: analytics
+          subject:
+            kind: User
+            name: analytics-user
+          view:
+            namespacePath: [sales, reports]
+            name: recent_orders
+            role: reader
+        ```
+    
+    {% endlist %}
 
-      Учитывайте требования:
+    Во всех примерах пользователю `analytics-user` назначается роль `reader` на выбранный объект каталога `analytics`. Замените имя пользователя и данные объекта на нужные. Пространство имен Iceberg в примерах состоит из двух сегментов: `sales` и `reports`.
 
-      * параметр `spec.catalog` должен ссылаться на существующий каталог `RestCatalog` в том же проекте;
-      * имена в параметре `spec.principalRoles` должны входить в список групп пользователей `spec.declaredPrincipalRoles` этого каталога.
+    Параметры:
 
-  1. Примените манифест: `kubectl apply -f restcatalogprincipal.yaml -n <название проекта>`. При необходимости можно прописать название проекта в параметр ресурса `metadata.namespace` и не использовать в команде.
+    * `spec.catalogRef` — имя ресурса `StacklandRestCatalog` в том же пространстве имен, где создается назначение прав.
+    * `spec.subject.kind` — тип получателя роли: `User`, `Group` или `ServiceAccount`.
+    * `spec.subject.name` — имя пользователя, группы или сервисного аккаунта. Для `User` вместо имени можно указать идентификатор в `spec.subject.id`.
+    * `spec.subject.namespace` — пространство имен сервисного аккаунта. Обязательно при `kind: ServiceAccount`.
+    * `role` в блоке `spec.catalog`, `spec.namespace`, `spec.table` или `spec.view` — роль на выбранный объект: `auditor`, `viewer`, `reader`, `writer`, `editor` или `admin`.
 
+    Для назначения роли на отдельное пространство имен Iceberg, таблицу или представление вместо `spec.catalog` задайте соответствующую [область действия](../../concepts/components/rest-catalog.md#roles). В одном ресурсе можно указать только одну область и одну роль.
 
-- Консоль управления {#console}
+1. Примените манифест:
 
-  1. Если вы еще не открыли проект, выберите проект.
-  1. В левом меню выберите **Iceberg REST Catalog**.
-  1. На вкладке **Каталоги** выберите каталог.
-  1. Перейдите на вкладку **Пользователи**.
-  1. Нажмите **Создать пользователя**.
-  1. Заполните поля:
+    ```bash
+    kubectl apply -f stacklandrestcatalogaccessbinding.yaml -n <пространство_имен>
+    ```
 
-      * **Имя** — имя пользователя каталога. После создания имя не меняется.
-      * **Идентификатор клиента** — совпадает с именем пользователя и недоступен для изменения.
-      * **Секрет клиента** — задайте секрет OAuth2.
-      * **Список ролей** — выберите одну или несколько групп пользователей каталога.
+1. Проверьте состояние назначения прав:
 
-  1. Нажмите **Создать**.
+    ```bash
+    kubectl get stacklandrestcatalogaccessbinding analytics-reader -n <пространство_имен>
+    ```
 
-{% endlist %}
+    Дождитесь состояния `ready` в столбце `Phase`. Если нужное пространство имен Iceberg, таблица или представление еще не созданы, назначение остается в состоянии `pendingResources`. Если не удается определить получателя роли, назначение остается в состоянии `pending`.
+
+Чтобы назначить еще одну роль или предоставить доступ другому получателю, создайте отдельный ресурс `StacklandRestCatalogAccessBinding`.
+
+## Через консоль управления {#console}
+
+Через консоль управления можно назначить роль пользователю или группе. Для сервисного аккаунта используйте [CLI](#cli).
+
+1. Откройте проект и выберите пространство имен каталога.
+1. В левом меню выберите **REST Catalog** → **Каталоги**.
+1. Откройте каталог и перейдите на вкладку **Доступ**.
+1. Нажмите **Выдать доступ**.
+1. Заполните поля:
+
+    * **Имя** — имя назначения прав, уникальное в пространстве имен.
+    * **Субъект** — пользователь или группа, которым нужно предоставить доступ.
+    * **Цель** — **Каталог**, **Пространство имен**, **Таблица** или **Представление**.
+    * **Пространство имен каталога** — путь к пространству имен Iceberg. Обязателен для всех целей, кроме каталога. Введите непустые сегменты через `/`, например `sales/reports`. Точки внутри сегментов не допускаются.
+    * **Имя таблицы** или **Имя представления** — имя объекта для соответствующей цели.
+    * **Уровень доступа** — роль `auditor`, `viewer`, `reader`, `writer`, `editor` или `admin`.
+
+1. Нажмите **Выдать доступ**. Новое назначение появится на вкладке **Доступ**.
+
+Одно назначение предоставляет одну роль на один объект. Для другой роли или другого объекта создайте отдельное назначение.
+
+## Изменить назначение прав {#edit}
+
+В существующем назначении можно изменить роль или область доступа. Чтобы выбрать другой каталог, пользователя или группу, [отзовите назначение](delete-principal.md) и создайте новое.
+
+### Через CLI {#edit-cli}
+
+1. Откройте ресурс для редактирования:
+
+    ```bash
+    kubectl edit stacklandrestcatalogaccessbinding <имя_назначения> -n <пространство_имен>
+    ```
+
+1. Измените роль или блок области доступа. В `spec` должен остаться ровно один блок: `catalog`, `namespace`, `table` или `view`.
+1. Сохраните изменения и дождитесь состояния `ready`.
+
+### Через консоль управления {#edit-console}
+
+1. На вкладке **Доступ** каталога откройте нужное назначение и нажмите **Редактировать**.
+1. Измените **Цель**, путь к пространству имен Iceberg, имя объекта или **Уровень доступа**. Поля **Имя** и **Субъект** доступны только для чтения.
+1. Нажмите **Сохранить** и дождитесь применения изменений.

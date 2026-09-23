@@ -10,6 +10,8 @@ description: На странице представлены вопросы и о
 
 В {{ datalens-full-name }} можно [настроить аутентификацию](../security/add-new-user.md#federated-user) с помощью технологии Single Sign-On (SSO), если имеется [федерация удостоверений]({{ link-docs }}/organization/concepts/add-federation). При этом пользователи {{ datalens-short-name }} смогут аутентифицироваться с помощью своих корпоративных учетных записей.
 
+Вы также можете [привязать домен к федерации]({{ link-docs }}/organization/operations/user-pools/add-domain#federation).
+
 
 ### Как добавить пользователя и отправить ему ссылку на дашборд? {#how-add-user-send-ref}
 

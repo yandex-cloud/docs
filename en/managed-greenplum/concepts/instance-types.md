@@ -37,7 +37,7 @@ The available storage size does not depend on the host class. For storage limita
 
 {% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
 
-For example, `{{ region-id }}-d` does not support Intel Broadwell or local SSD storage if using Intel Cascade Lake.
+For example, `{{ region-id }}-d` does not support local SSD storage if using Intel Cascade Lake.
 
 Configuration types:
 

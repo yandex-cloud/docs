@@ -17,8 +17,8 @@ To delete an access policy created for a [cloud](../../resource-manager/concepts
 
       Where:
 
-      * `--name`: Name of the cloud that you want to delete the policy for. Instead of the cloud name, you can provide its [ID](../../resource-manager/operations/cloud/get-id.md) in the `--id` parameter.
-      * `--access-policy-template-id`: ID of the access policy template you want to delete from the specified cloud.
+      * `--name`: Name of the cloud to delete the policy for. Instead of the cloud name, you can provide its [ID](../../resource-manager/operations/cloud/get-id.md) in the `--id` parameter.
+      * `--access-policy-template-id`: ID of the access policy template you want to delete for the specified cloud.
   1. [Make sure](../../resource-manager/operations/cloud/manage-access-policies.md#view-assigned) the policy was deleted.
 
 - API {#api}

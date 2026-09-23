@@ -6,10 +6,11 @@ canonical: '{{ link-docs }}/tutorials/web/bitrix-website/console'
 
 # Creating a 1C-Bitrix website using the management console
 
+
 To create an infrastructure for your [1C-Bitrix website](index.md) using the {{ yandex-cloud }} management console:
 
 {% include [bitrix-website-console](../../../_tutorials/applied/bitrix-website-console.md) %}
 
 #### Useful links {#see-also}
 
-* [{#T}](terraform.md)
+[{#T}](terraform.md)

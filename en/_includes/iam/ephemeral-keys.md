@@ -12,11 +12,11 @@ Ephemeral keys are issued based on the current session's [IAM token](../../iam/c
 
 {% note warning %}
 
-You cannot revoke an ephemeral key. It automatically expires after its lifetime.
+You cannot revoke an ephemeral key. It automatically expires when its lifetime ends.
 
 {% endnote %}
 
-To set up access permissions for the key, you need an [access policy](../../storage/security/policy.md) in JSON format based on [this schema](../../storage/s3/api-ref/policy/scheme.md).
+To set up access permissions for a key, use an [access policy](../../storage/security/policy.md) in JSON format based on [this schema](../../storage/s3/api-ref/policy/scheme.md).
 
 {% include [sts-sa-access-backets-list](sts-sa-access-backets-list.md) %}
 
@@ -34,7 +34,7 @@ Requests to the AWS-compatible API use all the three parts. The key ID is specif
 
 ### Key ID {#key-id}
 
-Consists of 20 characters. These characters may include:
+It consists of 20 characters. These characters may include:
 
 * Latin letters
 * Numbers
@@ -55,4 +55,4 @@ Here is an example of a secret key: `YCabcdefg1234hi5678jk9AbCdEfG1234hI********
 
 ### Session token {#session-token}
 
-The session token has a variable length of approximately 285 characters and is used to verify temporary credentials. Token example: `s1.9muilY...`.
+A session token has a variable length of about 285 characters and is used to verify temporary credentials. Here is an example of a token: `s1.9muilY...`.

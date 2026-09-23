@@ -19,6 +19,14 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. Начните [создание ВМ Linux](../vm-create/create-linux-vm.md) с именем `mnt-vm1` и образом Ubuntu 22.04 LTS. Настройте доступ по SSH и публичный IP-адрес.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** в поле **{{ ui-key.yacloud.compute.components.MaintenancePolicyField.label_maintenance-policy_edr8e }}** выберите **{{ ui-key.yacloud.compute.components.MaintenancePolicyField.option_restart_title_7i3QA }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
+  Для ВМ без GPU время ожидания перед перезапуском составит одну минуту. В консоли управления можно выбрать только тип политики. Чтобы изменить время ожидания, используйте CLI, {{ TF }} или API.
+
 - CLI {#cli}
 
   Создайте ВМ с политиками обслуживания:
@@ -104,6 +112,12 @@ description: Следуя данной инструкции, вы сможете
       terraform apply
       ```
 
+- API {#api}
+
+    Воспользуйтесь методом REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Create](../../api-ref/grpc/Instance/create.md).
+
+    При создании ВМ задайте параметры [политики обслуживания](../../concepts/maintenance-policies.md): тип политики (`maintenancePolicy`) `RESTART`, интервал ожидания (`maintenanceGracePeriod`) 60 секунд.
+
 {% endlist %}
 
 ## Проверьте обработку событий обслуживания {#check}
@@ -182,11 +196,26 @@ Tue Jan 16 14:24:49 UTC 2024 : NONE
 
 ## Измените тип политики обслуживания для ВМ {#change-policy}
 
-Изменить тип политики обслуживания для ВМ можно указав новое значение параметра `--maintenance-policy` командой:
+{% list tabs group=instructions %}
 
-```
-yc compute instance update --name=mnt-vm1 --maintenance-policy=migrate
-```
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ВМ.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и нажмите на имя ВМ `mnt-vm1`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** в поле **{{ ui-key.yacloud.compute.components.MaintenancePolicyField.label_maintenance-policy_edr8e }}** выберите **{{ ui-key.yacloud.compute.components.MaintenancePolicyField.option_migrate_title_91Mwf }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
+
+- CLI {#cli}
+
+  Изменить тип политики обслуживания для ВМ можно указав новое значение параметра `--maintenance-policy` командой:
+
+  ```
+  yc compute instance update --name=mnt-vm1 --maintenance-policy=migrate
+  ```
+
+{% endlist %}
 
 Симулируйте наступление события обслуживания с помощью CLI:
 

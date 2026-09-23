@@ -22,7 +22,7 @@ To view detailed information on the health state of a {{ mmy-name }} cluster:
 - Management console {#console}
 
   1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
+  1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
       
       The page that opens will display performance charts for the cluster.
   
@@ -90,7 +90,7 @@ To view detailed information on the state of individual {{ mmy-name }} hosts:
 - Management console {#console}
 
   1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
+  1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
   1. Navigate to the **Hosts** tab and select the host.
 
       The page that opens will display performance charts for the cluster hosts.

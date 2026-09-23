@@ -1,16 +1,16 @@
 ---
-title: Getting information about the status of {{ yandex-cloud }} services
-description: In this guide, you will learn how to get information about the status of {{ yandex-cloud }} services.
+title: Getting information about {{ yandex-cloud }} service statuses
+description: In this guide, you will learn how to get information about {{ yandex-cloud }} service statuses.
 ---
 
-# Getting the status of services
+# Getting service statuses
 
 
 In {{ iam-full-name }}, you can manage [service access](../../concepts/service-control.md) to user resources in a specific cloud.
 
 ## Getting a list of services {#list}
 
-To get a list of services whose access in the cloud can be managed:
+To get a list of services whose access in the cloud you can manage:
 
 {% list tabs group=instructions %}
 
@@ -21,7 +21,7 @@ To get a list of services whose access in the cloud can be managed:
 
   {% include [default-cloud](../../../_includes/default-cloud.md) %}
 
-  1. View the description of the CLI command to get a list of services whose access you can manage:
+  1. View the description of the CLI command for getting a list of services whose access you can manage:
 
       ```bash
       yc iam service-control list --help
@@ -34,7 +34,7 @@ To get a list of services whose access in the cloud can be managed:
         --limit <number_of_services>
       ```
 
-      Where `--limit` is the number of services you need to list. This is an optional setting.
+      Where `--limit` is the number of services to list. This is an optional setting.
 
       Result:
 
@@ -64,7 +64,7 @@ To get a list of services whose access in the cloud can be managed:
 
 ## Getting information about a service status {#get}
 
-To get information about the [status](../../concepts/service-control.md#access-status) of a service in a cloud:
+To get information about the [status](../../concepts/service-control.md#access-status) of a cloud service:
 
 {% list tabs group=instructions %}
 
@@ -75,15 +75,15 @@ To get information about the [status](../../concepts/service-control.md#access-s
 
   {% include [default-cloud](../../../_includes/default-cloud.md) %}
 
-  1. See the description of the CLI command to get information about the status of a service in a cloud:
+  1. See the description of the CLI command for getting information about a cloud service status:
 
       ```bash
       yc iam service-control get --help
       ``` 
 
-  1. [Get](#list) a list of services whose access can be managed.
+  1. [Get](#list) a list of services whose access you can manage.
 
-  1. Run the command by specifying the ID of the service whose status in this cloud you want to get:
+  1. Run the following command, specifying the ID of the service whose status in the cloud you want to get:
 
       ```bash
       yc iam service-control get <service_ID>

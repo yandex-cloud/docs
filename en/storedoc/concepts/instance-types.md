@@ -10,10 +10,10 @@ The host class determines the computing power allocated for each host in a clust
 
 The host class determines the available [disk types](./storage.md):
 
-* **s1**, **s2**, **s3**, **m2**, **m3**, **c3**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
+* **s2**, **s3**, **m2**, **m3**, **c3**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
 * **s4a**, **m4a**, **c4a**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
 * **s4af**, **m4af**, **c4af**: `network-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
-* **b1**, **b2**, **b3**: `network-ssd`, `network-hdd`.
+* **b2**, **b3**: `network-ssd`, `network-hdd`.
 
 For storage size limitations, see [Quotas and limits](limits.md).
 
@@ -27,7 +27,7 @@ The full list of possible host configurations on each platform is provided below
 
 {% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
 
-For example, `{{ region-id }}-d` does not support Intel Broadwell and local SSD storage if Intel Cascade Lake is used.
+For example, `{{ region-id }}-d` does not support local SSD storage if using Intel Cascade Lake.
 
 {% include [instance-types-code](../../_includes/mdb/instance-types-code-c3-b3.md) %}
 
@@ -35,13 +35,6 @@ For example, `{{ region-id }}-d` does not support Intel Broadwell and local SSD 
 
 | Host class name | Number of vCPUs | CPU performance | RAM, GB | Disk <br>size, GB |
 |-------------------|----------------|------------------------|---------|----------------------|
-| **Intel Broadwell**                                                                          |
-| b1.medium         | 2              | 50%                    | 4       | 10 – 512               |
-| s1.micro          | 2              | 100%                   | 8       | 10 – 2,232              |
-| s1.small          | 4              | 100%                   | 16      | 10 – 2,232              |
-| s1.medium         | 8              | 100%                   | 32      | 10 – 2,232              |
-| s1.large          | 16             | 100%                   | 64      | 10 – 2,232              |
-| s1.xlarge         | 32             | 100%                   | 128     | 10 – 2,232              |
 | **Intel Cascade Lake**                                                                       |
 | b2.medium         | 2              | 50%                    | 4       | 10 – 512               |
 | m2.micro          | 2              | 100%                   | 16      | 10 – 2,232              |

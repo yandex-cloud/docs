@@ -18,36 +18,26 @@ description: Следуя этой инструкции, вы сможете с�
 
 {% list tabs group=instructions %}
 
-- Через поддержку {#support}
+- Консоль управления {#console}
 
-  Создайте [обращение в поддержку]({{ link-console-support }}) для резервирования порта на оборудовании {{ yandex-cloud }} и создания транкового подключения.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать подключение.
+  1. [Перейдите]({{ link-console-main }}/link/interconnect) в сервис **{{ interconnect-name }}**.
+  1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **{{ ui-key.yacloud.interconnect.trunk-connection.trunk-connections_kBGNL }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.create-support-request_dF6Pd }}**.
 
-  
-  Используйте следующий шаблон обращения:
+      Если в каталоге уже есть транковые подключения, нажмите ссылку **обратитесь** в информационном блоке над списком подключений.
 
-  ```text
-  Тема: [CIC] Создание нового транка.
+      Откроется форма **{{ ui-key.support-center.ticket.create.title_create-ticket-page }}**. В ней автоматически выбраны сервис **{{ interconnect-name }}** и тема **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.support-form-topic_8nwBe }}**.
 
-  Текст обращения:
-  Прошу организовать новое транковое подключение Cloud Interconnect
-  со следующими параметрами:
+  1. В тексте обращения попросите зарезервировать порт на оборудовании {{ yandex-cloud }} и создать прямое транковое подключение. Укажите:
 
-  client: ООО "Мое дело"
-  folder-id: b1g28j9359gi********
-  точка присутствия: M9
-  тип трансивера: 10GBASE-LR
-  емкость подключения: 250mbps
-  ```
+      * Название вашей компании, например `ООО "Мое дело"`.
+      * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором нужно создать подключение.
+      * [Код точки присутствия](../concepts/pops.md).
+      * [Тип трансивера](../concepts/transceivers.md) для подключения кроссировки.
+      * [Емкость подключения](../concepts/capacity.md).
 
-
-
-  Где:
-
-  * `client` — название вашей компании.
-  * `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будет создано транковое подключение.
-  * `точка присутствия` — [код точки присутствия](../concepts/pops.md).
-  * `тип трансивера` — [тип трансивера](../concepts/transceivers.md) для подключения кроссировки.
-  * `емкость подключения` — [емкость подключения](../concepts/capacity.md).
+  1. Нажмите кнопку **{{ ui-key.support-center.ticket.create.action_create-ticket }}**.
 
   После создания транкового подключения поддержка сообщит вам его идентификатор и сведения о выделенном порте.
 
@@ -95,33 +85,26 @@ description: Следуя этой инструкции, вы сможете с�
 
 {% list tabs group=instructions %}
 
-- Через поддержку {#support}
+- Консоль управления {#console}
 
-  Создайте [обращение в поддержку]({{ link-console-support }}) для организации транкового подключения через партнера.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать подключение.
+  1. [Перейдите]({{ link-console-main }}/link/interconnect) в сервис **{{ interconnect-name }}**.
+  1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **{{ ui-key.yacloud.interconnect.trunk-connection.trunk-connections_kBGNL }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.create-support-request_dF6Pd }}**.
 
-  Используйте следующий шаблон обращения:
+      Если в каталоге уже есть транковые подключения, нажмите ссылку **обратитесь** в информационном блоке над списком подключений.
 
-  ```text
-  Тема: [CIC] Создание нового транкового подключения через партнера.
+      Откроется форма **{{ ui-key.support-center.ticket.create.title_create-ticket-page }}**. В ней автоматически выбраны сервис **{{ interconnect-name }}** и тема **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.support-form-topic_8nwBe }}**.
 
-  Текст обращения:
-  Прошу организовать новое транковое подключение через партнера Cloud Interconnect
-  со следующими параметрами:
+  1. В тексте обращения попросите создать транковое подключение через партнера. Укажите:
 
-  client: ООО "Мое дело"
-  folder-id: b1g28j9359gi********
-  партнер: RETN
-  точка присутствия: M9
-  емкость подключения: 250mbps
-  ```
+      * Название вашей компании.
+      * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором нужно создать подключение.
+      * Имя партнера из [списка партнеров](../concepts/partners.md#list).
+      * Код точки присутствия из [списка партнеров](../concepts/partners.md#list).
+      * [Емкость подключения](../concepts/capacity.md).
 
-  Где:
-
-  * `client` — название вашей компании.
-  * `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будет создано транковое подключение.
-  * `партнер` — имя партнера из [списка партнеров](../concepts/partners.md#list).
-  * `точка присутствия` — код точки присутствия из [списка партнеров](../concepts/partners.md#list).
-  * `емкость подключения` — [емкость подключения](../concepts/capacity.md).
+  1. Нажмите кнопку **{{ ui-key.support-center.ticket.create.action_create-ticket }}**.
 
   После создания транкового подключения поддержка сообщит вам его идентификатор и сервисный ключ, а также передаст партнеру параметры подключения.
 
@@ -150,7 +133,7 @@ description: Следуя этой инструкции, вы сможете с�
 
 {% list tabs group=instructions %}
 
-- Через поддержку {#support}
+- Консоль управления {#console}
 
   ### Перед началом работы {#lag-before-you-begin}
 
@@ -159,33 +142,27 @@ description: Следуя этой инструкции, вы сможете с�
   1. Выберите [тип оптического трансивера](../concepts/transceivers.md) для каждого порта LAG.
   1. Определите количество физических портов в агрегированном подключении.
 
-  Создайте [обращение в поддержку]({{ link-console-support }}) для резервирования портов на оборудовании {{ yandex-cloud }} и создания LAG-транка.
+  ### Создайте подключение {#lag-create}
 
-  Используйте следующий шаблон обращения:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать подключение.
+  1. [Перейдите]({{ link-console-main }}/link/interconnect) в сервис **{{ interconnect-name }}**.
+  1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **{{ ui-key.yacloud.interconnect.trunk-connection.trunk-connections_kBGNL }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.create-support-request_dF6Pd }}**.
 
-  ```text
-  Тема: [CIC] Создание нового LAG-транка.
+      Если в каталоге уже есть транковые подключения, нажмите ссылку **обратитесь** в информационном блоке над списком подключений.
 
-  Текст обращения:
-  Прошу организовать новое транковое подключение Cloud Interconnect (LAG)
-  со следующими параметрами:
+      Откроется форма **{{ ui-key.support-center.ticket.create.title_create-ticket-page }}**. В ней автоматически выбраны сервис **{{ interconnect-name }}** и тема **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.support-form-topic_8nwBe }}**.
 
-  client: ООО "Мое дело"
-  folder-id: b1g28j9359gi********
-  точка присутствия: M9
-  количество портов в LAG: 2
-  тип трансивера: 10GBASE-LR
-  емкость подключения: 1gbps
-  ```
+  1. В тексте обращения попросите зарезервировать порты на оборудовании {{ yandex-cloud }} и создать агрегированное (LAG) прямое транковое подключение. Укажите:
 
-  Где:
+      * Название вашей компании.
+      * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором нужно создать подключение.
+      * [Код точки присутствия](../concepts/pops.md).
+      * Количество физических портов в агрегированном подключении.
+      * [Тип трансивера](../concepts/transceivers.md) для каждого порта LAG.
+      * [Емкость подключения](../concepts/capacity.md).
 
-  * `client` — название вашей компании.
-  * `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будет создано транковое подключение.
-  * `точка присутствия` — [код точки присутствия](../concepts/pops.md).
-  * `количество портов в LAG` — число физических портов в агрегированном подключении.
-  * `тип трансивера` — [тип трансивера](../concepts/transceivers.md) для подключения кроссировки.
-  * `емкость подключения` — [емкость подключения](../concepts/capacity.md).
+  1. Нажмите кнопку **{{ ui-key.support-center.ticket.create.action_create-ticket }}**.
 
   После создания транкового подключения поддержка сообщит вам его идентификатор, идентификатор LAG и список выделенных портов.
 

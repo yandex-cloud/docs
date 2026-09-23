@@ -1,11 +1,11 @@
 ---
-title: Getting a list of the folder's service accounts
-description: Follow this guide to view a list of the folder's service accounts.
+title: Getting a list of service accounts in a folder
+description: Follow this guide to view a list of service accounts in a folder.
 ---
 
-# Getting a list of the folder's service accounts
+# Getting a list of service accounts in a folder
 
-You can get a list of all [service accounts](../../concepts/users/service-accounts.md) available in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+You can get a list of all [service accounts](../../concepts/users/service-accounts.md) available in a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 {% list tabs group=instructions %}
 
@@ -14,7 +14,7 @@ You can get a list of all [service accounts](../../concepts/users/service-accoun
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder whose service accounts you want listed.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  1. The **{{ ui-key.yacloud.iam.folder.service-accounts.label_title }}** page will display a list of all the folder's service accounts.
+  1. The **{{ ui-key.yacloud.iam.folder.service-accounts.label_title }}** page will display a list of all service accounts in the folder.
 
    ![List of service accounts](../../../_assets/iam/sa-list-get.png)
 
@@ -51,7 +51,7 @@ You can get a list of all [service accounts](../../concepts/users/service-accoun
 
 - API {#api}
 
-  1. [Find out the ID of the folder](../../../resource-manager/operations/folder/get-id.md) whose list of service accounts you want to view.
+  1. [Get the ID of the folder](../../../resource-manager/operations/folder/get-id.md) whose list of service accounts you want to view.
   1. Get a list of service accounts in the folder using the [list](../../api-ref/ServiceAccount/list.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource:
 
       ```bash
@@ -85,6 +85,6 @@ You can get a list of all [service accounts](../../concepts/users/service-accoun
       }
       ```
 
-     You can also get a list of service accounts in a folder using the [ServiceAccountService/List](../../api-ref/grpc/ServiceAccount/list.md) gRPC API call.
+     You can also get a list of service accounts in the folder using the [ServiceAccountService/List](../../api-ref/grpc/ServiceAccount/list.md) gRPC API call.
 
 {% endlist %}

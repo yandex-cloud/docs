@@ -462,15 +462,15 @@ default:
         nginx:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1775660129087745327177484940704164668665505295409
-            tag: 1.28.3-v1
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1789566872190363361228058870643905000661686010862
+            tag: 1.30.4-v1
         php:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1775660129087745327177484940704164668665505295409
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1789566872190363361228058870643905000661686010862
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
-        tag: 1.0.6
+        tag: 1.0.7
     yc_cert-manager-webhook-yandex:
       helmChart:
         name: >-
@@ -527,7 +527,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart
-        tag: v1.10.0
+        tag: v1.11.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
@@ -544,7 +544,7 @@ default:
     yc_kyverno:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/kyverno/charts/kyverno
-        tag: 3.8.1
+        tag: 3.8.2
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
@@ -5740,6 +5740,10 @@ default:
             button_attach-to-pool_ak57z: Привязать к пулу резервов ВМ
             button_confirm-detach-vm-from-pool_8dze2: Отвязать
             button_detach-from-pool_wEiB2: Отвязать от пула резервов ВМ
+          MaintenancePolicyField:
+            label_maintenance-policy_edr8e: Политика обслуживания
+            option_migrate_title_91Mwf: Динамическая миграция
+            option_restart_title_7i3QA: Остановка и запуск
           MaintenanceRescheduleDialog:
             button_reschedule_3SHfY: Перенести
           PlatformField:
@@ -6752,7 +6756,9 @@ default:
           point-of-presence_265QN: Точка присутствия
           trunk-connections_kBGNL: Транковые подключения
           TrunkConnectionListScreen:
+            create-support-request_dF6Pd: Создать обращение в поддержку
             create-trunk-connection_oUuYo: Создать транковое подключение
+            support-form-topic_8nwBe: '[CIC] Создание транкового подключения'
         vlan-id_2wghK: VLAN ID
       iot:
         button_add-alias: Добавить алиас
@@ -7206,6 +7212,7 @@ default:
         button_use: Использовать
         label_available-products: Доступные для установки приложения
         label_licenses: Подписки
+        label_private-offers: Предложения
         label_product-access-request: Заявки на доступ
         label_product-access-request-status-approved: Одобрена
         label_product-filter-search-placeholder: Поиск продукта
@@ -7215,6 +7222,15 @@ default:
         section_tariff-section: Способ тарификации
         title_product-request-messages: Сообщения по заявке
         title_request-access-to-product-dialog: Заявка на доступ к продукту
+      marketplace:
+        privateOfferCardFooter:
+          action_accept: Принять предложение
+        privateOfferOverviewScreen:
+          field_acceptance-deadline: Предложение истекает
+        privateOfferStatusInfo:
+          label_status-pending: Ожидает принятия
+        productDetailView:
+          tab_personal-terms: Персональные условия
       mdb:
         AuthMethodColumn:
           value_iam_boWet: IAM
@@ -8521,6 +8537,8 @@ default:
         section_resource-management: Управление ресурсами
         title_catalogs: Каталоги
       ui:
+        components:
+          button_open-ai-assistant: Чат с AI
         constants:
           label_cloud-router_kBGNL: Cloud Router
           label_interconnect_aUMcv: Cloud Interconnect

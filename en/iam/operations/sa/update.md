@@ -5,11 +5,11 @@ description: Follow this guide to update a service account.
 
 # Updating a service account
 
-You can change a service account's name and description. Using the {{ yandex-cloud }} API you can also [label](../../../resource-manager/concepts/labels.md) a service account.
+You can change the name and description of a service account. Using the {{ yandex-cloud }} API, you can also [label](../../../resource-manager/concepts/labels.md) a service account.
 
 To set or update your account lifetime, use the `--expires-at` parameter. Once this lifetime expires, the system will automatically [suspend](../../concepts/users/service-accounts.md#sa-suspend) the account.
 
-To change a service account's roles, follow [this guide](assign-role-for-sa.md).
+To change service account’s roles, follow [this guide](assign-role-for-sa.md).
 
 {% list tabs group=instructions %}
 
@@ -20,7 +20,7 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  1. In the row with the service account you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-edit }}**.
+  1. In the service account row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-edit }}**.
   1. Change the name of your service account.
 
      The naming requirements are as follows:
@@ -36,7 +36,7 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
 
   To update a service account:
 
-  1. See the description of the update service account command:
+  1. See the description of the command for updating a service account:
 
       ```bash
       yc iam service-account update --help
@@ -77,8 +77,8 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
 
   To update a service account:
 
-  1. Open the {{ TF }} configuration file and edit the fragment with the service account description.
-     Example of the service account description in the {{ TF }} configuration:
+  1. Open the {{ TF }} configuration file and edit the section with the service account description.
+     Here is an example of a service account description in the {{ TF }} configuration:
 
      ```hcl
      ...
@@ -111,9 +111,9 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
      terraform apply
      ```
      
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
-     You can check whether the service account has been updated in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md) command:
+     You can check whether the service account has been updated using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
      ```bash
      yc iam service-account list

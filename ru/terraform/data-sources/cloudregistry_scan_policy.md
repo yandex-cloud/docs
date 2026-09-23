@@ -10,22 +10,22 @@ subcategory: Cloud Registry
 ## Arguments & Attributes Reference
 
 - `created_at` (*Read-Only*) (String). Output only. Creation timestamp.
-- `description` (String). Description of the scan policy.
+- `description` (*Read-Only*) (String). Description of the scan policy.
  The maximum string length in characters is 256.
-- `disabled` (Bool). Turns off scan policy.
+- `disabled` (*Read-Only*) (Bool). Turns off scan policy.
 - `id` (String). ID of the scan policy.
-- `name` (String). Name of the scan policy.
-- `registry_id` (**Required**)(String). ID of the registry that the scan policy belongs to.
+- `name` (*Read-Only*) (String). Name of the scan policy.
+- `registry_id` (*Read-Only*) (String). ID of the registry that the scan policy belongs to.
  Required. The maximum string length in characters is 50.
 - `rules` [Block]. The rules of scan policy.
   - `push_rule` [Block]. Description of on-push scan rule.
-    - `disabled` (Bool). Turns off scan rule.
-    - `paths` (List Of String). List of paths that are scanned with rule. Child paths are included into parent node. "*" - means all artifacts in registry
+    - `disabled` (*Read-Only*) (Bool). Turns off scan rule.
+    - `paths` (*Read-Only*) (List Of String). List of paths that are scanned with rule. Child paths are included into parent node. "*" - means all artifacts in registry
   - `schedule_rules` [Block]. Description of time based rescan rule.
-    - `amount` (Number). Amount of time units for the scan interval.
-    - `disabled` (Bool). Turns off scan rule.
-    - `interval_unit` (String). Unit for the scan interval.
-    - `paths` (List Of String). List of paths that are scanned with rule. Child paths are included into parent node. "*" - means all artifacts in registry
+    - `amount` (*Read-Only*) (Number). Amount of time units for the scan interval.
+    - `disabled` (*Read-Only*) (Bool). Turns off scan rule.
+    - `interval_unit` (*Read-Only*) (String). Unit for the scan interval.
+    - `paths` (*Read-Only*) (List Of String). List of paths that are scanned with rule. Child paths are included into parent node. "*" - means all artifacts in registry
 - `scan_policy_id` (String). ID of the scan policy.
 - `scan_policy_options` [Block]. Scan policy options.
   - `scan_lang_packages` (*Read-Only*) (Bool). Flag indicating whether language packages should be scanned.

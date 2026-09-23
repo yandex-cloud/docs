@@ -30,10 +30,10 @@ data "yandex_vpc_network" "admin" {
 
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `default_security_group_id` (*Read-Only*) (String). ID of default Security Group of this network.
-- `description` (String). The resource description.
+- `description` (*Read-Only*) (String). The resource description.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (String). The resource name.
 - `network_id` (String). ID of the network.
 - `subnet_ids` (*Read-Only*) (List Of String). The list of VPC subnets identifiers which resource is attached.

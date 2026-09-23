@@ -6,7 +6,7 @@ To view a list of access policies created for a [folder](../../resource-manager/
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  Run this command by specifying the name or [ID](../../resource-manager/operations/folder/get-id.md) of the folder for which you want to view the new policies:
+  Run this command, specifying the name or [ID](../../resource-manager/operations/folder/get-id.md) of the folder for which you want to view the created policies:
 
   ```bash
   yc resource-manager folder list-access-policy-bindings <folder_name_or_ID>

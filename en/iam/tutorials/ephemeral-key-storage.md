@@ -1,6 +1,6 @@
 ---
 title: Uploading objects into an {{ objstorage-full-name }} bucket using an ephemeral access key
-description: In this tutorial, you will learn how to use ephemeral access keys to safely upload objects into an {{ objstorage-name }} bucket using the AWS CLI.
+description: In this tutorial, you will learn how to use ephemeral access keys to securely upload objects into an {{ objstorage-name }} bucket using the AWS CLI.
 canonical: '{{ link-docs }}/tutorials/security/ephemeral-key-storage'
 ---
 

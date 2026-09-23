@@ -12,8 +12,10 @@ blocks:
     animated: false
     colSizes:
       all: 12
-      lg: 6
-      sm: 6
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Price calculator
@@ -66,20 +68,20 @@ The {{ mrd-name }} usage cost includes:
 
 You are charged for each hour of host uptime, based on its allocated computing resources. Supported resource configurations are listed in the [Host classes](concepts/instance-types.md) section. For vCPU and RAM prices, see [Pricing](#prices).
 
-The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You will not be charged for the time when the {{ VLK }} host is unavailable for basic operations.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as two minutes). You will not be charged for the time when the {{ VLK }} host is unavailable for basic operations.
 
 ### Disk space usage {#rules-storage}
 
-You are billed for the following:
+You pay for the following:
 
 * Storage allocated for database clusters.
 
     * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts running Intel Cascade Lake and Intel Ice Lake, in increments of 93 GB.
 
-    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
+    * You can order local SSD storage (`local-ssd`) only for clusters with three or more hosts:
 
       
-        * For **Intel Broadwell** and **Intel Cascade Lake**: In 100 GB increments.
+        * For **Intel Cascade Lake**: In increments of 100 GB.
 
 
         * For **Intel Ice Lake** and **AMD Zen 4**: In {{ local-ssd-v3-step }} increments.
@@ -90,7 +92,7 @@ You are billed for the following:
 
 For more information, see [Backups in {{ mrd-name }}](concepts/backup.md).
 
-The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
+The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as 2 minutes).
 
 ### Cluster cost calculation example {#example}
 

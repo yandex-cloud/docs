@@ -1,5 +1,5 @@
-1. Select the role to assign to the service account. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
-1. Find out the service account ID by its name:
+1. Select a role to assign to the service account. For role descriptions, see the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md) in the {{ iam-full-name }} documentation.
+1. Get the ID of the service account by its name:
 
     ```bash
     yc iam service-account get <service_account_name>
@@ -14,7 +14,7 @@
     name: my-robot
     ```
 
-    If you don't know the name of the service account, get a list of service accounts with their IDs:
+    If you do not know the name of your service account, get a list of service accounts with their IDs:
 
     ```bash
     yc iam service-account list
@@ -41,5 +41,5 @@
 
     Where:
 
-    * `--role`: ID of the role you need to assign.
+    * `--role`: ID of the role to assign.
     * `--service-account-id`: Service account ID. You can also use the `--service-account-name` parameter and specify the username instead of the ID.

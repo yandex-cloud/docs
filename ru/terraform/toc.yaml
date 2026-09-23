@@ -331,6 +331,21 @@ items:
                     title: ''
                 title: ''
             title: ''
+          - name: Cloud Router
+            items:
+              - name: Data Sources
+                items:
+                  - name: cloudrouter_routing_instance
+                    href: data-sources/cloudrouter_routing_instance.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: cloudrouter_routing_instance
+                    href: resources/cloudrouter_routing_instance.md
+                    title: ''
+                title: ''
+            title: ''
           - name: Compute Cloud
             items:
               - name: Data Sources
@@ -897,6 +912,9 @@ items:
                   - name: airflow_cluster
                     href: resources/airflow_cluster.md
                     title: ''
+                  - name: airflow_cluster_change_freeze
+                    href: resources/airflow_cluster_change_freeze.md
+                    title: ''
                   - name: airflow_cluster_iam_binding
                     href: resources/airflow_cluster_iam_binding.md
                     title: ''
@@ -923,6 +941,9 @@ items:
                 items:
                   - name: mdb_kafka_cluster
                     href: resources/mdb_kafka_cluster.md
+                    title: ''
+                  - name: mdb_kafka_cluster_change_freeze
+                    href: resources/mdb_kafka_cluster_change_freeze.md
                     title: ''
                   - name: mdb_kafka_cluster_iam_binding
                     href: resources/mdb_kafka_cluster_iam_binding.md
@@ -959,6 +980,9 @@ items:
                 items:
                   - name: mdb_clickhouse_cluster
                     href: resources/mdb_clickhouse_cluster.md
+                    title: ''
+                  - name: mdb_clickhouse_cluster_change_freeze
+                    href: resources/mdb_clickhouse_cluster_change_freeze.md
                     title: ''
                   - name: mdb_clickhouse_cluster_iam_binding
                     href: resources/mdb_clickhouse_cluster_iam_binding.md
@@ -1011,6 +1035,9 @@ items:
                   - name: mdb_greenplum_cluster
                     href: resources/mdb_greenplum_cluster.md
                     title: ''
+                  - name: mdb_greenplum_cluster_change_freeze
+                    href: resources/mdb_greenplum_cluster_change_freeze.md
+                    title: ''
                   - name: mdb_greenplum_cluster_iam_binding
                     href: resources/mdb_greenplum_cluster_iam_binding.md
                     title: ''
@@ -1037,6 +1064,9 @@ items:
                 items:
                   - name: metastore_cluster
                     href: resources/metastore_cluster.md
+                    title: ''
+                  - name: metastore_cluster_change_freeze
+                    href: resources/metastore_cluster_change_freeze.md
                     title: ''
                   - name: metastore_cluster_iam_binding
                     href: resources/metastore_cluster_iam_binding.md
@@ -1067,6 +1097,9 @@ items:
                     title: ''
                   - name: mdb_mongodb_cluster
                     href: resources/mdb_mongodb_cluster.md
+                    title: ''
+                  - name: mdb_mongodb_cluster_change_freeze
+                    href: resources/mdb_mongodb_cluster_change_freeze.md
                     title: ''
                   - name: mdb_mongodb_cluster_iam_binding
                     href: resources/mdb_mongodb_cluster_iam_binding.md
@@ -1110,6 +1143,9 @@ items:
                   - name: mdb_mysql_cluster
                     href: resources/mdb_mysql_cluster.md
                     title: ''
+                  - name: mdb_mysql_cluster_change_freeze
+                    href: resources/mdb_mysql_cluster_change_freeze.md
+                    title: ''
                   - name: mdb_mysql_cluster_iam_binding
                     href: resources/mdb_mysql_cluster_iam_binding.md
                     title: ''
@@ -1146,6 +1182,9 @@ items:
                   - name: mdb_opensearch_cluster
                     href: resources/mdb_opensearch_cluster.md
                     title: ''
+                  - name: mdb_opensearch_cluster_change_freeze
+                    href: resources/mdb_opensearch_cluster_change_freeze.md
+                    title: ''
                   - name: mdb_opensearch_cluster_iam_binding
                     href: resources/mdb_opensearch_cluster_iam_binding.md
                     title: ''
@@ -1176,6 +1215,9 @@ items:
                   - name: mdb_postgresql_cluster
                     href: resources/mdb_postgresql_cluster.md
                     title: ''
+                  - name: mdb_postgresql_cluster_change_freeze
+                    href: resources/mdb_postgresql_cluster_change_freeze.md
+                    title: ''
                   - name: mdb_postgresql_cluster_iam_binding
                     href: resources/mdb_postgresql_cluster_iam_binding.md
                     title: ''
@@ -1200,6 +1242,9 @@ items:
             items:
               - name: Resources
                 items:
+                  - name: mdb_sharded_postgresql_cluster_change_freeze
+                    href: resources/mdb_sharded_postgresql_cluster_change_freeze.md
+                    title: ''
                   - name: mdb_sharded_postgresql_database
                     href: resources/mdb_sharded_postgresql_database.md
                     title: ''
@@ -1236,6 +1281,9 @@ items:
                   - name: trino_cluster
                     href: resources/trino_cluster.md
                     title: ''
+                  - name: trino_cluster_change_freeze
+                    href: resources/trino_cluster_change_freeze.md
+                    title: ''
                   - name: trino_cluster_iam_binding
                     href: resources/trino_cluster_iam_binding.md
                     title: ''
@@ -1265,6 +1313,9 @@ items:
                     title: ''
                   - name: mdb_redis_cluster
                     href: resources/mdb_redis_cluster.md
+                    title: ''
+                  - name: mdb_redis_cluster_change_freeze
+                    href: resources/mdb_redis_cluster_change_freeze.md
                     title: ''
                   - name: mdb_redis_cluster_iam_binding
                     href: resources/mdb_redis_cluster_iam_binding.md
@@ -1352,6 +1403,9 @@ items:
                 items:
                   - name: spark_cluster
                     href: resources/spark_cluster.md
+                    title: ''
+                  - name: spark_cluster_change_freeze
+                    href: resources/spark_cluster_change_freeze.md
                     title: ''
                   - name: spark_cluster_iam_binding
                     href: resources/spark_cluster_iam_binding.md
@@ -1748,6 +1802,9 @@ items:
                 items:
                   - name: dataproc_cluster
                     href: resources/dataproc_cluster.md
+                    title: ''
+                  - name: dataproc_cluster_change_freeze
+                    href: resources/dataproc_cluster_change_freeze.md
                     title: ''
                   - name: dataproc_cluster_iam_binding
                     href: resources/dataproc_cluster_iam_binding.md
