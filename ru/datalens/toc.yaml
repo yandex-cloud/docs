@@ -25,8 +25,14 @@ items:
         href: workbooks-collections/export-and-import.md
       - name: Ошибки и предупреждения при экспорте и импорте
         href: workbooks-collections/export-import-notifications.md
-  - name: Нейроаналитик DataLens
-    href: concepts/neuroanalyst.md
+  - name: AI-агенты
+    items:
+      - name: Использование {{ datalens-name }} с AI-агентами
+        href: operations/ai-agents.md
+      - name: AI-агенты в {{ datalens-name }}
+        href: concepts/ai-agents.md
+      - name: Нейроаналитик DataLens
+        href: concepts/neuroanalyst.md
   - name: Практические руководства
     items:
       - name: Обзор

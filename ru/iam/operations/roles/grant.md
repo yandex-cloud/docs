@@ -40,6 +40,12 @@ description: Следуя данной инструкции, вы сможете
    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
+   {% note info %}
+
+   Чтобы предоставить права доступа сразу всем пользователям в организации, назначьте роль [системной группе](../../concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`.
+
+   {% endnote %}
+
 - CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}

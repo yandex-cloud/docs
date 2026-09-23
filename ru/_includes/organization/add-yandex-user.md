@@ -8,4 +8,10 @@
 
     {% include [send-invitation](./send-invitation.md) %}
 
-1. Нажмите кнопку **{{ ui-key.yacloud_components.organization.action_send-invitation_6LqIj }}**.
+1. Для отправки приглашений нажмите кнопку **{{ ui-key.yacloud_components.organization.action_next }}**. Откроется окно для назначения ролей и добавления пользователей в группу.
+
+1. {% include [assign-roles-on-invite](../organization/assign-roles-on-invite.md) %}
+
+    Назначать роли можно на [организацию](../../organization/concepts/organization.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роли, назначенные на организацию, облако или каталог, действуют и на вложенные ресурсы.
+
+1. {% include [add-to-group-on-invite](../organization/add-to-group-on-invite.md) %}

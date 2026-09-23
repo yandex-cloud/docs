@@ -9,6 +9,9 @@ description: В этом разделе собраны пошаговые инс
 * [{#T}](enable-kspm.md).
 * [{#T}](use-kspm.md).
 * [{#T}](view-rules.md).
+* [{#T}](create-custom-rule.md).
+* [{#T}](edit-custom-rule.md).
+* [{#T}](delete-custom-rule.md).
 * [{#T}](check-compliance.md).
 * [{#T}](manage-exceptions.md).
 * [{#T}](manage-rule-modes.md).
