@@ -37,6 +37,12 @@
    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите необходимые роли.
    1. Нажмите кнопку **Сохранить**.
 
+   {% note info %}
+
+   Чтобы предоставить права доступа сразу всем пользователям в организации, назначьте роль [системной группе](../../concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`.
+
+   {% endnote %}
+
 - CLI {#cli}
 
    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).

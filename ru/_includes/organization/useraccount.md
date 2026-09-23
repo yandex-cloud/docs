@@ -32,7 +32,11 @@
 
         Приглашения можно отправлять на любые адреса электронной почты. Приглашенный пользователь сможет выбрать нужный аккаунт на Яндексе, когда примет приглашение.
 
-    1. Нажмите **{{ ui-key.yacloud_components.organization.action_send-invitation_6LqIj }}**.
+    1. Нажмите **{{ ui-key.yacloud_components.organization.action_next }}**. Откроется окно для назначения ролей и добавления пользователей в группу.
+
+    1. {% include [assign-roles-on-invite](../organization/assign-roles-on-invite.md) %}
+
+    1. {% include [add-to-group-on-invite](../organization/add-to-group-on-invite.md) %}
 
 {% endlist %}
 

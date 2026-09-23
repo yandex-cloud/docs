@@ -68,6 +68,12 @@
 
  - [Управлять режимами работы правил](operations/kspm/manage-rule-modes.md)
 
+ - [Создать пользовательское правило](operations/kspm/create-custom-rule.md)
+
+ - [Редактировать пользовательское правило](operations/kspm/edit-custom-rule.md)
+
+ - [Удалить пользовательское правило](operations/kspm/delete-custom-rule.md)
+
 ### Диагностика доступов (CIEM)
 
  - [Обзор](operations/ciem/index.md)

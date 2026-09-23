@@ -21,14 +21,32 @@ description: Следуя данной инструкции, вы сможете
   
   1. Перейдите в [{{ cloud-center }}]({{ link-org-cloud-center }}).
   1. В левом верхнем углу экрана рядом с названием текущей организации нажмите значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужную организацию, например: `For subaccount <название_сабаккаунта>`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.center-layout.Layout.organization-description_kvoUz }}** и нажмите **{{ ui-key.yacloud_org.page.users.dropdown.button-text }}**. 
-  1. В выпадающем списке выберите **{{ ui-key.yacloud_org.page.users.action.invite-users }}** и введите адрес электронной почты пользователя. Или выберите **{{ ui-key.yacloud_org.page.users.action.add-userpool-user }}** в [пуле](../../organization/concepts/user-pools.md).
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.center-layout.Layout.organization-description_kvoUz }}** и нажмите **{{ ui-key.yacloud_org.page.users.dropdown.button-text }}**.
+  1. Добавьте пользователя:
+
+     {% list tabs %}
+
+     - Аккаунт на Яндексе
+
+       1. В выпадающем списке выберите **{{ ui-key.yacloud_org.page.users.action.invite-users }}** и введите адрес электронной почты пользователя.
+
+       1. Для отправки приглашения нажмите кнопку **{{ ui-key.yacloud_components.organization.action_next }}**. Откроется окно для назначения ролей пользователю.
+
+       1. {% include [assign-roles-on-invite](../../_includes/organization/assign-roles-on-invite.md) %}
+
+       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+     - Локальный пользователь
+
+        Для создания [локального пользователя](../../iam/concepts/users/accounts.md#local) в [пуле](../../organization/concepts/user-pools.md) в выпадающем списке выберите **{{ ui-key.yacloud_org.page.users.action.add-userpool-user }}**.
+
+     {% endlist %}
 
 {% endlist %}
 
 ## Назначить роли {#add-access}
 
-После того как пользователь принял приглашение в организацию, назначьте ему роли:
+Назначьте роли локальным пользователям или измените существующие роли приглашенных пользователей:
 
 {% list tabs group=instructions %}
 

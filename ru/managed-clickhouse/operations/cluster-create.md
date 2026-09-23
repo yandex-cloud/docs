@@ -186,11 +186,7 @@ description: Следуя данной инструкции, вы сможете
 
       * При необходимости включите для кластера [гибридное хранилище](../concepts/storage.md#hybrid-storage-features).
 
-        {% note warning %}
-
-        Эту опцию невозможно выключить.
-
-        {% endnote %}
+        {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
       * При необходимости задайте [настройки СУБД](../concepts/settings-list.md#server-level-settings). Их также можно задать позднее.
 
@@ -1303,11 +1299,7 @@ description: Следуя данной инструкции, вы сможете
 
       * При необходимости включите для кластера [гибридное хранилище](../concepts/storage.md#hybrid-storage-features).
 
-        {% note warning %}
-
-        Эту опцию невозможно выключить.
-
-        {% endnote %}
+        {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
       * При необходимости задайте [настройки СУБД](../concepts/settings-list.md#server-level-settings). Их также можно задать позднее.
 

@@ -18,7 +18,7 @@
 1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если пока нет пользователей, которых можно добавить в облако, [создайте новый аккаунт](https://passport.yandex.ru/registration) на Яндексе и предоставьте доступ в облако для этого аккаунта.
 
-## Добавьте пользователя с аккаунтом на Яндексе в организацию {#add-organization-member}
+## Добавьте пользователей с аккаунтом на Яндексе в организацию и назначьте им роли {#add-organization-member-and-assign-roles}
 
 {% list tabs group=instructions %}
 
@@ -32,29 +32,22 @@
 
         {% include [send-invitation](../_includes/organization/send-invitation.md) %}
 
-    1. Нажмите **{{ ui-key.yacloud_components.organization.action_send-invitation_6LqIj }}**.
+    1. Чтобы отправить приглашения, нажмите **{{ ui-key.yacloud_components.organization.action_next }}**. Откроется окно для назначения ролей и добавления пользователей в группу.
+
+    1. {% include [assign-roles-on-invite](../_includes/organization/assign-roles-on-invite.md) %}
+
+        Например, чтобы у пользователей был доступ к просмотру ресурсов облака в консоли управления, при назначении ролей выберите в поле **{{ ui-key.yacloud_components.organization.access_label_scope }}** нужное облако и укажите роль `resource-manager.viewer`.
+
+        Для управления каталогом, при назначении ролей выберите нужный каталог в поле **{{ ui-key.yacloud_components.organization.access_label_scope }}** и укажите роль `resource-manager.editor`.
+
+    1. {% include [add-to-group-on-invite](../_includes/organization/add-to-group-on-invite.md) %}
+
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
 Пользователь сможет войти в организацию, как только примет приглашение по ссылке из письма и выберет подходящий аккаунт для входа. Для доступа к сервисам, которые подключены к организации, приглашенным пользователям достаточно войти в свой аккаунт на Яндексе.
 
-## Назначьте пользователю роли {#assign-role}
-
-Чтобы указать, какие операции можно выполнять пользователю, назначьте ему соответствующие роли. Например, разрешите ему просматривать ресурсы в облаке и управлять каталогом:
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-    1. Назначьте пользователю роль в облаке:
-        
-        {% include [set-accessbinding-user-editor-folder-console](../_includes/resource-manager/set-accessbinding-user-viewer-cloud-console.md) %}
-
-    1. Назначьте пользователю роль в каталоге:
-
-        {% include [set-accessbinding-user-editor-folder-console](../_includes/resource-manager/set-accessbinding-user-editor-folder-console.md) %}
-
-{% endlist %}
 
 ## Отзовите назначенные роли {#revoke-roles}
 

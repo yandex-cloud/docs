@@ -26,6 +26,12 @@
 
  - [Ошибки и предупреждения при экспорте и импорте](workbooks-collections/export-import-notifications.md)
 
+## AI-агенты
+
+ - [Использование DataLens с AI-агентами](operations/ai-agents.md)
+
+ - [AI-агенты в DataLens](concepts/ai-agents.md)
+
  - [Нейроаналитик DataLens](concepts/neuroanalyst.md)
 
 ## Практические руководства

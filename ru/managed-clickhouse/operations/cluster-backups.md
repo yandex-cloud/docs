@@ -150,6 +150,15 @@ description: Вы можете создавать резервные копии 
 
       Для каждого восстанавливаемого шарда можно задать свою конфигурацию.
 
+  1. (Опционально) Чтобы настроить [гибридное хранилище](../concepts/storage.md#hybrid-storage-features):
+
+      1. Включите в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** опцию **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}**.
+
+          {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+
+      1. (Опционально) Включите кеширование данных и укажите объем кеша в байтах.
+      1. (Опционально) Укажите минимальную долю свободного места в кластерном хранилище.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   Чтобы восстановить из резервной копии удаленный ранее кластер:
@@ -175,6 +184,15 @@ description: Вы можете создавать резервные копии 
       * Чтобы восстановить кластер целиком, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченными все шарды.
 
       Для каждого восстанавливаемого шарда можно задать свою конфигурацию.
+
+  1. (Опционально) Чтобы настроить [гибридное хранилище](../concepts/storage.md#hybrid-storage-features):
+
+      1. Включите в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** опцию **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}**.
+
+          {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+
+      1. (Опционально) Включите кеширование данных и укажите объем кеша в байтах.
+      1. (Опционально) Укажите минимальную долю свободного места в кластерном хранилище.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
