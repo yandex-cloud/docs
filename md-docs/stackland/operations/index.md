@@ -8,6 +8,8 @@
 * [Создать группу пользователей](iam/create-group.md)
 * [Подключить SAML-федерацию](iam/connect-saml-federation.md)
 * [Назначить права доступа](iam/assign-role.md)
+* [Создать резервную копию YDB](iam/ydb-backup.md)
+* [Восстановить YDB из резервной копии](iam/ydb-restore.md)
 
 ## Базы данных {#databases}
 
@@ -51,12 +53,26 @@ YTsaurus:
 * [Подключиться к HTTP-прокси](ytsaurus/connect-api.md)
 * [Отключить YTsaurus](ytsaurus/disable.md)
 
+## Оркестрация данных {#airflow}
+
+Managed Service for Apache Airflow™:
+
+* [Включить Managed Service for Apache Airflow™](airflow/enable.md)
+* [Создать кластер Apache Airflow™](airflow/create-cluster.md)
+* [Изменить настройки кластера Apache Airflow™](airflow/edit-cluster.md)
+* [Получить учетные данные администратора Apache Airflow™](airflow/get-admin-credentials.md)
+* [Открыть веб-интерфейс Apache Airflow™](airflow/connect-ui.md)
+* [Приостановить или возобновить кластер Apache Airflow™](airflow/pause-resume.md)
+* [Удалить кластер Apache Airflow™](airflow/delete-cluster.md)
+* [Устранение неполадок Apache Airflow™](airflow/troubleshooting.md)
+* [Отключить Managed Service for Apache Airflow™](airflow/disable.md)
+
 ## Iceberg REST Catalog {#rest-catalog}
 
 * [Создать каталог](rest-catalog/create-catalog.md)
 * [Изменить каталог](rest-catalog/edit-catalog.md)
-* [Создать пользователя каталога](rest-catalog/create-principal.md)
-* [Удалить пользователя каталога](rest-catalog/delete-principal.md)
+* [Назначить права на каталог](rest-catalog/create-principal.md)
+* [Отозвать права на каталог](rest-catalog/delete-principal.md)
 * [Удалить каталог](rest-catalog/delete-catalog.md)
 
 ## Бакеты {#buckets}
@@ -101,12 +117,19 @@ YTsaurus:
 * [Активировать пресет с политиками](policy-manager/apply-preset.md)
 * [Деактивировать политику](policy-manager/apply-mute.md)
 * [Удалить пресет с политиками](policy-manager/delete-preset.md)
+* [Посмотреть отчеты об уязвимостях](policy-manager/view-vulnerability-reports.md)
 
 ## SpeechSense {#speechsense}
 
 * [Загрузить образы](speechsense/install-images.md)
 * [Настроить и активировать](speechsense/configure.md)
 * [Отключить](speechsense/disable.md)
+
+## AI Studio {#ai-studio}
+
+* [Загрузить образы](ai-studio/install-images.md)
+* [Включить AI Studio](ai-studio/configure.md)
+* [Отключить AI Studio](ai-studio/disable.md)
 
 ## Проекты {#projects}
 

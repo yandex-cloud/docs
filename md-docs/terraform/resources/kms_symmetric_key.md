@@ -20,18 +20,21 @@ resource "yandex_kms_symmetric_key" "key-a" {
 
 ## Arguments & Attributes Reference
 
-- `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `default_algorithm` (String). Encryption algorithm to be used with a new key version, generated with the next rotation. The default value is `AES_128`.
-- `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
-- `description` (String). The resource description.
-- `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `name` (String). The resource name.
-- `rotated_at` (*Read-Only*) (String). Last rotation timestamp of the key.
-- `rotation_period` (String). Interval between automatic rotations. To disable automatic rotation, omit this parameter.
-- `status` (*Read-Only*) (String). The status of the key.
-- `symmetric_key_id` (String). The symmetric key ID.
+- `created_at` (*Read-Only*) (String). Time when the key was created.
+- `default_algorithm` (String). Default encryption algorithm to be used with new versions of the key.
+- `deletion_protection` (Bool). Flag that inhibits deletion of the key
+- `description` (String). Description of the key.
+- `folder_id` (String). ID of the folder that the key belongs to.
+- `id` (String). ID of the symmetric KMS key to return.
+ To get the ID of a symmetric KMS key use a [SymmetricKeyService.List] request.
+- `labels` (Map Of String). Custom labels for the key as `key:value` pairs. Maximum 64 per key.
+- `name` (String). Name of the key.
+- `rotated_at` (*Read-Only*) (String). Time of the last key rotation (time when the last version was created).
+ Empty if the key does not have versions yet.
+- `rotation_period` (String). Time period between automatic key rotations.
+- `status` (String). Current status of the key.
+- `symmetric_key_id` (String). ID of the symmetric KMS key to return.
+ To get the ID of a symmetric KMS key use a [SymmetricKeyService.List] request.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

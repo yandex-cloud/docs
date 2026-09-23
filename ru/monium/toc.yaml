@@ -313,6 +313,10 @@ items:
         href: concepts/visualization/dashboard.md
       - name: Виджеты
         href: concepts/visualization/widget.md
+      - name: Блокноты
+        href: concepts/visualization/notebooks.md
+      - name: Контекстные ссылки
+        href: concepts/visualization/context-links.md
       - name: Работа с дашбордами
         items:
           - name: Создание и управление дашбордом
@@ -337,6 +341,10 @@ items:
         items:
           - name: Создание алерта
             href: operations/alert/create-alert.md
+          - name: Создание композитного алерта
+            href: operations/alert/create-composite-alert.md
+          - name: Создание алерта SLO
+            href: operations/alert/create-slo-alert.md
           - name: Создание канала уведомлений с получателем
             href: operations/alert/create-channel.md
           - name: Создание канала уведомлений с вызовом функции

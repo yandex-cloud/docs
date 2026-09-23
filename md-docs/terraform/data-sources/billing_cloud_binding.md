@@ -22,6 +22,6 @@ output "bound_cloud_id" {
 
 ## Arguments & Attributes Reference
 
-- `billing_account_id` (**Required**)(String). The ID of billing account to bind cloud to.
+- `billing_account_id` (**Required**)(String). ID of billing account to bind cloud to.
 - `cloud_id` (**Required**)(String). Service Instance ID.
-- `id` (*Read-Only*) (String). The resource identifier.
+- `id` (*Read-Only*) (String). Resource identifier.

@@ -19,7 +19,7 @@ Here is an example of an auto replicated cluster configuration:
 
 ![MMY replicas auto control](../../_assets/mdb/mmy-replicas-auto.svg)
 
-In this example, a master and two replicas are located in different availability zones. In which case:
+In this example, a master and two replicas are located in different [availability zones](../../overview/concepts/geo-scope.md). In which case:
 
 * Each transaction is saved to a minimum of two hosts.
 * The cluster remains available for two consecutive host failures in one of the availability zones.

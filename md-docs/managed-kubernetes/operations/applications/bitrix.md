@@ -176,7 +176,7 @@
 
    ```bash
    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env \
-     --version 1.0.6 \
+     --version 1.0.7 \
      --untar && \
    helm install \
      --namespace <пространство_имен_административного_окружения> \
@@ -231,7 +231,7 @@
       1. Скачайте образ `bitrix-admin-php`:
 
          ```shell
-         docker pull cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1775660129087745327177484940704164668665505295409:<версия_PHP>
+         docker pull cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1789566872190363361228058870643905000661686010862:<версия_PHP>
          ```
 
          Возможные значения для версии PHP: `8.2.30`, `8.3.30`, `8.4.19`.
@@ -239,7 +239,7 @@
       1. Установите тег в реестре, [созданном ранее](#before-you-begin):
 
          ```shell
-         docker tag cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1775660129087745327177484940704164668665505295409:<версия_PHP> cr.yandex/<идентификатор_реестра>/bitrix-env/bitrix/bitrix-admin-php
+         docker tag cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1789566872190363361228058870643905000661686010862:<версия_PHP> cr.yandex/<идентификатор_реестра>/bitrix-env/bitrix/bitrix-admin-php
          ```
 
       1. Создайте в директории с папкой `bitrix` файл `Dockerfile-php` со следующим содержимым:
@@ -265,13 +265,13 @@
          docker push cr.yandex/<идентификатор_реестра>/bitrix-prod-php
          ```
 
-   1. Аналогично выполненным шагам из п. 2, подготовьте образ Битрикс с NGINX `bitrix-prod-nginx` на основе базового образа `cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1775660129087745327177484940704164668665505295409:1.28.3-v1`.
+   1. Аналогично выполненным шагам из п. 2, подготовьте образ Битрикс с NGINX `bitrix-prod-nginx` на основе базового образа `cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1789566872190363361228058870643905000661686010862:1.30.4-v1`.
 
    1. Выполните установку Helm-чарта:
 
        ```bash
        helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env \
-         --version 1.0.6 \
+         --version 1.0.7 \
          --untar && \
        helm install \
          --namespace <пространство_имен_продуктового_окружения> \

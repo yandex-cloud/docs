@@ -25,14 +25,14 @@ output "owner" {
 ## Arguments & Attributes Reference
 
 - `cluster_id` (**Required**)(String). The ID of the PostgreSQL cluster.
-- `deletion_protection` (String). The `true` value means that resource is protected from accidental deletion.
-- `extension` [Block]. Set of database extensions.
-  - `name` (**Required**)(String). Name of the database extension. For more information on available extensions see [the official documentation](https://yandex.cloud/docs/managed-postgresql/operations/cluster-extensions).
+- `deletion_protection` (*Read-Only*) (String). The `true` value means that resource is protected from accidental deletion.
+- `extension` (*Read-Only*) (Set Of Object). Set of database extensions.
+  - `name` . 
 - `id` (String). 
-- `lc_collate` (String). POSIX locale for string sorting order. Forbidden to change in an existing database.
-- `lc_type` (String). POSIX locale for character classification. Forbidden to change in an existing database.
+- `lc_collate` (*Read-Only*) (String). POSIX locale for string sorting order. Forbidden to change in an existing database.
+- `lc_type` (*Read-Only*) (String). POSIX locale for character classification. Forbidden to change in an existing database.
 - `name` (**Required**)(String). The name of the PostgreSQL database.
-- `owner` (**Required**)(String). Name of the user assigned as the owner of the database. Changing this value transfers ownership of the database to another user.
-- `template_db` (String). Name of the template database.
+- `owner` (*Read-Only*) (String). Name of the user assigned as the owner of the database. Changing this value transfers ownership of the database to another user.
+- `template_db` (*Read-Only*) (String). Name of the template database.
 
 

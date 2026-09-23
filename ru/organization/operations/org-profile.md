@@ -29,6 +29,34 @@ description: Из этой статьи вы узнаете, как измени
 
   1. Нажмите кнопку **{{ ui-key.yacloud_org.forms.action.save }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды:
+
+      ```bash
+      yc organization-manager organization update --help
+      ```
+
+  1. Измените данные организации:
+
+      ```bash
+      yc organization-manager organization update \
+        --id <идентификатор_организации> \
+        --new-name <техническое_название> \
+        --title "<название_организации>" \
+        --description "<описание_организации>"
+      ```
+
+      `--id` — [идентификатор организации](organization-get-id.md). Передайте только те из необязательных параметров `--new-name`, `--title` и `--description`, которые хотите изменить.
+
+- API {#api}
+
+    Воспользуйтесь методом REST API [update](../api-ref/Organization/update.md) для ресурса [Organization](../api-ref/Organization/index.md) или вызовом gRPC API [OrganizationService/Update](../api-ref/grpc/Organization/update.md).
+
 {% endlist %}
 
 {% include [where-change-billing-info](../../_includes/organization/where-change-billing-info.md) %}

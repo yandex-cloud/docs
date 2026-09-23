@@ -1,6 +1,6 @@
 ---
 title: Creating an access policy for a resource
-description: In this tutorial, you will learn how to create a {{ iam-full-name }} access policy for a folder, cloud, or organization based on a policy template.
+description: In this guide, you will learn how to create a {{ iam-full-name }} access policy for a folder, cloud, or organization based on a policy template.
 ---
 
 # Creating an access policy for a resource
@@ -35,7 +35,7 @@ All access policy templates [without parameters](../../concepts/access-control/a
 
 ### Creating an access policy for a folder based on the serverless.containers.restrictNetworkAccess template {#serverless-containers-restrictNetworkAccess}
 
-The `serverless.containers.restrictNetworkAccess` [policy](../../concepts/access-control/access-policies.md#serverless-containers-restrictNetworkAccess) prohibits calling and managing {{ serverless-containers-full-name }} [containers](../../../serverless-containers/concepts/container.md) from any addresses except explicitly specified IP addresses or {{ vpc-full-name }} [cloud networks](../../../vpc/concepts/network.md#network).
+The `serverless.containers.restrictNetworkAccess` [policy](../../concepts/access-control/access-policies.md#serverless-containers-restrictNetworkAccess) prohibits calling and managing [containers](../../../serverless-containers/concepts/container.md) in {{ serverless-containers-full-name }} from any addresses except explicitly specified IP addresses or {{ vpc-full-name }} [cloud networks](../../../vpc/concepts/network.md#network).
 
 To assign the `serverless.containers.restrictNetworkAccess` policy template for a folder:
 

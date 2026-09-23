@@ -1375,6 +1375,8 @@ items:
         href: release-notes/2604.md
       - name: Март 2026
         href: release-notes/2603.md
+      - name: Обзорные видео обновлений
+        href: release-notes/videos.md
       - name: Архив
         items:
           - name: Февраль 2026
@@ -1464,6 +1466,11 @@ items:
       - name: Access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md
+      - name: >-
+          Access to clique <название_клики> for user <логин_пользователя> was
+          denied
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-ACCESS_DENIED.md
       - name: Access to table was denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_ACCESS_DENIED.md
@@ -1489,6 +1496,12 @@ items:
       - name: Cannot parse number
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md
+      - name: Clique <название_клики> is not running
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-NOT_RUNNING.md
+      - name: Clique <название_клики> is suspended
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-SUSPENDED.md
       - name: Column used in join expression is not a key column
         hidden: true
         href: >-
@@ -1597,6 +1610,9 @@ items:
       - name: Requested database column does not exist
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
+      - name: Failed to COMMIT or ROLLBACK
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-COMMIT_OR_ROLLBACK_FAILED.md
       - name: Подготовка данных еще не завершилась
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md
@@ -1645,9 +1661,18 @@ items:
       - name: YT table has no schema. Only schematized tables are supported
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md
+      - name: Data source database does not exist.
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-DATABASE_DOES_NOT_EXIST.md
       - name: Не удалось создать <тип_объекта>
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
+      - name: 'Estimated query execution time is too long. Maximum: 14400'
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-EST_EXEC_TOO_LONG.md
+      - name: Filtration by any of indexed columns required.
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-INDEX_NOT_USED.md
       - name: Неверный формат файла
         hidden: true
         href: troubleshooting/errors/ERR-FILE-PARSE_FAILED-INVALID_EXCEL.md
@@ -1738,4 +1763,50 @@ items:
       - name: Ошибка при блокировке всплывающего окна
         hidden: true
         href: troubleshooting/errors/ERR-CLIENT-POPUP_BLOCKED.md
+      - name: Cannot convert NULL value to non-Nullable type
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CANNOT_INSERT_NULL_IN_ORDINARY_COLUMN.md
+      - name: '{{ CH }} could not parse the data in the specified source'
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CH-INCORRECT_DATA.md
+      - name: >-
+          {{ CH }} user must be correctly configured to use readonly 1 option
+          (see docs). For other readonly options user should have parameter
+          readonly set to 0 or 2
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CH-READONLY_USER.md
+      - name: Invalid sorted JOIN
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN.md
+      - name: CHYT does not support compound expressions in ON/USING clause
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-COMPOUND_EXPR_NOT_SUPPORTED.md
+      - name: Joining concatenation of multiple tables is not supported
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-CONCAT_NOT_SUPPORTED.md
+      - name: 'Cannot join: key is empty'
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-KEY_IS_EMPTY.md
+      - name: >-
+          Joined columns do not occupy same positions in key columns of joined
+          tables
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_SAME_KEY_POSITION.md
+      - name: Tables should be sorted
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-TABLE_NOT_SORTED.md
+      - name: >-
+          Reading multiple dynamic tables or dynamic table together with static
+          table is not supported in CHYT
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-MULTI_DYN_NOT_SUPPORTED.md
+      - name: CHYT Error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT.md
 path: ru/datalens/toc.yaml

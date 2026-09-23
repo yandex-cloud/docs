@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Базы данных > YTsaurus > Открыть веб-интерфейс
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Базы данных и аналитика > YTsaurus > Открыть веб-интерфейс
 
 # Открыть веб-интерфейс YTsaurus
 
@@ -32,4 +32,4 @@ kubectl -n stackland-ytsaurus get ingress yt-ui -o jsonpath='{.spec.rules[0].hos
 ## Что дальше {#what-is-next}
 
 * [Подключиться к HTTP-прокси YTsaurus](connect-api.md) — для запросов через YTsaurus CLI и SDK.
-* [Документация YTsaurus по веб-интерфейсу](https://ytsaurus.tech/docs/ru/overview/about#ui).
+* [Документация YTsaurus по веб-интерфейсу](https://ytsaurus.tech/docs/ru/user-guide/storage/web-interface).

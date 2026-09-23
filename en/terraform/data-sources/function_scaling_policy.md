@@ -23,9 +23,9 @@ data "yandex_function_scaling_policy" "my_scaling_policy" {
 
 - `function_id` (**Required**)(String). Yandex Cloud Function id used to define function.
 - `id` (String). 
-- `policy` [Block]. List definition for Yandex Cloud Function scaling policies.
-  - `tag` (**Required**)(String). Yandex Cloud Function version tag for Yandex Cloud Function scaling policy.
-  - `zone_instances_limit` (Number). Max number of instances in one zone for Yandex Cloud Function with tag.
-  - `zone_requests_limit` (Number). Max number of requests in one zone for Yandex Cloud Function with tag.
+- `policy` [Block]. 
+  - `tag` (*Read-Only*) (String). 
+  - `zone_instances_limit` (Number). 
+  - `zone_requests_limit` (Number).
 
 

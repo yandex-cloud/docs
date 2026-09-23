@@ -229,7 +229,7 @@ filename: yandex/cloud/mdb/greenplum/v1/cluster.proto
 - `created_at` (*Read-Only*) (String). Time when the cluster was created.
 - `deletion_protection` (Bool). Determines whether the cluster is protected from being deleted.
 - `description` (String). Description of the Greenplum® cluster.
-- `disk_encryption_key_id` (String). ID of the KMS key used for cluster disk encryption. This parameter only works when both master and segment hosts use `local-ssd` disks. Changing this value requires recreating the cluster. If omitted when restoring, the restored cluster is created without encryption. The key is preserved in Terraform state but cannot currently be read from the API, including during import.
+- `disk_encryption_key_id` (String). ID of the KMS key used for cluster disk encryption. Encryption can`t be disabled for an existing cluster. If the source cluster is encrypted and you leave this field empty when restoring, the restored cluster will be created without encryption. This parameter only works when both master and segment hosts use `local-ssd` disks. Changing this value requires recreating the cluster. The key is preserved in Terraform state but cannot currently be read from the API, including during import.
 - `environment` (**Required**)(String). Deployment environment of the Greenplum® cluster.
 - `folder_id` (String). ID of the folder that the Greenplum® cluster belongs to.
 - `host_group_ids` (Set Of String). Host groups hosting VMs of the cluster.

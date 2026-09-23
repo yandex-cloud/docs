@@ -183,7 +183,7 @@ Updates the specified endpoint.
         "YdsCompressionCodec"
       ],
       "parser": {
-        // Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`
+        // Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`, `confluent_schema_registry_parser`
         "json_parser": {
           "data_schema": {
             // Includes only one of the fields `json_fields`, `fields`
@@ -227,6 +227,46 @@ Updates the specified endpoint.
           "null_keys_allowed": "bool",
           "add_rest_column": "bool",
           "unescape_string_values": "bool"
+        },
+        "confluent_schema_registry_parser": {
+          // Includes only one of the fields `confluent_schema_registry_connection`
+          "confluent_schema_registry_connection": {
+            "schema_registry_url": "string",
+            "tls_mode": {
+              // Includes only one of the fields `disabled`, `enabled`
+              "disabled": "google.protobuf.Empty",
+              "enabled": {
+                "ca_certificate": "string"
+              }
+              // end of the list of possible fields
+            },
+            "auth": {
+              // Includes only one of the fields `no_auth`, `basic`
+              "no_auth": "NoAuth",
+              "basic": {
+                "user": "string",
+                "password": {
+                  // Includes only one of the fields `raw`
+                  "raw": "string"
+                  // end of the list of possible fields
+                }
+              }
+              // end of the list of possible fields
+            }
+          },
+          // end of the list of possible fields
+          "is_generate_updates": "bool",
+          "table_name_policy": {
+            // Includes only one of the fields `derived`, `manual`
+            "derived": {
+              "json": "SchemaRegistryTableNamePolicyDerivedJSONType",
+              "protobuf": "SchemaRegistryTableNamePolicyDerivedProtobufType"
+            },
+            "manual": {
+              "table_name": "string"
+            }
+            // end of the list of possible fields
+          }
         }
         // end of the list of possible fields
       },
@@ -316,7 +356,7 @@ Updates the specified endpoint.
         "service_account_id": "string"
       },
       "parser": {
-        // Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`
+        // Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`, `confluent_schema_registry_parser`
         "json_parser": {
           "data_schema": {
             // Includes only one of the fields `json_fields`, `fields`
@@ -360,6 +400,46 @@ Updates the specified endpoint.
           "null_keys_allowed": "bool",
           "add_rest_column": "bool",
           "unescape_string_values": "bool"
+        },
+        "confluent_schema_registry_parser": {
+          // Includes only one of the fields `confluent_schema_registry_connection`
+          "confluent_schema_registry_connection": {
+            "schema_registry_url": "string",
+            "tls_mode": {
+              // Includes only one of the fields `disabled`, `enabled`
+              "disabled": "google.protobuf.Empty",
+              "enabled": {
+                "ca_certificate": "string"
+              }
+              // end of the list of possible fields
+            },
+            "auth": {
+              // Includes only one of the fields `no_auth`, `basic`
+              "no_auth": "NoAuth",
+              "basic": {
+                "user": "string",
+                "password": {
+                  // Includes only one of the fields `raw`
+                  "raw": "string"
+                  // end of the list of possible fields
+                }
+              }
+              // end of the list of possible fields
+            }
+          },
+          // end of the list of possible fields
+          "is_generate_updates": "bool",
+          "table_name_policy": {
+            // Includes only one of the fields `derived`, `manual`
+            "derived": {
+              "json": "SchemaRegistryTableNamePolicyDerivedJSONType",
+              "protobuf": "SchemaRegistryTableNamePolicyDerivedProtobufType"
+            },
+            "manual": {
+              "table_name": "string"
+            }
+            // end of the list of possible fields
+          }
         }
         // end of the list of possible fields
       },
@@ -1545,22 +1625,27 @@ Connection settings for managed YDB or for on premise ||
 
 Parse data in json format
 
-Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`. ||
+Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`, `confluent_schema_registry_parser`. ||
 || audit_trails_v1_parser | **[AuditTrailsV1Parser](#yandex.cloud.datatransfer.v1.endpoint.AuditTrailsV1Parser)**
 
 Parse Audit Trails data. Empty struct
 
-Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`. ||
+Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`, `confluent_schema_registry_parser`. ||
 || cloud_logging_parser | **[CloudLoggingParser](#yandex.cloud.datatransfer.v1.endpoint.CloudLoggingParser)**
 
 Parse Cloud Logging data. Empty struct
 
-Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`. ||
+Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`, `confluent_schema_registry_parser`. ||
 || tskv_parser | **[GenericParserCommon](#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon)**
 
 Parse data in tskv format
 
-Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`. ||
+Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`, `confluent_schema_registry_parser`. ||
+|| confluent_schema_registry_parser | **[ConfluentSchemaRegistryParser](#yandex.cloud.datatransfer.v1.endpoint.ConfluentSchemaRegistryParser)**
+
+Parse messages in Confluent wire format using schemas from a schema registry
+
+Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`, `confluent_schema_registry_parser`. ||
 |#
 
 ## GenericParserCommon {#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon}
@@ -1656,6 +1741,126 @@ Path to the field ||
 #|
 ||Field | Description ||
 || Empty | > ||
+|#
+
+## ConfluentSchemaRegistryParser {#yandex.cloud.datatransfer.v1.endpoint.ConfluentSchemaRegistryParser}
+
+#|
+||Field | Description ||
+|| confluent_schema_registry_connection | **[ConfluentSchemaRegistryConnection](#yandex.cloud.datatransfer.v1.endpoint.ConfluentSchemaRegistryConnection)**
+
+Connection to a Confluent-compatible schema registry
+
+Includes only one of the fields `confluent_schema_registry_connection`. ||
+|| is_generate_updates | **bool**
+
+Produce update events instead of inserts ||
+|| table_name_policy | **[SchemaRegistryTableNamePolicy](#yandex.cloud.datatransfer.v1.endpoint.SchemaRegistryTableNamePolicy)**
+
+Target table naming. If not set, table name is derived from the schema in
+Debezium-like manner ||
+|#
+
+## ConfluentSchemaRegistryConnection {#yandex.cloud.datatransfer.v1.endpoint.ConfluentSchemaRegistryConnection}
+
+#|
+||Field | Description ||
+|| schema_registry_url | **string**
+
+Schema Registry api url ||
+|| tls_mode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+
+CA certificate of the Schema Registry server.
+TLS is turned on by the https scheme in schema_registry_url, not by this field.
+Without a certificate here the server certificate is not verified ||
+|| auth | **[ConfluentSchemaRegistryAuth](#yandex.cloud.datatransfer.v1.endpoint.ConfluentSchemaRegistryAuth)**
+
+Schema Registry authentication config. Empty credentials mean no authentication ||
+|#
+
+## ConfluentSchemaRegistryAuth {#yandex.cloud.datatransfer.v1.endpoint.ConfluentSchemaRegistryAuth}
+
+#|
+||Field | Description ||
+|| no_auth | **[NoAuth](#yandex.cloud.datatransfer.v1.endpoint.NoAuth)**
+
+Connect to the schema registry without authentication
+
+Includes only one of the fields `no_auth`, `basic`. ||
+|| basic | **[BasicAuthSR](#yandex.cloud.datatransfer.v1.endpoint.BasicAuthSR)**
+
+Authenticate with a user name and a password
+
+Includes only one of the fields `no_auth`, `basic`. ||
+|#
+
+## NoAuth {#yandex.cloud.datatransfer.v1.endpoint.NoAuth}
+
+No authentication
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## BasicAuthSR {#yandex.cloud.datatransfer.v1.endpoint.BasicAuthSR}
+
+#|
+||Field | Description ||
+|| user | **string**
+
+User ||
+|| password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
+
+Password for user. Write-only: it is never returned, and an empty value on
+update keeps the stored one ||
+|#
+
+## SchemaRegistryTableNamePolicy {#yandex.cloud.datatransfer.v1.endpoint.SchemaRegistryTableNamePolicy}
+
+#|
+||Field | Description ||
+|| derived | **[SchemaRegistryTableNamePolicyDerived](#yandex.cloud.datatransfer.v1.endpoint.SchemaRegistryTableNamePolicyDerived)**
+
+Derive the table name from the message schema
+
+Includes only one of the fields `derived`, `manual`. ||
+|| manual | **[SchemaRegistryTableNamePolicyManual](#yandex.cloud.datatransfer.v1.endpoint.SchemaRegistryTableNamePolicyManual)**
+
+Write all messages to the single table
+
+Includes only one of the fields `derived`, `manual`. ||
+|#
+
+## SchemaRegistryTableNamePolicyDerived {#yandex.cloud.datatransfer.v1.endpoint.SchemaRegistryTableNamePolicyDerived}
+
+Table name is derived from the message schema
+
+#|
+||Field | Description ||
+|| json | enum **SchemaRegistryTableNamePolicyDerivedJSONType**
+
+Naming for messages with JSON Schema
+
+- `SCHEMA_REGISTRY_TABLE_NAME_POLICY_DERIVED_JSON_TYPE_DEBEZIUM_LIKE`: Schema title is "&lt;schema&gt;.&lt;table&gt;", as Debezium produces it
+- `SCHEMA_REGISTRY_TABLE_NAME_POLICY_DERIVED_JSON_TYPE_TITLE`: Schema title is used as the table name as is ||
+|| protobuf | enum **SchemaRegistryTableNamePolicyDerivedProtobufType**
+
+Naming for messages with Protobuf schema
+
+- `SCHEMA_REGISTRY_TABLE_NAME_POLICY_DERIVED_PROTOBUF_TYPE_DEBEZIUM_LIKE`: Full message name is "&lt;server&gt;.&lt;schema&gt;.&lt;table&gt;.&lt;message&gt;", as Debezium produces it
+- `SCHEMA_REGISTRY_TABLE_NAME_POLICY_DERIVED_PROTOBUF_TYPE_MESSAGE_NAME`: Short message name is used as the table name ||
+|#
+
+## SchemaRegistryTableNamePolicyManual {#yandex.cloud.datatransfer.v1.endpoint.SchemaRegistryTableNamePolicyManual}
+
+All messages are written to the single table
+
+#|
+||Field | Description ||
+|| table_name | **string**
+
+Name of the table to write all messages to ||
 |#
 
 ## YDSAuthenticationMethod {#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod}
@@ -1823,15 +2028,6 @@ KAFKA_MECHANISM_SHA512
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
 
 Password for user ||
-|#
-
-## NoAuth {#yandex.cloud.datatransfer.v1.endpoint.NoAuth}
-
-No authentication
-
-#|
-||Field | Description ||
-|| Empty | > ||
 |#
 
 ## DataTransformationOptions {#yandex.cloud.datatransfer.v1.endpoint.DataTransformationOptions}

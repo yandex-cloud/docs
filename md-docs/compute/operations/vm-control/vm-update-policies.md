@@ -16,6 +16,14 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. Начните [создание ВМ Linux](../vm-create/create-linux-vm.md) с именем `mnt-vm1` и образом Ubuntu 22.04 LTS. Настройте доступ по SSH и публичный IP-адрес.
+  1. В блоке **Дополнительно** в поле **Политика обслуживания** выберите **Остановка и запуск**.
+  1. Нажмите кнопку **Создать ВМ**.
+
+  Для ВМ без GPU время ожидания перед перезапуском составит одну минуту. В консоли управления можно выбрать только тип политики. Чтобы изменить время ожидания, используйте CLI, Terraform или API.
+
 - CLI {#cli}
 
   Создайте ВМ с политиками обслуживания:
@@ -101,6 +109,12 @@
       terraform apply
       ```
 
+- API {#api}
+
+    Воспользуйтесь методом REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Create](../../api-ref/grpc/Instance/create.md).
+
+    При создании ВМ задайте параметры [политики обслуживания](../../concepts/maintenance-policies.md): тип политики (`maintenancePolicy`) `RESTART`, интервал ожидания (`maintenanceGracePeriod`) 60 секунд.
+
 {% endlist %}
 
 ## Проверьте обработку событий обслуживания {#check}
@@ -179,11 +193,26 @@ Tue Jan 16 14:24:49 UTC 2024 : NONE
 
 ## Измените тип политики обслуживания для ВМ {#change-policy}
 
-Изменить тип политики обслуживания для ВМ можно указав новое значение параметра `--maintenance-policy` командой:
+{% list tabs group=instructions %}
 
-```
-yc compute instance update --name=mnt-vm1 --maintenance-policy=migrate
-```
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится ВМ.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
+  1. На панели слева выберите ![server](../../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите на имя ВМ `mnt-vm1`.
+  1. Нажмите кнопку **Редактировать**.
+  1. В блоке **Дополнительно** в поле **Политика обслуживания** выберите **Динамическая миграция**.
+  1. Нажмите кнопку **Сохранить изменения**.
+
+- CLI {#cli}
+
+  Изменить тип политики обслуживания для ВМ можно указав новое значение параметра `--maintenance-policy` командой:
+
+  ```
+  yc compute instance update --name=mnt-vm1 --maintenance-policy=migrate
+  ```
+
+{% endlist %}
 
 Симулируйте наступление события обслуживания с помощью CLI:
 

@@ -9,33 +9,33 @@ A LifecyclePolicy resource.
 
 - `created_at` (*Read-Only*) (String). Output only. Creation timestamp.
 - `created_by` (*Read-Only*) (String). Output only. ID of the user who created the lifecycle policy.
-- `description` (String). Description of the lifecycle policy. 0-1024 characters long.
+- `description` (*Read-Only*) (String). Description of the lifecycle policy. 0-1024 characters long.
 - `id` (String). ID of the lifecycle policy to return.
 - `modified_at` (*Read-Only*) (String). Output only. Modification timestamp.
 - `modified_by` (*Read-Only*) (String). Output only. ID of the user who last modified the lifecycle policy.
-- `name` (String). Name of the lifecycle policy.
+- `name` (*Read-Only*) (String). Name of the lifecycle policy.
 - `policy_id` (String). ID of the lifecycle policy to return.
-- `registry_id` (**Required**)(String). ID of the registry that the lifecycle policy belongs to.
+- `registry_id` (*Read-Only*) (String). ID of the registry that the lifecycle policy belongs to.
 - `rules` [Block]. List of lifecycle rules.
   - `delete` [Block]. Rule that deletes artifacts.
-    - `always` (Bool). Always delete (use with caution).
-    - `cooldown_period_days` (Number). Cooldown period in days before deletion.
-    - `older_than_days` (Number). Delete artifacts older than specified days.
-    - `type` (String). Type of deletion.
+    - `always` (*Read-Only*) (Bool). Always delete (use with caution).
+    - `cooldown_period_days` (*Read-Only*) (Number). Cooldown period in days before deletion.
+    - `older_than_days` (*Read-Only*) (Number). Delete artifacts older than specified days.
+    - `type` (*Read-Only*) (String). Type of deletion.
     - `version_condition` [Block]. Delete artifacts by version count condition.
-      - `versions_count_greater_than` (Number). Delete when version count exceeds this number.
-  - `description` (String). Description of the lifecycle policy rule
+      - `versions_count_greater_than` (*Read-Only*) (Number). Delete when version count exceeds this number.
+  - `description` (*Read-Only*) (String). Description of the lifecycle policy rule
   - `docker_filters` [Block]. Docker-specific filters.
-    - `tag_status` (String). Filter by tag status.
+    - `tag_status` (*Read-Only*) (String). Filter by tag status.
   - `keep_by_age` [Block]. Rule that keeps artifacts by age.
-    - `younger_than_days` (Number). Keep artifacts younger than this number of days.
+    - `younger_than_days` (*Read-Only*) (Number). Keep artifacts younger than this number of days.
   - `keep_by_version` [Block]. Rule that keeps artifacts by version count.
-    - `keep_versions_count` (Number). Number of versions to keep.
+    - `keep_versions_count` (*Read-Only*) (Number). Number of versions to keep.
   - `maven_filters` [Block]. Maven-specific filters.
-    - `version_type` (String). Filter by version type.
-  - `path_prefix` (String). Path prefix to which the rule applies.
-  - `version_regexp` (String). Regular expression pattern to match package version or docker tag.
-- `state` (String). Current state of the lifecycle policy.
+    - `version_type` (*Read-Only*) (String). Filter by version type.
+  - `path_prefix` (*Read-Only*) (String). Path prefix to which the rule applies.
+  - `version_regexp` (*Read-Only*) (String). Regular expression pattern to match package version or docker tag.
+- `state` (*Read-Only*) (String). Current state of the lifecycle policy.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

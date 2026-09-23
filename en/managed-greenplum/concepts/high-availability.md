@@ -28,7 +28,7 @@ If the database storage is 95% full, the cluster will switch to read-only mode. 
 
 ## Restoring a cluster from a backup {#backup}
 
-If a cluster goes down, e.g., if the cluster’s [availability zone](../../overview/concepts/geo-scope.md) fails, you can restore it from a [backup](../concepts/backup.md).
+If a cluster goes down, e.g., due to failure of its [availability zone](../../overview/concepts/geo-scope.md), you can restore it from a [backup](../concepts/backup.md).
 
 To ensure data integrity and minimize cluster recovery time:
 * Make sure automatic backups are created.

@@ -1,7 +1,7 @@
 #### Quotas {#iam-quotas}
 
 #|
-|| Type of limitation | Value ||
+|| Type of limit | Value ||
 || Number of workload identity federations 
 `iam.oidcWLIFederations.count` | 50 ||
 || Number of service accounts linked to federations 

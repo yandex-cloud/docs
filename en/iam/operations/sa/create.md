@@ -20,7 +20,7 @@ A service account is created inside a [folder](../../../resource-manager/concept
 
 {% endnote %}
 
-## Create a service account {#create-sa}
+## Creating a service account {#create-sa}
 
 {% list tabs group=instructions %}
 
@@ -79,7 +79,7 @@ A service account is created inside a [folder](../../../resource-manager/concept
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display information about the service account. Otherwise, Terraform will show any detected errors. 
+     If the configuration is correct, the terminal will display information about the service account. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
@@ -106,9 +106,9 @@ A service account is created inside a [folder](../../../resource-manager/concept
 
 ## Examples {#examples}
 
-### Add a description when creating a service account {#add-description}
+### Adding a description when creating an access key {#add-description}
 
-Create a service account with the following name and description:
+Create a service account and set its name and description as follows:
 
 {% list tabs group=instructions %}
 

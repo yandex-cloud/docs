@@ -15,7 +15,7 @@ description: You can get information about {{ VLK }} users and their permissions
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Click the name of your cluster and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
 
 - CLI {#cli}
   
@@ -101,7 +101,7 @@ description: You can get information about {{ VLK }} users and their permissions
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Click the name of your cluster and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
       
       User information is available in the user list.
   

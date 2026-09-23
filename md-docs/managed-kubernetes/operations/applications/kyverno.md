@@ -53,7 +53,7 @@
 
    ```bash
    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/kyverno/charts/kyverno \
-     --version 3.8.1 \
+     --version 3.8.2 \
      --untar && \
    helm install \
      --namespace <пространство_имен> \

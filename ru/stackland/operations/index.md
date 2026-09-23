@@ -6,6 +6,8 @@
 * [Создать группу пользователей](iam/create-group.md)
 * [Подключить SAML-федерацию](iam/connect-saml-federation.md)
 * [Назначить права доступа](iam/assign-role.md)
+* [Создать резервную копию YDB](iam/ydb-backup.md)
+* [Восстановить YDB из резервной копии](iam/ydb-restore.md)
 
 ## Базы данных {#databases}
 
@@ -49,12 +51,26 @@
 * [Подключиться к HTTP-прокси](ytsaurus/connect-api.md)
 * [Отключить {{ yt-name }}](ytsaurus/disable.md)
 
+## Оркестрация данных {#airflow}
+
+{{ maf-name }}:
+
+* [Включить {{ maf-name }}](airflow/enable.md)
+* [Создать кластер {{ AF }}](airflow/create-cluster.md)
+* [Изменить настройки кластера {{ AF }}](airflow/edit-cluster.md)
+* [Получить учетные данные администратора {{ AF }}](airflow/get-admin-credentials.md)
+* [Открыть веб-интерфейс {{ AF }}](airflow/connect-ui.md)
+* [Приостановить или возобновить кластер {{ AF }}](airflow/pause-resume.md)
+* [Удалить кластер {{ AF }}](airflow/delete-cluster.md)
+* [Устранение неполадок {{ AF }}](airflow/troubleshooting.md)
+* [Отключить {{ maf-name }}](airflow/disable.md)
+
 ## {{ rest-catalog-name }} {#rest-catalog}
 
 * [Создать каталог](rest-catalog/create-catalog.md)
 * [Изменить каталог](rest-catalog/edit-catalog.md)
-* [Создать пользователя каталога](rest-catalog/create-principal.md)
-* [Удалить пользователя каталога](rest-catalog/delete-principal.md)
+* [Назначить права на каталог](rest-catalog/create-principal.md)
+* [Отозвать права на каталог](rest-catalog/delete-principal.md)
 * [Удалить каталог](rest-catalog/delete-catalog.md)
 
 ## Бакеты {#buckets}
@@ -99,12 +115,19 @@
 * [Активировать пресет с политиками](policy-manager/apply-preset.md)
 * [Деактивировать политику](policy-manager/apply-mute.md)
 * [Удалить пресет с политиками](policy-manager/delete-preset.md)
+* [Посмотреть отчеты об уязвимостях](policy-manager/view-vulnerability-reports.md)
 
 ## {{ speechsense-name }} {#speechsense}
 
 * [Загрузить образы](speechsense/install-images.md)
 * [Настроить и активировать](speechsense/configure.md)
 * [Отключить](speechsense/disable.md)
+
+## {{ ai-studio-name }} {#ai-studio}
+
+* [Загрузить образы](ai-studio/install-images.md)
+* [Включить {{ ai-studio-name }}](ai-studio/configure.md)
+* [Отключить {{ ai-studio-name }}](ai-studio/disable.md)
 
 ## Проекты {#projects}
 

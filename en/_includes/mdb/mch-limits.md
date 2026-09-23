@@ -19,7 +19,7 @@
 
 #|
 || **Type of limit** | **Minimum value** | **Maximum value** ||
-|| Host class | b1.medium (2 × [50%](../../compute/concepts/performance-levels.md) vCPUs, Intel Broadwell, 4 GB RAM) | m4a-c224-m1792 (224 vCPU AMD Zen 4, 1,792 GB RAM) ||
+|| Host class | b2.medium (2 × [50%](../../compute/concepts/performance-levels.md) vCPUs, Intel Cascade Lake, 4 GB RAM) | m4a-c224-m1792 (224 vCPUs, AMD Zen 4, 1,792 GB RAM) ||
 || Number of {{ CH }} hosts per non-sharded cluster when using a network HDD or SSD storage or an ultra high-speed network SSD storage with three replicas | 1 | 7 ||
 || Number of {{ CH }} hosts per non-sharded cluster when using a non-replicated SSD storage | 3 | 7 ||
 || Number of {{ CH }} hosts per non-sharded cluster when using a local SSD storage | 2 | 7 ||
@@ -28,10 +28,10 @@
 || Number of hosts per shard when using a non-replicated SSD storage | 3 | 7 ||
 || Number of hosts per shard when using a local SSD storage | 2 | 7 ||
 || Total number of hosts per cluster | 1 | 355 (50 shards × 7 hosts + 5 {{ ZK }} hosts) ||
-|| Amount of data per host when using a network HDD or SSD storage (for Intel Broadwell and Intel Cascade Lake) | 10 GB | 4,096 GB ||
+|| Amount of data per host when using a network HDD or SSD storage (for Intel Cascade Lake) | 10 GB | 4,096 GB ||
 || Amount of data per host when using a network HDD or SSD storage (for Intel Ice Lake) | 10 GB | 8192 GB ||
 || Amount of data per host when using a non-replicated SSD storage or an ultra high-speed network SSD storage with three replicas | 93 GB | 16,368 GB ||
-|| Amount of data per host when using a local SSD storage (for Intel Broadwell and Intel Cascade Lake) | 100 GB | 1500 GB ||
+|| Amount of data per host when using a local SSD storage (for Intel Cascade Lake) | 100 GB | 1500 GB ||
 || Amount of data per host when using a local SSD storage (for Intel Ice Lake and AMD Zen 4) | {{ local-ssd-v3-step }} | {{ local-ssd-v3-max }} ||
 || Number of databases per cluster | 1 | {{ all-mdb.max-databases }} ||
 |#
@@ -59,4 +59,3 @@ The limits on the maximum number of objects per cluster have two threshold value
 |#
 
 All limits are implemented based on the [{{ CH }} server settings]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings). You cannot change them.
-

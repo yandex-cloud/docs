@@ -42,6 +42,8 @@ Stackland позволяет организовать мониторинг кл�
 
 ## Конфигурация {#configuration}
 
+Чтобы задать параметры Monitoring при первой установке кластера, например размер и класс хранилища Prometheus, подготовьте `MonitoringConfig` по инструкции [Настройка компонентов перед установкой](../../quickstart.md#component-configuration).
+
 ### Общий вид {#general}
 
 ```yaml

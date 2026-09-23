@@ -26,6 +26,10 @@ resource "yandex_trino_cluster" "trino" {
   }
 
 
+  event_listeners = {
+    data_catalog = {}
+  }
+
   retry_policy = {
     additional_properties = {
       fault-tolerant-execution-max-task-split-count = 1024
@@ -127,6 +131,8 @@ resource "yandex_trino_cluster" "trino" {
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
 - `description` (String). The resource description.
+- `event_listeners` [Block]. Event listeners configuration.
+  - `data_catalog` [Block]. Enables the Data Catalog event listener. Set to an empty object to enable it.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.

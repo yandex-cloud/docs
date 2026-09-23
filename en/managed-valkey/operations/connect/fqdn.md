@@ -26,7 +26,7 @@ You can also use the following FQDNs to connect:
 
 In a non-sharded cluster, an FQDN of `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host. You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters). When connecting to this FQDN, you can perform read and write operations.
 
-In multi-host clusters, a special FQDN may temporarily point to a replica host (for up to 10 minutes). This is because it takes time to update DNS records for special FQDNs. If your write request returns an error, repeat it later.
+In multi-host clusters, a special FQDN may temporarily point to a replica host. This is because it takes time to update DNS records for special FQDNs. If your write request returns an error, repeat it later.
 
 {% note warning %}
 
@@ -55,7 +55,7 @@ For {{ mrd-name }}, stable FQDNs are available that always point to live hosts i
 * `c-<cluster_ID>-valkey1.{{ dns-zone }}`
 * `c-<cluster_ID>-valkey2.{{ dns-zone }}`
 
-You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
 You can use these FQDNs for connection to hosts in either a sharded or non-sharded cluster alongside [special FQDNs](#special-fqdns) and [regular host FQDNs](index.md#fqdn).
 

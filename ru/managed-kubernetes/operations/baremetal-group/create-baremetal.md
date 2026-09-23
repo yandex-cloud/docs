@@ -11,6 +11,6 @@ description: Создайте группу узлов на серверах {{ b
 
 {% endnote %}
 
-В кластере {{ managed-k8s-name }} можно создать [группу узлов](../../concepts/index.md#node-group) на выделенных серверах {{ baremetal-name }}. Сервис арендует серверы, автоматически настроит их и подключит к кластеру.
+В кластере {{ managed-k8s-name }} можно создать [группу узлов](../../concepts/index.md#node-group) на выделенных серверах {{ baremetal-name }}. Сервис арендует серверы, автоматически настроит их и подключит к кластеру. По умолчанию срок аренды серверов — один день.
 
 {% include [node-group-create-baremetal](../../../_includes/managed-kubernetes/node-group-create-baremetal.md) %}

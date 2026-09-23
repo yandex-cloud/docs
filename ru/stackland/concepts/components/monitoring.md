@@ -40,6 +40,8 @@
 
 ## Конфигурация {#configuration}
 
+Чтобы задать параметры {{ monitoring-name }} при первой установке кластера, например размер и класс хранилища Prometheus, подготовьте `MonitoringConfig` по инструкции [Настройка компонентов перед установкой](../../quickstart.md#component-configuration).
+
 ### Общий вид {#general}
 
 {% include notitle [YAML-файл](../../_includes/yamls/components/monitoringconfig.md) %}

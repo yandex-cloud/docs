@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-В WebSQL интегрирован [AI-ассистент](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/assistant/index), который помогает:
+В WebSQL интегрирован [AI-ассистент](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/index), который помогает:
 
 * [формировать SQL-запросы](#db-query) по текстовому описанию на естественном языке;
 * [исправлять](#query-fix) SQL-запросы из [редактора запросов](query-executor.md);

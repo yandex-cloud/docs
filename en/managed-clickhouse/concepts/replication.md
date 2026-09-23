@@ -10,7 +10,7 @@ In {{ CH }}, replication is enabled if the cluster meets all these conditions:
 * There is at least one shard with two or more hosts.
 * Host [coordination](coordination-system.md) is configured.
 
-A {{ mch-name }} cluster with replication is considered to be [highly available](high-availability.md). In such a cluster, you can create [replicated tables](#replicated-tables) and [replicated databases](#replicated-db).
+A {{ mch-name }} cluster with active replication based on {{ CK }} or {{ ZK }} on individual hosts is considered [highly available](high-availability.md). In such a cluster, you can create [replicated tables](#replicated-tables) and [replicated databases](#replicated-db).
 
 ## Replicated tables {#replicated-tables}
 

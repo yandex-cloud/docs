@@ -33,29 +33,21 @@ data "yandex_alb_http_router" "tf-router" {
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `http_router_id` (String). HTTP Router ID.
 - `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (String). The resource name.
-- `route_options` [Block]. Route options for the virtual host.
-  - `rbac` [Block]. RBAC configuration.
-    - `action` (String). 
-    - `principals` [Block]. 
-      - `and_principals` [Block]. 
-        - `any` (Bool). 
-        - `header` [Block]. 
-          - `name` (**Required**)(String). 
-          - `value` [Block]. The `path` and `fqmn` blocks.
-
-{% note warning %}
-
-Exactly one type of string matches `exact`, `prefix` or `regex` should be specified.
-
-{% endnote %}
-
-
-            - `exact` (String). Match exactly.
-            - `prefix` (String). Match prefix.
-            - `regex` (String). Match regex.
-        - `remote_ip` (String). 
-  - `security_profile_id` (String). SWS profile ID.
+- `route_options` (*Read-Only*) (List Of Object). 
+  - `rbac` . 
+    - `action` . 
+    - `principals` . 
+      - `and_principals` . 
+        - `any` . 
+        - `header` . 
+          - `name` . 
+          - `value` . 
+            - `exact` . 
+            - `prefix` . 
+            - `regex` . 
+        - `remote_ip` . 
+  - `security_profile_id` .
 
 

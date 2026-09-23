@@ -1,6 +1,6 @@
 ---
 title: Deleting an access policy created for a resource
-description: In this tutorial, you will learn how to delete a {{ iam-full-name }} access policy from a folder, cloud, or organization.
+description: In this guide, you will learn how to delete a {{ iam-full-name }} access policy for a folder, cloud, or organization.
 ---
 
 # Deleting an access policy

@@ -5,7 +5,7 @@ Upon reaching the specified threshold, the storage will be expanded depending on
 * For non-replicated SSDs and ultra high-speed network SSDs with three replicas, by 93 GB.
 * For local SSDs:
 
-    * In an **Intel Broadwell** or **Intel Cascade Lake** cluster, by 100 GB.
+    * **Intel Cascade Lake** cluster, by 100 GB.
     * In an **Intel Ice Lake** or **AMD Zen 4** cluster, by {{ local-ssd-v3-step }}.
 
 

@@ -2,7 +2,7 @@
 
 Ephemeral access keys are created for [Yandex accounts](../../iam/concepts/users/accounts.md#passport), [federated accounts](../../iam/concepts/users/accounts.md#saml-federation), [local users](../../iam/concepts/users/accounts.md#local), and [service accounts](../../iam/concepts/users/service-accounts.md).
 
-To create an ephemeral access key, the user needs the `iam.serviceAccounts.ephemeralAccessKeyAdmin` [role](../../iam/security/index.md#iam-serviceAccounts-ephemeralAccessKeyAdmin) or higher for the folder.
+To create an ephemeral access key, a user needs the `iam.serviceAccounts.ephemeralAccessKeyAdmin` [role](../../iam/security/index.md#iam-serviceAccounts-ephemeralAccessKeyAdmin) or higher for the folder.
 
 ## Creating an ephemeral access key {#create}
 
@@ -65,7 +65,7 @@ To create an ephemeral access key, the user needs the `iam.serviceAccounts.ephem
 
   1. Make sure the account you created the ephemeral access key for has access to the relevant bucket. If it does not, [assign](../../iam/operations/sa/assign-role-for-sa.md) your account the required [role](../../storage/security/index.md#roles-list), e.g., [storage.viewer](../../storage/security/index.md#storage-viewer), for the bucket.
 
-      Alternatively, you can use [ACL](../../storage/security/acl.md) permissions for a bucket.
+      Alternatively, you can use [ACL](../../storage/security/acl.md) permissions for the bucket.
 
   1. Add a new profile to `~/.aws/credentials`:
 
@@ -82,7 +82,7 @@ To create an ephemeral access key, the user needs the `iam.serviceAccounts.ephem
       * `aws_secret_access_key`: `secret` key.
       * `aws_session_token`: `session_token`.
 
-  1. Save to the client device the object from the prefix of the bucket access was granted to:
+  1. Save an object from the bucket prefix you granted access to on the client device:
 
       ```bash
       aws --endpoint https://{{ s3-storage-host }} s3 cp \

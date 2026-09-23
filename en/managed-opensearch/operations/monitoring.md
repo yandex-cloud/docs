@@ -21,9 +21,9 @@ To view detailed information on the health state of a {{ mos-name }} cluster:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/managed-opensearch) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Click the cluster name and open the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
 
         The page displays the following charts:
 
@@ -79,9 +79,9 @@ To view detailed information on the health state of a {{ mos-name }} cluster:
 
 To view detailed information on the state of individual {{ mos-name }} hosts:
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-opensearch) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-1. Click the cluster name and open the ![image](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 1. Select the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
 1. Select the host from the drop-down list.
 
@@ -159,9 +159,9 @@ This page displays the charts showing workloads of individual cluster hosts. It 
 
 To view detailed information on the state of a {{ mos-name }} host group:
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-opensearch) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-1. Click the cluster name and open the ![image](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+1. Click the name of your cluster and select the **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
 1. Select the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
 1. Select the host group from the drop-down list.
 
@@ -183,7 +183,7 @@ This page displays the charts showing workloads of a cluster host group. The lis
       * **{{ mos-name }} — Data** to configure alerts for hosts with the `DATA` role.
       * **{{ mos-name }} — Manager** to configure alerts for hosts with the `MANAGER` role.
 
-  1. Click ![options](../../_assets/console-icons/ellipsis.svg) on the chart of interest and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. On the chart of interest, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
   1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Learn more about the query language in [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` alert thresholds.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.

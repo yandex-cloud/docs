@@ -52,6 +52,7 @@
 ## Сетевые сценарии {#network-scenarios}
 
 * [Обеспечение доступа к приложению, запущенному в кластере Kubernetes](create-load-balancer.md)
+* [Настройка режима управления целевыми группами для сетевых балансировщиков](configure-load-balancer-target-groups.md)
 * [Настройка контроллера сетевых политик Calico](calico.md)
 * [Настройка контроллера сетевых политик Cilium](cilium.md)
 * [Настройка NodeLocal DNS для контроллера сетевых политик Cilium](cilium-node-local-dns.md)

@@ -1,6 +1,6 @@
 ---
-title: Managing ephemeral access keys in {{ iam-full-name }}
-description: In this tutorial, you will learn how to create ephemeral access keys in {{ iam-name }} via the CLI.
+title: How to manage ephemeral access keys in {{ iam-full-name }}
+description: In this guide, you will learn how to create ephemeral access keys in {{ iam-name }} via the CLI.
 ---
 
 # Managing ephemeral access keys

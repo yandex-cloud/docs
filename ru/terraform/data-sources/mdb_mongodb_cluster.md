@@ -31,24 +31,24 @@ output "network_id" {
 ## Arguments & Attributes Reference
 
 - `cluster_id` (String). The ID of the cluster.
-- `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
+- `created_at` (String). The creation timestamp of the resource.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
 - `description` (String). The resource description.
 - `disk_encryption_key_id` (String). ID of the KMS key for cluster disk encryption.
-- `environment` (**Required**)(String). Deployment environment of the MongoDB cluster. Can be either `PRESTABLE` or `PRODUCTION`.
+- `environment` (String). Deployment environment of the MongoDB cluster. Can be either `PRESTABLE` or `PRODUCTION`.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `health` (*Read-Only*) (String). Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](https://yandex.cloud/docs/managed-mongodb/api-ref/Cluster/).
+- `health` (String). Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](https://yandex.cloud/docs/managed-mongodb/api-ref/Cluster/).
 - `id` (String). 
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `name` (**Required**)(String). The resource name.
-- `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
+- `name` (String). The resource name.
+- `network_id` (String). The `VPC Network ID` of subnets which resource attached to.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
-- `sharded` (*Read-Only*) (Bool). MongoDB Cluster mode enabled/disabled.
-- `status` (*Read-Only*) (String). Status of the cluster. Can be either `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`. For more information see `status` field of JSON representation in [the official documentation](https://yandex.cloud/docs/managed-mongodb/api-ref/Cluster/).
+- `sharded` (Bool). MongoDB Cluster mode enabled/disabled.
+- `status` (String). Status of the cluster. Can be either `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`. For more information see `status` field of JSON representation in [the official documentation](https://yandex.cloud/docs/managed-mongodb/api-ref/Cluster/).
 - `cluster_config` [Block]. Configuration of the MongoDB subcluster.
   - `backup_retain_period_days` (Number). Retain period of automatically created backup in days.
   - `feature_compatibility_version` (String). Feature compatibility version of MongoDB. If not provided version is taken. Can be either `6.0`, `5.0`, `4.4` and `4.2`.
-  - `version` (**Required**)(String). Version of the MongoDB server software. Can be either `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0` and `6.0-enterprise`.
+  - `version` (String). Version of the MongoDB server software. Can be either `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0` and `6.0-enterprise`.
   - `access` [Block]. Access policy to the MongoDB cluster.
     - `data_lens` (Bool). Allow access for [Yandex DataLens](https://yandex.cloud/services/datalens).
     - `data_transfer` (Bool). Allow access for [DataTransfer](https://yandex.cloud/services/data-transfer).
@@ -153,32 +153,32 @@ output "network_id" {
   - `performance_diagnostics` [Block]. Performance diagnostics to the MongoDB cluster.
     - `enabled` (Bool). Enable or disable performance diagnostics.
 - `database` [Block]. A database of the MongoDB cluster.
-  - `name` (**Required**)(String). The name of the database.
+  - `name` (String). The name of the database.
 - `disk_size_autoscaling_mongocfg` [Block]. Disk size autoscaling settings for mongocfg.
-  - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
+  - `disk_size_limit` (Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
   - `emergency_usage_threshold` (Number). Immediate autoscaling disk usage (percent).
   - `planned_usage_threshold` (Number). Maintenance window autoscaling disk usage (percent).
 - `disk_size_autoscaling_mongod` [Block]. Disk size autoscaling settings for mongod.
-  - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
+  - `disk_size_limit` (Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
   - `emergency_usage_threshold` (Number). Immediate autoscaling disk usage (percent).
   - `planned_usage_threshold` (Number). Maintenance window autoscaling disk usage (percent).
 - `disk_size_autoscaling_mongoinfra` [Block]. Disk size autoscaling settings for mongoinfra.
-  - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
+  - `disk_size_limit` (Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
   - `emergency_usage_threshold` (Number). Immediate autoscaling disk usage (percent).
   - `planned_usage_threshold` (Number). Maintenance window autoscaling disk usage (percent).
 - `disk_size_autoscaling_mongos` [Block]. Disk size autoscaling settings for mongos.
-  - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
+  - `disk_size_limit` (Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
   - `emergency_usage_threshold` (Number). Immediate autoscaling disk usage (percent).
   - `planned_usage_threshold` (Number). Maintenance window autoscaling disk usage (percent).
 - `host` [Block]. A host of the MongoDB cluster.
   - `assign_public_ip` (Bool). Should this host have assigned public IP assigned. Can be either `true` or `false`.
-  - `health` (*Read-Only*) (String). The health of the host.
-  - `name` (*Read-Only*) (String). The fully qualified domain name of the host. Computed on server side.
+  - `health` (String). The health of the host.
+  - `name` (String). The fully qualified domain name of the host. Computed on server side.
   - `role` (String). The role of the cluster (either PRIMARY or SECONDARY).
   - `shard_name` (String). The name of the shard to which the host belongs. Only for sharded cluster.
-  - `subnet_id` (**Required**)(String). The ID of the subnet, to which the host belongs. The subnet must be a part of the network to which the cluster belongs.
+  - `subnet_id` (String). The ID of the subnet, to which the host belongs. The subnet must be a part of the network to which the cluster belongs.
   - `type` (String). Type of Mongo daemon which runs on this host (mongod, mongos, mongocfg, mongoinfra). Defaults to `mongod`.
-  - `zone_id` (**Required**)(String). The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
+  - `zone_id` (String). The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
   - `host_parameters` [Block]. The parameters of mongod host in replicaset.
     - `hidden` (Bool). Should this host be hidden in replicaset. Can be either `true` of `false`. For more information see [the official documentation](https://www.mongodb.com/docs/current/reference/replica-configuration/#mongodb-rsconf-rsconf.members-n-.hidden).
     - `priority` (Number). A floating point number that indicates the relative likelihood of a replica set member to become the primary. For more information see [the official documentation](https://www.mongodb.com/docs/current/reference/replica-configuration/#mongodb-rsconf-rsconf.members-n-.priority).
@@ -188,35 +188,35 @@ output "network_id" {
 - `maintenance_window` [Block]. Maintenance window settings of the MongoDB cluster.
   - `day` (String). Day of week for maintenance window if window type is weekly. Possible values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
   - `hour` (Number). Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.
-  - `type` (**Required**)(String). Type of maintenance window. Can be either `ANYTIME` or `WEEKLY`. A day and hour of window need to be specified with weekly window.
+  - `type` (String). Type of maintenance window. Can be either `ANYTIME` or `WEEKLY`. A day and hour of window need to be specified with weekly window.
 - `resources` [Block]. (**DEPRECATED**, use `resources_*` instead) Resources allocated to hosts of the MongoDB cluster.
-  - `disk_size` (**Required**)(Number). Volume of the storage available to a MongoDB host, in gigabytes.
-  - `disk_type_id` (**Required**)(String). Type of the storage of MongoDB hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
-  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-mongodb/concepts).
+  - `disk_size` (Number). Volume of the storage available to a MongoDB host, in gigabytes.
+  - `disk_type_id` (String). Type of the storage of MongoDB hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
+  - `resource_preset_id` (String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-mongodb/concepts).
 - `resources_mongocfg` [Block]. Resources allocated to `mongocfg` hosts of the MongoDB cluster.
-  - `disk_size` (**Required**)(Number). Volume of the storage available to a MongoDB host, in gigabytes.
-  - `disk_type_id` (**Required**)(String). Type of the storage of MongoDB hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
-  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-mongodb/concepts).
+  - `disk_size` (Number). Volume of the storage available to a MongoDB host, in gigabytes.
+  - `disk_type_id` (String). Type of the storage of MongoDB hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
+  - `resource_preset_id` (String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-mongodb/concepts).
 - `resources_mongod` [Block]. Resources allocated to `mongod` hosts of the MongoDB cluster.
-  - `disk_size` (**Required**)(Number). Volume of the storage available to a MongoDB host, in gigabytes.
-  - `disk_type_id` (**Required**)(String). Type of the storage of MongoDB hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
-  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-mongodb/concepts).
+  - `disk_size` (Number). Volume of the storage available to a MongoDB host, in gigabytes.
+  - `disk_type_id` (String). Type of the storage of MongoDB hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
+  - `resource_preset_id` (String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-mongodb/concepts).
 - `resources_mongoinfra` [Block]. Resources allocated to `mongoinfra` hosts of the MongoDB cluster.
-  - `disk_size` (**Required**)(Number). Volume of the storage available to a MongoDB host, in gigabytes.
-  - `disk_type_id` (**Required**)(String). Type of the storage of MongoDB hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
-  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-mongodb/concepts).
+  - `disk_size` (Number). Volume of the storage available to a MongoDB host, in gigabytes.
+  - `disk_type_id` (String). Type of the storage of MongoDB hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
+  - `resource_preset_id` (String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-mongodb/concepts).
 - `resources_mongos` [Block]. Resources allocated to `mongos` hosts of the MongoDB cluster.
-  - `disk_size` (**Required**)(Number). Volume of the storage available to a MongoDB host, in gigabytes.
-  - `disk_type_id` (**Required**)(String). Type of the storage of MongoDB hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
-  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-mongodb/concepts).
+  - `disk_size` (Number). Volume of the storage available to a MongoDB host, in gigabytes.
+  - `disk_type_id` (String). Type of the storage of MongoDB hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
+  - `resource_preset_id` (String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-mongodb/concepts).
 - `restore` [Block]. The cluster will be created from the specified backup.
-  - `backup_id` (**Required**)(String). Backup ID. The cluster will be created from the specified backup. [How to get a list of PostgreSQL backups](https://yandex.cloud/docs/managed-mongodb/operations/cluster-backups).
+  - `backup_id` (String). Backup ID. The cluster will be created from the specified backup. [How to get a list of PostgreSQL backups](https://yandex.cloud/docs/managed-mongodb/operations/cluster-backups).
   - `time` (String). Timestamp of the moment to which the MongoDB cluster should be restored. (Format: `2006-01-02T15:04:05` - UTC). When not set, current time is used.
 - `user` [Block]. A user of the MongoDB cluster.
-  - `name` (**Required**)(String). The name of the user.
-  - `password` (**Required**)(String). The password of the user.
+  - `name` (String). The name of the user.
+  - `password` (String). The password of the user.
   - `permission` [Block]. Set of permissions granted to the user.
-    - `database_name` (**Required**)(String). The name of the database that the permission grants access to.
+    - `database_name` (String). The name of the database that the permission grants access to.
     - `roles` (List Of String). The roles of the user in this database. For more information see [the official documentation](https://yandex.cloud/docs/managed-mongodb/concepts/users-and-roles).
 
 

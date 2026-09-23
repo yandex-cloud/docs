@@ -21,8 +21,8 @@ description: Следуя данной инструкции, вы сможете
   1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт с ролями `{{ roles-functions-invoker }}` и `{{ roles-functions-viewer }}`. Он потребуется для вызова функции.
   1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![shield-exclamation](../../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO** → ![bell](../../../_assets/console-icons/bell.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}**.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}** и выберите **{{ ui-key.yacloud_monitoring.notification-methods.create-button.channel }}**.
-  1. Введите имя канала уведомления.
-  1. (Опционально) Укажите уровни критичности алертов, для которых канал будет работать по умолчанию.
+  1. Введите имя канала уведомлений.
+  1. (Опционально) Укажите уровни алертов, для которых канал будет работать по умолчанию.
   1. В поле **{{ ui-key.yacloud_monitoring.channel.field_method }}** выберите ![bell](../../../_assets/console-icons/code.svg) **{{ ui-key.yacloud_monitoring.channel.type_cloud-function }}**.
   1. В появившемся поле выберите каталог, в котором находится функция **{{ sf-name }}**.
   1. В поле **{{ ui-key.yacloud_monitoring.channel.field_service-account_title }}** выберите аккаунт для запуска функции.
@@ -56,7 +56,7 @@ description: Следуя данной инструкции, вы сможете
 * `alertId` — идентификатор сработавшего алерта;
 * `alertName` — имя сработавшего алерта;
 * `labels` — список [меток](../../../monium/concepts/data-model.md#label) в формате `ключ: "значение"` для [мультиалертов](../../../monium/concepts/alerting/alert.md#multi-alerts).
-* `folderId` — идентификатор каталога, должно быть пустым;
+* `folderId` — идентификатор каталога; значение должно быть пустым;
 * `alertStatus` — [статус алерта](../../concepts/alerting/alert.md#alert-statuses);
 * `annotations` — значения [аннотаций](../../concepts/alerting/annotation.md) сработавшего алерта, словарь значений `"ключ":"значение"`.
 

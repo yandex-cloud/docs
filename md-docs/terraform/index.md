@@ -240,6 +240,16 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [cloudregistry_scan_policy](resources/cloudregistry_scan_policy.md)
 
+#### Cloud Router
+
+##### Data Sources
+
+ - [cloudrouter_routing_instance](data-sources/cloudrouter_routing_instance.md)
+
+##### Resources
+
+ - [cloudrouter_routing_instance](resources/cloudrouter_routing_instance.md)
+
 #### Compute Cloud
 
 ##### Data Sources
@@ -608,6 +618,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [airflow_cluster](resources/airflow_cluster.md)
 
+ - [airflow_cluster_change_freeze](resources/airflow_cluster_change_freeze.md)
+
  - [airflow_cluster_iam_binding](resources/airflow_cluster_iam_binding.md)
 
 #### Managed Service for Apache Kafka®
@@ -625,6 +637,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 ##### Resources
 
  - [mdb_kafka_cluster](resources/mdb_kafka_cluster.md)
+
+ - [mdb_kafka_cluster_change_freeze](resources/mdb_kafka_cluster_change_freeze.md)
 
  - [mdb_kafka_cluster_iam_binding](resources/mdb_kafka_cluster_iam_binding.md)
 
@@ -649,6 +663,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 ##### Resources
 
  - [mdb_clickhouse_cluster](resources/mdb_clickhouse_cluster.md)
+
+ - [mdb_clickhouse_cluster_change_freeze](resources/mdb_clickhouse_cluster_change_freeze.md)
 
  - [mdb_clickhouse_cluster_iam_binding](resources/mdb_clickhouse_cluster_iam_binding.md)
 
@@ -684,6 +700,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [mdb_greenplum_cluster](resources/mdb_greenplum_cluster.md)
 
+ - [mdb_greenplum_cluster_change_freeze](resources/mdb_greenplum_cluster_change_freeze.md)
+
  - [mdb_greenplum_cluster_iam_binding](resources/mdb_greenplum_cluster_iam_binding.md)
 
  - [mdb_greenplum_cluster_v2](resources/mdb_greenplum_cluster_v2.md)
@@ -701,6 +719,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 ##### Resources
 
  - [metastore_cluster](resources/metastore_cluster.md)
+
+ - [metastore_cluster_change_freeze](resources/metastore_cluster_change_freeze.md)
 
  - [metastore_cluster_iam_binding](resources/metastore_cluster_iam_binding.md)
 
@@ -721,6 +741,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [mdb_mongodb_backup_retention_policy](resources/mdb_mongodb_backup_retention_policy.md)
 
  - [mdb_mongodb_cluster](resources/mdb_mongodb_cluster.md)
+
+ - [mdb_mongodb_cluster_change_freeze](resources/mdb_mongodb_cluster_change_freeze.md)
 
  - [mdb_mongodb_cluster_iam_binding](resources/mdb_mongodb_cluster_iam_binding.md)
 
@@ -750,6 +772,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [mdb_mysql_cluster](resources/mdb_mysql_cluster.md)
 
+ - [mdb_mysql_cluster_change_freeze](resources/mdb_mysql_cluster_change_freeze.md)
+
  - [mdb_mysql_cluster_iam_binding](resources/mdb_mysql_cluster_iam_binding.md)
 
  - [mdb_mysql_cluster_v2](resources/mdb_mysql_cluster_v2.md)
@@ -774,6 +798,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [mdb_opensearch_cluster](resources/mdb_opensearch_cluster.md)
 
+ - [mdb_opensearch_cluster_change_freeze](resources/mdb_opensearch_cluster_change_freeze.md)
+
  - [mdb_opensearch_cluster_iam_binding](resources/mdb_opensearch_cluster_iam_binding.md)
 
 #### Managed Service for PostgreSQL
@@ -794,6 +820,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [mdb_postgresql_cluster](resources/mdb_postgresql_cluster.md)
 
+ - [mdb_postgresql_cluster_change_freeze](resources/mdb_postgresql_cluster_change_freeze.md)
+
  - [mdb_postgresql_cluster_iam_binding](resources/mdb_postgresql_cluster_iam_binding.md)
 
  - [mdb_postgresql_cluster_v2](resources/mdb_postgresql_cluster_v2.md)
@@ -809,6 +837,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 #### Managed Service for SPQR
 
 ##### Resources
+
+ - [mdb_sharded_postgresql_cluster_change_freeze](resources/mdb_sharded_postgresql_cluster_change_freeze.md)
 
  - [mdb_sharded_postgresql_database](resources/mdb_sharded_postgresql_database.md)
 
@@ -834,6 +864,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [trino_cluster](resources/trino_cluster.md)
 
+ - [trino_cluster_change_freeze](resources/trino_cluster_change_freeze.md)
+
  - [trino_cluster_iam_binding](resources/trino_cluster_iam_binding.md)
 
 #### Managed Service for ValKey
@@ -853,6 +885,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [mdb_redis_backup_retention_policy](resources/mdb_redis_backup_retention_policy.md)
 
  - [mdb_redis_cluster](resources/mdb_redis_cluster.md)
+
+ - [mdb_redis_cluster_change_freeze](resources/mdb_redis_cluster_change_freeze.md)
 
  - [mdb_redis_cluster_iam_binding](resources/mdb_redis_cluster_iam_binding.md)
 
@@ -911,6 +945,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 ##### Resources
 
  - [spark_cluster](resources/spark_cluster.md)
+
+ - [spark_cluster_change_freeze](resources/spark_cluster_change_freeze.md)
 
  - [spark_cluster_iam_binding](resources/spark_cluster_iam_binding.md)
 
@@ -1173,6 +1209,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 ##### Resources
 
  - [dataproc_cluster](resources/dataproc_cluster.md)
+
+ - [dataproc_cluster_change_freeze](resources/dataproc_cluster_change_freeze.md)
 
  - [dataproc_cluster_iam_binding](resources/dataproc_cluster_iam_binding.md)
 

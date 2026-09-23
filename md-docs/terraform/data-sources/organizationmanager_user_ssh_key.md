@@ -24,23 +24,23 @@ output "my_user_ssh_key_name" {
 - `created_at` (*Read-Only*) (String). package: yandex.cloud.organizationmanager.v1
 filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
 
-- `data` (**Required**)(String). package: yandex.cloud.organizationmanager.v1
+- `data` (*Read-Only*) (String). package: yandex.cloud.organizationmanager.v1
 filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
 
-- `expires_at` (String). Used for temporary keys, if empty the key doesn't expire
+- `expires_at` (*Read-Only*) (String). Used for temporary keys, if empty the key doesn't expire
 - `fingerprint` (*Read-Only*) (String). package: yandex.cloud.organizationmanager.v1
 filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
 
 - `id` (String). package: yandex.cloud.organizationmanager.v1
 filename: yandex/cloud/organizationmanager/v1/user_ssh_key_service.proto
 
-- `name` (String). package: yandex.cloud.organizationmanager.v1
+- `name` (*Read-Only*) (String). package: yandex.cloud.organizationmanager.v1
 filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
 
-- `organization_id` (**Required**)(String). package: yandex.cloud.organizationmanager.v1
+- `organization_id` (*Read-Only*) (String). package: yandex.cloud.organizationmanager.v1
 filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
 
-- `subject_id` (**Required**)(String). package: yandex.cloud.organizationmanager.v1
+- `subject_id` (*Read-Only*) (String). package: yandex.cloud.organizationmanager.v1
 filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
 
 - `user_ssh_key_id` (String). package: yandex.cloud.organizationmanager.v1

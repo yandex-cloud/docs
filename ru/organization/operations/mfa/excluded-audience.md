@@ -75,6 +75,28 @@ description: Следуя данной инструкции, вы сможете
 
   Воспользуйтесь методом REST API [UpdateExcludedAudience](../../../organization/api-ref/MfaEnforcement/updateExcludedAudience.md) для ресурса [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/UpdateExcludedAudience](../../../organization/api-ref/grpc/MfaEnforcement/updateExcludedAudience.md).
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Добавьте отдельный ресурс для каждого исключаемого пользователя или группы:
+
+      ```hcl
+      resource "yandex_organizationmanager_mfa_enforcement_excluded_audience" "exception" {
+        mfa_enforcement_id = "<идентификатор_политики>"
+        subject_id        = "<идентификатор_пользователя_или_группы>"
+      }
+      ```
+
+      Подробная информация приведена в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement_excluded_audience).
+
+      Чтобы удалить управляемое этой конфигурацией исключение, удалите соответствующий блок ресурса. Саму политику MFA удалять не нужно.
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
 {% endlist %}
 
 ## Посмотреть список исключений {#list}

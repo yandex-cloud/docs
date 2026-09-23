@@ -360,13 +360,14 @@
  
      ```hcl
      resource "yandex_organizationmanager_idp_user" "example_user" {
-       userpool_id  = <идентификатор_пула>
+       userpool_id  = "<идентификатор_пула>"
        username     = "<логин_и_домен>"
        full_name    = "<имя_и_фамилия>"
        given_name   = "<имя>"
        family_name  = "<фамилия>"
        email        = "<электронная_почта>"
        phone_number = "<номер_телефона>"
+       expires_at   = "2027-01-01T00:00:00Z"
        is_active    = true
        password_spec = {
          password = "<пароль>"
@@ -385,7 +386,9 @@
      * `phone_number` — номер телефона пользователя. Необязательный параметр.
      * `password` — пароль пользователя. Необязательный параметр. Если пароль не задан, он сгенерируется автоматически. Пользователь должен будет изменить этот пароль при первом входе в Yandex Cloud.
      * `is_active` — признак активации пользователя. Установите `true`, чтобы активировать пользователя.
- 
+
+     * `expires_at` — дата и время автоматической блокировки учетной записи в формате RFC 3339. Необязательный параметр; укажите нужный срок вместо даты из примера.
+
      Подробнее о параметрах ресурса `yandex_organizationmanager_idp_user` читайте в [документации провайдера](../../terraform/resources/organizationmanager_idp_user.md).
  
   1. Создайте ресурсы:
@@ -426,7 +429,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [User.Create](../idp/api-ref/User/create.md) для ресурса [User](../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/Create](../idp/api-ref/grpc/User/create.md).
+    Воспользуйтесь методом REST API [create](../idp/api-ref/User/create.md) для ресурса [User](../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/Create](../idp/api-ref/grpc/User/create.md).
 
 {% endlist %}
 

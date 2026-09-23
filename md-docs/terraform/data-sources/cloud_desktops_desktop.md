@@ -19,12 +19,12 @@ data "yandex_cloud_desktops_desktop" "data_desktop_by_name" {
 
 ## Arguments & Attributes Reference
 
-- `description` (String). Description of the desktop. Maximum length is 1024 characters.
-- `desktop_group_id` (**Required**)(String). The id of the Desktop Group to which the Desktop belongs
-- `desktop_id` (*Read-Only*) (String). The id of the Desktop
+- `description` (*Read-Only*) (String). Description of the desktop.
+- `desktop_group_id` (*Read-Only*) (String). The id of the Desktop Group to which the Desktop belongs
+- `desktop_id` (String). The id of the Desktop
 - `folder_id` (String). The folder containing the Desktop
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
 - `members` [Block]. The list of members which can use the Desktop
-  - `subject_id` (**Required**)(String). Identity of the access binding. See [the official documentation](../../cloud-desktop/api-ref/grpc/Desktop/create.md#yandex.cloud.clouddesktop.v1.api.User)
-  - `subject_type` (**Required**)(String). Type of the access binding. See [the official documentation](../../cloud-desktop/api-ref/grpc/Desktop/create.md#yandex.cloud.clouddesktop.v1.api.User)
+  - `subject_id` (*Read-Only*) (String). Identity of the access binding. See [the official documentation](../../cloud-desktop/api-ref/grpc/Desktop/create.md#yandex.cloud.clouddesktop.v1.api.User)
+  - `subject_type` (*Read-Only*) (String). Type of the access binding. See [the official documentation](../../cloud-desktop/api-ref/grpc/Desktop/create.md#yandex.cloud.clouddesktop.v1.api.User)
 - `name` (String). The name of the Desktop

@@ -11,6 +11,12 @@ A {{ CH }} cluster consists of one or more database hosts. If the cluster consis
 
 For more information on how to choose a coordination service, see [{#T}](../concepts/coordination-system.md#coordination-system-selection).
 
+{% note warning %}
+
+With the coordination service disabled, you can only create a cluster consisting of a single host or multiple single-host [shards](../concepts/sharding.md).
+
+{% endnote %}
+
 {% include [note-pricing-zk-ck](../../_includes/mdb/mch/note-pricing-zk-ck.md) %}
 
 
@@ -40,6 +46,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 
 ## Creating a cluster with {{ CK }} {#create-cluster}
+
 
 {% list tabs group=instructions %}
 
@@ -113,6 +120,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         To add hosts to your cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
       * Select a [coordination service](../concepts/coordination-system.md): **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}** or **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-embedded-clickhouse-keeper }}**.
+
+      In a production environment, only **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}** is supported for clusters with two or more hosts. This ensures [high availability](../concepts/high-availability.md) of the cluster. In a prestable environment, a cluster with **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-embedded-clickhouse-keeper }}** may contain one, three, or more hosts.
 
         {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
@@ -267,7 +276,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       * `--clickhouse-disk-size`: {{ CH }} storage size in GB.
       * `--embedded-keeper`: Use of the built-in {{ CK }} [coordination service](../concepts/coordination-system.md), `true` or `false`.
 
-        {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
+          In a production environment, the built-in coordination service is not supported for a cluster with two or more hosts. In a prestable environment, a cluster with the built-in coordination service may contain one, three, or more hosts.
+
+          {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
       * `--user`: Contains the {{ CH }} user `name` and `password`.
 
@@ -481,7 +492,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        ```hcl
        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
          name                = "<cluster_name>"
-         environment         = "<environment>"
+         environment         = "PRESTABLE"
          network_id          = yandex_vpc_network.<network_name_in_{{ TF }}>.id
          security_group_ids  = ["<list_of_security_group_IDs>"]
          embedded_keeper     = true
@@ -550,7 +561,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        Where:
 
-       * `--embedded-keeper`: Use of the built-in {{ CK }} [coordination service](../concepts/coordination-system.md), `true` or `false`.
+       * `embedded-keeper`: Use of the built-in {{ CK }} [coordination service](../concepts/coordination-system.md), `true` or `false`.
+
+          In a production environment, the built-in coordination service is not supported for a cluster with two or more hosts. In a prestable environment, a cluster with the built-in coordination service may contain one, three, or more hosts.
+
+          {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
           {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
@@ -568,8 +583,6 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
           * `shard_name`: Shard name.
-
-          {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
        For a user, specify the following:
 
@@ -800,7 +813,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 * `version`: {{ CH }} version, {{ versions.api.str }}.
                 * `embeddedKeeper`: Use of the built-in {{ CK }} [coordination service](../concepts/coordination-system.md), `true` or `false`.
 
-                    {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
+                   In a production environment, the built-in coordination service is not supported for a cluster with two or more hosts. In a prestable environment, a cluster with the built-in coordination service may contain one, three, or more hosts.
+
+                   {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
                 * `clickhouse`: {{ CH }} configuration:
 
@@ -1044,6 +1059,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 * `version`: {{ CH }} version, {{ versions.api.str }}.
 
                 * `embedded_keeper`: Use of the built-in {{ CK }} [coordination service](../concepts/coordination-system.md), `true` or `false`.
+
+                    In a production environment, the built-in coordination service is not supported for a cluster with two or more hosts. In a prestable environment, a cluster with the built-in coordination service may contain one, three, or more hosts.
 
                     {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
@@ -1360,10 +1377,6 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         * `shard-name`: Name of the shard the host will reside in.
 
-        
-        {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
-
-
         Specify a separate `--host` flag for each host.
 
       * `--clickhouse-resource-preset`: {{ CH }} [host class](../concepts/instance-types.md).
@@ -1673,8 +1686,6 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
           * `shard_name`: Shard name. This setting is only relevant for `CLICKHOUSE` hosts.
 
-          {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
-
        For a user, specify the following:
 
        * `name` and `password`: {{ CH }} username and password, respectively.
@@ -1977,8 +1988,6 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                    {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
-                {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
-
 
             * `shardSpecs`: Shard settings as an array of elements, one per shard. If you skip this section in the request, the new cluster will have a single shard named `shard1`. You can specify the following settings:
 
@@ -2239,8 +2248,6 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. This setting is only relevant for `CLICKHOUSE` hosts.
 
                    {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
-
-                {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
             * `shard_specs`: Shard settings as an array of elements, one per shard. If you skip this section in the request, the new cluster will have a single shard named `shard1`. You can specify the following settings:

@@ -19,7 +19,8 @@ POST https://compute.api.cloud.yandex.net/compute/v1/gpuClusters
   "description": "string",
   "labels": "object",
   "zoneId": "string",
-  "interconnectType": "string"
+  "interconnectType": "string",
+  "subnets": "string"
 }
 ```
 
@@ -48,6 +49,9 @@ To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.Li
 Type of interconnect to use for this GPU cluster.
 
 - `INFINIBAND`: InfiniBand interconnect. ||
+|| subnets | **string** (int64)
+
+Number of subnets to create for this GPU cluster. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -28,6 +28,33 @@ keywords:
     1. Specify a shard name and select the {{ PG }} cluster whose hosts will serve as data hosts in the {{ SPQR }} cluster.
     1. Click **Create**.
 
+- {{ TF }} {#tf}
+
+  1. Open the current configuration file with the {{ mspqr-name }} cluster description.
+
+      For information on how to create this file, see [{#T}](cluster-create.md).
+
+  1. Add a resource description:
+
+      ```hcl
+      resource "yandex_mdb_sharded_postgresql_shard" "<shard_name>" {
+        cluster_id = "<cluster_ID>"
+        name       = "<shard_name>"
+        shard_spec = {
+          mdb_postgresql = "<{{ PG }}_cluster_ID>"
+        }
+      }
+      ```
+
+      Where:
+
+      * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+      * `shard_spec.mdb_postgresql`: {{ mpg-name }} cluster ID within the shard.
+
+      For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_shard).
+
+      {% include [Terraform timeouts](../../_includes/mdb/mspqr/terraform/timeouts.md) %}
+
 - REST API {#api}
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
@@ -109,6 +136,26 @@ Deleting a {{ SPQR }} shard does not affect the {{ mpg-name }} cluster.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** tab.
     1. Find the shard you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
+
+- {{ TF }} {#tf}
+
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+
+     For information on how to create this file, see [{#T}](cluster-create.md).
+
+  1. Delete the `yandex_mdb_sharded_postgresql_shard` resource with the name of the shard you want to delete.
+
+  1. Make sure the settings are correct.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm resource changes.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_shard).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mspqr/terraform/timeouts.md) %}
 
 - REST API {#api}
 

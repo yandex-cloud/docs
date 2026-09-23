@@ -27,25 +27,25 @@ output "my_user.full_name" {
 
 ## Arguments & Attributes Reference
 
-- `company_name` (String). User's company name.
+- `company_name` (*Read-Only*) (String). User's company name.
 - `created_at` (*Read-Only*) (String). Timestamp when the user was created.
-- `department` (String). User's department.
-- `email` (String). User's email address.
-- `employee_id` (String). User's employee ID
-- `expires_at` (String). Timestamp when the user account expires.
-- `external_id` (String). External identifier for federation with external identity systems.
+- `department` (*Read-Only*) (String). User's department.
+- `email` (*Read-Only*) (String). User's email address.
+- `employee_id` (*Read-Only*) (String). User's employee ID
+- `expires_at` (*Read-Only*) (String). Timestamp when the user account expires.
+- `external_id` (*Read-Only*) (String). External identifier for federation with external identity systems.
  This ID can be used to link this user with an account in an external system.
-- `family_name` (String). User's last name.
+- `family_name` (*Read-Only*) (String). User's last name.
  Part of the user's profile information.
-- `full_name` (**Required**)(String). User's full name (display name).
+- `full_name` (*Read-Only*) (String). User's full name (display name).
  This is typically shown in the UI and used for identification purposes.
-- `given_name` (String). User's first name.
+- `given_name` (*Read-Only*) (String). User's first name.
  Part of the user's profile information.
 - `id` (String). ID of the user to return.
-- `job_title` (String). User's job title.
+- `job_title` (*Read-Only*) (String). User's job title.
 - `password_created_at` (*Read-Only*) (String). Timestamp when the user's current password was created.
  For synchronized passwords, this is the time when the password was last set in the source directory.
-- `phone_number` (String). User's phone number.
+- `phone_number` (*Read-Only*) (String). User's phone number.
 - `status` (*Read-Only*) (String). Current status of the user.
  Determines whether the user can authenticate and access the system.
 - `timeouts` [Block]. 
@@ -55,7 +55,7 @@ output "my_user.full_name" {
   - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `updated_at` (*Read-Only*) (String). Timestamp when the user was last updated.
 - `user_id` (String). ID of the user to return.
-- `username` (**Required**)(String). Username used for authentication.
+- `username` (*Read-Only*) (String). Username used for authentication.
  Usually in the format of an email address.
-- `userpool_id` (**Required**)(String). ID of the userpool this user belongs to.
+- `userpool_id` (*Read-Only*) (String). ID of the userpool this user belongs to.
  To get the userpool ID, make a [UserpoolService.List] request.

@@ -6,5 +6,4 @@ canonical: '{{ link-docs }}/tutorials/dataplatform/valkey-as-php-sessions-storag
 
 # Using a {{ mrd-name }} cluster as a PHP session storage
 
-
 {% include notitle [valkey-as-php-sessions-storage](../../_tutorials/dataplatform/valkey-as-php-sessions-storage.md) %}

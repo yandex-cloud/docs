@@ -13,17 +13,23 @@ description: На этой странице приведен справочни�
 
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
+| [yandex_organization_manager_organization_iam_policy_binding]({{ tf-provider-resources-link }}/organization_manager_organization_iam_policy_binding) | Назначение [политики авторизации](./operations/manage-access-policies.md) на организацию |
 | [yandex_organizationmanager_group]({{ tf-provider-resources-link }}/organizationmanager_group) | [Группа пользователей](./concepts/groups.md) |
 | [yandex_organizationmanager_group_iam_member]({{ tf-provider-resources-link }}/organizationmanager_group_iam_member) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к группе пользователей |
 | [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) | Настройка [сопоставления групп пользователей](./concepts/add-federation.md#group-mapping) |
 | [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) | Элемент [сопоставления групп пользователей](./concepts/add-federation.md#group-mapping) |
 | [yandex_organizationmanager_group_membership]({{ tf-provider-resources-link }}/organizationmanager_group_membership) | Участник [группы пользователей](./concepts/groups.md) |
 | [yandex_organizationmanager_idp_application_oauth_application]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application) | [OIDC-приложение](./concepts/applications/oidc.md) |
+| [yandex_organizationmanager_idp_application_oauth_application_assignment]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application_assignment) | Назначение пользователя или группы пользователей [OIDC-приложению](./concepts/applications/oidc.md) |
 | [yandex_organizationmanager_idp_application_saml_application]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application) | [SAML-приложение](./concepts/applications/saml.md) |
+| [yandex_organizationmanager_idp_application_saml_application_assignment]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application_assignment) | Назначение пользователя или группы пользователей [SAML-приложению](./concepts/applications/saml.md) |
+| [yandex_organizationmanager_idp_application_saml_signature_certificate]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_signature_certificate) | [Сертификат ключа проверки электронной подписи](./concepts/applications/saml.md#saml-certificate) SAML-приложения |
 | [yandex_organizationmanager_idp_user]({{ tf-provider-resources-link }}/organizationmanager_idp_user) | [Локальный пользователь](../iam/concepts/users/accounts.md#local) |
 | [yandex_organizationmanager_idp_userpool]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool) | [Пул пользователей](./concepts/user-pools.md) |
+| [yandex_organizationmanager_idp_userpool_domain]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool_domain) | [Домен](./operations/user-pools/add-domain.md) пула пользователей |
 | [yandex_organizationmanager_mfa_enforcement]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement) | [Политика MFA](./concepts/mfa.md#mfa-policies) |
 | [yandex_organizationmanager_mfa_enforcement_audience]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement_audience) | Целевая группа [политики MFA](./concepts/mfa.md#mfa-policies) |
+| [yandex_organizationmanager_mfa_enforcement_excluded_audience]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement_excluded_audience) | Пользователь или группа пользователей, [исключенные из политики MFA](./operations/mfa/excluded-audience.md) |
 | [yandex_organizationmanager_organization_iam_binding]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_binding) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к организации. Имеет ограничение в 1000 привязок на ресурс. <br>Вместо `yandex_organizationmanager_organization_iam_binding` рекомендуется использовать `yandex_organizationmanager_organization_iam_member` |
 | [yandex_organizationmanager_organization_iam_member]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к организации |
 | [yandex_organizationmanager_os_login_settings]({{ tf-provider-resources-link }}/organizationmanager_os_login_settings) | Настройки доступа по [{{ oslogin }}](./concepts/os-login.md) |
@@ -41,6 +47,7 @@ description: На этой странице приведен справочни�
 | [yandex_organizationmanager_group]({{ tf-provider-datasources-link }}/organizationmanager_group) | Информация о [группе пользователей](./concepts/groups.md) |
 | [yandex_organizationmanager_idp_application_oauth_application]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_oauth_application) | Информация о [OIDC-приложении](./concepts/applications/oidc.md) |
 | [yandex_organizationmanager_idp_application_saml_application]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_saml_application) | Информация о [SAML-приложении](./concepts/applications/saml.md) |
+| [yandex_organizationmanager_idp_application_saml_signature_certificate]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_saml_signature_certificate) | Информация о [сертификате ключа проверки электронной подписи](./concepts/applications/saml.md#saml-certificate) SAML-приложения |
 | [yandex_organizationmanager_idp_user]({{ tf-provider-datasources-link }}/organizationmanager_idp_user) | Информация о [локальном пользователе](../iam/concepts/users/accounts.md#local) |
 | [yandex_organizationmanager_idp_userpool]({{ tf-provider-datasources-link }}/organizationmanager_idp_userpool) | Информация о [пуле пользователей](./concepts/user-pools.md) |
 | [yandex_organizationmanager_mfa_enforcement]({{ tf-provider-datasources-link }}/organizationmanager_mfa_enforcement) | Информация о [политике MFA](./concepts/mfa.md#mfa-policies) |

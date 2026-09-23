@@ -14,7 +14,7 @@ When creating a {{ PG }} cluster, you can:
 
 * Request public access to connect to the cluster from outside {{ yandex-cloud }}.
 
-You can create a cluster without specifying any subnets for hosts if the availability zone for each host contains only one subnet of the cluster network.
+You can create a cluster without specifying any subnets for hosts if the [availability zone](../../overview/concepts/geo-scope.md) selected for each host contains exactly one cluster network subnet.
 
 
 ## Host name and FQDN {#hostname}

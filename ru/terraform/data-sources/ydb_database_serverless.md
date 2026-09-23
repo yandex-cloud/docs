@@ -34,13 +34,13 @@ output "ydb_api_endpoint" {
 - `database_id` (String). ID of the Yandex Database serverless cluster.
 - `database_path` (*Read-Only*) (String). Full database path of the Yandex Database serverless cluster. Useful for SDK configuration.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
-- `description` (String). The resource description.
+- `description` (*Read-Only*) (String). The resource description.
 - `document_api_endpoint` (*Read-Only*) (String). Document API endpoint of the Yandex Database serverless cluster.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `location_id` (String). Location ID for the Yandex Database serverless cluster.
-- `name` (**Required**)(String). The resource name.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
+- `location_id` (*Read-Only*) (String). Location ID for the Yandex Database serverless cluster.
+- `name` (String). The resource name.
 - `status` (*Read-Only*) (String). Status of the Yandex Database serverless cluster.
 - `tls_enabled` (*Read-Only*) (Bool). Whether TLS is enabled for the Yandex Database serverless cluster. Useful for SDK configuration.
 - `ydb_api_endpoint` (*Read-Only*) (String). API endpoint of the Yandex Database serverless cluster. Useful for SDK configuration.

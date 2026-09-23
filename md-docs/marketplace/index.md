@@ -32,6 +32,8 @@ Yandex Cloud Marketplace — это магазин готовых инструм
 
  - [Заявки на доступ к продуктам](operations/access-requests.md)
 
+ - [Создание приватного офера](operations/private-offers.md)
+
 ### Практические руководства
 
  - [Создание демонстрационного продукта Cloud Apps](tutorials/demo-cloud-apps.md)
@@ -331,6 +333,8 @@ Yandex Cloud Marketplace — это магазин готовых инструм
  - [Отключение автопродления](operations/users/cancel-subscription.md)
 
  - [Запрос доступа к продукту](operations/users/access-requests.md)
+
+ - [Принятие персонального предложения](operations/users/private-offers.md)
 
 ### Практические руководства
 

@@ -4,7 +4,7 @@ kind: TrinoCluster
 metadata:
   name: trino-min
 spec:
-  version: "480"
+  version: "483"
   coordinator:
     resources:
       requests:

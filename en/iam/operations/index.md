@@ -1,6 +1,6 @@
 ---
-title: How to manage access permissions to {{ yandex-cloud }} resources. Step-by-step guides
-description: Step-by-step guides on how to manage access permissions to {{ yandex-cloud }} resources. In this article, you will learn how to manage users, service accounts, and identity federations and assign roles to them. We will get into more detail about IAM tokens, authorized keys, and API keys.
+title: How to manage access permissions for {{ yandex-cloud }} resources. Step-by-step guides
+description: Step-by-step guides on how to manage access permissions for{{ yandex-cloud }} resources. In these guides, you will learn how to manage users, service accounts, and identity federations and assign roles to them. We will cover everything you need to know about IAM tokens, authorized keys, and API keys.
 ---
 
 # Step-by-step guides for {{ iam-name }}
@@ -11,11 +11,11 @@ description: Step-by-step guides on how to manage access permissions to {{ yande
 
 ## Users {#users}
 
-To learn more about user management, see [this {{ org-full-name }} guide](../../organization/operations/manage-users.md).
+For user management, see [this {{ org-full-name }} guide](../../organization/operations/manage-users.md).
 
 ## User groups {#users-groups}
 
-To learn more about user group management, see [this {{ org-full-name }} guide](../../organization/operations/manage-groups.md).
+For user group management, see [this {{ org-full-name }} guide](../../organization/operations/manage-groups.md).
 
 ## Service accounts {#sa}
 
@@ -32,7 +32,7 @@ To learn more about user group management, see [this {{ org-full-name }} guide](
 
 ## Identity federations {#federations}
 
-The guides on managing identity federations are now included in the {{ org-full-name }} [documentation](../../organization/).
+Identity federation management guides are now included in the {{ org-full-name }} [documentation](../../organization/).
 
 ## Access policies {#access-policies}
 
@@ -53,7 +53,7 @@ The guides on managing identity federations are now included in the {{ org-full-
 - [{#T}](iam-token/create-for-sa.md)
 - [{#T}](iam-token/create-for-federation.md)
 - [{#T}](iam-token/create-for-local.md)
-- [Reissue an IAM token](compromised-credentials.md#iam-reissue)
+- [Reissuing an IAM token](compromised-credentials.md#iam-reissue)
 - [{#T}](refresh-token/list.md)
 - [{#T}](refresh-token/revoke.md)
 - [{#T}](authentication/manage-access-keys.md)
@@ -61,7 +61,7 @@ The guides on managing identity federations are now included in the {{ org-full-
 - [{#T}](authentication/manage-authorized-keys.md)
 - [{#T}](sa/create-sts-key.md)
 
-## Service control {#service-control}
+## Service access {#service-control}
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 

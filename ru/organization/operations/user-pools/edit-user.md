@@ -75,13 +75,14 @@ description: Следуя данной инструкции, вы сможете
 
      ```hcl
      resource "yandex_organizationmanager_idp_user" "example_user" {
-       userpool_id  = <идентификатор_пула>
+       userpool_id  = "<идентификатор_пула>"
        username     = "<логин_и_домен_пользователя>"
        full_name    = "<имя_и_фамилия_пользователя>"
        given_name   = "<имя_пользователя>"
        family_name  = "<фамилия_пользователя>"
        email        = "<электронная_почта_пользователя>"
        phone_number = "<номер_телефона_пользователя>"
+       expires_at   = "2027-01-01T00:00:00Z"
      }
      ```
 
@@ -93,6 +94,7 @@ description: Следуя данной инструкции, вы сможете
      * `family_name` — новая фамилия пользователя.
      * `email` — новая электронная почта пользователя.
      * `phone_number` — новый номер телефона пользователя.
+     * `expires_at` — дата и время автоматической блокировки учетной записи в формате [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339). Необязательный параметр; укажите нужный срок вместо даты из примера.
 
      Подробнее о параметрах ресурса `yandex_organizationmanager_idp_user` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
 
@@ -108,6 +110,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [User.Update](../../idp/api-ref/User/update.md) для ресурса [User](../../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/Update](../../idp/api-ref/grpc/User/update.md).
+    Воспользуйтесь методом REST API [update](../../idp/api-ref/User/update.md) для ресурса [User](../../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/Update](../../idp/api-ref/grpc/User/update.md).
 
 {% endlist %}

@@ -23,7 +23,7 @@ To view detailed information on the health state of a {{ mrd-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
+  1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
       
       The page that opens will display performance charts for the cluster.
   
@@ -152,7 +152,7 @@ To view detailed information on the health state of {{ mrd-name }} shards:
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
+  1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
   1. Navigate to the **Shards** tab and select a shard.
       
       The page that opens will display health state charts for the selected shard and its hosts.

@@ -31,9 +31,9 @@ output "network_id" {
 - `cluster_id` (String). The ID of the Kafka cluster.
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
-- `description` (String). The resource description.
-- `disk_encryption_key_id` (String). ID of the KMS key to encrypt cluster disks.
-- `environment` (String). Deployment environment of the Kafka cluster. Can be either `PRESTABLE` or `PRODUCTION`. The default is `PRODUCTION`.
+- `description` (*Read-Only*) (String). The resource description.
+- `disk_encryption_key_id` (*Read-Only*) (String). ID of the KMS key to encrypt cluster disks.
+- `environment` (*Read-Only*) (String). Deployment environment of the Kafka cluster. Can be either `PRESTABLE` or `PRODUCTION`. The default is `PRODUCTION`.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `health` (*Read-Only*) (String). Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](../../managed-kafka/api-ref/Cluster/index.md).
 - `host` (*Read-Only*) (Set Of Object). A host of the Kafka cluster.
@@ -43,16 +43,16 @@ output "network_id" {
   - `role` . 
   - `subnet_id` . 
   - `zone_id` . 
-- `host_group_ids` (Set Of String). A list of IDs of the host groups to place VMs of the cluster on.
+- `host_group_ids` (*Read-Only*) (Set Of String). A list of IDs of the host groups to place VMs of the cluster on.
 - `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `maintenance_window` [Block]. Maintenance policy of the Kafka cluster.
-  - `day` (String). Day of the week (in `DDD` format). Allowed values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
-  - `hour` (Number). Hour of the day in UTC (in `HH` format). Allowed value is between 1 and 24.
-  - `type` (**Required**)(String). Type of maintenance window. Can be either `ANYTIME` or `WEEKLY`. A day and hour of window need to be specified with weekly window.
-- `name` (**Required**)(String). The resource name.
-- `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
-- `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
+- `maintenance_window` (*Read-Only*) (List Of Object). Maintenance policy of the Kafka cluster.
+  - `day` . 
+  - `hour` . 
+  - `type` . 
+- `name` (String). The resource name.
+- `network_id` (*Read-Only*) (String). The `VPC Network ID` of subnets which resource attached to.
+- `security_group_ids` (*Read-Only*) (Set Of String). The list of security groups applied to resource or their components.
 - `status` (*Read-Only*) (String). Status of the cluster. Can be either `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`. For more information see `status` field of JSON representation in [the official documentation](../../managed-kafka/api-ref/Cluster/index.md).
 - `subnet_ids` (List Of String). The list of VPC subnets identifiers which resource is attached.
 - `config` [Block]. Configuration of the Kafka cluster.
@@ -111,7 +111,7 @@ output "network_id" {
       - `disk_size` (Number). Volume of the storage available to a ZooKeeper host, in gigabytes.
       - `disk_type_id` (String). Type of the storage of ZooKeeper hosts. For more information see [the official documentation](../../managed-kafka/concepts/storage.md).
       - `resource_preset_id` (String). The ID of the preset for computational resources available to a ZooKeeper host (CPU, memory etc.). For more information, see [the official documentation](../../managed-kafka/concepts/index.md).
-- `topic` [Block]. To manage topics, please switch to using a separate resource type `yandex_mdb_kafka_topic`.
+- `topic` [Block]. List of kafka topics.
   - `name` (**Required**)(String). The name of the topic.
   - `partitions` (**Required**)(Number). The number of the topic's partitions.
   - `replication_factor` (**Required**)(Number). Amount of data copies (replicas) for the topic in the cluster.
@@ -130,7 +130,7 @@ output "network_id" {
     - `retention_bytes` (String). This configuration controls the maximum size a partition (which consists of log segments) can grow to before we will discard old log segments to free up space if we are using the "delete" retention policy.
     - `retention_ms` (String). This configuration controls the maximum time we will retain a log before we will discard old log segments to free up space if we are using the "delete" retention policy.
     - `segment_bytes` (String). This configuration controls the segment file size for the log.
-- `user` [Block]. To manage users, please switch to using a separate resource type `yandex_mdb_kafka_user`.
+- `user` [Block]. List of kafka users.
   - `name` (**Required**)(String). The name of the user.
   - `password` (**Required**)(String). The password of the user.
   - `permission` [Block]. Set of permissions granted to the user.

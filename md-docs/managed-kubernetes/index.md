@@ -108,6 +108,8 @@
 
  - [Обеспечение доступа к приложению, запущенному в кластере Kubernetes](operations/create-load-balancer.md)
 
+ - [Настройка режима управления целевыми группами сетевых балансировщиков](operations/configure-load-balancer-target-groups.md)
+
  - [Настройка контроллера сетевых политик Calico](operations/calico.md)
 
  - [Настройка контроллера сетевых политик Cilium](operations/cilium.md)
@@ -328,6 +330,8 @@
 
  - [Взаимосвязь ресурсов сервиса](concepts/index.md)
 
+ - [Большие кластеры](concepts/large-clusters.md)
+
  - [Релизные каналы и обновления](concepts/release-channels-and-updates.md)
 
  - [Поддержка версий Kubernetes](concepts/k8s-supported-versions.md)
@@ -364,7 +368,11 @@
 
  - [Кластеры с несколькими диапазонами IP-адресов подов](concepts/cluster-multi-cidr.md)
 
+ - [Целевые группы сетевых балансировщиков](concepts/load-balancer-target-groups.md)
+
  - [Сетевые настройки и политики кластера](concepts/network-policy.md)
+
+ - [Кластеры без предустановленного CNI](concepts/cluster-without-cni.md)
 
  - [Автоматическое масштабирование](concepts/autoscale.md)
 
@@ -818,29 +826,27 @@
 
  - [BackendTLSPolicy](gwin-ref/backendtlspolicy.md)
 
- - [Gateway](gwin-ref/gateway.md)
-
- - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
+ - [DirectResponse](gwin-ref/directresponse.md)
 
  - [GRPCRoute](gwin-ref/grpcroute.md)
 
  - [HTTPRoute](gwin-ref/httproute.md)
 
- - [DirectResponse](gwin-ref/directresponse.md)
+ - [Gateway](gwin-ref/gateway.md)
 
  - [Ingress](gwin-ref/ingress.md)
 
- - [IngressBackendGroup](gwin-ref/ingressbackendgroup.md)
-
  - [IngressPolicy](gwin-ref/ingresspolicy.md)
 
- - [ListenerSetPolicy](gwin-ref/listenersetpolicy.md)
+ - [IngressBackendGroup](gwin-ref/ingressbackendgroup.md)
 
  - [ListenerSet](gwin-ref/listenerset.md)
 
- - [Service](gwin-ref/service.md)
-
  - [RoutePolicy](gwin-ref/routepolicy.md)
+
+ - [ListenerSetPolicy](gwin-ref/listenersetpolicy.md)
+
+ - [Service](gwin-ref/service.md)
 
  - [ServicePolicy](gwin-ref/servicepolicy.md)
 
@@ -849,6 +855,8 @@
  - [YCCertificate](gwin-ref/yccertificate.md)
 
  - [YCStorageBucket](gwin-ref/ycstoragebucket.md)
+
+ - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
 
 ### Ingress-контроллер
 

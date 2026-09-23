@@ -21,26 +21,25 @@ output "resource_cname" {
 
 ## Arguments & Attributes Reference
 
-- `active` (Bool). Flag to create Resource either in active or disabled state. `True` - the content from CDN is available to clients.
-- `cname` (**Required**)(String). CDN endpoint CNAME, must be unique among resources.
+- `active` (*Read-Only*) (Bool). Flag to create Resource either in active or disabled state. `True` - the content from CDN is available to clients.
+- `cname` (String). CDN endpoint CNAME, must be unique among resources.
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
+- `folder_id` (*Read-Only*) (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `origin_group_id` (String). The ID of a specific origin group.
-- `origin_group_name` (String). The name of a specific origin group.
-- `origin_protocol` (String). Protocol of origin resource. `http` or `https`.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
+- `origin_group_id` (*Read-Only*) (String). The ID of a specific origin group.
+- `origin_group_name` (*Read-Only*) (String). The name of a specific origin group.
+- `origin_protocol` (*Read-Only*) (String). Protocol of origin resource. `http` or `https`.
 - `provider_cname` (*Read-Only*) (String). Provider CNAME of CDN resource, computed value for read and update operations.
-- `provider_type` (String). CDN provider is a content delivery service provider. Possible values: "ourcdn" (default) or "gcore"
+- `provider_type` (*Read-Only*) (String). CDN provider is a content delivery service provider.
 - `resource_id` (String). The ID of a specific resource.
-- `secondary_hostnames` (Set Of String). List of secondary hostname strings.
-- `shielding` (String). Shielding is a Cloud CDN feature that helps reduce the load on content origins from CDN servers.
-Specify location id to enable shielding. See https://yandex.cloud/en/docs/cdn/operations/resources/enable-shielding
-- `ssl_certificate` [Block]. SSL certificate of CDN resource.
-  - `certificate_manager_id` (String). Certificate Manager ID.
-  - `status` (*Read-Only*) (String). SSL certificate status.
-  - `type` (**Required**)(String). SSL certificate type.
-- `updated_at` (String). Last update timestamp. Computed value for read and update operations.
+- `secondary_hostnames` (*Read-Only*) (Set Of String). List of secondary hostname strings.
+- `shielding` (*Read-Only*) (String). Shielding is a Cloud CDN feature that helps reduce the load on content origins from CDN servers.
+- `ssl_certificate` (*Read-Only*) (Set Of Object). SSL certificate of CDN resource.
+  - `certificate_manager_id` . 
+  - `status` . 
+  - `type` . 
+- `updated_at` (*Read-Only*) (String). Last update timestamp. Computed value for read and update operations.
 - `options` [Block]. CDN Resource settings and options to tune CDN edge behavior.
   - `allowed_http_methods` (List Of String). HTTP methods for your CDN content. By default the following methods are allowed: GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS. In case some methods are not allowed to the user, they will get the 405 (Method Not Allowed) response. If the method is not supported, the user gets the 501 (Not Implemented) response.
   - `browser_cache_settings` (Number). Set up a cache period for the end-users browser. Content will be cached due to origin settings. If there are no cache settings on your origin, the content will not be cached. The list of HTTP response codes that can be cached in browsers: 200, 201, 204, 206, 301, 302, 303, 304, 307, 308. Other response codes will not be cached. The default value is 4 days.

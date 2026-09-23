@@ -24,13 +24,15 @@ resource "yandex_container_registry" "default" {
 
 ## Arguments & Attributes Reference
 
-- `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `name` (String). The resource name.
-- `registry_id` (String). The ID of a specific registry.
-- `status` (*Read-Only*) (String). Status of the registry.
+- `created_at` (*Read-Only*) (String). Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+- `folder_id` (String). ID of the folder that the registry belongs to.
+- `id` (String). ID of the Registry resource to return.
+ To get the registry ID use a [RegistryService.List] request.
+- `labels` (Map Of String). Resource labels as `key:value` pairs. Maximum of 64 per resource.
+- `name` (String). Name of the registry.
+- `registry_id` (String). ID of the Registry resource to return.
+ To get the registry ID use a [RegistryService.List] request.
+- `status` (*Read-Only*) (String). Output only. Status of the registry.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

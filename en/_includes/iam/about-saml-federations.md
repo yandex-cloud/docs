@@ -1,1 +1,1 @@
-With identity federations, a business can enable single sign-on to {{ yandex-cloud }} via their server. This allows the company employees use their corporate accounts to access {{ yandex-cloud }}.
+With identity federations, businesses can configure single sign-on to {{ yandex-cloud }} via their servers. This allows their employees to use corporate accounts to access {{ yandex-cloud }}.

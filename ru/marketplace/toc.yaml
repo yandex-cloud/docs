@@ -26,6 +26,8 @@ items:
             href: operations/create-configuration.md
           - name: Заявки на доступ к продуктам
             href: operations/access-requests.md
+          - name: Создание приватного офера
+            href: operations/private-offers.md
       - name: Практические руководства
         items:
           - name: Создание демонстрационного продукта {{ cloud-apps-name }}
@@ -334,6 +336,8 @@ items:
                 href: operations/users/cancel-subscription.md
           - name: Запрос доступа к продукту
             href: operations/users/access-requests.md
+          - name: Принятие персонального предложения
+            href: operations/users/private-offers.md
       - name: Практические руководства
         items:
           - name: Все руководства

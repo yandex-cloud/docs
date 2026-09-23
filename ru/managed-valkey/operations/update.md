@@ -27,6 +27,8 @@ description: Из статьи вы узнаете, как изменить на
 
 * [Включить шардирование](#enable-sharding) в нешардированном кластере.
 
+* [Включить автомасштабирование](#enable-autoscaling) в шардированном кластере.
+
 * [Переместить кластер](#move-cluster) в другой каталог.
 
 
@@ -1596,6 +1598,169 @@ description: Из статьи вы узнаете, как изменить на
         {% include [enable-sharding-shard-note](../../_includes/mdb/mvk/enable-sharding-shard-note.md) %}
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/enableSharding.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Включить автомасштабирование {#enable-autoscaling}
+
+В шардированном кластере можно включить [автомасштабирование шардов](../concepts/sharding.md), чтобы автоматически добавлять или удалять шарды при росте или падении нагрузки на вычислительные ресурсы кластера.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы включить автомасштабирование:
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        {{ yc-mdb-rd }} cluster update --help
+        ```
+
+    1. Выполните команду, передав список настроек автомасштабирования:
+
+        ```bash
+        {{ yc-mdb-rd }} cluster update <имя_или_идентификатор_кластера> \
+            --shard-autoscaling enabled=<включить_автомасштабирование_шардов>,` \
+                                `min-shards=<минимальное_количество_шардов>,` \
+                                `max-shards=<максимальное_количество_шардов>,` \
+                                `cpu-down-threshold=<порог_загрузки_CPU_для_уменьшения_числа_шардов>,` \
+                                `cpu-up-threshold=<порог_загрузки_CPU_для_увеличения_числа_шардов>,` \
+                                `memory-down-threshold=<порог_загрузки_RAM_для_уменьшения_числа_шардов>,` \
+                                `memory-up-threshold=<порог_загрузки_RAM_для_увеличения_числа_шардов>,` \
+                                `network-down-threshold=<порог_загрузки_сети_для_уменьшения_числа_шардов>,` \
+                                `network-up-threshold=<порог_загрузки_сети_для_увеличения_числа_шардов>
+        ```
+
+        Где:
+
+        {% include [autoscale-description](../../_includes/mdb/mvk/cli-shard-autoscaling.md) %}
+
+        Имя или идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                      "updateMask": "configSpec.shardAutoscalingSettings",
+                      "configSpec": {
+                        "shardAutoscalingSettings": {
+                          "enabled": <включить_автомасштабирование_шардов>,
+                          "minShards": "<минимальное_количество_шардов>",
+                          "maxShards": "<максимальное_количество_шардов>",
+                          "cpuThreshold": {
+                            "downThreshold": "<порог_загрузки_CPU_для_уменьшения_числа_шардов>",
+                            "upThreshold": "<порог_загрузки_CPU_для_увеличения_числа_шардов>"
+                          },
+                          "memoryThreshold": {
+                            "downThreshold": "<порог_загрузки_RAM_для_уменьшения_числа_шардов>",
+                            "upThreshold": "<порог_загрузки_RAM_для_уменьшения_числа_шардов>"
+                          },
+                          "networkThreshold": {
+                            "downThreshold": "<порог_загрузки_сети_для_уменьшения_числа_шардов>",
+                            "upThreshold": "<порог_загрузки_сети_для_уменьшения_числа_шардов>"
+                          }
+                        }
+                      }
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            В данном случае передается только один параметр.
+
+        * `shardAutoscalingSettings` — параметры автомасштабирования кластера:
+
+           {% include [autoscale-description](../../_includes/mdb/mvk/api/shard-autoscaling-rest.md) %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "update_mask": {
+                    "paths": [ 
+                      "config_spec.shard_autoscaling_settings"
+                    ]
+                  },
+                  "config_spec": {
+                    "shard_autoscaling_settings": {
+                        "enabled": <включить_автомасштабирование_шардов>,
+                        "min_shards": "<минимальное_количество_шардов>",
+                        "max_shards": "<максимальное_количество_шардов>",
+                          "cpu_threshold": {
+                            "down_threshold": "<порог_загрузки_CPU_для_уменьшения_числа_шардов>",
+                            "up_threshold": "<порог_загрузки_CPU_для_увеличения_числа_шардов>"
+                          },
+                          "memory_threshold": {
+                            "down_threshold": "<порог_загрузки_RAM_для_уменьшения_числа_шардов>",
+                            "up_threshold": "<порог_загрузки_RAM_для_уменьшения_числа_шардов>"
+                          },
+                          "network_threshold": {
+                            "down_threshold": "<порог_загрузки_сети_для_уменьшения_числа_шардов>",
+                            "up_threshold": "<порог_загрузки_сети_для_уменьшения_числа_шардов>"
+                          }
+                        }
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.Update
+        ```
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            В данном случае передается только один параметр.
+
+        * `config_spec.shard_autoscaling_settings` — параметры автомасштабирования кластера:
+
+          {% include [autoscale-description](../../_includes/mdb/mvk/api/shard-autoscaling-grpc.md) %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

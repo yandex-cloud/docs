@@ -25,13 +25,13 @@ output "concurrency" {
 ## Arguments & Attributes Reference
 
 - `cluster_id` (**Required**)(String). The ID of the cluster to which resource group belongs to.
-- `concurrency` (Number). The maximum number of concurrent transactions, including active and idle transactions, that are permitted in the resource group.
-- `cpu_rate_limit` (Number). The percentage of CPU resources available to this resource group.
+- `concurrency` (*Read-Only*) (Number). 
+- `cpu_rate_limit` (*Read-Only*) (Number). 
 - `id` (*Read-Only*) (String). The resource identifier.
 - `is_user_defined` (*Read-Only*) (Bool). If false, the resource group is immutable and controlled by yandex
-- `memory_limit` (Number). The percentage of reserved memory resources available to this resource group.
-- `memory_shared_quota` (Number). The percentage of reserved memory to share across transactions submitted in this resource group.
-- `memory_spill_ratio` (Number). The memory usage threshold for memory-intensive transactions. When a transaction reaches this threshold, it spills to disk.
+- `memory_limit` (*Read-Only*) (Number). 
+- `memory_shared_quota` (*Read-Only*) (Number). 
+- `memory_spill_ratio` (*Read-Only*) (Number). 
 - `name` (**Required**)(String). The name of the resource group.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

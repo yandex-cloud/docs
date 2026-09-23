@@ -13,15 +13,93 @@ description: Из этой статьи вы узнаете, как удалит
 
 {% endnote %}
 
-## Удалить пользователя с аккаунтом на Яндексе или федеративного пользователя {#yandex-and-federated} 
+## Удалить пользователя с аккаунтом на Яндексе {#yandex-and-federated}
 
-Чтобы удалить из организации пользователя [с аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport) или [федеративного](../../iam/concepts/users/accounts.md#saml-federation) пользователя:
+Чтобы удалить из организации пользователя [с аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport):
 
 {% list tabs group=instructions %}
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
   {% include [delete-user-ui](../../_includes/organization/delete-user-ui.md) %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды:
+
+      ```bash
+      yc organization-manager user remove --help
+      ```
+
+  1. Удалите членство пользователя в организации:
+
+      ```bash
+      yc organization-manager user remove \
+        --organization-id <идентификатор_организации> \
+        --subject-id <идентификатор_пользователя>
+      ```
+
+      Укажите [идентификатор организации](organization-get-id.md) и [идентификатор пользователя](users-get.md). Оба параметра обязательны для этого примера.
+
+- API {#api}
+
+    Воспользуйтесь методом REST API [deleteMembership](../api-ref/User/deleteMembership.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/DeleteMembership](../api-ref/grpc/User/deleteMembership.md).
+
+{% endlist %}
+
+## Удалить федеративного пользователя {#federated}
+
+Чтобы удалить из организации [федеративного пользователя](../../iam/concepts/users/accounts.md#saml-federation):
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  {% include [delete-user-ui](../../_includes/organization/delete-user-ui.md) %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды:
+
+      ```bash
+      yc organization-manager user remove --help
+      ```
+
+  1. Удалите членство пользователя в организации:
+
+      ```bash
+      yc organization-manager user remove \
+        --organization-id <идентификатор_организации> \
+        --subject-id <идентификатор_пользователя>
+      ```
+
+      Укажите [идентификатор организации](organization-get-id.md) и [идентификатор пользователя](users-get.md). Оба параметра обязательны для этого примера.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. В конфигурации, управляющей федеративным пользователем, удалите блок `yandex_organizationmanager_saml_federation_user_account` этого пользователя и ссылки на него. Это удаляет членство пользователя в организации, но не его учетную запись у поставщика удостоверений.
+
+     Подробная информация о ресурсе `yandex_organizationmanager_saml_federation_user_account` приведена в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_saml_federation_user_account).
+
+  1. Примените изменения, проверив список удаляемых ресурсов в плане:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+- API {#api}
+
+    Воспользуйтесь методом REST API [deleteMembership](../api-ref/User/deleteMembership.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/DeleteMembership](../api-ref/grpc/User/deleteMembership.md).
 
 {% endlist %}
 
@@ -60,5 +138,20 @@ description: Из этой статьи вы узнаете, как удалит
      ```bash
      yc organization-manager idp user delete <идентификатор_пользователя>
      ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. В конфигурации, управляющей локальным пользователем, удалите блок `yandex_organizationmanager_idp_user` этого пользователя и ссылки на него. Это удаляет пользователя из пула, а не только его членство в организации.
+  1. Примените изменения, проверив список удаляемых ресурсов в плане:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+- API {#api}
+
+    Воспользуйтесь методом REST API [delete](../idp/api-ref/User/delete.md) для ресурса [User](../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/Delete](../idp/api-ref/grpc/User/delete.md).
 
 {% endlist %}

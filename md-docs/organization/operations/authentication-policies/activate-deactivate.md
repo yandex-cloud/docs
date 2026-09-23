@@ -35,6 +35,10 @@
   1. В строке с неактивной политикой аутентификации нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![arrows-rotate-right](../../../_assets/console-icons/arrows-rotate-right.svg) **Активировать**.
   1. В открывшемся окне подтвердите активацию политики.
 
+- API {#api}
+
+    Воспользуйтесь методом REST API [activate](../../policy/api-ref/AuthenticationPolicyRule/activate.md) для ресурса [AuthenticationPolicyRule](../../policy/api-ref/AuthenticationPolicyRule/index.md) или вызовом gRPC API [AuthenticationPolicyRuleService/Activate](../../policy/api-ref/grpc/AuthenticationPolicyRule/activate.md).
+
 {% endlist %}
 
 ## Деактивируйте политику аутентификации {#deactivate}
@@ -49,6 +53,10 @@
   1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **Настройки безопасности** и перейдите на вкладку **Политики аутентификации**.
   1. В строке с активной политикой аутентификации нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pause](../../../_assets/console-icons/pause.svg) **Деактивировать**.
   1. В открывшемся окне подтвердите деактивацию политики.
+
+- API {#api}
+
+    Воспользуйтесь методом REST API [deactivate](../../policy/api-ref/AuthenticationPolicyRule/deactivate.md) для ресурса [AuthenticationPolicyRule](../../policy/api-ref/AuthenticationPolicyRule/index.md) или вызовом gRPC API [AuthenticationPolicyRuleService/Deactivate](../../policy/api-ref/grpc/AuthenticationPolicyRule/deactivate.md).
 
 {% endlist %}
 

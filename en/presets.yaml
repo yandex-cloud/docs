@@ -457,15 +457,15 @@ default:
         nginx:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1775660129087745327177484940704164668665505295409
-            tag: 1.28.3-v1
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1789566872190363361228058870643905000661686010862
+            tag: 1.30.4-v1
         php:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1775660129087745327177484940704164668665505295409
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1789566872190363361228058870643905000661686010862
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
-        tag: 1.0.6
+        tag: 1.0.7
     yc_cert-manager-webhook-yandex:
       helmChart:
         name: >-
@@ -522,7 +522,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart
-        tag: v1.10.0
+        tag: v1.11.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
@@ -539,7 +539,7 @@ default:
     yc_kyverno:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/kyverno/charts/kyverno
-        tag: 3.8.1
+        tag: 3.8.2
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
@@ -6594,8 +6594,10 @@ default:
             column_attributes-type: Data type
             field_access-to-key-from-attributes: Access to key from attributes
             field_allow-read-expired-keys: Allow read expired keys
+            field_block-size: Block size
             field_collection: Collection
             field_db: Database
+            field_file-size: Cache file size
             field_fixed-lifetime: Period duration
             field_host: Host
             field_hosts: Hosts
@@ -6614,23 +6616,32 @@ default:
             field_query-wait-timeout-milliseconds: Query wait timeout
             field_range-lifetime-max: Maximum
             field_range-lifetime-min: Minimum
+            field_range-max-name: Name
+            field_range-max-type: Type
+            field_range-min-name: Name
+            field_range-min-type: Type
+            field_read-buffer-size: Read buffer size
             field_replicas: Replicas
             field_size-in-cells: Cache size
             field_source: Source
             field_structure-attributes: Data column
             field_structure-id: Numeric key
+            field_structure-key: Composite key
             field_table: Table
-            field_update-interval: Period
             field_update-queue-push-timeout-milliseconds: Update queue push timeout
             field_user: User
             field_where: Selection condition
+            field_write-buffer-size: Write buffer size
             label_fixed-lifetime: fixed
             label_range-lifetime: variable
+            label_range-max: 'End of range column:'
+            label_range-min: 'Start of range column:'
             label_source-clickhouse: ClickHouse
             label_source-http: HTTP(s)
             label_source-mongodb: StoreDoc
             label_source-mysql: MySQL
             label_source-postgresql: PostgreSQL
+            section_lifetime: Update rate
           field_diskSizeLimit: Maximum storage size
           field_emergencyUsageThreshold: Immediately when full at more than
           field_plannedUsageThreshold: In the maintenance window when full at more than

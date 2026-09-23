@@ -17,80 +17,80 @@ data "yandex_audit_trails_trail" "basic-trail" {
 
 ## Arguments & Attributes Reference
 
-- `data_stream_destination` [Block]. Structure describing destination data stream of the trail. Mutually exclusive with `logging_destination` and `storage_destination`.
-  - `codec` (String). Codec for compressing events. Allowed values: RAW, GZIP, ZSTD. Default: RAW
-  - `database_id` (**Required**)(String). ID of the [YDB](../../ydb/concepts/resources.md) hosting the destination data stream.
-  - `stream_name` (**Required**)(String). Name of the [YDS stream](../../data-streams/concepts/glossary.md#stream-concepts) belonging to the specified YDB.
-- `description` (String). The resource description.
-- `filter` [Block]. Structure is deprecated. Use `filtering_policy` instead.
-  - `event_filters` [Block]. Deprecated.
-    - `categories` [Block]. Deprecated.
-      - `plane` (**Required**)(String). Deprecated.
-      - `type` (**Required**)(String). Deprecated.
-    - `path_filter` [Block]. Deprecated.
-      - `any_filter` [Block]. Deprecated.
-        - `resource_id` (**Required**)(String). Resource ID.
-        - `resource_type` (**Required**)(String). Resource type.
-      - `some_filter` [Block]. Deprecated.
-        - `any_filters` [Block]. Deprecated.
-          - `resource_id` (**Required**)(String). Resource ID.
-          - `resource_type` (**Required**)(String). Resource type.
-        - `resource_id` (**Required**)(String). Deprecated.
-        - `resource_type` (**Required**)(String). Deprecated.
-    - `service` (**Required**)(String). Deprecated.
-  - `path_filter` [Block]. Deprecated.
-    - `any_filter` [Block]. Deprecated.
-      - `resource_id` (**Required**)(String). Resource ID.
-      - `resource_type` (**Required**)(String). Resource type.
-    - `some_filter` [Block]. Deprecated.
-      - `any_filters` [Block]. Deprecated.
-        - `resource_id` (**Required**)(String). Resource ID.
-        - `resource_type` (**Required**)(String). Resource type.
-      - `resource_id` (**Required**)(String). Deprecated.
-      - `resource_type` (**Required**)(String). Deprecated.
-- `filtering_policy` [Block]. Structure describing event filtering process for the trail. Mutually exclusive with `filter`. At least one of the `management_events_filter` or `data_events_filter` fields will be filled.
-  - `data_events_filter` [Block]. Structure describing filtering process for the service-specific data events.
-    - `dns_filter` [Block]. Specific filter for DNS service.
-      - `include_nonrecursive_queries` (**Required**)(Bool). All types of queries will be delivered.
-    - `exclude_rule` [Block]. Rules defining which data events will be excluded. Rules are combined using logical OR.
-      - `condition` [Block]. Condition that must be satisfied by an event. Conditions are combined using logical AND.
-        - `field` (**Required**)(String). Path to a scalar field of the event.
-        - `operator` (**Required**)(String). Operator that controls how the values are interpreted.
-        - `values` (**Required**)(List Of String). Values interpreted according to the selected field and operator.
-    - `excluded_events` (List Of String). A list of events that won't be gathered by the trail from this service. New events will be automatically gathered when this option is specified. Mutually exclusive with `included_events`.
-    - `include_rule` [Block]. Rules defining which data events will be included. Rules are combined using logical OR.
-      - `condition` [Block]. Condition that must be satisfied by an event. Conditions are combined using logical AND.
-        - `field` (**Required**)(String). Path to a scalar field of the event.
-        - `operator` (**Required**)(String). Operator that controls how the values are interpreted.
-        - `values` (**Required**)(List Of String). Values interpreted according to the selected field and operator.
-    - `included_events` (List Of String). A list of events that will be gathered by the trail from this service. New events won't be gathered by default when this option is specified. Mutually exclusive with `excluded_events`.
-    - `resource_scope` [Block]. Structure describing that events will be gathered from the specified resource.
-      - `resource_id` (**Required**)(String). Resource ID.
-      - `resource_type` (**Required**)(String). Resource type.
-    - `service` (**Required**)(String). ID of the service which events will be gathered.
-  - `management_events_filter` [Block]. Structure describing filtering process for management events.
-    - `exclude_rule` [Block]. Rules defining which management events will be excluded. Rules are combined using logical OR.
-      - `condition` [Block]. Condition that must be satisfied by an event. Conditions are combined using logical AND.
-        - `field` (**Required**)(String). Path to a scalar field of the event.
-        - `operator` (**Required**)(String). Operator that controls how the values are interpreted.
-        - `values` (**Required**)(List Of String). Values interpreted according to the selected field and operator.
-    - `include_rule` [Block]. Rules defining which management events will be included. Rules are combined using logical OR.
-      - `condition` [Block]. Condition that must be satisfied by an event. Conditions are combined using logical AND.
-        - `field` (**Required**)(String). Path to a scalar field of the event.
-        - `operator` (**Required**)(String). Operator that controls how the values are interpreted.
-        - `values` (**Required**)(List Of String). Values interpreted according to the selected field and operator.
-    - `resource_scope` [Block]. Structure describing that events will be gathered from the specified resource.
-      - `resource_id` (**Required**)(String). Resource ID.
-      - `resource_type` (**Required**)(String). Resource type.
-- `folder_id` (**Required**)(String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
+- `data_stream_destination` (*Read-Only*) (List Of Object). Structure describing destination data stream of the trail. Mutually exclusive with `logging_destination` and `storage_destination`.
+  - `codec` . 
+  - `database_id` . 
+  - `stream_name` . 
+- `description` (*Read-Only*) (String). The resource description.
+- `filter` (*Read-Only*) (Set Of Object). Structure is deprecated. Use `filtering_policy` instead.
+  - `event_filters` . 
+    - `categories` . 
+      - `plane` . 
+      - `type` . 
+    - `path_filter` . 
+      - `any_filter` . 
+        - `resource_id` . 
+        - `resource_type` . 
+      - `some_filter` . 
+        - `any_filters` . 
+          - `resource_id` . 
+          - `resource_type` . 
+        - `resource_id` . 
+        - `resource_type` . 
+    - `service` . 
+  - `path_filter` . 
+    - `any_filter` . 
+      - `resource_id` . 
+      - `resource_type` . 
+    - `some_filter` . 
+      - `any_filters` . 
+        - `resource_id` . 
+        - `resource_type` . 
+      - `resource_id` . 
+      - `resource_type` . 
+- `filtering_policy` (*Read-Only*) (List Of Object). Structure describing event filtering process for the trail. Mutually exclusive with `filter`. At least one of the `management_events_filter` or `data_events_filter` fields will be filled.
+  - `data_events_filter` . 
+    - `dns_filter` . 
+      - `include_nonrecursive_queries` . 
+    - `exclude_rule` . 
+      - `condition` . 
+        - `field` . 
+        - `operator` . 
+        - `values` . 
+    - `excluded_events` . 
+    - `include_rule` . 
+      - `condition` . 
+        - `field` . 
+        - `operator` . 
+        - `values` . 
+    - `included_events` . 
+    - `resource_scope` . 
+      - `resource_id` . 
+      - `resource_type` . 
+    - `service` . 
+  - `management_events_filter` . 
+    - `exclude_rule` . 
+      - `condition` . 
+        - `field` . 
+        - `operator` . 
+        - `values` . 
+    - `include_rule` . 
+      - `condition` . 
+        - `field` . 
+        - `operator` . 
+        - `values` . 
+    - `resource_scope` . 
+      - `resource_id` . 
+      - `resource_type` . 
+- `folder_id` (*Read-Only*) (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `logging_destination` [Block]. Structure describing destination log group of the trail. Mutually exclusive with `storage_destination` and `data_stream_destination`.
-  - `log_group_id` (**Required**)(String). ID of the destination [Cloud Logging Group](../../logging/concepts/log-group.md).
-- `name` (**Required**)(String). The resource name.
-- `service_account_id` (**Required**)(String). [Service account](../../iam/concepts/users/service-accounts.md) which linked to the resource.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
+- `logging_destination` (*Read-Only*) (List Of Object). Structure describing destination log group of the trail. Mutually exclusive with `storage_destination` and `data_stream_destination`.
+  - `log_group_id` . 
+- `name` (*Read-Only*) (String). The resource name.
+- `service_account_id` (*Read-Only*) (String). [Service account](../../iam/concepts/users/service-accounts.md) which linked to the resource.
 - `status` (*Read-Only*) (String). Status of this trail.
-- `storage_destination` [Block]. Structure describing destination bucket of the trail. Mutually exclusive with `logging_destination` and `data_stream_destination`.
-  - `bucket_name` (**Required**)(String). Name of the [destination bucket](../../storage/concepts/bucket.md).
-  - `object_prefix` (String). Additional prefix of the uploaded objects. If not specified, objects will be uploaded with prefix equal to `trail_id`.
-- `trail_id` (*Read-Only*) (String). ID of the trail resource.
+- `storage_destination` (*Read-Only*) (List Of Object). Structure describing destination bucket of the trail. Mutually exclusive with `logging_destination` and `data_stream_destination`.
+  - `bucket_name` . 
+  - `object_prefix` . 
+- `trail_id` (**Required**)(String). Trail ID.

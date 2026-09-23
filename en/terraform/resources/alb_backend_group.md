@@ -89,6 +89,21 @@ Only one of `stream_healthcheck` or `http_healthcheck` or `grpc_healthcheck` sho
     - `stream_healthcheck` [Block]. Stream Healthcheck specification that will be used by this healthcheck.
       - `receive` (String). Data that must be contained in the messages received from targets for a successful health check. If not specified, no messages are expected from targets, and those that are received are not checked.
       - `send` (String). Message sent to targets during TCP data transfer. If not specified, no data is sent to the target.
+    - `tls` [Block]. TLS transport settings for health checks. Used to establish mTLS connections with the backend.
+
+{% note warning %}
+
+Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.trusted_ca_bytes` should be specified.
+
+{% endnote %}
+
+
+      - `sni` (String). SNI string for TLS connections.
+      - `client_certificate` [Block]. Client certificate specification. Used to establish mTLS connections with the backend.
+        - `certificate_id` (**Required**)(String). Certificate ID in the Certificate Manager to use as a client certificate for connections to the backend.
+      - `validation_context` [Block]. Validation context for backend TLS connections.
+        - `trusted_ca_bytes` (String). PEM-encoded trusted CA certificate chain.
+        - `trusted_ca_id` (String). Trusted CA certificate ID in the Certificate Manager.
   - `load_balancing_config` [Block]. Load Balancing Config specification that will be used by this backend.
     - `locality_aware_routing_percent` (Number). Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones.
     - `mode` (String). Load balancing mode for the backend. Possible values: `ROUND_ROBIN`, `RANDOM`, `LEAST_REQUEST`, `MAGLEV_HASH`.
@@ -104,6 +119,8 @@ Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.truste
 
 
     - `sni` (String). [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication) string for TLS connections.
+    - `client_certificate` [Block]. Client certificate specification. Used to establish mTLS connections with the backend.
+      - `certificate_id` (**Required**)(String). Certificate ID in the Certificate Manager to use as a client certificate for connections to the backend.
     - `validation_context` [Block]. Validation context
       - `trusted_ca_bytes` (String). PEM-encoded trusted CA certificate chain.
       - `trusted_ca_id` (String). Trusted CA certificate ID in the Certificate Manager.
@@ -147,6 +164,21 @@ Only one of `stream_healthcheck` or `http_healthcheck` or `grpc_healthcheck` sho
     - `stream_healthcheck` [Block]. Stream Healthcheck specification that will be used by this healthcheck.
       - `receive` (String). Data that must be contained in the messages received from targets for a successful health check. If not specified, no messages are expected from targets, and those that are received are not checked.
       - `send` (String). Message sent to targets during TCP data transfer. If not specified, no data is sent to the target.
+    - `tls` [Block]. TLS transport settings for health checks. Used to establish mTLS connections with the backend.
+
+{% note warning %}
+
+Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.trusted_ca_bytes` should be specified.
+
+{% endnote %}
+
+
+      - `sni` (String). SNI string for TLS connections.
+      - `client_certificate` [Block]. Client certificate specification. Used to establish mTLS connections with the backend.
+        - `certificate_id` (**Required**)(String). Certificate ID in the Certificate Manager to use as a client certificate for connections to the backend.
+      - `validation_context` [Block]. Validation context for backend TLS connections.
+        - `trusted_ca_bytes` (String). PEM-encoded trusted CA certificate chain.
+        - `trusted_ca_id` (String). Trusted CA certificate ID in the Certificate Manager.
   - `load_balancing_config` [Block]. Load Balancing Config specification that will be used by this backend.
     - `locality_aware_routing_percent` (Number). Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones.
     - `mode` (String). Load balancing mode for the backend. Possible values: `ROUND_ROBIN`, `RANDOM`, `LEAST_REQUEST`, `MAGLEV_HASH`.
@@ -162,6 +194,8 @@ Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.truste
 
 
     - `sni` (String). [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication) string for TLS connections.
+    - `client_certificate` [Block]. Client certificate specification. Used to establish mTLS connections with the backend.
+      - `certificate_id` (**Required**)(String). Certificate ID in the Certificate Manager to use as a client certificate for connections to the backend.
     - `validation_context` [Block]. Validation context
       - `trusted_ca_bytes` (String). PEM-encoded trusted CA certificate chain.
       - `trusted_ca_id` (String). Trusted CA certificate ID in the Certificate Manager.
@@ -214,6 +248,21 @@ Only one of `stream_healthcheck` or `http_healthcheck` or `grpc_healthcheck` sho
     - `stream_healthcheck` [Block]. Stream Healthcheck specification that will be used by this healthcheck.
       - `receive` (String). Data that must be contained in the messages received from targets for a successful health check. If not specified, no messages are expected from targets, and those that are received are not checked.
       - `send` (String). Message sent to targets during TCP data transfer. If not specified, no data is sent to the target.
+    - `tls` [Block]. TLS transport settings for health checks. Used to establish mTLS connections with the backend.
+
+{% note warning %}
+
+Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.trusted_ca_bytes` should be specified.
+
+{% endnote %}
+
+
+      - `sni` (String). SNI string for TLS connections.
+      - `client_certificate` [Block]. Client certificate specification. Used to establish mTLS connections with the backend.
+        - `certificate_id` (**Required**)(String). Certificate ID in the Certificate Manager to use as a client certificate for connections to the backend.
+      - `validation_context` [Block]. Validation context for backend TLS connections.
+        - `trusted_ca_bytes` (String). PEM-encoded trusted CA certificate chain.
+        - `trusted_ca_id` (String). Trusted CA certificate ID in the Certificate Manager.
   - `load_balancing_config` [Block]. Load Balancing Config specification that will be used by this backend.
     - `locality_aware_routing_percent` (Number). Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones.
     - `mode` (String). Load balancing mode for the backend. Possible values: `ROUND_ROBIN`, `RANDOM`, `LEAST_REQUEST`, `MAGLEV_HASH`.
@@ -229,6 +278,8 @@ Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.truste
 
 
     - `sni` (String). [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication) string for TLS connections.
+    - `client_certificate` [Block]. Client certificate specification. Used to establish mTLS connections with the backend.
+      - `certificate_id` (**Required**)(String). Certificate ID in the Certificate Manager to use as a client certificate for connections to the backend.
     - `validation_context` [Block]. Validation context
       - `trusted_ca_bytes` (String). PEM-encoded trusted CA certificate chain.
       - `trusted_ca_id` (String). Trusted CA certificate ID in the Certificate Manager.

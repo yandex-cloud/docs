@@ -1,14 +1,16 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Базы данных > Managed Service for Trino > Создать каталог
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Базы данных и аналитика > Managed Service for Trino > Создать каталог
 
 # Создать каталог Managed Service for Trino
 
-[Каталог](../../concepts/components/trino.md#catalogs) Trino задает подключение к внешнему источнику данных. Один каталог описывается ресурсом `TrinoCatalog` и привязывается к конкретному кластеру через поле `spec.cluster`.
+[Каталог](../../concepts/components/trino.md#catalogs) Trino задает подключение к источнику данных. Один каталог описывается ресурсом `TrinoCatalog` и привязывается к конкретному кластеру через поле `spec.cluster`.
 
 Поддерживаемые типы каталогов:
 
-* `postgresql` — подключение к PostgreSQL.
-* `clickhouse` — подключение к ClickHouse®.
-* `iceberg` — подключение к Apache Iceberg™ через REST catalog.
+* PostgreSQL — параметры подключения задаются в `spec.postgres`.
+* ClickHouse® — параметры подключения задаются в `spec.clickhouse`.
+* Apache Iceberg™ — подключение к [Iceberg REST Catalog](../../concepts/components/rest-catalog.md) в Stackland задается в `spec.stacklandRestCatalog`.
+
+В манифесте укажите один блок с настройками коннектора. Параметр `spec.type` добавлять не нужно.
 
 {% note info %}
 
@@ -18,7 +20,11 @@
 
 ## Через CLI {#cli}
 
-1. Подготовьте Secret с учетными данными для подключения к источнику данных.
+1. Подготовьте источник данных:
+
+    * Для PostgreSQL и ClickHouse® подготовьте Secret с учетными данными.
+    * Для Apache Iceberg™ убедитесь, что включены компоненты Iceberg REST Catalog и [Object Storage](../../concepts/components/storage.md). [Создайте каталог Iceberg REST Catalog](../rest-catalog/create-catalog.md) в том же пространстве имен, что и кластер Trino, и дождитесь состояния `ready`. [Назначьте права](../rest-catalog/create-principal.md) пользователю или сервисному аккаунту, от имени которого будут выполняться запросы.
+
 1. Создайте файл ресурса `TrinoCatalog`. Например, с помощью команды `touch trinocatalog.yaml`.
 1. Откройте файл и вставьте конфигурацию для нужного типа каталога:
 
@@ -42,7 +48,6 @@
           name: postgresql-test-trino-full
         spec:
           cluster: trino-full
-          type: postgresql
           name: postgresql-test
           postgres:
             url: postgres.example.svc.cluster.local:5432/database
@@ -77,7 +82,6 @@
           name: clickhouse-test-trino-full
         spec:
           cluster: trino-full
-          type: clickhouse
           name: clickhouse-test
           clickhouse:
             url: clickhouse.example.svc.cluster.local:8123/default
@@ -94,117 +98,53 @@
         * `spec.clickhouse.url` — адрес сервера ClickHouse® в формате `host:port/database`.
         * `spec.clickhouse.credentialsSecretRef` — ссылка на Secret с учетными данными.
 
-    - Iceberg (REST catalog, S3)
+    - Iceberg
 
-        Пример каталога Iceberg с REST catalog, аутентификацией через client credentials и хранилищем в произвольном S3-совместимом бакете.
+        Укажите имя ресурса `StacklandRestCatalog`. Параметры подключения к каталогу и хранилищу заполняются автоматически.
 
         ```yaml
-        ---
-        apiVersion: v1
-        kind: Secret
-        metadata:
-          name: iceberg-oauth2-secret
-        stringData:
-          client-id: <идентификатор_клиента>
-          client-secret: <секрет_клиента>
-        ---
-        apiVersion: v1
-        kind: Secret
-        metadata:
-          name: iceberg-s3-secret
-        stringData:
-          access-key-id: <access_key_id>
-          secret-access-key: <secret_access_key>
-        ---
         apiVersion: trino.stackland.yandex.cloud/v1alpha1
         kind: TrinoCatalog
         metadata:
           name: iceberg-test-trino-full
         spec:
           cluster: trino-full
-          type: iceberg
           name: iceberg-test
-          iceberg:
-            url: https://iceberg-rest.example.svc.cluster.local:8181
-            catalogType: rest
-            storageType: s3
-            rest:
-              warehouse: my-warehouse
-              oauth2:
-                clientCredentials:
-                  tokenEndpoint: https://auth.example.com/token
-                  credentialsSecretRef:
-                    name: iceberg-oauth2-secret
-                    clientIdKey: client-id
-                    clientSecretKey: client-secret
-            s3:
-              endpoint: https://storage.yandexcloud.net
-              region: ru-central1
-              credentialsSecretRef:
-                name: iceberg-s3-secret
-                accessKeyIdKey: access-key-id
-                secretAccessKeyKey: secret-access-key
+          stacklandRestCatalog:
+            catalogRef: analytics
         ```
 
         Параметры:
 
-        * `spec.iceberg.url` — URL REST catalog.
-        * `spec.iceberg.storageType` — тип хранилища данных. Допустимые значения: `s3`, `stackland-storage`.
-        * `spec.iceberg.rest.warehouse` — имя REST catalog.
-        * `spec.iceberg.rest.oauth2.clientCredentials` — параметры аутентификации client credentials: URL сервера авторизации (`tokenEndpoint`) и Secret с идентификатором и секретом клиента.
-        * `spec.iceberg.s3.endpoint`, `region` — параметры S3-хранилища.
-        * `spec.iceberg.s3.credentialsSecretRef` — Secret с `access-key-id` и `secret-access-key`.
+        * `spec.cluster` — имя кластера Trino.
+        * `spec.name` — имя каталога в SQL-запросах Trino.
+        * `spec.stacklandRestCatalog.catalogRef` — имя ресурса `StacklandRestCatalog` в том же пространстве имен.
+        * `spec.stacklandRestCatalog.useExternalEndpoint` — использование внешнего адреса каталога. По умолчанию `false`: используется внутренний адрес. Значение `true` можно указать, если для каталога [включен публичный доступ](../../concepts/components/rest-catalog.md#endpoints) и заполнено поле `status.externalEndpoint`.
+        * `spec.stacklandRestCatalog.additionalProperties` — [дополнительные настройки Iceberg](../../concepts/components/trino.md#iceberg-settings): формат и сжатие данных, размер файлов, требования к фильтрам в запросах, статистика, работа с хранилищем и поддержка представлений Iceberg. Необязательный параметр.
 
-        Для статического токена вместо `clientCredentials` укажите `spec.iceberg.rest.oauth2.accessTokenSecretRef` со ссылкой на Secret с токеном.
-
-    - Iceberg (REST catalog, Object Storage)
-
-        Пример каталога Iceberg с использованием управляемого объектного хранилища Stackland. Доступно, только если в кластере включен компонент [Object Storage](../../concepts/components/storage.md).
+        В следующем примере используется внешний адрес каталога. Для новых таблиц по умолчанию выбраны формат `PARQUET`, сжатие `ZSTD` и целевой максимальный размер файлов `512MB`. Для запросов к партиционированным таблицам в SQL-схемах `reports` и `events` требуется фильтр по ключам партиционирования. Тайм-аут установки соединения с хранилищем составляет `10s`, тайм-аут чтения или записи — `30s`. Параметр `iceberg.rest-catalog.view-endpoints-enabled: true` включает поддержку представлений Iceberg. При создании представлений указывайте `SECURITY INVOKER` — подробнее в разделе [Представления Iceberg](../../concepts/components/trino.md#iceberg-views).
 
         ```yaml
         apiVersion: trino.stackland.yandex.cloud/v1alpha1
         kind: TrinoCatalog
         metadata:
-          name: iceberg-stackland-trino-full
+          name: iceberg-test-trino-full
         spec:
           cluster: trino-full
-          type: iceberg
-          name: iceberg-stackland
-          iceberg:
-            url: http://iceberg-rest-catalog.stackland-iceberg-rest-catalog.svc:8181/api/catalog
-            catalogType: rest
-            storageType: stackland-storage
-            rest:
-              warehouse: my-warehouse
-              oauth2:
-                clientCredentials:
-                  tokenEndpoint: http://iceberg-rest-catalog.stackland-iceberg-rest-catalog.svc:8181/api/catalog/v1/oauth/tokens
-                  credentialsSecretRef:
-                    name: <секрет_пользователя>
-                    clientIdKey: clientId
-                    clientSecretKey: clientSecret
-            stacklandStorage:
-              bucketRef: <имя_бакета>
+          name: iceberg-test
+          stacklandRestCatalog:
+            catalogRef: analytics
+            useExternalEndpoint: true
+            additionalProperties:
+              iceberg.rest-catalog.view-endpoints-enabled: true
+              iceberg.file-format: PARQUET
+              iceberg.compression-codec: ZSTD
+              iceberg.target-max-file-size: "512MB"
+              iceberg.query-partition-filter-required: true
+              iceberg.query-partition-filter-required-schemas: "reports,events"
+              s3.socket-connect-timeout: "10s"
+              s3.socket-timeout: "30s"
         ```
-
-        Параметры:
-
-        * `spec.iceberg.rest.oauth2.clientCredentials` — параметры аутентификации client credentials для платформенного Iceberg REST Catalog: URL сервера авторизации (`tokenEndpoint`) и секрет с `clientId` и `clientSecret` пользователя `RestCatalogPrincipal`.
-        * `spec.iceberg.storageType: stackland-storage`.
-        * `spec.iceberg.stacklandStorage.bucketRef` — ссылка на ресурс `Bucket` в текущем пространстве имен.
-
-        AccessKey и AccessBinding оператор создает автоматически. Параметры подключения к S3 заполняет оператор.
-
-        {% note info %}
-
-        Пример рассчитан на подключение к платформенному [Iceberg REST Catalog](../../concepts/components/rest-catalog.md). Подставьте значения из ресурса `RestCatalog` и секрета пользователя:
-
-        * `spec.iceberg.url` — значение `status.endpoint`;
-        * `spec.iceberg.rest.oauth2.clientCredentials.tokenEndpoint` — значение `status.oauth2TokenEndpoint`;
-        * `spec.iceberg.rest.warehouse` — имя ресурса `RestCatalog`;
-        * `credentialsSecretRef` — секрет с `clientId` и `clientSecret` пользователя `RestCatalogPrincipal` (см. [Создать пользователя каталога](../rest-catalog/create-principal.md)).
-
-        {% endnote %}
 
     {% endlist %}
 
@@ -218,6 +158,8 @@
 
 ## Через консоль управления {#console}
 
+Для подключения Apache Iceberg™ сначала [создайте каталог Iceberg REST Catalog](../rest-catalog/create-catalog.md#console) в том же пространстве имен, дождитесь его готовности и [назначьте права](../rest-catalog/create-principal.md#console) пользователю или группе.
+
 1. Если вы еще не открыли проект, выберите проект.
 1. Выберите пространство имен, в котором создан кластер.
 1. В левом меню выберите **Trino** → **Кластеры**.
@@ -228,7 +170,7 @@
     **Основные настройки**
 
     * **Имя** — имя каталога в Trino. Записывается в `spec.name`. Имя ресурса Kubernetes (`metadata.name`) консоль формирует автоматически как `<имя_каталога>-<имя_кластера>`.
-    * **Тип** — тип коннектора. Допустимые значения: `postgresql`, `clickhouse`, `iceberg`.
+    * **Тип** — тип коннектора: `postgresql`, `clickhouse` или `iceberg`.
 
     После выбора типа отобразится блок **Настройки каталога**.
 
@@ -244,28 +186,14 @@
     * **Имя пользователя** — пользователь ClickHouse®.
     * **Пароль** — пароль пользователя.
 
-    **Настройки каталога: Iceberg (REST catalog)**
+    **Настройки каталога: Iceberg**
 
-    Подсекция **Подключение**:
-
-    * **URL** — URL REST catalog.
-    * **Warehouse** — имя REST catalog (необязательно).
-
-    Подсекция **Аутентификация** (необязательно):
-
-    * **Способ аутентификации** — `Без аутентификации`, `Статический токен` или `Client credentials`.
-    * Для статического токена: **Токен доступа**.
-    * Для client credentials: **Адрес сервера авторизации**, **Идентификатор клиента**, **Секрет клиента**. Для платформенного Iceberg REST Catalog в качестве **Идентификатора клиента** и **Секрета клиента** укажите `clientId` и `clientSecret` пользователя [`RestCatalogPrincipal`](../rest-catalog/create-principal.md). В подменю **Дополнительно** можно задать **Область доступа (scope)**, **Обновление токена** и **Обмен токенов**.
-
-    Подсекция **Хранилище данных**:
-
-    * **Тип хранилища** — `s3` или `stackland-storage`. Значение `stackland-storage` доступно, только если в кластере включен компонент **Object Storage**.
-    * Для `s3`: **Endpoint**, **Регион**, **Access key ID**, **Secret access key**, **Path-style access**.
-    * Для `stackland-storage`: **Бакет** — выбор бакета из списка ресурсов `Bucket` в текущем пространстве имен.
+    * **REST Catalog** — каталог Iceberg REST Catalog в текущем пространстве имен.
+    * **Способ доступа** — **Внутренний** или **Внешний**. Внешний способ доступен, если у выбранного каталога настроен внешний адрес.
 
     **Дополнительные настройки** (необязательно)
 
-    Раздел для произвольных настроек коннектора в формате «Ключ–Значение». Каждый ключ можно добавить только один раз.
+    Укажите поддерживаемые настройки коннектора в формате «ключ — значение». Каждый ключ можно добавить только один раз. Для Apache Iceberg™ доступны [настройки хранения данных, запросов, обращения к хранилищу и представлений Iceberg](../../concepts/components/trino.md#iceberg-settings).
 
 1. Нажмите **Создать**.
 

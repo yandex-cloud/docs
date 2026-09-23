@@ -1,4 +1,4 @@
-View the roles and assignees for the resource using the `listAccessBindings` REST API method. For example, to view the roles for the `b1gvmob95yys********` folder:
+View the roles and assignees for the resource using the `listAccessBindings` REST API method. For example, to view roles for the `b1gvmob95yys********` folder:
 
 ```bash
 export FOLDER_ID=b1gvmob95yys********

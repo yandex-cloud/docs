@@ -17,7 +17,7 @@ The [IAM token](../../../iam/concepts/authorization/iam-token.md) lifetime canno
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. [Authenticate in the CLI as a local user](../../../cli/operations/authentication/local-user.md).
+  1. [Authenticate to the CLI as a local user](../../../cli/operations/authentication/local-user.md).
 
   1. Get an IAM token:
 
@@ -31,7 +31,7 @@ The [IAM token](../../../iam/concepts/authorization/iam-token.md) lifetime canno
       t1.9euelZrLop7Uz8up********
       ```
 
-      The value you get is an IAM token. You can copy it, save it to a file, or write it into a variable:
+      The returned value is an IAM token. You can copy and save it to a file or store it in a variable:
 
       ```bash
       export IAM_TOKEN=`<IAM_token>`

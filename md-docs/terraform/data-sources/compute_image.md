@@ -47,21 +47,21 @@ resource "yandex_compute_instance" "default" {
 ## Arguments & Attributes Reference
 
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (String). The resource description.
+- `description` (*Read-Only*) (String). The resource description.
 - `family` (String). The name of the image family to which this image belongs.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `hardware_generation` [Block]. Hardware generation and its features, which will be applied to the instance when this image is used for creating a boot disk. Provide this property if you wish to override this value, which otherwise is inherited from the source.
-  - `generation2_features` [Block]. A newer hardware generation, which always uses `PCI_TOPOLOGY_V2` and UEFI boot.
-  - `legacy_features` [Block]. Defines the first known hardware generation and its features.
-    - `pci_topology` (String). A variant of PCI topology, one of `PCI_TOPOLOGY_V1` or `PCI_TOPOLOGY_V2`.
+- `hardware_generation` (*Read-Only*) (List Of Object). 
+  - `generation2_features` . 
+  - `legacy_features` . 
+    - `pci_topology` . 
 - `id` (String). 
 - `image_id` (String). The ID of a specific image.
 - `kms_key_id` (*Read-Only*) (String). ID of KMS symmetric key used to encrypt image.
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `min_disk_size` (Number). Minimum size in GB of the disk that will be created from this image.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
+- `min_disk_size` (*Read-Only*) (Number). Minimum size in GB of the disk that will be created from this image.
 - `name` (String). The resource name.
-- `os_type` (String). Operating system type that is contained in the image. Possible values: `LINUX`, `WINDOWS`.
-- `pooled` (Bool). Optimize the image to create a disk.
-- `product_ids` (Set Of String). License IDs that indicate which licenses are attached to this image.
+- `os_type` (*Read-Only*) (String). Operating system type that is contained in the image. Possible values: `LINUX`, `WINDOWS`.
+- `pooled` (*Read-Only*) (Bool). Optimize the image to create a disk.
+- `product_ids` (*Read-Only*) (Set Of String). License IDs that indicate which licenses are attached to this image.
 - `size` (*Read-Only*) (Number). The size of the image, specified in GB.
 - `status` (*Read-Only*) (String). The status of the image.

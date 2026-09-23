@@ -21,34 +21,34 @@ data "yandex_cloud_desktops_desktop_group" "data_desktop_group_by_id" {
 
 ## Arguments & Attributes Reference
 
-- `description` (String). The description of the desktop group.
-- `desktop_group_id` (*Read-Only*) (String). The id of the desktop group.
+- `description` (*Read-Only*) (String). The description of the desktop group.
+- `desktop_group_id` (String). The id of the desktop group.
 - `desktop_template` [Block]. The configuration template for the desktop group.
   - `boot_disk` [Block]. The boot disk configuration for each desktop in the group.
     - `initialize_params` [Block]. General data disk configuration
-      - `size` (Number). The size of disk in gigabytes.
-      - `type` (**Required**)(String). The type of disk. Allowed values: TYPE_UNSPECIFIED, HDD or SDD
+      - `size` (*Read-Only*) (Number). The size of disk in gigabytes.
+      - `type` (*Read-Only*) (String). The type of disk. Allowed values: TYPE_UNSPECIFIED, HDD or SDD
   - `data_disk` [Block]. The data disk configuration for each desktop in the group.
     - `initialize_params` [Block]. General data disk configuration
-      - `size` (Number). The size of disk in gigabytes.
-      - `type` (**Required**)(String). The type of disk. Allowed values: TYPE_UNSPECIFIED, HDD or SDD
+      - `size` (*Read-Only*) (Number). The size of disk in gigabytes.
+      - `type` (*Read-Only*) (String). The type of disk. Allowed values: TYPE_UNSPECIFIED, HDD or SDD
   - `network_interface` [Block]. The base network interface configuration for each desktop in the group.
-    - `network_id` (**Required**)(String). The id of the network desktops from the group would use.
-    - `subnet_ids` (List Of String). The ids of the subnet networks desktops from the group would use.
+    - `network_id` (*Read-Only*) (String). The id of the network desktops from the group would use.
+    - `subnet_ids` (*Read-Only*) (List Of String). The ids of the subnet networks desktops from the group would use.
   - `resources` [Block]. The base resource configuration for each desktop in the group.
-    - `core_fraction` (Number). The baseline level of CPU performance each desktop in this group would have.
-    - `cores` (Number). The number of cores each desktop in this group would have.
-    - `memory` (Number). The number of gigabytes of RAM each desktop in this group would have.
+    - `core_fraction` (*Read-Only*) (Number). The baseline level of CPU performance each desktop in this group would have.
+    - `cores` (*Read-Only*) (Number). The number of cores each desktop in this group would have.
+    - `memory` (*Read-Only*) (Number). The number of gigabytes of RAM each desktop in this group would have.
 - `folder_id` (String). The folder the dekstop group is in.
 - `group_config` [Block]. The group configuration.
-  - `desktop_type` (String). The type of the desktop group. Allowed: DESKTOP_TYPE_UNSPECIFIED, PERSISTENT, NON_PERSISTENT
-  - `max_desktops_amount` (Number). Maximum number of desktops.
+  - `desktop_type` (*Read-Only*) (String). The type of the desktop group. Allowed: DESKTOP_TYPE_UNSPECIFIED, PERSISTENT, NON_PERSISTENT
+  - `max_desktops_amount` (*Read-Only*) (Number). Maximum number of desktops.
   - `members` [Block]. List of members in this desktop group.
-    - `id` (**Required**)(String). The id of the member. More info in [the official documentation](https://yandex.cloud/ru/docs/cloud-desktop/api-ref/grpc/DesktopGroup/create#yandex.cloud.access.Subject).
-    - `type` (**Required**)(String). The type of the member. More info in [the official documentation](https://yandex.cloud/ru/docs/cloud-desktop/api-ref/grpc/DesktopGroup/create#yandex.cloud.access.Subject).
-  - `min_ready_desktops` (Number). Minimum number of ready desktops.
+    - `id` (*Read-Only*) (String). The id of the member. More info in [the official documentation](https://yandex.cloud/ru/docs/cloud-desktop/api-ref/grpc/DesktopGroup/create#yandex.cloud.access.Subject).
+    - `type` (*Read-Only*) (String). The type of the member. More info in [the official documentation](https://yandex.cloud/ru/docs/cloud-desktop/api-ref/grpc/DesktopGroup/create#yandex.cloud.access.Subject).
+  - `min_ready_desktops` (*Read-Only*) (Number). Minimum number of ready desktops.
 - `id` (*Read-Only*) (String). The resource identifier.
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `name` (**Required**)(String). The name of the desktop group.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
+- `name` (String). The name of the desktop group.
 
 
