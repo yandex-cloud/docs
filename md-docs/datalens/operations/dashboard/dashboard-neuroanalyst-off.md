@@ -10,7 +10,7 @@
 1. В окне настроек отключите опцию **Нейроаналитик** (по умолчанию она включена).
 1. В правом верхнем углу экрана нажмите **Сохранить**.
 
-После этого AI-помощник будет недоступен для этого дашборда.
+После этого AI-помощник будет недоступен для этого дашборда, а добавленные виджеты с инсайтами перестанут работать.
 
 
 <iframe width="560" height="315" src="https://runtime.strm.yandex.ru/player/video/vplvkodebnkmnejc6qm5?autoplay=0&mute=0" allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>

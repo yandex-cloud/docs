@@ -68,6 +68,12 @@ items:
             href: operations/kspm/manage-exceptions.md
           - name: Управлять режимами работы правил
             href: operations/kspm/manage-rule-modes.md
+          - name: Создать пользовательское правило
+            href: operations/kspm/create-custom-rule.md
+          - name: Редактировать пользовательское правило
+            href: operations/kspm/edit-custom-rule.md
+          - name: Удалить пользовательское правило
+            href: operations/kspm/delete-custom-rule.md
       - name: Диагностика доступов ({{ ciem-name }})
         items:
           - name: Обзор

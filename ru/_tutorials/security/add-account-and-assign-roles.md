@@ -73,15 +73,13 @@
 
 ## Пригласите пользователя в организацию и назначьте роли {#add-account}
 
+Чтобы у пользователей был доступ к ресурсам облака в консоли управления, им нужна роль `resource-manager.clouds.member` на облако `testing`. Для управления виртуальными машинами — роль `compute.editor` на каталог `test-folder`.
+
 {% note tip %}
 
-Чтобы пользователь получил все необходимые права уже при первом входе, назначьте роли сразу после отправки приглашения. После принятия приглашения вы сможете назначить дополнительные роли или отозвать уже выданные.
+Вы можете назначить пользователю другие роли в зависимости от того, какие действия с ресурсами каталога вы хотите разрешить. Полный перечень ролей смотрите в документации [{{ iam-full-name }}](../../iam/roles-reference.md).
 
 {% endnote %}
-
-### Отправьте приглашение пользователю {#send-invitation}
-
-Чтобы пользователь мог использовать ресурсы {{ yandex-cloud }}, пригласите его в созданную организацию {{ org-full-name }}:
 
 {% list tabs group=instructions %}
 
@@ -93,7 +91,13 @@
     1. Введите почту пользователя.
 
         {% include [send-invitation](../../_includes/organization/send-invitation.md) %}
-    1. Нажмите кнопку **{{ ui-key.yacloud_components.organization.action_send-invitation_6LqIj }}**.
+    1. Для отправки приглашения нажмите кнопку **{{ ui-key.yacloud_components.organization.action_next }}**. Откроется окно для назначения ролей и добавления пользователей в группу.
+
+    1. {% include [assign-roles-on-invite](../../_includes/organization/assign-roles-on-invite.md) %}
+
+    1. {% include [add-to-group-on-invite](../../_includes/organization/add-to-group-on-invite.md) %}
+
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -145,6 +149,8 @@
 {% endlist %}
 
 После этого передайте пользователю инструкции из [следующего раздела](#user-actions).
+
+Чтобы назначить дополнительные роли или отозвать уже выданные, используйте инструкции  [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md) и [{#T}](../../resource-manager/operations/folder/set-access-bindings.md).
 
 
 ## Действия пользователя {#user-actions}

@@ -4,7 +4,7 @@
 
 Настройки безопасности позволяют накладывать ограничения на использование некоторых возможностей сервиса на уровне экземпляра DataLens:
 
-* [Нейроаналитик](../concepts/neuroanalyst.md#prohibit#prohibit) —  ограничение использования Нейроаналитика.
+* [Нейроаналитик](../concepts/neuroanalyst.md#prohibit) — ограничение использования Нейроаналитика.
 * [Возможность публикации](../concepts/datalens-public.md#publication-disable) — запрет на публикацию чартов и дашбордов.
 * [Экспорт воркбуков](../workbooks-collections/export-and-import.md#workbooks-export-disable) — запрет на экспорт воркбуков в виде файла.
 * [Экспорт данных](../concepts/chart/data-export.md#data-export-disable) — ограничение возможности скачивать данные из чартов в виде файлов.
