@@ -9,11 +9,11 @@ description: This page describes the Memory limit has been exceeded during query
 
 There is not enough memory in the data source to run the query.
 
-The error occurs when the database does not have enough memory to run a query from {{ datalens-short-name }}.
+This error occurs when the database does not have enough memory to execute a {{ datalens-short-name }} query.
 
 
 
-To correct the error, optimize the source table or reduce the amount of data in the query using chart filters.
+To fix this error, optimize the source table or reduce the amount of data in the query using chart filters.
 
 To optimize tables, contact your database administrator.
 
@@ -21,10 +21,10 @@ If you are going to perform optimization yourself, try enhancing your database w
 
 {% note tip %}
 
-If {{ CH }} is your data source, find queries from {{ datalens-short-name }} in [system.query_log]({{ ch.docs }}{{ lang }}/operations/system-tables/query_log).
+If you use a {{ CH }} database as a data source, find the {{ datalens-short-name }} queries in [system.query_log]({{ ch.docs }}{{ lang }}/operations/system-tables/query_log).
 
 
-If {{ PG }} MDB is your data source, review the [performance analysis]({{ link-docs }}/tutorials/dataplatform/mpg-profiling).
+If you use a {{ PG }} MDB as a data source, check the [performance analysis]({{ link-docs }}/tutorials/dataplatform/mpg-profiling).
 
 
 {% endnote %}

@@ -72,6 +72,8 @@ items:
             href: sdk/quickstart.md
       - name: Работа с {{ yandex-cloud }} CLI и API в Microsoft Windows
         href: concepts/console-syntax-guide.md
+      - name: MCP-серверы {{ yandex-cloud }} для AI-агентов и IDE
+        href: mcp-servers.md
   - name: Сопоставление с другими платформами
     items:
       - name: Обзор

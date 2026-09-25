@@ -56,6 +56,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [Управление хостами ClickHouse® Keeper](operations/ck-hosts.md)
 
+ - [Изменение сервиса координации](operations/ck-hosts-upgrade.md)
+
  - [Миграция хостов в другую зону доступности](operations/host-migration.md)
 
  - [Управление резервными копиями](operations/cluster-backups.md)
@@ -744,7 +746,13 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [list](cli-ref/version/list.md)
 
- - [Справочник Terraform](tf-ref.md)
+## Справочник Terraform
+
+ - [Обзор](tf-ref.md)
+
+ - [Изменения в кластере v2](concepts/migration-v1-v2.md)
+
+ - [Миграция кластера с v1 на v2](operations/migration-v1-v2.md)
 
 ## Справочник API
 

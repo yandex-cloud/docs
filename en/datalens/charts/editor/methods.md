@@ -735,7 +735,7 @@ All.
 
 #### Arguments {#get-action-params-args}
 
-`arg` (_string_): String with the key name (alias) in the `links` object on the  **Meta** tab.
+`arg` (_string_): String with the key name (alias) in the `links` object on the **Meta** tab.
 
 #### Returned result {#get-id-result}
 

@@ -192,7 +192,7 @@ Certain limitations apply when it comes to the level of detail in LOD expression
      AVG([Sales] INCLUDE [City])
      ```
 
-     When calculating this measure, the top-level grouping is done based on the `[Region]`, `[Category]`, and `[City]` dimensions. In this case the error occurs because the chart does not use the `[City]` dimension, which was added to the grouping with the help of `INCLUDE`.
+     When calculating this measure, the top-level grouping is done based on the `[Region]`, `[Category]`, and `[City]` dimensions. In this case, the error occurs because the chart does not use the `[City]` dimension, which was added to the grouping with the help of `INCLUDE`.
 
    {% endlist %}
 

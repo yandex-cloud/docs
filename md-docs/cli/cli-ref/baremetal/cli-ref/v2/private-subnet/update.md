@@ -44,6 +44,18 @@ DHCP options for the subnet.
 Start IP address of the DHCP range (inclusive). The absence or null value indicates that calculation will be performed based on CIDR.
 >>> - end-ip (string)\
 End IP address of the DHCP range (inclusive). The absence or null value indicates that calculation will be performed based on CIDR.
+>>> - dns-options (structure)\
+DNS configuration handed out to servers via DHCP.
+>>>> - servers ([]structure)\
+DNS servers handed out to servers via DHCP option 6. The order is preserved.
+>>>>> - server (oneof)\
+Oneof server field
+>>>>>> - ip-address (string)\
+Manual DNS server IP address.
+>>>>>> - dns-inbound-endpoint-id (string)\
+ID of the Cloud DNS inbound endpoint.
+>>>> - domain-name (string)\
+DNS Domain name handed out to servers via DHCP options 15 and 119.
 >> - gateway-ip (string)\
 Gateway IP address for the subnet.
 > - annotations (map[string,string])\
@@ -62,6 +74,14 @@ Resource annotations as 'key:value' pairs.
   vrf-options = {
     cidr = string,
     dhcp-options = {
+      dns-options = {
+        domain-name = string,
+        servers = [
+          {
+            server = dns-inbound-endpoint-id=string | ip-address=string
+          }, ...
+        ]
+      },
       end-ip = string,
       start-ip = string
     },
@@ -86,6 +106,17 @@ Resource annotations as 'key:value' pairs.
   "vrf-options": {
     "cidr": "string",
     "dhcp-options": {
+      "dns-options": {
+        "domain-name": "string",
+        "servers": [
+          {
+            "server": {
+              "dns-inbound-endpoint-id": "string",
+              "ip-address": "string"
+            }
+          }, ...
+        ]
+      },
       "end-ip": "string",
       "start-ip": "string"
     },

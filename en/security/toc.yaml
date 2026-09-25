@@ -123,6 +123,12 @@ items:
                 href: tutorials/single-sign-on/saml-jenkins.md
               - name: Setting up OIDC SSO in Jenkins
                 href: tutorials/single-sign-on/oidc-jenkins.md
+          - name: LibreChat
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/saml-librechat.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/oidc-librechat.md
           - name: Loop
             items:
               - name: Setting up SAML SSO in Loop
@@ -145,6 +151,8 @@ items:
                 href: tutorials/single-sign-on/saml-ovpn.md
               - name: Setting up OIDC SSO in OpenVPN Community Edition
                 href: tutorials/single-sign-on/oidc-ovpn.md
+          - name: Setting up OIDC SSO in Open WebUI
+            href: tutorials/single-sign-on/oidc-open-webui.md
           - name: Setting up SAML SSO in Selectel
             href: tutorials/single-sign-on/saml-selectel.md
           - name: Setting up SAML SSO in Sentry

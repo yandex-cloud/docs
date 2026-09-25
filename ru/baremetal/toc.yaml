@@ -76,6 +76,8 @@ items:
             href: operations/network-create.md
           - name: Создать приватную подсеть
             href: operations/subnet-create.md
+          - name: Настроить DNS в приватной подсети
+            href: operations/configure-dns.md
           - name: Заказать выделенную публичную подсеть
             href: operations/reserve-public-subnet.md
           - name: Удалить выделенную публичную подсеть
@@ -132,6 +134,8 @@ items:
             href: concepts/private-network.md
           - name: DHCP
             href: concepts/dhcp.md
+          - name: DNS в приватной сети
+            href: concepts/dns.md
           - name: MC-LAG
             href: concepts/mc-lag.md
           - name: Ограничения в сетях {{ baremetal-name }}
@@ -810,6 +814,8 @@ items:
                         href: cli-ref/v2/image/get.md
                       - name: list
                         href: cli-ref/v2/image/list.md
+                      - name: list-compatible
+                        href: cli-ref/v2/image/list-compatible.md
                       - name: resolve
                         href: cli-ref/v2/image/resolve.md
                   - name: private-cloud-connection

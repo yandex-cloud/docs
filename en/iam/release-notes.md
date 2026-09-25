@@ -5,6 +5,46 @@ description: This section contains the {{ iam-name }} release notes.
 
 # {{ iam-full-name }} release notes
 
+## August 2026 {#august-2026}
+
+### {{ iam-name }} updates {#iam-august-2026}
+
+* The `compute.editor` and `compute.admin` roles in {{ compute-name }}, as well as the `baremetal.editor` and `baremetal.admin` in {{ baremetal-name }} now include permissions of the [`backup.user`](../backup/security/index.md#backup-user) role.
+
+### New roles {#roles-august-2026}
+
+{% cut "{{ billing-name }}" %}
+
+#### billing.usagerecords.admin {#billing-usagerecords-admin}
+
+{% include [billing.usagerecords.admin](../_roles/billing/usagerecords/admin.md) %}
+
+{% endcut %}
+
+{% cut "{{ mch-full-name }}" %}
+
+#### managed-clickhouse.clusters.connector {#managed-clickhouse-clusters-connector}
+
+{% include [managed-clickhouse.clusters.connector](../_roles/managed-clickhouse/clusters/connector.md) %}
+
+{% endcut %}
+
+{% cut "{{ mgl-full-name }}" %}
+
+#### gitlab.backupAdmin {#gitlab-backupadmin}
+
+{% include [gitlab.backupAdmin](../_roles/gitlab/backupAdmin.md) %}
+
+#### gitlab.backupDownloader {#gitlab-backupdownloader}
+
+{% include [gitlab.backupDownloader](../_roles/gitlab/backupDownloader.md) %}
+
+#### gitlab.backupRestorer {#gitlab-backuprestorer}
+
+{% include [gitlab.backupRestorer](../_roles/gitlab/backupRestorer.md) %}
+
+{% endcut %}
+
 ## July 2026 {#july-2026}
 
 ### {{ iam-name }} updates {#iam-july-2026}
@@ -17,43 +57,57 @@ description: This section contains the {{ iam-name }} release notes.
 
 {% cut "{{ cloud-registry-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `cloud-registry.artifacts.scanner` | This role enables scanning registry artifacts for vulnerabilities, pulling artifacts, as well as viewing info on artifacts and registries, on access permissions granted for registries, and on {{ cloud-registry-name }} quotas.
+#### cloud-registry.artifacts.scanner {#cloud-registry-artifacts-scanner}
 
-{% endcut %}
-
-{% cut "{{ src-full-name }}" %}
-
-   Role | Description
-   --- | ---
-   `src.projects.admin` | This role includes the permissions to manage the project and administer all its repositories. It enables deleting the project and assigning its administrators.
-   `src.projects.maintainer` | This role enables managing all the project's repositories. It allows creating and updating the project, managing access to it, as well as adding or deleting its repositories.
-   `src.projects.viewer` | This role enables viewing all the project's repositories. It allows viewing the project as well as its access permissions and repositories.
+{% include [cloud-registry.artifacts.scanner](../_roles/cloud-registry/artifacts/scanner.md) %}
 
 {% endcut %}
 
 {% cut "{{ sd-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `threat-detector.admin` | This role enables viewing info on {{ td-full-name }}'s security management rules, creating exceptions from such rules, as well as viewing info on access permissions granted for {{ td-full-name }} and modifying them.
-   `threat-detector.auditor` | This role enables viewing info on {{ td-full-name }}'s security management rules and access permissions granted for it.
-   `threat-detector.editor` | This role enables viewing info on access permissions granted for {{ td-full-name }} and its security management rules, as well as creating exceptions from such rules.
-   `threat-detector.viewer` | This role enables viewing info on {{ td-full-name }}'s security management rules and access permissions granted for it.
-   `threat-detector.worker` | This role enables viewing logs registered in the customer's infrastructure using {{ at-full-name }}.
-   `vulnerability-manager.admin` | This role enables viewing info on {{ vuln-man-name }} scan jobs, running and modifying them, as well as viewing their results.
-   `vulnerability-manager.auditor` | This role enables viewing {{ vuln-man-name }} scan results.
-   `vulnerability-manager.editor` | This role enables viewing info on {{ vuln-man-name }} scan jobs, running and modifying them, as well as viewing their results.
-   `vulnerability-manager.viewer` | This role enables viewing info on {{ vuln-man-name }} scan jobs and their results.
+#### threat-detector.admin {#threat-detector-admin}
+
+{% include [threat-detector.admin](../_roles/threat-detector/admin.md) %}
+
+#### threat-detector.auditor {#threat-detector-auditor}
+
+{% include [threat-detector.auditor](../_roles/threat-detector/auditor.md) %}
+
+#### threat-detector.editor {#threat-detector-editor}
+
+{% include [threat-detector.editor](../_roles/threat-detector/editor.md) %}
+
+#### threat-detector.viewer {#threat-detector-viewer}
+
+{% include [threat-detector.viewer](../_roles/threat-detector/viewer.md) %}
+
+#### threat-detector.worker {#threat-detector-worker}
+
+{% include [threat-detector.worker](../_roles/threat-detector/worker.md) %}
+
+#### vulnerability-manager.admin {#vulnerability-manager-admin}
+
+{% include [vulnerability-manager.admin](../_roles/vulnerability-manager/admin.md) %}
+
+#### vulnerability-manager.auditor {#vulnerability-manager-auditor}
+
+{% include [vulnerability-manager.auditor](../_roles/vulnerability-manager/auditor.md) %}
+
+#### vulnerability-manager.editor {#vulnerability-manager-editor}
+
+{% include [vulnerability-manager.editor](../_roles/vulnerability-manager/editor.md) %}
+
+#### vulnerability-manager.viewer {#vulnerability-manager-viewer}
+
+{% include [vulnerability-manager.viewer](../_roles/vulnerability-manager/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mmg-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-mongodb.clusters.connector` | Enables {{ yandex-cloud }} users to connect to databases in {{ SD }} clusters via {{ iam-full-name }}.
+#### managed-mongodb.clusters.connector {#managed-mongodb-clusters-connector}
+
+{% include [managed-mongodb.clusters.connector](../_roles/managed-mongodb/clusters/connector.md) %}
 
 {% endcut %}
 
@@ -61,33 +115,63 @@ description: This section contains the {{ iam-name }} release notes.
 
 ### {{ iam-name }} updates {#iam-june-2026}
 
-* Added the `resourceManager.denyCloudRemoval` [authorization policy](concepts/access-control/access-policies.md#resourceManager-denyCloudRemoval) template that allows you to prohibit cloud deletion.
+* Added the `resourceManager.denyCloudRemoval` [access policy](concepts/access-control/access-policies.md#resourceManager-denyCloudRemoval) template that allows you to prohibit cloud deletion.
 
 ### New roles {#roles-june-2026}
 
 {% cut "{{ metastore-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-metastore.maintenanceTask.editor` | Allows the user to view information about maintenance tasks for {{ metastore-name }} clusters and modify such tasks, view information about clusters and access permissions issued for them, and about quotas of {{ yandex-cloud }} managed DB services.
-   `managed-metastore.maintenanceTask.viewer` | Allows the user to view information about {{ metastore-name }} clusters, access permissions issued for them, their maintenance tasks, and about quotas of {{ yandex-cloud }} managed DB services.
+#### managed-metastore.maintenanceTask.editor {#managed-metastore-maintenancetask-editor}
+
+{% include [managed-metastore.maintenanceTask.editor](../_roles/managed-metastore/maintenanceTask/editor.md) %}
+
+#### managed-metastore.maintenanceTask.viewer {#managed-metastore-maintenancetask-viewer}
+
+{% include [managed-metastore.maintenanceTask.viewer](../_roles/managed-metastore/maintenanceTask/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ datalens-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `datalens.collections.creator` | Allows the user to view the collection and create objects inside it without access to other objects existing inside the collection.
-   `datalens.collections.entryBindingCreator` | Allows the user to re-use shared objects from this collection either with or without delegating access permissions.
-   `datalens.collections.limitedEntryBindingCreator` | Allows the user to re-use shared objects from this collection without delegating access permissions.
-   `datalens.collections.visitor` | Allows the user to view information about the current collection without accessing its nested objects.
-   `datalens.sharedEntries.admin` | Allows the user to view the shared object and fully manage it, i.e., edit, move, delete it, and configure access permissions for it.
-   `datalens.sharedEntries.editor` | Allows the user to edit the shared object, view the object itself and access permissions assigned for it.
-   `datalens.sharedEntries.entryBindingCreator` | Allows the user to re-use the shared object in workbooks either with or without delegating access permissions.
-   `datalens.sharedEntries.limitedEntryBindingCreator` | Allows the user to re-use the shared object in workbooks without delegating access permissions.
-   `datalens.sharedEntries.limitedViewer` | Allows the user to view [charts](../datalens/concepts/chart/index.md) and [dashboards](../datalens/concepts/dashboard.md) that use the shared object without directly accessing the object itself.
-   `datalens.sharedEntries.viewer` | Allows the user to view the shared object and access permissions assigned for it.
+#### datalens.collections.creator {#datalens-collections-creator}
+
+{% include [datalens.collections.creator](../_roles/datalens/collections/creator.md) %}
+
+#### datalens.collections.entryBindingCreator {#datalens-collections-entrybindingcreator}
+
+{% include [datalens.collections.entryBindingCreator](../_roles/datalens/collections/entryBindingCreator.md) %}
+
+#### datalens.collections.limitedEntryBindingCreator {#datalens-collections-limitedentrybindingcreator}
+
+{% include [datalens.collections.limitedEntryBindingCreator](../_roles/datalens/collections/limitedEntryBindingCreator.md) %}
+
+#### datalens.collections.visitor {#datalens-collections-visitor}
+
+{% include [datalens.collections.visitor](../_roles/datalens/collections/visitor.md) %}
+
+#### datalens.sharedEntries.admin {#datalens-sharedentries-admin}
+
+{% include [datalens.sharedEntries.admin](../_roles/datalens/sharedEntries/admin.md) %}
+
+#### datalens.sharedEntries.editor {#datalens-sharedentries-editor}
+
+{% include [datalens.sharedEntries.editor](../_roles/datalens/sharedEntries/editor.md) %}
+
+#### datalens.sharedEntries.entryBindingCreator {#datalens-sharedentries-entrybindingcreator}
+
+{% include [datalens.sharedEntries.entryBindingCreator](../_roles/datalens/sharedEntries/entryBindingCreator.md) %}
+
+#### datalens.sharedEntries.limitedEntryBindingCreator {#datalens-sharedentries-limitedentrybindingcreator}
+
+{% include [datalens.sharedEntries.limitedEntryBindingCreator](../_roles/datalens/sharedEntries/limitedEntryBindingCreator.md) %}
+
+#### datalens.sharedEntries.limitedViewer {#datalens-sharedentries-limitedviewer}
+
+{% include [datalens.sharedEntries.limitedViewer](../_roles/datalens/sharedEntries/limitedViewer.md) %}
+
+#### datalens.sharedEntries.viewer {#datalens-sharedentries-viewer}
+
+{% include [datalens.sharedEntries.viewer](../_roles/datalens/sharedEntries/viewer.md) %}
 
 {% endcut %}
 
@@ -102,59 +186,89 @@ description: This section contains the {{ iam-name }} release notes.
 
 {% cut "{{ cloud-apps-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `cloudapps.admin` | Enables the user to view info on installed {{ cloud-apps-name }} applications, create, modify, and delete them.
-   `cloudapps.auditor` | Enables the user to view the metadata of installed {{ cloud-apps-name }} applications.
-   `cloudapps.editor` | Enables the user to view info on installed {{ cloud-apps-name }} applications, create, modify, and delete them.
-   `cloudapps.viewer` | Enables the user to view info on installed {{ cloud-apps-name }} applications.
+#### cloudapps.admin {#cloudapps-admin}
+
+{% include [cloudapps.admin](../_roles/cloudapps/admin.md) %}
+
+#### cloudapps.auditor {#cloudapps-auditor}
+
+{% include [cloudapps.auditor](../_roles/cloudapps/auditor.md) %}
+
+#### cloudapps.editor {#cloudapps-editor}
+
+{% include [cloudapps.editor](../_roles/cloudapps/editor.md) %}
+
+#### cloudapps.viewer {#cloudapps-viewer}
+
+{% include [cloudapps.viewer](../_roles/cloudapps/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ marketplace-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `marketplace.productInstances.admin` | Enables the user to manage installed Marketplace products and access to them.
-   `marketplace.productInstances.auditor` | Enables the user to view info on installed Marketplace products and access permissions for them and to view folder metadata.
-   `marketplace.productInstances.editor` | Enables the user to manage installed Marketplace products.
-   `marketplace.productInstances.saasSupervisor` | Enables the user to view info on installed Marketplace SaaS products and activate such products.
-   `marketplace.productInstances.user` | Enables the user to view info on installed Marketplace products, activate and deactivate them, and view info on access permissions for them.
-   `marketplace.productInstances.viewer` | Enables the user to view info on installed Marketplace products and access permissions for them.
+#### marketplace.productInstances.admin {#marketplace-productinstances-admin}
+
+{% include [marketplace.productInstances.admin](../_roles/marketplace/productInstances/admin.md) %}
+
+#### marketplace.productInstances.auditor {#marketplace-productinstances-auditor}
+
+{% include [marketplace.productInstances.auditor](../_roles/marketplace/productInstances/auditor.md) %}
+
+#### marketplace.productInstances.editor {#marketplace-productinstances-editor}
+
+{% include [marketplace.productInstances.editor](../_roles/marketplace/productInstances/editor.md) %}
+
+#### marketplace.productInstances.saasSupervisor {#marketplace-productinstances-saassupervisor}
+
+{% include [marketplace.productInstances.saasSupervisor](../_roles/marketplace/productInstances/saasSupervisor.md) %}
+
+#### marketplace.productInstances.user {#marketplace-productinstances-user}
+
+{% include [marketplace.productInstances.user](../_roles/marketplace/productInstances/user.md) %}
+
+#### marketplace.productInstances.viewer {#marketplace-productinstances-viewer}
+
+{% include [marketplace.productInstances.viewer](../_roles/marketplace/productInstances/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ postbox-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `postbox.messages.reader` | Enables the user to view the sent emails info, including sender, recipients, subject, sending date, delivery and engagement metrics, complaints, and unsubscriptions.
-   `postbox.statistics.reader` | Enables the user to view the sent emails statistics.
+#### postbox.messages.reader {#postbox-messages-reader}
+
+{% include [postbox.messages.reader](../_roles/postbox/messages/reader.md) %}
+
+#### postbox.statistics.reader {#postbox-statistics-reader}
+
+{% include [postbox.statistics.reader](../_roles/postbox/statistics/reader.md) %}
 
 {% endcut %}
 
 {% cut "{{ iam-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `iam.serviceAccounts.ephemeralAccessKeyAdmin` | Enables the user to create [ephemeral access keys](concepts/authorization/ephemeral-keys.md) for service accounts.
+#### iam.serviceAccounts.ephemeralAccessKeyAdmin {#iam-serviceaccounts-ephemeralaccesskeyadmin}
+
+{% include [iam.serviceAccounts.ephemeralAccessKeyAdmin](../_roles/iam/serviceAccounts/ephemeralAccessKeyAdmin.md) %}
 
 {% endcut %}
 
 {% cut "{{ mrd-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-redis.clusters.connector` | Enables {{ yandex-cloud }} users to connect to databases in {{ VLK }} clusters via {{ iam-full-name }}.
+#### managed-redis.clusters.connector {#managed-redis-clusters-connector}
+
+{% include [managed-redis.clusters.connector](../_roles/managed-redis/clusters/connector.md) %}
 
 {% endcut %}
 
 {% cut "{{ yandex-siem-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `ycem.executor` | Enables the user to manage requests, investigations, datasets, and correlation rules.
-   `ycem.inspector` | Enables the user to manage requests, investigations, and datasets.
+#### ycem.executor {#ycem-executor}
+
+{% include [ycem.executor](../_roles/ycem/executor.md) %}
+
+#### ycem.inspector {#ycem-inspector}
+
+{% include [ycem.inspector](../_roles/ycem/inspector.md) %}
 
 {% endcut %}
 
@@ -168,56 +282,77 @@ description: This section contains the {{ iam-name }} release notes.
 
 {% cut "{{ cns-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `notifications.admin` | Enables the user to manage all notification channels and topics and send notifications to all channels and topics.
-   `notifications.auditor` | Enables the user to view metadata of all notification channels, metadata of topics, and info on quotas.
-   `notifications.editor` | Enables the user to manage all notification channels and topics and send notifications to all channels and topics.
-   `notifications.publisher` | Enables the user to send notifications to all channels and topics.
-   `notifications.viewer` | Enables the user to view info on topics, notification channels, and quotas.
+#### notifications.admin {#notifications-admin}
+
+{% include [notifications.admin](../_roles/notifications/admin.md) %}
+
+#### notifications.auditor {#notifications-auditor}
+
+{% include [notifications.auditor](../_roles/notifications/auditor.md) %}
+
+#### notifications.editor {#notifications-editor}
+
+{% include [notifications.editor](../_roles/notifications/editor.md) %}
+
+#### notifications.publisher {#notifications-publisher}
+
+{% include [notifications.publisher](../_roles/notifications/publisher.md) %}
+
+#### notifications.viewer {#notifications-viewer}
+
+{% include [notifications.viewer](../_roles/notifications/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ datalens-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `datalens.metaReader` | Enables the user to execute requests from the _Audit_ section in the [DataLens Public API](../datalens/operations/api-start).
+#### datalens.metaReader {#datalens-metareader}
+
+{% include [datalens.metaReader](../_roles/datalens/metaReader.md) %}
 
 {% endcut %}
 
 {% cut "{{ dns-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `dns.firewallEditor` | Enables the user to manage DNS firewalls and use clouds, folders, and cloud networks as resources for them.
-   `dns.firewallUser` | Enables the user to use clouds, folders, and cloud networks as resources for DNS firewalls and to view info on resources and quotas of the service.
+#### dns.firewallEditor {#dns-firewalleditor}
+
+{% include [dns.firewallEditor](../_roles/dns/firewallEditor.md) %}
+
+#### dns.firewallUser {#dns-firewalluser}
+
+{% include [dns.firewallUser](../_roles/dns/firewallUser.md) %}
 
 {% endcut %}
 
 {% cut "{{ org-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `organization-manager.groups.viewer` | Enables the user to view info on user groups and access permissions granted to them, and to view the list of users and service accounts forming part of the group.
+#### organization-manager.groups.viewer {#organization-manager-groups-viewer}
+
+{% include [organization-manager.groups.viewer](../_roles/organization-manager/groups/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ managed-k8s-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `k8s.cluster-api.admin` | Grants the `yc:k8s-core-admin` group and the `admin` role in Kubernetes RBAC.
+#### k8s.cluster-api.admin {#k8s-cluster-api-admin}
+
+{% include [k8s.cluster-api.admin](../_roles/k8s/cluster-api/admin.md) %}
 
 {% endcut %}
 
 {% cut "Managed databases" %}
 
-   Role | Description
-   --- | ---
-   `mdb.maintenanceTask.editor` | Enables the user to view info on maintenance tasks for managed database clusters and modify such tasks, view info on clusters and access permissions granted for them, hosts and cluster backups, quotas and operations with resources of the services.
-   `mdb.maintenanceTask.viewer` | Enables the user to view info on maintenance tasks for managed database clusters, as well as info on such clusters and access permissions granted for them, hosts and cluster backups, quotas and operations with resources of the services.
-   `mdb.switcher` | Enables the user to re-assign the master host in managed database clusters, view info on clusters, hosts, databases, and users, cluster logs, data on quotas and operations with resources of the services.
+#### mdb.maintenanceTask.editor {#mdb-maintenancetask-editor}
+
+{% include [mdb.maintenanceTask.editor](../_roles/mdb/maintenanceTask/editor.md) %}
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenancetask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.switcher {#mdb-switcher}
+
+{% include [mdb.switcher](../_roles/mdb/switcher.md) %}
 
 {% endcut %}
 
@@ -227,133 +362,217 @@ description: This section contains the {{ iam-name }} release notes.
 
 {% cut "{{ ai-studio-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `ai.guardrails.admin` | Enables the user to view info on model response guardrails, create, apply, modify, and delete such guardrails.
-   `ai.guardrails.auditor` | Enables the user to view metadata on model response guardrails.
-   `ai.guardrails.editor` | Enables the user to view info on model response guardrails, create, apply, modify, and delete such guardrails.
-   `ai.guardrails.user` | Enables the user to apply model response guardrails and view their metadata.
-   `ai.guardrails.viewer` | Enables the user to view info on model response guardrails.
+#### ai.guardrails.admin {#ai-guardrails-admin}
+
+{% include [ai.guardrails.admin](../_roles/ai/guardrails/admin.md) %}
+
+#### ai.guardrails.auditor {#ai-guardrails-auditor}
+
+{% include [ai.guardrails.auditor](../_roles/ai/guardrails/auditor.md) %}
+
+#### ai.guardrails.editor {#ai-guardrails-editor}
+
+{% include [ai.guardrails.editor](../_roles/ai/guardrails/editor.md) %}
+
+#### ai.guardrails.user {#ai-guardrails-user}
+
+{% include [ai.guardrails.user](../_roles/ai/guardrails/user.md) %}
+
+#### ai.guardrails.viewer {#ai-guardrails-viewer}
+
+{% include [ai.guardrails.viewer](../_roles/ai/guardrails/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mgp-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-greenplum.maintenanceTask.editor` | Enables the user to view info on maintenance tasks for {{ GP }} clusters and modify such tasks, view info on {{ GP }} clusters and access permissions granted for them, hosts and cluster backups, quotas and operations with resources of the service.
-   `managed-greenplum.maintenanceTask.viewer` | Enables the user to view info on maintenance tasks for {{ GP }} clusters, such clusters themselves and access permissions granted for them, hosts and cluster backups, quotas and operations with resources of the service.
-   `managed-greenplum.user` | Enables the use of {{ GP }} clusters.
+#### managed-greenplum.maintenanceTask.editor {#managed-greenplum-maintenancetask-editor}
+
+{% include [managed-greenplum.maintenanceTask.editor](../_roles/managed-greenplum/maintenanceTask/editor.md) %}
+
+#### managed-greenplum.maintenanceTask.viewer {#managed-greenplum-maintenancetask-viewer}
+
+{% include [managed-greenplum.maintenanceTask.viewer](../_roles/managed-greenplum/maintenanceTask/viewer.md) %}
+
+#### managed-greenplum.user {#managed-greenplum-user}
+
+{% include [managed-greenplum.user](../_roles/managed-greenplum/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ maf-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-airflow.maintenanceTask.editor` | Enables the user to view info on maintenance tasks for {{ AF }} clusters and modify such tasks, view info on {{ AF }} clusters and access permissions granted for them, as well as quotas.
-   `managed-airflow.maintenanceTask.viewer` | Enables the user to view info on {{ AF }} clusters and access permissions granted for them, their maintenance tasks, and quotas.
+#### managed-airflow.maintenanceTask.editor {#managed-airflow-maintenancetask-editor}
+
+{% include [managed-airflow.maintenanceTask.editor](../_roles/managed-airflow/maintenanceTask/editor.md) %}
+
+#### managed-airflow.maintenanceTask.viewer {#managed-airflow-maintenancetask-viewer}
+
+{% include [managed-airflow.maintenanceTask.viewer](../_roles/managed-airflow/maintenanceTask/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mkf-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-kafka.maintenanceTask.editor` | Enables the user to view info on maintenance tasks for {{ KF }} clusters and modify such tasks, view info on {{ KF }} clusters and access permissions granted for them, quotas and operations with resources of the service.
-   `managed-kafka.maintenanceTask.viewer` | Enables the user to view info on {{ KF }} clusters and access permissions granted for them, their maintenance tasks, quotas and operations with resources of the service.
-   `managed-kafka.user` | Enables the use of {{ KF }} clusters.
+#### managed-kafka.maintenanceTask.editor {#managed-kafka-maintenancetask-editor}
+
+{% include [managed-kafka.maintenanceTask.editor](../_roles/managed-kafka/maintenanceTask/editor.md) %}
+
+#### managed-kafka.maintenanceTask.viewer {#managed-kafka-maintenancetask-viewer}
+
+{% include [managed-kafka.maintenanceTask.viewer](../_roles/managed-kafka/maintenanceTask/viewer.md) %}
+
+#### managed-kafka.user {#managed-kafka-user}
+
+{% include [managed-kafka.user](../_roles/managed-kafka/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ msp-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-spark.maintenanceTask.editor` | Enables the user to view info on maintenance tasks for {{ SPRK }} clusters and modify such tasks, view info on {{ SPRK }} clusters and access permissions granted for them, as well as quotas.
-   `managed-spark.maintenanceTask.viewer` | Enables the user to view info on {{ SPRK }} clusters and access permissions granted for them, their maintenance tasks, and quotas.
+#### managed-spark.maintenanceTask.editor {#managed-spark-maintenancetask-editor}
+
+{% include [managed-spark.maintenanceTask.editor](../_roles/managed-spark/maintenanceTask/editor.md) %}
+
+#### managed-spark.maintenanceTask.viewer {#managed-spark-maintenancetask-viewer}
+
+{% include [managed-spark.maintenanceTask.viewer](../_roles/managed-spark/maintenanceTask/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mch-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-clickhouse.maintenanceTask.editor` | Enables the user to view info on maintenance tasks for {{ CH }} clusters and modify such tasks, view info on {{ CH }} clusters and access permissions granted for them, quotas and operations with resources of the service.
-   `managed-clickhouse.maintenanceTask.viewer` | Enables the user to view info on maintenance tasks for {{ CH }} clusters, {{ CH }} clusters and access permissions granted for them, quotas and operations with resources of the service.
-   `managed-clickhouse.user` | Enables the use of {{ CH }} clusters.
+#### managed-clickhouse.maintenanceTask.editor {#managed-clickhouse-maintenancetask-editor}
+
+{% include [managed-clickhouse.maintenanceTask.editor](../_roles/managed-clickhouse/maintenanceTask/editor.md) %}
+
+#### managed-clickhouse.maintenanceTask.viewer {#managed-clickhouse-maintenancetask-viewer}
+
+{% include [managed-clickhouse.maintenanceTask.viewer](../_roles/managed-clickhouse/maintenanceTask/viewer.md) %}
+
+#### managed-clickhouse.user {#managed-clickhouse-user}
+
+{% include [managed-clickhouse.user](../_roles/managed-clickhouse/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ mmy-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-mysql.maintenanceTask.editor` | Enables the user to view info on maintenance tasks for {{ MY }} clusters and modify such tasks, view info on {{ MY }} clusters and access permissions granted for them, hosts and cluster backups, quotas and operations with resources of the service.
-   `managed-mysql.maintenanceTask.viewer` | Enables the user to view info on maintenance tasks for {{ MY }} clusters, such clusters themselves and access permissions granted for them, hosts and cluster backups, quotas and operations with resources of the service.
-   `managed-mysql.switcher` | Enables the user to re-assign the master host in {{ MY }} clusters, view info on {{ MY }} clusters, hosts, databases, and users, view cluster logs, data on quotas and operations with resources of the service.
-   `managed-mysql.user` | Enables the use of {{ MY }} clusters.
+#### managed-mysql.maintenanceTask.editor {#managed-mysql-maintenancetask-editor}
+
+{% include [managed-mysql.maintenanceTask.editor](../_roles/managed-mysql/maintenanceTask/editor.md) %}
+
+#### managed-mysql.maintenanceTask.viewer {#managed-mysql-maintenancetask-viewer}
+
+{% include [managed-mysql.maintenanceTask.viewer](../_roles/managed-mysql/maintenanceTask/viewer.md) %}
+
+#### managed-mysql.switcher {#managed-mysql-switcher}
+
+{% include [managed-mysql.switcher](../_roles/managed-mysql/switcher.md) %}
+
+#### managed-mysql.user {#managed-mysql-user}
+
+{% include [managed-mysql.user](../_roles/managed-mysql/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ mos-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-opensearch.maintenanceTask.editor` | Enables the user to view info on maintenance tasks for {{ OS }} clusters and modify such tasks, view info on {{ OS }} clusters and access permissions granted for them, quotas and operations with resources of the service.
-   `managed-opensearch.maintenanceTask.viewer` | Enables the user to view info on {{ OS }} clusters and access permissions granted for them, their maintenance tasks, quotas and operations with resources of the service.
-   `managed-opensearch.user` | Enables the use of {{ OS }} clusters.
+#### managed-opensearch.maintenanceTask.editor {#managed-opensearch-maintenancetask-editor}
+
+{% include [managed-opensearch.maintenanceTask.editor](../_roles/managed-opensearch/maintenanceTask/editor.md) %}
+
+#### managed-opensearch.maintenanceTask.viewer {#managed-opensearch-maintenancetask-viewer}
+
+{% include [managed-opensearch.maintenanceTask.viewer](../_roles/managed-opensearch/maintenanceTask/viewer.md) %}
+
+#### managed-opensearch.user {#managed-opensearch-user}
+
+{% include [managed-opensearch.user](../_roles/managed-opensearch/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ mpg-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-postgresql.maintenanceTask.editor` | Enables the user to view info on maintenance tasks for {{ PG }} clusters and modify such tasks, view info on {{ PG }} clusters and access permissions granted for them, hosts and cluster backups, quotas and operations with resources of the service.
-   `managed-postgresql.maintenanceTask.viewer` | Enables the user to view info on maintenance tasks for {{ PG }} clusters, such clusters themselves and access permissions granted for them, hosts and backups, quotas and operations with resources of the service.
-   `managed-postgresql.switcher` | Enables the user to re-assign the master host in {{ PG }} clusters, view info on {{ PG }} clusters, hosts, databases, and users, view cluster logs, data on quotas and operations with resources of the service.
-   `managed-postgresql.user` | Enables the use of {{ PG }} clusters.
+#### managed-postgresql.maintenanceTask.editor {#managed-postgresql-maintenancetask-editor}
+
+{% include [managed-postgresql.maintenanceTask.editor](../_roles/managed-postgresql/maintenanceTask/editor.md) %}
+
+#### managed-postgresql.maintenanceTask.viewer {#managed-postgresql-maintenancetask-viewer}
+
+{% include [managed-postgresql.maintenanceTask.viewer](../_roles/managed-postgresql/maintenanceTask/viewer.md) %}
+
+#### managed-postgresql.switcher {#managed-postgresql-switcher}
+
+{% include [managed-postgresql.switcher](../_roles/managed-postgresql/switcher.md) %}
+
+#### managed-postgresql.user {#managed-postgresql-user}
+
+{% include [managed-postgresql.user](../_roles/managed-postgresql/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ mspqr-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-spqr.maintenanceTask.editor` | Enables the user to view info on maintenance tasks for {{ SPQR }} clusters and modify such tasks, view info on {{ SPQR }} clusters and access permissions granted for them, cluster hosts, quotas and operations with resources of the service.
-   `managed-spqr.maintenanceTask.viewer` | Enables the user to view info on maintenance tasks for {{ SPQR }} clusters, such clusters themselves and access permissions granted for them, cluster hosts, quotas and operations with resources of the service.
+#### managed-spqr.maintenanceTask.editor {#managed-spqr-maintenancetask-editor}
+
+{% include [managed-spqr.maintenanceTask.editor](../_roles/managed-spqr/maintenanceTask/editor.md) %}
+
+#### managed-spqr.maintenanceTask.viewer {#managed-spqr-maintenancetask-viewer}
+
+{% include [managed-spqr.maintenanceTask.viewer](../_roles/managed-spqr/maintenanceTask/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mtr-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-trino.maintenanceTask.editor` | Enables the user to view info on maintenance tasks for {{ TR }} clusters and modify such tasks, view info on {{ TR }} clusters and access permissions granted for them, as well as quotas.
-   `managed-trino.maintenanceTask.viewer` | Enables the user to view info on {{ TR }} clusters and access permissions granted for them, their maintenance tasks, and quotas.
+#### managed-trino.maintenanceTask.editor {#managed-trino-maintenancetask-editor}
+
+{% include [managed-trino.maintenanceTask.editor](../_roles/managed-trino/maintenanceTask/editor.md) %}
+
+#### managed-trino.maintenanceTask.viewer {#managed-trino-maintenancetask-viewer}
+
+{% include [managed-trino.maintenanceTask.viewer](../_roles/managed-trino/maintenanceTask/viewer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mrd-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-redis.maintenanceTask.editor` | Enables the user to view info on maintenance tasks for {{ VLK }} clusters and modify such tasks, view info on {{ VLK }} clusters and access permissions granted for them, hosts and cluster backups, quotas and operations with resources of the service.
-   `managed-redis.maintenanceTask.viewer` | Enables the user to view info on maintenance tasks for {{ VLK }} clusters, such clusters themselves and access permissions granted for them, hosts and cluster backups, quotas and operations with resources of the service.
-   `managed-redis.switcher` | Enables the user to re-assign the master host in {{ VLK }} clusters, view info on {{ VLK }} hosts and clusters, their logs, view data on quotas and operations with resources of the service.
-   `managed-redis.user` | Enables the use of {{ VLK }} clusters.
+#### managed-redis.maintenanceTask.editor {#managed-redis-maintenancetask-editor}
+
+{% include [managed-redis.maintenanceTask.editor](../_roles/managed-redis/maintenanceTask/editor.md) %}
+
+#### managed-redis.maintenanceTask.viewer {#managed-redis-maintenancetask-viewer}
+
+{% include [managed-redis.maintenanceTask.viewer](../_roles/managed-redis/maintenanceTask/viewer.md) %}
+
+#### managed-redis.switcher {#managed-redis-switcher}
+
+{% include [managed-redis.switcher](../_roles/managed-redis/switcher.md) %}
+
+#### managed-redis.user {#managed-redis-user}
+
+{% include [managed-redis.user](../_roles/managed-redis/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ mmg-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-mongodb.maintenanceTask.editor` | Enables the user to view info on maintenance tasks for {{ SD }} clusters and modify such tasks, view info on {{ SD }} clusters and access permissions granted for them, hosts and cluster backups, quotas and operations with resources of the service.
-   `managed-mongodb.maintenanceTask.viewer` | Enables the user to view info on maintenance tasks for {{ SD }} clusters, such clusters themselves and access permissions granted for them, hosts and cluster backups, quotas and operations with resources of the service.
-   `managed-mongodb.switcher` | Enables the user to re-assign the master host in {{ SD }} clusters, view info on {{ SD }} clusters, hosts, shards, databases, and users, view cluster logs, data on quotas and operations with resources of the service.
-   `managed-mongodb.user` | Enables the use of {{ SD }} clusters.
+#### managed-mongodb.maintenanceTask.editor {#managed-mongodb-maintenancetask-editor}
+
+{% include [managed-mongodb.maintenanceTask.editor](../_roles/managed-mongodb/maintenanceTask/editor.md) %}
+
+#### managed-mongodb.maintenanceTask.viewer {#managed-mongodb-maintenancetask-viewer}
+
+{% include [managed-mongodb.maintenanceTask.viewer](../_roles/managed-mongodb/maintenanceTask/viewer.md) %}
+
+#### managed-mongodb.switcher {#managed-mongodb-switcher}
+
+{% include [managed-mongodb.switcher](../_roles/managed-mongodb/switcher.md) %}
+
+#### managed-mongodb.user {#managed-mongodb-user}
+
+{% include [managed-mongodb.user](../_roles/managed-mongodb/user.md) %}
 
 {% endcut %}
 
@@ -367,9 +586,9 @@ description: This section contains the {{ iam-name }} release notes.
 
 {% cut "Yandex Cloud Backup" %}
 
-   Role | Description
-   --- | ---
-   `backup.auditor` | Enables the user to view info on {{ baremetal-name }} virtual machines and servers connected to {{ backup-short-name }}, backup policies and quotas of the service, cloud and folder.
+#### backup.auditor {#backup-auditor}
+
+{% include [backup.auditor](../_roles/backup/auditor.md) %}
 
 {% endcut %}
 
@@ -384,86 +603,197 @@ description: This section contains the {{ iam-name }} release notes.
 
 {% cut "{{ backup-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `backup.user` | Enables the user to connect backup providers, connect {{ baremetal-full-name }} VMs and servers, link and unlink backup policies to {{ baremetal-full-name }} VMs and servers, and view info on resources and quotas of the service.
+#### backup.user {#backup-user}
+
+{% include [backup.user](../_roles/backup/user.md) %}
 
 {% endcut %}
 
 {% cut "{{ mmy-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-mysql.clusters.connector` | Enables {{ yandex-cloud }} users to connect to databases in {{ mmy-full-name }} clusters via {{ iam-full-name }}.
+#### managed-mysql.clusters.connector {#managed-mysql-clusters-connector}
+
+{% include [managed-mysql.clusters.connector](../_roles/managed-mysql/clusters/connector.md) %}
 
 {% endcut %}
 
 {% cut "{{ mpg-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-postgresql.clusters.connector` | Enables {{ yandex-cloud }} users to connect to databases in {{ mpg-full-name }} clusters via {{ iam-full-name }}.
+#### managed-postgresql.clusters.connector {#managed-postgresql-clusters-connector}
+
+{% include [managed-postgresql.clusters.connector](../_roles/managed-postgresql/clusters/connector.md) %}
 
 {% endcut %}
 
 {% cut "{{ monium-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `monium.admin` | Enables the user to manage {{ monium-name }} resources, view and record all types of telemetry, manage projects and access to projects.
-   `monium.editor` | Enables the user to manage {{ monium-name }} resources, view and record all types of telemetry.
-   `monium.viewer` | Enables the user to view info on {{ monium-name }} resources and read all types of telemetry.
-   `monium.auditor` | Enables the user to view details on {{ monium-name }} resources.
-   `monium.alerts.editor` | Enables the user to view the list of alerts, their settings and trigger history, as well as to create, modify, and delete alerts.
-   `monium.alerts.viewer` | Enables the user to view the list of alerts, their settings and trigger history.
-   `monium.channels.editor` | Enables the user to view the list of alert notification channels and their info, as well as to create, modify, and delete such channels.
-   `monium.channels.viewer` | Enables the user to view the list of alert notification channels and their info.
-   `monium.contextLinks.editor` | Enables the user to view configured context links on dashboard charts, as well as to create, edit, and delete context links.
-   `monium.contextLinks.viewer` | Enables the user to view configured context links on dashboard charts.
-   `monium.dashboards.editor` | Enables the user to view dashboards and their widgets, as well as to create, edit, and delete dashboards.
-   `monium.dashboards.viewer` | Enables the user to view dashboards and their widgets.
-   `monium.escalationPolicies.editor` | Enables the user to view the list of alert escalation policies and their settings, as well as to create, update, and delete escalation policies.
-   `monium.escalationPolicies.viewer` | Enables the user to view the list of alert escalation policies and their settings.
-   `monium.escalations.editor` | Enables the user to view info on alert notifications and escalations, as well as to create, edit, and delete escalations.
-   `monium.escalations.viewer` | Enables the user to view info on alert notifications and escalations.
-   `monium.logErrorLabels.editor` | Enables the user to view, edit, and delete existing labels attached to errors in logs and to add new ones.
-   `monium.logErrorLabels.viewer` | Enables the user to view labels attached to errors in logs.
-   `monium.logs.reader` | Enables the user to read logs and view log error statistics.
-   `monium.logs.writer` | Enables the user to write logs.
-   `monium.metrics.reader` | Enables the user to read metrics, their values and labels.
-   `monium.metrics.writer` | Enables the user to write metrics.
-   `monium.mutes.editor` | Enables the user to view, create, edit, and delete mutes, i.e., rules for temporary muting of alert notifications.
-   `monium.mutes.viewer` | Enables the user to view mutes, i.e., rules for temporary muting of alert notifications.
-   `monium.quickLinks.editor` | Enables the user to view the list of configured quick links and their info in the project menu, as well as to create, edit, and delete such links.
-   `monium.quickLinks.viewer` | Enables the user to view the list of configured quick links and their info in the project menu.
-   `monium.serviceLevelObjectives.editor` | Enables the user to view configured service level objectives (SLOs), as well as to create, edit, and delete them.
-   `monium.serviceLevelObjectives.viewer` | Enables the user to view configured service level objectives (SLOs).
-   `monium.shards.editor` | Enables the user to view info on shards, clusters, services and their quotas, as well as to create, update, and delete shards.
-   `monium.shards.viewer` | Enables the user to view info on shards, clusters, services and their quotas.
-   `monium.telemetry.reader` | Enables the user to read all types of {{ monium-name }} telemetry: metrics, logs, and distributed tracing data.
-   `monium.telemetry.writer` | Enables the user to write all types of {{ monium-name }} telemetry: metrics, logs, and distributed tracing data.
-   `monium.traces.reader` | Enables the user to view distributed tracing data.
-   `monium.traces.writer` | Enables the user to write distributed tracing data.
+#### monium.admin {#monium-admin}
+
+{% include [monium.admin](../_roles/monium/admin.md) %}
+
+#### monium.editor {#monium-editor}
+
+{% include [monium.editor](../_roles/monium/editor.md) %}
+
+#### monium.viewer {#monium-viewer}
+
+{% include [monium.viewer](../_roles/monium/viewer.md) %}
+
+#### monium.auditor {#monium-auditor}
+
+{% include [monium.auditor](../_roles/monium/auditor.md) %}
+
+#### monium.alerts.editor {#monium-alerts-editor}
+
+{% include [monium.alerts.editor](../_roles/monium/alerts/editor.md) %}
+
+#### monium.alerts.viewer {#monium-alerts-viewer}
+
+{% include [monium.alerts.viewer](../_roles/monium/alerts/viewer.md) %}
+
+#### monium.channels.editor {#monium-channels-editor}
+
+{% include [monium.channels.editor](../_roles/monium/channels/editor.md) %}
+
+#### monium.channels.viewer {#monium-channels-viewer}
+
+{% include [monium.channels.viewer](../_roles/monium/channels/viewer.md) %}
+
+#### monium.contextLinks.editor {#monium-contextlinks-editor}
+
+{% include [monium.contextLinks.editor](../_roles/monium/contextLinks/editor.md) %}
+
+#### monium.contextLinks.viewer {#monium-contextlinks-viewer}
+
+{% include [monium.contextLinks.viewer](../_roles/monium/contextLinks/viewer.md) %}
+
+#### monium.dashboards.editor {#monium-dashboards-editor}
+
+{% include [monium.dashboards.editor](../_roles/monium/dashboards/editor.md) %}
+
+#### monium.dashboards.viewer {#monium-dashboards-viewer}
+
+{% include [monium.dashboards.viewer](../_roles/monium/dashboards/viewer.md) %}
+
+#### monium.escalationPolicies.editor {#monium-escalationpolicies-editor}
+
+{% include [monium.escalationPolicies.editor](../_roles/monium/escalationPolicies/editor.md) %}
+
+#### monium.escalationPolicies.viewer {#monium-escalationpolicies-viewer}
+
+{% include [monium.escalationPolicies.viewer](../_roles/monium/escalationPolicies/viewer.md) %}
+
+#### monium.escalations.editor {#monium-escalations-editor}
+
+{% include [monium.escalations.editor](../_roles/monium/escalations/editor.md) %}
+
+#### monium.escalations.viewer {#monium-escalations-viewer}
+
+{% include [monium.escalations.viewer](../_roles/monium/escalations/viewer.md) %}
+
+#### monium.logErrorLabels.editor {#monium-logerrorlabels-editor}
+
+{% include [monium.logErrorLabels.editor](../_roles/monium/logErrorLabels/editor.md) %}
+
+#### monium.logErrorLabels.viewer {#monium-logerrorlabels-viewer}
+
+{% include [monium.logErrorLabels.viewer](../_roles/monium/logErrorLabels/viewer.md) %}
+
+#### monium.logs.reader {#monium-logs-reader}
+
+{% include [monium.logs.reader](../_roles/monium/logs/reader.md) %}
+
+#### monium.logs.writer {#monium-logs-writer}
+
+{% include [monium.logs.writer](../_roles/monium/logs/writer.md) %}
+
+#### monium.metrics.reader {#monium-metrics-reader}
+
+{% include [monium.metrics.reader](../_roles/monium/metrics/reader.md) %}
+
+#### monium.metrics.writer {#monium-metrics-writer}
+
+{% include [monium.metrics.writer](../_roles/monium/metrics/writer.md) %}
+
+#### monium.mutes.editor {#monium-mutes-editor}
+
+{% include [monium.mutes.editor](../_roles/monium/mutes/editor.md) %}
+
+#### monium.mutes.viewer {#monium-mutes-viewer}
+
+{% include [monium.mutes.viewer](../_roles/monium/mutes/viewer.md) %}
+
+#### monium.quickLinks.editor {#monium-quicklinks-editor}
+
+{% include [monium.quickLinks.editor](../_roles/monium/quickLinks/editor.md) %}
+
+#### monium.quickLinks.viewer {#monium-quicklinks-viewer}
+
+{% include [monium.quickLinks.viewer](../_roles/monium/quickLinks/viewer.md) %}
+
+#### monium.serviceLevelObjectives.editor {#monium-servicelevelobjectives-editor}
+
+{% include [monium.serviceLevelObjectives.editor](../_roles/monium/serviceLevelObjectives/editor.md) %}
+
+#### monium.serviceLevelObjectives.viewer {#monium-servicelevelobjectives-viewer}
+
+{% include [monium.serviceLevelObjectives.viewer](../_roles/monium/serviceLevelObjectives/viewer.md) %}
+
+#### monium.shards.editor {#monium-shards-editor}
+
+{% include [monium.shards.editor](../_roles/monium/shards/editor.md) %}
+
+#### monium.shards.viewer {#monium-shards-viewer}
+
+{% include [monium.shards.viewer](../_roles/monium/shards/viewer.md) %}
+
+#### monium.telemetry.reader {#monium-telemetry-reader}
+
+{% include [monium.telemetry.reader](../_roles/monium/telemetry/reader.md) %}
+
+#### monium.telemetry.writer {#monium-telemetry-writer}
+
+{% include [monium.telemetry.writer](../_roles/monium/telemetry/writer.md) %}
+
+#### monium.traces.reader {#monium-traces-reader}
+
+{% include [monium.traces.reader](../_roles/monium/traces/reader.md) %}
+
+#### monium.traces.writer {#monium-traces-writer}
+
+{% include [monium.traces.writer](../_roles/monium/traces/writer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mgp-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-greenplum.clusters.connector` | Enables {{ yandex-cloud }} users to connect to databases in {{ mgp-full-name }} clusters via {{ iam-full-name }}.
+#### managed-greenplum.clusters.connector {#managed-greenplum-clusters-connector}
+
+{% include [managed-greenplum.clusters.connector](../_roles/managed-greenplum/clusters/connector.md) %}
 
 {% endcut %}
 
 {% cut "{{ sd-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `security-deck.alertSinks.admin` | Enables the user to manage alert sinks, alerts, and access to them.
-   `security-deck.alertSinks.editor` | Enables the user to manage alert sinks, alerts, and comments in them.
-   `security-deck.alertSinks.user` | Enables the user to view info on alert sinks and use them.
-   `security-deck.alertSinks.viewer` | Enables the user to view info on alerts, alert sinks, and access permissions granted for them.
-   `security-deck.alertSinks.auditor` | Enables the user to view info on alert sinks and access permissions granted for them.
+#### security-deck.alertSinks.admin {#security-deck-alertsinks-admin}
+
+{% include [security-deck.alertSinks.admin](../_roles/security-deck/alertSinks/admin.md) %}
+
+#### security-deck.alertSinks.editor {#security-deck-alertsinks-editor}
+
+{% include [security-deck.alertSinks.editor](../_roles/security-deck/alertSinks/editor.md) %}
+
+#### security-deck.alertSinks.user {#security-deck-alertsinks-user}
+
+{% include [security-deck.alertSinks.user](../_roles/security-deck/alertSinks/user.md) %}
+
+#### security-deck.alertSinks.viewer {#security-deck-alertsinks-viewer}
+
+{% include [security-deck.alertSinks.viewer](../_roles/security-deck/alertSinks/viewer.md) %}
+
+#### security-deck.alertSinks.auditor {#security-deck-alertsinks-auditor}
+
+{% include [security-deck.alertSinks.auditor](../_roles/security-deck/alertSinks/auditor.md) %}
 
 {% endcut %}
 
@@ -477,27 +807,33 @@ description: This section contains the {{ iam-name }} release notes.
 
 {% cut "{{ interconnect-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `cic.admin` | Enables the user to manage {{ interconnect-name }} resources.
+#### cic.admin {#cic-admin}
+
+{% include [cic.admin](../_roles/cic/admin.md) %}
 
 {% endcut %}
 
 {% cut "{{ cr-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `cloud-router.admin` | Enables the user to manage {{ cr-name }} resources.
-   `cloud-router.prefixEditor` | Enables the user to manage IP prefixes of cloud subnets in routing instances and view info on {{ cr-name }} resources.
+#### cloud-router.admin {#cloud-router-admin}
+
+{% include [cloud-router.admin](../_roles/cloud-router/admin.md) %}
+
+#### cloud-router.prefixEditor {#cloud-router-prefixeditor}
+
+{% include [cloud-router.prefixEditor](../_roles/cloud-router/prefixEditor.md) %}
 
 {% endcut %}
 
 {% cut "{{ org-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `organization-manager.idpInstances.billingAdmin` | Enables the user to manage subscription to paid {{ org-full-name }} features.
-   `organization-manager.idpInstances.billingViewer` | Enables the user to view the list of users on {{ org-full-name }} authentication quota in the current reporting period, view info on subscription to paid {{ org-full-name }} features and statistics on the use of quotas under this subscription.
+#### organization-manager.idpInstances.billingAdmin {#organization-manager-idpinstances-billingadmin}
+
+{% include [organization-manager.idpInstances.billingAdmin](../_roles/organization-manager/idpInstances/billingAdmin.md) %}
+
+#### organization-manager.idpInstances.billingViewer {#organization-manager-idpinstances-billingviewer}
+
+{% include [organization-manager.idpInstances.billingViewer](../_roles/organization-manager/idpInstances/billingViewer.md) %}
 
 {% endcut %}
 
@@ -511,93 +847,99 @@ description: This section contains the {{ iam-name }} release notes.
 
 {% cut "Managed databases" %}
 
-   Role | Description
-   --- | ---
-   `mdb.restorer` | Enables the user to restore managed database clusters from backups and grants read access to clusters and their logs.
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb.restorer](../_roles/mdb/restorer.md) %}
 
 {% endcut %}
 
 {% cut "{{ org-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `organization-manager.groups.externalConverter` | Enables the user to add an external group ID attribute to {{ org-full-name }} user groups when synchronizing with user groups in Active Directory or another external source.
-   `organization-manager.groups.externalCreator` | Enables the user to create {{ org-full-name }} user groups when synchronizing with user groups in Active Directory or another external source.
-   `organization-manager.userpools.syncAgent` | Enables the user to synchronize {{ org-full-name }} users and groups with users and groups in Active Directory or another external source.
+#### organization-manager.groups.externalConverter {#organization-manager-groups-externalconverter}
+
+{% include [organization-manager.groups.externalConverter](../_roles/organization-manager/groups/externalConverter.md) %}
+
+#### organization-manager.groups.externalCreator {#organization-manager-groups-externalcreator}
+
+{% include [organization-manager.groups.externalCreator](../_roles/organization-manager/groups/externalCreator.md) %}
+
+#### organization-manager.userpools.syncAgent {#organization-manager-userpools-syncagent}
+
+{% include [organization-manager.userpools.syncAgent](../_roles/organization-manager/userpools/syncAgent.md) %}
 
 {% endcut %}
 
 {% cut "{{ mkf-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-kafka.restorer` | Enables the user to restore {{ KF }} clusters from backups, view cluster info and logs, as well as data on {{ mkf-name }} quotas and operations with resources.
+#### managed-kafka.restorer {#managed-kafka-restorer}
+
+{% include [managed-kafka.restorer](../_roles/managed-kafka/restorer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mch-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-clickhouse.restorer` | Enables the user to restore {{ CH }} clusters from backups, view {{ CH }} cluster info and logs, as well as data on {{ mch-name }} quotas and operations with resources.
+#### managed-clickhouse.restorer {#managed-clickhouse-restorer}
+
+{% include [managed-clickhouse.restorer](../_roles/managed-clickhouse/restorer.md) %}
 
 {% endcut %}
 
 
 {% cut "{{ mmy-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-mysql.restorer` | Enables the user to restore {{ MY }} clusters from backups, view info on {{ MY }} clusters, hosts, databases, and users, view cluster logs, as well as data on {{ mmy-name }} quotas and operations with resources.
+#### managed-mysql.restorer {#managed-mysql-restorer}
+
+{% include [managed-mysql.restorer](../_roles/managed-mysql/restorer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mos-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-opensearch.restorer` | Enables the user to restore {{ OS }} clusters from backups, view {{ OS }} cluster info and logs, as well as data on {{ mos-name }} quotas and operations with resources.
+#### managed-opensearch.restorer {#managed-opensearch-restorer}
+
+{% include [managed-opensearch.restorer](../_roles/managed-opensearch/restorer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mpg-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-postgresql.restorer` | Enables the user to restore {{ PG }} clusters from backups, view info on {{ PG }} clusters, hosts, databases, and users, view cluster logs, as well as data on {{ mpg-name }} quotas and operations with resources.
+#### managed-postgresql.restorer {#managed-postgresql-restorer}
+
+{% include [managed-postgresql.restorer](../_roles/managed-postgresql/restorer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mspqr-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-spqr.restorer` | Enables the user to restore {{ SPQR }} clusters from backups, view info on {{ SPQR }} clusters, hosts, databases, and users, view cluster logs, data on {{ mspqr-name }} quotas and operations with resources.
+#### managed-spqr.restorer {#managed-spqr-restorer}
+
+{% include [managed-spqr.restorer](../_roles/managed-spqr/restorer.md) %}
 
 {% endcut %}
 
 
 {% cut "{{ mrd-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-redis.restorer` | Enables the user to restore {{ VLK }} clusters from backups, view info on {{ VLK }} hosts and clusters, their logs, data on {{ mrd-name }} quotas and operations with resources.
+#### managed-redis.restorer {#managed-redis-restorer}
+
+{% include [managed-redis.restorer](../_roles/managed-redis/restorer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mgp-full-name }}" %}
 
-   User role | Description
-   --- | ---
-   `managed-greenplum.restorer` | Enables the user to restore {{ mgp-name }} clusters from backups, view info on clusters and hosts, their logs, as well as data on {{ mgp-name }} quotas and operations with resources.
+#### managed-greenplum.restorer {#managed-greenplum-restorer}
+
+{% include [managed-greenplum.restorer](../_roles/managed-greenplum/restorer.md) %}
 
 {% endcut %}
 
 {% cut "{{ mmg-full-name }}" %}
 
-   Role | Description
-   --- | ---
-   `managed-mongodb.restorer` | Enables the user to restore {{ MG }} clusters from backups, view info on {{ MG }} clusters, hosts, shards, databases, and users, view cluster logs, as well as data on {{ mmg-name }} quotas and operations with resources.
+#### managed-mongodb.restorer {#managed-mongodb-restorer}
+
+{% include [managed-mongodb.restorer](../_roles/managed-mongodb/restorer.md) %}
 
 {% endcut %}
 
@@ -616,13 +958,11 @@ description: This section contains the {{ iam-name }} release notes.
 * [Workload identity federations](./concepts/workload-identity.md) are now [available](../overview/concepts/launch-stages.md) to all users. {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 * [Added](../iam/concepts/authorization/id-token.md) creating an ID token for service account, a special short-lived token for authentication in third-party systems. {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
-
 ## Q4 2024 {#q4-2024}
 
 * [Added](../iam/at-ref.md#data-plane-events) sending the `CreateIamToken` data event when creating an IAM token.
 * Expanded the scope of [limited lifetime API keys](./concepts/authorization/api-key.md#supported-services) to work with [{{ ydb-full-name }}](../ydb/) in compatibility mode with {{ PG }}, [{{ postbox-full-name }}](../postbox/), and [{{ serverless-containers-full-name }}](../serverless-containers/). {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 * You can now see the service account's last authentication date and time. You can get the information in the `last_authenticated_at` field using the `yc iam user-account get` [{{ yandex-cloud }} CLI](../cli/cli-ref/iam/cli-ref/user-account/get) command. {{ tag-cli }}
-
 
 ## Q3 2024 {#q3-2024}
 
@@ -633,11 +973,9 @@ description: This section contains the {{ iam-name }} release notes.
 * Added `All users in organization X` and `All users in federation N` [system groups](./concepts/access-control/system-group.md).
 * Added the {{ TF }} data source used to get the [service agent](./concepts/service-control.md#service-agent) ID. {{ tag-tf }}
 
-
 ## Q2 2024 {#q2-2024}
 
 * Added the last used date info for service account access keys. You can find this info on the service account page in the [management console]({{ link-console-main }}) or in the `last_used_at` field when using the API to invoke access key management methods. {{ tag-con }} {{ tag-api }}
-
 
 ## Q1 2024 {#q1-2024}
 

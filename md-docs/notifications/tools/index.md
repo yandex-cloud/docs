@@ -4,7 +4,7 @@
 
 Cloud Notification Service (CNS) — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
 
-Cloud Notification Service поддерживает отправку [push-уведомлений](../concepts/push.md) на устройства с iOS и Android, в браузеры и [SMS](../concepts/sms.md). Уведомления можно отправлять как в отдельные эндпоинты, так и в группы эндпоинтов через [топики](../concepts/topics.md).
+Cloud Notification Service поддерживает отправку [push-уведомлений](../concepts/push.md) на устройства с iOS и Android, в браузеры, [очереди сообщений](../../message-queue/concepts/queue.md) Yandex Message Queue и [SMS](../concepts/sms.md). Уведомления можно отправлять как в отдельные эндпоинты, так и в группы эндпоинтов через [топики](../concepts/topics.md).
 
 Позднее сервис будет поддерживать отправку уведомлений в мессенджеры.
 

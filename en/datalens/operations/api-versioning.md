@@ -17,11 +17,21 @@ The version number is provided in the `X-DL-API-Version` request header. To spec
 
 The previous Public API version remains supported for some time after a new release to give users time to migrate to the new version.
 
-The {{ datalens-name }} interface only supports the latest version of schemas. As a result, all objects modified via the interface are automatically saved under the latest version. Attempts to access such objects using an older Public API version will fail and return an error.
+The {{ datalens-name }} interface only supports the latest version of schemas. As a result, all objects modified via the interface are automatically saved under the latest version.
 
 {% note info %}
 
 Regularly update your Public API to ensure correct operation.
+
+{% endnote %}
+
+{% note warning %}
+
+We recommend following these steps when updating entities in the Public API:
+
+1. Get the current object version by using the relevant read method.
+1. Edit as appropriate.
+1. Send the entire object without filtering out any fields. Preserve all fields, including those not described in the schema, to maintain compatibility with different API versions.
 
 {% endnote %}
 

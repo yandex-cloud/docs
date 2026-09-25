@@ -1,0 +1,2 @@
+MFA (multi-factor authentication) is an access control method where the user must use one more authentication factor after entering their password, e.g., a one-time code or WebAuth key.
+For more information, see [{#T}](../../organization/concepts/mfa.md).

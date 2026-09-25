@@ -72,10 +72,14 @@ items:
         items:
           - name: Overview
             href: operations/cspm/index.md
+          - name: Working with a dashboard
+            href: operations/cspm/use-cspm.md
           - name: View control and violation rules
             href: operations/cspm/view-rules.md
           - name: Running a workspace check
             href: operations/cspm/check-environment.md
+          - name: Managing check results
+            href: operations/cspm/work-with-results.md
           - name: Performing security compliance checks
             href: operations/cspm/check-compliance.md
           - name: Managing exceptions to control rules

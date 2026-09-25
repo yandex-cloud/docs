@@ -15,33 +15,18 @@ links:
   - title: '{{ billing-name }}'
     description: Решения для {{ billing-name }}
     href: billing/
-  - title: '{{ cdn-name }}'
-    description: Решения для {{ cdn-name }}
-    href: cdn/
-  - title: '{{ certificate-manager-name }}'
-    description: Решения для {{ certificate-manager-name }}
-    href: certificate-manager/
   - title: '{{ dns-name }}'
     description: Решения для {{ dns-name }}
     href: dns/
   - title: '{{ compute-name }}'
     description: Решения для {{ compute-name }}
     href: compute/
-  - title: '{{ container-registry-name }}'
-    description: Решения для {{ container-registry-name }}
-    href: container-registry/
   - title: '{{ console-name }}'
     description: Решения для {{ console-name }}
     href: console/
   - title: '{{ datalens-name }}'
     description: Решения для {{ datalens-name }}
     href: datalens/
-  - title: '{{ iam-name }}'
-    description: Решения для {{ iam-short-name }}
-    href: iam/
-  - title: '{{ kms-name }}'
-    description: Решения для {{ kms-short-name }}
-    href: kms/
   - title: Legal
     description: Решения для Legal
     href: legal/
@@ -57,9 +42,6 @@ links:
   - title: '{{ mpg-name }}'
     description: Решения для {{ mpg-name }}
     href: managed-postgresql/
-  - title: '{{ monitoring-name }}'
-    description: Решения для {{ monitoring-name }}
-    href: monitoring/
   - title: '{{ network-load-balancer-name }}'
     description: Решения для {{ network-load-balancer-name }}
     href: network-load-balancer/

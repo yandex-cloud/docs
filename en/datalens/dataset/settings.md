@@ -10,7 +10,7 @@ A dataset works with sources in direct access mode: {{ datalens-short-name }} ru
 ## Connecting multiple tables {#multi-table}
 
 If multiple tables are available in the data source, you can [merge](./create-dataset.md#links) them using the JOIN operator.
-When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and merged table.
+When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and the table to merge with.
 
 You can use the following types of JOIN operators:
 

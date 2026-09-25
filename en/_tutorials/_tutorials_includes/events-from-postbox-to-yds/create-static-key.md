@@ -9,7 +9,7 @@ Create a [static access key](../../../iam/concepts/authorization/access-key.md) 
 
       1. In the top panel, click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-      1. Save the ID and the secret key.
+      1. Save the ID and secret key.
 
           {% note alert %}
 

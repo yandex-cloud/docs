@@ -5,7 +5,7 @@ description: Follow this guide to set up a dashboard background in {{ datalens-f
 
 # Setting up a dashboard background in {{ datalens-full-name }}
 
-You can set up a dashboard background for the light and dark theme individually.
+This setting is configured separately for the light and dark theme.
 
 To set up a dashboard background, follow these steps:
 

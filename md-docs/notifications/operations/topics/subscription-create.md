@@ -27,6 +27,10 @@
            
             Введите номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`. Телефон не требуется предварительно добавлять в канале уведомлений SMS, при этом сам канал должен быть создан.
      
+         * **Yandex Message Queue**
+     
+            Введите URL очереди Message Queue.
+     
      1. Нажмите **Создать подписку**.
      
         Таким же образом подпишите на топик другие эндпоинты.
@@ -45,8 +49,14 @@
      
      Где:
        * `topic-arn` — ARN топика.
-       * `protocol` — тип канала отправки уведомлений, например, `sms`, `application`.
-       * `notification-endpoint` — ARN эндпоинта, который подписывается на топик, в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`. Для SMS — номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`.
+       * `protocol` — тип канала отправки уведомлений, например `sms`, `application`, `sqs`.
+       * `notification-endpoint` — эндпоинт, который подписывается на топик:
+     
+         * для мобильных push-уведомлений и push-уведомлений в браузере — ARN эндпоинта в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`;
+         * для SMS — номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`;
+         * для Message Queue — URL очереди.
+     
+           Чтобы топик мог отправлять сообщения в очередь, у него должен быть задан атрибут `SQSServiceAccountId`. Подробнее в инструкциях по [созданию](topic-create.md#aws-cli) и [управлению](topic-manage.md#aws-cli) топиком.
      
      Подробнее о команде `aws sns subscribe` смотрите в [документации AWS](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-create-subscribe-endpoint-to-topic.html).
 
@@ -60,7 +70,7 @@
          response = client.subscribe(
              TopicArn = "<ARN_топика>",
              Protocol = "<тип_канала>",
-             Endpoint = "<ARN_эндпоинта_или_номер_телефона>"
+             Endpoint = "<ARN_эндпоинта_или_номер_телефона_или_URL_очереди>"
          )
          print(f"Topic ARN: {response['TopicArn']}")
      except botocore.exceptions.ClientError as error:
@@ -70,7 +80,13 @@
      Где:
      
      * `TopicArn` — ARN топика.
-     * `Protocol` — тип канала для отправки уведомлений, например, `sms`, `application`.
-     * `Endpoint` — ARN эндпоинта, который подписывается на топик, в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`. Для SMS — номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`.
+     * `Protocol` — тип канала для отправки уведомлений, например `sms`, `application`, `sqs`.
+     * `Endpoint` — эндпоинт, который подписывается на топик:
+     
+         * для мобильных push-уведомлений и push-уведомлений в браузере — ARN эндпоинта в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`;
+         * для SMS — номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`;
+         * для Message Queue — URL очереди.
+     
+     	Чтобы топик мог отправлять сообщения в очередь, у него должен быть задан атрибут `SQSServiceAccountId`. Подробнее в инструкциях по [созданию](topic-create.md#python) и [управлению](topic-manage.md#python) топиком.
 
 {% endlist %}

@@ -23,6 +23,8 @@ items:
             href: operations/hosts.md
           - name: Управление алиасами хостов
             href: operations/hosts-aliases.md
+          - name: Управление балансировщиком нагрузки DB Proxy
+            href: operations/load-balancer.md
           - name: Миграция хостов в другую зону доступности
             href: operations/host-migration.md
           - name: Управление слотами репликации

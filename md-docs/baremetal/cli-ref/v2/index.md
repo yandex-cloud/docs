@@ -48,6 +48,8 @@ Syntax:
 
   - [yc baremetal v2 image list](image/list.md) — Retrieves the list of Image resources.
 
+  - [yc baremetal v2 image list-compatible](image/list-compatible.md) — Lists images available for installation on the selected configuration.
+
   - [yc baremetal v2 image resolve](image/resolve.md) — Resolves the latest published Image for each available family within the specified folder.
 
 - [yc baremetal v2 private-cloud-connection](private-cloud-connection/index.md) — A set of methods for managing Private cloud connection resources.

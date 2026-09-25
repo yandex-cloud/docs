@@ -61,6 +61,10 @@ For more information, see [this guide](../../operations/chart/config-chart-navig
 
 * **On**: Display all spaces and line breaks.
 * **Off**: Reduce multiple spaces and line breaks to a single space. ||
+|| Sorting by rows | Allows you to sort data by [pivot table](../../visualization-ref/pivot-table-chart.md#rows-sorting) rows.<br/><br/>Available values: 
+
+* **On**: Enable sorting by rows. This is the default value.
+* **Off**: Disable sorting by rows. ||
 
 || Stacking | Stacked or isolated data display for each category in the [area chart](../../visualization-ref/area-chart.md#stacking).<br/><br/>Available values:
 
@@ -70,7 +74,7 @@ For more information, see [this guide](../../operations/chart/config-chart-navig
 
 * **Auto**: Set the coordinates automatically.
 * **Manually**: Set the coordinates manually, e.g., `54.630761, 39.736882`. You can use [Yandex Maps](https://yandex.ru/maps) to get the exact coordinates. ||
-|| Scale | Sets the default scale in [Maps](../../visualization-ref/map-chart.md).<br/><br/>Available values:
+|| Scaling | Sets the default scale in [Maps](../../visualization-ref/map-chart.md).<br/><br/>Available values:
 
 * **Auto**: Enables autoscaling.
 * **Manually**: Scale the map manually. The values match the scale in Yandex Maps:
@@ -351,7 +355,7 @@ In the scatter chart, the setting allows you to set the shape of the dimension p
 
 ### Labels {#sign}
 
-Labels display measure values on the chart. [Markup functions](../../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using basic [{#T}](../../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+Labels display measure values on the chart. [Markup functions](../../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using the basic [{#T}](../../dashboard/markdown.md) syntax: click the icon next to the field name and enable **Markdown**.
 
 
 Labels are available for the following charts types:
@@ -395,9 +399,9 @@ Depending on the visualization type, different settings are available.
 
 #|
 || **Name** | **Description** ||
-|| Size | Sets point size depending on the measure value. ||
+|| Size | Sets the point size based on the measure value. ||
 || Colors | These set a color for geopoints and geopolygons depending on the measure value. ||
-|| Tooltips | These create a tooltip displayed when you hover over a point. The tooltip contains dimension and measure values. For `String` type fields, you can configure using the basic [{#T}](../../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**. ||
+|| Tooltips | These create a tooltip displayed when you hover over a point. The tooltip contains dimension and measure values. For `String` type fields, you can configure using the basic [{#T}](../../dashboard/markdown.md) syntax: click the icon next to the field name and enable **Markdown**. ||
 || Layer filters | Create a selection by dimension or measure for the current layer. ||
 || General filters | Create a selection by dimension or measure for the whole chart. ||
 |#

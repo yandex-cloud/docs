@@ -7,13 +7,13 @@ description: Follow this guide to add a user to {{ datalens-full-name }}.
 
 There are several ways to add a user to {{ datalens-short-name }}:
 
-1. [Via {{ datalens-short-name }}](#dl-user): If the user is not planning to use other {{ yandex-cloud }} services. This method allows you to invite users with a Yandex account. If the user asks for other {{ yandex-cloud }} services later on, you can [assign them an additional role]({{ link-docs }}/organization/security/#add-role) in the organization with the current {{ datalens-short-name }} instance.
+1. [Via {{ datalens-short-name }}](#dl-user): If the user is not planning to use other {{ yandex-cloud }} services. This method allows you to invite users with a Yandex account. If the user needs to use other {{ yandex-cloud }} services later on, you can [assign them an additional role]({{ link-docs }}/organization/security/#add-role) in the organization with the current {{ datalens-short-name }} instance.
 
 1. [Via {{ org-full-name }}](#org-user): If the user is planning to use other {{ yandex-cloud }} services. In which case you can invite to the organization [Yandex account users](#passport-user) or add [federated](#federated-user) and [local]({{ link-docs }}/organization/operations/add-account#local) users.
 
 {% note info %}
 
-Users can be added or invited by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role).
+The organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role) can add or invite users.
 
 {% endnote %}
 
@@ -22,12 +22,12 @@ Users can be added or invited by the organization administrator (the `organizati
 To add a user in {{ datalens-short-name }}:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
-1. In the navigation panel on the left, click ![image](../../_assets/console-icons/sliders.svg) to open [settings]({{ link-datalens-settings }}).
+1. In the navigation panel on the left, click ![image](../../_assets/console-icons/sliders.svg) to open the [settings]({{ link-datalens-settings }}).
 1. Under **User management**, click **Invite users**.
-1. Enter the email addresses of the users you want to invite, e.g., `{{ login-example }}`.
+1. Enter email addresses of the users you want to invite, e.g., `{{ login-example }}`.
 1. Click **Send invitations**.
 
-The user will receive a {{ datalens-short-name }} invitation email. Once the user accepts the invitation and selects the account for login, they can log in to your organization. The user will get the `{{ roles-datalens-creator }}` role in the organization with the current {{ datalens-short-name }} instance. To log in to {{ datalens-short-name }}, the user will need a [seat](../settings/seats.md).
+The user will receive a {{ datalens-short-name }} invitation email. Once the user accepts the invitation and selects the account for access, they can log in to your organization. The user will get the `{{ roles-datalens-creator }}` role in the organization with the current {{ datalens-short-name }} instance. To log in to {{ datalens-short-name }}, the user will need a [seat](../settings/seats.md).
 
 ![image](../../_assets/datalens/settings/users-settings.png)
 
@@ -35,7 +35,7 @@ The user will receive a {{ datalens-short-name }} invitation email. Once the use
 
 #### Inviting a user with a Yandex account {#passport-user}
 
-To invite a user with a Yandex account, follow [this guide]({{ link-docs }}/organization/operations/add-account#useraccount) from the {{ org-full-name }} documentation.
+To invite a user with a Yandex account, follow [this {{ org-full-name }} guide]({{ link-docs }}/organization/operations/add-account#useraccount).
 
 {% note warning %}
 

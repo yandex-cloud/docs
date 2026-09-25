@@ -903,18 +903,21 @@ the session timeout, the broker will remove the consumer from the group and trig
   Default value: **9019**.
 
 - `mysql_protocol`: Enables or disables MySQL interface on ClickHouse server.
+When enabled, the interface accepts connections on the default MySQL port, 3306.
 
   Default value: **false**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/interfaces/mysql).
 
 - `grpc_protocol`: Enables or disables gRPC interface on ClickHouse server.
+When enabled, the interface accepts connections on the port 9100.
 
   Default value: **false**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/concepts/features/interfaces/grpc).
 
 - `arrowflight_protocol`: Enables or disables Arrow Flight SQL interface on ClickHouse server.
+When enabled, the interface accepts connections on the port 9090.
 
   Default value: **false**.
 

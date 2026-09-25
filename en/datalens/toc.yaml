@@ -1359,6 +1359,8 @@ items:
     href: at-ref.md
   - name: Release notes
     items:
+      - name: August 2026
+        href: release-notes/index.md
       - name: July 2026
         href: release-notes/index.md
       - name: June 2026
@@ -1369,10 +1371,10 @@ items:
         href: release-notes/2604.md
       - name: March 2026
         href: release-notes/2603.md
-      - name: February 2026
-        href: release-notes/2602.md
       - name: Archive
         items:
+          - name: February 2026
+            href: release-notes/2602.md
           - name: January 2026
             href: release-notes/2601.md
           - name: December 2025

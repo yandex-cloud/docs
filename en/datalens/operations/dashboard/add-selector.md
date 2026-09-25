@@ -77,7 +77,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
      * **Header**: To choose the selector for linking with other widgets. By default, when you add a selector, the header text is substituted from the field title in the [dataset](../../dataset/index.md). This is a required field.
        
-       Select the header location below: `Left` (default), `Top`, or `Hidden` to hide it from the dashboard. It is not available for the **Checkbox** selector type.
+       Select a header position below: `Left` (default), `Top`, or `Hidden` to hide it from the dashboard. It is not available for the **Checkbox** selector type.
 
      * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. It is not available for the **Checkbox** selector type.
      * **Coloring**: Allows you to highlight important selectors. It is not available for the **Checkbox** selector type.
@@ -138,7 +138,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
      * **Header**: To choose the selector for linking with other widgets. This is a required field.
        
-       Select the header location below: `Left` (default), `Top`, or `Hidden` to hide it from the dashboard. It is not available for the **Checkbox** selector type.
+       Select a header position below: `Left` (default), `Top`, or `Hidden` to hide it from the dashboard. It is not available for the **Checkbox** selector type.
 
      * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. It is not available for the **Checkbox** selector type.
      * **Coloring**: Allows you to highlight important selectors. It is not available for the **Checkbox** selector type.

@@ -76,6 +76,9 @@ Trusted CA-certificates files. Empty list makes no effect. Each file should cont
 || `--query-properties` | `key=value[,key=value...]`
 
 Query properties as key-value pairs for resource management configuration. ||
+|| `--additional-properties` | `key=value[,key=value...]`
+
+Additional Trino configuration properties as key-value pairs. Replaces the existing properties. Use an empty string to clear all properties. ||
 || `--security-group-ids` | `value[,value]`
 
 A list of security groups for the Trino cluster. ||

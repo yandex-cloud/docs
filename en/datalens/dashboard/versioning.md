@@ -31,7 +31,7 @@ All versions fall into the following types:
    {% endcut %}
 
 1. **Outdated**: This is a version that is neither current nor a draft.  
-   When you open an outdated version, you see a panel at the top stating the version type, creation date and time, and the version author's username. There are buttons in the right-hand panel:
+   When you open an outdated version, you see a panel at the top stating the version type, creation date and time, and the version author's login. There are buttons in the right-hand panel:
 
    * **Make actual**: Turns an outdated version into the current one. The current version and the draft (if any) will become outdated.
    * **Open actual**: Opens the current version.

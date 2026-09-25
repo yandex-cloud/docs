@@ -18,7 +18,7 @@
 
 * [Почему возникает ошибка при остановке кластера?](#stop-cluster-error)
 
-* [Почему при изменении кластера возникает ошибка `max_connections is less than sum of users connection limit`?](#max-connections-error)
+* [Почему при изменении кластера возникает ошибка, связанная с `max_connections` и `conn_limit`?](#max-connections-error)
 
 * [Почему перенос данных через создание и восстановление логического дампа завершается ошибкой?](#backup-error)
 
@@ -28,13 +28,15 @@
 
 * [Почему при развертывании логического дампа возникает ошибка `must be owner of extension`?](#owner-of-extension)
 
+* [Почему при создании расширения возникает ошибка `Must be superuser to create this extension`?](#superuser-extension)
+
 * [Почему при настройке каскадной репликации возникает ошибка?](#cascade-errors)
 
 * [Почему возникает ошибка `cannot execute <SQL-команда> in a read-only transaction`?](#read-only-error)
 
 * [Что делать, если в логах отображается ошибка `too many connections for role "monitor"`?](#monitor-role-error)
 
-* [Почему установка нескольких расширений в CLI заканчивается ошибкой?](#cli-extensions-errors)
+* [Почему установка расширений в CLI заканчивается ошибкой?](#cli-extensions-errors)
 
 * [Почему возникает ошибка `could not open extension control file "<путь_к_расширению>/vector.control": No such file or directory` при обращении к расширению `vector`?](#vector-error)
 

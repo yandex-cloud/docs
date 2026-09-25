@@ -31,7 +31,7 @@ items:
             href: operations/hide-user-info.md
           - name: Deleting an organization
             href: operations/delete-org.md
-          - name: Connecting a controlled organization
+          - name: Creating a controlled organization
             href: operations/add-region.md
           - name: Configuring branding
             href: operations/manage-branding.md
@@ -295,6 +295,12 @@ items:
                 href: tutorials/single-sign-on/jenkins/saml-jenkins.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/jenkins/oidc-jenkins.md
+          - name: LibreChat
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/librechat/saml-librechat.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/librechat/oidc-librechat.md
           - name: Loop
             items:
               - name: SAML
@@ -311,6 +317,14 @@ items:
             href: tutorials/single-sign-on/oidc-netbird.md
           - name: '{{ OS }}'
             href: tutorials/single-sign-on/saml-opensearch-self-managed.md
+          - name: OpenVPN
+            items:
+              - name: OpenVPN Access Server
+                href: tutorials/single-sign-on/saml-ovpn.md
+              - name: OpenVPN Community Edition
+                href: tutorials/single-sign-on/oidc-ovpn.md
+          - name: Open WebUI
+            href: tutorials/single-sign-on/oidc-open-webui.md
           - name: Selectel
             href: tutorials/single-sign-on/saml-selectel.md
           - name: Sentry
@@ -323,12 +337,6 @@ items:
                 href: tutorials/single-sign-on/time/saml-time.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/time/oidc-time.md
-          - name: OpenVPN
-            items:
-              - name: OpenVPN Access Server
-                href: tutorials/single-sign-on/saml-ovpn.md
-              - name: OpenVPN Community Edition
-                href: tutorials/single-sign-on/oidc-ovpn.md
           - name: VK Cloud
             href: tutorials/single-sign-on/saml-vk-cloud.md
           - name: Zabbix

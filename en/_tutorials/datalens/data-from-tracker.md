@@ -217,7 +217,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. In the top-right corner of the dashboard, click **Save**.
    1. Enter a name for the dashboard and click **Create**.
 
-   For more information about setting up dashboards, see [this section](../../datalens/concepts/dashboard.md).
+   For more information about setting up dashboards, see [{{ datalens-full-name }} dashboard](../../datalens/concepts/dashboard.md).
 
 {% cut "Example of a dashboard based on data from the `v_tracker_issues` table" %}
 

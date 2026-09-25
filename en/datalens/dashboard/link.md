@@ -62,11 +62,13 @@ Please note that you cannot create aliases for fields from the same dataset or f
 
 Creating aliases is required when you need to:
 
-* Establish links between selectors that are based on different datasets, so that the values of one selector filter the list of available values of another selector.
+* Establish links between selectors based on different datasets for the values of one selector to filter the list of available values of the other selector.
 
-* Establish links between a selector of the **Based on dataset** type from one dataset and charts from another dataset, so that the selector values filter the values in the charts.
+* Establish links between a selector of the **Based on dataset** type from one dataset and charts from another dataset for the selector values to filter the values in the charts.
 
-* Establish links between a selector of the **Manual input** type and other selectors, so that the values of one selector filter the list of available values of another selector.
+* Establish links between a selector of the **Based on dataset** type from one dataset and a parameter from another dataset or a chart based on it for the selector values to change the parameter values.
+
+* Establish links between a selector of the **Manual input** type and other selectors for the values of one selector to filter the list of available values of the other selector.
 
 
 {% include [datalens-chart-editor-js-selector-parameters](../../_includes/datalens/datalens-chart-editor-js-selector-parameters.md) %}

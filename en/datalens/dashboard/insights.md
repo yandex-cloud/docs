@@ -91,8 +91,8 @@ You can use Neuroanalyst on your dashboard for a dashboard tab or individual cha
 
 You can pin the chat with Neuroanalyst on top or along the side (default) of the dashboard. To change the chat position, click:
   
-  * ![image](../../_assets/console-icons/pin-slash.svg): Chat on the top of the dashboard.
-  * ![image](../../_assets/console-icons/pin.svg): Chat along the side of the dashboard.
+  * ![image](../../_assets/console-icons/pin-slash.svg): Chat on top of the dashboard.
+  * ![image](../../_assets/console-icons/pin.svg): Chat along side the dashboard.
 
 All your queries to Neuroanalyst are private: logs are neither stored nor used for further fine-tuning or research.
 

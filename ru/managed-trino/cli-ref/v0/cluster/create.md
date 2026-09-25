@@ -73,6 +73,9 @@ Trusted CA-certificates files. Each file should contain single self-signed CA-ce
 || `--query-properties` | `key=value[,key=value...]`
 
 Query properties as key-value pairs for resource management configuration. ||
+|| `--additional-properties` | `key=value[,key=value...]`
+
+Additional Trino configuration properties as key-value pairs. ||
 || `--subnet-ids` | `value[,value]`
 
 List of IDs of VPC network subnets where instances of the cluster are attached. ||

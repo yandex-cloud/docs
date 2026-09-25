@@ -5,9 +5,9 @@ description: Follow this guide to learn how to use and configure cache invalidat
 
 # Cache invalidation in {{ datalens-full-name }}
 
-{{ datalens-short-name }} caches query results from data sources to accelerate chart and dashboard rendering. By default, the cache refreshes only after its TTL expires. This may become a constraint if you need real-time visibility, as your data will update regularly but infrequently.
+{{ datalens-short-name }} caches query results from data sources to accelerate chart and dashboard rendering. By default, the cache is refreshed only after its TTL (cache time-to-live in seconds) expires. If the data is updated regularly but infrequently, and you want to see fresh data, the problem is that cache refreshing depends on TTL.
 
-Here is how cache invalidation solves this issue: the system runs an occasional _invalidation query_ against the data source to check if the data has changed. If the query returns a different result, the cache refreshes immediately without waiting for TTL expiration.
+This problem is addressed by cache invalidation. The system periodically sends an "invalidation query" to the data source and checks whether the data has changed. If the query returns a different result, the cache refreshes immediately without waiting for TTL expiration.
 
 ## Invalidation stages {#stages}
 

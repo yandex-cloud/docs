@@ -19,6 +19,7 @@ description: Следуя этой инструкции, вы сможете о�
   1. Измените имя топика. Имя топика должно быть уникальным в {{ cns-name }}.
   1. В разделе **{{ ui-key.yacloud.cns.section_logging }}** включите или отключите **{{ ui-key.yacloud.cns.field_logging }}**.
   1. Измените лог-группу или создайте новую.
+  1. Включите или отключите опцию **{{ message-queue-full-name }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save-changes }}**.
 
 - AWS CLI {#aws-cli}
@@ -30,6 +31,14 @@ description: Следуя этой инструкции, вы сможете о�
      ```bash
      aws sns set-topic-attributes \
       --topic-arn <ARN_топика> <атрибуты>
+     ```
+
+     Чтобы отвязать сервисный аккаунт от топика и запретить отправку сообщений в очереди {{ message-queue-name }}, передайте в `--attribute-value` пустую строку:
+
+     ```bash
+     aws sns set-topic-attributes \
+      --topic-arn <ARN_топика> \
+      --attribute-value ""
      ```
   1. Посмотрите новые параметры топика:
 
@@ -47,12 +56,24 @@ description: Следуя этой инструкции, вы сможете о�
 
      ```python
      try:
-       response = client.set_topic_attributes(
-          TopicArn = "<ARN_топика>",
-          AttributeName='<имя_атрибута>',
-          AttributeValue='<значение_атрибута>'
-       )
-     print("Response metadata:", response['ResponseMetadata'])
+         response = client.set_topic_attributes(
+             TopicArn="<ARN_топика>",
+             AttributeName="<имя_атрибута>",
+             AttributeValue="<значение_атрибута>",
+         )
+         print("Response metadata:", response['ResponseMetadata'])
+     except botocore.exceptions.ClientError as error:
+         print(f"Error: {error}")
+     ```
+
+     Чтобы отвязать сервисный аккаунт от топика и запретить отправку сообщений в очереди {{ message-queue-name }}, передайте в `AttributeValue` пустую строку:
+
+     ```python
+     response = client.set_topic_attributes(
+         TopicArn="<ARN_топика>",
+         AttributeName="SQSServiceAccountId",
+         AttributeValue="",
+     )
      ```
 
 {% endlist %}

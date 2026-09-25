@@ -27,6 +27,7 @@
 * [{#T}](mcp.md)
 * [{#T}](nlp.md)
 * [{#T}](deep-learning.md)
+* [{#T}](ai-agent-harness.md)
 
 ## Облачные вычисления и сервера {#servers}
 

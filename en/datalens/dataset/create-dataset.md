@@ -145,7 +145,7 @@ You can join data from source tables.
 1. Select the fields to link the tables on. Hovering over a field displays a tooltip with the field full name. You can search fields by name.
    You can only link fields with the same [data type](./data-types.md). {{ datalens-short-name }} gets information about the field's data type directly from the connection. If you need to join tables by fields with different data types, use one of these options:
    
-   * Convert all the fields to the same data type at the source level.
+   * Cast all the fields to the same data type at the source level.
    * [Describe the dataset with an SQL query](#add-data). Use the [CAST or CONVERT](https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html) functions to convert the data type. Here is an example:
    
      ```sql
@@ -230,7 +230,7 @@ You can perform the following operations on dataset fields:
 1. Select an aggregation type: The aggregation type determines the [aggregation function](./data-model.md#aggregation) to apply to the field. To change the aggregation type, click the current type and select a new one from the list of available types.
 
 
-1. Setting up field display. For dimensions, you can select a color and set a display format for numeric types; for measures, you can only set a display format for numbers. These settings apply when you use these fields in charts built from this dataset.
+1. Setting up field display: For dimensions, you can select a color and set a display format for numeric types; for measures, you can only set a display format for numbers. These settings apply when you use these fields in charts built from this dataset.
    
    {% cut "Field display settings" %}
 

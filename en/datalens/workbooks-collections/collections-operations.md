@@ -114,7 +114,7 @@ To restore an object or a workbook:
 
    Click ![icon](../../_assets/console-icons/arrow-rotate-left.svg) next to the object or workbook to restore.
    
-1. Confirm restoring the object or workbook. Also note:
+1. Confirm restoring the object or workbook. Restoration specifics:
 
    * In standard scenarios, the object or workbook is restored to the same location it was deleted from.
    * If the parent collection is deleted, the system will prompt you to select or create a collection that will house the object or workbook.

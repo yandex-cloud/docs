@@ -14,11 +14,11 @@ Dataset parameters are available in all charts created based on this dataset, wh
 With dataset or chart parameters, you can manage formulas and change visualization in a chart.
 The saved dataset parameters are propagated to all charts based on this dataset when they are uploaded.
 
-You can edit parameter values on dashboards using selectors with manual input. However, you cannot do the following:
+You can edit parameter values on dashboards using both selectors with manual input and dataset-based selectors. However, you cannot do the following:
 
-* Use the **Multiple choice** option.
-* Choose an operation in a selector (leave a dash in the selection field of the **Operation** drop-down list).
-* When using a selector based on a dataset parameter, you must unlink the selector from the other selectors on the dashboard tab (set **Not linked** for [link](../dashboard/link.md) type).
+* Do not use the **Multiple choice** option. This may lead to unpredictable results and cause an error.
+* Do not choose an operation in a selector (leave a dash in the selection field of the **Operation** drop-down list). This will not modify the parameter value or affect the calculation of expressions.
+* When using a selector based on a dataset parameter, unlink the selector from the other selectors on the dashboard tab (set **Not linked** as the [link](../dashboard/link.md) type).
 
 You can also specify parameter values in chart links. To do this, add `?` at the end of a URL, write the parameter name without spaces after the URL, put `=`, and specify the parameter value without spaces. You can list multiple parameters in a URL using `&` as a separator. 
 
@@ -28,11 +28,26 @@ To use a chart with a parameter:
 1. [Place your chart](../operations/dashboard/add-chart.md) on a dashboard.
 1. [Add a selector](../operations/dashboard/add-selector.md) to the dashboard to manage the chart parameter:
 
-   * Select **Manual input**.
-   * In the **Field or parameter** field, enter the name of the parameter from the chart.
-   * Leave a dash in the selection field of the **Operation** drop-down list.
-   * In the **Default value** field, specify the value to propagate in the chart parameter.
-   * Enter the selector **Header** to display on the dashboard.
+   {% list tabs %}
+
+   - Manual input
+
+     * Select **Manual input**.
+     * In the **Field or parameter** field, enter the name of the parameter from the chart.
+     * Leave a dash in the selection field of the **Operation** drop-down list.
+     * In the **Default value** field, specify the value to propagate in the chart parameter.
+     * Enter the selector **Header** to display on the dashboard.
+
+   - Based on a dataset
+
+     * Select **Based on dataset**.
+     * In the **Dataset** field, select a dataset with data for the selector.
+     * Under **Field**, select the name of the parameter from the chart.
+     * Leave a dash in the selection field of the **Operation** drop-down list.
+     * In the **Default value** field, specify the value to propagate in the chart parameter.
+     * Enter the selector **Header** to display on the dashboard.
+
+   {% endlist %}
 
    By changing selector values, you can customize visualization in the chart through the parameter.
 
@@ -177,7 +192,7 @@ When using parameters, keep in mind the following parameter naming restrictions:
 * Parameter names are case-sensitive, which means `Test` and `test` are two different parameters.
 * Parameter names cannot be the same as dataset field names.
 * After adding a parameter to a dataset, make sure to save charts in the wizard again.
-* If a dataset and a chart have parameters with the same name, the parameter from the chart is ignored.
+* If a dataset and chart have parameters with the same name, the chart parameter is ignored.
 
 
 ## Use cases {#examples}

@@ -17,7 +17,6 @@
 * [Cloud stuck in the `CREATING` status or it takes too long to create a cloud](cloud-stuck-in-creating-status.md)
 * [Resolving the `balance.WRONG.ACCOUNT` error](balance-wrong-account-issue.md)
 * [Resolving the `ILLEGAL_REQUEST_CONTRACT` error when generating a payment invoice](illegal-request-contract.md)
-* [{{ kms-short-name }} you are still billed for your deleted keys](kms-keys-are-charged-in-billing-after-deletion.md)
 * [Billing account has the `PAYMENT_NOT_CONFIRMED` status](payment-not-confirmed-issue.md)
 * [Fixing the `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS` error](error-prohibited-user-account-usage-status.md)
 * [Fixing the `Webpage is temporarily unavailable` error when paying with a Sber card](unable-to-pay-with-sber-card.md)

@@ -1252,6 +1252,8 @@ items:
         href: qa/access.md
       - name: Все вопросы на одной странице
         href: qa/index.md
+      - name: Решение проблем
+        href: qa/troubleshooting.md
   - name: Обучающие курсы
     href: training.md
 path: ru/iam/toc.yaml

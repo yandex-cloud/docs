@@ -18,7 +18,7 @@ description: В {{ cns-name }} вы можете отправлять уведо
    * [SMS](quickstart-sms.md).
 
      Для SMS можно не добавлять телефонные номера в канале, а добавить их сразу в топике.
-
+   * [Очередь {{ message-queue-full-name }}](../message-queue/operations/message-queue-new-queue.md).
 1. [Создайте топик](#create-topic).
 1. [Подпишите эндпоинты на топик](#subscribe-endpoints).
 1. [Отправьте уведомление в топик](#send-message).

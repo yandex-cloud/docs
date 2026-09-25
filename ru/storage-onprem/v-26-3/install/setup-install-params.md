@@ -56,38 +56,43 @@ ansible_user: root
 # Установка из архива с локальным OCI Registry
 stand_type: external
 
-# Всегда onprem, не следует менять
+# Всегда onprem
+# Не меняйте это значение
 stand: onprem
 
 release:
   # Имя архива с {{ objstorage-onprem-name }}
-  version: yc-storage-26.3.0.tar.zst
+  version: yc-storage-26.3.3.tar.zst
   # Архив находится на установочном хосте в каталоге ansible/release
   file_location: local
 
 # Режим подготовки HDD
+# По умолчанию — mds2
 mds_mode: mds2
 
-# Точки монтирования:
-# false — /srv/angel/disks/<номер_диска>
+# Точки монтирования HDD:
+# false (по умолчанию) — /srv/angel/disks/<номер_диска>
 # true — /srv/angel/<номер_слота>/disks/<номер_диска>
 angelSlotTopology: false
 
 # Тип IP-адресации: IPv4 или IPv6
 ip_type: IPv4
 
-# При включенном VXLAN — IP-адреса виртуальных интерфейсов dummy-kube0
+# IP-адреса internal-интерфейсов
+# При включенном VXLAN — адреса виртуальных интерфейсов dummy-kube0
+# из подсети <net_prefix>.12.0/24
+# При выключенном VXLAN — адреса физических internal-интерфейсов
 internal_ips:
   onprem01.local: 100.112.12.1
   onprem02.local: 100.112.12.2
   onprem03.local: 100.112.12.3
   onprem04.local: 100.112.12.4
 
-# Настройки VXLAN
+# Конфигурация VXLAN
 vxlan:
   enabled: true
   net_prefix: "100.112"
-  # Адреса физических internal-интерфейсов
+  # IP-адреса физических internal-интерфейсов
   vxlan0_peers:
     - 10.0.0.11
     - 10.0.0.12
@@ -100,13 +105,22 @@ k8s:
   pod_subnet: 10.11.0.0/16
   # Подсеть для сервисов
   service_subnet: 10.12.0.0/16
-  # Размер блока Calico: 26 для IPv4, 122 для IPv6
+  # Размер блока Calico
+  # Рекомендуется 26 для IPv4, 122 для IPv6
   block_size: 26
   # Имена должны совпадать с группой my-onprem-masters в inventory.ini
   master_hostnames:
     - onprem01.local
     - onprem02.local
     - onprem03.local
+  # Зоны хостов {{ k8s }}
+  # Значения должны совпадать с dc соответствующих хостов
+  # в конфигурации bootstrap.values_object
+  zones:
+    onprem01.local: dc1
+    onprem02.local: dc2
+    onprem03.local: dc3
+    onprem04.local: dc4
   calico:
     node_address_autodetection:
       # IP-адрес шлюза internal-подсети
@@ -125,13 +139,14 @@ yc_storage_operator:
     repoURL: zot-proxy.zot-proxy.svc.cluster.local
     chart: onprem/mds-charts/yc-storage-operator
     # Версия yc-storage-operator в архиве
-    targetRevision: 26.3.0
+    targetRevision: 26.3.3
 
 # Конфигурация {{ objstorage-onprem-name }}
 bootstrap:
   # Версия {{ objstorage-onprem-name }} в архиве
-  version: 26.3.0
-  # Вставьте сюда YAML-конфигурацию из следующего раздела
+  version: 26.3.3
+  # YAML-описание инсталляции из следующего раздела
+  # Сохраните отступы: весь блок должен быть вложен в values_object
   values_object: |
     <конфигурация>
 ```
@@ -161,21 +176,34 @@ bootstrap:
 Пример конфигурации для четырех хостов:
 
 ```yaml
-# Уникальное имя инсталляции (буквы, цифры, _)
+# Уникальное имя инсталляции
+# Допустимы строчные латинские буквы, цифры, дефис и подчеркивание
+# После установки имя менять нельзя
 name: my_onprem
 
-# "ipv4" или "ipv6"; по умолчанию ipv4
+featureFlags:
+  # Значение должно совпадать с angelSlotTopology в main.yaml
+  angelSlotTopology: false
+  # Включение ограничителя частоты запросов YARL
+  enableRatelimiter: false
+
+# Тип IP-адресации: IPv4 или IPv6
+# Тип IP-адресации должен соответствовать ip_type в main.yaml и IP-адресам
+# в intIP, для S3 API и эндпоинтов в management-подсети
 ipType: ipv4
 
-# Список хостов стенда
-# Для каждого указывается:
-# - name: FQDN хоста
-# - intIP: IP-адрес из internal_ips
-# - dc: имя дата-центра (зоны доступности).
+# Список всех хостов стенда
+# Для каждого хоста обязательны name, intIP и dc
 hosts:
   - name: onprem01.local
+    # IP-адрес хоста из internal-подсети
+    # При включенном VXLAN — адрес виртуального интерфейса из internal_ips в main.yaml
     intIP: "100.112.12.1"
     dc: dc1
+    # Количество слотов Angel для чарта: от одного до трех
+    # При angelSlotTopology: true укажите количество HDD, выделенных под данные, но не более трех
+    # По умолчанию — три
+    # angelSlots: 3
   - name: onprem02.local
     intIP: "100.112.12.2"
     dc: dc2
@@ -186,79 +214,147 @@ hosts:
     intIP: "100.112.12.4"
     dc: dc4
 
-ipPools:
-  # Пул адресов для management-сервисов: консоли, API для CLI и метрик
-  # Исключите адреса, занятые хостами и другим оборудованием
-  # Рекомендуется выделить не менее 16 адресов
-  management:
-    - "10.0.2.224-10.0.2.254"
-
-# Настройки dataplane
 dataplane:
-  # Класс избыточности: R3 или EC4+2
-  redundancy: R3
+  # Разметка пространств имен с избыточностью R3 или EC
+  # Размер бэкенда — 916 GiB
+  # Размер пространства имен задается в контейнерах или GiB
+  # Размер в GiB должен быть кратен физическому размеру контейнера
+  # Суммарный размер пространств имен не должен превышать емкость HDD, выделенных под данные
+  namespaces:
+    - name: angel-x3
+      redundancy: R3
+      size:
+        containers: 100
 
-# Конфигурация S3-совместимого API {{ objstorage-onprem-name }}
+    # Пример EC 4+2
+    # Параметр groupsPerDC задает количество дисков из каждого dc для формирования капла
+    # По умолчанию — один
+    # Если для EC D+P количество хостов меньше D+P, включите angelSlotTopology
+    # - name: angel-ec
+    #   redundancy: EC
+    #   ec:
+    #     data: 4
+    #     parity: 2
+    #   groupsPerDC: 2
+    #   size:
+    #     containers: 20
+
+  # Необязательные параметры durabilityWatchdog в Angel
+  # Принудительный fsync выполняется каждые (interval - jitter) / 2 секунд
+  # angel:
+  #   durabilityWatchdogInterval: 3m
+  #   durabilityWatchdogJitter: 30s
+
+postgres:
+  # Размещение реплик каждого кластера PostgreSQL:
+  # none (по умолчанию) — CNPG предпочитает разные узлы, но не требует этого
+  # host — реплики обязательно размещаются на разных узлах
+  # dc — реплики обязательно размещаются в разных зонах
+  # Для dc обязательно задайте k8s.zones в main.yaml
+  placementMode: dc
+
 s3:
-  # Квота, согласно лицензии, в ГиБ
-  quotaGB: "123456"
-  # Размер in-memory кеша S3 API, на каждом хосте, в МиБ.
-  # Рекомендуется использовать до четверти доступной RAM для in-memory кеширования.
-  # По умолчанию 4096.
+  # Если в dataplane.namespaces больше одной записи, явно укажите,
+  # какие пространства имен используются для классов хранилища STANDARD, COLD и ICE
+  # storageClasses:
+  #   - name: STANDARD
+  #     namespace: angel-x3
+  #   - name: COLD
+  #     namespace: angel-ec
+  #   - name: ICE
+  #     namespace: angel-ec
+
+  # Отдельные настройки s3db:
+  # shards — количество шардов, по умолчанию равно количеству хостов
+  # placementMode — размещение реплик
+  # Если placementMode не указан или равен inherit, используется postgres.placementMode
+  # postgres:
+  #   s3db:
+  #     shards: 3
+  #     placementMode: inherit
+
+  # Размер кеша Goose в оперативной памяти, в МиБ
+  # По умолчанию — 4 096
+  # Рекомендуется использовать до четверти оперативной памяти соответствующего узла
   cacheMB: "10240"
-  # Список доменов, по которым будут обращения к S3 API.
-  # Важно указать все домены, т.к. API не будет принимать обращения по другим адресам.
+
+  # Все допустимые домены S3 API
   domains:
     - "s3.onprem.local"
     - "s3-0.onprem.local"
     - "s3-1.onprem.local"
     - "s3-2.onprem.local"
     - "s3-3.onprem.local"
-  # Список IP-адресов, выделенных для S3 API.
-  # Количество адресов должно соответствовать количеству хостов.
-  # Адреса должны быть из data-подсети.
+
+  # IP-адреса для S3 API из data-подсети
+  # Количество адресов должно совпадать с количеством хостов
   ips:
     - "10.0.1.11"
     - "10.0.1.12"
     - "10.0.1.13"
     - "10.0.1.14"
 
+  # Домены для CORS на бакетах по умолчанию
+  # Настройка распространяется на POST, PUT и DELETE, но не на GET
+  cors:
+    - "*.onprem.local"
+
 # Конфигурация консоли
 console:
-  # Веб-консоль
   ui:
-    # Домен вида "console.xxx.net"
-    # Консоль будет доступна только по этому домену
-    domain: "console.onprem.local"
-    # IP-адрес для веб-консоли, из management-подсети
-    ip: "10.0.2.254"
-    # Конфигурация для метрик, отображаемых непосредственно в веб-интерфейсе
     metrics:
-      # Маска для имени сетевых интерфейсов, по которым следует отображать нагрузку
+      # Фильтр сетевых интерфейсов для отображения метрик в консоли
       externalNetworkInterfacesMask: "eth.*"
-  # gRPC API для CLI
-  grpc:
-    # IP-адрес для gRPC API, из management-подсети
-    ip: "10.0.2.253"
 
-# Конфигурация ip-адресов эндпоинтов для метрик
-# Адреса также должны быть из management-подсети
-metrics:
-  grafana:
-    # IP-адрес для внутренней Grafana
-    ip: "10.0.2.252"
-  prometheusFederation:
-    # IP-адрес для федеративного эндпоинта Prometheus, с которого можно выполнять скрапинг метрик
-    ip: "10.0.2.251"
+# Конфигурация эндпоинтов в management-подсети
+ingress:
+  console:
+    ip: "10.0.2.239"
+    domain: "console.onprem.local"
+  monitoring:
+    ip: "10.0.2.238"
+    domain: "monitoring.onprem.local"
+
+# Размеры PVC для метаданных
+# Выбирайте с учетом емкости NVMe-накопителей, выделенных под метаданные
+resources:
+  storage:
+    # PVC для Raft в Angel
+    # Минимум 10Gi, рекомендуется 20Gi и больше
+    angelRaft: 20Gi
+    # Кластеры MongoDB: по три PVC на кластер
+    psmdb:
+      gosper: 5Gi
+      nscfg: 1Gi
+      grestin: 5Gi
+    # Кластеры PostgreSQL: по три PVC на кластер
+    # Количество шардов s3db задается в s3.postgres.s3db.shards
+    pg:
+      gosper: 10Gi
+      s3db: 30Gi
+      s3meta: 10Gi
+      s3bg: 10Gi
+      zitadel: 10Gi
+      yarl: 10Gi
+    # Временное хранение отладочного архива: один PVC
+    inspector: 30Gi
+    # Локальные TSDB/WAL Mimir: три PVC
+    mimir: 30Gi
+    # Локальные хранилища Loki: по три PVC на каждое
+    loki:
+      internal: 50Gi
+      access: 25Gi
 ```
 
 Учитывайте особенности конфигурации:
 
+* Значения зон в `k8s.zones` из `main.yaml` должны совпадать со значениями `dc` соответствующих хостов в `hosts`.
 * Параметр `dc`, указанный для хостов в `hosts`, не обязательно должен соответствовать физическому расположению хостов. На практике он необходим для построения каплов дисков для репликации или EC.
-    * При `dataplane.redundancy: R3` каждый из трех дисков капла должен относиться к разным `dc`.
-    * При `dataplane.redundancy: EC4+2` берется по два диска из каждого `dc`, чтобы сформировать капл из шести.
-
-* В management-подсети (указанной в `ipPools.management`) будет использовано несколько дополнительных адресов, явно не задаваемых в конфигурации. Такие адреса будут выбираться из начала пула. Поэтому рекомендуется указывать явные адреса из конца пула (`console.ui.ip`, `console.grpc.ip` и другие).
+    * При `redundancy: R3` каждый из трех дисков капла должен относиться к разным `dc`.
+    * При `redundancy: EC` из каждого `dc` берется количество дисков, заданное в `groupsPerDC`.
+* Значение `angelSlotTopology` в `main.yaml` должно совпадать со значением `featureFlags.angelSlotTopology`.
+* Суммарный размер неймспейсов в `dataplane.namespaces` не должен превышать физическую емкость HDD, выделенных под данные.
+* Размеры PVC в `resources.storage` выбирайте с учетом емкости NVMe-накопителей, выделенных под метаданные.
 
 
 #### Что дальше? {#whats-next}

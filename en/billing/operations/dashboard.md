@@ -33,6 +33,8 @@ You can view information on your {{ yandex-cloud }} service usage by building a 
 
   As a result, you should see the cost of using resources for the specified period.
 
+  {% include [final-payment-info](../../_includes/billing/final-payment-info.md) %}
+
 {% endlist %}
 
 ## Open the dashboard {#open-dashboard}

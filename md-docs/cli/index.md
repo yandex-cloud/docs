@@ -1178,6 +1178,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/baremetal/cli-ref/v2/image/list.md)
 
+ - [list-compatible](cli-ref/baremetal/cli-ref/v2/image/list-compatible.md)
+
  - [resolve](cli-ref/baremetal/cli-ref/v2/image/resolve.md)
 
 ##### private-cloud-connection
