@@ -8,7 +8,7 @@ An iterator specifies the starting position in the shard from which the [GetReco
 
 The request must specify the iterator type.
 
-For example, to retrieve an iterator that begins reading from a specific sequence number, specify the `AT_SEQUENCE_NUMBER` iterator type and provide the sequence number in the `StartingSequenceNumber` parameter. Alternatively, use the `AFTER_SEQUENCE_NUMBER` iterator type to get an iterator that starts reading from the record immediately after the one specified in the `StartingSequenceNumber` parameter. Use sequence numbers returned by the [PutRecord](putrecord.md), [PutRecords](putrecords.md), [GetRecords](getrecords.md), and [DescribeStream](deletestream.md) methods.
+For example, to retrieve an iterator that begins reading from a specific sequence number, specify the `AT_SEQUENCE_NUMBER` iterator type and provide the sequence number in the `StartingSequenceNumber` parameter. Alternatively, use the `AFTER_SEQUENCE_NUMBER` iterator type to get an iterator that starts reading from the record immediately after the one specified in the `StartingSequenceNumber` parameter. Use sequence numbers returned by the [PutRecord](putrecord.md), [PutRecords](putrecords.md), [GetRecords](getrecords.md), and [DescribeStream](describestream.md) methods.
 
 To retrieve an iterator that begins reading from a specific timestamp, use the `AT_TIMESTAMP` iterator type and specify the starting time in the `Timestamp` parameter.
 
