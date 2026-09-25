@@ -137,9 +137,9 @@
   * `--source-ciphertext-file` — входной файл с шифртекстом.
 
   ```bash
-  yc kms symmetric-crypto reencrypt \
+  yc kms symmetric-crypto re-encrypt \
     --id <идентификатор_ключа> \
-    --ciphertext-file ciphertext-file
+    --ciphertext-file ciphertext-file \
     --source-key-id <идентификатор_исходного_ключа> \
     --source-ciphertext-file source-ciphertext-file
   ```
@@ -147,6 +147,63 @@
 - API {#api}
 
   Чтобы сменить ключ или версию ключа шифрования данных, воспользуйтесь методом REST API [reEncrypt](../../kms/api-ref/SymmetricCrypto/reEncrypt.md) для ресурса [SymmetricCrypto](../../kms/api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/ReEncrypt](../../kms/api-ref/grpc/SymmetricCrypto/reEncrypt.md).
+
+{% endlist %}
+
+## Сгенерируйте ключ шифрования данных {#generate-data-key}
+
+У метода `encrypt` есть ограничение на размер данных — 32 КБ. Большие объемы шифруют по схеме [envelope encryption](../concepts/envelope.md): данные шифруются локально ключом шифрования данных (DEK), а сам DEK шифруется ключом {{ kms-short-name }} и хранится рядом с шифртекстом.
+
+{{ kms-short-name }} умеет сгенерировать DEK и сразу вернуть его в двух видах: в открытом и в зашифрованном ключом {{ kms-short-name }}. Открытый DEK используют для локального шифрования и уничтожают сразу после, зашифрованный сохраняют вместе с данными.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для генерации ключа шифрования данных:
+
+     ```bash
+     yc kms symmetric-crypto generate-data-key --help
+     ```
+
+  1. Сгенерируйте ключ:
+
+     ```bash
+     yc kms symmetric-crypto generate-data-key \
+       --id <идентификатор_ключа> \
+       --data-key-spec AES_256 \
+       --data-key-plaintext-file data-key-plaintext-file \
+       --data-key-ciphertext-file data-key-ciphertext-file
+     ```
+
+     Где:
+
+     * `--id` — идентификатор [ключа KMS](../concepts/key.md), которым будет зашифрован DEK. Вместо него можно указать `--name` с именем ключа.
+     * `--version-id` — (опционально) [версия](../concepts/version.md) ключа KMS. По умолчанию используется основная.
+     * `--data-key-spec` — алгоритм генерируемого DEK: `AES_128`, `AES_192` или `AES_256`.
+     * `--data-key-plaintext-file` — выходной файл с открытым DEK.
+     * `--data-key-ciphertext-file` — выходной файл с зашифрованным DEK.
+     * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../concepts/symmetric-encryption.md#add-context).
+     * `--skip-plaintext` — (опционально) не записывать открытый DEK. По умолчанию он возвращается.
+
+  {% note warning %}
+
+  Не сохраняйте открытый DEK надолго. Расшифровывайте его только на время шифрования или расшифрования данных и уничтожайте сразу после. Подробнее в разделе [{#T}](../concepts/envelope.md#specify).
+
+  {% endnote %}
+
+- API {#api}
+
+  Чтобы сгенерировать ключ шифрования данных, воспользуйтесь методом REST API [generateDataKey](../../kms/api-ref/SymmetricCrypto/generateDataKey.md) для ресурса [SymmetricCrypto](../../kms/api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/GenerateDataKey](../../kms/api-ref/grpc/SymmetricCrypto/generateDataKey.md) и передайте в запросе:
+
+  * идентификатор ключа {{ kms-short-name }} в параметре `keyId`;
+  * алгоритм генерируемого ключа в параметре `dataKeySpec`;
+  * (опционально) AAD-контекст в параметре `aadContext`;
+  * (опционально) `skipPlaintext` со значением `true`, чтобы в ответе не было открытого ключа.
 
 {% endlist %}
 
