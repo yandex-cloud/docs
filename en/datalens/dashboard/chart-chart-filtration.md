@@ -1,15 +1,15 @@
 ---
-title: Cross-chart filtering in {{ datalens-full-name }}
-description: This article describes how to set up chart filtering by other charts in {{ datalens-full-name }}.
+title: Chart cross-filtering in {{ datalens-full-name }}
+description: This article describes how to set up chart cross-filtering in {{ datalens-full-name }}.
 ---
 
-# Cross-chart filtering in {{ datalens-full-name }}
+# Chart cross-filtering in {{ datalens-full-name }}
 
-{{ datalens-short-name }} allows you to set up [filtering of charts by other charts](../operations/dashboard/add-filtration.md) on the dashboard. A chart with filtering configured can thus be used as a selector for other charts.
+{{ datalens-short-name }} allows you to [set up chart cross-filtering](../operations/dashboard/add-filtration.md) on the dashboard. A chart with filtering configured can thus be used as a selector for other charts.
 
 To apply filtering, click an individual item in the filtering chart, e.g., a point on a graph, a column, or a pie chart segment. The linked charts will then be filtered by the selected dimensions.
 
-You can reset chart filtering in two ways:
+You can reset chart cross-filtering in two ways:
 
 * Click the selected item once again.
 * Click ![image](../../_assets/datalens/clear-filters.svg) in the top-right corner of the chart.
@@ -35,15 +35,15 @@ Filtering is available for the following types of charts created using the [wiza
 * [Combined chart](../visualization-ref/combined-chart.md)
 
 
-You can check how charts are filtered by charts on the [demo dashboard](https://datalens.yandex/9fms9uae7ip02?tab=LoG).
+You can check how chart cross-filtering works on our [demo dashboard](https://datalens.yandex/9fms9uae7ip02?tab=LoG).
 
 
 
-## Recommendations and limitations {#using}
+## Usage specifics {#using}
 
-When using chart filtering, keep in mind the following:
+When using chart cross-filtering, keep in mind the following:
 
-* Charts created in the wizard are filtered using all dataset dimensions except for fields of the [tree of strings](../dataset/data-types.md#tree-hierarchy) type, [hierarchies](../operations/chart/add-hierarchy.md), and fields containing [markup language](../function-ref/markup-functions.md). Fields [created at the chart level](../concepts/aggregation-tutorial.md#add-measure-in-chart) do not participate in filtering.
+* Charts created in the wizard are filtered using all dataset dimensions except for fields of the [tree of strings](../dataset/data-types.md#tree-hierarchy) type, [hierarchies](../operations/chart/add-hierarchy.md), and fields containing [markup language](../function-ref/markup-functions.md). Fields [created at the chart level](../concepts/aggregation-tutorial.md#add-measure-in-chart) are not used for filtering.
 * Clicking a cell in the **Table** chart applies filtering by all the dimensions of the selected row.
 * Clicking a map element applies filtering by all the dimensions used in the chart except the coordinates themselves.
 * In **Pivot table** charts, filtering charts by other charts only works for indicators.

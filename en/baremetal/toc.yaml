@@ -789,6 +789,8 @@ items:
                         href: cli-ref/v2/image/get.md
                       - name: list
                         href: cli-ref/v2/image/list.md
+                      - name: list-compatible
+                        href: cli-ref/v2/image/list-compatible.md
                       - name: resolve
                         href: cli-ref/v2/image/resolve.md
                   - name: private-cloud-connection

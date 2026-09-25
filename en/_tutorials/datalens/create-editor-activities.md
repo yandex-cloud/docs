@@ -77,7 +77,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
     "weather": {
 
         // Indicating which connection to use for getting data
-        // Use the name given to the connection on the Meta tab
+        // Using here the name we gave to the connection on the Meta tab
         apiConnectionId: Editor.getId("weatherConnection"),
 
         // Request method

@@ -60,3 +60,9 @@ Docker-клиент подставляет тег `latest` автоматиче�
 Для [IP-адреса](../../vpc/concepts/address.md), с которого идет запрос на скачивание Docker-образа, нет разрешения на скачивание (PULL).
 
 [Добавьте разрешающие правила](../operations/registry/registry-access.md) для этого IP-адреса в настройках реестра или удалите все правила и повторите попытку.
+
+## Что делать при ошибке «You have reached your pull rate limit» при скачивании образа из Docker Hub? {#docker-hub-pull-limit}
+
+Ошибка `toomanyrequests: You have reached your pull rate limit` означает, что превышен лимит на количество скачиваний образов из Docker Hub. Актуальные ограничения и способы проверки оставшегося лимита приведены в [документации Docker](https://docs.docker.com/docker-hub/usage/pulls/).
+
+Чтобы сократить количество обращений к Docker Hub, используйте [Yandex Cloud Registry](../../cloud-registry/index.md). [Создайте удаленный реестр](../../cloud-registry/operations/registry/remote.md) с источником `Docker Hub` и скачивайте образы через него. Удаленный реестр [кеширует образы после первого обращения](../../cloud-registry/concepts/registry.md#remote-registry), что снижает нагрузку на Docker Hub.

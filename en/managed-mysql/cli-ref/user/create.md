@@ -64,6 +64,12 @@ The maximum number of simultaneous connections permitted to any given MySQL user
 || `--deletion-protection` | `string`
 
 Protection from accidental deletion. Values: disabled, enabled, inherit, true, false ||
+|| `--connection-folder-id` | `string`
+
+ID of the folder where connection for the user is created. ||
+|| `--secret-folder-id` | `string`
+
+ID of the folder where connection secret is created. ||
 |#
 
 #### Global Flags

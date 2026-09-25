@@ -169,7 +169,7 @@ description: Следуя данной инструкции, вы сможете
 
      Укажите параметры балансировки по репликам в блоке **Настройки портов**:
 
-     {% include [lb-settings](../../_includes/mdb/load-balancer-settings.md) %}
+     {% include [lb-settings](../../_includes/mdb/mpg/load-balancer-settings.md) %}
 
 
   

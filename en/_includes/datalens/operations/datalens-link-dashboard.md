@@ -3,9 +3,9 @@
 
 1. In the window that opens:
 
-   * Set language, theme, and menu display.
+   * Set the language, theme, and menu display.
    * Optionally, save selector values.
    * Optionally, enable **Open current tab by default**.
-   * Optionally, if you have an [identity federation]({{ link-docs }}/organization/concepts/add-federation) configured, save the federation to share the link with the federation users.
+   * Optionally, if you set up an [identity federation]({{ link-docs }}/organization/concepts/add-federation), save the federation to share your link with the federation users.
 
 1. Copy the link with the selected appearance settings by clicking ![image](../../../_assets/console-icons/copy.svg) icon in the **Link** field or by clicking **Copy and close**. You can distribute this link to users with [access](../../../datalens/security/index.md) to the dashboard.

@@ -66,6 +66,7 @@ description: Из статьи вы узнаете, как подключить�
 
   * {% include [datalens-db-connection-export-settings-item](../../../_includes/datalens/operations/datalens-db-connection-export-settings-item.md) %}
   * {% include [datalens-db-connection-table-list-settings-item.md](../../../_includes/datalens/operations/datalens-db-connection-table-list-settings-item.md) %}
+  * {% include [connection-trino-extra-credentials.md](../../../_includes/datalens/connection-trino-extra-credentials.md) %}
 
   ![image](../../../_assets/datalens/operations/connection/connection-trino-yc-additional.png)
 
@@ -74,7 +75,6 @@ description: Из статьи вы узнаете, как подключить�
   {% include [connection-trino-additional-settings](../../../_includes/datalens/connection-trino-additional-settings.md) %}
 
 {% endlist %}
-
 
 
 

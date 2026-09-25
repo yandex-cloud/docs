@@ -36,6 +36,9 @@ description: Из статьи вы узнаете, как изменить на
 * [Миграция хостов кластера в другую зону доступности](host-migration.md).
 
 
+* [Управление балансировщиком нагрузки](load-balancer.md).
+
+
 ## Изменить класс хостов {#change-resource-preset}
 
 {% note info %}
@@ -431,6 +434,11 @@ description: Из статьи вы узнаете, как изменить на
   
   1. {% include [diagnostics-settings-console](../../_includes/mdb/mpg/diagnostics-settings-console.md) %}
 
+
+  
+  1. В блоке **DB Proxy** включите или отключите [балансировщик {{ mdb-lb }}](../concepts/load-balancer.md) с помощью опции **Балансировка DB Proxy**. Если вы включили балансировщик, укажите параметры балансировки по репликам в блоке **Настройки портов**:
+
+     {% include [lb-settings](../../_includes/mdb/mpg/load-balancer-settings.md) %}
 
 
   1. Измените дополнительные настройки кластера:

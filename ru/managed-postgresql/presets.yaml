@@ -2,6 +2,7 @@ default:
   balancer:
     fqdn-ref: ../../managed-postgresql/operations/connect/fqdn.md
     port:
+      cascade-replicas: 8432
       master: 6432
       non-delayed-replicas: 7432
       replicas: 7433

@@ -1,6 +1,0 @@
-[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Monitoring](../index.md) > Решения для известных проблем Monitoring
-
-## Решения для известных проблем Monitoring
-
-* [Графики мониторинга имеют разрывы и пустоты при нормальной работе облачных ресурсов](gaps-in-chart-lines.md)
-* [Не приходят оповещения о событиях после настройки канала уведомлений в Monitoring](no-incoming-sms-and-emails-after-alert-config.md)

@@ -34,6 +34,7 @@ description: Из статьи вы узнаете, как изменить на
 
 * [{#T}](cluster-version-update.md).
 * [Миграция хостов кластера в другую зону доступности](host-migration.md).
+* [Управление балансировщиком нагрузки](load-balancer.md).
 
 
 ## Изменить класс хостов {#change-resource-preset}
@@ -562,6 +563,11 @@ description: Из статьи вы узнаете, как изменить на
 
   1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+
+  
+  1. В блоке **DB Proxy** включите или отключите [балансировщик нагрузки {{ mdb-lb }}](../concepts/load-balancer.md) с помощью опции **Балансировка DB Proxy**. Если вы включили балансировщик, укажите параметры балансировки по репликам в блоке **Настройки портов**:
+
+      {% include [lb-settings](../../_includes/mdb/mmy/load-balancer-settings.md) %}
 
 
   1. Измените дополнительные настройки кластера:

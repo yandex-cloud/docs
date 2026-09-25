@@ -4,6 +4,51 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.37.0 (24.09.26) {#v-1-37-0}
+
+#### BareMetal {#v-1-37-0-baremetal-name}
+
+* Добавлена команда `yc baremetal image list-compatible` для получения списка образов, совместимых с конфигурацией.
+
+#### Cloud Router {#v-1-37-0-cr-name}
+
+* Добавлена группа команд `yc cloudrouter v2` для управления экземплярами маршрутизации и пирингом:
+  * `yc cloudrouter v2 routing-instance`;
+  * `yc cloudrouter v2 peering`.
+
+#### Managed Service for Kubernetes {#v-1-37-0-managed-k8s-name}
+
+* В команды создания и изменения кластера добавлены параметры `--cluster-ipv4-range-list` и `--cluster-ipv6-range-list`, которые позволяют указать списки IPv4 и IPv6 CIDR-диапазонов для кластера Kubernetes:
+  * `yc managed-kubernetes cluster create`;
+  * `yc managed-kubernetes cluster update`.
+
+#### Managed Service for MySQL® {#v-1-37-0-mmy-name}
+
+* В следующие команды добавлены параметры для настройки каталога создания подключений и их секретов в интеграции Connection Manager для Managed Service for MySQL®:
+  * `yc managed-mysql cluster create`;
+  * `yc managed-mysql cluster restore`;
+  * `yc managed-mysql cluster update`;
+  * `yc managed-mysql user create`.
+* В выводе следующих команд удалено устаревшее поле `connection_manager`; вместо него используется `user_connection_manager`:
+  * `yc managed-mysql user get`;
+  * `yc managed-mysql user list`;
+  * `yc managed-mysql user create`.
+
+#### Managed Service for PostgreSQL {#v-1-37-0-mpg-name}
+
+* В команды создания, изменения и восстановления кластера добавлены параметры `--maintenance-anytime` и `--maintenance-window-slot` для настройки нескольких слотов обслуживания с временем начала, длительностью и разрешением временной недоступности:
+  * `yc managed-postgresql cluster create`;
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql cluster restore`.
+
+#### Managed Service for Trino {#v-1-37-0-mtr-name}
+
+* Добавлен параметр `--additional-properties` в команды для настройки дополнительных свойств кластера Trino:
+  * `yc managed-trino cluster create`;
+  * `yc managed-trino cluster update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.36.0 (21.09.26) {#v-1-36-0}
 
 #### Managed Service for Apache Kafka® {#v-1-36-0-mkf-name}
@@ -23,8 +68,6 @@
 * Добавлен параметр `--event-listener-data-catalog-enabled` в команды для управления обработчиком событий Data Catalog:
   * `yc managed-trino cluster create`;
   * `yc managed-trino cluster update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.35.1 (17.09.26) {#v-1-35-1}
 

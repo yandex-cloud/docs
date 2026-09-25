@@ -5,7 +5,7 @@ description: Follow this guide to configure {{ maf-name }} cluster access permis
 
 # Managing access to a {{ maf-name }} cluster
 
-You can grant a [role](../security/index.md) for access to a specific [cluster](../concepts/index.md) to a user or service account.
+You can assign a user or service account a [role](../security/index.md) that grants access to a specific [cluster](../concepts/index.md).
 
 Thus, you can granularly assign different roles for particular clusters to different users and service accounts.
 
@@ -104,16 +104,20 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where:
 
-      * `--role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-airflow.editor`.
-      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
+      * `--role`: [Role](../security/index.md#roles-list), e.g., `managed-airflow.editor`.
+      * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
-          For example:
+          Here is an example:
 
           * `serviceAccount:aje6p030************`
           * `userAccount:aje8tj79************`
           * `system:allAuthenticatedUsers`
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
   1. To view a list of roles assigned for the cluster, run this command:
 
@@ -153,11 +157,15 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where:
 
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-airflow.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-airflow.editor`.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -199,11 +207,15 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `resource_id`: Cluster ID.
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-airflow.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-airflow.editor`.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -247,16 +259,20 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where `--access-binding` assigns a role to a subject. You can assign multiple roles at once by describing each of them in a separate `--access-binding` parameter.
 
-      * `role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-airflow.editor`.
-      * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
+      * `role`: [Role](../security/index.md#roles-list), e.g., `managed-airflow.editor`.
+      * `subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
-          For example:
+          Here is an example:
 
           * `serviceAccount:aje6p030************`
           * `userAccount:aje8tj79************`
           * `system:allAuthenticatedUsers`
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
 - REST API {#api}
 
@@ -308,11 +324,15 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where:
 
-      * `accessBindings.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-airflow.editor`.
-      * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `accessBindings.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-airflow.editor`.
+      * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -372,11 +392,15 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `resource_id`: Cluster ID.
-      * `accessBindings.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-airflow.editor`.
-      * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `accessBindings.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-airflow.editor`.
+      * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -414,15 +438,19 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `--role`: [Role](../security/index.md#roles-list) being revoked, e.g., `managed-airflow.editor`.
-      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to, in `<subject_type>:<subject_ID>` format.
+      * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
-          For example:
+          Here is an example:
 
           * `serviceAccount:aje6p030************`
           * `userAccount:aje8tj79************`
           * `system:allAuthenticatedUsers`
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
 - REST API {#api}
 
@@ -456,11 +484,15 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where:
 
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-airflow.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
-      * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being revoked, e.g., `managed-airflow.editor`.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+      * `access_binding_deltas.subject.type`: Subject type to revoke a role from.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -502,11 +534,15 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `resource_id`: Cluster ID.
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-airflow.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
-      * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being revoked, e.g., `managed-airflow.editor`.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+      * `access_binding_deltas.subject.type`: Subject type to revoke a role from.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

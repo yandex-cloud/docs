@@ -7,7 +7,7 @@ description:
     API</a>.
   - >-
     Сервис поддерживает отправку push-уведомлений на устройства с iOS и Android,
-    в браузеры и SMS.
+    в браузеры, очереди сообщений {{ message-queue-full-name }} и SMS.
   - >-
     Для сервиса действует <a
     href="https://yandex.ru/legal/cloud_terms_cns/ru/">Соглашение об уровне

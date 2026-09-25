@@ -29,6 +29,7 @@
 * [MCP-сервер](mcp.md)
 * [Обработка естественного языка (NLP)](nlp.md)
 * [Глубокое обучение (Deep Learning)](deep-learning.md)
+* [AI Agent Harness](ai-agent-harness.md)
 
 ## Облачные вычисления и сервера {#servers}
 
@@ -161,6 +162,8 @@
  - [Обработка естественного языка (NLP)](nlp.md)
 
  - [Глубокое обучение (Deep Learning)](deep-learning.md)
+
+ - [AI Agent Harness](ai-agent-harness.md)
 
 ## Облачные вычисления и сервера
 

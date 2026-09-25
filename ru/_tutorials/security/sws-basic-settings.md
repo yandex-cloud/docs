@@ -410,10 +410,12 @@ description: Руководство помогает с нуля настрои�
   1. Посмотрите информацию на графиках:
      * **Denied by Security Profile RPS** — количество входящих запросов в секунду, которые были проверены и заблокированы профилем безопасности.
      * **Redirected to SmartCaptcha RPS** — количество входящих запросов в секунду, направленных в {{ captcha-name }} для дополнительной верификации.
+     * **Redirected to JS challenge RPS** — количество входящих запросов в секунду, направленных на [проверку выполнения JavaScript](../../smartwebsecurity/concepts/rules.md#client-checks) на стороне клиента.
+     * **Redirected to Cookie challenge RPS** — количество входящих запросов в секунду, направленных на [проверку поддержки cookie](../../smartwebsecurity/concepts/rules.md#client-checks) у клиента.
 
 {% endlist %}
 
-Подробное описание графиков смотрите в разделе [{#T}](../../smartwebsecurity/operations/monitoring.md).
+Описание графиков, метрик и меток приведено в разделе [{#T}](../../smartwebsecurity/operations/monitoring.md).
 
 ## Настройте ограничение нагрузки {#rate-limiter}
 
@@ -516,8 +518,11 @@ description: Руководство помогает с нуля настрои�
   1. Посмотрите информацию на графиках:
      * **Allowed by ARL Profile RPS** — количество входящих запросов в секунду, которое не превышает лимит в профиле ARL.
      * **Denied by ARL Profile RPS** — количество входящих запросов в секунду, превысивших лимит профиля ARL и заблокированных.
+     * **Redirected to SmartCaptcha by ARL Profile RPS** — количество входящих запросов в секунду, направленных профилем ARL в {{ captcha-name }} для дополнительной верификации.
 
 {% endlist %}
+
+Описание графиков, метрик и меток приведено в разделе [{#T}](../../smartwebsecurity/operations/monitoring.md#monitoring-dashboards).
 
 ## Настройте Web Application Firewall {#firewall}
 

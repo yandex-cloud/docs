@@ -2,6 +2,8 @@
 
 You can get a CSV file with your general or per-resource spending details. You can either [download](#single-time-download) the file once or [set up](#regular-download) its regular export.
 
+{% include [final-payment-info](../../_includes/billing/final-payment-info.md) %}
+
 ## One-time export {#single-time-download}
 
 {% list tabs group=instructions %}

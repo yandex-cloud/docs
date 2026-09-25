@@ -29,7 +29,7 @@ To add a Neuroanalyst insight widget to the dashboard, follow these steps:
    * **Title**. Option to display the insight header.
    * **Actions with insight**. Option to display an action bar at the bottom of the insight:
 
-     * ![image](../../../_assets/console-icons/copy.svg) **Copy**. Copies the contents of the insight to the clipboard.
+     * ![image](../../../_assets/console-icons/copy.svg) **Copy**. Copies insight content to the clipboard.
      * ![image](../../../_assets/console-icons/arrow-rotate-left.svg) **Once more**. Updates the insight response.
      * ![image](../../../_assets/console-icons/thumbs-up.svg) **This answer is good**. Evaluates the insight response positively.
      * ![image](../../../_assets/console-icons/thumbs-down.svg) **This answer is bad**. Evaluates the insight response negatively.

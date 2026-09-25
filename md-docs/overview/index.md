@@ -68,6 +68,8 @@
 
  - [Работа с Yandex Cloud CLI и API в Microsoft Windows](concepts/console-syntax-guide.md)
 
+ - [MCP-серверы Yandex Cloud для AI-агентов и IDE](mcp-servers.md)
+
 ## Сопоставление с другими платформами
 
  - [Обзор](platform-comparison/index.md)

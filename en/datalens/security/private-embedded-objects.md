@@ -15,13 +15,13 @@ Embedding private objects works only in the new {{ datalens-short-name }} object
 
 To configure the features and appearance of embedded objects, you can use special parameters which you provide in the link:
 
-* `_autoupdate`: Sets the [auto-update](../dashboard/settings.md#auto-update) time for dashboards and charts in seconds. By default, these are not updated automatically. The feature only works for the active browser tab. Objects due for auto-update on inactive tabs will be auto-updated when the tab becomes active again. The minimum values are:
+* `_autoupdate`: Sets the [auto-update](../dashboard/settings.md#auto-update) time for dashboards and charts in seconds. By default, these are not updated automatically. The feature only works for the active browser tab. Objects due for auto-update on inactive tabs will be auto-updated when the tab becomes active again. The minimum values are as follows:
 
   * 30 seconds for dashboards.
   * 15 seconds for charts.
 
 * `_reload_on_session_expire`: Enables automatic page reload after the session lifetime expires. To activate the parameter, set it to `1`.
-* `_theme`: Specifies the object's appearance. The possible values are:
+* `_theme`: Sets the object's appearance. The possible values are as follows:
 
   * `light`: Light theme.
   * `dark`: Dark theme.

@@ -22,7 +22,7 @@ At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) an
 
 {% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
 
-1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![image](../../../_assets/console-icons/chart-column.svg) **Charts**.
 1. Click **Create chart** → **QL chart**.
 1. In the window that opens, select the **Chart type**:

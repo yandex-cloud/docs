@@ -1,17 +1,17 @@
-Create an app secret (only available for applications of the `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}` [type](../../organization/concepts/applications/oidc.md#oidc-application-types)):
+Create an app secret (only available for applications of the `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}` [type](../../organization/concepts/applications/oidc.md#oidc-application-types)).
 
-1. Under **{{ ui-key.yacloud_org.application.overview.secret_section_title }}**, click **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}**, and in the window that opens:
+To do this, under **{{ ui-key.yacloud_org.application.overview.secret_section_title }}**, click **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}**, and in the window that opens:
 
-    1. Optionally, add a description for the new secret.
-    1. Click **{{ ui-key.yacloud.common.create }}**.
+1. Optionally, add a description for the new secret.
+1. Click **{{ ui-key.yacloud.common.create }}**.
 
-The window will display the generated [application secret](../../organization/concepts/applications/oidc.md#oidc-secret). Save this value.
+    The window will display the generated [application secret](../../organization/concepts/applications/oidc.md#oidc-secret). Save this value.
 
-{% note warning %}
+    {% note warning %}
 
-If you refresh or close the application information page, you will not be able to view the secret again.
+    If you refresh or close the application information page, you will not be able to view the secret again.
 
-{% endnote %}
+    {% endnote %}
 
 If you closed or refreshed the page before saving the secret, click **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}** to create a new one.
 

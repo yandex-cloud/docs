@@ -119,6 +119,7 @@ By default, usage details show the cost of consumed resources. Details in consum
 
 {% include [currency](../_includes/currency.md) %}
 
+{% include [final-payment-info](../../_includes/billing/final-payment-info.md) %}
 
 ## Viewing discount details {#discount}
 

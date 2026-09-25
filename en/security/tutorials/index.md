@@ -35,6 +35,9 @@ description: Various {{ yandex-cloud }} security tutorials
 * Jenkins
     * [{#T}](single-sign-on/saml-jenkins.md)
     * [{#T}](single-sign-on/oidc-jenkins.md)
+* LibreChat
+    * [SAML](single-sign-on/saml-librechat.md)
+    * [OpenID Connect](single-sign-on/oidc-librechat.md)
 * Loop
     * [{#T}](single-sign-on/saml-loop.md)
     * [{#T}](single-sign-on/oidc-loop.md)
@@ -45,6 +48,7 @@ description: Various {{ yandex-cloud }} security tutorials
 * OpenVPN
     * [{#T}](single-sign-on/saml-ovpn.md)
     * [{#T}](single-sign-on/oidc-ovpn.md)
+* [{#T}](single-sign-on/oidc-open-webui.md)
 * [{#T}](single-sign-on/saml-selectel.md)
 * [{#T}](single-sign-on/saml-sentry.md)
 * [{#T}](single-sign-on/saml-sonarqube.md)

@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
           * **{{ ui-key.yacloud.common.name }}**.
           * **{{ ui-key.yacloud.common.description }}**.
           * **Приоритет** правила. Чем меньше значение параметра, тем больший приоритет у правила.
-          * Настройку опции логирования без блокировки запросов (dry run).
+          * Настройку опции логирования без применения действия правила (dry run).
 
       1. {% include [arl-rule-traffic-conditions](../../_includes/smartwebsecurity/arl-rule-traffic-conditions.md) %}
 

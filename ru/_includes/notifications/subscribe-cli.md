@@ -7,7 +7,11 @@ aws sns subscribe \
 
 Где:
   * `topic-arn` — ARN топика.
-  * `protocol` — тип канала отправки уведомлений, например, `sms`, `application`.
-  * `notification-endpoint` — ARN эндпоинта, который подписывается на топик, в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`. Для SMS — номер телефона в формате [E.164](https://{{ lang }}.wikipedia.org/wiki/E.164), например `+79991112233`.
+  * `protocol` — тип канала отправки уведомлений, например `sms`, `application`, `sqs`.
+  * `notification-endpoint` — эндпоинт, который подписывается на топик:
+
+    {% include [subscribe-endpoint-types](subscribe-endpoint-types.md) %}
+
+      Чтобы топик мог отправлять сообщения в очередь, у него должен быть задан атрибут `SQSServiceAccountId`. Подробнее в инструкциях по [созданию](../../notifications/operations/topics/topic-create.md#aws-cli) и [управлению](../../notifications/operations/topics/topic-manage.md#aws-cli) топиком.
 
 Подробнее о команде `aws sns subscribe` смотрите в [документации AWS](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-create-subscribe-endpoint-to-topic.html).

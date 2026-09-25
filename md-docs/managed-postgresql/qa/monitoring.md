@@ -8,6 +8,8 @@
 
 * [Как долго хранятся логи?](#log-keeping)
 
+* [Как включить логирование SQL-запросов?](#sql-query-logging)
+
 * [Что такое WAL и для чего они нужны?](#wal)
 
 * [Что означает параметр Cached в мониторинге RAM хоста кластера PostgreSQL?](#cached)
@@ -35,6 +37,43 @@ yc managed-postgresql cluster list-logs <идентификатор_класте
 #### Как долго хранятся логи? {#log-keeping}
 
 Логи кластера хранятся 45 дней.
+
+#### Как включить логирование SQL-запросов? {#sql-query-logging}
+
+Чтобы включить логирование SQL-запросов:
+
+1. Убедитесь, что в базе данных [установлено расширение `pg_stat_statements`](../operations/extensions/cluster-extensions.md#list-extensions). Если расширение не установлено, [добавьте его](../operations/extensions/cluster-extensions.md#update-extensions).
+
+   При использовании CLI выполните команду:
+
+   ```bash
+   yc managed-postgresql database update <имя_БД> \
+      --cluster-name <имя_кластера> \
+      --extensions <список_установленных_расширений>,pg_stat_statements
+   ```
+
+   В параметре `--extensions` укажите `pg_stat_statements` и все остальные расширения, которые должны остаться включенными. Если в базе данных нет других расширений, укажите только `pg_stat_statements`.
+
+1. [Измените настройки СУБД](../operations/update.md#change-postgresql-config):
+
+   * Установите для параметра [**Log min duration statement**](../concepts/settings-list.md#setting-log-min-duration-statement) значение `60000` мс. В лог будут попадать запросы, время выполнения которых составляет одну минуту или больше. При необходимости постепенно уменьшайте значение. Значение `0` включает логирование всех запросов и может значительно увеличить объем логов и нагрузку на кластер.
+   * Установите для параметра [**Auto explain sample rate**](../concepts/settings-list.md#setting-auto-explain-sample-rate) значение `1`.
+   * Если нужно записывать в лог планы выполнения запросов, добавьте `auto_explain` в параметр [**Shared preload libraries**](../concepts/settings-list.md#setting-shared-libraries), установите для параметра [**Auto explain log min duration**](../concepts/settings-list.md#setting-auto-explain-log-min-duration) значение `60000` мс и включите параметр [**Auto explain log analyze**](../concepts/settings-list.md#setting-auto-explain-log-analyze).
+
+   Все перечисленные параметры можно изменить с помощью консоли управления, CLI, API или Terraform. Например, чтобы включить логирование запросов и их планов с помощью CLI, выполните команду:
+
+   ```bash
+   yc managed-postgresql cluster update-config <имя_или_идентификатор_кластера> \
+      --set log_min_duration_statement=60000 \
+      --set auto_explain_sample_rate=1 \
+      --set auto_explain_log_min_duration=60000 \
+      --set auto_explain_log_analyze=true \
+      --set shared_preload_libraries=SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN
+   ```
+
+   Если планы выполнения запросов не нужны, не передавайте параметры `auto_explain_log_min_duration`, `auto_explain_log_analyze` и `shared_preload_libraries`. Если к кластеру уже подключены другие библиотеки общего пользования, укажите их вместе с `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN` в параметре `shared_preload_libraries`.
+
+1. [Посмотрите записи в логах кластера](../operations/cluster-logs.md#get-log). Для этого достаточно прав на просмотр логов в кластере. Чтобы выполнять запросы к представлению `pg_stat_statements`, достаточно иметь право на подключение к базе данных — роль `mdb_monitor` не требуется.
 
 #### Что такое WAL и для чего они нужны? {#wal}
 

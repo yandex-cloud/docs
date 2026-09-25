@@ -5,6 +5,8 @@ description: Из этой статьи вы узнаете, как удалит
 
 # Удалить организацию
 
+Для удаления организации {{ yandex-360 }} воспользуйтесь [инструкцией {{ yandex-360 }}](https://yandex.ru/support/yandex-360/business/admin/ru/organization/delete-organization).
+
 {% note info %}
 
 Удалить организацию может пользователь с ролью `organization-manager.organizations.owner`. Как назначить роль пользователю, читайте в разделе [Роли](../security/index.md#add-role).

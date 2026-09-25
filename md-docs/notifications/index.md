@@ -4,7 +4,7 @@
 
 Yandex Cloud Notification Service — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с <a href="https://docs.aws.amazon.com/sns/latest/api/welcome.html">Amazon SNS API</a>.
 
-Сервис поддерживает отправку push-уведомлений на устройства с iOS и Android, в браузеры и SMS.
+Сервис поддерживает отправку push-уведомлений на устройства с iOS и Android, в браузеры, очереди сообщений Yandex Message Queue и SMS.
 
 Для сервиса действует <a href="https://yandex.ru/legal/cloud_terms_cns/ru/">Соглашение об уровне обслуживания (SLA)</a>.
 

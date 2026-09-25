@@ -31,7 +31,7 @@ This section describes the {{ mtr-name }} pricing [policy](#rules) and [current 
 
 ## Cluster status {#running-stopped}
 
-Pricing applies differently depending on cluster status:
+Pricing applies differently depending on the cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -43,7 +43,7 @@ When using {{ mtr-name }}, you pay for:
 * Computing resources of cluster components.
 * Outgoing traffic from {{ yandex-cloud }} to the internet.
 
-Cluster operation cost is charged per minute. The minimum billing unit is one minute, e.g., 1.5 minutes of cluster usage is billed as 2 minutes.
+Cluster operation cost is charged per minute. The minimum billing unit is one minute (for example, 1.5 minutes of cluster operation cost the same as 2 minutes).
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 

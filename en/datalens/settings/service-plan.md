@@ -9,11 +9,11 @@ description: From this article, you will learn how to configure billing for {{ d
 
 To access the billing and payment settings:
 
-1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
-1. In the left-hand panel, select ![image](../../_assets/console-icons/sliders.svg) **Service settings**. If the panel does not show ![image](../../_assets/console-icons/sliders.svg), first select ![image](../../_assets/console-icons/ellipsis.svg) **More**, then ![image](../../_assets/console-icons/sliders.svg) **Service settings**.
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
+1. In the left-hand panel, select ![image](../../_assets/console-icons/sliders.svg) **Service settings**. If you do not see ![image](../../_assets/console-icons/sliders.svg) in the panel, first select ![image](../../_assets/console-icons/ellipsis.svg) **More**, then ![image](../../_assets/console-icons/sliders.svg) **Service settings**.
 1. Select the **Billing and payment** tab.
 
-On this tab, you can manage your billing account, find out the cost of seats and their total number in an instance, and proceed to technical support plans.
+On this tab, you can manage your billing account. You can find out the cost of seats and their total number in an instance, and also proceed to technical support plans.
 
 ![image](../../_assets/datalens/settings/payments-settings.png)
 
@@ -42,7 +42,7 @@ To link a billing account, the user needs to following [roles](../security/roles
 
 To add a billing account:
 
-1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
 1. Select the **Billing and payment** tab.
 1. If you have not added a billing account in {{ datalens-short-name }} yet, click **Add account** under **Billing account**. If you already have one, click **Change account**.

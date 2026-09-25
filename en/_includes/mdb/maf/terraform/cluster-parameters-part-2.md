@@ -32,9 +32,9 @@
 
   * `git_sync`: Git repo parameters:
 
-    * `repo`: Repository address.
-    * `branch`: Working branch.
-    * `sub_path`: Path to the DAG file folder in the repository.
+    * `repo`: Repository address in `git@github.com:<user>/<path_to_git_repo>.git` format.
+    * `branch`: Repository branch name, e.g., `main`.
+    * `sub_path`: Path to the directory with DAG files relative to the repository, in `/<path-to-DAG-files>` format.
     * `ssh_key`: Private SSH repository access key, single-line with new line characters `\n`.
 
     {% include [warn-git](../note-git-sync.md) %}

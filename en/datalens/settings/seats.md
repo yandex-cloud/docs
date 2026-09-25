@@ -15,7 +15,7 @@ An administrator (a user with the `{{ roles-datalens-admin }}` role) will be abl
 
 You can manage seats in the {{ datalens-name }} settings, on the **Seats** tab. To open it:
 
-1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
 1. Open the **Seats** tab. 
 
@@ -80,7 +80,7 @@ The following limits apply: 2,000 queries from private embedded charts per seat 
 
    > 2,000 queries x Number of seats
 
-Only successfully completed queries for chart rendering data are counted. If multiple queries are required to render a single chart, they are counted as one query. Read more in [Pricing policy](../pricing.md#packet-queries).
+Only successfully completed queries for chart rendering data are counted. If multiple queries are required to render a single chart, they are counted as one query. For more information, see the [pricing policy](../pricing.md#packet-queries).
 
 You can [estimate the number of queries from private embedded charts](#embedded-queries-count) by enabling [Usage Analytics](../operations/connection/create-usage-tracking.md).
 

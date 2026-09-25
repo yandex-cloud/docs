@@ -90,6 +90,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Создать приватную подсеть](operations/subnet-create.md)
 
+ - [Настроить DNS в приватной подсети](operations/configure-dns.md)
+
  - [Заказать выделенную публичную подсеть](operations/reserve-public-subnet.md)
 
  - [Удалить выделенную публичную подсеть](operations/delete-public-subnet.md)
@@ -141,6 +143,8 @@ Yandex BareMetal предоставляет возможность арендо�
  - [Приватная сеть](concepts/private-network.md)
 
  - [DHCP](concepts/dhcp.md)
+
+ - [DNS в приватной сети](concepts/dns.md)
 
  - [MC-LAG](concepts/mc-lag.md)
 
@@ -811,6 +815,8 @@ Yandex BareMetal предоставляет возможность арендо�
  - [get](cli-ref/v2/image/get.md)
 
  - [list](cli-ref/v2/image/list.md)
+
+ - [list-compatible](cli-ref/v2/image/list-compatible.md)
 
  - [resolve](cli-ref/v2/image/resolve.md)
 

@@ -35,7 +35,7 @@ To create a {{ GP }} connection:
 
      * **Host type**: Select the host type:
        
-       * **Regular**: Enables you to select regular hosts to connect to.
+       * **Regular** (default): Allows you to select regular hosts to connect to.
        * **Special FQDNs**: Enables you to select a [special FQDN]({{ link-docs }}/managed-greenplum/operations/connect/fqdn#fqdn-master), which always points to the {{ GP }} primary master host.
 
      * **Host name**: Select the host name from the list of hosts available in the {{ GP }} cluster. You can select multiple hosts. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.

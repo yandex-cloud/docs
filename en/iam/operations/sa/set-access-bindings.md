@@ -79,13 +79,16 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
   1. Describe the resource with the role for the organization in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       ```hcl
       resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
         service_account_id = "<service_account_ID>"
         role               = "<role>"
-        members            = ["<subject_1>","<subject_2>,...,<subject_n>"]
+        members            = ["<subject_1_type>:<subject_1_ID>",
+                              "<subject_2_type>:<subject_2_ID>",
+                              ...,
+                              "<subject_n_type>:<subject_n_ID>"]
       }
       ```
 
@@ -93,7 +96,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
       * `service_account_id`: ID of the service account to configure access for.
       * `role`: Role.
-      * `members`: List of [subjects](../../concepts/access-control/index.md#subject) getting the role.
+      * `members`: Designations of [subjects](../../concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 
@@ -220,7 +223,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
   1. Add the resource parameters to the configuration file and specify the users' role to access the service account.
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       ```hcl
       resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
@@ -256,7 +259,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
   Use the [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/ServiceAccount/updateAccessBindings.md) gRPC API call. You will need the ID of the service account and that of the user getting the role for the service account.
 
-  1. Get the service account ID using the [list](../../api-ref/ServiceAccount/list.md) REST API method:
+  1. Find out the service account ID using the [list](../../api-ref/ServiceAccount/list.md) REST API method:
 
       ```bash
       curl \

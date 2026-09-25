@@ -69,7 +69,7 @@ Check RLS for correct operation and reconfigure it if needed.
 
 #### There are objects in the workbook that are not supported in your {{ datalens-short-name }} installation {#import-object-not-supported}
 
-For example, when importing a workbook containing a report or chart in Editor into an open source {{ datalens-short-name }} installation where they are not available.
+For example, when importing a workbook containing a report or Editor chart into an open source {{ datalens-short-name }} installation where they are not available.
 
 
 #### Connection setup is not complete, change or re-save the connection settings {#import-connection}

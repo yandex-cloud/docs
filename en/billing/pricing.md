@@ -57,6 +57,8 @@ In {{ yandex-cloud }}, you can use resources of both billable and non-billable s
 
 The cost of billable services is calculated based on the amount of consumed resources and the time for which they are used. Each service has its own calculation logic for consumed resources.
 
+{% include [final-payment-info](../_includes/billing/final-payment-info.md) %}
+
 * {{ preview-stage }} [{{ gost-gateway-name }}](../gost-gateway/pricing.md)
 * [{{ monium-name }}](../monium/pricing.md)
 * [{{ src-full-name }}]({{ link-src-docs }}/sourcecraft/pricing)
@@ -146,7 +148,7 @@ The following services are always free of charge:
 * [{{ iam-full-name }}](../iam/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
 * {{ preview-stage }} [{{ si-full-name }}](../serverless-integrations/pricing.md)
-* {{ preview-stage }} [{{ vc-name }}]({{ link-src-docs }}/vibecraft/pricing.md)
+* {{ preview-stage }} [{{ vc-name }}]({{ link-src-docs }}/vibecraft/pricing)
 * [{{ websql-full-name }}](../websql/pricing.md)
 
  Services at the [Preview](../overview/concepts/launch-stages.md) stage are labeled as {{ preview-stage }}.

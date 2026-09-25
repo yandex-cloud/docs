@@ -6,7 +6,7 @@ You can embed [published](../concepts/datalens-public.md) dashboards and charts 
 
 You can configure the features and appearance of the objects being embedded through these parameters:
 
-* `_autoupdate`: Sets the [auto-update](../dashboard/settings.md#auto-update) time for dashboards and charts in seconds. By default, these are not updated automatically. The feature only works for the active browser tab. Objects due for auto-update on inactive tabs will be auto-updated when the tab becomes active again. The minimum values are:
+* `_autoupdate`: Sets the [auto-update](../dashboard/settings.md#auto-update) time for dashboards and charts in seconds. By default, these are not updated automatically. The feature only works for the active browser tab. Objects due for auto-update on inactive tabs will be auto-updated when the tab becomes active again. The minimum values are as follows:
 
   * 30 seconds for dashboards
   * 15 seconds for charts
@@ -14,7 +14,7 @@ You can configure the features and appearance of the objects being embedded thro
 * `_reload_on_session_expire`: Enables automatic page reload after the session lifetime expires. To activate the parameter, set it to `1`.
 * `_embedded`: Hides the navigation panel. To activate the parameter, set it to `1`.
 * `_no_controls`: For charts, hides ![image](../../_assets/console-icons/ellipsis.svg). To activate the parameter, set it to `1`.
-* `_theme`: Specifies the object's appearance. The possible values are:
+* `_theme`: Sets the object's appearance. The possible values are as follows:
 
   * `light`: Light theme.
   * `dark`: Dark theme.
@@ -23,7 +23,7 @@ You can configure the features and appearance of the objects being embedded thro
 * `_widgets_bg_color`: Sets the background of widgets on the dashboard in hexadecimal format, only if `_embedded` equals `1`. For example, `_widgets_bg_color=B7F7F7&_embedded=1`.
 * `_no_scroll`: Disables vertical scrolling on dashboards. To activate the parameter, set it to `1`.
 * `_lang`: For charts, sets the language of the menu that opens when you click ![image](../../_assets/console-icons/ellipsis.svg). Possible values: `ru` and `en`. 
-* `_opened_info`: Displays dashboard [description](../dashboard/settings.md#message-settings) (if provided) when you open the dashboard. To activate the parameter, set it to `1`.
+* `_opened_info`: Displays the dashboard’s [description](../dashboard/settings.md#message-settings) (if provided) when you open the dashboard. To activate the parameter, set it to `1`.
 * `_no_tabs `: Hides the dashboard tabs. To activate the parameter, set it to `1`.
 * `_no_table_of_content`: Hides dashboard content. To activate the parameter, set it to `1`.
 * `_no_title`: Hides dashboard title. To activate the parameter, set it to `1`.
@@ -43,9 +43,9 @@ The parameter is added to the object address after the question mark (`?`). To s
 To get the embed code with a preset dashboard or chart design:
 
 1. [Publish](../concepts/datalens-public.md#how-to-publish) your dashboard or chart.
-1. Open the dashboard or chart using the public link provided to you.
-1. In the upper-right corner, click ![image](../../_assets/console-icons/arrow-shape-turn-up-right.svg) and select ![image](../../_assets/console-icons/code.svg) **Embed code**.
-1. In the window that opens, set up language, theme, menu display. On the right of the window, copy the link or embed code with the preset design parameters.
+1. Open the dashboard or chart using the public link you got.
+1. In the top-right corner, click ![image](../../_assets/console-icons/arrow-shape-turn-up-right.svg) and select ![image](../../_assets/console-icons/code.svg) **Embed code**.
+1. In the window that opens, set up the menu language, theme, and display. On the right of the window, copy the link or embed code with the preset design parameters.
 
 ## Filtering embedded charts {#filtering-embedded-charts}
 
@@ -53,12 +53,12 @@ You can apply filtering to embedded charts. To do this, provide the filtering pa
 
 To set up filtering:
 
-1. Add a chart and selector to the dashboard.
+1. Add the chart and selector to the dashboard.
 1. [Publish](../concepts/datalens-public.md#how-to-publish) the dashboard.
-1. Open the dashboard or chart using the public link provided to you.
-1. Set the required selector values.
+1. Open the dashboard or chart using the public link you got.
+1. Set the selector values.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the chart on the dashboard and select ![image](../../_assets/console-icons/code.svg) **Embed code**.
-1. In the window that opens, set up language, theme, menu display. On the right of the window, copy the link or embed code with the preset design and filter parameters.
+1. In the window that opens, set up the menu language, theme, and display. On the right of the window, copy the link or embed code with the preset design and filter parameters.
 
 The filter parameters will be added to the chart URL after `?`. When providing multiple parameters, they will be separated by `&` (ampersand).
 

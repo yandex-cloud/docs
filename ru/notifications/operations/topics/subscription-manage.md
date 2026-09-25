@@ -22,27 +22,29 @@ description: Следуя этой инструкции, вы сможете и�
 - AWS CLI {#aws-cli}
 
   1. Посмотрите список подписок для топика:
-     
+
      ```bash
-     aws sns set-subscription-attributes \
-      --subscription-arn <ARN_подписки> <атрибуты>
+     aws sns list-subscriptions-by-topic \
+      --topic-arn <ARN_топика>
      ```
-  
+
   1. Измените подписку:
-     
+
      ```bash
      aws sns set-subscription-attributes \
-      --subscription-arn <ARN_подписки> <атрибуты>
+      --subscription-arn <ARN_подписки> \
+      --attribute-name <имя_атрибута> \
+      --attribute-value <значение_атрибута>
      ```
-  
+
   1. Посмотрите новые параметры подписки:
-     
+
      ```bash
      aws sns get-subscription-attributes \
       --subscription-arn <ARN_подписки>
      ```
 
-  Подробнее о командах в документации AWS: [set-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/set-subscription-attributes.html) и [get-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/get-subscription-attributes.html).
+  Подробнее о командах в документации AWS: [list-subscriptions-by-topic](https://docs.aws.amazon.com/cli/latest/reference/sns/list-subscriptions-by-topic.html), [set-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/set-subscription-attributes.html) и [get-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/get-subscription-attributes.html).
 
 - AWS SDK для Python {#python}
 

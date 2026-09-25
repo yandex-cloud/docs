@@ -20,7 +20,7 @@ Technical support coverage is determined by the [{{ yandex-cloud }}]({{ link-doc
 
 ## Prices for the Russia region {#prices}
 
-{{ yandex-cloud }} resources are priced differently in different [regions](../overview/concepts/region.md). Your payment currency is determined by your contracting [legal entity]({{ link-docs }}/billing/quickstart/). All prices in RUB and KZT are inclusive of VAT.
+{{ yandex-cloud }} resources are priced differently in different [regions]({{ link-docs }}/overview/concepts/region). Your payment currency is determined by your contracting [legal entity]({{ link-docs }}/billing/quickstart/). All prices in RUB and KZT are inclusive of VAT.
 
 
 

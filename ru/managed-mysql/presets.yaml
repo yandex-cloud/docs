@@ -2,9 +2,10 @@ default:
   balancer:
     fqdn-ref: ../../managed-mysql/operations/connect/fqdn.md
     port:
+      cascade-replicas: 5307
       master: 3306
-      non-delayed-replicas: 3307
-      replicas: YYYY
+      non-delayed-replicas: 4306
+      replicas: 4307
     proxy:
       name: HAProxy
       ref: https://www.haproxy.org/

@@ -16,6 +16,8 @@ Syntax:
 
 - [yc baremetal v2 image list](list.md) — Retrieves the list of Image resources.
 
+- [yc baremetal v2 image list-compatible](list-compatible.md) — Lists images available for installation on the selected configuration.
+
 - [yc baremetal v2 image resolve](resolve.md) — Resolves the latest published Image for each available family within the specified folder.
 
 #### Global Flags

@@ -47,7 +47,6 @@
 * [Документы перестали поступать в систему ЭДО](known-issues/no-new-incoming-documents-in-edi.md)
 * [Устранение ошибки `balance.WRONG.ACCOUNT`](known-issues/balance-wrong-account-issue.md)
 * [Устранение ошибки `ILLEGAL_REQUEST_CONTRACT` при формировании счета на оплату](known-issues/illegal-request-contract.md)
-* [KMS-ключи продолжают тарифицироваться после удаления](known-issues/kms-keys-are-charged-in-billing-after-deletion.md)
 * [Платежный аккаунт находится в статусе `PAYMENT_NOT_CONFIRMED`](known-issues/payment-not-confirmed-issue.md)
 * [Устранение ошибки `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`](known-issues/error-prohibited-user-account-usage-status.md)
 * [Устранение ошибки `Веб-страница временно недоступна` при оплате картой Сбера](known-issues/unable-to-pay-with-sber-card.md)

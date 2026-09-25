@@ -35,6 +35,12 @@ description: Следуя данной инструкции, вы сможете
      
          {% include [default-dhcp](../../_includes/baremetal/instruction-steps/default-dhcp.md) %}
 
+     1. (Опционально) Если включен DHCP, настройте [DNS-серверы и доменное имя](../concepts/dns.md), которые будут передаваться серверам в подсети:
+
+         {% include [configure-dns](../../_includes/baremetal/instruction-steps/configure-dns.md) %}
+
+         Для использования входящего DNS-подключения предварительно [настройте сетевую связность](../tutorials/bm-vrf-and-vpc-interconnect.md) между VRF и облачной сетью {{ vpc-name }} и [создайте DNS-подключение](../../dns/operations/connection-inbound-create.md) в этой сети. Выбор DNS-сервера не создает маршруты и не проверяет его доступность.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 
 - CLI {#cli}
@@ -42,6 +48,8 @@ description: Следуя данной инструкции, вы сможете
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Для настройки DNS используйте CLI версии `1.37.0` или выше.
 
   1. Посмотрите описание команды для создания [приватной подсети](../concepts/private-network.md#private-subnet):
 
@@ -57,28 +65,48 @@ description: Следуя данной инструкции, вы сможете
        --name <имя_приватной_подсети> \
        --description "<описание_приватной_подсети>" \
        --labels <ключ>=<значение> \
-       --vrf-options "vrf-id=<идентификатор_VRF>,vrf-name=<имя_VRF>,cidr=<CIDR>,gateway-ip=<IP-адрес_шлюза>,dhcp=[start-ip=<начало_диапазона_IP-адресов>,end-ip=<конец_диапазона_IP-адресов>]"
+       --vrf-options-spec '{
+         vrf-id=<идентификатор_VRF>,
+         cidr=<CIDR>,
+         gateway-ip=<IP-адрес_шлюза>,
+         dhcp-options={
+           start-ip=<начало_диапазона_IP-адресов>,
+           end-ip=<конец_диапазона_IP-адресов>,
+           dns-options={
+             servers=[
+               {server={dns-inbound-endpoint-id=<идентификатор_DNS-подключения>}}
+             ],
+             domain-name=example.internal
+           }
+         }
+       }'
      ```
 
      Где:
-     * `--hardware-pool-id` — [пул](../concepts/servers.md#server-pools), из которого будет арендован сервер.
+     * `--hardware-pool-id` — [пул](../concepts/servers.md#server-pools), из которого будет арендован сервер. Обязательный параметр.
      * `--name` — имя подсети. Требования к имени:
        
        {% include [name-format](../../_includes/name-format.md) %}
        
      * `--description` — описание подсети. Необязательный параметр.
      * `--labels` — метки подсети. Необязательный параметр.
-     * `--vrf-options` — настройки маршрутизации для взаимодействия с серверами из других пулов. Необязательный параметр. Возможные настройки:
+     * `--vrf-options-spec` — настройки маршрутизации для взаимодействия с серверами из других пулов. Необязательный параметр. Возможные настройки:
        * `vrf-id` — идентификатор [виртуального сегмента сети (VRF)](../concepts/private-network.md#vrf-segment).
-       * `vrf-name` — имя VRF.
        * `cidr` — [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) подсети.
        * `gateway-ip` — IP-адрес шлюза, через который трафик из подсети будет идти в другие подсети, подключенные к VRF. Необязательный параметр.
      
          {% include [default-gateaway](../../_includes/baremetal/instruction-steps/default-gateaway.md) %}
 
-       * `dhcp` — диапазон адресов, из которого сетевым интерфейсам серверов могут назначаться IP-адреса по DHCP. Необязательный параметр.
+       * `dhcp-options` — настройки DHCP. Если блок не передан, DHCP в подсети выключен. В `start-ip` и `end-ip` укажите начало и конец диапазона адресов, из которого сетевым интерфейсам серверов могут назначаться IP-адреса.
      
          {% include [default-dhcp](../../_includes/baremetal/instruction-steps/default-dhcp.md) %}
+
+         В блоке `dns-options` можно задать [DNS-настройки](../concepts/dns.md):
+
+         * `servers` — список DNS-серверов. Для каждого элемента `server` укажите либо `dns-inbound-endpoint-id` — идентификатор входящего DNS-подключения, либо `ip-address` — IPv4-адрес собственного DNS-сервера. Например, `{server={ip-address=192.168.10.2}}`. Всего можно указать до трех элементов, разделяя их запятыми. Для входящего DNS-подключения предварительно [настройте сетевую связность](./configure-dns.md#before-you-begin). Идентификатор подключения можно получить командой `yc dns inbound-endpoint list`.
+         * `domain-name` — поисковый домен. Необязательный параметр. Вместо `example.internal` укажите свой домен или удалите параметр, если поисковый домен не нужен.
+
+         Если DNS-настройки не нужны, удалите блок `dns-options`.
 
 - API {#api}
 
@@ -100,8 +128,12 @@ description: Следуя данной инструкции, вы сможете
     --name demo-private-subnet \
     --description "My first private subnet" \
     --labels env=test \
-    --hardware-pool-id ru-central1-m3 \
-    --vrf-options "vrf-id=ly5j5qluq32z********,cidr=10.0.0.0/8,gateway-ip=10.0.0.1,dhcp=[start-ip=10.0.1.2,end-ip=10.0.1.10]"
+    --vrf-options-spec '{
+      vrf-id=ly5j5qluq32z********,
+      cidr=10.0.0.0/8,
+      gateway-ip=10.0.0.1,
+      dhcp-options={start-ip=10.0.1.2,end-ip=10.0.1.10}
+    }'
   ```
 
   Результат:  

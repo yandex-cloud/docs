@@ -20,8 +20,9 @@
       1. [Navigate]({{ link-console-main }}/link/postbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
       1. In the left-hand panel, select ![at](../../../_assets/console-icons/at.svg) **{{ ui-key.yacloud.postbox.label_identities }}** and click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
       1. In the **{{ ui-key.yacloud.postbox.label_address }}** field, specify the domain you will use to send emails. You can use a domain of any level, as long as you own it.
-      1. In the **{{ ui-key.yacloud.postbox.label_selector }}** field, specify a selector, e.g., `postbox`. Make sure to only use this selector in the resource record you create when [verifying domain ownership](#domain).
       1. In the **{{ ui-key.yacloud.postbox.label_configuration-set }}** field, select `postbox-events-config` you previously created.
+      1. In the **{{ ui-key.yacloud.postbox.section_dkim }}** field, select `{{ ui-key.yacloud.postbox.label_signing-type-external }}`.
+      1. In the **{{ ui-key.yacloud.postbox.label_selector }}** field, specify a selector, e.g., `postbox`. Make sure to only use this selector in the resource record you create when [verifying domain ownership](#domain).
       1. In the **{{ ui-key.yacloud.postbox.label_private-key }}** field, paste the contents of the `privatekey.pem` file from the previous step.
       1. Do not change the other address settings. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
       1. Click the newly created address in the list that opens.

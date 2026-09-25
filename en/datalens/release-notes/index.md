@@ -1,81 +1,123 @@
 ---
-title: "{{ datalens-full-name }} release notes: July\_2026"
-description: "Check out the {{ datalens-full-name }} release notes for July\_2026."
+title: '{{ datalens-full-name }} release notes: August 2026'
+description: Check out the {{ datalens-full-name }} release notes for August 2026.
 ---
 
-# {{ datalens-full-name }} release notes: July 2026
+# {{ datalens-full-name }} release notes: August 2026
 
 * [Changes in basic features](#base)
 * [Fixes and improvements](#fixes)
 
 ## Changes in basic features {#base}
 
-* Added a new section: [HTML pages]({{ link-datalens-main }}/pages). The feature allows {{ datalens-name }} users to [upload an HTML page](../html-pages/index.md) to a workbook or directory and share it with other users based on [access](../security/index.md) permissions.
+
+* Updated [Neuroanalyst on dashboards](../dashboard/insights.md). To answer a question, Neuroanalyst uses existing charts from the whole dashboard, and if there are no suitable ones, it analyzes datasets and builds a new chart in the wizard.
   
-  When preparing your HTML pages, use the [GitHub](https://github.com/datalens-tech/datalens-skills) skill that brings together the limitations and generation instructions.
+  Now Neuroanalyst:
+  
+  * Analyzes all the dashboard charts, including all its tabs and widget tabs. The current dashboard tab is prioritized over others.
+  * Works in agent mode: it can analyze current charts and build a new chart based on resulting data.
+  * Does not require you to specify a reference tab.
+  
+  When using Neuroanalyst, you can:
+  
+  * Ask it to create a chart of the type you prefer.
+  * Add the new chart to the dashboard right away.
+  * In the dashboard settings, specify examples of question you want displayed in the Neuroanalyst chat by default.
 
 
-* [Versioning for datasets](../dataset/versioning.md) now supports creating a draft version. Common users see none of the changes made to the draft. This allows you to hide dataset edits until you actualize your version.
-* Added a new visualization type: [funnel](../visualization-ref/funnel.md). A funnel chart visualizes the successive reduction of measure values across the stages. Each stage of the funnel is represented by a segment whose width is proportional to the measure value.
+* Updated the [Insight widget](../dashboard/widget.md#ai):
 
-  This visualization type is well-suited for analysis of processes where data goes through several successive stages. For example, in sales funnel analysis – from browsing to buying – or user conversion analysis through different stages of registration.
-
-  {% cut "Example" %}
-
-  ![funnel-chart](../../_assets/datalens/visualization-ref/funnel-chart/funnel-chart.png =800x)
-
-  {% endcut %}
-
-  Aspects of use:
-
-  * You can specify funnel stages using either a dimension or a set of metrics.
-  * Percentages in captions and tooltips can be calculated either from the initial stage or the previous stage.
-  * Captions can feature several [measure values](../concepts/chart/measure-values.md) of different formats to show both absolute values and percentages.
+  * You can specify up to five charts from the current dashboard tab in one insight. With Neuroanalyst, you can discover data relationships not visible in individual charts.
+  * There is an action bar at the bottom of the widget. You can use it to evaluate the widget, copy the content of the insight to the clipboard, or refresh Neuroanalyst’s response.
+  * If you hover over the widget, in the top-right corner, you will see an action menu ![image](../../_assets/console-icons/ellipsis.svg) where you can copy the content of the insight to the clipboard or refresh Neuroanalyst’s response.
+  
 
 
-* Added alignment settings for [tables](../visualization-ref/table-chart.md#additional-settings) and [pivot tables](../visualization-ref/pivot-table-chart.md#set-column-align).
+* Added [mailing lists for reports](../reports/add-report-maillists.md) in workbooks. You can set up a mailing list for a report. The email will deliver a `.pdf` file containing the report pages you specify in the mailing list settings. You can set up the schedule and your mailing list recipients.
+* Implemented recovery of deleted objects.
+
+  * A user with the [Editor](../security/workbooks-access-basic.md#workbooks-editor) role for a workbook can [restore](../workbooks-collections/workbooks-operations.md#restore-objects) its deleted objects, such as connections, datasets, charts, dashboards, reports, or HTML pages.  
+  * An administrator (user with the `{{ roles-datalens-admin }}` role) can look up the list of deleted objects (connections, datasets, charts, dashboards, reports, and HTML pages) and workbooks in the [settings](../settings/deleted-objects.md) and restore them.
+  * You cannot restore objects deleted from directories.
+
+
+* Added the ability to work with input forms directly on the dashboard:
+
+  * In [API Connector](../operations/connection/create-api-connector.md), supported the `PUT`, `PATCH`, and `DELETE` requests which you can use to add, edit, or delete records.
+  * Added a new [action](../charts/editor/tabs.md#activities-actions) called `dialog` for the [Activities](../charts/editor/tabs.md#activities) tab to overlay the chart with a modal form with text and numeric fields, selects, checkboxes, and radio buttons. Once the form is sent, you can refresh the chart or run the next action with the values you entered.
+
+  Now you can:
+
+  * Add comments and statuses to data, initiate approvals and other team processes.
+  * Edits your references and plans without exiting {{ datalens-name }}.
+  * Set up integration with external systems via any API.
+
+
+* Updated the [role model](../security/roles.md) in {{ datalens-name }}.
+
+  For more details, go to a convenient platform:
+
+  * [VK Video](https://vkvideo.ru/video-200452713_456240491)
+  * [YouTube](https://www.youtube.com/watch?v=3OxgX-tn5tw&feature=youtu.be)
+
+* Updated the [row-level security](../security/row-level-security.md) (RLS) interface:
+  
+  * Now you can configure access to rows from the interface by selecting who to give permission:
+      
+    * `Users and groups` to grant access to specified users and groups. You can use search by name, login, or email.
+    * `All users` to grant access to all users.
+    * `User IDs` to control access at [data source level](../security/row-level-security.md#datasource-rls) if your RLS logic operates on the source side.
+  
+  * You can also set up a configuration in JSON format.
+
+* Added new creations to the [Gallery]({{ link-datalens-main }}/gallery). For more information, see the [{{ datalens-short-name }}](https://t.me/YandexDataLens/28631/151903) chat in Telegram.
+
+  Added a [creation]({{ link-datalens-main }}/gallery/jb2qa3ne7uh02) with a ready-made dashboard that takes issues directly from your queue via API Connector and sorts them into categories. For more about {{ datalens-short-name }} integration with {{ tracker-full-name }}, see [this Telegram chat](https://t.me/YandexDataLens/28631/151955).
+
+
 
 ## Fixes and improvements {#fixes}
 
-* Implemented saving of user settings for the Neuroanalytics chat: width and position on the screen, overlaid or side-by-side with the content. Settings are restored after page reload. The minimum chat width has also been increased to 400 px.
-* Fixed the display of tooltips in selectors on dashboards when using formulas.
-* Fixed an issue where, on some iOS versions, a selector value would reset immediately after being selected.
-* Fixed [chart cross-filtering](../dashboard/chart-chart-filtration.md) for maps in Firefox and Safari browsers.
 
 
-* Updated the design of the [billing account](../settings/service-plan.md#billing-account) connection dialog in the [service settings](../settings/index.md).
-* Fixed incorrect breadcrumb display when opening a chart in a workbook.
+* Now, after Neuoranalyst has built a chart, you will see save and copy to clipboard buttons under it:
 
+  * You can save the chart in your current workbook.
+  * You can [paste](../operations/dashboard/copying-widgets.md#paste-widget) a copied chart into a dashboard or report. Copying is available after you save the chart.
 
-### Fixes in connections {#connection-fixes}
+  {% cut "Chart building by Neuroanalyst " %}
 
-* Fixed authorization errors in [Google Sheets](../operations/connection/create-google-sheets.md) connections for tables with restricted access.
-* Added `PUT` and `PATCH` to the allowed methods for [API Connector](../operations/connection/create-api-connector.md#restrictions) connections.
-* Fixed an issue where the status of the data [export prohibition](../concepts/chart/data-export.md#data-export-disable) setting in [file](../operations/connection/create-file.md), [Yandex Documents](../operations/connection/create-yadocs.md), and [Google Sheets](../operations/connection/create-google-sheets.md) connections did not match the actual export capability.
+  ![ai-chart-menu](../../_assets/datalens/release-notes/ai-chart-menu.png =341x410)
+  
+  {% endcut %}
+
 
 ### Fixes in datasets {#dataset-fixes}
 
-* Fixed an error in datasets on the **Filtering** tab for the `Date and Time` field type, where the time was shifted by the user's time zone offset.
-* Added information about the ability to edit the source in the dataset source update form.
+* For [charts](../concepts/chart/dataset-based-charts.md) in the wizard and [QL charts](../concepts/chart/ql-charts.md), fixed the processing of `Date`-type dataset fields. Now, dataset parameters of this type are truncated from the `Date and time` format to the `Date` type before they reach the source.
 
 ### Fixes in reports {#report-fixes}
 
-* Fixed a [report export](../reports/report-operations.md#report-export) error where text inside a cell was exported incorrectly in the **Chart** widget of the **Table** type.
+* Fixed the presentation format report [preview](../reports/report-operations.md#report-preview) error where scrolling did not appear in widgets.
+* Hid widget tooltips in document format preview window and when exporting a report to a `.pdf` file.
+* Introduced optional pagination for tables during presentation format preview.
 
 ### Dashboard fixes {#dashboard-fixes}
 
-* Fixed an issue where repeated quick clicks on a chart on dashboards caused the widget to disappear.
-* Fixed an issue with opening tooltips in pinned widgets on mobile devices.
-* Fixed the simultaneous opening of two [background color](../dashboard/settings.md#dashboard-background) pick windows on dashboards in Safari.
+* Fixed the issue where it was impossible to switch to different dashboard tabs on on iPad models.
+* In the selector group dialog, fixed the issue where the **Selector type** field showed a value not matching the selector type on the dashboard.
+* Restored the ability to use different selectors based on a single dataset field. Do it by disabling the **Apply** button in the widget settings; otherwise, only one value will be applied.
 
 ### Fixes in charts {#chart-fixes}
 
-* Fixed the legend display when coloring charts by measure.
-* Fixed incorrect display of empty values in the **Filters from dashboard** section in charts opened from a dashboard.
-* Fixed a [direct export](../concepts/chart/data-export.md#save-data) issue in `XLSX` format where the progress indicator would display indefinitely if the total row had an invalid date.
-* Fixed an issue with color settings in the **Colors** section when using the default custom palette. Previously, colors would only appear after switching to another palette and back. Now all colors are immediately available for selection.
-* Fixed the display of a [column chart](../visualization-ref/column-chart.md) with sorting and grouping by a field from the **Colors** section.
-* For a [normalized stacked area chart](../visualization-ref/normalized-area-chart.md), removed the **Display mode** option in the **Y-axis** settings, which was shown incorrectly.
-* In a [pie chart](../visualization-ref/pie-chart.md), fixed the display of the chart with a small sector size.
-* For Editor charts, fixed an issue where manually added parameters were not displayed in selectors linked to datasets.
+* In the [Funnel](../visualization-ref/funnel.md) chart, fixed incorrect behavior of fields in the **Signatures** section.
+* Fixed incorrect navigation in [tables](../visualization-ref/table-chart.md) with [hierarchy](../operations/chart/add-hierarchy.md).
+* In charts with hierarchy, fixed an error which occured on switching to the `NULL` value.
+* Fixed the display of [column charts](../visualization-ref/column-chart.md) with sorting and grouping by color.
 
+
+### Changes in Editor {#editor-fixes}
+
+* Fixed incorrect display of tables in the Firefox browser.
+* Fixed the error of opening a chart for editing from the dashboard with many parameters (more than 20) in the selector.
