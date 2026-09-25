@@ -9,7 +9,7 @@ Navigation settings allow you to manage object arrangement in {{ datalens-full-n
 
 To access the navigation settings:
 
-1. In the left-hand panel, select ![image](../../_assets/console-icons/sliders.svg) **Service settings**. If the panel does not show ![image](../../_assets/console-icons/sliders.svg), first select ![image](../../_assets/console-icons/ellipsis.svg) **More**, then ![image](../../_assets/console-icons/sliders.svg) **Service settings**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/sliders.svg) **Service settings**. If you do not see ![image](../../_assets/console-icons/sliders.svg) in the panel, first select ![image](../../_assets/console-icons/ellipsis.svg) **More**, then ![image](../../_assets/console-icons/sliders.svg) **Service settings**.
 1. Select the **Navigation** tab.
 
    ![image](../../_assets/datalens/settings/navigation.png)

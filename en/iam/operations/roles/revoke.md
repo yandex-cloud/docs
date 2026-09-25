@@ -67,7 +67,10 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
         resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
             cloud_id    = "<cloud_ID>"
             role        = "<role>"
-            members     = ["<subject_1>","<subject_2>,...,<subject_n>"]
+            members     = ["<subject_1_type>:<subject_1_ID>",
+                           "<subject_2_type>:<subject_2_ID>",
+                           ...,
+                           "<subject_n_type>:<subject_n_ID>"]
         }
         ```
 
@@ -131,6 +134,17 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
             ]
         }
         ```
+
+        Where:
+
+        * `roleId`: Role.
+        * `subject`: [Subject](../../concepts/access-control/index.md#subject) getting the role.
+
+            {% cut "Subject designations" %}
+
+            {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+            {% endcut %}
 
     1. Revoke a role by deleting the assigned permissions:
 

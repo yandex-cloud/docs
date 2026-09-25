@@ -9,7 +9,7 @@ Visualization for rendering Markdown, a simplified markup language.
 
 It supports [GitHub Flavored Markdown (GFM)](https://github.github.com/gfm/), except for inline raw HTML, certain plugins, and [Yandex Flavored Markdown](https://diplodoc.com/docs/ru/index-yfm) features.
 
-Сharts are rendered using the [@diplodoc/transform](https://www.npmjs.com/package/@diplodoc/transform) library. For more, see [this Diplodoc guide](https://diplodoc.com/docs/ru/tools/transform/).
+Charts are rendered using the [@diplodoc/transform](https://www.npmjs.com/package/@diplodoc/transform) library. For more, see [this Diplodoc guide](https://diplodoc.com/docs/ru/tools/transform/).
 
 ## Available markup components {#about-markdown}
 

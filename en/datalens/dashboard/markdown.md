@@ -474,7 +474,7 @@ Public access to the file is granted to an unlimited number of anonymous users. 
 
 1. Open the [management console]({{ link-console-main }}).
 1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ objstorage-short-name }}**.
-1. [Create a bucket]({{ link-docs }}/storage/operations/buckets/create). When selecting a bucket name, use these [recommendations]({{ link-docs }}/storage/concepts/bucket#naming). 
+1. [Create a bucket]({{ link-docs }}/storage/operations/buckets/create). When selecting a bucket name, use these [recommendations]({{ link-docs }}/storage/concepts/bucket#naming).
 1. [Upload the image]({{ link-docs }}/storage/operations/objects/upload) to the bucket.
 1. Configure an ACL for the object you created:
 

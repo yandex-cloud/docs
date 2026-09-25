@@ -15,7 +15,7 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
    * [SMS](quickstart-sms.md).
 
      Для SMS можно не добавлять телефонные номера в канале, а добавить их сразу в топике.
-
+   * [Очередь Yandex Message Queue](../message-queue/operations/message-queue-new-queue.md).
 1. [Создайте топик](#create-topic).
 1. [Подпишите эндпоинты на топик](#subscribe-endpoints).
 1. [Отправьте уведомление в топик](#send-message).
@@ -41,9 +41,17 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
   1. Слева выберите раздел **Топики**.
   1. Нажмите кнопку **Создать топик**.
   1. Введите имя топика. Имя топика должно быть уникальным в Cloud Notification Service.
-  1. В разделе **Логирование** включите **Запись логов**.
-  1. В списке **Каталог** выберите каталог, в котором будет расположена [лог-группа](../logging/concepts/log-group.md).
-  1. В поле **Лог-группа** выберите существующую лог-группу или создайте новую.
+  1. (Опционально) Настройте запись логов:
+      1. В разделе **Логирование** включите **Запись логов**.
+      1. В списке **Каталог** выберите каталог, в котором будет расположена [лог-группа](../logging/concepts/log-group.md).
+      1. В поле **Лог-группа** выберите существующую лог-группу или создайте новую.
+  1. (Опционально) Включите опцию **Yandex Message Queue**, чтобы отправлять сообщения в [очереди](../message-queue/concepts/queue.md) Message Queue, которые подписаны на топик. Укажите сервисный аккаунт, у которого есть [роль](../message-queue/security/index.md#ymq-writer) `ymq.writer`:
+  
+      * на каталог, в котором находятся очереди, подписанные на топик;
+      * на каталог, в котором находится сам сервисный аккаунт.
+  
+      [Как назначить роль](../iam/operations/roles/grant.md#cloud-or-folder).
+  
   1. Нажмите **Создать топик**.
 
 - AWS CLI {#aws-cli}
@@ -52,10 +60,25 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
   1. Выполните команду:
 
      ```bash
-     aws sns create-topic --name <имя_топика>
+     aws sns create-topic \
+       --name <имя_топика> \
+       --attributes "{\"SQSServiceAccountId\":\"<идентификатор_сервисного_аккаунта>\"}"
      ```
      
-     Где `name` — произвольное имя топика, должно быть уникальным в Cloud Notification Service.
+     Где:
+     
+     * `name` — произвольное имя топика, должно быть уникальным в Cloud Notification Service.
+     
+     * `SQSServiceAccountId` — идентификатор сервисного аккаунта, от имени которого сообщения из топика будут отправляться в очереди Message Queue. Необязательный параметр. У сервисного аккаунта должна быть [роль](../message-queue/security/index.md#ymq-writer) `ymq.writer`:
+     
+         * на каталог, в котором находятся очереди, подписанные на топик;
+         * на каталог, в котором находится сам сервисный аккаунт.
+     
+         {% note info %}
+     
+         Чтобы указать сервисный аккаунт в атрибуте `SQSServiceAccountId`, у пользователя должна быть роль `iam.serviceAccounts.user` на каталог, в котором находится сервисный аккаунт. Иначе команда завершится с ошибкой авторизации.
+     
+         {% endnote %}
      
      Подробнее о команде `aws sns create-topic` смотрите в [документации AWS](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-create-topic.html).
 
@@ -66,15 +89,29 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
 
      ```python
      response = client.create_topic(
-         Name="<имя_топика>"
+         Name="<имя_топика>",
+         Attributes={
+             "SQSServiceAccountId": "<идентификатор_сервисного_аккаунта>",
+         },
      )
      
-     print (f"Topic ARN:", response['TopicArn'])
+     print(f"Topic ARN:", response['TopicArn'])
      ```
      
      Где:
      
      * `Name` — произвольное имя топика, должно быть уникальным в Cloud Notification Service.
+     
+     * `SQSServiceAccountId` — идентификатор сервисного аккаунта, от имени которого сообщения из топика будут отправляться в очереди Message Queue. Необязательный параметр. У сервисного аккаунта должна быть [роль](../message-queue/security/index.md#ymq-writer) `ymq.writer`:
+     
+         * на каталог, в котором находятся очереди, подписанные на топик;
+         * на каталог, в котором находится сам сервисный аккаунт.
+     
+         {% note info %}
+     
+         Чтобы указать сервисный аккаунт в атрибуте `SQSServiceAccountId`, у пользователя должна быть роль `iam.serviceAccounts.user` на каталог, в котором находится сервисный аккаунт. Иначе команда завершится с ошибкой авторизации.
+     
+         {% endnote %}
 
 {% endlist %}
 
@@ -101,6 +138,10 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
         
          Введите номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`. Телефон не требуется предварительно добавлять в канале уведомлений SMS, при этом сам канал должен быть создан.
   
+      * **Yandex Message Queue**
+  
+         Введите URL очереди Message Queue.
+  
   1. Нажмите **Создать подписку**.
   
      Таким же образом подпишите на топик другие эндпоинты.
@@ -118,8 +159,14 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
    
    Где:
      * `topic-arn` — ARN топика.
-     * `protocol` — тип канала отправки уведомлений, например, `sms`, `application`.
-     * `notification-endpoint` — ARN эндпоинта, который подписывается на топик, в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`. Для SMS — номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`.
+     * `protocol` — тип канала отправки уведомлений, например `sms`, `application`, `sqs`.
+     * `notification-endpoint` — эндпоинт, который подписывается на топик:
+   
+       * для мобильных push-уведомлений и push-уведомлений в браузере — ARN эндпоинта в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`;
+       * для SMS — номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`;
+       * для Message Queue — URL очереди.
+   
+         Чтобы топик мог отправлять сообщения в очередь, у него должен быть задан атрибут `SQSServiceAccountId`. Подробнее в инструкциях по [созданию](operations/topics/topic-create.md#aws-cli) и [управлению](operations/topics/topic-manage.md#aws-cli) топиком.
    
    Подробнее о команде `aws sns subscribe` смотрите в [документации AWS](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-create-subscribe-endpoint-to-topic.html).
 
@@ -132,7 +179,7 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
       response = client.subscribe(
           TopicArn = "<ARN_топика>",
           Protocol = "<тип_канала>",
-          Endpoint = "<ARN_эндпоинта_или_номер_телефона>"
+          Endpoint = "<ARN_эндпоинта_или_номер_телефона_или_URL_очереди>"
       )
       print(f"Topic ARN: {response['TopicArn']}")
   except botocore.exceptions.ClientError as error:
@@ -142,8 +189,14 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
   Где:
   
   * `TopicArn` — ARN топика.
-  * `Protocol` — тип канала для отправки уведомлений, например, `sms`, `application`.
-  * `Endpoint` — ARN эндпоинта, который подписывается на топик, в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`. Для SMS — номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`.
+  * `Protocol` — тип канала для отправки уведомлений, например `sms`, `application`, `sqs`.
+  * `Endpoint` — эндпоинт, который подписывается на топик:
+  
+      * для мобильных push-уведомлений и push-уведомлений в браузере — ARN эндпоинта в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`;
+      * для SMS — номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`;
+      * для Message Queue — URL очереди.
+  
+  	Чтобы топик мог отправлять сообщения в очередь, у него должен быть задан атрибут `SQSServiceAccountId`. Подробнее в инструкциях по [созданию](operations/topics/topic-create.md#python) и [управлению](operations/topics/topic-manage.md#python) топиком.
 
 {% endlist %}
 
@@ -168,6 +221,7 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
       {
         "default": "<Текст_по_умолчанию>",
         "sms": "<Текст_уведомления_для_sms>",
+        "sqs":  "<Текст_уведомления_для_очереди_сообщений>",
         "WEB": "<Текст_уведомления_для_браузера>",
         "APNS": {
           "aps": {
@@ -210,13 +264,14 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
   aws sns publish \
   --topic-arn <ARN_топика> \
   --message-structure json \
-  --message '{"default": "<текст_уведомления>","APNS": {"aps":{"alert":"<текст_уведомления>"}},"GCM": {"notification":{"body":"<текст_уведомления>"}},"HMS": {"notification":{"body":"<текст_уведомления>"}},"RUSTORE": {"notification":{"body":"<текст_уведомления>"}},"WEB": "<текст_уведомления>","sms": "<текст_уведомления>"}'
+  --message '{"default": "<текст_уведомления>","APNS": {"aps":{"alert":"<текст_уведомления>"}},"GCM": {"notification":{"body":"<текст_уведомления>"}},"HMS": {"notification":{"body":"<текст_уведомления>"}},"RUSTORE": {"notification":{"body":"<текст_уведомления>"}},"WEB": "<текст_уведомления>","sms": "<текст_уведомления>","sqs": "<текст_уведомления>"}'
   ```
   
   Где:
     * `topic-arn` — ARN топика.
     * `message-structure` — формат сообщения `json`.
     * `message` — текст уведомления или путь к файлу с уведомлением. Для отправки разных уведомлений в зависимости от типа канала укажите канал и текст уведомления. Если какой-либо канал не указан, будет отправлено сообщение по умолчанию.
+  
   
   Подробнее о команде `aws sns publish` смотрите в [документации AWS](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-publish-to-topic.html).
 
@@ -235,7 +290,8 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
               "HMS": {"notification":{"body":"<текст_уведомления>"}},
               "RUSTORE": {"notification":{"body":"<текст_уведомления>"}},
               "WEB": "<текст_уведомления>",
-              "sms": "<текст_уведомления>"
+              "sms": "<текст_уведомления>",
+              "sqs": "<текст_уведомления>"
           }),
           MessageStructure="json"
       )

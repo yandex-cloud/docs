@@ -42,7 +42,7 @@ To configure Time integration with the OIDC app you created in {{ org-full-name 
 - {{ cloud-center }} UI {#cloud-center}
 
     1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. In the left-hand panel, click ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select =`time-oidc-app`.
+    1. In the left-hand panel, click ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the `time-oidc-app` app.
     1. On the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab, under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}**, copy the **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}** setting value.
     1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
 
@@ -54,10 +54,10 @@ To configure Time integration with the OIDC app you created in {{ org-full-name 
 1. Under **Authentication**:
    1. Select **OpenID Connect**.
    1. Under **Select provider**, select **OpenID connection (Other)**.
-   1. Optionally, in the **Button name** field, enter the text that appears on the login button on the login page, e.g., `Via OIDC`.
-   1. Optionally, select a color for the login page button.
+   1. Optionally, in the **Button name** field, enter the text that will appear on the login button on the login page, e.g., `Via OIDC`.
+   1. Optionally, select the color of the login page button.
    1. In the **Issuer link** field, enter the OpenID Connect provider's address: `https://auth.yandex.cloud`.
-   1. In the **Client ID** field, enter the **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}** value you copied from {{ org-full-name }}.
+   1. Set the **Client ID** field, enter the **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}** you copied from {{ org-full-name }}.
    1. In the **Client key** field, specify the application secret generated in {{ org-full-name }}.
 1. Save the settings.
 
@@ -68,7 +68,7 @@ To configure Time integration with the OIDC app you created in {{ org-full-name 
 - {{ cloud-center }} UI {#cloud-center}
 
     1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. In the left-hand panel, click ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select `time-oidc-app`.
+    1. In the left-hand panel, click ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the `time-oidc-app` app.
     1. At the top right, click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** and in the window that opens:
         1. In the **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** field, specify this callback address: `https://<instance_name>.time-messenger.ru/signup/openid/complete`, where `<instance_name>` is the name of the Time instance (subdomain at `time-messenger.ru`).
         1. {% include [org-oidc-app-disable-pkce](../../../_tutorials/_tutorials_includes/org-oidc-app-disable-pkce.md) %}
@@ -82,14 +82,14 @@ To authenticate with Time, add the required users and/or [user groups](../../../
 
 {% include [oidc-manage-users](../../../_includes/organization/oidc-manage-users.md) %}
 
-To add users to a SAML application:
+To add users to an OIDC application:
 
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}
 
     1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. In the left-hand panel, click ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select `time-oidc-app`.
+    1. In the left-hand panel, click ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the `time-oidc-app` app.
     1. Navigate to the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}** tab.
     1. Click ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
     1. In the window that opens, select the required users.
@@ -101,7 +101,7 @@ To add users to a SAML application:
 
 ## Make sure your application works correctly {#validate}
 
-To ensure that your OIDC application and integration with Time are working correctly, log in to Time as one of the added users. Proceed as follows:
+To ensure that your OIDC application and integration with Time are working correctly, log in to Time as one of the added users. Follow these steps:
 
 1. In your browser, open the login page of your Time instance: `https://<instance_name>.time-messenger.ru`.
 1. Select login via OpenID Connect.

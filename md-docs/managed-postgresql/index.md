@@ -36,6 +36,8 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [Управление алиасами хостов](operations/hosts-aliases.md)
 
+ - [Управление балансировщиком нагрузки DB Proxy](operations/load-balancer.md)
+
  - [Миграция хостов в другую зону доступности](operations/host-migration.md)
 
  - [Управление слотами репликации](operations/replication-slots.md)

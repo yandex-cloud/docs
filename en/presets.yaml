@@ -336,8 +336,6 @@ default:
   link-my-account: https://myaccount.yandex.cloud/
   link-org-cloud-center: https://center.yandex.cloud/organization
   link-org-federations: https://org.yandex.cloud/federations
-  link-org-main: https://org.yandex.cloud/
-  link-org-users: https://org.yandex.cloud/users
   link-oslogin-configs: https://storage.yandexcloud.net/oslogin-configs
   link-passport: https://passport.yandex.com/
   link-passport-login: https://passport.yandex.com/auth
@@ -1761,13 +1759,9 @@ default:
         cold|month|number: 0.0103868836
         ice|month|number: 0.0051934418
         ice|month|string: $0.0051934418
-        ice|number: 0.0000072131
-        ice|string: $0.0000072131
         standard|pricingRate:
           720|month|number: 0.0194754067
           720|month|string: $0.0194754067
-          720|number: 0.0000270492
-          720|string: $0.0000270492
   sku|USD|support:
     organization:
       business:
@@ -1859,6 +1853,12 @@ default:
       live:
         v1|number: 0.0000251557
         v1|string: $0.0000251557
+      original_video:
+        v1|number: 0.0000066393
+        v1|string: $0.0000066393
+      vod:
+        v1|number: 0.000025082
+        v1|string: $0.000025082
   sku|USD|ydb:
     v1:
       serverless:
@@ -2360,7 +2360,6 @@ default:
         cloud:
           create:
             popup-create-cloud_button_add: Create
-          label_acl: Access bindings
           quotas:
             label_quota-name-iam:
               serviceAccounts:
@@ -2410,9 +2409,6 @@ default:
         StockConfigurations: Choose from stock
         type: Type
         withReserve: Enable
-      cloud:
-        button_delete: Delete
-        label_delete-now: Delete now
       fileinput:
         button_attach-file: Attach file
       helpfeedbackdialog:
@@ -2479,8 +2475,6 @@ default:
         label_title_communications: Notifications
         label_title_region: Language and region
         label_yandexMessenger-link: Go to bot
-        section_email: Email settings
-        section_phone: Phone number settings
         section_settings: Categories
         section_transports: Channels
         value_theme-system: System
@@ -2534,8 +2528,6 @@ default:
         label_evaluation-window: Evaluation window
         label_trigger-condition: Condition
         label_warning: Warning
-        method_email: Email
-        method_sms: SMS
         section_alert-conditions: Alert parameters
         section_metrics: Metrics
         section_notifications: Notification channels
@@ -2647,7 +2639,6 @@ default:
         dash:
           create-alert: Create alert
           edit: Edit
-          open-in-monitoring: Open in Monitoring
           save: Save
           setup: Edit
         settings:
@@ -2856,8 +2847,6 @@ default:
         vis:
           chart-type: Chart type
           color-scheme: Color scheme
-          downsampling:
-            none: No downsampling
           interpolate-key-value: Interpolation
           normalize: Normalize
           scheme-auto: Auto
@@ -2995,6 +2984,7 @@ default:
         operations: Operations
         overview: Overview
         resource-acl:
+          label_groups_mQQ4T: Groups
           label_invitee-accounts: Invitee accounts
         save: Save
         section-base: General information
@@ -3397,6 +3387,15 @@ default:
               their details
             title_users-list-visibility_ftTaP: Confidentiality
           PolicyResultCard:
+            effect_allow: Allow
+            effect_deny: Deny
+            field_access: Access
+            field_factor-type: Factor type
+            field_login-requirements: Login requirements
+            field_require-once: Request once on first login
+            field_ttl: Duration
+            login-requirement_skip-mfa: Skip MFA
+            login-requirement_step-up: Enforce step-up verification
             section_title: Result
           ScopeCardBlock:
             exclude_label_4Mn7B: Exclude
@@ -3606,6 +3605,18 @@ default:
             field_scope_kCG8J: Resource
             field_type_exclude_cigcD: No check required
             field_type_manual_mbKxp: Manually scanned
+        cspm:
+          PageActions:
+            action_title_check_environment_jovUa: Check environment
+            action_title_configure_control_oGGv5: Configure CSPM
+            action_title_download_report_pP1y8: Download report
+          PageHeader:
+            page_tab_title_about_fEPiv: About the service
+            page_tab_title_errors_g7fT6: Notifications
+            page_tab_title_history_4o4Hr: Check history
+            page_tab_title_overview_hvqrW: Dashboard
+          TopAlertsWidget:
+            card_heading_alerts_8fZB8: Top alerts
         discovery:
           action_include-in-scan_2wT6B: Add to the scan
           AnalyticsDashboard:
@@ -3751,9 +3762,6 @@ default:
           title_security-requirements_8r7hd: Sets of requirements
           TriggeredRunsCheckEnvironmentDialog:
             action_start-check_w0jM2: Run check
-          TriggeredRunsControl:
-            action_check-environment_k3mP9: Check environment for compliance with control rules
-            action_download-check-report_q7nR2: Download check report
           workload-labels-checkbox_Wl4Cb: Workload labels
           workload-names-checkbox_Wn4Cb: Workload names
           workload-types-checkbox_Wt4Cb: Workload types
@@ -3821,6 +3829,7 @@ default:
             investigations_wYxSe: Investigations
       shared:
         components:
+          severity_critical_uT8Xg: 'Critical severity '
           severity_high_cahHH: High severity
           severity_info_biSRh: Remark
           severity_low_tqf9A: Low severity
@@ -3838,6 +3847,7 @@ default:
             label_column_ticket_type: Ticket type
       ui:
         label_access-analyzer_4bfVo: Access Analyzer
+        label_cspm_amGv8: CSPM
       user:
         title_groups: Groups
         title_oslogin-profiles: OS Login Profiles
@@ -3906,6 +3916,23 @@ default:
         support: Support
     yacloud_quotas:
       quotas:
+        iam:
+          accessBindings:
+            count: >-
+              Total number of access right
+              [bindings](https://yandex.cloud/en/docs/iam/concepts/access-control/#access-bindings)
+          accessKeys:
+            count: Number of access keys
+          apiKeys:
+            count: Number of API keys
+          authorizedKeys:
+            count: Number of authorized keys
+          oidcWLIFederations:
+            count: Number of service account federations
+          saFederatedCredentials:
+            count: Number of service accounts linked to the federation
+          serviceAccounts:
+            count: Number of service accounts
         vdi:
           desktopCores:
             count: Number of vCPU desktops
@@ -4094,6 +4121,15 @@ default:
         cluster:
           overview:
             title_resource-webserver: Web server
+        ClusterForm:
+          StorageSection:
+            source_git_pgAeB: Git
+            source_s3_t1FCM: S3
+            storage_git_branch_5sU67: Branch
+            storage_git_repo_pKzRo: Repository address
+            storage_git_ssh_key_ewdAh: SSH key
+            storage_git_subpath_rbaX6: Path to DAG files
+            storage_source_type_7Jvgw: Data source type
         field_connector-bucket-name: Bucket
         field_lockbox: Use Lockbox Secret Backend
         section_accesses: Access settings
@@ -5577,8 +5613,6 @@ default:
         label_data-storage-time-limit: Time Limit
         label_data-stream: Data stream
         label_database: Database
-        label_meter-mode: Pricing Mode
-        label_request-units: Actual usage
         label_shards: Shards
       data-transfer:
         button_create-endpoint: Create endpoint
@@ -6682,7 +6716,6 @@ default:
             button_action-edit: Edit
             label_access-datalens: DataLens access
             label_access-websql-service: WebSQL access
-            label_advanced-settings: DBMS settings
             label_bucket: Bucket name
             label_hdd: Storage
             label_health: State
@@ -7032,6 +7065,7 @@ default:
         label_private-key: Private key
         label_restrict-senders: Restrict sender list
         label_selector: Selector
+        label_signing-type-external: Advanced
         label_signing-type-internal: Simple
         label_statistics: Statistics
         label_statistics_bounced-event: Not delivered

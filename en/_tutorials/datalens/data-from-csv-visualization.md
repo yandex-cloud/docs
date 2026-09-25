@@ -149,7 +149,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 
 
-1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/chart-column.svg) **Chart** where you need.
+1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to a desired location.
 
    ![add-chart](../../_assets/datalens/solution-01/11-add-chart.png)
 
@@ -168,7 +168,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 Add [selectors](../../datalens/dashboard/selector.md) to filter superheroes by `Eye color` and `Hair color`:
 
-1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/sliders.svg) **Selector** where you need.
+1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag to a desired location.
 
    ![add-selector](../../_assets/datalens/solution-01/14-add-selector.png)
 

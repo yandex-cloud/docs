@@ -5,6 +5,7 @@ description: In this article, you will learn how to choose the right authenticat
 
 # How to choose a suitable authentication method in {{ yandex-cloud }}
 
+
 Users and [service accounts](../users/service-accounts.md) get permissions to perform actions with {{ yandex-cloud }} resources along with [roles](../../roles-reference.md) for these resources. {{ iam-name }} verifies the required permissions when a user or service account runs an operation on a {{ yandex-cloud }} resource.
 
 For more information about assigning roles and verifying the list of permissions, see [{#T}](../access-control/index.md).

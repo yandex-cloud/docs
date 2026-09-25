@@ -11,6 +11,10 @@ Number of results for a particular data type per file | 500
 
 #### {{ cspm-name }} limits {#sd-cspm-limits}
 
-Type of limit | Value    
+Type of limit | Value
 --- | ---
 Number of [alerts](../../security-deck/concepts/alerts.md) per [alert sink](../../security-deck/concepts/workspace.md#alert-sinks) | 10,000
+Maximum number of checks stored in [workspace](../../security-deck/concepts/workspace.md) at any given time^1^ | 100
+Retention period for check results^1^ | 30 days
+
+^1^ These limitations do not apply to the latest successful test.

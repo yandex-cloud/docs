@@ -86,8 +86,8 @@ This way, you can granularly assign different roles for specific clusters to dif
 
       Where:
 
-      * `--role`: [Role](../security.md#roles-list) being assigned, e.g., `managed-spark.editor`.
-      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
+      * `--role`: [Role](../security.md#roles-list), e.g., `managed-spark.editor`.
+      * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
           Here is an example:
 
@@ -95,7 +95,11 @@ This way, you can granularly assign different roles for specific clusters to dif
           * `userAccount:aje8tj79************`
           * `system:allAuthenticatedUsers`
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
   1. To view a list of roles assigned for the cluster, run this command:
 
@@ -141,11 +145,15 @@ This way, you can granularly assign different roles for specific clusters to dif
       Where:
 
       * `resource_id`: Cluster ID.
-      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-spark.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list), e.g., `managed-spark.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -189,8 +197,8 @@ This way, you can granularly assign different roles for specific clusters to dif
 
       Where `--access-binding` assigns a role to a subject. You can assign multiple roles at once by describing each of them in a separate `--access-binding` parameter.
 
-      * `role`: [Role](../security.md#roles-list) being assigned, e.g., `managed-spark.editor`.
-      * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
+      * `role`: [Role](../security.md#roles-list), e.g., `managed-spark.editor`.
+      * `subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
           Here is an example:
 
@@ -198,7 +206,11 @@ This way, you can granularly assign different roles for specific clusters to dif
           * `userAccount:aje8tj79************`
           * `system:allAuthenticatedUsers`
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
 - gRPC API {#grpc-api}
 
@@ -256,11 +268,15 @@ This way, you can granularly assign different roles for specific clusters to dif
       Where:
 
       * `resource_id`: Cluster ID.
-      * `accessBindings.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-spark.editor`.
+      * `accessBindings.roleId`: [Role](../security.md#roles-list), e.g., `managed-spark.editor`.
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -298,7 +314,7 @@ This way, you can granularly assign different roles for specific clusters to dif
       Where:
 
       * `--role`: [Role](../security.md#roles-list) being revoked, e.g., `managed-spark.editor`.
-      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to, in `<subject_type>:<subject_ID>` format.
+      * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
           Here is an example:
 
@@ -306,11 +322,15 @@ This way, you can granularly assign different roles for specific clusters to dif
           * `userAccount:aje8tj79************`
           * `system:allAuthenticatedUsers`
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -346,11 +366,15 @@ This way, you can granularly assign different roles for specific clusters to dif
       Where:
 
       * `resource_id`: Cluster ID.
-      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-spark.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
-      * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
+      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being revoked, e.g., `managed-spark.editor`.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+      * `access_binding_deltas.subject.type`: Subject type to revoke a role from.
 
-          {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

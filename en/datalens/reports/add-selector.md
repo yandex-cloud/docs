@@ -30,7 +30,7 @@ To start working with [selectors](../dashboard/selector.md):
  
    - Navigation panel
 
-     1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
+     1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
      1. In the left-hand panel, click ![image](../../_assets/console-icons/display-pulse.svg) **Reports** and select the report.
 
    {% endlist %}
@@ -90,7 +90,7 @@ To add a [selector](../dashboard/selector.md) to a report:
 
        {% endnote %}
 
-     * **Operation**: Comparison operation for the selector to filter the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
+     * **Operation**: Comparison operation for the selector to filter the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters a QL chart.
      * **Multiple choice**: Allows choosing several values in the selector. It is only available for the **List** selector type.
      * **Range**: Allows setting a time interval in the selector. It is only available for the **Calendar** selector type.
      * **Required field**: Sets the selector value as a required parameter. When enabled, `*` is appended to the selector name. It is not available for the **Checkbox** selector type.
@@ -98,7 +98,7 @@ To add a [selector](../dashboard/selector.md) to a report:
 
      * **Header**: To choose the selector for linking with other widgets. By default, when you add a selector, the header text is substituted from the field title in the [dataset](../dataset/index.md). This is a required field.
        
-       Select the header location below: `Left` (default), `Top`, or `Hidden` to hide it from the report selector settings window. It is not available for the **Checkbox** selector type.
+       Select the header position below: `Left` (default), `Top`, or `Hidden` to hide it from the report selector settings window. It is not available for the **Checkbox** selector type.
 
      * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. It is not available for the **Checkbox** selector type.
      * **Coloring**: Allows you to highlight important selectors. It is not available for the **Checkbox** selector type.
@@ -122,7 +122,7 @@ To add a [selector](../dashboard/selector.md) to a report:
 
        {% endnote %}
 
-     * **Operation**: Comparison operation for the selector to filter the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
+     * **Operation**: Comparison operation for the selector to filter the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters a QL chart.
      * **Required field**: Sets the selector value as a required parameter. When enabled, `*` is appended to the selector name. It is not available for the **Checkbox** selector type.
      * **Multiple choice**: Allows choosing several values in the selector. It is only available for the **List** selector type.
      * **Possible values**: List of values to select. It is only available for the **List** selector type.
@@ -132,7 +132,7 @@ To add a [selector](../dashboard/selector.md) to a report:
 
      * **Header**: To choose the selector for linking with other widgets. This is a required field.
        
-       Select the header location below: `Left` (default), `Top`, or `Hidden` to hide it from the report selector settings window. It is not available for the **Checkbox** selector type.
+       Select the header position below: `Left` (default), `Top`, or `Hidden` to hide it from the report selector settings window. It is not available for the **Checkbox** selector type.
 
      * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. It is not available for the **Checkbox** selector type.
      * **Coloring**: Allows you to highlight important selectors. It is not available for the **Checkbox** selector type.

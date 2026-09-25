@@ -15,15 +15,25 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
+  {% note info %}
+
+  Минимальный срок аренды публичной подсети — один месяц со дня заказа.
+
+  {% endnote %}
+
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите зарезервировать [выделенную публичную подсеть](../concepts/public-network.md#public-subnet).
   1. [Перейдите]({{ link-console-main }}/link/baremetal) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}**.
-  1. Справа вверху нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-public-subnet-full }}**.
+  1. Вверху страницы нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-public-subnet-full }}**.
   1. В поле **{{ ui-key.yacloud.baremetal.field_zone-id }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет доступна подсеть.
   1. {% include [reserve-priv-subnet-step-1](../../_includes/baremetal/instruction-steps/reserve-priv-subnet-step-1.md) %}
-  1. Выберите размер заказываемой подсети.
-  
-      В консоли управления можно заказать только подсети размером `/29` (шесть доступных IP-адресов) и `/28` (четырнадцать доступных IP-адресов). Если вам необходима более широкая публичная подсеть, запросите ее через [обращение]({{ link-console-support }}/tickets/create) в службу технической поддержки.
+  1. В таблице выберите размер заказываемой подсети:
+
+     * `/28` — 16 IP-адресов, из которых 14 доступны для использования.
+     * `/29` — 8 IP-адресов, из которых 6 доступны для использования.
+
+     Если вам необходима более широкая публичная подсеть, запросите ее через [обращение]({{ link-console-support }}/tickets/create) в службу технической поддержки.
+
   1. {% include [reserve-priv-subnet-step-2](../../_includes/baremetal/instruction-steps/reserve-priv-subnet-step-2.md) %}
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-public-subnet }}**.
 
@@ -43,7 +53,7 @@ description: Следуя данной инструкции, вы сможете
      
      ```bash
      yc baremetal public-subnet create \
-       --hardware-pool-id <пул> \
+       --hardware-pool-ids <идентификатор_пула_1>,<идентификатор_пула_2>,... \
        --prefix-length 29 \
        --name <имя_публичной_подсети> \
        --description "<описание_публичной_подсети>" \
@@ -51,7 +61,7 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      Где:
-     * `--hardware-pool-id` — [пулы](../concepts/servers.md#server-pools), в которых будет доступна подсеть.
+     * `--hardware-pool-ids` — идентификаторы [пулов](../concepts/servers.md#server-pools), в которых будет доступна подсеть.
 
        {% include [link-public-subnet](../../_includes/baremetal/instruction-steps/link-public-subnet.md) %}
 
@@ -68,7 +78,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы арендовать новую выделенную публичную подсеть, воспользуйтесь методом REST API [create](../api-ref/PublicSubnet/create.md) для ресурса [PublicSubnet](../api-ref/PublicSubnet/index.md) или вызовом gRPC API [PublicSubnetService/Create](../api-ref/grpc/PublicSubnet/create.md).
+    Чтобы арендовать новую выделенную публичную подсеть, воспользуйтесь методом REST API [create](../api-ref/PublicSubnet/create.md) для ресурса [PublicSubnet](../api-ref/PublicSubnet/index.md) или вызовом gRPC API [PublicSubnetService/Create](../api-ref/grpc/PublicSubnet/create.md).
 
 {% endlist %}
 
@@ -106,7 +116,7 @@ description: Следуя данной инструкции, вы сможете
      yc baremetal public-subnet update \
        --id <идентификатор_публичной_эфимерной_подсети> \
        --type dedicated \
-       --hardware-pool-id <пул> \
+       --hardware-pool-ids <идентификатор_пула_1>,<идентификатор_пула_2>,... \
        --name <имя_публичной_подсети> \
        --description "<описание_публичной_подсети>" \
        --labels <ключ>=<значение>
@@ -115,7 +125,7 @@ description: Следуя данной инструкции, вы сможете
      Где:
      * `--id` — идентификатор эфимерной публичной подсети.
      * `--type` — тип, в который преобразуется подсеть.
-     * `--hardware-pool-id` — [пулы](../concepts/servers.md#server-pools), в которых будет доступна подсеть.
+     * `--hardware-pool-ids` — идентификаторы [пулов](../concepts/servers.md#server-pools), в которых будет доступна подсеть.
 
        {% include [link-public-subnet](../../_includes/baremetal/instruction-steps/link-public-subnet.md) %}
      
@@ -125,7 +135,55 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы преобразовать эфемерную публичную подсеть в выделенную, воспользуйтесь методом REST API [update](../api-ref/PublicSubnet/update.md) для ресурса [PublicSubnet](../api-ref/PublicSubnet/index.md) или вызовом gRPC API [PublicSubnetService/Update](../api-ref/grpc/PublicSubnet/update.md).
+    Чтобы преобразовать эфемерную публичную подсеть в выделенную, воспользуйтесь методом REST API [update](../api-ref/PublicSubnet/update.md) для ресурса [PublicSubnet](../api-ref/PublicSubnet/index.md) или вызовом gRPC API [PublicSubnetService/Update](../api-ref/grpc/PublicSubnet/update.md).
+
+{% endlist %}
+
+### Изменить пулы выделенной публичной подсети {#change-hardware-pools}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится выделенная публичная подсеть.
+  1. [Перейдите]({{ link-console-main }}/link/baremetal) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}**.
+  1. Выберите нужную публичную подсеть.
+  1. Справа вверху нажмите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В поле **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** выберите пулы, в которых должна быть доступна подсеть.
+
+     Зону доступности публичной подсети изменить нельзя.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_save-changes }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды для изменения публичной подсети:
+
+     ```bash
+     yc baremetal public-subnet update --help
+     ```
+
+  1. Измените список пулов:
+
+     ```bash
+     yc baremetal public-subnet update \
+       --id <идентификатор_публичной_подсети> \
+       --hardware-pool-ids <идентификатор_пула_1>,<идентификатор_пула_2>,...
+     ```
+
+     Где:
+
+     * `--id` — идентификатор публичной подсети.
+     * `--hardware-pool-ids` — полный новый список идентификаторов [пулов](../concepts/servers.md#server-pools), в которых должна быть доступна подсеть.
+
+- API {#api}
+
+    Чтобы изменить список пулов, воспользуйтесь методом REST API [update](../api-ref/PublicSubnet/update.md) для ресурса [PublicSubnet](../api-ref/PublicSubnet/index.md) или вызовом gRPC API [PublicSubnetService/Update](../api-ref/grpc/PublicSubnet/update.md). Передайте новый список идентификаторов в поле `hardwarePoolIds` и добавьте `hardwarePoolIds` в поле `updateMask`.
 
 {% endlist %}
 
@@ -141,7 +199,7 @@ description: Следуя данной инструкции, вы сможете
 
   ```bash
   yc baremetal public-subnet create \
-    --hardware-pool-id ru-central1-m3 \
+    --hardware-pool-ids ru-central1-m3,ru-central1-m4 \
     --prefix-length 29 \
     --name demo-public-subnet \
     --description "My first public subnet" \
@@ -159,6 +217,7 @@ description: Следуя данной инструкции, вы сможете
   zone_id: ru-central1-m
   hardware_pool_ids:
     - ru-central1-m3
+    - ru-central1-m4
   type: DEDICATED
   prefix_length: "29"
   cidr: 94.139.248.184/29
@@ -179,7 +238,8 @@ description: Следуя данной инструкции, вы сможете
       "name": "new-public-subnet",
       "description": "New public subnet",
       "hardwarePoolIds": [
-        "ru-central1-m3"
+        "ru-central1-m3",
+        "ru-central1-m4"
       ],
       "prefixLength": "29",
       "labels": {
@@ -219,7 +279,10 @@ description: Следуя данной инструкции, вы сможете
       "name": "new-public-subnet",
       "description": "New public subnet",
       "zoneId": "ru-central1-m",
-      "hardwarePoolId": "ru-central1-m3",
+      "hardwarePoolIds": [
+        "ru-central1-m3",
+        "ru-central1-m4"
+      ],
       "type": "EPHEMERAL",
       "prefixLength": "29",
       "cidr": "10.0.*.*/29",
@@ -255,6 +318,7 @@ description: Следуя данной инструкции, вы сможете
   yc baremetal public-subnet update \
     --id ly5vr6tugxk7******** \
     --type dedicated \
+    --hardware-pool-ids ru-central1-m3,ru-central1-m4 \
     --description "Transformed dedicated public subnet"
   ```
 
@@ -269,6 +333,7 @@ description: Следуя данной инструкции, вы сможете
   zone_id: ru-central1-m
   hardware_pool_ids:
     - ru-central1-m3
+    - ru-central1-m4
   type: DEDICATED
   prefix_length: "29"
   cidr: 94.139.248.184/29
@@ -284,7 +349,7 @@ description: Следуя данной инструкции, вы сможете
     -d '{
       "updateMask": "type,hardwarePoolIds,name,description",
       "type": "DEDICATED",
-      "hardwarePoolIds": ["ru-central1-m3"],
+      "hardwarePoolIds": ["ru-central1-m3", "ru-central1-m4"],
       "name": "transformed-public-subnet",
       "description": "Transformed dedicated public subnet"
     }' \
@@ -318,7 +383,10 @@ description: Следуя данной инструкции, вы сможете
       "name": "new-public-subnet",
       "description": "New public subnet",
       "zoneId": "ru-central1-m",
-      "hardwarePoolId": "ru-central1-m3",
+      "hardwarePoolIds": [
+        "ru-central1-m3",
+        "ru-central1-m4"
+      ],
       "type": "DEDICATED",
       "prefixLength": "29",
       "cidr": "10.0.*.*/29",

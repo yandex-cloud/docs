@@ -40,9 +40,7 @@ To configure application access for your {{ org-full-name }} users, do the follo
           1. Press **Enter**.
       1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
   1. In the window that opens, on the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab, under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}**, copy and save the `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}` value representing the unique OAuth client ID. You will need this value later when setting up `OAuth2 Proxy`.
-  1. Create an [app secret](../../../organization/concepts/applications/oidc.md#oidc-secret):
-  
-      {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
+  1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
 
 - CLI {#cli}
 

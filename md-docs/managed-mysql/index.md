@@ -36,6 +36,8 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Управление алиасами хостов](operations/hosts-aliases.md)
 
+ - [Управление балансировщиком нагрузки DB Proxy](operations/load-balancer.md)
+
  - [Миграция хостов в другую зону доступности](operations/host-migration.md)
 
  - [Управление резервными копиями](operations/cluster-backups.md)
@@ -105,6 +107,8 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
  - [Хранилище в Managed Service for MySQL®](concepts/storage.md)
 
  - [Резервные копии](concepts/backup.md)
+
+ - [Балансировщик нагрузки для хостов](concepts/load-balancer.md)
 
  - [Репликация](concepts/replication.md)
 

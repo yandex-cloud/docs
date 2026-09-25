@@ -2,19 +2,25 @@
 
 #|
 || Type of limit | Value ||
-|| Number of workload identity federations 
+|| {{ ui-key.yacloud_quotas.quotas.iam.accessBindings.count }} in cloud^1^
+`iam.accessBindings.count` | 1,000 ||
+|| {{ ui-key.yacloud_quotas.quotas.iam.accessBindings.count }} in organization^1^
+`iam.accessBindings.count` | 2,000 ||
+|| {{ ui-key.yacloud_quotas.quotas.iam.oidcWLIFederations.count }}
 `iam.oidcWLIFederations.count` | 50 ||
-|| Number of service accounts linked to federations 
+|| {{ ui-key.yacloud_quotas.quotas.iam.saFederatedCredentials.count }}
 `iam.saFederatedCredentials.count` | 200 ||
-|| Maximum number of service accounts per cloud 
+|| {{ ui-key.yacloud_quotas.quotas.iam.serviceAccounts.count }} per cloud
 `iam.serviceAccounts.count` | 100 ||
-|| Maximum number of API keys per cloud 
+|| {{ ui-key.yacloud_quotas.quotas.iam.apiKeys.count }} per cloud
 `iam.apiKeys.count` | 1,000 ||
-|| Maximum number of authorized keys per cloud 
+|| {{ ui-key.yacloud_quotas.quotas.iam.authorizedKeys.count }} per cloud
 `iam.authorizedKeys.count` | 1,000 ||
-|| Maximum number of static access keys per cloud 
+|| {{ ui-key.yacloud_quotas.quotas.iam.accessKeys.count }} per cloud
 `iam.accessKeys.count` | 1,000 ||
 |#
+
+^1^ The quota considers not only the federated credentials for the cloud or organization itself but also all federated credentials for their enclosed resources; therefore, the organization quota can never be less than the cloud quota.
 
 
 #### Limits {#iam-limits}

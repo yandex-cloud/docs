@@ -8,7 +8,7 @@ editable: false
 
 
 
-Starting December 1, {{ datalens-full-name }} introduces a revised pricing policy. Under the new unified service plan, all users will gain access to expanded capabilities, including Neuroanalyst, reports, JavaScript-based customizations in Editor, background chart data export, UI styling, and more. The new plan will be offered free of charge for individual use and for a fee for team work.
+Starting December 1, {{ datalens-full-name }} introduces a revised pricing policy. Under the new unified service plan, all users will gain access to the advanced features, including Neuroanalyst, reports, JavaScript-based customizations in Editor, background chart data export, UI customization, and more. The new plan will be free of charge for individual use and for a fee for team work.
 
 * [New pricing policy](#new-rules)
 * [Transition timeline](#timeline)
@@ -77,7 +77,7 @@ The transition to the new service plan will be gradual.
 || ^ | March 1, 2026 | For seats, queries from [private embedded objects](./security/private-embedded-objects.md) are fixed as follows: 2,000 queries per seat. For more information, see [this section](./pricing.md#packet-queries). ||
 || **Community** plan users <br>(as of November 16, 2025) | December 1, 2025 |
 * Transition to the new service plan with an extended trial period until March 1, 2026. Access to all {{ datalens-name }} features without any team work restrictions.
-* Special terms apply for transition to a paid {{ datalens-name }} plan for team work; details [below](#discounts).
+* There are special terms for transition to a paid {{ datalens-name }} plan for teams. See [below](#discounts) for details.
 * Following the end of the trial period, your seat charge for the first month will be calculated in proportion to the number of days left in the month. ||
 || ^ | March 1, 2026 |
 * You either link a billing account and purchase seats for team work or scale down to a single seat.

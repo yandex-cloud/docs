@@ -13,7 +13,7 @@
 
       {% note info %}
 
-      * The dashboard, along with all its included related objects, will be accessible to any internet user via a public access link. To copy it, click **Copy link**.
+      * The public access link grants access to the dashboard and all its linked objects to any internet user. To copy it, click **Copy link**.
       * The dashboard and its related objects will only be accessible to authorized users via the link in the browser's address bar, factoring in their access permissions.
 
       {% endnote %}

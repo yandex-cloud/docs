@@ -1,0 +1,1 @@
+An availability zone is an infrastructure within a data center that hosts {{ yandex-cloud }}. For more information, see [{#T}](../overview/concepts/geo-scope.md).

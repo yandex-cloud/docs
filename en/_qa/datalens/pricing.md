@@ -48,7 +48,7 @@ Your administrators can manually reassign seats as needed.
 
 ### Do I need to purchase {{ datalens-name }} seats for viewers of embedded private objects? {#seats-for-external-clients}
 
-If users only view [embedded private objects](../../datalens/security/private-embedded-objects.md), then they do not require authorization in {{ datalens-name }}, and therefore do not need to be assigned workspaces. However, when viewing embedded private objects, users initiate queries to get data when rendering charts, and such queries are charged.
+Viewers of [embedded private objects](../../datalens/security/private-embedded-objects.md) do not authenticate in {{ datalens-name }} and, therefore, do not need a seat. However, when viewing embedded private objects, users initiate data queries to render charts, and such queries are billable.
 
 The system counts the [number of queries against data sources from embedded private charts](../../datalens/settings/seats.md#embedded-queries-count), i.e., those in the wizard and Editor as well as QL charts, that are executed when rendering these objects. Only successfully completed queries for chart rendering data are counted. If multiple queries are required to render a single chart, this is counted as one query. For embedded private dashboards, queries from the added charts are summed up.
 

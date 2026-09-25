@@ -171,7 +171,7 @@ The cost includes:
         * `target_bucket`: Bucket for storing logs.
         * `target_prefix`: [Key prefix](../../storage/concepts/server-logs.md#key-prefix) for objects with logs.
 
-        For more on `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        For more on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -392,7 +392,7 @@ You need a static key to create a table with access to {{ objstorage-name }}. [C
         request_path String,        -- Full query path.
         request_time Int64,         -- Query processing time in milliseconds.
         scheme String,              -- Data transfer protocol type.
-                                    -- The possible values are:
+                                    -- The possible values are as follows:
                                     -- * http: Application layer protocol.
                                     -- * https: Application layer protocol with encryption support.
         ssl_protocol String,        -- Security protocol.
@@ -402,7 +402,7 @@ You need a static key to create a table with access to {{ objstorage-name }}. [C
         user_agent String,          -- Client app (user agent) that run the query.
         version_id String,          -- Object version.
         vhost String                -- Virtual host of the query.
-                                    -- The possible values are:
+                                    -- The possible values are as follows:
                                     -- * {{ s3-storage-host }}.
                                     -- * <bucket_name>.{{ s3-storage-host }}.
                                     -- * {{ s3-web-host }}.

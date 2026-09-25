@@ -22,7 +22,7 @@
 
 * [Почему возникает ошибка при остановке кластера?](#stop-cluster-error)
 
-* [Почему при изменении кластера возникает ошибка `max_connections is less than sum of users connection limit`?](#max-connections-error)
+* [Почему при изменении кластера возникает ошибка, связанная с `max_connections` и `conn_limit`?](#max-connections-error)
 
 * [Почему перенос данных через создание и восстановление логического дампа завершается ошибкой?](#backup-error)
 
@@ -32,13 +32,15 @@
 
 * [Почему при развертывании логического дампа возникает ошибка `must be owner of extension`?](#owner-of-extension)
 
+* [Почему при создании расширения возникает ошибка `Must be superuser to create this extension`?](#superuser-extension)
+
 * [Почему при настройке каскадной репликации возникает ошибка?](#cascade-errors)
 
 * [Почему возникает ошибка `cannot execute <SQL-команда> in a read-only transaction`?](#read-only-error)
 
 * [Что делать, если в логах отображается ошибка `too many connections for role "monitor"`?](#monitor-role-error)
 
-* [Почему установка нескольких расширений в CLI заканчивается ошибкой?](#cli-extensions-errors)
+* [Почему установка расширений в CLI заканчивается ошибкой?](#cli-extensions-errors)
 
 * [Почему возникает ошибка `could not open extension control file "<путь_к_расширению>/vector.control": No such file or directory` при обращении к расширению `vector`?](#vector-error)
 
@@ -140,7 +142,9 @@ ERROR: odyssey: c76e2c1283a7a: route for 'postgres.<имя_пользовате�
 FATAL: terminating connection due to administrator command
 ```
 
-Такое сообщение не является ошибкой, а означает, что длительность сессии/транзакции превысила значение настройки [Session duration timeout](../concepts/settings-list.md#setting-session-duration-timeout) (по умолчанию — 12 часов).
+Сообщение означает, что сервер принудительно завершил соединение. Одна из возможных причин — длительность активной сессии или транзакции превысила значение настройки [Session duration timeout](../concepts/settings-list.md#setting-session-duration-timeout).
+
+Проверьте значение настройки и сравните его со временем работы сессии или транзакции. Если соединение завершается после достижения заданного времени, увеличьте значение **Session duration timeout** с учетом возможного влияния долгих сессий на размер БД и производительность кластера.
 
 #### Почему не удается подключиться к хостам кластера? {#host-error}
 
@@ -181,11 +185,21 @@ cluster has no backups. If you want to stop the cluster, make a backup
 
 Решение: дождитесь создания автоматической резервной копии или [создайте резервную копию вручную](../operations/cluster-backups.md#create-backup).
 
-#### Почему при изменении кластера возникает ошибка `max_connections is less than sum of users connection limit`? {#max-connections-error}
+#### Почему при изменении кластера возникает ошибка, связанная с `max_connections` и `conn_limit`? {#max-connections-error}
 
-Эта ошибка может возникнуть при уменьшении класса хоста в кластере, если сумма лимитов подключений всех пользователей меньше общего лимита подключений на кластер ([Max connections](../concepts/settings-list.md#setting-max-connections)).
+Изменение настроек подключений или уменьшение класса хостов может завершиться одной из ошибок:
 
-Решение: сначала уменьшите лимиты, установленные для пользователей, чтобы их сумма была меньше, чем `<значение_Max_connections> — 15`, а затем снижайте класс хоста.
+```text
+max_connections is less than sum of users connection limit
+```
+
+```text
+max_connections conn_limit is too high
+```
+
+Ошибки возникают, если сумма значений настройки [Conn limit](../concepts/settings-list.md#setting-conn-limit) для всех пользователей превышает значение настройки [Max connections](../concepts/settings-list.md#setting-max-connections) за вычетом 15 служебных подключений.
+
+Перед изменением настроек или уменьшением класса хостов снизьте пользовательские лимиты, чтобы их сумма не превышала `<значение_Max_connections> − 15`. Если пользователям требуется больше подключений, увеличьте значение **Max connections** или выберите класс хостов с большим количеством vCPU.
 
 #### Почему перенос данных через создание и восстановление логического дампа завершается ошибкой? {#backup-error}
 
@@ -236,6 +250,20 @@ extension "<название_расширения>" is not available
 1. Перед восстановлением дампа [включите](../operations/extensions/cluster-extensions.md#update-extensions) в базе-приемнике все необходимые расширения.
 1. Исключите из дампа любые операции с расширениями. Например, можно закомментировать строки, связанные с установкой расширений.
 1. Выполните восстановление логического дампа повторно.
+
+#### Почему при создании расширения возникает ошибка `Must be superuser to create this extension`? {#superuser-extension}
+
+Ошибка может возникнуть при попытке создать расширение с помощью SQL-команды или при восстановлении дампа, содержащего операции с расширениями. В Managed Service for PostgreSQL права суперпользователя не предоставляются, а [управлять расширениями](../operations/extensions/cluster-extensions.md#update-extensions) можно только с помощью интерфейсов Yandex Cloud.
+
+Если ошибка возникла при восстановлении дампа:
+
+1. Перед восстановлением [установите](../operations/extensions/cluster-extensions.md#update-extensions) в базе-приемнике все необходимые поддерживаемые расширения.
+1. Исключите из дампа операции создания, изменения и комментирования расширений:
+
+   * Для дампа в формате архива получите список объектов с помощью утилиты [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) с параметром `--list`, затем закомментируйте в нем строки, относящиеся к расширениям и комментариям к ним. При восстановлении передайте измененный список в параметре `--use-list`.
+   * Для текстового дампа закомментируйте операторы `CREATE EXTENSION`, `ALTER EXTENSION` и `COMMENT ON EXTENSION`.
+
+Если команда `pg_restore` запущена без параметра `--exit-on-error`, после ошибки она продолжит восстановление остальных объектов. Проверьте результат восстановления и наличие нужных расширений в базе-приемнике. Подробнее в руководстве [Восстановите данные из дампа в кластер-приемник](../tutorials/data-migration.md#restore).
 
 #### Почему при настройке каскадной репликации возникает ошибка? {#cascade-errors}
 
@@ -291,9 +319,9 @@ ERROR: cannot execute INSERT in a read-only transaction
 
 Пользователь `monitor` зарезервирован для нужд мониторинга в кластере Managed Service for PostgreSQL. Сообщения об исчерпании лимита подключений для этого пользователя можно игнорировать.
 
-#### Почему установка нескольких расширений в CLI заканчивается ошибкой? {#cli-extensions-errors}
+#### Почему установка расширений в CLI заканчивается ошибкой? {#cli-extensions-errors}
 
-Установка нескольких расширений в CLI может завершиться одной из ошибок:
+Установка расширений в CLI может завершиться одной из ошибок:
 
 * `ERROR: accepts 1 arg(s), received 2`
 

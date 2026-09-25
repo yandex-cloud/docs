@@ -274,6 +274,21 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 
 {% endnote %}
 
+#### Setting up sorting by rows {#rows-sorting}
+
+1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
+1. Enable or disable the **Sort by rows** option and click **Apply**.
+
+If the option is enabled (by default), you can sort data in rows mapped to dimensions in the **Rows** section. To do this, click the dimension value in the row. A single click will sort measure values in columns in ascending order. Click once again to sort the data in descending order. A third click will clear the sorting.
+
+If the **Rows** section contains multiple dimensions, sorting by rows is only available for the last dimension.
+
+{% cut "Sorting by rows" %}
+
+![pivot-table-rows-sorting](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-rows-sorting.png)
+
+{% endcut %}
+
 #### Adding a linear indicator to a column with a measure {#add-linear-indicator}
 
 1. Under **Measures**, click the icon to the left of the measure name.

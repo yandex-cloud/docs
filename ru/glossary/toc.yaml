@@ -41,6 +41,8 @@ items:
         href: nlp.md
       - name: Глубокое обучение (Deep Learning)
         href: deep-learning.md
+      - name: AI Agent Harness
+        href: ai-agent-harness.md
   - name: Облачные вычисления и сервера
     items:
       - name: LAMP и LEMP

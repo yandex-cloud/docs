@@ -40,9 +40,7 @@ To give access to Jenkins to the users of your organization:
          1. Press **Enter**.
       1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
    1. On the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab of the window that opens, copy under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** and save the `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}` and `{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}` values.
-   1. Create an [app secret](../../../organization/concepts/applications/oidc.md#oidc-secret):
-
-      {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
+   1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
 
 {% endlist %}
 
@@ -120,7 +118,7 @@ Users and groups added to an OIDC application can be managed by any user with th
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your OIDC app and Jenkins integration work correctly, authenticate to Jenkins as one of the users you added to the app. Proceed as follows:
+To make sure both your OIDC app and Jenkins integration work correctly, authenticate to Jenkins as one of the users you added to the app. Follow these steps:
 
 1. In your browser, navigate to your Jenkins instance address.
 1. You will be redirected to the {{ yandex-cloud }} authentication page. Specify the email and password for the user you added to the app. The user must also have their email address specified.

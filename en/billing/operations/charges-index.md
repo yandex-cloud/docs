@@ -7,6 +7,8 @@ description: Learn why cost breakdowns are useful and what methods {{ billing-na
 
 A cost breakdown helps you understand exactly where your money is going, streamline expenses, and plan your budget more precisely.
 
+{% include [final-payment-info](../../_includes/billing/final-payment-info.md) %}
+
 There are several ways to get a cost breakdown:
 
 * [In the management console](./check-charges.md)

@@ -35,6 +35,7 @@
 
 * [Создать VRF](network-create.md)
 * [Создать приватную подсеть](subnet-create.md)
+* [Настроить DNS в приватной подсети](configure-dns.md)
 * [Заказать выделенную публичную подсеть](reserve-public-subnet.md)
 * [Удалить выделенную публичную подсеть](delete-public-subnet.md)
 * [Создать приватное соединение с облачными сетями](create-vpc-connection.md)

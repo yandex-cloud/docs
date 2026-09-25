@@ -479,7 +479,7 @@ Available for the following visualization types: [Selector](./widgets/controls.m
   Where:
   
   * `params`: Object with parameters from the dashboard controls.
-  * `apiConnectionId`: ID of the connection described on the [Meta](#meta) tab and obtained using the [Editor.getId(arg)](./methods.md#get-id) method. Queries to datasets, standard connections, and [API Connector](../../operations/connection/create-api-connector.md) connections are available as data sources. 
+  * `apiConnectionId`: ID of the connection described in the [Meta](#meta) tab and obtained using the [Editor.getId(arg)](./methods.md#get-id) method. Available data sources include queries to datasets, standard connections, and [API Connector](../../operations/connection/create-api-connector.md) connections. 
   * `mySourceKeyName`: Alias name for the data source described on the **Meta** tab.
   * `path`: API path after host.
   * `method`: Request method.

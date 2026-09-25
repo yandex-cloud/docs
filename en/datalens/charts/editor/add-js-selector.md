@@ -1,6 +1,6 @@
 ---
 title: Adding a JS selector to a dashboard
-description: From this article, you will learn how to add a JS selector to a dashboard.
+description: In this article, you will learn how to add a JS selector to a dashboard.
 ---
 
 # Adding a JS selector to a dashboard
@@ -26,7 +26,7 @@ To add a [selector](./widgets/controls.md) to a dashboard:
 
      - From the list of objects
 
-       Click **Select** and choose a selector from the list of objects. If you have already chosen the selector, you can proceed to edit it To do this, click **Open** to the right of the selector.
+       Click **Select** and choose a selector from the list of objects. If you have already chosen the selector, you can proceed to edit it by clicking **Open** next to the selector.
 
      - Using a link
 
@@ -37,8 +37,8 @@ To add a [selector](./widgets/controls.md) to a dashboard:
    
    * **Show in tabs**: Select how to display the selector on the dashboard:
 
-     * `Current tab <tab_name>`: Display on selected tab. This is the default option.
-     * `Selected tabs`: Select one or more tabs to display the selector on. By default, the current tab is selected.
+     * `Current tab <tab_name>`: Display on the selected tab. This is the default option.
+     * `Selected tabs`: Select one or multiple tabs to display the selector on. By default, the current tab is selected.
      * `All tabs`: Display on all tabs.
 
 
@@ -47,8 +47,8 @@ To add a [selector](./widgets/controls.md) to a dashboard:
    * **Rounding**: Widget corner rounding.
 
 
-   * **Auto height**: Automatic widget height on the dashboard.
-   * **Parameters**: Sets a list of selector parameters and their default values. For the widget to work correctly, specify the selector parameters listed on the [Params](./tabs.md#params) tab.
+   * **Auto height**: Automatic height for a widget on the dashboard.
+   * **Parameters**: List of selector parameters and their default values. For the widget to work correctly, specify the selector parameters listed on the [Params](./tabs.md#params) tab.
 
      ![selector-js](../../../_assets/datalens/editor/selector-js-params.png)
 

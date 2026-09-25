@@ -1,11 +1,11 @@
 ---
 title: Dataset in {{ datalens-full-name }}
-description: A dataset in {{ datalens-full-name }} describes a set of data and its structure. Data in a dataset is represented as fields.
+description: A dataset in {{ datalens-full-name }} describes a set of data and its structure. Data in a dataset is structured in fields.
 ---
 
 # Dataset in {{ datalens-full-name }}
 
-A _dataset_ describes a set of data and its structure. Data in a dataset is represented as fields.
+A _dataset_ describes a set of data and its structure. Data in a dataset is structured in fields.
 
 {{ datalens-short-name }} creates a dataset based on a data source for which there is a [connection](../concepts/connection/index.md).
 

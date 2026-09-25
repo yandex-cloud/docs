@@ -20,6 +20,7 @@ To create an authentication policy:
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![shield](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.securitySettings }}** and go to the **{{ ui-key.yacloud_org.organization.security-settings.SecuritySettingsPageLayout.tab_auth_policies }}** tab.
   1. Click **{{ ui-key.yacloud_org.organization.security-settings.auth-policies-create-policy-action }}**.
+
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a [name](*policy_name) for the policy.
   1. Optionally, provide the policy description in the **{{ ui-key.yacloud.common.description }}** field.
   1. Optionally, set policy [labels](*labels) in the **{{ ui-key.yacloud.common.labels }}** field.
@@ -49,4 +50,6 @@ To create an authentication policy:
 * It can only contain lowercase Latin letters, numbers, and hyphens.
 * It must start with a letter and cannot end with a hyphen.
 
-[*labels]: Labels are `key:value` pairs you can use to organize resources into logical groups. For more information, see [{#T}](../../../resource-manager/concepts/labels.md).
+[*labels]: Labels are `key:value` pairs you can use to logically group your resources. For more information, see [{#T}](../../../resource-manager/concepts/labels.md).
+
+[*mfa]: {% include notitle [hostname](../../../_popups/identity-hub/mfa.md) %}

@@ -88,6 +88,7 @@ default:
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   ca-full-name: SourceCraft Code Assistant
   ca-name: Code Assistant
+  ca-short-name: Code Assistant
   captcha-domain: smartcaptcha.cloud.yandex.ru
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.cloud.yandex.ru/webview
@@ -289,6 +290,7 @@ default:
   kraft-short-name: KRaft
   kspm-full-name: Kubernetes® Security Posture Management
   kspm-name: KSPM
+  labels_per_mtetric_limit: 64
   lang: ru
   lets-encrypt: Let's Encrypt®
   license-manager: License Manager
@@ -341,8 +343,6 @@ default:
   link-my-account: https://myaccount.yandex.cloud/
   link-org-cloud-center: https://center.yandex.cloud/organization
   link-org-federations: https://org.yandex.cloud/federations
-  link-org-main: https://org.yandex.cloud/
-  link-org-users: https://org.yandex.cloud/users
   link-oslogin-configs: https://storage.yandexcloud.net/oslogin-configs
   link-passport: https://passport.yandex.ru/
   link-passport-login: https://passport.yandex.ru/auth
@@ -463,7 +463,6 @@ default:
           repository:
             name: >-
               cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1789566872190363361228058870643905000661686010862
-            tag: 1.30.4-v1
         php:
           repository:
             name: >-
@@ -1282,7 +1281,6 @@ default:
   roles-vpc-public-admin: vpc.publicAdmin
   roles-vpc-user: vpc.user
   roles-yagpt-user: ai.languageModels.user
-  s1-medium: s1.medium (8 vCPU, 32 ГБ)
   s1-micro: s1.micro (2 vCPU, 8 ГБ)
   s3-c2-m8: s3-c2-m8 (2 vCPU, 8 ГБ)
   s3-dotnet-sdk-host: s3.yandexcloud.net
@@ -1711,13 +1709,9 @@ default:
         cold|month|number: 6.336
         ice|month|number: 3.168
         ice|month|string: "3,168\_₸"
-        ice|number: 0.0044
-        ice|string: "0,0044\_₸"
         standard|pricingRate:
           720|month|number: 11.88
           720|month|string: "11,88\_₸"
-          720|number: 0.0165
-          720|string: "0,0165\_₸"
   sku|KZT|support:
     organization:
       business:
@@ -1778,6 +1772,12 @@ default:
       live:
         v1|number: 0.015345
         v1|string: "0,015345\_₸"
+      original_video:
+        v1|number: 0.00405
+        v1|string: "0,00405\_₸"
+      vod:
+        v1|number: 0.0153
+        v1|string: "0,0153\_₸"
   sku|KZT|yds:
     events:
       puts|pricingRate:
@@ -2251,13 +2251,9 @@ default:
         cold|month|number: 1.2672
         ice|month|number: 0.6336
         ice|month|string: "0,6336\_₽"
-        ice|number: 0.00088
-        ice|string: "0,00088\_₽"
         standard|pricingRate:
           720|month|number: 2.376
           720|month|string: "2,376\_₽"
-          720|number: 0.0033
-          720|string: "0,0033\_₽"
   sku|RUB|support:
     organization:
       business:
@@ -2318,6 +2314,12 @@ default:
       live:
         v1|number: 0.003069
         v1|string: "0,003069\_₽"
+      original_video:
+        v1|number: 0.00081
+        v1|string: "0,00081\_₽"
+      vod:
+        v1|number: 0.00306
+        v1|string: "0,00306\_₽"
   sku|RUB|ydb:
     v1:
       serverless:
@@ -2852,7 +2854,6 @@ default:
         cloud:
           create:
             popup-create-cloud_button_add: Создать
-          label_acl: Права доступа
           quotas:
             label_quota-name-iam:
               serviceAccounts:
@@ -2973,8 +2974,6 @@ default:
         label_title_communications: Уведомления
         label_title_region: Язык и регион
         label_yandexMessenger-link: Перейти к боту
-        section_email: Настройки почтового ящика
-        section_phone: Настройки номера телефона
         section_settings: Категории
         section_transports: Каналы
         value_theme-system: Системная
@@ -3028,8 +3027,6 @@ default:
         label_evaluation-window: Окно вычисления
         label_trigger-condition: Условие срабатывания
         label_warning: Warning
-        method_email: Email
-        method_sms: SMS
         section_alert-conditions: Настройки алерта
         section_metrics: Метрики
         section_notifications: Каналы уведомлений
@@ -3141,7 +3138,6 @@ default:
         dash:
           create-alert: Создать алерт
           edit: Редактировать
-          open-in-monitoring: Открыть в Мониторинге
           save: Сохранить
           setup: Редактировать
         settings:
@@ -4518,6 +4514,9 @@ default:
             count: Количество SAML-сертификатов для федераций
           federationUsers:
             count: Количество пользователей во всех федерациях в организации
+        storage:
+          volume:
+            size-key-value: Объём хранилища
         vdi:
           desktopCores:
             count: Количество vCPU рабочих столов
@@ -5009,6 +5008,7 @@ default:
         action_reboot-server: Перезагрузить
         action_reinstall-server-os: Переустановить
         action_reinstall-server-os-menu: Переустановить ОС
+        action_save-changes: Сохранить изменения
         action_server-prolongate-ended-rent: Восстановить
         action_stop-prolongation-server: Выключить автопродление
         action_stop-prolongation-server-dialog: Выключить
@@ -7376,7 +7376,6 @@ default:
             button_action-edit: Изменить
             label_access-datalens: Доступ из DataLens
             label_access-websql-service: Доступ из WebSQL
-            label_advanced-settings: Настройки СУБД
             label_bucket: Имя бакета
             label_hdd: Хранилище
             label_health: Состояние
@@ -8081,6 +8080,7 @@ default:
           label_connected-security-profiles: Подключенные профили безопасности
           label_create-profile: Создать профиль ARL
           label_profiles: Профили ARL
+          label_rule-action-captcha: Отправлять на капчу
           label_rule-action-deny_3kenc: Блокировать запросы свыше лимита
           label_rule-without-grouping: Без группировки
           label_save-rule: Сохранить правило

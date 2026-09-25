@@ -172,7 +172,7 @@ You can embed the published charts into a website or app using the `iframe` elem
 
 1. Follow the public link to the chart.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Embed code**.
-1. Copy the `iframe` embed code in either the light or dark theme.
+1. Copy the `iframe` embed code in the light or dark theme.
 1. Embed the code into your website.
 
 {% note info %}

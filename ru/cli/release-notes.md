@@ -7,6 +7,51 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.37.0 (24.09.26) {#v-1-37-0}
+
+#### {{ baremetal-name }} {#v-1-37-0-baremetal-name}
+
+* Добавлена команда `yc baremetal image list-compatible` для получения списка образов, совместимых с конфигурацией.
+
+#### {{ cr-name }} {#v-1-37-0-cr-name}
+
+* Добавлена группа команд `yc cloudrouter v2` для управления экземплярами маршрутизации и пирингом:
+  * `yc cloudrouter v2 routing-instance`;
+  * `yc cloudrouter v2 peering`.
+
+#### {{ managed-k8s-name }} {#v-1-37-0-managed-k8s-name}
+
+* В команды создания и изменения кластера добавлены параметры `--cluster-ipv4-range-list` и `--cluster-ipv6-range-list`, которые позволяют указать списки IPv4 и IPv6 CIDR-диапазонов для кластера {{ k8s }}:
+  * `yc managed-kubernetes cluster create`;
+  * `yc managed-kubernetes cluster update`.
+
+#### {{ mmy-name }} {#v-1-37-0-mmy-name}
+
+* В следующие команды добавлены параметры для настройки каталога создания подключений и их секретов в интеграции {{ connection-manager-name }} для {{ mmy-name }}:
+  * `yc managed-mysql cluster create`;
+  * `yc managed-mysql cluster restore`;
+  * `yc managed-mysql cluster update`;
+  * `yc managed-mysql user create`.
+* В выводе следующих команд удалено устаревшее поле `connection_manager`; вместо него используется `user_connection_manager`:
+  * `yc managed-mysql user get`;
+  * `yc managed-mysql user list`;
+  * `yc managed-mysql user create`.
+
+#### {{ mpg-name }} {#v-1-37-0-mpg-name}
+
+* В команды создания, изменения и восстановления кластера добавлены параметры `--maintenance-anytime` и `--maintenance-window-slot` для настройки нескольких слотов обслуживания с временем начала, длительностью и разрешением временной недоступности:
+  * `yc managed-postgresql cluster create`;
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql cluster restore`.
+
+#### {{ mtr-name }} {#v-1-37-0-mtr-name}
+
+* Добавлен параметр `--additional-properties` в команды для настройки дополнительных свойств кластера {{ TR }}:
+  * `yc managed-trino cluster create`;
+  * `yc managed-trino cluster update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.36.0 (21.09.26) {#v-1-36-0}
 
 #### {{ mkf-name }} {#v-1-36-0-mkf-name}
@@ -26,8 +71,6 @@ description: На странице представлены релизы CLI, а
 * Добавлен параметр `--event-listener-data-catalog-enabled` в команды для управления обработчиком событий {{ data-catalog-name }}:
   * `yc managed-trino cluster create`;
   * `yc managed-trino cluster update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.35.1 (17.09.26) {#v-1-35-1}
 

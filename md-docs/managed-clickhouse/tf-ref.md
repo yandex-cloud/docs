@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for ClickHouse®](index.md) > Справочник Terraform
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for ClickHouse®](index.md) > Справочник Terraform > Обзор
 
 # Справочник Terraform для Yandex Managed Service for ClickHouse®
 

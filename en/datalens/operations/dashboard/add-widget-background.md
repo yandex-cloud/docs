@@ -21,7 +21,7 @@ To set up widgets background and transparency on the dashboard:
    * ![image](../../../_assets/console-icons/sun.svg): Light theme.
    * ![image](../../../_assets/console-icons/moon.svg): Dark theme.
 
-1. Set widget background. Do it by clicking the **Widget background** input field and selecting one of the presets or specifying the color in hexadecimal format.
+1. Set widget background. To do this, click the **Widget background** input field and select one of the preset colors or specify it in hexadecimal format.
 1. Set widget transparency by entering it as a percentage to the right of the widget color input field.
 1. In the top-right corner of the dashboard edit window, click **Save**.
 

@@ -37,6 +37,8 @@ items:
                 href: operations/zk-hosts.md
               - name: Управление хостами {{ CK }}
                 href: operations/ck-hosts.md
+              - name: Изменение сервиса координации
+                href: operations/ck-hosts-upgrade.md
               - name: Миграция хостов в другую зону доступности
                 href: operations/host-migration.md
           - name: Управление резервными копиями
@@ -754,7 +756,13 @@ items:
           - name: list
             href: cli-ref/version/list.md
   - name: Справочник {{ TF }}
-    href: tf-ref.md
+    items:
+      - name: Обзор
+        href: tf-ref.md
+      - name: Изменения в кластере v2
+        href: concepts/migration-v1-v2.md
+      - name: Миграция кластера с v1 на v2
+        href: operations/migration-v1-v2.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

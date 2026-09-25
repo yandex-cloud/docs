@@ -1,11 +1,11 @@
 ---
 title: Data model in {{ datalens-full-name }}
-description: This article describes the data model used in {{ datalens-full-name }}. One or more tables are used as the data source. If multiple tables are available in the data source, you can merge them using the JOIN operator. When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and merged table.
+description: This article describes the data model used in {{ datalens-full-name }}. One or more tables are used as the data source. If multiple tables are available in the data source, you can merge them using the JOIN operator. When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and the table to merge with.
 ---
 
 # Data model in {{ datalens-full-name }}
 
-Data in a dataset is represented as fields.
+Data in a dataset is structured in fields.
 
 ## Data source {#source}
 
@@ -17,8 +17,8 @@ There is a limit on displaying the first 1,000 tables from a source in a dataset
 
 {% endnote %}
 
-If there are multiple tables in the source, you can join them with a [JOIN](https://en.wikipedia.org/wiki/Join_(SQL)) operator.
-When the tables are [joined](../concepts/data-join.md), a link is created between them. When you create a link, you specify the fields from the source table and merged table.
+If there are multiple tables in the source, you can merge them using the [JOIN](https://en.wikipedia.org/wiki/Join_(SQL)) operator.
+When the tables are [joined](../concepts/data-join.md), a link is created between them. When you create a link, you specify the fields from the source table and the table to merge with.
 
 Tables are linked automatically by the first match in the field name and field data type.
 
@@ -40,7 +40,7 @@ To manage the link behavior when [joining data from multiple tables](./create-da
 
 {% note info %}
 
-If you disable optimization, it may take more time to run a query.
+If you disable optimization, queries may take more time to run.
 
 {% endnote %}
 
@@ -50,8 +50,8 @@ For more information about optimization when using `JOIN`, see [{#T}](../concept
 
 The fields define the structure and format of the dataset. The following types of fields are available:
 
-* **Dimension**. Contains values that define data parameters, such as a city, date of purchase, or product category. The aggregation function is not applied to fields with a dimension; otherwise, the field becomes a measure. In the interface, dimensions are displayed in green.
-* **Measure**. Contains numeric values the aggregation functions (information) apply to, such as the amount of clicks and the number of click-throughs. If you remove the aggregation function from this field, it will become a dimension. In the interface, measures are displayed in blue.
+* **Dimension**: Contains values that define data parameters, such as a city, date of purchase, or product category. The aggregation function is not applied to fields with a dimension; otherwise, the field becomes a measure. In the interface, dimensions are displayed in green.
+* **Measure**: Contains numeric values the aggregation functions (information) apply to, such as the amount of clicks and the number of click-throughs. If you remove the aggregation function from such a field, it will become a dimension. In the interface, measures are displayed in blue.
 
 In the dataset creation interface and wizard, you can duplicate fields, create fields, and use [aggregation functions](#aggregation).
 
@@ -61,9 +61,9 @@ The maximum number of fields per dataset is 1,200.
 
 {% endnote %}
 
-{{ datalens-short-name }} allows you to create calculable fields using formulas. To write formulas, you can use existing dataset fields, constants, and functions. For a full list of functions, see the [Function reference](../function-ref/all.md).
+{{ datalens-short-name }} allows you to create calculated fields using formulas. To write formulas, you can use existing dataset fields, constants, and functions. For a full list of functions, see the [Function reference](../function-ref/all.md).
 
-For more information about calculable fields, see [{#T}](../concepts/calculations/index.md).
+For more information about calculated fields, see [{#T}](../concepts/calculations/index.md).
 
 ## Aggregating data {#aggregation}
 

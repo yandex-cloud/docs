@@ -11,21 +11,12 @@ links:
   - title: '{{ billing-name }}'
     description: Solutions for {{ billing-name }}
     href: billing/
-  - title: '{{ cdn-name }}'
-    description: Solutions for {{ cdn-name }}
-    href: cdn/
-  - title: '{{ certificate-manager-name }}'
-    description: Solutions for {{ certificate-manager-name }}
-    href: certificate-manager/
   - title: '{{ dns-name }}'
     description: Solutions for {{ dns-name }}
     href: dns/
   - title: '{{ compute-name }}'
     description: Solutions for {{ compute-name }}
     href: compute/
-  - title: '{{ container-registry-name }}'
-    description: Solutions for {{ container-registry-name }}
-    href: container-registry/
   - title: '{{ console-name }}'
     description: Solutions for {{ console-name }}
     href: console/
@@ -34,10 +25,7 @@ links:
     href: datalens/
   - title: '{{ iam-name }}'
     description: Solutions for {{ iam-short-name }}
-    href: iam/
-  - title: '{{ kms-name }}'
-    description: Solutions for {{ kms-short-name }}
-    href: kms/
+    href: ../iam/qa/index.md
   - title: Legal
     description: Solutions for legal
     href: legal/
@@ -50,15 +38,9 @@ links:
   - title: '{{ mmy-name }}'
     description: Solutions for {{ mmy-name }}
     href: managed-mysql/
-  - title: '{{ mpg-name }}'
-    description: Solutions for {{ mpg-name }}
-    href: managed-postgresql/
   - title: '{{ mkf-name }}'
     description: Solutions for {{ mkf-name }}
     href: managed-kafka/
-  - title: '{{ monitoring-name }}'
-    description: Solutions for {{ monitoring-name }}
-    href: monitoring/
   - title: '{{ network-load-balancer-name }}'
     description: Solutions for {{ network-load-balancer-name }}
     href: network-load-balancer/

@@ -64,4 +64,13 @@
 Метки:
 * `channel_name` — имя канала.
 * `error` — расшифровка статуса `client_error` при отправке сообщения.||
+
+|| `sqs.notifications.count`
+`IGAUGE`, штуки | Количество сообщений, отправленных за 1 минуту в очередь Yandex Message Queue.<br/>Метка `topic_name` — имя топика.||
+
+|| `sqs.notifications.errors.count`
+`IGAUGE`, штуки | Количество ошибок отправки сообщений в очередь Yandex Message Queue за 1 минуту.
+Метки:
+* `topic_name` — имя топика.
+* `error` — расшифровка статуса `client_error` при отправке сообщения.||
 |#

@@ -54,7 +54,7 @@ To add a mailing list for your report:
 
    * Under **When**, specify the delivery settings:
 
-     * **Trigger**: Set the event to trigger email delivery. Currently, mailing lists support scheduled delivery. Delivery triggered by alerts will be available soon, as well as by updates to the dataset sourcing the report charts.
+     * **Trigger**: Set the event to trigger email delivery. Currently, mailing lists support scheduled delivery. Delivery triggered by alerts or source dataset updates will be available soon.
 
       {% list tabs %}
 
@@ -95,7 +95,7 @@ To add a mailing list for your report:
 
      * To receive the emails, a user must have an active seat.
      * If there are no recipients with an active seat, no emails will be sent.
-     * To receive the emails, the users must be assigned a role for the parent workbook.
+     * You can receive the newsletter only if you have a role for the workbook in which this newsletter is configured.
 
      {% endnote %}
 

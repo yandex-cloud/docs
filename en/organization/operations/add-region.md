@@ -1,6 +1,6 @@
 ---
 title: How to add a controlled organization in {{ org-full-name }}
-description: In this tutorial, you will learn how to link a new region to an organization in {{ org-full-name }}.
+description: In this tutorial, you will learn how to link a new region to an organization.
 ---
 
 # Creating a controlled organization
@@ -24,7 +24,9 @@ description: In this tutorial, you will learn how to link a new region to an org
 
 {% endlist %}
 
-This will create a [controlled organization](../concepts/controlled-org.md), and you will become able to [create](../../resource-manager/operations/cloud/create-in-another-region.md) a cloud in another [region](../../overview/concepts/region.md).
+This will create a [controlled organization](../concepts/controlled-org.md) and connect a new [region](../../overview/concepts/region.md) to the main organization.
+
+The controlled organization is not shown in the list of organizations in the management console and in {{ cloud-center }}: you cannot switch to it and manage it directly like a regular organization. To start working with resources in the newly connected region, [create a cloud in that region](../../resource-manager/operations/cloud/create-in-another-region.md). From then on, you can work with this cloud in the new region's management console the same way as with the clouds of the main organization.
 
 {% note info %}
 

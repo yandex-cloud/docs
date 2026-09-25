@@ -60,7 +60,6 @@ Includes permissions granted by the `Viewer` role.
 The `Admin` role for a workbook allows you to manage it, access the workbook itself and all its nested objects.
 
 Users with this role can:
-
 * View info on [access permissions]({{ link-docs }}/iam/concepts/access-control/) granted for the organization and modify such permissions.
 * Edit, move, create copies of, and delete the relevant workbook.
 * View and edit all workbook's nested [objects](../concepts/index.md#component-interrelation).
@@ -117,7 +116,7 @@ Users with this role can:
 * Create copies of the relevant collection and all its nested collections and workbooks.
 * Create new collections and workbooks within the relevant collection and all its nested ones.
 * View and edit all nested [objects](../concepts/index.md#component-interrelation) of the workbooks pertaining to the appropriate collection and its nested collections.
-* View info on the [access permissions]({{ link-docs }}/iam/concepts/access-control/index) granted for this collection, as well as for its nested collections and workbooks.
+* View info on the [access permissions]({{ link-docs }}/iam/concepts/access-control/) granted for this collection, as well as for its nested collections and workbooks.
 
 Includes permissions granted by the `Viewer` role for collections and the `Editor` role for workbooks inside the collection.
 
@@ -126,7 +125,6 @@ Includes permissions granted by the `Viewer` role for collections and the `Edito
 The `Admin` role for a collection allows you to manage it, access the collection itself and all its nested collections, workbooks, and objects inside such workbooks.
 
 Users with this role can:
-
 * View info on the [access permissions]({{ link-docs }}/iam/concepts/access-control/) granted for the appropriate collection and for its nested [collections and workbooks](../workbooks-collections/index.md), as well as modify such access permissions.
 * View info on the appropriate collection and its nested collections and workbooks.
 * Edit the relevant collection and all its nested collections and workbooks, as well as create copies of it.
@@ -142,7 +140,7 @@ Includes permissions granted by the `Editor` role for collections and the `Admin
 
 To configure access:
 
-1. In the left-hand panel, click ![image](../../_assets/console-icons/plus.svg) **Collections and workbooks**.
+1. In the left-hand panel, click ![image](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. Select from the list and open the workbook or collection whose objects you want to configure access to.
 1. In the top panel, click ![image](../../_assets/console-icons/lock-open.svg) **Access**.
 1. Select the users you want to grant access to. Dot it by clicking **+ Select** and search through existing users, service accounts, or groups in the organization. You can also add a new user here: they will be emailed an invitation.

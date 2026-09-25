@@ -15,13 +15,13 @@ Docker-клиент подставляет тег `latest` автоматиче�
 
 #### Как сделать реестр публичным? {#public-registry}
 
-Можно выдать [роль](../../iam/concepts/access-control/roles.md) [container-registry.images.puller](../security/index.md#container-registry-images-puller) на ваш [реестр](../concepts/registry.md) для публичной группы [All users](../../iam/concepts/access-control/public-group.md).
+Можно выдать [роль](../../iam/concepts/access-control/roles.md) [{{ roles-cr-puller }}](../security/index.md#container-registry-images-puller) на ваш [реестр](../concepts/registry.md) для публичной группы [All users](../../iam/concepts/access-control/public-group.md).
 
 {% note alert %}
 
 При этом все Docker-образы из этого реестра станут доступны без [аутентификации](../operations/authentication.md).
 
-Не назначайте публичной группе роли `container-registry.images.pusher`, `editor` и `admin` на реестр. Это позволит любому, кто узнает идентификатор вашего реестра, пользоваться им.
+Не назначайте публичной группе роли `{{ roles-cr-pusher }}`, `{{ roles-editor }}` и `{{ roles-admin }}` на реестр. Это позволит любому, кто узнает идентификатор вашего реестра, пользоваться им.
 
 {% endnote %} 
 
@@ -55,3 +55,9 @@ Docker-клиент подставляет тег `latest` автоматиче�
 Для [IP-адреса](../../vpc/concepts/address.md), с которого идет запрос на скачивание Docker-образа, нет разрешения на скачивание (PULL).
 
 [Добавьте разрешающие правила](../operations/registry/registry-access.md) для этого IP-адреса в настройках реестра или удалите все правила и повторите попытку.
+
+## Что делать при ошибке «You have reached your pull rate limit» при скачивании образа из Docker Hub? {#docker-hub-pull-limit}
+
+Ошибка `toomanyrequests: You have reached your pull rate limit` означает, что превышен лимит на количество скачиваний образов из Docker Hub. Актуальные ограничения и способы проверки оставшегося лимита приведены в [документации Docker](https://docs.docker.com/docker-hub/usage/pulls/).
+
+Чтобы сократить количество обращений к Docker Hub, используйте [{{ cloud-registry-full-name }}](../../cloud-registry/). [Создайте удаленный реестр](../../cloud-registry/operations/registry/remote.md) с источником `Docker Hub` и скачивайте образы через него. Удаленный реестр [кеширует образы после первого обращения](../../cloud-registry/concepts/registry.md#remote-registry), что снижает нагрузку на Docker Hub.

@@ -180,9 +180,9 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
      Specify widget appearance settings:
 
      * **Header**. Option to display the insight header.
-     * **Actions with insight**. Option to display an action bar at the bottom of the insight:
+     * **Actions with insight**. This option specifies the display of the action bar at the bottom of the insight:
 
-       * ![image](../../_assets/console-icons/copy.svg) **Copy**. Copies the contents of the insight to the clipboard.
+       * ![image](../../_assets/console-icons/copy.svg) **Copy**. Copies insight content to the clipboard.
        * ![image](../../_assets/console-icons/arrow-rotate-left.svg) **Once more**. Updates the insight response.
        * ![image](../../_assets/console-icons/thumbs-up.svg) **This answer is good**. Evaluates the insight response positively.
        * ![image](../../_assets/console-icons/thumbs-down.svg) **This answer is bad**. Evaluates the insight response negatively.
@@ -202,9 +202,9 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
 
      After you save the setting, Neuroanalyst will analyze the specified chart and generate conclusions based on the data and the custom prompt. The result in **Insight** will be updated every time you open the report. If the data in the chart linked to the **Insight** widget changes, an ![image](../../_assets/console-icons/arrow-rotate-left.svg) **Update** button will appear at the top of the widget.
 
-     You can also copy the content of the insight or update its response via the menu in the top-right corner of the widget. Do it by hovering over the widget, clicking ![image](../../_assets/console-icons/ellipsis.svg), and selecting the following:
+     You can also copy the content of the insight or refresh its response via a menu in the top-right corner of the widget. Do it by hovering over the widget, clicking ![image](../../_assets/console-icons/ellipsis.svg), and selecting the following:
 
-     * ![image](../../_assets/console-icons/copy.svg) **Copy insight**: To copy the contents of the insight to the clipboard.
+     * ![image](../../_assets/console-icons/copy.svg) **Copy insight**: To copy the content of the insight to the clipboard.
      * ![image](../../_assets/console-icons/arrow-rotate-left.svg) **Regenerate**: To update the insight response.
 
      {% cut "Example of insight widget contents" %}
