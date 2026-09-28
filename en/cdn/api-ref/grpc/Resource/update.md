@@ -226,7 +226,8 @@ Changes may take up to 15 minutes to apply. Afterwards, it is recommended to pur
   "remove_labels": "bool",
   "tls": {
     "profile": "Profile"
-  }
+  },
+  "update_mask": "google.protobuf.FieldMask"
 }
 ```
 
@@ -271,6 +272,13 @@ If flag is set to true resource labels will be deleted. ||
 || tls | **[TLS](#yandex.cloud.cdn.v1.TLS)**
 
 TLS configuration for the resource. ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+
+Fields to update. Supported paths select individual options using proto field
+names, e.g. options.cors or options.edge_cache_settings.
+Each selected option is updated as a whole; an omitted selected option is reset.
+Without paths targeting options, options retain their legacy PATCH behavior.
+Other resource fields retain their PATCH behavior regardless of the mask. ||
 |#
 
 ## SecondaryHostnames {#yandex.cloud.cdn.v1.SecondaryHostnames}

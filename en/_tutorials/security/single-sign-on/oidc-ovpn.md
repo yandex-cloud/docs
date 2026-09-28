@@ -9,7 +9,7 @@ For the users of your [organization](../../../organization/concepts/organization
 
 To set up authentication to OpenVPN Community Edition via {{ org-full-name }} for the users of your organization:
 
-1. [Get your cloud ready](#before-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create the infrastructure](#deploy).
 1. [Install OpenVPN](#install-openvpn).
 1. [Create a certificate authority](#create-ca).

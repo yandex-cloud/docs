@@ -409,7 +409,7 @@ max(0.24 × объем доступной памяти на мастере, 1638
 
 {% include [automatic-cluster-restart](../note-automatic-cluster-restart.md) %}
 
-#### segment_shared_buffers
+#### segment_shared_buffers {#setting-segment-shared-buffers}
 
 {% note info %}
 

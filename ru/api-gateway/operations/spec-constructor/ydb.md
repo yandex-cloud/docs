@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
         * **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}** — сервисный аккаунт для авторизации при обращении к [базе данных](../../../ydb/concepts/resources.md#database). Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
         * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_database_name }}** — имя базы данных.
         * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_table_name_name }}** — название таблицы, с которой будет выполняться операция.
-        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_action_title }}** — [тип операции](../../concepts/extensions/ydb.md#podderzhivaemye-operacii) и параметры, соответствующие этому типу операции:
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_action_title }}** — [тип операции](../../concepts/extensions/ydb.md#operations) и параметры, соответствующие этому типу операции:
 
             * `PutItem`.
             * `GetItem`:

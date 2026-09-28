@@ -8,7 +8,7 @@
   1. Create a connection with the following parameters:
       * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}**: `forms-connection`.
       * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**: `{{ objstorage-name }}`.
-      * **{{ ui-key.yql.yq-binding-form.connection-bucket.title }}**: Name of the bucket you [created earlier](#create-s3-bucket).
+      * **{{ ui-key.yql.yq-binding-form.connection-bucket.title }}**: Name of the bucket you created earlier.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: `forms-integration-sa`.
   1. In the window that opens, set the data binding parameters:
       * **{{ ui-key.yql.yq-binding-form.connection-type.title }}**: `{{ objstorage-name }}`.

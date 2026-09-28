@@ -30,7 +30,7 @@ Instance Groups раз в несколько секунд автоматичес
 
 #### Рекомендации для групп с балансировщиком нагрузки {#healthcheck-and-balancer}
 
-Если группа ВМ интегрирована с Network Load Balancer или Application Load Balancer, то для проверки в Instance Groups выставляйте более мягкие настройки, чем для проверки состояния в балансировщике (подробнее о проверках читайте в документации [Network Load Balancer](../../../network-load-balancer/concepts/health-check.md) или [Application Load Balancer](../../../application-load-balancer/concepts/backend-group.md#health)). Балансировщик распределяет нагрузку на приложение, а Instance Groups только следит за работоспособностью приложения.
+Если группа ВМ интегрирована с Network Load Balancer или Application Load Balancer, то для проверки в Instance Groups выставляйте более мягкие настройки, чем для проверки состояния в балансировщике (подробнее о проверках читайте в документации [Network Load Balancer](../../../network-load-balancer/concepts/health-check.md) или [Application Load Balancer](../../../application-load-balancer/concepts/backend-group.md#health-checks)). Балансировщик распределяет нагрузку на приложение, а Instance Groups только следит за работоспособностью приложения.
 
 > Например, если в балансировщике вы задали время ожидания ответа — 1 секунда, то в Instance Groups выставьте 30 секунд. Если приложение не отвечает 3-5 секунд, возможно, оно не справляется с текущим потоком трафика. А если приложение не отвечает более 30 секунд, скорее всего, оно совсем не работает и ВМ необходимо восстановить.
 

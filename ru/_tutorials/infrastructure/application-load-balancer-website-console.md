@@ -129,6 +129,10 @@
 
 ## Загрузите файлы сайта {#upload-files}
 
+Чтобы проверить работу веб-сервера, необходимо загрузить файлы сайта на каждую ВМ. Для примера вы можете использовать файл `index.html` из [архива](https://{{ s3-storage-host }}/doc-files/index.html.zip).
+
+Для каждой ВМ в [созданной группе](#create-vms) выполните следующее:
+
 {% include [upload-files](../../_tutorials/_tutorials_includes/alb-website/upload-files.md) %}
 
 ## Создайте группу бэкендов {#create-backend-group}

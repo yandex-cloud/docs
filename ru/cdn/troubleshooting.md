@@ -63,7 +63,7 @@ description: На странице представлены вопросы и о
   * по указанному протоколу: HTTP или HTTPS;
   * с указанным значением HTTP-заголовка `Host` и другими заголовками. 
   
-Также проверьте статус {{ cdn-name }} на [специальной странице {{ yandex-cloud }}](https://status.cloud.yandex.ru/dashboard?service=cloud%20cdn).
+Также проверьте статус {{ cdn-name }} на [специальной странице {{ yandex-cloud }}](https://status.yandex.cloud/ru/dashboard?service=cloud%20cdn).
 
 ## Почему растут нагрузка на источник и расходы на его работу {#origin-load-growth}
 

@@ -84,7 +84,7 @@
 
 {% include [lamp-lemp-paid-upload-files](../_tutorials_includes/lamp-lemp-upload-files.md) %}
 
-После загрузки файлов, [проверьте работу сайта](#test-files).
+После загрузки файлов, [проверьте работу сайта](#test-site).
 
 ## Проверьте работу сайта {#test-site}
 

@@ -767,7 +767,7 @@ logOptions:
         - 404
 ```
 
-Укажите идентификатор лог-группы и параметры [правил отбрасывания логов](../../application-load-balancer/concepts/application-load-balancer.md#discard-logs-rules):
+Укажите идентификатор лог-группы и параметры [правил отбрасывания логов](../../application-load-balancer/concepts/monitoring.md#discard-logs-rules):
 
 * `httpCodes` — HTTP-коды.
 * `httpCodeIntervals` — классы HTTP-кодов.

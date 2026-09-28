@@ -3,7 +3,7 @@
 
 To configure delivery of audit log files to [KUMA](https://www.kaspersky.com/enterprise-security/unified-monitoring-and-analysis-platform):
 
-1. [Get your cloud ready](#before-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create the infrastructure](#deploy).
 1. [Mount the bucket on a server](#mount-bucket).
 1. [Configure the KUMA collector](#setup-collector).

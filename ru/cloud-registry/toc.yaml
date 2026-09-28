@@ -205,6 +205,8 @@ items:
             href: cli-ref/migration/index.md
           - name: get-cloud-migration-status-dashboard
             href: cli-ref/migration/get-cloud-migration-status-dashboard.md
+          - name: get-folder-migration-status-dashboard
+            href: cli-ref/migration/get-folder-migration-status-dashboard.md
           - name: start-cloud
             href: cli-ref/migration/start-cloud.md
           - name: start-folder
@@ -465,6 +467,8 @@ items:
                 href: cli-ref/v1/migration/index.md
               - name: get-cloud-migration-status-dashboard
                 href: cli-ref/v1/migration/get-cloud-migration-status-dashboard.md
+              - name: get-folder-migration-status-dashboard
+                href: cli-ref/v1/migration/get-folder-migration-status-dashboard.md
               - name: start-cloud
                 href: cli-ref/v1/migration/start-cloud.md
               - name: start-folder

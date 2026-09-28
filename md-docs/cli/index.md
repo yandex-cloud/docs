@@ -1920,6 +1920,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [get-cloud-migration-status-dashboard](cli-ref/cloud-registry/cli-ref/migration/get-cloud-migration-status-dashboard.md)
 
+ - [get-folder-migration-status-dashboard](cli-ref/cloud-registry/cli-ref/migration/get-folder-migration-status-dashboard.md)
+
  - [start-cloud](cli-ref/cloud-registry/cli-ref/migration/start-cloud.md)
 
  - [start-folder](cli-ref/cloud-registry/cli-ref/migration/start-folder.md)
@@ -2179,6 +2181,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [Overview](cli-ref/cloud-registry/cli-ref/v1/migration/index.md)
 
  - [get-cloud-migration-status-dashboard](cli-ref/cloud-registry/cli-ref/v1/migration/get-cloud-migration-status-dashboard.md)
+
+ - [get-folder-migration-status-dashboard](cli-ref/cloud-registry/cli-ref/v1/migration/get-folder-migration-status-dashboard.md)
 
  - [start-cloud](cli-ref/cloud-registry/cli-ref/v1/migration/start-cloud.md)
 
@@ -11270,6 +11274,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [mail](cli-ref/serverless/cli-ref/trigger/v2/create/mail.md)
 
+ - [max](cli-ref/serverless/cli-ref/trigger/v2/create/max.md)
+
  - [message-queue](cli-ref/serverless/cli-ref/trigger/v2/create/message-queue.md)
 
  - [object-storage](cli-ref/serverless/cli-ref/trigger/v2/create/object-storage.md)
@@ -11315,6 +11321,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [logging](cli-ref/serverless/cli-ref/trigger/v2/update/logging.md)
 
  - [mail](cli-ref/serverless/cli-ref/trigger/v2/update/mail.md)
+
+ - [max](cli-ref/serverless/cli-ref/trigger/v2/update/max.md)
 
  - [message-queue](cli-ref/serverless/cli-ref/trigger/v2/update/message-queue.md)
 
@@ -11824,6 +11832,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [mail](cli-ref/serverless/cli-ref/v0/trigger/v2/create/mail.md)
 
+ - [max](cli-ref/serverless/cli-ref/v0/trigger/v2/create/max.md)
+
  - [message-queue](cli-ref/serverless/cli-ref/v0/trigger/v2/create/message-queue.md)
 
  - [object-storage](cli-ref/serverless/cli-ref/v0/trigger/v2/create/object-storage.md)
@@ -11869,6 +11879,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [logging](cli-ref/serverless/cli-ref/v0/trigger/v2/update/logging.md)
 
  - [mail](cli-ref/serverless/cli-ref/v0/trigger/v2/update/mail.md)
+
+ - [max](cli-ref/serverless/cli-ref/v0/trigger/v2/update/max.md)
 
  - [message-queue](cli-ref/serverless/cli-ref/v0/trigger/v2/update/message-queue.md)
 

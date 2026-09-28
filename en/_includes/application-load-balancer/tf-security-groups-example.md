@@ -21,12 +21,6 @@ resource "yandex_vpc_security_group" "alb" {
     protocol       = "TCP"
     v4_cidr_blocks = ["0.0.0.0/0"]
   }
-  ingress {
-    description       = "Rule for load balancer node health checks"
-    port              = 30080
-    protocol          = "TCP"
-    predefined_target = "loadbalancer_healthchecks"
-  }
   egress {
     description    = "Rule for sending traffic to nodes, including health checks"
     from_port      = 0

@@ -8,7 +8,7 @@ To get the {{ lockbox-name }} secret value under a {{ GL }} account:
 
 1. [Create a {{ GL }} project](#create-gitlab-project).
 1. [Get your cloud ready](#prepare-cloud).
-1. [Configure a {{ GL }} CI/CD script](#gitlab-actions-workflow).
+1. [Configure a {{ GL }} CI/CD script](#gitlab-ci-workflow).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 

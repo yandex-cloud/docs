@@ -44,6 +44,8 @@ Syntax:
 
   - [yc serverless v0 trigger v2 create mail](create/mail.md) — Create Mail trigger
 
+  - [yc serverless v0 trigger v2 create max](create/max.md) — Create MAX trigger
+
   - [yc serverless v0 trigger v2 create message-queue](create/message-queue.md) — Create message queue trigger
 
   - [yc serverless v0 trigger v2 create object-storage](create/object-storage.md) — Create object storage trigger
@@ -71,6 +73,8 @@ Syntax:
   - [yc serverless v0 trigger v2 update logging](update/logging.md) — Update logging trigger
 
   - [yc serverless v0 trigger v2 update mail](update/mail.md) — Update Mail trigger
+
+  - [yc serverless v0 trigger v2 update max](update/max.md) — Update MAX trigger
 
   - [yc serverless v0 trigger v2 update message-queue](update/message-queue.md) — Update message queue trigger
 

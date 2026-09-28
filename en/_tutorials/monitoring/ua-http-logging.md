@@ -216,7 +216,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% endlist %}
 
-## Delete the resources you created {#delete-resources}
+## Delete the resources you created {#clear-out}
 
 If you no longer need the resources you created, delete them:
 

@@ -51,3 +51,7 @@
   Воспользуйтесь методом REST API [Group.ListEffective](../api-ref/Group/listEffective.md) для ресурса [Group](../api-ref/Group/index.md) или вызовом gRPC API [GroupService/ListEffective](../api-ref/grpc/Group/listEffective.md).
 
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [Получение информации о субъектах в системе управления доступом Yandex Cloud](../../iam/concepts/subject-details.md)

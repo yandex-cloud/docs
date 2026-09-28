@@ -3704,6 +3704,7 @@ default:
         ProfilePage:
           contacts_subheader: Контакты
           edit_action: Редактировать
+          job_info_subheader: Организационная информация
         refresh-tokens:
           action_remove_all: Удалить все токены
         security:

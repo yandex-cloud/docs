@@ -53,3 +53,7 @@
   Воспользуйтесь методом REST API [list](../api-ref/Group/list.md) для ресурса [Group](../api-ref/Group/index.md) или вызовом gRPC API [GroupService/List](../api-ref/grpc/Group/list.md).
 
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [Получение информации о субъектах в системе управления доступом Yandex Cloud](../../iam/concepts/subject-details.md)

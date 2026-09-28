@@ -68,7 +68,7 @@ When creating a trail, select the [log collection scope](../../audit-trails/conc
 
         * `os_version`: {{ OS }} version in the target cluster.
         * `os_admin_password`: `admin` user password.
-        * `transfer_enabled`: Set to `0` to prevent transfer creation until you [create endpoints manually](#prepare-transfer).
+        * `transfer_enabled`: Set to `0` to prevent transfer creation until you [create endpoints manually](#configure-data-transfer).
 
     1. Validate your {{ TF }} configuration files using this command:
 

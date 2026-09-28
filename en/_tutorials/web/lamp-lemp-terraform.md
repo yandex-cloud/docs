@@ -84,7 +84,7 @@ After creating the infrastructure, [upload the website files](#upload-files).
 
 {% include [lamp-lemp-paid-upload-files](../_tutorials_includes/lamp-lemp-upload-files.md) %}
 
-After uploading the files, [test the website](#test-files).
+After uploading the files, [test the website](#test-site).
 
 ## Test the website {#test-site}
 

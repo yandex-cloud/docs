@@ -9,7 +9,7 @@
 
 Чтобы настроить аутентификацию пользователей вашей организации в OpenVPN Community Edition через {{ org-full-name }}:
 
-1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру](#deploy).
 1. [Установите OpenVPN](#install-openvpn).
 1. [Создайте Certificate Authority](#create-ca).

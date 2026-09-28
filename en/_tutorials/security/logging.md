@@ -490,7 +490,7 @@ To create a function:
      * `DB_PORT`: Port for the connection.
      * `DB_NAME`: Name of the database to connect to.
      * `DB_USER`: Username for the connection.
-     * `DB_PASSWORD`: Password you entered when [creating your cluster](#cluster).
+     * `DB_PASSWORD`: Password you entered when [creating your cluster](#set-up-db-create-cluster).
   
      To define the values of connection parameters:
   

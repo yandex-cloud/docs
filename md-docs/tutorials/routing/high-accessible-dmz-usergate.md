@@ -810,7 +810,7 @@ UserGate NGFW в данном руководстве настроен с баз�
 
 ## Включите работу модуля route-switcher {#enable-route-switcher}
 
-После завершения настройки NGFW убедитесь, что проверка состояния FW-A и FW-B выдает значение `Healthy`. Для этого в [консоли управления](https://console.yandex.cloud) Yandex Cloud в каталоге `mgmt` [перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer** и выберите страницу сетевого балансировщика `route-switcher-lb-...`. Раскройте целевую группу и убедитесь, что состояния целевых ресурсов — `Healthy`. Если их состояние — `Unhealthy`, то необходимо проверить, что FW-A и FW-B запущены, функционируют и [настроены](#configure-gateways).
+После завершения настройки NGFW убедитесь, что проверка состояния FW-A и FW-B выдает значение `Healthy`. Для этого в [консоли управления](https://console.yandex.cloud) Yandex Cloud в каталоге `mgmt` [перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer** и выберите страницу сетевого балансировщика `route-switcher-lb-...`. Раскройте целевую группу и убедитесь, что состояния целевых ресурсов — `Healthy`. Если их состояние — `Unhealthy`, то необходимо проверить, что FW-A и FW-B запущены, функционируют и [настроены](#configure-ngfw).
 
 Когда статус FW-A и FW-B изменится на `Healthy`, в файле `route-switcher.tf` измените значение параметра `start_module` модуля `route-switcher` на `true`. Для включения работы модуля и выполните команды:
 

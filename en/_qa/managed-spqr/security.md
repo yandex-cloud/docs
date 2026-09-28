@@ -37,7 +37,7 @@ Canceling a query results in reconnections and increases TLS handshake overhead,
 
 {% endnote %}
 
-#### Are there risks of query duplication is using a load balancer upstream of the routers?
+#### Are there risks of query duplication is using a load balancer upstream of the routers? {#query-duplication}
 
 Yes. If a client terminates the connection and the load balancer retries the request, {{ SPQR }} will treat it as a new request, which may result in duplication, e.g., for `INSERT`. We recommend using idempotent operations or implementing deduplication logic at the application layer.
 

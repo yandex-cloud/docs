@@ -1,4 +1,4 @@
-1. [Get your cloud ready](#before-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Set up your environment](#prepare).
 1. [Create an autoscaling instance group with a network load balancer](#create-vm-group).
 1. [Add a network load balancer with a target group](#connect-balancer).

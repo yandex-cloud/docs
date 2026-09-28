@@ -35,6 +35,8 @@ You can log in to the management console of each region. To start working in a n
 
 A [controlled organization](../../organization/concepts/controlled-org.md) allows deploying your resources in a different region without registering a separate organization. Instead, you can [link](../../organization/operations/add-region.md) a region to the main organization to manage your resources in different regions from a single interface.
 
+A controlled organization does not appear in the management console's list of organizations and you cannot switch to the organization: you can only manage its resources from clouds [created](../../resource-manager/operations/cloud/create-in-another-region.md) in the linked region.
+
 Resources in different regions are isolated from each other. The data used by the resources is stored in the same regions the resources reside in.
 
 {% include [kz-region-role](../../_includes/organization/kz-region-role.md) %}

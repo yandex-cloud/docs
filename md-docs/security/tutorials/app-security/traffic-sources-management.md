@@ -10,14 +10,14 @@ Smart Web Security позволяет настраивать правила об
 
 ## Порядок настройки {#steps}
 
-1. [Создайте профиль безопасности](#profile-create)
-1. [Настройте правило для Tor, прокси и анонимных сетей](#configure-source-rules)
-1. [Настройте правило для VPN-трафика](#configure-vpn-rules)
-1. [Настройте правило по регионам](#configure-geo-rules)
-1. [Проверьте порядок выполнения правил](#rules-order)
-1. [Подключите профиль безопасности к ресурсам](#profile-connect)
-1. [Проверьте правила в режиме логирования](#dry-run)
-1. [Включите рабочий режим](#production)
+1. [Создайте профиль безопасности](#profile-create).
+1. [Настройте правило для Tor, прокси и анонимных сетей](#configure-source-rules).
+1. [Настройте правило для VPN-трафика](#configure-vpn-rules).
+1. [Настройте правило по регионам](#configure-geo-rules).
+1. [Проверьте порядок выполнения правил](#rules-order).
+1. [Подключите профиль безопасности к ресурсам](#profile-connect).
+1. [Проверьте правила в режиме логирования](#dry-run).
+1. [Включите рабочий режим](#production).
 
 ## Необходимые платные ресурсы {#paid-resources}
 
@@ -156,6 +156,70 @@ Smart Web Security позволяет настраивать правила об
 * после этого правила Smart Protection и другие общие правила.
 
 Подробнее о порядке выполнения правил — [Общие принципы работы правил](../../../smartwebsecurity/concepts/rules.md#rules-order).
+
+## Подключите профиль безопасности к ресурсам {#profile-connect}
+
+{% list tabs group=instructions %}
+
+- L7-балансировщик {#balancer}
+
+  Если балансировщик управляется [Ingress-контроллером](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) Application Load Balancer, используйте [аннотацию ресурса Ingress](../../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+
+  {% note tip %}
+  
+  Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../../../application-load-balancer/tools/gwin/index.md).
+  
+  {% endnote %}
+
+  Чтобы подключить виртуальный хост:
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../../../smartwebsecurity/concepts/profiles.md).
+    1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
+    1. На панели слева выберите ![shield-check](../../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
+    1. Выберите профиль безопасности, который вы хотите подключить к [виртуальному хосту](../../../application-load-balancer/concepts/http-router.md#virtual-host) сервиса [Yandex Application Load Balancer](../../../application-load-balancer/index.md).
+    1. Нажмите ![plug](../../../_assets/console-icons/plug-connection.svg) **Подключить к хосту**.
+    1. В открывшемся окне нажмите **Добавить ресурс** и выберите **Виртуальный хост**.
+    1. Последовательно установите значения в полях [**Балансировщик**](../../../application-load-balancer/concepts/application-load-balancer.md), [**HTTP-роутер**](../../../application-load-balancer/concepts/http-router.md) и [**Виртуальный хост**](../../../application-load-balancer/concepts/http-router.md#virtual-host). Вы можете подключить профиль безопасности сразу к нескольким хостам.
+  
+        Чтобы подключить профиль к еще одному L7-балансировщику, нажмите **Добавить ресурс** и выберите **Виртуальный хост**.
+      
+    1. Нажмите **Подключить**. Если выбранные хосты уже подключены к другому профилю безопасности, подтвердите подключение.
+  
+        В разделе **Подключенные ресурсы** появятся подключенные виртуальные хосты.
+
+  Профиль безопасности подключается к определенному виртуальному хосту L7-балансировщика, при этом анализируется весь трафик, поступающий на хост. Если трафик к некоторым маршрутам хоста анализировать не требуется, отключите профиль безопасности от этого маршрута. Это можно сделать при [добавлении](../../../application-load-balancer/operations/http-router-update.md#add-virtual-host) или [изменении](../../../application-load-balancer/operations/manage-routes.md) маршрута через CLI, API или Terraform с помощью параметра `--disable-security-profile` (`disableSecurityProfile`).
+  
+  При добавлении маршрутов учитывайте их порядок: запрос будет направлен по первому маршруту, предикату которого он соответствует. Наиболее специфичные маршруты располагайте первыми в списке. Иначе общий маршрут может перехватить запросы и специфичные правила не будут применяться.
+
+- API-шлюз {#api-gateway}
+
+  Чтобы подключить API-шлюз:
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../../../smartwebsecurity/concepts/profiles.md).
+    1. На панели слева выберите ![shield-check](../../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
+    1. Выберите профиль безопасности, который вы хотите подключить к API-шлюзу.
+    1. Нажмите ![plug](../../../_assets/console-icons/plug-connection.svg) **Подключить к хосту**.
+    1. В открывшемся окне нажмите **Добавить ресурс** и выберите **API-шлюз**.
+    1. Установите значение в поле **API-шлюз**.
+    1. Нажмите **Подключить**.
+  
+        В разделе **Подключенные ресурсы** появятся подключенные API-шлюзы.
+
+- Домен {#domain}
+
+  Чтобы подключить домен:
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../../../smartwebsecurity/concepts/profiles.md).
+    1. На панели слева выберите ![shield-check](../../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
+    1. Выберите профиль безопасности, который вы хотите подключить к домену.
+    1. Нажмите ![plug](../../../_assets/console-icons/plug-connection.svg) **Подключить к хосту**.
+    1. В открывшемся окне нажмите **Добавить ресурс** и выберите **Домен**.
+    1. Последовательно установите значения в полях **Прокси-сервер** и **Домен**. Вы можете подключить профиль безопасности сразу к нескольким доменам.
+    1. Нажмите **Подключить**.
+  
+        В разделе **Подключенные ресурсы** появятся подключенные домены.
+
+{% endlist %}
 
 ## Проверьте правила в режиме логирования {#dry-run}
 

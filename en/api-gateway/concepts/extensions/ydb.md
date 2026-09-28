@@ -4,7 +4,7 @@
 
 {% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
 
-## Supported operations
+## Supported operations {#operations}
 
 Operation | Supported parameters | What {{ api-gw-name }} returns in JSON format<br/>if the operation is successful
 ----|----|-----

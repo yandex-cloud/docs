@@ -28,7 +28,7 @@ If you enable this check, {{ ig-name }} will poll the application status on the 
 
 #### Recommendations for instance groups with a load balancer {#healthcheck-and-balancer}
 
-If your instance group is integrated with {{ network-load-balancer-name }} or {{ alb-name }}, use more lenient settings for {{ ig-name }} checks compared to load balancer health checks (to learn more about health checks, see the [{{ network-load-balancer-name }}](../../../network-load-balancer/concepts/health-check.md) or [{{ alb-name }} guides](../../../application-load-balancer/concepts/backend-group.md#health)). The load balancer distributes load to the app, while {{ ig-name }} only monitors its performance.
+If your instance group is integrated with {{ network-load-balancer-name }} or {{ alb-name }}, use more lenient settings for {{ ig-name }} checks compared to load balancer health checks (to learn more about health checks, see the [{{ network-load-balancer-name }}](../../../network-load-balancer/concepts/health-check.md) or [{{ alb-name }} guides](../../../application-load-balancer/concepts/backend-group.md#health-checks)). The load balancer distributes load to the app, while {{ ig-name }} only monitors its performance.
 
 > For example, if you set the response timeout of 1 second in the load balancer, you should set 30 seconds in {{ ig-name }}. If the application does not respond for 3 to 5 seconds, it might not be able to handle the current traffic. If it does not respond for more than 30 seconds, it is probably not working at all and you need to heal your instance.
 

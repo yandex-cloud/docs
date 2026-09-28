@@ -1,6 +1,3 @@
-Чтобы проверить работу веб-сервера, необходимо загрузить файлы сайта на каждую ВМ. Для примера вы можете использовать файл `index.html` из [архива](https://{{ s3-storage-host }}/doc-files/index.html.zip).
-
-Для каждой ВМ в [созданной группе](#create-vms) выполните следующее:
 1. На вкладке **{{ ui-key.yacloud.compute.instances.label_title }}** нажмите на имя нужной ВМ в списке.
 1. Скопируйте **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** из блока **{{ ui-key.yacloud.compute.instance.overview.section_network }}**.
 1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу SSH.

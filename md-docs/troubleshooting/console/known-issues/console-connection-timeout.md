@@ -24,8 +24,8 @@
 
 1. Название и версию ОС на вашем устройстве.
 1. Название и версию используемого браузера — собрать информацию можно с помощью этого [сайта](https://whatmyuseragent.com/).
-1. Результат выполнения команд: `ping console.cloud.yandex.ru -c 10` и `ping -6 console.cloud.yandex.ru -c 10`.
-1. Результат выполнения команд: `mtr -rzbw console.cloud.yandex.ru --tcp -P 443 -c 100` и `mtr -6 -rzbw console.cloud.yandex.ru --tcp -P 443 -c 100`.
+1. Результат выполнения команд: `ping console.yandex.cloud -c 10` и `ping -6 console.yandex.cloud -c 10`.
+1. Результат выполнения команд: `mtr -rzbw console.yandex.cloud --tcp -P 443 -c 100` и `mtr -6 -rzbw console.yandex.cloud --tcp -P 443 -c 100`.
 
 {% note info %}
 

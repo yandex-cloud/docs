@@ -1,5 +1,5 @@
 {% note warning %}
 
-Starting September 11, 2026, storing {{ GL }} data in {{ objstorage-name }} is subject to the [pricing policy](../../managed-gitlab/pricing.md).
+Starting September 11, 2026, {{ GL }} data storage in {{ objstorage-name }} will be [billed](../../managed-gitlab/pricing.md).
 
 {% endnote %}

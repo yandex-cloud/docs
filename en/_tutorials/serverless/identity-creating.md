@@ -15,7 +15,7 @@ To access {{ postbox-name }}, the tutorial uses an API compatible with AWS SESv2
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Get your cloud ready {#before-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 

@@ -141,7 +141,7 @@
 
 ### Восстановите снапшот в кластере-приемнике {#restore-snapshot}
 
-1. [Настройте доступ к бакету со снапшотами](../../managed-opensearch/operations/s3-access.md#configure-acl) для кластера-приемника. Используйте [созданный ранее](#before-you-begin) сервисный аккаунт.
+1. [Настройте доступ к бакету со снапшотами](../../managed-opensearch/operations/s3-access.md#configure-acl) для кластера-приемника. Используйте [созданный ранее](#before-you-begin-snapshot) сервисный аккаунт.
 
 1. [Подключите к кластеру-приемнику бакет {{ objstorage-name }}](../../managed-opensearch/operations/s3-access.md#register-snapshot-repository) в качестве хранилища снапшотов в режиме только для чтения:
 

@@ -22,53 +22,32 @@ description: Use this guide to revoke roles assigned for a trail.
   1. {% include [get-list](../../_includes/audit-trails/get-list.md) %}
   1. To revoke a role assigned for a trail, run this command:
 
-      * From a user:
+      ```bash
+      yc audit-trails trail remove-access-binding \
+        --id <trail_ID> \
+        --role <role_ID> \
+        --subject <subject_type>:<subject_ID>
+      ```
 
-          ```bash
-          yc audit-trails trail remove-access-binding \
-            --id <trail_ID> \
-            --user-account-id <user_ID> \
-            --role <role>
-          ```
-          
-          Result:
+     Where:
 
-          ```text
-          done (1s)
-          ```
+     * `--role`: ID of the role you need to revoke.
+     * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
-      * From a [service account](../../iam/concepts/users/service-accounts.md):
+         {% cut "Subject designations" %}
 
-          ```bash
-          yc audit-trails trail remove-access-binding \
-            --id <trail_ID> \
-            --service-account-id <service_account_ID> \
-            --role <role>
-          ```
+         {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-          Result:
-
-          ```text
-          done (1s)
-          ```
-
-      * From all authorized users (the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md)):
-
-          ```bash
-          yc audit-trails trail remove-access-binding \
-            --id <trail_ID> \
-            --all-authenticated-users \
-            --role <role>
-          ```
-
-          Result:
-        
-          ```text
-          done (1s)
-          ```
+         {% endcut %}
 
 - API {#api}
 
-  To revoke roles for a [trail](../concepts/trail.md), use the [updateAccessBindings](../../audit-trails/api-ref/Trail/updateAccessBindings.md) REST API method for the [Trail](../../audit-trails/api-ref/Trail/index.md) resource or the [TrailService/UpdateAccessBindings](../../audit-trails/api-ref/grpc/Trail/updateAccessBindings.md) gRPC API call.
+  To revoke roles for a [trail](../concepts/trail.md), use the [updateAccessBindings](../../audit-trails/api-ref/Trail/updateAccessBindings.md) REST API method for the [Trail](../../audit-trails/api-ref/Trail/index.md) resource or the [TrailService/UpdateAccessBindings](../../audit-trails/api-ref/grpc/Trail/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the [subject](../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

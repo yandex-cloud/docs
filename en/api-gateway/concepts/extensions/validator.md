@@ -27,7 +27,7 @@ The table below lists the `ValidatorObject` parameters.
  `validateResponseHeaders`   | `string`       | None          | `undefined`           | [Type of response header validation](#type). It may take one of the following values: `any`, `superset`, `subset`, or `exact`. 
  `validationErrorHandler`    | `ErrorHandler` | None          | `undefined`           | [Validation error handler](#errorhandler).
 
-#### Types of response header validation
+#### Types of response header validation {#type}
 
 * `any`: Ignores missing or additional response headers and only checks the header types listed in the specification.
 * `superset`: Checks that the headers listed in the specification are included in the list of response headers.

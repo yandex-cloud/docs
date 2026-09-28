@@ -141,7 +141,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 ### Restore a snapshot on the target cluster {#restore-snapshot}
 
-1. [Configure access to the bucket with snapshots](../../managed-opensearch/operations/s3-access.md#configure-acl) for the target cluster. Use the service account you [created earlier](#before-you-begin).
+1. [Configure access to the bucket with snapshots](../../managed-opensearch/operations/s3-access.md#configure-acl) for the target cluster. Use the service account you [created earlier](#before-you-begin-snapshot).
 
 1. [Attach an {{ objstorage-name }}](../../managed-opensearch/operations/s3-access.md#register-snapshot-repository) bucket to the target cluster. This bucket will serve as a read-only snapshot storage:
 

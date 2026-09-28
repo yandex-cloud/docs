@@ -1924,6 +1924,7 @@ default:
   SR: StarRocks
   src-full-name: SourceCraft
   src-name: SourceCraft
+  src-registry-endpoint: pkg.sourcecraft.tech
   stackland-full-name: Yandex Cloud Stackland
   stackland-name: Stackland
   storage-aws-cli-alias: ycs3

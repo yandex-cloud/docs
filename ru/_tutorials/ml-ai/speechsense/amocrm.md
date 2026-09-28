@@ -103,7 +103,7 @@
       * Настройте соответствие полей {{ amocrm-name }} и {{ speechsense-name }}:
 
           1. В столбце **{{ amocrm-name }}** выберите ключ поля в {{ amocrm-name }}.
-          1. В столбце **{{ speechsense-name }}** введите ключ поля, доступного в подключении {{ speechsense-name }}, которое вы создали [ранее](#create-audio-connection).
+          1. В столбце **{{ speechsense-name }}** введите ключ поля, доступного в подключении {{ speechsense-name }}, которое вы создали [ранее](#create-connection).
 
           Чтобы добавить новое соответствие, нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить**.
 

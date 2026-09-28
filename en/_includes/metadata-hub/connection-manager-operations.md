@@ -42,7 +42,7 @@
       yc metadata-hub connection-manager connection list-operations <connection_ID>
       ```
 
-      You can get the connection ID with the [list of connections](#connection-list) in the folder.
+      You can get the connection ID with the [list of connections](../../metadata-hub/operations/view-connection.md#connection-list) in the folder.
 
 - API {#api}
   
