@@ -14,6 +14,8 @@ Syntax:
 
 - [yc cloud-registry migration get-cloud-migration-status-dashboard](get-cloud-migration-status-dashboard.md) — Returns migration status dashboard for the specified cloud.
 
+- [yc cloud-registry migration get-folder-migration-status-dashboard](get-folder-migration-status-dashboard.md) — Returns migration status dashboard for the specified folder.
+
 - [yc cloud-registry migration start-cloud](start-cloud.md) — Starts migration for all registries in the specified cloud.
 
 - [yc cloud-registry migration start-folder](start-folder.md) — Starts migration for all registries in the specified folder.

@@ -1,6 +1,6 @@
 An SMS notification channel with an _individual sender_ is suitable for the product environment and has the following advantages:
 * All SMS messages are signed with the sender's unique text name.
-* After leaving the [sandbox](#sandbox) you can send SMS to any Russian phone numbers in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+* After leaving the [sandbox](../../notifications/concepts/sms.md#sandbox) you can send SMS to any Russian phone numbers in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 
 There are restrictions and rules in place for this type of sender:
 * The sender's text name will be registered with the service provider.

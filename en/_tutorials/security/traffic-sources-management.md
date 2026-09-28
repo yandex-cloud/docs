@@ -157,6 +157,10 @@ Security profile rules are applied on first-to-trigger basis. Therefore, specify
 
 For more on the order of executing the rules, click [here](../../smartwebsecurity/concepts/rules.md#rules-order).
 
+## Connect a security profile to the resources {#profile-connect}
+
+{% include [sws-profile-connect](../_tutorials_includes/sws-profile-connect.md) %}
+
 ## Test the rules in logging mode {#dry-run}
 
 Keep the new rules in the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** mode for a few days. During which period:

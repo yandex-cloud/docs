@@ -2,6 +2,10 @@
 
 # Пошаговые инструкции для Identity and Access Management
 
+## Субъекты в системе управления доступом Yandex Cloud {#subject-details}
+
+- [Получение информации о субъектах в системе управления доступом Yandex Cloud](subject-details.md)
+
 ## Секреты в открытом доступе {#credentials}
 
 - [Обработка секретов, попавших в открытый доступ](compromised-credentials.md)

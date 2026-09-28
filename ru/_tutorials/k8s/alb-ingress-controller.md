@@ -516,7 +516,7 @@
 
 - Ресурс Ingress для группы бэкендов
 
-  1. Создайте [группу бэкендов с бакетом](../../application-load-balancer/operations/backend-group-create.md#with-s3-bucket):
+  1. Создайте [группу бэкендов с бакетом](../../application-load-balancer/operations/backend-group-create.md):
      1. Создайте [публичный бакет в {{ objstorage-name }}](../../tutorials/web/static/console.md#create-public-bucket).
      1. [Настройте главную страницу сайта и страницу ошибки](../../tutorials/web/static/console.md).
   1. Создайте конфигурационный файл приложения `demo-app-1.yaml`:

@@ -1,7 +1,7 @@
 Set up a connection:
 
 1. **Language**: Select the language for recognition.
-1. **{{ speechsense-name }} connection ID**: Enter the ID of the connection you created [previously](#create-audio-connection).
+1. **{{ speechsense-name }} connection ID**: Enter the ID of the connection you created [previously](#create-connection).
 1. **API key**: Enter the secret part of the API key you created [previously](#create-key).
 1. Click **Check connection**.
 

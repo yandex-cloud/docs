@@ -33,7 +33,7 @@
           * `NONE`: проверки совместимости схемы отключены.
             Подробнее о типах совместимости схем в [документации Confluent](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
       1. Выберите [политику проверки совместимости](../concepts/compatibility-check-policy.md) для JSON-схем:
-          * `optional-friendly` — основывается на [решении](#optional-parameters-compatibility-solution) с использованием разных контентных моделей для производителя и потребителя. Поддерживает добавление и удаление опциональных параметров с сохранением полной транзитивной совместимости.
+          * `optional-friendly` — основывается на [решении](../concepts/schema-registry-content-model.md#optional-parameters-compatibility-solution) с использованием разных контентных моделей для производителя и потребителя. Поддерживает добавление и удаление опциональных параметров с сохранением полной транзитивной совместимости.
           * `Confluent` — основывается на стандартах [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types) и не обеспечивает полную совместимость при добавлении и удалении опциональных параметров.
       1. Выберите политику проверки совместимости для Protobuf-схем:
           * Confluent — основывается на стандартах [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).

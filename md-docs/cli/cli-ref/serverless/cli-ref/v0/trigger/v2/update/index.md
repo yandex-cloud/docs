@@ -26,6 +26,8 @@ Syntax:
 
 - [yc serverless v0 trigger v2 update mail](mail.md) — Update Mail trigger
 
+- [yc serverless v0 trigger v2 update max](max.md) — Update MAX trigger
+
 - [yc serverless v0 trigger v2 update message-queue](message-queue.md) — Update message queue trigger
 
 - [yc serverless v0 trigger v2 update object-storage](object-storage.md) — Update object storage trigger

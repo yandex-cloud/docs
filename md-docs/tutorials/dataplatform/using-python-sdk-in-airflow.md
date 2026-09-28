@@ -16,7 +16,7 @@
 
 Чтобы использовать Yandex Cloud Python SDK для отправки запросов к API Yandex Cloud:
 
-1. [Подготовьте инфраструктуру](#create-infrastracture).
+1. [Подготовьте инфраструктуру](#create-infrastructure).
 1. [Подготовьте DAG-файл и запустите граф](#dag).
 1. [Проверьте результат](#check-result).
 

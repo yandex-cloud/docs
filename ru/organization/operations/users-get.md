@@ -112,3 +112,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы получить информацию о пользователях организации, воспользуйтесь методом REST API [get](../idp/api-ref/User/get.md) для ресурса [User](../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/Get](../idp/api-ref/grpc/User/get.md).
 
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [{#T}](../../iam/concepts/subject-details.md)

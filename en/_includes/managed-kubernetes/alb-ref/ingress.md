@@ -715,7 +715,7 @@ logOptions:
         - 404
 ```
 
-Specify the log group ID and [log discard rule](../../../application-load-balancer/concepts/application-load-balancer.md#discard-logs-rules) settings:
+Specify the log group ID and [log discard rule](../../../application-load-balancer/concepts/monitoring.md#discard-logs-rules) settings:
 
 * `httpCodes`: HTTP codes.
 * `httpCodeIntervals`: HTTP code classes.

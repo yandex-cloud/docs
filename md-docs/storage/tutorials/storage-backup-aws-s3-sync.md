@@ -15,7 +15,7 @@ AWS S3 Sync — стандартная команда [AWS CLI](../tools/aws-cli
 
 Чтобы настроить резервное копирование с помощью AWS S3 Sync:
 
-1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте бакет](#create-bucket).
 1. [Создайте сервисный аккаунт](#create-sa).
 1. [Создайте статический ключ доступа](#create-static-key).
@@ -25,7 +25,7 @@ AWS S3 Sync — стандартная команда [AWS CLI](../tools/aws-cli
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
 1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.

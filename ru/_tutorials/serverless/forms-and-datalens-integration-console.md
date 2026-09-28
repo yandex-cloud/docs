@@ -4,7 +4,7 @@
 Чтобы настроить интеграцию {{ forms-name }} и {{ datalens-name }} через консоль управления:
 
 1. [Подготовьте инфраструктуру](#prepare-infrastructure).
-1. [Создайте функцию {{ sf-full-name }}](#create-function).
+1. [Создайте функцию {{ sf-full-name }}](#set-up-function).
 1. [Создайте форму в {{ forms-name }}](#create-form).
 1. [Настройте подключение и привязку к данным в сервисе {{ yq-full-name }}](#yq-integration).
 1. [Настройте получение данных в {{ datalens-name }}](#set-up-datalens).

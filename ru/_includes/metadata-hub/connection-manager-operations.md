@@ -42,7 +42,7 @@
       yc metadata-hub connection-manager connection list-operations <идентификатор_подключения>
       ```
 
-      Идентификатор подключения можно получить со [списком подключений](#connection-list) в каталоге.
+      Идентификатор подключения можно получить со [списком подключений](../../metadata-hub/operations/view-connection.md#connection-list) в каталоге.
 
 - API {#api}
   

@@ -13,7 +13,7 @@ Yandex Query — это интерактивный сервис для бесс�
 1. [Подключитесь к данным Object Storage](#storage-connect).
 1. [Подключитесь к данным Managed Service for ClickHouse®](#ch-connect).
 1. [Подключитесь к данным Managed Service for PostgreSQL](#pg-connect).
-1. [Выполните федеративный запрос](#federated_query).
+1. [Выполните федеративный запрос](#federate-query).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 

@@ -8,7 +8,7 @@ To run workloads using GPUs on {{ managed-k8s-name }} cluster [pods](../../manag
 1. [Create a pod with a GPU](#create-pod-gpu).
 1. [Test the pod](#check-pod).
 
-If you no longer need the resources you created, [delete them](#delete-resources).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}

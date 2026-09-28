@@ -480,7 +480,7 @@ max(0.24 × объем доступной памяти на мастере, 1638
 
 {% endnote %}
 
-#### segment_shared_buffers
+#### segment_shared_buffers {#setting-segment-shared-buffers}
 
 {% note info %}
 

@@ -1,3 +1,5 @@
+
+
 {{ yq-full-name }} is an interactive service for serverless data analysis. You can use it to process information from various storages without the need to create a dedicated cluster. {{ yq-full-name }} supports [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
 
 You can process data from these systems either individually or as part of one common query, referred to as a _federated_ query.
@@ -9,7 +11,7 @@ In this tutorial, you will create three dedicated data storages: customers, purc
 1. [Connect to the {{ objstorage-name }} data](#storage-connect).
 1. [Connect to the {{ mch-name }} data](#ch-connect).
 1. [Connect to the {{ mpg-name }} data](#pg-connect).
-1. [Run a federated query](#federated_query).
+1. [Run a federated query](#federate-query).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 

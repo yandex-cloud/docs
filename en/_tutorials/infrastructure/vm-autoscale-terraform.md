@@ -1,4 +1,4 @@
-1. [Get your cloud ready](#before-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create your infrastructure](#deploy).
 1. [Test your instance group and network load balancer](#check-service).
 

@@ -34,6 +34,7 @@ description: This page contains a list of references for {{ yandex-cloud }} metr
 * [{{ mgl-full-name }}](managed-gitlab-ref.md)
 * [{{ mgp-full-name }}](managed-greenplum-ref.md)
 * [{{ managed-k8s-full-name }}](managed-kubernetes-ref.md)
+* [{{ metastore-full-name }}](managed-metastore-ref.md)
 * [{{ mmg-full-name }}](managed-mongodb-ref.md)
 * [{{ mmy-full-name }}](managed-mysql-ref.md)
 * [{{ mos-full-name }}](managed-opensearch-ref.md)

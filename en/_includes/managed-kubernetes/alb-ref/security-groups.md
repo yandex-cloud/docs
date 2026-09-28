@@ -13,8 +13,8 @@ Within each security group, you must configure:
   * Node groups to receive TCP traffic on port 10501 from either the load balancer’s subnet CIDR ranges or its security group.
 
 Security groups for both the cluster and node groups are specified in their respective configurations. For more information, see these guides:
-* [Creating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [updating a cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md#update-cluster).
-* [Creating](../../../managed-kubernetes/operations/node-group/node-group-create.md) and [updating](../../../managed-kubernetes/operations/node-group/node-group-update.md).
+* [Creating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [updating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md#update-cluster) a cluster.
+* [Creating](../../../managed-kubernetes/operations/node-group/node-group-create.md) and [updating](../../../managed-kubernetes/operations/node-group/node-group-update.md) a node group.
 
 Security group IDs are specified in the following configuration locations:
 * For the `Ingress` resource, in the `ingress.alb.yc.io/security-groups` annotation. A load balancer associated with multiple `Ingress` resources aggregates all security groups defined in their configurations.
@@ -49,7 +49,6 @@ Create the following security groups and rules:
     --- | --- | --- | --- | ---
     `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | For receiving incoming HTTP traffic
     `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | For receiving incoming HTTPS traffic
-    `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — | For load balancer node status checks
 
   {% endlist %}
 

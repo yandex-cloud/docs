@@ -41,7 +41,7 @@ In this tutorial, we will create a test infrastructure showing how a route switc
 To deploy the infrastructure and test your route switcher:
 
 1. [Get your cloud ready](#prepare-cloud).
-1. [Set up your environment](#prepare-environment).
+1. [Set up an environment for deploying the resources](#setup-environment).
 1. [Deploy your resources](#create-resources).
 1. [Enable the route switcher](#enable-route-switcher).
 1. [Test the solution for performance and fault tolerance](#test-solution).

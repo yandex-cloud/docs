@@ -15,7 +15,7 @@
         * `NONE`: Schema compatibility checks are disabled.
           For more information about schema compatibility types, see [this Confluent guide](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
     1. Select a [compatibility policy](../../metadata-hub/concepts/compatibility-check-policy.md) for JSON schemas:
-        * `optional-friendly`: Based on a [solution](#optional-parameters-compatibility-solution) using various content models for the producer and the consumer. It supports adding or removing optional parameters while maintaining full transitive compatibility.
+        * `optional-friendly`: Based on a [solution](../../metadata-hub/concepts/schema-registry-content-model.md#optional-parameters-compatibility-solution) using various content models for the producer and the consumer. It supports adding or removing optional parameters while maintaining full transitive compatibility.
         * `Confluent`: Follows the [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types) standards and ensures no full compatibility when adding and removing optional parameters.
     1. Select a compatibility policy for Protobuf schemas:
         * `Confluent`: Based on the [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types) standards.

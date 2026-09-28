@@ -87,7 +87,7 @@ The computing resources may have the following configurations:
   1 | 80 | 18 | 144
   2 | 160 | 36 | 288
   4 | 320 | 72 | 576
-  8 | 640 | 180 | 1440
+  8 | 640 | 180 | 1,440
   
 * {{ t4-ice-lake }} (`standard-v3-t4`):
 
@@ -112,9 +112,9 @@ The computing resources may have the following configurations:
   Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
   --- | --- | --- | ---
   1 | 141 | 22 | 220
-  2 | 242 | 44 | 440
-  4 | 484 | 88 | 880
-  8 | 968 | 180 | 1800
+  2 | 282 | 44 | 440
+  4 | 564 | 88 | 880
+  8 | 1,128 | 180 | 1,800
 
 VM GPUs are provided in full. For example, if a configuration has four GPUs specified, your VM will have four full-featured GPU devices.
 

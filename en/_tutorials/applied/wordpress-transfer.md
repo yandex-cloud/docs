@@ -77,7 +77,7 @@ To create a VM:
 1. Under **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}**, select a [service account](../../iam/concepts/users/service-accounts.md) or create a new one.
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-   It may take a few minutes to create your VM. When the VM [status](../../compute/concepts/vm-statuses.md) changes to `RUNNING`, you can [upload the website files](#upload-files).
+   It may take a few minutes to create your VM. When the VM [status](../../compute/concepts/vm-statuses.md) changes to `RUNNING`, you can [upload the website files](#transfer-files).
 
 ## Connect to the VM {#connect-vm}
 

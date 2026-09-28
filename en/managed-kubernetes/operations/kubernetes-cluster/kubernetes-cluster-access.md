@@ -69,16 +69,20 @@ To manage user view permissions for cluster lists, we recommend using different 
       
       Where:
 
-      * `--role`: [Role](../../security/index.md#roles-list) being assigned, e.g., `k8s.cluster-api.editor`.
-      * `--subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
+      * `--role`: [Role](../../security/index.md#roles-list), e.g., `k8s.cluster-api.editor`.
+      * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-        Here is an example: 
-        
-        * `serviceAccount:aje6p030************`
-        * `userAccount:aje8tj79************`
-        * `system:allAuthenticatedUsers`
+          Here is an example:
 
-        {% include [access-control-subject](../../../_includes/managed-kubernetes/access-control-subject.md) %}
+          * `serviceAccount:aje6p030************`
+          * `userAccount:aje8tj79************`
+          * `system:allAuthenticatedUsers`
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
   1. To view a list of roles assigned for the cluster, run this command:
 
@@ -112,21 +116,25 @@ To manage user view permissions for cluster lists, we recommend using different 
 
       * `cluster_id`: Cluster ID.
       * `role`: [Role](../../security/index.md#roles-list), e.g., `k8s.cluster-api.editor`.
-      * `member`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
-    
-        Here is an example: 
-        
-        * `serviceAccount:${yandex_iam_service_account.k8s_sa.id}`
-        * `userAccount:ajerq94v************`
-        * `system:allAuthenticatedUsers`
+      * `member`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-        {% include [access-control-subject](../../../_includes/managed-kubernetes/access-control-subject.md) %}
+          Here is an example:
+
+          * `serviceAccount:${yandex_iam_service_account.k8s_sa.id}`
+          * `userAccount:ajerq94v************`
+          * `system:allAuthenticatedUsers`
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
   1. Make sure the configuration files are correct.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
       
@@ -175,19 +183,23 @@ To manage user view permissions for cluster lists, we recommend using different 
         --access-binding role=<role_1>,subject=<subject_type>:<subject_1_ID> \
         --access-binding role=<role_2>,subject=<subject_type>:<subject_2_ID>
       ```
-    
+
       Where `--access-binding` assigns a role to a subject. You can assign multiple roles at once by describing each of them in a separate `--access-binding` parameter.
-      
+
         * `role`: [Role](../../security/index.md#roles-list), e.g., `k8s.cluster-api.editor`.
-        * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
+        * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-          Here is an example:
-          
-          * `serviceAccount:aje6p030************`
-          * `userAccount:aje8tj79************`
-          * `system:allAuthenticatedUsers`
+            Here is an example:
 
-          {% include [access-control-subject](../../../_includes/managed-kubernetes/access-control-subject.md) %}
+            * `serviceAccount:aje6p030************`
+            * `userAccount:aje8tj79************`
+            * `system:allAuthenticatedUsers`
+
+            {% cut "Subject designations" %}
+
+            {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+            {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -221,21 +233,25 @@ To manage user view permissions for cluster lists, we recommend using different 
 
       * `cluster_id`: Cluster ID.
       * `role`: [Role](../../security/index.md#roles-list), e.g., `k8s.cluster-api.editor`.
-      * `member`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
-    
-        Here is an example:
-        
-        * `serviceAccount:${yandex_iam_service_account.k8s_sa.id}`
-        * `userAccount:ajerq94v************`
-        * `system:allAuthenticatedUsers`
+      * `member`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-        {% include [access-control-subject](../../../_includes/managed-kubernetes/access-control-subject.md) %}
+          Here is an example:
+
+          * `serviceAccount:${yandex_iam_service_account.k8s_sa.id}`
+          * `userAccount:ajerq94v************`
+          * `system:allAuthenticatedUsers`
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
   1. Make sure the configuration files are correct.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
       
@@ -281,15 +297,19 @@ To manage user view permissions for cluster lists, we recommend using different 
       Where:
 
       * `--role`: [Role](../../security/index.md#roles-list) being revoked, e.g., `k8s.cluster-api.editor`.
-      * `--subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to, in `<subject_type>:<subject_ID>` format.
+      * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
-        Here is an example:
-        
-        * `serviceAccount:aje6p030************`
-        * `userAccount:aje8tj79************`
-        * `system:allAuthenticatedUsers`
+          Here is an example:
 
-        {% include [access-control-subject](../../../_includes/managed-kubernetes/access-control-subject.md) %}
+          * `serviceAccount:aje6p030************`
+          * `userAccount:aje8tj79************`
+          * `system:allAuthenticatedUsers`
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
 
 - {{ TF }} {#tf}
@@ -302,7 +322,7 @@ To manage user view permissions for cluster lists, we recommend using different 
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-      To learn how to create this file, see [Creating a cluster](kubernetes-cluster-create.md).
+      For more on how to create such a file, see [Creating a cluster](kubernetes-cluster-create.md).
 
   1. Find the description of the resource with the role you want to revoke and delete this description:
     
@@ -318,7 +338,7 @@ To manage user view permissions for cluster lists, we recommend using different 
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
       
@@ -384,7 +404,7 @@ To manage user view permissions for cluster lists, we recommend using different 
 
           {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm updating the resources.
+      1. Confirm resource changes.
 
           {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

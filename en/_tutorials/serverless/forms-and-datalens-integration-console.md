@@ -4,7 +4,7 @@
 To set up integration of {{ forms-name }} and {{ datalens-name }} via the management console, follow these steps:
 
 1. [Set up your infrastructure](#prepare-infrastructure).
-1. [Create a function in {{ sf-full-name }}](#create-function).
+1. [Create a function in {{ sf-full-name }}](#set-up-function).
 1. [Create a form in {{ forms-name }}](#create-form).
 1. [Configure a connection and binding to data in {{ yq-full-name }}](#yq-integration).
 1. [Set up fetching data in {{ datalens-name }}](#set-up-datalens).

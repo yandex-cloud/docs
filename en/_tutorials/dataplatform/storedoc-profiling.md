@@ -10,7 +10,7 @@ In this tutorial, you will learn how to:
 
 * [High CPU and disk I/O usage](#cpu-io-deficit).
 * [Inefficient {{ SD }} queries](#inefficient-queries).
-* [Locks](#locks).
+* [Locks](#localize-locking-issues).
 * [Insufficient disk space](#disk-deficit).
 
 The following are tips for diagnosing and resolving these issues.

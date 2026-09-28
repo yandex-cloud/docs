@@ -7,6 +7,20 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.38.0 (28.09.26) {#v-1-38-0}
+
+#### {{ cloud-registry-name }} {#v-1-38-0-cloud-registry-name}
+
+* Добавлена команда `yc cloud-registry migration get-folder-migration-status-dashboard` для получения сводного статуса миграции реестров в каталоге.
+
+#### {{ sf-name }} {#v-1-38-0-sf-name}
+
+* Добавлены команды управления триггерами для мессенджера MAX:
+  * `yc serverless trigger v2 create max`;
+  * `yc serverless trigger v2 update max`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.37.0 (24.09.26) {#v-1-37-0}
 
 #### {{ baremetal-name }} {#v-1-37-0-baremetal-name}
@@ -49,8 +63,6 @@ description: На странице представлены релизы CLI, а
 * Добавлен параметр `--additional-properties` в команды для настройки дополнительных свойств кластера {{ TR }}:
   * `yc managed-trino cluster create`;
   * `yc managed-trino cluster update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.36.0 (21.09.26) {#v-1-36-0}
 

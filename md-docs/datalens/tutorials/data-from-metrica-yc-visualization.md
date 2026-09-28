@@ -40,7 +40,7 @@
     1. [DataSphere. Постройте воронки](#calculating-funnels-datasphere).
     1. [DataLens. Воронки по браузерам. Создайте датасет](#calculating-browser-funnels-dataset).
     1. [DataLens. Воронки по браузерам. Создайте чарт](#calculating-browser-funnels-chart).
-    1. [DataLens. Воронки по браузерам. Добавьте чарт на дашборд](#add-browser-funnels-chart-on-dashboard}).
+    1. [DataLens. Воронки по браузерам. Добавьте чарт на дашборд](#add-browser-funnels-chart-on-dashboard).
     1. [DataLens. Воронки по браузерам. Настройте дашборд](#setting-browser-funnels-chart-on-dashboard).
 1. [Проведите когортный анализ](#cohorts):
     1. [DataSphere. Проведите когортный анализ](#cohort-analysis).

@@ -34,3 +34,4 @@ description: Члены организации — пользователи, к�
 
 * [{#T}](../../tutorials/security/user-group-access-control.md)
 * [{#T}](../../tutorials/security/integration-keycloak.md)
+* [{#T}](../../iam/concepts/subject-details.md)

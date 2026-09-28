@@ -1,11 +1,11 @@
-1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру](#deploy).
 1. [Настройте Samba и NFS](#setup-samba-nfs).
 1. [Протестируйте работу файлового сервера](#test-file-server).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 

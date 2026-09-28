@@ -1138,7 +1138,7 @@ Added new events for the services:
   `DeleteScanJob` | Deleting a scan job
   `DeleteScope` | Deleting a scope
   `DeleteScopeFilter` | Deleting a scope filter
-  `DeleteWorkspace` | Delete the environments.
+  `DeleteWorkspace` | Deleting an environment
   `EnableProject` | Enabling a project
   `EnableSDProject` | Enabling a {{ sd-name }} project
   `UpdateConnector` | Updating a connector

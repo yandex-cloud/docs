@@ -73,6 +73,12 @@ Service name: `organizationmanager`.
 
 {% include [org-events-dp](../../_includes/audit-trails/events/org-events-dp.md) %}
 
+## {{ src-full-name }} {#sourcecraft}
+
+Service name: `sourcecraft`.
+
+{% include [sourcecraft-events-dp](../../_includes/audit-trails/events/sourcecraft-events-dp.md) %}
+
 ## {{ iam-full-name }} {#iam}
 
 Service name: `iam`.
@@ -232,5 +238,4 @@ Service name: `wiki`.
 Service name: `websql`.
 
 {% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}
-
 

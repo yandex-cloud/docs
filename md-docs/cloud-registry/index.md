@@ -212,6 +212,8 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [get-cloud-migration-status-dashboard](cli-ref/migration/get-cloud-migration-status-dashboard.md)
 
+ - [get-folder-migration-status-dashboard](cli-ref/migration/get-folder-migration-status-dashboard.md)
+
  - [start-cloud](cli-ref/migration/start-cloud.md)
 
  - [start-folder](cli-ref/migration/start-folder.md)
@@ -471,6 +473,8 @@ Yandex Cloud Registry — сервис для безопасного хране�
  - [Overview](cli-ref/v1/migration/index.md)
 
  - [get-cloud-migration-status-dashboard](cli-ref/v1/migration/get-cloud-migration-status-dashboard.md)
+
+ - [get-folder-migration-status-dashboard](cli-ref/v1/migration/get-folder-migration-status-dashboard.md)
 
  - [start-cloud](cli-ref/v1/migration/start-cloud.md)
 

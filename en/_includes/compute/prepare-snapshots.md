@@ -29,7 +29,7 @@ To ensure the snapshot data integrity:
 
       {% endnote %}
 
-  1. Create a snapshot by following the steps [below](#create).
+  1. Create a snapshot by following the steps [below](#create-snapshot-operation).
 
   1. Unfreeze the file system:
 

@@ -10,31 +10,37 @@ For a description of fields of exported logs, see the [Query log reference](../.
 
 To enable log export for a [resource](../../concepts/resource.md):
 
-{% list tabs group=instructions %}
+1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
 
-- Management console {#console}
-  
-  1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
+   {% include [logs-bucket-policy](../../../_includes/cdn/logs-bucket-policy.md) %}
 
-  1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+1. Enable log export:
 
-  1. Click the resource name.
+   {% list tabs group=instructions %}
 
-  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-raw-logs }}** tab.
+   - Management console {#console}
 
-  1. In the top-right corner, click **{{ ui-key.yacloud.cdn.button_resource-activate-raw-logs }}**.
+     1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. Select **{{ ui-key.yacloud.cdn.label_bucket }}**.
+     1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-  1. Optionally, specify a **{{ ui-key.yacloud.cdn.label_bucket-key-prefix }}** for log file names.
+     1. Click the resource name.
 
-  1. Click **{{ ui-key.yacloud.cdn.button_resource-activate-raw-logs }}**.
+     1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-raw-logs }}** tab.
 
-- API {#api}
+     1. In the top-right corner, click **{{ ui-key.yacloud.cdn.button_resource-activate-raw-logs }}**.
 
-  Use the [activate](../../api-ref/RawLogs/activate.md) REST API method for the [RawLogs](../../api-ref/RawLogs/index.md) resource or the [RawLogsService/Activate](../../api-ref/grpc/RawLogs/activate.md) gRPC API call.
+     1. Select **{{ ui-key.yacloud.cdn.label_bucket }}**.
 
-{% endlist %}
+     1. Optionally, specify a **{{ ui-key.yacloud.cdn.label_bucket-key-prefix }}** for log file names.
+
+     1. Click **{{ ui-key.yacloud.cdn.button_resource-activate-raw-logs }}**.
+
+   - API {#api}
+
+     Use the [activate](../../api-ref/RawLogs/activate.md) REST API method for the [RawLogs](../../api-ref/RawLogs/index.md) resource or the [RawLogsService/Activate](../../api-ref/grpc/RawLogs/activate.md) gRPC API call.
+
+   {% endlist %}
 
 Once enabled, the export status will change from `NOT_ACTIVATED` to `OK`.
 

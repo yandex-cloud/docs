@@ -139,6 +139,12 @@ Service name: `cloudregistry`.
 
 {% include [cloudregistry-events](../../_includes/audit-trails/events/cloudregistry-events.md) %}
 
+## {{ src-full-name }} {#sourcecraft}
+
+Service name: `sourcecraft`.
+
+{% include [sourcecraft-events](../../_includes/audit-trails/events/sourcecraft-events.md) %}
+
 ## {{ video-full-name }} {#video}
 
 Service name: `video`.

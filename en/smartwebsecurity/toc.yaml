@@ -47,6 +47,8 @@ items:
             href: operations/exclusion-rule-update.md
           - name: Deleting an exclusion rule
             href: operations/exclusion-rule-delete.md
+          - name: Monitoring and adjusting ML WAF protection
+            href: operations/waf-ml-tuning-recommendations.md
       - name: ARL profiles
         items:
           - name: Creating a profile

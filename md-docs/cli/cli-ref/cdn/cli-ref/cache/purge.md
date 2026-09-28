@@ -20,7 +20,7 @@ Resource ID. ||
 || `--path` | `[]string`
 
 Resource path to purge.
-Mutually exclusive with --all ||
+Repeat --path for each path, e.g. --path /apps/app.apk --path /apps/version.json. ||
 || `--all` | Purge all resource paths
 Mutually exclusive with --path ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||

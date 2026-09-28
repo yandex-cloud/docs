@@ -2168,6 +2168,9 @@ items:
               - name: get-cloud-migration-status-dashboard
                 href: >-
                   cli-ref/cloud-registry/cli-ref/migration/get-cloud-migration-status-dashboard.md
+              - name: get-folder-migration-status-dashboard
+                href: >-
+                  cli-ref/cloud-registry/cli-ref/migration/get-folder-migration-status-dashboard.md
               - name: start-cloud
                 href: cli-ref/cloud-registry/cli-ref/migration/start-cloud.md
               - name: start-folder
@@ -2498,6 +2501,9 @@ items:
                   - name: get-cloud-migration-status-dashboard
                     href: >-
                       cli-ref/cloud-registry/cli-ref/v1/migration/get-cloud-migration-status-dashboard.md
+                  - name: get-folder-migration-status-dashboard
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/migration/get-folder-migration-status-dashboard.md
                   - name: start-cloud
                     href: cli-ref/cloud-registry/cli-ref/v1/migration/start-cloud.md
                   - name: start-folder
@@ -12817,6 +12823,8 @@ items:
                           cli-ref/serverless/cli-ref/trigger/v2/create/logging.md
                       - name: mail
                         href: cli-ref/serverless/cli-ref/trigger/v2/create/mail.md
+                      - name: max
+                        href: cli-ref/serverless/cli-ref/trigger/v2/create/max.md
                       - name: message-queue
                         href: >-
                           cli-ref/serverless/cli-ref/trigger/v2/create/message-queue.md
@@ -12873,6 +12881,8 @@ items:
                           cli-ref/serverless/cli-ref/trigger/v2/update/logging.md
                       - name: mail
                         href: cli-ref/serverless/cli-ref/trigger/v2/update/mail.md
+                      - name: max
+                        href: cli-ref/serverless/cli-ref/trigger/v2/update/max.md
                       - name: message-queue
                         href: >-
                           cli-ref/serverless/cli-ref/trigger/v2/update/message-queue.md
@@ -13516,6 +13526,9 @@ items:
                           - name: mail
                             href: >-
                               cli-ref/serverless/cli-ref/v0/trigger/v2/create/mail.md
+                          - name: max
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/max.md
                           - name: message-queue
                             href: >-
                               cli-ref/serverless/cli-ref/v0/trigger/v2/create/message-queue.md
@@ -13579,6 +13592,9 @@ items:
                           - name: mail
                             href: >-
                               cli-ref/serverless/cli-ref/v0/trigger/v2/update/mail.md
+                          - name: max
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/max.md
                           - name: message-queue
                             href: >-
                               cli-ref/serverless/cli-ref/v0/trigger/v2/update/message-queue.md

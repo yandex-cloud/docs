@@ -1,6 +1,112 @@
+---
+title: Editing a {{ alb-full-name }} target group
+description: In this tutorial, you will learn how to update {{ alb-name }} target group settings, as well as how to add VM instances to or remove them from such a group.
+---
+
 # Editing a target group
 
-You can add or remove [VMs](../../compute/concepts/vm.md) from a [target group](../concepts/target-group.md).
+You can update [target group](../concepts/target-group.md) settings, as well as add or remove [VMs](../../compute/concepts/vm.md).
+
+## Updating target group settings {#params}
+
+To update target group settings:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select your target group [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
+  1. In the target group row, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Edit as appropriate.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. See the description of the [CLI](../../cli/) command for updating target group settings:
+
+     ```bash
+     yc alb target-group update --help
+     ```
+
+  1. Run this command:
+
+     ```bash
+     yc alb target-group update \
+        --name <target_group_name> \
+        --new-name <new_target_group_name> \
+        --description "<target_group_description>" \
+        --labels <label_1_key>=<label_1_value>[,<label_n_key>=<label_n_value>]
+     ```
+
+     Result:
+
+     ```text
+     id: ds7d3ah05hg9********
+     name: new-name
+     description: this is a target group
+     folder_id: b1g681qpemb4********
+     labels:
+       my-label: my-value
+     targets:
+       - ip_address: 10.129.0.12
+         subnet_id: e2lb1da2dd9v********
+     created_at: "2026-08-25T13:12:37.409977826Z"
+     ```
+
+     For more information about the `yc alb target-group update` command, along with the full list of properties, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/target-group/update.md).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Open the {{ TF }} configuration file and edit the target group description:
+
+     ```hcl
+     resource "yandex_alb_target_group" "foo" {
+       name           = "<target_group_name>"
+       description    = "<target_group_description>"
+       labels      = {
+         <label_1_key> = "<label_1_value>",
+         <label_2_key> = "<label_2_value>"
+       }
+
+     ...
+     }
+     ```
+
+     Where `yandex_alb_target_group` specifies target group settings:
+     
+     * `name`: Target group name.
+     * `description`: Target group description.
+     * `labels`: Target group labels.
+
+     For more on the properties of the `yandex_alb_target_group` resource, see [this provider guide]({{ tf-provider-alb-targetgroup }}).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check target group updates in the [management console]({{ link-console-main }}) or using this CLI command:
+
+     ```bash
+     yc alb target-group get --name <target_group_name>
+     ```
+
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-target-group.md) %}
+
+- API {#api}
+
+  Use the [update](../api-ref/TargetGroup/update.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Update](../api-ref/grpc/TargetGroup/update.md) gRPC API call.
+
+{% endlist %}
 
 ## Add a VM to a target group {#add-targets}
 

@@ -7,6 +7,7 @@
 * [{{ compute-full-name }}](../../audit-trails/concepts/events-data-plane.md#compute)
 * [{{ ai-studio-full-name }}](../../audit-trails/concepts/events-data-plane.md#ai-studio)
 * [{{ org-full-name }}](../../audit-trails/concepts/events-data-plane.md#organization)
+* [{{ src-full-name }}](../../audit-trails/concepts/events-data-plane.md#sourcecraft)
 * [{{ iam-full-name }}](../../audit-trails/concepts/events-data-plane.md#iam)
 * [{{ kms-full-name }}](../../audit-trails/concepts/events-data-plane.md#kms)
 * [{{ lockbox-full-name }}](../../audit-trails/concepts/events-data-plane.md#lockbox)

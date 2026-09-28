@@ -78,7 +78,7 @@ You need an [API key](../../iam/concepts/authorization/api-key.md) to set up int
 
 1. Open the completed action record and make sure that the **Response** section contains the `200 — OK` response.
 
-1. Navigate to the [management console]({{ link-console-main }}) and open the [bucket created earlier](#create-s3-bucket). Make sure the bucket now contains a JSON file with the data from the form you completed.
+1. Navigate to the [management console]({{ link-console-main }}) and open the bucket created earlier. Make sure the bucket now contains a JSON file with the data from the form you completed.
 
    The name of the directory the file will reside in matches the form's internal ID. Save this ID for the next steps.
 

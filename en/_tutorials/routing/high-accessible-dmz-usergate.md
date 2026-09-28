@@ -700,7 +700,7 @@ Connect to the FW-B management web interface at `https://192.168.2.10:8001`. Use
 
 ## Enable the route switcher {#enable-route-switcher}
 
-After you complete the NGFW setup, make sure FW-A and FW-B health checks return `Healthy`. Do it by [navigating]({{ link-console-main }}/link/network-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** in the `mgmt` folder in the {{ yandex-cloud }} [management console]({{ link-console-main }}) and selecting the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and properly [configured](#configure-gateways).
+After you complete the NGFW setup, make sure FW-A and FW-B health checks return `Healthy`. Do it by [navigating]({{ link-console-main }}/link/network-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** in the `mgmt` folder in the {{ yandex-cloud }} [management console]({{ link-console-main }}) and selecting the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and properly [configured](#configure-ngfw).
 
 Once FW-A and FW-B get the `Healthy` status, change the `route-switcher` module's `start_module` value to `true` in the `route-switcher.tf` file. To enable the module, run this command:
 

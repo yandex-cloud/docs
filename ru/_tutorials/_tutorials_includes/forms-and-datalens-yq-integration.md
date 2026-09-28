@@ -8,7 +8,7 @@
   1. Создайте соединение со следующими параметрами:
       * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** — `forms-connection`.
       * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** — `{{ objstorage-name }}`.
-      * **{{ ui-key.yql.yq-binding-form.connection-bucket.title }}** — имя [созданного ранее](#create-s3-bucket) бакета.
+      * **{{ ui-key.yql.yq-binding-form.connection-bucket.title }}** — имя созданного ранее бакета.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — `forms-integration-sa`.
   1. В открывшемся окне задайте параметры привязки к данным:
       * **{{ ui-key.yql.yq-binding-form.connection-type.title }}** — `{{ objstorage-name }}`.

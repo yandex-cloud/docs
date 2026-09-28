@@ -2,7 +2,7 @@
 1. [Create the infrastructure](#deploy).
 1. [Build and push the Docker image to {{ container-registry-name }}](#create-image).
 1. [Push the Docker image to the VM](#run).
-1. [Check the result](#check-result).
+1. [Check the result](#check-out).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 

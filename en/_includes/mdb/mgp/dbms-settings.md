@@ -394,7 +394,7 @@ For example, if the `vmem` memory size is set to 10 GB and this parameter is 90 
 
 If the utilization percentage of the shared global memory exceeds the specified value, the database will begin terminating queries based on their memory consumption, selecting them from among the queries managed by resource groups with the `vmtracker` memory auditor. The system will start with the query that consumes the most memory. Queries will be terminated until the shared global memory utilization percentage becomes lower than the specified value. For example, if there is 10 GB of shared global memory and this parameter is 90 (90%), the database will start terminating queries as soon as 9 GB of shared global memory has been used up.
 
-#### segment_shared_buffers
+#### segment_shared_buffers {#setting-segment-shared-buffers}
 
 {% note info %}
 

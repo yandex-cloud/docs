@@ -280,7 +280,7 @@ Now, you can use these variables just like any other IPython variable. For examp
 output
 ```
 
-By default, `%yq` and `%%yq` commands return a [Pandas DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html). Its columns match SQL column names, and its rows contain query results. You can disable `Pandas DataFrame` conversion using the [--raw-results](#usage) argument.
+By default, `%yq` and `%%yq` commands return a [Pandas DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html). Its columns match SQL column names, and its rows contain query results. You can disable `Pandas DataFrame` conversion using the [--raw-results](../../query/tutorials/yq.md#check-installation) argument.
 
 In our example, the `output` variable has the following structure:
 

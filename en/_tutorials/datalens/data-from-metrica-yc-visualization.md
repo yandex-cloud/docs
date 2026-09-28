@@ -32,7 +32,7 @@ We will use Yandex Metrica data as the source.
     1. [{{ ml-platform-short-name }}. Build funnels](#calculating-funnels-datasphere).
     1. [{{ datalens-short-name }}. Funnels by browser. Create a dataset](#calculating-browser-funnels-dataset).
     1. [{{ datalens-short-name }}. Funnels by browser. Create a chart](#calculating-browser-funnels-chart).
-    1. [{{ datalens-short-name }}. Funnels by browser. Add a chart to the dashboard](#add-browser-funnels-chart-on-dashboard}).
+    1. [{{ datalens-short-name }}. Funnels by browser. Add a chart to the dashboard](#add-browser-funnels-chart-on-dashboard).
     1. [{{ datalens-short-name }}. Funnels by browser. Set up the dashboard](#setting-browser-funnels-chart-on-dashboard).
 1. [Perform cohort analysis](#cohorts):
     1. [{{ ml-platform-short-name }}. Perform cohort analysis](#cohort-analysis).

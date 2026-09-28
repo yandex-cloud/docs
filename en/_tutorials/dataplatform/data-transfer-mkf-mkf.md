@@ -246,7 +246,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
         ```
 
-        The data is sent on behalf of the [created user](#prepare-source). To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
+        The data is sent on behalf of the [created user](#before-you-begin). To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
     1. Use `kafkacat` to make sure that the data has been moved from the source cluster to the target {{ mkf-name }} cluster:
 

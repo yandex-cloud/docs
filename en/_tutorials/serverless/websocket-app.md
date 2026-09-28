@@ -22,10 +22,10 @@ To create an online game:
 1. [Create a {{ lockbox-full-name }} secret](#secrets-create).
 1. [Deploy your project](#app-deploy).
 1. [Create access keys for the service accounts](#create-extra-sa-keys).
-1. [Create a new secret version and deploy your project again](#update-and-deploy).
+1. [Create a new secret version and deploy your project again](#secrets-update).
 1. [Create a {{ api-gw-full-name }}](#apigw-create).
 1. [Add your domain to the Telegram bot](#api-gw-connect).
-1. [Test your application](#test-api).
+1. [Test your application](#test-app).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
