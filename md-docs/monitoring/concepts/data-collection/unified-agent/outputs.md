@@ -274,7 +274,7 @@ Unified Agent устраняет дубликаты сообщений в цел
           priority: # необязательный
             keys: ["level"]
 
-        # Параметры для LogEntryResource https://cloud.yandex.ru/docs/logging/api-ref/grpc/log_ingestion_service#LogEntryResource
+        # Параметры для LogEntryResource https://yandex.cloud/ru/docs/logging/api-ref/grpc/log_ingestion_service#LogEntryResource
         resource_id: some_id # необязательный, по умолчанию не задан
         resource_type: some_type # необязательный, по умолчанию не задан
         stream_name: some_name # необязательный, по умолчанию не задан

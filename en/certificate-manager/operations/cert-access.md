@@ -48,31 +48,22 @@ To grant an individual user, user group, or [service account](../../iam/concepts
 
   1. Assign a role using this command:
 
-      * To a user:
+      ```bash
+      yc certificate-manager certificate add-access-binding <certificate_ID> \
+        --role <role> \
+        --subject <subject_type>:<subject_ID>
+      ```
 
-          ```bash
-          yc certificate-manager certificate add-access-binding <certificate_ID> \
-            --user-account-id <user_ID> \
-            --role <role>
-          ```
+      Where:
 
-          Where:
+      * `--role`: [Role](../security/index.md#roles-list).
+      * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
-          * `--user-account-id`: [User ID](../../organization/operations/users-get.md).
-          * `--role`: [Role](../security/index.md#roles-list) to assign.
+          {% cut "Subject designations" %}
 
-      * To a service account:
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-          ```bash
-          yc certificate-manager certificate add-access-binding <certificate_ID> \
-            --service-account-id <service_account_ID> \
-            --role <role>
-          ```
-
-          Where:
-
-          * `--service-account-id`: [Service account ID](../../iam/operations/sa/get-id.md).
-          * `--role`: [Role](../security/index.md#roles-list) to assign.
+          {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -95,8 +86,14 @@ To grant an individual user, user group, or [service account](../../iam/concepts
       Where:
 
       * `certificate_id`: Certificate ID.
-      * `role`: [Role](../security/index.md#roles-list) to assign.
-      * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../security/index.md#roles-list).
+      * `member`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
       For more on the properties of the `yandex_cm_certificate_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
 
@@ -112,7 +109,13 @@ To grant an individual user, user group, or [service account](../../iam/concepts
 
 - API {#api}
 
-  Use the [updateAccessBindings](../api-ref/Certificate/updateAccessBindings.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/UpdateAccessBindings](../api-ref/grpc/Certificate/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID under `subject`.
+  Use the [updateAccessBindings](../api-ref/Certificate/updateAccessBindings.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/UpdateAccessBindings](../api-ref/grpc/Certificate/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the [subject](../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -151,18 +154,23 @@ To grant an individual user, user group, or [service account](../../iam/concepts
         --access-binding role=<role>,subject=<subject_type>:<subject_ID>
       ```
 
-      Where:
+      Where `--access-binding` is the role you are assigning:
 
-      * `--access-binding`: Role to assign:
-          * `role`: Role ID.
-          * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `role`: Role ID.
+      * `subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
-      For example, this command will assign roles to multiple users and a single service account:
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
+
+      For example, assign roles to several users and one service account:
 
       ```bash
       yc certificate-manager certificate set-access-bindings my-certificate \
-        --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
-        --access-binding role=viewer,subject=userAccount:helj89sfj80a********
+        --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
+        --access-binding role=viewer,subject=userAccount:helj89sfj80a******** \
         --access-binding role=editor,subject=serviceAccount:ajel6l0jcb9s********
       ```
 
@@ -193,8 +201,14 @@ To grant an individual user, user group, or [service account](../../iam/concepts
       Where:
 
       * `certificate_id`: Certificate ID.
-      * `role`: [Role](../security/index.md#roles-list) to assign.
-      * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../security/index.md#roles-list).
+      * `member`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
       For more on the properties of the `yandex_cm_certificate_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
 
@@ -210,7 +224,13 @@ To grant an individual user, user group, or [service account](../../iam/concepts
 
 - API {#api}
 
-  Use the [setAccessBindings](../api-ref/Certificate/setAccessBindings.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/SetAccessBindings](../api-ref/grpc/Certificate/setAccessBindings.md) gRPC API call.
+  Use the [setAccessBindings](../api-ref/Certificate/setAccessBindings.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/SetAccessBindings](../api-ref/grpc/Certificate/setAccessBindings.md) gRPC API call. In the request body, specify the [subject](../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -246,8 +266,14 @@ To grant an individual user, user group, or [service account](../../iam/concepts
 
       Where:
 
-      * `--role`: ID of the role you want to revoke.
+      * `--role`: ID of the role you need to revoke.
       * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
       For example, to revoke the `{{ roles-viewer }}` role from the user with the `ajel6l0jcb9s********` ID:
 
@@ -287,6 +313,12 @@ To grant an individual user, user group, or [service account](../../iam/concepts
 
 - API {#api}
 
-  To revoke roles for a certificate, use the [updateAccessBindings](../api-ref/Certificate/updateAccessBindings.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/UpdateAccessBindings](../api-ref/grpc/Certificate/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID under `subject`.
+  To revoke roles for a certificate, use the [updateAccessBindings](../api-ref/Certificate/updateAccessBindings.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/UpdateAccessBindings](../api-ref/grpc/Certificate/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the [subject](../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

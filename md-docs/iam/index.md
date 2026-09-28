@@ -14,6 +14,8 @@
 
  - [Все инструкции](operations/index.md)
 
+ - [Получение информации о субъектах](operations/subject-details.md)
+
  - [Обработка секретов, попавших в открытый доступ](operations/compromised-credentials.md)
 
  - [Пользователи](../organization/operations/manage-users.md)
@@ -201,6 +203,8 @@
  - [Федерации удостоверений](concepts/federations.md)
 
  - [Федерации сервисных аккаунтов](concepts/workload-identity.md)
+
+ - [Получение информации о субъектах](concepts/subject-details.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 

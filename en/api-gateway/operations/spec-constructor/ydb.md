@@ -21,7 +21,7 @@ description: Follow this guide to add the {{ ydb-full-name }} extension using th
         * **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}**: Service account for authorization when accessing the [database](../../../ydb/concepts/resources.md#database). If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
         * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_database_name }}**: Database name.
         * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_table_name_name }}**: Name of the table the operation will be performed on.
-        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_action_title }}**: [Operation type](../../concepts/extensions/ydb.md#podderzhivaemye-operacii) and its relevant parameters:
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_action_title }}**: [Operation type](../../concepts/extensions/ydb.md#operations) and its relevant parameters:
 
             * `PutItem`.
             * `GetItem`:

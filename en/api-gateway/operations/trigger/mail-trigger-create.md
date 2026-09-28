@@ -102,7 +102,7 @@ Create an [email trigger](../../concepts/trigger/mail-trigger.md) to send messag
 
 {% endlist %}
 
-{{ api-gw-full-name }} will automatically generate an email address for which the trigger will fire when messages are sent to it. To see it, [retrieve detailed trigger information](trigger-list.md#trigger-get).
+{{ api-gw-full-name }} will automatically generate an email address for which the trigger will fire when messages are sent to it. To see it, [retrieve detailed trigger information](trigger-info.md).
 
 ## Checking the result {#check-result}
 

@@ -13,7 +13,7 @@ Features of AWS S3 Sync:
 
 To configure backup with AWS S3 Sync:
 
-1. [Get your cloud ready](#before-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a bucket](#create-bucket).
 1. [Create a service account](#create-sa).
 1. [Create a static access key](#create-static-key).
@@ -23,7 +23,7 @@ To configure backup with AWS S3 Sync:
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Getting started {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 

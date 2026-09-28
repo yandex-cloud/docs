@@ -103,7 +103,7 @@ To set up {{ speechsense-name }} integration with [{{ amocrm-name }}](https://ww
       * Configure field mapping in {{ amocrm-name }} and {{ speechsense-name }}:
 
           1. In the **{{ amocrm-name }}** column, select the field key in {{ amocrm-name }}.
-          1. In the **{{ speechsense-name }}** column, enter the key of the field from the {{ speechsense-name }} connection you created [earlier](#create-audio-connection).
+          1. In the **{{ speechsense-name }}** column, enter the key of the field from the {{ speechsense-name }} connection you created [earlier](#create-connection).
 
           To add a new mapping, click ![image](../../../_assets/console-icons/plus.svg) **Add**.
 

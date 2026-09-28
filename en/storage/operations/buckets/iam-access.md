@@ -13,7 +13,7 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click the name of the bucket you want to grant access to.
   1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
@@ -36,7 +36,7 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
       yc storage bucket update --help
       ```
 
-  1. Assign a role for the bucket:
+  1. Configure access permissions for the bucket:
 
       ```bash
       yc storage bucket update \
@@ -48,7 +48,7 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
       * `--name`: Bucket name.
       * `--grants`: [ACL](../../concepts/acl.md) access permission settings:
         * `grantee-id`: ID of the account the permissions are granted to. Used when the value is `grant-type=grant-type-account`.
-        * `grant-type`: Type of entity the permissions are granted to. The possible values are:
+        * `grant-type`: Type of permission grantee. The possible values are:
           * `grant-type-account`: User or service account.
           * `grant-type-all-authenticated-users`: All authenticated users.
           * `grant-type-all-users`: All users.
@@ -100,7 +100,7 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
       +----------------------+--------------+--------+---------------------+-----------------------+
       ```
 
-  1. Assign a role for the bucket:
+  1. Configure access permissions for the bucket:
 
       ```bash
       yc storage bucket update \
@@ -170,11 +170,17 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
       Where:
 
       * `bucket`: Bucket name.
-      * `role`: [Role](../../security/index.md#roles-list) to assign.
+      * `role`: [Role](../../security/index.md#roles-list).
 
         {% include [tf-iam-binding-warning](../../../_includes/storage/tf-iam-binding-warning.md) %}
 
-      * `members`: Types and IDs of [entities](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of designations of [subjects](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
       For more on the properties of the `yandex_storage_bucket_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket_iam_binding).
 
@@ -198,7 +204,13 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../../storage/api-ref/Bucket/updateAccessBindings.md) REST API method for the [Bucket](../../../storage/api-ref/Bucket/index.md) resource or the [BucketService/UpdateAccessBindings](../../../storage/api-ref/grpc/Bucket/updateAccessBindings.md) gRPC API call.
+  Use the [updateAccessBindings](../../../storage/api-ref/Bucket/updateAccessBindings.md) REST API method for the [Bucket](../../../storage/api-ref/Bucket/index.md) resource or the [BucketService/UpdateAccessBindings](../../../storage/api-ref/grpc/Bucket/updateAccessBindings.md) gRPC API call. In the request body, specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 

@@ -7,6 +7,66 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.32.0 (03/09/26) {#v-1-32-0}
+
+#### {{ alb-name }} {#v-1-32-0-alb-name}
+
+Added the `--tls-client-certificate-id`, `--tls-sni`, and `--tls-trusted-ca-from-file` parameters for using a client certificate in backend groups to the following commands:
+* `yc application-load-balancer backend-group add-http-backend`
+* `yc application-load-balancer backend-group add-grpc-backend`
+* `yc application-load-balancer backend-group add-stream-backend`
+* `yc application-load-balancer backend-group update-http-backend`
+* `yc application-load-balancer backend-group update-grpc-backend`
+* `yc application-load-balancer backend-group update-stream-backend`
+
+#### {{ baremetal-name }} {#v-1-32-0-baremetal-name}
+
+The following commands no longer require a minimum number of private subnets when renting servers or updating server parameters:
+* `yc baremetal server create`
+* `yc baremetal server update`
+
+#### {{ mch-name }} {#v-1-32-0-mch-name}
+
+Added an option to select folders for {{ connection-manager-name }} connections and secrets:
+* The following commands uses the `--connection-manager` parameter:
+  * `yc managed-clickhouse cluster create`
+  * `yc managed-clickhouse cluster update`
+  * `yc managed-clickhouse cluster restore`
+* The `yc managed-clickhouse user create` command uses the `--connection-folder-id` and `--secret-folder-id` parameters.
+
+#### {{ mgp-name }} {#v-1-32-0-mgp-name}
+
+Added the `yc managed-greenplum hba-rules batch-update` command for completely replacing HBA rules with those specified in a YAML or JSON file or clear the list of rules.
+
+#### {{ mos-name }} {#v-1-32-0-mos-name}
+
+Added the `yc managed-greenplum cluster move` command for moving a cluster to a different folder.
+
+#### Managed database services {##v-1-32-0-mdb}
+
+The `yc managed-zonalshift config update` command now supports comma-separated `--cluster-id` values.
+
+## Previous releases {#previous-release}
+
+### Version 1.31.0 (31/08/26) {#v-1-31-0}
+
+#### {{ mgp-name }} {#v-1-31-0-mgp-name}
+
+* Added a parameter to manage TLS for `gpfdist` to the commands for creating and updating a cluster:
+  * `yc managed-greenplum cluster create`
+  * `yc managed-greenplum cluster update`
+  * `yc managed-greenplum cluster restore`
+* Added the display of the WAL size and total backup storage size for {{ GP }} and {{ CB }}:
+  * `yc managed-greenplum backup get`
+  * `yc managed-greenplum backup list`
+  * `yc managed-greenplum cluster list-backups`
+
+#### {{ sf-name }} {#v-1-31-0-sf-name}
+
+* Added commands for creating and updating triggers for Yandex Messenger:
+  * `yc serverless trigger v2 create yandex-messenger`
+  * `yc serverless trigger v2 update yandex-messenger`
+
 ### Version 1.30.0 (27/08/26) {#v-1-30-0}
 
 #### {{ mgp-name }} {#v-1-30-0-mgp-name}

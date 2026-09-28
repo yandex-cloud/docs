@@ -36,3 +36,7 @@ description: С помощью этой инструкции вы узнаете
   Воспользуйтесь методом REST API [list](../../organization/api-ref/Group/list.md) для ресурса [Group](../../organization/api-ref/Group/index.md) или вызовом gRPC API [GroupService/List](../../organization/api-ref/grpc/Group/list.md).
 
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [{#T}](../../iam/concepts/subject-details.md)

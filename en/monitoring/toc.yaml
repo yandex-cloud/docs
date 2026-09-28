@@ -215,6 +215,8 @@ items:
         href: metrics-ref/index.md
       - name: '{{ ai-studio-name }}'
         href: metrics-ref/ai-studio-ref.md
+      - name: '{{ metastore-name }}'
+        href: metrics-ref/managed-metastore-ref.md
       - name: '{{ api-gw-name }}'
         href: metrics-ref/api-gateway-ref.md
       - name: '{{ alb-name }}'

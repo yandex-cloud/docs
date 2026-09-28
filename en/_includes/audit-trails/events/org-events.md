@@ -31,6 +31,8 @@ Event name | Description
 `application.linked.UpdateApplicationAssignments` | Updating a list of linked application users
 `idp.AddUserBlock` | Adding a user section
 `idp.AddUserpoolDomain` | Associating a domain with a user pool
+`idp.application.CreateAsset` | Loading an app logo
+`idp.application.DeleteAsset` | Deleting an app logo
 `idp.branding.CreateAsset` | Uploading a resource for [branding](../../../organization/concepts/branding.md)
 `idp.branding.CreateBranding` | Creating branding
 `idp.branding.DeleteAsset` | Deleting a resource for branding
@@ -69,9 +71,12 @@ Event name | Description
 `policy.CreateAuthenticationPolicyRule` | Creating an authentication policy rule
 `policy.DeactivateAuthenticationPolicyRule` | Deactivating an authentication policy rule
 `policy.DeleteAuthenticationPolicyRule` | Deleting an authentication policy rule
+`policy.DeleteRefreshTokenPolicy` | Deleting a token update policy
 `policy.UpdateAuthenticationPolicyRule` | Updating an authentication policy rule
+`policy.UpdateRefreshTokenPolicy` | Updating a token update policy
 `RejectInvitation` | Rejecting an invitation
 `ResendInvitation` | Resending an invite
+`SetTwoFactorAuthenticationPassportRequired` | Setting the two-factor authentication requirement for Yandex accounts
 `saml.AddFederatedUserAccounts` | Adding a user to a federation
 `saml.AddFederationDomain` | Associating a [domain](../../../organization/concepts/domains.md) with a federation
 `saml.CreateApplication` | Creating a [SAML](../../../organization/concepts/add-federation.md) app

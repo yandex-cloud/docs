@@ -5,6 +5,24 @@ description: This section contains the {{ mgl-name }} release notes.
 
 # {{ mgl-full-name }} release notes
 
+## Q1-Q3 2026 {#q1-q3-2026}
+
+* The feature enabling you to [store {{ GL }} data in {{ objstorage-full-name }}](./concepts/s3-integration.md) has entered the [General Availability](../overview/concepts/launch-stages.md) stage. You can now select data types to offload to object storage, reducing instance disk usage and preventing its overflow. To enable the integration, follow [this guide](./operations/objstorage-integration.md). This feature is billed based on the [pricing policy](./pricing.md).
+* Released [managed runners](./concepts/index.md#managed-runners) for [General Availability](../overview/concepts/launch-stages.md). You can now automatically deploy and scale VMs with {{ GL }} workers based on the load, customize their computing resources, disks, service accounts, and security groups. For more information on managed runners, see [this guide](./operations/runner.md) and [this tutorial](./tutorials/install-gitlab-runner.md#create-runner).
+
+  {% include [note-payment](../_includes/managed-gitlab/note-payment.md) %}
+
+* Introduced advanced features for [backup management](./operations/instance/instance-backups.md). You can now view the list and manually create backups, use them to restore your current instance or create a new one, download backups and secrets using signed links, as well as delete backups you no longer need.
+* In the management console, added a notification about the instance’s total disk usage approaching the [allowed limit](./concepts/limits.md#limits).
+
+  {% note tip %}
+
+  To reduce the risk of disk overflow, enable [{{ GL }} data storage in {{ objstorage-name }}](./operations/objstorage-integration.md).
+
+  {% endnote %}
+
+* Upgraded {{ GL }} to version [18.11.11](https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-2-4-released/).
+
 ## Q4 2025 {#q4-2025}
 
 Added new parameters for {{ GL }} workers created by [managed {{ yandex-cloud }} runners](./tutorials/install-gitlab-runner.md#create-runner):

@@ -64,3 +64,7 @@ _Сервисный аккаунт_ — аккаунт, от имени кот�
 ### Примеры использования {#examples-sa}
 
 * [Начало работы с Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md)
+
+#### Полезные ссылки {#see-also}
+
+* [Получение информации о субъектах в системе управления доступом Yandex Cloud](../subject-details.md)

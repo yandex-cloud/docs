@@ -9,12 +9,12 @@ For the users of your [organization](../../../organization/concepts/organization
 
 To give access to OpenVPN Access Server to the users of your organization:
 
-1. [Get OpenVPN Access Server ready](#prepare-ovpn).
+1. [Get OpenVPN Access Server ready](#create-vpn-server).
 1. [Create an app in {{ org-full-name }}](#create-app).
 1. [Set up the integration](#setup-integration).
 1. [Make sure the application works correctly](#validate).
 
-## Get OpenVPN Access Server ready {#prepare-ovpn}
+## Get OpenVPN Access Server ready {#create-vpn-server}
 
 You can use an OpenVPN Access Server installation of your own, an SaaS version, or create a VM with OpenVPN Access Server in {{ yandex-cloud }}.
 

@@ -1,4 +1,4 @@
-1. [Get your cloud ready](#before-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Delegate your domain to {{ dns-name }}](#delegate-domain). 
 1. [Create an infrastructure](#deploy).
 1. [Test the website](#test).

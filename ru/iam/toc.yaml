@@ -13,6 +13,8 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Получение информации о субъектах
+        href: operations/subject-details.md
       - name: Обработка секретов, попавших в открытый доступ
         href: operations/compromised-credentials.md
       - name: Пользователи
@@ -208,6 +210,8 @@ items:
         href: concepts/federations.md
       - name: Федерации сервисных аккаунтов
         href: concepts/workload-identity.md
+      - name: Получение информации о субъектах
+        href: concepts/subject-details.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Безопасное использование {{ yandex-cloud }}

@@ -13,7 +13,7 @@ description: In this tutorial, you will learn how to view {{ mmg-name }} cluster
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Cluster state monitoring {#cluster}
+## Cluster state monitoring {#monitoring-cluster}
 
 To view detailed information on the health state of a {{ mmg-name }} cluster:
 

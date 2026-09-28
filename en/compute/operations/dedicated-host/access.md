@@ -50,35 +50,32 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   1. Assign a role using this command:
 
-     * To a user:
+     ```bash
+     yc compute host-group add-access-binding <dedicated_host_group_name_or_ID> \
+       --role <role> \
+       --subject <subject_type>:<subject_ID>
+     ```
 
-       ```bash
-       yc compute host-group add-access-binding <dedicated_host_group_name_or_ID> \
-         --user-account-id <user_ID> \
-         --role <role>
-       ```
+     Where:
 
-       Where:
+     * `--role`: [Role](../../security/index.md#roles-list).
+     * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-       * `--user-account-id`: [User ID](../../../organization/operations/users-get.md). Use the `--all-authenticated-users` flag to assign a role to all authenticated users.
-       * `--role`: [Role](../../security/index.md#roles-list).
+         {% cut "Subject designations" %}
 
-     * To a service account:
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
 
-       ```bash
-       yc compute host-group add-access-binding <dedicated_host_group_name_or_ID> \
-         --service-account-id <service_account_ID> \
-         --role <role>
-       ```
-
-       Where:
-
-       * `--service-account-id`: [Service account ID](../../../iam/operations/sa/get-id.md).
-       * `--role`: [Role](../../security/index.md#roles-list).
+         {% endcut %}
 
 - API {#api}
 
-  To assign a role, use the [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/HostGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID under `subject`.
+  To assign a role, use the [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/HostGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -129,25 +126,35 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        --access-binding role=<role>,subject=<subject_type>:<subject_ID>
      ```
 
-     Where:
+     Where `--access-binding` contains access permission settings:
 
-     * `--access-binding`: Parameters for setting access permissions:
+     * `role`: [Role](../../security/index.md#roles-list).
+     * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-       * `role`: [Role](../../security/index.md#roles-list).
-       * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+         {% cut "Indicating a subject" %}
 
-     For example, this command will assign roles to multiple users and a single service account:
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
+
+     For example, assign roles to several users and one service account:
 
      ```bash
      yc compute host-group set-access-bindings my-host-group \
-       --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
-       --access-binding role=viewer,subject=userAccount:helj89sfj80a********
+       --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
+       --access-binding role=viewer,subject=userAccount:helj89sfj80a******** \
        --access-binding role=editor,subject=serviceAccount:ajel6l0jcb9s********
      ```
 
 - API {#api}
 
-  To assign roles for a dedicated host group, use the [setAccessBindings](../../api-ref/HostGroup/setAccessBindings.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/SetAccessBindings](../../api-ref/grpc/HostGroup/setAccessBindings.md) gRPC API call.
+  To assign roles for a dedicated host group, use the [setAccessBindings](../../api-ref/HostGroup/setAccessBindings.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/SetAccessBindings](../../api-ref/grpc/HostGroup/setAccessBindings.md) gRPC API call. In the request body, specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
   {% note alert %}
 
@@ -195,13 +202,19 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      ```bash
      yc compute host-group remove-access-binding <dedicated_host_group_name_or_ID> \
        --role=<role> \
-       --subject=<subject_type>:<subject_ID> \
+       --subject=<subject_type>:<subject_ID>
      ```
 
      Where:
 
-     * `--role`: ID of the role you want to revoke.
-     * `--subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+     * `--role`: ID of the role you need to revoke.
+     * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+
+         {% cut "Subject designations" %}
+
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
 
      For example, this command revokes the `{{ roles-viewer }}` role for the dedicated host group from a user with the `ajel6l0jcb9s********` ID:
 
@@ -213,6 +226,12 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To revoke a role, use the [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/HostGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID under `subject`.
+  To revoke a role, use the [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/HostGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

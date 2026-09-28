@@ -28,11 +28,11 @@ flowchart BT
 
   #### datalens.visitor {#datalens-visitor}
 
-  Роль `datalens.visitor` предоставляет доступ к сервису DataLens. Просмотр или редактирование [воркбуков и коллекций](../workbooks-collections/index.md) возможны при наличии соответствующих [ролей](#workbooks-collections-roles) для доступа к этим воркбукам и коллекциям.
+  Роль `datalens.visitor` предоставляет доступ к сервису DataLens. Просмотр или редактирование [воркбуков и коллекций](../workbooks-collections/index.md) возможны при наличии соответствующих [ролей](roles.md#workbooks-collections-roles) для доступа к этим воркбукам и коллекциям.
 
   #### datalens.creator {#datalens-creator}
 
-  Роль `datalens.creator` предоставляет доступ к сервису DataLens с правами на создание [воркбуков и коллекций](../workbooks-collections/index.md) в корне DataLens. Просмотр или редактирование воркбуков и коллекций, созданных другими пользователями, возможны только при наличии [прав доступа](#workbooks-collections-roles) к этим воркбукам и коллекциям.
+  Роль `datalens.creator` предоставляет доступ к сервису DataLens с правами на создание [воркбуков и коллекций](../workbooks-collections/index.md) в корне DataLens. Просмотр или редактирование воркбуков и коллекций, созданных другими пользователями, возможны только при наличии [прав доступа](roles.md#workbooks-collections-roles) к этим воркбукам и коллекциям.
   
   Включает разрешения, предоставляемые ролью `datalens.visitor`.
 

@@ -8,7 +8,7 @@ As an example, we use a [directed acyclic graph (DAG)](../../managed-airflow/con
 
 To use the {{ yandex-cloud }} Python SDK to send requests to the {{ yandex-cloud }} API:
 
-1. [Set up your infrastructure](#create-infrastracture).
+1. [Set up your infrastructure](#create-infrastructure).
 1. [Prepare the DAG file and run the graph](#dag).
 1. [Check the result](#check-result).
 

@@ -16,7 +16,6 @@ For the load balancer to work correctly:
 
 * The load balancer security groups must allow:
   * Receiving external incoming traffic on the ports specified in the [listener](#listener), e.g., for HTTP(S) traffic: TCP connections on ports `80` and `443` from any address (CIDR: `0.0.0.0/0`).
-  * Receiving incoming traffic to health check load balancer nodes in different [availability zones](../../overview/concepts/geo-scope.md): TCP connections on port `30080` with the `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` source.
   * Sending traffic to backend VMs, i.e., VMs whose IP addresses are included in [target groups](target-group.md). For example, any outgoing connections to internal VM addresses (any protocol, full port range, CIDR: `<VM_internal_IP_address>/32`).
 
   {% include [security-groups-note](../_includes_service/security-groups-note.md) %}
@@ -117,7 +116,7 @@ Some incoming ports, such as port 22, are reserved for service purposes and you 
 
 Request routing to [backend groups](backend-group.md) depends on the _listener type_:
 
-* **{{ ui-key.yacloud.alb.label_listener-type-http }}**: Load balancer accepts HTTP or HTTPS requests and distributes them across backend groups based on the rules set in [HTTP routers](http-router.md), or redirects HTTP requests to HTTPS. Backend groups receiving traffic must have the **{{ ui-key.yacloud.alb.label_proto-http }}** or **{{ ui-key.yacloud.alb.label_proto-grpc }}** [type](backend-group.md#group-type). For **{{ ui-key.yacloud.alb.label_listener-type-http }}** listeners, [{{ monitoring-full-name }}](../../monitoring/) calculates and displays the [request statistics](#stats).
+* **{{ ui-key.yacloud.alb.label_listener-type-http }}**: Load balancer accepts HTTP or HTTPS requests and distributes them across backend groups based on the rules set in [HTTP routers](http-router.md), or redirects HTTP requests to HTTPS. Backend groups receiving traffic must have the **{{ ui-key.yacloud.alb.label_proto-http }}** or **{{ ui-key.yacloud.alb.label_proto-grpc }}** [type](backend-group.md#group-types). For **{{ ui-key.yacloud.alb.label_listener-type-http }}** listeners, [{{ monitoring-full-name }}](../../monitoring/) calculates and displays the [request statistics](monitoring.md#stats).
 * **{{ ui-key.yacloud.alb.label_listener-type-stream }}**: Load balancer accepts incoming traffic via unencrypted or encrypted TCP connections and routes it to **{{ ui-key.yacloud.alb.label_proto-stream }}** backend groups. For **{{ ui-key.yacloud.alb.label_listener-type-stream }}** listeners, the system does not collects statistics on individual HTTP requests, so {{ monitoring-name }} does not display their error or access metrics.
 
 If encrypted traffic is accepted, the _main listener_ and optional _SNI listeners_ are set up for the load balancer. In each SNI listener, the domain name specified as [Server Name Indication](https://{{ lang }}.wikipedia.org/wiki/Server_Name_Indication) (SNI) when establishing a TLS connection is mapped to a TLS certificate and HTTP router (if the listener type is **{{ ui-key.yacloud.alb.label_listener-type-http }}**) or a backend group (if the listener type is **{{ ui-key.yacloud.alb.label_listener-type-stream }}**). The main listener is responsible for TLS connections with domain names that do not match any SNI listener.

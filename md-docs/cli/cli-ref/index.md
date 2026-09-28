@@ -52,7 +52,7 @@ Syntax:
 
 - [yc init](init.md) — CLI initialization
 
-- [yc iot](iot/cli-ref/index.md) — Manage Yandex IoT Core resources
+- [yc iot](iot/cli-ref/index.md) — Manage IoT Core resources
 
 - [yc kms](kms/cli-ref/index.md) — Manage Yandex Key Management Service resources
 
@@ -102,7 +102,7 @@ Syntax:
 
 - [yc operation](operation/cli-ref/index.md) — Manage operations
 
-- [yc organization-manager](organization-manager/cli-ref/index.md) — Manage Yandex Organization Manager resources
+- [yc organization-manager](organization-manager/cli-ref/index.md) — Manage Yandex Cloud Organization Manager resources
 
 - [yc quota-manager](quota-manager/cli-ref/index.md) — Manage Yandex Quota Manager resources
 

@@ -1,5 +1,5 @@
 To configure a server for 1C-Bitrix:
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH on behalf of the user specified when [creating the VM](#create-vm), e.g., `ubuntu`:
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH on behalf of the user specified when creating the VM, e.g., `ubuntu`:
 
    ```bash
    ssh ubuntu@<VM_public_IP_address>

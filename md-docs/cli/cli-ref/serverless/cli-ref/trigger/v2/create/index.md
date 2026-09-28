@@ -24,6 +24,8 @@ Syntax:
 
 - [yc serverless trigger v2 create mail](mail.md) — Create Mail trigger
 
+- [yc serverless trigger v2 create max](max.md) — Create MAX trigger
+
 - [yc serverless trigger v2 create message-queue](message-queue.md) — Create message queue trigger
 
 - [yc serverless trigger v2 create object-storage](object-storage.md) — Create object storage trigger

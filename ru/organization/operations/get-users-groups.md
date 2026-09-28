@@ -46,3 +46,7 @@ description: Следуя данной инструкции, вы сможете
   Воспользуйтесь методом REST API [Group.ListEffective](../../organization/api-ref/Group/listEffective.md) для ресурса [Group](../../organization/api-ref/Group/index.md) или вызовом gRPC API [GroupService/ListEffective](../../organization/api-ref/grpc/Group/listEffective.md).
 
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [{#T}](../../iam/concepts/subject-details.md)

@@ -56,7 +56,13 @@ description: In this tutorial, you will learn how to change access permissions f
       Where `--access-binding` contains access permission settings:
 
       * `role`: [Role](../../security/index.md#roles-list).
-      * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+
+          {% cut "Indicating a subject" %}
+
+          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
       For example, assign roles to several users and a service account:
 
@@ -78,6 +84,12 @@ description: In this tutorial, you will learn how to change access permissions f
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/DesktopGroup/updateAccessBindings.md) REST API method for the [DesktopGroup](../../api-ref/DesktopGroup/index.md) resource or the [DesktopGroupService/UpdateAccessBindings](../../api-ref/grpc/DesktopGroup/updateAccessBindings.md) gRPC API call.
+  Use the [updateAccessBindings](../../api-ref/DesktopGroup/updateAccessBindings.md) REST API method for the [DesktopGroup](../../api-ref/DesktopGroup/index.md) resource or the [DesktopGroupService/UpdateAccessBindings](../../api-ref/grpc/DesktopGroup/updateAccessBindings.md) gRPC API call. In the request body, specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

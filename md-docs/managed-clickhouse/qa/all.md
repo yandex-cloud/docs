@@ -15,7 +15,7 @@
 
 * [Что такое хост базы данных и кластер базы данных?](#what-is-cluster)
 
-* [Как начать работу с Managed Service for ClickHouse®?](#quickstart})
+* [Как начать работу с Managed Service for ClickHouse®?](#quickstart)
 
 * [Сколько хостов БД может содержать кластер?](#how-many-hosts)
 

@@ -10,7 +10,7 @@ editable: false
 
 {% note warning %}
 
-Starting September 11, 2026, [storing {{ GL }} data in {{ objstorage-name }}](./concepts/s3-integration.md) is subject to charges.
+Starting September 11, 2026, [{{ GL }} data storage in {{ objstorage-full-name }}](./concepts/s3-integration.md) will be billed.
 
 {% endnote %}
 

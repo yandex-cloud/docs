@@ -236,7 +236,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
 
 The values listed below are VM side limitations. They scale with the number of vCPUs: the row value is multiplied by the number of vCPUs to set the upper boundary of the total load on all disks attached to the VM. For example, for a VM with 4 vCPUs and a network SSD, the total maximum IOPS cannot exceed _4 × 3,500 = 14,000_.
 
-The actual performance of an individual disk is also capped by its [own limits](#compute-limits-disks). The final value is determined as the minimum of the two: the VM limit and the disk limit.
+The actual performance of an individual disk is also capped by its [own limits](../compute/concepts/limits.md#compute-limits-disks). The final value is determined as the minimum of the two: the VM limit and the disk limit.
 
 {% note info %}
 

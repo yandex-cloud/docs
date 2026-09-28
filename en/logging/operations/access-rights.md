@@ -48,50 +48,23 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 
     Run the following command to assign a [role](../security/index.md) for a custom log group:
 
-    * To a user:
+    ```bash
+    yc logging group add-access-binding \
+      --name <log_group_name> \
+      --role <role> \
+      --subject <subject_type>:<subject_ID>
+    ```
 
-        ```
-        yc logging group add-access-binding \
-          --name <log_group_name> \
-          --user-account-id <user_ID> \
-          --role <role>
-        ```
+    Where:
 
-        Result:
+    * `--role`: [Role](../security/index.md#roles-list).
+    * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
-        ```
-        done (1s)
-        ```
+        {% cut "Subject designations" %}
 
-    * To a [service account](../../iam/concepts/users/service-accounts.md):
+        {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-        ```
-        yc logging group add-access-binding \
-          --name <log_group_name> \
-          --service-account-id <service_account_ID> \
-          --role <role>
-        ```
-
-        Result:
-
-        ```
-        done (1s)
-        ```
-
-    * To all authenticated users (the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md)):
-
-        ```
-        yc logging group add-access-binding \
-          --name <log_group_name> \
-          --all-authenticated-users \
-          --role <role>
-        ```
-
-        Result:
-
-        ```
-        done (1s)
-        ```
+        {% endcut %}
 
 - API {#api}
 
@@ -105,55 +78,34 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 
 - CLI {#cli}
 
-    Run this command to revoke a [role](../security/index.md) assigned for a custom log group:
+  Run this command to revoke a [role](../security/index.md) assigned for a custom log group:
 
-    * From a user:
+  ```bash
+  yc logging group remove-access-binding \
+    --name <log_group_name> \
+    --role <role_ID> \
+    --subject <subject_type>:<subject_ID>
+  ```
 
-        ```
-        yc logging group remove-access-binding \
-          --name <log_group_name> \
-          --user-account-id <user_ID> \
-          --role <role>
-        ```
-    
-        Result:
-    
-        ```
-        done (1s)
-        ```
+  Where:
 
-    * From a [service account](../../iam/concepts/users/service-accounts.md):
+  * `--role`: ID of the role you need to revoke.
+  * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
-        ```
-        yc logging group remove-access-binding \
-          --name <log_group_name> \
-          --service-account-id <service_account_ID> \
-          --role <role>
-        ```
+      {% cut "Subject designations" %}
 
-        Result:
+      {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-        ```
-        done (1s)
-        ```
-
-    * From all authenticated users (the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md)):
-
-        ```
-        yc logging group remove-access-binding \
-          --name <log_group_name> \
-          --all-authenticated-users \
-          --role <role>
-        ```
-
-        Result:
-
-        ```
-        done (1s)
-        ```
+      {% endcut %}
 
 - API {#api}
 
-  To revoke roles assigned to a custom log group, use the [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/UpdateAccessBindings](../api-ref/grpc/LogGroup/updateAccessBindings.md) gRPC API call.
+  To revoke roles assigned to a custom log group, use the [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/UpdateAccessBindings](../api-ref/grpc/LogGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the [subject](../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

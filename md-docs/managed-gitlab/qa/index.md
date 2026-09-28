@@ -75,7 +75,7 @@ You are not allowed to push code to protected branches on this project.
 
 Подробнее о ролях в [документации GitLab](https://docs.gitlab.com/ee/user/permissions.html).
 
-#### Я получаю ошибку `500 Internal Server Error` при открытии инстанса, в чем может быть проблема? {#500-error}
+#### Я получаю ошибку 500 Internal Server Error при открытии инстанса, в чем может быть проблема? {#500-error}
 
 Дисковое пространство инстанса может быть переполнено. Вы можете самостоятельно [увеличить дисковое пространство инстанса](../operations/instance/instance-update.md).
 
@@ -104,7 +104,7 @@ You are not allowed to push code to protected branches on this project.
 
 Да, можно изменить тип инстанса на более производительный, а также увеличить размер его диска. Уменьшить размер диска, а также перейти на менее производительный тип инстанса нельзя. Подробнее в разделе [Изменение настроек инстанса](../operations/instance/instance-update.md).
 
-#### Что делать, если не удается подключиться к системному хуку на `localhost`? {#system-hooks-localhost}
+#### Что делать, если не удается подключиться к системному хуку на localhost? {#system-hooks-localhost}
 
 Если не удается подключиться к системному хуку, используйте IP-адрес `127.0.0.1` вместо `localhost`:
 

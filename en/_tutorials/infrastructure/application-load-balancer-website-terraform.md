@@ -91,6 +91,10 @@ After creating the infrastructure, [upload the website files](#upload-files).
 
 ## Upload the website files {#upload-files}
 
+To test the web server, upload the website files to each VM. You can use the `index.html` file from [this archive](https://{{ s3-storage-host }}/doc-files/index.html.zip) as an example.
+
+For each VM in the [created group](#deploy), do the following:
+
 {% include [upload-files](../../_tutorials/_tutorials_includes/alb-website/upload-files.md) %}
 
 ## Test the fault tolerance {#test-ha}

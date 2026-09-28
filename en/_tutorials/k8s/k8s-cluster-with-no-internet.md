@@ -13,7 +13,7 @@ To create a {{ managed-k8s-name }} cluster with no internet access:
 1. [Set up the infrastructure for {{ managed-k8s-name }}](#infra).
 1. [Set up a virtual machine](#vm).
 1. [Check cluster availability](#check).
-1. Optionally, [set up a connection to NTP servers](#ntp).
+1. Optionally, [set up {{ managed-k8s-name }} cluster time synchronization with your private NTP server](#ntp).
 1. Optionally, [connect a private Docker image registry](#cert).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -206,7 +206,7 @@ CoreDNS is running at https://<cluster_address>/api/v1/namespaces/kube-system/se
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ```
 
-## Optionally, set up {{ managed-k8s-name }} cluster time synchronization with your private NTP server.
+## Optionally, set up {{ managed-k8s-name }} cluster time synchronization with your private NTP server {#ntp}
 
 To ensure the {{ managed-k8s-name }} cluster time remains synchronized with another resource (in this case, a VM), deploy a private NTP server in `my-subnet` and set up synchronization of the cluster and VM with this server.
 

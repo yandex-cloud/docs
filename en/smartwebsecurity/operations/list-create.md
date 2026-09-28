@@ -40,20 +40,34 @@ You can only manage [custom lists](../concepts/lists.md#user-rules). [Preset {{ 
           1.10
           ```
 
-      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_regexp_eLHPr }}`: [Regular expressions](../concepts/conditions.md#regular-expressions), e.g., for analyzing the `User-Agent` header. Here are some examples:
+      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_regexp_eLHPr }}`: [Regular expressions](../concepts/conditions.md#regular-expressions), e.g., for analyzing the `User-Agent` header or grouping multiple URLs with `|`. Here are some examples:
 
           ```text
           User-Agent:\s*
           \\[\'\"\.\;]
           a{100,}
           --.*
+          ^/api/v[12]/users$
+          ^/promo/(sale|discount)/?$
+          ^static\.example\.com/assets/.*\.(css|js)$
           ```
 
-      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_string_hGRJK }}`: Text strings, e.g., IDs. Here are some examples:
+          Where:
+
+          - `^/api/v[12]/users$`: `/api/v1/users` and `/api/v2/users` paths.
+          - `^/promo/(sale|discount)/?$`: `/promo/sale` and `/promo/discount` pages, with an optional trailing slash.
+          - `^static\.example\.com/assets/.*\.(css|js)$`: CSS and JS files in the `/assets/` folder at the `static.example.com` domain.
+
+          In a regular expression, you can group multiple alternative values, e.g., different URLs, API versions, or header values, using the `|` operator. Special characters must be escaped, e.g., a dot in a domain name or URL must be entered as `\.`.
+
+      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_string_hGRJK }}`: Text strings, e.g., IDs or URLs. Here are some examples:
 
           ```text
           fev4ct8l9infabcd1234
           id345678
+          /api/v1/users
+          /promo/sale
+          /assets/logo.svg
           ```
 
   1. Enter a name and description for the list.

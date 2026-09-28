@@ -37,6 +37,8 @@ You cannot change or delete the preset lists.
 
 In addition to preset lists, you can create your custom value sets.
 
+There is a dedicated list for each value type: IP addresses, ASNs, string values, or regular expressions. You can group multiple values of the same type into a single list and reference that list across one or more rules. This way, you do not need to create a separate rule for each individual value if they require identical conditions and action. For example, you can group the `/login`, `/checkout`, and `/api/v1/users` paths into a single list of string values and use it within one rule. If some of these values change, you only need to update the list, not the rule. To group similar values, use a regular expression list: separate alternatives with the `|` operator and escape special characters with a backslash (`\`) to interpret them literally. For example, `/api/(v1|v2)/users` matches two versions of an API path, while `^/promo/(sale|discount)/?$`, `/promo/sale` and `/promo/discount` URLs, with an optional trailing slash.
+
 We recommend grouping them into one of these categories:
 
 * **Blacklist**: Values used in attacks against your infrastructure or other undesirable actions, e.g., spamming. You can block queries with such values automatically without applying the {{ sws-name }} rules to them.

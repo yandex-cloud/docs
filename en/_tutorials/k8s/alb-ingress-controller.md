@@ -516,7 +516,7 @@ Create test applications and Ingress resource:
 
 - Ingress resource for a backend group
 
-  1. Create a [backend group with a bucket](../../application-load-balancer/operations/backend-group-create.md#with-s3-bucket):
+  1. Create a [backend group with a bucket](../../application-load-balancer/operations/backend-group-create.md):
      1. Create a [public bucket in {{ objstorage-name }}](../../tutorials/web/static/console.md#create-public-bucket).
      1. [Configure the website home page and error page](../../tutorials/web/static/console.md).
   1. Create a configuration file named `demo-app-1.yaml` for your application:
