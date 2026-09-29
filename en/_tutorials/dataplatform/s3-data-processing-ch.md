@@ -1,3 +1,5 @@
+
+
 #|
 ||This tutorial is based on a [Data Stories](https://data-stories.ru/) use case of building an analytical stack powered by {{ yandex-cloud }} services. The use case involved uploading data to storage, processing it, and transforming it into a single data mart for visualization.
 |
@@ -104,7 +106,7 @@ This example uses two CSV tables. We will merge them into a single table, conver
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../data-proc/operations/connect-ssh.md).
         * `ch_password`: {{ CH }} password.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate

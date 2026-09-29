@@ -19,5 +19,5 @@
         * `Confluent`: Follows the [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types) standards and ensures no full compatibility when adding and removing optional parameters.
     1. Select a compatibility policy for Protobuf schemas:
         * `Confluent`: Based on the [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types) standards.
-        * `buf`: Based on the Buf v1 standards.
+        * `buf`: Based on the [Buf](https://docs.bufbuild.ru/bsr/) v1 standards.
 1. Click **{{ ui-key.yacloud.common.create }}**.

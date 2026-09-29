@@ -94,6 +94,8 @@ Container Registry предоставляет встроенный <a href="conc
 
  - [Все руководства](tutorials/index.md)
 
+ - [Миграция в Yandex Cloud Registry](tutorials/container-registry-migration.md)
+
 ### Запуск Docker-образа на виртуальной машине
 
  - [Обзор](tutorials/run-docker-on-vm/index.md)

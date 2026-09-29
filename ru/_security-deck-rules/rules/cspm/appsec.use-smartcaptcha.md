@@ -19,4 +19,4 @@
 
 1. [Создайте SmartCaptcha](https://yandex.cloud/ru/docs/smartcaptcha/quickstart) и встройте клиентский виджет в форму.
 2. На сервере проверяйте токен SmartCaptcha до обработки формы.
-3. Следите за [статистикой SmartCaptcha](https://yandex.cloud/ru/docs/smartcaptcha/operations/look-statistics) и подстраивайте режим капчи под долю трафика, которой выдаётся проверка.
+3. Следите за [статистикой SmartCaptcha](https://yandex.cloud/ru/docs/smartcaptcha/operations/get-info) и подстраивайте режим капчи под долю трафика, которой выдаётся проверка.

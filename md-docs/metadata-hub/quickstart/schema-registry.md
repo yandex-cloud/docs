@@ -42,7 +42,7 @@
           * `Confluent` — основывается на стандартах [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types) и не обеспечивает полную совместимость при добавлении и удалении опциональных параметров.
       1. Выберите политику проверки совместимости для Protobuf-схем:
           * Confluent — основывается на стандартах [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
-          * buf — основывается на стандартах [Buf](https://buf-build-git-psachs-docs-and-search-bufbuild.vercel.app/docs/build/usage/).
+          * buf — основывается на стандартах [Buf](https://docs.bufbuild.ru/bsr/).
   1. Нажмите кнопку **Создать**.
 
 

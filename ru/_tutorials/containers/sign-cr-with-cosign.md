@@ -1,7 +1,7 @@
 # Подпись и проверка Docker-образов {{ container-registry-full-name }} в {{ managed-k8s-full-name }}
 
 
-В этом сценарии описано, как подписать [Docker-образы](../../container-registry/concepts/docker-image.md) с помощью [Cosign](https://docs.sigstore.dev/cosign/overview/) в [{{ container-registry-full-name }}](../../container-registry/), а затем настроить проверку подписей в [{{ managed-k8s-full-name }}](../../managed-kubernetes/) с помощью ключей [{{ kms-full-name }}](../../kms/).
+В этом сценарии описано, как подписать [Docker-образы](../../container-registry/concepts/docker-image.md) с помощью [Cosign](https://docs.sigstore.dev/cosign/) в [{{ container-registry-full-name }}](../../container-registry/), а затем настроить проверку подписей в [{{ managed-k8s-full-name }}](../../managed-kubernetes/) с помощью ключей [{{ kms-full-name }}](../../kms/).
 
 Чтобы подписать и настроить проверку Docker-образов:
 1. [Подпишите Docker-образ с помощью Cosign](#cosign).
@@ -218,7 +218,7 @@
 
 - Подпись образа на локальных ключах
 
-  1. [Установите Cosign](https://docs.sigstore.dev/cosign/installation).
+  1. [Установите Cosign](https://docs.sigstore.dev/cosign/system_config/installation/).
   1. Создайте пару ключей с помощью Cosign:
 
      ```bash

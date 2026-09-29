@@ -2,7 +2,7 @@
 
 # Обзор Yandex Cloud Notification Service
 
-Cloud Notification Service (CNS) — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
+Cloud Notification Service (CNS) — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).
 
 Благодаря совместимости с Amazon SNS API для работы с сервисом вы можете использовать существующие инструменты, например [AWS CLI](../tools/aws-cli.md) и AWS SDK.
 

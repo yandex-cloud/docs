@@ -1,6 +1,6 @@
 # Working with an AI assistant in {{ speechsense-name }}
 
-You can use an [AI assistant]({{ link-docs-ai }}speechsense/concepts/assistants.md) to retrieve information from a dialog by connecting it to audio dialogs and chats. This tutorial explains how to connect an agent to chats and uses a conversation between a travel agency and a customer as an example.
+You can use an [AI assistant]({{ link-docs-ai }}speechsense/concepts/assistants) to retrieve information from a dialog by connecting it to audio dialogs and chats. This tutorial explains how to connect an agent to chats and uses a conversation between a travel agency and a customer as an example.
 
 To retrieve information you need from a chat using an AI assistant:
 

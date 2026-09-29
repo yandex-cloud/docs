@@ -83,6 +83,8 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: Миграция в {{ cloud-registry-full-name }}
+        href: tutorials/container-registry-migration.md
       - name: Запуск Docker-образа на виртуальной машине
         items:
           - name: Обзор

@@ -81,6 +81,13 @@
 
       * Перейдите на вкладку **Своя конфигурация**.
       * Выберите [платформу](../../concepts/vm-platforms.md).
+
+        {% note info %}
+        
+        На платформе Intel Ice Lake Compute-Optimized (`highfreq-v3`) нельзя создавать [прерываемые ВМ](../../concepts/preemptible-vm.md).
+        
+        {% endnote %}
+        
       * Укажите [гарантированную долю](../../concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
       * В поле **Дополнительно** включите опцию **Прерываемая**.
       * (Опционально) Включите [программно ускоренную сеть](../../concepts/software-accelerated-network.md).

@@ -72,7 +72,7 @@ To create an infrastructure with {{ TF }}:
 
     {% endlist %}
 
-    Learn more about the properties of resources used in {{ TF }} in [this provider guide]({{ tf-provider-resources-link }}).
+    Learn more about the properties of resources used in {{ TF }} in [this provider guide]({{ tf-provider-link }}/tf-ref/yandex-cloud/overview).
 
 1. In the `alice-skill.auto.tfvars` file, set the following user-defined properties:
 

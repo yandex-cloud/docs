@@ -1236,7 +1236,7 @@
     * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения в разделе [Подключение из DataLens](datalens-connect.md).
 
     
-    * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер](https://appmetrica.yandex.ru/docs/common/cloud/about.html). Значение по умолчанию — `false`.
+    * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер](https://yandex.ru/support/metrica/ru/uploading-data/cloud). Значение по умолчанию — `false`.
 
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа в документации [Cloud Functions](../../functions/operations/database-connection.md).
 
@@ -1521,7 +1521,7 @@
                 * `webSql` — разрешить [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL: `true` или `false`. Значение по умолчанию — `false`.
                 
                 
-                * `metrika` — разрешить [импорт данных из AppMetrika в кластер](https://appmetrica.yandex.ru/docs/common/cloud/about.html): `true` или `false`. Значение по умолчанию — `false`.
+                * `metrika` — разрешить [импорт данных из AppMetrika в кластер](https://yandex.ru/support/metrica/ru/uploading-data/cloud): `true` или `false`. Значение по умолчанию — `false`.
                 
                 * `serverless` — разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md): `true` или `false`. Значение по умолчанию — `false`. Подробнее о настройке доступа в документации [Cloud Functions](../../functions/operations/database-connection.md).
                 
@@ -1718,7 +1718,7 @@
                 * `web_sql` — разрешить [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL: `true` или `false`. Значение по умолчанию — `false`.
                 
                 
-                * `metrika` — разрешить [импорт данных из AppMetrika в кластер](https://appmetrica.yandex.ru/docs/common/cloud/about.html): `true` или `false`. Значение по умолчанию — `false`.
+                * `metrika` — разрешить [импорт данных из AppMetrika в кластер](https://yandex.ru/support/metrica/ru/uploading-data/cloud): `true` или `false`. Значение по умолчанию — `false`.
                 
                 * `serverless` — разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md): `true` или `false`. Значение по умолчанию — `false`. Подробнее о настройке доступа в документации [Cloud Functions](../../functions/operations/database-connection.md).
                 

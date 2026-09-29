@@ -12,6 +12,8 @@
 * Fixed usage utilization.
 * Details by {{ managed-k8s-name }} cluster.
 
+{% include [final-payment-info](../../_includes/billing/final-payment-info.md) %}
+
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}

@@ -53,9 +53,6 @@ links:
   - title: '{{ captcha-name }}'
     description: Solutions for {{ captcha-name }}
     href: smartcaptcha/
-  - title: '{{ speechkit-name }}'
-    description: Solutions for {{ speechkit-name }}
-    href: speechkit/
   - title: '{{ yandex-cloud }} {{ TF }} provider'
     description: Solutions for the {{ yandex-cloud }} {{ TF }} provider
     href: terraform/

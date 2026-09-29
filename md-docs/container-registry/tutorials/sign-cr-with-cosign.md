@@ -5,7 +5,7 @@
 # Подпись и проверка Docker-образов Yandex Container Registry в Yandex Managed Service for Kubernetes
 
 
-В этом сценарии описано, как подписать [Docker-образы](../concepts/docker-image.md) с помощью [Cosign](https://docs.sigstore.dev/cosign/overview/) в [Yandex Container Registry](../index.md), а затем настроить проверку подписей в [Yandex Managed Service for Kubernetes](../../managed-kubernetes/index.md) с помощью ключей [Yandex Key Management Service](../../kms/index.md).
+В этом сценарии описано, как подписать [Docker-образы](../concepts/docker-image.md) с помощью [Cosign](https://docs.sigstore.dev/cosign/) в [Yandex Container Registry](../index.md), а затем настроить проверку подписей в [Yandex Managed Service for Kubernetes](../../managed-kubernetes/index.md) с помощью ключей [Yandex Key Management Service](../../kms/index.md).
 
 Чтобы подписать и настроить проверку Docker-образов:
 1. [Подпишите Docker-образ с помощью Cosign](#cosign).
@@ -250,7 +250,7 @@
 
 - Подпись образа на локальных ключах
 
-  1. [Установите Cosign](https://docs.sigstore.dev/cosign/installation).
+  1. [Установите Cosign](https://docs.sigstore.dev/cosign/system_config/installation/).
   1. Создайте пару ключей с помощью Cosign:
 
      ```bash
