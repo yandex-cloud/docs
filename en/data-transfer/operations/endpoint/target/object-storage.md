@@ -14,7 +14,7 @@ description: In this tutorial, you will learn how to set up an {{ objstorage-nam
 1. Perform required operations with the storage and [control the transfer](../../monitoring.md).
 1. If you run into any problems, [check the available solutions](../../../../data-transfer/troubleshooting/index.md) for troubleshooting.
 
-## Scenarios for transferring data to {{ objstorage-full-name }} {#scenarios}
+## {{ objstorage-full-name }} data transfer scenarios {#scenarios}
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     
@@ -109,6 +109,12 @@ If the new endpoint and the {{ objstorage-name }} bucket reside in different fol
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.Parquet.row_group.title }}**: Data grouping settings. You can specify the maximum number of rows in a group or the maximum group size in bytes. If you use these settings together, a new group will be created when at least one of the limits is exceeded.
 
     {% endlist %}
+
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1Target.cleanup_policy.title }}**: Data cleanup policy prior to copying. The policy is applied during transfer activation, reactivation, and restart and defines the workflow for data which is already in the bucket. The possible values are:
+
+  * `Do not clean`: Data is not deleted from the bucket. This is the default value.
+  * `Drop`: Data is deleted from the bucket before the copying of new data.
+  * `Replace`: Data is deleted from the bucket after the copying of new data is complete. This allows you to maintain access to existing data while copying new data.
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1AdvancedWriterSettings.title }}**: Additional settings for writing output files:
 

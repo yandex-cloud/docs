@@ -901,7 +901,7 @@ description: Следуя данной инструкции, вы сможете
     * `--datalens-access` — разрешает доступ из {{ datalens-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения в разделе [Подключение из {{ datalens-name }}](datalens-connect.md).
 
     
-    * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер](https://appmetrica.yandex.ru/docs/common/cloud/about.html). Значение по умолчанию — `false`.
+    * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер](https://yandex.ru/support/metrica/{{ lang }}/uploading-data/cloud). Значение по умолчанию — `false`.
 
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 

@@ -1,20 +1,20 @@
 ---
 title: How to set up a {{ MY }} source endpoint in {{ data-transfer-full-name }}
-description: In this tutorial, you will learn how to configure a {{ MY }} source endpoint when creating or modifying it in {{ data-transfer-full-name }}.
+description: In this tutorial, you will learn how to create and configure a {{ MY }} source endpoint in {{ data-transfer-full-name }}.
 ---
 # Transferring data from a {{ MY }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data from a {{ MY }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data from a {{ MY }} database and implement various transfer, processing, and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ MY }}](#prepare) database for the transfer.
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. [Perform the required operations with the database](#db-actions) and [see how the transfer is going](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. [Perform the required database tasks](#db-actions) while [monitoring the transfer status](../../monitoring.md).
+1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
-## Scenarios for transferring data from {{ MY }} {#scenarios}
+## {{ MY }} data transfer scenarios {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
@@ -44,17 +44,17 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 ## Configuring the {{ MY }} source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can configure:
 
-* [{{ mmy-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
-* [Additional parameters](#additional-settings).
+* Connection settings for a [{{ mmy-full-name }} cluster](#managed-service) or a [custom deployment](#on-premise), including those running on {{ compute-full-name }} VMs. These settings are required.
+* [Optional settings](#additional-settings).
 
 ### {{ mmy-name }} cluster {#managed-service}
 
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mmy.viewer }}`](../../../../managed-mysql/security/index.md#mmy-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mmy.viewer }}`](../../../../managed-mysql/security/index.md#mmy-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 
@@ -79,7 +79,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mysql-source.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -133,7 +133,7 @@ For OnPremise, all fields are filled in manually.
 
     {% include [On premise MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql-source.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -181,7 +181,7 @@ For OnPremise, all fields are filled in manually.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred. This option is specified using regular expressions.
 
-        Regular expressions for included and excluded tables must meet the ID naming rules in {{ MY }}. For more information, see [this {{ MY }} guide]({{ my.docs }}/refman/8.0/en/identifiers.html). Escaping double quotes is not required.
+        Regular expressions for included and excluded tables must meet the ID naming rules in {{ MY }}. For more information, see [this {{ MY }} guide]({{ my.docs }}/refman/8.0/en/identifiers.html). Double quote escaping is not required.
 
         {% note warning %}
 
@@ -267,11 +267,11 @@ If setting up a transfer from a {{ MY }} cluster to a {{ CH }} cluster, consider
 
 * `TIME` type data is transferred as strings with the source and target time zones ignored.
 * When transferring `TIMESTAMP` type data, the time zone set in the {{ MY }} source settings or [advanced endpoint settings](#additional-settings) is used. For more information, see [this {{ MY }} guide]({{ my.docs }}/refman/8.0/en/datetime.html).
-* The source endpoint assigns the UTC+0 time zone to data of the `DATETIME` type.
+* To the `DATETIME` type data, your source endpoint assigns the time zone specified under **Time zone for connecting to the database**.
 
 Transfers from {{ MY }} to a database of a different type do not support fields of the `DECIMAL` type to prevent loss of data accuracy. There is no such limitation for {{ MY }}-to-{{ MY }} transfers.
 
-## Configuring the data target {#supported-targets}
+## Configuring the target {#supported-targets}
 
 Configure one of the supported data targets:
 
@@ -288,18 +288,18 @@ Configure one of the supported data targets:
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
 ## Operations with the database during transfer {#db-actions}
 
 {% include [work with db](../../../../_includes/data-transfer/endpoints/sources/mysql-work-with-db.md) %}
 
-## Troubleshooting data transfer issues {#troubleshooting}
+## Data transfer troubleshooting {#troubleshooting}
 
 Known issues when using a {{ MY }} endpoint:
 
 * [Single transaction log size exceeds 4 GB](#binlog-size).
-* [New tables cannot be added](#no-new-tables).
+* [New tables are not added](#no-new-tables).
 * [Error when transferring from AWS RDS for {{ MY }}](#aws-binlog-time).
 * [Error when transferring tables without primary keys](#primary-keys).
 * [Binary log access error](#binlog-bytes).

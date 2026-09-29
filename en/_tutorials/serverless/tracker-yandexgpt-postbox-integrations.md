@@ -3,7 +3,7 @@
 
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
-In this tutorial, you will create [workflows]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) in {{ sw-full-name }} and configure their integration with [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index), and [{{ postbox-full-name }}]({{ link-docs }}/postbox/index.yaml).
+In this tutorial, you will create [workflows]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) in {{ sw-full-name }} and configure their integration with [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index), and [{{ postbox-full-name }}]({{ link-docs }}/postbox/index).
 
 Your workflows will receive information about the issues in a given {{ tracker-name }} [queue]({{ link-tracker-cloudless }}queue-intro) and use {{ gpt-pro }} to analyze the work completed within these issues, their statuses, and evaluation. The results of the analysis and a brief progress report will be saved in a comment to one of the {{ tracker-name }} issues and also sent to the specified email address via {{ postbox-name }}.
 
@@ -363,9 +363,9 @@ To enable the workflow to send emails, create a {{ postbox-name }} [address]({{ 
 
       * `<organization_ID>`: [ID]({{ link-docs }}/organization/operations/organization-get-id) of your {{ org-full-name }}.
       * `<secret_ID>`: Previously saved [secret]({{ link-docs }}/lockbox/concepts/secret) ID with the application's OAuth token.
-      * `<queue_key_in_{{ tracker-name }}>`: [Key]({{ link-tracker-cloudless }}glossary#rus-k) of the {{ tracker-name }} queue where you created the test issues.
+      * `<queue_key_in_{{ tracker-name }}>`: [Key]({{ link-tracker-cloudless }}quick-start/glossary#q) of the {{ tracker-name }} queue where you created the test issues.
       * `<folder_ID>`: [ID]({{ link-docs }}/resource-manager/operations/folder/get-id) of the folder where you are creating a workflow.
-      * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}glossary#rus-z) in the comment to which the summary of the analyzed test issues will be uploaded.
+      * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}quick-start/glossary#i) in the comment to which the summary of the analyzed test issues will be uploaded.
       * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`), you can specify any address on this domain, e.g., `tracker-robot@example.com` or `noreply@example.com`.
       * `<recipient_address>`: Email address to which the workflow will send a summary of the analyzed {{ tracker-name }} test issues.
 
@@ -501,7 +501,7 @@ To enable the workflow to send emails, create a {{ postbox-name }} [address]({{ 
       * `<organization_ID>`: [ID]({{ link-docs }}/organization/operations/organization-get-id) of your {{ org-full-name }}.
       * `<secret_ID>`: Previously saved [secret]({{ link-docs }}/lockbox/concepts/secret) ID with the application's OAuth token.
       * `<folder_ID>`: [ID]({{ link-docs }}/resource-manager/operations/folder/get-id) of the folder where you are creating a workflow.
-      * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}glossary#rus-z) in the comment to which the summary of the analyzed test issues will be uploaded.
+      * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}quick-start/glossary#i) in the comment to which the summary of the analyzed test issues will be uploaded.
       * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain, e.g., `tracker-robot@example.com` or `noreply@example.com`.
       * `<recipient_address>`: Email address to which the workflow will send a summary of the analyzed {{ tracker-name }} test issues.
 

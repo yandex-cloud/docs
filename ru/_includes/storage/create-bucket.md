@@ -39,7 +39,7 @@
           * `{{ ui-key.yacloud.storage.value_standard }}`
           * `{{ ui-key.yacloud.storage.value_cold }}`
           * `{{ ui-key.yacloud.storage.value_ice }}`
-          * `Умное`
+          * `{{ ui-key.yacloud.storage.value_intelligent_tiering }}`
           
           {% include [storage-class-cold-desc](./storage-class-cold-desc.md) %}
          

@@ -26,11 +26,7 @@
         GRANT ALL PRIVILEGES ON DATABASE <имя_базы> TO <имя_пользователя>;
         ```
     
-       Если база не пустая, то пользователь должен быть ее владельцем (owner):
-    
-        ```sql
-        ALTER DATABASE <имя_базы> OWNER TO <имя_пользователя>;
-        ```
+       {% include [databese-owner](database-owner-role.md) %}
     
        После старта трансфер подключится к приемнику от имени этого пользователя.
 
@@ -62,11 +58,7 @@
         GRANT ALL PRIVILEGES ON DATABASE <имя_базы> TO <имя_пользователя>;
         ```
     
-       Если база не пустая, то пользователь должен быть ее владельцем (owner):
-    
-        ```sql
-        ALTER DATABASE <имя_базы> OWNER TO <имя_пользователя>;
-        ```
+       {% include [databese-owner](database-owner-role.md) %}
     
        После старта трансфер подключится к приемнику от имени этого пользователя.
 

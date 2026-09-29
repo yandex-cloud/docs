@@ -2,6 +2,7 @@
 
 # Практические руководства Container Registry
 
+* [Миграция с Container Registry на Cloud Registry](container-registry-migration.md)
 * [Запуск Docker-образа на виртуальной машине](run-docker-on-vm/index.md)
 * [Подпись и проверка Docker-образов Container Registry в Yandex Managed Service for Kubernetes](sign-cr-with-cosign.md)
 * [Сканирование уязвимостей при непрерывном развертывании приложений Managed Service for Kubernetes с помощью GitLab](cr-scanner-with-k8s-and-gitlab.md)

@@ -10,7 +10,7 @@ description: '{{ data-transfer-full-name }} considers the specifics of sources a
 
 ## {{ CH }} {#clickhouse}
 
-The {{ dt-type-copy }} and {{ dt-type-copy-repl }} type transfers (at the copying stage) _from {{ CH }} to {{ CH }}_ do not support `VIEW`. In a {{ CH }} type source endpoint, `VIEW` must be included in **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.exclude_tables.title }}** if **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.include_tables.title }}** is empty or not specified. If **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.include_tables.title }}** is not empty, it must not contain `VIEW` objects.
+{{ dt-type-copy }} transfers _from {{ CH }} to {{ CH }}_ do not support `VIEW`. In a {{ CH }} type source endpoint, `VIEW` must be included in **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.exclude_tables.title }}** if **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.include_tables.title }}** is empty or not specified. If **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.include_tables.title }}** is not empty, it must not contain `VIEW` objects.
 
 The source supports `MATERIALIZED VIEW` objects but handles them as regular tables. This means that in _{{ CH }} to {{ CH }}_ transfers, `MATERIALIZED VIEW` items are transferred as tables, not as `MATERIALIZED VIEW` objects.
 
@@ -76,27 +76,16 @@ When transferring [partitioned tables](https://www.postgresql.org/docs/current/d
     * At the replication stage, data will automatically be placed into the required child tables or the parent table if inheritance is not used for partitioning.
     * If the child tables are created on the source after the transfer has entered the replication stage, you need to transfer them to the target manually.
 
-    When migrating a database from {{ PG }} to another DBMS, the user can enable the [Merge inherited tables](../operations/endpoint/source/postgresql.md#additional-settings) option in the source endpoint. The transfer behavior depends on this option and the tables specified in **{{ ui-key.yc-data-transfer.data-transfer.console.form.migration.console.form.migration.PostgresMigrationTablesFilter.include_tables.title }}**.
+    * When migrating a database from {{ PG }} to another DBMS, the user can enable the [Merge inherited tables](../operations/endpoint/source/postgresql.md#additional-settings) option in the source endpoint.
 
-    * The option is on:
+        The transfer behavior depends on the value of the **Merge inherited tables** setting, if enabled, and the tables specified in **{{ ui-key.yc-data-transfer.data-transfer.console.form.migration.console.form.migration.PostgresMigrationTablesFilter.include_tables.title }}**.
 
-        | **Specified tables** | **Transfer behavior** |
-        |-------------------|---------------------|
-        | Parent table only | Transfers the parent table with data from all child tables |
-        | All or some child tables | Transfers the parent table with data from specified child tables |
-        | Parent table and all child tables | Transfers the parent table with data from all child tables |
-        | Parent table and some child tables | The transfer will fail with an error |
-
-    * The option is off:
-
-        | **Specified tables** | **Transfer behavior** |
-        |-------------------|---------------------|
-        | Parent table only | Transfers all child tables of the specified parent table |
-        | All or some child tables | Transfers only specified child tables |
-        | Parent table and all child tables | Transfers all child tables of the specified parent table |
-        | Parent table and some child tables | The transfer will fail with an error |
-
-    To accelerate the transfer, set up [parallel copying](sharded.md).
+        | **Specified tables** | **Transfer behavior with the setting enabled** | **Transfer behavior with the setting disabled** |
+        |-----------------------|--------------------------------------------------|---------------------------------------------------|
+        | Parent table only | Transfers the parent table with data from all child tables | Transfers only the parent table |
+        | All or some child tables | Transfers data from the specified child tables, with a dedicated table created on the target for each child table |  Transfers only specified child tables |
+        | Parent table and all child tables | Transfers the parent table with data from all child tables | Transfers the parent table and all child tables of the specified parent table |
+        | Parent table and some child tables | The transfer will fail with a `not all child tables matched` error |  The transfer will fail with a `not all child tables matched` error |
 
 ### Data transfer rate {#postgresql-speed}
 
@@ -156,6 +145,12 @@ By default, a separate table is created for every partition when data is transfe
 ## {{ objstorage-name }} {#object-storage}
 
 Transfers from the {{ objstorage-name }} data source operate in APPEND-ONLY mode. Deleting a file from {{ objstorage-name }} will not affect the data in the target. When updating a file: if the target contains synthetic keys, then the file strings will be updated in the target; otherwise, they will be appended. By default, the primary key contains two columns: file name and string number in the file.
+
+You can configure a data cleanup policy for your {{ objstorage-name }} target before copying. The cleanup policy is applied during transfer activation, reactivation, and restart and defines the workflow for data which is already in the bucket. The following cleanup policies are available:
+
+* **Do not clean**: Data is not deleted from the bucket. This policy is used by default.
+* **Drop**: Data is deleted from the bucket before copying new data.
+* **Replace**: Data is deleted from the bucket after the new data has been copied. This allows you to maintain access to existing data while copying new data.
 
 ## Oracle {#oracle}
 

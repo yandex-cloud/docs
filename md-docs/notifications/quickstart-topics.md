@@ -2,7 +2,7 @@
 
 # Как начать работать с топиками в Yandex Cloud Notification Service
 
-Cloud Notification Service (CNS) — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
+Cloud Notification Service (CNS) — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).
 
 Чтобы отправлять сообщения в разные эндпоинты одновременно, используйте топики. _Топик_ позволяет отправлять уведомления сразу всем подписанным на него эндпоинтам.
 

@@ -20,7 +20,7 @@ Read more in [{#T}](concepts/sms.md#templates).
 
 Implemented [topics](concepts/topics.md) to centrally send notifications to multiple endpoints.
 
-In {{ cns-name }}, the topics format is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
+In {{ cns-name }}, the topics format is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).
 
 For examples of commands for topics, refer to the [management console]({{ link-console-main }}) and [step-by-step guide](operations/index.md#topics) sections.
 

@@ -25,7 +25,7 @@ To get started with the AWS CLI:
 
 ## Configure the AWS CLI {#aws-cli}
 
-The [AWS CLI](https://aws.amazon.com/cli/) is a command line interface designed for AWS services. The {{ cns-name }} HTTP API is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html). To learn [how to run commands](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html), see the official Amazon documentation.
+The [AWS CLI](https://aws.amazon.com/cli/) is a command line interface designed for AWS services. The {{ cns-name }} HTTP API is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html). To learn [how to run commands](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html), see the official Amazon documentation.
 
 To configure the AWS CLI:
 1. [Install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) the AWS CLI.

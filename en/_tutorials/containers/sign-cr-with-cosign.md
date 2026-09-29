@@ -1,7 +1,7 @@
 # Signing and verifying {{ container-registry-full-name }} Docker images in {{ managed-k8s-full-name }}
 
 
-In this tutorial, you will learn how to sign [Docker images](../../container-registry/concepts/docker-image.md) using [Cosign](https://docs.sigstore.dev/cosign/overview/) in [{{ container-registry-full-name }}](../../container-registry/) and then set up signature verification in [{{ managed-k8s-full-name }}](../../managed-kubernetes/) using [{{ kms-full-name }}](../../kms/) keys.
+In this tutorial, you will learn how to sign [Docker images](../../container-registry/concepts/docker-image.md) using [Cosign](https://docs.sigstore.dev/cosign/) in [{{ container-registry-full-name }}](../../container-registry/) and then set up signature verification in [{{ managed-k8s-full-name }}](../../managed-kubernetes/) using [{{ kms-full-name }}](../../kms/) keys.
 
 To sign Docker images and set up their verification:
 1. [Sign a Docker image using Cosign](#cosign).
@@ -218,7 +218,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Signing an image with local keys
 
-  1. [Install Cosign](https://docs.sigstore.dev/cosign/installation).
+  1. [Install Cosign](https://docs.sigstore.dev/cosign/system_config/installation/).
   1. Generate a key pair using Cosign:
 
      ```bash

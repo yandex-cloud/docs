@@ -24,6 +24,6 @@ Use two separate service accounts for the cluster:
 
 1. Create a service account for the cluster and grant it the [roles required for cluster management](https://yandex.cloud/en/docs/managed-kubernetes/security/#yc-api).
 2. Create a separate service account for the node group and grant it only the [`container-registry.images.puller`](https://yandex.cloud/en/docs/container-registry/security/) role on the registries from which the cluster pulls images.
-3. For an existing cluster with a shared service account, create the missing one and switch the cluster or node group to it through [updating the cluster](https://yandex.cloud/en/docs/managed-kubernetes/operations/update-cluster) or [updating the node group](https://yandex.cloud/en/docs/managed-kubernetes/operations/node-group/node-group-update).
+3. For an existing cluster with a shared service account, create the missing one and switch the cluster or node group to it through [updating the cluster](https://yandex.cloud/ru/docs/managed-kubernetes/operations/update-kubernetes#cluster-upgrade) or [updating the node group](https://yandex.cloud/en/docs/managed-kubernetes/operations/update-kubernetes#node-group-upgrade).
 
 For details on access management in Managed Service for Kubernetes, see the [service security documentation](https://yandex.cloud/en/docs/managed-kubernetes/security/).

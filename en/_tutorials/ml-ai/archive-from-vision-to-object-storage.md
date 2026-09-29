@@ -1,6 +1,6 @@
 # Recognizing text in image archives using {{ vision-full-name }}
 
-With [{{ vision-name }}]({{ link-docs-ai }}vision/concepts/ocr) and [{{ objstorage-full-name }}](../../storage/), you can perform text recognition on images and maintain an archive of source images and recognition results.
+With [{{ vision-name }}]({{ link-docs-ai }}vision/concepts/ocr/) and [{{ objstorage-full-name }}](../../storage/), you can perform text recognition on images and maintain an archive of source images and recognition results.
 
 To set up an {{ objstorage-name }} infrastructure for image recognition and automatic export of the results to {{ vision-name }}:
 

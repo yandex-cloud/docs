@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Настроить доступ в бакет с помощью сервисного подключения из {{ vpc-full-name }}
 
+
 {% include [intro-access-via-vpc](../../../_includes/storage/intro-access-via-vpc.md) %}
 
 Чтобы организовать доступ в бакет с помощью сервисного подключения из {{ vpc-short-name }}:

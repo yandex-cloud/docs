@@ -565,20 +565,6 @@ items:
           How to get information about the number of challenges used over a
           certain period
         href: smartcaptcha/how-to/learning-about-monitoring-and-tarification.md
-  - name: '{{ speechkit-name }}'
-    items:
-      - name: All solutions for {{ speechkit-name }}
-        href: speechkit/index.md
-      - name: Solutions for known {{ speechkit-name }} issues
-        href: speechkit/known-issues/index.md
-        hidden: true
-      - name: Resolving the `audio duration should be less than 30s` error
-        href: speechkit/known-issues/error-audio-duration-should-be-less-then-30s.md
-      - name: Sample {{ speechkit-name }} configurations and use cases
-        href: speechkit/how-to/index.md
-        hidden: true
-      - name: How to enable automated punctuation in the recognized text
-        href: speechkit/how-to/enabling-punctuator-in-speechkit.md
   - name: '{{ vpc-short-name }}'
     items:
       - name: All solutions for {{ vpc-short-name }}

@@ -49,13 +49,13 @@ ERROR: Could not install packages due to an OSError: [Errno 28] No space left on
 
 {{ serverless-containers-name }} has [limits](../concepts/limits.md#serverless-containers-limits) on the maximum storage capacity. Limits are technical constraints of the {{ yandex-cloud }} architecture. You cannot change the limits.
 
-If your application requires more space, create a [{{ compute-name }}](/ru/services/compute) VM instance and use it to deploy the application.
+If your application requires more space, create a [{{ compute-name }}](/services/compute) VM instance and use it to deploy the application.
 
 #### How do I assign a static IP address to a container? {#how-to-link-static-ip}
 
 You cannot assign a static IP address to a container because the container may run on resources with different addresses.
 
-If your use case strictly requires a static IP address, [create](../../compute/operations/vm-create/create-linux-vm.md) a [{{ compute-name }}](/ru/services/compute) VM instance, [make its public IP address static](../../vpc/operations/set-static-ip.md), and install the runtime environment for your programming language. Then use that VM to run your code.
+If your use case strictly requires a static IP address, [create](../../compute/operations/vm-create/create-linux-vm.md) a [{{ compute-name }}](/services/compute) VM instance, [make its public IP address static](../../vpc/operations/set-static-ip.md), and install the runtime environment for your programming language. Then use that VM to run your code.
 
 {% note info %}
 

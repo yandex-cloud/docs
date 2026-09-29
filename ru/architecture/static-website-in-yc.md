@@ -37,7 +37,7 @@ keywords:
 * настройка сервиса {{ postbox-name }} для отправки транзакционных писем;
 * внедрение на сайт [функции](../functions/concepts/function.md) {{ sf-name }} для отправки писем и пример такой функции для среды [Node.js](https://nodejs.org/en/docs/).
 
-Дополнительные материалы к руководству доступны в репозитории [![image](../_assets/overview/solution-library-icon.svg) **yc-object-storage-cdn-static-site**](https://github.com/yandex-cloud-examples/yc-object-storage-cdn-static-site) на GitHub.
+Дополнительные материалы к руководству доступны в репозитории ![![image](../_assets/overview/solution-library-icon.svg) **yc-object-storage-cdn-static-site**](https://github.com/yandex-cloud-examples/yc-object-storage-cdn-static-site) на GitHub.
 
 ## Обзор вариантов решений {#solutions}
 

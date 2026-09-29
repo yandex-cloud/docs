@@ -1,6 +1,6 @@
 # Отправить запрос HTTP API к {{ cns-full-name }}
 
-HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
+HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).
 
 Все поддерживаемые действия описаны в [Справочнике API](../api-ref/index.md).
 

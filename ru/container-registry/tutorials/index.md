@@ -5,6 +5,7 @@ description: Различные сценарии использования {{ c
 
 # Практические руководства {{ container-registry-name }}
 
+* [{#T}](container-registry-migration.md)
 * [{#T}](run-docker-on-vm/index.md)
 * [{#T}](sign-cr-with-cosign.md)
 * [{#T}](cr-scanner-with-k8s-and-gitlab.md)

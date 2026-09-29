@@ -1288,6 +1288,7 @@ default:
   s3-storage-host-cli: storage.yandexcloud.net
   s3-storage-host-doc-files: storage.yandexcloud.net/doc-files
   s3-storage-host-mch: storage.yandexcloud.net/managed-clickhouse
+  s3-storage-host-pe: storage.pe.yandexcloud.net
   s3-storage-host-ru: storage.yandexcloud.net
   s3-web-host: website.yandexcloud.net
   saml-limit-display-name: 64 символа
@@ -8496,6 +8497,7 @@ default:
         title_object-lock: Блокировка версии объекта
         value_cold: Холодное
         value_ice: Ледяное
+        value_intelligent_tiering: Умное
         value_standard: Стандартное
       trino:
         catalogs:

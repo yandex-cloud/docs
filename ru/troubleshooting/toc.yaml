@@ -573,22 +573,6 @@ items:
           Как получить информацию о количестве использованных проверок за
           определенный период
         href: smartcaptcha/how-to/learning-about-monitoring-and-tarification.md
-  - name: '{{ speechkit-name }}'
-    items:
-      - name: Все решения для {{ speechkit-name }}
-        href: speechkit/index.md
-      - name: Решения для известных проблем {{ speechkit-name }}
-        href: speechkit/known-issues/index.md
-        hidden: true
-      - name: Устранение ошибки `audio duration should be less than 30s`
-        href: speechkit/known-issues/error-audio-duration-should-be-less-then-30s.md
-      - name: Примеры конфигураций и сценариев {{ speechkit-name }}
-        href: speechkit/how-to/index.md
-        hidden: true
-      - name: >-
-          Как включить автоматическую расстановку знаков препинания в
-          распознанном тексте
-        href: speechkit/how-to/enabling-punctuator-in-speechkit.md
   - name: '{{ vpc-short-name }}'
     items:
       - name: Все решения для {{ vpc-short-name }}

@@ -900,7 +900,7 @@ You cannot disable settings for user or database management via SQL once they ar
     * `--datalens-access`: Enables access from {{ datalens-name }}. The default value is `false`. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
 
     
-    * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
+    * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://yandex.ru/support/metrica/{{ lang }}/uploading-data/cloud). The default value is `false`.
 
     * `--serverless-access`: Enables access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information on configuring access, see [{{ sf-name }} guides](../../functions/operations/database-connection.md).
 

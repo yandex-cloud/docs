@@ -1,5 +1,7 @@
 # Migrating data via {{ data-transfer-full-name }} {#data-transfer}
 
+
+
 To transfer a database from {{ MY }} to {{ mmy-name }}:
 
 1. [Start the data transfer](#start-transfer).
@@ -136,5 +138,4 @@ To minimize resource consumption, delete the resources you no longer need:
 {% endlist %}
 
 
-For a real example of {{ MY }} database migration using {{ data-transfer-name }}, see [Syncing data from using {{ data-transfer-full-name }}](../../../tutorials/dataplatform/sync-mysql.md).
-
+For a real example of {{ MY }} database migration using {{ data-transfer-name }}, see [Syncing MySQL data using {{ data-transfer-full-name }}](../../../tutorials/dataplatform/sync-mysql.md).

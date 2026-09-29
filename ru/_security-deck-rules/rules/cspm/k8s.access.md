@@ -24,6 +24,6 @@
 
 1. Создайте сервисный аккаунт для кластера и выдайте ему [роли, необходимые для управления кластером](https://yandex.cloud/ru/docs/managed-kubernetes/security/#yc-api).
 2. Создайте отдельный сервисный аккаунт для группы узлов и выдайте ему только роль [`container-registry.images.puller`](https://yandex.cloud/ru/docs/container-registry/security/) на тех реестрах, из которых кластер скачивает образы.
-3. Для существующего кластера с одним общим сервисным аккаунтом создайте недостающий и переключите кластер или группу узлов на него через [обновление кластера](https://yandex.cloud/ru/docs/managed-kubernetes/operations/update-cluster) или [обновление группы узлов](https://yandex.cloud/ru/docs/managed-kubernetes/operations/node-group/node-group-update).
+3. Для существующего кластера с одним общим сервисным аккаунтом создайте недостающий и переключите кластер или группу узлов на него через [обновление кластера](https://yandex.cloud/ru/docs/managed-kubernetes/operations/update-kubernetes#cluster-upgrade) или [обновление группы узлов](https://yandex.cloud/ru/docs/managed-kubernetes/operations/update-kubernetes#node-group-upgrade).
 
 Подробнее об управлении доступом в Managed Service for Kubernetes — в [документации по безопасности сервиса](https://yandex.cloud/ru/docs/managed-kubernetes/security/).

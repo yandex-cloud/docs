@@ -21,5 +21,5 @@ Yandex Cloud offers two ways to back up VM disks:
 Configure backups for the VM:
 
 * For production workloads, [activate Cloud Backup](https://yandex.cloud/en/docs/backup/operations/activate-service) and [attach the VM to a backup policy](https://yandex.cloud/en/docs/backup/operations/policy-vm/attach-and-detach-vm) with a retention period that matches your recovery requirements.
-* For other VMs, [create a snapshot schedule](https://yandex.cloud/en/docs/compute/operations/snapshot-schedule/create) for the disks and pick a frequency and retention period that match how often the data changes.
+* For other VMs, [create a snapshot schedule](https://yandex.cloud/en/docs/compute/operations/snapshot-control/create-schedule) for the disks and pick a frequency and retention period that match how often the data changes.
 * Periodically verify that backups can actually be restored — an unverified backup is not a backup.

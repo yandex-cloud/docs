@@ -19,4 +19,4 @@ Add SmartCaptcha to public forms that bots could abuse:
 
 1. [Create a SmartCaptcha](https://yandex.cloud/en/docs/smartcaptcha/quickstart) and add the client-side widget to the form.
 2. On the server, validate the SmartCaptcha token before processing the form.
-3. Monitor the [SmartCaptcha statistics](https://yandex.cloud/en/docs/smartcaptcha/operations/look-statistics) to tune the captcha mode based on the share of traffic that is being challenged.
+3. Monitor the [SmartCaptcha statistics](https://yandex.cloud/en/docs/smartcaptcha/operations/get-info) to tune the captcha mode based on the share of traffic that is being challenged.

@@ -2,7 +2,7 @@
 
 # Отправить запрос HTTP API к Yandex Cloud Notification Service
 
-HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
+HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).
 
 Все поддерживаемые действия описаны в [Справочнике API](index.md).
 

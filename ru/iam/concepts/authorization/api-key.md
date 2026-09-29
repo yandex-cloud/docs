@@ -35,12 +35,12 @@ _API-ключ_ — секретный ключ, используемый тол�
 Доступные области действия:
 
 
-* `yc.ai.foundationModels.execute` — для отправки запросов к [API {{ ai-studio-name }}]({{ link-docs-ai }}ai-studio/concepts/api.html#yc), [API {{ speechkit-name }}]({{ link-docs-ai }}speechkit/concepts/api), [API {{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/api) и [API {{ vision-name }}]({{ link-docs-ai }}vision/ocr/api-ref/index).
+* `yc.ai.foundationModels.execute` — для отправки запросов к [API {{ ai-studio-name }}]({{ link-docs-ai }}ai-studio/concepts/api.html#yc), [API {{ speechkit-name }}]({{ link-docs-ai }}speechkit/concepts/api), [API {{ translate-full-name }}]({{ link-docs-ai }}translate/api-ref/) и [API {{ vision-name }}]({{ link-docs-ai }}vision/ocr/api-ref/index).
 * `yc.ai.imageGeneration.execute` — для отправки запросов к моделям генерации изображений в сервисе {{ ai-studio-full-name }} через [Image Generation API]({{ link-docs-ai }}ai-studio/image-generation/api-ref/index).
 * `yc.ai.languageModels.execute` — для отправки запросов к моделям генерации текста в сервисе {{ ai-studio-full-name }} через [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index).
 * `yc.ai.speechkitStt.execute` — для [распознавания речи]({{ link-docs-ai }}speechkit/stt/index) через [API {{ speechkit-name }}]({{ link-docs-ai }}speechkit/concepts/api).
 * `yc.ai.speechkitTts.execute` — для [синтеза речи]({{ link-docs-ai }}speechkit/tts/index) через [API {{ speechkit-name }}]({{ link-docs-ai }}speechkit/concepts/api).
-* `yc.ai.translate.execute` — для перевода текста через [API {{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/api).
+* `yc.ai.translate.execute` — для перевода текста через [API {{ translate-full-name }}]({{ link-docs-ai }}translate/api-ref/).
 * `yc.ai.vision.execute` — для оптического распознавания текста с помощью [{{ vision-name }} API]({{ link-docs-ai }}vision/ocr/api-ref/index).
 * `yc.datasphere.community-projects.manageResource` — для управления ресурсами [проектов](../../../datasphere/concepts/project.md) через [API {{ ml-platform-full-name }}](../../../datasphere/api-ref/overview.md).
 * `yc.logging.write` — для записи логов в [лог-группы](../../../logging/concepts/log-group.md) через [API {{ cloud-logging-full-name }}](../../../logging/api-ref/authentication.md).
@@ -98,8 +98,8 @@ API-ключи в качестве способа аутентификации �
 * [{{ si-full-name }}](../../../serverless-integrations) — в рамках [{{ sw-full-name }}]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow).
 * [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/concepts/auth)
 * [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/api-ref/authentication)
-* [{{ translate-full-name }}]({{ link-docs-ai }}translate/api-ref/authentication)
-* [{{ vision-full-name }}]({{ link-docs-ai }}vision/api-ref/authentication)
+* [{{ translate-full-name }}]({{ link-docs-ai }}translate/api-ref/)
+* [{{ vision-full-name }}]({{ link-docs-ai }}vision/ocr/api-ref/)
 * {{ yds-full-name }} — [Kafka API](../../../data-streams/kafkaapi/index.md)
 * {{ ydb-full-name }} — только в режиме совместимости с {{ PG }}. Для других режимов работы используйте соответствующий [способ аутентификации](../../../ydb/operations/connection#auth).
 * [{{ metadata-hub-full-name }}](../../../metadata-hub/concepts/index.md) — в рамках [{{ schema-registry-full-name }}](../../../metadata-hub/operations/connect-to-namespace.md).

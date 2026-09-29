@@ -32,7 +32,7 @@
 | Cloud Router | [Yandex Cloud Router](../../cloud-router/index.md) |
 | Cloud Run | [Yandex Container Solution](../../cos/index.md)<br/>[Yandex Serverless Containers](../../serverless-containers/index.md) |
 | Cloud SDK | [Yandex Cloud CLI](../../cli/index.md) |
-| Cloud Search | [Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/concepts) |
+| Cloud Search | [Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/concepts/) |
 | Cloud Security Command Center | [Yandex Security Deck](../../security-deck/index.md) |
 | Cloud Spanner | [Yandex Managed Service for YDB](../../ydb/index.md) |
 | Cloud Speech-to-Text,<br/>Cloud Text-to-Speech | [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/overview) |
@@ -61,5 +61,5 @@
 | Secret Manager | [Yandex Lockbox](../../lockbox/index.md) |
 | Vertex AI Platform | [Yandex DataSphere](../../datasphere/index.md) |
 | Virtual Private Cloud | [Yandex Virtual Private Cloud](../../vpc/index.md) |
-| Workflows | [Yandex AI Studio: Workflows](https://aistudio.yandex.ru/docs/ru/ai-studio/quickstart/workflows.md) |
+| Workflows | [Yandex AI Studio: Workflows](https://aistudio.yandex.ru/docs/ru/ai-studio/quickstart/workflows) |
 | Образы GitLab для ВМ в Google Cloud Marketplace, Google Cloud Developer Tools | [Yandex Managed Service for GitLab](../../managed-gitlab/index.md) |

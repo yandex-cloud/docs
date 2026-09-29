@@ -98,8 +98,8 @@ The following services support authentication based on API keys:
 * [{{ si-full-name }}](../../../serverless-integrations): Within [{{ sw-full-name }}]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow).
 * [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/concepts/auth)
 * [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/api-ref/authentication)
-* [{{ translate-full-name }}]({{ link-docs-ai }}translate/api-ref/authentication)
-* [{{ vision-full-name }}]({{ link-docs-ai }}vision/api-ref/authentication)
+* [{{ translate-full-name }}]({{ link-docs-ai }}translate/api-ref/)
+* [{{ vision-full-name }}]({{ link-docs-ai }}vision/ocr/api-ref/)
 * {{ yds-full-name }}: [Kafka API](../../../data-streams/kafkaapi/index.md).
 * {{ ydb-full-name }}: Only in {{ PG }}-compatible mode. Use a suitable [authentication method](../../../ydb/operations/connection.md#auth) for other modes.
 * [{{ metadata-hub-full-name }}](../../../metadata-hub/concepts/index.md): Within [{{ schema-registry-full-name }}](../../../metadata-hub/operations/connect-to-namespace.md).

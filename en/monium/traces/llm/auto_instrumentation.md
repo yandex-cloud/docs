@@ -22,7 +22,7 @@ Below is a standalone example of a basic AI agent based on the OpenAI SDK (chat 
 
 The example is prepared in two versions:
 * Using a generative model by OpenAI. Availability depends on your location.
-* Using a generative model by [{{ ai-studio-full-name }}]({{ link-docs-ai }}), subject to the [pricing policy]({{ link-docs-ai }}ai-studio/pricing.md).
+* Using a generative model by [{{ ai-studio-full-name }}]({{ link-docs-ai }}), subject to the [pricing policy]({{ link-docs-ai }}ai-studio/pricing).
 
 ### Set up your environment {#prepare-env}
 

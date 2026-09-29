@@ -1,7 +1,6 @@
 # Delivering data from an {{ KF }} queue to {{ CH }} using {{ data-transfer-full-name }}
 
-
-A {{ mch-full-name }} cluster can ingest data from {{ KF }} topics in real time. This data will be automatically inserted into {{ CH }} [`Kafka`]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka)-engine tables.
+A {{ mch-name }} cluster can ingest data from {{ KF }} topics in real time. This data will be automatically inserted into {{ CH }} [`Kafka`]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka)-engine tables.
 
 To set up data delivery from {{ mkf-full-name }} to {{ mch-name }}:
 
