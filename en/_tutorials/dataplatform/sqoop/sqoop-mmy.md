@@ -21,7 +21,7 @@
 {% include [Same Network](../../_tutorials_includes/note-same-network.md) %}
 
 1. [Create a cloud network](../../../vpc/operations/network-create.md).
-1. [Create a subnet](../../../vpc/operations/subnet-create.md) in the `{{ zone-id }}` availability zone.
+1. [Create a subnet](../../../vpc/operations/subnet-create.md) in the `{{ zone-id }}` [availability zone](../../../overview/concepts/geo-scope.md).
 1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the new subnet: this is a prerequisite for the {{ dataproc-name }} cluster.
 
 You can create other resources manually or using {{ TF }}.

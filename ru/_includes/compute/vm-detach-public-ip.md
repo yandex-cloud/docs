@@ -5,7 +5,8 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Выберите виртуальную машину.
-  1. В открывшемся окне в секции **{{ ui-key.yacloud.compute.instance.overview.section_network }}** в правом верхнем углу блока нужного сетевого интерфейса нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_remove-public-ip }}**.
+  1. На вкладке **{{ ui-key.yacloud.common.overview }}** пролистайте вниз до раздела **{{ ui-key.yacloud.compute.instance.overview.section_network }}**.
+  1. В блоке сетевого интерфейса в правом верхнем углу нажмите ![image](../../_assets/console-icons/ellipsis.svg), затем ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.compute.instance.overview.button_remove-public-ip }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.popup-confirm_button_remove-one-to-one-nat }}**.
 
 - CLI {#cli}

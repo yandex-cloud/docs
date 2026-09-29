@@ -8,7 +8,7 @@
 
 **Инструкции и решения по выполнению:**
 
-Артефакты в рамках пайплайна можно подписывать с помощью стороннего ПО [Cosign](https://github.com/sigstore/cosign) для подписи [артефактов](https://docs.sigstore.dev/signing/quickstart/), образов и [in-to-to аттестаций](https://github.com/in-toto/attestation/tree/main/spec/predicates), чтобы в дальнейшем загрузить их в {{ container-registry-full-name }}.
+Артефакты в рамках пайплайна можно подписывать с помощью стороннего ПО [Cosign](https://github.com/sigstore/cosign) для подписи [артефактов](https://docs.sigstore.dev/cosign/signing/overview/), образов и [in-to-to аттестаций](https://github.com/in-toto/attestation/tree/main/spec/predicates), чтобы в дальнейшем загрузить их в {{ container-registry-full-name }}.
 
 С помощью специальной сборки утилиты Cosign сохраняйте созданную [ключевую пару электронной подписи](../../../kms/concepts/asymmetric-signature-key.md) в сервисе [{{ kms-full-name }}](../../../kms/quickstart/index.md), подписывайте файлы и артефакты закрытым ключом этой ключевой пары и проверяйте электронную подпись с помощью ее открытого ключа.
 

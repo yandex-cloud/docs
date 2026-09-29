@@ -40,7 +40,6 @@ When [creating](../index.md#create) an endpoint, select `MSSQL` as your database
 
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.username.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.password.title }}**: Database username and password.
   
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.replication_method.title }}**: Replication method used to retrieve data from the database. `STANDARD` replication requires no setup on the database side, but it does not show data changes. `CDC` replication allows you to capture data inserts, updates, and deletes.
   
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.ssl_method.title }}**: Encryption method used when exchanging data with the database:
       
@@ -55,7 +54,7 @@ When [creating](../index.md#create) an endpoint, select `MSSQL` as your database
 Read more about settings in [this {{ AB }} guide](https://docs.airbyte.com/integrations/sources/mssql/).
 
 
-## Configuring the data target {#supported-targets}
+## Configuring the target {#supported-targets}
 
 Configure one of the supported data targets:
 

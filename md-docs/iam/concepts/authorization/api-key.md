@@ -36,12 +36,12 @@ _API-ключ_ — секретный ключ, используемый тол�
 Доступные области действия:
 
 
-* `yc.ai.foundationModels.execute` — для отправки запросов к [API AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/api.html#yc), [API SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/api), [API Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/concepts/api) и [API Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/ocr/api-ref/index).
+* `yc.ai.foundationModels.execute` — для отправки запросов к [API AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/api.html#yc), [API SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/api), [API Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/api-ref/) и [API Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/ocr/api-ref/index).
 * `yc.ai.imageGeneration.execute` — для отправки запросов к моделям генерации изображений в сервисе Yandex AI Studio через [Image Generation API](https://aistudio.yandex.ru/docs/ru/ai-studio/image-generation/api-ref/index).
 * `yc.ai.languageModels.execute` — для отправки запросов к моделям генерации текста в сервисе Yandex AI Studio через [Text Generation API](https://aistudio.yandex.ru/docs/ru/ai-studio/text-generation/api-ref/index).
 * `yc.ai.speechkitStt.execute` — для [распознавания речи](https://aistudio.yandex.ru/docs/ru/speechkit/stt/index) через [API SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/api).
 * `yc.ai.speechkitTts.execute` — для [синтеза речи](https://aistudio.yandex.ru/docs/ru/speechkit/tts/index) через [API SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/api).
-* `yc.ai.translate.execute` — для перевода текста через [API Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/concepts/api).
+* `yc.ai.translate.execute` — для перевода текста через [API Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/api-ref/).
 * `yc.ai.vision.execute` — для оптического распознавания текста с помощью [Vision OCR API](https://aistudio.yandex.ru/docs/ru/vision/ocr/api-ref/index).
 * `yc.datasphere.community-projects.manageResource` — для управления ресурсами [проектов](../../../datasphere/concepts/project.md) через [API Yandex DataSphere](../../../datasphere/api-ref/overview.md).
 * `yc.logging.write` — для записи логов в [лог-группы](../../../logging/concepts/log-group.md) через [API Yandex Cloud Logging](../../../logging/api-ref/authentication.md).
@@ -108,8 +108,8 @@ API-ключи в качестве способа аутентификации �
 * [Yandex Serverless Integrations](../../../serverless-integrations/index.md) — в рамках [Yandex Workflows](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow).
 * [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/auth)
 * [Yandex SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/api-ref/authentication)
-* [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/api-ref/authentication)
-* [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/api-ref/authentication)
+* [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/api-ref/)
+* [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/ocr/api-ref/)
 * Yandex Data Streams — [Kafka API](../../../data-streams/kafkaapi/index.md)
 * Yandex Managed Service for YDB — только в режиме совместимости с PostgreSQL. Для других режимов работы используйте соответствующий [способ аутентификации](../../../ydb/operations/connection.md#auth).
 * [Yandex MetaData Hub](../../../metadata-hub/concepts/index.md) — в рамках [Yandex Schema Registry](../../../metadata-hub/operations/connect-to-namespace.md).

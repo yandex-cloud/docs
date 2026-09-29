@@ -64,13 +64,13 @@ ERROR: Could not install packages due to an OSError: [Errno 28] No space left on
 
 Максимальный объем хранилища ограничен [лимитами Serverless Containers](../concepts/limits.md#serverless-containers-limits). Лимиты — технические ограничения, обусловленные особенностями архитектуры Yandex Cloud. Изменить лимиты невозможно.
 
-Если для приложения необходимо больше места, создайте виртуальную машину [Compute Cloud](https://yandex.cloud/ru/ru/services/compute) и разверните приложение на ней.
+Если для приложения необходимо больше места, создайте виртуальную машину [Compute Cloud](https://yandex.cloud/ru/services/compute) и разверните приложение на ней.
 
 #### Как привязать статический IP-адрес к контейнеру? {#how-to-link-static-ip}
 
 Привязать статический IP-адрес к контейнеру не получится, потому что контейнер может выполняться на ресурсах с разными адресами.
 
-Если для решения задачи критично использование статического IP-адреса, [создайте](../../compute/operations/vm-create/create-linux-vm.md) виртуальную машину [Compute Cloud](https://yandex.cloud/ru/ru/services/compute), [сделайте ее публичный IP-адрес статическим](../../vpc/operations/set-static-ip.md) и установите среду выполнения для используемого вами языка программирования. Далее запускайте выполнение кода на виртуальной машине.
+Если для решения задачи критично использование статического IP-адреса, [создайте](../../compute/operations/vm-create/create-linux-vm.md) виртуальную машину [Compute Cloud](https://yandex.cloud/ru/services/compute), [сделайте ее публичный IP-адрес статическим](../../vpc/operations/set-static-ip.md) и установите среду выполнения для используемого вами языка программирования. Далее запускайте выполнение кода на виртуальной машине.
 
 {% note info %}
 

@@ -76,7 +76,7 @@
             * В поле **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}** укажите `my-private-topic`.
             * В блоке **{{ ui-key.yacloud.kafka.field_connector-s3-connection }}** укажите параметры:
                * **{{ ui-key.yacloud.kafka.field_connector-bucket-name }}** — созданный ранее бакет.
-               * **{{ ui-key.yacloud.kafka.field_connector-endpoint }}** — `storage.pe.yandexcloud.net`.
+               * **{{ ui-key.yacloud.kafka.field_connector-endpoint }}** — `{{ s3-storage-host-pe }}`.
                * **{{ ui-key.yacloud.kafka.field_connector-access-key-id }}**, **{{ ui-key.yacloud.kafka.field_connector-secret-access-key }}** — идентификатор и секретный ключ созданного ранее статического ключа доступа.
 
         1. [Создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) с публичным IP-адресом в созданной сети `my-private-network` для подключения к бакету.
@@ -129,7 +129,7 @@
 
     {% endlist %}
 
-1. Убедитесь, что в сервисе {{ dns-full-name }} появилась запись `*.storage.pe.yandexcloud.net` в [сервисной зоне](../../dns/concepts/dns-zone.md#service-zones) `.` созданной сети.
+1. Убедитесь, что в сервисе {{ dns-full-name }} появилась запись `*.{{ s3-storage-host-pe }}` в [сервисной зоне](../../dns/concepts/dns-zone.md#service-zones) `.` созданной сети.
 1. Установите утилиту [kafkacat](https://github.com/edenhill/kcat) для записи данных в топик {{ KF }}.
 
     ```bash
@@ -179,14 +179,14 @@
 
    ```bash
    aws s3 ls s3://<имя_бакета> \
-       --endpoint-url=https://storage.pe.yandexcloud.net \
+       --endpoint-url=https://{{ s3-storage-host-pe }} \
        --recursive
    ```
 
    Результат:
 
    ```text
-   Could not connect to the endpoint URL: "https://storage.pe.yandexcloud.net/<имя_бакета>?list-type=2&prefix=&encoding-type=url"
+   Could not connect to the endpoint URL: "https://{{ s3-storage-host-pe }}/<имя_бакета>?list-type=2&prefix=&encoding-type=url"
    ```
 
 ## Проверьте наличие данных в бакете по сервисному подключению {#check-bucket-data}
@@ -198,7 +198,7 @@
 
     ```bash
     aws s3 ls s3://<имя_бакета> \
-        --endpoint-url=https://storage.pe.yandexcloud.net \
+        --endpoint-url=https://{{ s3-storage-host-pe }} \
         --recursive
     ```
 

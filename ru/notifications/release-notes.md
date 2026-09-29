@@ -20,7 +20,7 @@ description: В разделе представлена история изме�
 
 Реализована возможность работать с [топиками](concepts/topics.md), чтобы централизованно отправлять уведомления во множество эндпоинтов.
 
-Формат работы с топиками в {{ cns-name }} совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
+Формат работы с топиками в {{ cns-name }} совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).
 
 Примеры команд для работы с топиками приведены в [консоли управления]({{ link-console-main }}) и в разделах с [пошаговыми инструкциями](operations/index.md#topics).
 

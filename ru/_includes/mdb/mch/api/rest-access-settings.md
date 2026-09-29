@@ -3,7 +3,7 @@
 * `webSql` — разрешить [выполнять SQL-запросы](../../../../managed-clickhouse/operations/web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}: `true` или `false`. Значение по умолчанию — `false`.
 
 
-* `metrika` — разрешить [импорт данных из AppMetrika в кластер](https://appmetrica.yandex.ru/docs/common/cloud/about.html): `true` или `false`. Значение по умолчанию — `false`.
+* `metrika` — разрешить [импорт данных из AppMetrika в кластер](https://yandex.ru/support/metrica/{{ lang }}/uploading-data/cloud): `true` или `false`. Значение по умолчанию — `false`.
 
 * `serverless` — разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../../../functions/concepts/index.md): `true` или `false`. Значение по умолчанию — `false`. Подробнее о настройке доступа в документации [{{ sf-name }}](../../../../functions/operations/database-connection.md).
 

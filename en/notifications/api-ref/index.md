@@ -1,6 +1,6 @@
 # {{ cns-full-name }} HTTP API overview
 
-The {{ cns-name }} HTTP API is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
+The {{ cns-name }} HTTP API is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).
 
 For a more user-friendly experience, you can use the [AWS CLI](../tools/aws-cli.md), [AWS SDK for Python (boto3)](../tools/sdk-python.md), and other [AWS-compatible SDKs](../tools/).
 

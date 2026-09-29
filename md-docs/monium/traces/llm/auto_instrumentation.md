@@ -19,7 +19,7 @@
 
 Пример подготовлен в двух вариантах:
 * с генеративной моделью OpenAI — доступность зависит от вашего местоположения;
-* с генеративной моделью от [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/), оплачивается согласно [правилам тарификации](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing.md).
+* с генеративной моделью от [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/), оплачивается согласно [правилам тарификации](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing).
 
 ### Подготовьте окружение {#prepare-env}
 

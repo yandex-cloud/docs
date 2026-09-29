@@ -243,7 +243,7 @@ Spark Submit позволяет запускать заранее написан
   Чтобы создать и запустить Spark-приложение:
 
   1. [Подключитесь по SSH](../operations/connect-ssh.md) к хосту-мастеру кластера Yandex Data Processing.
-  1. [Установите](https://docs.scala-lang.net/getting-started/index.html#using-the-scala-installer-recommended-way) стандартную утилиту сборки sbt для Scala. Она устанавливается вместе с языком программирования Scala.
+  1. [Установите](https://docs.scala-lang.org/ru/getting-started/install-scala.html) стандартную утилиту сборки sbt для Scala. Она устанавливается вместе с языком программирования Scala.
   1. Создайте папку, например `spark-app`.
   1. В созданную папку добавьте файл с путем `./src/main/scala/app.scala`.
   1. Скопируйте следующий код в файл `app.scala`:
@@ -513,7 +513,7 @@ Spark Submit позволяет запускать заранее написан
     Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
 1. [Подключитесь по SSH](../operations/connect-ssh.md) к хосту-мастеру кластера Yandex Data Processing.
-1. [Установите](https://docs.scala-lang.net/getting-started/index.html#using-the-scala-installer-recommended-way) стандартную утилиту сборки `sbt` для Scala. Она устанавливается вместе с языком программирования Scala.
+1. [Установите](https://docs.scala-lang.org/ru/getting-started/install-scala.html) стандартную утилиту сборки `sbt` для Scala. Она устанавливается вместе с языком программирования Scala.
 1. [Установите и настройте](../../storage/tools/s3cmd.md) консольный клиент S3cmd для работы с Yandex Object Storage.
 
 #### Соберите Scala-приложение {#scala-build}

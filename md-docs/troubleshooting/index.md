@@ -424,18 +424,6 @@
 
  - [Как получить информацию о количестве использованных проверок за определенный период](smartcaptcha/how-to/learning-about-monitoring-and-tarification.md)
 
-## SpeechKit
-
- - [Все решения для SpeechKit](speechkit/index.md)
-
- - [Решения для известных проблем SpeechKit](speechkit/known-issues/index.md)
-
- - [Устранение ошибки `audio duration should be less than 30s`](speechkit/known-issues/error-audio-duration-should-be-less-then-30s.md)
-
- - [Примеры конфигураций и сценариев SpeechKit](speechkit/how-to/index.md)
-
- - [Как включить автоматическую расстановку знаков препинания в распознанном тексте](speechkit/how-to/enabling-punctuator-in-speechkit.md)
-
 ## VPC
 
  - [Все решения для VPC](vpc/index.md)

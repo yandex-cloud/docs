@@ -1,6 +1,6 @@
 # Обзор HTTP API {{ cns-full-name }}
 
-HTTP API сервиса {{ cns-name }} совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html). 
+HTTP API сервиса {{ cns-name }} совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html). 
 
 Для более удобного взаимодействия с сервисом поддержана работа с [AWS CLI](../tools/aws-cli.md), [AWS SDK для Python (boto3)](../tools/sdk-python.md) и другими [AWS-совместимыми SDK](../tools/).
 

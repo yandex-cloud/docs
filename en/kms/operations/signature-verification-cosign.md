@@ -5,7 +5,7 @@ description: Follow this guide to sign a file or artifact, or verify an electron
 
 # Signing files and artifacts digitally using Cosign
 
-In {{ kms-name }}, you can use digital signature key pairs created with [Cosign](https://docs.sigstore.dev/signing/quickstart/). A special build of Cosign enables you to store the created digital signature key pair in {{ kms-short-name }}, sign files and artifacts with the private key, and verify the digital signature with its public key.
+In {{ kms-name }}, you can use digital signature key pairs created with [Cosign](https://docs.sigstore.dev/cosign/). A special build of Cosign enables you to store the created digital signature key pair in {{ kms-short-name }}, sign files and artifacts with the private key, and verify the digital signature with its public key.
 
 ## Getting started {#before-you-begin}
 

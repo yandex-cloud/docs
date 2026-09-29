@@ -17,7 +17,7 @@
 
 Реализована возможность работать с [топиками](concepts/topics.md), чтобы централизованно отправлять уведомления во множество эндпоинтов.
 
-Формат работы с топиками в Cloud Notification Service совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
+Формат работы с топиками в Cloud Notification Service совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).
 
 Примеры команд для работы с топиками приведены в [консоли управления](https://console.yandex.cloud) и в разделах с [пошаговыми инструкциями](operations/index.md#topics).
 

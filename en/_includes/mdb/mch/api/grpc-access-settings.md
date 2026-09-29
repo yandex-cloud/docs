@@ -3,7 +3,7 @@
 * `web_sql`: Enable [SQL queries](../../../../managed-clickhouse/operations/web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}, `true` or `false`. The default value is `false`.
 
 
-* `metrika`: Enable [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html), `true` or `false`. The default value is `false`.
+* `metrika`: Enable [data import from AppMetrica to your cluster](https://yandex.ru/support/metrica/{{ lang }}/uploading-data/cloud), `true` or `false`. The default value is `false`.
 
 * `serverless`: Enable access to the cluster from [{{ sf-full-name }}](../../../../functions/concepts/index.md), `true` or `false`. The default value is `false`. Learn more about access setup in [this {{ sf-name }} guide](../../../../functions/operations/database-connection.md).
 

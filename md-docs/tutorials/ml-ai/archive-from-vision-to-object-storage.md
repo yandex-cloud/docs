@@ -2,7 +2,7 @@
 
 # Распознавание архива изображений в Yandex Vision OCR
 
-С помощью сервисов [Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr) и [Yandex Object Storage](../../storage/index.md) можно организовать распознавание текста на изображениях и хранение архива исходных изображений и результатов распознавания.
+С помощью сервисов [Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/) и [Yandex Object Storage](../../storage/index.md) можно организовать распознавание текста на изображениях и хранение архива исходных изображений и результатов распознавания.
 
 Чтобы настроить инфраструктуру для распознавания текста с помощью Vision OCR и автоматической выгрузки результатов в Object Storage:
 

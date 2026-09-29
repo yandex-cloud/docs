@@ -8,7 +8,33 @@ description: This section contains the {{ data-transfer-name }} release notes.
 
 {% changelog %}
 ```
-date: 2025-06
+date: 2026-08
+index: 5
+```
+
+### New endpoint features
+
+* Clean up your {{ objstorage-name }} target: add data cleanup policies to automatically remove stale, unwanted, or redundant data from your tables.
+* Manually connect the {{ ydb-name }} and {{ yds-name }} endpoints.
+* Use {{ IBRG }} as a target for CDC to track, capture, and stream data modifications.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2026-07
+index: 4
+```
+
+### More options for delivering data from queues
+
+Set up replication from [{{ KF }}](../operations/endpoint/source/kafka.md) and [{{ DS }}](../operations/endpoint/source/data-streams.md) to [{{ IBRG }}](../operations/endpoint/target/iceberg.md) using the management console or API.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2026-06
 index: 3
 ```
 

@@ -8943,6 +8943,9 @@ default:
                         column_compression_codec:
                           title: Compression codec for columns
                       title: Data format
+                    ObjectStorageV1Target:
+                      cleanup_policy:
+                        title: Cleanup policy
                     ObjectStorageV1WriterSettings:
                       ReplicationWriter:
                         title: Replication writer

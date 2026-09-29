@@ -41,6 +41,8 @@ AMD Zen 4</br>(`standard-v4a`) | AMD EPYC™ 9654 | 288 | 2.40
 {{ highfreq-ice-lake }}</br>(`highfreq-v3`) | Intel® Xeon® Processor 6354 | 56 | 3.00
 AMD Zen 4 Compute-Optimized</br>(`highfreq-v4a`) | AMD EPYC™ 9374F | 80 | 3.85
 
+{% include [preemptible-no-highfreq](../../_includes/compute/preemptible-no-highfreq.md) %}
+
 ## Платформы с GPU {#gpu-platforms}
 
 Платформа | Графический</br> ускоритель | Процессор | Характеристики

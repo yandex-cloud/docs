@@ -23,5 +23,5 @@
 Настройте резервное копирование для ВМ:
 
 * Для продуктивных нагрузок [активируйте Cloud Backup](https://yandex.cloud/ru/docs/backup/operations/activate-service) и [привяжите ВМ к политике](https://yandex.cloud/ru/docs/backup/operations/policy-vm/attach-and-detach-vm) с подходящим сроком хранения по вашим требованиям к восстановлению.
-* Для прочих ВМ [настройте расписание снимков](https://yandex.cloud/ru/docs/compute/operations/snapshot-schedule/create) для дисков и подберите частоту и срок хранения под то, как часто меняются данные.
+* Для прочих ВМ [настройте расписание снимков](https://yandex.cloud/ru/docs/compute/operations/snapshot-control/create-schedule) для дисков и подберите частоту и срок хранения под то, как часто меняются данные.
 * Периодически проверяйте, что из резервной копии действительно можно восстановиться — непроверенная резервная копия — это не резервная копия.

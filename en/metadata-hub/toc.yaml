@@ -133,6 +133,8 @@ items:
               Connecting to a {{ objstorage-full-name }} bucket with a bucket
               policy
             href: operations/metastore/s3-policy-connect.md
+          - name: Cluster state monitoring
+            href: operations/metastore/monitoring.md
           - name: Transferring logs to {{ cloud-logging-name }}
             href: operations/metastore/logging.md
           - name: Managing cluster access
@@ -381,6 +383,8 @@ items:
                     href: api-ref/Operation/get.md
                   - name: Cancel
                     href: api-ref/Operation/cancel.md
+      - name: '{{ monitoring-full-name }} metrics'
+        href: metastore-metrics.md
       - name: '{{ at-name }} events'
         href: at-ref.md
   - name: '{{ schema-registry-name }}'

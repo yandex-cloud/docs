@@ -1070,7 +1070,7 @@ Yandex Container Registry умеет запускать сканирование
 
 1. Создайте сервисный аккаунт для кластера и выдайте ему [роли, необходимые для управления кластером](../../managed-kubernetes/security/index.md#yc-api).
 2. Создайте отдельный сервисный аккаунт для группы узлов и выдайте ему только роль [`container-registry.images.puller`](../../container-registry/security/index.md) на тех реестрах, из которых кластер скачивает образы.
-3. Для существующего кластера с одним общим сервисным аккаунтом создайте недостающий и переключите кластер или группу узлов на него через [обновление кластера](../../../managed-kubernetes/operations/update-cluster) или [обновление группы узлов](../../managed-kubernetes/operations/node-group/node-group-update.md).
+3. Для существующего кластера с одним общим сервисным аккаунтом создайте недостающий и переключите кластер или группу узлов на него через [обновление кластера](../../managed-kubernetes/operations/update-kubernetes.md#cluster-upgrade) или [обновление группы узлов](../../managed-kubernetes/operations/update-kubernetes.md#node-group-upgrade).
 
 Подробнее об управлении доступом в Managed Service for Kubernetes — в [документации по безопасности сервиса](../../managed-kubernetes/security/index.md).
 
@@ -1725,7 +1725,7 @@ Yandex Container Registry умеет сканировать Docker-образы 
 
 1. [Создайте SmartCaptcha](../../smartcaptcha/quickstart.md) и встройте клиентский виджет в форму.
 2. На сервере проверяйте токен SmartCaptcha до обработки формы.
-3. Следите за [статистикой SmartCaptcha](../../../smartcaptcha/operations/look-statistics) и подстраивайте режим капчи под долю трафика, которой выдаётся проверка.
+3. Следите за [статистикой SmartCaptcha](../../smartcaptcha/operations/get-info.md) и подстраивайте режим капчи под долю трафика, которой выдаётся проверка.
 
 ### Используется профиль безопасности Yandex Smart Web Security {#use-sws}
 
@@ -1855,7 +1855,7 @@ yc compute instance update <идентификатор_или_имя_ВМ> \
 Настройте резервное копирование для ВМ:
 
 * Для продуктивных нагрузок [активируйте Cloud Backup](../../backup/operations/activate-service.md) и [привяжите ВМ к политике](../../backup/operations/policy-vm/attach-and-detach-vm.md) с подходящим сроком хранения по вашим требованиям к восстановлению.
-* Для прочих ВМ [настройте расписание снимков](../../../compute/operations/snapshot-schedule/create) для дисков и подберите частоту и срок хранения под то, как часто меняются данные.
+* Для прочих ВМ [настройте расписание снимков](../../compute/operations/snapshot-control/create-schedule.md) для дисков и подберите частоту и срок хранения под то, как часто меняются данные.
 * Периодически проверяйте, что из резервной копии действительно можно восстановиться — непроверенная резервная копия — это не резервная копия.
 
 ### Срок действия сертификата Yandex Certificate Manager составляет как минимум 30 дней {#certificate-validity}

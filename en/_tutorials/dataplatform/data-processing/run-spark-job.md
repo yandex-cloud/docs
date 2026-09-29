@@ -214,7 +214,7 @@ Spark Submit allows you to run pre-written applications using the `spark-submit`
   To create and launch a Spark application:
 
   1. [Use SSH to connect](../../../data-proc/operations/connect-ssh.md) to the {{ dataproc-name }} cluster master host.
-  1. [Install](https://docs.scala-lang.net/getting-started/index.html#using-the-scala-installer-recommended-way) _sbt_. It comes bundled with the Scala programming language.
+  1. [Install](https://docs.scala-lang.org/getting-started/install-scala.html) _sbt_. It comes bundled with the Scala programming language.
   1. Create a folder, e.g., `spark-app`.
   1. Add the file with the `./src/main/scala/app.scala` path to the created folder.
   1. Paste the following code to the `app.scala` file:
@@ -474,7 +474,7 @@ To run a Spark job:
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. [Use SSH to connect](../../../data-proc/operations/connect-ssh.md) to the {{ dataproc-name }} cluster master host.
-1. [Install](https://docs.scala-lang.net/getting-started/index.html#using-the-scala-installer-recommended-way) `sbt`, the standard build utility for Scala. It comes bundled with the Scala programming language.
+1. [Install](https://docs.scala-lang.org/getting-started/install-scala.html) `sbt`, the standard build utility for Scala. It comes bundled with the Scala programming language.
 1. [Install and configure](../../../storage/tools/s3cmd.md) the S3cmd console client to work with {{ objstorage-full-name }}.
 
 #### Build a Scala application {#scala-build}

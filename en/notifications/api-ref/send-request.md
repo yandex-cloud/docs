@@ -1,6 +1,6 @@
 # Sending an HTTP API request to {{ cns-full-name }}
 
-The service's HTTP API is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
+The service's HTTP API is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).
 
 You can find all the supported actions in the [API reference](../api-ref/index.md).
 

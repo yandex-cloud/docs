@@ -40,6 +40,9 @@ description: Следуя данной инструкции, вы сможете
 
       * Перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}**.
       * Выберите [платформу](../../../compute/concepts/vm-platforms.md).
+
+        {% include [preemptible-no-highfreq](../../../_includes/compute/preemptible-no-highfreq.md) %}
+        
       * Укажите [гарантированную долю](../../../compute/concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
       * В поле **{{ ui-key.yacloud.component.compute.resources.field_advanced }}** включите опцию **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
       * (Опционально) Включите [программно ускоренную сеть](../../concepts/software-accelerated-network.md).
