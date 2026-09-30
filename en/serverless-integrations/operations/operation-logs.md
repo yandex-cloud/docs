@@ -1,6 +1,8 @@
 # Viewing operations with {{ si-name }} resources
 
-The system logs all actions with {{ si-name }} resources as a list of operations. Each operation gets an ID.
+{% include [sunset-note](../../_includes/serverless-integrations/sunset-note.md) %}
+
+The system logs all actions with {{ si-name }} resources as a list of operations. Each operation gets a unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -24,7 +26,7 @@ The system logs all actions with {{ si-name }} resources as a list of operations
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get the list of operations for the {{ si-name }} resource, run this command:
+  To get a list of operations for the {{ si-name }} resource, run this command:
 
   ```bash
   yc serverless <resource_type> list-operations <resource_name_or_ID>

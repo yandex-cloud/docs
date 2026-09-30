@@ -4,7 +4,6 @@
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-
 ## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
@@ -61,7 +60,7 @@ To set up your OpenCart online store with {{ TF }}:
 
     {% endlist %}
 
-    Learn more about the properties of {{ TF }} resources in the relevant provider guides:
+    Learn more about parameters of resources used in {{ TF }} in these provider guides:
 
     * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
     * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
@@ -76,7 +75,7 @@ To set up your OpenCart online store with {{ TF }}:
 
     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
     * `vm_user`: VM user name.
-    * `ssh_key_path`: Path to the public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path`: Path to the public SSH key file to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `db_user`: DB username, e.g., `user1`.
     * `db_password`: DB password (8 to 128 characters).
 

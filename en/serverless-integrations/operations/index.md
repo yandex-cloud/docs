@@ -5,6 +5,8 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 
 # Step-by-step guides for {{ si-name }}
 
+{% include [sunset-note](../../_includes/serverless-integrations/sunset-note.md) %}
+
 ## {{ er-name }} {#event-router}
 
 ### Getting bus info {#bus-get-info}

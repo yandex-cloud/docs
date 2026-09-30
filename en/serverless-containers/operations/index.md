@@ -76,6 +76,7 @@ description: In this article, you will learn how to work with the managed servic
 * [Creating a trigger for budgets](./budget-trigger-create.md)
 * [Creating a trigger for {{ yds-name }}](./data-streams-trigger-create.md)
 * [Creating an email trigger](./mail-trigger-create.md)
+* [Creating a trigger for Telegram](./telegram-trigger-create.md)
 
 ## Managing a trigger {#manage-trigger}
 

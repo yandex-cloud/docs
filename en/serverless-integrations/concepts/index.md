@@ -18,6 +18,8 @@ keywords:
 
 # {{ si-name }} overview
 
+{% include [sunset-note](../../_includes/serverless-integrations/sunset-note.md) %}
+
 {{ si-full-name }} is a service used to configure and manage integrations using serverless technologies in {{ yandex-cloud }}.
 
 {{ si-name }} allows you to:

@@ -1,5 +1,7 @@
 # Создание виртуальной машины из публичного образа DSVM
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 Создайте ВМ DSVM с помощью сервиса {{ compute-name }} в консоли управления {{ yandex-cloud }} и подключитесь к ней по протоколу [SSH](../../../glossary/ssh-keygen.md).
 
 {% include [role-note](../../../_includes/compute/role-note.md) %}

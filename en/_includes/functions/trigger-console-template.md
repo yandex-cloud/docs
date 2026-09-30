@@ -1,0 +1,1 @@
+Optionally, in the **Transformation template** field, specify a `jq` template to transform events before sending them to the target. If no template is specified, no transformations apply to the events.

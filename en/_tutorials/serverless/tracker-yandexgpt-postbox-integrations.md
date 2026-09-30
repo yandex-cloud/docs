@@ -13,7 +13,7 @@ To configure a workflow in {{ sw-full-name }}:
 1. [Create a service account](#service-account).
 1. [Set up {{ tracker-name }}](#prepare-tracker).
 1. [Configure workflow access in {{ tracker-name }}](#setup-tracker-access).
-1. [Create an address and verify domain ownership in {{ postbox-name }}](#setup-postbox).
+1. [Create an address and pass domain ownership verification in {{ postbox-name }}](#setup-postbox).
 1. [Create a {{ sw-name }} workflow](#setup-workflow).
 1. [Test the workflow](#test).
 
@@ -158,7 +158,7 @@ Create a {{ lockbox-name }} [secret]({{ link-docs }}/lockbox/quickstart) to stor
 
 {% endlist %}
 
-## Create an address and verify domain ownership in {{ postbox-name }} {#setup-postbox}
+## Create an address and pass domain ownership verification in {{ postbox-name }} {#setup-postbox}
 
 To enable the workflow to send emails, create a {{ postbox-name }} [address]({{ link-docs }}/postbox/concepts/glossary#address) and verify the ownership of the sending domain.
 
@@ -193,7 +193,7 @@ To enable the workflow to send emails, create a {{ postbox-name }} [address]({{ 
 
     {% endlist %}
 
-### Verify your domain ownership {#validate-domain}
+### Pass domain ownership verification {#validate-domain}
 
 1. In the public DNS zone of your domain, create a [TXT resource record]({{ link-docs }}/dns/concepts/resource-record#txt) using the following values:
 

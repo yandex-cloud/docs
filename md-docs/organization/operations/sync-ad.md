@@ -51,6 +51,45 @@
 
 1. (Опционально) Если вы планируете настраивать аутентификацию с использованием протокола [Kerberos](https://ru.wikipedia.org/wiki/Kerberos), настройте [SPN](https://learn.microsoft.com/en-us/windows/win32/ad/service-principal-names).
 
+## Включите обратную запись паролей (опционально) {#enable-password-writeback}
+
+Если вы планируете [обратную запись паролей](../concepts/ad-sync/index.md#password-writeback) из Yandex Identity Hub в Active Directory, включите ее для пула пользователей в Yandex Identity Hub.
+
+{% note info %}
+
+Функциональность обратной записи паролей находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить к ней доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+
+{% endnote %}
+
+Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+
+Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+1. Посмотрите описание команды CLI для создания настроек синхронизации:
+
+    ```bash
+    yc organization-manager idp synchronization-settings create --help
+    ```
+
+1. Создайте настройки синхронизации с включенной обратной записью паролей:
+
+    ```bash
+    yc organization-manager idp synchronization-settings create \
+      --subject-container-id <идентификатор_пула_пользователей> \
+      --filter "domain=<домен_в_Active_Directory>" \
+      --enable-password-writeback
+    ```
+
+    Где:
+
+    * `--subject-container-id` — идентификатор [пула пользователей](../concepts/user-pools.md), для которого создаются настройки синхронизации.
+    * `--filter` — домен Active Directory, который нужно синхронизировать. Укажите тот же домен, что и в параметре `sync_settings.filter.domain` конфигурации агента.
+    * `--enable-password-writeback` — включает обратную запись паролей для пула пользователей.
+
+При [настройке агента](#setup-agent) также задайте в его конфигурации параметр `enable_password_writeback: true`.
+
 ## Настройте и запустите агент синхронизации {#setup-agent}
 
 Вы можете установить [агент](../concepts/ad-sync/sync-agent.md) синхронизации на любой сервер под управлением ОС [Linux](https://ru.wikipedia.org/wiki/Linux) или [Windows](https://ru.wikipedia.org/wiki/Windows).

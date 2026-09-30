@@ -33,7 +33,7 @@ items:
             href: operations/revision-info.md
           - name: Configuring metadata service parameters
             href: operations/metadata-options.md
-      - name: Managing rights to access a container
+      - name: Managing container access permissions
         items:
           - name: Making a container public
             href: operations/container-public.md
@@ -145,6 +145,8 @@ items:
             href: operations/data-streams-trigger-create.md
           - name: Creating an email trigger
             href: operations/mail-trigger-create.md
+          - name: Creating a Telegram trigger
+            href: operations/telegram-trigger-create.md
       - name: Managing a trigger
         items:
           - name: Updating a trigger
@@ -197,6 +199,8 @@ items:
             href: concepts/trigger/data-streams-trigger.md
           - name: Email trigger
             href: concepts/trigger/mail-trigger.md
+          - name: Telegram Trigger
+            href: concepts/trigger/telegram-trigger.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
       - name: Container logs

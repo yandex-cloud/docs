@@ -5,6 +5,8 @@ description: Follow this guide to get information about a {{ er-full-name }} rul
 
 # Getting rule information
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

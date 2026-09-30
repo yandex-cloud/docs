@@ -14,6 +14,8 @@ keywords:
 
 # Bus
 
+{% include [sunset-note](../../../_includes/serverless-integrations/sunset-note.md) %}
+
 A _bus_ is a logical entity that groups events and links [connectors](connector.md), which send events to the bus from external sources, with [rules](rule.md) that process events and deliver them to [targets](rule.md#target).
 
 An event is a JSON object delivered to the bus in one of these ways:

@@ -42,28 +42,34 @@ To create a trigger, you will need:
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Optionally, enter a trigger name and description.
+
+        * {% include [triggers-labels-step](../../../_includes/functions/triggers-labels-step.md) %}
+
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_mail }}`.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
     1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_mail-attachments }}**:
-      
+
         {% include [mail-trigger-attachements](../../../_includes/functions/mail-trigger-attachements.md) %}
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+    1. {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
 
-        {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
+    1. Under **Targets**:
 
-        {% include [batch-messages](../../../_includes/functions/batch-messages.md) %}
+        1. In the **Target type** field, select `Function`.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
+        1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
-        {% include [function-settings](../../../_includes/functions/function-settings.md) %}
+            {% include [function-settings](../../../_includes/functions/function-settings.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+        1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
-        {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
+            {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
+        1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
+
+        1. {% include [trigger-console-filter](../../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../../_includes/functions/trigger-console-template.md) %}
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -140,6 +146,64 @@ To create a trigger, you will need:
     1. Describe the trigger in the configuration file:
 
        ```hcl
+       resource "yandex_serverless_triggers" "my_trigger" {
+         name = "<trigger_name>"
+         source {
+           mail {
+             attachments_bucket {
+               bucket_id          = "<bucket_name>"
+               service_account_id = "<service_account_ID>"
+             }
+             batch_settings {
+               max_count = "<max_number_of_messages>"
+               max_bytes = "<max_group_size_in_bytes>"
+               cutoff    = "<maximum_wait_time>"
+             }
+           }
+         }
+         action {
+           invoke_function {
+             function_id        = "<function_ID>"
+             service_account_id = "<service_account_ID>"
+           }
+           retry_policy {
+             retry_attempts = "<number_of_retries>"
+             interval       = "<interval_between_retries>"
+           }
+           dead_letter {
+             dead_letter_queue {
+               queue_arn          = "<Dead_Letter_Queue_ARN>"
+               service_account_id = "<service_account_ID>"
+             }
+           }
+         }
+       }
+       ```
+
+       Where:
+
+       {% include [tf-triggers-common-params](../../../_includes/tf-triggers-common-params.md) %}
+
+       * `source`: Event source settings:
+
+         * `mail`: Mail trigger settings:
+
+           * `attachments_bucket`: Settings of the bucket to save email attachments to. This is an optional section:
+
+               * `bucket_id`: Bucket name.
+               * `service_account_id`: ID of the service account with permissions to upload objects to the {{ objstorage-name }} bucket.
+
+           {% include [tf-triggers-batch-settings](../../../_includes/tf-triggers-batch-settings.md) %}
+
+       {% include [tf-triggers-action-function](../../../_includes/functions/tf-triggers-action-function.md) %}
+
+       The email address to send the mail to will be assigned to the trigger when it is created; you can view it in the trigger properties.
+
+       For more on the properties of the `yandex_serverless_triggers` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_triggers).
+
+       {% cut "Configuration for the yandex_function_trigger resource" %}
+
+       ```hcl
        resource "yandex_function_trigger" "my_trigger" {
          name = "<trigger_name>"
          function {
@@ -175,6 +239,8 @@ To create a trigger, you will need:
        {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
        For more on the properties of the `yandex_function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+
+       {% endcut %}
 
     1. Create the resources:
 

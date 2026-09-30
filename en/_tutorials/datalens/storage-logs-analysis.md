@@ -107,8 +107,7 @@ The cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the bucket you want to enable logging for.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Open the **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}** tab.  
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.  
   1. Enable **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
   1. Select **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}**.
   1. In the **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_prefix_4JTZG }}** field, specify the `s3-logs/` prefix.

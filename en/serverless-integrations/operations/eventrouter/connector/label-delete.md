@@ -5,6 +5,8 @@ description: Follow this tutorial to delete a connector label.
 
 # Deleting a connector label
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

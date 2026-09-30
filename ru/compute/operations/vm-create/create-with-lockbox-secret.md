@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать ВМ с доступом к секрету {{ lockbox-full-name }}
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 Через сервис [метаданных](../../concepts/vm-metadata.md) можно передать в [виртуальную машину](../../concepts/vm.md) идентификатор [секрета {{ lockbox-full-name }}](../../../lockbox/concepts/secret.md), чтобы затем изнутри ВМ получить значение этого секрета с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md) привязанного к ВМ [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
 
 Секреты {{ lockbox-name }}, как и другие пользовательские данные, передаются в ключе `user-data`. Метаданные в [каталог](../../concepts/metadata/directories.md#dir-user) `user-data` можно передавать как при [создании](../index.md#vm-create) ВМ, так и при ее [изменении](../vm-control/vm-update.md).

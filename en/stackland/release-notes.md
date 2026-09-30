@@ -1,3 +1,50 @@
+# What's new in {{ stackland-name }} 26.2.2
+
+{{ stackland-name }} version 26.2.2 is mostly a maintenance release delivering bug fixes for the installer, licensing, {{ ai-studio-name }} components, and monitoring.
+
+## New features
+
+### Licensing
+
+Upgrading clusters installed prior to the introduction of licensing (versions earlier than 26.1.5 and 26.2.0) is no longer blocked by license validation checks. These clusters are now automatically recognized and will continue to operate normally both during license validation and during upgrades.
+
+### {{ ai-studio-name }}
+
+The [{{ model-gallery-name }}](concepts/components/overview.md#model-gallery) and [{{ agent-atelier-name }}](concepts/components/overview.md#agent-atelier) components have been migrated to the Contour ingress controller to replace ingress-nginx. For more on ingress migration, see [{#T}](operations/cluster/upgrade-cluster.md).
+
+### Interface
+
+The {{ stackland-name }} management console now supports management for both the [{{ rest-catalog-name }}](concepts/components/overview.md#rest-catalog) and [{{ mtr-name }}](concepts/components/overview.md#trino) components.
+
+### Installation and upgrades
+
+* `sladm` now checks node DNS names when validating the configuration: if no `installationIp` is specified for a host, its `hostname` cannot be a part of the cluster’s `baseDomain`. This prevents naming conflicts during DNS resolution upon installation.
+* [`sladm diag`](operations/troubleshooting.md) now gathers an expanded range of diagnostic information.
+
+## Fixed issues
+
+### Cluster installation and update
+
+* Resolved an issue where the installation crashed at the `helm install` stage due to the use of an incorrect release name in the status check.
+* Restored support for the `minimal` image set during upgrades. Upgrades no longer fail when updating kubelet images and those of its associated components. Added a check to verify the local registry on each node contains a complete set of images before restarting a cluster upgrade in air-gapped installations.
+
+### Certificates and Ingress
+
+Ingress annotations now correctly override the class specified in `ClusterIssuer` for the Let's Encrypt HTTP-01 solver. Any existing `ClusterIssuer` migrates automatically.
+
+### {{ ai-studio-name }}
+
+* The Responses endpoint (`/v1/responses`, `/v1/files`, and `/v1/vector_stores`) now has a dedicated Ingress controller. This ensures its availability does not depend on the FOMO API endpoints (`/v1/chat/completions`, `/v1/embeddings`, and `/v1/models`).
+* Vector search in Responses now uses the folder ID mapped to the {{ agent-atelier-name }} namespace, eliminating errors when working with multiple folders.
+
+### {{ objstorage-name }}
+
+* Fixed an infinite reconciliation loop when updating or deleting a bucket.
+
+### Monitoring
+
+Revised the {{ grafana-name }} dashboard for persistent volumes to restore the display of usage statistics for Kubernetes 1.34.1, where kubelet fails to export `kubelet_volume_stats_*` metrics when dynamic resource allocation is enabled. Added panels to monitor TopoLVM pools and CSI operation frequency.
+
 # What's new in {{ stackland-name }} 26.2.1
 
 {{ stackland-name }} 26.2.1 introduces cluster scaling, the {{ ai-studio-name }} component, and a new ingress controller named Contour.
@@ -208,19 +255,19 @@ Updated the cluster upgrade form interface in the management console.
 * Restored the ability to delete a cluster without the superuser secret.
 * Fixed Kyverno checks for {{ CH }} and Keeper installation.
 * Removed an excessive port of the `accesscontroller` sidecar.
-* Resolved the cleanup errors when deleting a cluster: excessive Jobs are now properly removed.
+* Resolved cleanup errors when deleting a cluster, with excessive Jobs now removed properly.
 * Consolidated {{ CH }} dashboards; fixed the backup dashboard.
 
 ### {{ mpg-name }}
 
 * Raised the WAL-G operator limits that were previously too low.
-* Fixed {{ PG }} version labeling in images: images with tags 15 and 16 actually contained PostgreSQL 17. The actual database version remains unchanged. If your manifests specify version 15 or 16, update it to 17. For more information, see [{#T}](concepts/components/postgresql.md#pg-image-version).
+* Fixed a {{ PG }} version labeling issue in images where those with tags 15 and 16 actually contained PostgreSQL 17. The actual database version remains unchanged. If your manifests specify version 15 or 16, update it to 17. For more information, see [{#T}](concepts/components/postgresql.md#pg-image-version).
 
 ### {{ datalens-name }}
 
-* Now you see a clear error when service accounts of an access key does not match.
+* You now see a correctly displayed error when an access key's service accounts do not match.
 * Removed deprecated `api-key-*` secret keys.
-* Default configuration is one {{ PG }} instance for GA.
+* The default configuration is one {{ PG }} instance for GA.
 
 ### {{ speechsense-name }}
 
@@ -230,9 +277,9 @@ Updated the cluster upgrade form interface in the management console.
 ### Monitoring and logging
 
 * Reduced `kube-state-metrics` memory usage, eliminating OOM crashes.
-* Fixed `retentionSize` configuration for Prometheus.
-* Restored HWM disabling functionality.
-* Default system metric alerts updated to functional state.
+* Fixed the `retentionSize` configuration for Prometheus.
+* Restored the HWM disabling feature.
+* Updated default system metric alerts to working condition.
 * {{ grafana-name }} now uses the correct Loki application version.
 * Loki is sourced locally, with no external application download required.
 
@@ -242,22 +289,22 @@ Updated the cluster upgrade form interface in the management console.
 * Fixed WebSocket idle timeout in pod terminal.
 * Expanded RBAC permissions for launching pod shell terminals to cover the required scope.
 * `OwnerReference` on {{ CH }} user secrets is now set correctly.
-* Restored shard override flags in {{ CH }} cluster edit form.
-* {{ PG }} cluster creation form now correctly provides the `fromBackup` parameter.
-* Backup creation button is now hidden for clusters without backup configuration.
+* Restored shard override flags in the {{ CH }} cluster edit form.
+* The {{ PG }} cluster creation form now correctly provides the `fromBackup` parameter.
+* The backup creation button is now hidden for clusters without backup configuration.
 * Restored the `withHeader` parameter in the S3 object table.
 * Improved object sorting in buckets and refined S3 bucket tips and UX elements.
-* After bucket editing, redirect now goes to the detail page, not the bucket list.
-* Issuer URL validator error now displays a clear message.
+* The redirect after bucket editing now leads to the detail page, not the bucket list.
+* The issuer URL validator error now displays a clear message.
 * Revised the {{ rest-catalog-name }} catalog form validation for improved consistency.
 * Fixed validation and saving issues in {{ rest-catalog-name }} and {{ mtr-name }} forms.
-* Fixed handling of unbounded `sinceSeconds` value in the pod log filter.
+* Fixed handling of an unbounded `sinceSeconds` value in the pod log filter.
 * In namespace forms, fixed texts and validation.
 * The `scheduledBackupEnabled` toggle now works correctly for {{ PG }} clusters.
-* Cluster creation form no longer leaves an orphaned superuser-secret on failure.
+* The cluster creation form no longer leaves an orphaned superuser secret on failure.
 * Improved Auth-UI error handling and localized messages.
-* Updated Kubeconfig page and refined texts in project and namespace forms.
-* Unified breadcrumbs, `namespace-not-found` redirects, favorites provider, and project path/name display logic.
+* Updated the Kubeconfig page and refined texts in project and namespace forms.
+* Unified breadcrumbs, `namespace-not-found` redirects, the favorites provider, and the project path/name display logic.
 
 # What's new in {{ stackland-name }} 26.1.5
 

@@ -17,11 +17,17 @@ description: '{{ cloud-registry-name }}Follow this guide to create a local regis
     1. In the **Registry type** field, select `Local`.
     1. If you set the registry format to:
 
-        * `Docker`, specify an artifact immutability policy:
+        * `Docker`:
 
-            * `Disabled`: Do not use the policy.
-            * `Simple`: Prevent artifact overwriting.
-            * `Full`: Prevent artifact overwriting, even after the artifact is deleted.
+            1. Specify an artifact immutability policy:
+
+                * `Disabled`: Use no policy.
+                * `Simple`: Prevent artifact overwriting.
+                * `Full`: Prevent artifact overwriting, even after the artifact is deleted.
+
+            1. Under **Security**, enable this option:
+
+                {% include [scanning](../../../_includes/cloud-registry/scanning.md) %}
 
         * `Maven`, specify a versioning policy:
 

@@ -5,6 +5,8 @@ description: Follow this tutorial to update a rule.
 
 # Editing a rule
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

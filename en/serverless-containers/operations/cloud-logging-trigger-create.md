@@ -25,28 +25,34 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
-   
-        * Enter a name and description for the trigger.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_logging }}`.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_logging }}**, specify:
+        * Enter a name and description for the trigger.
+
+        * {% include [triggers-labels-step](../../_includes/functions/triggers-labels-step.md) %}
+
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_logging }}`.
+
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_logging }}**, specify the following:
 
         {% include [logging-settings](../../_includes/functions/logging-settings.md) %}
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+    1. {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
 
-        {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
+    1. Under **Targets**:
 
-        {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %}
+        1. In the **Target type** field, select `Container`.
 
-    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+        1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+        1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
-        {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
+            {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
+        1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
+
+        1. {% include [trigger-console-filter](../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../_includes/functions/trigger-console-template.md) %}
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -62,8 +68,8 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
     yc serverless trigger create logging \
       --name <trigger_name> \
       --log-group-name <log_group_name> \
-      --batch-size <message_batch_size> \
-      --batch-cutoff <maximum_wait_time> \
+      --batch-size <message_group_size> \
+      --batch-cutoff <maximum_timeout> \
       --resource-ids <resource_ID> \
       --resource-types <resource_type> \
       --stream-names <log_stream> \
@@ -131,6 +137,67 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
   1. Describe the trigger in the configuration file:
 
       ```hcl
+      resource "yandex_serverless_triggers" "my_trigger" {
+        name = "<trigger_name>"
+        source {
+          logging {
+            log_group_id  = "<log_group_ID>"
+            resource_type = [ "<resource_type>" ]
+            resource_id   = [ "<resource_ID>" ]
+            stream_name   = [ "<log_stream>" ]
+            levels        = [ "<logging_level>", "<logging_level>" ]
+            batch_settings {
+              max_count = "<max_number_of_messages>"
+              max_bytes = "<max_group_size_in_bytes>"
+              cutoff    = "<maximum_wait_time>"
+            }
+          }
+        }
+        action {
+          invoke_container {
+            container_id       = "<container_ID>"
+            path               = "<HTTP_path>"
+            service_account_id = "<service_account_ID>"
+          }
+          retry_policy {
+            retry_attempts = "<number_of_retries>"
+            interval       = "<interval_between_retries>"
+          }
+          dead_letter {
+            dead_letter_queue {
+              queue_arn          = "<Dead_Letter_Queue_ARN>"
+              service_account_id = "<service_account_ID>"
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      {% include [tf-triggers-common-params](../../_includes/tf-triggers-common-params.md) %}
+
+      * `source`: Event source settings:
+
+        * `logging`: Log group settings:
+
+          * `log_group_id`: ID of the log group whose new log entries will invoke the container.
+          * `resource_type`: Types of resources, e.g., functions in {{ sf-name }}. This is an optional parameter.
+          * `resource_id`: IDs of your resources or {{ yandex-cloud }} resources, e.g., functions in {{ sf-name }}. This is an optional parameter.
+          * `stream_name`: Log streams. This is an optional parameter.
+          * `levels`: Logging levels. This is an optional parameter.
+
+              A trigger fires when the specified log group receives entries that comply with all of the following parameters: `resource_id`, `resource_type`, `stream_name`, and `levels`. If the setting is not specified, the trigger fires for any value.
+
+          {% include [tf-triggers-batch-settings](../../_includes/tf-triggers-batch-settings.md) %}
+
+      {% include [tf-triggers-action-container](../../_includes/serverless-containers/tf-triggers-action-container.md) %}
+
+      For more on the properties of the `yandex_serverless_triggers` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_triggers).
+
+      {% cut "Configuration for the yandex_function_trigger resource" %}
+
+      ```hcl
       resource "yandex_function_trigger" "my_trigger" {
         name = "<trigger_name>"
         container {
@@ -182,6 +249,8 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
       For more on the properties of the `yandex_function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+
+      {% endcut %}
 
   1. Create the resources:
 

@@ -1,17 +1,45 @@
 ---
 title: '{{ vpc-full-name }} release notes'
-description: This section contains {{ vpc-name }} release notes.
+description: This section contains the {{ vpc-name }} release notes.
 ---
 
 # {{ vpc-full-name }} release notes
 
+<!-- Changelog begin -->
+
+{% changelog %}
+```
+date: 2025-03
+index: 1
+```
+
+### Precise availability zone control
+
+![image](../_assets/vpc/changelogs/vpc-balancer-zones-off.png)
+
+Reduce the load on an availability zone during local incidents and test load balancer fault tolerance by disabling zones, either one at a time or multiple zones at once.
+
+### Protection against VM creation without a network
+
+Ensure the reliability of your resources: VMs are now created only when a functional network is guaranteed.
+
+### {{ interconnect-name }} for {{ vpc-name }} and {{ baremetal-name }}
+
+
+
+Connect your cloud and dedicated infrastructure into a single private network using {{ interconnect-name }}.
+
+{% endchangelog %}
+
+<!-- Changelog end -->
+
 ## Q1 2025 {#q1-2025}
 
-* Virtual network's data plane now deploys faster. Network downtime during data plane update was reduced from 60 seconds to 1 second or less.
-* Implemented disconnecting availability zone from network load balancers.
-* Virtual machines are no longer created if the network is guaranteed not to operate when they start.
-* {{ interconnect-name }} has been implemented between {{ vpc-name }} and {{ baremetal-name }}.
-* Optimized the gRPC API and accessing the control plane database by network load balancers: load balancers get status updates and instance groups respond to issues faster. Accelerated the balancing rule updates, e.g., in case of network problems or when changing target groups.
+* Data plane in a virtual network now deploys faster. The network unavailability time for data plane updates was reduced from 60 seconds to 1 second or less.
+* Implemented the option to disconnect an availability zone from network load balancers.
+* Virtual machines are no longer created if guaranteed not to be networked when they start.
+* Implemented connectivity between {{ vpc-name }} and {{ baremetal-name }} via {{ interconnect-name }}.
+* Optimized the gRPC API and accessing the control plane database of network load balancers: increased the speed of load balancer status updates and instance group response to problems. Enabled faster balancing rule updates, e.g., in case of network problems or when modifying target groups.
 
 ## Q3 2024 {#q3-2024}
 

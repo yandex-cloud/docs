@@ -5,6 +5,8 @@ description: Follow this guide to add a label to a connector.
 
 # Adding a label to a connector
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

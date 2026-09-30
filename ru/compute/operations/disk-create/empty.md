@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать пустой диск
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 Вы можете создать пустой диск заданного размера.
 
 {% list tabs group=instructions %}

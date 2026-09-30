@@ -60,6 +60,16 @@ items:
             href: operations/servers/restore-grub.md
           - name: Analyzing server status using HWCheck
             href: operations/servers/use-hwatcher.md
+      - name: BareMetal Extend
+        items:
+          - name: Connecting {{ baremetal-extend-virtualization-name }}
+            href: operations/extend/virtualization.md
+          - name: Creating a {{ baremetal-extend-stackland-name }} cluster
+            href: operations/extend/stackland.md
+          - name: >-
+              Creating a {{ baremetal-name }} node group for {{
+              baremetal-extend-managed-k8s-name }}
+            href: operations/extend/managed-kubernetes.md
       - name: Network
         items:
           - name: Creating a VRF
@@ -100,6 +110,17 @@ items:
                 href: concepts/smart-disk-analysis.md
               - name: RAID
                 href: concepts/disks/raid.md
+      - name: BareMetal Extend
+        expanded: true
+        items:
+          - name: Overview
+            href: concepts/extend.md
+          - name: '{{ baremetal-extend-virtualization-name }}'
+            href: concepts/extend/virtualization.md
+          - name: '{{ baremetal-extend-stackland-name }}'
+            href: concepts/extend/stackland.md
+          - name: '{{ baremetal-extend-managed-k8s-name }}'
+            href: concepts/extend/managed-kubernetes.md
       - name: Network
         expanded: true
         items:

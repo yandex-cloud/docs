@@ -4009,6 +4009,7 @@ default:
       security-center:
         alert:
           action_alert_analysis: Анализ алерта
+          alert_severity-info: Замечание
           overview_tags: Теги
         alerts:
           sink:
@@ -4398,13 +4399,6 @@ default:
           query-placeholder_auE1D: Введите запрос, используя синтаксис KQL, или выберите шаблон запроса
           YcdrPageLayout:
             investigations_wYxSe: Расследования
-      shared:
-        components:
-          severity_critical_uT8Xg: Максимальная критичность
-          severity_high_cahHH: Высокая критичность
-          severity_info_biSRh: Замечание
-          severity_low_tqf9A: Низкая критичность
-          severity_medium_8LZ4w: Средняя критичность
       siem:
         SearchActionButtonBlock:
           save: Сохранить
@@ -5374,6 +5368,10 @@ default:
       cloud-registry:
         action_registry-create: Создать реестр
         action_scan-artifacts-modal-add: Добавить
+        label_vulnerability-severity-tooltip-critical: Максимальная критичность
+        label_vulnerability-severity-tooltip-high: Высокая критичность
+        label_vulnerability-severity-tooltip-low: Низкая критичность
+        label_vulnerability-severity-tooltip-medium: Средняя критичность
         menu_scanner: Сканер уязвимостей
         registries:
           button_update-ip-permissions-full: Настроить доступ
@@ -6337,7 +6335,6 @@ default:
         field_capacity-per-instance: Количество параллельных задач на воркер
         field_copy-object-storage: Перенести данные из Object Storage
         field_copy-omniauth-config: Перенести параметры OmniAuth
-        field_delete-untagged: Удалять образы без тегов при обслуживании
         field_domain: Домен
         field_idle-time-minutes: Лимит простоя воркера, в минутах
         field_max-use-count: Максимум задач на воркер
@@ -6831,12 +6828,12 @@ default:
             section_master: Конфигурация мастера
           switch_access: Управление доступом
           switch_cluster-overview: Управление кластером
-          switch_configuration: ConfigMap и секреты
+          switch_configuration: ConfigMaps и Secrets
           switch_custom-resources: Пользовательские ресурсы
           switch_events: События
           switch_marketplace: Marketplace
           switch_namespaces: Пространства имён
-          switch_network: Сервисы и Ingress
+          switch_network: Services и Ingresses
           switch_nodes-manager: Управление узлами
           switch_storage: Постоянные тома
           switch_workloads: Рабочая нагрузка

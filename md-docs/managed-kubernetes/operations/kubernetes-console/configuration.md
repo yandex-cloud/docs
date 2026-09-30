@@ -14,7 +14,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Выберите кластер Managed Service for Kubernetes и перейдите на вкладку **ConfigMap и секреты**.
+  1. Выберите кластер Managed Service for Kubernetes и перейдите на вкладку **ConfigMaps и Secrets**.
   1. Перейдите на вкладку с типом ресурса, который нужно создать: **ConfigMaps** или **Secrets**.
   1. Нажмите кнопку создания для выбранного типа ресурса.
   1. В выпадающем списке выберите **Пространство имён**, в котором будет создан ресурс.
@@ -35,7 +35,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Выберите кластер и перейдите на вкладку **ConfigMap и секреты**.
+  1. Выберите кластер и перейдите на вкладку **ConfigMaps и Secrets**.
   1. Перейдите на вкладку с типом ресурса, который нужно отредактировать: **ConfigMaps** или **Secrets**.
   1. В строке ресурса нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Внесите изменения в файл манифеста в правой части экрана. Изменения будут выделены цветом.
@@ -57,7 +57,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Выберите кластер и перейдите на вкладку **ConfigMap и секреты**.
+  1. Выберите кластер и перейдите на вкладку **ConfigMaps и Secrets**.
   1. Перейдите на вкладку с типом ресурса, который нужно удалить: **ConfigMaps** или **Secrets**.
   1. В строке ресурса нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. В открывшемся окне подтвердите действие.

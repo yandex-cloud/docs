@@ -1,1 +1,0 @@
-The trigger groups events within the specified wait time period and sends them to the function. The number of events cannot exceed the specified batch size.

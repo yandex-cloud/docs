@@ -461,11 +461,14 @@ resource "yandex_vpc_subnet" "baz" {
       - `min_rows_for_wide_part` (Number). Minimum number of rows in a data part that can be stored in Wide format. You can set one, both or none of these settings.
       - `min_rows_to_fsync_after_merge` (Number). Minimal number of rows to do fsync for part after merge. **0** means disabled.
       - `number_of_free_entries_in_pool_to_execute_mutation` (Number). When there is less than specified number of free entries in pool, do not execute part mutations. This is to leave free threads for regular merges and avoid `Too many parts`. Default value: 20.
+      - `number_of_free_entries_in_pool_to_execute_optimize_entire_partition` (Number). When there is less than the specified number of free entries in the pool, do not execute optimization of an entire partition in the background. Default value: 25.
       - `number_of_free_entries_in_pool_to_lower_max_size_of_merge` (Number). Number of free entries in pool to lower max size of merge: Threshold value of free entries in the pool. If the number of entries in the pool falls below this value, ClickHouse reduces the maximum size of a data part to merge. This helps handle small merges faster, rather than filling the pool with lengthy merges.
       - `parts_to_delay_insert` (Number). Parts to delay insert: Number of active data parts in a table, on exceeding which ClickHouse starts artificially reduce the rate of inserting data into the table
       - `parts_to_throw_insert` (Number). Parts to throw insert: Threshold value of active data parts in a table, on exceeding which ClickHouse throws the 'Too many parts ...' exception.
       - `replicated_deduplication_window` (Number). Replicated deduplication window: Number of recent hash blocks that ZooKeeper will store (the old ones will be deleted).
+      - `replicated_deduplication_window_for_async_inserts` (Number). The number of most recently asynchronously inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
       - `replicated_deduplication_window_seconds` (Number). Replicated deduplication window seconds: Time during which ZooKeeper stores the hash blocks (the old ones will be deleted).
+      - `replicated_deduplication_window_seconds_for_async_inserts` (Number). The number of seconds after which hash sums of asynchronous inserts are removed from ClickHouse Keeper.
       - `ttl_only_drop_parts` (Bool). Enables zero-copy replication when a replica is located on a remote filesystem.
     - `metric_log_enabled` (Bool). Enable or disable metric_log system table.
     - `metric_log_retention_size` (Number). The maximum size that metric_log can grow to before old data will be removed.
@@ -529,6 +532,7 @@ resource "yandex_vpc_subnet" "baz" {
     - `add_http_cors_header` (Bool). Include CORS headers in HTTP response.
     - `allow_ddl` (Bool). Allows or denies DDL queries.
     - `allow_introspection_functions` (Bool). Enables or disables introspection functions for query profiling.
+    - `allow_reorder_prewhere_conditions` (Bool). Allows reordering conditions when moving them from WHERE to PREWHERE.
     - `allow_suspicious_low_cardinality_types` (Bool). Allows specifying LowCardinality modifier for types of small fixed size (8 or less) in CREATE TABLE statements. Enabling this may increase merge times and memory consumption.
     - `any_join_distinct_right_table_keys` (Bool). Enables legacy ClickHouse server behaviour in ANY INNER|LEFT JOIN operations.
     - `async_insert` (Bool). Enables asynchronous inserts. Disabled by default.
@@ -537,12 +541,18 @@ resource "yandex_vpc_subnet" "baz" {
     - `async_insert_stale_timeout` (Number). The maximum timeout in milliseconds since the last INSERT query before dumping collected data. If enabled, the settings prolongs the async_insert_busy_timeout with every INSERT query as long as async_insert_max_data_size is not exceeded.
     - `async_insert_threads` (Number). The maximum number of threads for background data parsing and insertion. If the parameter is set to 0, asynchronous insertions are disabled. Default value: 16.
     - `async_insert_use_adaptive_busy_timeout` (Bool). If it is set to true, use adaptive busy timeout for asynchronous inserts.
+    - `async_query_sending_for_remote` (Bool). Enables asynchronous connection creation and query sending while executing remote queries.
+    - `async_socket_for_remote` (Bool). Enables asynchronous reads from sockets while executing remote queries.
     - `cancel_http_readonly_queries_on_client_close` (Bool). Cancels HTTP read-only queries (e.g. SELECT) when a client closes the connection without waiting for the response. Default value: false.
+    - `compatibility` (String). Makes ClickHouse use the default settings of the specified previous ClickHouse version.
     - `compile_expressions` (Bool). Enable or disable compilation of some scalar functions and operators to native code.
     - `connect_timeout` (Number). Connection timeout in milliseconds.
     - `connect_timeout_with_failover` (Number). The timeout in milliseconds for connecting to a remote server for a Distributed table engine.  Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+    - `connect_timeout_with_failover_secure` (Number). Connection timeout in milliseconds for selecting the first healthy replica for secure connections.
+    - `connections_with_failover_max_tries` (Number). The maximum number of connection attempts with each replica for the Distributed table engine.
     - `count_distinct_implementation` (String). Specifies which of the uniq* functions should be used to perform the COUNT(DISTINCT …) construction.
     - `data_type_default_nullable` (Bool). Allows data types without explicit modifiers NULL or NOT NULL in column definition will be Nullable.
+    - `database_atomic_wait_for_drop_and_detach_synchronously` (Bool). Makes DROP and DETACH queries wait for completion of table removal when using Atomic databases.
     - `date_time_input_format` (String). Allows choosing a parser of the text representation of date and time, one of: `best_effort`, `basic`, `best_effort_us`. Default value: `basic`. Cloud default value: `best_effort`.
     - `date_time_output_format` (String). Allows choosing different output formats of the text representation of date and time, one of: `simple`, `iso`, `unix_timestamp`. Default value: `simple`.
     - `deduplicate_blocks_in_dependent_materialized_views` (Bool). Enables or disables the deduplication check for materialized views that receive data from Replicated* tables.
@@ -602,6 +612,7 @@ If the parameter is set to 0 (default), no hops is allowed.
     - `log_query_threads` (Bool). Setting up query threads logging. Query threads log into the system.query_thread_log table. This setting has effect only when log_queries is true. Queries’ threads run by ClickHouse with this setup are logged according to the rules in the query_thread_log server configuration parameter. Default value: true.
     - `log_query_views` (Bool). Enables or disables query views logging to the the system.query_views_log table.
     - `low_cardinality_allow_in_native_format` (Bool). Allows or restricts using the LowCardinality data type with the Native format.
+    - `materialize_ttl_after_modify` (Bool). Applies TTL to old data after an ALTER MODIFY TTL query.
     - `max_ast_depth` (Number). Limits the maximum depth of query syntax tree.
     - `max_ast_elements` (Number). Limits the maximum size of query syntax tree in number of nodes.
     - `max_block_size` (Number). A recommendation for what size of the block (in a count of rows) to load from tables.
@@ -610,6 +621,8 @@ If the parameter is set to 0 (default), no hops is allowed.
     - `max_bytes_in_distinct` (Number). Limits the maximum size of a hash table in bytes (uncompressed data) when using DISTINCT.
     - `max_bytes_in_join` (Number). Limit on maximum size of the hash table for JOIN, in bytes.
     - `max_bytes_in_set` (Number). Limit on the number of bytes in the set resulting from the execution of the IN section.
+    - `max_bytes_ratio_before_external_group_by` (Number). The ratio of available memory that is allowed for GROUP BY. Once reached, external aggregation is used.
+    - `max_bytes_ratio_before_external_sort` (Number). The ratio of available memory that is allowed for ORDER BY. Once reached, external sort is used.
     - `max_bytes_to_read` (Number). Limits the maximum number of bytes (uncompressed data) that can be read from a table when running a query.
     - `max_bytes_to_sort` (Number). Limits the maximum number of bytes (uncompressed data) that can be read from a table for sorting.
     - `max_bytes_to_transfer` (Number). Limits the maximum number of bytes (uncompressed data) that can be passed to a remote server or saved in a temporary table when using GLOBAL IN.
@@ -625,10 +638,13 @@ If the parameter is set to 0 (default), no hops is allowed.
     - `max_memory_usage_for_user` (Number). Maximum memory usage for processing all concurrently running queries for the user. Zero means unlimited.
     - `max_network_bandwidth` (Number). Limits the speed of the data exchange over the network in bytes per second.  This setting applies to every query.
     - `max_network_bandwidth_for_user` (Number). Limits the speed of the data exchange over the network in bytes per second. This setting applies to all concurrently running queries performed by a single user.
+    - `max_network_bytes` (Number). Limits the amount of data exchanged over the network in bytes for a query. Zero means unlimited.
     - `max_parser_depth` (Number). Limits maximum recursion depth in the recursive descent parser. Allows controlling the stack size.
     - `max_partitions_per_insert_block` (Number). Limits the maximum number of partitions in a single inserted block.
     - `max_query_size` (Number). The maximum part of a query that can be taken to RAM for parsing with the SQL parser.
     - `max_read_buffer_size` (Number). The maximum size of the buffer to read from the filesystem.
+    - `max_remote_read_network_bandwidth` (Number). Limits the speed of remote reads over the network in bytes per second. Zero means unlimited.
+    - `max_remote_write_network_bandwidth` (Number). Limits the speed of remote writes over the network in bytes per second. Zero means unlimited.
     - `max_replica_delay_for_distributed_queries` (Number). Max replica delay in milliseconds. If a replica lags more than the set value,this replica is not used and becomes a stale one.
     - `max_result_bytes` (Number). Limits the number of bytes in the result.
     - `max_result_rows` (Number). Limits the number of rows in the result.
@@ -684,6 +700,7 @@ If the parameter is set to 0 (default), no hops is allowed.
     - `send_progress_in_http_headers` (Bool). Enables or disables X-ClickHouse-Progress HTTP response headers in clickhouse-server responses.
     - `send_timeout` (Number). Send timeout in milliseconds.
     - `set_overflow_mode` (String). Sets behaviour on overflow in the set resulting.
+    - `show_data_lake_catalogs_in_system_tables` (Bool). Enables or disables showing data lake catalogs in system tables.
     - `skip_unavailable_shards` (Bool). Enables or disables silent skipping of unavailable shards
     - `sort_overflow_mode` (String). Sets behaviour on overflow while sort.
     - `timeout_before_checking_execution_speed` (Number). Timeout (in seconds) between checks of execution speed. It is checked that execution speed is not less that specified in min_execution_speed parameter. Must be at least 1000.
@@ -691,6 +708,7 @@ If the parameter is set to 0 (default), no hops is allowed.
     - `transfer_overflow_mode` (String). Sets behaviour on overflow.
     - `transform_null_in` (Bool). Enables equality of NULL values for IN operator.
     - `use_hedged_requests` (Bool). Enables hedged requests logic for remote queries. It allows to establish many connections with different replicas for query. New connection is enabled in case existent connection(s) with replica(s) were not established within hedged_connection_timeout or no data was received within receive_data_timeout. Query uses the first connection which send non empty progress packet (or data packet, if allow_changing_replica_until_first_data_packet); other connections are cancelled. Queries with max_parallel_replicas > 1 are supported. Default value: true.
+    - `use_hive_partitioning` (Bool). Enables Hive-style partitioning when reading from file-like table engines.
     - `use_query_cache` (Bool). If turned on, SELECT queries may utilize the query cache.
     - `use_uncompressed_cache` (Bool). Whether to use a cache of uncompressed blocks.
     - `wait_for_async_insert` (Bool). Enables waiting for processing of asynchronous insertion. If enabled, server returns OK only after the data is inserted.

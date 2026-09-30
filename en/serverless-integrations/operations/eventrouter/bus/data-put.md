@@ -5,6 +5,8 @@ description: Follow this guide to send events directly to an {{ er-full-name }} 
 
 # Sending events directly to a bus
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% note info %}
 
 You can send events to a bus directly only if there is at least one [rule](../../../concepts/eventrouter/rule.md) attached to it.

@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, как можно перен
 
 # Перенести группу виртуальных машин с L7-балансировщиком в другую зону доступности
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 Чтобы перенести [группу ВМ](../../concepts/instance-groups/index.md) с [L7-балансировщиком](../../../application-load-balancer/concepts/application-load-balancer.md) [{{ alb-full-name }}](../../../application-load-balancer/):
 

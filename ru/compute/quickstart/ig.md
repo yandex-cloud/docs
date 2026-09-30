@@ -1,5 +1,7 @@
 # Создание группы виртуальных машин
 
+{% include [quota-zones-warning](../../_includes/compute/quota-zones-warning.md) %}
+
 Создайте группу ВМ с помощью компонента [Instance Groups](../concepts/instance-groups/index.md) в консоли управления {{ yandex-cloud }}.
 
 ## Перед началом работы {#before-you-begin}

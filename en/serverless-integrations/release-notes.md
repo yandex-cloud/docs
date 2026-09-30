@@ -5,6 +5,8 @@ description: This section contains the {{ si-name }} release notes.
 
 # {{ si-full-name }} release notes
 
+{% include [sunset-note](../_includes/serverless-integrations/sunset-note.md) %}
+
 ## February 2026 {#february-2026}
 
 ### Updates {#updates}

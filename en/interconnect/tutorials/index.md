@@ -1,7 +1,9 @@
 ---
 title: '{{ interconnect-full-name }} tutorials'
-description: Various use cases for {{ interconnect-name }} in {{ yandex-cloud }}.
+description: Various {{ interconnect-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ interconnect-name }} tutorials
+
+* [{#T}](vpc-stitching.md)
 

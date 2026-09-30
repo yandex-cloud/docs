@@ -17,6 +17,7 @@ An OauthClient resource.
 - `oauth_client_id` (String). ID of the OAuthClient resource to return.
  To get the oauth client ID, use a [OAuthClientService.List] request.
 - `pkce_required` (*Read-Only*) (Bool). Whether PKCE (Proof Key for Code Exchange) is required for the oauth client during the authorization code flow.
+- `post_logout_redirect_uris` (*Read-Only*) (Set Of String). List of URIs to which users can be redirected after signing out of the oauth client.
 - `profile_id` (*Read-Only*) (String). ID of the profile that defines the set of allowed settings for the oauth client.
 - `redirect_uris` (*Read-Only*) (Set Of String). List of redirect uries allowed for the oauth client.
 - `scopes` (*Read-Only*) (Set Of String). List of oauth scopes requested by the oauth client.

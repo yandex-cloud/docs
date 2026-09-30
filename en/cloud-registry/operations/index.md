@@ -25,6 +25,14 @@ description: This section contains step-by-step guides for {{ cloud-registry-nam
 * [Setting up an access policy](registry/create-access-policy.md)
 * [Deleting an access policy](registry/remove-access-policy.md)
 
+### Lifecycle policy {#lifecycle-policy}
+
+* [Creating a lifecycle policy](lifecycle-policy/create.md)
+
+### Scanning a registry {#scanning}
+
+* [Scanning a registry](registry/scanning.md)
+
 
 ## Managing artifacts {#artifact}
 
@@ -84,4 +92,3 @@ description: This section contains step-by-step guides for {{ cloud-registry-nam
 ## Other guides {#other}
 
 * [Deleting an artifact from the registry](artifacts/delete.md)
-* [Creating a lifecycle policy](lifecycle-policy/create.md)

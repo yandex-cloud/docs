@@ -28,34 +28,24 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
 
   Run this command to assign a role for a resource:
 
-  * To a user:
+  ```bash
+  yc container <resource> add-access-binding <resource_name_or_ID> \
+    --role <role> \
+    --subject <subject_type>:<subject_ID>
+  ```
 
-    ```bash
-    yc container <resource> add-access-binding <resource_name_or_ID> \
-      --role <role> \
-      --user-account-id <user_ID>
-    ```
+  Where:
 
-  * [To a service account](../../../iam/concepts/users/service-accounts.md):
+  * `<resource>`: `registry` or `repository` resource type.
+  * `<resource_name_or_ID>`: Name or ID of the resource to assign the role for.
+  * `--role`: [Role](../../security/index.md#service-roles) you want to assign.
+  * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-    ```bash
-    yc container <resource> add-access-binding <resource_name_or_ID> \
-      --role <role> \
-      --service-account-id <service_account_ID>
-    ```
+      {% cut "Subject designations" %}
 
-  * To all authenticated users (the `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md)):
+      {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
 
-    ```bash
-    yc container <resource> add-access-binding <resource_name_or_ID> \
-      --role <role> \
-      --all-authenticated-users
-    ```
-
-    Where:
-    * `<resource>`: `registry` or `repository` resource type.
-    * `<resource_name_or_ID>`: Name or ID of the resource to assign the role for.
-    * `<role>`: [Role](../../security/index.md#service-roles) you want to assign.
+      {% endcut %}
   
   **Example**
 
@@ -64,7 +54,7 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
   ```bash
   yc container registry add-access-binding my-first-registry \
     --role container-registry.admin \
-    --user-account-id ajeugsk5ubk6********
+    --subject userAccount:ajeugsk5ubk6********
   ```
 
   Result:
@@ -86,7 +76,7 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
          role        = "<role>"
        
          members = [
-           "userAccount:<user_ID>",
+           "<subject_type>:<subject_ID>",
          ]
        }
        ```
@@ -94,7 +84,13 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
        Where:
        * `registry_id`: ID of the registry for which the role is being assigned. To find out the registry ID, [get a list of registries in the folder](../registry/registry-list.md#registry-list).
        * `role`: [Role](../../security/index.md#service-roles) you want to assign.
-       * `members`: ID of the user, group, or service account getting the role.
+       * `members`: List of designations of [subjects](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+
+           {% cut "Subject designations" %}
+
+           {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+           {% endcut %}
      
      * The `yandex_container_repository_iam_binding` resource parameters to assign the role for the [repository](../../concepts/repository.md):
 
@@ -104,7 +100,7 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
          role          = "<role>"
        
          members = [
-           "serviceAccount:<service_account_ID>",
+           "<subject_type>:<subject_ID>",
          ]
        }
        ```
@@ -112,7 +108,13 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
        Where:
        * `repository_id`: ID of the repository for which you are assigning the role. To find out the repository ID, [get a list of repositories in the folder](../repository/repository-list.md#repository-list).
        * `role`: Role you want to assign.
-       * `members`: ID of the user, group, or service account getting the role.
+       * `members`: List of designations of subjects getting the role.
+
+           {% cut "Subject designations" %}
+
+           {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+           {% endcut %}
 
      For more on the properties of the `yandex_container_repository_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/container_repository_iam_binding).
   
@@ -134,8 +136,16 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md) gRPC API call.
+  To assign a role for a registry, use the [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md) gRPC API call.
 
-  Use the [updateAccessBindings](../../api-ref/Repository/updateAccessBindings.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/UpdateAccessBindings](../../api-ref/grpc/Repository/updateAccessBindings.md) gRPC API call.
+  To assign a role for a repository, use the [updateAccessBindings](../../api-ref/Repository/updateAccessBindings.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/UpdateAccessBindings](../../api-ref/grpc/Repository/updateAccessBindings.md) gRPC API call.
+
+  In the request body, set the `action` property to `ADD` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

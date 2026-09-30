@@ -796,6 +796,8 @@ items:
         href: concepts/encryption.md
       - name: Резервное копирование
         href: concepts/backups.md
+      - name: Изменение квотирования ресурсов
+        href: concepts/quota-zones.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

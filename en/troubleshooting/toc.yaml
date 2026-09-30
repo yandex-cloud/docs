@@ -410,24 +410,6 @@ items:
         hidden: true
       - name: Resolving the `Failed authentication with /` error
         href: managed-kafka/known-issues/error-failed-authentification.md
-  - name: '{{ mgl-name }}'
-    items:
-      - name: All solutions for {{ mgl-name }}
-        href: managed-gitlab/index.md
-      - name: Solutions for known {{ mgl-name }} issues
-        href: managed-gitlab/known-issues/index.md
-        hidden: true
-      - name: Resolving the HTTP 500 error in {{ mgl-name }}
-        href: managed-gitlab/known-issues/error-500.md
-      - name: Resolving error 413 when executing `git push`
-        href: managed-gitlab/known-issues/error-413.md
-      - name: Sample {{ mgl-name }} configurations and use cases
-        href: managed-gitlab/how-to/index.md
-        hidden: true
-      - name: How to update the {{ mgl-name }} instance software
-        href: managed-gitlab/how-to/update-gitlab-software-version.md
-      - name: How to set up project migration
-        href: managed-gitlab/how-to/migrate-projects.md
   - name: '{{ network-load-balancer-name }}'
     items:
       - name: All solutions for {{ network-load-balancer-name }}

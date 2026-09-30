@@ -1,1 +1,0 @@
-The trigger groups messages within the specified wait time period and sends them to the function. The number of messages cannot exceed the specified batch size.

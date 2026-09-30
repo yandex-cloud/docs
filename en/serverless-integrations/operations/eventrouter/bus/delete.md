@@ -5,6 +5,8 @@ description: Follow this guide to delete a bus.
 
 # Deleting a bus
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% note info %}
 
 You cannot delete a bus if deletion protection is enabled. [Disable](update.md) the protection before deletion.

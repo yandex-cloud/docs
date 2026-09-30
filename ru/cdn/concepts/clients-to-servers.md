@@ -1,3 +1,8 @@
+---
+title: Настройки обмена данными между клиентами и CDN в {{ cdn-full-name }}
+description: 'Настройки соединений между клиентами и {{ cdn-name }}: протоколы, сертификаты, HTTP-заголовки и методы, CORS и сжатие контента. Ограничение на тело запросов GET, HEAD и OPTIONS.'
+---
+
 # Настройки обмена данными между клиентами и CDN
 
 Когда клиент запрашивает через ваш сервис файл, опубликованный через {{ cdn-name }}, между клиентом и CDN-балансировщиком устанавливается HTTP- или HTTPS-соединение, в зависимости от схемы в URI: `http://cdn.example.com/styles/common.css` или `https://cdn.example.com/styles/common.css`.
@@ -15,3 +20,7 @@
   {% include [post-method](../../_includes/cdn/http-post-method.md) %}
 
 * [отправку контента в сжатом виде](compression.md) с использованием HTTP-заголовка `Content-Encoding: gzip`.
+
+## Ограничение на тело запросов {#request-body}
+
+{% include [http-request-body](../../_includes/cdn/http-request-body.md) %}

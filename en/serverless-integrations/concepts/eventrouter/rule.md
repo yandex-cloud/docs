@@ -13,6 +13,8 @@ keywords:
 
 # Rule
 
+{% include [sunset-note](../../../_includes/serverless-integrations/sunset-note.md) %}
+
 _Rule_ is a routing component that consists of a filter and one to five [targets](#target). A [bus](bus.md) may have a number of rules associated with it. Each event entering a bus is filtered using all the bus rules. Before a rule is triggered, the event is checked against the conditions specified in the [filter](#filter). If the conditions are met, the rule is triggered and the event is forwarded to all the targets specified in the rule.
 
 ## Filter {#filter}

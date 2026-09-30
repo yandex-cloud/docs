@@ -5,6 +5,8 @@ description: Follow this guide to send events to an {{ er-name }} bus using a co
 
 # Sending events to a bus using a connector
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 ## Timer {#timer}
 
 To [send](../../../concepts/eventrouter/sending-events.md) events to a [bus](../../../concepts/eventrouter/bus.md) using a connector with a [Timer](../../../concepts/eventrouter/connector.md#timer) source, specify in the connector settings the data to send to the bus when the timer triggers.

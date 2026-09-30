@@ -31,42 +31,25 @@ description: Follow this guide to revoke roles for a registry.
      ```
 
   1. Revoke a role:
-     
-     * From a user:
-       
-       ```bash
-       yc cloud-registry registry remove-access-binding <registry_name_or_ID> \
-         --role <role> \
-         --user-account-id <user_ID>
-       ```
 
-     * [From a service account](../../../iam/concepts/users/service-accounts.md):
-       
-       ```bash
-       yc cloud-registry registry remove-access-binding <registry_name_or_ID> \
-         --role <role> \
-         --service-account-id <service_account_ID>
-       ```
+     ```bash
+     yc cloud-registry registry remove-access-binding <registry_name_or_ID> \
+       --role <role> \
+       --subject <subject_type>:<subject_ID>
+     ```
 
-     * From all authenticated users (the `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers)):
-       
-       ```bash
-       yc cloud-registry registry remove-access-binding <registry_name_or_ID> \
-         --role <role> \
-         --allAuthenticatedUsers
-       ```
+     Where:
 
-     * From all users (`All users` [public group](../../../iam/concepts/access-control/public-group.md#allUsers)):
-         
-       ```bash
-       yc cloud-registry registry remove-access-binding <registry_name_or_ID> \
-         --role <role> \
-         --subject system:allUsers
-       ```
+     * `--role`: [Role](../../security/index.md#service-roles) you want to revoke.
+     * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
-       Where `<role>` is the [role](../../security/index.md#service-roles) you want to revoke.
+         {% cut "Subject designations" %}
 
-    To revoke all roles from a registry and immediately assign new ones, use the `yc cloud-registry registry set-access-bindings` command.
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
+
+    To revoke all registry roles and assign new ones right away, use the `yc cloud-registry registry set-access-bindings` command.
      
      **Example**
 
@@ -88,7 +71,13 @@ description: Follow this guide to revoke roles for a registry.
 
   [View](list-role.md#api) the roles assigned for the registry.
   
-  To revoke roles assigned for a registry, use the [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md) gRPC API call.
+  To revoke roles assigned for a registry, use the [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 

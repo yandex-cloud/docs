@@ -81,6 +81,12 @@ You can create a remote registry in any format except binary and Go.
 
         1. In the registry settings, specify the username (if using `Basic` authorization) and the ID of the {{ lockbox-full-name }} secret you created.
 
+    1. If you selected the `Docker` registry format, under **Security**, enable the following option:
+
+        {% include [scanning](../../../_includes/cloud-registry/scanning.md) %}
+        
+        Only Docker images stored in the {{ cloud-registry-name }} cache are scanned.
+
     1. Specify the [filtering patterns](../../concepts/filtering-patterns.md).
     1. Enter a name and description for the registry.
     1. Add labels in `key: value` format.

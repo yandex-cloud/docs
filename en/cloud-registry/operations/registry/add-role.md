@@ -9,7 +9,7 @@ description: Follow this tutorial to assign roles for a registry.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the registry is located.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the registry.
   1. [Navigate]({{ link-console-main }}/link/cloud-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Select the registry.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -24,43 +24,24 @@ description: Follow this tutorial to assign roles for a registry.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Run the following command to assign a role for a registry:
+  ```bash
+  yc cloud-registry registry add-access-binding <registry_name_or_ID> \
+    --role <role> \
+    --subject <subject_type>:<subject_ID>
+  ```
 
-  * To a user:
+    Where:
 
-    ```bash
-    yc cloud-registry registry add-access-binding <registry_name_or_ID> \
-      --role <role> \
-      --user-account-id <user_ID>
-    ```
+    * `--role`: [Role](../../security/index.md#service-roles) you want to assign.
+    * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-  * [To a service account](../../../iam/concepts/users/service-accounts.md):
+        {% cut "Subject designations" %}
 
-    ```bash
-    yc cloud-registry registry add-access-binding <registry_name_or_ID> \
-      --role <role> \
-      --service-account-id <service_account_ID>
-    ```
+        {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
 
-  * To all authenticated users (the `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers)):
+        {% endcut %}
 
-    ```bash
-    yc cloud-registry registry add-access-binding <registry_name_or_ID> \
-      --role <role> \
-      --allAuthenticatedUsers
-    ```
-
-  * To all users (the `All users` [public group](../../../iam/concepts/access-control/public-group.md#allUsers)):
-
-    ```bash
-    yc cloud-registry registry add-access-binding <registry_name_or_ID> \
-      --role <role> \
-      --subject system:allUsers
-    ```
-
-    Where `<role>` is the [role](../../security/index.md#service-roles) you want to assign.
-
-  To revoke all roles from a registry and immediately assign new ones, use the `yc cloud-registry registry set-access-bindings` command.
+  To revoke all registry roles and assign new ones right away, use the `yc cloud-registry registry set-access-bindings` command.
   
   **Example**
 
@@ -77,9 +58,16 @@ description: Follow this tutorial to assign roles for a registry.
   ```text
   done (4s)
   ```
+
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md) gRPC API call.
+  Use the [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 

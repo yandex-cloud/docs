@@ -5,6 +5,8 @@ description: Follow this tutorial to stop a connector.
 
 # Stopping a connector
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 When a [connector](../../../concepts/eventrouter/connector.md) is stopped, it no longer sends messages to the [bus](../../../concepts/eventrouter/bus.md).
 
 {% list tabs group=instructions %}

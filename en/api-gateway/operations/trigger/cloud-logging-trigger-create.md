@@ -27,21 +27,26 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Enter a name and description for the trigger.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_logging }}`.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_logging }}**, specify:
+        * {% include [triggers-labels-step](../../../_includes/functions/triggers-labels-step.md) %}
+
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_logging }}`.
+
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_logging }}**, specify the following:
 
         {% include [logging-settings](../../../_includes/functions/logging-settings.md) %}
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+    1. {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
 
-        * Batch size. The values may range from 1 to 1,000. The default value is 1.
-        * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
+    1. Under **Targets**:
 
-       The trigger groups messages within the specified wait time period and sends them to WebSocket connections. The number of messages cannot exceed the specified batch size.
+        1. In the **Target type** field, select `API gateway`.
 
-    1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
+        1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
+
+        1. {% include [trigger-console-filter](../../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../../_includes/functions/trigger-console-template.md) %}
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 

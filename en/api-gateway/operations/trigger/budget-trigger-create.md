@@ -27,12 +27,22 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) to send
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
        * Enter a name and description for the trigger.
+
+       * {% include [triggers-labels-step](../../../_includes/functions/triggers-labels-step.md) %}
+
        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_billing-budget }}`.
-       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_billing-budget }}**, select your billing account and budget. You can select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_any-budget }}**.
 
-    1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
+    1. Under **Targets**:
+
+        1. In the **Target type** field, select `API gateway`.
+
+        1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
+
+        1. {% include [trigger-console-filter](../../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../../_includes/functions/trigger-console-template.md) %}
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
