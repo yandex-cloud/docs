@@ -31,6 +31,7 @@ description: Various use cases for network infrastructure in {{ yandex-cloud }}.
 
 ## {{ interconnect-name }} {#sec-interconnect}
 
+* [Setting up network connectivity between multiple virtual networks using VPC Stitching](vpc-stitching.md)
 * [Configuring {{ interconnect-name }} access to cloud networks behind NGFWs](cic-with-ngfw.md)
 
 ## Configuring network resources and interaction between them {#sec-network-resources}

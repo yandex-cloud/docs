@@ -5,6 +5,8 @@ description: Follow this guide to revoke roles assigned for an {{ er-name }} res
 
 # Revoking roles assigned for an {{ er-name }} resource
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -15,29 +17,22 @@ description: Follow this guide to revoke roles assigned for an {{ er-name }} res
 
   Run this command to revoke a role for an {{ er-name }} resource from:
 
-  * User:
+  ```bash
+  yc serverless <resource_type> remove-access-binding <resource_name_or_ID> \
+    --user-account-id <user_ID> \
+    --role <role>
+  ```
 
-      ```bash
-      yc serverless <resource_type> remove-access-binding <resource_name_or_ID> \
-        --user-account-id <user_ID> \
-        --role <role>
-      ```
+  Where:
 
-  * [Service account](../../../../iam/concepts/users/service-accounts.md):
+  * `--role`: ID of the role you need to revoke.
+  * `--subject`: [Subject](../../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
-      ```bash
-      yc serverless <resource_type> remove-access-binding <resource_name_or_ID> \
-        --service-account-id <service_account_ID> \
-        --role <role>
-      ```
+      {% cut "Subject designations" %}
 
-  * All authorized users (the `All authenticated users` [public group](../../../../iam/concepts/access-control/public-group.md)):
+      {% include [subjects-designations-cli](../../../../_includes/iam/subjects-designations-cli.md) %}
 
-      ```bash
-      yc serverless <resource_type> remove-access-binding <resource_name_or_ID> \
-        --all-authenticated-users \
-        --role <role>
-      ```
+      {% endcut %}
 
   **Example**
 
@@ -59,6 +54,12 @@ description: Follow this guide to revoke roles assigned for an {{ er-name }} res
 
   Use the `updateAccessBinding` REST API method for the relevant resource or the `<service>/UpdateAccessBinding` gRPC API call.
 
-  For example, for a [bus](../../../concepts/eventrouter/bus.md), use the [updateAccessBinding](../../../../serverless-integrations/eventrouter/api-ref/Bus/updateAccessBindings.md) REST API method for the [Bus](../../../../serverless-integrations/eventrouter/api-ref/Bus/index.md) resource or the [BusService/UpdateAccessBinding](../../../../serverless-integrations/eventrouter/api-ref/grpc/Bus/updateAccessBindings.md) gRPC API call.
+  For example, for a [bus](../../../concepts/eventrouter/bus.md), use the [updateAccessBinding](../../../../serverless-integrations/eventrouter/api-ref/Bus/updateAccessBindings.md) REST API method for the [Bus](../../../../serverless-integrations/eventrouter/api-ref/Bus/index.md) resource or the [BusService/UpdateAccessBinding](../../../../serverless-integrations/eventrouter/api-ref/grpc/Bus/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the [subject](../../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

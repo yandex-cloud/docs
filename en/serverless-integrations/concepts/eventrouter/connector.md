@@ -13,6 +13,8 @@ keywords:
 
 # Connector
 
+{% include [sunset-note](../../../_includes/serverless-integrations/sunset-note.md) %}
+
 A _connector_ is a customizable component made to receive events from external sources and forward those events to a [bus](bus.md).
 
 Supported sources:

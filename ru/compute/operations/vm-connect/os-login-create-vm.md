@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать виртуальную машину с {{ oslogin }}
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 [{{ oslogin }}](../../../organization/concepts/os-login.md) используется для предоставления пользователям и [сервисным аккаунтам](../../../iam/concepts/users/service-accounts.md) доступа к [виртуальным машинам](../../../compute/concepts/vm.md#project), полагаясь только на механизмы [сервиса {{ iam-full-name }}](../../../iam/concepts/index.md), без необходимости загружать SSH-ключи на каждую новую ВМ при ее создании.
 
 {% include [os-login-enablement-notice](../../../_includes/compute/os-login-enablement-notice.md) %}

@@ -11,9 +11,9 @@ keywords:
 
 When you create a virtual machine (VM) in {{ yandex-cloud }}, it receives a [set of parameters](../../compute/concepts/network.md) for configuring its network environment from the virtual network. The virtual network transmits the values of these parameters to the VM using DHCP. The required network environment parameters for VMs include:
 
-* [Internal IP addresses](../../compute/concepts/network.md#internal-ip) for each network interface of the VM.
-* Subnet mask: Defines the size of the [subnet](./network.md#subnet) the VM network interface connects to.
-* [Host name and FQDN of the VM](../../compute/concepts/network.md#hostname).
+* [Internal IP addresses](*internal-ip) for each network interface of the VM.
+* Subnet mask: Defines the size of the [subnet](*subnet) the VM network interface connects to.
+* [Host name and FQDN of the VM](*hostname).
 * Default gateway: The first IP address on the subnet to which the VM network interface is connected. It will receive all outbound traffic from the VM to the outside world.
 
 ## VM route table {#rt-vm}
@@ -57,10 +57,9 @@ Each {{ vpc-short-name }} route table entry must include:
 
 * `Destination prefix`: Prefix of the destination IPv4 route in CIDR notation, e.g., `10.20.30.0/24`.
 * `Next hop`: Type of the gateway that will handle outgoing traffic for the specified destination prefix. Allowed values include:
+
     * `IP address`: IP address of the destination gateway, e.g., the [internal IP of a VM](../../compute/concepts/network.md#internal-ip) within one of the subnets.
     * `Gateway`, to send traffic through a [NAT gateway](./gateways.md#nat-gateway). For this gateway type, specify the name of an already existing NAT gateway on the cloud network.
-
-If you create multiple entries with overlapping prefixes, the prefix with the larger subnet mask will have higher priority. For example, between two entries with the `172.16.0.0/20` and `172.16.0.0/24` destination prefixes, the entry with the `172.16.0.0/24` prefix will be used for sending traffic, as it has higher priority.
 
 When creating a static route with an `IP address` as the `next hop`, you can specify an internal IP address previously unused in this cloud network. In this case, the virtual network will discard all traffic to the destination prefix of the route until you run a VM with that IP address.
 
@@ -68,6 +67,7 @@ Static routes can use the default route prefix: `0.0.0.0/0`. This means that al
 
 When creating a static route with a `Gateway` as `next hop`, you can specify only the `0.0.0.0/0` default route prefix in the `Destination prefix`. This `next hop` type does not support other prefixes.
 
+Traffic transmission forms a [network flow](*network-flow). Forward and reverse packets belong to the same flow: the order of source and destination is not considered. The route for direct and reverse traffic is selected independently based on the destination IP address. If there are several entries with overlapping destination prefixes for the same address, the route with the longest prefix is ​​used. For example, for an address from the `172.16.0.0/24` range, if there are records with the `172.16.0.0/20` and `172.16.0.0/24` prefixes, the record with the `172.16.0.0/24` prefix will be selected.
 
 ### Route priority in complex scenarios {#priority}
 
@@ -106,3 +106,11 @@ In complex routing scenarios with multiple default routes in the VPC network (su
 * [{#T}](../tutorials/usergate-firewall.md)
 * [{#T}](../tutorials/high-accessible-dmz.md)
 * [{#T}](../tutorials/cic-with-ngfw.md)
+
+[*internal-ip]: {% include notitle [internal-ip](../../_popups/compute/vm-routing.md#internal-ip) %}
+
+[*subnet]: {% include notitle [subnet](../../_popups/vpc/routing-terms.md#subnet) %}
+
+[*hostname]: {% include notitle [hostname](../../_popups/compute/vm-routing.md#hostname) %}
+
+[*network-flow]: {% include notitle [network-flow](../../_popups/vpc/routing-terms.md#network-flow) %}

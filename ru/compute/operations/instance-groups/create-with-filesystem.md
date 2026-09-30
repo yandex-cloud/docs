@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать группу виртуальных машин с подключением к файловому хранилищу
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 Одним из способов работы со [Stateful-нагрузкой](../../concepts/instance-groups/stateful-workload.md) является сохранение состояния приложения в независимом от группы ВМ [файловом хранилище](../../concepts/filesystem.md).
 

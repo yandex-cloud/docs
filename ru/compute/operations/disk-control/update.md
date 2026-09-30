@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменить диск
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 После создания [диска](../../concepts/disk.md) вы можете:
 * [Изменить имя и описание диска](#change-disk-name).

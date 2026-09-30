@@ -7,6 +7,8 @@ description: A trigger is a condition, upon meeting which an automatic message i
 
 A _trigger_ is a condition, upon meeting which an automatic message is sent to [WebSocket connections](../extensions/websocket.md) connected to the API gateway at the path specified by the user. The API gateway itself is not called.
 
+A single trigger can simultaneously send messages to WebSocket connections of multiple API gateways, as well as invoke {{ sf-name }} and {{ serverless-containers-name }}.
+
 Triggers allow you to automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ container-registry-full-name }}.
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
@@ -21,6 +23,7 @@ The following types of triggers are available in {{ api-gw-full-name }}:
 * [Trigger for budgets](budget-trigger.md)
 * [Trigger for {{ yds-name }}](data-streams-trigger.md)
 * [Email trigger](mail-trigger.md)
+* [Trigger for Telegram](telegram-trigger.md)
 
 {% include [trigger-intro-note](../../../_includes/functions/trigger-intro-note.md) %}
 
@@ -32,28 +35,13 @@ Triggers send messages based on preset [quotas and limits](../limits.md).
 You need to consider the following points:
 * The trigger reformats messages before sending them to WebSocket connections. Each trigger type uses a message format of its own. Read more about this in the relevant trigger description.
 * If sending fails or the path specified in the trigger settings has no clients connected, the message gets lost and resending is not possible.
-* The service account you are going to use to send messages to WebSocket connections must have the `{{ roles-functions-invoker }}` role. Other roles required for the trigger to operate correctly depend on trigger type. Read more about this in the relevant trigger description.
+* The service account you are going to use to send messages to WebSocket connections must have the `{{ roles-functions-invoker }}` role. Other roles required for the trigger to operate correctly depend on trigger type. For more details, see the relevant trigger description.
 
+{% include [trigger-filter-messages](../../../_includes/functions/trigger-filter-messages.md) %}
 
-## Message batching {#batch-messages}
+{% include [trigger-transform-messages](../../../_includes/functions/trigger-transform-messages.md) %}
 
-You can configure the following triggers to batch messages before sending them to WebSocket connections:
-
-* Trigger for {{ message-queue-name }}
-* Trigger for {{ cloud-logging-name }}
-* Trigger for {{ objstorage-name }}
-* Trigger for {{ container-registry-name }}
-* Trigger for {{ iot-name }}
-* Trigger for {{ yds-name }}
-* Email trigger
-
-This will allow sending messages as a batch rather than one by one. To do this, specify the following trigger settings:
-
-* **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}**: Message batching time. The number of messages cannot exceed the specified batch size.
-* **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**: Number of messages for batching.
-
-For more information about message batching, see the guides for creating the relevant trigger.
-
+{% include [batching-events](../../../_includes/functions/batching-events.md) %}
 
 ## Useful links {#see-also}
 

@@ -27,24 +27,29 @@ Create a [trigger for {{ container-registry-name }}](../../concepts/trigger/cr-t
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Enter a name and description for the trigger.
+
+        * {% include [triggers-labels-step](../../../_includes/functions/triggers-labels-step.md) %}
+
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container-registry }}`.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_container-registry }}**:
 
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_container-registry }}** field, select the registry where you want to create a trigger for image events.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the [events](../../concepts/trigger/cr-trigger.md#event) to set off the trigger.
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_image-name }}** field, enter the image name for [filtering](../../concepts/trigger/cr-trigger.md#filter). To find out the Docker image name, [get a list of Docker images in the registry](../../../container-registry/operations/docker-image/docker-image-list.md).
-        * Optionaly, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_tag }}** field, enter the image tag for filtering.
+        * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_tag }}** field, enter the image tag for filtering.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+    1. {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
 
-        * Event batch size. The values may range from 1 to 1,000. The default value is 1.
-        * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
+    1. Under **Targets**:
 
-       The trigger groups events within the specified wait time period and sends them to WebSocket connections. The number of events cannot exceed the specified batch size.
+        1. In the **Target type** field, select `API gateway`.
 
-    1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
+        1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
+
+        1. {% include [trigger-console-filter](../../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../../_includes/functions/trigger-console-template.md) %}
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 

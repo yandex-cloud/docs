@@ -29,9 +29,6 @@ links:
   - title: Legal
     description: Solutions for legal
     href: legal/
-  - title: '{{ mgl-name }}'
-    description: Solutions for {{ mgl-name }}
-    href: managed-gitlab/
   - title: '{{ managed-k8s-name }}'
     description: Solutions for {{ managed-k8s-name }}
     href: managed-kubernetes/

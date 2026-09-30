@@ -8,7 +8,7 @@ To use DNS:
 1. Set up delegation of the dedicated domain zone: create NS and A records for the IP addresses of servers with the `control-plane` or `combined` role.
 1. Specify the domain zone in the `cluster.baseDomain.fqdn` installer property.
 
-{{ stackland-name }} provides DNS access on port 53 (UDP and TCP) for the selected addresses.
+{{ stackland-name }} provides DNS access on port 53 (UDP and TCP) for selected addresses.
 
 ## Subzones and record creation rules {#subzones-and-record-creation-rules}
 

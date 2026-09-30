@@ -1,5 +1,128 @@
 [Документация Yandex Cloud](../index.md) > [Terraform в Yandex Cloud](index.md) > Справочник Terraform > История изменений (англ.)
 
+## 0.232.0 (September 30, 2026)
+
+##### ENHANCEMENTS:
+* mdb_clickhouse: add new user settings to yandex_mdb_clickhouse_user and default_user_settings in yandex_mdb_clickhouse_cluster_v2; add MergeTree settings for asynchronous insert deduplication and whole-partition optimization
+
+
+
+## 0.231.0 (September 29, 2026)
+
+##### ENHANCEMENTS:
+* triggers: add `source.yandex_forms` to `yandex_serverless_triggers` resource
+* triggers: add `source.yandex_forms.survey_id` to `yandex_serverless_triggers` resource
+* triggers: add `source.yandex_forms.survey_id` to `yandex_serverless_triggers` data source
+* triggers: add `source.yandex_forms.cloud_organization_id` to `yandex_serverless_triggers` data source
+* triggers: add `source.yandex_forms.oauth_token` to `yandex_serverless_triggers` data source
+* triggers: add `source.yandex_forms.cloud_organization_id` to `yandex_serverless_triggers` resource
+* triggers: add `source.yandex_forms.organization_id` to `yandex_serverless_triggers` data source
+* triggers: add `source.yandex_forms.organization_id` to `yandex_serverless_triggers` resource
+* triggers: add `source.yandex_forms` to `yandex_serverless_triggers` data source
+* triggers: add `source.yandex_forms.oauth_token` to `yandex_serverless_triggers` resource
+* postgresql: support multiple maintenance slots through maintenance_windows in mdb_postgresql_cluster and mdb_postgresql_cluster_v2, preserving legacy maintenance_window configuration and state while using the new API field.
+
+
+
+## 0.230.0 (September 25, 2026)
+
+##### FEATURES:
+* mdb_greenplum: add Trino access management to cluster resources and data sources
+
+##### ENHANCEMENTS:
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.schema_registry_url` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.user` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.is_generate_updates` to `yandex_datatransfer_endpoint` data source
+* iam: add `post_logout_redirect_uris` to `yandex_iam_oauth_client` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.disabled` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.derived` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.derived.json` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.manual.table_name` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.is_generate_updates` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.manual` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.no_auth` to `yandex_datatransfer_endpoint` resource
+* triggers: add `source.max_message.update_types` to `yandex_serverless_triggers` data source
+* triggers: add `source.max_message.update_types` to `yandex_serverless_triggers` resource
+* triggers: add `source.max_message` to `yandex_serverless_triggers` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.no_auth` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.manual.table_name` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.schema_registry_url` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode` to `yandex_datatransfer_endpoint` resource
+* triggers: add `source.max_message.force` to `yandex_serverless_triggers` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.derived` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser` to `yandex_datatransfer_endpoint` resource
+* triggers: add `source.max_message` to `yandex_serverless_triggers` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.manual` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.manual` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.derived.json` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.manual.table_name` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.manual.table_name` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.derived.protobuf` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.schema_registry_url` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.manual` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.user` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.derived` to `yandex_datatransfer_endpoint` data source
+* triggers: add `source.max_message.bot_token` to `yandex_serverless_triggers` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.is_generate_updates` to `yandex_datatransfer_endpoint` data source
+* triggers: add `source.max_message.bot_token` to `yandex_serverless_triggers` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.derived.protobuf` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.derived.json` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.derived.protobuf` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.no_auth` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password.raw` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password.raw` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.user` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.schema_registry_url` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.derived.json` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.user` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.no_auth` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password.raw` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password.raw` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.disabled` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.disabled` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.is_generate_updates` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.derived` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic` to `yandex_datatransfer_endpoint` data source
+* iam: add `post_logout_redirect_uris` to `yandex_iam_oauth_client` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.derived.protobuf` to `yandex_datatransfer_endpoint` resource
+* triggers: add `source.max_message.force` to `yandex_serverless_triggers` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.disabled` to `yandex_datatransfer_endpoint` resource
+
+
+
 ## 0.229.0 (September 22, 2026)
 
 ##### FEATURES:

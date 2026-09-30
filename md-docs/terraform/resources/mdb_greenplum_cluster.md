@@ -41,6 +41,7 @@ resource "yandex_mdb_greenplum_cluster" "my_cluster" {
 
   access {
     web_sql = true
+    trino   = true
   }
 
   greenplum_config = {
@@ -129,6 +130,7 @@ resource "yandex_vpc_security_group" "test-sg-x" {
 - `access` [Block]. Access policy to the Greenplum cluster.
   - `data_lens` (Bool). Allow access for [Yandex DataLens](https://yandex.cloud/services/datalens).
   - `data_transfer` (Bool). Allow access for [DataTransfer](https://yandex.cloud/services/data-transfer)
+  - `trino` (Bool). Allow access from [Managed Trino](https://yandex.cloud/services/managed-trino).
   - `web_sql` (Bool). Allows access for [SQL queries in the management console](../../managed-mysql/operations/web-sql-query.md).
   - `yandex_query` (Bool). Allow access for [Yandex Query](https://yandex.cloud/services/query)
 - `background_activities` [Block]. Background activities settings.

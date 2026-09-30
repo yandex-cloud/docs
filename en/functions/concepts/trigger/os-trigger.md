@@ -21,8 +21,6 @@ Events are filtered using prefixes and suffixes for an object [key](../../../sto
 
 Prefixes and suffixes can be of any length. When using a prefix and suffix at the same time, filtering is based on the logical `AND`: for the trigger to fire, the object key must match both the prefix and suffix. 
 
-{% include [batching-events](../../../_includes/functions/batching-events.md) %}
-
 ## Roles required for the proper operation of a trigger for {{ objstorage-name }} {#roles}
 
 - To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.

@@ -5,6 +5,8 @@ description: Follow this guide to update a rule label.
 
 # Updating a rule label
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}

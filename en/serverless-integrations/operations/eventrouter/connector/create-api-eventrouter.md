@@ -5,6 +5,8 @@ description: Follow this guide to create a connector for the {{ er-name }} API.
 
 # Creating a connector for the {{ er-name }} API
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать виртуальную машину из публичного образа Linux
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 {% include [role-note](../../../_includes/compute/role-note.md) %}
 
 {% list tabs group=instructions %}

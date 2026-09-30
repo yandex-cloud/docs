@@ -241,7 +241,7 @@ If you need to replace `systemd-resolved` with a different local caching DNS res
    1. Open the file:
 
       ```bash
-      sudo nano /etc/unbound/unbound.conf
+      sudo nano /etc/systemd/resolved.conf
       ```
 
    1. Paste the following text after the `[Resolve]` line:

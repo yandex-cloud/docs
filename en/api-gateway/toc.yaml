@@ -75,6 +75,8 @@ items:
             href: operations/trigger/data-streams-trigger-create.md
           - name: Creating an email trigger
             href: operations/trigger/mail-trigger-create.md
+          - name: Creating a Telegram trigger
+            href: operations/trigger/telegram-trigger-create.md
       - name: Managing a trigger
         items:
           - name: Updating a trigger
@@ -263,6 +265,8 @@ items:
             href: concepts/trigger/data-streams-trigger.md
           - name: Email trigger
             href: concepts/trigger/mail-trigger.md
+          - name: Telegram Trigger
+            href: concepts/trigger/telegram-trigger.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

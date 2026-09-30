@@ -5,6 +5,8 @@ description: Follow this tutorial to get information about a {{ er-full-name }} 
 
 # Getting connector info
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

@@ -5,7 +5,7 @@ description: This article explains what types of mailing lists you can add in {{
 
 # Adding a mailing list in {{ datalens-full-name }}
 
-You can set up a [mailing list for a dashboard](../operations/dashboard/add-maillists.md). Recipients will be getting emails with links to the dashboard and chart states specified in the mailing list settings. You can set up the dashboard selector states, schedule, chart sizes, and other parameters. Mailing lists are available for the current dashboard version only.
+You can set up a [mailing list for a dashboard](../operations/dashboard/add-maillists.md). The email will deliver links to the dashboard and chart states you specify in the mailing list settings. You can also choose to include analysis from Neuroanalyst. Use settings to configure dashboard selector states, delivery schedule, chart sizes, and other options. Mailing lists are available for the current dashboard version only.
 
 Also, you can set up a [mailing list for a report](../reports/add-report-maillists.md). The email will deliver a `.pdf` file containing the report pages you specify in the mailing list settings. You can set up the schedule and your mailing list recipients.
 

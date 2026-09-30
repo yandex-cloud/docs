@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать группу виртуальных машин по спецификации в формате YAML
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 
 Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).

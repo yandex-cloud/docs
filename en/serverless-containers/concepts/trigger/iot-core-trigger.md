@@ -1,14 +1,12 @@
 # Trigger for {{ iot-short-name }} that sends messages to a {{ serverless-containers-name }} container
 
-A [trigger](../trigger/) for {{ iot-short-name }} manages messages exchanged between devices, registries, and brokers. This trigger is created for [topics](../../../iot-core/concepts/topic/index.md): it receives copies of messages from topics and sends those to a {{ serverless-containers-name }} container for processing.
+A [trigger](../trigger/) for {{ iot-short-name }} manages messages exchanged between devices, registries, and brokers. This trigger is created for [topics](../../../iot-core/concepts/topic/index.md): it receives copies of messages from topics and sends them to a {{ serverless-containers-name }} container for processing.
 
 {% include [trigger](../../../_includes/iot-core/trigger.md) %}
 
 A trigger for {{ iot-short-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke the container.
 
 For more information about creating a trigger for {{ iot-short-name }}, see [{#T}](../../operations/iot-core-trigger-create.md) and [{#T}](../../operations/iot-core-trigger-broker-create.md).
-
-{% include [batching-messages](../../../_includes/serverless-containers/batching-messages.md) %}
 
 ## Roles required for the proper operation of a trigger for {{ iot-short-name }} {#roles}
 

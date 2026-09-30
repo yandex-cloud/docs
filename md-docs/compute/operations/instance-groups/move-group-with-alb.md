@@ -2,6 +2,12 @@
 
 # Перенести группу виртуальных машин с L7-балансировщиком в другую зону доступности
 
+{% note warning %}
+
+С 12 октября 2026 года девять квот на ресурсы Compute Cloud будут действовать не в рамках региона, а отдельно по каждой зоне доступности. Список квот и описание изменений — в разделе [Изменение квотирования ресурсов Compute Cloud](../../concepts/quota-zones.md).
+
+{% endnote %}
+
 
 Чтобы перенести [группу ВМ](../../concepts/instance-groups/index.md) с [L7-балансировщиком](../../../application-load-balancer/concepts/application-load-balancer.md) [Yandex Application Load Balancer](../../../application-load-balancer/index.md):
 

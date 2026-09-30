@@ -150,6 +150,7 @@ filename: yandex/cloud/mdb/greenplum/v1/cluster.proto
   - `access` [Block]. Access policy for external services.
     - `data_lens` (*Read-Only*) (Bool). Allows data export from the cluster to DataLens.
     - `data_transfer` (*Read-Only*) (Bool). Allows access for DataTransfer.
+    - `trino` (*Read-Only*) (Bool). Allows access from Managed Trino.
     - `web_sql` (*Read-Only*) (Bool). Allows SQL queries to the cluster databases from the management console.
     - `yandex_query` (*Read-Only*) (Bool). Allow access for YandexQuery.
   - `assign_public_ip` (*Read-Only*) (Bool). Determines whether the cluster has a public IP address.

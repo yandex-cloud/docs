@@ -5,6 +5,8 @@ description: Follow this guide to disable a rule.
 
 # Disabling a rule
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 When a [rule](../../../concepts/eventrouter/rule.md) is disabled, it stops forwarding events to the specified targets.
 
 {% list tabs group=instructions %}

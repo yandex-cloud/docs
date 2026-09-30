@@ -6,8 +6,6 @@ A trigger for {{ cloud-logging-name }} needs a [service account](../../../iam/co
 
 For more information about creating a trigger for {{ cloud-logging-name }}, see [{#T}](../../operations/trigger/cloud-logging-trigger-create.md).
 
-{% include [batching-messages](../../../_includes/functions/batching-messages.md) %}
-
 ## Roles required for the proper operation of a trigger for {{ cloud-logging-name }} {#roles}
 
 * To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../../iam/concepts/access-control/roles.md#editor) roles or higher.

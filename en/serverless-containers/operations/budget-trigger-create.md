@@ -27,18 +27,28 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
        * Enter a name and description for the trigger.
+
+       * {% include [triggers-labels-step](../../_includes/functions/triggers-labels-step.md) %}
+
        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_billing-budget }}`.
-       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_billing-budget }}**, select your billing account and budget. You can select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_any-budget }}**.
 
-    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+    1. Under **Targets**:
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+        1. In the **Target type** field, select `Container`.
 
-        {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
+        1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
+        1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+
+            {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
+
+        1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
+
+        1. {% include [trigger-console-filter](../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../_includes/functions/trigger-console-template.md) %}
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -93,6 +103,70 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
             service-account-id: aje3932acdh2********
     status: ACTIVE
     ```
+
+- {{ TF }} {#tf}
+
+    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+    {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+    To create a trigger for budgets to invoke a container:
+
+    1. Describe the trigger in the configuration file:
+
+       ```hcl
+       resource "yandex_serverless_triggers" "my_trigger" {
+         name = "<trigger_name>"
+         source {
+           billing_budget {
+             billing_account_id = "<billing_account_ID>"
+             budget_id          = "<budget_ID>"
+           }
+         }
+         action {
+           invoke_container {
+             container_id       = "<container_ID>"
+             path               = "<HTTP_path>"
+             service_account_id = "<service_account_ID>"
+           }
+           retry_policy {
+             retry_attempts = "<number_of_retries>"
+             interval       = "<interval_between_retries>"
+           }
+           dead_letter {
+             dead_letter_queue {
+               queue_arn          = "<Dead_Letter_Queue_ARN>"
+               service_account_id = "<service_account_ID>"
+             }
+           }
+         }
+       }
+       ```
+
+       Where:
+
+       {% include [tf-triggers-common-params](../../_includes/tf-triggers-common-params.md) %}
+
+       * `source`: Event source settings:
+
+         * `billing_budget`: Budget settings:
+
+           * `billing_account_id`: Billing account ID.
+           * `budget_id`: Budget ID. This is an optional parameter. If not specified, the trigger will fire for any budget in the billing account.
+
+       {% include [tf-triggers-action-container](../../_includes/serverless-containers/tf-triggers-action-container.md) %}
+
+       For more on the properties of the `yandex_serverless_triggers` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_triggers).
+
+    1. Create the resources:
+
+        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+        {% include [terraform-check-result](../../_tutorials/_tutorials_includes/terraform-check-result.md) %}
+
+        ```bash
+        yc serverless trigger list
+        ```
 
 - API {#api}
 

@@ -5,4 +5,6 @@ description: To perform operations via the API in {{ sw-full-name }}, you need t
 
 # Authentication with the {{ sw-name }} API (Triggers)
 
+{% include [sunset-note](../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% include notitle [auth](../../../_includes/authentication.md) %}

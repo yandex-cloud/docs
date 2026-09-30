@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать виртуальную машину с пользовательским скриптом конфигурации
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 Вы можете создать виртуальную машину с предустановленной конфигурацией программного обеспечения с помощью ключа `user-data` в [метаданных](../../concepts/vm-metadata.md) ВМ.
 
 Заданная в ключе `user-data` конфигурация обрабатывается агентом [cloud-init](https://cloudinit.readthedocs.io/en/latest/), запущенным на ВМ. Cloud-init поддерживает разные форматы передачи метаданных, например [cloud-config](https://cloudinit.readthedocs.io/en/latest/reference/examples.html).

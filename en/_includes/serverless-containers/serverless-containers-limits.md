@@ -36,8 +36,10 @@ Maximum size of temporary files | 512 MB
 Maximum container request processing time before timeout, including initialization at first startup^1^ | 1 hour
 Maximum total size of environment variables, including their names^2^ | 4 KB
 Maximum number of triggers per [message queue](../../message-queue/concepts/queue.md) | 1
-Maximum message size per trigger^3^ | 230 KB
+Maximum number of targets per trigger ^3^ | 5
+Maximum message size per trigger^4^ | 230 KB
 
 ^1^ A timeout of more than 10 minutes is only available for [long-lived containers](../../serverless-containers/concepts/long-lived-containers.md).
 ^2^ {{ lockbox-short-name }} secrets are provided via environment variables and are also counted towards this limit.
-^3^ A message may include service metadata, which reduces the maximum message size.
+^3^ The `Maximum number of targets per trigger` limit is the same for {{ api-gw-name }}, {{ sf-name }}, and {{ serverless-containers-name }}.
+^4^ A message may include service metadata, which reduces the maximum message size.

@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создание виртуальной машины с GPU
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 В этом разделе приведена инструкция для создания [ВМ](../../concepts/vm.md) с GPU. Подробнее с конфигурациями ВМ вы можете ознакомиться в разделе [{#T}](../../concepts/gpus.md).
 

@@ -46,11 +46,7 @@ The trigger must be in the same cloud as the registry or device whose topic it r
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**, specify the registry, device, and MQTT topic to create a trigger for. When creating a trigger for a registry topic, you do not need to specify a device or an MQTT topic. If no MQTT topic is set, the trigger will fire for all registry or device topics.
  
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
-
-        {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
-
-        {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %}
+    1. {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 

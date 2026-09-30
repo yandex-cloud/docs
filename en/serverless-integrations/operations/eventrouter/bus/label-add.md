@@ -5,6 +5,8 @@ description: Follow this guide to add a label to a bus.
 
 # Adding a label to a bus
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

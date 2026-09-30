@@ -161,7 +161,7 @@ Yandex Application Load Balancer позволяет создавать бала�
     * Запросите статус ресурса `Ingress` командой `kubectl get Ingress`.
     * В [консоли управления](https://console.yandex.cloud):
       * Откройте страницу кластера Managed Service for Kubernetes.
-      * Перейдите на вкладку **Сервисы и Ingress**, затем **Ingresses**.
+      * Перейдите на вкладку **Services и Ingresses**, затем **Ingresses**.
 1. Убедитесь, что маршрутизация работает, как ожидается. Для этого протестируйте доступность HTTP/HTTPS-эндпоинтов вашего приложения.
 1. Убедитесь, что проверки статуса бэкендов показывают их работоспособность.
 1. Проверьте наличие ошибок в [логах](../../application-load-balancer/operations/application-load-balancer-get-logs.md) и наличие признаков проблем с производительностью в [метриках балансировщика](../../application-load-balancer/metrics.md).

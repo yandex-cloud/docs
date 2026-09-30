@@ -94,6 +94,8 @@ description: Агент {{ ad-sync-agent }} позволяет настраив�
 
 Для работы обратной записи паролей аккаунту {{ microsoft-idp.ad-short }}, от имени которого агент выполняет синхронизацию, дополнительно нужны разрешения `Change Password`, `Reset Password` и `Write pwdLastSet`. Назначьте их на весь домен или на те Organization Units (OU), которые попадают под выбранные в конфигурации агента фильтры `sync_settings.filter`.
 
+Чтобы включить обратную запись паролей, [опишите настройки синхронизации](../../operations/sync-ad.md#enable-password-writeback) и задайте параметр `enable_password_writeback: true` в конфигурации агента.
+
 ## Настройка синхронизации {#sync-setup}
 
 Чтобы реализовать синхронизацию пользователей и групп {{ org-full-name }} с {{ microsoft-idp.ad-short }}, необходимо выполнить предварительные настройки, как на стороне вашего [контроллера домена](https://ru.wikipedia.org/wiki/Контроллер_домена) с развернутыми службами {{ microsoft-idp.ad-short }}, так и на стороне {{ yandex-cloud }}.

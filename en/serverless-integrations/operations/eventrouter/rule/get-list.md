@@ -5,6 +5,8 @@ description: Follow this tutorial to view a list of available {{ er-full-name }}
 
 # Getting a list of rules
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

@@ -25,11 +25,11 @@ description: Следуя данной инструкции, вы узнаете
      * Дата и время проверки.
      * Выявленное количество нарушенных правил.
      * Критичность обнаруженных нарушений:
-       * ![cspm-rule-notice-icon](../../../_assets/security-deck/cspm-rule-notice-icon.svg) — {{ ui-key.yacloud_org.shared.components.severity_info_biSRh }};
-       * ![cspm-low-severity-icon](../../../_assets/security-deck/cspm-low-severity-icon.svg) — {{ ui-key.yacloud_org.shared.components.severity_low_tqf9A }}.
-       * ![cspm-moderate-severity-icon](../../../_assets/security-deck/cspm-moderate-severity-icon.svg) — {{ ui-key.yacloud_org.shared.components.severity_medium_8LZ4w }}.
-       * ![cspm-high-severity-icon](../../../_assets/security-deck/cspm-high-severity-icon.svg) — {{ ui-key.yacloud_org.shared.components.severity_high_cahHH }}.
-       * ![alt](../../../_assets/common/no.svg) — {{ ui-key.yacloud_org.shared.components.severity_critical_uT8Xg }}.
+       * ![cspm-rule-notice-icon](../../../_assets/security-deck/cspm-rule-notice-icon.svg) — {{ ui-key.yacloud_org.security-center.alert.alert_severity-info }};
+       * ![cspm-low-severity-icon](../../../_assets/security-deck/cspm-low-severity-icon.svg) — {{ ui-key.yacloud.cloud-registry.label_vulnerability-severity-tooltip-low }}.
+       * ![cspm-moderate-severity-icon](../../../_assets/security-deck/cspm-moderate-severity-icon.svg) — {{ ui-key.yacloud.cloud-registry.label_vulnerability-severity-tooltip-medium }}.
+       * ![cspm-high-severity-icon](../../../_assets/security-deck/cspm-high-severity-icon.svg) — {{ ui-key.yacloud.cloud-registry.label_vulnerability-severity-tooltip-high }}.
+       * ![alt](../../../_assets/common/no.svg) — {{ ui-key.yacloud.cloud-registry.label_vulnerability-severity-tooltip-critical }}.
      * Количество ресурсов, проверенных в результате платных и бесплатных проверок.
      * Статус проверки.
      * Идентификатор проверки.

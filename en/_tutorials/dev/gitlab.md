@@ -31,8 +31,8 @@ The cost for maintaining a {{ GL }} server includes:
 
 1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Gitlab` and select a public [{{ GL }}](/marketplace/products/yc/gitlab) image.
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for your VM. If you are not sure which one to choose, leave the default.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` [disk type](../../compute/concepts/disk.md#disks_types) and specify its size: `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for your VM. If you are not sure which availability zone you need, leave the default selection.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` [disk type](../../compute/concepts/disk.md#disks-types) and specify its size: `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
@@ -85,7 +85,7 @@ Disable sign-up for other users on the login page:
 1. Uncheck **Sign-up enabled**.
 1. Click **Save changes**.
 
-Now, only the administrator can create new users in the **Users** tab under **Overview**.
+Once saved, self-registration will be disabled for users. The administrator can create accounts in the **Overview** → **Users** section. For more information, see [this {{ GL }} guide](https://docs.gitlab.com/user/profile/account/create_accounts/).
 
 ## Create a project {#create-project}
 
@@ -226,13 +226,12 @@ To create a test pipeline:
         - test
         - pack
 
-      cache:
-        paths:
-          - hello
-
       build:
         stage: build
         script: g++ test.cpp -o hello
+        artifacts:
+          paths:
+            - hello
 
       test:
         stage: test
@@ -251,7 +250,7 @@ To create a test pipeline:
       * `test`: Second stage that runs the executable.
       * `pack`: Third stage that creates an archive with the executable, which you can download via the {{ GL }} web UI after the pipeline completes successfully. The `artifacts` section lists the files available for download.
 
-      Under `cache`, specify the files and directories to transfer between stages. If you skip it, the `hello` file will not be available at the `test` stage, resulting in an error.
+      The `build` job saves the `hello` executable as an artifact. By default, jobs in later stages fetch artifacts from earlier stages, so the `hello` file will be available to both the `test` and `pack` jobs. Without this artifact, both jobs will fail. For more information, see [this {{ GL }} guide](https://docs.gitlab.com/ci/jobs/job_artifacts/).
 
       ![Test pipeline](../../_assets/tutorials/gitlab/gitlab6.png)
 
@@ -261,7 +260,7 @@ After committing, the system will automatically start testing the latest commit.
 
 ### Create an error in the project {#create}
 
-Now modify the project so it produces an error that the runner can detect during testing. Proceed as follows:
+Now modify the project so it produces an error that the runner can detect during testing. Follow these steps:
 1. Go to the project repository and open the `test.cpp` file.
 1. Click **Edit**.
 1. Update the assert so that 2 multiplied by 2 equals 5. This will cause the program to fail.

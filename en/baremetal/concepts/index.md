@@ -20,7 +20,13 @@ You can order servers of the following configurations:
 
   [Learn more about on-request configuration](server-individual-configurations.md).
 
-You can rent [servers](servers.md) for a period from one day to one year. When ordering a server, you can install an OS from ready-made Marketplace [images](images.md) or use your own distribution for installation by [uploading](../operations/image-upload.md) it to [{{ objstorage-full-name }}](../../storage/index.yaml). You can also configure public and private IP addressing, SSH access, and server backup policies using [{{ backup-full-name }}](../../backup/index.yaml).
+You can rent [servers](servers.md) for a period from one day to one year. When ordering a server, you can install an OS from ready-made {{ marketplace-short-name }} [images](images.md) or use your own distribution for installation by [uploading](../operations/image-upload.md) it to [{{ objstorage-full-name }}](../../storage/index.yaml). You can also configure public and private IP addressing, SSH access, and server backup policies using [{{ backup-full-name }}](../../backup/index.yaml).
+
+### BareMetal Extend {#baremetal-extend}
+
+*BareMetal Extend* delivers turnkey infrastructure solutions on top of dedicated physical servers. With it, you can deploy a private virtualization platform, {{ stackland-name }} containerization platform, or {{ managed-k8s-name }} worker node groups directly on the servers you rent. BareMetal Extend automates server provisioning and software installation.
+
+[Learn more about BareMetal Extend](./extend.md).
 
 ## Network {#network}
 

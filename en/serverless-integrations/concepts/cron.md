@@ -5,6 +5,8 @@ description: In this article, you will learn about the cron expression format us
 
 # Cron expressions in {{ si-name }}
 
+{% include [sunset-note](../../_includes/serverless-integrations/sunset-note.md) %}
+
 You can set schedules in {{ si-name }} using [cron expressions](https://{{ lang }}.wikipedia.org/wiki/Cron). By default, cron expression uses [UTC+0](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 {% include [cron-expression](../../_includes/functions/cron-expression.md) %}

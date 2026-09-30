@@ -5,6 +5,8 @@ description: Follow this guide to create a rule with a {{ sw-full-name }} target
 
 # Creating a rule with a {{ sw-full-name }} target
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

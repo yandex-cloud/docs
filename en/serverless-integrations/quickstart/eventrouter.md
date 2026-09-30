@@ -11,6 +11,8 @@ keywords:
 
 # Getting started with {{ er-name }}
 
+{% include [sunset-note](../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% include [event-router-preview-note](../../_includes/serverless-integrations/event-router-preview-note.md) %}
 
 In this tutorial, you will use an {{ er-name }} [bus](../concepts/eventrouter/bus.md) to forward a message from a [{{ message-queue-name }}](../../message-queue/) to a [workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) in {{ sw-name }}.

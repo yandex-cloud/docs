@@ -429,7 +429,6 @@ To create security groups:
       | `Egress` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | `Ingress` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | `Inbound` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Inbound` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -442,8 +441,7 @@ To create security groups:
     --network-name example-network \
     --rule "direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0]" \
     --rule "direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
-    --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
-    --rule "direction=ingress,port=30080,protocol=tcp,predefined=loadbalancer_healthchecks"
+    --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0]"
   ```
   
   Result:
@@ -483,14 +481,6 @@ To create security groups:
       cidr_blocks:
         v4_cidr_blocks:
           - 0.0.0.0/0
-    - id: enp6j82kiu2p********
-      direction: INGRESS
-      ports:
-        from_port: "30080"
-        to_port: "30080"
-      protocol_name: TCP
-      protocol_number: "6"
-      predefined_target: loadbalancer_healthchecks
   ```
 
   Save the security group ID as you will need it later to create an L7 load balancer.
@@ -500,8 +490,6 @@ To create security groups:
 - API {#api}
 
   Use the [create](../../vpc/api-ref/SecurityGroup/create.md) REST API method for the [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Create](../../vpc/api-ref/grpc/SecurityGroup/create.md) gRPC API call.
-
-  To add a rule for load balancer health checks, use the `loadbalancer_healthchecks` parameter in under [predefinedTarget](../../vpc/api-ref/SecurityGroup/create.md#yandex.cloud.vpc.v1.CreateSecurityGroupRequest) for the REST API or under [SecurityGroupRuleSpec.target.predefined_target](../../vpc/api-ref/grpc/SecurityGroup/create.md#yandex.cloud.vpc.v1.SecurityGroupRuleSpec) for the gRPC API.
 
 {% endlist %}
 

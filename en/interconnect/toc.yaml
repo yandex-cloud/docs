@@ -47,6 +47,10 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: >-
+          Setting up network connectivity between multiple virtual networks
+          using VPC Stitching
+        href: tutorials/vpc-stitching.md
   - name: Concepts
     expanded: true
     items:

@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать виртуальную машину из набора дисков
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 Создать [ВМ](../../concepts/vm.md) можно из существующих [дисков](../../concepts/disk.md). Диски должны находиться в одной из [зон доступности](../../../overview/concepts/geo-scope.md) и не быть добавленными к другим ВМ.
 

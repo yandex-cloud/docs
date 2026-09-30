@@ -14,9 +14,11 @@ keywords:
 
 # Sending events to the bus
 
+{% include [sunset-note](../../../_includes/serverless-integrations/sunset-note.md) %}
+
 Events can be sent to the [bus](./bus.md) using the following methods:
 
-Method of sending to the bus  | Event generation method  | Message batching
+Method of sending to the bus | Event generation method  | Message batching
 --- | --- | ---
 [Sending](../../operations/eventrouter/bus/data-put.md) directly using the [put](../../../serverless-integrations/eventrouter/api-ref/grpc/Event/put.md) API method | The events are prepared by the user | No
 Sending through a [connector](../../concepts/eventrouter/connector.md) with a `Timer` source | The user specifies the data that will go to the bus in the connector settings | No

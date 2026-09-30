@@ -8,8 +8,6 @@ For more information about creating a trigger for {{ container-registry-name }},
 
 {% include [cr-event](../../../_includes/functions/cr-event.md) %}
 
-{% include [batching-events](../../../_includes/api-gateway/batching-events.md) %}
-
 ## Roles required for the proper operation of a trigger for {{ container-registry-name }} {#roles}
 
 * To create a trigger, you need:

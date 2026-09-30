@@ -5,6 +5,8 @@ description: Follow this guide to view a list of available {{ er-full-name }} co
 
 # Getting a list of connectors
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

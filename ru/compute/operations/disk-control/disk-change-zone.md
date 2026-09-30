@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Перенести диск в другую зону доступности
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 Диск создается в одной [зоне доступности](../../../overview/concepts/geo-scope.md). Вы можете перенести его в другую зону с помощью [снимка](../../concepts/snapshot.md), а также с помощью специальной команды в [консоли управления]({{ link-console-main }}) или [CLI](../../../cli/cli-ref/compute/cli-ref/disk/relocate.md)
 
 Если диск подключен к ВМ, он будет перенесен при [миграции ВМ](../vm-control/vm-change-zone.md). Мигрировать подключенные диски отдельно от ВМ нельзя. 

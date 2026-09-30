@@ -204,6 +204,35 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
     - `parser` [Block]. Data parsing parameters. If not set, the source messages are read in raw
       - `audit_trails_v1_parser` [Block]. Parse Audit Trails data. Empty struct
       - `cloud_logging_parser` [Block]. Parse Cloud Logging data. Empty struct
+      - `confluent_schema_registry_parser` [Block]. Parse messages in Confluent wire format using schemas from a schema registry
+        - `confluent_schema_registry_connection` [Block]. Connection to a Confluent-compatible schema registry
+          - `auth` [Block]. Schema Registry authentication config. Empty credentials mean no authentication
+            - `basic` [Block]. Authenticate with a user name and a password
+              - `password` [Block]. Password for user. Write-only: it is never returned, and an empty value on
+ update keeps the stored one
+                - `raw` (*Read-Only*) (String). Raw secret value
+              - `user` (*Read-Only*) (String). User
+            - `no_auth` [Block]. Connect to the schema registry without authentication
+          - `schema_registry_url` (*Read-Only*) (String). Schema Registry api url
+          - `tls_mode` [Block]. CA certificate of the Schema Registry server.
+ TLS is turned on by the https scheme in schema_registry_url, not by this field.
+ Without a certificate here the server certificate is not verified
+            - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
+ connection
+            - `enabled` [Block]. TLS is used for the server connection
+              - `ca_certificate` (*Read-Only*) (String). CA certificate
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
+        - `is_generate_updates` (*Read-Only*) (Bool). Produce update events instead of inserts
+        - `table_name_policy` [Block]. Target table naming. If not set, table name is derived from the schema in
+ Debezium-like manner
+          - `derived` [Block]. Derive the table name from the message schema
+            - `json` (*Read-Only*) (String). Naming for messages with JSON Schema
+            - `protobuf` (*Read-Only*) (String). Naming for messages with Protobuf schema
+          - `manual` [Block]. Write all messages to the single table
+            - `table_name` (*Read-Only*) (String). Name of the table to write all messages to
       - `json_parser` [Block]. Parse data in json format
         - `add_rest_column` (*Read-Only*) (Bool). Will add _rest column for all unknown fields
         - `data_schema` [Block]. Data parsing scheme
@@ -772,6 +801,35 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
     - `parser` [Block]. Data parsing rules
       - `audit_trails_v1_parser` [Block]. Parse Audit Trails data. Empty struct
       - `cloud_logging_parser` [Block]. Parse Cloud Logging data. Empty struct
+      - `confluent_schema_registry_parser` [Block]. Parse messages in Confluent wire format using schemas from a schema registry
+        - `confluent_schema_registry_connection` [Block]. Connection to a Confluent-compatible schema registry
+          - `auth` [Block]. Schema Registry authentication config. Empty credentials mean no authentication
+            - `basic` [Block]. Authenticate with a user name and a password
+              - `password` [Block]. Password for user. Write-only: it is never returned, and an empty value on
+ update keeps the stored one
+                - `raw` (*Read-Only*) (String). Raw secret value
+              - `user` (*Read-Only*) (String). User
+            - `no_auth` [Block]. Connect to the schema registry without authentication
+          - `schema_registry_url` (*Read-Only*) (String). Schema Registry api url
+          - `tls_mode` [Block]. CA certificate of the Schema Registry server.
+ TLS is turned on by the https scheme in schema_registry_url, not by this field.
+ Without a certificate here the server certificate is not verified
+            - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
+ connection
+            - `enabled` [Block]. TLS is used for the server connection
+              - `ca_certificate` (*Read-Only*) (String). CA certificate
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
+        - `is_generate_updates` (*Read-Only*) (Bool). Produce update events instead of inserts
+        - `table_name_policy` [Block]. Target table naming. If not set, table name is derived from the schema in
+ Debezium-like manner
+          - `derived` [Block]. Derive the table name from the message schema
+            - `json` (*Read-Only*) (String). Naming for messages with JSON Schema
+            - `protobuf` (*Read-Only*) (String). Naming for messages with Protobuf schema
+          - `manual` [Block]. Write all messages to the single table
+            - `table_name` (*Read-Only*) (String). Name of the table to write all messages to
       - `json_parser` [Block]. Parse data in json format
         - `add_rest_column` (*Read-Only*) (Bool). Will add _rest column for all unknown fields
         - `data_schema` [Block]. Data parsing scheme

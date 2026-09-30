@@ -6,8 +6,6 @@ An email trigger requires a [service account](../../../iam/concepts/users/servic
 
 For more information about creating an email trigger, see [{#T}](../../operations/trigger/mail-trigger-create.md).
 
-{% include [batching-messages](../../../_includes/api-gateway/batching-messages.md) %}
-
 ## Roles required for the proper operation of an email trigger {#roles}
 
 * To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) roles or higher.
