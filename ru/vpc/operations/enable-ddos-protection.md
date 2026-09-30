@@ -69,5 +69,13 @@ description: Следуя данной инструкции, вы сможете
   yc vpc address list
   ```
 
+- API {#api}
+
+  Чтобы зарезервировать защищенный статический IP-адрес, воспользуйтесь методом REST API [create](../api-ref/Address/create.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Create](../api-ref/grpc/Address/create.md) и передайте в запросе:
+
+  * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет зарезервирован адрес, в параметре `folderId`.
+  * Идентификатор [зоны доступности](../../overview/concepts/geo-scope.md), в которой нужно зарезервировать адрес, в параметре `externalIpv4AddressSpec.zoneId`.
+  * Провайдера защиты от DDoS-атак в параметре `externalIpv4AddressSpec.requirements.ddosProtectionProvider` со значением `qrator`.
+
 {% endlist %}
 
