@@ -2,6 +2,8 @@ title: '{{ si-full-name }}'
 stage: preview
 href: index.yaml
 items:
+  - name: Service shutdown
+    href: sunset.md
   - name: Getting started
     items:
       - name: Overview
@@ -155,6 +157,10 @@ items:
         href: concepts/cron.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Tutorials
+    items:
+      - name: Migrating from {{ er-name }} to triggers
+        href: tutorials/eventrouter-migration.md
   - name: Access management
     items:
       - name: Overview

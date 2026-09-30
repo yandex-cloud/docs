@@ -31,6 +31,7 @@ output "network_id" {
 - `access` (*Read-Only*) (List Of Object). 
   - `data_lens` . 
   - `data_transfer` . 
+  - `trino` . 
   - `web_sql` . 
   - `yandex_query` . 
 - `assign_public_ip` (*Read-Only*) (Bool). Sets whether the master hosts should get a public IP address on creation. Changing this parameter for an existing host is not supported at the moment.

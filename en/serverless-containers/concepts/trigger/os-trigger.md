@@ -8,8 +8,6 @@ For more information about creating a trigger for {{ objstorage-name }}, see [{#
 
 {% include [os-event](../../../_includes/functions/os-event.md) %}
 
-{% include [batching-events](../../../_includes/serverless-containers/batching-events.md) %}
-
 ## Roles required for the proper operation of a trigger for {{ objstorage-name }} {#roles}
 
 * To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.

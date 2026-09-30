@@ -41,19 +41,24 @@ To create a trigger, you will need:
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Enter a name and description for the trigger.
+
+        * {% include [triggers-labels-step](../../_includes/functions/triggers-labels-step.md) %}
+
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select a message queue and a service account with the permission to read messages from that queue.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+    1. {% include [batch-settings-ymq](../../_includes/functions/batch-settings-ymq.md) %}
 
-        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**. The values may range from 0 to 20 seconds. The default value is 10 seconds.
-        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**. The values may range from 1 to 1,000. The default value is 1.
+    1. Under **Targets**:
 
-        {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %}
+        1. In the **Target type** field, select `Container`.
 
-    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+        1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+
+        1. {% include [trigger-console-filter](../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../_includes/functions/trigger-console-template.md) %}
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -120,6 +125,76 @@ To create a trigger, you will need:
   1. Describe the trigger in the configuration file:
 
      ```hcl
+     resource "yandex_serverless_triggers" "my_trigger" {
+       name = "<trigger_name>"
+       source {
+         ymq {
+           queue_arn          = "<queue_ARN>"
+           service_account_id = "<service_account_ID>"
+           visibility_timeout = "<message_visibility_timeout>"
+           batch_settings {
+             max_count = "<max_number_of_messages>"
+             max_bytes = "<max_group_size_in_bytes>"
+             cutoff    = "<maximum_wait_time>"
+           }
+         }
+       }
+       action {
+         invoke_container {
+           container_id       = "<container_ID>"
+           path               = "<HTTP_path>"
+           service_account_id = "<service_account_ID>"
+         }
+       }
+     }
+     ```
+
+     Where:
+
+     {% include [tf-triggers-common-params](../../_includes/tf-triggers-common-params.md) %}
+
+     * `source`: Event source settings:
+
+       * `ymq`: Message queue settings:
+
+         * `queue_arn`: Queue ARN.
+
+             {% include [ymq-id](../../_includes/serverless-containers/ymq-id.md) %}
+
+         * `service_account_id`: ID of the service account with permissions to read messages from the queue.
+         * `visibility_timeout`: Message [visibility timeout](../../message-queue/concepts/visibility-timeout.md) that overrides the value specified in the queue. This is an optional parameter.
+
+         {% include [tf-triggers-batch-settings](../../_includes/tf-triggers-batch-settings.md) %}
+
+     * `action`: Target settings. You can specify this section multiple times so the trigger calls multiple resources, including those of different types. There are [limits](../concepts/limits.md#serverless-containers-limits) on the maximum number of resources.
+
+         * `invoke_container`: Container settings:
+
+             * `container_id`: Container ID.
+             * `path`: HTTP path to call the container at. This is an optional parameter.
+             * `service_account_id`: ID of the service account with permissions to invoke the container.
+
+         * `filter`: Filtering events before sending them to the target. This is an optional section.
+
+             * `jq`: [jq template](https://jqlang.github.io/jq/manual/) to filter events before they are sent to the target. It omitted, all events are sent to the target.
+
+         * `transformer`: Transforming events before sending them to the target. This is an optional section.
+
+             * `jq`: jq template to transform events before sending them to the target. It omitted, no transformations apply to the events.
+
+         * `dead_letter`: Dead-letter queue settings. This is an optional section.
+
+             * `dead_letter_queue`: Queue properties:
+
+                 * `queue_arn`: Queue ARN.
+                 * `service_account_id`: ID of the service account with permissions to write to the queue.
+                 * `message_attributes`: Attributes to add to each message within the queue, in `key:value` format. This is an optional parameter.
+
+     For more on the properties of the `yandex_serverless_triggers` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_triggers).
+
+     {% cut "Configuration for the yandex_function_trigger resource" %}
+
+     ```hcl
      resource "yandex_function_trigger" "my_trigger" {
        name = "<trigger_name>"
        container {
@@ -157,6 +232,8 @@ To create a trigger, you will need:
          * `batch_size`: Message batch size. This is an optional setting. The values may range from 1 to 1,000. The default value is 1.
 
      For more on the properties of the `yandex_function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+
+     {% endcut %}
 
   1. Create the resources:
 

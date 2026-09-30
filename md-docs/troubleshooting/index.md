@@ -310,22 +310,6 @@
 
  - [Как выяснить размер эфемерного хранилища узла Managed Service for Kubernetes](managed-kubernetes/how-to/finding-out-ephemeral-storage-size.md)
 
-## Managed Service for GitLab
-
- - [Все решения для Managed Service for GitLab](managed-gitlab/index.md)
-
- - [Решения для известных проблем  Managed Service for GitLab](managed-gitlab/known-issues/index.md)
-
- - [Устранение ошибки HTTP 500 в Managed Service for GitLab](managed-gitlab/known-issues/error-500.md)
-
- - [Устранение ошибки 413 при выполнении операции `git push`](managed-gitlab/known-issues/error-413.md)
-
- - [Примеры конфигураций и сценариев Managed Service for GitLab](managed-gitlab/how-to/index.md)
-
- - [Как обновить ПО на инстансе Managed Service for GitLab](managed-gitlab/how-to/update-gitlab-software-version.md)
-
- - [Как настроить миграцию проектов](managed-gitlab/how-to/migrate-projects.md)
-
 ## Network Load Balancer
 
  - [Все решения для Network Load Balancer](network-load-balancer/index.md)

@@ -5,6 +5,8 @@ description: Follow this guide to delete a connector.
 
 # Deleting a connector
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% note info %}
 
 You cannot delete a connector if deletion protection is enabled. Before deleting the connector, [disable](update.md) the protection.

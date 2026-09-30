@@ -5,6 +5,8 @@ description: Follow this guide to get information about a {{ er-full-name }} bus
 
 # Getting bus info
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -70,7 +72,7 @@ description: Follow this guide to get information about a {{ er-full-name }} bus
       * `output "bus-folder"`: Output variable with information about the folder housing the bus (`folder_id`):
          * `value`: Return value.
 
-     You can replace `folder_id` with another variable to get the information you need. For more on the properties of the `yandex_serverless_eventrouter_bus` data source, see [this provider guide]({{ tf-provider-datasources-link }}/serverless_eventrouter_bus).
+     You can replace `folder_id` with any other attribute to get the information you need. For more on the properties of the `yandex_serverless_eventrouter_bus` data source, see [this provider guide]({{ tf-provider-datasources-link }}/serverless_eventrouter_bus).
 
   1. Create the resources:
 

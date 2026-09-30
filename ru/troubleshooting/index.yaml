@@ -30,9 +30,6 @@ links:
   - title: Legal
     description: Решения для Legal
     href: legal/
-  - title: '{{ mgl-name }}'
-    description: Решения для {{ mgl-name }}
-    href: managed-gitlab/
   - title: '{{ managed-k8s-name }}'
     description: Решения для {{ managed-k8s-name }}
     href: managed-kubernetes/

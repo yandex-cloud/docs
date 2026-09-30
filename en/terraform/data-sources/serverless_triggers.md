@@ -105,6 +105,12 @@ subcategory: Serverless Triggers
       - `max_count` (*Read-Only*) (Number). Maximum number of events in a batch.
  At least one of max_count, max_bytes must be greater than 0.
     - `email` (*Read-Only*) (String). Email address that receives messages for this trigger.
+  - `max_message` [Block]. MAX source: fires on MAX bot updates.
+    - `bot_token` (*Read-Only*) (String). Input only, always empty in output.
+ Required on Create; on Update, changing it re-registers the subscription.
+    - `force` (*Read-Only*) (Bool). Input only. Delete all existing webhook subscriptions before registering this trigger.
+ Without force, registration fails if any subscription uses a different URL.
+    - `update_types` (*Read-Only*) (List Of String). Types of MAX updates to receive. Optional, default is ["message_created"].
   - `object_storage` [Block]. Object Storage source: fires on object events in a bucket.
     - `batch_settings` [Block]. Batch settings for accumulating object events.
       - `cutoff` (*Read-Only*) (String). Maximum time to wait before flushing an incomplete batch.
@@ -127,6 +133,13 @@ subcategory: Serverless Triggers
     - `cron_expression` (*Read-Only*) (String). Cron expression defining the trigger schedule.
  See http://man7.org/linux/man-pages/man5/crontab.5.html for the format; some limitations apply.
     - `payload` (*Read-Only*) (String). Payload passed to the invoked target on each firing.
+  - `yandex_forms` [Block]. Yandex Forms source: fires when a response is submitted to a form.
+    - `cloud_organization_id` (*Read-Only*) (String). ID of the Yandex Identity Hub organization.
+    - `oauth_token` (*Read-Only*) (String). OAuth token of a user with permission to modify the form's integration settings.
+ Input only, always empty in output.
+ Required on Create; on Update, changing it replaces the token used to manage the HTTP integration.
+    - `organization_id` (*Read-Only*) (String). ID of the Yandex 360 for Business organization.
+    - `survey_id` (*Read-Only*) (String). ID of the Yandex Form to receive submitted responses from.
   - `yandex_messenger` [Block]. Yandex Messenger source: fires on Yandex Messenger bot updates.
     - `bot_display_name` (*Read-Only*) (String). Display name of the bot the token belongs to. output only.
     - `bot_id` (*Read-Only*) (String). ID of the bot the token belongs to. output only.

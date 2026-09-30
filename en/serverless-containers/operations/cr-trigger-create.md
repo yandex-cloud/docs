@@ -27,8 +27,10 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Enter a name and description for the trigger.
+
+        * {% include [triggers-labels-step](../../_includes/functions/triggers-labels-step.md) %}
+
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container-registry }}`.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_container-registry }}**:
 
@@ -36,20 +38,24 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select [events](../concepts/trigger/cr-trigger.md#event) that will set off the trigger.
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_image-name }}** field, enter the image name for [filtering](../concepts/trigger/cr-trigger.md#filter). To find out the Docker image name, [get the list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_tag }}** field, enter the image tag for filtering.
-    
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
-        {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
+    1. {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
 
-        {% include [batch-events](../../_includes/serverless-containers/batch-events.md) %}
+    1. Under **Targets**:
 
-    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+        1. In the **Target type** field, select `Container`.
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+        1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-        {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
+        1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
+            {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
+
+        1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
+
+        1. {% include [trigger-console-filter](../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../_includes/functions/trigger-console-template.md) %}
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -127,6 +133,73 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
   1. In the {{ TF }} configuration file, describe the resources you want to create:
 
       ```hcl
+      resource "yandex_serverless_triggers" "my_trigger" {
+        name = "<trigger_name>"
+        source {
+          container_registry {
+            registry_id = "<registry_ID>"
+            image_name  = "<image_name>"
+            tag         = "<image_tag>"
+            event_type = [
+              "CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE",
+              "CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE",
+              "CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG",
+              "CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG",
+            ]
+            batch_settings {
+              max_count = "<max_number_of_events>"
+              max_bytes = "<max_group_size_in_bytes>"
+              cutoff    = "<maximum_wait_time>"
+            }
+          }
+        }
+        action {
+          invoke_container {
+            container_id       = "<container_ID>"
+            path               = "<HTTP_path>"
+            service_account_id = "<service_account_ID>"
+          }
+          retry_policy {
+            retry_attempts = "<number_of_retries>"
+            interval       = "<interval_between_retries>"
+          }
+          dead_letter {
+            dead_letter_queue {
+              queue_arn          = "<Dead_Letter_Queue_ARN>"
+              service_account_id = "<service_account_ID>"
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      {% include [tf-triggers-common-params](../../_includes/tf-triggers-common-params.md) %}
+
+      * `source`: Event source settings:
+
+        * `container_registry`: Registry settings:
+
+          * `registry_id`: [Registry ID](../../container-registry/operations/registry/registry-list.md).
+          * `image_name`: Name of the image for [filtering](../concepts/trigger/cr-trigger.md#filter). To find out the Docker image name, [get the list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
+          * `tag`: Tag of the image for filtering.
+          * `event_type`: List of [events](../concepts/trigger/cr-trigger.md#event) to set off the trigger. Specify at least one value:
+
+              * `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE`: Creating a new Docker image in the registry.
+              * `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE`: Deleting a Docker image from the registry.
+              * `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG`: Creating a new Docker image tag in the registry.
+              * `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG`: Deleting a Docker image tag from the registry.
+
+          {% include [tf-triggers-batch-settings](../../_includes/tf-triggers-batch-settings.md) %}
+
+      {% include [tf-triggers-action-container](../../_includes/serverless-containers/tf-triggers-action-container.md) %}
+
+      For more on the properties of the `yandex_serverless_triggers` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_triggers).
+
+      {% cut "Configuration for the yandex_function_trigger resource" %}
+
+      ```hcl
       resource "yandex_function_trigger" "my_trigger" {
         name = "<trigger_name>"
         container {
@@ -182,6 +255,8 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
         {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
       For more on the properties of the `yandex_function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+
+      {% endcut %}
 
   1. Create the resources:
 

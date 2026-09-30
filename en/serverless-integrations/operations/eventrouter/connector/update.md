@@ -5,6 +5,8 @@ description: Follow this guide to edit a connector.
 
 # Editing a connector
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 You can update a [connector](../../../concepts/eventrouter/connector.md) name, description, and labels, as well as enable or disable deletion protection. You cannot change a connector data source type and parameters.
 
 {% list tabs group=instructions %}

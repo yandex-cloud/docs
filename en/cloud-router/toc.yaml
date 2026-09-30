@@ -79,6 +79,10 @@ items:
   - name: Tutorials
     items:
       - name: >-
+          Setting up network connectivity between multiple virtual networks
+          using VPC Stitching
+        href: tutorials/vpc-stitching.md
+      - name: >-
           Organizing network connectivity between a {{ baremetal-name }} private
           subnet and a {{ vpc-name }} network
         href: tutorials/bm-vrf-and-vpc-interconnect.md

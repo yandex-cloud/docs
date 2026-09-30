@@ -25,18 +25,15 @@
 
 {% endlist %}
 
-
 ## Объекты и поля поиска {#objects-and-fields}
 
 Поиск в каталогах происходит по определенным типам объектов и полям.
-
 
 ### Yandex API Gateway {#api-gw}
 
 Тип объекта | Поля
 --- | ---
 [API-шлюз](../../api-gateway/concepts/index.md) | Идентификатор, имя, метки, описание, домен
-
 
 ### Yandex Application Load Balancer {#alb}
 
@@ -47,13 +44,11 @@
 [Целевая группа](../../application-load-balancer/concepts/target-group.md) | Идентификатор, имя, метки, описание
 [HTTP-роутер](../../application-load-balancer/concepts/http-router.md) | Идентификатор, имя, метки, описание
 
-
 ### Yandex Audit Trails {#at}
 
 Тип объекта | Поля
 --- | ---
 [Трейл](../../audit-trails/concepts/trail.md) | Идентификатор, имя, метки, описание
-
 
 ### Yandex Certificate Manager {#certificate-manager}
 
@@ -61,20 +56,17 @@
 --- | ---
 [Сертификат](../../certificate-manager/concepts/index.md) | Идентификатор, имя, домены, метки, описание
 
-
 ### Yandex Cloud Backup {#backup}
 
 Тип объекта | Поля
 --- | ---
 [Политика резервного копирования](../../backup/concepts/policy.md) | Идентификатор, имя
 
-
 ### Yandex Cloud CDN {#cdn}
 
 Тип объекта | Поля
 --- | ---
 [CDN-ресурс](../../cdn/concepts/resource.md) | Идентификатор, CNAME, метки
-
 
 ### Yandex Cloud DNS {#dns}
 
@@ -84,7 +76,6 @@
 Эндпоинт | Идентификатор, имя, метки, описание
 Файрвол | Идентификатор, имя, метки, описание
 
-
 ### Yandex Cloud Functions {#functions}
 
 Тип объекта | Поля
@@ -93,7 +84,6 @@
 [Триггер](../../functions/concepts/trigger/index.md) | Идентификатор, имя, метки, описание
 [Функция](../../functions/concepts/function.md) | Идентификатор, имя, метки, описание
 
-
 ### Yandex Cloud Logging {#logging}
 
 Тип объекта | Поля
@@ -101,20 +91,17 @@
 [Лог-группа](../../logging/concepts/log-group.md) | Идентификатор, имя, метки
 [Приемник логов](../../logging/operations/create-sink.md) | Идентификатор, имя, метки
 
-
 ### Yandex Cloud Postbox {#postbox}
 
 Тип объекта | Поля
 --- | ---
 [Адрес](../../postbox/concepts/glossary.md#address) | Идентификатор, адрес, метки, описание
 
-
 ### Yandex Cloud Registry {#cloud-registry}
 
 Тип объекта | Поля
 --- | ---
 [Реестр](../../cloud-registry/concepts/registry.md) | Идентификатор, имя, метки, описание
-
 
 ### Yandex Compute Cloud {#compute}
 
@@ -133,7 +120,6 @@
 [Снимок диска](../../compute/concepts/snapshot.md) | Идентификатор, имя, метки, описание
 [Файловое хранилище](../../compute/concepts/filesystem.md) | Идентификатор, имя, метки, описание
 
-
 ### Yandex Container Registry {#registry}
 
 Тип объекта | Поля
@@ -141,13 +127,11 @@
 [Реестр](../../container-registry/concepts/registry.md) | Идентификатор, имя, метки
 [Репозиторий](../../container-registry/concepts/repository.md) | Идентификатор, имя
 
-
 ### Yandex Data Processing {#dataproc}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Идентификатор, имя, метки, описание, хосты
-
 
 ### Yandex Data Transfer {#data-transfer}
 
@@ -156,7 +140,6 @@
 [Трансфер](../../data-transfer/concepts/index.md#transfer) | Идентификатор, имя, метки, описание
 [Эндпоинт](../../data-transfer/concepts/index.md#endpoint) | Идентификатор, имя, метки, описание
 
-
 ### Yandex Identity and Access Management {#iam}
 
 Тип объекта | Поля
@@ -164,8 +147,8 @@
 [Авторизованный ключ](../../iam/concepts/authorization/key.md) | Идентификатор, описание
 [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) | Идентификатор, имя, метки, описание
 [Статический ключ доступа](../../iam/concepts/authorization/access-key.md) | Идентификатор, идентификатор ключа, описание
+[Федерации сервисных аккаунтов](../../iam/concepts/workload-identity.md) | Идентификатор, имя, метки, описание
 [API-ключ](../../iam/concepts/authorization/api-key.md) | Идентификатор, описание
-
 
 ### Yandex Key Management Service {#kms}
 
@@ -175,13 +158,11 @@
 [Асимметричная ключевая пара шифрования](../../kms/concepts/asymmetric-encryption-key.md) | Идентификатор, имя, метки, описание
 [Симметричный ключ](../../kms/concepts/symmetric-encryption.md) | Идентификатор, имя, метки, описание
 
-
 ### Yandex Lockbox {#lockbox}
 
 Тип объекта | Поля
 --- | ---
 [Секрет](../../lockbox/concepts/secret.md) | Идентификатор, имя, метки, описание
-
 
 ### Yandex Managed Service for Apache Airflow™ {#maf}
 
@@ -189,13 +170,11 @@
 --- | ---
 [Кластер](../../glossary/cluster.md) | Идентификатор, имя, метки, описание, сервисный аккаунт, бакет S3
 
-
 ### Yandex Managed Service for Apache Kafka® {#mkf}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, топики, хосты
-
 
 ### Yandex Managed Service for ClickHouse® {#mch}
 
@@ -203,13 +182,11 @@
 --- | ---
 [Кластер](../../glossary/cluster.md) | Базы данных, внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, хосты
 
-
 ### Yandex Managed Service for GitLab {#gitlab}
 
 Тип объекта | Поля
 --- | ---
 [Инстанс](../../managed-gitlab/concepts/index.md) | Идентификатор, имя, метки, описание
-
 
 ### Yandex Managed Service for Kubernetes {#k8s}
 
@@ -218,13 +195,11 @@
 [Группа узлов](../../managed-kubernetes/concepts/index.md#node-group) | Идентификатор, идентификатор кластера, имя, метки, описание
 [Кластер](../../glossary/cluster.md) | Идентификатор, имя, метки, описание
 
-
 ### Yandex Managed Service for MySQL® {#mmy}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Базы данных, внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, хосты
-
 
 ### Yandex Managed Service for OpenSearch {#mos}
 
@@ -232,13 +207,11 @@
 --- | ---
 [Кластер](../../glossary/cluster.md) | Внутренний IP-адрес, идентификатор, имя, метки, описание, хосты
 
-
 ### Yandex Managed Service for PostgreSQL {#mpg}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Базы данных, внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, хосты
-
 
 ### Yandex Managed Service for Trino {#mtr}
 
@@ -246,13 +219,11 @@
 --- | ---
 [Кластер](../../glossary/cluster.md) | Идентификатор, имя, метки, описание, сервисный аккаунт
 
-
 ### Yandex Managed Service for Valkey™ {#mrd}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, хосты
-
 
 ### Yandex Managed Service for YDB {#ydb}
 
@@ -261,13 +232,11 @@
 [База данных](../../ydb/concepts/resources.md#database) | Идентификатор, имя, метки, описание
 [Резервная копия](https://ydb.tech/docs/ru//devops/backup-and-recovery) | Идентификатор, имя, метки, описание
 
-
 ### Yandex Message Queue {#message-queue}
 
 Тип объекта | Поля
 --- | ---
 [Очередь сообщений](../../message-queue/concepts/queue.md) | Идентификатор, имя, метки
-
 
 ### Yandex MetaData Hub {#metadata-hub}
 
@@ -275,13 +244,11 @@
 --- | ---
 [Кластер](../../metadata-hub/concepts/metastore.md) | Идентификатор, имя, метки, описание, сервисный аккаунт
 
-
 ### Yandex MPP Analytics for PostgreSQL {#mgp}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Базы данных, внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, хосты
-
 
 ### Yandex Network Load Balancer {#nlb}
 
@@ -290,13 +257,11 @@
 [Сетевой балансировщик](../../network-load-balancer/concepts/index.md) | Идентификатор, имя, метки, описание, внутренний IPv4-адрес, внутренний IPv6-адрес, публичный IPv4-адрес, публичный IPv6-адрес
 [Целевая группа](../../network-load-balancer/concepts/target-resources.md) | Идентификатор, имя, метки, описание
 
-
 ### Yandex Object Storage {#storage}
 
 Тип объекта | Поля
 --- | ---
 [Бакет](../../storage/concepts/bucket.md) | Идентификатор, имя, идентификатор ресурса, теги
-
 
 ### Yandex Resource Manager {#resource-manager}
 
@@ -305,13 +270,11 @@
 [Каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) | Идентификатор, имя, метки, описание
 [Облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) | Идентификатор, имя, метки, описание
 
-
 ### Yandex Serverless Containers {#containers}
 
 Тип объекта | Поля
 --- | ---
 [Контейнер](../../serverless-containers/concepts/container.md) | Идентификатор, имя, метки, описание
-
 
 ### Yandex Smart Web Security {#sws}
 
@@ -323,20 +286,17 @@
 [Профиль безопасности](../../smartwebsecurity/concepts/profiles.md) | Идентификатор, имя, метки, описание
 [Список совпадений](../../smartwebsecurity/concepts/conditions.md#match-list) | Идентификатор, имя, метки, описание
 
-
 ### Yandex SmartCaptcha {#captcha}
 
 Тип объекта | Поля
 --- | ---
 [Капча](../../smartcaptcha/concepts/validation.md) | Идентификатор, имя, метки, описание
 
-
 ### Yandex StoreDoc {#mmg}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Базы данных, внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, хосты
-
 
 ### Yandex Virtual Private Cloud {#vpc}
 

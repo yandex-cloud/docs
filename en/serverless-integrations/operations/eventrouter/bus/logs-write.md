@@ -5,6 +5,8 @@ description: Follow this guide to configure bus logging.
 
 # Writing to the bus execution log
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% include [logging-note](../../../../_includes/functions/logging-note.md) %}
 
 {% list tabs group=instructions %}

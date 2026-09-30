@@ -408,24 +408,6 @@ items:
         href: managed-kubernetes/how-to/setting-timezone-on-mk8s-worker-nodes.md
       - name: Как выяснить размер эфемерного хранилища узла {{ managed-k8s-name }}
         href: managed-kubernetes/how-to/finding-out-ephemeral-storage-size.md
-  - name: '{{ mgl-name }}'
-    items:
-      - name: Все решения для {{ mgl-name }}
-        href: managed-gitlab/index.md
-      - name: Решения для известных проблем  {{ mgl-name }}
-        href: managed-gitlab/known-issues/index.md
-        hidden: true
-      - name: Устранение ошибки HTTP 500 в {{ mgl-name }}
-        href: managed-gitlab/known-issues/error-500.md
-      - name: Устранение ошибки 413 при выполнении операции `git push`
-        href: managed-gitlab/known-issues/error-413.md
-      - name: Примеры конфигураций и сценариев {{ mgl-name }}
-        href: managed-gitlab/how-to/index.md
-        hidden: true
-      - name: Как обновить ПО на инстансе {{ mgl-name }}
-        href: managed-gitlab/how-to/update-gitlab-software-version.md
-      - name: Как настроить миграцию проектов
-        href: managed-gitlab/how-to/migrate-projects.md
   - name: '{{ network-load-balancer-name }}'
     items:
       - name: Все решения для {{ network-load-balancer-name }}

@@ -26,6 +26,39 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [ad-sync-presetup-ad](../../_includes/organization/ad-sync-presetup-ad.md) %}
 
+## Включите обратную запись паролей (опционально) {#enable-password-writeback}
+
+Если вы планируете [обратную запись паролей](../concepts/ad-sync/index.md#password-writeback) из {{ org-full-name }} в {{ microsoft-idp.ad-short }}, включите ее для пула пользователей в {{ org-full-name }}.
+
+{% include [pw-writeback-preview-notice](../../_includes/organization/pw-writeback-preview-notice.md) %}
+
+{% include [cli-install](../../_includes/cli-install.md) %}
+
+{% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+1. Посмотрите описание команды CLI для создания настроек синхронизации:
+
+    ```bash
+    yc organization-manager idp synchronization-settings create --help
+    ```
+
+1. Создайте настройки синхронизации с включенной обратной записью паролей:
+
+    ```bash
+    yc organization-manager idp synchronization-settings create \
+      --subject-container-id <идентификатор_пула_пользователей> \
+      --filter "domain=<домен_в_Active_Directory>" \
+      --enable-password-writeback
+    ```
+
+    Где:
+
+    * `--subject-container-id` — идентификатор [пула пользователей](../concepts/user-pools.md), для которого создаются настройки синхронизации.
+    * `--filter` — домен {{ microsoft-idp.ad-short }}, который нужно синхронизировать. Укажите тот же домен, что и в параметре `sync_settings.filter.domain` конфигурации агента.
+    * `--enable-password-writeback` — включает обратную запись паролей для пула пользователей.
+
+При [настройке агента](#setup-agent) также задайте в его конфигурации параметр `enable_password_writeback: true`.
+
 ## Настройте и запустите агент синхронизации {#setup-agent}
 
 Вы можете установить [агент](../concepts/ad-sync/sync-agent.md) синхронизации на любой сервер под управлением ОС [Linux](https://ru.wikipedia.org/wiki/Linux) или [Windows](https://ru.wikipedia.org/wiki/Windows).

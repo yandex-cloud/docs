@@ -52,8 +52,8 @@ Where:
   * `allowedOrigins`: List of allowed request origins.
   * `allowedMethods`: List of allowed HTTP methods.
   * `allowedHeaders`: List of allowed headers in preflight requests.
-  * `exposeHeaders`: List of headers visible to the browser in the response.
-  * `maxAgeSeconds`: Preflight response cache time in seconds.
+  * `exposeHeaders`: List of headers available to a browser in the response.
+  * `maxAgeSeconds`: Cache time for a preflight response in seconds.
 
 ### Bucket status {#bucket-status}
 

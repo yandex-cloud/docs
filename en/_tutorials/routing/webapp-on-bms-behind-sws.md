@@ -116,7 +116,6 @@ Configure the infrastructure on the {{ vpc-name }} side. In this step, you will 
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }} |
       | --- | --- | --- | --- | --- | --- |
       | Ingress | `http`            | `80`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Ingress | `healthchecks`            | `30080`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
       | Egress | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
 {% endlist %}
@@ -627,7 +626,7 @@ Once you make sure your L7 load balancer works correctly, set up a {{ sws-name }
 
           The new rule will send traffic for automatic processing by machine learning and behavioral analysis algorithms. The system will redirect suspicious requests to {{ captcha-full-name }} for additional verification.
       1. Click **{{ ui-key.yacloud.common.add }}**.
-  
+
       The rule will appear in the list of rules under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
 

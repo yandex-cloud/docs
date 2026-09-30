@@ -1,0 +1,1 @@
+Optionally, in the **Filter** field, specify a jq template to filter events sent to the target. If no filter is specified, all events are sent to the target.

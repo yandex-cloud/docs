@@ -38,11 +38,7 @@ The trigger must be in the same cloud as the broker whose topic it reads message
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_broker }}** field, specify the broker.
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}** field, specify an MQTT topic. If no MQTT topic is set, the trigger will fire for all broker topics.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify the following:
-
-        {% include [batch-settings](batch-settings.md) %}
-
-        {% include [batch-messages](batch-messages.md) %}
+    1. {% include [batch-settings](batch-settings.md) %}
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
@@ -69,8 +65,8 @@ The trigger must be in the same cloud as the broker whose topic it reads message
       --name <trigger_name> \
       --broker-id <broker_ID> \
       --mqtt-topic '<MQTT_topic>' \
-      --batch-size <message_batch_size> \
-      --batch-cutoff <maximum_wait_time> \
+      --batch-size <message_group_size> \
+      --batch-cutoff <maximum_timeout> \
       --invoke-function-id <function_ID> \
       --invoke-function-service-account-id <service_account_ID> \
       --retry-attempts <number_of_retry_attempts> \

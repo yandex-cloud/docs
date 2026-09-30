@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Восстановить диск с помощью образа
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 {% note info %}
 
 {% include [boot-disk-recover](../../../_includes/compute/boot-disk-recover.md) %}

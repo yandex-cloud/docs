@@ -5,6 +5,8 @@ description: Access management in {{ si-full-name }}. This section describes the
 
 # Access management in {{ si-name }}
 
+{% include [sunset-note](../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 Roles for a resource can be assigned by users who have one of the following roles for that resource:

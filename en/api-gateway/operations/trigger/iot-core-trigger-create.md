@@ -46,12 +46,7 @@ The trigger must be in the same cloud as the registry or device from the topic o
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**, specify the registry, device, and MQTT topic to create a trigger for. When creating a trigger for a registry topic, you do not need to specify a device or an MQTT topic. If no MQTT topic is set, the trigger will fire for all registry or device topics.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
-
-        * Batch size. The values may range from 1 to 1,000. The default value is 1.
-        * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
-
-       The trigger groups messages within the specified wait time period and sends them to WebSocket connections. The number of messages cannot exceed the specified batch size.
+    1. {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
 
     1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
 

@@ -5,6 +5,8 @@ description: Follow this guide to view roles assigned for an {{ er-name }} resou
 
 # Viewing roles assigned for an {{ er-name }} resource
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% note info %}
 
 An {{ er-name }} resource automatically [inherits](../../../../iam/concepts/access-control/index.md#inheritance) roles assigned for a folder, cloud, or organization. However, they are not displayed in the list of assigned roles. You can learn more about viewing roles [here](../../../../iam/operations/roles/get-assigned-roles.md).

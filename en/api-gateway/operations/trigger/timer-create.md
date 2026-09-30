@@ -25,15 +25,25 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger to send messa
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Enter a name and description for the trigger.
+
+        * {% include [triggers-labels-step](../../../_includes/functions/triggers-labels-step.md) %}
+
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**:
 
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** field, specify a schedule for sending messages to WebSocket connections as a [cron expression](../../concepts/trigger/timer.md#cron-expression).
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** field, specify the message to send to WebSocket connections if the timer fires in the `payload` field. The data type is a string up to 4,096 characters long.
 
-    1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
+    1. Under **Targets**:
+
+        1. In the **Target type** field, select `API gateway`.
+
+        1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
+
+        1. {% include [trigger-console-filter](../../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../../_includes/functions/trigger-console-template.md) %}
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 

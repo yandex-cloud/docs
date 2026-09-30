@@ -196,6 +196,10 @@ items:
       - name: '{{ interconnect-name }}'
         items:
           - name: >-
+              Setting up network connectivity between multiple virtual networks
+              using VPC Stitching
+            href: tutorials/vpc-stitching.md
+          - name: >-
               Configuring {{ interconnect-name }} access to cloud networks
               behind NGFWs
             href: tutorials/cic-with-ngfw.md

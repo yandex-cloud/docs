@@ -79,6 +79,7 @@ description: In this article, you will learn how to work with {{ sf-full-name }}
 * [Creating a trigger for budgets](trigger/budget-trigger-create.md)
 * [Creating a trigger for {{ yds-name }}](trigger/data-streams-trigger-create.md)
 * [Creating an email trigger](trigger/mail-trigger-create.md)
+* [Creating a trigger for Telegram](trigger/telegram-trigger-create.md)
 
 ## Managing a trigger {#trigger-manage}
 

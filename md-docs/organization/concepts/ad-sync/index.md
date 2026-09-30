@@ -119,6 +119,8 @@ flowchart TB
 
 Для работы обратной записи паролей аккаунту Active Directory, от имени которого агент выполняет синхронизацию, дополнительно нужны разрешения `Change Password`, `Reset Password` и `Write pwdLastSet`. Назначьте их на весь домен или на те Organization Units (OU), которые попадают под выбранные в конфигурации агента фильтры `sync_settings.filter`.
 
+Чтобы включить обратную запись паролей, [опишите настройки синхронизации](../../operations/sync-ad.md#enable-password-writeback) и задайте параметр `enable_password_writeback: true` в конфигурации агента.
+
 ## Настройка синхронизации {#sync-setup}
 
 Чтобы реализовать синхронизацию пользователей и групп Yandex Identity Hub с Active Directory, необходимо выполнить предварительные настройки, как на стороне вашего [контроллера домена](https://ru.wikipedia.org/wiki/Контроллер_домена) с развернутыми службами Active Directory, так и на стороне Yandex Cloud.

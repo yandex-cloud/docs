@@ -5,7 +5,6 @@
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-
 ## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}

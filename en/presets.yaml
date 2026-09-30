@@ -71,6 +71,9 @@ default:
   backup-name: Cloud Backup
   backup-provider-docs-version: '26.07'
   backup-short-name: Cloud Backup
+  baremetal-extend-managed-k8s-name: 'Extend: Managed Service for Kubernetes®'
+  baremetal-extend-stackland-name: 'Extend: Yandex Cloud Stackland'
+  baremetal-extend-virtualization-name: 'Extend: Virtualization'
   baremetal-full-name: Yandex BareMetal
   baremetal-name: BareMetal
   bash-cli-ver: bash-2204
@@ -3504,6 +3507,7 @@ default:
       security-center:
         alert:
           action_alert_analysis: Alert analysis
+          alert_severity-info: Remark
         alerts:
           sink:
             action_create: Create sink
@@ -3828,13 +3832,6 @@ default:
           query-placeholder_auE1D: Enter a query using KQL syntax, or select a template query
           YcdrPageLayout:
             investigations_wYxSe: Investigations
-      shared:
-        components:
-          severity_critical_uT8Xg: 'Critical severity '
-          severity_high_cahHH: High severity
-          severity_info_biSRh: Remark
-          severity_low_tqf9A: Low severity
-          severity_medium_8LZ4w: Medium severity
       siem:
         SearchActionButtonBlock:
           save: Save
@@ -4433,6 +4430,17 @@ default:
         action_stop-prolongation-server-dialog: Disable
         actions_add-partition: Add partition
         addAdditionalSubnet: Add additional subnet
+        extend:
+          RequestClusterDialog:
+            actionSubmit: Send request
+            fieldRam: RAM amount
+            fieldStorage: Storage
+            fieldTask: Describe your technical task
+            fieldVcpu: vCPU cores
+          StacklandListPage:
+            leaveRequest: Submit a request
+          VirtualizationListPage:
+            leaveRequest: Submit a request
         field_choose-marketplace-os: Marketplace
         field_choose-no-os: No OS
         field_CIDR_rwYMi: CIDR
@@ -4465,6 +4473,9 @@ default:
         label_create-public-subnet-full: Order a public subnet
         label_create-server: Lease server
         label_create-subnetwork: Create subnet
+        label_extend: BareMetal Extend
+        label_extend-stackland: 'Extend: Yandex Cloud Stackland'
+        label_extend-virtualization: 'Extend: Virtualization'
         label_images_duoXD: Boot images
         label_kvm-console_37Kma: KVM console
         label_load-image: Upload image
@@ -4775,9 +4786,28 @@ default:
         label_marketplace: Marketplace
       cloud-registry:
         action_registry-create: Create registry
+        action_scan-artifacts-modal-add: Add
+        label_vulnerability-severity-tooltip-critical: Maximum severity
+        label_vulnerability-severity-tooltip-high: High severity
+        label_vulnerability-severity-tooltip-low: Low severity
+        label_vulnerability-severity-tooltip-medium: Medium severity
+        menu_scanner: Vulnerability scanner
         registries:
           button_update-ip-permissions-full: Configure access
           registry-kind_docker: Docker
+        scan-history-empty_button: Open Security Deck
+        scan-history-placeholder_action_new-scan: New scan
+        scan-policy-form-card:
+          button_add_artifacts: Add artifacts
+          label_artifacts-to-scan_all: All artifacts
+          label_artifacts-to-scan_selected: Only selected
+        scan-policy-settings-form:
+          row_scan-lang-packages: Scan language packages
+          section_on-push-title: Scanning artifacts when adding to the registry
+          section_scheduled-title: Periodic artifact scanning
+        scanner-settings:
+          action_configure-scanner: Configure scanner
+          label_scanning-language-packages: Language package scanning
         title_ip-permissions: Access for IP addresses
         title_registries: Registries
         title_registry-artifacts: Artifacts
@@ -5712,7 +5742,6 @@ default:
         field_capacity-per-instance: Number of parallel tasks per worker
         field_copy-object-storage: Transfer data from Object Storage
         field_copy-omniauth-config: Transfer OmniAuth settings
-        field_delete-untagged: Delete untagged images during maintenance
         field_domain: Domain
         field_idle-time-minutes: Maximum worker downtime, in minutes
         field_max-use-count: Maximum number of jobs per worker
@@ -6168,6 +6197,18 @@ default:
           label_title: Access management
           popup-add-sa_field_name: Name
           popup-add-sa_field_namespace: Namespace
+        baremetal-node-groups:
+          create:
+            field_node-count: Nodes per group
+            settings:
+              action_create-node-group: Create a node group
+              field_k8s-version: Kubernetes version
+              field_max-unavailable: Maximum unavailable nodes
+              field_private-subnet: Private subnet
+              label_internet-access: Internet access
+              section_network-interfaces: Network interfaces
+            step_configuration: BareMetal server configuration
+            step_settings: Node group setup
         cluster:
           button_create-resource: Create
           field_namespace: Namespace
@@ -6177,6 +6218,8 @@ default:
             section_releases: Installed applications
           node-groups:
             button_create: Create a node group
+            button_create-baremetal-ng: BareMetal
+            label_type-baremetal: BareMetal
             label_type-custom: External
           overview:
             label_health: State
@@ -7329,7 +7372,6 @@ default:
             field_retry-interval: Interval
             field_service-account: Service account
             field_size: Batch size
-            field_stream-size: Batch size, B
             field_suffix: Object key suffix
             field_tag: Docker image tag
             field_type: Type

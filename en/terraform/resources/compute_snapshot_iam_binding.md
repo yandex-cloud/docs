@@ -4,11 +4,20 @@ subcategory: Compute Cloud
 
 # yandex_compute_snapshot_iam_binding (Resource)
 
-Allows creation and management of a single binding within IAM policy for an existing `snapshot`.
+Manages the members of a single IAM role on an existing `snapshot`.
+
+On creation, the specified members are added to the role without removing existing members. On update, the resource replaces the members of the previously managed role with the configured bindings. On deletion, it removes the managed role from all of its members, including those not listed in this resource. Other roles on the target resource are preserved.
 
 {% note warning %}
 
-**Warning:** This resource is authoritative for the given `role` on the target `snapshot` and manages the complete set of its members. When you change or delete `yandex_compute_snapshot_iam_binding`, the `role` may be removed from other subjects on the `snapshot` as well — including subjects granted outside of this resource (via the corresponding `*_iam_member` resource, the management console, CLI or API). Those subjects are not tracked in the Terraform state, so a plain `terraform plan` does not list them. Be careful.
+**Warning:** Updating or deleting `yandex_compute_snapshot_iam_binding` can revoke access granted outside this resource, including access granted through `*_iam_member`, the management console, CLI or API. Those subjects are not tracked in this resource's Terraform state and are not shown in its normal plan diff. The provider attempts to list affected subjects in a separate warning during planning when it can read the current access bindings. An absent warning does not guarantee that no other subjects will lose access.
+
+{% endnote %}
+
+
+{% note warning %}
+
+Only one `yandex_compute_snapshot_iam_binding` resource may manage a given role on a given `snapshot`. Do not use `*_iam_binding` and `*_iam_member` for the same role on the same target resource: they will conflict over the role's members. They can be used together for different roles. Use `*_iam_member` to manage an individual member while preserving other members of the role.
 
 {% endnote %}
 

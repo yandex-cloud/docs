@@ -21,8 +21,6 @@
     With the advanced setup, you need to manually [generate the key](../../postbox/operations/create-address.md) for the DKIM signature. The **{{ ui-key.yacloud.postbox.section_dkim }}** section on the address page displays a single TXT record you need to add to your DNS provider.
 
     **Example of creating resource records in {{ dns-full-name }}**
-    
-    1. In the [management console]({{ link-console-main }}), select the folder containing the address and your domain zone.
 
         If you do not have a [public DNS zone](../../dns/concepts/dns-zone.md#public-zones) yet, [create](../../dns/operations/zone-create-public.md) one:
     1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.

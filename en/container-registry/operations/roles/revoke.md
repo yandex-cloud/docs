@@ -32,35 +32,25 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
      * `<resource_name_or_ID>`: Name or ID of the resource the role is assigned for.
 
   1. Revoke a role:
-     
-     * From a user:
-       
-       ```bash
-       yc container <resource> remove-access-binding <resource_name_or_ID> \
-         --role <role> \
-         --user-account-id <user_ID>
-       ```
 
-     * [From a service account](../../../iam/concepts/users/service-accounts.md):
-       
-       ```bash
-       yc container <resource> remove-access-binding <resource_name_or_ID> \
-         --role <role> \
-         --service-account-id <service_account_ID>
-       ```
+     ```bash
+     yc container <resource> remove-access-binding <resource_name_or_ID> \
+       --role <role> \
+       --subject <subject_type>:<subject_ID>
+     ```
 
-     * From all authenticated users (the `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md)):
-       
-       ```bash
-       yc container <resource> remove-access-binding <resource_name_or_ID> \
-         --role <role> \
-         --all-authenticated-users
-       ```
+     Where:
 
-       Where:
-       * `<resource>`: `registry` or `repository` resource type.
-       * `<resource_name_or_ID>`: Name or ID of the resource you want to revoke the role for.
-       * `<role_ID>`: [Role](../../security/index.md#service-roles) you want to revoke.
+     * `<resource>`: `registry` or `repository` resource type.
+     * `<resource_name_or_ID>`: Name or ID of the resource you want to revoke the role for.
+     * `<role_ID>`: [Role](../../security/index.md#service-roles) you want to revoke.
+     * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+
+         {% cut "Subject designations" %}
+
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
      
      **Example**
 
@@ -69,7 +59,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
      ```bash
      yc container registry remove-access-binding my-first-registry \
        --role container-registry.admin \
-       --user-account-id ajeugsk5ubk6********
+       --subject userAccount:ajeugsk5ubk6********
      ```
 
      Result:
@@ -92,10 +82,22 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
          role        = "<role>"
        
          members = [
-           "userAccount:<user_ID>",
+           "<subject_type>:<subject_ID>",
          ]
        }
        ```
+
+       Where:
+
+       * `registry_id`: ID of the registry for which the role was assigned.
+       * `role`: [Role](../../security/index.md#service-roles) you want to revoke.
+       * `members`: List of designations for [subjects](../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+
+           {% cut "Subject designations" %}
+
+           {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+           {% endcut %}
 
        For more on the properties of the `yandex_container_registry_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/container_registry_iam_binding).
   
@@ -122,6 +124,14 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
   To revoke roles assigned for a registry, use the [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md) gRPC API call.
 
   To revoke roles assigned for a repository, use the [updateAccessBindings](../../api-ref/Repository/updateAccessBindings.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/UpdateAccessBindings](../../api-ref/grpc/Repository/updateAccessBindings.md) gRPC API call.
+
+  In the request body, set the `action` property to `REMOVE` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 

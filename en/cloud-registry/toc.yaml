@@ -35,6 +35,10 @@ items:
                 href: operations/registry/create-access-policy.md
               - name: Delete access policy
                 href: operations/registry/remove-access-policy.md
+          - name: Lifecycle policy
+            href: operations/lifecycle-policy/create.md
+          - name: Scanning a registry
+            href: operations/registry/scanning.md
       - name: Managing artifacts
         items:
           - name: Docker image
@@ -107,8 +111,6 @@ items:
                 href: operations/debian/pull.md
           - name: Deleting an artifact from a registry
             href: operations/artifacts/delete.md
-      - name: Creating a lifecycle policy
-        href: operations/lifecycle-policy/create.md
   - name: Tutorials
     items:
       - name: Running a Docker image on a VM using {{ cloud-registry-name }}

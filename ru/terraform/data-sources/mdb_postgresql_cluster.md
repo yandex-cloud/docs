@@ -101,9 +101,16 @@ output "fqdn" {
 - `host_group_ids` (*Read-Only*) (Set Of String). Host Group IDs.
 - `id` (String). 
 - `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
-- `maintenance_window` (*Read-Only*) (List Of Object). Maintenance policy of the PostgreSQL cluster.
+- `maintenance_window` (*Read-Only*) (List Of Object). Legacy maintenance policy. Conflicts with maintenance_windows. Weekly hour 1 means 00:00 UTC and hour 24 means 23:00 UTC; the window lasts one hour and permits temporary write unavailability.
   - `day` . 
   - `hour` . 
+  - `type` . 
+- `maintenance_windows` (*Read-Only*) (List Of Object). Maintenance schedule. Conflicts with maintenance_window. Times are UTC. To remove time restrictions, explicitly select ANYTIME.
+  - `slot` . 
+    - `allow_temporary_unavailability` . 
+    - `day` . 
+    - `duration` . 
+    - `start_time` . 
   - `type` . 
 - `name` (String). The name of PostgreSQL cluster.
 - `network_id` (*Read-Only*) (String). The `VPC Network ID` of subnets which resource attached to.
