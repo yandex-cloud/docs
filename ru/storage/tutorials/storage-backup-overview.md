@@ -8,6 +8,7 @@ canonical: '{{ link-docs }}/tutorials/archive/storage-backup-overview'
 
 С помощью {{ objstorage-name }} вы можете организовать автоматическое [резервное копирование](../concepts/backup.md) и восстановление данных. Для этого доступны разные сервисы и командные утилиты. Выберите подходящее руководство и следуйте инструкциям.
 
+* [Автоматическая проверка восстановления PostgreSQL и вложений](backup-under-test.md)
 * [Резервное копирование с помощью AWS S3 Sync](./storage-backup-aws-s3-sync.md)
 * [Резервное копирование с помощью rclone](./storage-backup-rclone.md)
 * [Резервное копирование с помощью GeeseFS](./storage-backup-geesefs.md)

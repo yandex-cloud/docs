@@ -177,6 +177,8 @@ items:
         items:
           - name: Обзор
             href: tutorials/storage-backup-overview.md
+          - name: Автоматическая проверка восстановления PostgreSQL и вложений
+            href: tutorials/backup-under-test.md
           - name: >-
               Резервное копирование в {{ objstorage-name }} с помощью aws s3
               sync
