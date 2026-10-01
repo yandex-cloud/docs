@@ -2,7 +2,7 @@ default:
   360-standard-current-version: 1.0.0
   a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
   AB: Airbyte®
-  ad-sync-agent: Identity Hub AD Sync Agent
+  ad-sync-agent: Yandex Identity Hub Sync Agent
   ad-sync-agent-linuxlink: https://storage.yandexcloud.net/yc-identityhub-sync/install.sh
   ad-sync-agent-windowslink: https://storage.yandexcloud.net/yc-identityhub-sync/install.ps1
   adv-ddos-protection: Advanced Yandex DDoS Protection

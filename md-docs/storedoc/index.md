@@ -62,6 +62,8 @@
 
  - [Примеры для подключения к шардированному кластеру](operations/connect/sharded.md)
 
+ - [Обновление цепочки TLS-сертификатов](operations/connect/update-tls-certificates.md)
+
 ### Базы данных
 
  - [SQL-запросы в Yandex WebSQL](operations/websql.md)

@@ -72,7 +72,7 @@
 * [Контроля данных](../../../security-deck/concepts/dspm.md) ({{ dspm-name }}).
 * [Контроля конфигурации](../../../security-deck/concepts/cspm.md) ({{ cspm-name }}).
 * [Контроля {{ k8s }}](../../../security-deck/concepts/kspm.md) ({{ kspm-name }}).
-* [Диагностики доступов](../../../security-deck/concepts/ciem.md) ({{ ciem-name }}).
+* [{{ access-analyzer-name }}](../../../security-deck/concepts/access-analyzer.md).
 * [Просмотра алертов](../../../security-deck/concepts/alerts.md).
 * [Портал соответствия требованиям](../../../security-deck/concepts/compliance.md).
 

@@ -53,6 +53,8 @@ items:
             href: operations/connect/clients.md
           - name: Примеры кода
             href: operations/connect/code-examples.md
+          - name: Обновление цепочки TLS-сертификатов
+            href: operations/connect/update-tls-certificates.md
       - name: Базы данных
         items:
           - name: SQL-запросы в {{ websql-full-name }}

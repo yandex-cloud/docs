@@ -75,7 +75,7 @@
 
     ```bash
     sudo mkdir -p /usr/share/ca-certificates && \
-    sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+    sudo wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
               -O /usr/share/ca-certificates/YandexInternalRootCA.crt && \
     sudo chmod 655 /usr/share/ca-certificates/YandexInternalRootCA.crt
     ```

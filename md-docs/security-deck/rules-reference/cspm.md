@@ -116,7 +116,7 @@ Yandex Cloud позволяет задавать [срок действия](../
    * [Список сообществ](https://datasphere.api.cloud.yandex.net/datasphere/v2/communities)
    * [Список проектов](https://datasphere.api.cloud.yandex.net/datasphere/v2/projects?communityId=<id>)
 1. Для каждого проекта или сообщества определите связанный сервисный аккаунт или агент. Если поле недоступно через CLI/API, посмотрите в [интерфейсе Datasphere](https://datasphere.yandex.cloud/communities). 
-1. Проверьте выданные доступы этих сервисных аккаунтов с помощью [Модуля диагностики доступов (CIEM)](../operations/ciem/view-permissions.md). 
+1. Проверьте выданные доступы этих сервисных аккаунтов с помощью [Модуля Access Analyzer](../operations/access-analyzer/analyze-permissions.md#view). 
 1. Актуальные роли DataSphere, которые нужно сверять со [справочником ролей](../../iam/roles-reference.md#datasphere-roles) Yandex Identity and Access Management перед запуском сканера: `datasphere.community-projects.viewer, datasphere.community-projects.developer, datasphere.community-projects.editor, datasphere.community-projects.admin, datasphere.communities.viewer, datasphere.communities.developer, datasphere.communities.editor, datasphere.communities.admin`. 
 1. Если конкретная роль отсутствует в tenant или справочнике, сканер не должен прекращать задание; логируйте role not found / not applicable. 
 1. Запрещенные роли для среды выполнения/сервисных аккаунтов в DataSphere без исключения: `admin, editor, resource-manager.clouds.owner, resource-manager.admin, iam.serviceAccounts.admin, iam.serviceAccounts.tokenCreator, lockbox.admin, lockbox.editor, kms.admin, kms.editor, storage.admin, compute.admin, vpc.admin, datasphere.communities.admin, datasphere.communities.editor, datasphere.community-projects.admin, datasphere.community-projects.editor, ai.admin, ai.editor, ai.models.admin, ai.models.editor`, любые ненужные `*.admin / *.editor`. 
@@ -179,7 +179,7 @@ Yandex Cloud позволяет задавать [срок действия](../
    yc serverless function get --name <name> --format json 
    ``` 
    
-1. Отзовите доступы с помощью [Модуля диагностики доступов (CIEM)](../operations/ciem/revoke-permissions.md).
+1. Отзовите доступы с помощью [Модуля Access Analyzer](../operations/access-analyzer/analyze-permissions.md#revoke).
 
 ### К публичным MCP-серверам не следует подключать непубличные функции, workflows и Tools, требующие авторизации {#public-mcp-tools}
 
@@ -609,7 +609,7 @@ Kubelet имеет широкие полномочия (управление п�
 #### Инструкции и решения по выполнению
 
 * Следуйте принципу [минимальных привилегий](../../iam/best-practices/using-iam-securely.md#restrict-access) при назначении прав доступа сервисным аккаунтам.
-* Проводите регулярный аудит прав доступа через [модуль диагностики доступа (CIEM)](../concepts/ciem.md) для выявления неактивных сервисных аккаунтов с избыточными правами.
+* Проводите регулярный аудит прав доступа через [модуль Access Analyzer](../concepts/access-analyzer.md) для выявления неактивных сервисных аккаунтов с избыточными правами.
 * Храните ключи сервисных аккаунтов в [Yandex Lockbox](../../lockbox/concepts/secret.md), а не в коде или переменных окружения.
 
 ### Дата последнего использования ключей доступа не превышает 90 дней {#unused-key}
@@ -737,7 +737,7 @@ Yandex Cloud отображает дату и время последней ау
 
 #### Инструкции и решения по выполнению
 
-* [Отзовите](../operations/ciem/revoke-permissions.md) избыточные доступы у сервисного аккаунта с помощью сервиса Security Deck.
+* [Отзовите](../operations/access-analyzer/analyze-permissions.md#revoke) избыточные доступы у сервисного аккаунта с помощью сервиса Security Deck.
 * [Отзовите](../../iam/operations/roles/revoke.md) избыточные права у сервисного аккаунта с помощью сервиса IAM.
 
 ### Сервисным аккаунтам назначены минимальные привилегии на уровне сервиса {#sa-privileges-service-roles}
@@ -767,7 +767,7 @@ Yandex Cloud отображает дату и время последней ау
 
 #### Инструкции и решения по выполнению
 
-* [Отзовите](../operations/ciem/revoke-permissions.md) избыточные доступы у сервисного аккаунта с помощью сервиса Security Deck.
+* [Отзовите](../operations/access-analyzer/analyze-permissions.md#revoke) избыточные доступы у сервисного аккаунта с помощью сервиса Security Deck.
 * [Отзовите](../../iam/operations/roles/revoke.md) избыточные права у сервисного аккаунта с помощью сервиса IAM.
 
 ### Привилегированные роли назначены только доверенным администраторам {#check-privileged-roles}
@@ -1202,10 +1202,10 @@ Yandex Container Registry умеет запускать сканирование
 
 Проверьте права доступа, назначенные к сервисным аккаунтам. Если в списке находятся только доверенные администраторы, рекомендация выполняется. Если нет, то воспользуйтесь [инструкцией](../../iam/operations/roles/revoke.md), чтобы отозвать избыточные права с помощью сервиса Identity and Access Management.
 
-Чтобы централизованно управлять доступом, используйте [Модуль диагностики доступов](https://center.yandex.cloud/security/iam-diagnostics/) (CIEM). Для этого воспользуйтесь инструкциями:
+Чтобы централизованно управлять доступом, используйте [Модуль Access Analyzer](https://center.yandex.cloud/security/access-analyzer/). Для этого воспользуйтесь инструкциями:
 
-* [Просмотреть список доступов субъекта](../operations/ciem/view-permissions.md)
-* [Отозвать доступ у субъекта](../operations/ciem/revoke-permissions.md)
+* [Просмотреть список доступов субъекта](../operations/access-analyzer/analyze-permissions.md#view)
+* [Отозвать доступ у субъекта](../operations/access-analyzer/analyze-permissions.md#revoke)
 
 
 ### Настроен ACL по IP-адресам для Yandex Container Registry {#acl-container-registry}
@@ -1408,7 +1408,7 @@ ACL позволяет предоставить доступ к объекту �
 
 Проанализируйте найденные учетные записи с назначенными примитивными ролями `admin`, `editor` и `viewer` и замените их на [сервисные гранулярные роли](../../iam/roles-reference.md) в соответствии с вашей матрицей ролей.
 
-Чтобы просмотреть полный список доступов субъекта, воспользуйтесь [инструкцией](../operations/ciem/view-permissions.md).
+Чтобы просмотреть полный список доступов субъекта, воспользуйтесь [инструкцией](../operations/access-analyzer/analyze-permissions.md#view).
 
 ### Для подключения к виртуальной машине используется OS Login {#vm}
 
@@ -1461,7 +1461,7 @@ OS Login связывает учетную запись пользователя
 
 #### Инструкции и решения по выполнению
 
-Найдите все роли, выданные группам `All users` и `All authenticated users`, — полный список доступен в [модуле диагностики доступа (CIEM)](../concepts/ciem.md) сервиса Security Deck.
+Найдите все роли, выданные группам `All users` и `All authenticated users`, — полный список доступен в [модуле Access Analyzer](../concepts/access-analyzer.md) сервиса Security Deck.
 
 Для каждого ресурса, на который выдана такая роль, выполните следующее:
 
@@ -1492,8 +1492,8 @@ OS Login связывает учетную запись пользователя
 
 #### Инструкции и решения по выполнению
 
-* [Посмотрите](../operations/ciem/view-permissions.md) полный список доступов сервисного аккаунта с помощью сервиса Yandex Security Deck.
-* [Отзовите](../operations/ciem/revoke-permissions.md) избыточные доступы у сервисного аккаунта с помощью сервиса Security Deck.
+* [Посмотрите](../operations/access-analyzer/analyze-permissions.md#view) полный список доступов сервисного аккаунта с помощью сервиса Yandex Security Deck.
+* [Отзовите](../operations/access-analyzer/analyze-permissions.md#revoke) избыточные доступы у сервисного аккаунта с помощью сервиса Security Deck.
 * [Удалите](../../iam/operations/roles/revoke.md) избыточные права у сервисного аккаунта с помощью сервиса IAM.
 
 ### Использование серийной консоли контролируется либо отсутствует {#serial-console}
@@ -1902,7 +1902,7 @@ yc compute instance update <идентификатор_или_имя_ВМ> \
 
 1. В [консоли управления](https://console.yandex.cloud/) откройте настройки ключа (KMS → ключ → **Редактировать**).
 2. Включите [защиту от удаления](../../kms/operations/key.md#update).
-3. Ограничьте круг тех, кто может снять флаг — для отключения защиты достаточно роли `kms.editor`, поэтому проверяйте, у кого она есть, через [модуль диагностики доступа (CIEM)](../concepts/ciem.md) сервиса Security Deck.
+3. Ограничьте круг тех, кто может снять флаг — для отключения защиты достаточно роли `kms.editor`, поэтому проверяйте, у кого она есть, через [модуль Access Analyzer](../concepts/access-analyzer.md) сервиса Security Deck.
 4. Удаление ключа делайте только в рамках запланированного изменения — сначала подтвердите его с владельцем данных, потом снимите защиту и удалите.
 
 ### Ключи Key Management Service хранятся в аппаратном модуле безопасности (HSM) {#keys-hsm}
@@ -2120,7 +2120,7 @@ yc compute instance update <идентификатор_или_имя_ВМ> \
 
 1. В [консоли управления](https://console.yandex.cloud/) откройте настройки кластера соответствующего сервиса управляемых баз данных.
 2. В разделе **Дополнительные настройки** включите опцию **Защита от удаления**.
-3. Задокументируйте, кто имеет право снимать флаг (например, только участники команды платформы), и проверяйте это через [модуль диагностики доступа (CIEM)](../concepts/ciem.md) сервиса Security Deck.
+3. Задокументируйте, кто имеет право снимать флаг (например, только участники команды платформы), и проверяйте это через [модуль Access Analyzer](../concepts/access-analyzer.md) сервиса Security Deck.
 4. Убедитесь, что срок хранения резервных копий покрывает ваши требования к восстановлению — защита от удаления не заменяет резервное копирование.
 
 ### Таймаут жизни cookie в федерации меньше 6 часов {#organization}

@@ -152,6 +152,8 @@
 
  - [Совместная работа с таблицами с использованием Apache Hive™ Metastore](tutorials/data-processing-to-data-processing.md)
 
+ - [Передача данных из Managed Service for Apache Kafka® в таблицу Apache Iceberg™ с использованием Apache Hive™ Metastore](tutorials/kafka-iceberg-s3-connect.md)
+
 ### Концепции
 
  - [Кластеры Apache Hive™ Metastore](concepts/metastore.md)

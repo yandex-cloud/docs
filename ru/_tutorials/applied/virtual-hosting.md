@@ -3,7 +3,7 @@
 
 Сценарий описывает организацию виртуального хостинга — размещение нескольких сайтов с разными доменными именами по одному [IP-адресу](../../vpc/concepts/address.md) — с помощью [{{ alb-full-name }}](../../application-load-balancer/).
 
-В качестве примеров в сценарии будут использоваться три доменных имени: `site-a.com`, `site-b.com` и `default.com`.
+В качестве примеров в сценарии будут использоваться три доменных имени: `site-a.com`, `site-b.com` и `default.com`. Замените их на ваши домены.
 
 Чтобы создать виртуальный хостинг:
 1. [Подготовьте облако к работе](#before-begin).
@@ -11,6 +11,7 @@
 1. [Зарезервируйте статический публичный IP-адрес](#reserve-ip).
 1. [Создайте группы безопасности](#create-security-groups).
 1. [Импортируйте TLS-сертификаты сайтов в {{ certificate-manager-full-name }}](#import-certificates).
+1. [Создайте сервисный аккаунт](#create-sa).
 1. [Создайте группы виртуальных машин для сайтов](#create-vms).
 1. [Загрузите файлы сайтов на ВМ](#upload-sites-files).
 1. [Создайте группы бэкендов](#create-backend-groups).
@@ -89,11 +90,12 @@
      1. Выберите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** `vhosting-network`.
      1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** создайте следующие правила по инструкции под таблицей:
 
-        | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+        | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
         | --- | --- | --- | --- | --- | --- |
-        | `{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}` | `any` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.button_select-all-port-range }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-        | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-        | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+        | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ext-http` |
+        | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |`ext-https` |
+        | `{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.button_select-all-port-range }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `any` |
+        
 
      1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -104,12 +106,12 @@
         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. Аналогично создайте группу безопасности для ВМ с именем `vhosting-sg-vms`, той же сетью `vhosting-network` и следующими правилами:
+  1. Аналогично создайте группу безопасности c именем `vhosting-sg-vms` для группы ВМ, которая будет создана позднее. Используйте ту же сеть `vhosting-network` и следующие правила:
 
-     | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+     | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
      | --- | --- | --- | --- | --- | --- |
-     | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `vhosting-sg-balancer` |
-     | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+     | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `vhosting-sg-balancer` |  `balancer` |
+     | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ssh` |
 
 {% endlist %}
 
@@ -138,6 +140,28 @@
 
 Аналогично импортируйте сертификаты для сайтов `site-b.com` и `default.com` с именами `vhosting-cert-b` и `vhosting-cert-default`.
 
+## Создайте сервисный аккаунт {#create-sa}
+
+Группы ВМ создаются от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md). Чтобы все шаги сценария выполнились, назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md) на каталог:
+
+* `[compute.editor](../../compute/security/index.md#compute-editor)` — чтобы группа ВМ могла создавать, изменять, запускать, перезапускать, останавливать и удалять ВМ;
+* `[alb.editor](../../application-load-balancer/security/index.md#alb-editor)` — чтобы при создании группы ВМ можно было привязать к ней целевую группу L7-балансировщика.
+
+Чтобы создать сервисный аккаунт и назначить ему роли:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. Укажите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** сервисного аккаунта: `vhosting-sa`.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли `compute.editor` и `alb.editor`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+
+{% endlist %}
+
 ## Создайте группы ВМ для сайтов {#create-vms}
 
 В качестве веб-серверов для двух сайтов будут выступать ВМ {{ compute-name }} — по одной [группе](../../compute/concepts/instance-groups/index.md) из нескольких одинаковых ВМ на каждый сайт. В этом сценарии серверы будут реализованы на LEMP-стеке (Linux, nginx, {{ MY }}, PHP; подробнее в сценарии использования [Сайт на LAMP- или LEMP-стеке](../../tutorials/web/lamp-lemp/index.md)).
@@ -152,6 +176,7 @@
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Укажите **{{ ui-key.yacloud.compute.groups.create.field_name }}** группы ВМ: `vhosting-ig-a`.
+  1. В поле **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** выберите сервисный аккаунт `vhosting-sa`, [созданный ранее](#create-sa).
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите несколько зон доступности, чтобы обеспечить отказоустойчивость хостинга.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** откройте вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Выберите продукт [LEMP](/marketplace/products/yc/lemp) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
@@ -186,7 +211,7 @@
 
 {% endlist %}
 
-Аналогично создайте для сайта `site-b.com` вторую группу ВМ с именем `vhosting-ig-b` и целевую группу с именем `vhosting-tg-b`.
+Аналогично создайте для сайта `site-b.com` вторую группу ВМ с именем `vhosting-ig-b`. Для целевой группы в блоке **{{ ui-key.yacloud.compute.groups.create.section_alb }}** используйте имя — `vhosting-bg-b`.
 
 Создание группы ВМ может занять несколько минут. Когда группа перейдет в [статус](../../compute/concepts/instance-groups/statuses.md#group-statuses) `RUNNING`, а все ВМ в ней — в [статус](../../compute/concepts/instance-groups/statuses.md#vm-statuses) `RUNNING_ACTUAL`, вы можете [загрузить на них файлы сайта](#upload-sites-files).
 
@@ -196,7 +221,7 @@
 
 Чтобы проверить работу веб-серверов, загрузите на ВМ файлы `index.html`: на ВМ из группы `vhosting-ig-a` — с одним содержанием, а на ВМ из группы `vhosting-ig-b` — с другим.
 
-{% cut "Пример файла index.html для группы vhosting-ig-a" %}
+{% cut "Пример файла `index.html` для группы `vhosting-ig-a`" %}
 
 ```html
 <!DOCTYPE html>
@@ -212,7 +237,7 @@
 
 {% endcut %}
 
-{% cut "Пример файла index.html для группы vhosting-ig-b" %}
+{% cut "Пример файла `index.html` для группы `vhosting-ig-b`" %}
 
 ```html
 <!DOCTYPE html>
@@ -245,11 +270,12 @@
 1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
 1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
 1. Укажите **{{ ui-key.yacloud.common.name }}** группы бэкендов: `vhosting-bg-a`.
+1. **{{ ui-key.yacloud.alb.label_backend-type}}** оставьте без изменений — `{{ ui-key.yacloud.alb.label_proto-http }}`.
 1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 1. Укажите **{{ ui-key.yacloud.common.name }}** бэкенда: `vhosting-backend-a`.
 1. В поле **{{ ui-key.yacloud.alb.label_target-groups }}** выберите группу `vhosting-tg-a`.
 1. Укажите **{{ ui-key.yacloud.alb.label_port }}**, на котором ВМ бэкенда будут принимать входящий трафик от балансировщика: `80`.
-1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-healthcheck }}**.
+1. Раскройте блок **HTTP проверка состояния**, если он спрятан.
 1. Укажите **{{ ui-key.yacloud.alb.label_port }}**, на котором ВМ бэкенда будут принимать проверочные соединения: `80`.
 1. Укажите **{{ ui-key.yacloud.alb.label_path }}**, к которому будет обращаться балансировщик при проверке состояния: `/`.
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -282,7 +308,7 @@
 
 {% endlist %}
 
-Аналогично создайте для сайта `site-b.com` HTTP-роутер `vhosting-router-b` и привяжите к нему группу бэкендов `vhosting-bg-b`.
+Аналогично создайте для сайта `site-b.com` HTTP-роутер `vhosting-router-b` с  виртуальным хостом `vhosting-host-b`. Добавьте в него маршрут `vhosting-route-b` и привяжите к нему группу бэкендов `vhosting-bg-b`.
 
 ### Создайте HTTP-роутер «по умолчанию» {#create-http-routers-default}
 
@@ -329,11 +355,16 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. В открывшемся меню выберите **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** балансировщика: `vhosting-alb`.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите группу безопасности `vhosting-sg-balancer`, [созданную ранее](#create-security-groups).
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
+     1. В поле **{{ ui-key.yacloud.mdb.forms.label_network }}** выберите сеть `vhosting-network`.
+     1. В поле **{{ ui-key.yacloud.mdb.forms.field_security-group }}** выберите `Из списка`. 
+     1. В появившемся поле выберите группу безопасности `vhosting-sg-balancer`.
+  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите зоны доступности и подсети в них.   
   1. Создайте обработчик для перенаправления HTTP-запросов на HTTPS:
      1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**.
      1. Укажите **{{ ui-key.yacloud.common.name }}** обработчика: `vhosting-listener-http`.
      1. В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}** выберите **{{ ui-key.yacloud.common.type }}** `{{ ui-key.yacloud.alb.label_address-list }}` и IP-адрес, [зарезервированный ранее](#reserve-ip).
+     1. В поле **{{ ui-key.yacloud.alb.label_listener-type }}** должно быть выбрано `{{ ui-key.yacloud.alb.label_listener-type-http }}` 
      1. В поле **{{ ui-key.yacloud.alb.label_protocol-type }}** выберите пункт `{{ ui-key.yacloud.alb.label_redirect-to-https }}`.
   1. Создайте обработчик HTTPS-запросов:
      1. Снова нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**.
@@ -378,9 +409,9 @@
      1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
      1. Если у вас нет публичной [зоны DNS](../../dns/concepts/dns-zone.md), создайте ее:
         1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
-        1. Укажите **{{ ui-key.yacloud.common.name }}** зоны: `vhosting-dns-a`.
         1. В поле **{{ ui-key.yacloud.dns.label_zone }}** укажите доменное имя сайта с точкой в конце: `site-a.com.`
         1. Выберите **{{ ui-key.yacloud.common.type }}** зоны — `{{ ui-key.yacloud.dns.label_public }}`.
+        1. Укажите **{{ ui-key.yacloud.common.name }}** зоны: `vhosting-dns-a`.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
      1. Создайте запись в зоне:
         1. В списке зон нажмите на зону `vhosting-dns-a`.

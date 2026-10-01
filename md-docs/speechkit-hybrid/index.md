@@ -10,6 +10,8 @@ SpeechKit Hybrid <a href="https://reestr.digital.gov.ru/reestr/2356994/?sphrase_
 
 # Yandex SpeechKit Hybrid
 
+ - [На главную](../index.md)
+
  - [Системные требования](system-requirements.md)
 
  - [Системные требования CPU](system-requirements-cpu.md)

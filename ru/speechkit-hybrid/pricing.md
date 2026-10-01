@@ -22,4 +22,20 @@ editable: false
 
 ## Цены {#pricing}
 
-Стоимость {{ sk-hybrid-name }} с любой моделью лицензирования предоставляется по запросу. 
+Стоимость {{ sk-hybrid-name }} с любой моделью лицензирования предоставляется по запросу.
+
+::: page-constructor
+blocks:
+  - type: 'content-layout-block'
+    size: 's'
+    textContent:
+      title:
+        text: 'Узнайте стоимость сервиса'
+        textSize: 'xs'
+      text: 'Расскажите о задачах и выбранной модели лицензирования — мы подготовим предложение.'
+      buttons:
+        - text: 'Связаться с нами'
+          theme: 'action'
+          size: 'm'
+          url: '#contact-form'
+:::

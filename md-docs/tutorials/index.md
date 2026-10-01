@@ -906,6 +906,8 @@
 
  - [Миграция БД из стороннего кластера Apache Kafka® в Managed Service for Apache Kafka®](dataplatform/kafka-connector.md)
 
+ - [Передача данных из Managed Service for Apache Kafka® в таблицу Apache Iceberg™ в Object Storage](dataplatform/kafka-iceberg-s3-connect.md)
+
 ### Apache Airflow™
 
  - [Автоматизация задач Query с помощью Managed Service for Apache Airflow™](dataplatform/airflow-auto-tasks.md)
@@ -1641,8 +1643,6 @@
  - [Работа с AI-ассистентом в SpeechSense](ml-ai/speechsense/ai-assistant.md)
 
 ### Использование генеративных нейросетей Yandex AI Studio
-
- - [Интеграция генеративных моделей в Visual Studio Code в качестве ассистента для написания кода](ml-ai/ai-model-ide-integration.md)
 
  - [Интеграция AI-аналитика данных с Data Catalog](ml-ai/data-catalog-integration.md)
 

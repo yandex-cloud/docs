@@ -27,5 +27,5 @@
 #### Инструкции и решения по выполнению
 
 * Следуйте принципу [минимальных привилегий](https://yandex.cloud/ru/docs/iam/best-practices/using-iam-securely#restrict-access) при назначении прав доступа сервисным аккаунтам.
-* Проводите регулярный аудит прав доступа через [модуль диагностики доступа (CIEM)](https://yandex.cloud/ru/docs/security-deck/concepts/ciem) для выявления неактивных сервисных аккаунтов с избыточными правами.
+* Проводите регулярный аудит прав доступа через [модуль Access Analyzer](https://yandex.cloud/ru/docs/security-deck/concepts/access-analyzer) для выявления неактивных сервисных аккаунтов с избыточными правами.
 * Храните ключи сервисных аккаунтов в [Yandex Lockbox](https://yandex.cloud/ru/docs/lockbox/concepts/secret), а не в коде или переменных окружения.

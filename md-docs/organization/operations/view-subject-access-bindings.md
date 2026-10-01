@@ -2,7 +2,7 @@
 
 # Просмотреть список доступов субъекта
 
-Вы можете централизованно просматривать полный список прав доступа индивидуальных [субъектов](../../iam/concepts/access-control/index.md#subject) и групп к [ресурсам](../../iam/concepts/access-control/resources-with-access-control.md) организации. Для этого можно использовать [модуль CIEM](../../security-deck/concepts/ciem.md) сервиса [Yandex Security Deck](https://center.yandex.cloud/security/) или [Yandex Cloud CLI](../../cli/index.md).
+Вы можете централизованно просматривать полный список прав доступа индивидуальных [субъектов](../../iam/concepts/access-control/index.md#subject) и групп к [ресурсам](../../iam/concepts/access-control/resources-with-access-control.md) организации. Для этого можно использовать [модуль Access Analyzer](../../security-deck/concepts/access-analyzer.md) сервиса [Yandex Security Deck](https://center.yandex.cloud/security/) или [Yandex Cloud CLI](../../cli/index.md).
 
 Просматривать доступы в интерфейсе Security Deck могут [члены организации](../concepts/membership.md), которым на эту организацию назначена [роль](../security/index.md#organization-manager-viewer) `organization-manager.viewer` или выше.
 
@@ -12,11 +12,13 @@
 
 {% list tabs group=instructions %}
 
+
 - Интерфейс Security Deck {#cloud-sd}
 
   1. [Войдите в аккаунт](https://passport.yandex.ru/auth) пользователя организации с [ролью](../security/index.md#organization-manager-viewer) `organization-manager.viewer` или выше на эту организацию.
   1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
-  1. На панели слева выберите ![person-gear](../../_assets/console-icons/person-gear.svg) **Access Analyzer**.
+  1. На панели слева выберите ![person-gear](../../_assets/console-icons/person-gear.svg) **Access Analyzer** и в верхней части экрана выберите нужное [окружение](../../security-deck/concepts/workspace.md).
+  1. Перейдите на вкладку **Диагностика доступов**.
   1. Нажмите кнопку ![person-plus](../../_assets/console-icons/person-plus.svg) **Выбрать субъект** и в открывшемся окне:
   
       1. Выберите нужного [пользователя](../../overview/roles-and-resources.md#users), [сервисный аккаунт](../../iam/concepts/users/accounts.md#sa), [группу пользователей](../concepts/groups.md), [системную группу](../../iam/concepts/access-control/system-group.md) или [публичную группу](../../iam/concepts/access-control/public-group.md).
@@ -29,6 +31,7 @@
   Если у выбранного субъекта много доступов, отобразится только часть из них. Чтобы отобразить остальные доступы, нажмите кнопку **Загрузить ещё** внизу страницы.
   
   При необходимости воспользуйтесь фильтром по идентификатору ресурса, идентификатору роли или по способу назначения доступа: `Назначенные напрямую` или `Назначенные через группу`.
+
 
 - CLI {#cli}
 
@@ -74,8 +77,10 @@
 
 {% endlist %}
 
+В сервисе Yandex Security Deck вы также можете активировать автоматический анализ и формирование рекомендаций по сокращению избыточных и отзыву неиспользуемых ролей. Подробнее читайте в разделе [Работа с рекомендациями в модуле Access Analyzer](../../security-deck/operations/access-analyzer/use-recommendations.md).
 
 #### Полезные ссылки {#see-also}
 
-* [Модуль диагностики доступов (CIEM)](../../security-deck/concepts/ciem.md)
+* [Работа с рекомендациями в модуле Access Analyzer](../../security-deck/operations/access-analyzer/use-recommendations.md)
+* [Модуль Access Analyzer](../../security-deck/concepts/access-analyzer.md)
 * [Общие роли Yandex Security Deck](../../security-deck/security/index.md)

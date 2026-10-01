@@ -97,7 +97,7 @@ MySQL®-хосты с публичным доступом поддерживаю
 
    ```bash
    mkdir -p ~/.mysql && \
-   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+   wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
         --output-document ~/.mysql/root.crt && \
    chmod 0600 ~/.mysql/root.crt
    ```
@@ -107,7 +107,7 @@ MySQL®-хосты с публичным доступом поддерживаю
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.mysql; curl.exe -o $HOME\.mysql\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
+   mkdir $HOME\.mysql; curl.exe -o $HOME\.mysql\root.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
    ```
 
    Сертификат будет сохранен в файле `$HOME\.mysql\root.crt`.

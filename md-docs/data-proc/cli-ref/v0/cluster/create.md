@@ -8,7 +8,7 @@ Create a cluster.
 
 Syntax:
 
-`yc dataproc cluster create <CLUSTER-NAME> [Flags...] [Global Flags...]`
+`yc dataproc v0 cluster create <CLUSTER-NAME> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -25,23 +25,25 @@ Description of the cluster. ||
 ID of the availability zone where the cluster resides. ||
 || `--service-account-id` | `string`
 
-Service account id. ||
+Service-Account id. ||
 || `--service-account-name` | `string`
 
-Service account name. ||
+Service-Account name. ||
 || `--autoscaling-service-account-id` | `string`
 
-Autoscaling service account id. ||
+Autoscaling-Service-Account id. ||
 || `--autoscaling-service-account-name` | `string`
 
-Autoscaling service account name. ||
+Autoscaling-Service-Account name. ||
 || `--version` | `string`
 
 Version of an image for cluster provisioning. ||
-|| `--services` | List of used services in a cluster. If no service is specified, the default set will be used.
+|| `--services` | `[]string`
+
+List of used services in a cluster. If no service is specified, the default set will be used.
 A list can be specified by listing services separated by commas as well as passing this flag multiple times.
 Available services are: 'hdfs', 'yarn', 'mapreduce', 'hive', 'tez', 'zookeeper', 'hbase', 'sqoop', 'flume', 'spark', 'zeppelin'. ||
-|| `--property` | `value[,value]`
+|| `--property` | `[]string`
 
 Properties passed to all hosts *-site.xml configurations in &lt;service&gt;:&lt;property&gt;=&lt;value&gt; format.
 For example setting property 'dfs.replication' to 3 in /etc/hadoop/conf/hdfs-site.xml requires specifying --property "hdfs:dfs.replication=3"
@@ -49,54 +51,12 @@ This flag can be passed multiple times. ||
 || `--ssh-public-keys-file` | `string`
 
 Specify a list of SSH public keys that will be set as authorized keys to root user on cluster hosts. ||
-|| `--subcluster` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--subcluster` | `key=value[,key=value...]`
 
-Specifies options for subclusters. Can be passed multiple times.
+Specifies options for subclusters. Can be passed multiple times. ||
+|| `--initialization-action` | `key=value[,key=value...]`
 
-Possible property names:
-
-- `name`: Name of a subcluster.
-
-- `role`: Role of a subcluster Values: 'masternode', 'datanode', 'computenode'
-
-- `resource-preset`: Preset of computational resources available to a host
-
-- `disk-type`: Type of the storage environment for a host.
-
-- `disk-size`: Amount of disk storage available to a host in GB.
-
-- `subnet-name`: Name of the subnet that subcluster's hosts should be created in.
-
-- `subnet-id`: ID of the subnet that subcluster's hosts should be created in.
-
-- `hosts-count`: Specifies a number of hosts in a subcluster. (Minimum number of hosts for autoscaling compute subcluster)
-
-- `assign-public-ip`: Assigns public Ip for all hosts in a subcluster.
-
-- `max-hosts-count`: Specifies a maximum number of hosts for autoscaling compute subcluster.
-
-- `preemptible`: Enables VMs preemption for autoscaling compute subcluster.
-
-- `warmup-duration`: Specifies a warmup duration for autoscaling compute subcluster.
-
-- `stabilization-duration`: Specifies a stabilization duration for autoscaling compute subcluster.
-
-- `measurement-duration`: Specifies a measurement duration for autoscaling compute subcluster.
-
-- `cpu-utilization-target`: Specifies a CPU utilization threshold. In percents (10-100). When this threshold is passed the subcluster nodes number will grow.
-
-- `autoscaling-decommission-timeout`: Specifies a decommission timeout (in seconds) for nodes during automatic downscaling. ||
-|| `--initialization-action` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
-
-Specifies initialization action. Can be passed multiple times.
-
-Possible property names:
-
-- `uri`: URI of an initialization action.
-
-- `args`: Arguments for initialization action.
-
-- `timeout`: Specifies initialization action execution timeout (in seconds). ||
+Specifies initialization action. Can be passed multiple times. ||
 || `--oslogin` | Whether to enable OSLogin feature. ||
 || `--bucket` | `string`
 
@@ -105,10 +65,10 @@ Object Storage bucket to be used for Data Proc jobs that are run in the cluster.
 
 A list of cluster labels as key-value pairs. ||
 || `--ui-proxy` | Whether to enable UI Proxy feature. ||
-|| `--security-group-ids` | `value[,value]`
+|| `--security-group-ids` | `[]string`
 
 A list of security groups for the Data Proc cluster. ||
-|| `--host-group-ids` | `value[,value]`
+|| `--host-group-ids` | `[]string`
 
 A list of host groups to place VMs of cluster on. ||
 || `--deletion-protection` | Deletion Protection inhibits deletion of the cluster. ||
@@ -127,15 +87,10 @@ Cluster environment. Values: production, prestable. ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -145,21 +100,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

@@ -51,6 +51,8 @@ items:
                 href: operations/connect/non-sharded-code-examples.md
               - name: Примеры для подключения к шардированному кластеру
                 href: operations/connect/sharded-code-examples.md
+          - name: Обновление цепочки TLS-сертификатов
+            href: operations/connect/update-tls-certificates.md
       - name: Базы данных
         items:
           - name: Запросы в {{ websql-full-name }}

@@ -143,36 +143,36 @@
      resource "yandex_serverless_triggers" "my_trigger" {
        name        = "<имя_триггера>"
        description = "<описание_триггера>"
-       source {
-         logging {
+       source = {
+         logging = {
            log_group_id  = "<идентификатор_лог-группы>"
            resource_type = [ "<тип_ресурса>" ]
            resource_id   = [ "<идентификатор_ресурса>" ]
            stream_name   = [ "<поток_логирования>" ]
            levels        = [ "<уровень_логирования>", "<уровень_логирования>" ]
-           batch_settings {
-             max_count = "<максимальное_число_сообщений>"
-             max_bytes = "<максимальный_размер_группы_в_байтах>"
+           batch_settings = {
+             max_count = <максимальное_число_сообщений>
+             max_bytes = <максимальный_размер_группы_в_байтах>
              cutoff    = "<максимальное_время_ожидания>"
            }
          }
        }
-       action {
-         invoke_function {
+       action = [{
+         invoke_function = {
            function_id        = "<идентификатор_функции>"
            service_account_id = "<идентификатор_сервисного_аккаунта>"
          }
-         retry_policy {
-           retry_attempts = "<количество_повторных_отправок>"
+         retry_policy = {
+           retry_attempts = <количество_повторных_отправок>
            interval       = "<интервал_между_повторными_отправками>"
          }
-         dead_letter {
-           dead_letter_queue {
+         dead_letter = {
+           dead_letter_queue = {
              queue_arn          = "<ARN_очереди_Dead_Letter_Queue>"
              service_account_id = "<идентификатор_сервисного_аккаунта>"
            }
          }
-       }
+       }]
      }
      ```
 
@@ -233,7 +233,7 @@
      * `logging` — параметры триггера:
 
         * `group_id` — идентификатор лог-группы, при добавлении записей в которую будет вызываться функция.
-        * `resource_types` — типы ресурсов, например функции {{ sf-name }} `resource_types = [ "serverless.function" ]`. Можно указать сразу несколько типов. 
+        * `resource_types` — типы ресурсов, например функции {{ sf-name }} `resource_types = [ "serverless.function" ]`. Можно указать сразу несколько типов.
         * `resource_ids` — идентификаторы ваших ресурсов или ресурсов {{ yandex-cloud }}, например функций `resource_ids = [ "<идентификатор_функции>" ]`. Вы можете указать несколько идентификаторов.
         * `stream_names` — потоки логирования. Необязательный параметр.
         * `levels` — уровни логирования. Например, `levels = [ "INFO", "ERROR"]`.

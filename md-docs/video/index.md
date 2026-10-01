@@ -166,7 +166,7 @@ Yandex Cloud Video — комплексная платформа управле�
 
  - [YaPlayer](sdk/CloudVideoPlayerSDK/YaPlayer.md)
 
-###### Structs
+###### Типы данных
 
  - [PlayerError](sdk/CloudVideoPlayerSDK/PlayerError.md)
 

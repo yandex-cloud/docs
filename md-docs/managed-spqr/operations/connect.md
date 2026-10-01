@@ -82,7 +82,7 @@
 
    ```bash
    mkdir -p ~/.postgresql && \
-   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+   wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
         --output-document ~/.postgresql/root.crt && \
    chmod 0655 ~/.postgresql/root.crt
    ```
@@ -92,7 +92,7 @@
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
+   mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
    ```
 
    Сертификат будет сохранен в файле `$HOME\.postgresql\root.crt`.

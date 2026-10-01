@@ -104,6 +104,7 @@ description: На странице представлен список прак�
 * [{#T}](storedoc.md)
 * [{#T}](mmy-to-yds.md)
 * [{#T}](mpg-to-yds.md)
+* [{#T}](kafka-iceberg-s3-connect.md)
 
 {% endcut %}
 

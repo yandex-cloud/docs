@@ -22,6 +22,7 @@
 * [Предварительная настройка](connect/index.md)
 * [Подключение к кластеру из приложений](connect/clients.md)
 * [Примеры кода для подключения к кластеру](connect/code-examples.md)
+* [Обновление цепочки TLS-сертификатов в сервисах платформы данных](connect/update-tls-certificates.md)
 
 ## Топики {#topics}
 

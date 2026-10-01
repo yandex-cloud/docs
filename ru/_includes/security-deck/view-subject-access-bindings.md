@@ -1,10 +1,12 @@
 {% list tabs group=instructions %}
 
+
 - Интерфейс {{ sd-name }} {#cloud-sd}
 
   1. [Войдите в аккаунт]({{ link-passport-login }}) пользователя организации с [ролью](../../organization/security/index.md#organization-manager-viewer) `organization-manager.viewer` или выше на эту организацию.
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![person-gear](../../_assets/console-icons/person-gear.svg) **{{ ui-key.yacloud_org.ui.label_access-analyzer_4bfVo }}**.
+  1. На панели слева выберите ![person-gear](../../_assets/console-icons/person-gear.svg) **{{ ui-key.yacloud_org.ui.label_access-analyzer_4bfVo }}** и в верхней части экрана выберите нужное [окружение](../../security-deck/concepts/workspace.md).
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.access-analyzer.AccessAnalyzerPageLayout.diagnostics_w1waz }}**.
   1. Нажмите кнопку ![person-plus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.page.acl-diagnostics.action_select-subject }}** и в открывшемся окне:
   
       1. Выберите нужного [пользователя](../../overview/roles-and-resources.md#users), [сервисный аккаунт](../../iam/concepts/users/accounts.md#sa), [группу пользователей](../../organization/concepts/groups.md), [системную группу](../../iam/concepts/access-control/system-group.md) или [публичную группу](../../iam/concepts/access-control/public-group.md).
@@ -17,6 +19,7 @@
   Если у выбранного субъекта много доступов, отобразится только часть из них. Чтобы отобразить остальные доступы, нажмите кнопку **{{ ui-key.yacloud_org.dashboard.notify.action.load-more }}** внизу страницы.
   
   При необходимости воспользуйтесь фильтром по идентификатору ресурса, идентификатору роли или по способу назначения доступа: `{{ ui-key.yacloud_org.iam-bindings.subject.value_role-source-filter_direct }}` или `{{ ui-key.yacloud_org.iam-bindings.subject.value_role-source-filter_group }}`.
+
 
 - CLI {#cli}
 

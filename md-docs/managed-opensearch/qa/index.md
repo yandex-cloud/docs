@@ -120,7 +120,7 @@ The revocation function was unable to check revocation for the certificate
 * выполните команду с параметром `--ssl-no-revoke`.
 
    ```powershell
-   mkdir $HOME\.opensearch; curl --ssl-no-revoke --output $HOME\.opensearch\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
+   mkdir $HOME\.opensearch; curl --ssl-no-revoke --output $HOME\.opensearch\root.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
    ```
 
 #### Как исправить ошибку отсутствия прав при подключении сервисного аккаунта к кластеру? {#attach-service-account}

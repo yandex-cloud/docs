@@ -10,6 +10,8 @@ Syntax:
 
 `yc <group|command>`
 
+- [yc adviser](adviser/cli-ref/index.md) — Manage recommendations for managed database clusters.
+
 - [yc application-load-balancer](application-load-balancer/cli-ref/index.md) — Manage Yandex Application Load Balancer resources
 
 - [yc audit-trails](audit-trails/cli-ref/index.md) — Manage Audit Trails resources
@@ -38,7 +40,7 @@ Syntax:
 
 - [yc container](container/cli-ref/index.md) — Manage Container resources.
 
-- [yc dataproc](dataproc/cli-ref/index.md) — Manage data processing clusters.
+- [yc dataproc](dataproc/cli-ref/index.md) — Manage data processing clusters
 
 - [yc datatransfer](datatransfer/cli-ref/index.md) — Manage Data Transfer endpoints and transfers
 
@@ -54,7 +56,7 @@ Syntax:
 
 - [yc iot](iot/cli-ref/index.md) — Manage IoT Core resources
 
-- [yc kms](kms/cli-ref/index.md) — Manage Yandex Key Management Service resources
+- [yc kms](kms/cli-ref/index.md) — Manage Key Management Service resources (compatible command tree)
 
 - [yc load-balancer](load-balancer/cli-ref/index.md) — Manage Yandex Load Balancer resources
 
@@ -90,7 +92,7 @@ Syntax:
 
 - [yc managed-spark](managed-spark/cli-ref/index.md) — Manage Spark clusters.
 
-- [yc managed-trino](managed-trino/cli-ref/index.md) — Manage Trino clusters.
+- [yc managed-trino](managed-trino/cli-ref/index.md) — Manage Trino clusters
 
 - [yc managed-ytsaurus](managed-ytsaurus/cli-ref/index.md) — Manage YTsaurus clusters.
 

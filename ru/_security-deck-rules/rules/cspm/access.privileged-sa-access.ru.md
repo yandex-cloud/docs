@@ -19,7 +19,7 @@
 
 Проверьте права доступа, назначенные к сервисным аккаунтам. Если в списке находятся только доверенные администраторы, рекомендация выполняется. Если нет, то воспользуйтесь [инструкцией](https://yandex.cloud/ru/docs/iam/operations/roles/revoke), чтобы отозвать избыточные права с помощью сервиса Identity and Access Management.
 
-Чтобы централизованно управлять доступом, используйте [Модуль диагностики доступов](https://center.yandex.cloud/security/iam-diagnostics/) (CIEM). Для этого воспользуйтесь инструкциями:
+Чтобы централизованно управлять доступом, используйте [Модуль Access Analyzer](https://center.yandex.cloud/security/access-analyzer/). Для этого воспользуйтесь инструкциями:
 
-* [Просмотреть список доступов субъекта](https://yandex.cloud/ru/docs/security-deck/operations/ciem/view-permissions)
-* [Отозвать доступ у субъекта](https://yandex.cloud/ru/docs/security-deck/operations/ciem/revoke-permissions)
+* [Просмотреть список доступов субъекта](https://yandex.cloud/ru/docs/security-deck/operations/access-analyzer/analyze-permissions#view)
+* [Отозвать доступ у субъекта](https://yandex.cloud/ru/docs/security-deck/operations/access-analyzer/analyze-permissions#revoke)

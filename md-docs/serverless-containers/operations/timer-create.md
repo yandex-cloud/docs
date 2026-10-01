@@ -148,29 +148,29 @@
       ```hcl
       resource "yandex_serverless_triggers" "my_trigger" {
         name = "<имя_триггера>"
-        source {
-          timer {
+        source = {
+          timer = {
             cron_expression = "<cron-выражение>"
             payload         = "<сообщение>"
           }
         }
-        action {
-          invoke_container {
+        action = [{
+          invoke_container = {
             container_id       = "<идентификатор_контейнера>"
             path               = "<HTTP-путь>"
             service_account_id = "<идентификатор_сервисного_аккаунта>"
           }
-          retry_policy {
-            retry_attempts = "<количество_повторных_отправок>"
+          retry_policy = {
+            retry_attempts = <количество_повторных_отправок>
             interval       = "<интервал_между_повторными_отправками>"
           }
-          dead_letter {
-            dead_letter_queue {
+          dead_letter = {
+            dead_letter_queue = {
               queue_arn          = "<ARN_очереди_Dead_Letter_Queue>"
               service_account_id = "<идентификатор_сервисного_аккаунта>"
             }
           }
-        }
+        }]
       }
       ```
 

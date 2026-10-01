@@ -56,6 +56,34 @@ items:
     items:
       - name: Overview
         href: cli-ref/index.md
+      - name: adviser
+        items:
+          - name: Overview
+            href: cli-ref/adviser/cli-ref/index.md
+          - name: issue
+            items:
+              - name: Overview
+                href: cli-ref/adviser/cli-ref/issue/index.md
+              - name: dismiss
+                href: cli-ref/adviser/cli-ref/issue/dismiss.md
+              - name: get-dismissal-info
+                href: cli-ref/adviser/cli-ref/issue/get-dismissal-info.md
+              - name: list
+                href: cli-ref/adviser/cli-ref/issue/list.md
+          - name: v1
+            items:
+              - name: Overview
+                href: cli-ref/adviser/cli-ref/v1/index.md
+              - name: issue
+                items:
+                  - name: Overview
+                    href: cli-ref/adviser/cli-ref/v1/issue/index.md
+                  - name: dismiss
+                    href: cli-ref/adviser/cli-ref/v1/issue/dismiss.md
+                  - name: get-dismissal-info
+                    href: cli-ref/adviser/cli-ref/v1/issue/get-dismissal-info.md
+                  - name: list
+                    href: cli-ref/adviser/cli-ref/v1/issue/list.md
       - name: application-load-balancer
         items:
           - name: Overview
@@ -12418,6 +12446,9 @@ items:
                       - name: Overview
                         href: >-
                           cli-ref/serverless/cli-ref/eventrouter/connector/create/index.md
+                      - name: audit-trails
+                        href: >-
+                          cli-ref/serverless/cli-ref/eventrouter/connector/create/audit-trails.md
                       - name: data-stream
                         href: >-
                           cli-ref/serverless/cli-ref/eventrouter/connector/create/data-stream.md
@@ -12836,6 +12867,9 @@ items:
                           cli-ref/serverless/cli-ref/trigger/v2/create/telegram.md
                       - name: timer
                         href: cli-ref/serverless/cli-ref/trigger/v2/create/timer.md
+                      - name: yandex-forms
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/yandex-forms.md
                       - name: yandex-messenger
                         href: >-
                           cli-ref/serverless/cli-ref/trigger/v2/create/yandex-messenger.md
@@ -12897,6 +12931,9 @@ items:
                           cli-ref/serverless/cli-ref/trigger/v2/update/telegram.md
                       - name: timer
                         href: cli-ref/serverless/cli-ref/trigger/v2/update/timer.md
+                      - name: yandex-forms
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/yandex-forms.md
                       - name: yandex-messenger
                         href: >-
                           cli-ref/serverless/cli-ref/trigger/v2/update/yandex-messenger.md
@@ -13068,6 +13105,9 @@ items:
                           - name: Overview
                             href: >-
                               cli-ref/serverless/cli-ref/v0/eventrouter/connector/create/index.md
+                          - name: audit-trails
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/eventrouter/connector/create/audit-trails.md
                           - name: data-stream
                             href: >-
                               cli-ref/serverless/cli-ref/v0/eventrouter/connector/create/data-stream.md
@@ -13541,6 +13581,9 @@ items:
                           - name: timer
                             href: >-
                               cli-ref/serverless/cli-ref/v0/trigger/v2/create/timer.md
+                          - name: yandex-forms
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/yandex-forms.md
                           - name: yandex-messenger
                             href: >-
                               cli-ref/serverless/cli-ref/v0/trigger/v2/create/yandex-messenger.md
@@ -13610,6 +13653,9 @@ items:
                           - name: timer
                             href: >-
                               cli-ref/serverless/cli-ref/v0/trigger/v2/update/timer.md
+                          - name: yandex-forms
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/yandex-forms.md
                           - name: yandex-messenger
                             href: >-
                               cli-ref/serverless/cli-ref/v0/trigger/v2/update/yandex-messenger.md

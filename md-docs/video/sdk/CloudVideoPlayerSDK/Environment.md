@@ -8,30 +8,34 @@ public struct Environment
 
 Окружение SDK — точка входа для создания плееров и управления глобальной конфигурацией.
 
-## Contents
-- [Properties](#properties)
-- [Methods](#methods)
-- [Initializers](#initializers)
+## Содержание {#contents}
 
-## Discussion
+На этой странице:
+
+- [Свойства](#properties)
+- [Инициализаторы](#initializers)
+- [Методы](#methods)
+
+## Описание {#discussion}
 
 Создайте один экземпляр `Environment` при запуске приложения. Используйте его для получения экземпляров `YaPlayer`.
 
-## Обновление конфигурации
+## Обновление конфигурации {#configuration-update}
 
 Конфигурацию можно обновить в любой момент без пересоздания окружения.
 
-## Сетевые заголовки
+## Сетевые заголовки {#network-headers}
 
 Добавьте глобальные заголовки для всех сетевых запросов плеера.
 
-## Properties
+## Свойства {#properties}
 
-| Name | Type | Description |
-|------|------|-------------|
-| `from` | `From` | Идентификатор приложения из текущей конфигурации. |
+#|
+|| **Имя** | **Тип** | **Описание** ||
+|| `from` | `From` | Идентификатор приложения из текущей конфигурации. ||
+|#
 
-## Initializers
+## Инициализаторы {#initializers}
 
 ```swift
 @available(*, deprecated, renamed: "init(configuration:)", message: "Use API with Configuration instead")
@@ -40,9 +44,9 @@ public init(from: From)
 
 Создает окружение SDK.
 
-**Parameters:**
+Параметры:
 
-- `from`: Идентификатор приложения.
+- `from` — идентификатор приложения.
 
 ---
 
@@ -52,11 +56,11 @@ public init(configuration: Configuration)
 
 Создает окружение SDK с заданной конфигурацией.
 
-**Parameters:**
+Параметры:
 
-- `configuration`: Конфигурация SDK с идентификатором приложения и опциональным провайдером информации о пользователе.
+- `configuration` — конфигурация SDK с идентификатором приложения и необязательным провайдером информации о пользователе.
 
-## Methods
+## Методы {#methods}
 
 ```swift
 public mutating func update(configuration: Configuration)
@@ -64,9 +68,9 @@ public mutating func update(configuration: Configuration)
 
 Обновляет конфигурацию SDK без пересоздания окружения.
 
-**Parameters:**
+Параметры:
 
-- `configuration`: Новая конфигурация.
+- `configuration` — новая конфигурация.
 
 ---
 
@@ -76,30 +80,64 @@ public func setGlobalNetworkHeaders(_ headers: [String: String])
 
 Устанавливает HTTP-заголовки, добавляемые ко всем сетевым запросам плеера.
 
-**Parameters:**
+Параметры:
 
-- `headers`: Словарь заголовков в формате `[имя: значение]`.
+- `headers` — словарь заголовков в формате `[имя: значение]`.
 
 ---
 
 ```swift
-public func setNetworkHeaders(for contentId: ContentId, headers: [String: String])
+public func setNetworkHeaders(for endpoint: ContentIdEndpoint, headers: [String: String])
 ```
 
 Устанавливает HTTP-заголовки для запросов конкретного контента.
 
-## Examples
+---
+
+```swift
+public static func set(telemetryEndpoint: QuasiEndpoint?)
+```
+
+Переопределяет эндпоинт для отправки телеметрии.
+
+Параметры:
+
+- `telemetryEndpoint` — пользовательский эндпоинт или `nil` для восстановления значения по умолчанию.
+
+---
+
+```swift
+public static func set(perfEndpoint: QuasiEndpoint?)
+```
+
+Переопределяет эндпоинт для отправки данных о производительности (perf-событий).
+
+Параметры:
+
+- `perfEndpoint` — пользовательский эндпоинт или `nil` для восстановления значения по умолчанию.
+
+---
+
+```swift
+public func player() -> YaPlayer
+```
+
+Создает новый экземпляр плеера.
+
+Возвращаемое значение: новый экземпляр `YaPlayer`.
+
+## Примеры {#examples}
 
 ```swift
 let configuration = Configuration(from: From(raw: "my-ios-app"))
-let environment = Environment(configuration: configuration)
+var environment = Environment(configuration: configuration)
 
 // ViewController.swift
 let player = environment.player()
 ```
 
 ```swift
-var newConfig = Configuration(from: From(raw: "my-ios-app"), clientInfoProvider: provider)
+let newConfig = Configuration(from: From(raw: "my-ios-app"), clientInfoProvider: provider)
 environment.update(configuration: newConfig)
 ```
 

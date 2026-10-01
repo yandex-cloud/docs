@@ -160,7 +160,7 @@
 * **Добавлены пункты:**
     * 1.11 Для API-ключей сервисных аккаунтов задана область действия.
     * 1.25 Отслеживается дата последней аутентификации сервисного аккаунта и последнего использования ключей доступа в Yandex Identity and Access Management.
-    * 1.26 Регулярно проводится аудит прав доступа пользователей и сервисных аккаунтов с использованием Yandex Security Deck CIEM.
+    * 1.26 Регулярно проводится аудит прав доступа пользователей и сервисных аккаунтов с использованием Yandex Security Deck Access Analyzer.
 
 * **Обновлены пункты:**
     * В пункт **Область применения** добавлены сервисы [Yandex Container Registry](../../container-registry/index.md), [Yandex Smart Web Security](../../smartwebsecurity/index.md) и [Yandex SmartCaptcha](../../smartcaptcha/index.md).

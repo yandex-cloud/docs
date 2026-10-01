@@ -51,6 +51,8 @@ items:
             href: operations/connect/code-examples.md
           - name: Настройка SAML-аутентификации
             href: operations/saml-authentication.md
+          - name: Обновление цепочки TLS-сертификатов
+            href: operations/connect/update-tls-certificates.md
       - name: Управление пользователями
         href: operations/cluster-users.md
       - name: Логи и мониторинг

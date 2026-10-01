@@ -334,6 +334,10 @@ Regenerate hosts after changing the assign_public_ip parameter.
 - `backup_window_start` [Block]. Time to start the daily backup, in the UTC.
   - `hours` (Number). The hour at which backup will be started (UTC).
   - `minutes` (Number). The minute at which backup will be started (UTC).
+- `connection_manager` [Block]. Connection Manager integration configuration for the cluster. If the block is omitted, the API enables the integration by default for newly created clusters. Disabling the integration is not supported: `enabled = false` is rejected.
+  - `connections_folder_id` (String). ID of the folder where connections for the cluster are created. Defaults to the cluster's folder if not specified.
+  - `enabled` (Bool). Indicates whether Connection Manager integration is enabled for the cluster. Set to `true` to enable the integration. If the block is omitted, the API enables the integration by default for newly created clusters. Disabling the integration is not supported: `enabled = false` is rejected.
+  - `secrets_folder_id` (String). ID of the folder where connection secrets are created. Defaults to the cluster's folder if not specified.
 - `database` [Block]. To manage databases, please switch to using a separate resource type `yandex_mdb_mysql_databases`.
   - `name` (**Required**)(String). The name of the database.
 - `disk_size_autoscaling` [Block]. Cluster disk size autoscaling settings.

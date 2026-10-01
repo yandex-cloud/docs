@@ -64,14 +64,78 @@ ksqlDB — это база данных, которая предназначен
 ## Настройте интеграцию с Apache Kafka® для базы ksqlDB {#configure-ksqldb-for-kf}
 
 1. Подключитесь к серверу ksqlDB.
-1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы ksqlDB мог использовать этот сертификат при защищенном подключении к хостам кластера. При этом задайте пароль в параметре `-storepass` для дополнительной защиты хранилища:
-
+1. Перейдите в директорию `/etc/ksqldb`:
+    
    ```bash
-   cd /etc/ksqldb && \
-   sudo keytool -importcert -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
-   -keystore ssl -storepass <пароль_хранилища_сертификатов> \
-   --noprompt
+   cd /etc/ksqldb
    ```
+
+1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы ksqlDB мог использовать этот сертификат при защищенном подключении к хостам кластера:
+
+   {% list tabs group=operating_system %}
+
+   - Linux (Bash) {#linux}
+
+     ```bash
+     awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexCA-" n ".crt"}' \
+       < /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+
+     for cert in YandexCA-*.crt; do
+       alias=$(
+         openssl x509 -noout -text -in "${cert}" |
+         perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+       )
+
+       year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+       echo "Importing ${alias}-${year}"
+
+       keytool -importcert \
+               -alias "${alias}-${year}" \
+               -file "${cert}" \
+               -keystore ssl \
+               -storepass <пароль_защищенного_хранилища> \
+               -noprompt
+
+       rm "${cert}"
+     done
+
+     chmod 0655 ssl
+     ```
+
+   - macOS (Zsh) {#macos}
+     
+     ```bash     
+     split -p "-----BEGIN CERTIFICATE-----" \
+       /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
+       YandexCA-
+
+     for cert in YandexCA-*.crt; do
+       alias=$(
+         openssl x509 -noout -text -in "${cert}" |
+         perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+        )
+
+       year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+       echo "Importing ${alias}-${year}"
+
+       keytool -importcert \
+               -alias "${alias}-${year}" \
+               -file "${cert}" \
+               -keystore ssl \
+               -storepass <пароль_защищенного_хранилища> \
+               -noprompt
+
+       rm "${cert}"
+     done
+
+     chmod 0655 ssl
+     ```
+
+   {% endlist %}
+
+   Где `-storepass` — пароль хранилища сертификатов. Пароль должен содержать не менее 6 символов.
 
 1. Укажите в файле конфигурации ksqlDB `/etc/ksqldb/ksql-server.properties` данные для аутентификации в кластере Managed Service for Apache Kafka®:
 

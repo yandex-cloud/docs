@@ -26,7 +26,7 @@
 
 #### Инструкции и решения по выполнению
 
-Найдите все роли, выданные группам `All users` и `All authenticated users`, — полный список доступен в [модуле диагностики доступа (CIEM)](https://yandex.cloud/ru/docs/security-deck/concepts/ciem) сервиса Security Deck.
+Найдите все роли, выданные группам `All users` и `All authenticated users`, — полный список доступен в [модуле Access Analyzer](https://yandex.cloud/ru/docs/security-deck/concepts/access-analyzer) сервиса Security Deck.
 
 Для каждого ресурса, на который выдана такая роль, выполните следующее:
 

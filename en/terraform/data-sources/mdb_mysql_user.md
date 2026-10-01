@@ -31,10 +31,14 @@ output "permission" {
   - `max_questions_per_hour` . 
   - `max_updates_per_hour` . 
   - `max_user_connections` . 
-- `connection_manager` (*Read-Only*) (Map Of String). Connection Manager connection configuration. Filled in by the server automatically.
+- `connection_manager` (*Read-Only*) (Map Of String). Connection Manager connection configuration. Populated from `user_connection_manager`.
 - `global_permissions` (*Read-Only*) (Set Of String). List user's global permissions. Allowed permissions: `REPLICATION_CLIENT`, `REPLICATION_SLAVE`, `PROCESS`, `FLUSH_OPTIMIZER_COSTS`, `SHOW_ROUTINE`, `MDB_ADMIN` for clear list use empty list. If the attribute is not specified there will be no changes.
 - `id` (String). 
 - `name` (**Required**)(String). The name of the MySQL user.
+- `user_connection_manager` (*Read-Only*) (List Of Object). Connection Manager settings for the user.
+  - `connection_folder_id` . 
+  - `connection_id` . 
+  - `secret_folder_id` . 
 - `permission` [Block]. 
   - `database_name` (*Read-Only*) (String). 
   - `roles` (List Of String).

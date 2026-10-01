@@ -26,7 +26,7 @@
 1. Включите режим совместимости для поддержки клиента Filebeat OSS в OpenSearch. Для этого выполните запрос:
 
    ```bash
-   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" && \
+   wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" && \
    curl \
    --user <имя_пользователя>:<пароль> --cacert CA.pem \
    --request PUT https://<имя_хоста_с_ролью_DATA>:9200/_cluster/settings \

@@ -11,7 +11,7 @@ Creates a new multipart upload
 
 Syntax:
 
-`yc storage s3api create-multipart-upload [Flags...] [Global Flags...]`
+`yc storage v0 s3api create-multipart-upload [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -19,10 +19,10 @@ Syntax:
 ||Flag | Description ||
 || `--bucket` | `string`
 
-[REQUIRED] Bucket name ||
+Bucket name ||
 || `--key` | `string`
 
-[REQUIRED] Object key ||
+Object key ||
 || `--acl` | `string`
 
 Sets a predefined ACL for an object. ||
@@ -31,7 +31,7 @@ Sets a predefined ACL for an object. ||
 Directives for caching data according to RFC 2616. ||
 || `--content-disposition` | `string`
 
-Name Object Storage will suggest for the object to save it as a file when downloaded. Compliant with RFC 2616. ||
+Name Object Storage will suggest for the object to save it as a file when downloaded. ||
 || `--content-encoding` | `string`
 
 Defines the content encoding according to RFC 2616. ||
@@ -40,7 +40,7 @@ Defines the content encoding according to RFC 2616. ||
 Data type in a request. ||
 || `--expires` | `timestamp`
 
-Response expiration date. ||
+Response expiration date. (RFC3339) ||
 || `--grant-full-control` | `string`
 
 Grants the access grantee the following permissions: READ, WRITE, READ_ACP, and WRITE_ACP for an object. ||
@@ -67,10 +67,10 @@ The encryption algorithm of an uploaded object. Possible values: aws:kms. ||
 The ID of the KMS key for encrypting an uploaded object. ||
 || `--object-lock-mode` | `string`
 
-Type of retention put on the object (if the bucket is versioned and object lock is enabled in it). Possible values: GOVERNANCE and COMPLIANCE ||
+Type of retention put on the object (if the bucket is versioned and object lock is enabled in it). ||
 || `--object-lock-retain-until-date` | `timestamp`
 
-Date and time until which the object is retained. ||
+Date and time until which the object is retained. (RFC3339) ||
 || `--object-lock-legal-hold-status` | `string`
 
 Type of legal hold put on the object. ||
@@ -82,15 +82,10 @@ Type of legal hold put on the object. ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -100,21 +95,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

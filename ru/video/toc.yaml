@@ -185,7 +185,7 @@ items:
                         name: Time
                       - href: sdk/CloudVideoPlayerSDK/VideoType.md
                         name: VideoType
-                    name: Structs
+                    name: Типы данных
               - name: CloudVideoPlayerUI
                 items:
                   - href: sdk/CloudVideoPlayerSDKUI/VideoView.md

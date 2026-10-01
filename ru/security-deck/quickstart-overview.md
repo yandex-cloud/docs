@@ -45,7 +45,7 @@ description: В данном разделе описано, как начать 
 
 * [Контроль данных ({{ dspm-name }})](#dspm)
 * [Контроль {{ k8s }} ({{ kspm-name }})](#kspm)
-* [Диагностика доступов ({{ ciem-name }})](#ciem)
+* [{{ access-analyzer-name }}](#access-analyzer)
 * [Контроль конфигурации ({{ cspm-name }})](#cspm)
 * [{{ td-full-name }} ({{ td-name }})](#td)
 * [{{ vuln-man-name }}](#vulnerability-management)
@@ -66,11 +66,11 @@ description: В данном разделе описано, как начать 
 
 {% include [kspm-basic-intro](../_includes/security-deck/kspm-basic-intro.md) %}
 
-### Диагностика доступов ({{ ciem-name }}) {#ciem}
+### {{ access-analyzer-name }} {#access-analyzer}
 
-[Диагностика доступов]({{ link-sd-main }}iam-diagnostics/) {{ sd-name }} — это инструмент, позволяющий централизованно [просматривать](./operations/ciem/view-permissions.md) полный список доступов [субъектов](../iam/concepts/access-control/index.md#subject): [пользователей](../overview/roles-and-resources.md#users), [сервисных аккаунтов](../iam/concepts/users/service-accounts.md), [групп пользователей](../organization/concepts/groups.md), [системных групп](../iam/concepts/access-control/system-group.md) и [публичных групп](../iam/concepts/access-control/public-group.md) к [ресурсам](../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко [отзывать](./operations/ciem/revoke-permissions.md) у субъектов лишние доступы. Подробнее в разделе [{#T}](./concepts/ciem.md).
+{{ sd-name }} [{{ access-analyzer-name }}]({{ link-sd-main }}access-analyzer/) — это инструмент, позволяющий централизованно [просматривать](./operations/access-analyzer/analyze-permissions.md#view) полный список доступов [субъектов](../iam/concepts/access-control/index.md#subject): [пользователей](../overview/roles-and-resources.md#users), [сервисных аккаунтов](../iam/concepts/users/service-accounts.md), [групп пользователей](../organization/concepts/groups.md), [системных групп](../iam/concepts/access-control/system-group.md) и [публичных групп](../iam/concepts/access-control/public-group.md) к [ресурсам](../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко [отзывать](./operations/access-analyzer/analyze-permissions.md#revoke) у субъектов лишние доступы. Подробнее в разделе [{#T}](./concepts/access-analyzer.md).
 
-Чтобы начать работать с модулем {{ ciem-name }}, воспользуйтесь инструкциями по [просмотру](./operations/ciem/view-permissions.md) и [отзыву](./operations/ciem/revoke-permissions.md) доступов.
+Чтобы начать работать с модулем {{ access-analyzer-name }}, воспользуйтесь инструкциями по [просмотру](./operations/access-analyzer/analyze-permissions.md#view) и [отзыву](./operations/access-analyzer/analyze-permissions.md#revoke) доступов.
 
 ### Контроль конфигурации ({{ cspm-name }}) {#cspm}
 
@@ -110,6 +110,6 @@ description: В данном разделе описано, как начать 
 
 * Узнайте, [как посмотреть правила контроля безопасности модуля {{ cspm-name }} и их нарушения](./operations/cspm/view-rules.md).
 * Узнайте, [как сканировать данные в бакетах на наличие чувствительной информации](./operations/dspm/create-scan.md) в {{ sd-name }}.
-* Узнайте, [как просмотреть список доступов субъекта](./operations/ciem/view-permissions.md) в {{ sd-name }}.
+* Узнайте, [как просмотреть список доступов субъекта](./operations/access-analyzer/analyze-permissions.md#view) в {{ sd-name }}.
 * Узнайте о [необходимых правах доступа](./security/index.md) для работы с {{ sd-name }}.
 

@@ -1,3 +1,8 @@
+---
+title: Time — SDK видеоплеера {{ video-full-name }} для iOS
+description: Работа со временем и позицией воспроизведения в SDK видеоплеера {{ video-name }} для iOS.
+---
+
 # Time
 
 ```swift
@@ -6,14 +11,31 @@ public struct Time
 
 Временная позиция в медиапотоке.
 
-## Contents
-- [Initializers](#initializers)
+## Содержание {#contents}
 
-## Discussion
+На этой странице:
+
+- [Свойства](#properties)
+- [Инициализаторы](#initializers)
+- [Методы](#methods)
+
+## Описание {#discussion}
 
 Используется для задания позиции воспроизведения, представления длительности и диапазонов буферизации. Поддерживает арифметические операции и сравнение.
 
-## Initializers
+## Соответствие протоколам {#inheritance}
+
+Структура соответствует протоколам `AdditiveArithmetic` и `Comparable`.
+
+## Свойства {#properties}
+
+#|
+|| **Имя** | **Тип** | **Описание** ||
+|| `timeInterval` | `TimeInterval` | Значение в секундах в виде `TimeInterval`. ||
+|| `zero` | `Time` | Нулевая временная позиция. ||
+|#
+
+## Инициализаторы {#initializers}
 
 ```swift
 public init(sec time: TimeInterval)
@@ -21,9 +43,9 @@ public init(sec time: TimeInterval)
 
 Создает временную позицию из значения в секундах.
 
-**Parameters:**
+Параметры:
 
-- `time`: Время в секундах.
+- `time` — время в секундах.
 
 ---
 
@@ -33,11 +55,27 @@ public init(ms time: Int64)
 
 Создает временную позицию из значения в миллисекундах.
 
-**Parameters:**
+Параметры:
 
-- `time`: Время в миллисекундах.
+- `time` — время в миллисекундах.
 
-## Examples
+## Методы {#methods}
+
+```swift
+public static func - (lhs: Time, rhs: Time) -> Time
+```
+
+Вычитает одно значение времени из другого.
+
+---
+
+```swift
+public static func + (lhs: Time, rhs: Time) -> Time
+```
+
+Складывает два значения времени.
+
+## Примеры {#examples}
 
 ```swift
 let startTime = Time(sec: 30)

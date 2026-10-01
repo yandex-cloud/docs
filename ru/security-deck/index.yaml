@@ -3,10 +3,9 @@ meta:
   description: >-
     Yandex Security Deck — это комплексный сервис CNAPP, включающий в себя
     модули контроля данных ({{ dspm-name }}), контроля конфигурации ({{
-    cspm-name }}), контроля {{ k8s }} ({{ kspm-name }}), диагностики доступов
-    ({{ ciem-name }}), {{ alerts-name }}, {{ atr-name }}, AI-ассистентом для
-    обеспечения безопасности облачной инфраструктуры и Порталом соответствия
-    требованиям.
+    cspm-name }}), контроля {{ k8s }} ({{ kspm-name }}), {{ access-analyzer-name
+    }}, {{ alerts-name }}, {{ atr-name }}, AI-ассистента для обеспечения
+    безопасности облачной инфраструктуры и Портал соответствия требованиям.
   keywords:
     - keyword: '{{ sd-name }}'
     - keyword: '{{ sd-full-name }}'
@@ -15,7 +14,7 @@ meta:
     - keyword: модули {{ atr-name }}
     - keyword: контроль данных {{ dspm-name }}
     - keyword: комплаенс яндекс облака
-    - keyword: диагностика доступов {{ ciem-name }}
+    - keyword: '{{ access-analyzer-name }}'
     - keyword: портал соответствия требованиям в {{ yandex-cloud }}
     - keyword: compliance {{ yandex-cloud }}
     - keyword: информационная безопасность {{ yandex-cloud }}
@@ -170,10 +169,10 @@ blocks:
         iconPosition: left
         animated: false
       - type: basic-card
-        title: Диагностика доступа (CIEM)
+        title: Access Analyzer
         text: Аудит прав доступа
-        urlTitle: Диагностика доступа (CIEM)
-        url: concepts/ciem
+        urlTitle: Access Analyzer
+        url: concepts/access-analyzer
         size: s
         icon: _assets/icons/ciem.svg
         iconPosition: left

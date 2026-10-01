@@ -1,6 +1,6 @@
 ---
-title: Синхронизация пользователей и групп с {{ microsoft-idp.ad-short }}
-description: Агент {{ ad-sync-agent }} позволяет настраивать синхронизацию пользователей и групп в {{ org-full-name }} с {{ microsoft-idp.ad-full }}.
+title: Синхронизация пользователей и групп с {{ microsoft-idp.ad-full }} в {{ org-full-name }}
+description: Синхронизация пользователей, групп, паролей и их атрибутов из {{ microsoft-idp.ad-short }} с {{ org-full-name }}.
 ---
 
 # Синхронизация пользователей и групп с {{ microsoft-idp.ad-full }}

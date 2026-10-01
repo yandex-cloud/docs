@@ -201,7 +201,7 @@ NAT (network address translation) выполняется непосредств�
 Для обеспечения защиты периметра в NSX-T есть встроенный Gateway Firewall, который настраивается на NSX-T Edge. Это не Next-Generation Firewall, но он может осуществлять FQDN-анализ и URL-фильтрацию. 
 | В Yandex Cloud есть средства защиты от DDoS-атак — [DDoS Protection](https://yandex.cloud/ru/services/ddos-protection) и [Smart Web Security](https://yandex.cloud/ru/services/smartwebsecurity).
 
-Также вы можете подключить [Security Groups](../../../vpc/concepts/security-groups.md) разграничения сетевого доступа, которые обеспечивают L4-statefull-фильтрацию трафика на уровне гипервизора, при этом за всеми сетевыми интерфейсами виртуальных машин в облаке может быть настроен свой собственный L4-Firewall.
+Также вы можете подключить [Security Groups](../../../vpc/concepts/security-groups.md) разграничения сетевого доступа, которые обеспечивают L4-stateful-фильтрацию трафика на уровне гипервизора, при этом за всеми сетевыми интерфейсами виртуальных машин в облаке может быть настроен свой собственный L4-Firewall.
 
 Аналога distributed IDS и distributed Malware Protection в Yandex Cloud на данный момент нет, в качестве альтернативы можно использовать специализированные пользовательские ВМ из [маркетплейса](https://yandex.cloud/ru/marketplace?search=ids&categories=security), но в таком случае необходима [сегментация сети](../../../tutorials/routing/network-segmentation-checkpoint.md). ||
 |#

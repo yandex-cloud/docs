@@ -90,6 +90,8 @@
 
  - [Взаимосвязь ресурсов сервиса](concepts/index.md)
 
+ - [Источники DAG-файлов](concepts/dag-sources.md)
+
  - [Сеть в Managed Service for Apache Airflow™](concepts/network.md)
 
  - [Доступные версии Apache Airflow™](concepts/versions.md)
@@ -212,6 +214,20 @@
 
  - [Overview](api-ref/grpc/index.md)
 
+#### ChangeFreeze
+
+ - [Overview](api-ref/grpc/ChangeFreeze/index.md)
+
+ - [Create](api-ref/grpc/ChangeFreeze/create.md)
+
+ - [Get](api-ref/grpc/ChangeFreeze/get.md)
+
+ - [List](api-ref/grpc/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/grpc/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/grpc/ChangeFreeze/getLimits.md)
+
 #### Cluster
 
  - [Overview](api-ref/grpc/Cluster/index.md)
@@ -238,6 +254,16 @@
 
  - [UpdateAccessBindings](api-ref/grpc/Cluster/updateAccessBindings.md)
 
+#### Maintenance
+
+ - [Overview](api-ref/grpc/Maintenance/index.md)
+
+ - [List](api-ref/grpc/Maintenance/list.md)
+
+ - [Get](api-ref/grpc/Maintenance/get.md)
+
+ - [Reschedule](api-ref/grpc/Maintenance/reschedule.md)
+
 #### Operation
 
  - [Overview](api-ref/grpc/Operation/index.md)
@@ -249,6 +275,20 @@
 ### REST (англ.)
 
  - [Overview](api-ref/index.md)
+
+#### ChangeFreeze
+
+ - [Overview](api-ref/ChangeFreeze/index.md)
+
+ - [Create](api-ref/ChangeFreeze/create.md)
+
+ - [Get](api-ref/ChangeFreeze/get.md)
+
+ - [List](api-ref/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/ChangeFreeze/getLimits.md)
 
 #### Cluster
 
@@ -275,6 +315,16 @@
  - [SetAccessBindings](api-ref/Cluster/setAccessBindings.md)
 
  - [UpdateAccessBindings](api-ref/Cluster/updateAccessBindings.md)
+
+#### Maintenance
+
+ - [Overview](api-ref/Maintenance/index.md)
+
+ - [List](api-ref/Maintenance/list.md)
+
+ - [Get](api-ref/Maintenance/get.md)
+
+ - [Reschedule](api-ref/Maintenance/reschedule.md)
 
 #### Operation
 

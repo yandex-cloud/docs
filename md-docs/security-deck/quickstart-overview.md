@@ -85,12 +85,10 @@
      1. Нажмите кнопку **Сохранить и продолжить**.
   1. В открывшемся разделе **Модули контроля**:
      
-     1. В блоке **Наборы требований** выберите [отраслевые стандарты и нормативные акты](concepts/standard-compliance/index.md#security-rule-sets), на соответствие которым будут проверяться выбранные на предыдущем шаге ресурсы.
+     1. (Опционально) Активируйте дополнительные модули Security Deck, необходимые вам в окружении.
+     1. (Опционально) Разверните модули **Контроль конфигурации (CSPM)** и **Контроль Kubernetes (KSPM)** (если этот модуль активирован) и выберите [отраслевые стандарты и нормативные акты](concepts/standard-compliance/index.md#security-rule-sets), на соответствие которым будут проверяться выбранные на предыдущем шаге ресурсы.
      
-         Вы можете выбрать одновременно несколько стандартов. При этом в блоке **Модули контроля** будут отображаться модули Security Deck, которые будут активированы в создаваемом окружении для проверки ресурсов на соответствие выбранным стандартам и нормативным актам.
-     1. (Опционально) В блоке **Модули контроля** активируйте дополнительные модули Security Deck, необходимые вам в окружении.
-        
-        Например, модуль **Контроль данных (DSPM)** не зависит от выбранных в окружении стандартов и нормативных актов, и его необходимо активировать для окружения вручную.
+         Вы можете выбрать одновременно несколько стандартов. При этом в блоке **Наборы требований** будут отображаться выбранные стандарты и нормативные акты, на соответствие которым будут проверяться ресурсы в окружении.
      1. Нажмите кнопку **Сохранить и продолжить**.
   1. (Опционально) В открывшемся разделе **Права доступа** добавьте пользователей, которым будет доступно создаваемое окружение, и назначьте им роли в этом окружении:
      
@@ -112,7 +110,7 @@
 
 * [Контроль данных (DSPM)](#dspm)
 * [Контроль Kubernetes (KSPM)](#kspm)
-* [Диагностика доступов (CIEM)](#ciem)
+* [Access Analyzer](#access-analyzer)
 * [Контроль конфигурации (CSPM)](#cspm)
 * [Обнаружение угроз (TD)](#td)
 * [Управление уязвимостями](#vulnerability-management)
@@ -147,11 +145,11 @@
 
 Модуль обеспечивает проверку рабочей нагрузки на предмет некорректных конфигураций и контроль безопасности среды выполнения с помощью сенсоров, выявляющих атаки на узлы и контейнеры.
 
-### Диагностика доступов (CIEM) {#ciem}
+### Access Analyzer {#access-analyzer}
 
-[Диагностика доступов](https://center.yandex.cloud/security/iam-diagnostics/) Security Deck — это инструмент, позволяющий централизованно [просматривать](operations/ciem/view-permissions.md) полный список доступов [субъектов](../iam/concepts/access-control/index.md#subject): [пользователей](../overview/roles-and-resources.md#users), [сервисных аккаунтов](../iam/concepts/users/service-accounts.md), [групп пользователей](../organization/concepts/groups.md), [системных групп](../iam/concepts/access-control/system-group.md) и [публичных групп](../iam/concepts/access-control/public-group.md) к [ресурсам](../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко [отзывать](operations/ciem/revoke-permissions.md) у субъектов лишние доступы. Подробнее в разделе [Модуль диагностики доступов (CIEM)](concepts/ciem.md).
+Security Deck [Access Analyzer](https://center.yandex.cloud/security/access-analyzer/) — это инструмент, позволяющий централизованно [просматривать](operations/access-analyzer/analyze-permissions.md#view) полный список доступов [субъектов](../iam/concepts/access-control/index.md#subject): [пользователей](../overview/roles-and-resources.md#users), [сервисных аккаунтов](../iam/concepts/users/service-accounts.md), [групп пользователей](../organization/concepts/groups.md), [системных групп](../iam/concepts/access-control/system-group.md) и [публичных групп](../iam/concepts/access-control/public-group.md) к [ресурсам](../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко [отзывать](operations/access-analyzer/analyze-permissions.md#revoke) у субъектов лишние доступы. Подробнее в разделе [Модуль Access Analyzer](concepts/access-analyzer.md).
 
-Чтобы начать работать с модулем CIEM, воспользуйтесь инструкциями по [просмотру](operations/ciem/view-permissions.md) и [отзыву](operations/ciem/revoke-permissions.md) доступов.
+Чтобы начать работать с модулем Access Analyzer, воспользуйтесь инструкциями по [просмотру](operations/access-analyzer/analyze-permissions.md#view) и [отзыву](operations/access-analyzer/analyze-permissions.md#revoke) доступов.
 
 ### Контроль конфигурации (CSPM) {#cspm}
 
@@ -199,5 +197,5 @@
 
 * Узнайте, [как посмотреть правила контроля безопасности модуля CSPM и их нарушения](operations/cspm/view-rules.md).
 * Узнайте, [как сканировать данные в бакетах на наличие чувствительной информации](operations/dspm/create-scan.md) в Security Deck.
-* Узнайте, [как просмотреть список доступов субъекта](operations/ciem/view-permissions.md) в Security Deck.
+* Узнайте, [как просмотреть список доступов субъекта](operations/access-analyzer/analyze-permissions.md#view) в Security Deck.
 * Узнайте о [необходимых правах доступа](security/index.md) для работы с Security Deck.
