@@ -1,0 +1,116 @@
+---
+editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/adviser/cli-ref/v1/issue/dismiss/
+---
+
+# yc adviser v1 issue dismiss
+
+Dismisses the specified issue for the specified period of time.
+While the dismissal is active, the issue is not shown by default,
+use [ListResourceIssuesRequest.visibility_filter] to get dismissed issues.
+
+#### Command Usage
+
+Syntax:
+
+`yc adviser v1 issue dismiss <ID>`
+
+#### Flags
+
+#|
+||Flag | Description ||
+|| `--id` | `string`
+
+ID of the issue to dismiss. To get the issue ID, use a [IssueService.List] request. ||
+|| `--reason` | `enum`
+
+Reason of the dismissal. Possible Values: 'dismiss-issue-reason-incorrect', 'dismiss-issue-reason-wont-fix', 'dismiss-issue-reason-accepted', 'dismiss-issue-reason-other' ||
+|| `--duration` | `duration`
+
+Period of time to dismiss the issue for. The maximum value is one year. (duration, e.g. 30s, 5m10s) ||
+|| `--comment` | `string`
+
+Comment of the dismissal. ||
+|| `--name` | `string`
+
+Resolve id by resource name within the current scope. ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request. ||
+|| `-e`, `--example-yaml` | Generates a YAML template of the request.
+
+The template can be customized and used as input for the command.
+
+Usage example:
+
+1. Generate template:
+yc adviser v1 issue dismiss --example-json > request.json
+or
+yc adviser v1 issue dismiss --example-yaml > request.yaml
+
+2. Edit the template file
+
+3. Run with template:
+yc adviser v1 issue dismiss -r request.json
+or
+yc adviser v1 issue dismiss -r request.yaml ||
+|#
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

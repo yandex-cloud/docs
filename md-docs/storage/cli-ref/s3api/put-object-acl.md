@@ -16,31 +16,31 @@ Syntax:
 ||Flag | Description ||
 || `--bucket` | `string`
 
-[REQUIRED] Bucket name ||
+Bucket name ||
 || `--key` | `string`
 
-[REQUIRED] Object key ||
+Object key ||
 || `--version-id` | `string`
 
-Version ID used to reference a specific version of the object. ||
+Object version ID. ||
 || `--acl` | `string`
 
 Sets a predefined ACL for an object. ||
 || `--access-control-policy` | `string`
 
-Contains the elements that set the ACL permissions for an object per grantee. ||
+JSON representation of AccessControlPolicy. ||
 || `--grant-full-control` | `string`
 
-Grants the access grantee the following permissions: READ, WRITE, READ_ACP, and WRITE_ACP for an object. ||
+Grants READ, WRITE, READ_ACP, WRITE_ACP permissions. ||
 || `--grant-read` | `string`
 
-Grants the access grantee object read permission. ||
+Grants read permission. ||
 || `--grant-read-acp` | `string`
 
-Grants the access grantee object ACL read permission. ||
+Grants ACL read permission. ||
 || `--grant-write-acp` | `string`
 
-Grants the access grantee object ACL write permission. ||
+Grants ACL write permission. ||
 |#
 
 #### Global Flags
@@ -49,15 +49,10 @@ Grants the access grantee object ACL write permission. ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -67,21 +62,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

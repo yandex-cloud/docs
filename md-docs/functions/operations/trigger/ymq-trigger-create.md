@@ -163,24 +163,24 @@
      resource "yandex_serverless_triggers" "my_trigger" {
        name        = "<имя_триггера>"
        description = "<описание_триггера>"
-       source {
-         ymq {
+       source = {
+         ymq = {
            queue_arn          = "<ARN_очереди>"
            service_account_id = "<идентификатор_сервисного_аккаунта>"
            visibility_timeout = "<таймаут_видимости_сообщений>"
-           batch_settings {
-             max_count = "<максимальное_число_сообщений>"
-             max_bytes = "<максимальный_размер_группы_в_байтах>"
+           batch_settings = {
+             max_count = <максимальное_число_сообщений>
+             max_bytes = <максимальный_размер_группы_в_байтах>
              cutoff    = "<максимальное_время_ожидания>"
            }
          }
        }
-       action {
-         invoke_function {
+       action = [{
+         invoke_function = {
            function_id        = "<идентификатор_функции>"
            service_account_id = "<идентификатор_сервисного_аккаунта>"
          }
-       }
+       }]
      }
      ```
 

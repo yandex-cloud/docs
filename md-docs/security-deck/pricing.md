@@ -19,7 +19,7 @@
 
 Не тарифицируются:
 
-* [Модуль диагностики доступов (CIEM)](concepts/ciem.md)
+* [Модуль Access Analyzer](concepts/access-analyzer.md)
 * [Модуль обнаружения угроз (TD)](concepts/threat-detector.md)
 * [AI-ассистент](concepts/ai-assistant.md)
 

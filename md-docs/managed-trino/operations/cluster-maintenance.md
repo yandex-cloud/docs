@@ -6,14 +6,269 @@
 
 ## Получить список обслуживаний {#list-maintenance}
 
+Для сервиса Managed Service for Trino можно получить список обслуживаний в [облаке](#list-cloud-maintenance), [каталоге](#list-folder-maintenance) или [кластере](#list-cluster-maintenance).
+
+### Получить список обслуживаний в облаке {#list-cloud-maintenance}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Воспользуйтесь методом [Maintenance.List](../api-ref/Maintenance/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/maintenances?cloudId=<идентификатор_облака>'
+        ```
+
+        
+        О том, как получить идентификатор облака, читайте в [инструкции](../../resource-manager/operations/cloud/get-id.md).
+
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+    1. Воспользуйтесь вызовом [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cloud_id": "<идентификатор_облака>"
+              }' \
+          trino.api.cloud.yandex.net:443 \
+          yandex.cloud.trino.v1.MaintenanceService.List
+        ```
+
+        
+        О том, как получить идентификатор облака, читайте в [инструкции](../../resource-manager/operations/cloud/get-id.md).
+
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+{% endlist %}
+
+### Получить список обслуживаний в каталоге {#list-folder-maintenance}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Воспользуйтесь методом [Maintenance.List](../api-ref/Maintenance/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/maintenances?folderId=<идентификатор_каталога>'
+        ```
+
+        
+        О том, как получить идентификатор каталога, читайте в [инструкции](../../resource-manager/operations/folder/get-id.md).
+
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+    1. Воспользуйтесь вызовом [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "folder_id": "<идентификатор_каталога>"
+              }' \
+          trino.api.cloud.yandex.net:443 \
+          yandex.cloud.trino.v1.MaintenanceService.List
+        ```
+
+        
+        О том, как получить идентификатор каталога, читайте в [инструкции](../../resource-manager/operations/folder/get-id.md).
+
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+{% endlist %}
+
+### Получить список обслуживаний в кластере {#list-cluster-maintenance}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
 
-  Чтобы просмотреть обслуживания с определенным статусом, нажмите кнопку **Статус** над списком обслуживаний и в выпадающем меню выберите нужный статус. Чтобы найти конкретное обслуживание, введите его идентификатор или имя задания в поле над списком обслуживаний.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
+
+    Чтобы просмотреть обслуживания с определенным статусом, нажмите кнопку **Статус** над списком обслуживаний и в выпадающем меню выберите нужный статус. Чтобы найти конкретное обслуживание, введите его идентификатор или имя задания в поле над списком обслуживаний.
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Воспользуйтесь методом [Maintenance.List](../api-ref/Maintenance/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/maintenances?resourceId=<идентификатор_кластера>'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+    1. Воспользуйтесь вызовом [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "resource_id": "<идентификатор_кластера>"
+              }' \
+          trino.api.cloud.yandex.net:443 \
+          yandex.cloud.trino.v1.MaintenanceService.List
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+{% endlist %}
+
+## Получить информацию об обслуживании {#get-maintenance}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Воспользуйтесь методом [Maintenance.Get](../api-ref/Maintenance/get.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/maintenances/<идентификатор_обслуживания>'
+        ```
+
+        Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+    1. Воспользуйтесь вызовом [MaintenanceService.Get](../api-ref/grpc/Maintenance/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "maintenance_id": "<идентификатор_обслуживания>"
+              }' \
+          trino.api.cloud.yandex.net:443 \
+          yandex.cloud.trino.v1.MaintenanceService.Get
+        ```
+
+        Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance).
 
 {% endlist %}
 
@@ -41,14 +296,94 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке обслуживания со статусом **Запланировано**.
-  1. В выпадающем меню выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Перенести**.
-  1. В открывшемся окне:
-      * Чтобы перенести обслуживание вперед на следующее окно обслуживания, нажмите **На следующее окно** и затем **Перенести**.
-      * Чтобы перенести обслуживание вперед или назад на определенную дату и время по UTC, нажмите **Выбрать дату (UTC)**, затем выберите новую дату и время и нажмите **Перенести**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке обслуживания со статусом **Запланировано**.
+    1. В выпадающем меню выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Перенести**.
+    1. В открывшемся окне:
+        * Чтобы перенести обслуживание вперед на следующее окно обслуживания, нажмите **На следующее окно** и затем **Перенести**.
+        * Чтобы перенести обслуживание вперед или назад на определенную дату и время по UTC, нажмите **Выбрать дату (UTC)**, затем выберите новую дату и время и нажмите **Перенести**.
+
+- REST API {#api}
+
+    Чтобы перенести обслуживание на новую дату и время:
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+       ```bash
+       export IAM_TOKEN="<IAM-токен>"
+       ```
+
+    1. Воспользуйтесь методом [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+        ```bash
+        curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/maintenances/<идентификатор_обслуживания>:reschedule' \
+        --data '{
+                    "rescheduleType": "<тип_переноса>",
+                    "scheduledAt": "<временная_метка>"
+                }'
+        ```
+
+        Где `rescheduleType` — тип переноса, принимает одно из двух значений:
+
+        * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно;
+        * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
+
+        Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `scheduledAt` указывать не нужно.
+
+        Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+       ```bash
+       export IAM_TOKEN="<IAM-токен>"
+       ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+
+    1. Воспользуйтесь вызовом [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "maintenance_id": "<идентификатор_обслуживания>",
+                "reschedule_type": "<тип_переноса>",
+                "scheduled_at": "<временная_метка>"
+              }' \
+          trino.api.cloud.yandex.net:443 \
+          yandex.cloud.trino.v1.MaintenanceService.Reschedule
+        ```
+
+        Где `reschedule_type` — тип переноса, принимает одно из двух значений:
+
+        * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно;
+        * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
+
+        Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `scheduled_at` указывать не нужно.
+
+        Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -62,11 +397,73 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного обслуживания.
-  1. В выпадающем меню выберите ![image](../../_assets/console-icons/triangle-right.svg) **Провести сейчас**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного обслуживания.
+    1. В выпадающем меню выберите ![image](../../_assets/console-icons/triangle-right.svg) **Провести сейчас**.
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+       ```bash
+       export IAM_TOKEN="<IAM-токен>"
+       ```
+
+    1. Воспользуйтесь методом [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+        ```bash
+        curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/maintenances/<идентификатор_обслуживания>:reschedule' \
+        --data '{
+                    "rescheduleType": "IMMEDIATE"
+                }'
+        ```
+
+       Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+       ```bash
+       export IAM_TOKEN="<IAM-токен>"
+       ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+
+    1. Воспользуйтесь вызовом [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "maintenance_id": "<идентификатор_обслуживания>",
+                "reschedule_type": "IMMEDIATE"
+              }' \
+          trino.api.cloud.yandex.net:443 \
+          yandex.cloud.trino.v1.MaintenanceService.Reschedule
+        ```
+
+       Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -112,7 +509,7 @@
                               `hour=<порядковый_номер_часового_интервала>
         ```
 
-        Где `type` — тип технического обслуживания: 
+        Где `type` — тип технического обслуживания:
 
         * `anytime` (по умолчанию) — в любое время.
         * `weekly` — по расписанию. Для этого значения дополнительно укажите:
@@ -194,9 +591,9 @@
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-     ```bash
-     export IAM_TOKEN="<IAM-токен>"
-     ```
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
 
   1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
@@ -212,19 +609,19 @@
       }
       ```
 
-     Где:
+      Где:
 
-        * `updateMask` — перечень изменяемых параметров в строку через запятую.
+      * `updateMask` — перечень изменяемых параметров в строку через запятую.
 
-            В данном случае передается только один параметр. 
+          В данном случае передается только один параметр.
 
-        * `maintenanceWindow` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров). Передайте один из двух параметров: 
+      * `maintenanceWindow` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
 
-            * `anytime` — техническое обслуживание происходит в любое время.
-            * `weeklyMaintenanceWindow` — техническое обслуживание происходит раз в неделю в указанное время:
+          * `anytime` — техническое обслуживание происходит в любое время.
+          * `weeklyMaintenanceWindow` — техническое обслуживание происходит раз в неделю в указанное время:
 
-                * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-                * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+              * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+              * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
 
                   > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
@@ -238,7 +635,7 @@
         --data '@body.json'
       ```
 
-     Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+      Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
@@ -246,9 +643,9 @@
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-     ```bash
-     export IAM_TOKEN="<IAM-токен>"
-     ```
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
 
   1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
      

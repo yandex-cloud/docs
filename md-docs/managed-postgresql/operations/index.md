@@ -28,6 +28,7 @@
 * [FQDN хостов](connect/fqdn.md)
 * [Подключение из приложений](connect/clients.md)
 * [Примеры кода](connect/code-examples.md)
+* [Обновление цепочки TLS-сертификатов в сервисах платформы данных](connect/update-tls-certificates.md)
 
 ## Базы данных {#databases}
 

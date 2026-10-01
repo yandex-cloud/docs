@@ -28,7 +28,7 @@ The revocation function was unable to check revocation for the certificate
 * выполните команду с параметром `--ssl-no-revoke`.
 
    ```powershell
-   mkdir $HOME\.postgresql; curl.exe --ssl-no-revoke -o $HOME\.postgresql\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
+   mkdir $HOME\.postgresql; curl.exe --ssl-no-revoke -o $HOME\.postgresql\root.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
    ```
 
 #### Как настроить аутентификацию пользователей? {#auth-user}

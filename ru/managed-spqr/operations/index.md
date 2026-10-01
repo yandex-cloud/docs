@@ -24,3 +24,4 @@ keywords:
 * [Управление пользователями](cluster-users.md)
 * [Управление базами данных](databases.md)
 * [Удаление кластера](cluster-delete.md)
+* [{#T}](update-tls-certificates.md)

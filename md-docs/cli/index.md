@@ -60,6 +60,34 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [Overview](cli-ref/index.md)
 
+### adviser
+
+ - [Overview](cli-ref/adviser/cli-ref/index.md)
+
+#### issue
+
+ - [Overview](cli-ref/adviser/cli-ref/issue/index.md)
+
+ - [dismiss](cli-ref/adviser/cli-ref/issue/dismiss.md)
+
+ - [get-dismissal-info](cli-ref/adviser/cli-ref/issue/get-dismissal-info.md)
+
+ - [list](cli-ref/adviser/cli-ref/issue/list.md)
+
+#### v1
+
+ - [Overview](cli-ref/adviser/cli-ref/v1/index.md)
+
+##### issue
+
+ - [Overview](cli-ref/adviser/cli-ref/v1/issue/index.md)
+
+ - [dismiss](cli-ref/adviser/cli-ref/v1/issue/dismiss.md)
+
+ - [get-dismissal-info](cli-ref/adviser/cli-ref/v1/issue/get-dismissal-info.md)
+
+ - [list](cli-ref/adviser/cli-ref/v1/issue/list.md)
+
 ### application-load-balancer
 
  - [Overview](cli-ref/application-load-balancer/cli-ref/index.md)
@@ -10914,6 +10942,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [Overview](cli-ref/serverless/cli-ref/eventrouter/connector/create/index.md)
 
+ - [audit-trails](cli-ref/serverless/cli-ref/eventrouter/connector/create/audit-trails.md)
+
  - [data-stream](cli-ref/serverless/cli-ref/eventrouter/connector/create/data-stream.md)
 
  - [event-service](cli-ref/serverless/cli-ref/eventrouter/connector/create/event-service.md)
@@ -11284,6 +11314,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [timer](cli-ref/serverless/cli-ref/trigger/v2/create/timer.md)
 
+ - [yandex-forms](cli-ref/serverless/cli-ref/trigger/v2/create/yandex-forms.md)
+
  - [yandex-messenger](cli-ref/serverless/cli-ref/trigger/v2/create/yandex-messenger.md)
 
  - [yds](cli-ref/serverless/cli-ref/trigger/v2/create/yds.md)
@@ -11333,6 +11365,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [telegram](cli-ref/serverless/cli-ref/trigger/v2/update/telegram.md)
 
  - [timer](cli-ref/serverless/cli-ref/trigger/v2/update/timer.md)
+
+ - [yandex-forms](cli-ref/serverless/cli-ref/trigger/v2/update/yandex-forms.md)
 
  - [yandex-messenger](cli-ref/serverless/cli-ref/trigger/v2/update/yandex-messenger.md)
 
@@ -11471,6 +11505,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 ####### create
 
  - [Overview](cli-ref/serverless/cli-ref/v0/eventrouter/connector/create/index.md)
+
+ - [audit-trails](cli-ref/serverless/cli-ref/v0/eventrouter/connector/create/audit-trails.md)
 
  - [data-stream](cli-ref/serverless/cli-ref/v0/eventrouter/connector/create/data-stream.md)
 
@@ -11842,6 +11878,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [timer](cli-ref/serverless/cli-ref/v0/trigger/v2/create/timer.md)
 
+ - [yandex-forms](cli-ref/serverless/cli-ref/v0/trigger/v2/create/yandex-forms.md)
+
  - [yandex-messenger](cli-ref/serverless/cli-ref/v0/trigger/v2/create/yandex-messenger.md)
 
  - [yds](cli-ref/serverless/cli-ref/v0/trigger/v2/create/yds.md)
@@ -11891,6 +11929,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [telegram](cli-ref/serverless/cli-ref/v0/trigger/v2/update/telegram.md)
 
  - [timer](cli-ref/serverless/cli-ref/v0/trigger/v2/update/timer.md)
+
+ - [yandex-forms](cli-ref/serverless/cli-ref/v0/trigger/v2/update/yandex-forms.md)
 
  - [yandex-messenger](cli-ref/serverless/cli-ref/v0/trigger/v2/update/yandex-messenger.md)
 

@@ -73,6 +73,8 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Примеры для подключения к шардированному кластеру](operations/connect/sharded-code-examples.md)
 
+ - [Обновление цепочки TLS-сертификатов](operations/connect/update-tls-certificates.md)
+
 ### Базы данных
 
  - [Запросы в Yandex WebSQL](operations/web-sql-query.md)

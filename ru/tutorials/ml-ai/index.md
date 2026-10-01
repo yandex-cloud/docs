@@ -52,6 +52,5 @@ description: Различные сценарии использования ма
 
 ## Использование генеративных нейросетей {{ ai-studio-full-name }} {#generative-neuronets}
 
-* [{#T}](ai-model-ide-integration.md)
 * [{#T}](data-catalog-integration.md)
 * [{#T}](../dataplatform/valkey-rag-search.md)

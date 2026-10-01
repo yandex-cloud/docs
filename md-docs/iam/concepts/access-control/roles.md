@@ -18,6 +18,8 @@ _Роль_ — это набор разрешений, который опред
 
 На данный момент пользователи не могут создавать новые роли со своим набором разрешений.
 
+С помощью [модуля Access Analyzer](https://center.yandex.cloud/security/access-analyzer/) сервиса [Yandex Security Deck](../../../security-deck/index.md) вы можете посмотреть полный список ролей, назначенных субъекту, а также получить рекомендации по оптимизации выданных разрешений. Подробнее читайте в разделе [Модуль Access Analyzer](../../../security-deck/concepts/access-analyzer.md).
+
 ## Справочник ролей {#roles-reference}
 
 {% note info "" %}

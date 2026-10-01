@@ -295,48 +295,49 @@ blocks:
 
 
 
-| Услуга                                                                                                                    | Цена              | Ед. тарификации | Действует с    | Действует до |
-| ------------------------------------------------------------------------------------------------------------------------- | ----------------- | --------------- | -------------- | ------------ |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, AMD Zen 4 HighFreq, 100% vCPU                     | 2,42 ₽            | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, AMD Zen 4 HighFreq, RAM                           | 0,4483 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, AMD Zen 4, 100% vCPU                              | 1,24 ₽            | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, AMD Zen 4, 100% vCPU, CVoS на 6 месяцев           | 2,1 ₽             | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, AMD Zen 4, RAM                                    | 0,3228 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, Intel Cascade Lake, 100% vCPU                     | 2,75 ₽            | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, Intel Cascade Lake, 100% vCPU                     | 1,38 ₽            | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, Intel Cascade Lake, RAM                           | 0,3573 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, Intel Ice Lake (Compute Optimized), 100% vCPU     | 1,99 ₽            | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, Intel Ice Lake (Compute Optimized), RAM           | 0,3689 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, Intel Ice Lake, 100% vCPU                         | 1,24 ₽            | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, Intel Ice Lake, RAM                               | 0,3228 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, AMD Zen 4 HighFreq, 100% vCPU                    | 4,81 ₽            | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, AMD Zen 4 HighFreq, RAM                          | 0,9247 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, AMD Zen 4, 100% vCPU                             | 2,47 ₽            | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, AMD Zen 4, 100% vCPU, CVoS на 1 год              | 1,93 ₽            | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, AMD Zen 4, RAM                                   | 0,6571 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, AMD Zen 4, RAM, CVoS на 1 год                    | 0,5126 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, AMD Zen 4, RAM, CVoS на 6 месяцев                | 0,5586 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 100% vCPU, CVoS на 1 год     | 2,14 ₽            | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 100% vCPU, CVoS на 6 месяцев | 2,34 ₽            | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, RAM                          | 0,7263 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, RAM, CVoS на 1 год           | 0,5665 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, RAM, CVoS на 6 месяцев       | 0,6173 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake (Compute Optimized), 100% vCPU    | 3,96 ₽            | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake (Compute Optimized), RAM          | 0,76 ₽            | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 100% vCPU                        | 2,47 ₽            | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 100% vCPU, CVoS на 1 год         | 1,93 ₽            | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев     | 2,1 ₽             | vCPU × час      | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, RAM                              | 0,6571 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, RAM, CVoS на 1 год               | 0,5125 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, RAM, CVoS на 6 месяцев           | 0,5585 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Публичный IP-адрес                                                                          | 0,2766 ₽          | IP-адрес × час  | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Резервные копии сверх размера хранилища                                                     | Не тарифицируется | ГБ × час        | 30 апреля 2025 | —            |
-| MPP Analytics for PostgreSQL. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)                                      | 0,0365 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Хранилище на локальных SSD-дисках, выделенные хосты                                         | 0,0064 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Хранилище на локальных SSD-дисках, стандартные хосты                                        | 0,0198 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Хранилище на нереплицируемых SSD-дисках                                                     | 0,0147 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Хранилище на сетевых HDD-дисках                                                             | 0,0052 ₽          | ГБ × час        | 30 апреля 2026 | —            |
-| MPP Analytics for PostgreSQL. Хранилище на сетевых SSD-дисках                                                             | 0,0218 ₽          | ГБ × час        | 30 апреля 2026 | —            |
+| Услуга                                                                                                                    | Цена              | Ед. тарификации | Действует с     | Действует до |
+| ------------------------------------------------------------------------------------------------------------------------- | ----------------- | --------------- | --------------- | ------------ |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, AMD Zen 4 HighFreq, 100% vCPU                     | 2,42 ₽            | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, AMD Zen 4 HighFreq, RAM                           | 0,4483 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, AMD Zen 4, 100% vCPU                              | 1,24 ₽            | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, AMD Zen 4, 100% vCPU, CVoS на 6 месяцев           | 2,1 ₽             | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, AMD Zen 4, RAM                                    | 0,3228 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, Intel Cascade Lake, 100% vCPU                     | 2,75 ₽            | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, Intel Cascade Lake, 100% vCPU                     | 1,38 ₽            | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, Intel Cascade Lake, RAM                           | 0,3573 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, Intel Ice Lake (Compute Optimized), 100% vCPU     | 1,99 ₽            | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, Intel Ice Lake (Compute Optimized), RAM           | 0,3689 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, Intel Ice Lake, 100% vCPU                         | 1,24 ₽            | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы выделенных хостов, Intel Ice Lake, RAM                               | 0,3228 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, AMD Zen 4 HighFreq, 100% vCPU                    | 4,81 ₽            | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, AMD Zen 4 HighFreq, RAM                          | 0,9247 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, AMD Zen 4, 100% vCPU                             | 2,47 ₽            | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, AMD Zen 4, 100% vCPU, CVoS на 1 год              | 1,93 ₽            | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, AMD Zen 4, RAM                                   | 0,6571 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, AMD Zen 4, RAM, CVoS на 1 год                    | 0,5126 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, AMD Zen 4, RAM, CVoS на 6 месяцев                | 0,5586 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 100% vCPU, CVoS на 1 год     | 2,14 ₽            | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 100% vCPU, CVoS на 6 месяцев | 2,34 ₽            | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, RAM                          | 0,7263 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, RAM, CVoS на 1 год           | 0,5665 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, RAM, CVoS на 6 месяцев       | 0,6173 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake (Compute Optimized), 100% vCPU    | 3,96 ₽            | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake (Compute Optimized), RAM          | 0,76 ₽            | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 100% vCPU                        | 2,47 ₽            | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 100% vCPU, CVoS на 1 год         | 1,93 ₽            | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев     | 2,1 ₽             | vCPU × час      | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, RAM                              | 0,6571 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, RAM, CVoS на 1 год               | 0,5125 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, RAM, CVoS на 6 месяцев           | 0,5585 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Публичный IP-адрес                                                                          | 0,2766 ₽          | IP-адрес × час  | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Резервные копии сверх размера хранилища                                                     | Не тарифицируется | ГБ × час        | 30 апреля 2025  | —            |
+| MPP Analytics for PostgreSQL. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)                                      | 0,0365 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Хранилище на локальных SSD-дисках, выделенные хосты                                         | 0,0064 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Хранилище на локальных SSD-дисках, стандартные хосты                                        | 0,0198 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Хранилище на нереплицируемых SSD-дисках                                                     | 0,0147 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Хранилище на сетевых HDD-дисках                                                             | 0,0052 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| MPP Analytics for PostgreSQL. Хранилище на сетевых SSD-дисках                                                             | 0,0218 ₽          | ГБ × час        | 30 апреля 2026  | —            |
+| Гибридное хранилище — MPP Analytics for PostgreSQL                                                                        | 0,0032 ₽          | ГБ × час        | 7 сентября 2026 | —            |
 
 
 

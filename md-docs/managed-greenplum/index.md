@@ -62,6 +62,8 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [Примеры кода](operations/connect/code-examples.md)
 
+ - [Обновление цепочки TLS-сертификатов](operations/connect/update-tls-certificates.md)
+
 ### Базы данных
 
  - [Управление базами данных](operations/databases.md)

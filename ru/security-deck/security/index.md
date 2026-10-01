@@ -43,7 +43,7 @@ description: Управление доступом в сервисе контр�
 
 * [Роли для контроля данных ({{ dspm-full-name }})](./dspm-roles.md).
 * [Роли для контроля безопасности с использованием модуля {{ kspm-name }}](./kspm-roles.md).
-* [Роли для диагностики доступов ({{ ciem-full-name }})](./ciem-roles.md).
+* [Роли для работы с модулем {{ access-analyzer-name }}](./access-analyzer-roles.md).
 * [Роли для контроля безопасности с использованием модуля {{ cspm-name }}](./cspm-roles.md).
 * [Роли для использования модуля {{ td-full-name }}](./td-roles.md).
 * [Роли для использования модуля {{ vuln-man-name }}](./vm-roles.md).

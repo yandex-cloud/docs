@@ -116,7 +116,13 @@ The maximum string length in characters is 50. ||
       "repo": "string",
       "branch": "string",
       "sub_path": "string",
-      "ssh_key": "string"
+      // Includes only one of the fields `ssh_key`, `username_and_password`
+      "ssh_key": "string",
+      "username_and_password": {
+        "username": "string",
+        "password": "string"
+      }
+      // end of the list of possible fields
     }
     // end of the list of possible fields
   },
@@ -465,7 +471,31 @@ Required field. Git branch name to sync from. ||
 Subdirectory path within the repository containing DAG files. ||
 || ssh_key | **string**
 
-SSH private key for repository authentication. ||
+SSH private key for repository authentication.
+
+Includes only one of the fields `ssh_key`, `username_and_password`.
+
+Credentials for repository authentication. ||
+|| username_and_password | **[GitSyncUsernameAndPassword](#yandex.cloud.airflow.v1.GitSyncUsernameAndPassword)**
+
+Username and password/access token for repository authentication.
+
+Includes only one of the fields `ssh_key`, `username_and_password`.
+
+Credentials for repository authentication. ||
+|#
+
+## GitSyncUsernameAndPassword {#yandex.cloud.airflow.v1.GitSyncUsernameAndPassword}
+
+#|
+||Field | Description ||
+|| username | **string**
+
+Required field. Username for repository authentication. For access token in gitlab use `oauth2`, for github use user name & etc.
+See in git repository docs. ||
+|| password | **string**
+
+Required field. Password or access token for repository authentication. ||
 |#
 
 ## LoggingConfig {#yandex.cloud.airflow.v1.LoggingConfig}

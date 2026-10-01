@@ -31,6 +31,7 @@ User's password. ||
 
 File containing the password of the Greenplum user. ||
 || `--password-from-stdin` | Read password from stdin. ||
+|| `--login` | Indicates whether the user can login. ||
 || `--resource-group` | `string`
 
 User's resource group ||

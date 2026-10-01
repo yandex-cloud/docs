@@ -336,28 +336,50 @@ keywords:
 
       {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_source_type_7Jvgw }}** и укажите его параметры:
+  1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_source_type_7Jvgw }}** и укажите параметры [источника](../concepts/dag-sources.md):
      * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.source_s3_t1FCM }}** – выберите существующий бакет или создайте новый. В этом бакете будут храниться DAG-файлы.
 
         Сервисному аккаунту кластера должно быть [предоставлено разрешение](../../storage/operations/buckets/edit-acl.md) `READ` для этого бакета.
 
-     * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.source_git_pgAeB }}**:
-        * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_git_repo_pKzRo }}** — адрес репозитория в формате `git@github.com:<user>/<path_to_git_repo>.git`.
+     * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.source_git_pgAeB }}** — укажите параметры подключения к репозиторию:
+
         * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_git_branch_5sU67 }}** — имя ветки в репозитории, например `main`.
         * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_git_subpath_rbaX6 }}** — путь к каталогу с DAG-файлами относительно репозитория в формате `/<путь-к-DAG-файлам>`.
-        * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_git_ssh_key_ewdAh }}** — содержимое закрытого SSH-ключа доступа к репозиторию.
 
-           {% cut "Пример ключа" %}
+        Выберите **Способ аутентификации** и заполните поля для подключения:
 
-           ```bash
-           -----BEGIN OPENSSH PRIVATE KEY-----
-           XXxxxxxxxD...DDXXXXXXXXXXXX
-           -----END OPENSSH PRIVATE KEY-----
-           ```
-           
-           {% endcut %}
+        {% list tabs %}
 
-       {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+        - SSH-ключ
+
+            Для подключения по SSH укажите:
+
+            * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_git_repo_pKzRo }}** — адрес репозитория в формате `git@<хост>:<путь_к_репозиторию>.git`.
+            * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_git_ssh_key_ewdAh }}** — содержимое закрытого SSH-ключа доступа к репозиторию.
+
+                {% cut "Пример ключа" %}
+
+                ```bash
+                -----BEGIN OPENSSH PRIVATE KEY-----
+                XXxxxxxxxD...DDXXXXXXXXXXXX
+                -----END OPENSSH PRIVATE KEY-----
+                ```
+
+                {% endcut %}
+
+            {% include [git-sync-ssh](../../_includes/mdb/maf/note-git-sync-ssh.md) %}
+
+        - Логин и пароль
+
+            Для подключения по HTTP(S) укажите:
+
+            * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_git_repo_pKzRo }}** — адрес репозитория в формате `https://<хост>/<путь_к_репозиторию>.git` или `http://<хост>/<путь_к_репозиторию>.git`.
+            * **Логин** — имя пользователя. При использовании токена значение зависит от [сервиса и типа токена](../concepts/dag-sources.md#git-token).
+            * **Пароль или токен доступа** — пароль пользователя или токен доступа к репозиторию.
+
+        {% endlist %}
+
+        {% include [warn-git](../../_includes/mdb/maf/note-git-sync-network.md) %}
 
   1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
@@ -428,11 +450,7 @@ keywords:
            --deb-packages <список_deb-пакетов> \
            --pip-packages <список_pip-пакетов> \
            --dags-bucket <имя_бакета> \
-           --gitsync repo=<SSH-адрес_репозитория>,`
-                     `branch=<рабочая_ветка>,`
-                     `subpath=<путь_к_каталогу_DAG-файлов>,`
-                     `ssh-key=<закрытый_SSH-ключ>,`
-                     `ssh-key-path=<путь_к_файлу_приватного_SSH-ключа> \
+           --gitsync <параметры_подключения_к_репозиторию> \
            --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
                                 `hour=<порядковый_номер_часового_интервала> \
@@ -555,12 +573,7 @@ keywords:
             "s3": {
               "bucket": "<имя_бакета>"
             },
-            "gitSync": {
-              "repo": "<SSH-адрес_репозитория>",
-              "branch": "<рабочая_ветка>",
-              "subPath": "<путь_к_каталогу_DAG-файлов>",
-              "sshKey": "<приватный_SSH-ключ>"
-            }
+            "gitSync": { <параметры_подключения_к_репозиторию> }
           },
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
@@ -645,18 +658,66 @@ keywords:
 
             * `securityGroupIds` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
 
-        * `codeSync` — тип и параметры источника DAG-файлов:
+        * `codeSync` — тип и параметры [источника](../concepts/dag-sources.md) DAG-файлов:
 
             * `s3.bucket` — имя бакета.
 
-            * `gitSync` — параметры Git-репозитория:
+            * `gitSync` — параметры подключения к Git-репозиторию. Общие параметры для обоих способов аутентификации:
 
-              * `repo` — адрес репозитория в формате `git@github.com:<user>/<path_to_git_repo>.git`.
               * `branch` — имя ветки в репозитории, например `main`.
               * `subPath` — путь к каталогу с DAG-файлами относительно репозитория в формате `/<путь-к-DAG-файлам>`.
-              * `sshKey` — закрытый SSH-ключ доступа к репозиторию в одну строчку с символами переноса строки `\n`.
 
-              {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+              Остальные параметры зависят от способа аутентификации. Выберите один из способов подключения:
+
+              {% list tabs %}
+
+              - SSH-ключ
+
+                  Для подключения по SSH укажите:
+
+                  * `repo` — адрес репозитория в формате `git@<хост>:<путь_к_репозиторию>.git`.
+                  * `sshKey` — закрытый SSH-ключ доступа к репозиторию в одну строчку с символами переноса строки `\n`.
+
+                  Пример блока `gitSync` для подключения по SSH:
+
+                  ```json
+                  "gitSync": {
+                    "repo": "git@github.com:<имя_пользователя>/<имя_репозитория>.git",
+                    "branch": "main",
+                    "subPath": "/dags",
+                    "sshKey": "<закрытый_SSH-ключ>"
+                  }
+                  ```
+
+                  {% include [git-sync-ssh](../../_includes/mdb/maf/note-git-sync-ssh.md) %}
+
+              - Логин и пароль
+
+                  Для подключения по HTTP(S) укажите:
+
+                  * `repo` — адрес репозитория в формате `https://<хост>/<путь_к_репозиторию>.git` или `http://<хост>/<путь_к_репозиторию>.git`.
+                  * `usernameAndPassword` — учетные данные для подключения:
+
+                      * `username` — имя пользователя. При использовании токена значение зависит от [сервиса и типа токена](../concepts/dag-sources.md#git-token).
+                      * `password` — пароль или токен доступа.
+
+                  Пример блока `gitSync` для подключения по HTTPS:
+
+                  ```json
+                  "gitSync": {
+                    "repo": "https://github.com/<имя_пользователя>/<имя_репозитория>.git",
+                    "branch": "main",
+                    "subPath": "/dags",
+                    "usernameAndPassword": {
+                      "username": "<имя_пользователя>",
+                      "password": "<пароль_или_токен>"
+                    }
+                  }
+                  ```
+
+              {% endlist %}
+
+              {% include [warn-git](../../_includes/mdb/maf/note-git-sync-network.md) %}
 
             Укажите один из двух параметров: `s3` либо `gitSync`.
 
@@ -771,12 +832,7 @@ keywords:
             "s3": {
               "bucket": "<имя_бакета>"
             },
-            "git_sync": {
-              "repo": "<SSH-адрес_репозитория>",
-              "branch": "<рабочая_ветка>",
-              "sub_path": "<путь_к_каталогу_DAG-файлов>",
-              "ssh_key": "<закрытый_SSH-ключ>"
-            }
+            "git_sync": { <параметры_подключения_к_репозиторию> }
           },
           "maintenance_window": {
             "weekly_maintenance_window": {
@@ -861,18 +917,66 @@ keywords:
 
             * `security_group_ids` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
 
-        * `code_sync` — тип и параметры источника DAG-файлов:
+        * `code_sync` — тип и параметры [источника](../concepts/dag-sources.md) DAG-файлов:
 
             * `s3.bucket` — имя бакета.
 
-            * `git_sync` — параметры Git-репозитория:
+            * `git_sync` — параметры подключения к Git-репозиторию. Общие параметры для обоих способов аутентификации:
 
-              * `repo` — адрес репозитория в формате `git@github.com:<user>/<path_to_git_repo>.git`.
               * `branch` — имя ветки в репозитории, например `main`.
               * `sub_path` — путь к каталогу с DAG-файлами относительно репозитория в формате `/<путь-к-DAG-файлам>`.
-              * `ssh_key` — закрытый SSH-ключ доступа к репозиторию в одну строчку с символами переноса строки `\n`.
 
-              {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+              Остальные параметры зависят от способа аутентификации. Выберите один из способов подключения:
+
+              {% list tabs %}
+
+              - SSH-ключ
+
+                  Для подключения по SSH укажите:
+
+                  * `repo` — адрес репозитория в формате `git@<хост>:<путь_к_репозиторию>.git`.
+                  * `ssh_key` — закрытый SSH-ключ доступа к репозиторию в одну строчку с символами переноса строки `\n`.
+
+                  Пример блока `git_sync` для подключения по SSH:
+
+                  ```json
+                  "git_sync": {
+                    "repo": "git@github.com:<имя_пользователя>/<имя_репозитория>.git",
+                    "branch": "main",
+                    "sub_path": "/dags",
+                    "ssh_key": "<закрытый_SSH-ключ>"
+                  }
+                  ```
+
+                  {% include [git-sync-ssh](../../_includes/mdb/maf/note-git-sync-ssh.md) %}
+
+              - Логин и пароль
+
+                  Для подключения по HTTP(S) укажите:
+
+                  * `repo` — адрес репозитория в формате `https://<хост>/<путь_к_репозиторию>.git` или `http://<хост>/<путь_к_репозиторию>.git`.
+                  * `username_and_password` — учетные данные для подключения:
+
+                      * `username` — имя пользователя. При использовании токена значение зависит от [сервиса и типа токена](../concepts/dag-sources.md#git-token).
+                      * `password` — пароль или токен доступа.
+
+                  Пример блока `git_sync` для подключения по HTTPS:
+
+                  ```json
+                  "git_sync": {
+                    "repo": "https://github.com/<имя_пользователя>/<имя_репозитория>.git",
+                    "branch": "main",
+                    "sub_path": "/dags",
+                    "username_and_password": {
+                      "username": "<имя_пользователя>",
+                      "password": "<пароль_или_токен>"
+                    }
+                  }
+                  ```
+
+              {% endlist %}
+
+              {% include [warn-git](../../_includes/mdb/maf/note-git-sync-network.md) %}
 
             Укажите один из двух параметров: `s3` либо `git_sync`.
 

@@ -74,13 +74,13 @@
 
  - [Удалить пользовательское правило](operations/kspm/delete-custom-rule.md)
 
-### Диагностика доступов (CIEM)
+### Access Analyzer
 
- - [Обзор](operations/ciem/index.md)
+ - [Обзор](operations/access-analyzer/index.md)
 
- - [Просмотреть список доступов](operations/ciem/view-permissions.md)
+ - [Работа с рекомендациями](operations/access-analyzer/use-recommendations.md)
 
- - [Отозвать доступ](operations/ciem/revoke-permissions.md)
+ - [Диагностика доступов](operations/access-analyzer/analyze-permissions.md)
 
 ### Контроль конфигурации (CSPM)
 
@@ -176,7 +176,7 @@
 
  - [Контроль Kubernetes® (KSPM)](concepts/kspm.md)
 
- - [Диагностика доступов (CIEM)](concepts/ciem.md)
+ - [Access Analyzer](concepts/access-analyzer.md)
 
  - [Контроль конфигурации (CSPM)](concepts/cspm.md)
 
@@ -216,7 +216,7 @@
 
  - [Роли KSPM](security/kspm-roles.md)
 
- - [Роли CIEM](security/ciem-roles.md)
+ - [Роли Access Analyzer](security/access-analyzer-roles.md)
 
  - [Роли CSPM](security/cspm-roles.md)
 

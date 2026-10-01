@@ -42,6 +42,8 @@
 
  - [Примеры кода](operations/connect/code-examples.md)
 
+ - [Обновление цепочки TLS-сертификатов](operations/connect/update-tls-certificates.md)
+
  - [Управление топиками](operations/cluster-topics.md)
 
  - [Управление пользователями](operations/cluster-accounts.md)
@@ -123,6 +125,8 @@
  - [Работа с топиками Apache Kafka® с помощью Yandex Data Processing](tutorials/data-processing.md)
 
  - [Отслеживание потери сообщений в топике Apache Kafka®](tutorials/retention-policy.md)
+
+ - [Передача данных из Managed Service for Apache Kafka® в таблицу Apache Iceberg™ в Object Storage](tutorials/kafka-iceberg-s3-connect.md)
 
 ## Концепции
 

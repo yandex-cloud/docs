@@ -4,11 +4,37 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.39.0 (01.10.26) {#v-1-39-0}
+
+#### Сервисы управляемых баз данных {#v-1-39-0-mdb}
+
+* Добавлена группа команд `yc adviser` (псевдоним `yc recommendation`) для просмотра рекомендаций и их временного скрытия:
+  * `yc adviser issue list`;
+  * `yc adviser issue dismiss`;
+  * `yc adviser issue get-dismissal-info`.
+
+#### Cloud Functions {#v-1-39-0-sf-name}
+
+* Добавлены команды управления триггерами для Яндекс Форм:
+  * `yc serverless trigger v2 create yandex-forms`;
+  * `yc serverless trigger v2 update yandex-forms`.
+
+#### Identity and Access Management {#v-1-39-0-iam-name}
+
+* Добавлен параметр `--post-logout-redirect-uris` в команды для настройки адресов перенаправления после выхода из OAuth-клиента:
+  * `yc iam oauth-client create`;
+  * `yc iam oauth-client update`.
+* В вывод команды `yc iam oauth-client get` добавлено поле `POST LOGOUT REDIRECT URIS` с адресами перенаправления после выхода из OAuth-клиента.
+
+#### Yandex MPP Analytics for PostgreSQL {#v-1-39-0-mgp-name}
+
+* Добавлен параметр `--login` в команды управления пользователями:
+  * `yc managed-greenplum users create`;
+  * `yc managed-greenplum users update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.38.0 (28.09.26) {#v-1-38-0}
-
-#### Cloud Registry {#v-1-38-0-cloud-registry-name}
-
-* Добавлена команда `yc cloud-registry migration get-folder-migration-status-dashboard` для получения сводного статуса миграции реестров в каталоге.
 
 #### Cloud Functions {#v-1-38-0-sf-name}
 
@@ -16,7 +42,9 @@
   * `yc serverless trigger v2 create max`;
   * `yc serverless trigger v2 update max`.
 
-## Предыдущие релизы {#previous-release}
+#### Cloud Registry {#v-1-38-0-cloud-registry-name}
+
+* Добавлена команда `yc cloud-registry migration get-folder-migration-status-dashboard` для получения сводного статуса миграции реестров в каталоге.
 
 ### Версия 1.37.0 (24.09.26) {#v-1-37-0}
 

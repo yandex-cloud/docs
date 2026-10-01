@@ -176,8 +176,8 @@
      ```hcl
      resource "yandex_serverless_triggers" "my_trigger" {
        name = "<имя_триггера>"
-       source {
-         object_storage {
+       source = {
+         object_storage = {
            bucket_id = "<идентификатор_бакета>"
            prefix    = "<префикс_ключа_объекта>"
            suffix    = "<суффикс_ключа_объекта>"
@@ -186,30 +186,30 @@
              "OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT",
              "OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT",
            ]
-           batch_settings {
-             max_count = "<максимальное_число_событий>"
-             max_bytes = "<максимальный_размер_группы_в_байтах>"
+           batch_settings = {
+             max_count = <максимальное_число_событий>
+             max_bytes = <максимальный_размер_группы_в_байтах>
              cutoff    = "<максимальное_время_ожидания>"
            }
          }
        }
-       action {
-         invoke_container {
+       action = [{
+         invoke_container = {
            container_id       = "<идентификатор_контейнера>"
            path               = "<HTTP-путь>"
            service_account_id = "<идентификатор_сервисного_аккаунта>"
          }
-         retry_policy {
-           retry_attempts = "<количество_повторных_отправок>"
+         retry_policy = {
+           retry_attempts = <количество_повторных_отправок>
            interval       = "<интервал_между_повторными_отправками>"
          }
-         dead_letter {
-           dead_letter_queue {
+         dead_letter = {
+           dead_letter_queue = {
              queue_arn          = "<ARN_очереди_Dead_Letter_Queue>"
              service_account_id = "<идентификатор_сервисного_аккаунта>"
            }
          }
-       }
+       }]
      }
      ```
 

@@ -31,6 +31,7 @@ description: На странице представлен список поша�
 * [FQDN хостов](connect/fqdn.md)
 * [Подключение из приложений](connect/clients.md)
 * [Примеры кода](connect/code-examples.md)
+* [{#T}](connect/update-tls-certificates.md)
 
 ## Базы данных {#databases}
 

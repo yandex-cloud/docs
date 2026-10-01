@@ -82,9 +82,9 @@
 Подробнее о группах безопасности в разделе [Сеть и кластеры БД](../../concepts/network.md#security-groups).
 
 
-## Получение SSL-сертификатов {#get-ssl-cert}
+## Получение SSL-сертификата {#get-ssl-cert}
 
-Чтобы использовать шифрованное соединение, получите SSL-сертификаты:
+Чтобы использовать шифрованное соединение, получите SSL-сертификат:
 
 {% list tabs group=operating_system %}
 
@@ -94,18 +94,12 @@
    sudo mkdir --parents /usr/local/share/ca-certificates/Yandex/ && \
    sudo wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
         --output-document /usr/local/share/ca-certificates/Yandex/RootCA.crt && \
-   sudo wget "https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem" \
-        --output-document /usr/local/share/ca-certificates/Yandex/IntermediateCA.crt && \
    sudo chmod 655 \
-        /usr/local/share/ca-certificates/Yandex/RootCA.crt \
-        /usr/local/share/ca-certificates/Yandex/IntermediateCA.crt && \
+        /usr/local/share/ca-certificates/Yandex/RootCA.crt && \
    sudo update-ca-certificates
    ```
 
-   Сертификаты будут сохранены в файлах:
-
-   * `/usr/local/share/ca-certificates/Yandex/RootCA.crt`
-   * `/usr/local/share/ca-certificates/Yandex/IntermediateCA.crt`
+   Сертификат будет сохранен в файле `/usr/local/share/ca-certificates/Yandex/RootCA.crt`.
 
 - macOS (Zsh) {#macos}
 
@@ -113,50 +107,85 @@
    sudo mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
    sudo wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
         --output-document /usr/local/share/ca-certificates/Yandex/RootCA.crt && \
-   sudo wget "https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem" \
-        --output-document /usr/local/share/ca-certificates/Yandex/IntermediateCA.crt && \
    sudo chmod 655 \
-        /usr/local/share/ca-certificates/Yandex/RootCA.crt \
-        /usr/local/share/ca-certificates/Yandex/IntermediateCA.crt && \
-   security import /usr/local/share/ca-certificates/Yandex/RootCA.crt -k ~/Library/Keychains/login.keychain; \
-   security import /usr/local/share/ca-certificates/Yandex/IntermediateCA.crt -k ~/Library/Keychains/login.keychain
+        /usr/local/share/ca-certificates/Yandex/RootCA.crt && \
+   security import /usr/local/share/ca-certificates/Yandex/RootCA.crt -k ~/Library/Keychains/login.keychain
    ```
 
-   Сертификаты будут сохранены в файлах:
-
-   * `/usr/local/share/ca-certificates/Yandex/RootCA.crt`
-   * `/usr/local/share/ca-certificates/Yandex/IntermediateCA.crt`
+   Сертификат будет сохранен в файле `/usr/local/share/ca-certificates/Yandex/RootCA.crt`.
 
 - Windows (PowerShell) {#windows}
 
-   1. Скачайте и импортируйте сертификаты:
+   1. Скачайте и импортируйте сертификат:
 
       ```powershell
       mkdir -Force $HOME\.yandex; `
       curl.exe https://storage.yandexcloud.net/cloud-certs/RootCA.pem `
         --output $HOME\.yandex\RootCA.crt; `
-      curl.exe https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem `
-        --output $HOME\.yandex\IntermediateCA.crt; `
       Import-Certificate `
         -FilePath $HOME\.yandex\RootCA.crt `
-        -CertStoreLocation cert:\CurrentUser\Root; `
-      Import-Certificate `
-        -FilePath $HOME\.yandex\IntermediateCA.crt `
         -CertStoreLocation cert:\CurrentUser\Root
       ```
 
       Корпоративные политики и антивирус могут блокировать скачивание сертификата. Подробнее в разделе [Вопросы и ответы](../../qa/connection.md#get-ssl-error).
 
-   1. Подтвердите согласие с установкой сертификатов в хранилище <q>Доверенные корневые центры сертификации</q>.
+   1. Подтвердите согласие с установкой сертификата в хранилище «Доверенные корневые центры сертификации».
 
-   Сертификаты будут сохранены в файлах:
-
-   * `$HOME\.yandex\RootCA.crt`
-   * `$HOME\.yandex\IntermediateCA.crt`
+   Сертификат будет сохранен в файле `$HOME\.yandex\RootCA.crt`.
 
 {% endlist %}
 
 Для использования графических IDE [сохраните сертификат](https://storage.yandexcloud.net/cloud-certs/RootCA.pem) в локальную папку и укажите путь к нему в настройках подключения.
+
+## Получение промежуточных SSL-сертификатов для подключения через ODBC {#get-ssl-intermediate-cert}
+
+При [подключении к кластеру через ODBC](code-examples.md#odbc) может потребоваться установка промежуточных SSL-сертификатов. Чтобы установить их, выполните команду:
+
+{% list tabs group=operating_system %}
+
+- Linux (Bash) {#linux}
+
+  ```bash
+  sudo mkdir --parents /usr/local/share/ca-certificates/Yandex/ && \
+  sudo wget "https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem" \
+       --output-document /usr/local/share/ca-certificates/Yandex/IntermediateCA.crt && \
+  sudo wget "https://storage.yandexcloud.net/cloud-certs/IntermediateCA-2033.pem" \
+       --output-document /usr/local/share/ca-certificates/Yandex/IntermediateCA-2033.crt && \
+  sudo chmod 655 \
+       /usr/local/share/ca-certificates/Yandex/IntermediateCA.crt \
+       /usr/local/share/ca-certificates/Yandex/IntermediateCA-2033.crt && \
+  sudo update-ca-certificates
+  ```
+
+  Сертификаты будут сохранены в файлах:
+
+  * `/usr/local/share/ca-certificates/Yandex/IntermediateCA.crt`
+  * `/usr/local/share/ca-certificates/Yandex/IntermediateCA-2033.crt`
+
+- Windows (PowerShell) {#windows}
+
+  ```powershell
+  mkdir -Force $HOME\.yandex; `
+  curl.exe https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem `
+    --output $HOME\.yandex\IntermediateCA.crt; `
+  curl.exe https://storage.yandexcloud.net/cloud-certs/IntermediateCA-2033.pem `
+    --output $HOME\.yandex\IntermediateCA-2033.crt; `
+  Import-Certificate `
+    -FilePath $HOME\.yandex\IntermediateCA.crt `
+    -CertStoreLocation cert:\CurrentUser\CA; `
+  Import-Certificate `
+    -FilePath $HOME\.yandex\IntermediateCA-2033.crt `
+    -CertStoreLocation cert:\CurrentUser\CA
+  ```
+
+  Корпоративные политики и антивирус могут блокировать скачивание сертификатов. Подробнее в разделе [Вопросы и ответы](../../qa/connection.md#get-ssl-error).
+
+  Сертификаты будут сохранены в файлах:
+   
+  * `$HOME\.yandex\IntermediateCA.crt`
+  * `$HOME\.yandex\IntermediateCA-2033.crt`
+
+{% endlist %}
 
 ## Что дальше {#whats-next}
 

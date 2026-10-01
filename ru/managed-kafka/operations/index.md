@@ -25,6 +25,7 @@ description: На странице представлен список поша�
 * [Предварительная настройка](connect/index.md)
 * [Подключение к кластеру из приложений](connect/clients.md)
 * [Примеры кода для подключения к кластеру](connect/code-examples.md)
+* [{#T}](connect/update-tls-certificates.md)
 
 ## Топики {#topics}
 

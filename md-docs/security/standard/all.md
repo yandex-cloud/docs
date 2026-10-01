@@ -74,7 +74,7 @@
 * [Контроля данных](../../security-deck/concepts/dspm.md) (DSPM).
 * [Контроля конфигурации](../../security-deck/concepts/cspm.md) (CSPM).
 * [Контроля Kubernetes](../../security-deck/concepts/kspm.md) (KSPM).
-* [Диагностики доступов](../../security-deck/concepts/ciem.md) (CIEM).
+* [Access Analyzer](../../security-deck/concepts/access-analyzer.md).
 * [Просмотра алертов](../../security-deck/concepts/alerts.md).
 * [Портал соответствия требованиям](../../security-deck/concepts/compliance.md).
 
@@ -601,7 +601,7 @@
 
 Проанализируйте найденные учетные записи с назначенными примитивными ролями `admin`, `editor`, `viewer` и `auditor` и замените их на [сервисные гранулярные роли](../../iam/roles-reference.md) в соответствии с вашей матрицей ролей.
 
-Чтобы просмотреть полный список доступов субъекта, воспользуйтесь [инструкцией](../../security-deck/operations/ciem/view-permissions.md).
+Чтобы просмотреть полный список доступов субъекта, воспользуйтесь [инструкцией](../../security-deck/operations/access-analyzer/analyze-permissions.md#view).
 
 {% note warning %}
 
@@ -840,8 +840,8 @@
 
 **Инструкции и решения по выполнению:**
 
-* [Посмотрите](../../security-deck/operations/ciem/view-permissions.md) полный список доступов сервисного аккаунта с помощью сервиса Yandex Security Deck.
-* [Отзовите](../../security-deck/operations/ciem/revoke-permissions.md) избыточные доступы у сервисного аккаунта с помощью сервиса Security Deck.
+* [Посмотрите](../../security-deck/operations/access-analyzer/analyze-permissions.md#view) полный список доступов сервисного аккаунта с помощью сервиса Yandex Security Deck.
+* [Отзовите](../../security-deck/operations/access-analyzer/analyze-permissions.md#revoke) избыточные доступы у сервисного аккаунта с помощью сервиса Security Deck.
 * [Удалите](../../iam/operations/roles/revoke.md) избыточные права у сервисного аккаунта с помощью сервиса IAM.
 
 {% note warning %}
@@ -2365,13 +2365,13 @@ yc compute instance update <ID_виртуальной_машины> \
 
 {% endlist %}
 
-#### 1.26 Регулярно проводится аудит прав доступа пользователей и сервисных аккаунтов с использованием Yandex Security Deck CIEM {#ciem-access-control}
+#### 1.26 Регулярно проводится аудит прав доступа пользователей и сервисных аккаунтов с использованием Yandex Security Deck Access Analyzer {#access-analyzer-access-control}
 
 В целях обеспечения безопасности данных и облачной инфраструктуры необходимо регулярно проводить аудит прав доступа, имеющихся у пользователей и сервисных аккаунтов.
 
-[Модуль диагностики доступов](https://center.yandex.cloud/security/iam-diagnostics/) или CIEM (CIEM) — это инструмент, позволяющий централизованно просматривать полный список доступов [субъектов](../../iam/concepts/access-control/index.md#subject): пользователей, сервисных аккаунтов, [групп пользователей](../../organization/concepts/groups.md), [системных групп](../../iam/concepts/access-control/system-group.md) и [публичных групп](../../iam/concepts/access-control/public-group.md) к [ресурсам](../../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко отзывать у субъектов лишние доступы.
+[Модуль Access Analyzer](https://center.yandex.cloud/security/access-analyzer/) — это инструмент, позволяющий централизованно просматривать полный список доступов [субъектов](../../iam/concepts/access-control/index.md#subject): пользователей, сервисных аккаунтов, [групп пользователей](../../organization/concepts/groups.md), [системных групп](../../iam/concepts/access-control/system-group.md) и [публичных групп](../../iam/concepts/access-control/public-group.md) к [ресурсам](../../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко отзывать у субъектов лишние доступы.
 
-Подробнее читайте в разделе [Модуль диагностики доступов (CIEM)](../../security-deck/concepts/ciem.md).
+Подробнее читайте в разделе [Модуль Access Analyzer](../../security-deck/concepts/access-analyzer.md).
 
 | ID требования | Критичность |
 | --- | --- |
@@ -2379,8 +2379,7 @@ yc compute instance update <ID_виртуальной_машины> \
 
 **Инструкции и решения по выполнению:**
 
-[Просмотреть список доступов субъекта](../../security-deck/operations/ciem/view-permissions.md).
-[Отозвать доступ у субъекта](../../security-deck/operations/ciem/revoke-permissions.md).
+[Диагностика доступов в модуле Access Analyzer](../../security-deck/operations/access-analyzer/analyze-permissions.md).
 
 {% note warning %}
 

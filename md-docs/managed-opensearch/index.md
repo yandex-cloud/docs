@@ -64,6 +64,8 @@
 
  - [Настройка SAML-аутентификации](operations/saml-authentication.md)
 
+ - [Обновление цепочки TLS-сертификатов](operations/connect/update-tls-certificates.md)
+
  - [Управление пользователями](operations/cluster-users.md)
 
 ### Логи и мониторинг

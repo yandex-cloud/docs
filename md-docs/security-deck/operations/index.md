@@ -50,10 +50,10 @@
 * [Посмотреть правила контроля безопасности модуля Обнаружение угроз (TD)](td/view-rules.md)
 * [Управлять исключениями из правил безопасности модуля Обнаружение угроз (TD)](td/manage-exceptions.md)
 
-## Модуль диагностики доступов (CIEM) {#ciem}
+## Модуль Access Analyzer {#access-analyzer}
 
-* [Просмотреть список доступов субъекта](ciem/view-permissions.md)
-* [Отозвать доступ у субъекта](ciem/revoke-permissions.md)
+* [Работа с рекомендациями в модуле Access Analyzer](access-analyzer/use-recommendations.md)
+* [Диагностика доступов в модуле Access Analyzer](access-analyzer/analyze-permissions.md)
 
 ## Модуль Управление уязвимостями {#vulnerability-management}
 

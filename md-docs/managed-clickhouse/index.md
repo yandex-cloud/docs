@@ -76,6 +76,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [Примеры кода](operations/connect/code-examples.md)
 
+ - [Обновление цепочки TLS-сертификатов](operations/connect/update-tls-certificates.md)
+
 ### Базы данных
 
  - [SQL-запросы в Yandex WebSQL](operations/web-sql-query.md)

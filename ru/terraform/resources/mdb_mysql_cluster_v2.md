@@ -93,6 +93,10 @@ resource "yandex_vpc_security_group" "test-sgroup" {
 - `backup_window_start` [Block]. Time to start the daily backup, in the UTC timezone.
   - `hours` (Number). The hour at which backup will be started (UTC).
   - `minutes` (Number). The minute at which backup will be started (UTC).
+- `connection_manager` [Block]. Connection Manager integration settings. If the block is omitted, the API enables the integration by default for newly created clusters. Disabling the integration is not supported: `enabled = false` is rejected.
+  - `connections_folder_id` (String). ID of the folder where connections for the cluster are created. Defaults to the cluster's folder if not specified.
+  - `enabled` (Bool). Indicates whether Connection Manager integration is enabled. Set to `true` to enable the integration. If omitted, the API enables the integration by default for newly created clusters. Disabling the integration is not supported: `enabled = false` is rejected.
+  - `secrets_folder_id` (String). ID of the folder where connection secrets are created. Defaults to the cluster's folder if not specified.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
 - `description` (String). Description of the MySQL cluster.
 - `disk_encryption_key_id` (String). ID of the symmetric encryption key used to encrypt the disk of the cluster.

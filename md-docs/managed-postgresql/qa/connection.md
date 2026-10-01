@@ -46,7 +46,7 @@
 SSL-сертификат можно получить с помощью PowerShell:
 
 ```powershell
-mkdir $HOME\.postgresql; curl.exe --output $HOME\.postgresql\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
+mkdir $HOME\.postgresql; curl.exe --output $HOME\.postgresql\root.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
 ```
 
 Сертификат будет сохранен в файле `$HOME\.postgresql\root.crt`.
@@ -59,7 +59,7 @@ mkdir $HOME\.postgresql; curl.exe --output $HOME\.postgresql\root.crt https://st
 
    ```bash
    mkdir /mnt/c/temp && \
-   curl "https://storage.yandexcloud.net/cloud-certs/CA.pem" --output /mnt/c/temp/CA.pem && \
+   curl "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" --output /mnt/c/temp/CA.pem && \
    openssl pkcs12 -export -out /mnt/c/temp/CA.pfx -nokeys -in /mnt/c/temp/CA.pem
    ```
 

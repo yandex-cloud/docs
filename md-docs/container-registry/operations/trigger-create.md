@@ -110,7 +110,7 @@
   * `--name` — имя триггера.
   * `--registry-id` — [идентификатор реестра](registry/registry-list.md).
   * `--events` — [события](../../functions/concepts/trigger/cr-trigger.md#event), после наступления которых триггер запускается.
-  
+
   * `--batch-size` — размер группы событий. Необязательный параметр. Допустимые значения от 1 до 10, значение по умолчанию — 1.
   * `--batch-cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда. Триггер группирует события не дольше `batch-cutoff` и отправляет их в функцию. Число событий при этом не превышает `batch-size`.
 
@@ -172,8 +172,8 @@
       ```hcl
       resource "yandex_serverless_triggers" "my_trigger" {
         name = "<имя_триггера>"
-        source {
-          container_registry {
+        source = {
+          container_registry = {
             registry_id = "<идентификатор_реестра>"
             image_name  = "<имя_Docker-образа>"
             tag         = "<тег_Docker-образа>"
@@ -183,29 +183,29 @@
               "CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG",
               "CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG",
             ]
-            batch_settings {
-              max_count = "<максимальное_число_событий>"
-              max_bytes = "<максимальный_размер_группы_в_байтах>"
+            batch_settings = {
+              max_count = <максимальное_число_событий>
+              max_bytes = <максимальный_размер_группы_в_байтах>
               cutoff    = "<максимальное_время_ожидания>"
             }
           }
         }
-        action {
-          invoke_function {
+        action = [{
+          invoke_function = {
             function_id        = "<идентификатор_функции>"
             service_account_id = "<идентификатор_сервисного_аккаунта>"
           }
-          retry_policy {
-            retry_attempts = "<количество_повторных_отправок>"
+          retry_policy = {
+            retry_attempts = <количество_повторных_отправок>
             interval       = "<интервал_между_повторными_отправками>"
           }
-          dead_letter {
-            dead_letter_queue {
+          dead_letter = {
+            dead_letter_queue = {
               queue_arn          = "<ARN_очереди_Dead_Letter_Queue>"
               service_account_id = "<идентификатор_сервисного_аккаунта>"
             }
           }
-        }
+        }]
       }
       ```
 

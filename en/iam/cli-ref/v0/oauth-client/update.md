@@ -29,6 +29,9 @@ A new name for the oauth client ||
 || `--redirect-uris` | `value[,value]`
 
 A list of URIs where a user of the oauth-client can be redirected to. ||
+|| `--post-logout-redirect-uris` | `value[,value]`
+
+A list of URIs where users can be redirected after signing out of the OAuth client. ||
 || `--scopes` | `value[,value]`
 
 List of scopes that the oauth-client will request access to. ||

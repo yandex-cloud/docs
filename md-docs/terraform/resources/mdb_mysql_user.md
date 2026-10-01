@@ -71,7 +71,7 @@ resource "yandex_vpc_subnet" "foo" {
 
 - `authentication_plugin` (String). Authentication plugin. Allowed values: `MYSQL_NATIVE_PASSWORD`, `CACHING_SHA2_PASSWORD`, `SHA256_PASSWORD`, `MYSQL_NO_LOGIN`, `MDB_IAMPROXY_AUTH` (for version 5.7 `MYSQL_NATIVE_PASSWORD`, `SHA256_PASSWORD`, `MYSQL_NO_LOGIN`, `MDB_IAMPROXY_AUTH`).
 - `cluster_id` (**Required**)(String). The ID of the MySQL cluster.
-- `connection_manager` (*Read-Only*) (Map Of String). Connection Manager connection configuration. Filled in by the server automatically.
+- `connection_manager` (*Read-Only*) (Map Of String). Connection Manager connection configuration. Populated from `user_connection_manager`.
 - `generate_password` (Bool). Generate password using Connection Manager. Allowed values: `true` or `false`. It's used only during user creation and is ignored during updating.
 
 {% note warning %}
@@ -99,7 +99,11 @@ resource "yandex_vpc_subnet" "foo" {
   - `create` (String). 
   - `delete` (String). 
   - `read` (String). 
-  - `update` (String).
+  - `update` (String). 
+- `user_connection_manager` [Block]. Connection Manager settings for the user.
+  - `connection_folder_id` (String). ID of the folder where the connection is created. Defaults to the cluster's folder if not specified. Cannot be changed after user creation.
+  - `connection_id` (*Read-Only*) (String). ID of the connection manager connection for this user. Computed by the server.
+  - `secret_folder_id` (String). ID of the folder where the secret is created. Defaults to the cluster's folder if not specified. Cannot be changed after user creation.
 
 ## Import
 

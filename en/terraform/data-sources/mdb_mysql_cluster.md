@@ -35,6 +35,10 @@ output "network_id" {
   - `hours` . 
   - `minutes` . 
 - `cluster_id` (String). The ID of the MySQL cluster.
+- `connection_manager` (*Read-Only*) (List Of Object). Connection Manager integration configuration for the cluster.
+  - `connections_folder_id` . 
+  - `enabled` . 
+  - `secrets_folder_id` . 
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `database` (*Read-Only*) (Set Of Object). To manage databases, please switch to using a separate resource type `yandex_mdb_mysql_databases`.
   - `name` . 

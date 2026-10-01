@@ -28,6 +28,7 @@ description: На странице представлен список поша�
 * [Подключение из приложений](connect/clients.md)
 * [Примеры кода](connect/code-examples.md)
 * [{#T}](saml-authentication.md)
+* [{#T}](connect/update-tls-certificates.md)
 
 ## Пользователи {{ OS }}
 

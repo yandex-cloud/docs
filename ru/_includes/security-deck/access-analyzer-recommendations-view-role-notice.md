@@ -1,0 +1,1 @@
+Просматривать рекомендации в [интерфейсе {{ sd-name }}]({{ link-sd-main }}access-analyzer/) могут пользователи, которым назначена [роль](../../security-deck/security/index.md#security-deck-viewer) `security-deck.viewer` или выше на [окружение](../../security-deck/concepts/workspace.md).

@@ -60,6 +60,8 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Примеры кода](operations/connect/code-examples.md)
 
+ - [Обновление цепочки TLS-сертификатов](operations/connect/update-tls-certificates.md)
+
 ### Базы данных
 
  - [SQL-запросы в Yandex WebSQL](operations/web-sql-query.md)

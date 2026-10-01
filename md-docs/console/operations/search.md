@@ -150,6 +150,19 @@
 [Федерации сервисных аккаунтов](../../iam/concepts/workload-identity.md) | Идентификатор, имя, метки, описание
 [API-ключ](../../iam/concepts/authorization/api-key.md) | Идентификатор, описание
 
+
+### Yandex Identity Hub {#identity-hub}
+
+Тип объекта | Поля
+--- | ---
+[Федерация удостоверений](../../organization/concepts/add-federation.md) | Идентификатор, имя, метки, описание
+[Сертификат федерации](../../organization/concepts/add-federation.md#build-trust) | Идентификатор, имя, метки, описание
+[Группа пользователей](../../organization/concepts/groups.md) | Идентификатор, имя, метки, описание
+[OIDC-приложение](../../organization/concepts/applications/oidc.md) | Идентификатор, имя, метки, описание
+[SAML-приложение](../../organization/concepts/applications/saml.md) | Идентификатор, имя, метки, описание
+[Сертификат подписи SAML](../../organization/concepts/applications/saml.md) | Идентификатор, имя, метки, описание
+[Пул пользователей](../../organization/concepts/user-pools.md) | Идентификатор, имя, метки, описание
+
 ### Yandex Key Management Service {#kms}
 
 Тип объекта | Поля
