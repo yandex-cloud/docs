@@ -6,27 +6,30 @@
 public final class VideoSurface: UIView
 ```
 
-UIView-компонент для отображения видео.
+Компонент `UIView` для отображения видео.
 
-## Contents
-- [Methods](#methods)
-- [Initializers](#initializers)
+## Содержание {#contents}
 
-## Discussion
+На этой странице:
 
-Добавьте `VideoSurface` в иерархию представлений и подключите к нему экземпляр `YaPlayer`. Поверхность автоматически масштабируется по размеру своих `bounds`.
+- [Инициализаторы](#initializers)
+- [Методы](#methods)
 
-Для использования в SwiftUI оберните `VideoSurface` через `UIViewRepresentable`.
+## Описание {#discussion}
 
-## Inheritance
+Добавьте `VideoSurface` в иерархию представлений и подключите к нему экземпляр [YaPlayer](YaPlayer.md). Область отображения видео автоматически масштабируется в соответствии со значением `bounds`.
 
-- `UIView`
+Для использования в SwiftUI оберните `VideoSurface` в `UIViewRepresentable`.
 
-## Notes
+## Наследование {#inheritance}
 
-Если нужен встроенный скин плеера, используйте `VideoView` из `CloudVideoPlayerUI`.
+Класс наследуется от `UIView`.
 
-## Initializers
+## Примечания {#notes}
+
+Чтобы подключить готовую оболочку плеера, используйте [VideoView](../CloudVideoPlayerSDKUI/VideoView.md) из библиотеки `CloudVideoPlayerUI`.
+
+## Инициализаторы {#initializers}
 
 ```swift
 public init()
@@ -34,7 +37,7 @@ public init()
 
 Создает поверхность для отображения видео.
 
-## Methods
+## Методы {#methods}
 
 ```swift
 public func reset()
@@ -50,9 +53,21 @@ public func getPipController() -> PictureInPictureController?
 
 Возвращает контроллер режима «Картинка в картинке» (PiP), если он доступен.
 
-**Returns:** Экземпляр `PictureInPictureController` или `nil`, если устройство не поддерживает PiP.
+Возвращаемое значение: экземпляр `PictureInPictureController` или `nil`, если устройство не поддерживает PiP.
 
-## Examples
+---
+
+```swift
+public func attach(player: YaPlayer)
+```
+
+Подключает плеер к поверхности для отображения видео.
+
+Параметры:
+
+- `player` — экземпляр плеера, видео которого нужно отображать.
+
+## Примеры {#examples}
 
 ```swift
 let surface = VideoSurface()

@@ -2610,7 +2610,11 @@ gt4.1 ^1^ | 0
 
 ### Квоты {#quotas}
 
-Квоты SourceCraft устанавливаются в зависимости от используемого тарифного плана. Подробнее в разделе [Правила тарификации для SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing#tariff-differences).
+Квоты SourceCraft устанавливаются в зависимости от используемой подписки. Подробнее в разделе [Правила тарификации для SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing#tariff-differences).
+
+На платной подписке можно самостоятельно [увеличить квоту нейрокредитов](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/increase-neurocredit-quota), а также [квоты на время работы CI-процессов и объем хранилищ приватных репозиториев](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/increase-resource-quotas). Фактическое потребление сверх объема, включенного в подписку, [оплачивается отдельно](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing#payg).
+
+Чтобы увеличить квоты публичных репозиториев образовательных и опенсорс-проектов, обратитесь в [техническую поддержку](https://center.yandex.cloud/support?createTicket=true).
 
 ### Лимиты {#limits}
 
@@ -2680,11 +2684,15 @@ VibeCraft основывается на компонентах SourceCraft и Ya
 
 Помимо лимитов учитывайте квоты SourceCraft и Yandex Cloud.
 
-Если вам необходимо больше ресурсов, увеличьте квоты одним из способов:
+На платной подписке SourceCraft можно самостоятельно [увеличить квоту нейрокредитов](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/increase-neurocredit-quota) или [квоты на время работы CI-процессов и хранилища приватных репозиториев](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/increase-resource-quotas). Фактическое потребление сверх объема, включенного в подписку, [оплачивается отдельно](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing#payg).
+
+Для увеличения квот публичных репозиториев образовательных и опенсорс-проектов обратитесь в [техническую поддержку](https://center.yandex.cloud/support?createTicket=true).
+
+Если вам необходимо больше ресурсов Yandex Cloud, увеличьте квоты одним из способов:
 * [Сформируйте запрос на увеличение](https://console.yandex.cloud/cloud?section=quotas).
 * Обратитесь в [техническую поддержку](https://center.yandex.cloud/support) и расскажите, какие потребляемые квоты нужно увеличить и на сколько.
 
-Управлять квотами позволяет сервис [Yandex Cloud Quota Manager](../../quota-manager/quickstart.md).
+Управлять квотами Yandex Cloud позволяет сервис [Yandex Cloud Quota Manager](../../quota-manager/quickstart.md).
 
 {% endnote %}
 

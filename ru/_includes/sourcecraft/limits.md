@@ -1,6 +1,10 @@
 ### Квоты {#quotas}
 
-Квоты {{ src-full-name }} устанавливаются в зависимости от используемого тарифного плана. Подробнее в разделе [Правила тарификации для {{ src-full-name }}]({{ link-src-docs }}/sourcecraft/pricing#tariff-differences).
+Квоты {{ src-full-name }} устанавливаются в зависимости от используемой подписки. Подробнее в разделе [Правила тарификации для {{ src-full-name }}]({{ link-src-docs }}/sourcecraft/pricing#tariff-differences).
+
+На платной подписке можно самостоятельно [увеличить квоту нейрокредитов]({{ link-src-docs }}/sourcecraft/operations/increase-neurocredit-quota), а также [квоты на время работы CI-процессов и объем хранилищ приватных репозиториев]({{ link-src-docs }}/sourcecraft/operations/increase-resource-quotas). Фактическое потребление сверх объема, включенного в подписку, [оплачивается отдельно]({{ link-src-docs }}/sourcecraft/pricing#payg).
+
+Чтобы увеличить квоты публичных репозиториев образовательных и опенсорс-проектов, обратитесь в [техническую поддержку]({{ link-console-support }}?createTicket=true).
 
 ### Лимиты {#limits}
 

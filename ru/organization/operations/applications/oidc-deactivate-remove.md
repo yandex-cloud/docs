@@ -192,7 +192,10 @@ description: Следуя данной инструкции, вы сможете
        * `client_id` — идентификатор OAuth-клиента.
        * `authorized_scopes` — набор атрибутов пользователей, которые доступны поставщику услуг.
      * `group_claims_settings` — настройки передачи групп пользователей поставщику услуг:
-       * `group_distribution_type` — тип распределения групп.
+       * `group_distribution_type` — передаваемые группы. Возможные значения:
+         * `ALL_GROUPS` — поставщику услуг будут переданы все группы, в которые входит пользователь.
+         * `ASSIGNED_GROUPS` — из всех групп, в которые входит пользователь, поставщику услуг будут переданы только те группы, которые явно заданы.
+         * `NONE` — поставщику услуг не будут переданы группы, в которые входит пользователь.
      * `labels` — список [меток](../../../resource-manager/concepts/labels.md).
 
      Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).

@@ -43,8 +43,12 @@ Managed Service for Apache Kafka® можно использовать для п
 ## Другое {#other}
 
 * [Обновление кластера Managed Service for Apache Kafka® с ZooKeeper на кластер с поддержкой KRaft](zk-kraft-kafka-migration.md)
+
+
 * [Самостоятельное развертывание веб-интерфейса Apache Kafka®](deploy-kafka-ui.md)
 * [Работа с топиками Apache Kafka® с помощью PySpark-заданий в Yandex Data Processing](data-processing.md)
 * [Отслеживание потери сообщений в топике Apache Kafka®](retention-policy.md)
+* [Передача данных из топика Yandex Managed Service for Apache Kafka® в таблицу Apache Iceberg™ в Yandex Object Storage](kafka-iceberg-s3-connect.md)
+
 
 _ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

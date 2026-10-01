@@ -499,7 +499,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 Подключаться из [{{ google-looker }}](https://datastudio.google.com/overview) можно только к хостам кластера в публичном доступе.
 
-1. Сохраните [сертификат сервера]({{ crt-web-path }}) `CA.pem` в локальную папку.
+1. Сохраните [сертификат сервера]({{ crt-web-path }}) `RootCA.pem` в локальную папку.
 1. В той же папке сгенерируйте сертификат клиента с приватным ключом:
 
     ```bash
@@ -523,7 +523,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 1. Выберите опции **Включить SSL** и **Включить аутентификацию клиента**.
 1. Укажите файлы сертификатов и приватный ключ клиента в соответствующих полях:
 
-    * **Server certificate** — выберите файл `CA.pem`.
+    * **Server certificate** — выберите файл `RootCA.pem`.
     * **Client certificate** — выберите файл `cert.pem`.
     * **Client private key** — выберите файл `private.pem`.
 

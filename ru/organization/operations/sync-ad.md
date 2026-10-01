@@ -1,6 +1,6 @@
 ---
-title: Как синхронизировать пользователей и группы с {{ microsoft-idp.ad-short }}
-description: Следуя данной инструкции, вы сможете настроить синхронизацию пользователей и групп в {{ org-full-name }} с {{ microsoft-idp.ad-full }} с помощью агента {{ ad-sync-agent }}.
+title: Как настроить синхронизацию с {{ microsoft-idp.ad-full }} в {{ org-full-name }}
+description: 'Настройте синхронизацию пользователей и групп между {{ microsoft-idp.ad-short }} и {{ org-full-name }}: подготовьте организацию и контроллер домена, настройте и запустите агент синхронизации.'
 ---
 
 # Синхронизировать пользователей и группы с {{ microsoft-idp.ad-full }}
@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 1. [Создайте](./user-pools/create-userpool.md) пул пользователей в {{ org-full-name }} и [привяжите](./user-pools/add-domain.md#userpool) к нему [домен](../concepts/domains.md), идентичный домену, который используется на [контроллере домена](https://ru.wikipedia.org/wiki/Контроллер_домена) {{ microsoft-idp.ad-short }}.
 
-    Привязывать ваш собственный домен к [пулу пользователей](../concepts/user-pools.md) не обязательно. Вместо этого вы можете привязать другой домен или выбрать домен по умолчанию. Но в этом случае в конфигурации [агента синхронизации](../concepts/ad-sync/sync-agent.md) потребуется настроить подстановку домена в параметре `replacement_domain`. Подробнее читайте в разделе [{#T}](../concepts/ad-sync/sync-agent.md#agent-config).
+    Привязывать ваш собственный домен к [пулу пользователей](../concepts/user-pools.md) не обязательно. Вместо этого вы можете привязать другой домен или выбрать домен по умолчанию. Но в этом случае в конфигурации [агента синхронизации](../concepts/ad-sync/sync-agent.md) потребуется настроить подстановку домена в параметре `replacement_domain`. Подробнее читайте в разделе [Параметры конфигурации агента](#config-sync-settings).
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) ему следующие роли на [организацию](../concepts/organization.md), в которой находится нужный пул пользователей:
 
     {% include [ad-sync-sa-roles](../../_includes/organization/ad-sync-sa-roles.md) %}
@@ -117,21 +117,13 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [ad-sync-yaml-config](../../_includes/organization/ad-sync-yaml-config.md) %}
 
-        {% cut "Описание параметров" %}
-
-        {% include [ad-sync-yaml-config-complete-password-legend](../../_includes/organization/ad-sync-yaml-config-complete-password-legend.md) %}
-
-        {% endcut %}
+        Описание полей приведено в разделе [Параметры конфигурации агента](#agent-config).
 
       - По протоколу Kerberos {#kerberos_linux}
 
         {% include [ad-sync-yaml-config-kerberos](../../_includes/organization/ad-sync-yaml-config-kerberos.md) %}
 
-        {% cut "Описание параметров" %}
-
-        {% include [ad-sync-yaml-config-complete-kerberos-legend](../../_includes/organization/ad-sync-yaml-config-complete-kerberos-legend.md) %}
-
-        {% endcut %}
+        Описание полей приведено в разделе [Параметры конфигурации агента](#agent-config).
 
       {% endlist %}
 
@@ -190,31 +182,19 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [ad-sync-yaml-config-gmsa](../../_includes/organization/ad-sync-yaml-config-gmsa.md) %}
 
-        {% cut "Описание параметров" %}
-
-        {% include [ad-sync-yaml-config-complete-gmsa-legend](../../_includes/organization/ad-sync-yaml-config-complete-gmsa-legend.md) %}
-
-        {% endcut %}
+        Описание полей приведено в разделе [Параметры конфигурации агента](#agent-config).
 
       - По логину и паролю {#password_windows}
 
         {% include [ad-sync-yaml-config](../../_includes/organization/ad-sync-yaml-config.md) %}
 
-        {% cut "Описание параметров" %}
-
-        {% include [ad-sync-yaml-config-complete-password-legend](../../_includes/organization/ad-sync-yaml-config-complete-password-legend.md) %}
-
-        {% endcut %}
+        Описание полей приведено в разделе [Параметры конфигурации агента](#agent-config).
 
       - По протоколу Kerberos {#kerberos_windows}
 
         {% include [ad-sync-yaml-config-kerberos](../../_includes/organization/ad-sync-yaml-config-kerberos.md) %}
 
-        {% cut "Описание параметров" %}
-
-        {% include [ad-sync-yaml-config-complete-kerberos-legend](../../_includes/organization/ad-sync-yaml-config-complete-kerberos-legend.md) %}
-
-        {% endcut %}
+        Описание полей приведено в разделе [Параметры конфигурации агента](#agent-config).
 
       {% endlist %}
 
@@ -327,6 +307,47 @@ description: Следуя данной инструкции, вы сможете
 {% include [ad-sync-account-expires-solution](../../_includes/organization/ad-sync-account-expires-solution.md) %}
 
 {% endnote %}
+
+## Параметры конфигурации агента {#agent-config}
+
+В файле `config.yaml` задайте параметры подключения и синхронизации.
+
+Для подключения к {{ microsoft-idp.ad-short }} выберите настройки `drsr` и `ldap`, соответствующие вашему способу аутентификации:
+
+* По логину и паролю — укажите учетные данные пользователя домена.
+* По протоколу Kerberos — дополнительно заполните секцию `kerberos`.
+* От имени аккаунта gMSA — используйте параметр `use_windows_identity: true` для `drsr` или `ldap`. Доступно только в Windows.
+
+Параметры сгруппированы по назначению:
+
+* Подключение к {{ yandex-cloud }}:
+
+    * [userpool_id](#config-userpool-id);
+    * [cloud_credentials_file_path](#config-cloud-credentials-file-path);
+    * [use_metadata_service](#config-use-metadata-service).
+
+* Файлы агента:
+
+    * [working_directory](#config-working-directory);
+    * [check_config_permissions](#config-check-config-permissions).
+
+* Подключение к {{ microsoft-idp.ad-short }}:
+
+    * [drsr](#config-drsr);
+    * [ldap](#config-ldap);
+    * [kerberos](#config-kerberos).
+
+* Синхронизация:
+
+    * [sync_settings](#config-sync-settings);
+    * [enable_password_writeback](#config-enable-password-writeback);
+    * [dry_run](#config-dry-run).
+
+* Логи:
+
+    * [logger](#config-logger).
+
+{% include [ad-sync-config-reference](../../_includes/organization/ad-sync-config-reference.md) %}
 
 #### Полезные ссылки {#see-also}
 

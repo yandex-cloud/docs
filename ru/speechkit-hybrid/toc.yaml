@@ -2,6 +2,8 @@ title: Yandex SpeechKit Hybrid
 href: index.yaml
 noIndex: true
 items:
+  - name: На главную
+    href: ../index.yaml
   - name: Системные требования
     href: system-requirements.md
   - name: Системные требования CPU

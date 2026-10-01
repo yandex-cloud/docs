@@ -203,7 +203,7 @@ flowchart BT
 
 * [Роли для контроля данных (Data Security Posture Management)](dspm-roles.md).
 * [Роли для контроля безопасности с использованием модуля KSPM](kspm-roles.md).
-* [Роли для диагностики доступов (Cloud Infrastructure Entitlement Management)](ciem-roles.md).
+* [Роли для работы с модулем Access Analyzer](access-analyzer-roles.md).
 * [Роли для контроля безопасности с использованием модуля CSPM](cspm-roles.md).
 * [Роли для использования модуля Обнаружение угроз](td-roles.md).
 * [Роли для использования модуля Управление уязвимостями](vm-roles.md).

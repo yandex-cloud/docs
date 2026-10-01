@@ -8,27 +8,48 @@ public final class YaPlayer
 
 Основной объект плеера для воспроизведения видеоконтента.
 
-## Contents
-- [Properties](#properties)
-- [Methods](#methods)
+## Содержание {#contents}
 
-## Discussion
+На этой странице:
 
-`YaPlayer` управляет полным жизненным циклом воспроизведения: загрузкой источника, запуском, паузой, перемоткой, управлением звуком и скоростью.
+- [Свойства](#properties)
+- [Методы](#methods)
 
-Создавайте экземпляры через `Environment/player()`.
+## Описание {#discussion}
 
-## Мониторинг состояния
+`YaPlayer` управляет воспроизведением: загрузкой источника, запуском, паузой, перемоткой, звуком и скоростью.
 
-Используйте Combine-паблишеры для реакции на изменения состояния.
+Чтобы создать экземпляр плеера, вызовите метод `player()` структуры [Environment](Environment.md#methods).
 
-## Properties
+## Мониторинг состояния {#state-monitoring}
 
-| Name | Type | Description |
-|------|------|-------------|
-| `currentSource` | `ContentIdEndpoint?` | Текущий источник воспроизведения. |
+Чтобы отслеживать изменения состояния плеера, подпишитесь на события с помощью Combine. Методы подписки возвращают объекты `PlayerPublisher`, которые передают новые значения подписчикам. Пример подписки приведен в разделе [Отслеживание состояния плеера](../ios-sdk.md#state-monitoring).
 
-## Methods
+Во всех методах подписки параметр `queue` задает очередь доставки событий. По умолчанию используется главная очередь `.main`.
+
+## Свойства {#properties}
+
+#|
+|| **Имя** | **Тип** | **Описание** ||
+|| `currentSource` | `ContentIdEndpoint?` | Текущий источник воспроизведения. ||
+|| `vsid` | `String` | Идентификатор сессии просмотра (View Session ID). ||
+|| `status` | `PlayerStatus` | Текущее состояние плеера. ||
+|| `watchedTime` | `Time` | Суммарное время просмотра текущего контента с момента последней установки источника. ||
+|| `currentTime` | `Time?` | Текущая позиция воспроизведения. ||
+|| `duration` | `Time?` | Общая длительность контента. ||
+|| `remainingBufferedTime` | `Time?` | Длительность буферизованного фрагмента, начиная с текущей позиции воспроизведения. ||
+|| `bufferTimeRanges` | `[Range<Time>]` | Буферизованные диапазоны времени. ||
+|| `seekableTimeRanges` | `[Range<Time>]` | Доступные для перемотки диапазоны времени. ||
+|| `isMuted` | `Bool?` | Текущее состояние звука. ||
+|| `volume` | `Float?` | Текущий уровень громкости от `0.0` до `1.0`. ||
+|| `videoType` | `VideoType?` | Тип воспроизводимого контента. ||
+|| `onAir` | `Bool` | `true`, если воспроизведение находится на правой границе шкалы времени трансляции — в прямом эфире. ||
+|| `latency` | `TimeInterval` | Текущая задержка воспроизведения относительно прямого эфира, в секундах. ||
+|| `targetLatency` | `TimeInterval` | Целевая задержка воспроизведения относительно прямого эфира, в секундах. ||
+|| `playbackSpeed` | `PlaybackSpeed` | Текущая скорость воспроизведения. ||
+|#
+
+## Методы {#methods}
 
 ```swift
 public func set<AdditionalParams: Encodable>(source endpoint: ContentIdEndpoint, config: PlaybackConfig, additionalParams: AdditionalParams)
@@ -76,11 +97,11 @@ public func seek(to time: Time) async -> Bool
 
 Перематывает воспроизведение на указанную позицию.
 
-**Parameters:**
+Параметры:
 
-- `time`: Целевая позиция.
+- `time` — целевая позиция.
 
-**Returns:** `true`, если перемотка выполнена успешно.
+Возвращаемое значение: `true`, если перемотка выполнена успешно.
 
 ---
 
@@ -90,7 +111,7 @@ public func set(isMute: Bool)
 
 Включает или отключает звук.
 
-**Parameters:**
+Параметры:
 
 - `isMute`: `true` — выключить звук, `false` — включить.
 
@@ -102,9 +123,9 @@ public func set(volume: Float)
 
 Устанавливает уровень громкости.
 
-**Parameters:**
+Параметры:
 
-- `volume`: Уровень громкости от `0.0` (тишина) до `1.0` (максимум).
+- `volume` — уровень громкости от `0.0` (тишина) до `1.0` (максимум).
 
 ---
 
@@ -114,11 +135,11 @@ public func set(playbackSpeed: PlaybackSpeed) throws
 
 Устанавливает скорость воспроизведения.
 
-**Parameters:**
+Параметры:
 
-- `playbackSpeed`: Желаемая скорость воспроизведения.
+- `playbackSpeed` — желаемая скорость воспроизведения.
 
-**Throws:** Ошибка, если заданная скорость не поддерживается для текущего контента.
+Исключения: ошибка, если заданная скорость не поддерживается для текущего контента.
 
 ---
 
@@ -128,13 +149,91 @@ public func canSet(playbackSpeed: PlaybackSpeed) -> Bool
 
 Проверяет, поддерживает ли текущий контент заданную скорость воспроизведения.
 
-**Parameters:**
+Параметры:
 
-- `playbackSpeed`: Скорость для проверки.
+- `playbackSpeed` — скорость для проверки.
 
-**Returns:** `true`, если скорость доступна для текущего контента.
+Возвращаемое значение: `true`, если скорость доступна для текущего контента.
 
-## Examples
+---
+
+```swift
+public func playerStatusDidChange(queue: DispatchQueue = .main) -> PlayerPublisher<PlayerStatus>
+```
+
+Возвращает объект `PlayerPublisher` для отслеживания изменений состояния плеера.
+
+---
+
+```swift
+public func bufferTimeRangesDidChange(queue: DispatchQueue = .main) -> PlayerPublisher<[Range<Time>]>
+```
+
+Возвращает объект `PlayerPublisher` для отслеживания изменений буферизованных диапазонов.
+
+---
+
+```swift
+public func seekableTimeRangeDidChange(queue: DispatchQueue = .main) -> PlayerPublisher<[Range<Time>]>
+```
+
+Возвращает объект `PlayerPublisher` для отслеживания изменений диапазонов, доступных для перемотки.
+
+---
+
+```swift
+public func periodicTimePublisher(interval: TimeInterval, queue: DispatchQueue = .main) -> PlayerPublisher<TimeInterval>
+```
+
+Возвращает объект `PlayerPublisher` для периодического получения позиции воспроизведения.
+
+Параметры:
+
+- `interval` — интервал обновления позиции воспроизведения в секундах.
+
+---
+
+```swift
+public func isMutedDidChange(queue: DispatchQueue = .main) -> PlayerPublisher<Bool>
+```
+
+Возвращает объект `PlayerPublisher` для отслеживания изменений состояния звука.
+
+---
+
+```swift
+public func volumeDidChange(queue: DispatchQueue = .main) -> PlayerPublisher<Float>
+```
+
+Возвращает объект `PlayerPublisher` для отслеживания изменений уровня громкости.
+
+---
+
+```swift
+public func errorDidDetected(queue: DispatchQueue = .main) -> PlayerPublisher<PlayerError>
+```
+
+Возвращает объект `PlayerPublisher` для получения ошибок воспроизведения.
+
+---
+
+```swift
+public func goToLive() async throws
+```
+
+Перемещает позицию воспроизведения на правую границу шкалы времени трансляции — к прямому эфиру.
+
+Исключения: ошибка, если операция невозможна, например при воспроизведении видео по запросу (VOD).
+
+---
+
+```swift
+public func playbackSpeedDidChange(queue: DispatchQueue = .main) -> PlayerPublisher<PlaybackSpeed>
+```
+
+Возвращает объект `PlayerPublisher` для отслеживания изменений скорости воспроизведения.
+
+## Примеры {#examples}
 
 ```swift
 let environment = Environment(configuration: Configuration(from: From(raw: "my-app")))

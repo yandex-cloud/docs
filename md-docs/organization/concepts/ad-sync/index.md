@@ -11,13 +11,13 @@
 
 {% endnote %}
 
-Синхронизация пользователей и групп выполняется [агентом](sync-agent.md) синхронизации Identity Hub AD Sync Agent, который может быть запущен на любом сервере под управлением ОС [Linux](https://ru.wikipedia.org/wiki/Linux) или [Windows](https://ru.wikipedia.org/wiki/Windows).
+Синхронизация пользователей и групп выполняется [агентом](sync-agent.md) синхронизации Yandex Identity Hub Sync Agent, который может быть запущен на любом сервере под управлением ОС [Linux](https://ru.wikipedia.org/wiki/Linux) или [Windows](https://ru.wikipedia.org/wiki/Windows).
 
 Схема синхронизации:
 
 ```mermaid
 flowchart TB
-    A["Identity Hub AD Sync Agent"]
+    A["Yandex Identity Hub Sync Agent"]
     subgraph B [organization-manager.api.cloud.yandex.net]
     D["Yandex Cloud API"]
     end
@@ -49,7 +49,7 @@ flowchart TB
 
 ## Объекты синхронизации {#sync-objects}
 
-Агент Identity Hub AD Sync Agent синхронизирует с каталогом Active Directory следующие объекты:
+Агент Yandex Identity Hub Sync Agent синхронизирует с каталогом Active Directory следующие объекты:
 
 * **Пользователи**.
 * **Атрибуты пользователей**.
@@ -142,7 +142,7 @@ flowchart TB
     * `Change Password`;
     * `Reset Password`;
     * `Write pwdLastSet`.
-1. На контроллере домена откройте сетевые порты для входящего трафика, поступающего с IP-адреса сервера, на котором установлен агент Identity Hub AD Sync Agent:
+1. На контроллере домена откройте сетевые порты для входящего трафика, поступающего с IP-адреса сервера, на котором установлен агент Yandex Identity Hub Sync Agent:
 
     * `389 (TCP)` — для [LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/);
     * `636 (TCP)` — для [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority);
@@ -176,7 +176,7 @@ flowchart TB
 
 #### Полезные ссылки {#see-also}
 
-* [Агент синхронизации Identity Hub AD Sync Agent](sync-agent.md)
+* [Агент синхронизации Yandex Identity Hub Sync Agent](sync-agent.md)
 * [Синхронизировать пользователей и группы с Microsoft Active Directory](../../operations/sync-ad.md)
 
 [*gmsa_account]: gMSA (group Managed Service Account) — это тип учетных записей в Microsoft Active Directory, паролями для которых автоматически управляет контроллер домена, что упрощает запуск и работу одной и той же службы (SPN) на разных серверах. Подробнее читайте в [документации Microsoft](https://learn.microsoft.com/ru-ru/windows-server/identity/ad-ds/manage/group-managed-service-accounts/group-managed-service-accounts/group-managed-service-accounts-overview).

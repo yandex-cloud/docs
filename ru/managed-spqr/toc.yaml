@@ -35,6 +35,8 @@ items:
         href: operations/databases.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
+      - name: Обновление цепочки TLS-сертификатов
+        href: operations/update-tls-certificates.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

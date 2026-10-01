@@ -23,4 +23,4 @@
 
 Проанализируйте найденные учетные записи с назначенными примитивными ролями `admin`, `editor` и `viewer` и замените их на [сервисные гранулярные роли](https://yandex.cloud/ru/docs/iam/roles-reference) в соответствии с вашей матрицей ролей.
 
-Чтобы просмотреть полный список доступов субъекта, воспользуйтесь [инструкцией](https://yandex.cloud/ru/docs/security-deck/operations/ciem/view-permissions).
+Чтобы просмотреть полный список доступов субъекта, воспользуйтесь [инструкцией](https://yandex.cloud/ru/docs/security-deck/operations/access-analyzer/analyze-permissions#view).

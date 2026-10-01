@@ -5,9 +5,35 @@ description: Следуя данной инструкции, вы сможете
 
 # Удалить подсеть
 
+Перед удалением [подсети](../concepts/network.md#subnet) необходимо отключить от нее все ресурсы.
+
+{% cut "Список сервисов, ресурсы которых могут использовать подсеть и препятствовать ее удалению:" %}
+
+  * [{{ api-gw-full-name }}](../../api-gateway/)
+  * [{{ alb-full-name }}](../../application-load-balancer/)
+  * [{{ backup-full-name }}](../../backup/)
+  * [{{ cdn-full-name }}](../../cdn/)
+  * [{{ sf-full-name }}](../../functions/)
+  * [{{ compute-full-name }}](../../compute/)
+  * [{{ dataproc-full-name }}](../../data-proc/)
+  * [{{ maf-full-name }}](../../managed-airflow/)
+  * [{{ mkf-full-name }}](../../managed-kafka/)
+  * [{{ mch-full-name }}](../../managed-clickhouse/)
+  * [{{ mgl-full-name }}](../../managed-gitlab/)
+  * [{{ mgp-full-name }}](../../managed-greenplum/)
+  * [{{ managed-k8s-full-name }}®](../../managed-kubernetes/)
+  * [{{ mmg-full-name }}](../../storedoc/)
+  * [{{ mmy-full-name }}](../../managed-mysql/)
+  * [{{ mos-full-name }}](../../managed-opensearch/)
+  * [{{ mpg-full-name }}](../../managed-postgresql/)
+  * [{{ mrd-full-name }}](../../managed-valkey/)
+  * [{{ network-load-balancer-full-name }}](../../network-load-balancer/)
+  * [{{ serverless-containers-full-name }}](../../serverless-containers/)
+
+{% endcut %}
+
 {% note alert %}
 
-Перед удалением [подсети](../concepts/network.md#subnet) необходимо отключить от нее все ресурсы.
 После удаления подсеть невозможно восстановить.
 
 {% endnote %}

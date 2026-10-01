@@ -24,4 +24,4 @@
    yc serverless function get --name <name> --format json 
    ``` 
    
-1. Отзовите доступы с помощью [Модуля диагностики доступов (CIEM)](https://yandex.cloud/ru/docs/security-deck/operations/ciem/revoke-permissions).
+1. Отзовите доступы с помощью [Модуля Access Analyzer](https://yandex.cloud/ru/docs/security-deck/operations/access-analyzer/analyze-permissions#revoke).

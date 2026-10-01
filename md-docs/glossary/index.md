@@ -45,7 +45,6 @@
 ## Хранение и обработка данных {#data}
 
 * [Big Data](bigdata.md)
-* [Дата-центр](data-center.md)
 * [Data Vault](datavault.md)
 * [S3](s3.md)
 * [Снапшот](snapshot.md)
@@ -186,8 +185,6 @@
 ## Хранение и обработка данных
 
  - [Big Data](bigdata.md)
-
- - [Дата-центр](data-center.md)
 
  - [Data Vault](datavault.md)
 

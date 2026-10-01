@@ -48,6 +48,8 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
 
  - [Удаление кластера](operations/cluster-delete.md)
 
+ - [Обновление цепочки TLS-сертификатов](operations/update-tls-certificates.md)
+
 ## Концепции
 
  - [Взаимосвязь ресурсов сервиса](concepts/index.md)

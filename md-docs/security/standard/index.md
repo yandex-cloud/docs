@@ -74,7 +74,7 @@
 * [Контроля данных](../../security-deck/concepts/dspm.md) (DSPM).
 * [Контроля конфигурации](../../security-deck/concepts/cspm.md) (CSPM).
 * [Контроля Kubernetes](../../security-deck/concepts/kspm.md) (KSPM).
-* [Диагностики доступов](../../security-deck/concepts/ciem.md) (CIEM).
+* [Access Analyzer](../../security-deck/concepts/access-analyzer.md).
 * [Просмотра алертов](../../security-deck/concepts/alerts.md).
 * [Портал соответствия требованиям](../../security-deck/concepts/compliance.md).
 

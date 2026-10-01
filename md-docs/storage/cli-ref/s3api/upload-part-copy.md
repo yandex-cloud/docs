@@ -16,16 +16,16 @@ Syntax:
 ||Flag | Description ||
 || `--bucket` | `string`
 
-[REQUIRED] Bucket name ||
+Bucket name ||
 || `--key` | `string`
 
-[REQUIRED] Object key ||
+Object key ||
 || `--upload-id` | `string`
 
 Upload ID is used to reference a specific upload. ||
 || `--part-number` | `int32`
 
-[REQUIRED] Part number of the object being uploaded. ||
+Part number of the object being uploaded. ||
 || `--copy-source` | `string`
 
 Specifies the source object for the copy operation. ||
@@ -40,10 +40,10 @@ Copies the object if its entity tag (ETag) matches the specified tag. ||
 Copies the object if its entity tag (ETag) is different than the specified ETag. ||
 || `--copy-source-if-modified-since` | `timestamp`
 
-Copies the object if it has been modified since the specified time. ||
+Copies the object if it has been modified since the specified time. (RFC3339) ||
 || `--copy-source-if-unmodified-since` | `timestamp`
 
-Copies the object if it hasnt been modified since the specified time. ||
+Copies the object if it hasn't been modified since the specified time. (RFC3339) ||
 |#
 
 #### Global Flags
@@ -52,15 +52,10 @@ Copies the object if it hasnt been modified since the specified time. ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -70,21 +65,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

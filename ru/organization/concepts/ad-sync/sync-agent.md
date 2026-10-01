@@ -1,5 +1,5 @@
 ---
-title: Агент синхронизации {{ ad-sync-agent }}
+title: Агент синхронизации {{ ad-sync-agent }} в {{ org-full-name }}
 description: Агент синхронизации {{ ad-sync-agent }} выполняет чтение данных о пользователях и группах пользователей в выбранных Organization Units в каталоге {{ microsoft-idp.ad-full }} и синхронизирует их с данными пользователей и групп пользователей в пуле {{ org-full-name }}.
 ---
 
@@ -127,50 +127,9 @@ description: Агент синхронизации {{ ad-sync-agent }} выпо�
 
 ### Конфигурация агента {#agent-config}
 
-Конфигурация агента синхронизации зависит от [способа аутентификации](#agent-ad-auth), используемого агентом на стороне {{ microsoft-idp.ad-short }}, и задается в [YAML](https://yaml.org/)-файле в следующем формате:
+Конфигурация агента синхронизации задается в [YAML](https://yaml.org/)-файле и зависит от [способа аутентификации](#agent-ad-auth) на стороне {{ microsoft-idp.ad-short }}.
 
-{% list tabs group=authentication_linux %}
-
-- От имени аккаунта gMSA {#gmsa-windows}
-
-  {% include [ad-sync-gmsa-windows-only-notice](../../../_includes/organization/ad-sync-gmsa-windows-only-notice.md) %}
-
-  {% include [ad-sync-yaml-config-gmsa](../../../_includes/organization/ad-sync-yaml-config-gmsa.md) %}
-
-  {% cut "Описание параметров" %}
-
-  {% include [ad-sync-yaml-config-complete-gmsa-legend](../../../_includes/organization/ad-sync-yaml-config-complete-gmsa-legend.md) %}
-
-  {% endcut %}
-
-- По логину и паролю {#password_linux}
-
-  {% include [ad-sync-yaml-config](../../../_includes/organization/ad-sync-yaml-config.md) %}
-
-  {% cut "Описание параметров" %}
-
-  {% include [ad-sync-yaml-config-complete-password-legend](../../../_includes/organization/ad-sync-yaml-config-complete-password-legend.md) %}
-
-  {% endcut %}
-
-- По протоколу Kerberos {#kerberos_linux}
-
-  {% note info %}
-
-  {% include [ad-sync-kerberos-components-installation-info](../../../_includes/organization/ad-sync-kerberos-components-installation-info.md) %}
-
-  {% endnote %}
-
-  {% include [ad-sync-yaml-config-kerberos](../../../_includes/organization/ad-sync-yaml-config-kerberos.md) %}
-
-  {% cut "Описание параметров" %}
-
-  {% include [ad-sync-yaml-config-complete-kerberos-legend](../../../_includes/organization/ad-sync-yaml-config-complete-kerberos-legend.md) %}
-
-  {% endcut %}
-
-{% endlist %}
-
+Примеры конфигурации приведены в [инструкции по настройке синхронизации](../../operations/sync-ad.md#setup-agent), а описание полей — в разделе [Параметры конфигурации агента](../../operations/sync-ad.md#agent-config).
 
 #### Полезные ссылки {#see-also}
 

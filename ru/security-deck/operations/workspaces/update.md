@@ -67,14 +67,12 @@ description: Из этой инструкции вы узнаете, как из
           {% endlist %}
 
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**, чтобы сохранить внесенные изменения.
-  1. (Опционально) Перейдите на вкладку **{{ ui-key.yacloud_org.security.workspaces.WorkspaceEditPageLayout.tabStandards_wSeaW }}**, чтобы изменить список стандартов, на соответствие которым будут проверяться контролируемые окружением ресурсы:
+  1. (Опционально) Перейдите на вкладку **{{ ui-key.yacloud_org.security.workspaces.WorkspaceEditPageLayout.tabStandards_wSeaW }}**, чтобы изменить список модулей {{ sd-name }}, которые используются в окружении, и стандартов, на соответствие которым проверяются контролируемые окружением ресурсы:
 
-      1. В блоке **{{ ui-key.yacloud_org.security.workspaces.title_security-requirements_8r7hd }}** выберите нужные стандарты:
-      
-          {% include [workspace-sec-standard-list](../../../_includes/security-deck/workspace-sec-standard-list.md) %}
-      
-          Вы можете выбрать одновременно несколько стандартов. При этом в блоке **{{ ui-key.yacloud_org.security.workspaces.title_security-modules_8MdQg }}** будут добавляться модули {{ sd-name }}, которые будут активированы в создаваемом окружении для проверки ресурсов на соответствие выбранным стандартам.
-      1. {% include [workspace-create-step3-additional-modules](../../../_includes/security-deck/workspace-create-step3-additional-modules.md) %}
+      1. (Опционально) Активируйте модули {{ sd-name }}, необходимые вам в окружении.
+      1. (Опционально) Разверните модули **{{ ui-key.yacloud_org.security.workspaces.module-cspm_gozhj }}** и **{{ ui-key.yacloud_org.security.workspaces.module-kspm_n9o93 }}** (если этот модуль активирован) и выберите [отраслевые стандарты и нормативные акты](../../concepts/standard-compliance/index.md#security-rule-sets), на соответствие которым будут проверяться ресурсы окружения.
+
+          Вы можете выбрать одновременно несколько стандартов. При этом в блоке **{{ ui-key.yacloud_org.security.workspaces.title_security-requirements_8r7hd }}** будут отображаться выбранные стандарты и нормативные акты, на соответствие которым будут проверяться ресурсы в окружении.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**, чтобы сохранить внесенные изменения.
   1. (Опционально) Перейдите на вкладку **Контроль Kubernetes®**, чтобы изменить настройки контроля безопасности использования кластеров {{ k8s }}.
 

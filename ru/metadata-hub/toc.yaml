@@ -163,6 +163,10 @@ items:
               Совместная работа с таблицами с использованием {{ metastore-name
               }}
             href: tutorials/data-processing-to-data-processing.md
+          - name: >-
+              Передача данных из {{ mkf-name }} в таблицу {{ IBRG }} с
+              использованием {{ metastore-name }}
+            href: tutorials/kafka-iceberg-s3-connect.md
       - name: Концепции
         items:
           - name: Кластеры {{ metastore-name }}

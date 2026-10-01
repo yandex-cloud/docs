@@ -4,7 +4,7 @@ TrustStore — это хранилище доверенных сертифика
 
 Чтобы использовать TrustStore:
 
-1. Создайте SSL-сертификат:
+1. Загрузите SSL-сертификат:
 
    ```bash
    sudo mkdir -p {{ crt-local-dir }} && \
@@ -21,13 +21,69 @@ TrustStore — это хранилище доверенных сертифика
 
    В ней будет храниться файл `truststore.jks`. Отдельная директория нужна, чтобы далее путь к файлу был корректно распознан в командах и конфигурационных файлах.
 
-1. Загрузите сертификат `YandexCA.crt` в файл `truststore.jks`:
+1. Импортируйте сертификаты из файла `YandexCA.crt` в файл `truststore.jks`:
+   
+   {% list tabs group=operating_system %}
 
-   ```bash
-   sudo keytool -import \
-                -file {{ crt-local-dir }}YandexCA.crt \
-                -alias "kafka-ui-cert" \
-                -keystore /truststore/truststore.jks
-   ```
+   - Linux (Bash) {#linux}
 
-   Команда предложит создать пароль. Запомните его — он понадобится для развертывания веб-интерфейса {{ KF }}.
+     ```bash
+     awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexCA-" n ".crt"}' \
+       < {{ crt-local-dir }}YandexCA.crt
+
+     for cert in YandexCA-*.crt; do
+       alias=$(
+         openssl x509 -noout -text -in "${cert}" |
+         perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+       )
+
+       year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+       echo "Importing ${alias}-${year}"
+
+       keytool -importcert \
+               -alias "${alias}-${year}" \
+               -file "${cert}" \
+               -keystore /truststore/truststore.jks \
+               -storepass <пароль_защищенного_хранилища> \
+               -noprompt
+
+       rm "${cert}"
+     done
+
+     chmod 0655 /truststore/truststore.jks
+     ```
+
+   - macOS (Zsh) {#macos}
+     
+     ```bash     
+     split -p "-----BEGIN CERTIFICATE-----" \
+            {{ crt-local-dir }}YandexCA.crt \
+            YandexCA-
+
+     for cert in YandexCA-*.crt; do
+       alias=$(
+         openssl x509 -noout -text -in "${cert}" |
+         perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+       )
+
+       year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+       echo "Importing ${alias}-${year}"
+
+       keytool -importcert \
+               -alias "${alias}-${year}" \
+               -file "${cert}" \
+               -keystore /truststore/truststore.jks \
+               -storepass <пароль_защищенного_хранилища> \
+               -noprompt
+
+       rm "${cert}"
+     done
+
+     chmod 0655 /truststore/truststore.jks
+     ```
+
+   {% endlist %}
+
+   Где `-storepass` — пароль хранилища сертификатов. Он должен содержать не менее 6 символов. Сохраните пароль — он понадобится для развертывания веб-интерфейса {{ KF }}.

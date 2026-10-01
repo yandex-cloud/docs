@@ -230,7 +230,7 @@
 
  - [Отозвать роль у пользователя](operations/revoke-role.md)
 
-### Синхронизация пользователей и групп с внешними службами каталогов
+### Синхронизация с внешними службами каталогов
 
  - [Active Directory](operations/sync-ad.md)
 
@@ -394,7 +394,7 @@
 
  - [Обзор](concepts/ad-sync/index.md)
 
- - [Агент синхронизации Identity Hub AD Sync Agent](concepts/ad-sync/sync-agent.md)
+ - [Агент синхронизации Yandex Identity Hub Sync Agent](concepts/ad-sync/sync-agent.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 

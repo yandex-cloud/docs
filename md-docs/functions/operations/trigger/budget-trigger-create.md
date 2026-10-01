@@ -99,7 +99,7 @@
     * `--name` — имя триггера.
     * `--billing-account-id` — идентификатор платежного аккаунта.
     * `--budget-id` — идентификатор бюджета.
-    
+
     * `--invoke-function-id` — идентификатор функции.
     * `--invoke-function-service-account-id` — идентификатор сервисного аккаунта с правами на вызов функции.
     * `--retry-attempts` — количество повторных вызовов, которые будут сделаны, прежде чем триггер отправит сообщение в Dead Letter Queue. Необязательный параметр. Допустимые значения — от 1 до 5, значение по умолчанию — 1.
@@ -151,28 +151,28 @@
        ```hcl
        resource "yandex_serverless_triggers" "my_trigger" {
          name = "<имя_триггера>"
-         source {
-           billing_budget {
+         source = {
+           billing_budget = {
              billing_account_id = "<идентификатор_платежного_аккаунта>"
              budget_id          = "<идентификатор_бюджета>"
            }
          }
-         action {
-           invoke_function {
+         action = [{
+           invoke_function = {
              function_id        = "<идентификатор_функции>"
              service_account_id = "<идентификатор_сервисного_аккаунта>"
            }
-           retry_policy {
-             retry_attempts = "<количество_повторных_отправок>"
+           retry_policy = {
+             retry_attempts = <количество_повторных_отправок>
              interval       = "<интервал_между_повторными_отправками>"
            }
-           dead_letter {
-             dead_letter_queue {
+           dead_letter = {
+             dead_letter_queue = {
                queue_arn          = "<ARN_очереди_Dead_Letter_Queue>"
                service_account_id = "<идентификатор_сервисного_аккаунта>"
              }
            }
-         }
+         }]
        }
        ```
 

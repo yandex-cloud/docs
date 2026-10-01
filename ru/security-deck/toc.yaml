@@ -74,14 +74,14 @@ items:
             href: operations/kspm/edit-custom-rule.md
           - name: Удалить пользовательское правило
             href: operations/kspm/delete-custom-rule.md
-      - name: Диагностика доступов ({{ ciem-name }})
+      - name: '{{ access-analyzer-name }}'
         items:
           - name: Обзор
-            href: operations/ciem/index.md
-          - name: Просмотреть список доступов
-            href: operations/ciem/view-permissions.md
-          - name: Отозвать доступ
-            href: operations/ciem/revoke-permissions.md
+            href: operations/access-analyzer/index.md
+          - name: Работа с рекомендациями
+            href: operations/access-analyzer/use-recommendations.md
+          - name: Диагностика доступов
+            href: operations/access-analyzer/analyze-permissions.md
       - name: Контроль конфигурации ({{ cspm-name }})
         items:
           - name: Обзор
@@ -180,8 +180,8 @@ items:
         href: concepts/dspm.md
       - name: Контроль {{ k8s }}® ({{ kspm-name }})
         href: concepts/kspm.md
-      - name: Диагностика доступов ({{ ciem-name }})
-        href: concepts/ciem.md
+      - name: '{{ access-analyzer-name }}'
+        href: concepts/access-analyzer.md
       - name: Контроль конфигурации ({{ cspm-name }})
         href: concepts/cspm.md
       - name: Пользовательские правила
@@ -220,8 +220,8 @@ items:
         href: security/dspm-roles.md
       - name: Роли {{ kspm-name }}
         href: security/kspm-roles.md
-      - name: Роли {{ ciem-name }}
-        href: security/ciem-roles.md
+      - name: Роли {{ access-analyzer-name }}
+        href: security/access-analyzer-roles.md
       - name: Роли {{ cspm-name }}
         href: security/cspm-roles.md
       - name: Роли {{ td-name }}

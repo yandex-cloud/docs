@@ -25,6 +25,7 @@
 * [Подключение из приложений](connect/clients.md)
 * [Примеры кода](connect/code-examples.md)
 * [Настройка SAML-аутентификации](saml-authentication.md)
+* [Обновление цепочки TLS-сертификатов в сервисах платформы данных](connect/update-tls-certificates.md)
 
 ## Пользователи OpenSearch
 

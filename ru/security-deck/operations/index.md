@@ -53,10 +53,10 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./td/view-rules.md)
 * [{#T}](./td/manage-exceptions.md)
 
-## Модуль диагностики доступов ({{ ciem-name }}) {#ciem}
+## Модуль {{ access-analyzer-name }} {#access-analyzer}
 
-* [{#T}](./ciem/view-permissions.md)
-* [{#T}](./ciem/revoke-permissions.md)
+* [{#T}](./access-analyzer/use-recommendations.md)
+* [{#T}](./access-analyzer/analyze-permissions.md)
 
 ## Модуль {{ vuln-man-name }} {#vulnerability-management}
 

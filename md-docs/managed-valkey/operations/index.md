@@ -26,6 +26,7 @@
 
   * [Подключение к нешардированному кластеру](connect/non-sharded-code-examples.md)
   * [Подключение к шардированному кластеру](connect/sharded-code-examples.md)
+* [Обновление цепочки TLS-сертификатов в сервисах платформы данных](connect/update-tls-certificates.md)
 
 
 ## Базы данных {#databases}

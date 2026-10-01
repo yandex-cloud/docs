@@ -23,7 +23,7 @@ editable: false
 
 Не тарифицируются:
 
-* [Модуль диагностики доступов ({{ ciem-name }})](concepts/ciem.md)
+* [Модуль {{ access-analyzer-name }}](concepts/access-analyzer.md)
 * [Модуль обнаружения угроз ({{ td-name }})](concepts/threat-detector.md)
 * [AI-ассистент](concepts/ai-assistant.md)
 

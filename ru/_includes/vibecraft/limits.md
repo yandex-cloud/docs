@@ -21,10 +21,14 @@
 
 Помимо лимитов учитывайте квоты {{ src-name }} и {{ yandex-cloud }}.
 
-Если вам необходимо больше ресурсов, увеличьте квоты одним из способов:
+На платной подписке {{ src-name }} можно самостоятельно [увеличить квоту нейрокредитов]({{ link-src-docs }}/sourcecraft/operations/increase-neurocredit-quota) или [квоты на время работы CI-процессов и хранилища приватных репозиториев]({{ link-src-docs }}/sourcecraft/operations/increase-resource-quotas). Фактическое потребление сверх объема, включенного в подписку, [оплачивается отдельно]({{ link-src-docs }}/sourcecraft/pricing#payg).
+
+Для увеличения квот публичных репозиториев образовательных и опенсорс-проектов обратитесь в [техническую поддержку]({{ link-console-support }}?createTicket=true).
+
+Если вам необходимо больше ресурсов {{ yandex-cloud }}, увеличьте квоты одним из способов:
 * [Сформируйте запрос на увеличение]({{ link-console-quotas }}).
 * Обратитесь в [техническую поддержку]({{ link-console-support }}) и расскажите, какие потребляемые квоты нужно увеличить и на сколько.
 
-Управлять квотами позволяет сервис [{{ quota-manager-full-name }}](../../quota-manager/quickstart).
+Управлять квотами {{ yandex-cloud }} позволяет сервис [{{ quota-manager-full-name }}](../../quota-manager/quickstart).
 
 {% endnote %}

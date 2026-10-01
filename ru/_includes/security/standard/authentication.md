@@ -494,7 +494,7 @@
 
 Проанализируйте найденные учетные записи с назначенными примитивными ролями `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}` и `{{ roles-auditor }}` и замените их на [сервисные гранулярные роли](../../../iam/roles-reference.md) в соответствии с вашей матрицей ролей.
 
-Чтобы просмотреть полный список доступов субъекта, воспользуйтесь [инструкцией](../../../security-deck/operations/ciem/view-permissions.md).
+Чтобы просмотреть полный список доступов субъекта, воспользуйтесь [инструкцией](../../../security-deck/operations/access-analyzer/analyze-permissions.md#view).
 
 {% include [check-security-deck](../check-security-deck.md) %}
 
@@ -729,8 +729,8 @@
 
 **Инструкции и решения по выполнению:**
 
-* [Посмотрите](../../../security-deck/operations/ciem/view-permissions.md) полный список доступов сервисного аккаунта с помощью сервиса {{ sd-full-name }}.
-* [Отзовите](../../../security-deck/operations/ciem/revoke-permissions.md) избыточные доступы у сервисного аккаунта с помощью сервиса {{ sd-name }}.
+* [Посмотрите](../../../security-deck/operations/access-analyzer/analyze-permissions.md#view) полный список доступов сервисного аккаунта с помощью сервиса {{ sd-full-name }}.
+* [Отзовите](../../../security-deck/operations/access-analyzer/analyze-permissions.md#revoke) избыточные доступы у сервисного аккаунта с помощью сервиса {{ sd-name }}.
 * [Удалите](../../../iam/operations/roles/revoke.md) избыточные права у сервисного аккаунта с помощью сервиса {{ iam-short-name }}.
 
 {% include [check-security-deck](../check-security-deck.md) %}
@@ -2175,13 +2175,13 @@ yc compute instance update <ID_виртуальной_машины> \
 
 {% endlist %}
 
-#### 1.26 Регулярно проводится аудит прав доступа пользователей и сервисных аккаунтов с использованием {{ sd-full-name }} {{ ciem-name }} {#ciem-access-control}
+#### 1.26 Регулярно проводится аудит прав доступа пользователей и сервисных аккаунтов с использованием {{ sd-full-name }} {{ access-analyzer-name }} {#access-analyzer-access-control}
 
 В целях обеспечения безопасности данных и облачной инфраструктуры необходимо регулярно проводить аудит прав доступа, имеющихся у пользователей и сервисных аккаунтов.
 
-[Модуль диагностики доступов]({{ link-sd-main }}iam-diagnostics/) или {{ ciem-name }} ({{ ciem-name }}) — это инструмент, позволяющий централизованно просматривать полный список доступов [субъектов](../../../iam/concepts/access-control/index.md#subject): пользователей, сервисных аккаунтов, [групп пользователей](../../../organization/concepts/groups.md), [системных групп](../../../iam/concepts/access-control/system-group.md) и [публичных групп](../../../iam/concepts/access-control/public-group.md) к [ресурсам](../../../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко отзывать у субъектов лишние доступы.
+[Модуль {{ access-analyzer-name }}]({{ link-sd-main }}access-analyzer/) — это инструмент, позволяющий централизованно просматривать полный список доступов [субъектов](../../../iam/concepts/access-control/index.md#subject): пользователей, сервисных аккаунтов, [групп пользователей](../../../organization/concepts/groups.md), [системных групп](../../../iam/concepts/access-control/system-group.md) и [публичных групп](../../../iam/concepts/access-control/public-group.md) к [ресурсам](../../../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко отзывать у субъектов лишние доступы.
 
-Подробнее читайте в разделе [{#T}](../../../security-deck/concepts/ciem.md).
+Подробнее читайте в разделе [{#T}](../../../security-deck/concepts/access-analyzer.md).
 
 | ID требования | Критичность |
 | --- | --- |
@@ -2189,8 +2189,7 @@ yc compute instance update <ID_виртуальной_машины> \
 
 **Инструкции и решения по выполнению:**
 
-[{#T}](../../../security-deck/operations/ciem/view-permissions.md).
-[{#T}](../../../security-deck/operations/ciem/revoke-permissions.md).
+[{#T}](../../../security-deck/operations/access-analyzer/analyze-permissions.md).
 
 {% include [check-security-deck](../check-security-deck.md) %}
 

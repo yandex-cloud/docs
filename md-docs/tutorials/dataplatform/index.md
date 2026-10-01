@@ -100,6 +100,7 @@
 * [Миграция кластера MongoDB](storedoc.md)
 * [Захват изменений MySQL® и поставка в YDS](mmy-to-yds.md)
 * [Захват изменений PostgreSQL и поставка в YDS](mpg-to-yds.md)
+* [Передача данных из топика Yandex Managed Service for Apache Kafka® в таблицу Apache Iceberg™ в Yandex Object Storage](kafka-iceberg-s3-connect.md)
 
 {% endcut %}
 
@@ -265,7 +266,7 @@ Schema Registry — сервис для хранения и управления
 * [Получение данных из внешних источников с помощью именованных запросов](pxf-named-queries.md)
 * [Использование плагина yandex-lemmer в Yandex Managed Service for OpenSearch](opensearch-yandex-lemmer.md)
 * [Подключение MCP-клиента к кластеру OpenSearch](mos-mcp.md)
-* [Распределенные блокировки для 1С:Предприятия в кластере Yandex Managed Service for Valkey™](1c-valkey-locks.md)
+* [Распределенные блокировки для «1С:Предприятия» в кластере Yandex Managed Service for Valkey™](1c-valkey-locks.md)
 * [Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища кеша для «1С-Битрикс: Управление сайтом»](../infrastructure-management/yc-valkey-as-1c-cache-storage.md)
 * [Использование Yandex Managed Service for Valkey™ с модулем Search и моделей Yandex AI Studio для векторного поиска в RAG-системе](valkey-rag-search.md)
 

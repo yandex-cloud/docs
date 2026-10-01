@@ -231,7 +231,7 @@ items:
             href: operations/view-subject-access-bindings.md
           - name: Отозвать роль у пользователя
             href: operations/revoke-role.md
-      - name: Синхронизация пользователей и групп с внешними службами каталогов
+      - name: Синхронизация с внешними службами каталогов
         items:
           - name: '{{ microsoft-idp.ad-short }}'
             href: operations/sync-ad.md
@@ -2330,7 +2330,7 @@ items:
     href: at-ref.md
   - name: История изменений
     href: release-notes.md
-  - name: История изменений {{ org-sync-agent-name }}
+  - name: История изменений {{ ad-sync-agent }}
     href: sync-agent-release-notes.md
   - name: Обучающие курсы
     href: training.md

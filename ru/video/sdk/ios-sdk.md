@@ -5,9 +5,9 @@ description: Следуя данной инструкции, вы сможете
 
 # SDK видеоплеера для iOS
 
-С помощью [SDK](https://github.com/yandex-cloud/cloud-video-player-ios-sdk/) вы можете встроить в ваше iOS-приложение [видеоплеер](../concepts/player.md) для воспроизведения контента из {{ video-name }}.
+С помощью [SDK](https://github.com/yandex-cloud/cloud-video-player-ios-sdk/) вы можете встроить в приложение для iOS [видеоплеер](../concepts/player.md) для воспроизведения контента из {{ video-name }}.
 
-Для работы с SDK нужна среда разработки [Xcode](https://developer.apple.com/xcode/) версии 16.4 или выше и [Swift](https://www.swift.org/install/macos/) версии 5.8 или выше.
+Для работы с SDK нужна среда разработки [Xcode](https://developer.apple.com/xcode/) версии 16.4 или выше и [Swift](https://www.swift.org/install/macos/) версии 5.10 или выше. Минимальная поддерживаемая версия iOS — 15.
 
 ## Подключение библиотеки SDK видеоплеера {#add-library}
 
@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
   1. В окне Xcode навигатора проектов (**Project Navigator**) выберите свой проект. 
   1. На верхней панели нажмите **File** и выберите **Add Package Dependencies...**
   1. В строке поиска ![image](../../_assets/console-icons/magnifier.svg) введите `https://github.com/yandex-cloud/cloud-video-player-ios-sdk/` и выберите пакет `cloud-video-player-ios-sdk`.
-  1. В поле **Dependency Rule** выберите **Up to Next Major Version** и укажите версию `0.1.6`.
+  1. В поле **Dependency Rule** выберите **Up to Next Major Version** и укажите версию `0.1.7`.
   1. В поле **Add to Project** выберите проект, к которому вы хотите подключить библиотеки, и нажмите **Add Package**.
   1. Во всплывающем окне укажите, к какому таргету в проекте подключить библиотеки, и нажмите **Add Package**.
       
@@ -36,7 +36,7 @@ description: Следуя данной инструкции, вы сможете
       dependencies: [
         .package(
           url: "https://github.com/yandex-cloud/cloud-video-player-ios-sdk/",
-          from: "0.1.6"
+          from: "0.1.7"
         )
       ],
       ```
@@ -317,6 +317,88 @@ struct ContentView: View {
 {% include [video-content-id-desc](../../_includes/video/video-content-id-desc.md) %}
 
 {% endcut %}
+
+### Настройка воспроизведения {#playback-settings}
+
+Чтобы задать начальную позицию, состояние звука и автоматический запуск воспроизведения, передайте объект [PlaybackConfig](./CloudVideoPlayerSDK/PlaybackConfig.md) в метод `set(source:config:)`:
+
+```swift
+let config = PlaybackConfig(
+  autoplay: true,
+  isMuted: false,
+  startPosition: Time(sec: 30)
+)
+player.set(source: source, config: config)
+```
+
+В примере `player` — созданный ранее экземпляр `YaPlayer`, а `source` — источник `ContentIdEndpoint`. Плеер начнет воспроизведение с 30-й секунды со звуком. Если не передать `config`, используется конфигурация `PlaybackConfig.base`: воспроизведение с начала, со звуком, без автоматического запуска.
+
+Чтобы изменить скорость воспроизведения, проверьте ее доступность с помощью метода `canSet(playbackSpeed:)`, затем вызовите `set(playbackSpeed:)`:
+
+```swift
+if player.canSet(playbackSpeed: .x150) {
+  do {
+    try player.set(playbackSpeed: .x150)
+  } catch {
+    print("Не удалось изменить скорость: \(error)")
+  }
+}
+```
+
+Предопределенные значения скорости приведены в справочнике [PlaybackSpeed](./CloudVideoPlayerSDK/PlaybackSpeed.md#properties).
+
+### Отслеживание состояния плеера {#state-monitoring}
+
+Чтобы получать уведомления об изменении состояния плеера, подпишитесь на события с помощью [Combine](https://developer.apple.com/documentation/combine). Например, создайте объект, который отслеживает состояние плеера, позицию воспроизведения и ошибки:
+
+```swift
+import Combine
+import CloudVideoPlayer
+
+final class PlayerObserver {
+  private var subscriptions = Set<AnyCancellable>()
+
+  init(player: YaPlayer) {
+    player.playerStatusDidChange()
+      .sink { status in
+        print("Состояние плеера: \(status)")
+      }
+      .store(in: &subscriptions)
+
+    player.periodicTimePublisher(interval: 1)
+      .sink { time in
+        print("Позиция воспроизведения: \(time)")
+      }
+      .store(in: &subscriptions)
+
+    player.errorDidDetected()
+      .sink { error in
+        print("Ошибка воспроизведения: \(error)")
+      }
+      .store(in: &subscriptions)
+  }
+}
+```
+
+Создайте экземпляр `PlayerObserver(player: player)` и сохраните его, например в свойстве контроллера. Подписки должны храниться, пока вы отслеживаете события. При освобождении объекта подписки отменяются. По умолчанию события доставляются в главную очередь `.main`. Чтобы выбрать другую очередь, передайте параметр `queue` в метод подписки.
+
+Полный список свойств и методов приведен в справочнике [YaPlayer](./CloudVideoPlayerSDK/YaPlayer.md).
+
+### Возврат к прямому эфиру {#go-to-live}
+
+Чтобы вернуться к прямому эфиру после перемотки трансляции, вызовите асинхронный метод `goToLive()`:
+
+```swift
+Task {
+  do {
+    try await player.goToLive()
+  } catch {
+    print("Не удалось перейти к прямому эфиру: \(error)")
+  }
+}
+```
+
+Метод перемещает позицию воспроизведения на правую границу шкалы времени трансляции. Если переход невозможен, например при воспроизведении видео по запросу (VOD), метод возвращает ошибку.
 
 #### Полезные ссылки {#see-also}
 

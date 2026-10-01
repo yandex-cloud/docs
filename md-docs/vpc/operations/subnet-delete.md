@@ -2,9 +2,35 @@
 
 # Удалить подсеть
 
+Перед удалением [подсети](../concepts/network.md#subnet) необходимо отключить от нее все ресурсы.
+
+{% cut "Список сервисов, ресурсы которых могут использовать подсеть и препятствовать ее удалению:" %}
+
+  * [Yandex API Gateway](../../api-gateway/index.md)
+  * [Yandex Application Load Balancer](../../application-load-balancer/index.md)
+  * [Yandex Cloud Backup](../../backup/index.md)
+  * [Yandex Cloud CDN](../../cdn/index.md)
+  * [Yandex Cloud Functions](../../functions/index.md)
+  * [Yandex Compute Cloud](../../compute/index.md)
+  * [Yandex Data Processing](../../data-proc/index.md)
+  * [Yandex Managed Service for Apache Airflow™](../../managed-airflow/index.md)
+  * [Yandex Managed Service for Apache Kafka®](../../managed-kafka/index.md)
+  * [Yandex Managed Service for ClickHouse®](../../managed-clickhouse/index.md)
+  * [Yandex Managed Service for GitLab](../../managed-gitlab/index.md)
+  * [Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/index.md)
+  * [Yandex Managed Service for Kubernetes®](../../managed-kubernetes/index.md)
+  * [Yandex StoreDoc](../../storedoc/index.md)
+  * [Yandex Managed Service for MySQL®](../../managed-mysql/index.md)
+  * [Yandex Managed Service for OpenSearch](../../managed-opensearch/index.md)
+  * [Yandex Managed Service for PostgreSQL](../../managed-postgresql/index.md)
+  * [Yandex Managed Service for Valkey™](../../managed-valkey/index.md)
+  * [Yandex Network Load Balancer](../../network-load-balancer/index.md)
+  * [Yandex Serverless Containers](../../serverless-containers/index.md)
+
+{% endcut %}
+
 {% note alert %}
 
-Перед удалением [подсети](../concepts/network.md#subnet) необходимо отключить от нее все ресурсы.
 После удаления подсеть невозможно восстановить.
 
 {% endnote %}

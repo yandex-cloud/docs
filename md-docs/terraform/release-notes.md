@@ -1,5 +1,13 @@
 [Документация Yandex Cloud](../index.md) > [Terraform в Yandex Cloud](index.md) > Справочник Terraform > История изменений (англ.)
 
+## 0.233.0 (October 1, 2026)
+
+##### FEATURES:
+* mdb_mysql: add user_connection_manager to MySQL user resources and data sources; deprecate the connection_manager attribute
+* mdb_mysql: add connection_manager configuration to yandex_mdb_mysql_cluster resource and data source and yandex_mdb_mysql_cluster_v2 resource
+
+
+
 ## 0.232.0 (September 30, 2026)
 
 ##### ENHANCEMENTS:

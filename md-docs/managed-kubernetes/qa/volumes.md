@@ -12,7 +12,7 @@
 
 #### Какие существуют особенности работы с дисковым хранилищем при размещении БД (MySQL®, PostgreSQL и т. д.) в кластере Kubernetes? {#bd}
 
-При размещении БД в кластере Kubernetes используйте контроллеры [StatefullSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/). Мы не рекомендуем запускать в Kubernetes statefull-сервисы в постоянными томами. Для работы с базами данных statefull-сервисов используйте [управляемые базы данных Yandex Cloud](https://yandex.cloud/ru/services#data-platform), например Managed Service for MySQL® или Managed Service for PostgreSQL.
+При размещении БД в кластере Kubernetes используйте контроллеры [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/). Мы не рекомендуем запускать в Kubernetes stateful-сервисы с постоянными томами. Для работы с базами данных stateful-сервисов используйте [управляемые базы данных Yandex Cloud](https://yandex.cloud/ru/services#data-platform), например Managed Service for MySQL® или Managed Service for PostgreSQL.
 
 #### Как подключить под к управляемым базам данных Yandex Cloud? {#mdb}
 

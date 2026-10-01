@@ -2,7 +2,8 @@ default:
   360-standard-current-version: 1.0.0
   a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
   AB: Airbyte®
-  ad-sync-agent: Identity Hub AD Sync Agent
+  access-analyzer-name: Access Analyzer
+  ad-sync-agent: Yandex Identity Hub Sync Agent
   ad-sync-agent-linuxlink: https://storage.yandexcloud.net/yc-identityhub-sync/install.sh
   ad-sync-agent-windowslink: https://storage.yandexcloud.net/yc-identityhub-sync/install.ps1
   adv-ddos-protection: Advanced Yandex DDoS Protection
@@ -106,8 +107,6 @@ default:
     docs: https://clickhouse.com/docs/
   cic-bgp-asn: 200350
   cic-pbc-svc1-ip: 213.180.193.243/32
-  ciem-full-name: Cloud Infrastructure Entitlement Management
-  ciem-name: CIEM
   CK: ClickHouse® Keeper
   cloud-apps-full-name: Yandex Cloud Apps
   cloud-apps-name: Cloud Apps
@@ -158,7 +157,7 @@ default:
   crt-local-file: YandexInternalRootCA.crt
   crt-local-file-int: IntermediateCA.crt
   crt-local-file-root: RootCA.crt
-  crt-web-path: https://storage.yandexcloud.net/cloud-certs/CA.pem
+  crt-web-path: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
   crt-web-path-int: https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem
   crt-web-path-root: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
   CSI: Container Storage Interface
@@ -647,11 +646,9 @@ default:
   objstorage-sftps-gateway-version: '1.0'
   objstorage-short-name: Object Storage
   ocr-max-filesize: 10 МБ
-  openai: OpenAI
   oracle:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   org-full-name: Yandex Identity Hub
-  org-sync-agent-name: Yandex Identity Hub Sync Agent
   OS: OpenSearch
   os:
     docs: https://opensearch.org/docs/latest
@@ -4039,6 +4036,24 @@ default:
           general:
             section_default-storage_label: Хранилище по умолчанию
       security:
+        access-analyzer:
+          AccessAnalyzerPageLayout:
+            diagnostics_w1waz: Диагностика доступов
+            recommendations_24yZa: Рекомендации
+          ApplyRecommendationDialog:
+            replace_tQxKb: Сохранить
+            revoke_dTPYb: Отозвать
+          recommendations:
+            active: Активные
+            hidden: Скрытые
+            hide: Скрыть рекомендацию
+            recommendation: Рекомендация
+            replace-role: Заменить роль
+            resource: Ресурс
+            restore: Вернуть в активные
+            revoke: Отозвать роль
+            role: Текущая роль
+            subject: Субъект
         alerts-base:
           action_create-exception_kyUtB: Создать исключение
         alerts:
@@ -4323,6 +4338,7 @@ default:
             action_download-file_gJ3Vh: Скачать файл
           module_dspm_xxxxx: Контроль данных (DSPM)
           module-cspm_gozhj: Контроль конфигурации (CSPM)
+          module-kspm_n9o93: Контроль Kubernetes (KSPM)
           namespace-checkbox_85krx: Пространства имен
           RuleErrorsList:
             table_controls_long_e35UN: Топ правил с нарушениями
@@ -7031,6 +7047,7 @@ default:
           value_coordination-service-type-kraft-split-mode_sbrDd: KRaft (на отдельных хостах)
           value_coordination-service-type-zookeeper_pN7ub: ZooKeeper (на отдельных хостах)
         label_brokers-per-az: Количество брокеров в зоне
+        label_connector_icebergsink: Iceberg Sink
         label_connector-this-cluster: Использовать этот кластер
         label_connectors: Коннекторы
         label_filter_origin: Источник
@@ -7788,6 +7805,7 @@ default:
           switch_shards: Шарды
         field_announce-hostnames: Использовать FQDN вместо IP-адресов
         field_audit-log: Логировать события аудита
+        field_persistence-mode: Персистентность
         field_tls-support: Поддержка TLS
         hosts:
           dialog:
@@ -7800,6 +7818,7 @@ default:
         ModulesFormCard:
           valkey_search_reader_threads_fNBHR: Количество потоков чтения
           valkey_search_writer_threads_6HRjb: Количество потоков записи
+        persistence-mode-on-replicas: На репликах
         switch_backups: Резервные копии
         switch_list: Кластеры
         switch_operations: Операции

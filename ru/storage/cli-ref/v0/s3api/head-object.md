@@ -11,7 +11,7 @@ Returns object metadata from Object Storage
 
 Syntax:
 
-`yc storage s3api head-object [Flags...] [Global Flags...]`
+`yc storage v0 s3api head-object [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -19,28 +19,28 @@ Syntax:
 ||Flag | Description ||
 || `--bucket` | `string`
 
-[REQUIRED] Bucket name ||
+Bucket name ||
 || `--key` | `string`
 
-[REQUIRED] Object key ||
+Object key ||
 || `--version-id` | `string`
 
-Version ID used to reference a specific version of the object. ||
+Object version ID. ||
 || `--if-match` | `string`
 
-Return the object only if its ETag is the same as the one specified in this Header. ||
+Return metadata only if the object's ETag matches the specified value. ||
 || `--if-none-match` | `string`
 
-Return the object only if its ETag is different from the one specified in this Header. ||
+Return metadata only if the object's ETag is different from the specified value. ||
 || `--if-modified-since` | `timestamp`
 
-Return the object only if it has been modified since the specified time. ||
+Return metadata only if the object has been modified since the specified time. (RFC3339) ||
 || `--if-unmodified-since` | `timestamp`
 
-Return the object only if it has not been modified since the specified time. ||
+Return metadata only if the object has not been modified since the specified time. (RFC3339) ||
 || `--range` | `string`
 
-Fetches the specified byte range of an object. ||
+Byte range of the object for which to return metadata. ||
 |#
 
 #### Global Flags
@@ -49,15 +49,10 @@ Fetches the specified byte range of an object. ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -67,21 +62,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#
